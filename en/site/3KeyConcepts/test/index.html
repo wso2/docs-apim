@@ -1,0 +1,1773 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/3KeyConcepts/test/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Test - WSO2 API Manager Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../assets/css/theme.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#invoking-your-first-api" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 API Manager Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               API Manager Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Test
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">3.0.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-apim
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+<nav class="md-tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../1Introduction/Introduction/" title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../2QuickStartGuide/QuickStartGuide/" title="Quick Start Guide" class="md-tabs__link">
+          Quick Start Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../KeyConcepts/" title="Key Concepts" class="md-tabs__link">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES/" title="How To Guide" class="md-tabs__link">
+          How To Guide
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Business Scenarios" class="md-tabs__link">
+          Business Scenarios
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../5DeveloperGuide/DeveloperGuide/" title="Developer Guide" class="md-tabs__link">
+          Developer Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../6DeploymentGuide/DeploymentGuide/" title="Deployment Guide" class="md-tabs__link">
+          Deployment Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../7AdminGuide/AdminGuide/" title="Admin Guide" class="md-tabs__link">
+          Admin Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../8Reference/Reference/" title="Reference" class="md-tabs__link">
+          Reference
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../9Troubleshooting/Troubleshooting/" title="Troubleshooting" class="md-tabs__link">
+          Troubleshooting
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wso2.com/" title="WSO2 API Manager Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    WSO2 API Manager Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-apim
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1Introduction/Introduction/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Quick Start Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Quick Start Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../2QuickStartGuide/QuickStartGuide/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../KeyConcepts/" title="Key Concepts" class="md-nav__link">
+      Key Concepts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      How To Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        How To Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1">
+    
+    <label class="md-nav__link" for="nav-4-1">
+      API Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        API Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-1" type="checkbox" id="nav-4-1-1">
+    
+    <label class="md-nav__link" for="nav-4-1-1">
+      REST API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-1">
+        REST API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES/" title="Create and Publish a REST API" class="md-nav__link">
+      Create and Publish a REST API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.2-create-rest-api-by-import-oas-document/" title="Create and Publish an API from a Swagger Definition" class="md-nav__link">
+      Create and Publish an API from a Swagger Definition
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4Scenarios/4product-scenarios/_Adding_an_API_State_Change_Workflow_/" title="SOAP API" class="md-nav__link">
+      SOAP API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4Scenarios/4product-scenarios/converted_formatted/" title="WEBSOCKET API" class="md-nav__link">
+      WEBSOCKET API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API PROXY CREATION" class="md-nav__link">
+      API PROXY CREATION
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ENDPOINTS" class="md-nav__link">
+      ENDPOINTS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-6" type="checkbox" id="nav-4-1-6">
+    
+    <label class="md-nav__link" for="nav-4-1-6">
+      API Versioning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-6">
+        API Versioning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Create Default Version" class="md-nav__link">
+      Create Default Version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Create a New Version" class="md-nav__link">
+      Create a New Version
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Developer Portal" class="md-nav__link">
+      API Developer Portal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Gateway" class="md-nav__link">
+      API Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Microgateway" class="md-nav__link">
+      API Microgateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Rate Limiting" class="md-nav__link">
+      Rate Limiting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Security" class="md-nav__link">
+      API Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Analytics" class="md-nav__link">
+      Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Administration" class="md-nav__link">
+      Administration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Extentions" class="md-nav__link">
+      Extentions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Reference" class="md-nav__link">
+      Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Business Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Business Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Scenario 1" class="md-nav__link">
+      Scenario 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Scenario 2" class="md-nav__link">
+      Scenario 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Developer Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Developer Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../5DeveloperGuide/DeveloperGuide/" title="REST API" class="md-nav__link">
+      REST API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Deployment Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Deployment Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6DeploymentGuide/DeploymentGuide/" title="Deployment Patterns" class="md-nav__link">
+      Deployment Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Admin Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Admin Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7AdminGuide/AdminGuide/" title="User Management" class="md-nav__link">
+      User Management
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8Reference/Reference/" title="Configuration Catalogue" class="md-nav__link">
+      Configuration Catalogue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Troubleshooting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Troubleshooting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9Troubleshooting/Troubleshooting/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#invoking-your-first-api" title="Invoking your first API" class="md-nav__link">
+    Invoking your first API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#understanding-the-api-manager-concepts" title="Understanding the API Manager concepts" class="md-nav__link">
+    Understanding the API Manager concepts
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#components" title="Components" class="md-nav__link">
+    Components
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users-and-roles" title="Users and roles" class="md-nav__link">
+    Users and roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-lifecycle" title="API lifecycle" class="md-nav__link">
+    API lifecycle
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications" title="Applications" class="md-nav__link">
+    Applications
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throttling-tiers" title="Throttling tiers" class="md-nav__link">
+    Throttling tiers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-keys" title="API keys" class="md-nav__link">
+    API keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-resources" title="API resources" class="md-nav__link">
+    API resources
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deep-diving-into-the-api-manager" title="Deep diving into the API Manager" class="md-nav__link">
+    Deep diving into the API Manager
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-users-and-roles" title="Creating users and roles" class="md-nav__link">
+    Creating users and roles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-an-api-from-scratch" title="Creating an API from scratch" class="md-nav__link">
+    Creating an API from scratch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-api-documentation" title="Adding API documentation" class="md-nav__link">
+    Adding API documentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-interactive-documentation" title="Adding interactive documentation" class="md-nav__link">
+    Adding interactive documentation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#versioning-the-api" title="Versioning the API" class="md-nav__link">
+    Versioning the API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associating-scopes-to-api-resources" title="Associating Scopes to API Resources" class="md-nav__link">
+    Associating Scopes to API Resources
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishing-the-api" title="Publishing the API" class="md-nav__link">
+    Publishing the API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribing-to-the-api" title="Subscribing to the API" class="md-nav__link">
+    Subscribing to the API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#invoking-the-api" title="Invoking the API" class="md-nav__link">
+    Invoking the API
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#monitoring-apis-and-viewing-statistics" title="Monitoring APIs and viewing statistics" class="md-nav__link">
+    Monitoring APIs and viewing statistics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/3KeyConcepts/test.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Test</h1>
+                
+                <p>WSO2 API Manager is a complete solution for designing and publishing APIs, creating and managing a developer community, and for securing and routing API traffic in a scalable manner. It leverages proven components from the WSO2 platform to secure, integrate and manage APIs. In addition, it integrates with the <a href="http://wso2.com/analytics">WSO2 analytics platform</a> and provides out of the box reports and alerts, giving you instant insights into the APIs behavior.</p>
+<p><strong>Before you begin</strong>,</p>
+<ol>
+<li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 1.7.* or 1.8.* or OpenJDK 7 or 8 and set the <code>JAVA_HOME</code> environment variable. Refer <a href="https://docs.wso2.com/display/AM210/Installing+the+Product">Installing the product</a> documentation to set <code>JAVA_HOME</code> environment variable for different operating systems</li>
+<li><a href="https://wso2.com/api-management/install/">Download the latest version of WSO2 API Manager</a>.</li>
+<li>Start WSO2 API Manager by going to the <code>&lt;API-M_HOME&gt;/bin</code> directory using the command-line and then executing <code>wso2server.bat</code> (for Windows) or <code>wso2server.sh</code> (for Linux.)</li>
+</ol>
+<p>Let's go through the use cases of the API Manager: 4 3</p>
+<h3 id="invoking-your-first-api">Invoking your first API<a class="headerlink" href="#invoking-your-first-api" title="Permanent link">&para;</a></h3>
+<p>Follow the steps in this section to quickly deploy a sample API, publish it, subscribe to it, and invoke it.</p>
+<ol>
+<li>Open the API Publisher (<code>https://&lt;hostname&gt;:9443/publisher</code>) and sign in with <strong><code>admin/admin</code></strong> credentials.</li>
+<li>
+<p>Exit from API creation tutorial by clicking the close icon(X) on top right corner.  </p>
+</li>
+<li>
+<p>Click the <strong>Deploy Sample API</strong> button. It deploys a sample API called <code>PizzaShackAPI</code> into the API Manager.</p>
+<p>This <strong>Deploy Sample API</strong> option is available only when there are no APIs in API Publisher. If you have already created a API, this option will not be available.</p>
+</li>
+<li>
+<p>Click <code>PizzaShackAPI</code> to open it.  </p>
+</li>
+<li>
+<p>Go to the <strong>Lifecycle</strong> tab and note that the <strong>State</strong> is <code>PUBLISHED</code>. The API is already published to the API Store.</p>
+</li>
+<li>
+<p>Sign in to the API Store (<code>https://&lt;hostname&gt;:9443/store</code>) with the <code>**admin/admin**</code> credentials and click on the <code>PizzaShackAPI</code> API.  </p>
+<p>API Store Walkthrough</p>
+<p>You can click "API Store walkthrough" to view the interactive tutorial to invoke the API.  </p>
+</li>
+<li>
+<p>Select the default application and an available tier, and click <strong>Subscribe.</strong>  </p>
+</li>
+<li>
+<p>When the subscription is successful, click <strong>View Subscriptions</strong> on the information message that appears. Click the <strong>Production Keys</strong> tab and click <strong>Generate Keys</strong> to generate an to invoke the API.</p>
+<p>You have now successfully subscribed to an API. Let's invoke the API using the integrated Swagger-based API Console.</p>
+</li>
+<li>
+<p>Click the <strong>APIs</strong> menu again and click the <code>PizzaShackAPI</code> to open it. When the API opens, click its <strong>API Console</strong> tab.  </p>
+<p>Expand the GET method (which retrieves the menu) and click <strong>Try it out</strong>.  </p>
+<p>Note the response for the API invocation. It returns the list of menu items.  </p>
+</li>
+</ol>
+<p>You have deployed a sample API, published it to the API Store, subscribed to it, and invoked the API using our integrated API Console.</p>
+<hr />
+<h3 id="understanding-the-api-manager-concepts">Understanding the API Manager concepts<a class="headerlink" href="#understanding-the-api-manager-concepts" title="Permanent link">&para;</a></h3>
+<p>Before we look into the API management activities in detail, let's take a look at the basic API management concepts. 5 5 flat</p>
+<h5 id="components">Components<a class="headerlink" href="#components" title="Permanent link">&para;</a></h5>
+<p>The API Manager consists of the following components:</p>
+<ul>
+<li><strong>API Publisher:</strong> Enables API providers to publish APIs, share documentation, provision API keys and gather feedback on features, quality and usage. You access the Web interface via <code>https://&lt;Server Host&gt;:9443/publisher</code>.</li>
+<li><strong>API Store (Developer Portal):</strong> Enables API consumers to self register, discover and subscribe to APIs, evaluate them and interact with API Publishers. You access the Web interface via <code>https://&lt;Server Host&gt;:9443/store</code>.</li>
+<li><strong>API Gateway:</strong> Secures, protects, manages, and scales API calls. It is a simple API proxy that intercepts API requests and applies policies such as throttling and security checks. It is also instrumental in gathering API usage statistics. The Web interface can be accessed via <code>https://&lt;Server Host&gt;:9443/carbon</code> .</li>
+<li><strong>Key Manager:</strong> Handles all security and key-related operations. The API Gateway connects with the Key Manager to check the validity of subscriptions, OAuth tokens, and API invocations. The Key Manager also provides a token API to generate OAuth tokens that can be accessed via the Gateway.</li>
+<li><strong>Traffic Manager:</strong> Helps users to regulate API traffic, make APIs and applications available to consumers at different service levels and secures APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time.</li>
+<li><strong>WSO2 API Manager Analytics:</strong> Provides a host of statistical graphs and an alerting mechanism on predetermined events.</li>
+</ul>
+<h5 id="users-and-roles">Users and roles<a class="headerlink" href="#users-and-roles" title="Permanent link">&para;</a></h5>
+<p>The API manager offers three distinct community roles that are applicable to most enterprises:</p>
+<ul>
+<li>
+<p><strong>Creator</strong>: A creator is a person in a technical role who understands the technical aspects of the API (interfaces, documentation, versions, how it is exposed by the Gateway, etc.) and uses the API publisher to provision APIs into the API Store. The creator uses the API Store to consult ratings and feedback provided by API users. Creators can add APIs to the store but cannot manage their life cycle (e.g., make them visible to the outside world.)</p>
+</li>
+<li>
+<p><strong>Publisher</strong>: A publisher manages a set of APIs across the enterprise or business unit and controls the API life cycle and monetization aspects.</p>
+</li>
+<li><strong>Consumer</strong>: A consumer uses the API Store to discover APIs, see the documentation and forums, and rate/comment on the APIs. Consumers subscribe to APIs to obtain API keys.</li>
+</ul>
+<h5 id="api-lifecycle">API lifecycle<a class="headerlink" href="#api-lifecycle" title="Permanent link">&para;</a></h5>
+<p>An API is the published interface, while the service is the implementation running in the backend. APIs have their own lifecycles that are independent of the backend services they rely on. This lifecycle is exposed in the API Publisher and is managed by the publisher role.</p>
+<p>The following stages are available in the default API life cycle:</p>
+<ul>
+<li><strong>CREATED</strong>: API metadata is added to the API Store, but it is not visible to subscribers yet, nor deployed to the API Gateway.</li>
+<li>
+<p><strong>PROTOTYPED</strong>: The API is deployed and published in the API Store as a prototype. A prototyped API is usually a mock implementation made public in order to get feedback about its usability. Users can try out a prototyped API without subscribing to it.</p>
+</li>
+<li>
+<p><strong>PUBLISHED</strong>: The API is visible in the API Store and available for subscription.</p>
+</li>
+<li><strong>DEPRECATED</strong>: The API is still deployed in the API Gateway (i.e., available at runtime to existing users) but not visible to subscribers. You can deprecate an API automatically when a new version of it is published.</li>
+<li><strong>RETIRED</strong>: The API is unpublished from the API Gateway and deleted from the Store.</li>
+<li><strong>BLOCKED</strong>: Access to the API is temporarily blocked. Runtime calls are blocked, and the API is not shown in the API Store anymore.</li>
+</ul>
+<h5 id="applications">Applications<a class="headerlink" href="#applications" title="Permanent link">&para;</a></h5>
+<p>An application is primarily used to decouple the consumer from the APIs. It allows you to do the following:</p>
+<ul>
+<li>Generate and use a single key for multiple APIs.</li>
+<li>Subscribe multiple times to a single API with different SLA levels.</li>
+</ul>
+<p>You create an application to subscribe to an API. The API Manager comes with a default application, and you can also create as many applications as you like.</p>
+<h5 id="throttling-tiers">Throttling tiers<a class="headerlink" href="#throttling-tiers" title="Permanent link">&para;</a></h5>
+<p>Throttling tiers are associated with an API at subscription time and can be defined at an API-level, resource-level, subscription-level and application-level (per token). They define the throttling limits enforced by the API Gateway, e.g., 10 TPS (transactions per second). The final throttle limit granted to a given user on a given API is ultimately defined by the consolidated output of all throttling tiers together. The API Manager comes with three predefined tiers for each level and a special tier called <code>Unlimited</code>, which you can disable by editing the <code>&lt;ThrottlingConfigurations&gt;</code> element of the <code>&lt;API-M_HOME&gt;/repository/conf/api-manager.xml</code> file.</p>
+<p>In API Manager 2.0.0 onwards, <strong>Advanced Throttling</strong> is enabled by default with following configuration in <API-M\_HOME>/repository/conf/api-manager.xml.</p>
+<p>true ...... ]]&gt;</p>
+<p>If you are disabling <strong>Advanced Throttling</strong> in any case by setting the value of <strong><EnableAdvanceThrottling></strong> false, Advanced Throttling is disabled and basic Throttling mechanism is enabled thereafter. In such a scenario, if you want to disable the Unlimited Throttling tier of basic Throttling configurations, you need to disable it under <strong><TierManagement></strong> by setting <strong><EnableUnlimitedTier></strong> to false.</p>
+<p>true ]]&gt;</p>
+<p>Predefined Subscription Tiers.</p>
+<p>Throttling Tier</p>
+<p>Description</p>
+<p>Unlimited</p>
+<p>Allows unlimited requests</p>
+<p>Gold</p>
+<p>Allows 5000 requests per minute</p>
+<p>Silver</p>
+<p>Allows 2000 requests per minute</p>
+<p>Bronze</p>
+<p>Allows 1000 requests per minute</p>
+<h5 id="api-keys">API keys<a class="headerlink" href="#api-keys" title="Permanent link">&para;</a></h5>
+<p>The API Manager supports two scenarios for authentication:</p>
+<ul>
+<li>An access token is used to identify and authenticate a whole application.</li>
+<li>An access token is used to identify the final user of an application (for example, the final user of a mobile application that is deployed on many devices).</li>
+</ul>
+<p><strong>Application access token</strong>: Application access tokens are generated by the API consumer and must be passed in the incoming API requests. The API Manager uses the OAuth2 standard to provide key management. An API key is a simple string that you pass with an HTTP header (e.g., "<code>Authorization: Bearer NtBQkXoKElu0H1a1fQ0DWfo6IX4a,</code>") and it works equally well for SOAP and REST calls.</p>
+<p>Application access tokens are generated at the application level and valid for all APIs that you associate to the application. These tokens have a fixed expiration time, which is set to 60 minutes by default. You can change this to a longer time, even for several weeks. Consumers can regenerate the access token directly from the API Store. To change the default expiration time which is 60 minutes by default, you open the <code>&lt;API-M_HOME&gt;/repository/conf/identity/identity.xml</code> file and change the value of the element <code>&lt;AccessTokenDefaultValidityPeriod&gt;</code>. If you set a negative value, the token never expires. <strong>Changes to this value are applied only to the new applications that you create.</strong></p>
+<p><strong>Application user access token</strong>: You generate access tokens on demand using the Token API. In case a token expires, you use the Token API to refresh it.</p>
+<p>The Token API takes the following parameters to generate the access token:</p>
+<ul>
+<li>Grant Type</li>
+<li>Username</li>
+<li>Password</li>
+<li>Scope</li>
+</ul>
+<p>To generate a new access token, you issue a Token API call with the above parameters where <strong><code>grant_type=password</code></strong> . The Token API then returns two tokens: an access token and a refresh token. The access token is saved in a session on the client side (the application itself does not need to manage users and passwords). On the API Gateway side, the access token is validated for each API call. When the token expires, you refresh the token by issuing a token API call with the above parameters where <strong><code>grant_type=refresh_token</code></strong> and passing the refresh token as a parameter.</p>
+<h5 id="api-resources">API resources<a class="headerlink" href="#api-resources" title="Permanent link">&para;</a></h5>
+<p>An API is made up of one or more resources. Each resource handles a particular type of request and is analogous to a method (function) in a larger API. API resources accept the following optional attributes:</p>
+<ul>
+<li><strong>verbs</strong>: Specifies the HTTP verbs a particular resource accepts. Allowed values are GET, POST, PUT, DELETE, PATCH, HEAD, and OPTIONS. You can give multiple values at once.</li>
+<li><strong>uri-template</strong>: A URI template as defined in <a href="http://tools.ietf.org/html/rfc6570">http://tools.ietf.org/html/rfc6570</a>. (e.g., <code>/phoneverify/&lt;phoneNumber&gt;)</code>.</li>
+<li><strong>url-mapping</strong>: A URL mapping defined as per the servlet specification (extension mappings, path mappings, and exact mappings).</li>
+<li><strong>Throttling tiers</strong>: Limits the number of hits to a resource during a given period of time.</li>
+<li><strong>Auth-Type</strong>: Specifies the Resource level authentication along the HTTP verbs. Auth-type can be None, Application, Application User, or Application &amp; Application User.  <ul>
+<li>None: Can access the particular API resource without any access tokens.</li>
+<li>Application: An application access token is required to access the API resource.</li>
+<li>Application User: A user access token is required to access the API resource.</li>
+<li>Application &amp; Application User: An application access token together with a user access token is required to access the API resource.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="deep-diving-into-the-api-manager">Deep diving into the API Manager<a class="headerlink" href="#deep-diving-into-the-api-manager" title="Permanent link">&para;</a></h3>
+<p>Let's take a look at the typical API management activities in detail: 4 4</p>
+<h4 id="creating-users-and-roles">Creating users and roles<a class="headerlink" href="#creating-users-and-roles" title="Permanent link">&para;</a></h4>
+<p>In , we introduced a set of users who are commonly found in many enterprises. Let's see how you can sign in to the Management Console as an admin and create these roles.</p>
+<ol>
+<li>
+<p>Sign in to the Management Console (<code>https://&lt;hostname&gt;:9443/carbon)</code> of the API Manager using <strong><code>admin/admin</code></strong> credentials.</p>
+</li>
+<li>
+<p>Click <strong>Add</strong> in the <strong>Users and Roles</strong> section under the <strong>Main</strong> menu.  </p>
+<p>The creator, publisher, and subscriber roles are available by default as shown below.</p>
+</li>
+<li>
+<p>Click <strong>Add New Role</strong>.</p>
+</li>
+<li>
+<p>Give the role name as <code>creator</code> and click <strong>Next</strong>.  </p>
+</li>
+<li>
+<p>A list of permissions opens. Select the following and click <strong>Finish</strong>.  </p>
+<ul>
+<li>All Permissions &gt; Admin Permissions &gt; Configure &gt; Governance and all underlying permissions</li>
+<li>All Permissions &gt; Admin Permissions &gt; Login</li>
+<li>All Permissions &gt; Admin Permissions &gt; Manage &gt; API &gt; Create</li>
+<li>All Permissions &gt; Admin Permissions &gt; Manage &gt; Resources &gt; Govern and all underlying permissions</li>
+</ul>
+</li>
+<li>
+<p>Similarly, create the <code>publisher</code> role with the following permissions.</p>
+<ul>
+<li>All Permissions &gt; Admin Permissions &gt; Login</li>
+<li>All Permissions &gt; Admin Permissions &gt; Manage &gt; API &gt; Publish</li>
+<li>
+<p>Note that the API Manager comes with the <code>subscriber</code> role available by default. It has the following permissions:</p>
+</li>
+<li>
+<p>All Permissions &gt; Admin Permissions &gt; Login</p>
+</li>
+<li>All Permissions &gt; Admin Permissions &gt; Manage &gt; API &gt; Subscribe</li>
+<li>The roles you added (creator and publisher) are now displayed under <strong>Roles</strong>.  </li>
+</ul>
+<p>For more details Add roles and permission assign to roles, see <a href="https://docs.wso2.com/display/AM210/Adding+User+Roles">Adding User Roles</a> .<br />
+Let's create users for each of the roles.
+9.  Click <strong>Add</strong> in the <strong>Users and Roles</strong> section under the <strong>Main</strong> menu.  </p>
+</li>
+<li>
+<p>Click **Add New User.<br />
+    **</p>
+</li>
+<li>
+<p>Give the username/password and click <strong>Next</strong>. For example, let's create a new user by the name <code>apipublisher</code>.  </p>
+</li>
+<li>
+<p>Select the role you want to assign to the user (e.g., <code>publisher</code>) and click <strong>Finish</strong>.  </p>
+</li>
+<li>
+<p>Similarly, create a new user by the name <code>apicreator</code> and assign the creator role.</p>
+</li>
+</ol>
+<h4 id="creating-an-api-from-scratch">Creating an API from scratch<a class="headerlink" href="#creating-an-api-from-scratch" title="Permanent link">&para;</a></h4>
+<p>Let's create an API from scratch.</p>
+<ol>
+<li>Sign in to the API Publisher (<code>https://&lt;hostname&gt;:9443/publisher)</code>as <strong><code>apicreator</code></strong> .</li>
+<li>
+<p>In the <strong>APIS</strong> menu, click <strong>Add New API</strong>.  </p>
+</li>
+<li>
+<p>Select the option to design a new API and click <strong>Start Creating</strong>.  </p>
+</li>
+<li>
+<p>Give the information in the table below.</p>
+<p>Field</p>
+<p>Sample value</p>
+<p>Name</p>
+<p>PhoneVerification</p>
+<p>Context</p>
+<p>/phoneverify</p>
+<p>Version</p>
+<p>1.0.0</p>
+<p>Access Control</p>
+<p>All</p>
+<p>Visibility on Store</p>
+<p>Public</p>
+<p>API Definition</p>
+<ul>
+<li>
+<p>URL pattern: CheckPhoneNumber</p>
+<p>Note that this URL Pattern is the name of one of the resources that we are going to invoke from the backend service.</p>
+</li>
+<li>
+<p>Request types: GET, POST</p>
+</li>
+</ul>
+<p>Click <strong>Add</strong> and then click <strong>Next:</strong> <strong>Implement &gt;</strong> to move on to the next page.</p>
+</li>
+<li>
+<p>Select the <strong>Managed API</strong> option.  </p>
+</li>
+</ol>
+<p>For instructions on how to Implement Prototyped API, see .</p>
+<p>Give the following information and click <strong>Next:Manage &gt;</strong> once you are done.</p>
+<p>Field</p>
+<p>Sample value</p>
+<p>Endpoint type</p>
+<p>HTTP/REST Endpoint</p>
+<p>Production endpoint</p>
+<p>Endpoint is <a href="http://ws.cdyne.com/phoneverify/phoneverify.asmx">http://ws.cdyne.com/phoneverify/phoneverify.asmx</a>. To verify the URL, click the <strong>Test</strong> button next to it.</p>
+<p>In this example, we use a phone validation service exposed by the Cdyne services provider. This service has SOAP and REST interfaces.</p>
+<p>This sample service has two operations: <code>CheckPhoneNumber</code> and <code>CheckPhoneNumbers</code>.</p>
+<p>Sandbox endpoint</p>
+<p>Endpoint is <a href="http://ws.cdyne.com/phoneverify/phoneverify.asmx">http://ws.cdyne.com/phoneverify/phoneverify.asmx</a>. To verify the URL, click the <strong>Test</strong> button next to it.</p>
+<p><strong>Endpoint Type</strong> is selected to specify whether the endpoint is based on a URI template or based on a URI template or an address specified in the 'To' header.</p>
+<p><strong>Related Links</strong></p>
+<ul>
+<li>For details about Message Mediation Policies, see <a href="https://docs.wso2.com/display/AM210/Adding+Mediation+Extensions">Message Mediation Policies</a></li>
+<li>For details about CORS Configurations, see <a href="https://docs.wso2.com/display/AM210/Key+Concepts#KeyConcepts-Cross-originresourcesharing">CORS Configuration</a></li>
+</ul>
+<p>6. Provide the following information in the <strong>Manage</strong> tab. Leave default values for the rest of the parameters in the UI.</p>
+<p>Field</p>
+<p>Value</p>
+<p>Description</p>
+<p>Subscription Tiers</p>
+<p><Select all available tiers></p>
+<p>The API can be available for subscription at different levels of service. They allow you to limit the number of successful hits to an API during a given period of time.</p>
+<p>Once you are done, click <strong>Save</strong>.</p>
+<h4 id="adding-api-documentation">Adding API documentation<a class="headerlink" href="#adding-api-documentation" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>In the <strong>APIS</strong> menu, click the thumbnail of the API to open it.</p>
+</li>
+<li>
+<p>Click on the API's <strong>Docs</strong> tab and click <strong>Add New Document</strong>.  </p>
+</li>
+<li>
+<p>The document options appear. Note that you can create documentation inline, via a URL, or as a file. For inline documentation, you can edit the content directly from the API publisher interface. You get several documents types:</p>
+<ul>
+<li>How To</li>
+<li>Samples and SDK</li>
+<li>Public forum / Support forum (external link only)</li>
+<li>API message formats</li>
+<li>Other</li>
+<li>Create a 'How To' named <code>PhoneVerification</code>, specifying in-line content as the source and optionally entering a summary. When you have finished, click <strong>Add Document</strong>.  </li>
+</ul>
+</li>
+<li>
+<p>Once the document is added, click <strong>Edit Content</strong> to open an embedded editor.  </p>
+</li>
+<li>
+<p>Enter your API's documentation and click <strong>Save and Close</strong>.  </p>
+</li>
+</ol>
+<h4 id="adding-interactive-documentation">Adding interactive documentation<a class="headerlink" href="#adding-interactive-documentation" title="Permanent link">&para;</a></h4>
+<p>WSO2 API Manager has an integrated <a href="http://swagger.io/">Swagger</a> UI, which is part of the Swagger project.</p>
+<p>Swagger is a 100% open source, standard, language-agnostic specification and a complete framework for describing, producing, consuming, and visualizing RESTful APIs, without the need of a proxy or third-party services. Swagger allows consumers to understand the capabilities of a remote service without accessing its source code and interact with the service with a minimal amount of implementation logic. Swagger helps describe services in the same way that interfaces describe lower-level programming code.</p>
+<p>The <a href="https://github.com/swagger-api/swagger-ui">Swagger UI</a> is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generates documentation from a Swagger-compliant API. Swagger-compliant APIs give you interactive documentation and more discoverability. The Swagger UI has YAML code, and its UI facilitates easier code indentation, provides keyword highlighting, and shows syntax errors on the fly. You can add resource parameters, summaries and descriptions to your APIs using the Swagger UI and it has provides the facility to download your API definition as YAML or JSON file. Go to the <a href="https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md">Swagger 2.0 specification</a> for more information.</p>
+<ol>
+<li>Open the API Publisher (<code>https://&lt;hostname&gt;:9443/publisher)</code> and sign in as <code>**apicreator**</code> .</li>
+<li>
+<p>Click the <strong>Edit</strong> icon for the <code>PhoneVerification</code> API. This opens the API in its edit mode.  </p>
+</li>
+<li>
+<p>Click the <strong>Edit Source</strong> button under the <strong>API Definition</strong> section.  </p>
+</li>
+<li>
+<p>this step The API definition as a YAML code opens in a separate page. Expand its GET method, add the following parameters and click <strong>Apply Changes</strong>.<br />
+    this step</p>
+</li>
+<li>
+<p>Back in the API Publisher, note that the changes you did appear in the API Console's UI. You can add more parameters and edit the summary/descriptions using the API Publisher UI as well. Once done, click <strong>Save</strong>.  </p>
+</li>
+</ol>
+<h4 id="versioning-the-api">Versioning the API<a class="headerlink" href="#versioning-the-api" title="Permanent link">&para;</a></h4>
+<p>Let's create a new version of this API.</p>
+<ol>
+<li>Sign in to the API Publisher as <strong><code>apicreator</code></strong> if you are not logged in already.</li>
+<li>
+<p>Click the <code>PhoneVerification</code> API to open it and then click <strong>Create New Version</strong>.  </p>
+</li>
+<li>
+<p>Give a new version number (e.g., 2.0.0) and click <strong>Done</strong>.  </p>
+</li>
+<li>
+<p>Note that the new version of the API is created in the API Publisher.</p>
+</li>
+</ol>
+<h4 id="associating-scopes-to-api-resources">Associating Scopes to API Resources<a class="headerlink" href="#associating-scopes-to-api-resources" title="Permanent link">&para;</a></h4>
+<p>Different API resources can be associated with different user roles. For an example, consider the following resources and the operations:</p>
+<p>In order to map a scope to an API resource, the following should be done:</p>
+<ol>
+<li>
+<p>API creator should first create scopes, by clicking on Add Scopes in the Manage tab.  </p>
+</li>
+<li>
+<p>Fill the scope related information in the dialog that pops up. Note that Scope Key and Roles are the most important attributes. Click on Add Scope button on the right hand side bottom.  </p>
+<p>The roles added here are validated against the user store to check if they exist. However, this can be overridden so that the roles are not checked in the user store. For thus purpose, set the Java system property <strong>disableRoleValidationAtScopeCreation</strong> to true at the server startup:</p>
+<ol>
+<li>Open <API-M\_HOME>/bin/wso2server.(sh|bat) file.</li>
+<li>Add -DdisableRoleValidationAtScopeCreation=true at the end of the file.</li>
+<li>Restart the server.</li>
+</ol>
+</li>
+<li>
+<p>Now the scope with key 'item_view' is added with roles manager and agent. To associate this scope with the get operation on the /time resource, click on the +Scope sign on the right hand side of the resource.  </p>
+</li>
+<li>
+<p>From the drop down menu that appears, select the scope name and click on the tick sign to the right. Now the scope will be associated with the GET operation on the resource /item.  </p>
+</li>
+</ol>
+<p>See for an in depth example.</p>
+<h4 id="publishing-the-api">Publishing the API<a class="headerlink" href="#publishing-the-api" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Sign in to the API Publisher as the <strong><code>apipublisher</code></strong> user  that you created earlier in this guide, and click the <code>PhoneVerification</code> API's version 2.0.0.  </p>
+</li>
+<li>
+<p>The API opens. Go to its <strong>Lifecycle</strong> tab and click <strong>Publish</strong>.  </p>
+<p>The check boxes mean the following:
+*   <strong>Require re-subscription when publish the API</strong>: Invalidates current user subscriptions, forcing users to subscribe again.
+*   <strong>Deprecate old versions after publish the API</strong>: If selected, any prior versions of the API that are published will be set to the DEPRECATED state automatically.
+3.  Go to the API Store (<code>https://&lt;hostname&gt;:9443/store)</code> using your browser and note that the <code>PhoneVerification 2.0.0</code> API is visible under the <strong>APIs</strong> menu.  </p>
+</li>
+</ol>
+<h4 id="subscribing-to-the-api">Subscribing to the API<a class="headerlink" href="#subscribing-to-the-api" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Go to the API Store (<code>https://&lt;hostname&gt;:9443/store)</code> and create an account using the <strong>Sign-up</strong> link.  </p>
+<p>Users who <strong>sign-up</strong> through the API Store are assigned the <code>subscriber</code> role by default. Therefore, you do not need to specify the role through the management console to be able to subscibe to an API.</p>
+</li>
+<li>
+<p>Fill the details in the Sign Up form appears and click <strong>Sign Up</strong>.</p>
+<p>Users who registered with the API Store Signup can be view by login to the Management Console (https://localhost:9443/carbon) and accessing Users and <strong>Roles &gt; Users &gt; List</strong>.</p>
+<p>Details entered in the sign up will be updated in the default profile related to each user in the management console.</p>
+</li>
+<li>
+<p>After signing up, sign in to the API Store and click the <code>PhoneVerification 2.0.0</code> API that you published earlier.</p>
+</li>
+<li>
+<p>Note that you can now see the subscription options. Select the default application and the <code>Bronze</code> tier. Click <strong>Subscribe</strong>.</p>
+</li>
+<li>
+<p>Once the subscription is successful, click <strong>View Subscriptions</strong> in the information message that appears to review your subscriptions.  </p>
+</li>
+<li>
+<p>Click the <strong>Production Keys</strong> tab of the application and then click <strong>Generate Keys</strong> to generate an access token that you use later to invoke the API. If you have already generated keys before, click <strong>Re-generate</strong>.  </p>
+<p><strong>Tip</strong> : You can set a token validity period in the given text box. By default, it is set to one hour. If you set a minus value (e.g., -1), the token will never expire.</p>
+</li>
+</ol>
+<p>You are now successfully subscribed to an API. Let's invoke it.</p>
+<h4 id="invoking-the-api">Invoking the API<a class="headerlink" href="#invoking-the-api" title="Permanent link">&para;</a></h4>
+<ol>
+<li>
+<p>Click the <strong>APIs</strong> menu in the API Store and then click on the API that you want to invoke. When the API opens, go to its <strong>API Console</strong> tab.  </p>
+</li>
+<li>
+<p>Expand the GET method of the resource <code>CheckPhoneNumber</code>. Note the parameters that you added when now appear with their descriptions so that as a subscriber, you know how to invoke this API.  </p>
+</li>
+<li>
+<p>Give sample values for the <code>PhoneNumber</code> and <code>LicenseKey</code> and click <strong>Try it out</strong> to invoke the API.  </p>
+</li>
+<li>
+<p>Note the response for the API invocation. Since we used a valid phone number in this example, the response is valid.  </p>
+</li>
+</ol>
+<p>You have invoked an API using the API Console.</p>
+<p>Troubleshooting</p>
+<p>When using the API Console, the web browser sends an HTTPS request to the Gateway. If the certificate in the Gateway is not CA signed, the browser will not accept it. Therefore, you may get the following error.</p>
+<p>As a workaround, you can access the Gateway URL on a new browser tab and trust the certificate from the browser.</p>
+<h4 id="monitoring-apis-and-viewing-statistics">Monitoring APIs and viewing statistics<a class="headerlink" href="#monitoring-apis-and-viewing-statistics" title="Permanent link">&para;</a></h4>
+<p>Both the API publisher and store provide several statistical dashboards.  </p>
+<p><strong>API Publisher statistics<br />
+</strong>  </p>
+<p><strong>API Store statistics</strong>  </p>
+<p>The steps below explain how to configure <a href="https://docs.wso2.com/display/AM210/Analytics">WSO2 API Manager Analytics</a> with the API Manager. The statistics in these dashboards are based on data from WSO2 APIM Analytics which is similar to WSO2 Stream Processor (WSO2 SP).</p>
+<p>Let's do the configurations first.</p>
+<p><strong>Before you begin</strong>,</p>
+<ol>
+<li>Download the WSO2 APIM Analytics distribution by clicking <strong>ANALYTICS</strong> in the <a href="http://wso2.com/api-management/">WSO2 API Management page</a>. It is best to download and extract it to the same directory to which you downloaded WSO2 API Manager.</li>
+<li>If you have the API Manager server running, stop the server.</li>
+<li>
+<p>If you are running on Windows, download the <code>snappy-java_1.1.1.7.jar</code> from <a href="http://mvnrepository.com/artifact/org.xerial.snappy/snappy-java/1.1.1.7">here</a> and copy the JAR file to the <code>&lt;ANALYTICS_HOME&gt;\repository\components\lib</code> directory.</p>
+</li>
+<li>
+<p>To enable Analytics, open the <code>&lt;API-M_HOME&gt;/repository/conf/api-manager.xml</code> file and set the <code>Enabled</code> property under &lt;<code>Analytics&gt;</code> to <code>true</code> as shown below. Save this change.</p>
+<p>xml true]]&gt;
+2.  Start the WSO2 APIM Analytics server, and then start the WSO2 API Manager server.</p>
+<p>To avoid connection errors during API Manager startup, start WSO2 APIM Analytics before WSO2 API Manager.</p>
+<ol>
+<li>On Windows: <code>wso2server.bat --run</code></li>
+<li>
+<p>On Linux/Mac OS: <code>sh wso2server.sh</code></p>
+<p>By default, WSO2 API Manager has a port offset of 0 (no port offset) and WSO2 API Manager Analytics has an offset of 1.</p>
+</li>
+</ol>
+</li>
+<li>
+<p>Invoke several APIs to generate some statistical data and wait a few seconds.</p>
+</li>
+<li>Connect to the API Publisher as a creator and click one of the statistical dashboards available in the <strong>Statistics</strong> menu. For example,  </li>
+</ol>
+<p>The <strong>Statistics</strong> menu is available for API creators and shows statistics of all APIs. Additionally, API creators can also see the following:</p>
+<ul>
+<li>Statistics of the APIs created by them by selecting the <strong>My APIs</strong> option in the drop down menu above each table or graph.</li>
+<li>The subscriptions of each API by clicking <strong>Manage Subscriptions</strong>.</li>
+<li>The alerts that can be configured for their APIs by clicking <strong>Manage Alert Types</strong>.</li>
+</ul>
+<p>This concludes the API Manager quick start. You have set up the API Manager and gone through the basic use cases of the product. For more advanced use cases, see the , and of the API Manager documentation.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 API Manager - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/wso2" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/wso2" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/wso2" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

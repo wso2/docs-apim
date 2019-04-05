@@ -1,0 +1,128 @@
+# Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+#
+# WSO2 Inc. licenses this file to you under the Apache License,
+# Version 2.0 (the "License"); you may not use this file except
+# in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+# KIND, either express or implied. See the License for the
+# specific language governing permissions and limitations
+# under the License.
+
+# Project information
+site_name: WSO2 API Manager Documentation
+site_description: Documentation for WSO2 API Manager
+site_author: WSO2
+site_url: https://wso2.com/
+
+# Repository
+repo_name: wso2/docs-apim
+repo_url: https://github.com/wso2/docs-apim
+edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+
+# Copyright
+copyright: WSO2 API Manager - Documentation
+
+# Configuration
+theme: material
+theme:
+  name: material
+  palette:
+    primary: deep-orange
+    accent: deep-orange
+  custom_dir: theme/material
+  logo: images/logo.svg
+  highlightjs: true
+  feature:
+    tabs: true
+  language: 'en'
+  
+# Navigation
+nav:
+    - 'Introduction': 
+        - 'Overview': '1Introduction/Introduction.md'
+    - 'Quick Start Guide': 
+        - 'Getting Started': '2QuickStartGuide/QuickStartGuide.md'
+    - 'Key Concepts': 
+        - 'Key Concepts': '3KeyConcepts/KeyConcepts.md'
+    - 'How To Guide' : 
+        - 'API Design':
+            - 'REST API':
+                - 'Create and Publish a REST API' : '4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES.md'
+                - 'Create and Publish an API from a Swagger Definition': '4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.2-create-rest-api-by-import-oas-document/README.md'
+            - 'SOAP API': '4Scenarios/4product-scenarios/_Adding_an_API_State_Change_Workflow_.md'
+            - 'WEBSOCKET API': '4Scenarios/4product-scenarios/converted_formatted.md'
+            - 'API PROXY CREATION': ''
+            - 'ENDPOINTS': ''
+            - 'API Versioning': 
+                - 'Create Default Version': ''
+                - 'Create a New Version': ''
+        - 'API Developer Portal': ''
+        - 'API Gateway' : ''
+        - 'API Microgateway' : ''
+        - 'Rate Limiting' : ''
+        - 'API Security' : ''
+        - 'Analytics' : ''
+        - 'Administration' : ''
+        - 'Extentions' : ''
+        - 'Reference' : ''
+    - 'Business Scenarios' : 
+        - 'Scenario 1': ''
+        - 'Scenario 2': ''
+    - 'Developer Guide': 
+        - 'REST API': '5DeveloperGuide/DeveloperGuide.md'
+    - 'Deployment Guide': 
+        - 'Deployment Patterns': '6DeploymentGuide/DeploymentGuide.md'
+    - 'Admin Guide': 
+        - 'User Management': '7AdminGuide/AdminGuide.md'
+    - 'Reference' : 
+        - 'Configuration Catalogue': '8Reference/Reference.md'
+    - 'Troubleshooting' : 
+        - 'FAQ': '9Troubleshooting/Troubleshooting.md'
+    - '': page-not-found.md
+     
+# Extensions
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+    
+# Extra
+extra_css:
+  - assets/lib/highlightjs/default.min.css
+  - assets/css/theme.css
+extra_javascript:
+  - assets/lib/highlightjs/highlight.min.js
+  - assets/js/theme.js
+extra:
+  social:
+    - type: github
+      link: https://github.com/wso2
+    - type: twitter
+      link: https://twitter.com/wso2
+    - type: linkedin
+      link: https://www.linkedin.com/company/wso2
+  site_version: 3.0.0

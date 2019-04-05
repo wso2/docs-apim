@@ -1,0 +1,76 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl1="http://callback.workflow.apimgt.carbon.wso2.org" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://org.wso2.carbon/subscriptions/" xmlns:tns="http://workflow.subscription.apimgt.carbon.wso2.org" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="SubscriptionApprovalWorkFlowProcess" targetNamespace="http://workflow.subscription.apimgt.carbon.wso2.org">
+  <import namespace="http://callback.workflow.apimgt.carbon.wso2.org" location="SubscriptionApprovalWorkFlowProcess?wsdl=WorkflowCallbackService.wsdl">
+    </import>
+  <import namespace="http://org.wso2.carbon/subscriptions/" location="SubscriptionApprovalWorkFlowProcess?wsdl=SubscriptionsApprovalTaskService.wsdl">
+    </import>
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://workflow.subscription.apimgt.carbon.wso2.org">
+                
+            <element name="SubscriptionApprovalWorkFlowProcessRequest">
+                <complexType>
+                    <sequence>
+					<element name="apiName" type="string"></element>
+					<element name="apiVersion" type="string"></element>
+					<element name="apiContext" type="string"></element>
+					<element name="apiProvider" type="string"></element>
+					<element name="subscriber" type="string"></element>
+					<element name="applicationName" type="string">
+					</element>
+					<element name="tierName" type="string"></element>
+					<element name="callBackURL" type="string"></element>
+					<element name="workflowExternalRef" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+                  
+            <element name="SubscriptionApprovalWorkFlowProcessResponse">
+                <complexType>
+                    <sequence>
+        			<element name="status" type="string"></element>
+                                <element name="workflowExternalRef" type="string"></element>
+                                <element name="description" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+            
+        </schema>
+  </types>
+  <message name="SubscriptionApprovalWorkFlowProcessRequestMessage">
+    <part name="payload" element="tns:SubscriptionApprovalWorkFlowProcessRequest">
+    </part>
+  </message>
+  <portType name="SubscriptionApprovalWorkFlowProcess">
+    <operation name="initiate">
+      <input message="tns:SubscriptionApprovalWorkFlowProcessRequestMessage">
+    </input>
+    </operation>
+  </portType>
+  <binding name="SubscriptionApprovalWorkFlowProcessBinding" type="tns:SubscriptionApprovalWorkFlowProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <operation name="initiate">
+      <soap:operation soapAction="http://workflow.subscription.apimgt.carbon.wso2.org/initiate"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+    </operation>
+  </binding>
+  <service name="SubscriptionApprovalWorkFlowProcess">
+    <port name="SubscriptionApprovalWorkFlowProcessPort" binding="tns:SubscriptionApprovalWorkFlowProcessBinding">
+      <soap:address location="http://10.100.0.104:9765/services/SubscriptionApprovalWorkFlowProcess/"></soap:address>
+    </port>
+  </service>
+    <plnk:partnerLinkType name="SAPLT">
+    <plnk:role name="role1" portType="wsdl:SubscriptionsHandlingPT"></plnk:role>
+    <plnk:role name="role2" portType="wsdl:SubscriptionsHandlingCallbackPT"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="responsePLT">
+    <plnk:role name="role1" portType="wsdl1:WorkflowCallbackServicePortType"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="CBPLT">
+    <plnk:role name="role3" portType="wsdl1:WorkflowCallbackServicePortType"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="SubscriptionApprovalWorkFlowProcess">
+        <plnk:role name="SubscriptionApprovalWorkFlowProcessProvider" portType="tns:SubscriptionApprovalWorkFlowProcess"></plnk:role>
+
+    </plnk:partnerLinkType>
+</definitions>

@@ -1,0 +1,97 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://workflow.subscription.apimgt.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://workflow.subscription.apimgt.carbon.wso2.org">
+    <wsdl:documentation>SubscriptionCreationWorkflow</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://workflow.subscription.apimgt.carbon.wso2.org">
+            <xs:element name="createSubscription">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="apiName" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="apiVersion" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="apiContext" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="apiProvider" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="subscriber" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="applicationName" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="tierName" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="workflowExternalRef" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="callBackURL" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="createSubscriptionResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="createSubscriptionRequest">
+        <wsdl:part name="parameters" element="ns:createSubscription"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createSubscriptionResponse">
+        <wsdl:part name="parameters" element="ns:createSubscriptionResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="SubscriptionCreationWorkflowPortType">
+        <wsdl:operation name="createSubscription">
+            <wsdl:input message="ns:createSubscriptionRequest" wsaw:Action="urn:createSubscription"></wsdl:input>
+            <wsdl:output message="ns:createSubscriptionResponse" wsaw:Action="urn:createSubscriptionResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="SubscriptionCreationWorkflowSoap11Binding" type="ns:SubscriptionCreationWorkflowPortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <wsdl:operation name="createSubscription">
+            <soap:operation soapAction="urn:createSubscription" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SubscriptionCreationWorkflowSoap12Binding" type="ns:SubscriptionCreationWorkflowPortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+        <wsdl:operation name="createSubscription">
+            <soap12:operation soapAction="urn:createSubscription" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="SubscriptionCreationWorkflowHttpBinding" type="ns:SubscriptionCreationWorkflowPortType">
+        <http:binding verb="POST"></http:binding>
+        <wsdl:operation name="createSubscription">
+            <http:operation location="createSubscription"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="SubscriptionCreationWorkflow">
+        <wsdl:port name="SubscriptionCreationWorkflowHttpSoap11Endpoint" binding="ns:SubscriptionCreationWorkflowSoap11Binding">
+            <soap:address location="http://10.100.0.104:9764/services/SubscriptionCreationWorkflow.SubscriptionCreationWorkflowHttpSoap11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SubscriptionCreationWorkflowHttpsSoap11Endpoint" binding="ns:SubscriptionCreationWorkflowSoap11Binding">
+            <soap:address location="https://10.100.0.104:9444/services/SubscriptionCreationWorkflow.SubscriptionCreationWorkflowHttpsSoap11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="SubscriptionCreationWorkflowHttpSoap12Endpoint" binding="ns:SubscriptionCreationWorkflowSoap12Binding">
+            <soap12:address location="http://10.100.0.104:9764/services/SubscriptionCreationWorkflow.SubscriptionCreationWorkflowHttpSoap12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="SubscriptionCreationWorkflowHttpsSoap12Endpoint" binding="ns:SubscriptionCreationWorkflowSoap12Binding">
+            <soap12:address location="https://10.100.0.104:9444/services/SubscriptionCreationWorkflow.SubscriptionCreationWorkflowHttpsSoap12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="SubscriptionCreationWorkflowHttpEndpoint" binding="ns:SubscriptionCreationWorkflowHttpBinding">
+            <http:address location="http://10.100.0.104:9764/services/SubscriptionCreationWorkflow.SubscriptionCreationWorkflowHttpEndpoint/"></http:address>
+        </wsdl:port>
+        <wsdl:port name="SubscriptionCreationWorkflowHttpsEndpoint" binding="ns:SubscriptionCreationWorkflowHttpBinding">
+            <http:address location="https://10.100.0.104:9444/services/SubscriptionCreationWorkflow.SubscriptionCreationWorkflowHttpsEndpoint/"></http:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

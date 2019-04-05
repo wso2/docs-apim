@@ -1,0 +1,1593 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/4Scenarios/4product-scenarios/converted_formatted/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>WEBSOCKET API - WSO2 API Manager Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../../assets/css/theme.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#adding-an-api-state-change-workflow" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 API Manager Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               API Manager Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              WEBSOCKET API
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">3.0.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-apim
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../1Introduction/Introduction/" title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../2QuickStartGuide/QuickStartGuide/" title="Quick Start Guide" class="md-tabs__link">
+          Quick Start Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../3KeyConcepts/KeyConcepts/" title="Key Concepts" class="md-tabs__link">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES/" title="How To Guide" class="md-tabs__link">
+          How To Guide
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." title="Business Scenarios" class="md-tabs__link">
+          Business Scenarios
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../5DeveloperGuide/DeveloperGuide/" title="Developer Guide" class="md-tabs__link">
+          Developer Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../6DeploymentGuide/DeploymentGuide/" title="Deployment Guide" class="md-tabs__link">
+          Deployment Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../7AdminGuide/AdminGuide/" title="Admin Guide" class="md-tabs__link">
+          Admin Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../8Reference/Reference/" title="Reference" class="md-tabs__link">
+          Reference
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../9Troubleshooting/Troubleshooting/" title="Troubleshooting" class="md-tabs__link">
+          Troubleshooting
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wso2.com/" title="WSO2 API Manager Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    WSO2 API Manager Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-apim
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1Introduction/Introduction/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Quick Start Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Quick Start Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2QuickStartGuide/QuickStartGuide/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../3KeyConcepts/KeyConcepts/" title="Key Concepts" class="md-nav__link">
+      Key Concepts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      How To Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        How To Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-1">
+      API Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        API Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-1" type="checkbox" id="nav-4-1-1">
+    
+    <label class="md-nav__link" for="nav-4-1-1">
+      REST API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-1">
+        REST API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES/" title="Create and Publish a REST API" class="md-nav__link">
+      Create and Publish a REST API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.2-create-rest-api-by-import-oas-document/" title="Create and Publish an API from a Swagger Definition" class="md-nav__link">
+      Create and Publish an API from a Swagger Definition
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../_Adding_an_API_State_Change_Workflow_/" title="SOAP API" class="md-nav__link">
+      SOAP API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        WEBSOCKET API
+      </label>
+    
+    <a href="./" title="WEBSOCKET API" class="md-nav__link md-nav__link--active">
+      WEBSOCKET API
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-business-process-server" title="Configuring the Business Process Server" class="md-nav__link">
+    Configuring the Business Process Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-business-process-server_1" title="Configuring the Business Process Server" class="md-nav__link">
+    Configuring the Business Process Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-api-manager" title="Configuring the API Manager" class="md-nav__link">
+    Configuring the API Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engaging-the-ws-workflow-executor-in-the-api-manager" title="Engaging the WS Workflow Executor in the API Manager" class="md-nav__link">
+    Engaging the WS Workflow Executor in the API Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-bps-for-tenants" title="Configuring the BPS for tenants" class="md-nav__link">
+    Configuring the BPS for tenants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-bps-for-tenants_1" title="Configuring the BPS for tenants" class="md-nav__link">
+    Configuring the BPS for tenants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configurations" title="Advanced Configurations" class="md-nav__link">
+    Advanced Configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attachments" title="Attachments:" class="md-nav__link">
+    Attachments:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="API PROXY CREATION" class="md-nav__link">
+      API PROXY CREATION
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="ENDPOINTS" class="md-nav__link">
+      ENDPOINTS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-6" type="checkbox" id="nav-4-1-6">
+    
+    <label class="md-nav__link" for="nav-4-1-6">
+      API Versioning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-6">
+        API Versioning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Create Default Version" class="md-nav__link">
+      Create Default Version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Create a New Version" class="md-nav__link">
+      Create a New Version
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="API Developer Portal" class="md-nav__link">
+      API Developer Portal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="API Gateway" class="md-nav__link">
+      API Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="API Microgateway" class="md-nav__link">
+      API Microgateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Rate Limiting" class="md-nav__link">
+      Rate Limiting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="API Security" class="md-nav__link">
+      API Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Analytics" class="md-nav__link">
+      Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Administration" class="md-nav__link">
+      Administration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Extentions" class="md-nav__link">
+      Extentions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Reference" class="md-nav__link">
+      Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Business Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Business Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Scenario 1" class="md-nav__link">
+      Scenario 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Scenario 2" class="md-nav__link">
+      Scenario 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Developer Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Developer Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5DeveloperGuide/DeveloperGuide/" title="REST API" class="md-nav__link">
+      REST API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Deployment Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Deployment Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../6DeploymentGuide/DeploymentGuide/" title="Deployment Patterns" class="md-nav__link">
+      Deployment Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Admin Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Admin Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7AdminGuide/AdminGuide/" title="User Management" class="md-nav__link">
+      User Management
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../8Reference/Reference/" title="Configuration Catalogue" class="md-nav__link">
+      Configuration Catalogue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Troubleshooting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Troubleshooting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../9Troubleshooting/Troubleshooting/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-business-process-server" title="Configuring the Business Process Server" class="md-nav__link">
+    Configuring the Business Process Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-business-process-server_1" title="Configuring the Business Process Server" class="md-nav__link">
+    Configuring the Business Process Server
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-api-manager" title="Configuring the API Manager" class="md-nav__link">
+    Configuring the API Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engaging-the-ws-workflow-executor-in-the-api-manager" title="Engaging the WS Workflow Executor in the API Manager" class="md-nav__link">
+    Engaging the WS Workflow Executor in the API Manager
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-bps-for-tenants" title="Configuring the BPS for tenants" class="md-nav__link">
+    Configuring the BPS for tenants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-bps-for-tenants_1" title="Configuring the BPS for tenants" class="md-nav__link">
+    Configuring the BPS for tenants
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-configurations" title="Advanced Configurations" class="md-nav__link">
+    Advanced Configurations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#attachments" title="Attachments:" class="md-nav__link">
+    Attachments:
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/4Scenarios/4product-scenarios/converted_formatted.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="adding-an-api-state-change-workflow">Adding an API State Change Workflow<a class="headerlink" href="#adding-an-api-state-change-workflow" title="Permanent link">&para;</a></h1>
+<p>This section explains how to add a custom workflow to control the API state changes in the API Manager. First see <a href="https://docs.wso2.com/display/AM220/Managing+Workflow+Extensions">Workflow Extensions</a> for more information on different types of workflow executors. For more details on API states see <a href="https://docs.wso2.com/display/AM220/Key+Concepts#KeyConcepts-APIlifecycle">API Lifecycle</a> .</p>
+<ul>
+<li><a href="#UsingEI"><strong>Using WSO2 EI</strong></a></li>
+<li><a href="#UsingBPS"><strong>Using WSO2 BPS</strong></a></li>
+</ul>
+<h4 id="configuring-the-business-process-server">Configuring the Business Process Server<a class="headerlink" href="#configuring-the-business-process-server" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Download <a href="https://wso2.com/integration">WSO2 Enterprise Integrator</a> .</li>
+<li>
+<p>Set an offset of 2 to the default BPS port in <code>&lt;EI_HOME&gt;/conf/carbon.xml</code> file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see <a href="https://docs.wso2.com/display/AM220/Changing+the+Default+Ports+with+Offset">Changing the Default Ports with Offset</a> .</p>
+<p><code>xml
+&lt;Offset&gt;2&lt;/Offset&gt;</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip<pre><code>**Tip** : If you change the EI port **offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `              hostname             ` to a different value than `              localhost             ` ), you do the following:
+-   Search and replace the value 9765 in all the files (.epr) inside /business-processes folder with the new port (9763 + port offset).
+</code></pre>
+</p>
+</div>
+</li>
+<li>
+<p>Start the EI server and log in to its management console ( <code>https://&lt;Server Host&gt;:9443+&lt;port offset&gt;/carbon</code> ).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning<pre><code>If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+``` java
+</code></pre>
+</p>
+<p>WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
+<code>``
+        To avoid this issue open</code>              <EI_HOME>/             ` conf/tomcat/catalina-server.xml and change the compression="on" to compression="off" in Connector configuration and restart the EI.</p>
+</div>
+</li>
+<li>
+<p>Select <strong>Processes &gt; Add &gt; BPMN</strong> and upload the <code>&lt;APIM_HOME&gt;/business-processes/api-state-change/APIStateChangeApprovalProcess.bar</code> file to EI. <img alt="" src="../attachments/97563610/97563617.png" />{width="700"}</p>
+</li>
+</ol>
+<h4 id="configuring-the-business-process-server_1">Configuring the Business Process Server<a class="headerlink" href="#configuring-the-business-process-server_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Download <a href="http://wso2.com/products/business-process-server/">WSO2 Business Process Server</a> .</li>
+<li>
+<p>Set an offset of 2 to the default BPS port in <code>&lt;BPS_HOME&gt;/repository/conf/carbon.xml</code> file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see <a href="https://docs.wso2.com/display/AM220/Changing+the+Default+Ports+with+Offset">Changing the Default Ports with Offset</a> .</p>
+<p><code>xml
+&lt;Offset&gt;2&lt;/Offset&gt;</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip<pre><code>**Tip** : If you change the BPS port **offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `              hostname             ` to a different value than `              localhost             ` ), you do the following:
+-   Search and replace the value 9765 in all the files (.epr) inside /business-processes folder with the new port (9763 + port offset).
+</code></pre>
+</p>
+</div>
+</li>
+<li>
+<p>Start the BPS server and log in to its management console ( <code>https://&lt;Server Host&gt;:9443+&lt;port offset&gt;/carbon</code> ).</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning<pre><code>If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+``` java
+</code></pre>
+</p>
+<p>WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
+<code>``
+        To avoid this issue open</code>              <BPS_HOME>/             ` repository/conf/tomcat/catalina-server.xml and change the compression="on" to compression="off" in Connector configuration and restart the BPS.</p>
+</div>
+</li>
+<li>
+<p>Select <strong>Processes &gt; Add &gt; BPMN</strong> and upload the <code>&lt;APIM_HOME&gt;/business-processes/api-state-change/APIStateChangeApprovalProcess.bar</code> file to BPS. <img alt="" src="../attachments/97563610/97563617.png" />{width="700"}</p>
+</li>
+</ol>
+<h4 id="configuring-the-api-manager">Configuring the API Manager<a class="headerlink" href="#configuring-the-api-manager" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Open <code>&lt;APIM_HOME&gt;/repository/conf/api-manager.xm</code> l and set in <code>&lt;Enabled&gt;</code> to <code>true</code> in the <code>&lt;WorkflowConfigurations&gt;</code> section.</li>
+<li>Change the <code>&lt;ServerUrl&gt;</code> if you have configured the BPS/EI to run on a different port offset.</li>
+</ol>
+<h4 id="engaging-the-ws-workflow-executor-in-the-api-manager">Engaging the WS Workflow Executor in the API Manager<a class="headerlink" href="#engaging-the-ws-workflow-executor-in-the-api-manager" title="Permanent link">&para;</a></h4>
+<p>First, enable the API state change workflow.</p>
+<ol>
+<li>Log in to the APIM management console ( <code>https://&lt;Server Host&gt;:9443/carbon</code> ) and select Browse under Resources.
+    <img alt="" src="../attachments/97563610/97563616.png" /></li>
+<li>
+<p>Go to the <code>/_system/governance/apimgt/applicationdata/workflow-extensions.xml</code> resource, disable the Simple Workflow Executor and enable WS Workflow Executor.</p>
+<p><code>html/xml
+&lt;WorkFlowExtensions&gt;
+    ....
+    &lt;!-- Publisher related workflows --&gt;
+    &lt;!--&lt;APIStateChange executor="org.wso2.carbon.apimgt.impl.workflow.APIStateChangeSimpleWorkflowExecutor" /&gt;--&gt;
+    &lt;APIStateChange executor="org.wso2.carbon.apimgt.impl.workflow.APIStateChangeWSWorkflowExecutor"&gt;
+        &lt;Property name="processDefinitionKey"&gt;APIStateChangeApprovalProcess&lt;/Property&gt;
+        &lt;Property name="stateList"&gt;Created:Publish,Published:Block&lt;/Property&gt;      
+    &lt;/APIStateChange&gt;
+    ....
+&lt;/WorkFlowExtensions&gt;</code></p>
+<p>You have now engaged the API WS Workflow. The default configuration is set for <strong>Created to Publish</strong> and <strong>Published to Block</strong> state changes. See <a href="#AddinganAPIStateChangeWorkflow-AdvancedConfigurations">Advanced Configurations</a> for information on configuring more state changes.</p>
+<p>When enabling the workflow features, make sure you import the certificate of the API Manager into the <code>client-truststore</code> located inside the <code>&lt;BPS_HOME&gt;/repository/resources/security</code> directory.</p>
+</li>
+<li>
+<p>Log in to the API Publisher ( <code>https://&lt;Server Host&gt;:9443/publisher</code> ) and publish an API. See <a href="https://docs.wso2.com/display/AM220/Create+and+Publish+an+API">Create and Publish an API</a> . A message related to the publish workflow will be displayed because the workflow is enabled for <strong>Created to Publish</strong> state change. <img alt="" src="../attachments/97563610/97563615.png" />{width="700"}</p>
+<p>Note that the <strong>Save &amp; Publish</strong> button will be disabled until the workflow task is completed or deleted. <img alt="" src="../attachments/97563610/97563614.png" />{width="700"}</p>
+</li>
+<li>
+<p>You can revoke the state change by clicking <strong>Delete Task</strong> in the <strong>Lifecycle</strong> tab.
+    <img alt="" src="../attachments/97563610/97563613.png" />{width="700"}</p>
+</li>
+<li>
+<p>Log in to the Admin Portal ( <code>https://&lt;Server Host&gt;:9443/admin</code> ) and click API State Change to see the list of tasks awaiting approval. <img alt="" src="../attachments/97563610/97563612.png" />{width="700"}
+    Click <strong>Assign to Me</strong> to approve the task <strong>.</strong> Select Approve and click <strong>Complete</strong> to resume and complete the API state change. <strong><img alt="" src="../attachments/97563610/97563611.png" />{width="700"}</strong></p>
+</li>
+<li>
+<p><a href="#05571107f2a94d54a6a17419af602eca"><strong>Using WSO2 EI</strong></a></p>
+</li>
+<li><a href="#29313f28d0de47909fb094a27eb77f24"><strong>Using WSO2 BPS</strong></a></li>
+</ol>
+<h4 id="configuring-the-bps-for-tenants">Configuring the BPS for tenants<a class="headerlink" href="#configuring-the-bps-for-tenants" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Log in to the EI with the credentials of the tenant. Select <strong>Processes &gt; Add &gt; BPMN</strong> and upload the <code>&lt;APIM_HOME&gt;/business-processes/api-state-change/APIStateChangeApprovalProcess.bar</code> file to EI.</li>
+<li>Copy the <code>&lt;EI_HOME&gt;/wso2/business-process/repository/deployment/server/webapps/bpmn.war</code> web app to <code>&lt;EI_HOME&gt;/wso2/business-process/repository/tenants/&lt;tenant_id&gt;/webapps</code> .</li>
+<li>To engage the WS Workflow Executor, log in to the admin console using the credentials of the tenant and repeat step 2 from <a href="#AddinganAPIStateChangeWorkflow-EngagingtheWSWorkflowExecutorintheAPIManager">Engaging the WS Workflow Executor in the API Manager</a> .</li>
+</ol>
+<h4 id="configuring-the-bps-for-tenants_1">Configuring the BPS for tenants<a class="headerlink" href="#configuring-the-bps-for-tenants_1" title="Permanent link">&para;</a></h4>
+<ol>
+<li>Log in to the BPS with the credentials of the tenant. Select <strong>Processes &gt; Add &gt; BPMN</strong> and upload the <code>&lt;APIM_HOME&gt;/business-processes/api-state-change/APIStateChangeApprovalProcess.bar</code> file to BPS.</li>
+<li>Copy the <code>&lt;BPS_HOME&gt;/repository/deployment/server/webapps/bpmn.war</code> web app to <code>&lt;BPS_HOME&gt;/repository/tenants/&lt;tenant_id&gt;/webapps</code> .</li>
+<li>To engage the WS Workflow Executor, log in to the admin console using the credentials of the tenant and repeat step 2 from <a href="#AddinganAPIStateChangeWorkflow-EngagingtheWSWorkflowExecutorintheAPIManager">Engaging the WS Workflow Executor in the API Manager</a> .</li>
+</ol>
+<h3 id="advanced-configurations">Advanced Configurations<a class="headerlink" href="#advanced-configurations" title="Permanent link">&para;</a></h3>
+<p>Given below are the configurations that can be changed by editing <code>&lt;APIM_HOME&gt;/repository/conf/api-manager.xml</code></p>
+<p>``` html/xml
+<WorkflowConfigurations>
+    <Enabled>true</Enabled>
+     <ServerUrl>https://localhost:9445/bpmn</ServerUrl>       <br />
+     <ServerUser><span><span class="MathJax_Preview">{admin.username}&lt;/ServerUser&gt;
+     &lt;ServerPassword&gt;</span><script type="math/tex">{admin.username}</ServerUser>
+     <ServerPassword></script></span>{admin.password}</ServerPassword> <br />
+<WorkflowCallbackAPI>https://localhost:<span><span class="MathJax_Preview">{mgt.transport.https.port}/api/am/publisher/v0.10/workflows/update-workflow-status&lt;/WorkflowCallbackAPI&gt;
+    &lt;TokenEndPoint&gt;https://localhost:</span><script type="math/tex">{mgt.transport.https.port}/api/am/publisher/v0.10/workflows/update-workflow-status</WorkflowCallbackAPI>
+    <TokenEndPoint>https://localhost:</script></span>{https.nio.port}/token</TokenEndPoint>  <br />
+<DCREndPoint>https://localhost:<span><span class="MathJax_Preview">{mgt.transport.https.port}/client-registration/v0.10/register&lt;/DCREndPoint&gt;
+    &lt;DCREndPointUser&gt;</span><script type="math/tex">{mgt.transport.https.port}/client-registration/v0.10/register</DCREndPoint>
+    <DCREndPointUser></script></span>{admin.username}</DCREndPointUser>
+    <DCREndPointPassword>${admin.password}</DCREndPointPassword>
+</WorkflowConfigurations></p>
+<pre><code>
+The elements of the above configuration are explained below.
+
+| Element name                                       | Description                                                                                                                                               |
+|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `               Enabled              `             | Enables the Admin Portal to approve state change tasks.                                                                                                   |
+| `               ServerUrl              `           | The URL of the BPMN server.                                                                                                                               |
+| `               ServerUser              `          | User accessing the BPMN REST API.                                                                                                                         |
+| `               ServerPassword              `      | Password of the user accessing the BPMN REST API.                                                                                                         |
+| `               WorkflowCallbackAPI              ` | The REST API invoked by the BPMN to complete the workflow.                                                                                                |
+| `               TokenEndPoint              `       | The API call to generate the access token is passed to the BPMN process. Once the access token is received, it is used to call the workflow callback API. |
+| `               DCREndPoint              `         | Endpoint to generate OAuth application. This application is used by the BPMN process to generate the token.                                               |
+| `               DCREndPointUser              `     | Endpoint user.                                                                                                                                            |
+| `               DCREndPointPassword              ` | Endpoint password.                                                                                                                                        |
+
+Setting a DCREndPointUser
+
+Create a user with exclusive **apim:apiworkflow** scope permissions when setting a `           DCREndPointUser.          ` Please avoid using super admin credentials. If super admin credentioals are used, the created OAuth application will have all the permissions related to scopes in the other REST APIs. Follow the steps below to create a user with **apim:apiworkflow** scope permissions:
+
+1.  Log in to  APIM management console ( `            https://&lt;Server Host&gt;:9443/carbon           ` ) and create a role named `            workflowCallbackRole           ` . Set create and publisher or subscriber permissions to this role.
+2.  Go to **Resources** and click **Browse** . Go to `             /_system/config/apimgt/applicationdata/tenant-conf.json            ` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
+
+    ``` java
+    ...
+          {
+            &quot;Name&quot;: &quot;apim:api_workflow&quot;,
+            &quot;Roles&quot;: &quot;workflowCallbackRole&quot;
+          }
+    ...
+    ```
+
+3.  Assign this role to a user.
+4.  Update &amp;lt;DCREndPointUser&amp;gt; and &amp;lt;DCREndPointPassword&amp;gt; with this user's credentials.
+
+For more details on how to create users and roles see [managing users and roles](https://docs.wso2.com/display/AM220/Managing+Users+and+Roles) .
+
+The configurations that can be changed by editing the `          /_system/governance/apimgt/applicationdata/workflow-extensions.xml         ` are given below.
+
+**Simple WorkFlow**
+
+``` java
+&lt;APIStateChange executor=&quot;org.wso2.carbon.apimgt.impl.workflow.APIStateChangeSimpleWorkflowExecutor&quot; /&gt;
+</code></pre>
+
+<p><strong>WS WorkFlow</strong></p>
+<pre><code class="java">&lt;APIStateChange executor=&quot;org.wso2.carbon.apimgt.impl.workflow.APIStateChangeWSWorkflowExecutor&quot;&gt;
+    &lt;Property name=&quot;processDefinitionKey&quot;&gt;APIStateChangeApprovalProcess&lt;/Property&gt;
+    &lt;Property name=&quot;stateList&quot;&gt;Created:Publish,Published:Block&lt;/Property&gt;     
+&lt;/APIStateChange&gt;
+</code></pre>
+
+<p>The elements of the above configuration are explained below.</p>
+<table>
+<thead>
+<tr>
+<th>Element Name</th>
+<th>Mandatory/Optional</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>processDefinitionKey</code></td>
+<td>Mandatory</td>
+<td>BPMN process definition id.  BPMN process provided with AM as default has ‘APIStateChangeApprovalProcess’ as the id</td>
+</tr>
+<tr>
+<td><code>stateList</code></td>
+<td>Mandatory</td>
+<td>This is a comma separated list of the current state and intended action. For example, Created:Publish,Published:Block</td>
+</tr>
+<tr>
+<td><code>serviceEndpoint</code></td>
+<td>Optional</td>
+<td>The URL of the BPMN process engine. This overrides the global <code>&lt;ServerUrl&gt;</code> value from the <code>api-manager.xml</code> file. This can be used to connect a separate workflow engine for a tenant.</td>
+</tr>
+<tr>
+<td><code>username</code></td>
+<td>Optional</td>
+<td>Username for the external BPMN process engine. This overrides <code>&lt;ServerUser&gt;</code> defined in the <code>api-manager.xml</code> file for the tenant.</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>Optional</td>
+<td>password for the external BPMN process engine. This overrides <code>&lt;ServerPassword&gt;</code> defined in the <code>api-manager.xml</code> file for the tenant.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="attachments">Attachments:<a class="headerlink" href="#attachments" title="Permanent link">&para;</a></h2>
+<p><img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563617.png">Upload-BPMN.png</a> (image/png)
+<img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563616.png">Resources-Browse.png</a> (image/png)
+<img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563615.png">API-State-Change-Request-Sent-Message.png</a> (image/png)
+<img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563614.png">Disabled-SaveAndPublish.png</a> (image/png)
+<img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563613.png">Delete-State-Change-Task.png</a> (image/png)
+<img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563612.png">Approval-Task-AssignToMe.png</a> (image/png)
+<img alt="" src="../images/icons/bullet_blue.gif" />{width="8" height="8"} <a href="../attachments/97563610/97563611.png">Approval-Tasks-Admin.png</a> (image/png)</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../_Adding_an_API_State_Change_Workflow_/" title="SOAP API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                SOAP API
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../../5DeveloperGuide/DeveloperGuide/" title="REST API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                REST API
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 API Manager - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/wso2" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/wso2" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/wso2" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="../../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../../assets/js/theme.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
