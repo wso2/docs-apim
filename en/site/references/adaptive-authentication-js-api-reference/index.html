@@ -1,0 +1,1647 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 Identity Server">
+      
+      
+        <link rel="canonical" href="https://wso2.com/references/adaptive-authentication-js-api-reference/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Adaptive Authentication JS API Reference - WSO2 Identity Server Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../assets/css/theme.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#adaptive-authentication-js-api-reference" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               Identity Server Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Adaptive Authentication JS API Reference
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">5.8.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/single-sign-on-and-identity-federation/" title="Key Concepts" class="md-tabs__link">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/adaptive-authentication-overview/" title="Basic Tutorials" class="md-tabs__link">
+          Basic Tutorials
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../config-catalog/" title="References" class="md-tabs__link md-tabs__link--active">
+          References
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    WSO2 Identity Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/single-sign-on-and-identity-federation/" title="Single Sign-On and Identity Federation" class="md-nav__link">
+      Single Sign-On and Identity Federation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/identity-provisioning-and-its-standards/" title="Identity Provisioning and its Standards" class="md-nav__link">
+      Identity Provisioning and its Standards
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/access-control-and-entitlement-management/" title="Access Control and Entitlement Management" class="md-nav__link">
+      Access Control and Entitlement Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/identity-anti-patterns-and-the-identity-bus/" title="Identity Anti patterns and the Identity Bus" class="md-nav__link">
+      Identity Anti patterns and the Identity Bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Basic Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Basic Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Adaptive Authentication
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Adaptive Authentication
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/adaptive-authentication-overview/" title="Adaptive Authentication Overview" class="md-nav__link">
+      Adaptive Authentication Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-a-service-provider-for-adaptive-authentication/" title="Configuring a Service Provider for Adaptive Authentication" class="md-nav__link">
+      Configuring a Service Provider for Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      Adaptive Authentication Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        Adaptive Authentication Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-role-based-adaptive-authentication/" title="Configuring Role-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Role-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-user-age-based-adaptive-authentication/" title="Configuring User-Age-Based Adaptive Authentication" class="md-nav__link">
+      Configuring User-Age-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-tenant-based-adaptive-authentication/" title="Configuring Tenant-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Tenant-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../config-catalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../default-ports-of-wso2-products/" title="Default Ports of WSO2 Products" class="md-nav__link">
+      Default Ports of WSO2 Products
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-permissions/" title="API Permissions" class="md-nav__link">
+      API Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Adaptive Authentication JS API Reference
+      </label>
+    
+    <a href="./" title="Adaptive Authentication JS API Reference" class="md-nav__link md-nav__link--active">
+      Adaptive Authentication JS API Reference
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-functions" title="Core functions" class="md-nav__link">
+    Core functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onloginrequestcontext" title="onLoginRequest(context)" class="md-nav__link">
+    onLoginRequest(context)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executestepstepid-options-eventcallbacks" title="executeStep(stepId, options, eventCallbacks)" class="md-nav__link">
+    executeStep(stepId, options, eventCallbacks)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-functions" title="Utility functions" class="md-nav__link">
+    Utility functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hasroleuser-role" title="hasRole(user, role)" class="md-nav__link">
+    hasRole(user, role)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignuserrolesuser-assigningroles" title="assignUserRoles(user, assigningRoles)" class="md-nav__link">
+    assignUserRoles(user, assigningRoles)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeuserrolesuser-removingroles" title="removeUserRoles(user, removingRoles)" class="md-nav__link">
+    removeUserRoles(user, removingRoles)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendemailuser-templateid-placeholderparameters" title="sendEmail(user, templateId, placeholderParameters)" class="md-nav__link">
+    sendEmail(user, templateId, placeholderParameters)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senderrorurlparameters" title="sendError(url,parameters)" class="md-nav__link">
+    sendError(url,parameters)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcookieresponse-name-value-properties" title="setCookie(response, name, value, properties)" class="md-nav__link">
+    setCookie(response, name, value, properties)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcookievaluerequest-name-properties" title="getCookieValue(request, name, properties)" class="md-nav__link">
+    getCookieValue(request, name, properties)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callanalytics-metadata-payloaddata-eventhandlers" title="callAnalytics( metadata, payloadData, eventHandlers )" class="md-nav__link">
+    callAnalytics( metadata, payloadData, eventHandlers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishtoanalytics-metadata-payloaddata" title="publishToAnalytics( metadata, payloadData )" class="md-nav__link">
+    publishToAnalytics( metadata, payloadData )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompttemplateid-data-eventhandlers" title="prompt(templateId, data, eventHandlers)" class="md-nav__link">
+    prompt(templateId, data, eventHandlers)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-reference" title="Object Reference" class="md-nav__link">
+    Object Reference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-object" title="context Object" class="md-nav__link">
+    context Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-object" title="step Object" class="md-nav__link">
+    step Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-object" title="user Object" class="md-nav__link">
+    user Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-object" title="request Object" class="md-nav__link">
+    request Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-object" title="response Object" class="md-nav__link">
+    response Object
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#core-functions" title="Core functions" class="md-nav__link">
+    Core functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#onloginrequestcontext" title="onLoginRequest(context)" class="md-nav__link">
+    onLoginRequest(context)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#executestepstepid-options-eventcallbacks" title="executeStep(stepId, options, eventCallbacks)" class="md-nav__link">
+    executeStep(stepId, options, eventCallbacks)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utility-functions" title="Utility functions" class="md-nav__link">
+    Utility functions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hasroleuser-role" title="hasRole(user, role)" class="md-nav__link">
+    hasRole(user, role)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignuserrolesuser-assigningroles" title="assignUserRoles(user, assigningRoles)" class="md-nav__link">
+    assignUserRoles(user, assigningRoles)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removeuserrolesuser-removingroles" title="removeUserRoles(user, removingRoles)" class="md-nav__link">
+    removeUserRoles(user, removingRoles)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sendemailuser-templateid-placeholderparameters" title="sendEmail(user, templateId, placeholderParameters)" class="md-nav__link">
+    sendEmail(user, templateId, placeholderParameters)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#senderrorurlparameters" title="sendError(url,parameters)" class="md-nav__link">
+    sendError(url,parameters)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setcookieresponse-name-value-properties" title="setCookie(response, name, value, properties)" class="md-nav__link">
+    setCookie(response, name, value, properties)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getcookievaluerequest-name-properties" title="getCookieValue(request, name, properties)" class="md-nav__link">
+    getCookieValue(request, name, properties)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#callanalytics-metadata-payloaddata-eventhandlers" title="callAnalytics( metadata, payloadData, eventHandlers )" class="md-nav__link">
+    callAnalytics( metadata, payloadData, eventHandlers )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publishtoanalytics-metadata-payloaddata" title="publishToAnalytics( metadata, payloadData )" class="md-nav__link">
+    publishToAnalytics( metadata, payloadData )
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prompttemplateid-data-eventhandlers" title="prompt(templateId, data, eventHandlers)" class="md-nav__link">
+    prompt(templateId, data, eventHandlers)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-reference" title="Object Reference" class="md-nav__link">
+    Object Reference
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#context-object" title="context Object" class="md-nav__link">
+    context Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-object" title="step Object" class="md-nav__link">
+    step Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-object" title="user Object" class="md-nav__link">
+    user Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-object" title="request Object" class="md-nav__link">
+    request Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-object" title="response Object" class="md-nav__link">
+    response Object
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wso2/docs-is/edit/master/en/docs/references/adaptive-authentication-js-api-reference.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="adaptive-authentication-js-api-reference">Adaptive Authentication JS API Reference<a class="headerlink" href="#adaptive-authentication-js-api-reference" title="Permanent link">&para;</a></h1>
+<p>With adaptive authentication, it is possible to configure dynamic
+sequences based on runtime parameters such as the user’s IP address,
+user role, etc. WSO2 Identity Server allows you to define a dynamic
+authentication sequence using authentication scripts written in
+JavaScript.</p>
+<p>For more information on adaptive authentication, see <a href="tutorials/adaptive-authentication-overview.md">Adaptive
+Authentication</a></p>
+<p>The following sections present the core API reference for the
+JavaScript-based conditional authentication functions and fields.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>As the authentication script is designed as a loosely typed, functional
+language similar to JavaScript, common knowledge on JavaScript may help
+you to compose effective authentication scripts.</p>
+</div>
+<h3 id="core-functions">Core functions<a class="headerlink" href="#core-functions" title="Permanent link">&para;</a></h3>
+<h5 id="onloginrequestcontext">onLoginRequest(context)<a class="headerlink" href="#onloginrequestcontext" title="Permanent link">&para;</a></h5>
+<p>This function is called when the initial authentication request is
+received by the framework. It includes the following parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>context</td>
+<td>The authentication context, which contains the context information about the request.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="executestepstepid-options-eventcallbacks">executeStep(stepId, options, eventCallbacks)<a class="headerlink" href="#executestepstepid-options-eventcallbacks" title="Permanent link">&para;</a></h5>
+<p>This function is called to execute an authentication step.
+Authentication steps need to be configured prior to using this function.
+This method accepts an object as a parameter and should include the
+following.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>stepId</td>
+<td>The step number (mandatory)</td>
+</tr>
+<tr class="even">
+<td>options</td>
+<td>An optional map that can configure step execution. Authentication option filtering is supported.<br />
+For more information, see <a href="#AdaptiveAuthenticationJSAPIReference-Authenticationstepf">authentication step filtering</a> .</td>
+</tr>
+<tr class="odd">
+<td>eventCallbacks</td>
+<td>The object that contains the callback functions that are to be called based on the result of the step execution.<br />
+Supported results are “ <code>             onSuccess            </code> ” and “ <code>             onFail            </code> ”, which can have their own optional callbacks as anonymous functions (optional).</td>
+</tr>
+</tbody>
+</table>
+
+<p>The API can be called in either of the following ways:</p>
+<ul>
+<li>
+<p>With only the <code>stepId</code> . Example:</p>
+<p><code>java
+executeStep(1)</code></p>
+</li>
+<li>
+<p>With only the <code>stepId</code> and
+    <code>eventCallbacks</code> . Example:</p>
+<p><code>java
+    executeStep(1, {
+        onSuccess: function(context) {
+            //Do something on success
+        }
+    });</code></p>
+</li>
+<li>
+<p>With the <code>stepId</code> ,
+    <code>options</code> , and an empty
+    <code>eventCallbacks</code> array. Example:</p>
+<p><code>java
+    executeStep(1,{
+        authenticationOptions:[{
+            authenticator: 'totp'
+        }]},
+    });</code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The API cannot be called with only the <code>stepId</code>
+and <code>options</code> .</p>
+</div>
+</li>
+</ul>
+<p><strong><br />
+Authentication step filtering</strong></p>
+<p>Filters out some of the authentication options of a step based on some
+condition. This can be achieved by specifying an array named ‘
+<code>authenticationOptions</code> ’ to the
+<code>options</code> map. Each array item will require an '
+<strong><code>idp'</code></strong> for federated IdPs or an '
+<strong><code>authenticator'</code></strong> for local authenticators.</p>
+<p><strong>Example code</strong></p>
+<pre><code class="java">executeStep(1,{
+  authenticationOptions:[{authenticator:'basic'},{idp:'google'}]
+   } ,{
+       onSuccess: function (context) {
+           // Do something on success
+};
+</code></pre>
+
+<h3 id="utility-functions">Utility functions<a class="headerlink" href="#utility-functions" title="Permanent link">&para;</a></h3>
+<p>The implementation of utility functions can be found in the <a href="https://github.com/wso2-extensions/identity-conditional-auth-functions">WSO2
+extensions code
+repository</a>
+.</p>
+<h5 id="hasroleuser-role">hasRole(user, role)<a class="headerlink" href="#hasroleuser-role" title="Permanent link">&para;</a></h5>
+<p>This function returns true if the specified ‘
+<strong><code>user</code></strong> ’ belongs to the specified ‘
+<strong><code>role</code></strong> ', and returns false if the user does
+not. It includes the following parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>A user object representing the user details.</td>
+</tr>
+<tr>
+<td>role</td>
+<td>A string representing the role name.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example code</strong></p>
+<pre><code class="java">var user = context.steps[1].subject;
+var isAdmin = hasRole(user, 'admin');
+Log.info('--------------- Has Admin ' + isAdmin);
+if (isAdmin) {
+    executeStep(2);
+}
+</code></pre>
+
+<h5 id="assignuserrolesuser-assigningroles">assignUserRoles(user, assigningRoles)<a class="headerlink" href="#assignuserrolesuser-assigningroles" title="Permanent link">&para;</a></h5>
+<p>This function assigns each of the roles specified in the ‘
+<code>assigningRoles</code> ’ parameter to the
+specified ‘ <code>user</code> ’ object. It
+returns true if all the roles are successfully assigned and returns
+false if not.  It includes the following parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>An object representing the user details.</td>
+</tr>
+<tr>
+<td>assigningRoles</td>
+<td>A list of strings containing roles that are to be assigned where each string is a role name.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="java">executeStep(1, {
+    onSuccess: function (context) {
+        // Extracting authenticated subject from the first step.
+        let user = context.currentKnownSubject;
+        assignUserRoles(user, ['exampleRole1', 'exampleRole2']);
+    }
+});
+</code></pre>
+
+<h5 id="removeuserrolesuser-removingroles">removeUserRoles(user, removingRoles)<a class="headerlink" href="#removeuserrolesuser-removingroles" title="Permanent link">&para;</a></h5>
+<p>This function r emoves each of the roles specified in the ‘
+<code>removingRoles</code> ’ parameter to the
+given ‘ <code>user</code> ’ object. It returns
+true if all the roles are successfully removed and returns false if
+not. It includes the following parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>An object representing the user details.</td>
+</tr>
+<tr>
+<td>removingRoles</td>
+<td>A list of strings that containing roles that are to be removed where each string is a role name.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="java">executeStep(1, {
+    onSuccess: function (context) {
+        // Extracting authenticated subject from the first step.
+        let user = context.currentKnownSubject;
+        removeUserRoles(user, ['exampleRole1', 'exampleRole2']);
+    }
+});
+</code></pre>
+
+<h5 id="sendemailuser-templateid-placeholderparameters">sendEmail(user, templateId, placeholderParameters)<a class="headerlink" href="#sendemailuser-templateid-placeholderparameters" title="Permanent link">&para;</a></h5>
+<p>This function sends an email to the specified user. It includes the
+following parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user</td>
+<td>An object representing the user details.</td>
+</tr>
+<tr>
+<td>templateId</td>
+<td>Identifier of the email template. The email template specifies the body of the email that is sent out.</td>
+</tr>
+<tr>
+<td>placeholderParameters</td>
+<td>Used to replace any placeholders in the template.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example code</strong></p>
+<pre><code class="java">var user = context.steps[1].subject;
+var firstName = user.localClaims['http://wso2.org/claims/givenname'];
+sendEmail(user, 'myTemplate', {'firstName':firstName});
+</code></pre>
+
+<h5 id="senderrorurlparameters">sendError(url,parameters)<a class="headerlink" href="#senderrorurlparameters" title="Permanent link">&para;</a></h5>
+<p>This function redirects the user to an error page. It includes the
+following parameters.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>url</td>
+<td>The URL of the error page that the user is redirected to. If the value is null, the user is redirected by default to the ' <strong>retry.do'</strong> error page.<br />
+Note that any relative URL is assumed as the relative to host’s root.</td>
+</tr>
+<tr class="even">
+<td>parameters</td>
+<td>Key value map passed as parameters. These are converted to query parameters in the URL.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example code</strong></p>
+<pre><code class="java">var user = context.steps[1].subject;
+var isAdmin = hasRole(user, 'admin');
+if (!isAdmin) {
+    sendError('http://www.example.com/error',{'errorcode':'000403','errorMsg':'You are not allowed to login to this app.'});
+}
+</code></pre>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p><strong>Tip</strong> : When passing error messages to the error page, it is
+recommended to use the i18n key so that it can be internationalized
+easily at the page.</p>
+</div>
+<h5 id="setcookieresponse-name-value-properties">setCookie(response, name, value, properties)<a class="headerlink" href="#setcookieresponse-name-value-properties" title="Permanent link">&para;</a></h5>
+<p>This functions sets a new cookie. It includes the following parameters.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name</td>
+<td>Name of the cookie.</td>
+</tr>
+<tr class="even">
+<td>value</td>
+<td>Value of the cookie.</td>
+</tr>
+<tr class="odd">
+<td>properties</td>
+<td><p>A map that may contain optional attributes of the cookie with two other custom attributes ‘ <code>                             encrypt                           </code> ’ and ‘ <code>                             sign                           </code> ’.</p>
+<ul>
+<li>The default value of ' <code>                               sign                             </code> ' is false. If it is set to true, the value will be signed.</li>
+<li>The default value of ' <code>                               encrypt                             </code> ' is false. If it is set to true, value will be encrypted.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The size of the value has to be less than the RSA key pair length if '
+<code>encrypt</code> ' is enabled (set to
+true).</p>
+</div>
+<pre><code class="java">setCookie(context.response, &quot;name&quot;, &quot;test&quot;, {&quot;max-age&quot; : 4000,
+                                            &quot;path&quot; : &quot;/&quot;,
+                                            &quot;domain&quot; : &quot;localhost&quot;,
+                                            &quot;httpOnly&quot; : true,
+                                            &quot;secure&quot; : true,
+                                            &quot;version&quot; : 1,
+                                            &quot;comment&quot; : &quot;some comments&quot;,
+                                            &quot;encrypt&quot; : true,
+                                            &quot;sign&quot; : true})
+</code></pre>
+
+<h5 id="getcookievaluerequest-name-properties">getCookieValue(request, name, properties)<a class="headerlink" href="#getcookievaluerequest-name-properties" title="Permanent link">&para;</a></h5>
+<p>This function gets the plain-text cookie value for the cookie ‘
+<code>name</code> ’ if present.  It includes
+the following parameters.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>name</td>
+<td>Name of the cookie.</td>
+</tr>
+<tr class="even">
+<td>value</td>
+<td>Value of the cookie.</td>
+</tr>
+<tr class="odd">
+<td>properties</td>
+<td><p>A map that may contain optional attributes of the cookie ‘ <code>                             de                           </code> <code>                             crypt                           </code> <strong>validateSignature</strong></p>
+<ul>
+<li>The default value of ' <code>                               decrypt                             </code> ' is false.  If it is set to true, the value will be decrypted.</li>
+<li>The default value of ' <code>                               validateSignature                             </code> ' is false.  If it is set to true, the signature will be validated before returning a response.</li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+
+<pre><code class="java">getCookieValue(context.request,&quot;name&quot;, {&quot;decrypt&quot; : true,&quot;validateSignature&quot; : true })
+</code></pre>
+
+<h5 id="callanalytics-metadata-payloaddata-eventhandlers">callAnalytics( metadata, payloadData, eventHandlers )<a class="headerlink" href="#callanalytics-metadata-payloaddata-eventhandlers" title="Permanent link">&para;</a></h5>
+<p>This function calls the analytics engine (i.e., WSO2 Stream Processor)
+to get a decision. It includes the following parameters.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>metadata</td>
+<td><p>A JSON object that contain the following attributes:</p>
+<ul>
+<li><p><code>                 Application:                </code> Siddhi application name (mandatory)</p></li>
+<li><p><code>                 InputStream:                </code> Input stream name (mandatory)</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>payloadData</td>
+<td>The data that needs to be sent to the analytics engine.</td>
+</tr>
+<tr class="odd">
+<td>eventHandlers</td>
+<td>The callback event handlers.</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="publishtoanalytics-metadata-payloaddata">publishToAnalytics( metadata, payloadData )<a class="headerlink" href="#publishtoanalytics-metadata-payloaddata" title="Permanent link">&para;</a></h5>
+<p>This function publishes data to the analytics engine (WSO2 Stream
+Processor). It includes the following parameters.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>metadata</td>
+<td><p>A JSON object that contain the following attributes:</p>
+<ul>
+<li><p><code>                 Application:                </code> Siddhi application name (mandatory)</p></li>
+<li><p><code>                 InputStream:                </code> Input stream name (mandatory)</p></li>
+</ul></td>
+</tr>
+<tr class="even">
+<td>payloadData</td>
+<td>The data that needs to be sent to the analytics engine.</td>
+</tr>
+</tbody>
+</table>
+
+<h5 id="prompttemplateid-data-eventhandlers">prompt(templateId, data, eventHandlers)<a class="headerlink" href="#prompttemplateid-data-eventhandlers" title="Permanent link">&para;</a></h5>
+<p>This function prompts for user input. It includes the following
+parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>templateId</td>
+<td>Identifier of the template that needs to be prompted.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>The data to send to the prompt.</td>
+</tr>
+<tr>
+<td>eventHandlers</td>
+<td>The callback event handlers.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="java">function onLoginRequest(context) {
+   executeStep(1, {
+       onSuccess: function (context) {
+           var username = context.steps[1].subject.username;
+           prompt(&quot;genericForm&quot;, {&quot;username&quot;:username, &quot;inputs&quot;:[{&quot;id&quot;:fname,&quot;label&quot;:&quot;First Name&quot;},{&quot;id&quot;:lname,&quot;label&quot;:&quot;Last Name&quot;}]}, {
+             onSuccess : function(context) {
+                var fname = context.request.params.fname[0];
+                var lname = context.request.params.lname[0];
+                Log.info(fname);
+                Log.info(lname);
+             }
+           });
+       }
+   });
+}
+</code></pre>
+
+<h3 id="object-reference">Object Reference<a class="headerlink" href="#object-reference" title="Permanent link">&para;</a></h3>
+<h5 id="context-object">context Object<a class="headerlink" href="#context-object" title="Permanent link">&para;</a></h5>
+<p>Contains the authentication context information. The information can be
+accessed as follows.</p>
+<ul>
+<li>
+<p><code>context.steps[&lt;n&gt;]</code> :  Access the
+    authentication step information, where &lt;n&gt; is the step number
+    (1-based). See <a href="#AdaptiveAuthenticationJSAPIReference-stepObject">step
+    Object</a> for more
+    information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Note</strong> : The step number is the one configured at the step
+configuration, not the actual order in which they get executed.</p>
+</div>
+</li>
+<li>
+<p><code>context.request</code> :  Access the HTTP
+    authentication request information. See <a href="#AdaptiveAuthenticationJSAPIReference-requestObject">request
+    Object</a> for
+    more information.</p>
+</li>
+<li><code>context.response</code> :  Access the HTTP response
+    which will be sent back to the client. See <a href="#AdaptiveAuthenticationJSAPIReference-responseObject">response
+    Object</a> for
+    more information.</li>
+<li><code>context.serviceProviderName</code> :  Get the
+    application name.</li>
+</ul>
+<h5 id="step-object">step Object<a class="headerlink" href="#step-object" title="Permanent link">&para;</a></h5>
+<p>Contains the authentication step information. May be null or invalid
+step number.</p>
+<ul>
+<li><code>step.subject</code> :  Contains the authenticated
+    user’s information from this step. May be null if the step is not
+    yet executed. See <a href="#AdaptiveAuthenticationJSAPIReference-userObject">user
+    Object</a> for more
+    information.</li>
+<li><code>step.idp</code> :  Gives the Idp name which was used
+    to authenticate this user.</li>
+</ul>
+<h5 id="user-object">user Object<a class="headerlink" href="#user-object" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>user.username</code> : The user’s username.</li>
+<li><code>user.tenantDomain</code> : The user’s tenant domain
+    (only for local users; federated users will have this as
+    <code>carbon.super</code> ).</li>
+<li><code>user.userStoreDomain</code> : The user’s user store
+    domain (only for local users).</li>
+<li><code>user.roles</code> : List of user’s roles.</li>
+<li><code>user.localClaims[“&lt;local_claim_url&gt;”]</code> :
+    (Read/Write) User’s attribute (claim) value for the given
+    “local_claim_url”. If the user is a federated user, this will be
+    the value of the mapped remote claim from the IdP.</li>
+<li><code>user.remoteClaims[“&lt;remote_claim_url”]</code> :
+    (Read/Write) User’s attribute (claim) as returned by IdP for the
+    given “remote_claim_url”. Applicable only for federated users.</li>
+</ul>
+<h5 id="request-object">request Object<a class="headerlink" href="#request-object" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>request.headers[“&lt;header_name&gt;”]</code> : Request’s
+    header value for the given header name by &lt;header_name&gt;</li>
+<li><code>request.params[“&lt;param_name&gt;”]</code> : Request’s
+    parameter value for the given parameter name by
+    &lt;parameter_name&gt;</li>
+<li><code>request.cookies[“&lt;cookie_name”]</code> : Request’s
+    cookie value for the given cookie name by &lt;cookie_name&gt;</li>
+<li><code>request.ip</code> : The client IP address of the user
+    who initiated the request. If there are any load balancers (eg.
+    Nginx) with connection termination, the ip is retrieved from the
+    headers set by the load balancer.</li>
+</ul>
+<h5 id="response-object">response Object<a class="headerlink" href="#response-object" title="Permanent link">&para;</a></h5>
+<ul>
+<li><code>request.headers[“&lt;header_name&gt;”]</code> : (Write)
+    Response header value for the given header name by
+    &lt;header_name&gt;</li>
+</ul>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../api-permissions/" title="API Permissions" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                API Permissions
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../page-not-found/" title="" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 Identity Server - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/wso2" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/wso2" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/wso2" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

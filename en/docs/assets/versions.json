@@ -1,0 +1,41 @@
+{
+  "next": "3.0.0",
+  "current": "2.7.0",
+  "list": [
+    "5.7.0"
+  ],
+  "all": {
+    "2.7.0": {
+        "doc": "2.7.0",
+        "notes": "2.7.0/release-notes"
+    },
+    "2.6.0": {
+        "doc": "https://docs.wso2.com/display/AM260/",
+        "notes": "https://docs.wso2.com/display/AM260/About+this+Release"
+    },
+    "2.5.0": {
+        "doc": "https://docs.wso2.com/display/AM250/",
+        "notes": "https://docs.wso2.com/display/AM250/About+this+Release"
+    },
+    "2.2.0": {
+        "doc": "https://docs.wso2.com/display/AM220/",
+        "notes": "https://docs.wso2.com/display/AM220/About+this+Release"
+    },
+    "2.1.0": {
+        "doc": "https://docs.wso2.com/display/AM210/",
+        "notes": "https://docs.wso2.com/display/AM210/About+this+Release"
+    },
+    "2.0.0": {
+        "doc": "https://docs.wso2.com/display/AM200/",
+        "notes": "https://docs.wso2.com/display/AM200/About+this+Release"
+    },
+    "1.10.0": {
+        "doc": "https://docs.wso2.com/display/AM110/",
+        "notes": "https://docs.wso2.com/display/AM110/About+this+Release"
+    },
+    "1.9.0": {
+        "doc": "https://docs.wso2.com/display/AM190/",
+        "notes": "https://docs.wso2.com/display/AM190/About+this+Release"
+    }
+  }
+}

@@ -1,0 +1,1004 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 Identity Server">
+      
+      
+        <link rel="canonical" href="https://wso2.com/key-concepts/identity-provisioning-and-its-standards/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Identity Provisioning and its Standards - WSO2 Identity Server Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../assets/css/theme.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#identity-provisioning-and-its-standards" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               Identity Server Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Identity Provisioning and its Standards
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">5.8.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../single-sign-on-and-identity-federation/" title="Key Concepts" class="md-tabs__link md-tabs__link--active">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/adaptive-authentication-overview/" title="Basic Tutorials" class="md-tabs__link">
+          Basic Tutorials
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../references/config-catalog/" title="References" class="md-tabs__link">
+          References
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    WSO2 Identity Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../single-sign-on-and-identity-federation/" title="Single Sign-On and Identity Federation" class="md-nav__link">
+      Single Sign-On and Identity Federation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Identity Provisioning and its Standards
+      </label>
+    
+    <a href="./" title="Identity Provisioning and its Standards" class="md-nav__link md-nav__link--active">
+      Identity Provisioning and its Standards
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inbound-and-outbound-provisioning" title="Inbound and outbound provisioning" class="md-nav__link">
+    Inbound and outbound provisioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-spml" title="Introducing SPML" class="md-nav__link">
+    Introducing SPML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-scim" title="Introducing SCIM" class="md-nav__link">
+    Introducing SCIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brief-history-of-identity-provisioning" title="Brief history of identity provisioning" class="md-nav__link">
+    Brief history of identity provisioning
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../access-control-and-entitlement-management/" title="Access Control and Entitlement Management" class="md-nav__link">
+      Access Control and Entitlement Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../identity-anti-patterns-and-the-identity-bus/" title="Identity Anti patterns and the Identity Bus" class="md-nav__link">
+      Identity Anti patterns and the Identity Bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Basic Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Basic Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Adaptive Authentication
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Adaptive Authentication
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/adaptive-authentication-overview/" title="Adaptive Authentication Overview" class="md-nav__link">
+      Adaptive Authentication Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-a-service-provider-for-adaptive-authentication/" title="Configuring a Service Provider for Adaptive Authentication" class="md-nav__link">
+      Configuring a Service Provider for Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      Adaptive Authentication Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        Adaptive Authentication Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-role-based-adaptive-authentication/" title="Configuring Role-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Role-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-user-age-based-adaptive-authentication/" title="Configuring User-Age-Based Adaptive Authentication" class="md-nav__link">
+      Configuring User-Age-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-tenant-based-adaptive-authentication/" title="Configuring Tenant-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Tenant-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/config-catalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/default-ports-of-wso2-products/" title="Default Ports of WSO2 Products" class="md-nav__link">
+      Default Ports of WSO2 Products
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/api-permissions/" title="API Permissions" class="md-nav__link">
+      API Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/adaptive-authentication-js-api-reference/" title="Adaptive Authentication JS API Reference" class="md-nav__link">
+      Adaptive Authentication JS API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#inbound-and-outbound-provisioning" title="Inbound and outbound provisioning" class="md-nav__link">
+    Inbound and outbound provisioning
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-spml" title="Introducing SPML" class="md-nav__link">
+    Introducing SPML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-scim" title="Introducing SCIM" class="md-nav__link">
+    Introducing SCIM
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brief-history-of-identity-provisioning" title="Brief history of identity provisioning" class="md-nav__link">
+    Brief history of identity provisioning
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wso2/docs-is/edit/master/en/docs/key-concepts/identity-provisioning-and-its-standards.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="identity-provisioning-and-its-standards">Identity Provisioning and its Standards<a class="headerlink" href="#identity-provisioning-and-its-standards" title="Permanent link">&para;</a></h1>
+<p>User and identity provisioning plays a key role in propagating users,
+user groups, and user identities across different systems and SaaS
+applications. Provisioning is the process of coordinating the creation
+of user accounts, e-mail authorizations in the form of rules and roles,
+and other tasks such as provisioning of resources associated with
+enabling new users.</p>
+<p>This is particularly useful when adding new users into
+your organization. WSO2 Identity Server can ensure that provisioning is
+made easy. A provisioning request can be sent to the Identity Server to
+add a new user and this user is provisioned to various applications that
+are configured with the Identity Server. This process is illustrated in
+the following diagram.</p>
+<p><img alt="User and identity provisioning using WSO2 Identity Server" src="../../assets/img/concepts/identity-provisioning.png" /></p>
+<p><em><strong>Figure</strong> : User and identity provisioning using WSO2 Identity Server</em></p>
+<h3 id="inbound-and-outbound-provisioning">Inbound and outbound provisioning<a class="headerlink" href="#inbound-and-outbound-provisioning" title="Permanent link">&para;</a></h3>
+<p>Inbound provisioning focuses on how to provision users, user groups, and
+user identities to the Identity Server. This can be done using the REST
+API available for SCIM. The following figure is an example of this
+process.</p>
+<p><img alt="Inbound provisioning using WSO2 Identity Server" src="../../assets/img/concepts/inbound-provisioning.png" /></p>
+<p><em><strong>Figure</strong> : Inbound provisioning</em></p>
+<p>Outbound provisioning involves provisioning users, user groups, and user
+identities to external systems or SaaS applications.</p>
+<p><img alt="Outbound provisioning using WSO2 Identity Server" src="../../assets/img/concepts/outbound-provisioning.png" /></p>
+<p><em><strong>Figure</strong> : Outbound provisioning</em></p>
+<h3 id="introducing-spml">Introducing SPML<a class="headerlink" href="#introducing-spml" title="Permanent link">&para;</a></h3>
+<p>Service Provisioning Markup Language (SPML) is an XML-based framework
+developed by OASIS for exchanging user, resource, and service
+provisioning information between cooperating organizations. The Service
+Provisioning Markup Language is the open standard for the integration
+and interoperation of service provisioning requests.</p>
+<p>The goal of SPML is to allow organizations to securely and quickly set
+up user interfaces for Web services and applications, by letting
+enterprise platforms such as Web portals, application servers, and
+service centers generate provisioning requests within and across
+organizations. This can lead to automation of user or system access and
+entitlement rights to electronic services across diverse IT
+infrastructures, so that customers are not locked into proprietary
+solutions</p>
+<h3 id="introducing-scim">Introducing SCIM<a class="headerlink" href="#introducing-scim" title="Permanent link">&para;</a></h3>
+<p>The System for Cross-domain Identity Management (SCIM) specification is
+designed to make managing user identities in cloud based applications
+and services, easier. User and identity provisioning is a key aspect of
+any identity management solution. In simple terms, it is to create,
+maintain, and delete user accounts and related identities in one or more
+systems or applications in response to business processes that are
+initiated either by humans directly or by automated tasks.</p>
+<p>Today the enterprise solutions adopt products and services from multiple
+cloud providers in order to accomplish various business requirements.
+Hence, it is no longer sufficient to maintain user identities only in a
+corporate LDAP.</p>
+<p>In most cases, SaaS providers also need dedicated user accounts created
+for the cloud service users, which raises the need of proper identity
+provisioning mechanisms to be in place. Currently, different cloud
+vendors expose non-standard provisioning APIs that make it a nightmare
+for the enterprises to develop and maintain proprietary connectors to
+integrate with multiple SaaS providers. For example, Google exposes the
+Google Provisioning API for provisioning user accounts in Google Apps
+Domain.</p>
+<p>When enterprise IT systems consist of distributed, heterogeneous
+components from multiple vendors, and from both in-house and cloud, it
+is key to have an open standard that all agree upon in order to achieve
+interoperability and simplicity while getting rid of multiple connectors
+to perform the same thing.</p>
+<p>SCIM is an emerging open standard that defines a comprehensive REST API,
+along with a platform neutral schema and a SAML binding to facilitate
+the user management operations across SaaS applications; placing
+specific emphasis on simplicity and interoperability.</p>
+<h3 id="brief-history-of-identity-provisioning">Brief history of identity provisioning<a class="headerlink" href="#brief-history-of-identity-provisioning" title="Permanent link">&para;</a></h3>
+<details class="note"><summary>Click here to read about the history of identity provisioning</summary><p>The following diagram illustrates the progressive development that has
+   taken place in the history of identity provisioning.</p>
+<p><img alt="Provisioning evolution and history" src="../../assets/img/concepts/provisioning-evolution.png" /></p>
+<p><em><strong>Figure</strong> : Provisioning evolution and history</em></p>
+<p>The OASIS Technical Committee for Service Provisioning was formed in
+   2001 to define an XML-based framework for exchanging user, resource, and
+   service provisioning information. As a result, the SPML (Service
+   Provisioning Mark Language) came up in 2003 and was based on three
+   proprietary provisioning standards by that time. IBM and Microsoft
+   played a major role in building the SPML 1.0. The following are
+   the three proprietary provisioning standards.</p>
+<ul>
+<li><a href="http://xml.coverpages.org/itml.html">Information Technology Markup Language
+       (ITML)</a></li>
+<li><a href="http://xml.coverpages.org/adpr.html">Active Digital Profile (ADPr)</a></li>
+<li><a href="http://xml.coverpages.org/xrpm.html">eXtensible Resource Provisioning Management
+       (XRPM)</a></li>
+</ul>
+<p><a href="https://www.oasis-open.org/committees/download.php/3032/cs-pstc-spml-   core-1.0.pdf">SPML
+   1.0</a>
+   defined a Request/Response protocol as well as couple of bindings.
+   Requests/Responses are all based on XML and each operation has it own
+   schema.</p>
+<p>One of the <a href="http://xml.coverpages.org/SPML-Bindings10-OS.pdf">bindings</a>
+   defined in SPML 1.0 is the SOAP binding. It specifies how to transfer
+   SPML requests and responses wrapped in a SOAP message. All the SPML
+   operations supported by the provisioning entity should be declared in
+   the WSDL file itself. The other one is file binding. This binding refers
+   to using SPML elements in a file, typically for the purposes of bulk
+   processing provisioning data and provisioning schema documentation.</p>
+<p>In the closing stages of SPML 1.0, IBM and Microsoft felt strongly that
+   support for complex XML objects needed to be done differently. The OASIS
+   TC voted to postpone this effort until 2.0. As a result, IBM
+   unofficially stated that they wouldn't be implementing 1.0 and would
+   wait on the conclusion of the 2.0 process.</p>
+<p>IBM and Microsoft, who were part of the initial SPML specification, went
+   ahead and started building their own standard for provisioning via SOAP
+   based services. This is called WS-Provisioning. WS-Provisioning
+   describes the APIs and schemas necessary to facilitate interoperability
+   between provisioning systems in a consistent manner using Web services.
+   It includes operations for adding, modifying, deleting, and querying
+   provisioning data. It also specifies a notification interface for
+   subscribing to provisioning events. Provisioning data is described using
+   XML and other types of schema. This facilitates the translation of data
+   between different provisioning systems.</p>
+<p>WS-Provisioning is part of the Service Oriented Architecture and has
+   been submitted to the Organization for the Advancement of Structured
+   Information Standards (OASIS) Provisioning Service Technical Committee.</p>
+<p>OASIS PSTC took both SPML 1.0 and WS-Provisioning specification as
+   inputs and developed SPML 2.0 in 2006.</p>
+<p>SPML 1.0 has been called a slightly improved Directory Services Markup
+   Language (DSML). SPML 2.0 defines an extensible protocol (through
+   capabilities) with support for a DSML profile (SPMLv2 DSMLv2), as well
+   as XML schema profiles. SPML 2.0 differentiates between the protocol and
+   the data it carries.</p>
+<p>SPML 1.0 defined file bindings and SOAP bindings that assumed the
+   SPML1.0 Schema for DSML. The SPMLv2 DSMLv2 Profile provides a degree of
+   backward compatibility with SPML 1.0. The DSMLv2 profile supports a
+   schema model similar to that of SPML 1.0. The DSMLv2 Profile may be more
+   convenient for applications that mainly access targets that are LDAP or
+   X500 directory services. The XSD Profile may be more convenient for
+   applications that mainly access targets that are Web services.</p>
+<p>The SPML 2.0 protocol enables better interoperability between vendors,
+   especially for the core capabilities (those found in 1.0). You can
+   “extend” SPML 1.0 using ExtendedRequest, but there is no guidance about
+   what those requests can be. SPML 2.0 defines a set of “standard
+   capabilities” that allow you to add support in well-defined ways.</p>
+<p>SPML definitely addressed the key objective of forming the OASIS PSTC in
+   2001. It solved the interoperability issues, however, it was too complex
+   to implement. It was SOAP biased and was addressing too many concerns in
+   provisioning than what actually was needed.</p>
+<p>It was around 2009 - 2010 that people started to talk about the death of
+   SPML.</p>
+<p>In parallel to the criticisms against SPML - another standard known as
+   SCIM (Simple Could Identity Management) started to emerge. This was
+   around mid 2010 - and initiated by Salesforce, Ping Identity, Google and
+   others. WSO2 joined the effort sometime in early 2011 and took part in
+   all the interop events that have happened so far.</p>
+<p>SCIM is purely RESTful. The initial version supported both JSON and XML.
+   SCIM introduced a REST API for provisioning and also a core schema
+   (which also can be extended) for provisioning objects. SCIM 1.1 was
+   finalized in 2012 - and then it was donated to the
+   <a href="http://tools.ietf.org/wg/scim/">IETF</a> . Once in IETF, it changed the
+   definition of SCIM to System for Cross-domain Identity Management and it
+   supports only JSON and now XML.</p>
+<p>As a result of the increasing pressure on OASIS PSTC, they started
+   working on a REST binding for SPML, which is known as
+   <a href="https://wiki.oasis-open.org/provision/restpml">RESTPML</a> , around 2011.
+   This is still based on XML and not yet active so far.</p>
+</details>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../single-sign-on-and-identity-federation/" title="Single Sign-On and Identity Federation" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Single Sign-On and Identity Federation
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../access-control-and-entitlement-management/" title="Access Control and Entitlement Management" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Access Control and Entitlement Management
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 Identity Server - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/wso2" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/wso2" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/wso2" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

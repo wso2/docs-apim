@@ -1,0 +1,1461 @@
+<!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 Identity Server">
+      
+      
+        <link rel="canonical" href="https://wso2.com/references/config-catalog/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Configuration Catalog - WSO2 Identity Server Documentation</title>
+      
+    
+    
+  <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
+  <style>
+    .md-main .md-content {
+      margin-right: 0;
+    }
+
+    .md-main .md-sidebar.md-sidebar--secondary {
+      width: 0;
+    }
+  </style>
+  
+    <link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css">
+  
+  
+    
+    
+    <meta name="theme-color" content="#ff7043">
+  
+
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../assets/css/theme.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#configuration-catalog" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               Identity Server Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Configuration Catalog
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">5.8.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../key-concepts/single-sign-on-and-identity-federation/" title="Key Concepts" class="md-tabs__link">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/adaptive-authentication-overview/" title="Basic Tutorials" class="md-tabs__link">
+          Basic Tutorials
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" title="References" class="md-tabs__link md-tabs__link--active">
+          References
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    WSO2 Identity Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/single-sign-on-and-identity-federation/" title="Single Sign-On and Identity Federation" class="md-nav__link">
+      Single Sign-On and Identity Federation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/identity-provisioning-and-its-standards/" title="Identity Provisioning and its Standards" class="md-nav__link">
+      Identity Provisioning and its Standards
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/access-control-and-entitlement-management/" title="Access Control and Entitlement Management" class="md-nav__link">
+      Access Control and Entitlement Management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../key-concepts/identity-anti-patterns-and-the-identity-bus/" title="Identity Anti patterns and the Identity Bus" class="md-nav__link">
+      Identity Anti patterns and the Identity Bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Basic Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Basic Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Adaptive Authentication
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Adaptive Authentication
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/adaptive-authentication-overview/" title="Adaptive Authentication Overview" class="md-nav__link">
+      Adaptive Authentication Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-a-service-provider-for-adaptive-authentication/" title="Configuring a Service Provider for Adaptive Authentication" class="md-nav__link">
+      Configuring a Service Provider for Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      Adaptive Authentication Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        Adaptive Authentication Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-role-based-adaptive-authentication/" title="Configuring Role-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Role-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-user-age-based-adaptive-authentication/" title="Configuring User-Age-Based Adaptive Authentication" class="md-nav__link">
+      Configuring User-Age-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-tenant-based-adaptive-authentication/" title="Configuring Tenant-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Tenant-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Configuration Catalog
+      </label>
+    
+    <a href="./" title="Configuration Catalog" class="md-nav__link md-nav__link--active">
+      Configuration Catalog
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instructions-for-use" title="Instructions for use" class="md-nav__link">
+    Instructions for use
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-the-primary-data-store-connection" title="Tuning the primary data store connection" class="md-nav__link">
+    Tuning the primary data store connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-the-user-stores" title="Connecting to the user stores" class="md-nav__link">
+    Connecting to the user stores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-system-administrator" title="Configuring the system administrator" class="md-nav__link">
+    Configuring the system administrator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-keystore" title="Configuring the keystore" class="md-nav__link">
+    Configuring the keystore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-truststore" title="Configuring the truststore" class="md-nav__link">
+    Configuring the truststore
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../default-ports-of-wso2-products/" title="Default Ports of WSO2 Products" class="md-nav__link">
+      Default Ports of WSO2 Products
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api-permissions/" title="API Permissions" class="md-nav__link">
+      API Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../adaptive-authentication-js-api-reference/" title="Adaptive Authentication JS API Reference" class="md-nav__link">
+      Adaptive Authentication JS API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#instructions-for-use" title="Instructions for use" class="md-nav__link">
+    Instructions for use
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuning-the-primary-data-store-connection" title="Tuning the primary data store connection" class="md-nav__link">
+    Tuning the primary data store connection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-to-the-user-stores" title="Connecting to the user stores" class="md-nav__link">
+    Connecting to the user stores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-system-administrator" title="Configuring the system administrator" class="md-nav__link">
+    Configuring the system administrator
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-keystore" title="Configuring the keystore" class="md-nav__link">
+    Configuring the keystore
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuring-the-truststore" title="Configuring the truststore" class="md-nav__link">
+    Configuring the truststore
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wso2/docs-is/edit/master/en/docs/references/config-catalog.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="configuration-catalog">Configuration Catalog<a class="headerlink" href="#configuration-catalog" title="Permanent link">&para;</a></h1>
+<p>This document describes all the configuration parameters that are used in WSO2 Identity Server. </p>
+<h2 id="instructions-for-use">Instructions for use<a class="headerlink" href="#instructions-for-use" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.</p>
+</blockquote>
+<pre><code class="toml"># This is an example .toml file.
+
+[server]
+pattern=&quot;value&quot;                         
+enable_port_forward=true
+
+[key_mgr_node]
+endpoints=&quot;value&quot;
+
+[gateway]
+gateway_environments=[&quot;dev&quot;,&quot;test&quot;]
+
+[[database]]
+pool_options.maxActiv=5
+
+</code></pre>
+
+<div class="mb-config-catalog">
+    <section class="title">
+        <div class="mb-config-options">    
+            <h2>Configuring the default deployment settings</h2>
+        </div>
+        <div class="mb-config-example"></div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="mb-config">
+                <div class="config-wrap">
+                    <code>[server]</code>
+                    <span class="badge-required">Required</span>
+                    <p>
+                        This toml header groups the parameters that define the server node details.
+                    </p>
+                </div>
+                <div class="params-wrap">
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>hostname</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"localhost"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The hostname of the WSO2 EI server instance.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>node_ip</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"127.0.0.1"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The IP address of the server node.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>enable_mtom</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean"> boolean </span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>false</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>Use this paramater to enable MTOM (Message Transmission Optimization Mechanism) for the product server. When MTOM is enabled.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>enable_swa</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type boolean"> boolean </span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>false</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>Use this paramater to enable SwA (SOAP with Attachments) for the product server. When SwA is enabled, the ESB will process the files attached to SOAP messages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-config-example">
+<pre><code class="toml">[server]
+hostname="localhost"
+node_ip="127.0.0.1"
+enable_mtom=false
+enable_swa=false</code></pre>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section class="title">
+        <div class="mb-config-options">    
+            <h2>Connecting to the primary data store</h2>
+        </div>
+        <div class="mb-config-example"></div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="mb-config">
+                <div class="config-wrap">
+                    <code>[database.shared_db]</code>
+                    <p>
+                        The config heading that groups the parameters connecting the server to the primary database of the server. This database stores registry artifacts aswell as the user permissions that apply to user roles. By default, this also stores the user data unless a separate user store is configured using the [user_store] config section.
+                    </p>
+                </div>
+                <div class="params-wrap">
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>type</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"H2"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The type of database that is used for the primary database. All the database types that are supported by this product is listed below as possible values.</p>
+                                <p>E.g. "MySql", "Oracle", "Postgre"</p>
+                                <details class="warning classes" open="open">
+                                    <summary>Warning</summary>
+                                    <p>"H2" (not recommended for production environments). So please change when going on production.</p>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>url</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>"http://localhost:8082"</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The connection URL of the database. Note that this is specific to the database type you are using.</p>
+                                <p>Use the URL pattern for the database type.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>username</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>wso2carbon</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The user name for connecting to the database.</p>
+                                <p>Any alpha numeric value.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="param">
+                        <div class="param-name">
+                          <span class="param-name-wrap"> <code>password</code> </span>
+                        </div>
+                        <div class="param-info">
+                            <div>
+                                <p>
+                                    <span class="param-type string"> string </span>
+                                    <span class="badge-required">Required</span>
+                                </p>
+                                <div class="param-default">
+                                    <span class="param-default-value"><code>wso2carbon</code></span>
+                                </div>
+                            </div>
+                            <div class="param-description">
+                                <p>The password for connecting to the database.</p>
+                                <p>Any alpha numeric value.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mb-config-example">
+<pre><code class="toml">[database.shared_db]
+type="H2"
+url="http://localhost:8082"
+username=wso2carbon
+password=wso2carbon</code></pre>
+        </div>
+    </section>
+</div>
+
+<h2 id="tuning-the-primary-data-store-connection">Tuning the primary data store connection<a class="headerlink" href="#tuning-the-primary-data-store-connection" title="Permanent link">&para;</a></h2>
+<table>
+    <tr>
+        <th colspan="2">Config Heading</th>
+    </tr>
+    <tr>
+        <td style="width: 20%"><b><code>[database.shared_db.pool_options]</code></b></td>
+        <td>
+            The config heading in the ei.toml file that groups the parameters for tuning the performance of the primary database that you configured with the [database.shared_db] section.
+            <ul>
+                <li><b>Default</b> Enabled with default parameters.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">Parameters</th>
+    </tr>
+    <tr>
+        <td><b><code>maxActive</code></b></td>
+        <td>
+            The maximum number of active connections that can be allocated at the same time from the pool. If there are too many active connections in the connection pool, some of them would be idle, incurring an unnecessary system overhead.
+            <ul>
+                <li><b>Default</b> "50"</li>
+                <li><b>Possible Values</b> Depends on environment. Enter any negative value to denote an unlimited number of active connections.</li>
+                <li><b>Optional</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>maxWait</code></b></td>
+        <td>
+            The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception.
+            <ul>
+                <li><b>Default</b> "6000"</li>
+                <li><b>Possible Values</b> Depends on environment. Enter zero or a negative value to wait indefinitely.</li>
+                <li><b>Optional</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>testOnBorrow</code></b></td>
+        <td>
+            The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.
+            <ul>
+                <li><b>Default</b> Enabled</li>
+                <li><b>Possible Value</b> Use "false" to disable testOnBorrow.</li>
+                <li><b>Optional</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>validationInterval</code></b></td>
+        <td>
+            The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.
+            <ul>
+                <li><b>Default</b> "30000"</li>
+                <li><b>Possible Values</b> Depends on environment. </li>
+                <li><b>Optional</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>defaultAutoCommit</code></b></td>
+        <td>
+            Specifies whether each SQL statement should be automatically committed when it is completed. It is recommended to disable auto committing by setting this property to true.
+            <ul>
+                <li><b>Default</b> Enabled</li>
+                <li><b>Possible Values</b> Use "false" to disable default auto commit.</li>
+                <li><b>Optional</b></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2 id="connecting-to-the-user-stores">Connecting to the user stores<a class="headerlink" href="#connecting-to-the-user-stores" title="Permanent link">&para;</a></h2>
+<table>
+    <tr>
+        <th colspan="2"> Config Heading</th>
+    </tr>
+    <tr>
+        <td style="width: 20%"><b><code>[user_store]</code></b></td>
+        <td>
+            The config heading in the ei.toml that connects the server to the user store. The user store holds the users and roles defined for the system.
+            <ul>
+                <li><b>Default</b> Enabled</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">Parameters</th>
+    </tr>
+    <tr>
+        <td><b><code>type</code></b></td>
+        <td>
+            The type of user store.
+            <ul>
+                <li><b>Default Value</b>: "database"</li>
+                <li><b>Possible Values</b>: "database" , "LDAP"</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2 id="configuring-the-system-administrator">Configuring the system administrator<a class="headerlink" href="#configuring-the-system-administrator" title="Permanent link">&para;</a></h2>
+<table>
+    <tr>
+        <th colspan="2">Config Heading</th>
+    </tr>
+    <tr>
+        <td style="width: 20%"><b><code>[super_admin]</code></b>:</td>
+        <td>
+            The config heading in the ei.toml file that groups the parameters defining the system adminsitrator.
+            <ul>
+                <li><b>Default</b> Enabled with the default parameters.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">Parameters</th>
+    </tr>
+    <tr>
+        <td><b><code>username</code></b></td>
+        <td>
+            The user name of the system administrator. This user has all permissions enabled by default.
+            <ul>
+                <li><b>Default</b> <code>"admin"</code></li>
+                <li><b>Possible Values</b> Any alpha numerical value</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>password</code></b></td>
+        <td>
+            The password of the system adminsitrator.
+            <ul>
+                <li><b>Default</b> <code>"admin"</code></li>
+                <li><b>Possible Values</b> Any alpha numerical value</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>create_admin_account</code></b></td>
+        <td>
+            Set this whether the system administrator credentials should be created in the system at the time of starting the server.
+            <ul>
+                <li><b>Default</b>: Enabled</li>
+                <li><b>Possible Values</b>: Use <code>"false"</code> to disable.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+
+</table>
+
+<h2 id="configuring-the-keystore">Configuring the keystore<a class="headerlink" href="#configuring-the-keystore" title="Permanent link">&para;</a></h2>
+<table>
+    <tr>
+        <th colspan="2">Config Heading</th>
+    </tr>
+    <tr>
+        <td style="width: 20%"><b><code>[keystore.tls]</code></b></td>
+        <td>
+            Add this config heading to the ei.toml file to group the parameters that connects the server to the keystore used for SSL handshaking when the server communicates with another server.
+            <ul>
+                <li><b>Default</b> Enabled with default parameters.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">Parameters</th>
+    </tr>
+    <tr>
+        <td><b><code>file_name</code></b></td>
+        <td>
+            The name of the keystore file.
+            <ul>
+                <li><b>Default</b> <code>"wso2carbon.jks"</code></li>
+                <li><b>Possible Values</b> Any file name with the .jks extension. </li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>type</code></b></td>
+        <td>
+            The type of the keystore file.
+            <ul>
+                <li><b>Default</b> <code>"JKS"</code></li>
+                <li><b>Possible Values</b> <code>"JKS"</code> or <code>"PKCS12"</code></li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>password</code></b></td>
+        <td>
+            The password of the keystore file.
+            <ul>
+                <li><b>Default</b> <code>"wso2carbon"</code></li>
+                <li><b>Possible Values</b> Any alpha numerical value.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>alias</code></b></td>
+        <td>
+            The alias of the public key certificate that is included in the keystore.
+            <ul>
+                <li><b>Default</b> <code>"wso2carbon"</code></li>
+                <li><b>Possible Values</b> Any alpha numerical value. </li>
+                <li><b>Mandatory</b></li>
+            </ul> 
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>key_password</code></b></td>
+        <td>
+            The password of the private key that is included in the keystore.
+            <ul>
+                <li><b>Default</b> <code>"wso2carbon"</code></li>
+                <li><b>Possible Value</b> Any alpha numerical value.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<h2 id="configuring-the-truststore">Configuring the truststore<a class="headerlink" href="#configuring-the-truststore" title="Permanent link">&para;</a></h2>
+<table>
+    <tr>
+        <th colspan="2">Config Heading</th>
+    </tr>
+    <tr>
+        <td style="width: 20%"><b><code>[truststore]</code></b></td>
+        <td>
+            Add this config heading to the ei.toml file to group the parameters that connects the server to the trustore.
+            <ul>
+                <li><b>Default</b> Enabled with default parameters. </li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2">Parameters</th>
+    </tr>
+    <tr>
+        <td><b><code>file_name</code></b></td>
+        <td>
+            The name of the keystore file.
+            <ul>
+                <li><b>Default</b> <code>"wso2truststore.jks"</code></li>
+                <li><b>Possible Values</b> Any file name with the .jks extension.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>type</code></b></td>
+        <td>
+            The type of the keystore file.
+            <ul>
+                <li><b>Default</b> <code>"JKS"</code></li>
+                <li><b>Possible Values</b> <code>"JKS"</code> or <code>"PKCS12"</code></li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>password</code></b></td>
+        <td>
+            The password of the keystore file.
+            <ul>
+                <li><b>Default</b> <code>"wso2carbon"</code></li>
+                <li><b>Possible Values</b> Any alpha numerical value. </li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>alias</code></b></td>
+        <td>
+            The alias of the public key certificate that is included in the trustore.
+            <ul>
+                <li><b>Default</b> <code>"symmetric.key.value"</code></li>
+                <li><b>Possible Values</b> Any alpha numerical value. </li>
+                <li><b>Mandatory</b></li>
+            </ul> 
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>key_password</code></b></td>
+        <td>
+            The password of the private key that is included in the keystore.
+            <ul>
+                <li><b>Default</b> <code>"wso2carbon"</code></li>
+                <li><b>Possible Value</b> Any alpha numerical value.</li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><code>algorithm</code></b></td>
+        <td>
+            The password of the ...
+            <ul>
+                <li><b>Default</b> <code>"AES"</code></li>
+                <li><b>Possible Value</b></li>
+                <li><b>Mandatory</b></li>
+            </ul>
+        </td>
+    </tr>
+</table>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../tutorials/configuring-tenant-based-adaptive-authentication/" title="Configuring Tenant-Based Adaptive Authentication" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Configuring Tenant-Based Adaptive Authentication
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../default-ports-of-wso2-products/" title="Default Ports of WSO2 Products" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Default Ports of WSO2 Products
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 Identity Server - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/wso2" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/wso2" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/wso2" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

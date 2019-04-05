@@ -36,6 +36,10 @@
     height: 2.6rem;
 }
 
+.md-header-nav__topic {
+    top: 0;
+}
+
 [data-md-color-primary=deep-orange] .md-header {
     background-color: #ffffff;
     color: #212121;

@@ -44,17 +44,6 @@
             </span>
           {% endif %}
         </div>
-        <div class="md-flex__ellipsis md-header__version-select">
-            <div class="mb-tabs__dropdown version-select">
-                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">{{ config.extra.site_version }}</a>
-                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
-                    <!-- Versions will added here dynamically -->
-                    <li class="md-tabs__item mb-tabs__dropdown">
-                        <a href="#" id="show-all-versions-link">Show all</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         {% if "search" in config["plugins"] %}

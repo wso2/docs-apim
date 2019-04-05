@@ -1,0 +1,2320 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 Identity Server">
+      
+      
+        <link rel="canonical" href="https://wso2.com/key-concepts/access-control-and-entitlement-management/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+    
+    
+      
+        <title>Access Control and Entitlement Management - WSO2 Identity Server Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../assets/css/theme.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#access-control-and-entitlement-management" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               Identity Server Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Access Control and Entitlement Management
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">5.8.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../single-sign-on-and-identity-federation/" title="Key Concepts" class="md-tabs__link md-tabs__link--active">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../tutorials/adaptive-authentication-overview/" title="Basic Tutorials" class="md-tabs__link">
+          Basic Tutorials
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../references/config-catalog/" title="References" class="md-tabs__link">
+          References
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://wso2.com/" title="WSO2 Identity Server Documentation" class="md-nav__button md-logo">
+      
+        <img src="../../images/logo.svg" width="48" height="48">
+      
+    </a>
+    WSO2 Identity Server Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/wso2/docs-is/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      wso2/docs-is
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../single-sign-on-and-identity-federation/" title="Single Sign-On and Identity Federation" class="md-nav__link">
+      Single Sign-On and Identity Federation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../identity-provisioning-and-its-standards/" title="Identity Provisioning and its Standards" class="md-nav__link">
+      Identity Provisioning and its Standards
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Access Control and Entitlement Management
+      </label>
+    
+    <a href="./" title="Access Control and Entitlement Management" class="md-nav__link md-nav__link--active">
+      Access Control and Entitlement Management
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-access-control" title="Types of access control" class="md-nav__link">
+    Types of access control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-xacml" title="Introducing XACML" class="md-nav__link">
+    Introducing XACML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-xacml" title="Why XACML" class="md-nav__link">
+    Why XACML
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribute-based-access-controlabac" title="Attribute-based Access Control(ABAC)" class="md-nav__link">
+    Attribute-based Access Control(ABAC)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-system-architecture" title="XACML system architecture" class="md-nav__link">
+    XACML system architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-terminology" title="XACML terminology" class="md-nav__link">
+    XACML terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-engine-architecture" title="XACML engine architecture" class="md-nav__link">
+    XACML engine architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-policy-language-structure-and-syntax" title="XACML policy language structure and syntax" class="md-nav__link">
+    XACML policy language structure and syntax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improvements-in-xacml-30" title="Improvements in XACML 3.0" class="md-nav__link">
+    Improvements in XACML 3.0
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-attribute-categories" title="Custom attribute categories" class="md-nav__link">
+    Custom attribute categories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements-in-obligation" title="Improvements in Obligation" class="md-nav__link">
+    Improvements in Obligation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introducing-advice" title="Introducing Advice" class="md-nav__link">
+    Introducing Advice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements-in-target" title="Improvements in Target" class="md-nav__link">
+    Improvements in Target
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-functions-and-algorithms" title="More Functions and Algorithms" class="md-nav__link">
+    More Functions and Algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements-in-xpath" title="Improvements in XPath" class="md-nav__link">
+    Improvements in XPath
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvement-in-xacml-request-and-response" title="Improvement in XACML Request and Response" class="md-nav__link">
+    Improvement in XACML Request and Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xacml-30-multiple-decision-profile" title="XACML 3.0 Multiple Decision Profile" class="md-nav__link">
+    XACML 3.0 Multiple Decision Profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xacml-30-json-profile" title="XACML 3.0 JSON Profile" class="md-nav__link">
+    XACML 3.0 JSON Profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrative-delegation-profile" title="Administrative Delegation Profile" class="md-nav__link">
+    Administrative Delegation Profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-20-and-xacml-30-samples" title="XACML 2.0 and XACML 3.0 samples" class="md-nav__link">
+    XACML 2.0 and XACML 3.0 samples
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../identity-anti-patterns-and-the-identity-bus/" title="Identity Anti patterns and the Identity Bus" class="md-nav__link">
+      Identity Anti patterns and the Identity Bus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Basic Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Basic Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Adaptive Authentication
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Adaptive Authentication
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/adaptive-authentication-overview/" title="Adaptive Authentication Overview" class="md-nav__link">
+      Adaptive Authentication Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-a-service-provider-for-adaptive-authentication/" title="Configuring a Service Provider for Adaptive Authentication" class="md-nav__link">
+      Configuring a Service Provider for Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1-3" type="checkbox" id="nav-2-1-3">
+    
+    <label class="md-nav__link" for="nav-2-1-3">
+      Adaptive Authentication Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-1-3">
+        Adaptive Authentication Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-role-based-adaptive-authentication/" title="Configuring Role-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Role-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-user-age-based-adaptive-authentication/" title="Configuring User-Age-Based Adaptive Authentication" class="md-nav__link">
+      Configuring User-Age-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../tutorials/configuring-tenant-based-adaptive-authentication/" title="Configuring Tenant-Based Adaptive Authentication" class="md-nav__link">
+      Configuring Tenant-Based Adaptive Authentication
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      References
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        References
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/config-catalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/default-ports-of-wso2-products/" title="Default Ports of WSO2 Products" class="md-nav__link">
+      Default Ports of WSO2 Products
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/api-permissions/" title="API Permissions" class="md-nav__link">
+      API Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../references/adaptive-authentication-js-api-reference/" title="Adaptive Authentication JS API Reference" class="md-nav__link">
+      Adaptive Authentication JS API Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#types-of-access-control" title="Types of access control" class="md-nav__link">
+    Types of access control
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#introducing-xacml" title="Introducing XACML" class="md-nav__link">
+    Introducing XACML
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-xacml" title="Why XACML" class="md-nav__link">
+    Why XACML
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#attribute-based-access-controlabac" title="Attribute-based Access Control(ABAC)" class="md-nav__link">
+    Attribute-based Access Control(ABAC)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-system-architecture" title="XACML system architecture" class="md-nav__link">
+    XACML system architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-terminology" title="XACML terminology" class="md-nav__link">
+    XACML terminology
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-engine-architecture" title="XACML engine architecture" class="md-nav__link">
+    XACML engine architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-policy-language-structure-and-syntax" title="XACML policy language structure and syntax" class="md-nav__link">
+    XACML policy language structure and syntax
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#improvements-in-xacml-30" title="Improvements in XACML 3.0" class="md-nav__link">
+    Improvements in XACML 3.0
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#custom-attribute-categories" title="Custom attribute categories" class="md-nav__link">
+    Custom attribute categories
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements-in-obligation" title="Improvements in Obligation" class="md-nav__link">
+    Improvements in Obligation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#introducing-advice" title="Introducing Advice" class="md-nav__link">
+    Introducing Advice
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements-in-target" title="Improvements in Target" class="md-nav__link">
+    Improvements in Target
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-functions-and-algorithms" title="More Functions and Algorithms" class="md-nav__link">
+    More Functions and Algorithms
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvements-in-xpath" title="Improvements in XPath" class="md-nav__link">
+    Improvements in XPath
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#improvement-in-xacml-request-and-response" title="Improvement in XACML Request and Response" class="md-nav__link">
+    Improvement in XACML Request and Response
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xacml-30-multiple-decision-profile" title="XACML 3.0 Multiple Decision Profile" class="md-nav__link">
+    XACML 3.0 Multiple Decision Profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xacml-30-json-profile" title="XACML 3.0 JSON Profile" class="md-nav__link">
+    XACML 3.0 JSON Profile
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#administrative-delegation-profile" title="Administrative Delegation Profile" class="md-nav__link">
+    Administrative Delegation Profile
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#xacml-20-and-xacml-30-samples" title="XACML 2.0 and XACML 3.0 samples" class="md-nav__link">
+    XACML 2.0 and XACML 3.0 samples
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/wso2/docs-is/edit/master/en/docs/key-concepts/access-control-and-entitlement-management.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="access-control-and-entitlement-management">Access Control and Entitlement Management<a class="headerlink" href="#access-control-and-entitlement-management" title="Permanent link">&para;</a></h1>
+<p>Today, enterprise applications seek ways of enforcing security that
+allows the right people to access the right resources with restrictions
+enforced by enterprise policies. Identity and entitlement management
+systems, as a whole, attempt to address these security considerations.
+These systems help enterprise architects and developers in their
+application requirement implementations and try to significantly ease
+the burden of security-related implementations. These identity and
+entitlement management systems are governed by industry standard
+specifications, hence supporting security requirements for heterogeneous
+applications becomes easy.</p>
+<p>Click <a href="access-control.md">here</a> for
+more information on Access control.</p>
+<h3 id="types-of-access-control">Types of access control<a class="headerlink" href="#types-of-access-control" title="Permanent link">&para;</a></h3>
+<p><img alt="The various types of access control" src="../../assets/img/concepts/types-of-access-control.png" /></p>
+<p>The following table describes the various types of access control.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Access Control Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><p>Access Control Lists</p></td>
+<td>Access control lists are the oldest and most basic form of access control. This type was primarily adopted for use in operating systems. This maintains a set of users and operations that can be performed on a resource as a mapping. This is easy to implement due to the use of maps. However, this is not scalable for larger user bases and can become difficult to manage.</td>
+</tr>
+<tr class="even">
+<td><p>Role-based Access Control</p></td>
+<td><p>Role-based Access Control (RBAC) is an approach used to restrict access to authorized users based on their role. This is a static permission model which provides access control. It is used by the majority of enterprises with more than 500 users.</p>
+<p>This access control type is used when all users are categorized into different roles. The roles define the resources that can be accessed by users assigned to that role. This type of access control reduces management overhead. These users and roles can also be externalized using user stores. These roles need to be managed carefully. There can be instances where a user is assigned to multiple roles. This is a subset of ABAC.</p>
+<p>Static permissions for roles can be given by updating permission tree in WSO2 Identity Server. Click <a href="https://docs.wso2.com/display/IS570/Configuring+Roles+and+Permissions">here</a> for information on Configuring roles and permissions.</p></td>
+</tr>
+<tr class="odd">
+<td><p>Attribute-based Access Control</p></td>
+<td><p>Attribute-based access control (ABAC) defines a new access control paradigm whereby access rights are granted to users through the use of policies that combine attributes together.</p>
+<p>Here, authorization happens based on attributes. This access control type addresses the limitations of role-based access control to provide a more fine-grained approach. This can be based on the attributes of the user, the environment, or even the resource itself. This is more flexible when compared with the role-based approach. There is no need to know the user prior to granting access.</p></td>
+</tr>
+<tr class="even">
+<td><p>Policy-based Access Control</p></td>
+<td><p>This type of access control addresses the requirement to have a more uniform access control mechanism. This helps larger enterprises to have uniform access control for the large amount of organizational units. This is helpful when carrying out security audits.</p>
+<p>This is the most complex form of access control. This involves specifying policies unambiguously using XACML and using authorized attribute sources in the enterprise. Here Policy Based Access Control(PBAC) (also called Rule-based access control) is an extension of ABAC where attributes are used in writing policies.</p></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+<h3 id="introducing-xacml">Introducing XACML<a class="headerlink" href="#introducing-xacml" title="Permanent link">&para;</a></h3>
+<p>XACML (eXtensible Access Control Markup Language) is an XML-based
+language for access control that has been standardized by the Technical
+Committee of the OASIS consortium. XACML is popular as a fine grain
+authorization method among the community. However, there are aspects of
+XACML that surpasses other policy standards by being a fine-grained
+authorization mechanism.</p>
+<p>Although XACML was introduced as a standard by OASIS in 2003, not many
+organizations that have adopted it yet. This is because most
+organization's lack of interest in moving towards a XACML based solution
+for authorization. The following can be some of the reasons for this:</p>
+<ul>
+<li>Many software designer and developers lack a clear understanding
+    of features, importance, and advantages of XACML.</li>
+<li>It is comparatively difficult to implement a XACML solution when
+    compared with a typical JDBC or hard-coded authorization system.</li>
+<li>Performance of XACML-based authorization system may be less than
+    adequate.</li>
+<li>The complexity of defining and managing XACML policies.</li>
+</ul>
+<p>However, current market trends indicate that there is some motivation
+for XACML-based authorization systems. This section includes some
+architectural and implementation details on XACML with an existing XACML
+engine.</p>
+<p>To summarize, XACML describes both an access control policy language,
+request/response language, and reference architecture. The policy
+language is used to express access control policies (who can do what,
+when). The request/response language expresses queries about whether a
+particular access should be allowed (requests) and describes answers to
+those queries(responses). The reference architecture proposes a standard
+for deployment of necessary software modules within an infrastructure to
+allow efficient enforcement of policies.</p>
+<p>WSO2 Identity Server uses XACML as a tool for controlling access to
+applications.</p>
+<p><strong>Recommended reading</strong></p>
+<p>For more information on XACML specifications and other related
+information, see <a href="http://oasis-open.org/committees/xacml">the OASIS
+website</a> .</p>
+<hr />
+<h3 id="why-xacml">Why XACML<a class="headerlink" href="#why-xacml" title="Permanent link">&para;</a></h3>
+<p>Most of the organizations still use legacy systems with inbuilt
+authorization logic. Sometimes, one organization contains a large number
+of information systems and applications that each system or application
+uses for their own process for authorization. Today, authorization has
+become more complex because users within organizations and outside need
+access to shared data and have the need to collaborate efficiently.
+Therefore, this has been challenging task to manage these
+legacy systems, custom authorization systems. However, XACML offers a
+solution to this problem.</p>
+<p>Most traditional authorization systems mostly have the following
+features:</p>
+<ul>
+<li>Authorization logic is hard-coded into the source code.</li>
+<li>Authorization logic is stored in databases that could only be
+    readable and understandable by the underlying application</li>
+</ul>
+<p>The following are the some goals that current organizations are looking
+at from an authorization system.</p>
+<ul>
+<li>Can business managers (who should determine how access controls
+    would be implemented) define and modify different authorization
+    logic?</li>
+<li>Can we find new IT technicians to manage these legacy systems?
+    Especially when those who developed the system have left the
+    organization?</li>
+<li>Can different authorization logic be modified without any source
+    code changes in a dynamic way?</li>
+<li>Is authorization system capable of evaluating following rule? “X
+    resource can be accessed by the Users who are from
+    <a href="http://example.com">example.com</a> domain and whose age is greater
+    than 21 years old”</li>
+<li>If we are going to implement a new information system with the
+    organization, can we re-use the authorization logic of a legacy
+    system?</li>
+<li>Can we achieve a fine-grained authorization level without defining
+    a large number of static combinations?</li>
+<li>Are the authorization systems capable of answering the questions
+    such as: “Can a user, Bob, transfer X amount from Y current account
+    at 1.00pm?“</li>
+</ul>
+<p>Clearly, the above goals cannot be achieved from a traditional
+authorization system. However, a XACML-based authorization solution can
+help to achieve all of these goals, because XACML:</p>
+<ul>
+<li>is a standard which is ratified by OASIS standards organization.</li>
+<li>is a policy language implemented using XML which is an industry
+    standard.</li>
+<li>
+<p>supports Attribute-based Access Control (ABAC) and evaluation can be
+    done with the additional data retrieved from Policy Information
+    Point (PIP) which is defined by the XACML reference architecture.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<h5 id="attribute-based-access-controlabac">Attribute-based Access Control(ABAC)<a class="headerlink" href="#attribute-based-access-controlabac" title="Permanent link">&para;</a></h5>
+<p>ABAC is an <a href="https://en.wikipedia.org/wiki/Access_control">access
+control</a>
+paradigm whereby access rights are granted to users through the use of
+policies which combine attributes together. The policies can use any
+type of attributes (user attributes, resource attributes, object,
+environment attributes etc.). This model supports boolean logic , in
+which rules contain "IF, THEN" statements about who is making the
+request, the resource, and the action. For example: IF the requestor is
+a manager, THEN allow read/write access to sensitive data.</p>
+</div>
+</li>
+<li>
+<p>contains reference architecture which is provided to externalize the
+    authorization system. The Policy Decision Point (PDP) offers
+    authorization as a service in your infrastructure. Authorization
+    algorithms can be removed from the application logic and
+    applications can query the PDP via their own Policy Enforcement
+    Points (PEP).</p>
+</li>
+<li>provides fine-grained authorization with higher level of abstraction
+    by means of policies and rules.</li>
+<li>supports dynamic evaluation of policies by using the Policy
+    Information Point (PIP).</li>
+<li>can publish multiple policies into external PDPs.</li>
+</ul>
+<hr />
+<h3 id="xacml-system-architecture">XACML system architecture<a class="headerlink" href="#xacml-system-architecture" title="Permanent link">&para;</a></h3>
+<p>Policy Decision Point (PDP) evaluates policies against access requests
+provided by Policy Enforcement Points (PEP). To provide the decisions,
+PDP may also need to query a Policy Information Point (PIP) to gather
+descriptive attributes about the user or any other missing attribute in
+the request. Policy Administration Point (PAP) is used to manage the PDP
+and PIP functionality.</p>
+<p><img alt="XACML system architecture" src="../../assets/img/concepts/xacml-system-architecture.png" /></p>
+<hr />
+<h3 id="xacml-terminology">XACML terminology<a class="headerlink" href="#xacml-terminology" title="Permanent link">&para;</a></h3>
+<p>The XACML reference architecture illustrated above is comprised of
+the following four 'building blocks'.</p>
+<ul>
+<li><strong>Policy Enforcement Point (PEP)</strong> : The system entity that performs
+    access control by making decision requests and enforcing
+    authorization decisions. This is the entity that sends the XACML
+    request to the Policy Decision Point (PDP) and receives an
+    authorization decision.</li>
+<li><strong>Policy Decision Point (PDP)</strong> : The system entity that evaluates
+    an applicable policy and returns an authorization decision.</li>
+<li><strong>Policy Information Point (PIP)</strong> : The system entity that acts as
+    a source of attribute values. If there are missing attributes in the
+    XACML request that is sent by PEP, PIP would find them for the PDP
+    to evaluate the policy.</li>
+<li><strong>Policy Administration Point (PAP)</strong> : The system entity that
+    creates a policy or policy set and manages them.</li>
+</ul>
+<hr />
+<h3 id="xacml-engine-architecture">XACML engine architecture<a class="headerlink" href="#xacml-engine-architecture" title="Permanent link">&para;</a></h3>
+<p>The WSO2 Identity Server is a major player in the XACML and open source
+world. The Identity Server supports XACML 3.0, which is based on <a href="https://github.com/wso2/balana">Balana
+XACML implementation</a> . As the source
+code, distribution and documentation are available for free, it is
+possible to analyze and understand the architecture behind it. You can
+find source code from
+<a href="https://svn.wso2.org/repos/wso2/trunk/commons/balana/">here</a> .</p>
+<p>This section provides some information regarding the architecture of the
+XACML engine (or the entitlement engine) of the WSO2 Identity Server.</p>
+<p>The XACML engine of the WSO2 Identity Server has two major components,
+i.e., PAP and PDP. The section below focuses on Policy Decision
+Point (PDP).</p>
+<p>The following diagram represents the component architecture of the PDP.</p>
+<p><img alt="Component architecture of the policy decision point" src="../../assets/img/concepts/xacml-engine-architecture.png" /></p>
+<p>The following provides a more detailed information on the various
+components available in the PDP architecture.</p>
+<p><strong>Entitlement Admin Service</strong></p>
+<p>All PDP configurations are exposed via this API as a Web service which
+you need to have certain privileges to access. The following functions
+can be done by calling this API.</p>
+<ul>
+<li>Invalidating caches</li>
+<li>Refreshing policy, attribute, resource finder modules</li>
+<li>Retrieving PDP configurations</li>
+<li>Includes the function for testing the Test PDP with a given sample
+    request or a sample request with given policies</li>
+</ul>
+<p><strong>Entitlement Service</strong></p>
+<p>Actual XACML authorization API is exposed via this API as a Web service.
+This service supports the following three communication methods with
+PEP.</p>
+<ul>
+<li>SOAP-based Web service</li>
+<li>Thrift binary protocol (this is much faster than SOAP)</li>
+<li>WS-XACML (This is the standard way but not popular)</li>
+</ul>
+<p><strong>Balana PDP</strong></p>
+<p>This is the core of the engine. Balana PDP has been initialized with all
+the attribute finders, resource finders and policy finder modules that
+are plugged with WSO2 Identity Server.</p>
+<p><strong>Balana Test PDP</strong></p>
+<p>This is same as Balana PDP. However, this instance has been initialized
+with the PAP policy store. It means, policies that are defined by PAP
+can be evaluated by using this PDP instance. There is no policy caching
+or decision caching with this. Therefore, this can only be used for
+testing your policies in the PAP store. Web service API for Balana Test
+PDP is exposed via the Entitlement Admin Service with method name
+“doTestRequest()”.</p>
+<p><strong>Carbon Policy Finder</strong></p>
+<p>This module finds policies from different policy stores to evaluate a
+XACML request. The following is a high-level diagram of how this works.</p>
+<p><img alt="Carbon policy finder" src="../../assets/img/concepts/carbon-policy-finder.png" /></p>
+<p>Any number of policy finder modules can be plugged with the Carbon
+policy finder. You need to implement the CarbonPolicyFinderModule
+interface to write a new module and register it using the configuration
+file called <code>entitlement.properties.xml</code> in 
+<code>&lt;IS_HOME&gt;/repository/components/features/org.wso2.carbon.identity.xacml.server_5.8.145 directory</code>
+. By default, WSO2 Identity Server is shipped with a Carbon
+registry-based policy finder module that can retrieve policies from a
+registry collection, where the collection path is configurable using a
+property value in the entitlement.properties.xml file.</p>
+<p>All modules are initialized and policies are loaded into memory when the
+Carbon policy finder is used. Loaded policies are kept as a policy
+collection where you can use your own implementation to access them. A
+written policy collection implementation can be registered using the
+entitlement.properties.xml file. The default implementation uses an
+in-memory cache and creates an effective policy for a given XACML
+request.</p>
+<p>Therefore, the Carbon policy finder always finds effective policies from
+the policy collection where it is recommended to be kept in-memory.
+However, if any update in the policy store happens, the Carbon policy
+finder can be re-initialized automatically by the module that you have
+written, or you can re-initialize it by using the Web service API
+(Entitlement Admin Service). Alternatively, you can do it manually using
+the Identity Server Management Console.</p>
+<p>When you are writing a new module, you need to consider the following in
+addition to policy retrieving and re-initializing.</p>
+<ul>
+<li>Policy ordering - The order which policies are evaluated.</li>
+<li>
+<p>Policy combining algorithm</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are <strong>Policy Combining Algorithms</strong> which are used by <em>Policy
+Sets</em> and <strong>Rule Combining Algorithms</strong> which are used by <em>Policies</em>
+. Each of the algorithms mentioned below has its Policy Combining
+algorithm and its Rule Combining algorithms as follows:</p>
+<ul>
+<li>Standard combining algorithms defined in XACML 3.0:<ul>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:rule-combining-algorithm:deny-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:policy-combining-algorithm:deny-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:rule-combining-algorithm:permit-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:policy-combining-algorithm:permit-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:rule-combining-algorithm:first-applicable</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:policy-combining-algorithm:first-applicable</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:policy-combining-algorithm:only-one-applicable</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:rule-combining-algorithm:ordered-deny-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:policy-combining-algorithm:ordered-deny-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:rule-combining-algorithm:ordered-permit-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:policy-combining-algorithm:ordered-permit-overrides</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:rule-combining-algorithm:deny-unless-permit</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:rule-combining-algorithm:permit-unless-deny</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:policy-combining-algorithm:deny-unless-permit</li>
+<li>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:policy-combining-algorithm:permit-unless-deny</li>
+</ul>
+</li>
+</ul>
+<p>These algorithms are explained in detail as follows,</p>
+<ul>
+<li>
+<p><strong>Deny Overrides:</strong><br />
+    This combining algorithm combines decisions in such a way that
+    if any decision is a Deny, then that decision wins.<br />
+    Deny overrides is one of the safest combining algorithms since
+    it favors a Deny decision. However, if none of the children
+    return a Deny decision, then the combining algorithm will never
+    produce a Deny.  </p>
+</li>
+<li>
+<p><strong>Permit Overrides:</strong><br />
+    This combining algorithm combines decisions in such a way that
+    if any decision is a Permit, then that decision wins.</p>
+</li>
+</ul>
+<p>The permit overrides combining algorithm can be interesting when:</p>
+<p>At least one child must return a Permit for access to be granted
+overall regardless of restrictions.</p>
+<p>One wants to return all the reasons why access is being denied. This
+is what one could call a “greedy deny overrides”.Forinstanceifthe
+reason for not being able to view a resource is that(a) you are not
+the owner and (b) you are in the wrong department, then we could
+rework the previous example as follows. When any of the deny reason
+triggers, the response would be denied with all the applicable
+reasons for access being denied:</p>
+<ul>
+<li>
+<ul>
+<li>Policy Set (deny overrides): role==manager AND action==view
+        AND resourceType==resource
+        -   Policy 1 (permit overrides)
+            -   Rule 1: deny if resourceOwner != userId +
+                Advice(“you are not the owner of the resource”)
+            -   Rule 2: deny if rsourceDepartment != userDepartment+
+                Advice(“you are not in the same department as the
+                resource)
+        -   Policy 2
+            -   Rule 1: permit</li>
+</ul>
+</li>
+</ul>
+<!-- -->
+
+<ul>
+<li><strong>First Applicable:</strong><br />
+    This combining algorithm combines decisions in such a way that
+    the final decision returned is the first one produced either of
+    Permit or Deny. **<br />
+    **<br />
+    First applicable is useful to shortcut policy evaluation. For
+    instance, if a policy set contains a long series of not
+    applicable policies and one applicable policy which returns
+    either of Permit or Deny, then if that policy comes first and
+    does produce Permit or Deny, the PDP will stop there and not
+    process the other siblings.  </li>
+</ul>
+<p><strong><br />
+</strong></p>
+<ul>
+<li><strong>Deny Unless Permit | Permit Unless Deny:</strong>  </li>
+</ul>
+<pre><code>In XACML there are 4 possible decisions: Permit, Deny,
+NotApplicable, and Indeterminate. Sometimes, it is desirable to
+hide the NotApplicable and Indeterminate decisions to only allow
+for Permit or Deny. It makes the PEP logic potentially simpler.
+</code></pre>
+<p><strong><br />
+</strong></p>
+<ul>
+<li><strong>Only One Applicable:</strong></li>
+</ul>
+<p>This combining algorithm exists only for policy sets to combine
+policy sets and policies. It cannot be used to combine rules. With
+this combining algorithm, in order for either of a Permit or Deny to
+be returned, then only one of the children must produce a valid
+decision – whether Deny or Permit.</p>
+<ul>
+<li><strong>Ordered Deny Overrides | Ordered Permit Overrides:</strong><br />
+    The ordered combining algorithms combine decisions in the same
+    way as their (unordered) cousins. In, addition they bring the
+    guarantee that policies, policy sets, and rules are considered
+    in the order in which they are defined. The need to define an
+    ordered combining algorithm stems from the fact the XACML
+    specification does not specify whether order matters in the
+    deny-overrides and permit-overrides combining algorithms.</li>
+</ul>
+</div>
+</li>
+</ul>
+<!-- -->
+
+<ul>
+<li>How to retrieve referenced policies</li>
+</ul>
+<p><strong>Carbon Attribute Finder</strong></p>
+<p>This module helps to find the missing attribute for a given XACML
+request. The following is the high-level diagram for both the Carbon
+attribute and resource finders.</p>
+<p><img alt="Carbon attribute finder" src="../../assets/img/concepts/carbon-attribute-finder.png" /></p>
+<p>Any number of PIP attribute finder modules can be plugged with the
+Carbon attribute finder. You need to implement the PIPAttributeFinder
+interface to write a new module and register it using the
+entitlement.properties configuration file. By default, WSO2 Identity
+Server is shipped with a DefaultAttributeFinder that communicates with
+the underlying user store of the Identity Server. The default user store
+of the Identity Server is ApacheDS where it can be changed using
+user-mgt.xml file. See <a href="https://docs.wso2.com/display/IS570/Configuring+the+Realm">Configuring the
+Realm</a> for
+more information.</p>
+<p>All modules would be initialized and supported attribute Ids are
+retrieved for each module. During runtime, the Carbon attribute finder
+checks for the support attribute Id and hands it over to the proper
+module to handle. A caching machine is used by the Carbon attribute
+finder for caching the findings or the attribute finder module itself
+can handle it.</p>
+<p><strong>Carbon Resource Finder</strong></p>
+<p>This is used to retrieve children or descendant resources of a given
+root level resource value. Basically, it is used to fulfill the
+requirement of a multiple decision profile. The implementation is same
+as the PIP attribute finder module. By default, WSO2 Identity Server is
+shipped with DefaultResourceFinder (which is the implementation of
+PIPResourceFinder) that communicates with Carbon registry resources.</p>
+<hr />
+<h3 id="xacml-policy-language-structure-and-syntax">XACML policy language structure and syntax<a class="headerlink" href="#xacml-policy-language-structure-and-syntax" title="Permanent link">&para;</a></h3>
+<p>In order to render an authorization decision , it is possible to combine
+the two separate policies to form the single policy applicable to the
+request.</p>
+<p>XACML defines three top-level policy elements:</p>
+<ul>
+<li>Element that contains a <em>boolean</em> expression that can be
+    evaluated in isolation, but that is not intended to be accessed in
+    isolation by a PDP .  So, it is not intended to form the basis of an
+    authorization decision by itself.  It is intended to exist in
+    isolation only within an XACML PAP , where it may form the basic
+    unit of management.  </li>
+<li>Element that contains a set of elements and a specified procedure
+    for combining the results of their evaluation.  It is the basic unit
+    of policy used by the PDP , and so it is intended to form the basis
+    of an authorization decision.  </li>
+<li>Element that contains a set of or other elements and a specified
+    procedure for combining the results of their evaluation.  It is the
+    standard means for combining separate policies into a single
+    combined policy .</li>
+</ul>
+<p>As XACML is used in Attribute-based Access Controlling, in XACML all the
+attributes are categorized into the following four main categories: But
+from XACML 3.0, custom categories are also supported.</p>
+<ul>
+<li>Subject</li>
+<li>Resource</li>
+<li>Action</li>
+<li>Environment</li>
+</ul>
+<p>A Rule is the most elementary unit of policy .  It may exist in
+isolation only within one of the major actors of the XACML domain. The
+main components of a Rule are as follows:</p>
+<ul>
+<li>This defines the set of requests to which the rule is intended to
+    apply in the form of a logical expression on attributes in the
+    request.</li>
+<li>The effect of the rule indicates the rule -writer's intended
+    consequence of a "True" evaluation of the rule .  Two values are
+    allowed: "Permit" and "Deny".</li>
+<li>A Boolean expression that refines the applicability of the rule
+    beyond the predicates implied by its target .  Therefore, it may be
+    absent.</li>
+<li>Obligation expressions may be added by the writer of the policy.
+    When a PDP evaluates a policy containing obligation expressions, it
+    evaluates the obligation expressions into obligations and returns
+    certain of those obligations to the PEP in the response context.</li>
+<li>&lt; <code>AttributeSelector</code> &gt; - This allows the
+    policy to specify an attribute with given identifier, category and
+    data type. The AttributeSelector on the other hand, provides a mean
+    to lookup the value of attributes using a XPath query by specifying
+    the data type and XPath expression. Attribute selectors are then
+    executed against the XML content that may have been sent along in
+    the initial XACML request.</li>
+</ul>
+<p>A sample XACML 3.0 policy is as follows:</p>
+<pre><code class="xml">&lt;Policy xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; PolicyId=&quot;samplePolicy&quot; RuleCombiningAlgId=&quot;urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-overrides&quot; Version=&quot;1.0&quot;&gt;
+    &lt;Target&gt;
+        &lt;AnyOf&gt;
+            &lt;AllOf&gt;
+                &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                    &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;read&lt;/AttributeValue&gt;
+                    &lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;true&quot;/&gt;
+                &lt;/Match&gt;
+            &lt;/AllOf&gt;
+        &lt;/AnyOf&gt;
+    &lt;/Target&gt;
+    &lt;Rule Effect=&quot;Permit&quot; RuleId=&quot;permit&quot;/&gt;
+&lt;/Policy&gt;
+</code></pre>
+
+<h3 id="improvements-in-xacml-30">Improvements in XACML 3.0<a class="headerlink" href="#improvements-in-xacml-30" title="Permanent link">&para;</a></h3>
+<p>The XACML 3.0 core specification highlights the following main changes
+in comparison with XACML 2.0.</p>
+<h4 id="custom-attribute-categories">Custom attribute categories<a class="headerlink" href="#custom-attribute-categories" title="Permanent link">&para;</a></h4>
+<p>Custom attribute categories can be defined with XACML 3.0. However, in
+XACML 2.0, attributes have been organized into subject, resource,
+environment or action. For instance, lets's say that you want to create
+an attribute category called “foo” in your policy and request. You can
+do it with XACML 3.0 easily. According to the XACML 3.0 policy schema,
+the category of XACML element is identified by a XML attribute called “
+<code>Category</code> ”.</p>
+<p>In XACML 2.0 Policy, you can define the attribute designator element as
+follows, However, it must be a pre-defined category such as subject,
+resource, environment or action.</p>
+<pre><code class="java">&lt;ResourceAttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+</code></pre>
+
+<p>In a XACML 3.0 Policy, you can define it as follows.
+<code>Category</code> can be anything as it is defined as an
+attribute of the <code>AttributeDesignator</code> element.</p>
+<pre><code class="java">&lt;AttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; Category=&quot;resource&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+</code></pre>
+
+<h4 id="improvements-in-obligation">Improvements in <code>Obligation</code><a class="headerlink" href="#improvements-in-obligation" title="Permanent link">&para;</a></h4>
+<p>In general, obligations can have the following:</p>
+<ul>
+<li>An Obligation has an identifier, which is used to distinguish
+    different types of obligations</li>
+<li>An Obligation can have arguments</li>
+<li>Obligations apply to Permit (or Deny) decisions only</li>
+</ul>
+<p>A PDP will return, as part of a Permit or Deny response, a (possibly
+empty) subset of the obligations that appear in the policy.</p>
+<p>There are several improvements with Obligations in XACML 3.0 when
+compared to 2.0.</p>
+<p>One of the main improvements is the introduction of <strong>Obligation
+Expressions</strong> . This adds dynamic expressions into the obligation
+statements. For a more in-depth understanding, see the following
+example:</p>
+<p>Let's assume that you want to do following with the Obligation: “On
+deny, inform the PEP to send an email to the user”.</p>
+<p>In XACML 2.0, you need to define the obligation element with the user
+email statically.</p>
+<pre><code class="java">&lt;Obligation ObligationId=&quot;send-email&quot; FulfillOn=&quot;Deny&quot;&gt;
+    &lt;AttributeAssignment AttributeId=&quot;email&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;user@foo.com&lt;/AttributeAssignment&gt;
+&lt;/Obligation&gt;
+</code></pre>
+
+<p>However, the user may not be same for each XACML request that is
+evaluated. Therefore it is not possible to configure the email
+statically in the <code>Obligation</code> element. Obligation can
+only inform PEP to send an email to user (it lets the PEP figure out the
+value of user’s email).</p>
+<pre><code class="java">&lt;Obligation ObligationId=&quot;send-email&quot; FulfillOn=&quot;Deny&quot;&gt;
+    &lt;AttributeAssignment AttributeId=&quot;text&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;please send email to user&lt;/AttributeAssignment&gt;
+&lt;/Obligation&gt;
+</code></pre>
+
+<p>However, in XACML 3.0, the email of each user can be retrieved using PIP
+in dynamically as we can define an expression element inside the
+<code>ObligationExpression</code> . Therefore, obligation can
+inform PEP to send an email to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#117;&#115;&#101;&#114;&#64;&#102;&#111;&#111;&#46;&#99;&#111;&#109;">&#117;&#115;&#101;&#114;&#64;&#102;&#111;&#111;&#46;&#99;&#111;&#109;</a> address.</p>
+<pre><code class="java">&lt;ObligationExpression ObligationId=&quot;send-email&quot; FulfillOn=&quot;Deny&quot;&gt;
+    &lt;AttributeAssignmentExpression AttributeId=&quot;email&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;
+        &lt;AttributeDesignator AttributeId=&quot;email&quot; Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot; MustBePresent=&quot;false&quot;/&gt;
+    &lt;/AttributeAssignmentExpression&gt;
+&lt;/ObligationExpression&gt;
+</code></pre>
+
+<p>In XACML 2.0, obligations can only be added to policies and policy sets.
+However, with XACML 3.0, rules can also contain obligations. At the root
+of all XACML policies, is a policy or a policy set . A policy represents
+a single access control policy, expressed through a set of rules. A
+policy set is a container that can hold other policies or policy sets,
+as well as references to policies found in remote locations.</p>
+<h4 id="introducing-advice">Introducing <code>Advice</code><a class="headerlink" href="#introducing-advice" title="Permanent link">&para;</a></h4>
+<p><code>Advice</code> is a newly introduced feature with XACML 3.0.
+Advice is similar to obligations and it shares much of its syntax. The
+difference is contractual: the PEP can disregard any advice it receives.
+PEPs do not have to comply with advice statements; PEPs can consider or
+discard the statement. A common scenario is to explain why something was
+denied: “User bob is denied because he does not have a valid email”.</p>
+<p>The XACML specification says that any advice returned with a decision
+can be safely ignored by compliant PEPs. This means that PEPs should
+work as described in the previous section, regardless of what the PEP
+does with the advice it may receive. For example, a PEP must allow
+access if it receives a Permit decision with no obligations, regardless
+of any advice in the decision.</p>
+<h4 id="improvements-in-target">Improvements in <code>Target</code><a class="headerlink" href="#improvements-in-target" title="Permanent link">&para;</a></h4>
+<p>Since it is possible to define custom attribute categories, there are
+improvements in some related elements in the XACML 3.0 policy, when
+compared to 2.0. With XACML 3.0, the <code>Target</code> element
+can be used to define more complex authorization logic within itself
+when compared with 2.0.</p>
+<p>In XACML 2.0, the <code>Target</code> element contains the OR and
+AND relationship between the same category. However, in XACML 3.0,
+<code>AllOf</code> and <code>AnyOf</code> elements have been
+introduced to <code>Target</code> element. That clearly helps to
+define the OR and AND relationship between different categories.</p>
+<p>As an example, let's look at a <code>Target</code> element. In
+XACML 2.0, we have an <code>AND</code> relationship between
+<strong>foo1</strong> and <strong>foo2</strong> resources and an <code>OR</code>
+relationship between <strong>bar1</strong> and <strong>bar2</strong> actions. However, we cannot
+create an <code>OR</code> relationship between a <strong>foo1</strong> resource
+and <strong>bar1</strong> action. so we cannot define something such as “Target would
+be matched when Bob can access the <strong>foo</strong> resource or do a <strong>bar</strong>
+action” by using the <code>Target</code> element.</p>
+<pre><code class="java">&lt;Target&gt;
+     &lt;Resources&gt;
+         &lt;Resource&gt;
+             &lt;ResourceMatch MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;foo1&lt;/AttributeValue&gt;
+                 &lt;ResourceAttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/ResourceMatch&gt;
+             &lt;ResourceMatch MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;foo2&lt;/AttributeValue&gt;
+                 &lt;ResourceAttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/ResourceMatch&gt;
+         &lt;/Resource&gt;
+     &lt;/Resources&gt;
+     &lt;Actions&gt;
+         &lt;Action&gt;
+             &lt;ActionMatch MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;bar1&lt;/AttributeValue&gt;
+                 &lt;ActionAttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/ActionMatch&gt;
+         &lt;/Action&gt;
+         &lt;Action&gt;
+             &lt;ActionMatch MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;bar2&lt;/AttributeValue&gt;
+                 &lt;ActionAttributeDesignator AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/ActionMatch&gt;
+         &lt;/Action&gt;
+     &lt;/Actions&gt;
+&lt;/Target&gt;
+</code></pre>
+
+<p>XACML 3.0 has an <code>AND</code> relationship between “ <strong>foo</strong> ”
+resource and “ <strong>bar1</strong> ″ role and an <code>OR</code> relationship
+between “ <strong>bar2</strong> ″ action. So we cannot define something as “Target
+would be matched, when Bob can access <strong>foo</strong> resource and do <strong>bar1</strong>
+action or do <strong>bar2</strong> action”.</p>
+<pre><code class="java">&lt;Target&gt;
+     &lt;AnyOf&gt;
+         &lt;AllOf&gt;
+             &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-regexp-match&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;foo&lt;/AttributeValue&gt;
+                 &lt;AttributeDesignator MustBePresent=&quot;false&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/Match&gt;
+             &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;bar1&lt;/AttributeValue&gt;
+                 &lt;AttributeDesignator MustBePresent=&quot;false&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;
+ AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/Match&gt;
+         &lt;/AllOf&gt;
+         &lt;AllOf&gt;
+             &lt;Match MatchId=&quot;urn:oasis:names:tc:xacml:1.0:function:string-equal&quot;&gt;
+                 &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;bar2&lt;/AttributeValue&gt;
+                 &lt;AttributeDesignator MustBePresent=&quot;false&quot; Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;
+ AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot; DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;/&gt;
+             &lt;/Match&gt;
+         &lt;/AllOf&gt;
+     &lt;/AnyOf&gt;
+&lt;/Target&gt;
+</code></pre>
+
+<h4 id="more-functions-and-algorithms">More Functions and Algorithms<a class="headerlink" href="#more-functions-and-algorithms" title="Permanent link">&para;</a></h4>
+<p>XACML3 has introduced new String functions such as:</p>
+<ul>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:string-starts-with</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:string-ends-with</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:string-contains</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:string-substring</code></li>
+</ul>
+<p>Some improvements to other functions such as:</p>
+<ul>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:dayTimeDuration-equal</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:yearMonthDuration-equal</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:function:dateTime-add-dayTimeDuration</code></li>
+</ul>
+<p>Also improvements to existing combine algorithms (deny-overrides,
+permit-overrides, ordered-deny-overrides and ordered-permit-overrides)
+and new two combine algorithms for policy and rule combining.</p>
+<ul>
+<li><code>urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:deny-unless-permit</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:deny-unless-permit</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:rule-combining-algorithm:permit-unless-deny</code></li>
+<li><code>urn:oasis:names:tc:xacml:3.0:policy-combining-algorithm:permit-unless-deny</code></li>
+</ul>
+<h4 id="improvements-in-xpath">Improvements in XPath<a class="headerlink" href="#improvements-in-xpath" title="Permanent link">&para;</a></h4>
+<p>New XPath data type is introduced with XACML 3.0. In XACML 2.0, XPath is
+defined as a String and cannot define the context that the namespace
+prefix is going to resolve. Also XPath based multiple decisions scheme
+is introduced with XACML 3.0.</p>
+<h4 id="improvement-in-xacml-request-and-response">Improvement in XACML Request and Response<a class="headerlink" href="#improvement-in-xacml-request-and-response" title="Permanent link">&para;</a></h4>
+<p>As it is possible to define custom attribute categories, many types of
+attribute categories can be in the XACML 3.0 request. XACML 2.0 request
+can contain only subject, resource, environment or action categories.</p>
+<p>The XACML Response can contain additional data such as:</p>
+<ul>
+<li>Request attributes that are defined in the XACML response.</li>
+<li>Applicable policy ids for a given XACML request are defined in the
+    XACML response.</li>
+</ul>
+<h4 id="xacml-30-multiple-decision-profile">XACML 3.0 Multiple Decision Profile<a class="headerlink" href="#xacml-30-multiple-decision-profile" title="Permanent link">&para;</a></h4>
+<p>This is a useful profile that allows you to request more than one access
+control decision in a single XACML request context, and also allows you
+to request a single combined decision based on multiple individual
+decisions.</p>
+<p>The <a href="http://docs.oasis-open.org/xacml/3.0/xacml-3.0-multiple-v1-spec-cd-03-en.html">XACML 3.0 Multiple Decision
+Profile</a>
+(MDP) is particularly useful in scenarios where the PEP needs to request
+decisions for multiple requests in one XACML request, and provides a
+considerable improvement in performance between the PEP and the PDP in
+such scenarios.</p>
+<p>For a set of tutorials that demonstrate how to work with XACML MDP
+requests in WSO2 Identity Server, see <a href="https://docs.wso2.com/display/IS570/Working+with+XACML+Multiple+Decision+Profile+Requests">Working with XACML Multiple
+Decision Profile
+Requests</a>
+.</p>
+<h4 id="xacml-30-json-profile">XACML 3.0 JSON Profile<a class="headerlink" href="#xacml-30-json-profile" title="Permanent link">&para;</a></h4>
+<p>This is a new profile that provides a standardized interface between
+the PEP and the PDP using JSON. The decision request and response
+structure is specified in the core XACML specification.</p>
+<p>With the introduction of the <a href="http://docs.oasis-open.org/xacml/xacml-json-http/v1.0/xacml-json-http-v1.0.html">XACML 3.0 JSON
+profile</a>
+, WSO2 Identity Server supports the JSON format in addition to the
+default XML format with regard to XACML 3.0 requests and responses.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>WSO2 Identity Server also supports <a href="https://docs.wso2.com/display/IS570/Working+with+MDP+Requests+in+JSON+Format">working with XACML MDP requests and
+responses in JSON
+format</a>
+.</p>
+</div>
+<p>Following are some of the key points to keep in mind when you work with
+XACML 3.0 JSON requests and responses via WSO2 Identity Server:</p>
+<ul>
+<li>
+<p>Certain parts of JSON requests and responses have default values to
+    avoid bloating. For example, the default value of the data-type of
+    an attribute should be
+    <a href="https://www.w3.org/2001/XMLSchema#string">string</a> .</p>
+</li>
+<li>
+<p>The name of the XACML XML attribute element has changed to the
+    category object in JSON so that it is possible to call the parent
+    element.</p>
+</li>
+<li>
+<p>The <code>&lt;AttributeValue&gt;</code> element in the XML
+    representation no longer exists. Instead a value property is
+    introduced to the attribute object.</p>
+</li>
+<li>The <code>AdviceId</code> and the
+    <code>ObligationId</code> attributes of
+    <code>&lt;Advice/&gt;</code> and
+    <code>&lt;Obligation/&gt;</code> XML elements are renamed to
+    <code>Id</code> in JSON.</li>
+<li>The order of objects and values in the serialized form (JSON) does
+    not matter in XACML.</li>
+<li>
+<p>You can use the short name of identifiers instead of the URI.
+    Following are the supported identifier URIs and the short name for
+    each:</p>
+<table>
+<thead>
+<tr>
+<th>Identifier URI</th>
+<th>Short name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:resource</td>
+<td>Resource</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:action</td>
+<td>Action</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:environment</td>
+<td>Environment</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:access-subject</td>
+<td>AccessSubject</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:recipient-subject</td>
+<td>RecipientSubject</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:intermediary-subject</td>
+<td>IntermediarySubject</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:codebase</td>
+<td>Codebase</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:3.0:attribute-category:requesting-machine</td>
+<td>RequestingMachine</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The JSON format supports the fully qualified XACML data-type URI,
+    and also supports the short name of the data-type.</p>
+<table>
+<thead>
+<tr>
+<th>XACML data type identifier</th>
+<th>JSON shorthand type code</th>
+<th>Mapping/inference rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#string</code></td>
+<td>string</td>
+<td>JSON "String"</td>
+</tr>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#boolean</code></td>
+<td>boolean</td>
+<td>JSON "Boolean"</td>
+</tr>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#integer</code></td>
+<td>integer</td>
+<td>JSON "Number" without a fractional portion, and within the integer range defined by the XML schema in [XMLDatatypes]</td>
+</tr>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#double</code></td>
+<td>double</td>
+<td>JSON "Number" with a fractional portion, or out of the integer range defined by the XML schema in [XMLDatatypes]</td>
+</tr>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#time</code></td>
+<td>time</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#date</code></td>
+<td>date</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td><code>http://www.w3.org/2001/XMLSchema#dateTime</code></td>
+<td>dateTime</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>http://www.w3.org/2001/XMLSchema#dayTimeDuration</td>
+<td>dayTimeDuration</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>http://www.w3.org/2001/XMLSchema#yearMonthDuration</td>
+<td>yearMonthDuration</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>http://www.w3.org/2001/XMLSchema#anyURI</td>
+<td>anyURI</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>http://www.w3.org/2001/XMLSchema#hexBinary</td>
+<td>hexBinary</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>http://www.w3.org/2001/XMLSchema#base64Binary</td>
+<td>base64Binary</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:data-type:rfc822Name</td>
+<td>rfc822Name</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:data-type:x500Name</td>
+<td>x500Name</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:data-type:ipAddress</td>
+<td>ipAddress</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:data-type:dnsName</td>
+<td>dnsName</td>
+<td>None. Inference must fail.</td>
+</tr>
+<tr>
+<td>urn:oasis:names<img alt="🇹🇨" class="emojione" src="https://cdn.jsdelivr.net/emojione/assets/svg/1f1f9-1f1e8.svg" title=":tc:" />xacml:1.0:data-type:xpathExpression</td>
+<td>xpathExpression</td>
+<td>None. Inference must fail.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><code>xpathExpression</code> data-type values are
+    represented as JSON objects, and each object contains the following
+    properties:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>XPathCategory</td>
+<td>URI</td>
+<td>Yes. You can use the <a href="#AccessControlandEntitlementManagement-shortName">short names defined for identifier URIs</a> as values here.</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Namespaces</td>
+<td>Array of namespace declarations</td>
+<td>No</td>
+<td>None</td>
+</tr>
+<tr>
+<td>XPath</td>
+<td>String</td>
+<td>Yes</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The namespaces property should contain the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Prefix</td>
+<td>String</td>
+<td>No</td>
+<td>None</td>
+</tr>
+<tr>
+<td>Namespace</td>
+<td>URI</td>
+<td>Yes</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Following is a sample JSON attribute format that contains the fully
+qualified XACML data-type URI:</p>
+<p><code>java
+{
+    "Attribute": {
+       "AttributeId": "urn:oasis:names:tc:xacml:3.0:content-selector",
+       "DataType": "xpathExpression",
+       "Value": {
+               "XPathCategory": "urn:oasis:names:tc:xacml:3.0:attribute-category:resource",
+               "Namespaces": [{
+                       "Namespace":   "urn:oasis:names:tc:xacml:3.0:core:schema:wd-17"
+                       }, {
+                       "Prefix": "md",
+                       "Namespace":   "urn:example:med:schemas:record"
+                           }],
+               "XPath":"md:record/md:patient/md:patientDoB"
+        }
+   }
+}</code></p>
+</li>
+<li>
+<p>The <code>MultiRequests</code> object is optional in the
+    JSON representation of XACML. The purpose of the
+    <code>MultiRequests</code> object is to support the XACML
+    multiple decision profile.</p>
+</li>
+<li>
+<p>The JSON attribute object contains an array of attribute objects.
+    The attribute object contains the following properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AttributeId</td>
+<td>URI</td>
+<td>Yes</td>
+<td>None. The identifier used in the XML representation of a XACML attribute will be used in its JSON representation</td>
+</tr>
+<tr>
+<td>Value</td>
+<td>Either string, boolean, number (this maps to either a XACML integer or double as defined in supported data types), object, array of strings, array of boolean, Array of number, array of object, or a mixed array of string and number where the string values represents a numerical value.</td>
+<td>Yes</td>
+<td>None.</td>
+</tr>
+<tr>
+<td>Issuer</td>
+<td>String</td>
+<td>No</td>
+<td>Null</td>
+</tr>
+<tr>
+<td>Data Type</td>
+<td>URI</td>
+<td>No</td>
+<td>The data type value can be omitted in the JSON representation. The default value is <code>http://www.w3.org/2001/XMLSchema#string</code> .</td>
+</tr>
+<tr>
+<td>IncludeInResult</td>
+<td>Boolean</td>
+<td>No</td>
+<td>False</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The results of the JSON request is represented by the decision
+    object in the form of a JSON Object. This can have following
+    properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property name</th>
+<th>Type</th>
+<th>Required</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Decision</td>
+<td>String</td>
+<td>Yes. Possible values are: Permit, Deny, NotApplicable, Indeterminate</td>
+<td>None.</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>The results can have the <code>status</code> ,
+    <code>obligations</code> ,
+    <code>associatedAdvice</code> ,
+    <code>category</code> , and
+    <code>policyIdentifierList</code> , which are optional.</p>
+</li>
+</ul>
+<p>Following is a sample JSON request that you can try out with WSO2
+Identity Server:</p>
+<pre><code class="java">{
+   &quot;Request&quot;: {
+      &quot;AccessSubject&quot;: {
+         &quot;Attribute&quot;: [
+            {
+               &quot;AttributeId&quot;: &quot;subject-id&quot;,
+               &quot;Value&quot;: &quot;sam&quot;,
+               &quot;DataType&quot;: &quot;string&quot;,
+               &quot;IncludeInResult&quot;: true
+            }
+         ]
+      },
+
+      &quot;Resource&quot;: {
+         &quot;Attribute&quot;: [
+            {
+               &quot;AttributeId&quot;: &quot;resource-id&quot;,
+               &quot;Value&quot;: &quot;index.jsp&quot;,
+               &quot;DataType&quot;: &quot;string&quot;,
+               &quot;IncludeInResult&quot;: true
+            }
+         ]
+      },
+      &quot;Action&quot;: {
+            &quot;Attribute&quot;: [{
+                    &quot;AttributeId&quot;: &quot;action-id&quot;,
+                    &quot;Value&quot;: &quot;modify-welcome&quot;,
+                    &quot;DataType&quot;: &quot;string&quot;,
+                    &quot;IncludeInResult&quot;: true
+                }
+            ]
+        }
+
+   }
+}
+</code></pre>
+
+<p>Following is a sample XACML JSON response that you will get for the
+above request:</p>
+<pre><code class="java">{
+    &quot;Response&quot;: [
+        {
+            &quot;Decision&quot;: &quot;Deny&quot;,
+            &quot;Status&quot;: {
+                &quot;StatusCode&quot;: {
+                    &quot;Value&quot;: &quot;urn:oasis:names:tc:xacml:1.0:status:ok&quot;
+                }
+            },
+            &quot;AccessSubject&quot;: {
+                &quot;Attribute&quot;: [
+                    {
+                        &quot;AttributeId&quot;: &quot;subject-id&quot;,
+                        &quot;Value&quot;: &quot;dinali&quot;,
+                        &quot;IncludeInResult&quot;: &quot;true&quot;,
+                        &quot;DataType&quot;: &quot;string&quot;
+                    }
+                ]
+            },
+            &quot;Resource&quot;: {
+                &quot;Attribute&quot;: [
+                    {
+                        &quot;AttributeId&quot;: &quot;resource-id&quot;,
+                        &quot;Value&quot;: &quot;index.jsp&quot;,
+                        &quot;IncludeInResult&quot;: &quot;true&quot;,
+                        &quot;DataType&quot;: &quot;string&quot;
+                    }
+                ]
+            },
+            &quot;Action&quot;: {
+                &quot;Attribute&quot;: [
+                    {
+                        &quot;AttributeId&quot;: &quot;action-id&quot;,
+                        &quot;Value&quot;: &quot;modify-welcome&quot;,
+                        &quot;IncludeInResult&quot;: &quot;true&quot;,
+                        &quot;DataType&quot;: &quot;string&quot;
+                    }
+                ]
+            }
+        }
+    ]
+}
+</code></pre>
+
+<p>For a tutorial that demonstrate how WSO2 IS supports fine-grained
+authorization using XACML requests in JSON format, see <a href="https://docs.wso2.com/display/IS570/Fine-grained+Authorization+using+XACML+Requests+in+JSON+Format">Fine-grained
+Authorization using XACML Requests in JSON
+Format</a>
+.</p>
+<h4 id="administrative-delegation-profile">Administrative Delegation Profile<a class="headerlink" href="#administrative-delegation-profile" title="Permanent link">&para;</a></h4>
+<p>This is also a new profile that comes with XACML 3.0. This allows you to
+define policies about who can write policies about what. For
+example, “Bob may issue a policy but only about resources in department
+X”.</p>
+<h3 id="xacml-20-and-xacml-30-samples">XACML 2.0 and XACML 3.0 samples<a class="headerlink" href="#xacml-20-and-xacml-30-samples" title="Permanent link">&para;</a></h3>
+<p>The biggest difference between XACML 2.0 and XACML 3.0 for your client
+app is that the structure of the attributes in the authentication
+request has changed significantly in XACML 3.0.</p>
+<p>In XACML 2.0, attributes were organized into subject, resource,
+environment, or action categories using XML element tags:</p>
+<pre><code class="xml">&lt;Request  xmlns=&quot;urn:oasis:names:tc:xacml:2.0:context:schema:os&quot;
+          xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+          xsi:schemaLocation=&quot;urn:oasis:names:tc:xacml:2.0:context:schema:os  access_control-xacml-2.0-context-schema-os.xsd&quot;&gt;
+        &lt;Subject&gt;
+            &lt;Attribute
+                  AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot;
+                  DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;
+                &lt;AttributeValue&gt;Julius Hibbert&lt;/AttributeValue&gt;
+            &lt;/Attribute&gt;
+        &lt;/Subject&gt;
+        &lt;Resource&gt;
+            &lt;Attribute
+                  AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot;
+                  DataType=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&gt;
+                &lt;AttributeValue&gt;http://medico.com/record/patient/BartSimpson&lt;/AttributeValue&gt;
+            &lt;/Attribute&gt;
+        &lt;/Resource&gt;
+        &lt;Action&gt;
+            &lt;Attribute
+                  AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;
+                  DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;
+                &lt;AttributeValue&gt;read&lt;/AttributeValue&gt;
+            &lt;/Attribute&gt;
+        &lt;/Action&gt;
+        &lt;Environment/&gt;
+&lt;/Request&gt;
+</code></pre>
+
+<p>In XACML 3.0, these categories are indicated using XML attributes
+instead of XML element tags:</p>
+<pre><code class="xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Request xsi:schemaLocation=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17 http://docs.oasis-open.org/xacml/3.0/xacml-core-v3-schema-wd-17.xsd&quot; ReturnPolicyIdList=&quot;false&quot; CombinedDecision=&quot;false&quot; xmlns=&quot;urn:oasis:names:tc:xacml:3.0:core:schema:wd-17&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;
+  &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&quot;&gt;
+    &lt;Attribute IncludeInResult=&quot;false&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:subject:subject-id&quot;&gt;
+      &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;Julius Hibbert&lt;/AttributeValue&gt;
+    &lt;/Attribute&gt;
+  &lt;/Attributes&gt;
+  &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&quot;&gt;
+    &lt;Attribute IncludeInResult=&quot;false&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:resource:resource-id&quot;&gt;
+      &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#anyURI&quot;&gt;http://medico.com/record/patient/BartSimpson&lt;/AttributeValue&gt;
+    &lt;/Attribute&gt;
+  &lt;/Attributes&gt;
+  &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:action&quot;&gt;
+    &lt;Attribute IncludeInResult=&quot;false&quot; AttributeId=&quot;urn:oasis:names:tc:xacml:1.0:action:action-id&quot;&gt;
+      &lt;AttributeValue DataType=&quot;http://www.w3.org/2001/XMLSchema#string&quot;&gt;read&lt;/AttributeValue&gt;
+    &lt;/Attribute&gt;
+  &lt;/Attributes&gt;
+  &lt;Attributes Category=&quot;urn:oasis:names:tc:xacml:3.0:attribute-category:environment&quot; /&gt;
+&lt;/Request&gt;
+</code></pre>
+
+<p>The <code>&lt;Subject&gt;</code> element in XACML 2.0 becomes
+<code>&lt;Attributes Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"&gt;</code>
+in XACML 3.0, for example. This is the same for the resource,
+environment, and action categories.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../identity-provisioning-and-its-standards/" title="Identity Provisioning and its Standards" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Identity Provisioning and its Standards
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../identity-anti-patterns-and-the-identity-bus/" title="Identity Anti patterns and the Identity Bus" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Identity Anti patterns and the Identity Bus
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 Identity Server - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/wso2" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/wso2" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/wso2" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+        <script src="../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../assets/js/theme.js"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>

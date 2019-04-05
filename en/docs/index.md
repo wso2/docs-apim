@@ -1,3 +1,7 @@
+---
+template: templates/versions.html
+---
+
 <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
@@ -16,4 +20,55 @@
  * under the License.
 -->
 
-# Home Page
+### Current version (Stable)
+
+<table>
+    <tbody>
+        <tr>
+            <th id="current-version-number"><!-- latest-version --></th>
+            <td>
+                <a id="current-version-documentation-link">Documentation</a>
+            </td>
+            <td>
+                <a id="current-version-release-notes-link">Release Notes</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+This is the current stable version of the project.
+
+---
+
+### Pre-release versions
+These are the latest changes that have yet to be released.
+
+<table>
+    <tbody>
+        <tr>
+            <th>next</th>
+            <td>
+                <a id="pre-release-version-documentation-link">Documentation</a>
+            </td>
+            <td>
+                <a href="https://github.com/wso2/docs-is/tree/master" target="_blank">
+                    <div class="md-source-code-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24">
+                          <use xlink:href="#__github" width="24" height="24"></use>
+                        </svg>
+                    </div> Source Code
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+---
+
+### Past Versions
+
+<table>
+    <tbody id="previous-versions">
+        <!-- Will populate from the script -->
+    </tbody>
+</table>
