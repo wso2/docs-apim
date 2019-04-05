@@ -1,0 +1,116 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:ns="http://workflow.registeruser.apimgt.carbon.wso2.org" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://workflow.registeruser.apimgt.carbon.wso2.org">
+    <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="UTOverTransport">
+        <wsp:ExactlyOne>
+            <wsp:All>
+                <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:TransportToken>
+                            <wsp:Policy>
+                                <sp:HttpsToken RequireClientCertificate="false"></sp:HttpsToken>
+                            </wsp:Policy>
+                        </sp:TransportToken>
+                        <sp:AlgorithmSuite>
+                            <wsp:Policy>
+                                <sp:Basic256></sp:Basic256>
+                            </wsp:Policy>
+                        </sp:AlgorithmSuite>
+                        <sp:Layout>
+                            <wsp:Policy>
+                                <sp:Lax></sp:Lax>
+                            </wsp:Policy>
+                        </sp:Layout>
+                        <sp:IncludeTimestamp></sp:IncludeTimestamp>
+                    </wsp:Policy>
+                </sp:TransportBinding>
+                <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+                    <wsp:Policy>
+                        <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient"></sp:UsernameToken>
+                    </wsp:Policy>
+                </sp:SignedSupportingTokens>
+            </wsp:All>
+        </wsp:ExactlyOne>
+    </wsp:Policy>
+    <wsdl:documentation>UserSignUpService</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://workflow.registeruser.apimgt.carbon.wso2.org">
+            <xs:element name="registerUser">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="tenantDomain" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="workflowExternalRef" nillable="true" type="xs:string"></xs:element>
+                        <xs:element minOccurs="0" name="callBackURL" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="registerUserResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" nillable="true" type="xs:string"></xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="registerUserRequest">
+        <wsdl:part name="parameters" element="ns:registerUser"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="registerUserResponse">
+        <wsdl:part name="parameters" element="ns:registerUserResponse"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="UserSignUpServicePortType">
+        <wsdl:operation name="registerUser">
+            <wsdl:input message="ns:registerUserRequest" wsaw:Action="urn:registerUser"></wsdl:input>
+            <wsdl:output message="ns:registerUserResponse" wsaw:Action="urn:registerUserResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="UserSignUpServiceSoap11Binding" type="ns:UserSignUpServicePortType">
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#UTOverTransport"></wsp:PolicyReference>
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap:binding>
+        <wsdl:operation name="registerUser">
+            <soap:operation soapAction="urn:registerUser" style="document"></soap:operation>
+            <wsdl:input>
+                <soap:body use="literal"></soap:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"></soap:body>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="UserSignUpServiceSoap12Binding" type="ns:UserSignUpServicePortType">
+        <wsp:PolicyReference xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" URI="#UTOverTransport"></wsp:PolicyReference>
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"></soap12:binding>
+        <wsdl:operation name="registerUser">
+            <soap12:operation soapAction="urn:registerUser" style="document"></soap12:operation>
+            <wsdl:input>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"></soap12:body>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="UserSignUpServiceHttpBinding" type="ns:UserSignUpServicePortType">
+        <http:binding verb="POST"></http:binding>
+        <wsdl:operation name="registerUser">
+            <http:operation location="registerUser"></http:operation>
+            <wsdl:input>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="text/xml" part="parameters"></mime:content>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="UserSignUpService">
+        <wsdl:port name="UserSignUpServiceHttpsSoap11Endpoint" binding="ns:UserSignUpServiceSoap11Binding">
+            <soap:address location="https://localhost:9444/services/UserSignUpService.UserSignUpServiceHttpsSoap11Endpoint/"></soap:address>
+        </wsdl:port>
+        <wsdl:port name="UserSignUpServiceHttpsSoap12Endpoint" binding="ns:UserSignUpServiceSoap12Binding">
+            <soap12:address location="https://localhost:9444/services/UserSignUpService.UserSignUpServiceHttpsSoap12Endpoint/"></soap12:address>
+        </wsdl:port>
+        <wsdl:port name="UserSignUpServiceHttpsEndpoint" binding="ns:UserSignUpServiceHttpBinding">
+            <http:address location="https://localhost:9444/services/UserSignUpService.UserSignUpServiceHttpsEndpoint/"></http:address>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

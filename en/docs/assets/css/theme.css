@@ -1,0 +1,437 @@
+/*!
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+.md-main > .md-main__inner > .md-content {
+    -webkit-transition: margin 0.2s linear;
+    -khtml-transition: margin 0.2s linear;
+    -moz-transition: margin 0.2s linear;
+    -ms-transition: margin 0.2s linear;
+    transition: margin 0.2s linear;
+}
+
+.md-main .md-sidebar.md-sidebar--secondary {
+    -webkit-transition: width 0.2s linear;
+    -khtml-transition: width 0.2s linear;
+    -moz-transition: width 0.2s linear;
+    -ms-transition: width 0.2s linear;
+    transition: width 0.2s linear;
+}
+
+.md-header {
+    height: 2.6rem;
+}
+
+[data-md-color-primary=deep-orange] .md-header {
+    background-color: #ffffff;
+    color: #212121;
+    border-top: 4px solid #ff7043;
+}
+
+.md-header-nav__button.md-logo > img {
+    width: 60px;
+}
+
+.md-header__version-select {
+    width: 3.5rem;
+}
+
+.md-header__version-select .md-tabs__link.md-tabs__dropdown-link {
+    display: inline-block;
+    padding: .45rem;
+    margin-top: .3rem;
+    border-radius: .1rem;
+}
+
+.md-header__version-select .md-tabs__link.md-tabs__dropdown-link:hover,
+.md-header__version-select .mb-tabs__dropdown.open .md-tabs__link.md-tabs__dropdown-link {
+    background: #e2e2e2;
+    opacity: 1;
+}
+
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+    top: .8rem;
+}
+
+@media only screen and (min-width: 76.25em) {
+    [data-md-color-primary=deep-orange] .md-tabs {
+        background-color: #404040;
+    }
+}
+
+.md-search__input {
+    background-color: #dedede;
+}
+
+.md-search__input::placeholder {
+    color: #404040;
+}
+
+.md-nav-link-wrapper {
+    display: block;
+    margin-top: .625em;
+    transition: color .125s;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    overflow: hidden
+}
+
+.md-nav__item--nested > .md-nav-link-wrapper > .md-nav__link {
+    display: inline;
+}
+
+.md-nav__item--nested > .md-nav-link-wrapper > .md-nav__link:after {
+    content: "\E313";
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.md-nav__item--nested .md-nav__toggle:checked ~ .md-nav-link-wrapper > .md-nav__link:after {
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg)
+}
+
+[data-md-color-primary=deep-orange] .md-nav-link-wrapper a:focus,
+[data-md-color-primary=deep-orange] .md-nav-link-wrapper a:hover {
+    color: #ff7043;
+}
+
+.md-version-select {
+    width: 100%;
+    height: 2.5rem;
+    padding-left: .5rem;
+    transition: background-color .25s cubic-bezier(.1, .7, .1, 1), color .25s cubic-bezier(.1, .7, .1, 1);
+    background-color: rgba(0, 0, 0, .26);
+    color: inherit;
+    margin-bottom: 2rem;
+    border-radius: .2rem;
+}
+
+.md-tabs {
+    overflow: visible;
+}
+
+.mb-tabs__dropdown {
+    position: relative;
+}
+
+.md-tabs__dropdown-link:after {
+    font-family: Material Icons;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 400;
+    line-height: 1;
+    text-transform: none;
+    white-space: nowrap;
+    speak: none;
+    word-wrap: normal;
+    direction: ltr;
+    content: "\E313";
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: .2rem;
+}
+
+.mb-tabs__dropdown.group-select {
+    background-color: #737373;
+}
+
+.md-header__version-select {
+    overflow: visible;   
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content {
+    position: absolute;
+    left: 0;
+    top: 3.5em;
+    -webkit-transition: all .2s cubic-bezier(.680, 0, .265, 1);
+    transition: all .2s;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    -webkit-transform-origin: 0 0;
+    transform-origin: top left;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .16), 0 2px 8px 0 rgba(0, 0, 0, .12);
+    background: #fff;
+    font-size: 1.4rem;
+    color: #242424;
+    padding: 0;
+    z-index: 1;
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content .md-tabs__item {
+    padding: 0;
+}
+
+.mb-tabs__dropdown .mb-tabs__dropdown-content li {
+    display: block;
+    width: 100%;
+    opacity: 0;
+    transform: translate(-20px, 0);
+}
+
+.mb-tabs__dropdown.open .mb-tabs__dropdown-content li {
+    display: block;
+    transition: all .4s;
+    opacity: 1;
+    transform: translate(0, 0);
+  height: auto;
+}
+
+.mb-tabs__dropdown ul li a {
+    width: 100%;
+    padding: .5rem;
+    white-space: pre;
+    box-sizing: border-box;
+    display: block;
+    font-size: .7rem;
+}
+
+.mb-tabs__dropdown ul li a:hover {
+    background: #ebebeb;
+}
+
+.mb-tabs__dropdown.open .mb-tabs__dropdown-content {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    transition-timing-function: cubic-bezier(.680, 0, .265, 1);
+}
+
+.mb-config-catalog {
+    display: table;
+}
+
+.mb-config-catalog > section {
+    display: table-row;
+}
+
+.mb-config-catalog > section > .mb-config-options,
+.mb-config-catalog > section > .mb-config-example {
+    display: table-cell;
+}
+
+.mb-config-catalog > section:not(.title) > .mb-config-options {
+    border-bottom: 1px solid #f5f5f5;
+    padding-top: 1em;
+}
+
+.mb-config-catalog > section:last-child > .mb-config-options {
+    border-bottom: none;
+}
+
+.mb-config-catalog > section:not(.title) > .mb-config-example {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.mb-config-catalog > section.title > .mb-config-example {
+    display: none;
+}
+
+.mb-config-catalog .mb-config-example code,
+.mb-config-catalog .mb-config-example pre {
+    background-color: transparent;
+    margin: 0;
+}
+
+.mb-config-catalog .mb-config-example:hover .md-clipboard:before {
+    color: rgba(0, 0, 0, .54);
+}
+
+[data-md-color-accent=deep-orange] .mb-config-catalog .mb-config-example:hover .md-clipboard:active:before,
+[data-md-color-accent=deep-orange] .mb-config-catalog .mb-config-example:hover .md-clipboard:hover:before {
+    color: #ff6e40;
+}
+
+.mb-config-catalog > section.title > .mb-config-options > h2 {
+    margin-bottom: 1rem;
+}
+
+.mb-config-catalog > section > .mb-config-example {
+    background: #f5f5f5;
+    width: 35%;
+    padding: .5em;
+    vertical-align: top;
+}
+
+.mb-config-catalog > section > .mb-config-example code {
+    background: transparent;
+    box-shadow: none;
+    white-space: pre-line;
+}
+
+.mb-config-catalog .badge-required {
+    margin: 0 .29412em;
+    padding: .07353em .3em;
+    border-radius: .2rem;
+    background-color: #ff7043;
+    color: #fff;
+    font-size: 75%;
+}
+
+.mb-config-catalog .mb-config > .config-wrap {
+    margin-right: 1em;
+}
+
+.mb-config-catalog .mb-config > .params-wrap {
+    display: table;
+    width: 100%;
+}
+
+.mb-config-catalog .mb-config > .config-wrap > code {
+    font-weight: bold;
+    font-size: 105%;
+}
+
+.mb-config-catalog .mb-config .param {
+    display: table-row;
+}
+
+.mb-config-catalog .mb-config .param > .param-name {
+    display: table-cell;
+    vertical-align: top;
+    border-left: 2px solid #ff7043;
+    box-sizing: border-box;
+    position: relative;
+    padding: 1.7em 0;
+    vertical-align: top;
+    line-height: 20px;
+    white-space: nowrap;
+    font-size: .929em;
+    font-weight: 400;
+}
+
+.mb-config-catalog .mb-config .param .param-name-wrap {
+    display: inline-block;
+    padding-right: 25px;
+    font-family: Montserrat, sans-serif;
+}
+
+.mb-config-catalog .mb-config .param > .param-name > span::before {
+    content: '';
+    display: inline-block;
+    width: 2px;
+    height: 8px;
+    background-color: #ff7043;
+    margin: -4px 10px 0;
+    vertical-align: middle;
+}
+
+.mb-config-catalog .mb-config .param > .param-name > span::after {
+    content: '';
+    position: absolute;
+    border-top: 2px solid #ff7043;
+    width: 10px;
+    left: 0;
+    top: 2.3em;
+}
+
+.mb-config-catalog .mb-config .param:first-of-type > .param-name::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -2px;
+    top: 0;
+    border-left: 3px solid #fff;
+    height: 34px;
+}
+
+.mb-config-catalog .mb-config .param:last-of-type > .param-name,
+.mb-config-catalog .mb-config .param.last > .param-name {
+    position: relative;
+}
+
+.mb-config-catalog .mb-config .param:last-of-type > .param-name::after,
+.mb-config-catalog .mb-config .param.last > .param-name::after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -2px;
+    border-left: 3px solid #fff;
+    top: 36px;
+    background-color: #fff;
+    bottom: 0;
+}
+
+.mb-config-catalog .mb-config .param > .param-info {
+    display: table-cell;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    padding: 10px 10px 10px 0;
+    box-sizing: border-box;
+}
+
+.mb-config-catalog .mb-config .param-default {
+    font-size: .95em;
+}
+
+.mb-config-catalog .mb-config .param-default::before {
+    content: 'Default: ';
+}
+
+.mb-config-catalog .mb-config .param-type {
+    color: #b5b5b5;
+}
+
+@media only screen and (min-width: 100em) {
+    .mb-config-catalog .mb-config .param > .param-name > span::before {
+        margin: 0 10px;
+    }
+
+    .mb-config-catalog .mb-config .param:first-of-type > .param-name::before {
+        height: 38px;
+    }
+    
+    .mb-config-catalog .mb-config .param:last-of-type > .param-name::after,
+    .mb-config-catalog .mb-config .param.last > .param-name::after {
+        top: 40px;
+    }
+}
+
+@media (max-width: 767px) {
+    .mb-config-catalog {
+        margin-bottom: 3rem;
+    }
+
+    .mb-config-catalog,
+    .mb-config-catalog > section,
+    .mb-config-catalog > section > .mb-config-options,
+    .mb-config-catalog > section > .mb-config-example {
+        display: block;
+        width: 100% !important;
+    }
+    
+    .mb-config-catalog > section:not(.title) > .mb-config-options {
+        padding-bottom: 1rem;
+    }
+}
+
+.hljs-title,
+.hljs-section {
+    color: #ff7043;
+    font-weight: normal;
+}
+
+.hljs-type,
+.hljs-string,
+.hljs-number,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-quote,
+.hljs-template-tag,
+.hljs-deletion {
+    color: #ff7043;
+}
