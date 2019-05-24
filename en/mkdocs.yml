@@ -53,10 +53,10 @@ nav:
     - 'How To Guide' : 
         - 'API Design':
             - 'REST API':
-                - 'Create and Publish a REST API' : '4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES.md'
-                - 'Create and Publish an API from a Swagger Definition': '4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.2-create-rest-api-by-import-oas-document/README.md'
-            - 'SOAP API': '4Scenarios/4product-scenarios/_Adding_an_API_State_Change_Workflow_.md'
-            - 'WEBSOCKET API': '4Scenarios/4product-scenarios/converted_formatted.md'
+                - 'Create and Publish a REST API' : 'HowToGuide/create-and-Publish-an-API.md'
+                - 'Create and Publish an API from a Swagger Definition': 'HowToGuide/create-and-Publish-an-API-from-a-Swagger-Definition.md'
+            - 'SOAP API': ''
+            - 'WEBSOCKET API': ''
             - 'API PROXY CREATION': ''
             - 'ENDPOINTS': ''
             - 'API Versioning': 
@@ -92,6 +92,7 @@ markdown_extensions:
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
+  - codehilite 
   - markdown.extensions.toc:
       permalink: true
   - pymdownx.arithmatex
