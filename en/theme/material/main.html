@@ -20,13 +20,10 @@
 
 {% block styles %}
   {{ super() }}
-  <style>
-    .md-main .md-content {
-      margin-right: 0;
-    }
+  <link rel="stylesheet" href="{{ 'assets/fonts/font-awesome.css' | url }}">
+{% endblock %}
 
-    .md-main .md-sidebar.md-sidebar--secondary {
-      width: 0;
-    }
-  </style>
+{% block content %}
+  {{ super() }}
+  <a href="#" class="cd-top text--replace js-cd-top">Top</a>
 {% endblock %}

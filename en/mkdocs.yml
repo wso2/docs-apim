@@ -45,11 +45,11 @@ theme:
 # Navigation
 nav:
     - 'Introduction': 
-        - 'Overview': '1Introduction/Introduction.md'
+        - 'Overview': 'Introduction/Introduction.md'
     - 'Quick Start Guide': 
-        - 'Getting Started': '2QuickStartGuide/QuickStartGuide.md'
+        - 'Getting Started': 'QuickStartGuide/QuickStartGuide.md'
     - 'Key Concepts': 
-        - 'Key Concepts': '3KeyConcepts/KeyConcepts.md'
+        - 'Key Concepts': 'KeyConcepts/KeyConcepts.md'
     - 'How To Guide' : 
         - 'API Design':
             - 'REST API':
@@ -75,24 +75,26 @@ nav:
         - 'Scenario 1': ''
         - 'Scenario 2': ''
     - 'Developer Guide': 
-        - 'REST API': '5DeveloperGuide/DeveloperGuide.md'
+        - 'REST API': 'DeveloperGuide/DeveloperGuide.md'
     - 'Deployment Guide': 
-        - 'Deployment Patterns': '6DeploymentGuide/DeploymentGuide.md'
+        - 'Deployment Patterns': 'DeploymentGuide/DeploymentGuide.md'
     - 'Admin Guide': 
-        - 'User Management': '7AdminGuide/AdminGuide.md'
+        - 'User Management': 'AdminGuide/AdminGuide.md'
     - 'Reference' : 
-        - 'Configuration Catalogue': '8Reference/Reference.md'
+        - 'Configuration Catalogue': 'Reference/ConfigCatalog.md'
     - 'Troubleshooting' : 
-        - 'FAQ': '9Troubleshooting/Troubleshooting.md'
+        - 'FAQ': 'Troubleshooting/Troubleshooting.md'
     - '': page-not-found.md
      
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      linenums: true
+      use_pygments: false
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
-  - codehilite 
   - markdown.extensions.toc:
       permalink: true
   - pymdownx.arithmatex
@@ -107,6 +109,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
