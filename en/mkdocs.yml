@@ -45,18 +45,18 @@ theme:
 # Navigation
 nav:
     - 'Introduction': 
-        - 'Overview': '1Introduction/Introduction.md'
+        - 'Overview': 'Introduction/Introduction.md'
     - 'Quick Start Guide': 
-        - 'Getting Started': '2QuickStartGuide/QuickStartGuide.md'
+        - 'Getting Started': 'QuickStartGuide/QuickStartGuide.md'
     - 'Key Concepts': 
-        - 'Key Concepts': '3KeyConcepts/KeyConcepts.md'
+        - 'Key Concepts': 'KeyConcepts/KeyConcepts.md'
     - 'How To Guide' : 
         - 'API Design':
             - 'REST API':
-                - 'Create and Publish a REST API' : '4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.1-create-rest-api-from-scratch/1.1.1-TESTCASES.md'
-                - 'Create and Publish an API from a Swagger Definition': '4Scenarios/4product-scenarios/1-manage-public-partner-private-apis/1.1-expose-service-as-rest-api/1.1.2-create-rest-api-by-import-oas-document/README.md'
-            - 'SOAP API': '4Scenarios/4product-scenarios/_Adding_an_API_State_Change_Workflow_.md'
-            - 'WEBSOCKET API': '4Scenarios/4product-scenarios/converted_formatted.md'
+                - 'Create and Publish a REST API' : 'HowToGuide/create-and-Publish-an-API.md'
+                - 'Create and Publish an API from a Swagger Definition': 'HowToGuide/create-and-Publish-an-API-from-a-Swagger-Definition.md'
+            - 'SOAP API': ''
+            - 'WEBSOCKET API': ''
             - 'API PROXY CREATION': ''
             - 'ENDPOINTS': ''
             - 'API Versioning': 
@@ -75,20 +75,23 @@ nav:
         - 'Scenario 1': ''
         - 'Scenario 2': ''
     - 'Developer Guide': 
-        - 'REST API': '5DeveloperGuide/DeveloperGuide.md'
+        - 'REST API': 'DeveloperGuide/DeveloperGuide.md'
     - 'Deployment Guide': 
-        - 'Deployment Patterns': '6DeploymentGuide/DeploymentGuide.md'
+        - 'Deployment Patterns': 'DeploymentGuide/DeploymentGuide.md'
     - 'Admin Guide': 
-        - 'User Management': '7AdminGuide/AdminGuide.md'
+        - 'User Management': 'AdminGuide/AdminGuide.md'
     - 'Reference' : 
-        - 'Configuration Catalogue': '8Reference/Reference.md'
+        - 'Configuration Catalogue': 'Reference/ConfigCatalog.md'
     - 'Troubleshooting' : 
-        - 'FAQ': '9Troubleshooting/Troubleshooting.md'
+        - 'FAQ': 'Troubleshooting/Troubleshooting.md'
     - '': page-not-found.md
      
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
+  - markdown.extensions.codehilite:
+      linenums: true
+      use_pygments: false
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
@@ -106,6 +109,7 @@ markdown_extensions:
   - pymdownx.keys
   - pymdownx.mark
   - pymdownx.smartsymbols
+  - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde

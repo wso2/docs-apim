@@ -1,0 +1,1237 @@
+<!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Documentation for WSO2 API Manager"><link rel="canonical" href="https://wso2.com/HowToGuide/create-and-Publish-an-API-from-a-Swagger-Definition/"><meta name="author" content="WSO2"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../assets/images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Create and Publish an API from a Swagger Definition - WSO2 API Manager Documentation</title>
+  <link rel="stylesheet" href="../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ff7043">
+  <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+<script src="../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../assets/lib/highlightjs/default.min.css"><link rel="stylesheet" href="../../assets/css/theme.css"></head><body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#create-and-publish-an-api-from-a-swagger-definition" tabindex="1" class="md-skip">Skip to content </a><!--
+ * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
+ *
+ * WSO2 Inc. licenses this file to you under the Apache License,
+ * Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied. See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+-->
+
+<header class="md-header" data-md-component="header" id="page-header" data-url="" data-lang="en">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://wso2.com/" title="WSO2 API Manager Documentation" class="md-header-nav__button md-logo">
+          
+            <img src="../../images/logo.svg" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+               API Manager Documentation
+            </span>
+            <span class="md-header-nav__topic">
+              Create and Publish an API from a Swagger Definition
+            </span>
+          
+        </div>
+        <div class="md-flex__ellipsis md-header__version-select">
+            <div class="mb-tabs__dropdown version-select">
+                <a class="md-tabs__link md-tabs__dropdown-link" href="#!" data-target="version-select-dropdown">3.0.0</a>
+                <ul id="version-select-dropdown" class="mb-tabs__dropdown-content" tabindex="0">
+                    <!-- Versions will added here dynamically -->
+                    <li class="md-tabs__item mb-tabs__dropdown">
+                        <a href="#" id="show-all-versions-link">Show all</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          <div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div>
+        
+      </div>
+    </div>
+  </nav>
+</header><div class="md-container">
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Introduction/Introduction/" title="Introduction" class="md-tabs__link">
+          Introduction
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../QuickStartGuide/QuickStartGuide/" title="Quick Start Guide" class="md-tabs__link">
+          Quick Start Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../KeyConcepts/KeyConcepts/" title="Key Concepts" class="md-tabs__link">
+          Key Concepts
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../create-and-Publish-an-API/" title="How To Guide" class="md-tabs__link md-tabs__link--active">
+          How To Guide
+        </a>
+      
+    </li>
+  
+
+  
+
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." title="Business Scenarios" class="md-tabs__link">
+          Business Scenarios
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../DeveloperGuide/DeveloperGuide/" title="Developer Guide" class="md-tabs__link">
+          Developer Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../DeploymentGuide/DeploymentGuide/" title="Deployment Guide" class="md-tabs__link">
+          Deployment Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../AdminGuide/AdminGuide/" title="Admin Guide" class="md-tabs__link">
+          Admin Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Reference/ConfigCatalog/" title="Reference" class="md-tabs__link">
+          Reference
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../Troubleshooting/Troubleshooting/" title="Troubleshooting" class="md-tabs__link">
+          Troubleshooting
+        </a>
+      
+    </li>
+  
+
+      
+        
+      
+    </ul>
+    <div class="quick_links">
+        
+        <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/HowToGuide/create-and-Publish-an-API-from-a-Swagger-Definition.md" target="blank" id="editIcon" title="Edit this page"
+           title="Edit this page" class="md-icon md-content__icon nav_link edit_link"></a>
+        
+    </div>
+    <a href="#" title="Report Issues" class="feedbackBtn" 
+        onclick=window.open("https://github.com/"+"wso2/docs-apim"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
+        Report Issues</a>
+  </div>
+</nav><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0">
+    <label class="md-nav__title md-nav__title--site" for="__drawer">
+      <a href="https://wso2.com/" title="WSO2 API Manager Documentation"
+         class="md-nav__button md-logo">
+        
+          <img src="../../images/logo.svg" width="48" height="48">
+        
+      </a>
+      WSO2 API Manager Documentation
+    </label>
+    
+      <div class="md-nav__source">
+        <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">wso2/docs-apim</div></a>
+      </div>
+    
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Introduction/Introduction/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Quick Start Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Quick Start Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QuickStartGuide/QuickStartGuide/" title="Getting Started" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Key Concepts
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Key Concepts
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../KeyConcepts/KeyConcepts/" title="Key Concepts" class="md-nav__link">
+      Key Concepts
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      How To Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        How To Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-1">
+      API Design
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        API Design
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-1" type="checkbox" id="nav-4-1-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-1-1">
+      REST API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-1">
+        REST API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../create-and-Publish-an-API/" title="Create and Publish a REST API" class="md-nav__link">
+      Create and Publish a REST API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Create and Publish an API from a Swagger Definition
+      </label>
+    
+    <a href="./" title="Create and Publish an API from a Swagger Definition" class="md-nav__link md-nav__link--active">
+      Create and Publish an API from a Swagger Definition
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+    
+    
+    
+    
+    
+    <a href="#" title="On this page" class="nav_link md-icon md-content__icon toc_icon" id="tocToggleBtn">toc</a>
+    <label class="md-nav__title" for="__toc">On this page</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+        
+        <li class="md-nav__item"><a href="#invoking-the-api" title="Invoking the API" class="md-nav__link">Invoking the API</a></li>
+        
+        <li class="md-nav__item"><a href="#related-tutorials" title="Related Tutorials" class="md-nav__link">Related Tutorials</a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="SOAP API" class="md-nav__link">
+      SOAP API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="WEBSOCKET API" class="md-nav__link">
+      WEBSOCKET API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API PROXY CREATION" class="md-nav__link">
+      API PROXY CREATION
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="ENDPOINTS" class="md-nav__link">
+      ENDPOINTS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1-6" type="checkbox" id="nav-4-1-6">
+    
+    <label class="md-nav__link" for="nav-4-1-6">
+      API Versioning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-1-6">
+        API Versioning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Create Default Version" class="md-nav__link">
+      Create Default Version
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Create a New Version" class="md-nav__link">
+      Create a New Version
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Developer Portal" class="md-nav__link">
+      API Developer Portal
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Gateway" class="md-nav__link">
+      API Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Microgateway" class="md-nav__link">
+      API Microgateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Rate Limiting" class="md-nav__link">
+      Rate Limiting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="API Security" class="md-nav__link">
+      API Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Analytics" class="md-nav__link">
+      Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Administration" class="md-nav__link">
+      Administration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Extentions" class="md-nav__link">
+      Extentions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Reference" class="md-nav__link">
+      Reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Business Scenarios
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Business Scenarios
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Scenario 1" class="md-nav__link">
+      Scenario 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Scenario 2" class="md-nav__link">
+      Scenario 2
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Developer Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Developer Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DeveloperGuide/DeveloperGuide/" title="REST API" class="md-nav__link">
+      REST API
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Deployment Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Deployment Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DeploymentGuide/DeploymentGuide/" title="Deployment Patterns" class="md-nav__link">
+      Deployment Patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Admin Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Admin Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../AdminGuide/AdminGuide/" title="User Management" class="md-nav__link">
+      User Management
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Reference/ConfigCatalog/" title="Configuration Catalogue" class="md-nav__link">
+      Configuration Catalogue
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Troubleshooting
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Troubleshooting
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Troubleshooting/Troubleshooting/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+      
+        
+        
+        
+
+
+  <li class="md-nav__item">
+    <a href="../../page-not-found/" title="" class="md-nav__link">
+      
+    </a>
+  </li>
+
+      
+    </ul>
+  </nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner">
+<nav class="md-nav md-nav--secondary">
+    
+    
+    
+    
+    
+    <a href="#" title="On this page" class="nav_link md-icon md-content__icon toc_icon" id="tocToggleBtn">toc</a>
+    <label class="md-nav__title" for="__toc">On this page</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+        
+        <li class="md-nav__item"><a href="#invoking-the-api" title="Invoking the API" class="md-nav__link">Invoking the API</a></li>
+        
+        <li class="md-nav__item"><a href="#related-tutorials" title="Related Tutorials" class="md-nav__link">Related Tutorials</a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset">
+  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/HowToGuide/create-and-Publish-an-API-from-a-Swagger-Definition.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="create-and-publish-an-api-from-a-swagger-definition">Create and Publish an API from a Swagger Definition<a class="headerlink" href="#create-and-publish-an-api-from-a-swagger-definition" title="Permanent link">&para;</a></h1>
+<p>A Swagger definition is a format that describes REST APIs. In this tutorial, you create and publish an API in WSO2 API Manager using a Swagger definition for an existing API.</p>
+<ol>
+<li>Sign in to the WSO2 API Publisher.
+    <code class="codehilite">https://&lt;hostname&gt;:9443/publisher</code></li>
+<li>In the <strong>APIS</strong> menu, click <strong>Add New API</strong> .
+    <img alt="" src="../attachments/97565132/97565144.png" /></li>
+<li>Select <strong>I Have an Existing API</strong> . Click <strong>Swagger URL</strong> and give <code class="codehilite">http://petstore.swagger.io/v2/swagger.json</code> as the URL. Click <strong>Start Creating</strong> .
+    <img alt="" src="../attachments/97565132/97565143.png" /></li>
+<li>
+<p>Edit the information as given below. </p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Sample value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Petstore</td>
+</tr>
+<tr>
+<td>Context</td>
+<td>/petstore</td>
+</tr>
+<tr>
+<td>Version</td>
+<td>1.0.0</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../attachments/97565132/97565142.png" /></p>
+</li>
+<li>
+<p>Notice that all the <strong>API resources</strong> are created automatically when the Swagger URL is specified.
+    <img alt="" src="../attachments/97565132/97565141.png" /></p>
+</li>
+<li>Click <strong>Edit Source</strong> to edit the Swagger file and remove security headers. This is required to invoke the API in the Store using the Swagger UI.
+    <img alt="" src="../attachments/97565132/97565140.png" /></li>
+<li>
+<p>Remove the security tag from the <code class="codehilite">/pet</code> POST resource given below. This is required to enable API invocation using the API (store) console.</p>
+<p><strong>Swagger - Post resource</strong></p>
+</li>
+</ol>
+<pre class="codehilite"><code class="language-java linenums">        //remove the following code snippet
+        security:
+            - petstore_auth:
+                - 'write:pets'
+                - 'read:pets'</code></pre>
+
+<ol>
+<li>
+<p>Remove the security <code class="codehilite">pet/{petId}</code> GET resource given below:</p>
+<p><strong>Swagger - Get resource</strong></p>
+</li>
+</ol>
+<pre class="codehilite"><code class="language-java linenums">        //remove the following code snippet
+        security:
+                - api_key: []</code></pre>
+
+<ol>
+<li>After removing the security tags, click <strong>Apply Changes</strong> to save the changes.
+    <img alt="" src="../attachments/97565132/97565139.png" />
+    Then, click <strong>Next: Implement.</strong></li>
+<li>
+<p>Click the <strong>Managed API</strong> option. Enter the information shown below and click <strong>Next: Manage</strong> .</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Sample value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Endpoint type</td>
+<td>HTTP/REST endpoint</td>
+</tr>
+<tr>
+<td>Production endpoint</td>
+<td>http://petstore.swagger.io/v2/</td>
+</tr>
+<tr>
+<td>Sandbox endpoint</td>
+<td>Providing only the production endpoint is sufficient.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../attachments/97565132/97565138.png" /></p>
+</li>
+<li>
+<p>Select the options described in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Sample value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Transports</td>
+<td>HTTP and HTTPS</td>
+<td>The transport protocol on which the API is exposed.  Both HTTP and HTTPS transports are selected by default. If you want to limit API availability to only one transport (e.g., HTTPS), un-check the other transport.</td>
+</tr>
+<tr>
+<td>Subscription Tiers</td>
+<td>Gold, Silver</td>
+<td>The API can be available at different levels of service. They allow you to limit the number of successful hits to an API during a given period of time.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../attachments/97565132/97565137.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information on API authentication (e.g., non authentic API invocation), see <a href="https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-HTTPmethods">HTTP methods</a> .</p>
+</div>
+</li>
+<li>
+<p>Click <strong>Save &amp; Publish</strong> . </p>
+</li>
+</ol>
+<p>Now you have successfully published an API using a Swagger defintion.</p>
+<p>Let's invoke the API from the API Store.</p>
+<h3 id="invoking-the-api"><strong>Invoking the API</strong><a class="headerlink" href="#invoking-the-api" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>Sign in to the WSO2 API Store.
+    <code class="codehilite">https://&lt;hostname&gt;:9443/store</code></p>
+</li>
+<li>
+<p>Select the <strong>PetStore</strong> API to open it.</p>
+</li>
+<li><a href="https://docs.wso2.com/display/AM260/Subscribe+to+an+API">Subscribe</a> to the API using the DefaultApplication and the Gold tier.
+    <img alt="" src="../attachments/97565132/97565136.png" /></li>
+<li>Click <strong>View Subscriptions</strong> to view all the APIs to which the Default Application has subscribed.
+    <img alt="" src="../attachments/97565132/97565135.png" /></li>
+<li>
+<p>Click the <strong>Production Keys</strong> tab and generate a token.
+    <img alt="" src="../attachments/97565132/97565134.png" /></p>
+</li>
+<li>
+<p>Navigate to the <strong>API Console</strong> for the PetStore API.
+    <img alt="" src="../attachments/97565132/97565133.png" /></p>
+</li>
+<li>
+<p>Expand the <code class="codehilite">POST</code> resource, click <strong>Try it out</strong> , and give the following example as the request body. Click <strong>Execute</strong> and view the response.</p>
+<ul>
+<li><a href="#e4a387bcbb0a42e7b56493ed7fc8ba9f"><strong>Request Body</strong></a></li>
+<li><a href="#ec7edf9b862a45c797026d96cbce4db5"><strong>Response</strong></a></li>
+</ul>
+</li>
+</ol>
+<pre class="codehilite"><code class="language-java linenums">    {
+      "id": 0,
+      "category": {
+        "id": 0,
+        "name": "Dogs"
+      },
+      "name": "Rover",
+      "photoUrls": [
+        "string"
+      ],
+      "tags": [
+        {
+          "id": 0,
+          "name": "lion_shepard"
+        }
+      ],
+      "status": "available"
+    }</code></pre>
+
+<pre class="codehilite"><code class="language-java linenums">        {
+          "id": 9123612807670061000,
+          "category": {
+            "id": 0,
+            "name": "Dogs"
+          },
+          "name": "Rover",
+          "photoUrls": [
+            "string"
+          ],
+          "tags": [
+            {
+              "id": 0,
+              "name": "lion_shepard"
+            }
+          ],
+          "status": "available"
+        }</code></pre>
+
+<pre class="codehilite"><code class="linenums">You have successfully invoked the Petstore API.</code></pre>
+
+
+<h3 id="related-tutorials">Related Tutorials<a class="headerlink" href="#related-tutorials" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><a href="_Create_and_Publish_an_API_">Create and Publish an API</a></p>
+</li>
+<li>
+<p><a href="https://docs.wso2.com/display/AM260/Create+a+WebSocket+API">Create a WebSocket API</a></p>
+</li>
+<li>
+<p><a href="https://docs.wso2.com/display/AM260/Create+a+Prototyped+API+with+an+Inline+Script">Create a Prototyped API with an Inline Script</a></p>
+</li>
+</ul>
+  <a href="#" class="cd-top text--replace js-cd-top">Top</a>
+</article></div></div></main>
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../create-and-Publish-an-API/" title="Create and Publish a REST API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Create and Publish a REST API
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../DeveloperGuide/DeveloperGuide/" title="REST API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                REST API
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            WSO2 API Manager - Documentation
+          </div>
+        
+        &copy;2019 <a href="https://wso2.com/">WSO2</a>
+      </div>
+    </div>
+  </div>
+</footer></div><script src="../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script><script src="../../assets/lib/highlightjs/highlight.min.js"></script><script src="../../assets/js/theme.js"></script></body></html>

@@ -382,6 +382,10 @@
     content: 'Default: ';
 }
 
+.mb-config-catalog .mb-config .param-possible::before {
+    content: 'Possible Values: ';
+}
+
 .mb-config-catalog .mb-config .param-type {
     color: #b5b5b5;
 }
