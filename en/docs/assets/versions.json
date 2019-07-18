@@ -6,6 +6,10 @@
     "3.0.x"
    ],
   "all": {
+   "3.0.x": {
+        "doc": "3.0.x",
+        "notes": "3.0.x/release-notes"
+    },
     "2.7.0": {
         "doc": "2.7.0",
         "notes": "2.7.0/release-notes"
