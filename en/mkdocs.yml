@@ -15,7 +15,7 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation
+site_name: WSO2 API Manager Documentation 3.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://wso2.com/
@@ -24,6 +24,7 @@ site_url: https://wso2.com/
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
 edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+dev_addr: localhost:8000
 
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -44,46 +45,70 @@ theme:
   
 # Navigation
 nav:
-    - 'Introduction': 
-        - 'Overview': 'Introduction/Introduction.md'
-    - 'Quick Start Guide': 
-        - 'Getting Started': 'QuickStartGuide/QuickStartGuide.md'
-    - 'Key Concepts': 
-        - 'Key Concepts': 'KeyConcepts/KeyConcepts.md'
-    - 'How To Guide' : 
-        - 'API Design':
-            - 'REST API':
-                - 'Create and Publish a REST API' : 'HowToGuide/create-and-Publish-an-API.md'
-                - 'Create and Publish an API from a Swagger Definition': 'HowToGuide/create-and-Publish-an-API-from-a-Swagger-Definition.md'
-            - 'SOAP API': ''
-            - 'WEBSOCKET API': ''
-            - 'API PROXY CREATION': ''
-            - 'ENDPOINTS': ''
-            - 'API Versioning': 
-                - 'Create Default Version': ''
-                - 'Create a New Version': ''
-        - 'API Developer Portal': ''
-        - 'API Gateway' : ''
-        - 'API Microgateway' : ''
-        - 'Rate Limiting' : ''
-        - 'API Security' : ''
-        - 'Analytics' : ''
-        - 'Administration' : ''
-        - 'Extentions' : ''
-        - 'Reference' : ''
-    - 'Business Scenarios' : 
-        - 'Scenario 1': ''
-        - 'Scenario 2': ''
-    - 'Developer Guide': 
-        - 'REST API': 'DeveloperGuide/DeveloperGuide.md'
-    - 'Deployment Guide': 
-        - 'Deployment Patterns': 'DeploymentGuide/DeploymentGuide.md'
-    - 'Admin Guide': 
-        - 'User Management': 'AdminGuide/AdminGuide.md'
-    - 'Reference' : 
-        - 'Configuration Catalogue': 'Reference/ConfigCatalog.md'
-    - 'Troubleshooting' : 
-        - 'FAQ': 'Troubleshooting/Troubleshooting.md'
+    - Welcome to WSO2 API Manager Documentation: 'index.md'
+    - Getting Started :
+        - Overview : 'GettingStarted/overview.md'
+        - Key Concepts : 'GettingStarted/key-concepts.md'
+        - Quick Start Guide: 'GettingStarted/quick-start-guide.md'
+    - Learn : 
+        - API Publisher :
+            - API Design :
+                - Create REST API : 'Learn/APIPublish/create-and-Publish-an-API.md'
+                - Create an API from a Swagger Definition: 'Learn/APIPublish/create-and-Publish-an-API-from-a-Swagger-Definition.md'
+                - SOAP API : ''
+                - Websocket API : ''
+                - API Proxy Creation : ''
+                - Endpoints: ''
+            - Publish APIs : ''
+            - Prototype API: ''
+            - Lifecycle Management: ''
+            - API Versioning:
+                - Create Default Version: ''
+                - Create a New Version: ''
+            - API Documentation: ''
+            - Message Mediation Policies: ''
+        - API Developer Portal: 'Learn/APIDeveloper/dummy.md'
+        - API Gateway : 'Learn/APIGateway/dummy.md'
+        - API Microgateway : 'Learn/APIMicrogateway/dummy.md'
+        - Rate Limiting : 'Learn/RateLimiting/dummy.md'
+        - API Security : 'Learn/APISecurity/dummy.md'
+        - Analytics : 'Learn/Analytics/dummy.md'
+        - Administration : ''
+        - Extentions : ''
+        - Reference : ''
+    - Develop: 
+        - Working with the Source Code: 'Develop/develop1.md'
+        - WSO2 Admin Services: 'Develop/develop.md'
+        - Product APIs: 'Develop/develop.md'
+        - Working with Audit Logs: 'Develop/develop.md'
+        - Enabling Authentication Session Persistence: 'Develop/develop.md'
+        - Java Documentation: 'Develop/develop.md'
+        - Using the Registry REST API : 'Develop/develop.md'
+    - Deploy:
+        - Installation Guide :
+            - Installation Prerequisites: 'Deploy/deploy1.md'
+            - Installing the Product:
+                - Installing on Linux or OS X: 'Deploy/deploy.md'
+                - Installing on Solaris : 'Deploy/deploy.md'
+                - Installing on Windows : 'Deploy/deploy.md'
+                - Installing as a Linux Service : 'Deploy/deploy.md'
+                - Installing as a Windows Service : 'Deploy/deploy.md'
+            - Running the Product: 'Deploy/deploy.md'
+            - Basic Health Checks: 'Deploy/deploy.md'
+        - Deployment Patterns : 'Deploy/deploy.md'
+    - Administer: 
+            -  Product Administration : 'Administer/administer1.md'
+            -  Product Configurations : 'Administer/administer.md'
+            -  Product Security : 'Administer/administer.md'
+    - Reference : 
+        - Configuration Catalogue: 'Reference/reference1.md' 
+        - Business Scenarios : 
+            - Scenario 1: 'Reference/reference.md'
+            - Scenario 2: 'Reference/reference.md'
+        - WSO2 API Manager Best Practices : 'Reference/reference.md'
+        - Samples: 'Reference/reference.md'
+    - Troubleshooting : 
+        - FAQ: 'Troubleshooting/Troubleshooting.md'
     - '': page-not-found.md
      
 # Extensions
@@ -130,3 +155,5 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
+
+
