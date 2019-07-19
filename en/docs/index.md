@@ -13,7 +13,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 </p> 
    </div>
    <div class="md-main md-content " style="float:centre; width: 60%; text-align:left;  flex-shrink: 0;min-width: 35%; max-height: 100%; max-width:100%; margin-left:10px;">
-    <img src="attachments/wso2-apim-overview.png" width="100%"  height="360px"/>
+    <img src="assets/attachments/wso2-apim-overview.png" width="100%"  height="360px"/>
 </a>
    </div>
 </div>
