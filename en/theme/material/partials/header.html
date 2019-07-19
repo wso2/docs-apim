@@ -39,9 +39,11 @@
             <span class="md-header-nav__topic">
               {{ config.site_name | replace('WSO2', '') }}
             </span>
-            <span class="md-header-nav__topic">
+
+            <span id="pageTitle" class="md-header-nav__topic" align="center">
               {{ page.title }}
             </span>
+
           {% endif %}
         </div>
         <div class="md-flex__ellipsis md-header__version-select">
