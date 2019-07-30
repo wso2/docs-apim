@@ -5,7 +5,8 @@
     {% set toc_ = (toc_ | first).children %}
     {% endif %}
     {% if toc_ | first is defined %}
-    <a href="#" title="On this page" class="nav_link md-icon md-content__icon toc_icon" id="tocToggleBtn">toc</a>
+    <a href="#" title="On this page" class="nav_link md-icon md-content__icon toc_icon"
+       id="tocToggleBtn">keyboard_arrow_right</a>
     <label class="md-nav__title" for="__toc">{{ lang.t("toc.title") }}</label>
     <ul class="md-nav__list" data-md-scrollfix>
         {% for toc_item in toc_ %}

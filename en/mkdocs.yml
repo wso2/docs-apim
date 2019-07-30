@@ -38,6 +38,7 @@ theme:
     accent: deep-orange
   custom_dir: theme/material
   logo: images/logo.svg
+  favicon: images/favicon.png
   highlightjs: true
   feature:
     tabs: true
@@ -146,6 +147,8 @@ extra_css:
 extra_javascript:
   - assets/lib/highlightjs/highlight.min.js
   - assets/js/theme.js
+  - assets/lib/backtotop/js/util.js
+  - assets/lib/backtotop/js/main.js
 extra:
   social:
     - type: github
@@ -155,5 +158,3 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-
-
