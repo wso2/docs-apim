@@ -33,6 +33,10 @@
     padding-bottom: 80px;
 }
 
+.md-main .md-sidebar.md-sidebar--primary {
+    padding-bottom: 80px;
+}
+
 .md-sidebar[data-md-state=lock] {
     top: 5.9rem;
 }
