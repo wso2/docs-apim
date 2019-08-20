@@ -16,8 +16,7 @@ A **subscriber** logs into the WSO2 API Developer portal and creates an **applic
 
 The WSO2 API Manager consists of the following component
 
-![](attachments/103328852/119142745.jpg){width="900"}
-
+![](attachments/103328852/119142745.jpg)
 ### Terminology & Concepts
 
 <table>
@@ -51,7 +50,7 @@ The WSO2 API Manager consists of the following component
 <li>Subscribe multiple times to a single API with different tiers/Service Level Agreement (SLA) levels</li>
 </ul>
 <p>You subscribe to APIs through an application. Applications are available at different SLA levels and have application-level throttling tiers engaged in them. A throttling tier determines the maximum number of calls you can make to an API during a given period of time.</p>
-<p>The API Manager comes with a pre-created default application, which allows unlimited access by default. You can also <a href="https://docs.wso2.com/display/SHAN/Subscribe+to+an+API">create</a> your own applications.</p></td>
+<p>The API Manager comes with a pre-created default application, which allows unlimited access by default. You can also <a href="_Subscribe_to_an_API_">create</a> your own applications.</p></td>
 </tr>
 <tr class="odd">
 <td><p>API lifecycle</p></td>
@@ -73,7 +72,7 @@ The WSO2 API Manager consists of the following component
 <tr class="even">
 <td><p>Access tokens</p></td>
 <td><p>An <strong>access token</strong> is a simple string that is passed as an HTTP header of a request. For example, &quot; <code>              Authorization: Bearer NtBQkXoKElu0H1a1fQ0DWfo6IX4a             </code> .&quot; Access tokens authenticate API users and applications, and ensure better security (e.g., prevent certain types of <strong>DoS attacks.</strong> Note that DoS attacks made to the key manager with random access tokens can not be prevented. DoS attacks with the same fake acess token can affect the Gateway as well <strong></strong> ). If a token that is passed with a request is invalid, the request is discarded at the first stage of processing. Access tokens work equally well for SOAP and REST calls.</p>
-<p>For more information on different types of access tokens and how to generate them, see <a href="https://docs.wso2.com/display/SHAN/Working+with+Access+Tokens">Working with Access Tokens</a> .</p></td>
+<p>For more information on different types of access tokens and how to generate them, see Working with Access Tokens .</p></td>
 </tr>
 <tr class="odd">
 <td><p>API visibility</p></td>
@@ -82,7 +81,7 @@ The WSO2 API Manager consists of the following component
 <ul>
 <li><strong>Public:</strong> The API is visible to all users who are registered and anonymous (who use APIs without login to the store, for example testing and demonstration), and can be advertised in multiple stores (central and non-WSO2 stores).</li>
 <li><p><strong>Restricted by Roles:</strong> The API is visible to it's tenant domain and only to the user roles that you specify. You should provide the roles separated by commas in the UI or as a cURL parameter when creating or editing the API.</p></li>
-<li><p><strong>Visible to my domain:</strong> The API is visible to all users who are registered to the API's tenant domain. This option is <strong>available only in a <a href="https://docs.wso2.com/display/SHAN/Configuring+Multiple+Tenants">multi-tenanted environment</a></strong> . It's not applicable when there is only one active tenant (super tenant) in the system.</p></li>
+<li><p><strong>Visible to my domain:</strong> The API is visible to all users who are registered to the API's tenant domain. This option is <strong>available only in a <a href="_Configuring_Multiple_Tenants_">multi-tenanted environment</a></strong> . It's not applicable when there is only one active tenant (super tenant) in the system.</p></li>
 </ul>
 <p>Given below is how visibility levels work for users in different roles:</p>
 <ul>
@@ -134,7 +133,7 @@ The WSO2 API Manager consists of the following component
 <tr class="even">
 <td><p>Endpoints</p></td>
 <td><p>An endpoint is a specific destination for a message such as an address, WSDL, a failover group, a load-balance group etc.</p>
-<p>WSO2 API Manager has support for a range of different endpoint types, allowing the API Gateway to connect with advanced types of backends. It supports <a href="https://docs.wso2.com/display/EI611/HTTP+Endpoint">HTTP endpoints</a> , <a href="https://docs.wso2.com/display/EI611/Address+Endpoint">URL endpoints</a> (also termed as address endpoint), <a href="https://docs.wso2.com/display/EI611/WSDL+Endpoint">WSDL endpoints</a> , <a href="https://docs.wso2.com/display/EI611/Failover+Group">Failover endpoints</a> , <a href="https://docs.wso2.com/display/EI611/Load-balance+Group">Load-balanced endpoints</a> . For more information about endpoints, see <a href="https://docs.wso2.com/display/SHAN/Endpoints">Working with Endpoints</a> .</p></td>
+<p>WSO2 API Manager has support for a range of different endpoint types, allowing the API Gateway to connect with advanced types of backends. It supports <a href="https://docs.wso2.com/display/EI611/HTTP+Endpoint">HTTP endpoints</a> , <a href="https://docs.wso2.com/display/EI611/Address+Endpoint">URL endpoints</a> (also termed as address endpoint), <a href="https://docs.wso2.com/display/EI611/WSDL+Endpoint">WSDL endpoints</a> , <a href="https://docs.wso2.com/display/EI611/Failover+Group">Failover endpoints</a> , <a href="https://docs.wso2.com/display/EI611/Load-balance+Group">Load-balanced endpoints</a> . For more information about endpoints, see <a href="_Endpoints_">Working with Endpoints</a> .</p></td>
 </tr>
 <tr class="odd">
 <td><p>HTTP methods</p></td>
@@ -167,7 +166,7 @@ The WSO2 API Manager consists of the following component
 </tr>
 <tr class="even">
 <td>Parameters</td>
-<td>Parameters of an HTTP method are analogous to arguments of a function in an object-oriented programming language. A resource's parameters are cached in the <a href="https://docs.wso2.com/display/SHAN/Configuring+Caching">resource cache</a> at the API Gateway.</td>
+<td>Parameters of an HTTP method are analogous to arguments of a function in an object-oriented programming language. A resource's parameters are cached in the <a href="_Configuring_Caching_">resource cache</a> at the API Gateway.</td>
 </tr>
 </tbody>
 </table>
@@ -233,7 +232,7 @@ The WSO2 API Manager consists of the following component
 <td>fault</td>
 <td><p>Fault sequence is there to handle any errors that may occur while mediating a message through a resource.</p>
 <div>
-When the sequence or the proxy service encounters an error during mediation or while forwarding a message, the message that triggered the error is delegated to the specified fault sequence. Using the available mediators it is possible to log the erroneous message, forward it to a special error-tracking service, and send a SOAP fault back to the client indicating the error. We need to configure the fault sequence with the correct error handling instead of simply dropping messages. For more information, see <a href="https://docs.wso2.com/display/SHAN/Error+Handling">Error Handling</a> .
+When the sequence or the proxy service encounters an error during mediation or while forwarding a message, the message that triggered the error is delegated to the specified fault sequence. Using the available mediators it is possible to log the erroneous message, forward it to a special error-tracking service, and send a SOAP fault back to the client indicating the error. We need to configure the fault sequence with the correct error handling instead of simply dropping messages. For more information, see <a href="_Error_Handling_">Error Handling</a> .
 </div></td>
 </tr>
 </tbody>
@@ -249,7 +248,7 @@ When the sequence or the proxy service encounters an error during mediation or w
 <li>To regulate traffic according to infrastructure availability</li>
 <li>To make an API, application, or a resource available to a consumer at different levels of service, usually for monetization purposes</li>
 </ul>
-<p>You can define throttling at the API, application, and resource levels. The final request limit granted to a given user on a given API is ultimately defined by the consolidated output of all throttling tiers together. For more information about throttling, see <a href="https://docs.wso2.com/display/SHAN/Setting+Throttling+Limits">Setting Throttling Limits</a> .</p>
+<p>You can define throttling at the API, application, and resource levels. The final request limit granted to a given user on a given API is ultimately defined by the consolidated output of all throttling tiers together. For more information about throttling, see <a href="_Setting_Throttling_Limits_">Setting Throttling Limits</a> .</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -257,7 +256,7 @@ When the sequence or the proxy service encounters an error during mediation or w
 </p>
 Multi tenanted API management</td>
 <td><p>A tenant in WSO2 API Manager is a separate business level entity, such as an organizational unit or a department. Muli tenancy enables such organizational units/departments to share the same API Manager deployment and the respective resources, but function individually with an isolated view of the deployment. A tenant does not need to be aware of the other tenants in the system as by design the Multitenancy creates an isolated space for each tenant, although they are sharing the same deployment.</p>
-<p>See the section <a href="https://docs.wso2.com/display/SHAN/Configuring+Multiple+Tenants">Configuring Multiple Tenants</a> for information on how to create tenants.</p>
+<p>See the section <a href="_Configuring_Multiple_Tenants_">Configuring Multiple Tenants</a> for information on how to create tenants.</p>
 <p>In WSO2 API Manager deployment, API Visibility and Subscription Availability are the two main applications of tenancy.</p>
 <h6 id="KeyConcepts-APIvisibility"><strong>API visibility</strong></h6>
 <p>API Manager allows users to control API visibility and subscription availability. API visibility can be one of the following options:</p>
