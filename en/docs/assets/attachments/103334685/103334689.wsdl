@@ -1,0 +1,95 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl1="http://callback.workflow.apimgt.carbon.wso2.org" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://org.wso2.carbon/applications/" xmlns:tns="http://workflow.application.apimgt.carbon.wso2.org" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ApplicationApprovalWorkFlowProcess" targetNamespace="http://workflow.application.apimgt.carbon.wso2.org">
+  <import namespace="http://callback.workflow.apimgt.carbon.wso2.org" location="ApplicationApprovalWorkFlowProcess?wsdl=WorkflowCallbackService.wsdl">
+    </import>
+  <import namespace="http://org.wso2.carbon/applications/" location="ApplicationApprovalWorkFlowProcess?wsdl=ApplicationsApprovalTaskService.wsdl">
+    </import>
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://workflow.application.apimgt.carbon.wso2.org">
+                
+            <element name="ApplicationApprovalWorkFlowProcessRequest">
+                <complexType>
+                    <sequence>
+					<element name="applicationName" type="string"></element>
+					<element name="applicationId" type="string"></element>
+					<element name="applicationTier" type="string"></element>
+					<element name="applicationCallbackUrl" type="string"></element>
+					<element name="applicationDescription" type="string"></element>
+					<element name="applicationName" type="string"></element>
+					<element name="tenantDomain" type="string"></element>
+					<element name="userName" type="string"></element>
+					<element name="workflowExternalRef" type="string"></element>
+					<element name="callBackURL" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+                  
+            <element name="ApplicationApprovalWorkFlowProcessResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+            
+        </schema>
+  </types>
+  <message name="ApplicationApprovalWorkFlowProcessRequestMessage">
+    <part name="payload" element="tns:ApplicationApprovalWorkFlowProcessRequest">
+    </part>
+  </message>
+  <message name="ApplicationApprovalWorkFlowProcessResponseMessage">
+    <part name="payload" element="tns:ApplicationApprovalWorkFlowProcessResponse">
+    </part>
+  </message>
+  <portType name="ApplicationApprovalWorkFlowProcessCallback">
+    <operation name="onResult">
+      <input message="tns:ApplicationApprovalWorkFlowProcessResponseMessage">
+    </input>
+    </operation>
+  </portType>
+  <portType name="ApplicationApprovalWorkFlowProcess">
+    <operation name="initiate">
+      <input message="tns:ApplicationApprovalWorkFlowProcessRequestMessage">
+    </input>
+    </operation>
+  </portType>
+  <binding name="ApplicationApprovalWorkFlowProcessCallbackBinding" type="tns:ApplicationApprovalWorkFlowProcessCallback">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <operation name="onResult">
+      <soap:operation soapAction="http://workflow.application.apimgt.carbon.wso2.org/onResult"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+    </operation>
+  </binding>
+  <binding name="ApplicationApprovalWorkFlowProcessBinding" type="tns:ApplicationApprovalWorkFlowProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <operation name="initiate">
+      <soap:operation soapAction="http://workflow.application.apimgt.carbon.wso2.org/initiate"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+    </operation>
+  </binding>
+  <service name="ApplicationApprovalWorkFlowProcessCallback">
+    <port name="ApplicationApprovalWorkFlowProcessPortCallbackPort" binding="tns:ApplicationApprovalWorkFlowProcessCallbackBinding">
+      <soap:address location="http://10.100.0.104:9765/services/ApplicationApprovalWorkFlowProcess/"></soap:address>
+    </port>
+  </service>
+  <service name="ApplicationApprovalWorkFlowProcess">
+    <port name="ApplicationApprovalWorkFlowProcessPort" binding="tns:ApplicationApprovalWorkFlowProcessBinding">
+      <soap:address location="http://10.100.0.104:9765/services/ApplicationApprovalWorkFlowProcess/"></soap:address>
+    </port>
+  </service>
+    <plnk:partnerLinkType name="AAPLT">
+    <plnk:role name="role1" portType="wsdl:ApplicationsHandlingPT"></plnk:role>
+    <plnk:role name="role2" portType="wsdl:ApplicationsHandlingCallbackPT"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="CBPLT">
+    <plnk:role name="role3" portType="wsdl1:WorkflowCallbackServicePortType"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="ApplicationApprovalWorkFlowProcess">
+        <plnk:role name="ApplicationApprovalWorkFlowProcessProvider" portType="tns:ApplicationApprovalWorkFlowProcess"></plnk:role>
+        <plnk:role name="ApplicationApprovalWorkFlowProcessRequester" portType="tns:ApplicationApprovalWorkFlowProcessCallback"></plnk:role>
+    </plnk:partnerLinkType>
+</definitions>
