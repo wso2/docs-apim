@@ -84,14 +84,13 @@
     border-radius: .1rem;
 }
 
-.md-header__version-select .md-tabs__link.md-tabs__dropdown-link:hover,
-.md-header__version-select .mb-tabs__dropdown.open .md-tabs__link.md-tabs__dropdown-link {
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
+.md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
     background: #e2e2e2;
     opacity: 1;
 }
 
-.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content,
-.md-header__distribution-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
+.md-header__version-select .mb-tabs__dropdown .mb-tabs__dropdown-content {
     top: .8rem;
 }
 
@@ -250,6 +249,36 @@ html .md-typeset .superfences-tabs > label:hover {
 
 .mb-config-catalog {
     display: table;
+    width: 100%;
+}
+
+.mb-config-catalog .superfences-tabs {
+    flex-direction: column;
+}
+
+.mb-config-catalog .superfences-tabs .tab-selector {
+    text-align: right;
+}
+
+.mb-config-catalog .superfences-tabs .tab-selector > .icon {
+    margin-right: 5px;
+}
+
+.mb-config-catalog .superfences-content {
+    order: 0;
+}
+
+.mb-config-catalog .superfences-tabs > input + label:after {
+    content: "View Example";
+}
+
+.mb-config-catalog .superfences-tabs > input:checked + label:after {
+    content: "Hide Example";
+    font-weight: 500;
+}
+
+.mb-config-catalog .superfences-tabs .doc-wrapper {
+    padding: .525rem;
 }
 
 .mb-config-catalog > section {
@@ -281,7 +310,6 @@ html .md-typeset .superfences-tabs > label:hover {
 
 .mb-config-catalog .mb-config-example code,
 .mb-config-catalog .mb-config-example pre {
-    background-color: transparent;
     margin: 0;
 }
 
@@ -414,10 +442,6 @@ html .md-typeset .superfences-tabs > label:hover {
 
 .mb-config-catalog .mb-config .param-default {
     font-size: .95em;
-}
-
-.mb-config-catalog .mb-config .param-default::before {
-    content: 'Default: ';
 }
 
 .mb-config-catalog .mb-config .param-type {
@@ -811,6 +835,26 @@ html .md-footer-meta.md-typeset a,
 
 .md-sidebar__scrollwrap {
     width: 12.1rem;
+}
+.beta-badge {
+    display: inline-block;
+    background: #ffd600;
+    font-size: 14px;
+    padding: 5px;
+    line-height: 1;
+}
+.errorcode tbody tr>:nth-child(1) {
+    color: white;
+    background-color: hsl(14, 100%, 63%);
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    margin: 0.5rem;
+    white-space: nowrap;
+}
+.md-typeset table:not([class]) th {
+    background-color: #e8e8e8;
+    color: #4d4d4d;
 }
 
 .wrapper {
