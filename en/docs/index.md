@@ -41,7 +41,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       </div>
       <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIDeveloper/dummy';">
+      <div class="card" onclick="location.href='Learn/ConsumeAPI/DiscoverAPIs/search';">
             <div class="line"></div>
             <div class="icon"><i class="material-icons md-36">store</i></div>
 <div class="card-content">
@@ -51,7 +51,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 </div>
       <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIGateway/dummy';">
+      <div class="card" onclick="location.href='Learn/APIGateway/overview-of-the-api-gateway';">
             <div class="line"></div> 
             <div class="icon"><i class="material-icons md-36">input</i></div>
 <div class="card-content">
@@ -68,7 +68,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       <!-- end card -->
       <!-- card -->
    <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIMicrogateway/dummy';">
+      <div class="card" onclick="location.href='https://docs.wso2.com/display/MG301/';">
 	   <div class="line"></div>
             <div class="icon"><i class="material-icons md-36">input</i></div>
             <div class="card-content">
@@ -76,15 +76,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
                 <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices.</p>
             </div>
       </div>
-      <div class="card" onclick="location.href='Learn/RateLimiting/dummy';">
-	    <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">traffic</i></div>
-            <div class="card-content">
-		    <p class="title">Rate Limiting</p>
-		    <p class="hint"> Regulate API traffic and secure APIs against security attacks</p>
-            </div>
-      </div>
-      <div class="card" onclick="location.href='Learn/APISecurity/dummy';">
+      <div class="card" onclick="location.href='Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens';">
 	    <div class="line"></div>
             <div class="icon"><i class="material-icons md-36">security</i></div>
             <div class="card-content">
@@ -92,9 +84,17 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 		    <p class="hint">Authenticate and authorize API requests</p>
             </div>
       </div>
-      <!-- end card -->
+      <div class="card" onclick="location.href='Learn/RateLimiting/introducing-throttling-use-cases';">
+	    <div class="line"></div>
+            <div class="icon"><i class="material-icons md-36">traffic</i></div>
+            <div class="card-content">
+		    <p class="title">Rate Limiting</p>
+		    <p class="hint"> Regulate API traffic and secure APIs against security attacks</p>
+            </div>
+      </div>
+        <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/Analytics/dummy';">
+      <div class="card" onclick="location.href='Learn/Analytics/overview-of-api-analytics';">
 	    <div class="line"></div>
             <div class="icon"><i class="material-icons md-36">show_chart</i></div>
             <div class="card-content">
