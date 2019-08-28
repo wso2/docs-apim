@@ -48,8 +48,8 @@ theme:
 nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
     - Get Started: 
-        - Overview:  GettingStarted/key-concepts.md
-        - Key Concepts: GettingStarted/overview.md
+        - Overview:  GettingStarted/overview.md
+        - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
     - Learn: 
         - Design API: 
@@ -70,12 +70,14 @@ nav:
                 - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
                 - Endpoint Timeouts: Learn/DesignAPI/Endpoints/endpoint-timeouts.md
                 - Certificates: Learn/DesignAPI/Endpoints/certificates.md
-                - Endpoint Security:
-                    - Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
-                    - Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
+                - Security:
+                    - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
+                    - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
                 - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
-                - Prevent API Suspension:
-                    - Endpoint Resiliency: Learn/DesignAPI/Endpoints/prevent-api-suspension.md
+                - Resiliency:
+                    - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
+                    - Endpoint Suspension: Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension.md 
+                    - Prevent API Suspension: Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension.md
             - Lifecycle Managament:
                 - API Lifecycle: Learn/DesignAPI/LifecycleManagement/api-lifecycle.md
                 - Customize API Life Cycle: Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle.md
@@ -119,6 +121,7 @@ nav:
                         - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
                         - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
                         - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
+                    -  Grant Types: Learn/ConsumeAPI/ManageApplication/grant-type.md 
                 - Sharing Applications:
                         - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md 
                         - Sharing Applications Between Multiple Groups: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications-between-multiple-groups.md
@@ -126,7 +129,7 @@ nav:
                         - Add Custom Attributes to Applications: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications.md
                         - Changing the Owner of an Application: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/changing-the-owner-of-an-application.md
                         - Adding an Application Creation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-creation-workflow.md
-                        - Adding an Application Registration Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-registration-workflow.md
+                        - Adding an Application Key Generation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-key-generation-workflow.md
             - Manage Subscriptions: 
                 - Subscribe to an API: Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md
                 - Advanced Topics:
@@ -146,7 +149,15 @@ nav:
             - Collaboration:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
-                - Adding a New API Store Theme: Learn/ConsumeAPI/Customizations/adding-a-new-api-store-theme.md
+                -  Customizing the API Store:
+                    - Adding a New API Store Theme: Learn/ConsumeAPI/Customizations/adding-a-new-api-store-theme.md
+                    - Customize API Listing:
+                        - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
+                        - Change Default API Description and Thumbnail: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-api-description-and-thumbnail.md
+                    - Customizing error Pages: Learn/ConsumeAPI/Customizations/customizing-error-pages.md
+                    - Enabling or disabling the forum: Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-forum.md
+                    - Enabling or disabling the walkthrough: Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-walkthrough.md
+                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/enabling-or-disabling-self-signup.md   
                 - Customizing the API Store: Learn/ConsumeAPI/Customizations/customizing-the-api-store.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
@@ -157,6 +168,7 @@ nav:
             - Generating SDKs:  
                 - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md     
         - API Gateway:
+            -  Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
             - Message Mediation:
                 - Change the Default Mediation Flow of API Requests: Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests.md
                 - Convert a JSON Message to SOAP and SOAP to JSON: Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json.md
@@ -172,6 +184,9 @@ nav:
                 - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
                 - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
+            - Passing Enduser Attributes to the Backend:
+                - Passing Enduser Attributes to the Backend Using JWT: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt.md
+                - Passing Enduser Attributes to the Backend using HTTP Headers: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-http-headers.md
             - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
             - Advanced Topics:
@@ -184,8 +199,14 @@ nav:
                 - Add SSL Certificates for Endpoints: Learn/APISecurity/Authentication/add-ssl-certificates-for-endpoints.md
             - Authorization:
                 - Enabling Role-Based Access Control Using XACML: Learn/APISecurity/Authorization/enabling-role-based-access-control-using-xacml.md
-            - API Keys: ''
+            - API Keys:
+                 - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
+                 - Application Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens.md
+                 - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
+                 - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
+                 - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
             - OAuth2:
+                - Token types: Learn/APISecurity/OAuth2/token-types.md 
                 - OAuth2 Scopes:
                     - Applying a scope: Learn/APISecurity/OAuth2/AOuth2Scopes/applying-a-scope.md
                     - Scope Whitelisting: Learn/APISecurity/OAuth2/AOuth2Scopes/scope-whitelisting.md
@@ -201,13 +222,13 @@ nav:
                     - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
                     - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
                     - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
+                - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
+                - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
                 - Encrypting OAuth Keys: Learn/APISecurity/OAuth2/encrypting-oauth-keys.md
                 - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
                 - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
                 - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2/saving-access-tokens-in-separate-tables.md
                 - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md   
-            - JWT:
-                - Passing Enduser Attributes to the Backend Using JWT: Learn/APISecurity/JWT/passing-enduser-attributes-to-the-backend-using-jwt.md
             - SAML: ''
             - Threat Protection:
                 - Gateway Threat Protectors: ''
@@ -228,40 +249,40 @@ nav:
             - Engaging Multiple Throttling Policies to a Single API: Learn/RateLimiting/engaging-multiple-throttling-policies-to-a-single-api.md
             - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
             - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
-            - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/AdvancedTopics/engaging-a-new-throttling-policy-at-runtime.md
+            - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
+            - Advanced Topics:
+                - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md 
         - API Monetization:
             - Configuring API Monetization Category Labels: Learn/APIMonetization/configuring-api-monetization-category-labels.md
         - Analytics:
-            - Enabling WSO2 API-M Analytics Features: Learn/Analytics/enabling-wso2-api-m-analytics-features.md
+            - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
-            - Analyzing APIM Statistics with Batch Analytics:
-                - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md
-                - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
-                - Using Geolocation Based Statistics:
-                    - Configuring Geolocation Based Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics.md
-                    - Writing a Custom Geolocation Provider: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/writing-a-custom-geolocation-provider.md
-                    - Updating Geo Location Data Set: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set.md
-            - Managing Alerts with Real-time Analytics: 
-                    - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
-                    - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
-                    - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
-                    - Viewing Alerts:  Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts.md
+            - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
+            - Analyzing API Statistics:
+                - Analyzing the Number of API Failures: Learn/Analytics/analyzing-the-number-of-api-failures.md
+                - Analyzing Login Errors: Learn/Analytics/analyzing-login-errors.md
+                - Analyzing API Deployment Statistics: Learn/Analytics/analyzing-api-deployment-statistics.md
+                - Analyzing Access Token Errors: Learn/Analytics/analyzing-access-token-errors.md
+                - Analyzing Application Errors: Learn/Analytics/analyzing-application-errors.md
+                - Analyzing the Log Overview: Learn/Analytics/analyzing-the-log-overview.md            
+            - Alerts for APIs: 
+                - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
+                - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
+                - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
+                - Viewing Alerts:  Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts.md
+            - Using Geolocation Based Statistics:
+                - Configuring Geolocation Based Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics.md
+                - Writing a Custom Geolocation Provider: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/writing-a-custom-geolocation-provider.md
+                - Updating Geo Location Data Set: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set.md           
             - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
-            - Monitoring with WSO2 Carbon Metrics: 
-                    - Enabling Metrics and Storage Types: Learn/Analytics/MonitoringWithWSO2CarbonMetrics/enabling-metrics-and-storage-types.md
-                    - Configuring Metrics Properties: Learn/Analytics/MonitoringWithWSO2CarbonMetrics/configuring-metrics-properties.md
-                    - Using JVM Metrics: Learn/Analytics/MonitoringWithWSO2CarbonMetrics/using-jvm-metrics.md
             - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
-            - Analyzing the Number of API Failures: Learn/Analytics/analyzing-the-number-of-api-failures.md
-            - Analyzing Login Errors: Learn/Analytics/analyzing-login-errors.md
-            - Analyzing API Deployment Statistics: Learn/Analytics/analyzing-api-deployment-statistics.md
-            - Analyzing Access Token Errors: Learn/Analytics/analyzing-access-token-errors.md
-            - Analyzing Application Errors: Learn/Analytics/analyzing-application-errors.md
-            - Analyzing the Log Overview: Learn/Analytics/analyzing-the-log-overview.md
             - Viewing Live Logs: Learn/Analytics/viewing-live-logs.md
-        - API Migration:
-            - Migrating the APIs and Applications to a Different Environment: Learn/APIMigration/migrating-the-apis-and-applications-to-a-different-environment.md
+            - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md
+        - CICD Pipeline:
+            - Initializing projects using the CLI Tool: Learn/CICDPipeline/initializing-projects-using-the-cli-tool.md
+            - Promoting APIs Through CICD: Learn/CICDPipeline/promoting-apis-through-cicd.md
+            - Promoting Applications Through CICD: Learn/CICDPipeline/promoting-applications-through-cicd.md
         - Tutorials:
             - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
             - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
@@ -282,16 +303,10 @@ nav:
             - Extending Scope Validation: Learn/Extensions/extending-scope-validation.md
             - Editing API Templates: Learn/Extensions/editing-api-templates.md
     - Develop:
-        - Product APIs:
-            - RESTful APIs: Develop/ProductAPIs/restful-apis.md
-            - Token API: Develop/ProductAPIs/token-api.md
-            - Deprecated APIs:
-                - Publisher APIs: Develop/ProductAPIs/DeprecatedAPIs/publisher-apis.md
-                - Store APIs: Develop/ProductAPIs/DeprecatedAPIs/store-apis.md
-        - WSO2 Admin Services: Develop/wso2-admin-services.md
-        - Working with Audit Logs: Develop/working-with-audit-logs.md
-        - Enabling Authentication Session Persistence: Develop/enabling-authentication-session-persistence.md
+        - Product REST APIs: Develop/ProductAPIs/restful-apis.md
+        - Admin Services: Develop/wso2-admin-services.md
         - Using the Registry REST API: Develop/using-the-registry-rest-api.md
+        - Working with Audit Logs: Develop/working-with-audit-logs.md
         - Working with the Source Code: Develop/working-with-the-source-code.md
         - Java Documentation: Develop/java-documentation.md
     - Setup and Install:
@@ -308,25 +323,27 @@ nav:
         - Deploying WSO2 API Manager:
             - Deployment Patterns: SetupAndInstall/DeployingWSO2APIManager/deployment-patterns.md
             - All-In-One Deployment:
-                - Deploying API Manager using Single Node Instances: SetupAndInstall/DeployingWSO2APIManager/SingleNode/deploying-api-manager-using-single-node-instances.md
+                - All-in-One Deployment Overview: SetupAndInstall/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview.md
                 - Configuring a Single Node: SetupAndInstall/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md 
                 - Configuring an Active-Active Deployment: SetupAndInstall/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment.md
             - Distributed Deployment:
-                - Distributed Deployment of API Manager: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-api-manager.md
-                - Understanding the Distributed Deployment of WSO2 API-M: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                - Distributed Deployment Overview: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                 - Deploying WSO2 API-M in a Distributed Setup: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - Distributed Deployment of the Gateway: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
+                - Configure WSO2 API-M Gateways in a Distributed Deployment: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
                 - Configuring the Gateway in a Distributed Environment with rsync: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
-                - Working with Hazelcast Clustering: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
-            - Third Party Key Manager:
-                - Configuring WSO2 Identity Server as a Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md
-                - Configuring the Databases for IS as the Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager.md
+                - Configure a Thrid Party Key Manager: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
+                - WSO2 Identity Server as Key Manager: 
+                    - Configuring WSO2 Identity Server as a Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md
+                    - Configuring the Databases for IS as the Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager.md
             - Installing and Configuring the Databases: SetupAndInstall/DeployingWSO2APIManager/installing-and-configuring-the-databases.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: SetupAndInstall/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring rsync for Deployment Synchronization: SetupAndInstall/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: SetupAndInstall/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
             - Minimum High Availability Deployment for WSO2 APIM Analytics: SetupAndInstall/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
             - Configuring the keyStore and client trustStore for a Selected Pattern: SetupAndInstall/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
+            - Deployment Guidelines:
+                - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
     - Administer:
         - Product Administration:
             - Upgrading WSO2 API Manager:
@@ -338,32 +355,147 @@ nav:
                 - WSO2 API-M Performance and Capacity Planning: Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
                 - Performance Tuning and Testing Results: Administer/ProductAdministration/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md             
             - Managing Users and Roles:
-                - Adding User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles.md
+                - Introduction to User Management (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-introduction-to-user-management.md
+                - Understanding the User Realm (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-understanding-the-user-realm.md
+                - Managing Users, Roles and Permissions (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-users-roles-and-permissions.md
                 - Adding Users: Administer/ProductAdministration/ManagingUsersAndRoles/adding-users.md
+                - Adding User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles.md
+                - admin_Configuring Roles: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-roles.md
+                - admin_Configuring Users: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-users.md
+                - admin_Changing a Password: Administer/ProductAdministration/ManagingUsersAndRoles/admin-changing-a-password.md
+                - admin_Role-based Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/admin-role-based-permissions.md
+                - admin_Managing User Attributes: Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-user-attributes.md
+                - admin_Configuring User Stores:
+                    - admin_Configuring the Primary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-primary-user-store.md
+                    - admin_Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-jdbc-user-store.md
+                    - admin_Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-only-ldap-user-store.md
+                    - admin_Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-write-active-directory-user-store.md
+                    - admin_Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-write-ldap-user-store.md
+                    - admin_Configuring Secondary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-secondary-user-stores.md
+                    - admin_Working with Properties of User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/admin-working-with-properties-of-user-stores.md
+                    - admin_Writing a Custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/admin-writing-a-custom-user-store-manager.md
+                - admin_Configuring the System Administrator: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-system-administrator.md
+                - admin_Configuring the Authorization Manager: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-authorization-manager.md
+                - admin_Removing References to Deleted User Identities in WSO2 Products: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
+                - admin_Extending the Identity Anonymization Tool: Administer/ProductAdministration/ManagingUsersAndRoles/admin-extending-the-identity-anonymization-tool.md
+                - admin_Product Startup Options: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
+            - admin_Data Stores:
+                - admin_Working with Databases:
+                    - admin_Setting up the Physical Database:
+                        - admin_Setting up IBM DB2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-ibm-db2.md
+                        - admin_Setting up IBM Informix: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-ibm-informix.md
+                        - admin_Setting up H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-h2.md
+                        - admin_Setting up Embedded H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-h2.md
+                        - admin_Setting up Remote H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-h2.md
+                        - admin_Setting up MariaDB: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-mariadb.md
+                        - admin_Setting up Microsoft SQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-microsoft-sql.md
+                        - admin_Setting up MySQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-mysql.md
+                        - admin_Setting up a MySQL Cluster: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-a-mysql-cluster.md
+                        - admin_Setting up Oracle: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle.md
+                        - admin_Setting up Oracle RAC: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle-rac.md
+                        - admin_Setting up PostgreSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-postgresql.md
+                        - admin_Setting up Derby: 
+                            - admin_Setting up Embedded Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-derby.md
+                            - admin_Setting up Remote Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-derby.md
+                    - admin_Changing the Carbon Database:
+                        - admin_Changing to Embedded Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-embedded-derby.md
+                        - admin_Changing to Embedded H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-embedded-h2.md
+                        - admin_Changing to IBM DB2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-ibm-db2.md
+                        - admin_Changing to IBM Informix: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-ibm-informix.md
+                        - admin_Changing to MariaDB: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mariadb.md
+                        - admin_Changing to MSSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mssql.md
+                        - admin_Changing to MySQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mysql.md
+                        - admin_Changing to Oracle: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-oracle.md
+                        - admin_Changing to Oracle RAC: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-oracle-rac.md
+                        - admin_Changing to PostgreSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-postgresql.md
+                        - admin_Changing to Remote H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-remote-h2.md
+                    - admin_Browsing the H2 Database: ''
+                - admin_Working with the Registry:
+                    - admin_Managing the Registry: 
+                        - admin_Metadata: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-metadata.md
+                        - admin_Properties: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-properties.md
+                        - admin_Entries and Content:
+                            - admin_Adding a Resource: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-adding-a-resource.md
+                            - admin_Link Creation: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-link-creation.md
+                            - admin_Editing collections using the Entries panel: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-editing-collections-using-the-entries-panel.md
+                        - admin_Role Permissions: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-role-permissions.md
+                - admin_Searching the Registry: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/admin-searching-the-registry.md
+                - admin_Using Remote Registry Instances for the Registry Partitions:
+                    - admin_All Partitions in a Single Server: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-all-partitions-in-a-single-server.md
+                    - admin_Config and Governance Partitions in a Remote Registry: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-governance-partition-in-a-remote-registry.md
+                    - admin_Governance Partition in a Remote Registry: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-config-and-governance-partitions-in-a-remote-registry.md
+                    - admin_Config and Governance Partitions in Separate Nodes: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-config-and-governance-partitions-in-separate-nodes.md
+                - admin_Working with Users, Roles and Permissions: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/admin-working-with-users-roles-and-permissions.md
+            - admin_Default Ports of WSO2 Products: Administer/ProductAdministration/admin-default-ports-of-wso2-products.md
+            - admin_Monitoring:
+                - admin_Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/admin-capturing-system-data-in-error-situations.md
+                - admin_JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/admin-jmx-based-monitoring.md
+                - admin_Monitoring Logs:
+                    - admin_Monitoring Logs using Management Console:
+                        - admin_Configuring Log4j Properties: Administer/ProductAdministration/Monitoring/admin-configuring-log4j-properties.md
+                        - admin_Configuring the Log Provider: Administer/ProductAdministration/Monitoring/admin-configuring-the-log-provider.md
+                        - admin_View and Download Logs: Administer/ProductAdministration/Monitoring/admin-view-and-download-logs.md
+                    - admin_HTTP Access Logging: Administer/ProductAdministration/Monitoring/admin-http-access-logging.md
+                    - admin_Masking Sensitive Information in Logs: Administer/ProductAdministration/Monitoring/admin-masking-sensitive-information-in-logs.md
+                - admin_Monitoring Message Flows: Administer/ProductAdministration/Monitoring/admin-monitoring-message-flows.md
+                - admin_Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/admin-monitoring-performance-statistics.md
+                - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
+                - admin_Monitoring TCP-Based Messages:
+                    - admin_Starting TCPMon: Administer/ProductAdministration/Monitoring/admin-starting-tcpmon.md
+                    - admin_Message Monitoring with TCPMon: Administer/ProductAdministration/Monitoring/admin-monitoring-tcp-based-messages.md
+                    - admin_Other Usages of TCPMon: Administer/ProductAdministration/Monitoring/admin-other-usages-of-tcpmon.md
+                - admin_Monitoring Server Health: Administer/ProductAdministration/Monitoring/admin-monitoring-server-health.md
             - Logging:
+                - Working with Audit Logs: Administer/ProductAdministration/Logging/working-with-audit-logs.md
                 - Application Logs: Administer/ProductAdministration/Logging/application-logs.md
                 - Setting Up Logging: Administer/ProductAdministration/Logging/setting-up-logging.md
                 - System Logs: Administer/ProductAdministration/Logging/system-logs.md
             - Administration - API-M Analytics:
                 - Re-indexing Existing Data: Administer/ProductAdministration/Administration-APIMAnalytics/re-indexing-existing-data.md
             - Product Profiles: Administer/ProductAdministration/product-profiles.md
+            - admin_Adding a Custom Proxy Path: Administer/ProductAdministration/admin-adding-a-custom-proxy-path.md
             - Changing the Default API-M Databases: Administer/ProductAdministration/changing-the-default-api-m-databases.md
             - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
-        - JMX Monitoring: Administer/jmx-monitoring.md
+            - JMX Monitoring: Administer/jmx-monitoring.md
+            - admin_Working with Transports:
+                - admin_Introduction to Transports: Administer/ProductAdministration/WorkingWithTransports/admin-introduction-to-transports.md
+                - admin_Carbon Transports:
+                    - admin_HTTP Servlet Transport: Administer/ProductAdministration/WorkingWithTransports/admin-http-servlet-transport.md
+                    - admin_HTTPS Servlet Transport: Administer/ProductAdministration/WorkingWithTransports/admin-https-servlet-transport.md
+                    - admin_HTTP-NIO Transport: Administer/ProductAdministration/WorkingWithTransports/admin-http-nio-transport.md
+                    - admin_HTTPS-NIO Transport: Administer/ProductAdministration/WorkingWithTransports/admin-https-nio-transport.md
+                    - admin_VFS Transport: Administer/ProductAdministration/WorkingWithTransports/admin-vfs-transport.md
+                    - admin_JMS Transport: Administer/ProductAdministration/WorkingWithTransports/admin-jms-transport.md
+                    - admin_MailTo Transport: Administer/ProductAdministration/WorkingWithTransports/admin-mailto-transport.md
+                    - admin_TCP Transport: Administer/ProductAdministration/WorkingWithTransports/admin-tcp-transport.md
+                    - admin_Local Transport: Administer/ProductAdministration/WorkingWithTransports/admin-local-transport.md
+                    - admin_UDP Transport: Administer/ProductAdministration/WorkingWithTransports/admin-udp-transport.md
+                    - admin_FIX Transport: Administer/ProductAdministration/WorkingWithTransports/admin-fix-transport.md
+            - admin_Working with Composite Applications:
+                - admin_Introduction to Composite Applications: Administer/ProductAdministration/WorkingWithCompositeApplications/admin-introduction-to-composite-applications.md
+                - admin_Packaging Artifacts into Composite Applications: Administer/ProductAdministration/WorkingWithCompositeApplications/admin-packaging-artifacts-into-composite-applications.md
+                - admin_Deploying Composite Applications in the Server: Administer/ProductAdministration/WorkingWithCompositeApplications/admin-deploying-composite-applications-in-the-server.md
+            - admin_Working with Multiple Tenants:
+                - admin_Introduction to Multitenancy: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-introduction-to-multitenancy.md
+                - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-configuring-the-tenant-loading-policy.md
+                - admin_Adding New Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants.md
+            - admin_Customizations:
+                - admin_Customizing Error Pages: Administer/ProductAdministration/Customizations/admin-customizing-error-pages.md
+                - admin_Customizing the Management Console: Administer/ProductAdministration/Customizations/admin-customizing-the-management-console.md
         - Product Configurations:
             - Working with Databases:
                 - Managing Datasources:
                     - Adding Datasources: Administer/ProductConfigurations/WorkingWithDatabases/adding-datasources.md
-                    - RDBMS Datasource: 
+                    - Configuring an RDBMS Datasource: 
                         - Configuring an RDBMS Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-an-rdbms-datasource.md
                         - Configuring the Datasource Provider: Administer/ProductConfigurations/WorkingWithDatabases/configuring-the-datasource-provider.md
                         - Configuring a JNDI Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-jndi-datasource.md
                         - Configuring the Datasource Connection Pool Parameters: Administer/ProductConfigurations/WorkingWithDatabases/configuring-the-datasource-connection-pool-parameters.md
                     - Custom Datasource:
                         - Configuring a Custom Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-custom-datasource.md
-            - User Stores:
+            - Configuring User Stores:
                 - Configuring User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores 
                 - Realm Configuration: Administer/ProductConfigurations/ConfiguringUserStores/realm-configuration.md
                 - Configuring Primary User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-primary-user-stores.md
@@ -376,24 +508,53 @@ nav:
             - Configuring Keystores in WSO2 API Manager: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
             - Adding Links to Navigate Between the Store and Publisher: Administer/ProductConfigurations/adding-links-to-navigate-between-the-store-and-publisher.md
             - Adding Internationalization and Localization: Administer/ProductConfigurations/adding-internationalization-and-localization.md
-            - Multi Tenancy:
+            -  Configuring Multiple Tenants:
                 - Configuring Multiple Tenants: Administer/ProductConfigurations/configuring-multiple-tenants.md
                 - Managing Tenants: Administer/ProductConfigurations/managing-tenants.md
         - Product Security:
-            - Maintaining Logins and Passwords: Administer/ProductSecurity/maintaining-logins-and-passwords.md
-            - Working with Encrypted Passwords: Administer/ProductSecurity/working-with-encrypted-passwords.md
+            - General:
+                -  Logins and Passwords:    
+                    - Maintaining Logins and Passwords: Administer/ProductSecurity/maintaining-logins-and-passwords.md
+                    - admin_Securing Passwords in Configuration Files:
+                        - admin_Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
+                        - admin_Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
+                        - admin_Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
+                    - Working with Encrypted Passwords: Administer/ProductSecurity/working-with-encrypted-passwords.md
+                - admin_Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
             - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
+            - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/mutual-ssl-between-api-gateway-and-backend.md
             - SAML2 SSO:
                 - Configuring Single Sign-on with SAML2: Administer/ProductSecurity/configuring-single-sign-on-with-saml2.md
                 - Configuring API Manager for SSO: Administer/ProductSecurity/configuring-api-manager-for-sso.md
                 - Configuring External IDP through Identity Server for SSO: Administer/ProductSecurity/configuring-external-idp-through-identity-server-for-sso.md
                 - Configuring Identity Server as IDP for SSO: Administer/ProductSecurity/configuring-identity-server-as-idp-for-sso.md
+            - admin_Using Asymmetric Encryption:
+                - admin_Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
+                - admin_Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
+                - admin_Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
+                - admin_Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
+            - admin_Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
+            - admin_Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
+            - admin_Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
+            - admin_Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
+            - admin_Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
+            - admin_Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
+        - admin_Supported Cipher Suites: ''
+        - API Designer Portal: 
             - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+        - Application Developer Portal:
             - Whitelisting Hostnames for API Store: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
-            - Whitelisting Host Names for API Store: Administer/ProductSecurity/whitelisting-hostnames-for-api-store.md
             - Identity Management for the API Store: Administer/ProductSecurity/identity-management-for-the-api-store.md
-            - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/mutual-ssl-between-api-gateway-and-backend.md
     - Reference:
+        - Configuration Catalog: Reference/ConfigCatalog.md
+        - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
+        - FAQ: Reference/faq.md
+        - Guides:
+            - Changing the Default Ports with Offset: Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md
+            - Message Flow in the API Manager Gateway: Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md
+            - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md
+            - admin_Database Upgrade Guide: Reference/Guides/admin-database-upgrade-guide.md
+            - admin_Directory Structure of WSO2 Products: Reference/Guides/admin-directory-structure-of-wso2-products.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: Reference/samples/APIDevelopmentSample/managing-apis-sample.md
@@ -405,20 +566,13 @@ nav:
             - API Rate Monetization Sample: Reference/samples/api-rate-monetization-sample.md
             - API Security Sample Sample: Reference/samples/api-security-sample-sample.md
             - API Versioning Sample: Reference/samples/api-versioning-sample.md
-        - FAQ: Reference/faq.md
-        - Other: Reference/other.md
-        - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
-        - Guides:
-            - Reference Guide:
-                - Changing the Default Ports with Offset: Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md
-                - Message Flow in the API Manager Gateway: Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md
-                - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md
         - Business Scenarios: Reference/Guides/business-scenarios.md
+        - Other: Reference/other.md
     - Troubleshooting:
-        - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
         - Error Handling: Troubleshooting/error-handling.md
-    - '': page-not-found.md
-     
+        - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
+        - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
+    - '': page-not-found.md    
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition

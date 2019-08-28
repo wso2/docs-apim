@@ -1,0 +1,95 @@
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdl2="http://callback.workflow.apimgt.carbon.wso2.org" xmlns:wsdl1="http://ws.apache.org/axis2" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:wsdl="http://org.wso2.carbon/claims/" xmlns:tns="http://workflow.registeruser.apimgt.carbon.wso2.org" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="UserSignupProcess" targetNamespace="http://workflow.registeruser.apimgt.carbon.wso2.org">
+  <import namespace="http://callback.workflow.apimgt.carbon.wso2.org" location="UserSignupProcess?wsdl=WorkflowCallbackService.wsdl">
+    </import>
+  <import namespace="http://org.wso2.carbon/claims/" location="UserSignupProcess?wsdl=UserApprovalTask.wsdl">
+    </import>
+  <types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://workflow.registeruser.apimgt.carbon.wso2.org">
+                
+            <element name="UserSignupProcessRequest">
+                <complexType>
+                    <sequence>
+                    	<element name="userName" type="string"></element>
+                    	<element name="tenantDomain" type="string"></element>
+                    	<element name="workflowExternalRef" type="string">
+                    	</element>
+                    	<element name="callBackURL" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+                  
+            <element name="UserSignupProcessResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="string"></element>
+                    </sequence>
+                </complexType>
+            </element>
+            
+        </schema>
+  </types>
+  <message name="UserSignupProcessResponseMessage">
+    <part name="payload" element="tns:UserSignupProcessResponse">
+    </part>
+  </message>
+  <message name="UserSignupProcessRequestMessage">
+    <part name="payload" element="tns:UserSignupProcessRequest">
+    </part>
+  </message>
+  <portType name="UserSignupProcess">
+    <operation name="initiate">
+      <input message="tns:UserSignupProcessRequestMessage">
+    </input>
+    </operation>
+  </portType>
+  <portType name="UserSignupProcessCallback">
+    <operation name="onResult">
+      <input message="tns:UserSignupProcessResponseMessage">
+    </input>
+    </operation>
+  </portType>
+  <binding name="UserSignupProcessBinding" type="tns:UserSignupProcess">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <operation name="initiate">
+      <soap:operation soapAction="http://workflow.registeruser.apimgt.carbon.wso2.org/initiate"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+    </operation>
+  </binding>
+  <binding name="UserSignupProcessCallbackBinding" type="tns:UserSignupProcessCallback">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"></soap:binding>
+    <operation name="onResult">
+      <soap:operation soapAction="http://workflow.registeruser.apimgt.carbon.wso2.org/onResult"></soap:operation>
+      <input>
+        <soap:body use="literal"></soap:body>
+      </input>
+    </operation>
+  </binding>
+  <service name="UserSignupProcess">
+    <port name="UserSignupProcessPort" binding="tns:UserSignupProcessBinding">
+      <soap:address location="http://10.100.0.104:9765/services/UserSignupProcess/"></soap:address>
+    </port>
+  </service>
+  <service name="UserSignupProcessCallback">
+    <port name="UserSignupProcessPortCallbackPort" binding="tns:UserSignupProcessCallbackBinding">
+      <soap:address location="http://10.100.0.104:9765/services/UserSignupProcess/"></soap:address>
+    </port>
+  </service>
+    <plnk:partnerLinkType name="approvePTL">
+    <plnk:role name="userRole" portType="tns:UserSignupProcess"></plnk:role>
+    <plnk:role name="manager" portType="wsdl:UserHandlingCallbackPT"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="userApprovePTL">
+    <plnk:role name="userRole" portType="wsdl:UserHandlingPT"></plnk:role>
+    <plnk:role name="manager" portType="wsdl:UserHandlingCallbackPT"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="apimResponsePTL">
+    <plnk:role name="userRole1" portType="wsdl2:WorkflowCallbackServicePortType"></plnk:role>
+    <plnk:role name="manager" portType="wsdl2:WorkflowCallbackServicePortType"></plnk:role>
+  </plnk:partnerLinkType>
+    <plnk:partnerLinkType name="UserSignupProcess">
+        <plnk:role name="UserSignupProcessProvider" portType="tns:UserSignupProcess"></plnk:role>
+        <plnk:role name="UserSignupProcessRequester" portType="tns:UserSignupProcessCallback"></plnk:role>
+    </plnk:partnerLinkType>
+</definitions>
