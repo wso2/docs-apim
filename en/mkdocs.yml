@@ -239,7 +239,6 @@ nav:
                 - Securing APIs with Mutual SSL:  Learn/APISecurity/MutualSSL/securing-apis-with-mutual-ssl.md
             - OpenID Connect:
                 - Obtaining User Profile Information with OpenID Connect: Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect.md
-            - Rate Limiting - Security Concerns: ''   
         - Rate Limiting:
             - Throttling Use-Cases: Learn/RateLimiting/introducing-throttling-use-cases.md
             - Adding New Throttling Policies: Learn/RateLimiting/AdvancedTopics/adding-new-throttling-policies.md
