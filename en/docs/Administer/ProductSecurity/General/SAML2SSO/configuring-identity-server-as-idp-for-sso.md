@@ -247,7 +247,7 @@ Similarly, provide the configurations to register the API Store as the SSO serv
 -   Assertion Consumer URL: `                           https://localhost:9443/store/jagg/jaggery_acs.jag                         ` . Change the IP and port accordingly. This is the URL for the Assertion Consumer Services (ACS) page in your running Store app.
 -   Select the following options:
     -   **Enable Response Signing**
-    -   **EnableSingle Logout**
+    -   **Enable Single Logout**
 -   Click **Register** once done.
 
 Make sure that the `          responseSigningEnabled         ` element is set to `          true         ` in both the following files:

@@ -118,7 +118,7 @@ If you want to see the APIs grouped according to different topics in the API Sto
 !!! note
 Although the way in which you add a Tag and API group appears to be similar there are differences. Therefore, you need to note the following:
 
--   The **group nameshould always have** the **suffix `           -group          `** and it **can havespaces** in it (e.g., APIs groups-group).
+-   The **group name should always have** the **suffix `           -group          `** and it **can have spaces** in it (e.g., APIs groups-group).
 -   The **tag name** should **not have a suffix or prefix** , but it **can have spaces** .
 
 
