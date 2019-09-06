@@ -14,7 +14,7 @@ Only the users registered in the EI can deploy BPELs and human tasks in it. Regi
 ![](attachments/103334719/103334720.png)**Figure** : API Manager and EI share the same user and permission store
 
 !!! warning
-**I** **f you are using WSO2 BPS** **3.2.0** , please copy the `                   <APIM_HOME>                  /repository/components/patches/patch0009        ` folder to the `                   <BPS_HOME>                  /repository/components/patches        ` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
+**If you are using WSO2 BPS3.2.0** , please copy the `                   <APIM_HOME>                  /repository/components/patches/patch0009        ` folder to the `                   <BPS_HOME>                  /repository/components/patches        ` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
 
 This patch is built into the BPS version 3.5.0 onwards.
 

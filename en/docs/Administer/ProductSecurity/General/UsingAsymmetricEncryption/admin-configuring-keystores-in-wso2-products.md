@@ -45,7 +45,7 @@ See the following for details:
 The primary keystore of WSO2 products are configured by the `         Keystore        ` element in the `         carbon.xml        ` file (stored in the &lt; `         PRODUCT         _HOME>/repository/conf/        ` directory). This keystore is used for the following functions in WSO2 products by default.
 
 -   **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal data stores. Note that you also have the option of [separating the keystore for encrypting information in internal data stores](#admin_ConfiguringKeystoresinWSO2Products-second_keystore_internal_data) .
--   **S** **igning messages** when the WSO2 product communicates with external parties (such SAML, OIDC id\_token signing).
+-   **Signing messages** when the WSO2 product communicates with external parties (such SAML, OIDC id\_token signing).
 
 The default configuration is shown below.
 

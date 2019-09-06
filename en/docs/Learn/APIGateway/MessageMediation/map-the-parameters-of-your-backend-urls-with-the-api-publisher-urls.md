@@ -79,7 +79,7 @@ We do the following mapping in this tutorial:
 
     ![](attachments/103332587/103332564.png)
 
-3.  Click **Next: M** **anage &gt;** to go to the `           Manage          ` tab, select the `           Gold          ` tier and publish the API.
+3.  Click **Next: Manage &gt;** to go to the `           Manage          ` tab, select the `           Gold          ` tier and publish the API.
     ![](attachments/103332587/103332563.png)
     As the API's resource is appended to its endpoint by Synapse at runtime, let's write a custom sequence to remove this appended resource.
 

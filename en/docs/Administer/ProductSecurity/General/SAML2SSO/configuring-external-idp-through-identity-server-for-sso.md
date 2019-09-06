@@ -154,7 +154,7 @@ Next, let us look at the SSO configurations.
     ![](attachments/103333463/103333466.png)
 
         !!! tip
-    **In** **a multi tenanted environment,** for all tenants to be able to log in to the API Manager web applications, do the following:
+    **In a multi tenanted environment,** for all tenants to be able to log in to the API Manager web applications, do the following:
 
     -   Click the **SaaS Application** option that appears after registering the service provider.
         ![](attachments/103333463/103333464.png)
@@ -174,7 +174,7 @@ Next, let us look at the SSO configurations.
     -   Since the servers in a multi-tenanted environment interact with all tenants, all nodes should share the same user store. Therefore, make sure you have a shared registry (JDBC mount, WSO2 Governance Registry etc.) instance across all nodes.
 
 
-4.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuratio** **n** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
+4.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuration** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
     ![](attachments/103333463/103333465.png)
 
         !!! note
@@ -191,7 +191,7 @@ Next, let us look at the SSO configurations.
 
         -   **Enable Response Signing**
 
-        -   ****Enable**** **Single Logout**
+        -   **Enable Single Logout**
 
         -   **Enable Attribute Profile**
 
@@ -207,7 +207,7 @@ Similarly, provide the configurations to register the API Store as the SSO serv
 -   Assertion Consumer URL: `                           https://localhost:9443/store/jagg/jaggery_acs.jag                         ` Change the IP and port accordingly. This is the URL for the acs page in your running store app.
 -   Select the following options:
     -   **Enable Response Signing**
-    -   **Enable** **Single Logout**
+    -   **EnableSingle Logout**
     -   **Enable Attribute Profile**
 
         -   **Include Attributes in the Responses Always**

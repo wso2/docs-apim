@@ -192,7 +192,7 @@ Message receiving timeout.
 TimeoutsSending
 Message sending timeout.
 
-**** **Operations**
+**Operations**
 
 | Operation Name                        | Description                                                                                                                                        |
 |---------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|

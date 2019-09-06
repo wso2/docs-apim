@@ -8,7 +8,7 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
 3.  Click **Add New Role** .
 4.  Add a role by the name subscriber (or any other name you prefer).
 5.  Click **Next** and add the following permissions:
-6.  Go to the **Resources** **&gt; Browse** menu.
+6.  Go to the **Resources&gt; Browse** menu.
 7.  Navigate to the `           /_system/governance/apimgt/applicationdata/          ` directory.
 
 8.  Click on `           sign-up-config.xml          ` to load the resource in the registry browser UI and select the "Edit as text " option to edit the configurations.

@@ -39,7 +39,7 @@ Part II — Hex value for token expiry time
 
 Part III — HMAC calculation of (‘Part I’ + ‘.’ + ‘Part II’)
 
-**Access token format :** **&lt;Part I&gt;.&lt;Part II&gt;.&lt;Part III&gt;**
+**Access token format :&lt;Part I&gt;.&lt;Part II&gt;.&lt;Part III&gt;**
 
 Example : ba13cf7473cfbde970ae6e8b60973f64.0000015fc1ebabde.67830f2f2886256eb80faa9dab85c3d2c9be7db1
 

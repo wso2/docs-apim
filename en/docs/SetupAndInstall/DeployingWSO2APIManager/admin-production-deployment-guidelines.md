@@ -472,7 +472,7 @@ None of the WSO2 products persist data in the file systems or retain or generate
 1.  **Database backups** :
     -   Back up of all the databases defined in `            <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml           ` .
     -   Back up any other databases configured in any files in the `            <PRODUCT_HOME>/repository/conf/datasources           ` directory.
-2.  **A** **rtifact backups** :
+2.  **Artifact backups** :
     T his includes hot-deployment artifacts, web applications, synapse files, tenant directories, etc. Back up of the `          <PRODUCT_HOME>/repository         ` directory periodically. The frequency of the back ups depends on your usage. For example, if you are creating or updating APIs daily, take this backup daily.
 3.  **WSO2 product instance backups** :
     A one-time-only backup that you take of the entire server directory. This includes all the configuration files, logs, server extensions, and deployment artifacts for both tenants and super tenants. This back up is ideally done when the server is ready to be deployed in a production environment.

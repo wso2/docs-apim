@@ -105,7 +105,7 @@ To import users in bulk:
 4.  The user stores configured for your product will be listed in the **Domain** field. Select the user store to which you want to import the users from the list, upload the CSV or excel sheet, and click Finish. ![](attachments/126562789/126562800.png){height="250"}
 
 !!! info
-The default password of the imported users is valid only for 24 hours. As the system administrator, you can resolve issues of expired passwords by logging in as the Admin and changing the user's password from the **User Management -&gt;** **Users** page. The 'Everyone' role will be assigned to the users by default.
+The default password of the imported users is valid only for 24 hours. As the system administrator, you can resolve issues of expired passwords by logging in as the Admin and changing the user's password from the **User Management -&gt;Users** page. The 'Everyone' role will be assigned to the users by default.
 
 
 ### Customizing the user's roles and permissions

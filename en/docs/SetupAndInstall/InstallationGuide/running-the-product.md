@@ -25,7 +25,7 @@ To start the server, run `         <PRODUCT_HOME>\bin\wso2server.bat        ` (o
 
 Open a command prompt by following the instructions below.
 
--   On Windows: Click **Start &gt;** **Run,** type `           cmd          ` at the prompt, and then press **Enter** .
+-   On Windows: Click **Start &gt;Run,** type `           cmd          ` at the prompt, and then press **Enter** .
 -   On Linux/Mac OS: Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window.
 
 Navigate to the `          <PRODUCT_HOME>/bin/         ` directory using the command prompt.
@@ -57,7 +57,7 @@ To start the server, run `         <PRODUCT_HOME>/bin/wso2server.sh        ` fro
 Following instructions are tested on an Oracle Solaris 10 8/11 x86 environment.
 
 
-1.  Click **Launch &gt;** **Run Applications,** type `          dtterm         ` at the prompt, and then press **Enter** to open a command prompt.
+1.  Click **Launch &gt;Run Applications,** type `          dtterm         ` at the prompt, and then press **Enter** to open a command prompt.
 2.  Navigate to the `          <PRODUCT_HOME>/bin/         ` directory using the command prompt.
 3.  Execute the following command: `          bash         ` wso2server.sh
 4.  The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".

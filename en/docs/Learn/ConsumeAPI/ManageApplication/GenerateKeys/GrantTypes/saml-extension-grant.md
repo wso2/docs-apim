@@ -95,7 +95,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
     Next, let's  register a service provider.
 4.  Sign in to the management console of the Identity Server and click **Main &gt; Service Providers &gt; Add** .
     ![](attachments/103335282/103335287.png)
-5.  Choose to edit the service provider that you just registered and click **Inbound Authentication Configuration &gt;** **SAML2 Web SSO Configuration** .
+5.  Choose to edit the service provider that you just registered and click **Inbound Authentication Configuration &gt;SAML2 Web SSO Configuration** .
     ![](attachments/103335282/103335284.png)6.  Provide the following values to configure the SP and click **Update** :
     -   **Issuer** : Give any name
     -   **Assertion Consumer URL** : The URL to which the IDP sends the SAML response. For example: `                         https://localhost:9443/store/jagg/jaggery_acs.jag                       `

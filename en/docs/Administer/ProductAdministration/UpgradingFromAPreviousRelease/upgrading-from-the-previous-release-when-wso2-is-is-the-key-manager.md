@@ -25,7 +25,7 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.5.0 to 2
 1.  [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.6.0 to 5.7.0](https://docs.wso2.com/display/IS570/Upgrading+from+the+Previous+Release) as described in the WSO2 Identity Server 5.7.0 documentation.
 
 2.  Migrate WSO2 API-M from 2.5.0 to 2.6.0.
-    Follow the instructions mentioned in the Upgrading from 2.5.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#250) , but **skip** **step 2 - (5)** , which explains how to migrate the WSO2 API-M Identity component.
+    Follow the instructions mentioned in the Upgrading from 2.5.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#250) , but **skip step 2 - (5)** , which explains how to migrate the WSO2 API-M Identity component.
 
 !!! note
 -   You can use the following steps in either one of the following situations:
@@ -40,7 +40,7 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.2.0 to 2
     Follow the instructions given in [Upgrading From an Older Version of WSO2 IS](https://docs.wso2.com/display/IS570/Upgrading+From+an+Older+Version+of+WSO2+IS) section of the WSO2 Identity Server 5.7.0 documentation.
 
 2.  Migrate WSO2 API-M from 2.2.0 to 2.6.0.
-    Follow the instructions mentioned in the Upgrading from 2.2.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#220) , but **skip** **step 2 - (6)** , which explains how to migrate the WSO2 API-M Identity component.
+    Follow the instructions mentioned in the Upgrading from 2.2.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#220) , but **skip step 2 - (6)** , which explains how to migrate the WSO2 API-M Identity component.
 
 !!! note
 -   You can use the following steps in either one of the following situations:
@@ -54,7 +54,7 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.1.0 to 2
 1.  Migrate the WSO2 Identity Server (WSO2 IS) from version 5.3.0 to 5.7.0.
     Follow the instructions given in [Upgrading From an Older Version of WSO2 IS](https://docs.wso2.com/display/IS570/Upgrading+From+an+Older+Version+of+WSO2+IS) section of the WSO2 Identity Server 5.7.0 documentation.
 2.  Migrate WSO2 API-M from 2.1.0 to 2.6.0.
-    Follow the instructions mentioned in the Upgrading from 2.1.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#210) , but **skip** **step 2 - (7)** , which explains how to migrate the WSO2 API-M Identity component.
+    Follow the instructions mentioned in the Upgrading from 2.1.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#210) , but **skip step 2 - (7)** , which explains how to migrate the WSO2 API-M Identity component.
 
 !!! note
 -   You can use the following steps in either one of the following situations:
@@ -66,7 +66,7 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.0.0 to 2
 1.  Migrate the WSO2 Identity Server (WSO2 IS) from version 5.2.0 to 5.7.0.
     Follow the instructions given in [Upgrading From an Older Version of WSO2 IS](https://docs.wso2.com/display/IS570/Upgrading+From+an+Older+Version+of+WSO2+IS) section of the WSO2 Identity Server 5.7.0 documentation.
 2.  Migrate WSO2 API-M from 2.0.0 to 2.6.0.
-    Follow the instructions mentioned in the Upgrading from 2.0.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#200) , but **skip** **step 2 - (6)** , which explains how to migrate the WSO2 API-M Identity component.
+    Follow the instructions mentioned in the Upgrading from 2.0.0 to 2.6.0 tab, which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#200) , but **skip step 2 - (6)** , which explains how to migrate the WSO2 API-M Identity component.
 
 !!! note
 -   You can use the following steps in either one of the following situations:
@@ -81,7 +81,7 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 1.10.0 to 
     Follow the instructions given in [Upgrading From an Older Version of WSO2 IS](https://docs.wso2.com/display/IS570/Upgrading+From+an+Older+Version+of+WSO2+IS) of the WSO2 Identity Server 5.7.0 documentation.
 
 2.  Migrate **WSO2 API-M** from **1.10.0 to 2.6.0.**
-    Follow the instructions mentioned under **Upgrading from 1.10.0 to 2.6.0** , which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#110) , but **skip** **step 2 - (4) and (9)** , which explains how to migrate the WSO2 API-M Identity component.
+    Follow the instructions mentioned under **Upgrading from 1.10.0 to 2.6.0** , which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#110) , but **skip step 2 - (4) and (9)** , which explains how to migrate the WSO2 API-M Identity component.
 
 !!! note
 -   You can use the following steps in either one of the following situations:
@@ -97,9 +97,9 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 1.8.0/1.9.
 
 2.  Migrate **WSO2 API-M** from **1.8.0/1.9.0/1.9.1 to 2.6.0.**
     1.  Migrate WSO2 API-M from **1.8.0/1.9.0/1.9.1 to 2.0.0** .
-        Follow the instructions mentioned in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM200/Upgrading+from+the+Previous+Release) , but **skip** **steps (7) to (10)** , which explains how to migrate the WSO2 API-M Identity component.
+        Follow the instructions mentioned in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM200/Upgrading+from+the+Previous+Release) , but **skip steps (7) to (10)** , which explains how to migrate the WSO2 API-M Identity component.
 
     2.  Migrate WSO2 API-M from **2.0.0 to 2.6.0** .
-        Follow the instructions mentioned under **Upgrading from 2.0.0 to 2.6.0** , which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#200) , but **skip** **step 2 - (6)** , which explains how to migrate the APIM Identity component.
+        Follow the instructions mentioned under **Upgrading from 2.0.0 to 2.6.0** , which is in [Upgrading from the Previous Release](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#200) , but **skip step 2 - (6)** , which explains how to migrate the APIM Identity component.
 
 

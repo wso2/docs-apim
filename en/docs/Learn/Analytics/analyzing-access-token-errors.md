@@ -24,7 +24,7 @@ This page displays information about the access token violations that have taken
 
 -   The **API Token Status** gadget provides a comparison of the count for each access token violation type that has taken place during the selected time interval in a bar chard. Each violation type is displayed with a specific status in the relevant bar. Move the cursor over the relevant bar as demonstrated below to view the exact count for each violation type.
     ![](attachments/103335208/103335216.gif)
--   The **API** **Key Status** gadget at a given time displays all the records for a selected API token status in a table. To populate this table, click on the required status in the **API Token Status** gadget as demonstrated below.
+-   The **APIKey Status** gadget at a given time displays all the records for a selected API token status in a table. To populate this table, click on the required status in the **API Token Status** gadget as demonstrated below.
     ![](attachments/103335208/103335215.gif)
     The records in this table can be sorted in the ascending or the descending order by the timestamp as demonstrated below.
     ![](attachments/103335208/103335214.gif)

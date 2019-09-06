@@ -27,7 +27,7 @@ There are three health checkers available by default:
 !!! warning
 This API is supported by default from WSO2 Identity Server 5.7.0 onwards. It is available by default for WSO2 IS versions 5.5.0 and 5.6.0 only as a WUM update. For more information on how to update using WUM, see [Getting WSO2 Updates](https://docs.wso2.com/display/ADMIN44x/Getting+WSO2+Updates) documentation.
 
-****If you are using a WSO2 product version that supports this feature by default (either in a fresh pack or via a WUM update), s** **kip the instructions in this section and proceed **to the [configuring the API](#admin_MonitoringServerHealth-ConfiguringtheAPI) section.****
+****If you are using a WSO2 product version that supports this feature by default (either in a fresh pack or via a WUM update), skip the instructions in this section and proceed **to the [configuring the API](#admin_MonitoringServerHealth-ConfiguringtheAPI) section.****
 **
 
 

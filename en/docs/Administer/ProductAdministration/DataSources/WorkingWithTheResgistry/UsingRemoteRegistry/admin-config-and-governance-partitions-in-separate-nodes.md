@@ -139,7 +139,7 @@ The above configuration is required only when caching is enabled for the Carbon 
 !!! warning
 Deprecation of -DSetup
 
-When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `          -DSetup         ` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the** **`           -DSetup          `** **option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
+When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `          -DSetup         ` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the`           -DSetup          `option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
 
 
 The Governance Registry server instances are now running with all required user manager and registry tables for the server created in ‘registrydb’, ‘registrydb1’ and ‘registrydb2’ databases.
