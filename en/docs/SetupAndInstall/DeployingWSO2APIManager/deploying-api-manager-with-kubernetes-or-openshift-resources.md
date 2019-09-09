@@ -164,10 +164,9 @@ In the context of this document, **&lt;`          KUBERNETES_HOME>         `** r
         -   [https://wso2apim-analytics](https://wso2apim-analytics/)
         -   <https://wso2apim-gw>
 
-    If required, ****undeploy a pattern on OpenShift****
+    If required, **undeploy a pattern on OpenShift**
 
-    ****
-
+    
     You can undeploy any pattern by running the `           undeploy-openshift.sh          ` script that is inside the pattern folder ( `           <KUBERNETES_HOME>/pattern-X/          ` directory).
 
     ``` java

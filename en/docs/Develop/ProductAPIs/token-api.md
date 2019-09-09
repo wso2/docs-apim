@@ -150,8 +150,7 @@ The flow of asynchronous token persistence is as follows:
         !!! tip
     Enabling asynchronous token persistence
 
-    To enable asynchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `            <poolsize>           ` property to a value higher than 0** . The value provided for the `           <poolsize>          ` property determines the number of threads in the thread pool that are used to consume the token persisting queue. ****
-
+    To enable asynchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `            <poolsize>           ` property to a value higher than 0** . The value provided for the `           <poolsize>          ` property determines the number of threads in the thread pool that are used to consume the token persisting queue.
 
 !!! info
 The main difference between synchronous and asynchronous token persistence is that the OAuth2 component in the synchronous token persistence implementation waits for the access token to be persisted in the database before returning it to the client.

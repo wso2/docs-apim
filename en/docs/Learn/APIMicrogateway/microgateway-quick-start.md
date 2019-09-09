@@ -14,7 +14,7 @@ Microgateway offers you a proxy that is capable of performing security validatio
 Before you begin,
 
 1.  Download the [Microgateway](https://wso2.com/api-management/api-microgateway/) distribution and extract it.
-2.  Append the full path of the `           /bin          ` folder of the extracted **** Microgateway distribution to the PATH environment variable.
+2.  Append the full path of the `           /bin          ` folder of the extracted Microgateway distribution to the PATH environment variable.
 
 !!! note
 If you are unable to append the path, you can alternatively run the Microgateway commands by navigating to the `         <MICROGW_HOME>/bin        ` folder and running the commands as `         ./micro-gw        ` instead.

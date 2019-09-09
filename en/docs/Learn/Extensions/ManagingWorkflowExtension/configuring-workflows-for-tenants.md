@@ -301,6 +301,6 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
 
 #### **Testing the workflow**
 
-You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the **** Admin Portal ( `                   https://:9443/admin                 ` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
+You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the Admin Portal ( `                   https://:9443/admin                 ` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
 
 ![](attachments/103334719/103334721.png)

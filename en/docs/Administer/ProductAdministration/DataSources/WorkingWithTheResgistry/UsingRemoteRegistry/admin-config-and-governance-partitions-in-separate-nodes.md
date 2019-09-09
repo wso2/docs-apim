@@ -196,7 +196,7 @@ Include the following configurations in the master node of Foo product cluster.
        </definition>
 </datasource>
 ```
-Change the values of the relevant elements according to your environment. ******
+Change the values of the relevant elements according to your environment.
 
 ***Configuring registry.xml file***
 

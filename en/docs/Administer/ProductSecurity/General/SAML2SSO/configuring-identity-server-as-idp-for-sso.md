@@ -261,7 +261,7 @@ Make sure that the `          responseSigningEnabled         ` element is set to
     -   **enabled:** Set this value to **true** to enable SSO in the application
     -   **issuer:** `            API_PUBLISHER           ` . This value can change depending on the **Issuer** value defined in WSO2 IS SSO configuration above.
     -   **identityProviderURL:** <https://localhost:9444/samlsso> . Change the IP and port accordingly. This is the redirecting SSO URL in your running WSO2 IS server instance.
-    -   **keyStoreName:** The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the APIM and then point to the APIM keystore. The default keystore of the APIM is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . ****Be sure to give the full path of the keystore here** .**
+    -   **keyStoreName:** The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the APIM and then point to the APIM keystore. The default keystore of the APIM is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . **Be sure to give the full path of the keystore here** .
     -   **keyStorePassword:** Password for the above keystore. The default keyStorePassword is `            wso2carbon           ` .
     -   **identityAlias:** wso2carbon
 2.  Similarly, configure the API Store with SSO. The only difference in API Store SSO configurations is setting **API\_STORE** as the **issuer** .

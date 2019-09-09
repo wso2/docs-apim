@@ -22,8 +22,7 @@ The diagram below depicts the above with **WSO2 Identity Server** as the IdP.
 -   As the application is a SAML SP, it redirects the user to the SAML2.0 IdP to log in.
 -   The user provides credentials at the IdP and is redirected back to the SP with a SAML2.0 token signed by the IdP.
 -   The SP verifies the token and logs the user to the application.
--   The SAML 2.0 token is stored in the user's session by the SP. ********
-
+-   The SAML 2.0 token is stored in the user's session by the SP. 
 **Step \[3\]** :
 
 -   The enterprise application (SP) wants to access an OAuth2 protected API resource through WSO2 API Manager.
@@ -62,7 +61,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
 2.  Click **Main &gt; Identity Providers &gt; Add** .
     ![](attachments/126561121/126561127.png)
 3.  Provide the following values to configure the IdP:
-    -   Under ****Basic Information****
+    -   Under **Basic Information**
         -   **Identity Provider Name** : Enter a unique name for the IdP.
         -   **Identity Provider Public Certificate** : The certificate used to sign the SAML assertion. Export the public certificate of WSO2 IS and import it here. For more information, see [Exporting the public certificate](https://docs.wso2.com/display/IS570/Enabling+SSO+for+Management+Console+using+OpenSSO+as+the+IDP#EnablingSSOforManagementConsoleusingOpenSSOastheIDP-Exportthepubliccertificate) in the WSO2 Identity Server documentation.
 
@@ -111,7 +110,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
 
 Follow the steps below to invoke the token API to generate access tokens from SAML2 assertions.
 
-1.  Combine the consumer key and consumer secret keys as **** `          consumer-key:consumer-secret         ` . Encode the combined string using base64 ( [http://base64encode.org](http://base64encode.org/) ). Here's an example consumer key and secret combination: `          wU62DjlyDBnq87GlBwplfqvmAbAa:ksdSdoefDDP7wpaElfqvmjDue.         `
+1.  Combine the consumer key and consumer secret keys as `          consumer-key:consumer-secret         ` . Encode the combined string using base64 ( [http://base64encode.org](http://base64encode.org/) ). Here's an example consumer key and secret combination: `          wU62DjlyDBnq87GlBwplfqvmAbAa:ksdSdoefDDP7wpaElfqvmjDue.         `
     Let's create a SAML2 assertion using the same command-line client that you used in the previous section.
 2.  Download the command-line too from [here](attachments/126561121/126561129.zip) and extract the ZIP file.
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `                       https://localhost:8243/token                      .          `

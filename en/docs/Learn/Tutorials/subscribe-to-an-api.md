@@ -36,7 +36,7 @@ The examples here use the `         PhoneVerification        ` REST API, which 
 8.  Click the **Production Keys** tab.
 
         !!! note
-    If you have a supported callback URL **** that sends a callback to a specific server or program soon after your application request is sent, you can specify it under the **Callback URL** field in the **Production Keys** tab.
+    If you have a supported callback URL that sends a callback to a specific server or program soon after your application request is sent, you can specify it under the **Callback URL** field in the **Production Keys** tab.
 
 
     ![](attachments/103327837/103327819.png)

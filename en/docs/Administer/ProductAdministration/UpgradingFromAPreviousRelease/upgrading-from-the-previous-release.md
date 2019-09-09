@@ -227,7 +227,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,GeoLocationAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
     ```
 
-    You need to use the `                             statTable                           ` **** migration property for table wise migration.
+    You need to use the `                             statTable                           ` ** migration property for table wise migration.
 
     For example, if you need to migrate only the `              ApiPerDestinationAgg             ` and `              ApiResPathPerApp             ` tables use the following command:
 
@@ -1679,7 +1679,7 @@ From WSO2 API Manager 2.0.0 onwards, statistics can be configured only for RDBM
             sh wso2server.sh
     ```
 
-Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.8.0/1.9.0/1.9.1to 2.6.0** .
+Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.8.0/1.9.0/1.9.1 to 2.6.0** .
 
 !!! note
 If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading from the Previous Release when WSO2 IS is the Key Manager](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release+when+WSO2+IS+is+the+Key+Manager#8910) .

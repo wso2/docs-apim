@@ -242,7 +242,7 @@ The claims that are retrieved for the JWT Token generation are cached. The expir
     </CacheConfigurations>
 ```
 
-When both Gateway and Key Manager caches are **disabled** , the JWT expiry time can be set by adding the **JWTExpiryTime property** under **** APIKeyValidator element in `         <API-M_HOME>/repository/conf/api-manager.xml:        `
+When both Gateway and Key Manager caches are **disabled** , the JWT expiry time can be set by adding the **JWTExpiryTime property** under **APIKeyValidator** element in `         <API-M_HOME>/repository/conf/api-manager.xml:        `
 
 ``` xml
     <APIKeyValidator>       
