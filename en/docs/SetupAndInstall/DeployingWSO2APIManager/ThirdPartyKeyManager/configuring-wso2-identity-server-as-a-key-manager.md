@@ -138,9 +138,9 @@ The following instructions are only applicable in the following scenarios:
                 <ServerURL>https://${gateway-server-host}:{port}/services/</ServerURL>
         ```
 
-        -   If you are working with a **hybrid single node or active-active node** deployment where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `               {gateway-server-host}              ` with the host of the **WSO2API-M** node.
-        -   If you are working with a **singleGateway** in distributed set up, you need to replace `               {gateway-server-host}              ` with the host of the **Gateway** node.
-        -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses a **shared file system** (e.g., NFS), you need to replace `               {gateway-server-host}              ` with the host of **anyGateway** node as all nodes have the worker manager capability when using shared file system.
+        -   If you are working with a **hybrid single node or active-active node** deployment where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `               {gateway-server-host}              ` with the host of the **WSO2 API-M** node.
+        -   If you are working with a **single Gateway** in distributed set up, you need to replace `               {gateway-server-host}              ` with the host of the **Gateway** node.
+        -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses a **shared file system** (e.g., NFS), you need to replace `               {gateway-server-host}              ` with the host of **any Gateway** node as all nodes have the worker manager capability when using shared file system.
         -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses **rsync** , you need to replace `                {gateway-server-host}               ` with the host of the **Gateway Manager** node.
 
         -   The port value you enter here should be the management transport port. For more information, see [Default Product Ports](https://docs.wso2.com/display/AM260/Default+Product+Ports) .
@@ -237,8 +237,8 @@ The following instructions are only applicable in the following scenarios:
         ...
     </APIManager>
     ```
-    -   If you are working with a **singleKey Manager** in hybrid single node setup where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}           ` with the actual host of the WSO2 IS sever **** node.
-    -   If you are working with a **singleKey Manager** in distributed setup, you need to replace `            {IS-server-host}           ` with the actual host of the WSO2 IS sever **** node.
+    -   If you are working with a **single Key Manager** in hybrid single node setup where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}           ` with the actual host of the WSO2 IS sever **** node.
+    -   If you are working with a **single Key Manager** in distributed setup, you need to replace `            {IS-server-host}           ` with the actual host of the WSO2 IS sever **** node.
     -   If you are working with **Key Managers** in **High Availability (HA)** mode with a hybrid active-active node setup, where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}           ` with the host of the **Key Manager Load Balancer** node.
     -   If you are working with **Key Managers** in a **High Availability (HA)** setup, you need to replace `            {IS-server-host}           ` with the host of the **Key Manager Load Balancer** node.
 
