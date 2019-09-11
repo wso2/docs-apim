@@ -13,9 +13,9 @@ Basic health checks can be performed on an API Manager node by connecting to re
 
 For more information on each profile, see [API Manager Profiles](https://docs.wso2.com/display/AM260/Product+Profiles) .
 
-There can be scenarios where even though the ports are responding, the Services are not properly started. It is advisable to use Service level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `         Version        ` . This service returns the version of the API Manager instance that is running currently.
+There can be scenarios where even though the ports are responding, the Services are not properly started. It is advisable to use Service level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `Version` . This service returns the version of the API Manager instance that is running currently.
 
-A sample cURL command and the response from the `         Version        ` service are given below.
+A sample cURL command and the response from the `Version` service are given below.
 
 cURL command:
 

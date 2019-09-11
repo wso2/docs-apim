@@ -2,12 +2,12 @@
 
 If you are working in a clustered API Manager setup with the API Store, Publisher, Gateway and Key Manager in separate servers, do the workflow configurations that are discussed in the previous topics in the **API Store node** . In addition, do the following configurations.
 
-In this guide, you access the Admin Portal ( `                   https://:9443/admin                 ` ) Web application using the same node as the API Publisher. This is recommended because workflow management is an administrative task and is meant to reside within a private network as the Publisher. Typically, the Admin Portal from the same user store as the API Manager. Therefore, you can use the Admin Portal residing in the Publisher node instead of having it separately. This eliminates the need for a dedicated workflow management node. You need a dedicated node if the Admin Portal users reside in a separate user store.
+In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web application using the same node as the API Publisher. This is recommended because workflow management is an administrative task and is meant to reside within a private network as the Publisher. Typically, the Admin Portal from the same user store as the API Manager. Therefore, you can use the Admin Portal residing in the Publisher node instead of having it separately. This eliminates the need for a dedicated workflow management node. You need a dedicated node if the Admin Portal users reside in a separate user store.
 
-1.  If you want to change the user roles that can access the Admin Portal, open the `           <APIM_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json          ` file that is in the node from where you access the Admin Portal (the API Publisher node in this example) and change its `           Allowed Roles          ` parameter. You can add multiple user roles as a comma-separated list.
+1.  If you want to change the user roles that can access the Admin Portal, open the `<APIM_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file that is in the node from where you access the Admin Portal (the API Publisher node in this example) and change its `Allowed Roles` parameter. You can add multiple user roles as a comma-separated list.
 
 2.  By default, workflow related configuration files have the port of the Business Process Server with an offset of 2. If you set up the BPS with a different port offset, change the workflow server URLs in the site.json file accordingly.
-3.  Point the `           <Address>          ` sub element of the `           <endpoint>          ` element to the API Store node in the `           <APIM_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml          ` file of the API Store node.
+3.  Point the `<Address>` sub element of the `<endpoint>` element to the API Store node in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml` file of the API Store node.
 
     ``` java
         <endpoint>
@@ -15,9 +15,9 @@ In this guide, you access the Admin Portal ( `                   https://:9443/
         </endpoint>
     ```
 
-4.  Add the IP address and the port of the API Store to the `           <Address>          ` element of the .epr file of the workflow that you configure. You can find the .epr file by the name of the workflow in the `           <APIM_HOME>/business-processes/epr          ` folder.
+4.  Add the IP address and the port of the API Store to the `<Address>` element of the .epr file of the workflow that you configure. You can find the .epr file by the name of the workflow in the `<APIM_HOME>/business-processes/epr` folder.
 
-5.  Go to the `           <APIM_HOME>/business-processes/<workflow name>/BPEL          ` folder and unzip the file that is there by the name of the workflow. For example, `           <APIM_HOME>/business-processes/user-signup/BPEL/                       UserSignupApprovalProcess_1.0.0.zip                     ` .
+5.  Go to the `<APIM_HOME>/business-processes/<workflow name>/BPEL` folder and unzip the file that is there by the name of the workflow. For example, `<APIM_HOME>/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0.zip` .
 
 6.  Go inside the unzipped folder and do the following:
 
@@ -35,7 +35,7 @@ In this guide, you access the Admin Portal ( `                   https://:9443/
     <tbody>
     <tr class="odd">
     <td>Open the ApprovalTask WSDL file and point the address elements of the server where the BPEL runs.</td>
-    <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0/                                 UserApprovalTask.wsdl                               </code> file:</p>
+    <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0/UserApprovalTask.wsdl</code> file:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <pre class="xml" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><code>&lt;wsdl:service name=&quot;UserApprovalService&quot;&gt;
@@ -57,7 +57,7 @@ In this guide, you access the Admin Portal ( `                   https://:9443/
     </tr>
     <tr class="even">
     <td>Open the <code>               CallbackService              </code> WSDL file and point the address elements to the API Store node in NIO port.</td>
-    <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0/                                 WorkflowCallbackService.wsdl                               </code> file:</p>
+    <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0/WorkflowCallbackService.wsdl</code> file:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>&lt;wsdl:service name=&quot;WorkflowCallbackService&quot;&gt;
@@ -86,7 +86,7 @@ In this guide, you access the Admin Portal ( `                   https://:9443/
     </tbody>
     </table>
 
-7.  Go to the `           <APIM_HOME>/business-processes/<workflow name>/HumanTask          ` folder and unzip the file that is there by the name of the workflow. For example, `           <APIM_HOME>/business-processes/user-signup/HumanTask/                       UserApprovalTask-1.0.0.zip                     ` .
+7.  Go to the `<APIM_HOME>/business-processes/<workflow name>/HumanTask` folder and unzip the file that is there by the name of the workflow. For example, `<APIM_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` .
 
 8.  Go inside the unzipped folder and do the following:
 
@@ -104,7 +104,7 @@ In this guide, you access the Admin Portal ( `                   https://:9443/
     <tbody>
     <tr class="odd">
     <td>If you changed the default admin role, open the <code>               ApprovalTask              </code> HT file and apply the changes there.</td>
-    <td><p>Change the admin instances in <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0/                                 UserApprovalTask.ht                               </code> file. Here's an example, a ssuming that the new admin role is <code>                apimadmin               </code> .</p>
+    <td><p>Change the admin instances in <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0/UserApprovalTask.ht</code> file. Here's an example, a ssuming that the new admin role is <code>                apimadmin               </code> .</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <pre class="xml" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><code>&lt;htd:peopleAssignments&gt;
@@ -119,7 +119,7 @@ In this guide, you access the Admin Portal ( `                   https://:9443/
     </tr>
     <tr class="even">
     <td>Open the <code>               ApprovalTask              </code> WSDL file and point the two address elements to the Business Process Server node.</td>
-    <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0/                                 UserApprovalTask.wsdl                               </code> file:</p>
+    <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0/UserApprovalTask.wsdl</code> file:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
     <pre class="xml" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><code>&lt;wsdl:service name=&quot;UserApprovalService&quot;&gt;

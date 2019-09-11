@@ -8,9 +8,9 @@ When you select a collection in the registry, the **Permissions** panel opens wi
     ![](attachments/126562645/126562646.png)
 
         !!! info
-    The `                       wso2.anonymous.role                     ` is a special role that represents a user who is not logged in to the management console. Granting `           Read          ` access to this role means that you do not require authentication to access resources using the respective Permalinks.
+    The `wso2.anonymous.role` is a special role that represents a user who is not logged in to the management console. Granting `Read` access to this role means that you do not require authentication to access resources using the respective Permalinks.
 
-    The **`            everyone           `** role is a special role that represents a user who is logged into the management console. Granting `           Read          ` access to this role means that any user who has logged into the management console with sufficient permissions to access the Resource Browser can read the respective resource. Granting `           Write          ` or `           Delete          ` access means that any user who is logged in to the management console with sufficient permissions to access the Resource Browser can make changes to the respective resource.
+    The **`everyone`** role is a special role that represents a user who is logged into the management console. Granting `Read` access to this role means that any user who has logged into the management console with sufficient permissions to access the Resource Browser can read the respective resource. Granting `Write` or `Delete` access means that any user who is logged in to the management console with sufficient permissions to access the Resource Browser can make changes to the respective resource.
 
 
 2.  Select one of the following actions:
@@ -24,9 +24,9 @@ When you select a collection in the registry, the **Permissions** panel opens wi
     ![](attachments/126562645/126562647.png)
 
         !!! info
-    `                       Deny                     ` permissions have higher priority over `                       Allow                      .          ` That is, a `           Deny          ` permission always overrides an `           Allow          ` permission assigned to a role. `                     `
+`Deny` permissions have higher priority over `Allow.` That is, a `Deny` permission always overrides an `Allow` permission assigned to a role.
 
-    `           Deny          ` permission must be given at the collection level. For example, to deny the write/delete action on a given policy file, set Write/Delete actions for the role to `           Deny          ` in `           /trunk/policies          ` . If you set the `           Deny          ` permission beyond the collection level (e.g., / or /\_system etc.) it will not be applied for the user's role.
+`Deny` permission must be given at the collection level. For example, to deny the write/delete action on a given policy file, set Write/Delete actions for the role to `Deny` in `/trunk/policies` . If you set the `Deny` permission beyond the collection level (e.g., / or /\_system etc.) it will not be applied for the user's role.
 
 
 4.  The new permission appears in the list.

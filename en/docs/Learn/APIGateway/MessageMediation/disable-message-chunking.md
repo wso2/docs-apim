@@ -1,8 +1,8 @@
 # Disable Message Chunking
 
-When processing large messages, message chunking facilitates sending the message as multiple independent chunks. Message chunking is set using the `         Transfer-Encoding: chunked        ` header. However, some legacy backends might not support chunked messages. To disable sending chunked messages to the backend for a specific API, follow the steps below:
+When processing large messages, message chunking facilitates sending the message as multiple independent chunks. Message chunking is set using the `Transfer-Encoding: chunked` header. However, some legacy backends might not support chunked messages. To disable sending chunked messages to the backend for a specific API, follow the steps below:
 
-1.  Create an `           XML          ` file with the following content:
+1.  Create an `XML` file with the following content:
 
     **disable chunking**
 

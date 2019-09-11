@@ -11,11 +11,11 @@ API Manager supports [Open API 3.0](https://github.com/OAI/OpenAPI-Specification
 In this tutorial, let's see how you can add interactive documentation to an API by directly editing the Swagger code via the API Publisher UI.
 
 !!! note
-This tutorial uses the `         PhoneVerification        ` API created in [Create and Publish an API](_Create_and_Publish_an_API_) .
+This tutorial uses the `PhoneVerification` API created in [Create and Publish an API](_Create_and_Publish_an_API_) .
 
 
 1.  Sign in to the API Publisher and choose to design a new REST API.
-    `           https://<hostname>:9443/publisher          `
+`https://<hostname>:9443/publisher          `
     ![](attachments/103328505/103328458.png)
 
         !!! note
@@ -30,10 +30,10 @@ This tutorial uses the `         PhoneVerification        ` API created in [Crea
     ![](attachments/103328505/103328460.png)
 4.  Add a GET and POST method for the API.
 
-    1.  Under the `             paths            ` object, remove the `             {}            ` and add the following code, as shown in the screenshot below.
+    1.  Under the `paths` object, remove the `{}` and add the following code, as shown in the screenshot below.
 
                 !!! tip
-        In the code below, note that you have a resource defined with the URL pattern `             /CheckPhoneNumber            ` under the `             paths            ` object. This is followed by the HTTP methods GET and POST. For each HTTP method, the following parameters are defined.
+        In the code below, note that you have a resource defined with the URL pattern `/CheckPhoneNumber` under the `paths` object. This is followed by the HTTP methods GET and POST. For each HTTP method, the following parameters are defined.
 
         -   **responses:** An object to hold responses that can be used across operations. See the Swagger specification for details. **
             **
@@ -138,7 +138,7 @@ This tutorial uses the `         PhoneVerification        ` API created in [Crea
 
 8.  Add parameters to the POST method and change the POST method datatype.
 
-    1.  Click **Edit Source** and add the following code under the POST method, which defines two parameters named `             PhoneNumber            ` and `             LicenseKey            ` to pass in the payload. It also changes the datatypes of the parameters to `             application/x-www-form-urlencoded            ` as the backend expects that datatype.
+    1.  Click **Edit Source** and add the following code under the POST method, which defines two parameters named `PhoneNumber` and `LicenseKey` to pass in the payload. It also changes the datatypes of the parameters to `application/x-www-form-urlencoded` as the backend expects that datatype.
 
         ``` java
                     consumes:

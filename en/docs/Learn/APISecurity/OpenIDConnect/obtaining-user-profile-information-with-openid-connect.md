@@ -2,11 +2,11 @@
 
 [OpenID Connect](http://openid.net/connect/) is an **authentication protocol** that is a simple identity layer on top of the OAuth 2.0 protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
 
-You can use WSO2 API Manager to obtain basic profile information about the user who generates the access token. To obtain this information, the `         openid        ` scope needs to be passed, when generating the access token. API manager will send a JWT which contains information about the user who generates the token, as part of the response for this request. You can configure the information returned with the JWT token.
+You can use WSO2 API Manager to obtain basic profile information about the user who generates the access token. To obtain this information, the `openid` scope needs to be passed, when generating the access token. API manager will send a JWT which contains information about the user who generates the token, as part of the response for this request. You can configure the information returned with the JWT token.
 
 Follow the instructions below to obtain user profile information with OpenID connect with WSO2 API Manager.
 
-1.  Obtain a token using password grant type and `           openid          ` scope. For more information on token generation with password grant type, see [Password Grant Type](https://docs.wso2.com/display/AM210/Password+Grant) . The format of the curl command and a sample is given below :
+1.  Obtain a token using password grant type and `openid` scope. For more information on token generation with password grant type, see [Password Grant Type](https://docs.wso2.com/display/AM210/Password+Grant) . The format of the curl command and a sample is given below :
 
     -   [**Format**](#d9999ff0c3ac4ddaabdca6f82501de38)
     -   [**Sample**](#cac83396fc2b462a850d87d088a8b05c)
@@ -19,7 +19,7 @@ Follow the instructions below to obtain user profile information with OpenID con
             curl -k -d "grant_type=password&username=testuser&password=testuserpassword&scope=openid" -H "Authorization: Basic M1J6RFNrRFI5ZmQ5czRqY296R2xfVjh0QU5JYTpXeElqSkFJd0dqRWVYOHdHZGFfcGM1Wl94RjRh, Content-Type: application/x-www-form-urlencoded" https://apim.wso2.com:8243/token
     ```
 
-    You will receive a response in the format shown below. Note that the `           id_token          ` parameter contains the JWT related to user information.
+    You will receive a response in the format shown below. Note that the `id_token` parameter contains the JWT related to user information.
 
     ``` java
             {
@@ -38,7 +38,7 @@ Follow the instructions below to obtain user profile information with OpenID con
 
 #### Decoding the id\_token
 
-By decoding the `         id_token        ` , a payload similar to the following can be obtained, with user information such as email, organization, etc.
+By decoding the `id_token` , a payload similar to the following can be obtained, with user information such as email, organization, etc.
 
 ``` java
     {

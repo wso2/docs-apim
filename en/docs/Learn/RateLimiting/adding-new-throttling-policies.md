@@ -7,7 +7,7 @@ WSO2 API Manager admins can add new throttling policies and define extra propert
 -   [Adding a new subscription-level throttling tier](#AddingNewThrottlingPolicies-Addinganewsubscription-levelthrottlingtier)
 
 !!! warning
-To make changes in the throttling configurations, set the `         EnableAdvanceThrottling        ` parameter in api `         -manager.xml        ` . This parameter is set to `         true        ` by default. If you set it to `         false        ` , you only see the available tiers.
+To make changes in the throttling configurations, set the `EnableAdvanceThrottling` parameter in api `-manager.xml` . This parameter is set to `true` by default. If you set it to `false` , you only see the available tiers.
 ![](attachments/50518321/59575603.png){height="250"}
 
 
@@ -15,7 +15,7 @@ To make changes in the throttling configurations, set the `         EnableAdvanc
 
 You can add advanced throttling policies to both APIs and resources.
 
-1.  Sign in to the Admin Portal using the URL `                     https://localhost:9443/admin                   ` and your admin credentials (admin/admin by default).
+1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials (admin/admin by default).
 2.  Click **Advanced Throttling** under the **Throttle Policies** section to see the set of existing throttling tiers.
 3.  To add a new tier, click **Add Tier** .
     ![](attachments/103334984/103334995.png)4.  Fill in the required details and click **Save** .
@@ -29,7 +29,7 @@ You can add advanced throttling policies to both APIs and resources.
 5.  To add throttling limits with different parameters to the conditions below, click **Add Conditional Group** .
 
         !!! note
-    Note that if you want to add a header, query param, or JSON Web Token (JWT) claim condition, you need to set the `           <EnableHeaderConditions>          ` , `           <EnableJWTClaimConditions>          ` or `           <EnableQueryParamConditions>          ` element to `           true          ` (depending on which condition you need) in the `           repository/conf/api-manager.xml          ` file.
+    Note that if you want to add a header, query param, or JSON Web Token (JWT) claim condition, you need to set the `<EnableHeaderConditions>` , `<EnableJWTClaimConditions>` or `<EnableQueryParamConditions>` element to `true` (depending on which condition you need) in the `repository/conf/api-manager.xml` file.
 
 
     You can add Description about condition group by click **Sample description about condition group** under **Condition Group.**
@@ -82,7 +82,7 @@ You have added a new application-level throttling policy.
 
 ### Adding a new subscription-level throttling tier
 
-1.  Sign in to the Admin Portal using the URL `          https://localhost:9443/admin         ` and your admin credentials.
+1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Subscription Policies** under the **Throttling Policies** section. The existing set of throttling tiers are displayed.
 3.  To add a new tier, click **Add New Policy** .
     ![](attachments/103334984/103334985.png)

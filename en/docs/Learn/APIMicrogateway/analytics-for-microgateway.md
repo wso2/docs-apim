@@ -22,11 +22,11 @@ When an API is invoked through the Microgateway, the subsequent events related t
 
 ##### File rotating task
 
--   This task creates large files by rotating them at particular time intervals. The size of the files depends on the TPS (Transactions Per Second) of the environment in which the microgateway is running. Once the file is rotated, it is compressed into a zipped file. The `          rotatingPeriod         ` can be configured as shown in the [following section](http://docs.wso2.com#config) .
+-   This task creates large files by rotating them at particular time intervals. The size of the files depends on the TPS (Transactions Per Second) of the environment in which the microgateway is running. Once the file is rotated, it is compressed into a zipped file. The `rotatingPeriod` can be configured as shown in the [following section](http://docs.wso2.com#config) .
 
 ##### File uploading task
 
--   This task uploads the zipped file created by the previous task, to a microservice running on the Analytics Server. This zip file is then persisted in the `          WSO2AM_STATS_DB         ` database in the Analytics server node. A task running in the Analytics server processes the persisted data and sends it to the event stream. The time interval in which the zipped files are uploaded can be configured by setting the `          uploadingTimeSpanInMillis         ` parameter.
+-   This task uploads the zipped file created by the previous task, to a microservice running on the Analytics Server. This zip file is then persisted in the `WSO2AM_STATS_DB` database in the Analytics server node. A task running in the Analytics server processes the persisted data and sends it to the event stream. The time interval in which the zipped files are uploaded can be configured by setting the `uploadingTimeSpanInMillis` parameter.
 
 After successfully completing the upload and persistence is achieved, the corresponding files are deleted from the Microgateway filesystem.
 
@@ -42,7 +42,7 @@ Before you begin...
 Configure API Manager Analytics using the **Standard Setup** . For instructions, see [Configuring APIM Analytics](https://docs.wso2.com/display/AM250/Configuring+APIM+Analytics) .
 
 
-1.  Create the `           AM_USAGE_UPLOADED_FILES          ` table in the `           WSO2AM_STATS_DB          ` database. A sample MySQL script to create the table is given below.
+1.  Create the `AM_USAGE_UPLOADED_FILES` table in the `WSO2AM_STATS_DB` database. A sample MySQL script to create the table is given below.
 
     ``` java
         CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
@@ -55,7 +55,7 @@ Configure API Manager Analytics using the **Standard Setup** . For instructions,
     ```
 
         !!! warning
-    Make sure that you correctly configured the `           WSO2AM_STATS_DB          ` between WSO2 API Manager and WSO2 API-M Analytics.
+    Make sure that you correctly configured the `WSO2AM_STATS_DB` between WSO2 API Manager and WSO2 API-M Analytics.
 
 
 !!! info
@@ -110,7 +110,7 @@ The following system properties can be passed to the server if the default value
 
 #### Step 2 - Configuring the Microgateway for Analytics
 
-To do the configurations for Microgateway analytics, open the `         <MICROGW_HOME>/conf/micro-gw.conf        ` file. The sample below shows the analytics-related configurations.
+To do the configurations for Microgateway analytics, open the `<MICROGW_HOME>/conf/micro-gw.conf` file. The sample below shows the analytics-related configurations.
 
 ``` java
     enable=false

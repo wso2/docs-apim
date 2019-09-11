@@ -36,7 +36,7 @@ The lifecycle of an application could be defined as the stages of an application
 You can export applications in the API Store and download them as a zipped file.
 
 1.  Make sure that WSO2 API Manager is started and that the CLI import/export tool is running.
-2.  Run the following CLI command to export an existing application as a `          .zip         ` archive.
+2.  Run the following CLI command to export an existing application as a `.zip` archive.
 
 -   [**Command Format**](#Format-exportApp)
 -   [**Example**](#Example-exportapp)
@@ -55,13 +55,13 @@ The username and password are optional flags. You will be prompted to enter your
 **Flags:**
 
 -   Required flags:
-    -   `               --name, -n              `
-    -   `               --owner, -o              `
-    -   `               --environment, -e : The environment to which you what to export the application to.              `
-    -   `               --insecure, -k : This a               llows connections to SSL sites without certificates              `
+    -`--name, -n              `
+    -`--owner, -o              `
+    -`--environment, -e : The environment to which you what to export the application to.              `
+    -`--insecure, -k : This a               llows connections to SSL sites without certificates              `
 -   Optional flags:
-    -   `               --username, -u              `
-    -   `               --password, -p              `
+    -`--username, -u              `
+    -`--password, -p              `
 
 ``` java
     apimcli export-app -n SampleApp -o admin -e dev -u admin -p admin -k
@@ -74,16 +74,16 @@ The username and password are optional flags. You will be prompted to enter your
 
 The zipped file will be as follows:
 
-`         <exported-Application>.zip        `
-`         └── <Application-Name>        `
-`         └── <Application-Name>.json        `
+`<exported-Application>.zip        `
+`└── <Application-Name>        `
+`└── <Application-Name>.json        `
 
 #### Importing an application
 
 You can import an application to your environment as a zipped application. When you import an application as a zipped file, a new application is created within the target environment.
 
 1.  Make sure that WSO2 API Manager is started and that the CLI import/export tool is running.
-2.  Run the following CLI command to import an existing ap plicatio n as a `          .zip         ` archive.
+2.  Run the following CLI command to import an existing ap plicatio n as a `.zip` archive.
 
 -   [**Command Format**](#Format-importApp)
 -   [**Example**](#Example-importapp)
@@ -102,15 +102,15 @@ The username and password are optional flags. You will be prompted to enter your
 **Flags:**
 
 -   Required flags
-    -   `                                                --file, -f : The file path of the exported App. For example, if your file path is /Users/kim/.wso2apimcli/exported/apps/dev/admin_SampleApp.zip                ` `               ,              ` then you need to enter `               dev/               admin_SampleApp.zip              ` as the value for this flag.
-    -   `               --environment, -e : The environment to which you what to import the application to.              `
-    -   `               --insecure, -k : This a               llows connections to SSL sites without certificates              ` `                             `
+    -`--file, -f : The file path of the exported App. For example, if your file path is /Users/kim/.wso2apimcli/exported/apps/dev/admin_SampleApp.zip,` then you need to enter `dev/               admin_SampleApp.zip` as the value for this flag.
+    -`--environment, -e : The environment to which you what to import the application to.              `
+    -`--insecure, -k : This a               llows connections to SSL sites without certificates`
 -   Optional flags
-    -   `               --skipSubscriptions, -s              `
+    -`--skipSubscriptions, -s              `
         You can opt to skip importing the subscriptions of the application by defining this flag. This parameter is set to false by default.
-    -   `               --owner, -o              ` The owner of the imported application can be specified by providing an username of a valid user based on your preference. The application importer can set the preferred owner’s username as the value of the `               --owner              ` or `               -o              ` flag.
-    -   `               --preserveOwner, -r              `
-        You can also import the application by preserving the application owner information, from the previous environment. The application importer can add the --preserveOwner or -r flag in order to define that this flag is set to true. This parameter is set to false by default. Therefore, the default value is used when you do not define this flag. If you import the application without specifying any of the optional flags, you will be added as the owner of the application in the imported environment. If both the `               --owner              ` and the `               --preserveOwner              ` flags are set, then the `               --owner              ` flag gets higher priority over the `               --preserveOwner              ` flag. `              `
+    -`--owner, -o` The owner of the imported application can be specified by providing an username of a valid user based on your preference. The application importer can set the preferred owner’s username as the value of the `--owner` or `-o` flag.
+    -`--preserveOwner, -r              `
+        You can also import the application by preserving the application owner information, from the previous environment. The application importer can add the --preserveOwner or -r flag in order to define that this flag is set to true. This parameter is set to false by default. Therefore, the default value is used when you do not define this flag. If you import the application without specifying any of the optional flags, you will be added as the owner of the application in the imported environment. If both the `--owner` and the `--preserveOwner` flags are set, then the `--owner` flag gets higher priority over the `--preserveOwner` flag. ``
 
 ``` java
     apimcli import-app -f dev/admin_SampleApp.zip -e production -o admin --preserveOwner --skipSubscriptions -u admin -p admin -k
@@ -131,7 +131,7 @@ There are three options to import applications in a single tenant environment.
 
 -   A different owner can be specified while importing an application to environment 2,  without preserving the original user of environment 1.
     ![](attachments/103333635/103333638.png)
--   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `           --preserveOwner          ` flag.
+-   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserveOwner` flag.
     ![](attachments/103333635/103333636.png)
 
 #### 
@@ -159,12 +159,12 @@ In a situation where an application has API subscriptions in different tenant do
 **Flags:**
 
 -   Required flags
-    -   `               --environment, -e              `
-    -   `               --owner, -o              `
-    -   `               --insecure, -k : This a               llows connections to SSL sites without certificates                             `
+    -`--environment, -e              `
+    -`--owner, -o              `
+    -`--insecure, -k : This a               llows connections to SSL sites without certificates                             `
 -   Optional flags
-    -   `               --username, -u              `
-    -   `               --password, -p              `
+    -`--username, -u              `
+    -`--password, -p              `
 
 !!! note
 The username and password are optional flags. You will be prompted to enter your credentials if you do not provide these flags.
@@ -206,7 +206,7 @@ The username and password are optional flags. You will be prompted to enter your
     **Flags:**
 
     -   Required flags
-        -   `                 --environment, -e                `
+        -`--environment, -e                `
 
     ``` java
             apimcli reset-user -e dev
@@ -247,7 +247,7 @@ The username and password are optional flags. You will be prompted to enter your
 
     **Flags:**
 
-    -   `                --http-request-timeout               `
+    -`--http-request-timeout               `
 
     ``` java
             apimcli set --http-request-timeout 10000
@@ -267,7 +267,7 @@ The username and password are optional flags. You will be prompted to enter your
 
     **Flags:**
 
-    -   `                --export-directory               `
+    -`--export-directory               `
 
     ``` java
             apimcli set --export-directory /Users/mariangela/Downloads/MyExports

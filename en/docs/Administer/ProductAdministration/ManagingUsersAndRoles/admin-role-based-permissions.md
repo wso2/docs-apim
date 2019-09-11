@@ -14,7 +14,7 @@ You can access the permissions navigator for a particular role by clicking **Per
 
 By default, every WSO2 product comes with the following User, Role and Permissions configured:
 
--   The **Admin** user and **Admin** role is defined and linked to each other in the `           user-mgt.xml          ` file, stored in the `           <PRODUCT_HOME>/repository/conf/          ` directory as shown below.
+-   The **Admin** user and **Admin** role is defined and linked to each other in the `user-mgt.xml` file, stored in the `<PRODUCT_HOME>/repository/conf/` directory as shown below.
 
     ``` java
         <AddAdmin>true</AddAdmin>
@@ -27,7 +27,7 @@ By default, every WSO2 product comes with the following User, Role and Permissio
 
 -   The **Admin** role has all the permissions in the system enabled by default. Therefore, this is a super tenant, with all permissions enabled.
 
-You will be able to log in to the management console of the product with the **Admin** user defined in the `         user-mgt.xml        ` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **Admin** role. The possibility of managing users, roles and permissions is granted by the **User Management** permission. F or more information, s ee [Configuring the User Realm](https://docs.wso2.com/display/Carbon443/Configuring+the+User+Realm) .
+You will be able to log in to the management console of the product with the **Admin** user defined in the `user-mgt.xml` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **Admin** role. The possibility of managing users, roles and permissions is granted by the **User Management** permission. F or more information, s ee [Configuring the User Realm](https://docs.wso2.com/display/Carbon443/Configuring+the+User+Realm) .
 
 ### Description of role-based permissions
 
@@ -130,7 +130,7 @@ The descriptions of permissions in the **Permissions** navigator are as follows:
     </tr>
     <tr class="odd">
     <td>Admin/Configure/Security/Identity Management/Password Management</td>
-    <td>This permission enables t he <strong>Change Password</strong> option for the users listed in the <strong>User Management/Users and Roles/Users</strong> screen, which allows the log in user to change the passwords</td>
+    <td>This permission enables the <strong>Change Password</strong> option for the users listed in the <strong>User Management/Users and Roles/Users</strong> screen, which allows the log in user to change the passwords</td>
     </tr>
     <tr class="even">
     <td>Admin/Configure/Security/Identity Management/Profile Management</td>

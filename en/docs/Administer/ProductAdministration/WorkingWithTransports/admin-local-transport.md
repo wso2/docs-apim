@@ -2,14 +2,14 @@
 
 Apache Axis2's local transport implementation is used to make internal service calls and transfer data within the Axis2 instance. The following class implements the sender API:
 
--   `          org.apache.axis2.transport.local.LocalTransportSender         `
+-`org.apache.axis2.transport.local.LocalTransportSender`
 
 The transport does not have a receiver implementation as of now.
 
 It provides an opportunity for fast in-VM service call.
 
 !!! info
-To use this transport, configure an endpoints with the `         local://        ` prefix. For example, to make an in-VM call to the HelloService, use `                   local://HelloService                 ` .
+To use this transport, configure an endpoints with the `local://` prefix. For example, to make an in-VM call to the HelloService, use `local://HelloService` .
 
 
 ##### Configuring a local transport with WSO2 products

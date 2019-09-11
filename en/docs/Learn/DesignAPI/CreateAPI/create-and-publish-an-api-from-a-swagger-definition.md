@@ -3,10 +3,10 @@
 A Swagger definition is a format that describes REST APIs. In this tutorial, you create and publish an API in WSO2 API Manager using a Swagger definition for an existing API.
 
 1.  Sign in to the WSO2 API Publisher.
-    `          https://<hostname>:9443/publisher         `
+`https://<hostname>:9443/publisher         `
 2.  In the **APIS** menu, click **Add New API** .
     ![](attachments/103328690/103328669.png)
-3.  Select **I Have an Existing API** . Click **Swagger URL** and give `                     http://petstore.swagger.io/v2/swagger.json                   ` as the URL. Click **Start Creating** .
+3.  Select **I Have an Existing API** . Click **Swagger URL** and give `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **Start Creating** .
     ![](attachments/103328690/103328668.png)
 4.  Edit the information as given below. **
     **
@@ -23,7 +23,7 @@ A Swagger definition is a format that describes REST APIs. In this tutorial, you
     ![](attachments/103328690/103328666.png)
 6.  Click **Edit Source** to edit the Swagger file and remove security headers. This is required to invoke the API in the Store using the Swagger UI.
     ![](attachments/103328690/103328665.png)
-7.  Remove the security tag from the `           /pet          ` POST resource given below. This is required to enable API invocation using the API (store) console.
+7.  Remove the security tag from the `/pet` POST resource given below. This is required to enable API invocation using the API (store) console.
 
     **Swagger - Post resource**
 
@@ -35,7 +35,7 @@ A Swagger definition is a format that describes REST APIs. In this tutorial, you
                     - 'read:pets'
     ```
 
-8.  Remove the security `           pet/{petId}          ` GET resource given below:
+8.  Remove the security `pet/{petId}` GET resource given below:
 
     **Swagger - Get resource**
 
@@ -76,7 +76,7 @@ Let's invoke the API from the API Store.
 ### **Invoking the API**
 
 1.  Sign in to the WSO2 API Store.
-    `           https://<hostname>:9443/store          `
+`https://<hostname>:9443/store          `
 
 2.  Select the **PetStore** API to open it.
 3.  [Subscribe](_Subscribe_to_an_API_) to the API using the DefaultApplication and the Gold tier.
@@ -88,7 +88,7 @@ Let's invoke the API from the API Store.
 
 6.  Navigate to the **API Console** for the PetStore API.
     ![](attachments/103328690/103328658.png)
-7.  Expand the `           POST          ` resource, click **Try it out** , and give the following example as the request body. Click **Execute** and view the response.
+7.  Expand the `POST` resource, click **Try it out** , and give the following example as the request body. Click **Execute** and view the response.
 
     -   [**Request Body**](#0a7fc092d2d742abaa5437dc3ed7e679)
     -   [**Response**](#ceccefb57b454ce29370fdfa0890f218)

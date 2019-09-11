@@ -67,7 +67,7 @@ Provided by default in the WSO2 Carbon platform.
 
 #### JMX monitoring ports
 
-WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it using `         <PRODUCT_HOME>/repository/conf/etc/jmx.xml        ` file.
+WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it using `<PRODUCT_HOME>/repository/conf/etc/jmx.xml` file.
 
 -   11111 - RMIRegistry port. Used to monitor Carbon remotely
 -   9999 - RMIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall
@@ -83,8 +83,8 @@ To cluster any running Carbon instance, either one of the following ports must b
 
 Certain ports are randomly opened during server startup. This is due to specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
 
--   A random TCP port will open at server startup because of the `          -Dcom.sun.management.jmxremote         ` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
--   A random UDP port is opened at server startup due to the log4j appender ( `          SyslogAppender         ` ), which is configured in the `          <PRODUCT_HOME>/repository/conf/log4j.properties         ` file.
+-   A random TCP port will open at server startup because of the `-Dcom.sun.management.jmxremote` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
+-   A random UDP port is opened at server startup due to the log4j appender ( `SyslogAppender` ), which is configured in the `<PRODUCT_HOME>/repository/conf/log4j.properties` file.
 
 ------------------------------------------------------------------------
 
@@ -100,7 +100,7 @@ Some WSO2 products will have additional ports as explained below.
 -   7611 - Authenticate data published when Thrift data publisher is used for throttling.
 -   7612 - Publish Analytics to the API Manager Analytics server.
 -   7711 - Port for secure transport when Thrift data publisher is used for throttling.
--   7711 + `          Port offset of the APIM Analytics Server         ` - Thrift SSL port for secure transport when publishing analytics to the API Manager Analytics server.
+-   7711 + `Port offset of the APIM Analytics Server` - Thrift SSL port for secure transport when publishing analytics to the API Manager Analytics server.
 -   8280, 8243 - NIO/PT transport ports.
 -   9611 - Publish data to the Traffic Manager. Required when binary data publisher for throttling.
 -   9711 - Authenticate data published to the Traffic Manager. Required when binary data publisher for throttling.
@@ -189,8 +189,8 @@ Listed below are the default ports that are used in WSO2 Enterprise Integrator (
 
 #### ESB ports
 
--   9443 - HTTPS servlet transport (the default URL of the management console is `                     https://localhost:9443/carbon                   ` )
-    Non-blocking HTTP/S transport ports: Used to accept message mediation requests. For example, if you want to send a request to an API or a proxy service, you must use these ports: `          <EI_HOME>/conf/axis2/axis2.xml         ` file.
+-   9443 - HTTPS servlet transport (the default URL of the management console is `https://localhost:9443/carbon` )
+    Non-blocking HTTP/S transport ports: Used to accept message mediation requests. For example, if you want to send a request to an API or a proxy service, you must use these ports: `<EI_HOME>/conf/axis2/axis2.xml` file.
 
 <!-- -->
 

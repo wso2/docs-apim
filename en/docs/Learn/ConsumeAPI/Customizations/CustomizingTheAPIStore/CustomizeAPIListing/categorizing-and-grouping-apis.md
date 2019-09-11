@@ -11,9 +11,9 @@ Although the way in which you add a Tag and API group appears to be similar ther
 -   The **tag name** should **not have a suffix or prefix** , but it **can have spaces** .
 
 
-1.  Go to `          <API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf         ` directory, open the `          site.json         ` file and set the `          tagWiseMode         ` attribute as true.
+1.  Go to `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf` directory, open the `site.json` file and set the `tagWiseMode` attribute as true.
 2.  Add an API group to the APIs that you wish to group.
-    1.  Go to the API Publisher ( `            https://<HostName>:9443/publisher           ` ).
+    1.  Go to the API Publisher ( `https://<HostName>:9443/publisher` ).
     2.  Click on the edit link of the respective API as shown below.
     3.  Add a group name to the APIs that you wish to group.
 

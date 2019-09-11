@@ -148,7 +148,7 @@ Given below are the statistical dashboards that are available:
 -   **Top Users** : Users who make the most API invocations per application and the number of registered users per application.
 -   **Resource Usage** : The usage of an API and from which resource path per application.
 -   **Faulty Invocations** : The number of faulty API invocations per application.
-    In a faulty API invocation, the message is mediated though the `          fault         ` sequence. By default, the API Manager considers an API invocation to be faulty when the backend service is unavailable.
+    In a faulty API invocation, the message is mediated though the `fault` sequence. By default, the API Manager considers an API invocation to be faulty when the backend service is unavailable.
 
 Several examples of usage and performance statistics are given below:
 
@@ -177,7 +177,7 @@ The total number of invocations made by each application that are unsuccessful (
 ![](attachments/103335072/103335111.png)
 ### Admin Portal Statistics
 
-Log in to the Admin Portal ( `                   https://localhost:9443/admin                 ` ). API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY** .
+Log in to the Admin Portal ( `https://localhost:9443/admin` ). API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY** .
 
 ##### Availability of APIs
 

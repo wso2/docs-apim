@@ -43,10 +43,10 @@ Prerequisites
 Follow the steps below to build the tool:
 
 1.  Clone the <https://github.com/wso2/identity-anonymization-tool> repository to a required location.
-2.  In the source that you checked out, navigate to `          identity-anonymization-tool         ` , and run `          mvn clean install         ` . This downloads all dependencies and builds the tool in your local repository. You can find the `          org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip         ` file created in the `          identity-anonymization-tool/components/org.wso2.carbon.privacy.forgetme.tool/target         ` directory.
-3.  Unzip the `           org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip          ` file. This creates the `           identity-anonymization-tool-SNAPSHOT          ` directory with a directory. The path to the `           identity-anonymization-tool-SNAPSHOT          ` directory will be referred to as `           <TOOL_HOME>          ` throughout this section.
+2.  In the source that you checked out, navigate to `identity-anonymization-tool` , and run `mvn clean install` . This downloads all dependencies and builds the tool in your local repository. You can find the `org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip` file created in the `identity-anonymization-tool/components/org.wso2.carbon.privacy.forgetme.tool/target` directory.
+3.  Unzip the `org.wso2.carbon.privacy.forgetme.tool-SNAPSHOT.zip` file. This creates the `identity-anonymization-tool-SNAPSHOT` directory with a directory. The path to the `identity-anonymization-tool-SNAPSHOT` directory will be referred to as `<TOOL_HOME>` throughout this section.
 
-    The following table describes the purpose of the most important configuration related directories and files of the tool, which are in the `           <TOOL_HOME>/conf          ` directory:
+    The following table describes the purpose of the most important configuration related directories and files of the tool, which are in the `<TOOL_HOME>/conf` directory:
 
     <table>
     <thead>
@@ -79,7 +79,7 @@ Follow the steps below to build the tool:
 
 ### Configuring the master configuration file
 
-The master configuration file of the Identity Anonymization tool is the `         config.json        ` file. Following is a sample config.json file:
+The master configuration file of the Identity Anonymization tool is the `config.json` file. Following is a sample config.json file:
 
 ``` java
     {
@@ -113,24 +113,24 @@ The master configuration file of the Identity Anonymization tool is the `     
     }
 ```
 
-You can configure the following in the `         config.json        ` file based on your requirement:
+You can configure the following in the `config.json` file based on your requirement:
 
--   `          processors         ` - A list of processors on which you want the tool run. The processors that you can specify are pre-defined. Possible values are `          RDBMS         ` and `          log-file         ` .
--   `          directories         ` - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the `          config.json         ` file, or specify the absolute path to the directory.
--   `          processor         ` - The type of processor to use to process instructions in the corresponding directory.
--   `          extensions         ` - The extensions to be initialized prior to starting a processor.
+-`processors` - A list of processors on which you want the tool run. The processors that you can specify are pre-defined. Possible values are `RDBMS` and `log-file` .
+-`directories` - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the `config.json` file, or specify the absolute path to the directory.
+-`processor` - The type of processor to use to process instructions in the corresponding directory.
+-`extensions` - The extensions to be initialized prior to starting a processor.
 
 ### Running the tool
 
-Navigate to the `         <TOOL_HOME>/bin        ` directory, and execute one of the following commands depending on your operating system:
+Navigate to the `<TOOL_HOME>/bin` directory, and execute one of the following commands depending on your operating system:
 
--   On Linux/Mac OS: `          ./forgetme.sh -U <username>         `
--   On Windows: `          forgetme.bat -U <username>         `
+-   On Linux/Mac OS: `./forgetme.sh -U <username>`
+-   On Windows: `forgetme.bat -U <username>`
 
 !!! info
 Note
 
-The commands specified above use only the `          -U <username>         ` option, which is the only mandatory option to run the tool. There are several other optional command line options that you can specify based on your requirement. The supported options are described in detail below.
+The commands specified above use only the `-U <username>` option, which is the only mandatory option to run the tool. There are several other optional command line options that you can specify based on your requirement. The supported options are described in detail below.
 
 
 Following are details of all possible command line options that you can use when you run the tool:
@@ -232,6 +232,6 @@ On Windows: <code>               forgetme.bat -U Sam               -carbon /usr/
 </tbody>
 </table>
 
-When you specify the required command line options and run the tool, it generates relevant execution reports with the `         Report-<PROCESSOR>-<TIMESTAMP>.txt        ` naming convention in your current working directory.
+When you specify the required command line options and run the tool, it generates relevant execution reports with the `Report-<PROCESSOR>-<TIMESTAMP>.txt` naming convention in your current working directory.
 
 

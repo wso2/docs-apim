@@ -26,7 +26,7 @@ See the following topics for the descriptions on the concepts that you need to k
 
 1.  Create two APIs.
     1.  Sign in to the WSO2 API Publisher.
-    2.  Create two APIs by the names `            TestAPI1           ` and `            TestAPI2           ` and publish them to the WSO2 API Store.
+    2.  Create two APIs by the names `TestAPI1` and `TestAPI2` and publish them to the WSO2 API Store.
         For more information, see [Create and Publish an API](_Create_and_Publish_an_API_) .
         ![](attachments/103332508/103332500.png)
 2.  Subscribe to both the APIs.
@@ -64,8 +64,8 @@ See the following topics for the descriptions on the concepts that you need to k
 
     The placeholders mentioned in the format cURL command are replaced as follows:
 
-    -   `                               <access_token>                             ` : Give the token generated in [step 2 (d)](#BlockSubscriptiontoanAPI-step2.d) .
-    -   `                                 <API_URL>                               ` : Go to the API's **Overview** tab in the API Store and copy the production URL and append the payload to it.
+    -`<access_token>` : Give the token generated in [step 2 (d)](#BlockSubscriptiontoanAPI-step2.d) .
+    -`<API_URL>` : Go to the API's **Overview** tab in the API Store and copy the production URL and append the payload to it.
 
     ``` java
             <?xml version="1.0" encoding="utf-8"?>
@@ -103,7 +103,7 @@ See the following topics for the descriptions on the concepts that you need to k
 4.  Block an API.
     1.  Sign back in to the API Publisher.
     2.  Click **API** and click on the API that you need to block.
-        In this case, click on the `            TestAPI1           ` API.
+        In this case, click on the `TestAPI1` API.
     3.  Click **Subscriptions** to navigate to the managed subscription section.
         ![](attachments/103332508/103332497.png)
 
@@ -113,13 +113,13 @@ See the following topics for the descriptions on the concepts that you need to k
 5.  Invoke the APIs to test the blocked API.
 
     1.  Sign back in to the API Store.
-    2.  Invoke the two APIs ( `             TestAPI1            ` and `             TestAPI2            ` ) again as mentioned in [step 3](#BlockSubscriptiontoanAPI-step3) .
+    2.  Invoke the two APIs ( `TestAPI1` and `TestAPI2` ) again as mentioned in [step 3](#BlockSubscriptiontoanAPI-step3) .
 
                 !!! tip
-        You might have to **regenerate the access token** for the respective application that you subscribed the APIs to (for example in this case it will be `             DefaultApplication)            ` if the access token expiration time (1 hour by default) has passed since the last time you generated it.
+        You might have to **regenerate the access token** for the respective application that you subscribed the APIs to (for example in this case it will be `DefaultApplication)` if the access token expiration time (1 hour by default) has passed since the last time you generated it.
 
 
-        Note that you can invoke `             TestAPI2            ` again, but when you invoke `             TestAPI1            ` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
+        Note that you can invoke `TestAPI2` again, but when you invoke `TestAPI1` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
 
                 !!! warning
         When [Gateway caching](Key-Concepts_103328852.html#KeyConcepts-APIGateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.
@@ -143,11 +143,11 @@ See the following topics for the descriptions on the concepts that you need to k
 
     1.  Go back to the API Publisher.
     2.  Click on the respective API
-        In this case click `            TestAPI1 1.0.0           ` .
+        In this case click `TestAPI1 1.0.0` .
     3.  Click **Subscriptions** and click **Unblock** corresponding to the respective subscription.
         Make sure to click on the subscription that corresponds to the correct Application.
 
-    If you invoke `           TestAPI1          ` again, you will notice that you can invoke the API as usual.
+    If you invoke `TestAPI1` again, you will notice that you can invoke the API as usual.
 
         !!! warning
     When [Gateway caching](Key-Concepts_103328852.html#KeyConcepts-APIGateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.

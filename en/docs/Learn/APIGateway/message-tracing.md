@@ -7,7 +7,7 @@ Message Tracing refers to the process of identifying each message flow of each o
 
 ### Configuring message tracing
 
-Follow the steps below to configure the Message Tracer in API Manager to dump trace events to WSO2 APIM logs, which can be viewed via the terminal or the `         wso2carbon        ` log file.
+Follow the steps below to configure the Message Tracer in API Manager to dump trace events to WSO2 APIM logs, which can be viewed via the terminal or the `wso2carbon` log file.
 
 1.  Start the WSO2 API Manager server.
 2.  Sign in to the WSO2 APIM Management Console ( <https://localhost:9443/carbon> ).
@@ -21,7 +21,7 @@ Follow the steps below to configure the Message Tracer in API Manager to dump tr
     | Enable Analytics Event Publishing | Publish tracing events to WSO2 API Manager Analytics                                 |
 
     ![](attachments/103333624/103333625.png)
-5.  Add an event publisher to log the trace messages in the APIM the `           wso2carbon          ` log file.
+5.  Add an event publisher to log the trace messages in the APIM the `wso2carbon` log file.
 
     1.  Go to **Main &gt; Event &gt; Publishers** and click **Add Event Publisher** .
         ![](attachments/103333624/103333626.png)
@@ -127,9 +127,9 @@ Make sure you have configured API Manager Analytics. For more information, see [
 2.  Select **Enable Analytics Event Publishing** , which is in the Message Tracing Configuration page and click **Update** .
 
     ![](attachments/103333624/103333633.png)
-    After you have saved the changes, WSO2 APIM will generate a stream definition in the `           <APIM_HOME>/repository/deployment/server/eventstreams/                       DAS_MESSAGE_TRACE_1.0.0.json                     ` file.
+    After you have saved the changes, WSO2 APIM will generate a stream definition in the `<APIM_HOME>/repository/deployment/server/eventstreams/DAS_MESSAGE_TRACE_1.0.0.json` file.
 
-3.  Copy the `           DAS_MESSAGE_TRACE_1.0.0.json          ` file and add it to the `           <APIM_ANALITICS_HOME>/repository/deployment/server/eventstreams          ` directory to deploy the same definition in WSO2 API Manager Analytics.
+3.  Copy the `DAS_MESSAGE_TRACE_1.0.0.json` file and add it to the `<APIM_ANALITICS_HOME>/repository/deployment/server/eventstreams` directory to deploy the same definition in WSO2 API Manager Analytics.
 
 4.  Start the WSO2 API Manager Analytics server.
 5.  Sign in to WSO2 API Manager Analytics ( <https://localhost:9444/carbon> ).
@@ -138,7 +138,7 @@ Make sure you have configured API Manager Analytics. For more information, see [
 
         You will see the deployed stream under event streams.
         ![](attachments/103333624/103333634.png)
-    2.  Click the **Edit** option that is relevant to the stream definition `            DAS_MESSAGE_TRACE:1.0.0           ` file so that it opens in the edit view.
+    2.  Click the **Edit** option that is relevant to the stream definition `DAS_MESSAGE_TRACE:1.0.0` file so that it opens in the edit view.
     3.  Click **Next\[Persist Event\]** at the bottom of the edit view.
     4.  In the next page select Persist Event Stream and select all the attribute check-boxes in order to persist all the information and click Save Event Stream.
         ![](attachments/103333624/103333629.png)

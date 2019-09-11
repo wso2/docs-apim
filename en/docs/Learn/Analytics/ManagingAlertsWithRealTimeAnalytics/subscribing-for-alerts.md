@@ -9,7 +9,7 @@ Click on the relevant tab to view the required procedure.
 
 A system administrator is allowed to select one or more alert types to subscribe for, as well as specify a list of email addresses to which the alerts should be sent. Follow the procedure below to carry out the tasks mentioned above using the Admin Portal of WSO2 API Manager.
 
-1.  Log into the WSO2 API Manager Admin Portal using the `                           https://localhost                          :<SERVER_PORT>/admin            ` URL.
+1.  Log into the WSO2 API Manager Admin Portal using the `https://localhost                          :<SERVER_PORT>/admin` URL.
 2.  In **ANALYTICS** menu, Click **MANAGE ALERT TYPES** to open the **Manage Alert Types** page.
     ![](attachments/103335151/103335153.png)3.  Select the relevant check boxes based on the alert types to which you want to subscribe.
 4.  Under **Email list** , enter the list of email addresses that should receive alerts. The email addresses should be those of system administrators. Each email address can be separated with a comma or you can type Email address and press Enter.

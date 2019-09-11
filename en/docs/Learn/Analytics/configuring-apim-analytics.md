@@ -30,7 +30,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
         -   [Installing as a Windows Service](https://docs.wso2.com/display/SP430/Installing+as+a+Windows+Service)
         -   [Installing as a Linux Service](https://docs.wso2.com/display/SP430/Installing+as+a+Linux+Service)
 
-3.  To enable Analytics, open the `              <API-M_HOME>/repository/conf/api-manager.xml             ` file and set the `              Enabled             ` property under `              Analytics             ` to `              true             ` as shown below. Save this change.
+3.  To enable Analytics, open the `<API-M_HOME>/repository/conf/api-manager.xml` file and set the `Enabled` property under `Analytics` to `true` as shown below. Save this change.
 
     ``` xml
         <Analytics>
@@ -44,17 +44,17 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 
 4.  Start the Analytics Server.
-    Navigate to the `             <API-M_ANALYTICS_HOME>/bin            ` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `               worker.bat --run              `
-    -   On Linux/Mac OS: `                sh worker.sh               `
+    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    -   On Windows: `worker.bat --run              `
+    -   On Linux/Mac OS: `sh worker.sh               `
 
 5.  Start the API Manager server.
-    Navigate to the `             <API-M_HOME>/bin            ` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `               wso2server.bat --run              `
+    Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    -   On Windows: `wso2server.bat --run              `
 
     <!-- -->
 
-    -   On Linux/Mac OS: `                sh wso2server.sh               `
+    -   On Linux/Mac OS: `sh wso2server.sh               `
 
                 !!! info
         If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
@@ -64,9 +64,9 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
         ```
 
 
-6.  Optionally, if you wish to access the business rules via the Dashboard node, navigate to the `             <API-M_ANALYTICS_HOME>/bin            ` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `               dashboard.bat --run              `
-    -   On Linux/Mac OS: `                sh dashboard.sh               `
+6.  Optionally, if you wish to access the business rules via the Dashboard node, navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    -   On Windows: `dashboard.bat --run              `
+    -   On Linux/Mac OS: `sh dashboard.sh               `
 
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
@@ -101,8 +101,8 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 To download the WSO2 API Manager distribution, click **DOWNLOAD** and then click **DOWNLOAD Server** in the [WSO2 API Manager page](http://wso2.com/products/api-manager/) .
 !!! note
 If you are working on a distributed (clustered) setup of API Manager, carryout the instructed configurations in the Publisher, Store and Gateway nodes of the API Manager.
-1.  Open the `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
-2.  Under the `             <Analytics>            ` sub element, set the `             Enabled            ` parameter to `             true            ` .
+1.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+2.  Under the `<Analytics>` sub element, set the `Enabled` parameter to `true` .
 3.  Configure the following parameters if required.
 
     <table>
@@ -179,7 +179,7 @@ The following is a list of database versions that are compatible with WSO2 API-M
 -   DB2
 
 1.  Stop the WSO2 API-M Analytics server if it is running already.
-2.  To configure the worker, open the `               <API-M_Analytics_HOME>/conf/               dashboard               /deployment.yaml              ` file and edit the `               APIM_ANALYTICS_DB              ` section. A sample for MySQL is shown below.
+2.  To configure the worker, open the `<API-M_Analytics_HOME>/conf/               dashboard               /deployment.yaml` file and edit the `APIM_ANALYTICS_DB` section. A sample for MySQL is shown below.
 
     ``` java
          - name: APIM_ANALYTICS_DB
@@ -200,17 +200,17 @@ The following is a list of database versions that are compatible with WSO2 API-M
                   isAutoCommit: false
     ```
 
-3.  To configure the dashboard, open the `              <API-M_Analytics_HOME>/conf/worker/deployment.yaml             ` file and repeat the above step.
+3.  To configure the dashboard, open the `<API-M_Analytics_HOME>/conf/worker/deployment.yaml` file and repeat the above step.
 4.  Do the following to integrate third party products when configuring databases.
 
         !!! note
-    WSO2 SP is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `               <API-M_Analytics_HOME>/lib              ` directory.
+    WSO2 SP is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_Analytics_HOME>/lib` directory.
 
     To convert the jar files to OSGi bundles, follow the steps below.
 
     1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
 
-    2. Go to the `               <API-M_Analytics_HOME>/bin              ` directory. Run the command given below, to generate the converted file in the `               <API-M_Analytics_HOME>/lib              ` directory.
+    2. Go to the `<API-M_Analytics_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_Analytics_HOME>/lib` directory.
 
     ``` java
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
@@ -221,8 +221,8 @@ The following is a list of database versions that are compatible with WSO2 API-M
 
 ### Step 6 - Configure keystores
 
-In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `             client-truststore.jks            ` keystore.
+In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `             client-truststore.jks            ` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificate) in the Administration Guide.
+If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificate) in the Administration Guide.
 
 

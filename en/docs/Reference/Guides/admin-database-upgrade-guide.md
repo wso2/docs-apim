@@ -8,7 +8,7 @@ The following are the specific prerequisites you must complete before an upgrade
 
 -   Before you upgrade to the latest version of a product, you create a staging database, which is essentially an empty database. Note that you should NOT connect a new product version to an older database that has not been upgraded.
 
--   Make a backup of the database and the `           <PRODUCT_HOME>          ` directory prior to upgrading. The `           <PRODUCT_HOME>          ` directory can simply be copied to the new directory.
+-   Make a backup of the database and the `<PRODUCT_HOME>` directory prior to upgrading. The `<PRODUCT_HOME>` directory can simply be copied to the new directory.
 
 -   Stop all the Carbon servers connected to the database before running the migration scripts.
 
@@ -36,8 +36,8 @@ There are no database changes between Carbon 4.4.6 to Carbon 4.4.7. Therefore, o
 
 4.  Copy the following directories from the old database to the staging database.
 
-    1.  To migrate the super tenant settings, copy the `            <PRODUCT_HOME>/repository/           ` `            deployment/server           ` directory.
-    2.  If multitenancy is used, copy the `            <PRODUCT_HOME>/repository/tenants           ` directory.
+    1.  To migrate the super tenant settings, copy the `<PRODUCT_HOME>/repository/deployment/server` directory.
+    2.  If multitenancy is used, copy the `<PRODUCT_HOME>/repository/tenants` directory.
 
         !!! note
     Note that configurations should not be copied directly between servers.

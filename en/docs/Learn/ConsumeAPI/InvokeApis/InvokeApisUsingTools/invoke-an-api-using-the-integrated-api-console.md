@@ -22,12 +22,12 @@ See the following topics for a description of the concepts that you need to know
 You can only try out HTTPS based APIs via the API Console because the API Store runs on HTTPS.
 
 
-The examples here use the `         PhoneVerification        ` REST API, which was created in [Create and Publish an API](_Create_and_Publish_an_API_) .
+The examples here use the `PhoneVerification` REST API, which was created in [Create and Publish an API](_Create_and_Publish_an_API_) .
 
-1.  Sign in to the WSO2 API Store and click an API (e.g., `           PhoneVerification          ` ).
-    `           https://<hostname>:9443/store          `
+1.  Sign in to the WSO2 API Store and click an API (e.g., `PhoneVerification` ).
+`https://<hostname>:9443/store          `
 
-2.  Subscribe to the API (e.g., `           PhoneVerification          ` 1.0.0) using the **default application** and an available tier.
+2.  Subscribe to the API (e.g., `PhoneVerification` 1.0.0) using the **default application** and an available tier.
     ![](attachments/103327857/103327843.png)
 
 3.  On the **Applications** menu, open the default application you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.

@@ -8,7 +8,7 @@ This section introduces handlers and using an example, explains how to write a c
 
 ### Introducing Handlers
 
-When an API is created, a file with its synapse configuration is added to the API Gateway. You can find it in the `         <APIM_HOME>/repository/deployment/server/synapse-configs/default/api        ` folder. It has a set of handlers, each of which is executed on the APIs in the same order they appear in the configuration. You find the default handlers in any API's Synapse definition as shown below.
+When an API is created, a file with its synapse configuration is added to the API Gateway. You can find it in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` folder. It has a set of handlers, each of which is executed on the APIs in the same order they appear in the configuration. You find the default handlers in any API's Synapse definition as shown below.
 
 ``` html/xml
     <handlers>
@@ -32,40 +32,40 @@ When an API is created, a file with its synapse configuration is added to the AP
 
 Let's see what each handler does:
 
--   `                                              CORSRequestHandler:                                 ` Sets the CORS headers to the request and executes the CORS sequence mediation logic. This handler is thereby responsible for returning the CORS headers from the gateway or routing the requests to the backend and letting the backend send the CORS headers.
--   `                     APIAuthenticationHandler:                   ` Validates the OAuth2 bearer token used to invoke the API. It also determines whether the token is of type `          Production         ` or `          Sandbox         ` and sets `          MessageContext         ` variables as appropriate.
--   `                     APIThrottleHandler:                   ` Throttles requests based on the throttling policy specified by the `          policyKey         ` property. Throttling is applied both at the application level as well as subscription level.
--   **`           APIMgtUsageHandler:          `** Publishes events to WSO2 Stream Processor (WSO2 SP) for collection and analysis of statistics. This handler only comes to effect if API usage tracking is enabled . See the [Working with Analytics](https://docs.wso2.com/display/AM260/Working+with+Analytics) section for more information.
--   `                     APIMgtGoogleAnalyticsTrackingHandler:                   ` Publishes events to Google Analytics. This handler only comes into effect if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
--   **`            APIManagerExtensionHandler           `** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, uncomment the `           <ExtensionHandlerPosition>          ` section in the `           <APIM_HOME>/repository/conf/api-manager.xml          ` file and provide the value `           top          ` . This is useful when you want to execute your own extensions before our default handlers in situations like  doing additional security checks such as signature verification on access tokens before executing the default security handler.
+-`CORSRequestHandler:` Sets the CORS headers to the request and executes the CORS sequence mediation logic. This handler is thereby responsible for returning the CORS headers from the gateway or routing the requests to the backend and letting the backend send the CORS headers.
+-`APIAuthenticationHandler:` Validates the OAuth2 bearer token used to invoke the API. It also determines whether the token is of type `Production` or `Sandbox` and sets `MessageContext` variables as appropriate.
+-`APIThrottleHandler:` Throttles requests based on the throttling policy specified by the `policyKey` property. Throttling is applied both at the application level as well as subscription level.
+-   **`APIMgtUsageHandler:`** Publishes events to WSO2 Stream Processor (WSO2 SP) for collection and analysis of statistics. This handler only comes to effect if API usage tracking is enabled . See the [Working with Analytics](https://docs.wso2.com/display/AM260/Working+with+Analytics) section for more information.
+-`APIMgtGoogleAnalyticsTrackingHandler:` Publishes events to Google Analytics. This handler only comes into effect if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
+-   **`APIManagerExtensionHandler`** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, uncomment the `<ExtensionHandlerPosition>` section in the `<APIM_HOME>/repository/conf/api-manager.xml` file and provide the value `top` . This is useful when you want to execute your own extensions before our default handlers in situations like  doing additional security checks such as signature verification on access tokens before executing the default security handler.
     See [Adding Mediation Extensions](_Adding_Mediation_Extensions_) .
 
 ##### Using APILogMessageHandler
 
-Message logging is handled by `                   APIManagerExtensionHandler                  .        ` **`          APILogMessageHandler         `** is a sample handler that comes with WSO2 API Manager that can be used for logging.
+Message logging is handled by `APIManagerExtensionHandler.` **`APILogMessageHandler`** is a sample handler that comes with WSO2 API Manager that can be used for logging.
 
 !!! info
-**Why are logs removed from `          APIManagerExtensionHandler         ` ?**
+**Why are logs removed from `APIManagerExtensionHandler` ?**
 
-The primary purpose of `         ExtensionHandler        ` is handling extensions to mediation and not for logging messages. When the logs are also included in `         ExtensionHandler        ` , there's a limitation to improve the `         ExtensionHandler        ` for developing features because it breaks the logs.
+The primary purpose of `ExtensionHandler` is handling extensions to mediation and not for logging messages. When the logs are also included in `ExtensionHandler` , there's a limitation to improve the `ExtensionHandler` for developing features because it breaks the logs.
 
-For example, When the `         ExtensionHandler        ` moves to the top of the handlers set, most of the logs print null values since the handler runs before the `                   APIAuthenticationHandler                 ` . Therefore, the logs are removed from the extension handler and `         APILogMessageHandler        ` introduced as a sample.
+For example, When the `ExtensionHandler` moves to the top of the handlers set, most of the logs print null values since the handler runs before the `APIAuthenticationHandler` . Therefore, the logs are removed from the extension handler and `APILogMessageHandler` introduced as a sample.
 
 !!! note
 To achieve logging requirements, this handler is not the only approach and with custom sequences also it is possible to log messages using the Log Mediator.
 
 
-In order to enable logging by invoking `         APILogMessageHandler        ` , follow the steps below.
+In order to enable logging by invoking `APILogMessageHandler` , follow the steps below.
 
 **To enable Message Logging per API :**
 
-1.  Open the synapse Configuration of the API located in `           <APIM_HOME>/repository/deployment/server/synapse-configs/default/api          ` directory and add below handler before `           </Handlers>          ` .
+1.  Open the synapse Configuration of the API located in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory and add below handler before `</Handlers>` .
 
     ``` java
         <handler class="org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler"/> 
     ```
 
-2.  Copy the following code into the `           <APIM_HOME>/repository/conf/log4j.properties          ` file to enable printing DEBUG logs.
+2.  Copy the following code into the `<APIM_HOME>/repository/conf/log4j.properties` file to enable printing DEBUG logs.
 
     ``` java
             log4j.logger.org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler = DEBUG
@@ -149,13 +149,13 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
 
 1.  Build the custom authenticaor code downloaded previously, and copy the resulting jar to &lt;API-M\_HOME&gt;/repository/components/dropins directory.
 2.  Engage the custom handler using the API template as explained below:
-    You can engage a custom handler to all APIs at once or only to selected APIs. To engage a custom handler to APIs, you need to add the custom handler with its logic in the `           <APIM_HOME>/repository/resources/api_templates/velocity_template.xml          ` file.
+    You can engage a custom handler to all APIs at once or only to selected APIs. To engage a custom handler to APIs, you need to add the custom handler with its logic in the `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` file.
 
         !!! note
     It is not recommended to update the API source code via the source view UI or file system when engaging a custom handler to selected APIs, because the customizations get overridden by the publisher updates.
 
 
-    For example, the following code segment adds the custom authentication handler that you wrote earlier to the `           velocity_template.xml          ` file while making sure that it skips the default `           APIAuthenticationHandler          ` implementation:
+    For example, the following code segment adds the custom authentication handler that you wrote earlier to the `velocity_template.xml` file while making sure that it skips the default `APIAuthenticationHandler` implementation:
 
     ``` java
         <handler class="org.wso2.carbon.apimgt.custom.authentication.handler.CustomAPIAuthenticationHandler" />
@@ -174,7 +174,7 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
         </handlers>
     ```
 
-    You can select to which API(s) you need to engage the handler. Given below is an example of adding only the `           CustomAPIAuthenticationHandler          ` to the sample PizzaShackAPI.
+    You can select to which API(s) you need to engage the handler. Given below is an example of adding only the `CustomAPIAuthenticationHandler` to the sample PizzaShackAPI.
 
     ``` xml
             <handlers xmlns="http://ws.apache.org/ns/synapse">

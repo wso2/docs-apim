@@ -18,9 +18,9 @@ The following steps describe how to download, install, and configure WSO2 API Ma
 
 1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) in each of the five servers in the cluster for distributed deployment.
 2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories respectively as Key Manager, Gateway, Publisher, Store, and Traffic Manager.
-    These five directories are located in a server of their own and are used for each component of WSO2 API-M. Each of these unzipped directories are referred to as `             <API-M_HOME>            ` or `             <PRODUCT_HOME>            ` in this document.
+    These five directories are located in a server of their own and are used for each component of WSO2 API-M. Each of these unzipped directories are referred to as `<API-M_HOME>` or `<PRODUCT_HOME>` in this document.
 
-3.  In each of the five servers, replace the default certificates (where `             CN=localhost            ` ) with new certificates generated with proper common name (CN) values.
+3.  In each of the five servers, replace the default certificates (where `CN=localhost` ) with new certificates generated with proper common name (CN) values.
     You need to do this in order to avoid getting an error with regard to the fact that the hostname in the certificate did not match.
 
         !!! note
@@ -49,7 +49,7 @@ The page: **\_Configuring a Single Node** was not found. Please check/update the
 
 ### Step 6 - Configure the connections among the components and start the servers
 
-You will now configure the inter-component relationships of the distributed setup by modifying their `         <API-M_HOME>/repository/conf/api-manager.xml        ` files. It is recommended to start the components in the following order: Key Manager, Publisher, Store, Traffic Manager, and Gateway.
+You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/api-manager.xml` files. It is recommended to start the components in the following order: Key Manager, Publisher, Store, Traffic Manager, and Gateway.
 
 !!! note
 In a clustered environment, you use session affinity ( sticky sessions ) to ensure that requests from the same client always get routed to the same server.
@@ -90,24 +90,24 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
 !!! warning
 **Skip** this step if you are using **WSO2 Identity Server as the Key Manager** and follow the instructions mentioned in \_Configuring WSO2 Identity Server as a Key Manager to configure and start the Key Manager.
-1.  Open the `            <API-M_HOME>/repository/conf/api-manager.xml           ` file in the Key Manager node and c hange the `            <ServerURL>           ` element that appears under the `            <APIGateway>           ` section, so that it points to the API Manager Gateway.
+1.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file in the Key Manager node and c hange the `<ServerURL>` element that appears under the `<APIGateway>` section, so that it points to the API Manager Gateway.
     You need to add these configurations so that when a user is deleted or when the role of a user is updated in the Key Manager, it will update the Gateway cache by clearing the cache entries of a particular user.
-    -   If you are working with a **single Gateway** in distributed set up, you need to replace \[ `              GATEWAY_SERVER_HOST]             ` with the host of the **Gateway** node.
-    -   If you are working with **Gateways** in a **High Availability (HA)** setup that uses a **shared file system** (e.g., [NFS](https://en.wikipedia.org/wiki/Network_File_System) ), you need to replace \[ `              GATEWAY_SERVER_HOST]             ` with the host of the **Gateway load balancer** node.
-    -   If you are working with **Gateways** in a **High Availability (HA)** setup that uses **rsync** , you need to replace \[ `              GATEWAY_SERVER_HOST]             ` with the host of the **Gateway Manager** node.
-    -   You need to replace `               [port]              ` with the management transport port. For more information, see [Default Product Ports](https://docs.wso2.com/display/AM260/Default+Product+Ports) .
+    -   If you are working with a **single Gateway** in distributed set up, you need to replace \[ `GATEWAY_SERVER_HOST]` with the host of the **Gateway** node.
+    -   If you are working with **Gateways** in a **High Availability (HA)** setup that uses a **shared file system** (e.g., [NFS](https://en.wikipedia.org/wiki/Network_File_System) ), you need to replace \[ `GATEWAY_SERVER_HOST]` with the host of the **Gateway load balancer** node.
+    -   If you are working with **Gateways** in a **High Availability (HA)** setup that uses **rsync** , you need to replace \[ `GATEWAY_SERVER_HOST]` with the host of the **Gateway Manager** node.
+    -   You need to replace `[port]` with the management transport port. For more information, see [Default Product Ports](https://docs.wso2.com/display/AM260/Default+Product+Ports) .
 
         ``` java
                 <ServerURL>https://$[GATEWAY_SERVER_HOST]:[port]/services/</ServerURL>
         ```
 
 2.  Configure the API key validator in the Key Manager.
-    The Thrift protocol is normally enabled by default. However, if you have disabled the Thrift protocol, enable it as follows in the `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
+    The Thrift protocol is normally enabled by default. However, if you have disabled the Thrift protocol, enable it as follows in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     -   [**Single Key Manager**](#single-Key-Manager-KM)
     -   [**Key Manager with HA**](#HA-Key-Manager-KM)
 
-    When you are using a single Key Manager, add `                ThriftClient               ` for the `                <KeyValidatorClientType>               ` element to use the Thrift protocol.
+    When you are using a single Key Manager, add `ThriftClient` for the `<KeyValidatorClientType>` element to use the Thrift protocol.
 
     ``` plain
             <APIKeyValidator>    
@@ -125,7 +125,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
         <ThriftServerPort>[port]</ThriftServerPort>
 
 
-    When you are using multiple Key Managers fronted by a load balancer, you need to add `                WSClient               ` for the `                <KeyValidatorClientType>               ` element to use the Web Service Client, and change &lt; `                EnableThriftServer>               ` to `                false               ` to optimize performance.
+    When you are using multiple Key Managers fronted by a load balancer, you need to add `WSClient` for the `<KeyValidatorClientType>` element to use the Web Service Client, and change &lt; `EnableThriftServer>` to `false` to optimize performance.
 
     ``` plain
         <APIKeyValidator>
@@ -173,7 +173,7 @@ If you get an error similar to the following in both or one of the nodes, check 
 
 This section involves setting up the API Publisher node and enabling it to work with the other components in the distributed deployment .
 
-1.  Open the `            <API-M_HOME>/repository/conf/api-manager.xml           ` file in the API Publisher node and make the following changes .
+1.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file in the API Publisher node and make the following changes .
     1.  Configure the **Publisher with the Key Manager** .
         You need to update the following configuration ONLY when you do not wish to share the user stores with the WSO2 API-M instance.
 
@@ -335,7 +335,7 @@ This section involves setting up the API Publisher node and enabling it to work 
 
 
     4.  Configure the Store URL to appear in the Publisher UI.
-        For this purpose you need to set the `               <DisplayURL>              ` to `               true              ` and provide the URL of the Store.
+        For this purpose you need to set the `<DisplayURL>` to `true` and provide the URL of the Store.
 
         -   [**Single Store**](#single-Store-Publisher)
         -   [**Store with HA**](#HA-Store-Publisher)
@@ -363,12 +363,12 @@ This section involves setting up the API Publisher node and enabling it to work 
         ```
 
 2.  Configure the blocked apps and API notifications to go to the Topic.
-    Open the `             <API-M_HOME>/repository/conf/jndi.properties            ` file and make the following changes.
+    Open the `<API-M_HOME>/repository/conf/jndi.properties` file and make the following changes.
 
         !!! note
     -   The following configuration is related to the Admin App in WSO2 API-M. In this guide it is assumed that the WSO2 API-M Admin App is configured in the Publisher node.
 
-    -   If you change the default username (i.e., admin) and password (i.e., admin) in the `               user-mgt.xml              ` file, that username and password should be changed at the broker connection URL as well.
+    -   If you change the default username (i.e., admin) and password (i.e., admin) in the `user-mgt.xml` file, that username and password should be changed at the broker connection URL as well.
 
 
     ``` xml
@@ -377,7 +377,7 @@ This section involves setting up the API Publisher node and enabling it to work 
     ```
 
 3.  Disable the Thrift Server to optimize performance.
-    You need to configure this in the Publisher `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
+    You need to configure this in the Publisher `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
             <APIKeyValidator> 
@@ -406,7 +406,7 @@ This section involves setting up the API Publisher node and enabling it to work 
 
 This section involves setting up the API Store node and enabling it to work with the other components in the distributed deployment .
 
-1.  Open the `             <API-M_HOME>/repository/conf/api-manager.xml            ` file in the API Store node and make the following changes.
+1.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file in the API Store node and make the following changes.
 
     1.  Configure the **API Store with the Key Manager.**
 
@@ -416,7 +416,7 @@ This section involves setting up the API Store node and enabling it to work with
         Configure the **API Store with a single Key Manager** as follows:
 
         1.  Configure the API key validator.
-            When you are connecting the API Store directly to the Key Manager, add `                    ThriftClient                   ` for the `                    <KeyValidatorClientType>                   ` element to use the Thrift protocol.
+            When you are connecting the API Store directly to the Key Manager, add `ThriftClient` for the `<KeyValidatorClientType>` element to use the Thrift protocol.
 
             ``` plain
                         <APIKeyValidator>
@@ -452,7 +452,7 @@ This section involves setting up the API Store node and enabling it to work with
         Configure the **Store with multiple Key Managers** that are fronted by a load balancer as follows:
 
         1.  Configure the API key validator.
-            When you are using multiple Key Managers fronted by a load balancer, you need to add `                    WSClient                   ` for the `                    <KeyValidatorClientType>                   ` element to use the Web Service Client.
+            When you are using multiple Key Managers fronted by a load balancer, you need to add `WSClient` for the `<KeyValidatorClientType>` element to use the Web Service Client.
 
             ``` plain
                             <RevokeAPIURL>https://[Gateway-host]:8243/revoke</RevokeAPIURL>
@@ -592,7 +592,7 @@ This section involves setting up the API Store node and enabling it to work with
         ```
 
 2.  Disable the Thrift Server to optimize performance.
-    You need to configure this in the Store `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
+    You need to configure this in the Store `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
             <APIKeyValidator> 
@@ -617,16 +617,16 @@ This section involves setting up the API Store node and enabling it to work with
 
 This section involves setting up the Traffic Manager node(s) and enabling it to work with the other components in a distributed deployment.
 
-1.  Delete the `             <API-M_HOME>/repository/conf/registry.xml            ` file and rename the `             <API-M_HOME>/repository/conf/registry_TM.xml            ` file as the `             registry.xml            ` file.
-    To disable registry indexing when setting up the Traffic Manager, see [Registry indexing configurations](https://docs.wso2.com/display/AM260/Tuning+Performance#TuningPerformance-Registryindexingconfigurations) . `            `
+1.  Delete the `<API-M_HOME>/repository/conf/registry.xml` file and rename the `<API-M_HOME>/repository/conf/registry_TM.xml` file as the `registry.xml` file.
+    To disable registry indexing when setting up the Traffic Manager, see [Registry indexing configurations](https://docs.wso2.com/display/AM260/Tuning+Performance#TuningPerformance-Registryindexingconfigurations) . ``
 
-2.  Delete the `             <API-M_HOME>/repository/conf/axis2/axis2.xml            ` file and rename the `             <API-M_HOME>/repository/conf/axis2/axis2_TM.xml            ` file as the `             axis2.xml            ` file .
+2.  Delete the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file and rename the `<API-M_HOME>/repository/conf/axis2/axis2_TM.xml` file as the `axis2.xml` file .
 
         !!! note
-    Note that all the jaggery apps and webapps in the `             <API-M_HOME>/repository/deployment/server/            ` directory are removed when you optimize the profile. For more details, see [Product Profiles](https://docs.wso2.com/display/AM260/Product+Profiles) .
+    Note that all the jaggery apps and webapps in the `<API-M_HOME>/repository/deployment/server/` directory are removed when you optimize the profile. For more details, see [Product Profiles](https://docs.wso2.com/display/AM260/Product+Profiles) .
 
 
-3.  **Optionally** , mount the `             <API-M_HOME>/repository/deployment/server            ` directory of all the Traffic Manager nodes to the shared file system.
+3.  **Optionally** , mount the `<API-M_HOME>/repository/deployment/server` directory of all the Traffic Manager nodes to the shared file system.
 
         !!! warning
     This step is **ONLY applicable** if you are configuring the **Traffic Manager with HA** and **shared file system** as the content synchronization mechanism.
@@ -635,7 +635,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
     You need to do this to share all the Throttling policies between traffic management nodes.
 
 4.  Disable the Thrift Server to optimize performance.
-    You need to configure this in the Traffic Manager `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
+    You need to configure this in the Traffic Manager `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
         <APIKeyValidator> 
@@ -668,7 +668,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
     ```
 
         !!! note
-    Always start the Traffic Manager using the `             -Dprofile=traffic-manager            ` profile **** to avoid FATAL errors such as the following.
+    Always start the Traffic Manager using the `-Dprofile=traffic-manager` profile **** to avoid FATAL errors such as the following.
 
     ``` java
         FATAL - ServiceBusInitializer Couldn't initialize the ESB...
@@ -680,7 +680,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
 !!! note
 Troubleshooting
-If you have a firewall between the Traffic Manager and the Gateway, you need to configure the heartbeat value to keep the JMS connection alive. To configure this, open the `           <APIM_HOME>/repository/conf/advanced/qpid-config.xml          ` file and set the heartbeat to a non-zero value as shown below.
+If you have a firewall between the Traffic Manager and the Gateway, you need to configure the heartbeat value to keep the JMS connection alive. To configure this, open the `<APIM_HOME>/repository/conf/advanced/qpid-config.xml` file and set the heartbeat to a non-zero value as shown below.
 
 ``` java
     <heartbeat>    
@@ -696,8 +696,8 @@ This section involves setting up the Gateway node and enabling it to work with t
 
 !!! note
 **Steps 1 to 5** in the following section are **common** irrespective of your API-M deployment, such as deploying a single Gateway node or deploying multiple Gateway nodes for High Availability (HA). However, if you are using two Gateway nodes for high availability (HA), first follow the instructions that is available in the \_Distributed Deployment of the Gateway document, and then carry out the following steps to configure the connections from Gateway(s) to other components.
-1.  Open the `            <API-M_HOME>/repository/conf/api-manager.xml           ` file in the Gateway node.
-2.  Modify the `             api-manager.xml            ` file as follows. This configures the connection to the Key Manager component.
+1.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file in the Gateway node.
+2.  Modify the `api-manager.xml` file as follows. This configures the connection to the Key Manager component.
 
     -   [**Single Key Manager**](#single-Key-Manager-GW)
     -   [**Key Managers with HA**](#HA-Key-Manager-GW)
@@ -717,13 +717,13 @@ This section involves setting up the Gateway node and enabling it to work with t
                 </APIKeyValidator>
         ```
 
-        `                  [Key-Manager-host]                 ` - If you have a single Key Manager node, this should be the host of the Key Manager (i.e., the host of the WSO2 Identity Server).
+`[Key-Manager-host]` - If you have a single Key Manager node, this should be the host of the Key Manager (i.e., the host of the WSO2 Identity Server).
 
                 !!! note
         To change the admin password, see [Changing the super admin password](https://docs.wso2.com/display/AM260/Maintaining+Logins+and+Passwords) . If your password has special characters, follow the guidelines mentioned as a note under step 2 in the latter mentioned section.
 
 
-    2.  Use `                  ThriftClient                 ` as the `                  KeyValidatorClientType                 ` in the `                  <API-M_HOME>/repository/conf/api-manager.xml                 ` file.
+    2.  Use `ThriftClient` as the `KeyValidatorClientType` in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
                 !!! note
         You can only use the Thrift protocol when the Key Manager cluster is NOT fronted by a load balancer.
@@ -734,7 +734,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         ```
 
     3.  Disable the Thrift Server to optimize performance.
-        You need to configure this in the Gateway `                  <API-M_HOME>/repository/conf/api-manager.xml                 ` file
+        You need to configure this in the Gateway `<API-M_HOME>/repository/conf/api-manager.xml` file
 
         ``` java
                     <APIKeyValidator> 
@@ -743,7 +743,7 @@ This section involves setting up the Gateway node and enabling it to work with t
                     </APIKeyValidator>
         ```
 
-    4.  Uncomment `                  ThriftClientPort                 ` element if its commented out and set the Thrift Client port in the Gateway to the same port as the Thrift Server port, which you defined in the Key Manager.
+    4.  Uncomment `ThriftClientPort` element if its commented out and set the Thrift Client port in the Gateway to the same port as the Thrift Server port, which you defined in the Key Manager.
         This enables the Gateway to communicate with the Key Manager.
 
                 !!! note
@@ -759,19 +759,19 @@ This section involves setting up the Gateway node and enabling it to work with t
         ```
 
     5.  Specify the hostname or IP of the Key Manager.
-        The default is `                  localhost                 ` . In a distributed deployment you must set this parameter in both Key Manager nodes and Gateway nodes **only** if the Key Manager is running on a separate machine. Gateway uses this parameter to connect to the key validation Thrift service.
+        The default is `localhost` . In a distributed deployment you must set this parameter in both Key Manager nodes and Gateway nodes **only** if the Key Manager is running on a separate machine. Gateway uses this parameter to connect to the key validation Thrift service.
 
         ``` java
                     <ThriftServerHost>[Key-Manager-host]</ThriftServerHost>
         ```
 
                 !!! info
-        The parameter `                  ThriftClientConnectionTimeOut                 ` **** is used to specify the client side time-out when connecting to Thrift Key Validation Service in Key Manager. The default value is 10000 milliseconds , which is sufficient for most cases.
+        The parameter `ThriftClientConnectionTimeOut` **** is used to specify the client side time-out when connecting to Thrift Key Validation Service in Key Manager. The default value is 10000 milliseconds , which is sufficient for most cases.
 
 
     Configure the **Gateway with multiple Key Managers** , which are fronted by a load balancer as follows:
 
-    1.  Configure the `                  APIKeyValidator                 ` as follows:
+    1.  Configure the `APIKeyValidator` as follows:
 
         ``` plain
                 <APIKeyValidator> 
@@ -782,13 +782,13 @@ This section involves setting up the Gateway node and enabling it to work with t
                 </APIKeyValidator>
         ```
 
-        -   `                    [Key-Manager-LB-host]                   ` - If there are multiple Key Managers (i.e., Multiple WSO2 Identity Servers as the Key Manager) fronted by a load balancer, this should be the host of the Key Manager's load balancer. For example, in the configuration we have defined `                    key-manager                   ` as the load balancer host in the Key Manager section.
+        -`[Key-Manager-LB-host]` - If there are multiple Key Managers (i.e., Multiple WSO2 Identity Servers as the Key Manager) fronted by a load balancer, this should be the host of the Key Manager's load balancer. For example, in the configuration we have defined `key-manager` as the load balancer host in the Key Manager section.
 
                 !!! note
         To change the admin password, see [Changing the super admin password](https://docs.wso2.com/display/AM260/Maintaining+Logins+and+Passwords) . If your password has special characters, follow the guidelines mentioned as a note under step 2 in the latter mentioned section.
 
 
-    2.  Use `                  WSClient                 ` as `                  KeyValidatorClientType                 ` in the `                  <API-M_HOME>/repository/conf/api-manager.xml                 ` file.
+    2.  Use `WSClient` as `KeyValidatorClientType` in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
         Note that you can only use the Web Service Client when the Key Manager cluster is fronted by a load balancer.
 
         ``` plain
@@ -796,7 +796,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         ```
 
     3.  Ensure that Thrift is disabled in the Gateway.
-        This is enabled by default in all instances of the product, so you need to disable the Thrift server by setting `                  EnableThriftServer                 ` to false in the `                  <API-M_HOME>/repository/conf/api-manager.xml                 ` file of each node.
+        This is enabled by default in all instances of the product, so you need to disable the Thrift server by setting `EnableThriftServer` to false in the `<API-M_HOME>/repository/conf/api-manager.xml` file of each node.
 
         ``` plain
                     <EnableThriftServer>false</EnableThriftServer>
@@ -846,10 +846,10 @@ This section involves setting up the Gateway node and enabling it to work with t
         ```
 
                 !!! warning
-        In the Gateway profile of WSO2 API Manager, disable the `                  <PolicyDeployer>                 ` configuration to prevent blocking the API Publisher.
+        In the Gateway profile of WSO2 API Manager, disable the `<PolicyDeployer>` configuration to prevent blocking the API Publisher.
 
 
-    2.  Configure `                  JMSConnectionParameters                 ` to connect to the broker running within the Traffic Manager.
+    2.  Configure `JMSConnectionParameters` to connect to the broker running within the Traffic Manager.
 
         **Example**
 
@@ -865,8 +865,8 @@ This section involves setting up the Gateway node and enabling it to work with t
     Configure the **Gateway with multiple Traffic Managers** , which are fronted by a load balancer as follows:
     The Gateway publishes all Throttling events to the two Traffic Manager instances, and it fetches the throttle decisions from the Traffic Manager instances. Follow the instructions below to configure the API Gateway worker to communicate with the Traffic Managers and to push throttle events to both Traffic Manager instances.
 
-    1.  Configure the receiver URL group `                  <ReceiverUrlGroup>                 ` and Authentication URL Group `                  <AuthUrlGroup>                 ` values, which are under the `                  <DataPublisher>                 ` element in the `                  <API-M_HOME>/repository/conf/api-manager.xml                 ` file, in order to contain all the Traffic Manager receiver URLs.
-        This is required when you have more than one Traffic Manager instance, and you are publishing to both as per the deployment pattern selected. As an example, if you are using two Traffic Manager instances and data should be published to both of them, the `                  ReceiverUrlGroup                 ` and `                  AuthUrlGroup                 ` should be configured as follows:
+    1.  Configure the receiver URL group `<ReceiverUrlGroup>` and Authentication URL Group `<AuthUrlGroup>` values, which are under the `<DataPublisher>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file, in order to contain all the Traffic Manager receiver URLs.
+        This is required when you have more than one Traffic Manager instance, and you are publishing to both as per the deployment pattern selected. As an example, if you are using two Traffic Manager instances and data should be published to both of them, the `ReceiverUrlGroup` and `AuthUrlGroup` should be configured as follows:
 
         **Example**
 
@@ -896,11 +896,11 @@ This section involves setting up the Gateway node and enabling it to work with t
                     </ThrottlingConfigurations>
         ```
 
-        `                  [Traffic-Manager-1-host]                 ` and \[ `                  Traffic-Manager-2-host]                 ` are the IPs/hostnames of two Traffic Manager nodes.
+`[Traffic-Manager-1-host]` and \[ `Traffic-Manager-2-host]` are the IPs/hostnames of two Traffic Manager nodes.
 
         Based on the above configuration, the API Gateway publishes events to both the Traffic Managers.
 
-    2.  Configure `                  JMSConnectionParameters                 ` to connect to multiple brokers running within each Traffic Manager using fail over mechanism.
+    2.  Configure `JMSConnectionParameters` to connect to multiple brokers running within each Traffic Manager using fail over mechanism.
 
         **Example**
 
@@ -914,7 +914,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         ```
 
         !!! info
-    By default, WSO2 API Manager is shipped with a keystore ( `             wso2carbon.jks            ` ) and a trust store ( `             client-truststore.jks            ` ). For more information on how to create a new key store and a trust store with a private key and a self-signed certificate, see Configuring Keystore and Truststore and also see the [Administration guide](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products) for r ecommendations on setting up keystores in WSO2 products.
+    By default, WSO2 API Manager is shipped with a keystore ( `wso2carbon.jks` ) and a trust store ( `client-truststore.jks` ). For more information on how to create a new key store and a trust store with a private key and a self-signed certificate, see Configuring Keystore and Truststore and also see the [Administration guide](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products) for r ecommendations on setting up keystores in WSO2 products.
 
 
 5.  Start the WSO2 API-M Gateway node by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](https://docs.wso2.com/display/AM260/Running+the+Product#RunningtheProduct-Startingtheserver) .

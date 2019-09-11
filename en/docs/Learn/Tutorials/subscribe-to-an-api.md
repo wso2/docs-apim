@@ -11,12 +11,12 @@ See the following topics for a description of the concepts that you need to know
 -   [Access tokens](_Key_Concepts_)
 
 
-The examples here use the `         PhoneVerification        ` REST API, which is created in the section [Create and Publish an API](_Create_and_Publish_an_API_) .
+The examples here use the `PhoneVerification` REST API, which is created in the section [Create and Publish an API](_Create_and_Publish_an_API_) .
 
-1.  Sign in to the WSO2 API Store ( `           https://<hostname>:9443/store          ` ) and click on an API (e.g., `           PhoneVerification 1.0.0          ` ) to open it.
+1.  Sign in to the WSO2 API Store ( `https://<hostname>:9443/store` ) and click on an API (e.g., `PhoneVerification 1.0.0` ) to open it.
 
         !!! tip
-    In a [multi-tenanted](https://docs.wso2.com/display/AM210/Configuring+Multiple+Tenants) WSO2 API Manager setup, you can access any tenant's store using the URL `           http://<hostname>:<port>/store?tenant=<tenant_name>          ` .
+    In a [multi-tenanted](https://docs.wso2.com/display/AM210/Configuring+Multiple+Tenants) WSO2 API Manager setup, you can access any tenant's store using the URL `http://<hostname>:<port>/store?tenant=<tenant_name>` .
 
 
 2.  Note the subscription options for the REST API.
@@ -91,11 +91,11 @@ The examples here use the `         PhoneVerification        ` REST API, which 
         -   **&lt;API URL&gt;** : Click the respective API, in this case, PhoneVerification - 1.0.0. When the API's **Overview** tab appears in the API Store, copy the production URL and append the required query params to it.
             For example, <https://localhost:8243/phoneverify/1.0.0/CheckPhoneNumber?PhoneNumber=18006785432&LicenseKey=0>
             The above example is made up as follows:
-            `                   <API-endpoint>/<resource>?<query-parameter-1>=<query-parameter-1-value>&<query-parameter-2>=<query-parameter-2-value>                  `
+`<API-endpoint>/<resource>?<query-parameter-1>=<query-parameter-1-value>&<query-parameter-2>=<query-parameter-2-value>                  `
 
             ![](attachments/103327837/103327824.png)
 
-        Note the result `                <Valid>true</Valid>               ` that appears in the command line.
+        Note the result `<Valid>true</Valid>` that appears in the command line.
 
         ``` java
                 <?xml version="1.0" encoding="utf-8"?>

@@ -16,7 +16,7 @@ You can customize the API Store in the following ways:
 
 In a multi-tenanted API Manager setup, self signup to the API Store is disabled by default to all tenants except the super tenant. A tenant admin can enable it as follows:
 
-1.  Sign in to the management console ( `          https://<HostName>:9443/carbon         ` ) as admin (or tenant admin).
+1.  Sign in to the management console ( `https://<HostName>:9443/carbon` ) as admin (or tenant admin).
 2.  In the **Main** menu, click **Add** under **Users and Roles** .
     ![](attachments/103333490/103333513.png)
 
@@ -27,16 +27,16 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
 5.  Click **Next** and add the following permissions:
     ![subscribePermission.png](attachments/50518268/51250899.png)
 6.  Go to the **Resources&gt; Browse** menu.
-7.  Navigate to the `           /_system/governance/apimgt/applicationdata/          ` directory.
+7.  Navigate to the `/_system/governance/apimgt/applicationdata/` directory.
 
-8.  Click on `           sign-up-config.xml          ` to load the resource in the registry browser UI and select the "Edit as text " option to edit the configurations.
+8.  Click on `sign-up-config.xml` to load the resource in the registry browser UI and select the "Edit as text " option to edit the configurations.
 
     ![](attachments/103333490/103333502.png)
 9.  Do the following changes in the signup configuration and save.
 
-    -   Set `            <EnableSignup>           ` to `            true.           `
-    -   Set `            <RoleName>           ` to `            subscriber           ` and `            <IsExternalRole>           ` to `            true           ` . Note that you must have the subscriber role created at this point.
-    -   Set `            <AdminUserName>           ` and `            <AdminPassword>           ` to the credentials of the super admin, or if you are in a **multitenant setup** and you are not the super admin, to the tenant admin's credentials. **Note** that the super admin's credentials are admin/admin by default. If you changed the default super admin's credentials, using admin/admin will cause errors.
+    -   Set `<EnableSignup>` to `true.           `
+    -   Set `<RoleName>` to `subscriber` and `<IsExternalRole>` to `true` . Note that you must have the subscriber role created at this point.
+    -   Set `<AdminUserName>` and `<AdminPassword>` to the credentials of the super admin, or if you are in a **multitenant setup** and you are not the super admin, to the tenant admin's credentials. **Note** that the super admin's credentials are admin/admin by default. If you changed the default super admin's credentials, using admin/admin will cause errors.
 
     ``` xml
         <selfsignup>
@@ -59,10 +59,10 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
 
     </selfsignup>
     ```
-10. Restart the server and open the API Store ( `           https://<HostName>:9443/store          ` )
+10. Restart the server and open the API Store ( `https://<HostName>:9443/store` )
     Note the **Sign-up** link that appears in the top, right-hand corner of the window.
     ![](attachments/103333490/103333501.png)
-11. To disable the self signup capability, n avigate to the `          /_system/governance/apimgt/applicationdata/sign-up-config.xml         ` file in the registry again and set the `          <SelfSignUp><EnableSignup>         ` element to false.
+11. To disable the self signup capability, n avigate to the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` file in the registry again and set the `<SelfSignUp><EnableSignup>` element to false.
     ![](attachments/103333490/103333500.png)
 !!! tip
 Tip : To engage your own signup process, see Adding a User Signup Workflow .
@@ -70,9 +70,9 @@ Tip : To engage your own signup process, see Adding a User Signup Workflow .
 
 ### Enabling or disabling the walkthrough
 
-To disable the API Store walkthrough, open the `         <APIM_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/interactiveTutorial.json        ` file.
+To disable the API Store walkthrough, open the `<APIM_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/interactiveTutorial.json` file.
 
-Set the `         isEnabledTutorial        ` parameter to false as show below.
+Set the `isEnabledTutorial` parameter to false as show below.
 
 ``` java
     {
@@ -87,7 +87,7 @@ The Forum is enabled by default in the API Manager Store.
 ![](attachments/103333490/103333491.png){height="250"}
 Follow the instructions below to disable the Forum:
 
-1.  Navigate to the `          <API_HOME>/repository/conf/api-manager.xml         ` file.
+1.  Navigate to the `<API_HOME>/repository/conf/api-manager.xml` file.
 2.  Uncomment the following code.
 
     ``` java
@@ -118,13 +118,13 @@ If you want to see the APIs grouped according to different topics in the API Sto
 !!! note
 Although the way in which you add a Tag and API group appears to be similar there are differences. Therefore, you need to note the following:
 
--   The **group name should always have** the **suffix `           -group          `** and it **can have spaces** in it (e.g., APIs groups-group).
+-   The **group name should always have** the **suffix `-group          `** and it **can have spaces** in it (e.g., APIs groups-group).
 -   The **tag name** should **not have a suffix or prefix** , but it **can have spaces** .
 
 
-1.  Go to `          <API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf         ` directory, open the `          site.json         ` file and set the `          tagWiseMode         ` attribute as true.
+1.  Go to `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf` directory, open the `site.json` file and set the `tagWiseMode` attribute as true.
 2.  Add an API group to the APIs that you wish to group.
-    1.  Go to the API Publisher ( `            https://<HostName>:9443/publisher           ` ).
+    1.  Go to the API Publisher ( `https://<HostName>:9443/publisher` ).
     2.  Click on the edit link of the respective API as shown below.
         ![](attachments/103333490/103333498.png)    3.  Add a group name to the APIs that you wish to group.
 
@@ -143,9 +143,9 @@ If you want to change the descriptions and the thumbnail images that come by def
 
 1.  Sign in to the Management Console and click the **Resources &gt; Browse** menu to open the registry.
     ![](attachments/103333490/103333506.png)
-2.  Create a collection named `          tags         ` under the registry location `          /_system/governance/apimgt/applicationdata         ` .
+2.  Create a collection named `tags` under the registry location `/_system/governance/apimgt/applicationdata` .
     ![](attachments/103333490/103333505.png)
-3.  Give read permission to the `          system/wso2.anonymous.role         ` role.
+3.  Give read permission to the `system/wso2.anonymous.role` role.
     ![](attachments/103333490/103333504.png)
 4.  Add each tag as collections under the tags collection (e.g., Workflow APIs-group, Integration APIs-group, Quote APIs-group.)
 5.  Navigate to each tag collection and upload the following:

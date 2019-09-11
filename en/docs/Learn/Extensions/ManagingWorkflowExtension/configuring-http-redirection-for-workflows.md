@@ -7,21 +7,21 @@ This section walks you through how to redirect to a third party entity using the
 -   [Using the workflow](#ConfiguringHTTPRedirectionforWorkflows-Usingtheworkflow)
 -   [Invoking the API Manager](#ConfiguringHTTPRedirectionforWorkflows-InvokingtheAPIManager)
 
-Each workflow executor in the WSO2 API Manager is inherited from the **`          org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor         `** abstract class, which has the following abstract methods:
+Each workflow executor in the WSO2 API Manager is inherited from the **`org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor         `** abstract class, which has the following abstract methods:
 
--   **`           execute          `** : contains the implementation of the workflow execution
--   **`           complete          `** : contains the implementation of the workflow completion
--   **`           getWorkflowType          `** : abstract method that returns the type of the workflow as a String
--   **`           getWorkflowDetails(String workflowStatus)          `** : abstract method that returns a list of `          WorkflowDTO         ` objects. This method is not used at the moment and it returns null for the time being.
+-   **`execute          `** : contains the implementation of the workflow execution
+-   **`complete          `** : contains the implementation of the workflow completion
+-   **`getWorkflowType          `** : abstract method that returns the type of the workflow as a String
+-   **`getWorkflowDetails(String workflowStatus)          `** : abstract method that returns a list of `WorkflowDTO` objects. This method is not used at the moment and it returns null for the time being.
 
-To customize the default workflow extension, you override the **`          execute()         `** and **`          complete()         `** methods with your custom implementation.
+To customize the default workflow extension, you override the **`execute()         `** and **`complete()         `** methods with your custom implementation.
 
 ### Writing the custom workflow executor
 
-1.  Extend the **`           WorkflowExecutor          `** class found in the **`           org.wso2.carbon.apimgt.impl.workflow          `** package.
-2.  Upon extension of the **`           WorkflowExecutor          `** class, override the **`           complete()          `** and **`           execute()          `** methods.
-3.  The **`           execute()          `** method is the first method called by API Manager. Call the **`           super.execute          `** method inside the `                     execute()                   ` method to add the workflow entry to the database.
-4.  Create a response of type **`            WorkflowResponse           `** . For HTTP responses, WSO2 API Manager has an inbuilt object named **`            HttpWorkflowResponse           `** found at `                       org.wso2.carbon.apimgt.api.WorkflowResponse                     ` . When creating the HTTP workflow response object, specify the additional parameters and the redirect URL. The usage of these parameters are listed below.
+1.  Extend the **`WorkflowExecutor          `** class found in the **`org.wso2.carbon.apimgt.impl.workflow          `** package.
+2.  Upon extension of the **`WorkflowExecutor          `** class, override the **`complete()          `** and **`execute()          `** methods.
+3.  The **`execute()          `** method is the first method called by API Manager. Call the **`super.execute          `** method inside the `execute()` method to add the workflow entry to the database.
+4.  Create a response of type **`WorkflowResponse           `** . For HTTP responses, WSO2 API Manager has an inbuilt object named **`HttpWorkflowResponse           `** found at `org.wso2.carbon.apimgt.api.WorkflowResponse` . When creating the HTTP workflow response object, specify the additional parameters and the redirect URL. The usage of these parameters are listed below.
 
     <table>
     <colgroup>
@@ -55,7 +55,7 @@ To customize the default workflow extension, you override the **`          execu
     </tbody>
     </table>
 
-5.  Implement the **`            complete()           `** method, which the third party entity invokes to complete the workflow. Update the workflow status with the workflow status received by the third party entity.
+5.  Implement the **`complete()           `** method, which the third party entity invokes to complete the workflow. Update the workflow status with the workflow status received by the third party entity.
 
 6.  A sample implementation of a custom workflow executor is shown below:
 
@@ -161,13 +161,13 @@ To customize the default workflow extension, you override the **`          execu
     ```
 ### Deploying the custom workflow executor
 
-1.  Once you have written the custom workflow executor, compile it to a `          .jar         ` file.
-2.  Place the `          .jar         ` file in the `          <APIM_HOME>/repository/components/lib         ` directory and restart the server.
+1.  Once you have written the custom workflow executor, compile it to a `.jar` file.
+2.  Place the `.jar` file in the `<APIM_HOME>/repository/components/lib` directory and restart the server.
 
 ### Using the workflow
 
-1.  Log in to API Manager Management Console ( `          https://<Server Host>:9443/carbon         ` ) and select **Browse** under **Resources** .
-2.  Navigate to the `          /_system/governance/apimgt/applicationdata/workflow-extensions.xml         ` resource and disable the simple workflow executor.
+1.  Log in to API Manager Management Console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources** .
+2.  Navigate to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource and disable the simple workflow executor.
 3.  Add and enable the implemented executor.
 4.  Specify the service endpoint where the workflow engine is hosted and the credentials required to access the service, via basic authentication (i.e., username/password based authentication).
 5.  An example configuration is shown below:

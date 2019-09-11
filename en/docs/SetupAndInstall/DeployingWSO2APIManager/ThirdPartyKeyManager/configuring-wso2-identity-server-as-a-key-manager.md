@@ -53,10 +53,10 @@ The **prepackaged WSO2 Identity Server as a Key Manager 5.7.0** comes with the n
 
 ### Step 1 - Download WSO2 IS as a Key Manager (WSO2 IS-KM)
 
-Download the prepackaged WSO2 Identity Server from [here](https://wso2.com/api-management/install/key-manager/) and unzip it. `         <IS_KM_HOME>        ` will refer to the root folder of the unzipped WSO2 IS pack.
+Download the prepackaged WSO2 Identity Server from [here](https://wso2.com/api-management/install/key-manager/) and unzip it. `<IS_KM_HOME>` will refer to the root folder of the unzipped WSO2 IS pack.
 
 !!! info
-It is assumed that you have already downloaded WSO2 API Manager. `         <APIM_HOME>        ` will refer to the root folder of the unzipped WSO2 API-M pack.
+It is assumed that you have already downloaded WSO2 API Manager. `<APIM_HOME>` will refer to the root folder of the unzipped WSO2 API-M pack.
 
 !!! note
 The product distributions are also available as a WUM update. For more information, see Getting Started with WUM in the Administration Guide.
@@ -73,7 +73,7 @@ This is only required if you are running both WSO2 API Manager and WSO2 Identity
 !!! info
 The port offset feature allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM). The port offset defines the number by which all ports defined in the runtime such as the HTTP/S ports will be offset. For example, if the HTTP port is defined as 9763 and the port offset is 1, the effective HTTP port will be 9764. Therefore, for each additional WSO2 product, instance, or cluster you add to a server, set the port offset to a unique value (the default is 0).
 
-Open the `         <IS_KM_HOME>/repository/conf/carbon.xml        ` file and change the offset to 1. This increments the product's default port by one.
+Open the `<IS_KM_HOME>/repository/conf/carbon.xml` file and change the offset to 1. This increments the product's default port by one.
 
 **carbon.xml**
 
@@ -98,9 +98,9 @@ The following diagram illustrates how the databases are shared between WSO2 IS a
 
 -   **WSO2UM\_DB** - This DB stores the permissions (i.e., permission store) and the internal roles of the users.
 
--   **WSO2AM\_DB** - This DB stores the identity data and API-related data and it includes OAuth tokens and keys. When serving key-validation requests, the Key Manager accesses the `             WSO2AM_DB            ` , validates whether there are subscriptions made by the particular key.
+-   **WSO2AM\_DB** - This DB stores the identity data and API-related data and it includes OAuth tokens and keys. When serving key-validation requests, the Key Manager accesses the `WSO2AM_DB` , validates whether there are subscriptions made by the particular key.
 
--   **LDAP** - This DB stores the users and their role mapping. You do not need to configure the data source configuration in the `            master-datasources.xml           ` file for the LDAP.
+-   **LDAP** - This DB stores the users and their role mapping. You do not need to configure the data source configuration in the `master-datasources.xml` file for the LDAP.
 
 ------------------------------------------------------------------------
 
@@ -132,20 +132,19 @@ The following instructions are only applicable in the following scenarios:
 
 
     1.  When users and roles are removed via the Key Manager, if the corresponding user tokens are cached on the Gateway, these tokens will only get invalidated when the cache is timed out. However, if Hazelcast clustering is enabled, token invalidation takes place immediately. Therefore, you need to enable communication between the Key Manager and Gateway to enable immediate token invalidation.
-        For this purpose open the `              <IS_KM_HOME>/repository/conf/api-manager.xml             ` file and change the `              <ServerURL>             ` element that appears under the `              <APIGateway>             ` section, so that it points to the API Manager server.
+        For this purpose open the `<IS_KM_HOME>/repository/conf/api-manager.xml` file and change the `<ServerURL>` element that appears under the `<APIGateway>` section, so that it points to the API Manager server.
 
         ``` java
                 <ServerURL>https://${gateway-server-host}:{port}/services/</ServerURL>
         ```
 
-        -   If you are working with a **hybrid single node or active-active node** deployment where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `               {gateway-server-host}              ` with the host of the **WSO2 API-M** node.
-        -   If you are working with a **single Gateway** in distributed set up, you need to replace `               {gateway-server-host}              ` with the host of the **Gateway** node.
-        -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses a **shared file system** (e.g., NFS), you need to replace `               {gateway-server-host}              ` with the host of **any Gateway** node as all nodes have the worker manager capability when using shared file system.
-        -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses **rsync** , you need to replace `                {gateway-server-host}               ` with the host of the **Gateway Manager** node.
-
+        -   If you are working with a **hybrid single node or active-active node** deployment where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `               {gateway-server-host}` with the host of the **WSO2 API-M** node.
+        -   If you are working with a **single Gateway** in distributed set up, you need to replace `               {gateway-server-host}` with the host of the **Gateway** node.
+        -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses a **shared file system** (e.g., NFS), you need to replace `               {gateway-server-host}` with the host of **any Gateway** node as all nodes have the worker manager capability when using shared file system.
+        -   If you are working with **Gateways** in a **High Availability (HA)** set up that uses **rsync** , you need to replace `                {gateway-server-host}` with the host of the **Gateway Manager** node.
         -   The port value you enter here should be the management transport port. For more information, see [Default Product Ports](https://docs.wso2.com/display/AM260/Default+Product+Ports) .
 
-    2.  When tokens are revoked, the corresponding token cache entries should be cleared in the Gateway. For this purpose, open the `              <IS_KM_HOME>/repository/conf/api-manager.xml             ` file and change the `              <RevokeAPIURL>             ` element that appears under the `              <OAuthConfigurations>             ` section, so that it points to the WSO2 API Manager server, or the Gateway worker server if it is a distributed setup. Note the port used here is the NIO port, which is 8243 by default for HTTPS.
+    2.  When tokens are revoked, the corresponding token cache entries should be cleared in the Gateway. For this purpose, open the `<IS_KM_HOME>/repository/conf/api-manager.xml` file and change the `<RevokeAPIURL>` element that appears under the `<OAuthConfigurations>` section, so that it points to the WSO2 API Manager server, or the Gateway worker server if it is a distributed setup. Note the port used here is the NIO port, which is 8243 by default for HTTPS.
 
         ``` java
                     <RevokeAPIURL>https://${gateway-worker-server-host}:{nio-port}/revoke</RevokeAPIURL>
@@ -155,16 +154,16 @@ The following instructions are only applicable in the following scenarios:
         If you are using a load balancer to front the API-M/Gateway nodes, you can use the load balancer endpoints for the configurations mentioned under step 1 and step 2 above.
 
 
-2.  Configure the [JSON Web Token (JWT)](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3) in the `          <IS_KM_HOME>/repository/conf/api-manager.xml         ` file in the WSO2 Identity Server. For more information on JWT Token generation, see [Passing Enduser Attributes to the Backend Using JWT](https://docs.wso2.com/display/AM260/Passing+Enduser+Attributes+to+the+Backend+Using+JWT) .
+2.  Configure the [JSON Web Token (JWT)](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3) in the `<IS_KM_HOME>/repository/conf/api-manager.xml` file in the WSO2 Identity Server. For more information on JWT Token generation, see [Passing Enduser Attributes to the Backend Using JWT](https://docs.wso2.com/display/AM260/Passing+Enduser+Attributes+to+the+Backend+Using+JWT) .
 
-    -   Enable `            ClaimsRetrieverImplClass           ` , `            ConsumerDialectURI,           ` and `            SignatureAlgorithm           ` by uncommenting the respective elements.
-    -   Set &lt; `            SignatureAlgorithm>           ` to one of the following values - `            NONE or SHA256withRSA           ` `                       `
+    -   Enable `ClaimsRetrieverImplClass` , `ConsumerDialectURI,` and `SignatureAlgorithm` by uncommenting the respective elements.
+    -   Set &lt; `SignatureAlgorithm>` to one of the following values - `NONE or SHA256withRSA`
 
         !!! note
-    If you wish to encrypt the Auth Keys (access tokens, client secrets and authorization codes) follow [Encrypting OAuth Keys](https://docs.wso2.com/display/AM260/Encrypting+OAuth+Keys) by modifying the `           <PRODUCT_HOME>/repository/conf/api-manager.xml          ` file in both the WSO2 Identity Server and WSO2 API Manager products.
+    If you wish to encrypt the Auth Keys (access tokens, client secrets and authorization codes) follow [Encrypting OAuth Keys](https://docs.wso2.com/display/AM260/Encrypting+OAuth+Keys) by modifying the `<PRODUCT_HOME>/repository/conf/api-manager.xml` file in both the WSO2 Identity Server and WSO2 API Manager products.
 
 
-3.  Change the datasource in the `           <IS_KM_HOME>/repository/conf/user-mgt.xml          ` file to point to the `           WSO2UM_DB          ` datasource.
+3.  Change the datasource in the `<IS_KM_HOME>/repository/conf/user-mgt.xml` file to point to the `WSO2UM_DB` datasource.
     You need to do this in order to point to the correct database for user management purposes. By default, this configuration points to the embedded H2 database.
 
     **user-mgt.xml**
@@ -181,7 +180,7 @@ The following instructions are only applicable in the following scenarios:
         </UserManager>
     ```
 
-4.  Make sure that the data source name defined under `           JDBCPersistenceManager          ` is `           jdbc/WSO2AM_DB          ` in the `           <IS_KM_HOME>/repository/conf/identity/identity.xml          ` file.
+4.  Make sure that the data source name defined under `JDBCPersistenceManager` is `jdbc/WSO2AM_DB` in the `<IS_KM_HOME>/repository/conf/identity/identity.xml` file.
 
         !!! note
     Make sure you add the user store configuration correctly. This is the same configuration that you added in WSO2 API Manager. For more information on how to do this, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) in the Administration Guide.
@@ -205,11 +204,11 @@ The following instructions are only applicable in the following scenarios:
 -   If you are deploying WSO2 API-M using a hybrid active-active deployment pattern with WSO2 Identity Server as the Key Manager.
 
 
-1.  Change the `           ServerURL          ` of the **`            AuthManager           `** and the `           ServerURL          ` of the **`            APIKeyValidator           `** to point to WSO2 IS in the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.
+1.  Change the `ServerURL` of the **`AuthManager           `** and the `ServerURL` of the **`APIKeyValidator           `** to point to WSO2 IS in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
     You need to add this configuration so that WSO2 API Manager will be aware of the URL of the Key Manager, which in this case is WSO2 Identity Server, in order to handover the Key validation and Authorization related tasks.
 
         !!! note
-    Make sure to import the Key Manager's public certificate to WSO2 API-M's `           client-truststore.jks          ` . For more information, see [Creating New Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) .
+    Make sure to import the Key Manager's public certificate to WSO2 API-M's `client-truststore.jks` . For more information, see [Creating New Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) .
 
 
     ``` java
@@ -237,13 +236,13 @@ The following instructions are only applicable in the following scenarios:
         ...
     </APIManager>
     ```
-    -   If you are working with a **single Key Manager** in hybrid single node setup where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}           ` with the actual host of the WSO2 IS sever **** node.
-    -   If you are working with a **single Key Manager** in distributed setup, you need to replace `            {IS-server-host}           ` with the actual host of the WSO2 IS sever **** node.
-    -   If you are working with **Key Managers** in **High Availability (HA)** mode with a hybrid active-active node setup, where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}           ` with the host of the **Key Manager Load Balancer** node.
-    -   If you are working with **Key Managers** in a **High Availability (HA)** setup, you need to replace `            {IS-server-host}           ` with the host of the **Key Manager Load Balancer** node.
+    -   If you are working with a **single Key Manager** in hybrid single node setup where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}` with the actual host of the WSO2 IS sever **** node.
+    -   If you are working with a **single Key Manager** in distributed setup, you need to replace `            {IS-server-host}` with the actual host of the WSO2 IS sever **** node.
+    -   If you are working with **Key Managers** in **High Availability (HA)** mode with a hybrid active-active node setup, where WSO2 IS is the Key Manager and the rest of the API-M components are in one node, you need to replace `            {IS-server-host}` with the host of the **Key Manager Load Balancer** node.
+    -   If you are working with **Key Managers** in a **High Availability (HA)** setup, you need to replace `            {IS-server-host}` with the host of the **Key Manager Load Balancer** node.
 
 2.  Enable WS Client and disable the Thrift Client.
-    Do this by changing the &lt; `           KeyValidatorClientType>          ` from `           ThriftClient          ` to `           WSClient          ` , and by setting `           <                       EnableThriftServer>           ` to `                       false           ` to optimize performance.
+    Do this by changing the &lt; `KeyValidatorClientType>` from `ThriftClient` to `WSClient` , and by setting `<                       EnableThriftServer>` to `false` to optimize performance.
 
         !!! note
     As API Gateway and Key Manager are two separate components (distributed) they talk to each other via API calls. This API call happens out-of-the-box via Thrift in WSO2 API Manager. However, when it comes to a production environment with high availability, it’s recommended to switch to WSClient for key validation.
@@ -264,9 +263,9 @@ The following instructions are only applicable in the following scenarios:
         </APIManager>
     ```
 
-3.  If you are using the embedded LDAP that comes with WSO2 IS, then you need to point to the particular LDAP user store from WSO2 API Manager. You can copy this configuration from the `           <IS_KM_HOME>/repository/conf/user-mgt.xml          ` file to the `           <API-M_HOME>/repository/conf/user-mgt.xml          ` file.
+3.  If you are using the embedded LDAP that comes with WSO2 IS, then you need to point to the particular LDAP user store from WSO2 API Manager. You can copy this configuration from the `<IS_KM_HOME>/repository/conf/user-mgt.xml` file to the `<API-M_HOME>/repository/conf/user-mgt.xml` file.
 
-    When copying configurations, note that you must update the ports. For instance, when configuring the `           ConnectionURL          ` property, you must update the port, because otherwise it will point to the port of the Identity Server when starting up if you copy it directly.
+    When copying configurations, note that you must update the ports. For instance, when configuring the `ConnectionURL` property, you must update the port, because otherwise it will point to the port of the Identity Server when starting up if you copy it directly.
 
     ``` java
             <Property name="ConnectionURL">ldap://<ip_address_of_IS>:10389</Property>
@@ -274,7 +273,7 @@ The following instructions are only applicable in the following scenarios:
 
     Note that if you have offset the IS port, then this port value 10389 should be incremented by the given WSO2 IS port offset.
 
-4.  Make sure data source name in `           JDBCPersistenceManager          ` is `           jdbc/WSO2AM_DB          ` in the `           <API-M_HOME>/repository/conf/identity/identity.xml          ` file.
+4.  Make sure data source name in `JDBCPersistenceManager` is `jdbc/WSO2AM_DB` in the `<API-M_HOME>/repository/conf/identity/identity.xml` file.
 
         !!! note
     Make sure you add the user store configuration correctly. This is the same configuration that you added in the Identity Server. For more information on how to do this, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) in the Administration Guide.
@@ -324,9 +323,9 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
             WARN {org.wso2.carbon.apimgt.gateway.throttling.util.BlockingConditionRetriever} -  Failed retrieving Blocking Conditions from remote endpoint: sun.security.validator.ValidatorException: PKIX path building failed: sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target. Retrying after 15 seconds... {org.wso2.carbon.apimgt.gateway.throttling.util.BlockingConditionRetriever}
     ```
 
-    The reason for this is that the default certificates that come with WSO2 Servers are created for localhost. Therefore, when WSO2 API Manager boots up, it makes an HTTP call to a webapp that is in the Key Manager (throttle data at `             KM_URL/throttle/data/v1/keyTemplates            ` ). Thereafter, WSO2 API Manager decides the URL of the Key Manager base on the URL that is configured in the `             api-manager.xml            ` , `            ` which is localhost.
+    The reason for this is that the default certificates that come with WSO2 Servers are created for localhost. Therefore, when WSO2 API Manager boots up, it makes an HTTP call to a webapp that is in the Key Manager (throttle data at `KM_URL/throttle/data/v1/keyTemplates` ). Thereafter, WSO2 API Manager decides the URL of the Key Manager base on the URL that is configured in the `api-manager.xml` , `` which is localhost.
 
-    To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS host names. Then export the public certs of WSO2 API-M to the `             trust-store.jks            ` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
+    To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS host names. Then export the public certs of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
 
 ### Step 8 - Configure the other API-M components
 

@@ -16,7 +16,7 @@ The capability to publish to external API Stores is not configured by default. F
 
 1.  Copy the WSO2 API Manager product pack to two different locations.
     If needed, you can download the WSO2 API Manager product pack from [here](http://wso2.com/products/api-manager/) .
-2.  Go to the `           <API-M_HOME>/repository/conf/carbon.xml          ` file of the **second** instance and change its port by an offset of 1.
+2.  Go to the `<API-M_HOME>/repository/conf/carbon.xml` file of the **second** instance and change its port by an offset of 1.
     The port offset is set to avoid the port conflicts that occur when you run more than one WSO2 product on the same host.
 
     ``` xml
@@ -25,7 +25,7 @@ The capability to publish to external API Stores is not configured by default. F
 
 3.  Start both API-M servers.
     Let's publish from the first instance of WSO2 API Manager to the Store of the second instance, which in this tutorial we consider as the external API Store.
-4.  Sign in to the WSO2 API-M management console of the **first** instance ( `           https://<Server Host>:9443/carbon          ` ) as admin.
+4.  Sign in to the WSO2 API-M management console of the **first** instance ( `https://<Server Host>:9443/carbon` ) as admin.
 
         !!! tip
     In a **multi-tenant environment** , you must sign in using the tenant's credentials.
@@ -35,15 +35,15 @@ The capability to publish to external API Stores is not configured by default. F
     ![Menu option to navigate to the Browse option](attachments/103332470/103332465.png)
     The Registry opens.
 
-6.  Go to the `           /_system/governance/apimgt/externalstores/external-api-stores.xml          ` resource.
+6.  Go to the `/_system/governance/apimgt/externalstores/external-api-stores.xml` resource.
     ![Navigating to the external-api-stores.xml file](attachments/103332470/103332464.png)
 
-7.  Click the **Edit as Text** link, uncomment the `           <StoreURL>          ` element under the `           <ExternalAPIStores>          ` element, and add the details of each external API store that you need to publish APIs to.
+7.  Click the **Edit as Text** link, uncomment the `<StoreURL>` element under the `<ExternalAPIStores>` element, and add the details of each external API store that you need to publish APIs to.
     In this example,
 
-    -   `            http://localhost:9764/store           ` is the API Store of the second WSO2 API Manager instance.
+    -`http://localhost:9764/store` is the API Store of the second WSO2 API Manager instance.
     -   You publish to its super tenant's Store (admin/admin).
-    -   For this tutorial change the `            DisplayName           ` to `            Store2           ` , so that it is clear that we are referring to the second WSO2 API-M instance, which we are using as the external Store.
+    -   For this tutorial change the `DisplayName` to `Store2` , so that it is clear that we are referring to the second WSO2 API-M instance, which we are using as the external Store.
     -   The port is 9764 as you incremented it by 1 in [step 2](#PublishtoMultipleExternalAPIStores-step2) .
     -   If the second WSO2 API Manager instance has multiple tenants and you want to publish to a tenant's Store, the tenant's Store URL and credentials must be given here.
 
@@ -60,7 +60,7 @@ The capability to publish to external API Stores is not configured by default. F
     ```
 
         !!! tip
-    If you want to configure more than one external store, change the configuration in `           <ExternalAPIStore>          ` and add it to the **external-api-stores.xml** .
+    If you want to configure more than one external store, change the configuration in `<ExternalAPIStore>` and add it to the **external-api-stores.xml** .
 
     For example, if we have three API Stores, and one is a super tenant and other two are tenant stores, you can configure these three external stores as shown below.
 
@@ -170,9 +170,9 @@ The capability to publish to external API Stores is not configured by default. F
 11. Select the Store that you want to publish to (in this case, Store2) and click **Save** .
     ![Selecting the External API Store](attachments/103332470/103332467.png)
 
-12. Sign in to the external API Store (in this case, `           http://localhost:                       9764                      /store          ` ) and click on the API that you just published.
+12. Sign in to the external API Store (in this case, `http://localhost:                       9764                      /store` ) and click on the API that you just published.
 
-    A link appears as **Visit Publisher Store** , which directs you to the original publisher’s store (in this case, `           http://localhost:                       9763                      /store          ` ) through which you can subscribe to the API.
+    A link appears as **Visit Publisher Store** , which directs you to the original publisher’s store (in this case, `http://localhost:                       9763                      /store` ) through which you can subscribe to the API.
     ![](attachments/103332470/103332462.png)
 
 You have successfully added multiple external stores to your registry and published your APIs to them.

@@ -8,15 +8,15 @@ To configure this feature, follow the instructions below.
 
 ### Enabling log masking
 
-1.  Open the `           <PRODUCT_HOME>/repository/conf/log4j.properties          ` file in a text editor.
+1.  Open the `<PRODUCT_HOME>/repository/conf/log4j.properties` file in a text editor.
 
-2.  Uncomment or add the following property under `           CarbonConsoleAppender          ` or `           CarbonDailyRollingFileAppender          ` .
+2.  Uncomment or add the following property under `CarbonConsoleAppender` or `CarbonDailyRollingFileAppender` .
 
     ``` java
         log4j.appender.CARBON_CONSOLE.maskingPatternFile=path-to-masking-patterns
     ```
 
-The `         path-to-masking-patterns        ` value must be a absolute path to the masking patterns file. In this file, each pattern is defined as key, value pairs (patten-name=pattern). Please refer to the next section for information on this file.
+The `path-to-masking-patterns` value must be a absolute path to the masking patterns file. In this file, each pattern is defined as key, value pairs (patten-name=pattern). Please refer to the next section for information on this file.
 
 The following is a sample configuration for the above property.
 
@@ -24,7 +24,7 @@ The following is a sample configuration for the above property.
     log4j.appender.CARBON_CONSOLE.maskingPatternFile=/home/conf/masking-patterns.properties
 ```
 
-For the `         DailyRollingFileAppender        ` value, the above property would be similar to the following.
+For the `DailyRollingFileAppender` value, the above property would be similar to the following.
 
 ``` java
     log4j.appender.CARBON_LOGFILE.maskingPatternFile=path-to-masking-patterns
@@ -47,7 +47,7 @@ With this configuration, each log line is checked for all the configured pattern
 !!! note
 **Note** :
 
--   If the pattern file that is configured in the log4j.properties file is not found, a default property file will be used ( `           wso2-log-masking.properties          ` ).
+-   If the pattern file that is configured in the log4j.properties file is not found, a default property file will be used ( `wso2-log-masking.properties` ).
 
 -   If there are no any patterns defined in the file, no masking happens.
 

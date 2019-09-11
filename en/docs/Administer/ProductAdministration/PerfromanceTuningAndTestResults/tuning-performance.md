@@ -20,7 +20,7 @@ This section describes some recommended performance tuning configurations to opt
 When it comes to performance, the OS that the server runs plays an important role.
 
 !!! info
-If you are running MacOS Sierra and experiencing long startup times for WSO2 products, try mapping your Mac hostname to 127.0.0.1 and ::1 in the `         /etc/hosts        ` file as described. For example, if your Macbook hostname is "john-mbpro. local", then add the mapping to the canonical 127.0.0.1 address in the `         /etc/hosts        ` file, as shown in the example below.
+If you are running MacOS Sierra and experiencing long startup times for WSO2 products, try mapping your Mac hostname to 127.0.0.1 and ::1 in the `/etc/hosts` file as described. For example, if your Macbook hostname is "john-mbpro. local", then add the mapping to the canonical 127.0.0.1 address in the `/etc/hosts` file, as shown in the example below.
 
 ``` java
     127.0.0.1 localhost john-mbpro.local
@@ -29,10 +29,10 @@ If you are running MacOS Sierra and experiencing long startup times for WSO2 pro
 
 Following are the configurations you can apply to optimize OS-level performance:
 
-1.  To optimize network and OS performance, configure the following settings in the `           /etc/sysctl.conf          ` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
+1.  To optimize network and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
 
         !!! info
-    It is not recommended to use `           net.ipv4.tcp_tw_recycle = 1          ` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
+    It is not recommended to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
 
 
     ``` java
@@ -49,7 +49,7 @@ Following are the configurations you can apply to optimize OS-level performance:
         net.ipv4.ip_local_port_range = 1024 65535      
     ```
 
-2.  To alter the number of allowed open files for system users, configure the following settings in the `           /etc/security/limits.conf          ` file of Linux (be sure to include the leading \* character).
+2.  To alter the number of allowed open files for system users, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character).
 
     ``` java
             * soft nofile 4096
@@ -58,7 +58,7 @@ Following are the configurations you can apply to optimize OS-level performance:
 
     Optimal values for these parameters depend on the environment.
 
-3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `           /etc/security/limits.conf          ` file of Linux (be sure to include the leading \* character). Each carbon server instance you run would require upto 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each carbon server (both hard and soft).
+3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character). Each carbon server instance you run would require upto 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each carbon server (both hard and soft).
 
     ``` java
             * soft nproc 20000
@@ -69,7 +69,7 @@ Following are the configurations you can apply to optimize OS-level performance:
 
 When an XML element has a large number of sub elements and the system tries to process all the sub elements, the system can become unstable due to a memory overhead. This is a security risk.
 
-To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `         entity expansion limit        ` as follows in the `         <API-M_HOME>/bin/wso2server.bat        ` file (for Windows) or the `         <API-M_HOME>/bin/wso2server.sh        ` file (for Linux/Solaris). The default entity expansion limit is 64000.
+To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/wso2server.bat` file (for Windows) or the `<API-M_HOME>/bin/wso2server.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
 
 ``` java
     -DentityExpansionLimit=10000
@@ -79,14 +79,14 @@ In a clustered environment, the entity expansion limit has no dependency on the
 
 #### WSO2 Carbon platform-level settings
 
-In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. That is, if a thread is stuck or taking a long time to process, Carbon detects such threads, interrupts and stops them. Note that Carbon prints the current stack trace before interrupting the thread. This mechanism is implemented as an Apache Tomcat valve. Therefore, it should be configured in the `         <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml        ` file as shown below.
+In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. That is, if a thread is stuck or taking a long time to process, Carbon detects such threads, interrupts and stops them. Note that Carbon prints the current stack trace before interrupting the thread. This mechanism is implemented as an Apache Tomcat valve. Therefore, it should be configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file as shown below.
 
 ``` xml
     <Valve className="org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve" threshold="600"/>
 ```
 
--   The `          className         ` is the Java class used for the implementation. Set it to `          org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve         ` .
--   The `          threshold         ` gives the minimum duration in seconds after which a thread is considered stuck. The default value is 600 seconds.
+-   The `className` is the Java class used for the implementation. Set it to `org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve` .
+-   The `threshold` gives the minimum duration in seconds after which a thread is considered stuck. The default value is 600 seconds.
 
 #### APIM-level settings
 
@@ -100,7 +100,7 @@ In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. T
 The following diagram shows the communication/network paths that occur when an API is called. The timeout configurations for each network call are explained below.
 ![](attachments/103333648/103333650.png)
 -   **Key validation**
-    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `           <API-M_HOME>/repository/conf/axis2/axis2_client.xml          ` file. All timeout values are in milliseconds.
+    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
 
     ``` xml
             <transportSender name="https" class="org.apache.axis2.transport.http.CommonsHTTPTransportSender">
@@ -112,10 +112,10 @@ The following diagram shows the communication/network paths that occur when an A
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
 
 -   **Client call API Gateway + API Gateway call Backend**
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `           <API-M_HOME>/repository/conf/passthru-http.properties          ` file. For more information, see [Configuring passthru-http.properties](https://docs.wso2.com/display/EI620/Configuring+passthru-http.properties) in the EI documentation.
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/passthru-http.properties` file. For more information, see [Configuring passthru-http.properties](https://docs.wso2.com/display/EI620/Configuring+passthru-http.properties) in the EI documentation.
 
         !!! note
-    Note that the default value for `           http.socket.timeout          ` differs between WSO2 products. In WSO2 API-M, the default value for `           http.socket.timeout          ` is 180000ms.
+    Note that the default value for `http.socket.timeout` differs between WSO2 products. In WSO2 API-M, the default value for `http.socket.timeout` is 180000ms.
 
 
 ##### General APIM-level recommendations
@@ -401,7 +401,7 @@ acceptCount=&quot;600&quot; </code></pre>
 
 ##### Registry indexing configurations
 
-The registry indexing process is only required to be run on the API Publisher and API Store nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to set the `         <wso2registry><indexingConfiguration><startIndexing>        ` element to false in the `         <API-M_HOME>/repository/conf/registry.xml        ` file of the relevant nodes.
+The registry indexing process is only required to be run on the API Publisher and API Store nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to set the `<wso2registry><indexingConfiguration><startIndexing>` element to false in the `<API-M_HOME>/repository/conf/registry.xml` file of the relevant nodes.
 
 #### Throttle data and Analytics-related settings
 
@@ -409,7 +409,7 @@ This section describes the parameters you need to configure to tune the performa
 
 ##### Tuning data-agent parameters
 
-The following parameters should be configured in the `         <APIM_ANALYTICS_HOME>/repository/conf/data-bridge/data-agent-config.xml        ` file. Note that there are two sub-sections in this file, named **Thrift** and **Binary** .
+The following parameters should be configured in the `<APIM_ANALYTICS_HOME>/repository/conf/data-bridge/data-agent-config.xml` file. Note that there are two sub-sections in this file, named **Thrift** and **Binary** .
 
 ``` xml
     <DataAgentsConfiguration>

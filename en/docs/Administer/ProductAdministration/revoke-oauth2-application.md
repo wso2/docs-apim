@@ -4,7 +4,7 @@
 
     You can revoke the access tokens issued for the application by following the instructions below
 
-    1.  Log in to the management console  ( `            https://<HostName>:9443/carbon           ` )
+    1.  Log in to the management console  ( `https://<HostName>:9443/carbon` )
     2.  In the **Main** menu, click **Service Providers → List** .
         ![](attachments/103333704/103333705.png)    3.  Select the **Service Provider** and click **Edit** .
         ![](attachments/103333704/103333707.png)

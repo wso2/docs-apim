@@ -18,7 +18,7 @@ Let's get started.
 2.  Select the option to design an API with an existing SOAP endpoint, select **Pass Through** , give the endpoint URL and click **Start Creating** .
 
         !!! info
-    This example uses the WSDL `                       http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl                     ` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
+    This example uses the WSDL `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
 
 
     ![](attachments/103328785/103328772.png)
@@ -34,7 +34,7 @@ Let's get started.
     ![](attachments/103328785/103328771.png)
 
 4.  Click the **Managed API** option.
-5.  Select **HTTP/SOAP Endpoint** , provide the production endpoint (in this example, `                     http://ws.cdyne.com/phoneverify/phoneverify.asmx                   ` ), and click **Manage** .
+5.  Select **HTTP/SOAP Endpoint** , provide the production endpoint (in this example, `http://ws.cdyne.com/phoneverify/phoneverify.asmx` ), and click **Manage** .
     ![](attachments/103328785/103328770.png)
 6.  In the **Manage** tab, select the **Gold** tier, scroll down and click **Save & Publish** .
 
@@ -78,7 +78,7 @@ Let's get started.
                 </quer:CheckPhoneNumber>                                                                                                   
              </soapenv:Body>                                                                                                               
           </soapenv:Envelope>                                                                                                              
-      ```                                                                                                                              |
+      ```|
     | SOAP Action  | http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber                                                                          |
 
     ![](attachments/103328785/103328764.png)

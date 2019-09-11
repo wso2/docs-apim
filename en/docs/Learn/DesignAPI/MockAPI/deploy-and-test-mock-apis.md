@@ -3,11 +3,11 @@
 An **API prototype** is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and provide feedback to improve. After a period of time, publishers can make changes that the users request and publish the API.
 
 !!! note
-The example here uses the API `         PhoneVerification 2.0.0        ` , which you created in the [previous tutorial](_Create_a_New_API_Version_) .
+The example here uses the API `PhoneVerification 2.0.0` , which you created in the [previous tutorial](_Create_a_New_API_Version_) .
 
 
-1.  Sign in to the WSO2 API Publisher and select the API (e.g., `          PhoneVerification 2.0.0         ` ) that you want to prototype.
-    `          https://<hostname>:9443/publisher         `
+1.  Sign in to the WSO2 API Publisher and select the API (e.g., `PhoneVerification 2.0.0` ) that you want to prototype.
+`https://<hostname>:9443/publisher         `
     ![Select API - PhoneVerification 2.0.0](attachments/103328581/103328591.png "Select API")2.  Click **GO TO OVERVIEW** .
 
 3.  Click the **Lifecycle** tab of the API and click **Deploy as Prototype** .
@@ -20,7 +20,7 @@ The example here uses the API `         PhoneVerification 2.0.0        ` , which
 
 
 4.  Sign in to the API Store and click on the newly prototyped API.
-    `           https://<hostname>:9443/store          `
+`https://<hostname>:9443/store          `
     ![](attachments/103328581/103328588.png "Select API in Store")
     The APIs **Overview** page opens. Note the following:
 

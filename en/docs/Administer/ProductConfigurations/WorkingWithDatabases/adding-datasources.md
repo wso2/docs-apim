@@ -13,7 +13,7 @@ Use the following steps to add a datasource:
 After adding datasources, they will appear on the **Data Sources** page. You can edit and delete them as needed by clicking **Edit** or **Delete** links.
 
 !!! note
-When adding an RDBMS datasource, be sure to copy the JDBC driver JAR file for your database to `          <PRODUCT_HOME>/repository/components/lib         ` .
+When adding an RDBMS datasource, be sure to copy the JDBC driver JAR file for your database to `<PRODUCT_HOME>/repository/components/lib` .
 
 
 

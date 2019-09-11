@@ -13,7 +13,7 @@ The API Manager comes with a pre-created default application, which allows unlim
 
 #### **Create Applications**
 
-1.  Sign in to the WSO2 API Store ( `           https://<hostname>:9443/store          ` ).
+1.  Sign in to the WSO2 API Store ( `https://<hostname>:9443/store` ).
 
 2.  Click the **Applications** menu and click **Add Application** to create a new application.
 

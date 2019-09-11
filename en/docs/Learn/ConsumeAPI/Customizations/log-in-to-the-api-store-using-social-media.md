@@ -22,15 +22,15 @@ Note that the Facebook application development UI might be slightly different fr
     ![](attachments/103333132/103333133.png)5.  Select **Web** to work with this sample. You can select any other platform you wish to use.
     ![](attachments/103333132/103333134.png)
         !!! note
-    Change the port offset to 1 by modifying the `           <Offset>          ` element value in `           <IAM_HOME>/repository/conf/carbon.xml          ` as following.
+    Change the port offset to 1 by modifying the `<Offset>` element value in `<IAM_HOME>/repository/conf/carbon.xml` as following.
 
         <Offset>1</Offset>
 
 
-6.  Add the `           serverURL          ` of WSO2 Identity Server (which is configured with offset=1) <https://localhost:9444/> and click **Save** and **Continue** .
+6.  Add the `serverURL` of WSO2 Identity Server (which is configured with offset=1) <https://localhost:9444/> and click **Save** and **Continue** .
 
         !!! info
-    If you have changed the hostname of identity server use that instead of `           localhost          ` .
+    If you have changed the hostname of identity server use that instead of `localhost` .
 
     For example, if the host name is [identity.com](http://identity.com/) , then the server URL is [https://identity.com:9444/](https://localhost:9444/)
 
@@ -44,9 +44,9 @@ Note that the Facebook application development UI might be slightly different fr
     ![](attachments/103333132/103333139.png)
     | Parameter                 | Value                                                                                           |
     |---------------------------|-------------------------------------------------------------------------------------------------|
-    | Client OAuth Login        | `               Yes              `                                                              |
-    | Web OAuth Login           | `               Yes              `                                                              |
-    | Valid OAuth Redirect URLs | `                               https://localhost:9444/commonauth                             ` |
+    | Client OAuth Login        | `Yes`|
+    | Web OAuth Login           | `Yes`|
+    | Valid OAuth Redirect URLs | `https://localhost:9444/commonauth` |
 
         !!! info
     After the user authorizes the application, the authorization server redirects the user back to the application with access token or the authorization code in the URL. Since the redirected URL contains sensitive information, it is required to assure that the service does not redirect to arbitrary locations. The best way to ensure that the user is directed to the appropriate location is to define an **OAuth Redirect URL** as shown above.
@@ -91,17 +91,17 @@ We need to acquire the identity information by configuring claims for use Authen
 2.  Click **Edit** to edit the facebook identity provider you created.
 3.  Go to **Basic Claim Configuration** under **Claim Configuration**
 4.  Select the **Define Custom Claim Dialect** option under **Select Claim mapping Dialect** . Click **Add Claim Mapping** to add custom claim mappings as follows.
-    ![](attachments/103333132/103333146.png)    If you prefer to use the User ID as your first name of Facebook account, configure `          first_name         ` claim as above. You need to select the same claim as **UserID Claim URI** .
+    ![](attachments/103333132/103333146.png)    If you prefer to use the User ID as your first name of Facebook account, configure `first_name` claim as above. You need to select the same claim as **UserID Claim URI** .
 5.  The following are some common attribute names. You can map these names to any suitable **Local Claim URI** . (Local Claim is a set of standard claim values which are local to the WSO2 Identity Server)
-    -   `            id           `
-    -   `            email           `
-    -   `            name           `
-    -   `            first_name           `
-    -   `            last_name           `
-    -   `            link           `
-    -   `            gender           `
-    -   `            locale           `
-    -   `            age_range           `
+    -`id           `
+    -`email           `
+    -`name           `
+    -`first_name           `
+    -`last_name           `
+    -`link           `
+    -`gender           `
+    -`locale           `
+    -`age_range           `
 
 For more information, see [Permissions Reference - Facebook Login.](https://developers.facebook.com/docs/facebook-login/permissions/v2.0)
 
@@ -113,22 +113,22 @@ To federate logging in to the Publisher and Store with Facebook, you need to co
 You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, [Setting up an e-mail login](https://docs.wso2.com/display/AM250/Maintaining+Logins+and+Passwords#MaintainingLoginsandPasswords-emaillogin) .
 
 
-1.  Go to the Management console of WSO2 Identity Server ( `                     https://localhost:9444/carbon                   ` ) and click on **Service Providers** .
-2.  Click **Edit** to edit the `          API_PUBLISHER         ` .
+1.  Go to the Management console of WSO2 Identity Server ( `https://localhost:9444/carbon` ) and click on **Service Providers** .
+2.  Click **Edit** to edit the `API_PUBLISHER` .
     ![](attachments/103333132/103333147.png)3.  Go to the **Local and Outbound Authentication Configuration** section.  Select the Identity Provider you created from the dropdown list under **Federated Authentication** .
 4.  Make sure that **Federated Authentication** is selected. Click **Update** to save the changes.
-    ![](attachments/103333132/103333148.png)5.  Repeat steps 1 to 4 and configure the `          API_STORE         ` service provider.
+    ![](attachments/103333132/103333148.png)5.  Repeat steps 1 to 4 and configure the `API_STORE` service provider.
 
 ### Test Facebook authentication
 
 1.  Access the API Publisher via https://localhost:/publisher . Observe the request redirect to the WSO2 IS SAML2.0 based SSO login page and then Facebook login page.
 2.  Enter the username and password of you facebook account.
     ![](attachments/103333132/103333149.png)3.  After successfully authenticating the log in, you will be logged into the API Publisher. Your username will be the first name of your Facebook account. This is because you have already configured the first name as the **UserID Claim URI** .
-    If you configure your **UserID Claim URI** with the `          last_name         ` , your username will be the last name of your Facebook account.
+    If you configure your **UserID Claim URI** with the `last_name` , your username will be the last name of your Facebook account.
 
 ### Configure the associated social login in IS dashboard
 
-Identity Server has a dashboard which offers multiple options for users to maintain user accounts. Associating a social login for their account is a one of the options provided in this dashboard.This dashboard can be accessed in the following URL : `         https://<IS_HOST>:<IS_PORT>/dashboard.        ` By association the social login you have the option to use local claims, instead of showing the logged name as facebook username you can use logged users as the username in user local user store
+Identity Server has a dashboard which offers multiple options for users to maintain user accounts. Associating a social login for their account is a one of the options provided in this dashboard.This dashboard can be accessed in the following URL : `https://<IS_HOST>:<IS_PORT>/dashboard.` By association the social login you have the option to use local claims, instead of showing the logged name as facebook username you can use logged users as the username in user local user store
 
 1.  Login to the dashboard with API Store user account.
 2.  Click **View Details** in the **Social Login** gadget.

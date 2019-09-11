@@ -3,7 +3,7 @@
 This page describes the default ports that are used for each WSO2 product when the [port offset](_Changing_the_Default_Ports_with_Offset_) is 0.
 
 !!! warning
-**Note** that it is recommended to disable the HTTP transport in an API Manager production setup. Using the `         Bearer        ` token over HTTP is a violation of the OAuth specification and can lead to security vulnerabilities.
+**Note** that it is recommended to disable the HTTP transport in an API Manager production setup. Using the `Bearer` token over HTTP is a violation of the OAuth specification and can lead to security vulnerabilities.
 
 
 -   [Product-specific ports](#DefaultProductPorts-Product-specificports)
@@ -40,7 +40,7 @@ Provided by default in the WSO2 Carbon platform.
 
 #### JMX monitoring ports
 
-WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it using `         <PRODUCT_HOME>/repository/conf/etc/jmx.xml        ` file.
+WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it using `<PRODUCT_HOME>/repository/conf/etc/jmx.xml` file.
 
 -   11111 - RMIRegistry port. Used to monitor Carbon remotely
 -   9999 - RMIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall
@@ -56,8 +56,8 @@ To cluster any running Carbon instance, either one of the following ports must b
 
 Certain ports are randomly opened during server startup. This is due to specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
 
--   A random TCP port will open at server startup because of the `          -Dcom.sun.management.jmxremote         ` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
--   A random UDP port is opened at server startup due to the log4j appender ( `          SyslogAppender         ` ), which is configured in the `          <PRODUCT_HOME>/repository/conf/log4j.properties         ` file.
+-   A random TCP port will open at server startup because of the `-Dcom.sun.management.jmxremote` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
+-   A random UDP port is opened at server startup due to the log4j appender ( `SyslogAppender` ), which is configured in the `<PRODUCT_HOME>/repository/conf/log4j.properties` file.
 
 ### Product-specific ports
 
@@ -71,7 +71,7 @@ Some products open additional ports.
 -   7611 - Authenticate data published when Thrift data publisher is used for throttling.
 -   7612 - Publish Analytics to the API Manager Analytics server.
 -   7711 - Port for secure transport when Thrift data publisher is used for throttling.
--   7711 + `          Port offset of the APIM Analytics Server         ` - Thrift SSL port for secure transport when publishing analytics to the API Manager Analytics server.
+-   7711 + `Port offset of the APIM Analytics Server` - Thrift SSL port for secure transport when publishing analytics to the API Manager Analytics server.
 -   8280, 8243 - NIO/PT transport ports.
 -   9611 - Publish data to the Traffic Manager. Required when binary data publisher for throttling.
 -   9711 - Authenticate data published to the Traffic Manager. Required when binary data publisher for throttling.
@@ -160,7 +160,7 @@ Non-blocking HTTP/S transport ports: Used to accept message mediation requests. 
 
 -   9443 - HTTPS servlet transport (the default URL of the management console is https://localhost:9443/carbon )
 
-Non-blocking HTTP/S transport ports: Used to accept message mediation requests. If you want to send a request to an API or a proxy service for example, you must use these ports: `         <EI_HOME>/conf/axis2/axis2.xml        ` file.
+Non-blocking HTTP/S transport ports: Used to accept message mediation requests. If you want to send a request to an API or a proxy service for example, you must use these ports: `<EI_HOME>/conf/axis2/axis2.xml` file.
 
 -   8243 - Passthrough or NIO HTTPS transport
 -   8280 - Passthrough or NIO HTTP transport
@@ -325,7 +325,7 @@ API Manager has two HTTP transports. See below for instructions on how to disab
 -   [**Disabling Passthru Transport**](#224b1e82eec240549aaf8389abfe1c3e)
 -   [**Disabling Servlet Transport**](#5f45bce4995a40a2bf1b78f1d4cf43f0)
 
-1.  Open the `             <API-M_HOME>/repository/conf/axis2/axis2.xml            ` file.
+1.  Open the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file.
 2.  Locate the Transport receiver http as shown below:
 
     **HTTP Transport Receiver**
@@ -338,7 +338,7 @@ API Manager has two HTTP transports. See below for instructions on how to disab
 
 3.  Comment out the http transport receiver section.
 
-1.  Open the `             <API-M_HOME>/repository/conf/tomcat/catalina-server.xml            ` file.
+1.  Open the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 2.  Locate the Connector with the port 9763 as shown below:
 
     **HTTP Transport Receiver**

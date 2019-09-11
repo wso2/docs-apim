@@ -23,6 +23,6 @@ is the simplest mechanism used to enforce access controls to web resources. Her
 !!! info
 If the user name and password is admin, the following header will be sent to the backend
 
-`         Authorization: Basic YWRtaW46YWRtaW4=        ` (where `         YWRtaW46YWRtaW4=        ` is equivalent to Base64Encoded{admin:admin} )
+`Authorization: Basic YWRtaW46YWRtaW4=` (where `YWRtaW46YWRtaW4=` is equivalent to Base64Encoded{admin:admin} )
 
 

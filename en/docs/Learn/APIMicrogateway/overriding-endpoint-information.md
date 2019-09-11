@@ -7,7 +7,7 @@ The backend URLs and credentials for endpoints can be provided for each Gateway 
 
 #### Override endpoints
 
-To override the production endpoint of an API (e.g., `         TestAPI v1        ` ), provide the following system variable at server startup,
+To override the production endpoint of an API (e.g., `TestAPI v1` ), provide the following system variable at server startup,
 
 ``` java
     bash gateway -e TestAPI.v1.prod.endpoint.0="http://wso2.com"

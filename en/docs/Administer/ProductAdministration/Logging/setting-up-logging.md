@@ -1,6 +1,6 @@
 # Setting Up Logging
 
-There are two ways to configure log4j [logging](_Logging_) in WSO2 API Manager. You can manually edit the `         log4j.properties        ` file, or configure logging through the management console. Configuration made through the management console can be persisted in the WSO2 registry so that it is available even after the server restarts. There is also an option to restore the original Log4j configuration from the `         log4j.properties        ` file using the management console. However, if you modify the `         log4j.properties        ` file and restart the server, the earlier log4j configuration persisted in the registry is overwritten.
+There are two ways to configure log4j [logging](_Logging_) in WSO2 API Manager. You can manually edit the `log4j.properties` file, or configure logging through the management console. Configuration made through the management console can be persisted in the WSO2 registry so that it is available even after the server restarts. There is also an option to restore the original Log4j configuration from the `log4j.properties` file using the management console. However, if you modify the `log4j.properties` file and restart the server, the earlier log4j configuration persisted in the registry is overwritten.
 
 -   [Configure logging](#SettingUpLogging-Configurelogging)
     -   [Global Log4J configuration](#SettingUpLogging-GlobalLog4Jconfiguration)
@@ -33,13 +33,13 @@ This section allows you to assign a single log level and log pattern to all logg
 #### Configure Log4J appenders
 
 ![](attachments/103333565/103333569.png)
-`         Log4j        ` allows logging requests to print to multiple destinations. These output destinations are called appenders. You can attach several appenders to one logger.
+`Log4j` allows logging requests to print to multiple destinations. These output destinations are called appenders. You can attach several appenders to one logger.
 
 -   **Name** - The name of an appender. By default, WSO2 API Manager comes with the following log appenders configured:
     -   **CARBON\_CONSOLE** - Logs to the console when the server is running.
-    -   **CARBON\_LOGFILE** - Writes the logs to the `            <API-M_HOME>/repository/logs/wso2carbon.log           ` file.
-    -   **SERVICE** \_ **APPENDER** - Writes mediation time audit messages to the &lt; `            API-M_HOME>/repository/logs/wso2-apigw-service.log           ` file.
-    -   **TRACE** \_ **APPENDER** - Writes mediation time tracing/debug messages to the &lt; `            API-M_HOME>/repository/logs/wso2-apigw-trace.log           ` file for tracing enabled services.
+    -   **CARBON\_LOGFILE** - Writes the logs to the `<API-M_HOME>/repository/logs/wso2carbon.log` file.
+    -   **SERVICE** \_ **APPENDER** - Writes mediation time audit messages to the &lt; `API-M_HOME>/repository/logs/wso2-apigw-service.log` file.
+    -   **TRACE** \_ **APPENDER** - Writes mediation time tracing/debug messages to the &lt; `API-M_HOME>/repository/logs/wso2-apigw-trace.log` file for tracing enabled services.
     -   **TRACE** \_ **MEMORYAPPENDER**
     -   **CARBON** \_ **MEMORY**
     -   **CARBON\_SYS\_LOG -** Allows separation of the software that generates messages from the system that stores them and the software that reports and analyzes them.
@@ -71,16 +71,16 @@ This section allows you to browse through all loggers, define a log level, and s
 Use the following procedure to enable logs to view HTTP headers and messages:
 
 1.  In the **Filter Loggers by** field, enter **wire** and then click **Contains** .
-    You see `          org                     .                    apache                     .                    synapse                     .                    transport                     .                    http                     .                    wire         ` displayed under **Logger** .
+    You see `org.apache.synapse.transport.http.wire` displayed under **Logger** .
     ![](attachments/103333565/103333567.png)2.  Change the level of this logger to **DEBUG** .
-3.  Search for the `          org.apache.synapse.transport.http.headers         ` logger and change the level to **DEBUG** .
+3.  Search for the `org.apache.synapse.transport.http.headers` logger and change the level to **DEBUG** .
 
 ![](attachments/103333565/103333566.png)
 Alternatively, you can uncomment the entry for the two loggers as follows:
 
-1.  Go to the `          <API-M_HOME>/repository/conf         ` directory and open the `          log4j.properties         ` file with a text editor.
+1.  Go to the `<API-M_HOME>/repository/conf` directory and open the `log4j.properties` file with a text editor.
 2.  Edit the entries for the two loggers as follows by removing the commented (\#).
-    `          log4j.logger.org.apache.synapse.transport.http.headers=DEBUG         `
-    `          log4j.logger.org.apache.synapse.transport.http.wire=DEBUG         `
+`log4j.logger.org.apache.synapse.transport.http.headers=DEBUG`
+`log4j.logger.org.apache.synapse.transport.http.wire=DEBUG`
 3.  Save the changes.
 

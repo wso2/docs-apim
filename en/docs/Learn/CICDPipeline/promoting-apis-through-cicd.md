@@ -31,22 +31,22 @@ After running the CLI tool make sure to add an environment before you start work
 1.  Download the latest version of WSO2 API Manager from [http://wso2.com/products/api-manager/](http://wso2.com/api-management/try-it/) .
 
 2.  Start WSO2 API Manger.
-3.  Download the latest WSO2 API import/export tool ( `           api-import-export-2.6.0-v10.war          ` ) from [here](https://docs.wso2.com/download/attachments/103334679/api-import-export-2.6.0-v10.war) .
+3.  Download the latest WSO2 API import/export tool ( `api-import-export-2.6.0-v10.war` ) from [here](https://docs.wso2.com/download/attachments/103334679/api-import-export-2.6.0-v10.war) .
 
         !!! warning
     -   Note that the import/export tool attached is specific to this version of WSO2 API Manager.
 
-    -   Make sure to delete all previous versions of the web app (e.g., `             api-import-export-2.6.0-v10.war            ` ), both the compressed and the extracted files, before copying over the new web app.
+    -   Make sure to delete all previous versions of the web app (e.g., `api-import-export-2.6.0-v10.war` ), both the compressed and the extracted files, before copying over the new web app.
 
 
-4.  Copy the downloaded `           api-import-export-2.6.0-v10.war          ` file to the `           <API-M_HOME>/repository/deployment/server/webapps          ` folder.
+4.  Copy the downloaded `api-import-export-2.6.0-v10.war` file to the `<API-M_HOME>/repository/deployment/server/webapps` folder.
     The file is automatically deployed as hot deployment is enabled.
 
 ##### Step 2- Run the CLI tool
 
 1.  Navigate to the API Management Tooling page - <https://wso2.com/api-management/tooling/>
 2.  Click **Download** under **CLI** .
-3.  Select a generated archive suitable for your platform (i.e., Mac, Windows, Linux) and extract it the CLI tool that you downloaded to a desired location and `           cd          ` into it.
+3.  Select a generated archive suitable for your platform (i.e., Mac, Windows, Linux) and extract it the CLI tool that you downloaded to a desired location and `cd` into it.
 
 4.  Navigate to the working directory where the executable CLI Tool resides.
 
@@ -56,7 +56,7 @@ After running the CLI tool make sure to add an environment before you start work
         ./apimcli
     ```
 
-6.  Add the location of the extracted folder to your system's `           $PATH          ` variable to be able to access the executable from anywhere.
+6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
         !!! note
     For further instructions execute the following command.
@@ -81,13 +81,13 @@ The following are some global flags that you can use with the CLI tool.
 
 #### Adding an environment
 
-You can add environments by either manually editing the `         $HOME/.wso2apimcli/main_config.yaml        ` file or by running the following CLI command.
+You can add environments by either manually editing the `$HOME/.wso2apimcli/main_config.yaml` file or by running the following CLI command.
 
 ``` java
     apimcli add-env
 ```
 
-The directory structure for the configuration files ( `         $HOME/.wso2apimcli        ` ) will be created upon execution of the `         apimcli        ` command.
+The directory structure for the configuration files ( `$HOME/.wso2apimcli` ) will be created upon execution of the `apimcli` command.
 
 1.  Make sure that WSO2 API Manager is started and that the CLI import/export tool is running.
 2.  Run the following CLI command to add an environment.
@@ -117,21 +117,21 @@ The directory structure for the configuration files ( `         $HOME/.wso2apimc
     **Flags:**
 
     -   Required flags:
-        -   `                 --name, -n                `
+        -`--name, -n`
             There are no short flags for the following flags.
-        -   `                  --registration                 `
+        -`--registration`
 
-        -   `                  --apim                 `
+        -`--apim `
 
-        -   `                  --token                 `
+        -`--token`
 
-        -   `                  --import-export                 `
+        -`--import-export`
 
-        -   `                  --admin                 `
+        -`--admin`
 
-        -   `                  --api_list                 `
+        -`--api_list`
 
-        -   `                  --app_list                 `
+        -`--app_list`
 
     -   [**Linux**](#Linux1)
     -   [**Mac OS**](#MacOS)
@@ -205,7 +205,7 @@ The directory structure for the configuration files ( `         $HOME/.wso2apimc
     **Flags:**
 
     -   Required flags
-        -   `                 --name, -n                `
+        -`--name, -n                `
 
     ``` java
             apimcli remove-env -n production
@@ -256,7 +256,7 @@ The directory structure for the configuration files ( `         $HOME/.wso2apimc
 #### Exporting an API
 
 1.  Make sure that WSO2 API Manager is started and that the CLI import/export tool is running.
-2.  Run the following CLI command to export an existing API as a `          .zip         ` archive.
+2.  Run the following CLI command to export an existing API as a `.zip` archive.
 
 -   [**Command Format**](#Format-exportAPI)
 -   [**Example**](#Example-exportAPI)
@@ -273,11 +273,11 @@ The directory structure for the configuration files ( `         $HOME/.wso2apimc
 **Flags:**
 
 -   Required flags:
-    -   `               --name, -n              `
-    -   `               --version, -v              `
-    -   `               --provider, -r              `
-    -   `               --environment, -e              `
-    -   `               --insecure, -k : This allows connections to SSL sites without certificates              `
+    -`--name, -n              `
+    -`--version, -v              `
+    -`--provider, -r              `
+    -`--environment, -e              `
+    -`--insecure, -k : This allows connections to SSL sites without certificates              `
 
 ``` java
     apimcli export-api -n PhoneVerification -v 1.0.0 -r admin -e dev -k
@@ -304,12 +304,12 @@ You can use the archive created in the previous section to import APIs to an API
 
     1. Unzip the .zip archive created in the previous section.
 
-    2. Go to the `           <API-name-version>/Meta-information          ` directory and open the `           api.json          ` file.
-    For example, `           PhoneVerification_1.0.0/Meta-information          ` directory and open the `           api.json          ` file.
+    2. Go to the `<API-name-version>/Meta-information` directory and open the `api.json` file.
+    For example, `PhoneVerification_1.0.0/Meta-information` directory and open the `api.json` file.
 
-    3. Modify the `           endpointUTPassword          ` with your endpoint password and save the `           api.json          ` file.
+    3. Modify the `endpointUTPassword` with your endpoint password and save the `api.json` file.
 
-    4. Compress the `           PhoneVerification_1.0.0          ` folder to a folder named `           myExportedAPI                       .                     `
+    4. Compress the `PhoneVerification_1.0.0` folder to a folder named `myExportedAPI                       .                     `
 
 
 -   Run the following CLI command to import an API.
@@ -329,9 +329,9 @@ You can use the archive created in the previous section to import APIs to an API
     **Flags:**
 
     -   Required flags:
-        -   `                                   --file, -f : The file path of the exported API. For example, if your file path is                 ` /Users/kim/.wso2apimcli/exported/apis/dev/PhoneVerification\_1.0.0.zip., then you need to enter `                 dev/PhoneVerification_1.0.0.zip                ` as the value for this flag.
-        -   `                 --environment, -e : The environment to which you what to import the API to.                `
-        -   `                 --insecure, -k : This allows connections to SSL sites without certificates                `
+        -`--file, -f : The file path of the exported API. For example, if your file path is` /Users/kim/.wso2apimcli/exported/apis/dev/PhoneVerification\_1.0.0.zip., then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for this flag.
+        -`--environment, -e : The environment to which you what to import the API to.                `
+        -`--insecure, -k : This allows connections to SSL sites without certificates                `
 
     ``` java
             apimcli import-api -f dev/PhoneVerification_1.0.0.zip -e production -u admin -p admin -k
@@ -346,7 +346,7 @@ You can use the archive created in the previous section to import APIs to an API
     ```
 
         !!! tip
-    You must add a parameter named `           --preserve-provider          ` to the CLI command and set its value to false if the API is imported to a different domain than its exported one. This parameter sets the provider of the imported API to the user who is issuing the CLI command. Here's an example:
+    You must add a parameter named `--preserve-provider` to the CLI command and set its value to false if the API is imported to a different domain than its exported one. This parameter sets the provider of the imported API to the user who is issuing the CLI command. Here's an example:
 
     -   [**Command Format**](#Format-preserve)
     -   [**Example**](#Example-preserve)
@@ -364,31 +364,31 @@ You can use the archive created in the previous section to import APIs to an API
     **Flags:**
 
     -   Required flags:
-        -   `                 --insecure, -k : This allows connections to SSL sites without certificates                `
-        -   `                 --file, -f                `
-        -   `                 --environment, -e : The environment to which you what to import the API to.                `
-        -   `                 --preserve-provider (This does not have a short flag)                `
+        -`--insecure, -k : This allows connections to SSL sites without certificates                `
+        -`--file, -f                `
+        -`--environment, -e : The environment to which you what to import the API to.                `
+        -`--preserve-provider (This does not have a short flag)                `
     -   Optional flags:
-        -   `                 --username, -u                `
-        -   `                 --password, -p                `
+        -`--username, -u                `
+        -`--password, -p                `
 
     ``` java
         apimcli import-api -k -f dev/PhoneVerification_1.0.0.zip -e production -u admin -p admin --preserve-provider=false
     ```
 
         !!! note
-    The `           --preserve-provider          ` flag is used to decide whether to keep the actual Provider as the provider of the API or change the provider to the user who is importing the API to a different environment.
+    The `--preserve-provider` flag is used to decide whether to keep the actual Provider as the provider of the API or change the provider to the user who is importing the API to a different environment.
 
-    As an example, If `           --preserve-provider          ` is set to true, when importing an API created by user-1 in environment-1 will be preserved as the provider when and after importing that API to environment-2 by user-2. If `           --preserve-provider          ` is set to false, when importing that API created by user-1 to the environment-2, the provider will be changed (not preserved) to user-2 who is importing the API.
+    As an example, If `--preserve-provider` is set to true, when importing an API created by user-1 in environment-1 will be preserved as the provider when and after importing that API to environment-2 by user-2. If `--preserve-provider` is set to false, when importing that API created by user-1 to the environment-2, the provider will be changed (not preserved) to user-2 who is importing the API.
 
         !!! info
     Troubleshooting
 
     After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Rename the `             <lastAccessTimeLocation>            ` element in the `             <API-M_2.6.0_HOME>            ` / `             repository/conf/registry.xml            ` file. If you use a **clustered/distributed API Manager setup** , change the file in the API Publisher node. For example, change the `             /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime            ` registry path to `             /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1                           .                         `
+    1.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_2.6.0_HOME>` / `repository/conf/registry.xml` file. If you use a **clustered/distributed API Manager setup** , change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1                           .                         `
 
-    2.  Shut down the API Manager 2.6.0, backup and delete the `             <API-M_2.6.0_HOME>            ` / `             solr            ` directory.
+    2.  Shut down the API Manager 2.6.0, backup and delete the `<API-M_2.6.0_HOME>` / `solr` directory.
 
         For more information, see Upgrading the API Manager to 2.6.0 .
 
@@ -418,14 +418,14 @@ The environments that you create will be common to the admin and the tenants. Th
     **Flags:**
 
     -   Required flags:
-        -   `                 --name, -n                `
-        -   `                 --version, -v                `
-        -   `                 --provider, -r                `
-        -   `                 --environment, -e :                            The environment to which you what to export the API to.                `
-        -   `                 --insecure, -k : This allows connections to SSL sites without certificates                `
+        -`--name, -n                `
+        -`--version, -v                `
+        -`--provider, -r                `
+        -`--environment, -e :                            The environment to which you what to export the API to.                `
+        -`--insecure, -k : This allows connections to SSL sites without certificates                `
     -   Optional flags:
-        -   `                 --username, -u                `
-        -   `                 --password, -p                `
+        -`--username, -u                `
+        -`--password, -p                `
 
     ``` java
         apimcli export-api -n PizzaShackAPI -v 1.0.0 -r chris@test.com -e dev -u chris@test.com -p chris123 -k
@@ -459,13 +459,13 @@ The environments that you create will be common to the admin and the tenants. Th
     **Flags:**
 
     -   Required flags:
-        -   `                 --file, -f                `
-        -   `                 --environment, -e : The environment to which you what to import the API to.                `
-        -   `                 --insecure, -k : This allows connections to SSL sites without certificates                `
-        -   `                 --preserve-provider                `
+        -`--file, -f                `
+        -`--environment, -e : The environment to which you what to import the API to.                `
+        -`--insecure, -k : This allows connections to SSL sites without certificates                `
+        -`--preserve-provider                `
     -   Optional flags:
-        -   `                 --username, -u                `
-        -   `                 --password, -p                `
+        -`--username, -u                `
+        -`--password, -p                `
 
     ``` java
         apimcli import-api -f dev/PizzaShackAPI_1.0.0.zip -e production -u nick@example.com -p nick123 --preserve-provider=false -k
@@ -477,7 +477,7 @@ The environments that you create will be common to the admin and the tenants. Th
             Succesfully imported API!
     ```
 
-    Note that the `           --preserve-provider          ` flag value should be set to `           false          ` .
+    Note that the `--preserve-provider` flag value should be set to `false` .
 
 #### List APIs
 
@@ -499,11 +499,11 @@ The environments that you create will be common to the admin and the tenants. Th
 **Flags:**
 
 -   Required flags:
-    -   `               --environment, -e              `
-    -   `               --insecure, -k                             `
+    -`--environment, -e              `
+    -`--insecure, -k                             `
 -   Optional flags:
-    -   `               --username, -u              `
-    -   `                --password, -p               `
+    -`--username, -u              `
+    -`--password, -p               `
 
                 !!! note
         The username and password are optional flags. You will be prompted to enter your credentials if you do not provide these flags.
@@ -545,7 +545,7 @@ Reset user
     **Flags:**
 
     -   Required flags
-        -   `                 --environment, -e                `
+        -`--environment, -e                `
 
     ``` java
             apimcli reset-user -e dev
@@ -586,7 +586,7 @@ Reset user
 
     **Flags:**
 
-    -   `                --http-request-timeout               `
+    -`--http-request-timeout               `
 
     ``` java
             apimcli set --http-request-timeout 10000
@@ -606,7 +606,7 @@ Reset user
 
     **Flags:**
 
-    -   `                --export-directory               `
+    -`--export-directory               `
 
     ``` java
             apimcli set --export-directory /Users/kim/Downloads/MyExports
@@ -632,7 +632,7 @@ Only the following types of users are allowed to access the API import/export to
 To allow access to the import/export feature only for a particular tenant, log in to WSO2 API Manager's Management Console and add the downloaded archive file as a web application to the server.
 
 !!! note
-The 'admin' role is the default role which is specified in the Realm configuration in the `         <API-M-HOME>/repository/conf/user-mgt.xml        ` file. It will be changed if you have changed the value of the `         <AdminRole>        ` parameter as shown below.
+The 'admin' role is the default role which is specified in the Realm configuration in the `<API-M-HOME>/repository/conf/user-mgt.xml` file. It will be changed if you have changed the value of the `<AdminRole>` parameter as shown below.
 
 ``` java
     <Realm>
@@ -655,10 +655,10 @@ The structure of the ZIP file is explained below:
 
 | Sub directory/File | Description                                                                                                                                 |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Meta Information   | -   `                api.json:               ` contains all the basic information required for an API to be imported to another environment 
+| Meta Information   | -`api.json:` contains all the basic information required for an API to be imported to another environment 
                                                                                                                                                
-  -   `                swagger.json:               ` contains the API swagger definition                                                       |
-| Documents          | -   `                docs.json:               ` contains the summary of all the documents available for the API                             
+  -`swagger.json:` contains the API swagger definition                                                       |
+| Documents          | -`docs.json:` contains the summary of all the documents available for the API                             
                                                                                                                                                
   -   Add the uploaded files for API documentation also                                                                                        |
 | Image              | Thumbnail image of the API                                                                                                                  |
@@ -669,8 +669,8 @@ The structure of the ZIP file is explained below:
 
 The import functionality uploads the exported ZIP file of the API to the target environment. It creates a new API with all the registry and database resources exported from the source environment. Note the following:
 
--   The lifecycle status of an imported API will always be `          CREATED         ` even when the original API in the source environment has a different state. This is to enable the importer to modify the API before publishing it.
+-   The lifecycle status of an imported API will always be `CREATED` even when the original API in the source environment has a different state. This is to enable the importer to modify the API before publishing it.
 -   Tiers and sequences are provider-specific. If an exported tier is not already available in the imported environment, that tier is not added to the new environment. However, if an exported sequence is not available in the imported environment, it is added.
--   The importer can decide whether to keep the original provider’s name or replace it. Set the `          --preserve-provider         ` flag to true to keep it. If you set it to false, the original provider is replaced by the user who is sending the CLI command.
--   Cross-tenant imports are not allowed by preserving the original provider. For example, if an API is exported from tenant A and imported to tenant B, the value of the `          --preserve-provider         ` flag must always be `          false         ` .
+-   The importer can decide whether to keep the original provider’s name or replace it. Set the `--preserve-provider` flag to true to keep it. If you set it to false, the original provider is replaced by the user who is sending the CLI command.
+-   Cross-tenant imports are not allowed by preserving the original provider. For example, if an API is exported from tenant A and imported to tenant B, the value of the `--preserve-provider` flag must always be `false` .
 

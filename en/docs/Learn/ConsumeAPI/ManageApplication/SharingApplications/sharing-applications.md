@@ -14,14 +14,14 @@ WSO2 API Manager considers the organization name you enter when signing up to th
 You can enable application sharing with users in a single group or between users in multiple groups by following the steps below.
 
 1.  Shutdown the server if its running.
-2.  Uncomment the `           <GroupingExtractor>          ` element in the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.
+2.  Uncomment the `<GroupingExtractor>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
         <GroupingExtractor>org.wso2.carbon.apimgt.impl.DefaultGroupIDExtractorImpl</GroupingExtractor>
     ```
 
         !!! note
-    This default extractor does not work with SAML SSO. To enable SAML SSO, you need to define the `           GroupingExtractor          ` element as follows:
+    This default extractor does not work with SAML SSO. To enable SAML SSO, you need to define the `GroupingExtractor` element as follows:
 
     ``` java
         <GroupingExtractor>org.wso2.carbon.apimgt.impl.SAMLGroupIDExtractorImpl</GroupingExtractor>
@@ -32,7 +32,7 @@ You can enable application sharing with users in a single group or between users
 
 ### Sharing an application with multiple users
 
-Group IDs are extracted using a `         GroupingExtractor        ` class which is an implementation of `         NewPostLoginExecutor        ` interface. The default implementation is done through the [DefaultGroupIDExtractorImpl](https://github.com/wso2/carbon-apimgt/blob/6.x/components/apimgt/org.wso2.carbon.apimgt.impl/src/main/java/org/wso2/carbon/apimgt/impl/DefaultGroupIDExtractorImpl.java) class. The organization claim is extracted using the group ID. If a particular user is in more than one organization, provide the organizations as a string separated by commas.
+Group IDs are extracted using a `GroupingExtractor` class which is an implementation of `NewPostLoginExecutor` interface. The default implementation is done through the [DefaultGroupIDExtractorImpl](https://github.com/wso2/carbon-apimgt/blob/6.x/components/apimgt/org.wso2.carbon.apimgt.impl/src/main/java/org/wso2/carbon/apimgt/impl/DefaultGroupIDExtractorImpl.java) class. The organization claim is extracted using the group ID. If a particular user is in more than one organization, provide the organizations as a string separated by commas.
 
 Share an application with multiple users who are in the same group or who are in multiple groups as follows:
 
@@ -64,10 +64,10 @@ You can use application sharing as follows:
     ![](attachments/126559217/126559223.png)
 ### Extending the group ID extractor
 
-The default implementation picks the organization claim as the group ID. The organization names are returned in a string array. To use a different claim or a different type of group ID , you should create your own group ID extractor class by extending the `         NewPostLoginExecutor        ` interface and overriding the following method.
+The default implementation picks the organization claim as the group ID. The organization names are returned in a string array. To use a different claim or a different type of group ID , you should create your own group ID extractor class by extending the `NewPostLoginExecutor` interface and overriding the following method.
 
 ``` java
     String[] getGroupingIdentifierList(String response);
 ```
 
-When a user signs in to the store, the latter mentioned method is called and it will return all the group IDs that correspond to the user who has logged in to the store. After users sign in to the store, they will be able to see their own applications, which they created, and also the applications that are shared with the group IDs that were returned by the `         getGroupingIdentifierList        ` method.
+When a user signs in to the store, the latter mentioned method is called and it will return all the group IDs that correspond to the user who has logged in to the store. After users sign in to the store, they will be able to see their own applications, which they created, and also the applications that are shared with the group IDs that were returned by the `getGroupingIdentifierList` method.

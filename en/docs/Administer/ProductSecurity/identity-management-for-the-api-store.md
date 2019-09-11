@@ -8,7 +8,7 @@
 
 Password recovery for a store user can be done by enabling the password recovery feature. This feature will not work by default as an email server is not configured. Follow the steps below to configure it in the API Store.
 
-1.  Open the `           <API-M_HOME>repository/conf/axis2/axis2.xml          ` file and uncomment the following tag to configure a mail server. Change the default values with details of your mail server. See [MailTo Transport](https://docs.wso2.com/display/Carbon440/MailTo+Transport) for more information.
+1.  Open the `<API-M_HOME>repository/conf/axis2/axis2.xml` file and uncomment the following tag to configure a mail server. Change the default values with details of your mail server. See [MailTo Transport](https://docs.wso2.com/display/Carbon440/MailTo+Transport) for more information.
 
     ``` java
         <transportSender name="mailto" class="org.apache.axis2.transport.mail.MailTransportSender">
@@ -52,7 +52,7 @@ Password recovery for a store user can be done by enabling the password recovery
                 http://www.wso2.com
     ```
         !!! note
-    You can change the the template of this email (E.g., email link, message body, etc.). To edit the mail template, open the `           <API-M_HOME>/repository/conf/email/email-admin-config.xml          ` file and make the changes.
+    You can change the the template of this email (E.g., email link, message body, etc.). To edit the mail template, open the `<API-M_HOME>/repository/conf/email/email-admin-config.xml` file and make the changes.
 
 
 6.  You will be redirected to the page shown below to change your password.
@@ -69,7 +69,7 @@ You can lock user accounts with the Account recovery and credential management f
 
 The following steps show how to enable account locking.
 
-1.  Open the t he `           <API-M_HOME>/repository/conf/identity/identity.xml          ` file. Ensure that the `           IdentityMgtEventListener          ` with the orderId=50 is set to true.
+1.  Open the the `<API-M_HOME>/repository/conf/identity/identity.xml` file. Ensure that the `IdentityMgtEventListener` with the orderId=50 is set to true.
 
     ``` java
         <EventListener enable="true"
@@ -78,7 +78,7 @@ The following steps show how to enable account locking.
         type="org.wso2.carbon.user.core.listener.UserOperationEventListener"/>
     ```
 
-2.  Open the `           <API-M_HOME>/repository/conf/identity/           identity-mgt.properties          ` file. Set the `           Authentication.Policy.Enable          ` property to true.
+2.  Open the `<API-M_HOME>/repository/conf/identity/identity-mgt.properties` file. Set the `Authentication.Policy.Enable` property to true.
 
     ``` java
             Authentication.Policy.Enable=true
@@ -115,9 +115,9 @@ Account locking by an administrative user
 
 An administrative user can lock a user account by editing the user’s profile in the management console.
 
-1.  Log in to the Management Console( `           https://<host>:<port>/carbon          ` ) using admin credentials.
+1.  Log in to the Management Console( `https://<host>:<port>/carbon` ) using admin credentials.
 
-2.  Go to **Claims &gt; List** on the **Configure** menu and select the `                     http://wso2.org/claims                   ` claim dialect.
+2.  Go to **Claims &gt; List** on the **Configure** menu and select the `http://wso2.org/claims` claim dialect.
 3.  Select the **Account Locked** claim and click **Edit** .
     ![](attachments/103334928/103334925.png)
 4.  Select the **Supported by Default** checkbox and click **Update** . This is done to make the **Account Locked** status appear in the user's profile.

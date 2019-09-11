@@ -16,7 +16,7 @@ Follow the steps below to configure a dynamic endpoint as the API endpoint.
 2.  Go to the **Implement** tab of the API and replace the host and port of the API endpoint with {uri.var.host} and {uri.var.port} respectively, as shown below.
     ![](attachments/103334784/103334787.png)3.  Save and [publish](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) the API.
 
-4.  Navigate to the `           <API-M_HOME>/repository/deployment/server/synapse-configs/sequences          ` directory of each Gateway and create the following sequence.
+4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` directory of each Gateway and create the following sequence.
 
     ``` java
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="WSO2AM--Ext--In">
@@ -31,7 +31,7 @@ Follow the steps below to configure a dynamic endpoint as the API endpoint.
         !!! info
     Alternatively, you can resolve this host and port using a class mediator. To do that, follow the steps below as an alternative to step 4.
 
-    1. Create a java class extending the AbstractMediator class of `           org.synapse.core          ` as shown below and create the JAR file out of it.
+    1. Create a java class extending the AbstractMediator class of `org.synapse.core` as shown below and create the JAR file out of it.
 
     ``` java
         import org.apache.synapse.MessageContext;
@@ -56,9 +56,9 @@ Follow the steps below to configure a dynamic endpoint as the API endpoint.
         }
     }
     ```
-    2. Add the created JAR file into the `           <API-M_HOME>/repository/components/lib          ` folder of each Gateway. You can download a sample JAR file [here](https://docs.wso2.com/download/attachments/80713829/env-resolver-1.0.0.jar?version=2&modificationDate=1512985782000&api=v2) .
+    2. Add the created JAR file into the `<API-M_HOME>/repository/components/lib` folder of each Gateway. You can download a sample JAR file [here](https://docs.wso2.com/download/attachments/80713829/env-resolver-1.0.0.jar?version=2&modificationDate=1512985782000&api=v2) .
 
-    3. Add the following sequence to the `           <API-M_HOME>/repository/deployment/server/synapse-configs/sequences          ` folder of each Gateway.
+    3. Add the following sequence to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` folder of each Gateway.
 
     ``` java
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="WSO2AM--Ext--In">
@@ -67,10 +67,10 @@ Follow the steps below to configure a dynamic endpoint as the API endpoint.
     ```
 
         !!! note
-    `                       org.wso2.carbon.env.EnvironmentResolver                     ` is the fully qualified name of the class that contains the code responsible for converting system variables into properties. It is a special class that needs to be extended from the `                       org.apache.synapse.mediators.AbstractMediator                     ` class and requires overriding of the `                       mediate                     ` function.
+`org.wso2.carbon.env.EnvironmentResolver` is the fully qualified name of the class that contains the code responsible for converting system variables into properties. It is a special class that needs to be extended from the `org.apache.synapse.mediators.AbstractMediator` class and requires overriding of the `mediate` function.
 
 
-5.  Execute the following command when starting up each Gateway to set the system variables at the server start up from within the `           <API-M_HOME>/bin          ` directory by replacing the following values.
+5.  Execute the following command when starting up each Gateway to set the system variables at the server start up from within the `<API-M_HOME>/bin` directory by replacing the following values.
 
     | **&lt;ip\_of\_backend\_environment&gt;** | **&lt;port\_of\_backend\_environment&gt;**                       |
     |------------------------------------------|------------------------------------------------------------------|

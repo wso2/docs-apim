@@ -15,10 +15,10 @@ This section explains how to attach a custom workflow to the **application regis
 
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
-1.  Change the credentials of the workflow configurations in the registry resource `              _system/governance/apimgt/applicationdata/workflow-extensions.xml             ` .
+1.  Change the credentials of the workflow configurations in the registry resource `_system/governance/apimgt/applicationdata/workflow-extensions.xml` .
     a. Login to the Management console of WSO2 API Manager in <https://localhost:9443/carbon> .
     b. Click on browse under Resources in left Navigation under Main tab.
-    c. Go to `              /_system/governance/apimgt/applicationdata/workflow-extensions.xml             ` location in registry browser and open the workflow-extensions.xml clicking **Edit as text** .
+    c. Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` location in registry browser and open the workflow-extensions.xml clicking **Edit as text** .
     ![](attachments/103334690/103334695.png)    d. Uncomment the following two sections and change the credentials of API Manager's default user credentials you have given.
 
         !!! warning
@@ -40,7 +40,7 @@ This section explains how to attach a custom workflow to the **application regis
     </SandboxApplicationRegistration>
     ```
         !!! note
-    Make sure to comment out the existing `              ProductionApplicationRegistration             ` and `              SandboxApplicationRegistration             ` executors as shown below.
+    Make sure to comment out the existing `ProductionApplicationRegistration` and `SandboxApplicationRegistration` executors as shown below.
 
     ``` java
         <!--ProductionApplicationRegistration executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationRegistrationSimpleWorkflowExecutor"/-->
@@ -51,7 +51,7 @@ This section explains how to attach a custom workflow to the **application regis
 2.  Point the database that has the API Manager user permissions to EI.
     In this step you need to share the user store database in WSO2 API Manager with WSO2 EI.
 
-    a. Copy the following datasource configuration in `              <API-M_HOME>/repository/conf/datasources/master-datasources.xml             ` :
+    a. Copy the following datasource configuration in `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` :
 
     ``` java
         <datasource> <name>WSO2UM_DB</name>
@@ -79,7 +79,7 @@ This section explains how to attach a custom workflow to the **application regis
     We are using MySQL to configure the datasources in this documentation. You can configure this according to the database you are using. F or more information, see the [Setting up the Physical Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database) section in the WSO2 Administration documentation.
 
 
-    b. Change the datasource to point the WSO2UM\_DB by changing the realm configuration in `              <API-M_HOME>/repository/conf/user-mgt.xml             ` as shown below.
+    b. Change the datasource to point the WSO2UM\_DB by changing the realm configuration in `<API-M_HOME>/repository/conf/user-mgt.xml` as shown below.
 
     ``` java
         <UserManager>
@@ -93,10 +93,10 @@ This section explains how to attach a custom workflow to the **application regis
         <UserManager>
     ```
 
-    c. Do the configuration described in (a) and (b) in `              <EI_HOME>/wso2/business-process/conf/datasources/master-datasources.xml             ` and `              <EI_HOME>/wso2/business-process/conf/user-mgt.xml             ` respectively.
+    c. Do the configuration described in (a) and (b) in `<EI_HOME>/wso2/business-process/conf/datasources/master-datasources.xml` and `<EI_HOME>/wso2/business-process/conf/user-mgt.xml` respectively.
 
 3.  Share any LDAPs, if exist.
-4.  Unzip the `              <API-M>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip             ` file, update the role as follows in the `                             ApplicationRegistrationTask.ht                           ` file, and ZIP the `              ApplicationRegistrationTask-1.0.0             ` folder.
+4.  Unzip the `<API-M>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file, update the role as follows in the `ApplicationRegistrationTask.ht` file, and ZIP the `ApplicationRegistrationTask-1.0.0` folder.
 
     **Format**
 
@@ -112,45 +112,45 @@ This section explains how to attach a custom workflow to the **application regis
 #### Configuring the Business Process Server
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration) .
-2.  Set an offset of 2 to the default EI port in the `              <EI_HOME>/wso2/business-process/conf/carbon.xml             ` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
+2.  Set an offset of 2 to the default EI port in the `<EI_HOME>/wso2/business-process/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
 
     ``` xml
         <Offset>2</Offset>
     ```
 
         !!! tip
-    **Tip** : If you change the EI **port offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `              hostname             ` to a different value than `              localhost             ` ), you do the following:
+    **Tip** : If you change the EI **port offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside `               <APIM_HOME>/business-processes              ` folder with the new port (9763 + port offset.)
+    -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the new port (9763 + port offset.)
 
 
-3.  Open the `              <EI_HOME>/wso2/business-process/conf/humantask.xml             ` file and the `              <EI_HOME>/wso2/business-process/conf/b4p-coordination-config.xml             ` file and set the `              TaskCoordinationEnabled             ` property to true.
+3.  Open the `<EI_HOME>/wso2/business-process/conf/humantask.xml` file and the `<EI_HOME>/wso2/business-process/conf/b4p-coordination-config.xml` file and set the `TaskCoordinationEnabled` property to true.
 
     ``` xml
         <TaskCoordinationEnabled>true</TaskCoordinationEnabled>
     ```
 
-4.  Copy the following from the `              <API-M_HOME>/business-processes/epr             ` folder to the `              <EI_HOME>/wso2/business-process/conf/epr             ` folder.
+4.  Copy the following from the `<API-M_HOME>/business-processes/epr` folder to the `<EI_HOME>/wso2/business-process/conf/epr` folder.
 
         !!! note
-    -   If the `                <EI_HOME>/wso2/business-process/conf/epr               ` folder does not exist, create it.
+    -   If the `<EI_HOME>/wso2/business-process/conf/epr` folder does not exist, create it.
 
-    -   Make sure you give the correct credentials in the `                <EI_HOME>/wso2/business-process/conf/epr               ` files.
+    -   Make sure you give the correct credentials in the `<EI_HOME>/wso2/business-process/conf/epr` files.
 
 
-    -   Update the `                <API-M_HOME>/business-processes/epr/RegistrationCallbackService.epr               ` file according to API Manager.
+    -   Update the `<API-M_HOME>/business-processes/epr/RegistrationCallbackService.epr` file according to API Manager.
 
         ``` java
                 <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
         ```
 
-    -   Update the `                <API-M_HOME>/business-processes/epr/RegistrationService.epr               ` file according to EI.
+    -   Update the `<API-M_HOME>/business-processes/epr/RegistrationService.epr` file according to EI.
 
         ``` java
                     <wsa:Address>http://localhost:9765/services/ApplicationRegistration</wsa:Address>
         ```
 
-5.  Start the BPS server and log in to its management console ( `              https://<Server Host>:9443+<port offset>/carbon             ` ).
+5.  Start the BPS server and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
 
         !!! warning
     If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
@@ -159,18 +159,18 @@ This section explains how to attach a custom workflow to the **application regis
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
     ```
 
-    To avoid this issue open `              <EI_HOME>/             ` `              repository/conf/tomcat/catalina-server.xml             ` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
+    To avoid this issue open `<EI_HOME>/repository/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
 
 
-6.  Log into Management console of WSO2 EI, select **Add &gt; BPEL** under the **Processes** menu and upload the `             <APIM_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip file            ` to EI. This is the business process archive file.
-    ![](attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `             <APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip            ` file to EI. This is the human task archived file.
+6.  Log into Management console of WSO2 EI, select **Add &gt; BPEL** under the **Processes** menu and upload the `<APIM_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip file` to EI. This is the business process archive file.
+    ![](attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to EI. This is the human task archived file.
     ![](attachments/103334690/103334693.png)
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
-1.  Change the credentials of the workflow configurations in the registry resource `              _system/governance/apimgt/applicationdata/workflow-extensions.xml             ` .
+1.  Change the credentials of the workflow configurations in the registry resource `_system/governance/apimgt/applicationdata/workflow-extensions.xml` .
     a. Login to the Management console of WSO2 API Manager in <https://localhost:9443/carbon> .
     b. Click on browse under Resources in left Navigation under Main tab.
-    c. Go to `              /_system/governance/apimgt/applicationdata/workflow-extensions.xml             ` location in registry browser and open the workflow-extensions.xml clicking **Edit as text** .
+    c. Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` location in registry browser and open the workflow-extensions.xml clicking **Edit as text** .
     ![](attachments/103334690/103334695.png)    d. Uncomment the following two sections and change the credentials of API Manager's default user credetials you have given.
 
         !!! warning
@@ -192,7 +192,7 @@ This section explains how to attach a custom workflow to the **application regis
     </SandboxApplicationRegistration>
     ```
         !!! note
-    Make sure to comment out the existing `              ProductionApplicationRegistration             ` and `              SandboxApplicationRegistration             ` executors as shown below.
+    Make sure to comment out the existing `ProductionApplicationRegistration` and `SandboxApplicationRegistration` executors as shown below.
 
     ``` java
         <!--ProductionApplicationRegistration executor="org.wso2.carbon.apimgt.impl.workflow.ApplicationRegistrationSimpleWorkflowExecutor"/-->
@@ -203,7 +203,7 @@ This section explains how to attach a custom workflow to the **application regis
 2.  Point the database that has the API Manager user permissions to BPS.
     In this step you need to share the user store database in WSO2 API Manager with WSO2 BPS.
 
-    a. Copy the following datasource configuration in `              <API-M_HOME>/repository/conf/datasources/master-datasources.xml             ` :
+    a. Copy the following datasource configuration in `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` :
 
     ``` java
         <datasource> <name>WSO2UM_DB</name>
@@ -231,7 +231,7 @@ This section explains how to attach a custom workflow to the **application regis
     We are using MySQL to configure the datasources in this documentation. You can configure this according to the database you are using. Refer [Setting up the Physical Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database) for more information.
 
 
-    b. Change the datasource to point the WSO2UM\_DB by changing the realm configuration in `              <API-M_HOME>/repository/conf/user-mgt.xml             ` as shown below.
+    b. Change the datasource to point the WSO2UM\_DB by changing the realm configuration in `<API-M_HOME>/repository/conf/user-mgt.xml` as shown below.
 
     ``` java
         <UserManager>
@@ -245,10 +245,10 @@ This section explains how to attach a custom workflow to the **application regis
         <UserManager>
     ```
 
-    c. Do the configuration described in (a) and (b) in `              <BPS_HOME>/repository/conf/datasources/master-datasources.xml             ` and `              <BPS_HOME>/repository/conf/user-mgt.xml             ` respectively.
+    c. Do the configuration described in (a) and (b) in `<BPS_HOME>/repository/conf/datasources/master-datasources.xml` and `<BPS_HOME>/repository/conf/user-mgt.xml` respectively.
 
 3.  Share any LDAPs, if exist.
-4.  Unzip the `              <API-M>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip             ` file, update the role as follows in the `                             ApplicationRegistrationTask.ht                           ` file, and ZIP the `              ApplicationRegistrationTask-1.0.0             ` folder.
+4.  Unzip the `<API-M>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file, update the role as follows in the `ApplicationRegistrationTask.ht` file, and ZIP the `ApplicationRegistrationTask-1.0.0` folder.
 
     **Format**
 
@@ -264,35 +264,35 @@ This section explains how to attach a custom workflow to the **application regis
 #### Configuring the Business Process Server
 
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
-2.  Set an offset of 2 to the default BPS port in the `              <BPS_HOME>/repository/conf/carbon.xml             ` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
+2.  Set an offset of 2 to the default BPS port in the `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
 
     ``` xml
         <Offset>2</Offset>
     ```
 
         !!! tip
-    **Tip** : If you change the BPS **port offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `              hostname             ` to a different value than `              localhost             ` ), you do the following:
+    **Tip** : If you change the BPS **port offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside `               <APIM_HOME>/business-processes              ` folder with the new port (9763 + port offset.)
+    -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the new port (9763 + port offset.)
 
 
-3.  Open the `              <BPS_HOME>/repository/conf/humantask.xml             ` file and the `              <BPS_HOME>/repository/conf/b4p-coordination-config.xml             ` file and set the `              TaskCoordinationEnabled             ` property to true.
+3.  Open the `<BPS_HOME>/repository/conf/humantask.xml` file and the `<BPS_HOME>/repository/conf/b4p-coordination-config.xml` file and set the `TaskCoordinationEnabled` property to true.
 
     ``` xml
         <TaskCoordinationEnabled>true</TaskCoordinationEnabled>
     ```
 
-4.  Copy the following from the `              <API-M_HOME>/business-processes/epr             ` folder to the `              <BPS_HOME>/repository/conf/epr             ` folder.
-    If the `              <BPS_HOME>/repository/conf/epr             ` folder does not exist, create it.
+4.  Copy the following from the `<API-M_HOME>/business-processes/epr` folder to the `<BPS_HOME>/repository/conf/epr` folder.
+    If the `<BPS_HOME>/repository/conf/epr` folder does not exist, create it.
 
         !!! note
-    Make sure you give the correct credentials in the `              <BPS_HOME>/repository/conf/epr             ` files.
+    Make sure you give the correct credentials in the `<BPS_HOME>/repository/conf/epr` files.
 
 
-    -   `               RegistrationService.epr              `
-    -   `               RegistrationCallbackService.epr              `
+    -`RegistrationService.epr              `
+    -`RegistrationCallbackService.epr              `
 
-5.  HERE [Start the BPS server](https://docs.wso2.com/display/AM220/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `              https://<Server Host>:9443+<port offset>/carbon             ` ).
+5.  HERE [Start the BPS server](https://docs.wso2.com/display/AM220/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
 
         !!! warning
     If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
@@ -301,16 +301,16 @@ This section explains how to attach a custom workflow to the **application regis
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
     ```
 
-    To avoid this issue open `              <BPS_HOME>/             ` `              repository/conf/tomcat/catalina-server.xml             ` and change the compression="on" to compression="off" in Connector configuration and restart the BPS.
+    To avoid this issue open `<BPS_HOME>/repository/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the BPS.
 
 
-6.  Log into Management console of WSO2 BPS, select **Add &gt; BPEL** under the **Processes** menu and upload the `             <APIM_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip file            ` to BPS. This is the business process archive file.
-    ![](attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `             <APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip            ` file to BPS. This is the human task archived file.
+6.  Log into Management console of WSO2 BPS, select **Add &gt; BPEL** under the **Processes** menu and upload the `<APIM_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip file` to BPS. This is the business process archive file.
+    ![](attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to BPS. This is the human task archived file.
     ![](attachments/103334690/103334693.png)
 #### 
 Configuring the API Manager
 
-Open the `         <API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json        ` file and configure the " `         workFlowServerURL"        ` under " `         workflows"        ` to point to the EI/BPS server (e.g. `         "workFlowServerURL": "                   https://localhost:9445/services/                  "        ` )
+Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure the " `workFlowServerURL"` under " `workflows"` to point to the EI/BPS server (e.g. `"workFlowServerURL": "                   https://localhost:9445/services/                  "` )
 
 ``` java
     {
@@ -330,9 +330,9 @@ Open the `         <API-M_HOME>/repository/deployment/server/jaggeryapps/admin/s
 
 First, enable the application registration workflow.
 
-1.  Start WSO2 API Manager and login to the APIM management console ( `          https://<Server Host>:9443/carbon         ` ) and select **Browse** under **Resources** .
+1.  Start WSO2 API Manager and login to the APIM management console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources** .
     ![](attachments/103334690/103334700.png)
-2.  Go to the `           /_system/governance/apimgt/applicationdata/workflow-extensions.xml          ` resource, disable the Simple Workflow Executor and enable WS Workflow Executor as described in the tip provided at the start of this documentation if you haven't done already.
+2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor as described in the tip provided at the start of this documentation if you haven't done already.
 
     ``` html/xml
             <WorkFlowExtensions>
@@ -365,18 +365,18 @@ First, enable the application registration workflow.
 
 
 4.  In the **Production Keys** tab of the Application, click the **Generate Keys** button.
-    It invokes the `           ApplicationRegistrationWorkFlowProcess.bpel          ` that is bundled with the `           ApplicationRegistrationWorkflowProcess_1.0.0.zip          ` file and creates a HumanTask instance that holds the execution of the BPEL process until some action is performed on it.
+    It invokes the `ApplicationRegistrationWorkFlowProcess.bpel` that is bundled with the `ApplicationRegistrationWorkflowProcess_1.0.0.zip` file and creates a HumanTask instance that holds the execution of the BPEL process until some action is performed on it.
     ![](attachments/103334690/103334692.png)
 5.  Note that a message appears saying that the request is successfully submitted if the BPEL was invoked correctly.
 
-6.  Log in to the Admin Portal ( `           https://<Server Host>:9443/admin          ` ) with admin credentials and list all the tasks for application registrations. Click **Start** to start the Human Task and then change its state. Once you select **Approve** and click **Complete** the task, it resumes the BPEL process and completes the registration.
+6.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) with admin credentials and list all the tasks for application registrations. Click **Start** to start the Human Task and then change its state. Once you select **Approve** and click **Complete** the task, it resumes the BPEL process and completes the registration.
 
     ![](attachments/103334690/103334691.png){height="250"}
 
 7.  Go back to the API Store and view your application.
 
     It shows the application access token, consumer key and consumer secret.
-    After the registration request is approved, keys are generated by invoking the `           APIKeyMgtSubscriber          ` service hosted in Key Manger nodes. Even when the request is approved, key generation can fail if this service becomes unavailable. To address such failures, you can configure to trigger key generation at a time Key Manager nodes become available again. Given below is the message used to invoke the BPEL process:
+    After the registration request is approved, keys are generated by invoking the `APIKeyMgtSubscriber` service hosted in Key Manger nodes. Even when the request is approved, key generation can fail if this service becomes unavailable. To address such failures, you can configure to trigger key generation at a time Key Manager nodes become available again. Given below is the message used to invoke the BPEL process:
 
     ``` html/xml
         <applicationregistrationworkflowprocessrequest xmlns:wor="http://workflow.application.apimgt.carbon.wso2.org"

@@ -1,6 +1,6 @@
 # Configuring Primary User Stores
 
-Every WSO2 product comes with an embedded, internal user store, which is configured in `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` . In WSO2 Identity Server, the embedded user store is LDAP, and in other products it is JDBC. Because the domain name (unique identifier) of this default user store is set to `         PRIMARY        ` by default, it is called the primary user store.
+Every WSO2 product comes with an embedded, internal user store, which is configured in `<PRODUCT_HOME>/repository/conf/user-mgt.xml` . In WSO2 Identity Server, the embedded user store is LDAP, and in other products it is JDBC. Because the domain name (unique identifier) of this default user store is set to `PRIMARY` by default, it is called the primary user store.
 
 Instead of using the embedded user store, you can set your own user store as the primary user store. Since the user store you want to connect to might have different schemas from the ones available in the embedded user store, it needs to go through an adaptation process. WSO2 products provide the following adapters to enable you to authenticate users from different types of user stores and plug into LDAP, Active Directory, and JDBC to perform authentication:
 
@@ -34,7 +34,7 @@ If you need to use AD as read-only you must use <code>              org.wso2.car
 </tbody>
 </table>
 
-The `         user-mgt.xml        ` file already has sample configurations for all of the above user stores. To enable these configurations, you must uncomment them in the code and comment out the ones that you do not need.
+The `user-mgt.xml` file already has sample configurations for all of the above user stores. To enable these configurations, you must uncomment them in the code and comment out the ones that you do not need.
 
 The following topics provide details on the various primary user stores you can configure.
 
@@ -42,7 +42,7 @@ The following topics provide details on the various primary user stores you can 
 -   [Configuring an internal/external JDBC user store](#ConfiguringPrimaryUserStores-Configuringaninternal/externalJDBCuserstore)
 
 !!! note
-If you are using `         ldaps        ` (secured) to connect to the Active Directory as shown below, you need to import the certificate of Active Directory to the `         client-truststore.jks        ` of the WSO2 product. See the topic on configuring keystores for information on how to add certificates to the trust-store.
+If you are using `ldaps` (secured) to connect to the Active Directory as shown below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. See the topic on configuring keystores for information on how to add certificates to the trust-store.
 
 ``` xml
     <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
@@ -61,16 +61,16 @@ All WSO2 products can read and write users and roles from external Active Direct
 !!! info
 Before you begin
 
--   If you create the `          user-mgt.xml         ` file yourself, be sure to save it in the `          <PRODUCT_HOME>/repository/conf         ` directory.
--   The `          class         ` attribute for a read-only LDAP is `          <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">         `
+-   If you create the `user-mgt.xml` file yourself, be sure to save it in the `<PRODUCT_HOME>/repository/conf` directory.
+-   The `class` attribute for a read-only LDAP is `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">         `
 
 
 When you configure a product to read users/roles from your company LDAP in read-only mode, it does not write any data into the LDAP.
 
-1.  Comment out the following user store which is enabled by default in the `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          ` file.
-    `           <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">          `
+1.  Comment out the following user store which is enabled by default in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
+`<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">`
 
-2.  Given below is a sample for the L DAP user store. This configuration is found in the `           <PRODUCT_HOME>          ` `           /repository/conf/user-mgt.xml          ` file, however, you need to uncomment them and make the appropriate adjustments. Also ensure that you comment out the configurations for other user stores which you are not using.
+2.  Given below is a sample for the L DAP user store. This configuration is found in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file, however, you need to uncomment them and make the appropriate adjustments. Also ensure that you comment out the configurations for other user stores which you are not using.
 
     ``` html/xml
         <UserManager>
@@ -124,13 +124,13 @@ When you configure a product to read users/roles from your company LDAP in read-
                     <Property name="ConnectionPassword">2010#Avrudu</Property>
         ```
 
-    3.  Update `             <Property name="UserSearchBase">            ` with the directory name where the users are stored. When LDAP searches for users, it will start from this location of the directory.
+    3.  Update `<Property name="UserSearchBase">` with the directory name where the users are stored. When LDAP searches for users, it will start from this location of the directory.
 
         ``` html/xml
                     <Property name="UserSearchBase">ou=system</Property> 
         ```
 
-    4.  Set the attribute to use as the username, typically either cn or uid for LDAP. Ideally, `             <Property name="UserNameAttribute">            ` and `             <Property name="UserNameSearchFilter">            ` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP/Active Directory administrator.
+    4.  Set the attribute to use as the username, typically either cn or uid for LDAP. Ideally, `<Property name="UserNameAttribute">` and `<Property name="UserNameSearchFilter">` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP/Active Directory administrator.
 
         For example:
 
@@ -149,7 +149,7 @@ When you configure a product to read users/roles from your company LDAP in read-
 
         If the ReadGroups property is set to 'false', only Users can be read from the user store.
 
-    6.  Optionally, configure the realm to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute. The following code snippet represents reading roles based on a membership attribute. This is used by the `             ApacheDirectory            ` server and `             OpenLDAP            ` .
+    6.  Optionally, configure the realm to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute. The following code snippet represents reading roles based on a membership attribute. This is used by the `ApacheDirectory` server and `OpenLDAP` .
 
         ``` html/xml
                     <Property name="ReadGroups">false</Property>
@@ -159,7 +159,7 @@ When you configure a product to read users/roles from your company LDAP in read-
                     <Property name="MembershipAttribute">member</Property>
         ```
 
-    7.  For Active Directory, you can use `             <Property name="Referral">follow</Property>            ` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `             user-mgt.xml            ` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `             <Property name="Referral">follow</Property>            ` property ensures that all the domains in the directory will be searched to locate the requested object.
+    7.  For Active Directory, you can use `<Property name="Referral">follow</Property>` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `user-mgt.xml` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `<Property name="Referral">follow</Property>` property ensures that all the domains in the directory will be searched to locate the requested object.
 
 3.  Start your server and try to log in as the admin user you specified. The password is the admin user's password in the LDAP server.
 
@@ -168,7 +168,7 @@ When you configure a product to read users/roles from your company LDAP in read-
 !!! info
 Before you begin
 
--   To read and write to an Active Directory user store, set the `          WriteGroups         ` property to `          true         ` instead of `          false         ` .
+-   To read and write to an Active Directory user store, set the `WriteGroups` property to `true` instead of `false` .
 -   To write user entries to an LDAP user store (roles are not written, just user entries), you follow the steps in the [Read-only mode](#ConfiguringPrimaryUserStores-Read-onlymode) section but specify the following class instead:
 
     ``` html/xml
@@ -182,10 +182,10 @@ Before you begin
     ```
 
 
-The `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file has commented-out configurations for external LDAP/AD user stores.
+The `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file has commented-out configurations for external LDAP/AD user stores.
 
-1.  Enable the `          <ReadWriteLDAPUserStoreManager>         ` or the `          <ActiveDirectoryUserStoreManager>         ` in the `          <PRODUCT_HOME>/repository/conf/user-mgt.xml         ` file by uncommenting the code. When it is enabled, the user manager reads/writes into the LDAP/AD user store. Note that these configurations already exist in the `          user-mgt.xml         ` file so you only need to uncomment them and make the appropriate adjustments. Also ensure that you comment out the configurations for other user stores which you are not using.
-2.  The default configuration for the external read/write user store in the `           user-mgt.xml          ` file is as follows. Change the values according to your requirements.
+1.  Enable the `<ReadWriteLDAPUserStoreManager>` or the `<ActiveDirectoryUserStoreManager>` in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file by uncommenting the code. When it is enabled, the user manager reads/writes into the LDAP/AD user store. Note that these configurations already exist in the `user-mgt.xml` file so you only need to uncomment them and make the appropriate adjustments. Also ensure that you comment out the configurations for other user stores which you are not using.
+2.  The default configuration for the external read/write user store in the `user-mgt.xml` file is as follows. Change the values according to your requirements.
 
     -   [**LDAP User Store**](#5c8352912e284090b14ad254e1036352)
     -   [**Active Directory User Store**](#8210d29be9484db696f669aad96bfd3e)
@@ -230,7 +230,7 @@ The `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file has comm
     ```
 
         !!! tip
-        **Tip** : Be sure to set the `              EmptyRolesAllowed             ` property to true. If not, you will get the following error at start up- APIManagementException: Error while creating subscriber role: subscriber - Self registration might not function properly.
+        **Tip** : Be sure to set the `EmptyRolesAllowed` property to true. If not, you will get the following error at start up- APIManagementException: Error while creating subscriber role: subscriber - Self registration might not function properly.
 
     Active directory user store sample:
 
@@ -281,10 +281,10 @@ The `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file has comm
     ```
 
         !!! tip
-        **Tip** : Be sure to set the `              EmptyRolesAllowed             ` property to true. If not, you will get the following error at start up- APIManagementException: Error while creating subscriber role: subscriber - Self registration might not function properly.
+        **Tip** : Be sure to set the `EmptyRolesAllowed` property to true. If not, you will get the following error at start up- APIManagementException: Error while creating subscriber role: subscriber - Self registration might not function properly.
 
         !!! note
-    When working with Active Directory it is best to enable the `           GetAllRolesOfUserEnabled          ` property in the `           AuthorizationManager          ` as follows.
+    When working with Active Directory it is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows.
 
     ``` xml
         <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
@@ -297,15 +297,15 @@ The `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file has comm
     While using the user store manager does not depend on this property, you must consider enabling this if there are any performance issues in your production environment. Enabling this property affects the performance when the user logs in. This depends on the users, roles and permissions stats.
 
         !!! info
-    If you create the `           user-mgt.xml          ` file yourself, be sure to save it in the `           <PRODUCT_HOME>/repository/conf          ` directory.
+    If you create the `user-mgt.xml` file yourself, be sure to save it in the `<PRODUCT_HOME>/repository/conf` directory.
 
-    The `           class          ` attribute of the `           UserStoreManager          ` element indicates whether it is an Active Directory or LDAP user store:
+    The `class` attribute of the `UserStoreManager` element indicates whether it is an Active Directory or LDAP user store:
 
-    -   Active Directory: `            <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">           `
-    -   Read-only LDAP: `            <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">           `
+    -   Active Directory: `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"> `
+    -   Read-only LDAP: `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"> `
 
 
-3.  Set the attribute to use as the username, typically either cn or uid for LDAP. Ideally, `           <Property name="UserNameAttribute">          ` and `           <Property name="UserNameSearchFilter">          ` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP/Active Directory administrator.
+3.  Set the attribute to use as the username, typically either cn or uid for LDAP. Ideally, `<Property name="UserNameAttribute">` and `<Property name="UserNameSearchFilter">` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP/Active Directory administrator.
 
     For example:
 
@@ -330,7 +330,7 @@ The `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file has comm
             <Property name="MemberOfAttribute">memberOf</Property>
     ```
 
-5.  For Active Directory, you can use `           <Property name="Referral">follow</Property>          ` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `           user-mgt.xml          ` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `           <Property name="Referral">follow</Property>          ` property ensures that all the domains in the directory will be searched to locate the requested object.
+5.  For Active Directory, you can use `<Property name="Referral">follow</Property>` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `user-mgt.xml` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `<Property name="Referral">follow</Property>` property ensures that all the domains in the directory will be searched to locate the requested object.
 
 6.  Start your server and try to log in as the admin user you specified. The password is the admin user's password in the LDAP server.
 
@@ -340,17 +340,17 @@ The `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file has comm
 
 ### Configuring an internal/external JDBC user store
 
-The default internal JDBC user store reads/writes into the internal database of the Carbon server. JDBC user stores can be configured using the `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file's `         JDBCUserStoreManager        ` configuration section. Additionally, all Carbon-based products can work with an external RDBMS. You can configure Carbon to read users/roles from your company RDBMS and even write to it. Therefore, in this scenario, the user core connects to two databases:
+The default internal JDBC user store reads/writes into the internal database of the Carbon server. JDBC user stores can be configured using the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file's `JDBCUserStoreManager` configuration section. Additionally, all Carbon-based products can work with an external RDBMS. You can configure Carbon to read users/roles from your company RDBMS and even write to it. Therefore, in this scenario, the user core connects to two databases:
 
 -   The Carbon database where authorization information is stored internally.
 -   Your company database where users/roles reside.
 
-Therefore, the `         user-mgt.xml        ` file must contain details for two database connections. The connection details mentioned earlier are used by the authorization manager. If we specify another set of database connection details inside the UserStoreManager, it reads/writes users to that database. The following are step-by-step guidelines for connecting to an internal and external JDBC user store in read-only mode:
+Therefore, the `user-mgt.xml` file must contain details for two database connections. The connection details mentioned earlier are used by the authorization manager. If we specify another set of database connection details inside the UserStoreManager, it reads/writes users to that database. The following are step-by-step guidelines for connecting to an internal and external JDBC user store in read-only mode:
 
-1.  Uncomment the following section in `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          ` :
+1.  Uncomment the following section in `<PRODUCT_HOME>/repository/conf/user-mgt.xml` :
 
         !!! warning
-    Ensure that you comment out the configurations for other user stores which you are not using when uncommenting **`            JDBCUserStoreManager           ` .**
+    Ensure that you comment out the configurations for other user stores which you are not using when uncommenting **`JDBCUserStoreManager`.**
 
 
     ``` html/xml
@@ -472,9 +472,9 @@ Therefore, the `         user-mgt.xml        ` file must contain details for two
     The sample for the external JDBC user store consists of properties pertaining to various SQL statements. This is because the schema may be different for an external user store, and these adjustments need to be made to streamline the configurations with WSO2 products.
 
         !!! info
-    You can define a data source in `           <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml          ` and refer to it from the `           user-mgt.xml          ` file. This takes the properties defined in the `           master-datasources.xml          ` file and reuses them in the `           user-mgt.xml          ` file. To do this, you need to define the following property: `                     `
+    You can define a data source in `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` and refer to it from the `user-mgt.xml` file. This takes the properties defined in the `master-datasources.xml` file and reuses them in the `user-mgt.xml` file. To do this, you need to define the following property: 
 
-    `           <          ` `           Property          ` `           name          ` `           =          ` `           "dataSource"          ` `           >jdbc/WSO2CarbonDB</          ` `           Property          ` `           >          `
+`<Propertyname="dataSource">jdbc/WSO2CarbonDB</Property>          `
 
 
 2.  Find a valid user that resides in the RDBMS. For example, say a valid username is AdminSOA. Update the Admin user section of your configuration as follows. You do not have to update the password element; leave it as is.
@@ -486,7 +486,7 @@ Therefore, the `         user-mgt.xml        ` file must contain details for two
         </AdminUser>
     ```
 
-3.  Add the `           PasswordHashMethod          ` property to the UserStoreManager configuration for `           JDBCUserStoreManager          ` . For example:
+3.  Add the `PasswordHashMethod` property to the UserStoreManager configuration for `JDBCUserStoreManager` . For example:
 
     ``` html/xml
             <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">
@@ -495,16 +495,16 @@ Therefore, the `         user-mgt.xml        ` file must contain details for two
             </UserStoreManager>
     ```
 
-    The `           PasswordHashMethod          ` property specifies how the password should be stored. It usually has the following values:
+    The `PasswordHashMethod` property specifies how the password should be stored. It usually has the following values:
 
-    -   `            SHA           ` - Uses SHA digest method.
-    -   `            MD5           ` - Uses MD 5 digest method.
-    -   `            PLAIN_TEXT           ` - Plain text passwords.
+    -`SHA` - Uses SHA digest method.
+    -`MD5` - Uses MD 5 digest method.
+    -`PLAIN_TEXT` - Plain text passwords.
 
     In addition, it also supports all digest methods in <http://docs.oracle.com/javase/6/docs/api/java/security/MessageDigest.html> .
 
-4.  Update the connection details found within the `          <UserStoreManager>         ` class based on your preferences. For more information on parameters need to be configured refer [Configuring a JDBC User Store](https://docs.wso2.com/display/IS540/Configuring+a+JDBC+User+Store) .
-5.  In the realm configuration section, add the property `          MultiTenantRealmConfigBuilder and set the value to         ` `          org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder         ` in order to constrcut teant specific realm configurations.
+4.  Update the connection details found within the `<UserStoreManager>` class based on your preferences. For more information on parameters need to be configured refer [Configuring a JDBC User Store](https://docs.wso2.com/display/IS540/Configuring+a+JDBC+User+Store) .
+5.  In the realm configuration section, add the property `MultiTenantRealmConfigBuilder and set the value toorg.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder` in order to constrcut teant specific realm configurations.
 
     For example:
 
@@ -512,8 +512,8 @@ Therefore, the `         user-mgt.xml        ` file must contain details for two
             <Property name="MultiTenantRealmConfigBuilder">org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder</Property>
     ```
 
-6.  Add the JDBC driver to the classpath by copying its JAR file into the `          <PRODUCT_HOME>/repository/components/lib         ` directory.
-7.  Edit the SQLs in the `          user-mgt.xml         ` file according to your requirements, and then start the server.
+6.  Add the JDBC driver to the classpath by copying its JAR file into the `<PRODUCT_HOME>/repository/components/lib` directory.
+7.  Edit the SQLs in the `user-mgt.xml` file according to your requirements, and then start the server.
 
 !!! info
 #### Related Links

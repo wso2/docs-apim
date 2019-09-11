@@ -11,9 +11,9 @@ The example here uses the PhoneVerification API, which you created in the [Crea
 The steps below show you how to create a new version of an existing API.
 
 1.  Sign in to the WSO2 API Publisher.
-    `          https://<hostname>:9443/publisher         `
+`https://<hostname>:9443/publisher         `
     Refer **step 1** of [Create and Publish an API](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) to sign in to the Publisher.
-2.  Click on the API name that corresponds to the API for which you want to create a new version (e.g., `          PhoneVerification 1.0.0         ` ).
+2.  Click on the API name that corresponds to the API for which you want to create a new version (e.g., `PhoneVerification 1.0.0` ).
     The API opens.
 3.  Click **Create New Version** .
     ![Create New Version button](attachments/103328571/103328574.png "Create New Version button")4.  
@@ -44,7 +44,7 @@ The steps below show you how to create a new version of an existing API.
 7.  Click **Save** once the edits are done.
 
 !!! tip
-**Tip** : By default, only the latest version of an API is shown in the API Store. If you want to display multiple versions, set the `         <DisplayMultipleVersions>        ` element to `         true        ` in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file, and restart the server.
+**Tip** : By default, only the latest version of an API is shown in the API Store. If you want to display multiple versions, set the `<DisplayMultipleVersions>` element to `true` in the `<API-M_HOME>/repository/conf/api-manager.xml` file, and restart the server.
 
 
 You have created a new version of an API. In the next tutorial, let's learn how to [deploy this API as a prototype](_Deploy_and_Test_Mock_APIs_) and test it with its older versions.

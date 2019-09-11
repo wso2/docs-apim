@@ -1,6 +1,6 @@
 # admin\_Configuring Log4j Properties
 
-All WSO2 products are shipped with the [log4j logging capabilities](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) , which generates administrative activities and server side logs. The `         log4j.properties        ` file, which governs how logging is performed by the server can be found in the `         <PRODUCT_HOME>/repository/conf        ` directory. If the [Logging Management feature is installed](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) , log4j properties can be configured using the management console.
+All WSO2 products are shipped with the [log4j logging capabilities](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) , which generates administrative activities and server side logs. The `log4j.properties` file, which governs how logging is performed by the server can be found in the `<PRODUCT_HOME>/repository/conf` directory. If the [Logging Management feature is installed](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) , log4j properties can be configured using the management console.
 
 There are three main components when configuring log4j. They are Loggers, Appenders, and Layouts. Using the management console allows you to change these parameters globally as well as individually at run time. First, the server stores new values in the database and then changes the appropriate components in the logging framework, enabling the logging properties to be updated immediately.
 
@@ -28,7 +28,7 @@ This section allows you to assign a single log level and log pattern to all logg
 -   **Log Level** - Severity of the message. Reflects a minimum level that the logger requires. See descriptions of the [available log levels](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs#MonitoringLogs-log4j_levels) .
 -   **Log Pattern** - Defines the output format of the log file. This is the layout pattern which describes the log message format
 
-If you click **Restore Defaults** , the Registry will be overwritten by logging configurations specified in the `         log4j.properties        ` file .
+If you click **Restore Defaults** , the Registry will be overwritten by logging configurations specified in the `log4j.properties` file .
 
 #### Configure Log4J Appenders
 
@@ -38,16 +38,16 @@ This section allows you to configure appenders individually. Log4j allows loggin
 
 -   **Name** -The name of an appender. By default, a WSO2 product server is entered in this field with the following log appenders configured;
     -   **CARBON\_CONSOLE** - Logs to the console when the server is running.
-    -   **CARBON\_LOGFILE** - Writes the logs to `             <PRODUCT_HOME>/repository/logs/wso2carbon.log            ` .
+    -   **CARBON\_LOGFILE** - Writes the logs to `<PRODUCT_HOME>/repository/logs/wso2carbon.log` .
 
                 !!! info
         Some WSO2 products do not ship t he following appenders by default.
 
-        -   **SERVICE** \_ **APPENDER** - Writes service invocations to &lt; `              PRODUCT_HOME>/repository/logs/wso2-<PRODUCT_NAME>-service.log.             `
-        -   **ERROR\_LOGFILE -** Writes warning/error messages to &lt; `              ESB_HOME>/repository/logs/wso2-<PRODUCT_NAME>-service.log             `
+        -   **SERVICE** \_ **APPENDER** - Writes service invocations to &lt; `PRODUCT_HOME>/repository/logs/wso2-<PRODUCT_NAME>-service.log.`
+        -   **ERROR\_LOGFILE -** Writes warning/error messages to &lt; `ESB_HOME>/repository/logs/wso2-<PRODUCT_NAME>-service.log`
 
 
-    -   **TRACE** \_ **APPENDER** - Writes tracing/debug messages to the &lt; `             PRODUCT_HOME>/repository/logs/wso2-<PRODUCT_NAME>-trace.log            ` for tracing enabled services.
+    -   **TRACE** \_ **APPENDER** - Writes tracing/debug messages to the &lt; `PRODUCT_HOME>/repository/logs/wso2-<PRODUCT_NAME>-trace.log` for tracing enabled services.
 
     -   **CARBON\_ MEMORY**
     -   **CARBON\_SYS\_LOG -** Allows separating the software that generates messages, from the system that stores them and the software that reports and analyzes them.
@@ -60,7 +60,7 @@ This section allows you to configure appenders individually. Log4j allows loggin
         !!! info
     **Note** that the following capability was introduced by the Carbon 4.4.3 release. Therefore, it is only applicable to products that a based on Carbon 4.4.3 or later versions.
 
-    From Carbon 4.4.3 onwards, the UUID can be used for identifying forged messages in the log. By default, the UUID will be generated every time the server starts . If required, you can configure the UUID regeneration period by manually adding the following property to the `           log4j.properties          ` file (stored in the `           <PRODUCT_HOME>/repository/conf          ` directory) :
+    From Carbon 4.4.3 onwards, the UUID can be used for identifying forged messages in the log. By default, the UUID will be generated every time the server starts . If required, you can configure the UUID regeneration period by manually adding the following property to the `log4j.properties` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) :
 
     ``` java
         log4j.appender.CARBON_LOGFILE.layout.LogUUIDUpdateInterval=<number_of_hours>
@@ -77,7 +77,7 @@ This section allows you to configure appenders individually. Log4j allows loggin
 
 A Logger is an object used to log messages for a specific system or application component. Loggers are normally named using a hierarchical dot-separated namespace and have a 'child-parent' relationship. For example, the logger named 'root.sv' is a parent of the logger named 'root.sv.sf' and a child of 'root'.
 
-When the server starts for the first time, all the loggers initially listed in the `         log4j.properties        ` file appear on the logger name list. This section allows you to browse through all these loggers, define a log level and switch on/off additivity to any of them. After editing, the logging properties are read only from the database.
+When the server starts for the first time, all the loggers initially listed in the `log4j.properties` file appear on the logger name list. This section allows you to browse through all these loggers, define a log level and switch on/off additivity to any of them. After editing, the logging properties are read only from the database.
 
 -   **Logger** - The name of a logger.
 -   **Parent Logger** - The name of a parent logger.

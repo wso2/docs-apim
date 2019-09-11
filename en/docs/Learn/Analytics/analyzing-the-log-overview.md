@@ -33,7 +33,7 @@ This gadget allows you to:
 
 ### Recommended Action
 
--   If the count for log events of `          ERROR         ` and `          FATAL         ` types are particularly high at a specific time, carry out further investigations for unusual occurrences (e.g., API failure corresponding to the same time interval(s)).
+-   If the count for log events of `ERROR` and `FATAL` types are particularly high at a specific time, carry out further investigations for unusual occurrences (e.g., API failure corresponding to the same time interval(s)).
 -   If the count for log events of ERROR, WARN and FATAL is always high, recheck the configurations for your WSO2 API Manager installation and do the necessary changes to improve the overall health of your setup.
 -   Compare the count for different type of log events  different times and identify any patterns relating to the correlation between the occurrence of log events and time. When major deviations from these patterns are identified, carry out further investigations to identify the causes (e.g., increase/decrease in the load handled by WSO2 API Manager.).
 

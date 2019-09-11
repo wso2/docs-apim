@@ -8,7 +8,7 @@ WSO2 Carbon-based products use [asymmetric encryption](https://docs.wso2.com/dis
 
 Follow the steps given below to enable symmetric encryption.
 
-1.  Open the `          carbon.xml         ` file from the `          <PRODUCT_HOME>/repository/conf         ` directory.
+1.  Open the `carbon.xml` file from the `<PRODUCT_HOME>/repository/conf` directory.
 2.  Add the following properties:
 
     ``` java
@@ -19,12 +19,12 @@ Follow the steps given below to enable symmetric encryption.
         </SymmetricEncryption>
     ```
 
-    -   The `             IsEnabled            ` property is used to set symmetric encryption to ' `             true            ` ' or ' `             false            ` '.
+    -   The `IsEnabled` property is used to set symmetric encryption to ' `true` ' or ' `false` '.
 
-    -   The `            Algorithm           ` property specifies the symmetric key algorithm used.
-    -   The `            SecureVaultAlias           ` property is used to specify the secret alias if secure vault has been used to encrypt the secret key.
+    -   The `Algorithm` property specifies the symmetric key algorithm used.
+    -   The `SecureVaultAlias` property is used to specify the secret alias if secure vault has been used to encrypt the secret key.
 
-3.  Create a file named ' `           symmetric-key.properties          ` ' in the `           <PRODUCT_HOME>/repository/resources/security          ` folder and enter the symmetric key using the `           symmetric.key          ` property. See the following example where a plain text key is entered in the `           symmetric-key.properties          ` file:
+3.  Create a file named ' `symmetric-key.properties` ' in the `<PRODUCT_HOME>/repository/resources/security` folder and enter the symmetric key using the `symmetric.key` property. See the following example where a plain text key is entered in the `symmetric-key.properties` file:
 
     ``` java
             symmetric.key=samplekeyvalue

@@ -4,7 +4,7 @@
 
 Follow the steps below to learn how to publish an API from the WSO2 API Manager.
 
-1.  Sign in to the API Publisher `           https://<hostname>:9443/publisher          ` (e.g., `                       https://localhost:9443/publisher                     ` ). Use **admin** as the username and password. Upon signing in, the list of APIs in the API Publisher is listed.
+1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Use **admin** as the username and password. Upon signing in, the list of APIs in the API Publisher is listed.
 
         !!! note
     In order to demonstrate how to publish an API, the PhoneVerificationAPI, version 2.0.0, is used.
@@ -15,6 +15,6 @@ Follow the steps below to learn how to publish an API from the WSO2 API Manager.
     -   **Require re-subscription when publish the API** : Invalidates current user subscriptions, forcing users to subscribe again. **
         **
     -   **Deprecate old versions after publish the API** : If selected, any prior versions of the API that are published will be set to the DEPRECATED state automatically.
-3.  Go to the API Store ( `           https://<hostname>:9443/store)          ` using your browser and note that the API ( `           PhoneVerification 2.0.0          ` API) which was in the CREATED state is visible under the **APIs** menu.
+3.  Go to the API Store ( `https://<hostname>:9443/store)` using your browser and note that the API ( `PhoneVerification 2.0.0` API) which was in the CREATED state is visible under the **APIs** menu.
 
 

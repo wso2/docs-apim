@@ -26,7 +26,7 @@ Note the following key facts about the system administrator in your system:
 
 #### Updating the administrator
 
-The `          <Configuration>         ` section at the top of the `          <PRODUCT_HOME>/repository/conf/user-mgt.xml         ` file allows you to configure the administrator user in your system as well as the RDBMS that will be used for storing information related to user authentication (i.e. role-based permissions).
+The `<Configuration>` section at the top of the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file allows you to configure the administrator user in your system as well as the RDBMS that will be used for storing information related to user authentication (i.e. role-based permissions).
 
 ``` java
     <Realm>
@@ -92,7 +92,7 @@ Note the following regarding the configuration above.
 
 According to the default configuration in WSO2 products, the Users, Roles and Permissions are stored in the same repository (i.e., the default, embedded H2 database). However, you can change this configuration in such a way that the Users and Roles are stored in one repository (User Store) and the Permissions are stored in a separate repository. A user store can be a typical RDBMS, an LDAP or an external Active Directory.
 
-The repository that stores Permissions should always be an RDBMS. The Authorization Manager configuration in the `          user-mgt.xml         ` file (stored in the `          <PRODUCT_HOME>/repository/conf/         ` directory) connects the system to this RDBMS.
+The repository that stores Permissions should always be an RDBMS. The Authorization Manager configuration in the `user-mgt.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/` directory) connects the system to this RDBMS.
 
 Follow the steps given below to set up and configure the Authorization Manager.
 
@@ -102,16 +102,16 @@ By default, the embedded H2 database is used for storing permissions. You can ch
 
 1.  Change the default H2 database or set up another RDBMS for storing permissions.
 2.  W hen you set up an RDBMS for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database.
-    -   If you are replacing the default H2 database with a new RDBMS, update the `             master-datasource.xml            ` file (stored in the `             <PRODUCT_HOME>/repository/conf/datasources/            ` directory) with the relevant information.
-    -   Alternatively, create a new XML file with the datasource information of your new RDBMS and store it in the same `             <PRODUCT_HOME>/repository/conf/datasources/            ` directory.
+    -   If you are replacing the default H2 database with a new RDBMS, update the `master-datasource.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/datasources/` directory) with the relevant information.
+    -   Alternatively, create a new XML file with the datasource information of your new RDBMS and store it in the same `<PRODUCT_HOME>/repository/conf/datasources/` directory.
 
 Refer the [related topics](#RealmConfiguration-Relatedtopics) for detailed information on setting up databases and configuring datasources.
 
 #### Step 2: Updating the user realm configurations
 
-Once you have set up a new RDBMS and configured the datasource, the `          user-mgt.xml         ` file (user realm configuration) should be updated as explained below.
+Once you have set up a new RDBMS and configured the datasource, the `user-mgt.xml` file (user realm configuration) should be updated as explained below.
 
-1.  Set up the database connection by update the datasource information using the `            <Property>           ` element under `            <Configuration>           ` . The jndi name of the datasource should be used to refer to the datasource. In the following example, the jndi name of the default datasource defined in the `            <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml           ` file is linked from the `            user-mgt.xml           ` file.
+1.  Set up the database connection by update the datasource information using the `<Property>` element under `<Configuration>` . The jndi name of the datasource should be used to refer to the datasource. In the following example, the jndi name of the default datasource defined in the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file is linked from the `user-mgt.xml` file.
 
     ``` html/xml
         <Realm>
@@ -123,7 +123,7 @@ Once you have set up a new RDBMS and configured the datasource, the `          u
         </Realm> 
     ```
 
-    You can add more configurations using the `            <Property>           ` element:
+    You can add more configurations using the `<Property>` element:
 
     <table>
     <colgroup>
@@ -147,7 +147,7 @@ Once you have set up a new RDBMS and configured the datasource, the `          u
     </tbody>
     </table>
 
-2.  The default Authorization Manager section in the `            user-mgt.xml           ` file is shown below. This can be updated accordingly.
+2.  The default Authorization Manager section in the `user-mgt.xml` file is shown below. This can be updated accordingly.
 
     ``` java
             <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
@@ -156,9 +156,9 @@ Once you have set up a new RDBMS and configured the datasource, the `          u
             </AuthorizationManager>
     ```
 
-    -   The `             org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager            ` class enables the Authorization Manager for your product.
-    -   The `             AdminRoleManagementPermissions            ` property sets the registry path where the authorization information (role-based permissions) are stored. Note that this links to the repository that you defined in [Step 1](#RealmConfiguration-#Step1Settinguptherepo) .
-    -   It is recommended to enable the `              GetAllRolesOfUserEnabled             ` property in the `              AuthorizationManager             ` as follows:
+    -   The `org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager` class enables the Authorization Manager for your product.
+    -   The `AdminRoleManagementPermissions` property sets the registry path where the authorization information (role-based permissions) are stored. Note that this links to the repository that you defined in [Step 1](#RealmConfiguration-#Step1Settinguptherepo) .
+    -   It is recommended to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows:
 
         ``` java
                     <Property name="GetAllRolesOfUserEnabled">true</Property>

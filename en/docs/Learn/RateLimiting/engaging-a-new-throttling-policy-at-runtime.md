@@ -28,15 +28,15 @@ The steps below show how to engage a throttling policy to an API at runtime.
     -   Throttle assertion - Assertion for a concurrency-based policy.
 
 
-2.  Log in to the API Manager's management console ( `                                 https://localhost:9443/carbon                              ` ) and go to the **Resource &gt; Browse** menu to view the registry.
+2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and go to the **Resource &gt; Browse** menu to view the registry.
     ![](attachments/103335026/103335031.png)
-3.  Click the `          /_system/goverence/apimgt/applicationdata         ` path to go to its detailed view.
+3.  Click the `/_system/goverence/apimgt/applicationdata` path to go to its detailed view.
     ![](attachments/103335026/103335030.png)
 4.  In the detail view, click **Add Resource** .
     ![](attachments/103335026/103335033.png)
 5.  Upload the policy file to the server as a registry resource.
 
-6.  Open the synapse configuration file of a selected API you want to engage the policy, from the `           <API-M_HOME>/repository/deployment/server/synapse-configs/default/api          ` directory.
+6.  Open the synapse configuration file of a selected API you want to engage the policy, from the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory.
 
 7.  To engage the policy to a selected API, add it to your API definition. In this example, we add it to the login API under APIThrottleHandler.
 
@@ -65,7 +65,7 @@ The steps below show how to engage a throttling policy to an API at runtime.
     ```
 
         !!! note
-    **Note:** Be sure to specify the same path used in step 5 in the policy key of your API definition. Also, use the same tier name you selected when creating the API as the throttle id in the policy (example `           <throttle:ID throttle:type ="ROLE">Gold</throttle:ID>)          ` .
+    **Note:** Be sure to specify the same path used in step 5 in the policy key of your API definition. Also, use the same tier name you selected when creating the API as the throttle id in the policy (example `<throttle:ID throttle:type ="ROLE">Gold</throttle:ID>)` .
 
 
 You have successfully engaged a throttling policy to an API at runtime, without restarting the server.

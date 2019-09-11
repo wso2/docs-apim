@@ -18,9 +18,9 @@ The Carbon Health Check API can be used to check the health of a Carbon server. 
 
 There are three health checkers available by default:
 
-1.  **Data sources health checker** - This checker goes through the data sources that are configured in the `          master-datasources.xml         ` file and checks if the active connection count surpasses a healthy percentage limit (e.g., 80%) of the maximum allowed connections count. This checker also tests the connection from each data source to see whether the connection is successful.
+1.  **Data sources health checker** - This checker goes through the data sources that are configured in the `master-datasources.xml` file and checks if the active connection count surpasses a healthy percentage limit (e.g., 80%) of the maximum allowed connections count. This checker also tests the connection from each data source to see whether the connection is successful.
 2.  **Server startup health checker** - This checker uses the ServerAdmin service to check if the server status is RUNNING.
-3.  **Super tenant user store health checker** - This checker iterates through configured user stores of the super tenant domain and attempts to invoke the `           isExistingUser          ` method to check whether a failure occurs.
+3.  **Super tenant user store health checker** - This checker iterates through configured user stores of the super tenant domain and attempts to invoke the `isExistingUser` method to check whether a failure occurs.
 
 ### Deploying the API
 
@@ -33,14 +33,14 @@ This API is supported by default from WSO2 Identity Server 5.7.0 onwards. It is 
 
 This section guides you through deploying the Carbon Health Check components in a WSO2 Carbon product that does not support this feature by default.
 
-1.  Download the [org.wso2.carbon.healthcheck.server.feature-&lt;version-number&gt;.zip](attachments/126562954/126562955.zip) and extract it. This folder is reffered to as `          <API_HOME>         ` in this document.
-2.  Copy the `          org.wso2.carbon.healthcheck.api.core-<version-number>.jar         ` found in the `          <API_HOME>/plugins         ` directory and paste it in the `          <PRODUCT_HOME>/repository/components/dropins         ` directory.
-3.  Copy the webapp `          api#health-check#v1.0.war         ` found in the `          <API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0         ` directory and paste it in the the `          <PRODUCT_HOME>/repository/deployment/server/webapps         ` directory.
-4.  **(Optional step)** Copy the `          health-check.config.xml         ` configuration file found in the `          <API_HOME>          /features/         ` `          org.wso2.carbon.healthcheck.server_1.0.0         ` directory to your `          <PRODUCT_HOME>/repository/conf/         ` directory.
+1.  Download the [org.wso2.carbon.healthcheck.server.feature-&lt;version-number&gt;.zip](attachments/126562954/126562955.zip) and extract it. This folder is reffered to as `<API_HOME>` in this document.
+2.  Copy the `org.wso2.carbon.healthcheck.api.core-<version-number>.jar` found in the `<API_HOME>/plugins` directory and paste it in the `<PRODUCT_HOME>/repository/components/dropins` directory.
+3.  Copy the webapp `api#health-check#v1.0.war` found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory and paste it in the the `<PRODUCT_HOME>/repository/deployment/server/webapps` directory.
+4.  **(Optional step)** Copy the `health-check.config.xml` configuration file found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory to your `<PRODUCT_HOME>/repository/conf/` directory.
 
 ### Configuring the API
 
-This feature is disabled by default. To enable the API, set the `         <Enable>        ` property in the `         health-check-config.xml        ` file to **true** .
+This feature is disabled by default. To enable the API, set the `<Enable>` property in the `health-check-config.xml` file to **true** .
 
 !!! tip
 If the feature has not been enabled successfully , a request to the API will only return a 200 OK response.
@@ -63,8 +63,8 @@ If the feature has not been enabled successfully , a request to the API will onl
     </CarbonHealthCheckConfigs>
 ```
 
--   A health checker can be enabled or disabled using the **`           enable          `** attribute.
--   The execution order in which the health checkers are executes can be configured using the **`           orderId          `** attribute.
+-   A health checker can be enabled or disabled using the **`enable`** attribute.
+-   The execution order in which the health checkers are executes can be configured using the **`orderId`** attribute.
 -   The properties configured under each health checker will be available for each heath checker at runtime.
 
 ### Invoking the API
@@ -108,9 +108,9 @@ If the request is successful, you will recieve a 200 OK response (similar to the
     }
 ```
 
--   The `           active.connection.count          ` parameter reflects the number of connections that are active.
+-   The `active.connection.count` parameter reflects the number of connections that are active.
 
--   `           ConnectivityTime          ` refers to the the duration of the connection.
+-`ConnectivityTime` refers to the the duration of the connection.
 
 ### **Error responses**
 
@@ -139,11 +139,11 @@ The code block below shows a sample 503 Unavailable response with an array of er
 |------------|-------------------------------------------------------------------------------------------------------------------|
 | HC\_00001  | Data source connectivity error.                                                                                   |
 | HC\_00002  | Number of connections in data source exceeds the healthy percentage.                                              |
-| HC\_00003  | Error while testing connectivity to the user store using the `             isExistingUser            ` operation. |
+| HC\_00003  | Error while testing connectivity to the user store using the `isExistingUser` operation. |
 | HC\_00004  | Server status is not running.                                                                                     |
 | HC\_00005  | Error listing user stores.                                                                                        |
 
 ### Adding new health checkers
 
 To add a new health checker, you can implement the HealthChecker API and register the health checker as an OSGI service.
-To deploy it, copy the `         .jar        ` file to the `         <PRODUCT_HOME>/repository/component/lib/        ` directory or the OSGI bundle and paste it in the `         <PRODUCT_HOME>/repository/component/dropins/        ` directory.
+To deploy it, copy the `.jar` file to the `<PRODUCT_HOME>/repository/component/lib/` directory or the OSGI bundle and paste it in the `<PRODUCT_HOME>/repository/component/dropins/` directory.

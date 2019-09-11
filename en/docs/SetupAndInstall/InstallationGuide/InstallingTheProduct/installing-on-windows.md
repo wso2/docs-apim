@@ -12,28 +12,28 @@ Follow the instructions below to install API Manager on Windows.
 ### Installing the required applications
 
 1.  Be sure your system meets the Installation Prerequisites . Java Development Kit (JDK) is essential to run the product.
-2.  Be sure that the `          PATH         ` environment variable is set to "C:\\Windows\\System32", because the `          findstr         ` windows exe is stored in this path.
+2.  Be sure that the `PATH` environment variable is set to "C:\\Windows\\System32", because the `findstr` windows exe is stored in this path.
 
 ### Installing the API Manager
 
 1.  Download the latest version of the API Manager from <https://github.com/wso2/product-apim/releases/tag/v2.2.0-update1> .
-2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `            <API-M_HOME>           ` .
+2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>` .
 
 ### Installing and setting up snappy-java
 
-1.  Download the `          snappy-java_1.1.1.7.jar         ` from [here](http://mvnrepository.com/artifact/org.xerial.snappy/snappy-java/1.1.1.7) .
-2.  Copy the jar to `          <API-M_HOME>\repository\components\lib         ` .
+1.  Download the `snappy-java_1.1.1.7.jar` from [here](http://mvnrepository.com/artifact/org.xerial.snappy/snappy-java/1.1.1.7) .
+2.  Copy the jar to `<API-M_HOME>\repository\components\lib` .
 3.  If the API Manager server is currently running, restart it to apply the changes.
 
 ### Setting up JAVA\_HOME
 
-You must set your `         JAVA_HOME        ` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `         C:/Program Files/Java        ` , such as `         C:/Program Files/Java/jdk1.7.0_80        ` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
+You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk1.7.0_80` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
 !!! info
 Environment variables are global system variables accessible by all the processes running under the operating system. You can define an environment variable as a system variable, which applies to all users, or as a user variable, which applies only to the user who is currently logged in.
 
 
-You set up `         JAVA_HOME        ` using the System Properties, as described below. Alternatively, if you just want to set `         JAVA_HOME        ` temporarily for the current command prompt window, [set it at the command prompt](#InstallingonWindows-cmd) .
+You set up `JAVA_HOME` using the System Properties, as described below. Alternatively, if you just want to set `JAVA_HOME` temporarily for the current command prompt window, [set it at the command prompt](#InstallingonWindows-cmd) .
 
 **Setting up JAVA\_HOME using the system properties**
 
@@ -47,10 +47,10 @@ You set up `         JAVA_HOME        ` using the System Properties, as describe
 
     ![](attachments/thumbnails/26838941/27042154)
 4.  Enter the following information:
-    -   In the **Variable name** field, enter: `            JAVA_HOME           `
-    -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `            c:/Program Files/Java           ` `            jdk1.7.0_80           `
+    -   In the **Variable name** field, enter: `JAVA_HOME           `
+    -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Javajdk1.7.0_80           `
 
-The `         JAVA_HOME        ` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `         JAVA_HOME        ` variable to take effect, or manually set the `         JAVA_HOME        ` variable in those command prompt windows as described in the next section. To verify that the `         JAVA_HOME        ` variable is set correctly, open a command window (from the **Start** menu, click **Run** , and then type `         CMD        ` and click **Enter** ) and execute the following command:
+The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `JAVA_HOME` variable to take effect, or manually set the `JAVA_HOME` variable in those command prompt windows as described in the next section. To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run** , and then type `CMD` and click **Enter** ) and execute the following command:
 
     set JAVA_HOME
 
@@ -58,17 +58,17 @@ The system returns the JDK installation path. You are now ready to [run the prod
 
 **Setting JAVA\_HOME temporarily using the Windows command prompt (CMD)**
 
-You can temporarily set the `         JAVA_HOME        ` environment variable within a Windows command prompt window (CMD). This is useful when you have an existing command prompt window running and you do not want to restart it.
+You can temporarily set the `JAVA_HOME` environment variable within a Windows command prompt window (CMD). This is useful when you have an existing command prompt window running and you do not want to restart it.
 
-1.  In the command prompt window, enter the following command where `           <JDK_INSTALLATION_PATH>          ` is the JDK installation directory and press **Enter.**
+1.  In the command prompt window, enter the following command where `<JDK_INSTALLATION_PATH>` is the JDK installation directory and press **Enter.**
 
         set JAVA_HOME=<JDK_INSTALLATION_PATH>
 
-    For example: `           set JAVA_HOME=c:/Program Files/java/jdk1.7.0_80          `
+    For example: `set JAVA_HOME=c:/Program Files/java/jdk1.7.0_80          `
 
-    The `           JAVA_HOME          ` variable is now set for the current CMD session only.
+    The `JAVA_HOME` variable is now set for the current CMD session only.
 
-2.  To verify that the `          JAVA_HOME         ` variable is set correctly, execute the following command:
+2.  To verify that the `JAVA_HOME` variable is set correctly, execute the following command:
 
         set JAVA_HOME
 

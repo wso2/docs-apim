@@ -74,15 +74,15 @@ Follow the steps below to set up a MySQL database:
 
 ### Setting up the drivers
 
-Download the MySQL Java connector [JAR file](http://dev.mysql.com/downloads/connector/j/5.1.html) , and copy it to the &lt; `         PRODUCT_HOME>/repository/components/lib/        ` directory.
+Download the MySQL Java connector [JAR file](http://dev.mysql.com/downloads/connector/j/5.1.html) , and copy it to the &lt; `PRODUCT_HOME>/repository/components/lib/` directory.
 
 !!! tip
 Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the steps below:
 
-1.  Shut down the server and remove all existing connectors from `          <PRODUCT_HOME>/repository/components/lib         ` and `          <PRODUCT_HOME>/repository/components/dropins         ` .
+1.  Shut down the server and remove all existing connectors from `<PRODUCT_HOME>/repository/components/lib` and `<PRODUCT_HOME>/repository/components/dropins` .
 2.  Download the connector JAR that is compatible with your current MySQL version.
-3.  Copy the JAR file **only to** `          <PRODUCT_HOME>/repository/components/lib         ` . Files will be copied automatically to the dropins folder during server startup.
-4.  Start the server with the - `          Dsetup         ` parameter as `          sh wso2server.sh -Dsetup         ` .
+3.  Copy the JAR file **only to** `<PRODUCT_HOME>/repository/components/lib` . Files will be copied automatically to the dropins folder during server startup.
+4.  Start the server with the - `Dsetup` parameter as `sh wso2server.sh -Dsetup` .
 
 
 ### Executing db scripts on MySQL database

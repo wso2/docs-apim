@@ -48,7 +48,7 @@ For more information on logs and how to change log properties according to your 
         !!! info
     Note
 
-    The location of the log files on disk is specified in the `           log4j.configuration          ` file.
+    The location of the log files on disk is specified in the `log4j.configuration` file.
 
 
 

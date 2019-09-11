@@ -14,7 +14,7 @@ Follow the instructions below to change the default admin password:
 
 1.  Change the user credentials in the following files.
 
-    -   The `             <UserName>            ` and `             <Password>            ` values in `             <API-M_HOME>/repository/conf/user-mgt.xml            ` file.
+    -   The `<UserName>` and `<Password>` values in `<API-M_HOME>/repository/conf/user-mgt.xml` file.
 
         ``` xml
                 <UserManager>
@@ -31,21 +31,21 @@ Follow the instructions below to change the default admin password:
         ```
 
                 !!! note
-        Note that the password in the `             user-mgt.xml            ` file is written to the primary user store when the server starts for the first time. Thereafter, the password will be validated from the primary user store and not from the `             user-mgt.xml            ` file. Therefore, if you need to change the admin password stored in the user store, you cannot simply change the value in the `             user-mgt.xml            ` file. To change the super admin password, you must use the **Change Password** option from the management console.
+        Note that the password in the `user-mgt.xml` file is written to the primary user store when the server starts for the first time. Thereafter, the password will be validated from the primary user store and not from the `user-mgt.xml` file. Therefore, if you need to change the admin password stored in the user store, you cannot simply change the value in the `user-mgt.xml` file. To change the super admin password, you must use the **Change Password** option from the management console.
 
         To change the password from Management Console ( <https://localhost:9443/carbon> ), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
 
 
-    -   The `             <API-M_HOME>/repository/conf/jndi.properties            ` file.
+    -   The `<API-M_HOME>/repository/conf/jndi.properties` file.
 
         ``` java
                 connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://localhost:5672'
                 connectionfactory.QueueConnectionFactory = amqp://admin:admin@clientID/test?brokerlist='tcp://localhost:5672'
         ```
 
-    **If you have [Configured API Manager Analytics](https://docs.wso2.com/display/AM2xx/Configuring+APIM+Analytics) ,** when changing the super admin credentials you have to change credentials in `           <API-M_HOME>/repository/conf/api-manager.xml          ` and `           <API-M_HOME>/repository/conf/log4j.properties          ` as well.
+    **If you have [Configured API Manager Analytics](https://docs.wso2.com/display/AM2xx/Configuring+APIM+Analytics) ,** when changing the super admin credentials you have to change credentials in `<API-M_HOME>/repository/conf/api-manager.xml` and `<API-M_HOME>/repository/conf/log4j.properties` as well.
 
-    -   The `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
+    -   The `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
         ``` java
                     <Analytics>
@@ -73,7 +73,7 @@ Follow the instructions below to change the default admin password:
 
             </Analytics>
         ```
-    -   The `             <API-M_HOME>/repository/conf/log4j.properties            ` file.
+    -   The `<API-M_HOME>/repository/conf/log4j.properties` file.
 
         ``` java
                 log4j.appender.DAS_AGENT.userName=admin
@@ -93,10 +93,10 @@ Follow the instructions below to change the default admin password:
         </Password>
     ```
 
--   Note the following if you have special characters in the passwords on your `           jndi.properties          ` file:
+-   Note the following if you have special characters in the passwords on your `jndi.properties` file:
 
-    -   It is not possible to use the `            @           ` symbol in the username or password.
-    -   It is also not possible to use the percentage (%) sign in the password. When building the connection URL, the URL is parsed. This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If using the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `            adm%in           ` as the password, then the `            %           ` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `            adm%25in           ` .
+    -   It is not possible to use the `@` symbol in the username or password.
+    -   It is also not possible to use the percentage (%) sign in the password. When building the connection URL, the URL is parsed. This parsing exception happens because the percentage (%) sign acts as the escape character in URL parsing. If using the percentage (%) sign in the connection string is required, use the respective encoding character for the percentage (%) sign in the connection string. For example, if you need to pass `adm%in` as the password, then the `%` symbol should be encoded with its respective URL encoding character. Therefore, you have to send it as `adm%25in` .
         For a list of possible URL parsing patterns, see [URL encoding reference](http://www.w3schools.com/tags/ref_urlencode.asp) .
 
 
@@ -113,17 +113,17 @@ For information, see [Authentication using multiple Attributes](https://docs.wso
 For information, see [Email Authentication](https://docs.wso2.com/display/IS560/Using+Email+Address+as+the+Username) in the WSO2 IS documentation.
 
 !!! tip
--   When setting up email login, specify the complete username with tenant domain. If you are in the super tenant mode the username should be as follows. `          <username>@<email>@carbon.super         `
-    **Example:** `                     admin@wso2.com                    @carbon.super         `
+-   When setting up email login, specify the complete username with tenant domain. If you are in the super tenant mode the username should be as follows. `<username>@<email>@carbon.super`
+    **Example:** `admin@wso2.com@carbon.super`
 
 <!-- -->
 
--   When configuring the `          <DataPublisher>         ` section under `          <ThrottlingConfiguration>         ` in the `          <PRODUCT_HOME>/repository/conf/api-manager.xml         ` file, specify the fully qualified username with tenant domain.
-    **Example :** `          <Username>admin@                     wso2.com                    @carbon.super</Username>         `
+-   When configuring the `<DataPublisher>` section under `<ThrottlingConfiguration>` in the `<PRODUCT_HOME>/repository/conf/api-manager.xml` file, specify the fully qualified username with tenant domain.
+    **Example :** `<Username>admin@wso2.com@carbon.super</Username>`
 
 <!-- -->
 
--   The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specifing username in JMS Connection URL, under `           <JMSConnectionParameters>          ` section in the `           <PRODUCT_HOME>/repository/conf/api-manager.xml          ` file, "@" characters should be replaced by "!" character. An example is shown below.
+-   The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specifing username in JMS Connection URL, under `<JMSConnectionParameters>` section in the `<PRODUCT_HOME>/repository/conf/api-manager.xml` file, "@" characters should be replaced by "!" character. An example is shown below.
 
     ``` java
         <connectionfactory.TopicConnectionFactory><![CDATA[amqp://admin!wso2.com!carbon.super:admin@clientid/carbon?failover='roundrobin'&cyclecount='2'&brokerlist='tcp://10.100.0.3:5682?retries='5'&connectdelay='50';tcp://10.100.0.3:5692?retries='5'&connectdelay='50'']]></connectionfactory.TopicConnectionFactory>

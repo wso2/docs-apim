@@ -13,8 +13,8 @@
 
 
 1.  Sign in to the WSO2 API Publisher.
-    `          https://<hostname>:9443/publisher-new         ` (e.g., `                     https://localhost:9443/publisher-new                   ` ). Use **admin** as the username and password.
-    `                                        `
+`https://<hostname>:9443/publisher-new` (e.g., `https://localhost:9443/publisher-new` ). Use **admin** as the username and password.
+``
 2.  Click **CREATE AN API** .
 
     ![](../../../assets/attachments/119129032/119128996.png)

@@ -12,19 +12,19 @@ The transfer application ownership feature is only available as a WUM update a
 
 1.  Start the WSO2 API-M Server.
 2.  If the users do not exist in the system, create them.
-    Sign in to the WSO2 API-M Management Console and create two users named Chris and Kim with the `           Internal/subscriber          ` role.
-    `           https://<APIM-hostname>:9443/carbon/          `
+    Sign in to the WSO2 API-M Management Console and create two users named Chris and Kim with the `Internal/subscriber` role.
+`https://<APIM-hostname>:9443/carbon/          `
 
 3.  Check the details of the application that you wish to share in the Store (e.g., TestApp).
 
     1.  Sign in to the WSO2 API-M Store using the application owner's (Chris's) user credentials.
-        `             https://<APIM-hostname>:9443/store/            `
+`https://<APIM-hostname>:9443/store/            `
 
     2.  If the application does not exist, create it in the Store.
 
 4.  Change the ownership of the application.
     1.  Sign in to the WSO2 API-M Admin Portal using admin credentials.
-        `             https://<APIM-hostname>:9443/admin/            `
+`https://<APIM-hostname>:9443/admin/            `
 
     2.  Click **Applications** under **Settings** .
         This shows you the list of applications together with the respective owners.
@@ -36,7 +36,7 @@ The transfer application ownership feature is only available as a WUM update a
                 !!! tip
         Troubleshooting
 
-        If you get a " `             <usernane> is not a subscriber            ` " error (e.g., Kim is not a subscriber) in the Admin Portal, make sure to request that specific user (e.g., Kim) to sign in to the WSO2 Store, because users are not added as subscribers until they log in to the Store at least once.
+        If you get a " `<usernane> is not a subscriber` " error (e.g., Kim is not a subscriber) in the Admin Portal, make sure to request that specific user (e.g., Kim) to sign in to the WSO2 Store, because users are not added as subscribers until they log in to the Store at least once.
 
 
         The application page shows the new ownership.

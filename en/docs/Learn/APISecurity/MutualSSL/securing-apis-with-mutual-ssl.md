@@ -16,7 +16,7 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
 
 Follow the steps below to enable this feature in WSO2 API Manager.
 
-1.  Create the `           AM_API_CLIENT_CERTIFICATE          ` table in the APIM DB using the appropriate script given below. Note that the database name will depend on the databases present in your environment.
+1.  Create the `AM_API_CLIENT_CERTIFICATE` table in the APIM DB using the appropriate script given below. Note that the database name will depend on the databases present in your environment.
 
     -   [**H2**](#H2)
     -   [**MSSQL**](#MSSQL)
@@ -135,19 +135,19 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             )/
     ```
 
-2.  Open the `           <API-M_HOME>/repository/conf/axis2/axis2.xml          ` file. Locate the `           transportReceiver          ` for `           https          ` as shown below.
+2.  Open the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file. Locate the `transportReceiver` for `https` as shown below.
 
     ``` java
             <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">
     ```
 
-    Change the class name to `           org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener          ` . The sample is given below.
+    Change the class name to `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` . The sample is given below.
 
     ``` java
             <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener">
     ```
 
-3.  Add the following parameters under `           transportReceiver          ` similar to the sample given below.
+3.  Add the following parameters under `transportReceiver` similar to the sample given below.
 
     ``` java
             <parameter name="dynamicSSLProfilesConfig">
@@ -157,8 +157,8 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             <parameter name="SSLVerifyClient">optional</parameter>
     ```
 
-    The `           dynamicSSLProfilesConfig          ` specifies the file read to load the dynamic SSL profile and the time interval in which it will be read.
-    Note that if the `           fileReadInterval          ` parameter is set to 600000, it will take at least 10 minutes for the gateway to accept a newly added client certificate.
+    The `dynamicSSLProfilesConfig` specifies the file read to load the dynamic SSL profile and the time interval in which it will be read.
+    Note that if the `fileReadInterval` parameter is set to 600000, it will take at least 10 minutes for the gateway to accept a newly added client certificate.
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Expand to see the transportReceiver segment after the changes mentioned above have been made...
 
@@ -198,7 +198,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             </transportReceiver>
     ```
 
-4.  Copy the code given below to create the `           listenerprofiles.xml          ` file in the `           <API-M_HOME>/repository/resources/security          ` directory.
+4.  Copy the code given below to create the `listenerprofiles.xml` file in the `<API-M_HOME>/repository/resources/security` directory.
 
     ``` java
             <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -222,10 +222,10 @@ Follow the steps below to enable this feature in WSO2 API Manager.
     ```
 
         !!! note
-    The `           <API-M_HOME>/repository/resources/security          ` directory can be changed according to the file path you have configured in Step 2.
+    The `<API-M_HOME>/repository/resources/security` directory can be changed according to the file path you have configured in Step 2.
 
 
-5.  Open the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file. Set the `           EnableMTLSForAPIs          ` parameter to `           true          ` .
+5.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file. Set the `EnableMTLSForAPIs` parameter to `true` .
 
     ``` java
         <APIManager>
@@ -251,14 +251,14 @@ Follow the steps below to enable this feature in WSO2 API Manager.
         !!! note
     This feature currently supports only the following formats for keystores and certificates.
 
-    -   Keystore : `             .jks            `
-    -   Certificate : `             .crt            `
+    -   Keystore : `.jks            `
+    -   Certificate : `.crt            `
 
     If you need to use a certificate in any other format, you can convert it using a standard tool before uploading.
 
 
         !!! info
-    After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `           api-manager.xml          ` . In a clustered setup, as gateway configurations are identical, sync the `           <API-M_HOME>/repository/resources/security/           listenerprofiles           .xml          ` and `           <API-M_HOME>/repository/resources/security/client-truststore.jks          ` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
+    After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `api-manager.xml` . In a clustered setup, as gateway configurations are identical, sync the `<API-M_HOME>/repository/resources/security/           listenerprofiles           .xml` and `<API-M_HOME>/repository/resources/security/client-truststore.jks` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
 
 
 5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload** .

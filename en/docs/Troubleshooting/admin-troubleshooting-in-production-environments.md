@@ -11,11 +11,11 @@ The following sections provide information on how to troubleshoot various proble
 
 When your Java process starts to spin your CPU, you must immediately analyze the issue using the following two commands and obtain the invaluable information required to tackle the issue. This is done based on the process ID (pid).
 
-1.  `          jstack <pid> > thread-dump.txt         `
-2.  `           ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt                     `
+1.`jstack <pid> > thread-dump.txt         `
+2.`ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt                     `
 
         !!! tip
-    **Tip** : OS X users can alternatively use the command `           ps M <PID>          ` instead.
+    **Tip** : OS X users can alternatively use the command `ps M <PID>` instead.
 
 
 These commands provide you with the **thread-dump.txt** file and the **thread-usage.txt** file. After obtaining these two files, do the following.
@@ -61,7 +61,7 @@ These commands provide you with the **thread-dump.txt** file and the **thread-us
 
 Carbondump is a tool used to collect all the necessary data from a running WSO2 product instance at the time of an error. The carbondump generates a ZIP archive with the collected data that helps to analyze the system and determine the problem that caused the error. Therefore, it is recommended that you run this tool as soon as an error occurs in the WSO2 product instance.
 
-When using the tool, you have to provide the process ID (pid) of the product instance and the `         <PRODUCT_HOME>        ` location, which is where your unzipped Carbon distribution files reside. The command takes the following format:
+When using the tool, you have to provide the process ID (pid) of the product instance and the `<PRODUCT_HOME>` location, which is where your unzipped Carbon distribution files reside. The command takes the following format:
 
 ``` java
     sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
@@ -99,7 +99,7 @@ This information is useful to know in situations when the database processes are
 The following information provides insight on whether a Solaris process is parallelized and is taking advantage of the threading within the CPU.
 
 1.  Open a command line in Solaris.
-2.  Run `           prstat          ` and have a look to the last column, labeled `           PROCESS/NLWP          ` . NLWP is a reference to the number of lightweight processes and are the number of threads the process is currently using with Solaris as there is a one-to-one mapping between lightweight processes and user threads. A single thread process will show `           1          ` there while a multi-threaded one will show a larger number. See the following code block for an example.
+2.  Run `prstat` and have a look to the last column, labeled `PROCESS/NLWP` . NLWP is a reference to the number of lightweight processes and are the number of threads the process is currently using with Solaris as there is a one-to-one mapping between lightweight processes and user threads. A single thread process will show `1` there while a multi-threaded one will show a larger number. See the following code block for an example.
 
     ``` java
           PID USERNAME  SIZE   RSS STATE  PRI NICE      TIME  CPU PROCESS/NLWP       
@@ -109,9 +109,9 @@ The following information provides insight on whether a Solaris process is paral
          4102 oracle     12G   12G run     59    0   0:00:12 4.5% oracle/1
     ```
 
-    If you observe the `           PROCESS/NLWP          ` value in the example above, you can identify that `           prstat          ` and `           oracle          ` are single thread processes, while `           java          ` is a multi-threaded process.
+    If you observe the `PROCESS/NLWP` value in the example above, you can identify that `prstat` and `oracle` are single thread processes, while `java` is a multi-threaded process.
 
-3.  Alternatively, you can analyze individual thread activity of a multi-threaded process by using the `           -L          ` and `           -p          ` options, like `           prstat -L -p pid          ` . This displays a line for each thread sorted by CPU activity. In that case, the last column is labeled `           PROCESS/LWPID          ` , where LWPID is the thread ID. If more than one thread shows significant activity, your process is actively taking advantage of multi-threading.
+3.  Alternatively, you can analyze individual thread activity of a multi-threaded process by using the `-L` and `-p` options, like `prstat -L -p pid` . This displays a line for each thread sorted by CPU activity. In that case, the last column is labeled `PROCESS/LWPID` , where LWPID is the thread ID. If more than one thread shows significant activity, your process is actively taking advantage of multi-threading.
 
 ### Checking the health of a cluster
 
@@ -119,7 +119,7 @@ In Hazelcast, the health of a member in the cluster is determined by the heartbe
 
 Failure detectors used in distributed systems can be unreliable. In these sort of scenarios, Hazelcast uses heartbeat monitoring as a fault detection mechanism and the nodes send heartbeats to other nodes.
 
-If a heartbeat message is not received by a given amount of time, Hazelcast assumes the node is dead. This is configured via the `         hazelcast.max.no.heartbeat.seconds        ` property. The optimum value for this property depends on the system. Although the default is 600 seconds, it might be necessary to reduce the heartbeat to a lower value if nodes are to be declared dead in a shorter time frame. However, you must verify this in your system and adjust as necessary depending on your scenario.
+If a heartbeat message is not received by a given amount of time, Hazelcast assumes the node is dead. This is configured via the `hazelcast.max.no.heartbeat.seconds` property. The optimum value for this property depends on the system. Although the default is 600 seconds, it might be necessary to reduce the heartbeat to a lower value if nodes are to be declared dead in a shorter time frame. However, you must verify this in your system and adjust as necessary depending on your scenario.
 
 !!! warning
 **Warning** : Reducing the value of this property to a lower value can result in nodes being considered as dead even if they are not. This results in multiple messages indicating that a node is leaving and rejoining the cluster.
@@ -128,8 +128,8 @@ If a heartbeat message is not received by a given amount of time, Hazelcast assu
 Do the following steps to configure the maximum time between heartbeats.
 
 1.  Create a property file called hazelcast.properties, and add the following property to it.
-    `          hazelcast.max.no.heartbeat.seconds=300         `
-2.  Place this file in the `          <PRODUCT_HOME>/repository/conf/         ` directory in all the nodes in your cluster.
+`hazelcast.max.no.heartbeat.seconds=300         `
+2.  Place this file in the `<PRODUCT_HOME>/repository/conf/` directory in all the nodes in your cluster.
 3.  Restart the servers.
 
 

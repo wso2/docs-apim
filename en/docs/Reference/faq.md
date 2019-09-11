@@ -103,15 +103,15 @@ For a list of system requirements, environment compatibility and required applic
 
 From Carbon kernel 4.4.6 onward, your product is shipped with two scripts for MySQL (click [here](http://wso2.com/products/carbon/release-matrix/) to see if your product is based on this kernel version or newer):
 
--   `           mysql.sql          ` : Use this script for MySQL versions prior to version 5.7.
+-`mysql.sql` : Use this script for MySQL versions prior to version 5.7.
 
--   `          mysql5.7.sql         ` : Use this script for MySQL 5.7 and later versions.
+-`mysql5.7.sql` : Use this script for MySQL 5.7 and later versions.
 
 MySQL 5.7 is only recommended for products that are based on Carbon 4.4.6 or a later version.
 
 ##### How do I deploy a third-party library into the API Manager?
 
-Copy any third-party JARs to `         <API-M_HOME>/repository/components/lib        ` directory and restart the server.
+Copy any third-party JARs to `<API-M_HOME>/repository/components/lib` directory and restart the server.
 
 ##### Can I connect the API Manager directly to an LDAP or Active Directory where corporate identities are stored?
 
@@ -127,7 +127,7 @@ Yes, you can do this using the **Features** menu under the **Configure** menu of
 
 ##### How can I change the memory allocation for the API Manager?
 
-The memory allocation settings are stored in the `         <API-M_HOME>/bin/wso2server.sh        ` file.
+The memory allocation settings are stored in the `<API-M_HOME>/bin/wso2server.sh` file.
 
 ##### How do I start up only selected components of the API Manager?
 
@@ -157,7 +157,7 @@ Yes, you can do this using the management console. The API Manager already has f
 
 To enable using your email (e.g., <admin@wso2.com> ) as your username when deploying WSO2 API-M and WSO2 Identity Server (WSO2 IS), while doing master configurations, do the following.
 
-Go to `         <API-M_HOME>/repository/conf/api-manager.xm        ` l. In the `         DataPublisher        ` section, under `         ThrottlingConfiguration        ` section, specify the username as follows: `                   admin@wso2.com                  @carbon.super        ` The `         api-manager.xml        ` file only accepts configurations for the super tenant.
+Go to `<API-M_HOME>/repository/conf/api-manager.xm` l. In the `DataPublisher` section, under `ThrottlingConfiguration` section, specify the username as follows: `admin@wso2.com                  @carbon.super` The `api-manager.xml` file only accepts configurations for the super tenant.
 
 ``` java
     <Username>admin@wso2.com@carbon.super</Username>
@@ -177,20 +177,20 @@ See [Configuring the Proxy Server and the Load Balancer](_Configuring_the_Proxy_
 
 ##### Why can't I see all the APIs that I published on the API Store?
 
-If you have multiple versions of an API published, only the latest version is shown in the API Store. To display multiple versions, set the `         <DisplayMultipleVersions>        ` element to `         true        ` in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file.
+If you have multiple versions of an API published, only the latest version is shown in the API Store. To display multiple versions, set the `<DisplayMultipleVersions>` element to `true` in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
 ##### When editing an API's resource parameters, how can I add multiple options to the **Response Content Type parameter** ?
 
 You cannot do this using the UI. Instead, edit the Swagger definition of the API as shown in the following example,
-`         content_type: ["text/xml","text/plain"]        `
+`content_type: ["text/xml","text/plain"]        `
 
-##### Why are the changes I did to the `                   Response Content Type                 ` resource parameter of a published API not reflected in the API Store, even after saving?
+##### Why are the changes I did to the `Response Content Type` resource parameter of a published API not reflected in the API Store, even after saving?
 
 If you edited the **Response Content Type** using the UI, please open the API's Swagger definition, do your changes, and save. Then the changes should be reflected back in the API Store. This will be fixed in a future release.
 
 ##### How do I change the pass-through transport configurations?
 
-If you have enabled the pass-through transport, you can change its default configurations by adding the  following under the `         <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">        ` element in the `         <PRODUCT_HOME>/repository/conf/axis2/axis2.xml        ` file. Be sure to **stop the server** before editing the file.
+If you have enabled the pass-through transport, you can change its default configurations by adding the  following under the `<transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">` element in the `<PRODUCT_HOME>/repository/conf/axis2/axis2.xml` file. Be sure to **stop the server** before editing the file.
 
 If you are using JDK 1.7.\* or 1.8.\*, add the parameter given below:
 
@@ -207,7 +207,7 @@ See [Working with Features](https://docs.wso2.com/display/ADMIN44x/Working+with+
 
 ##### How can I preserve the CDATA element tag in API responses?
 
-Set the `         javax.xml.stream.isCoalescing        ` property to `         false        ` in the `         <API-M_HOME>/XMLInputFactory.properties        ` file. Here's an example:
+Set the `javax.xml.stream.isCoalescing` property to `false` in the `<API-M_HOME>/XMLInputFactory.properties` file. Here's an example:
 
 ``` java
     <XacuteResponse xmlns="http://aaa/xI">
@@ -247,7 +247,7 @@ See [how to enable self signup](Customizing-the-API-Store_103333490.html#Customi
 
 ##### How can I disable self signup to the API Store? I want to engage my own approval mechanism.
 
-To disable the self signup capability, open the API-M management console and click the **Resources &gt; Browse** menu. The registry opens. Navigate to the `         /_system/governance/apimgt/applicationdata/sign-up-config.xml        ` file and set the `         <SelfSignUp><Enabled>        ` element to false. To engage your own signup process, see [Adding a User Signup Workflow](_Adding_a_User_Signup_Workflow_) .
+To disable the self signup capability, open the API-M management console and click the **Resources &gt; Browse** menu. The registry opens. Navigate to the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` file and set the `<SelfSignUp><Enabled>` element to false. To engage your own signup process, see [Adding a User Signup Workflow](_Adding_a_User_Signup_Workflow_) .
 
 ##### Is there a way to lock a user's account after a certain number of failed login attempts to the API Store?
 
@@ -257,7 +257,7 @@ If your identity provider is WSO2 Identity Server, this facility comes out of th
 
 To change the default admin password, log in to the management console with admin/admin credentials and use the **Change my password** option. After changing the password, do the following:
 
-Change the following elements in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file:
+Change the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file:
 
 ``` xml
     <AuthManager>
@@ -274,11 +274,11 @@ Change the following elements in the `         <API-M_HOME>/repository/conf/api-
    <Password>newpassword</Password>
 </APIKeyManager>
 ```
-Go to the **Resources &gt; Browse** menu in the management console to open the registry and update the credentials in the `         /_system/governance/apimgt/applicationdata/sign-up-config.xml        ` registry location.
+Go to the **Resources &gt; Browse** menu in the management console to open the registry and update the credentials in the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` registry location.
 
 ##### How can I recover the admin password used to log in to the management console?
 
-Use the `         <API-M_HOME>/bin/chpasswd.sh        ` script.
+Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ##### How can I manage session timeouts for the management console?
 
@@ -286,7 +286,7 @@ To configure session timeouts, see [Configuring the session time-out](Running-th
 
 ##### How can I add authentication headers to messages going out of the API Gateway to the backend?
 
-Uncomment the `         <RemoveOAuthHeadersFromOutMessage>        ` element in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file and set its value to `         false        ` .
+Uncomment the `<RemoveOAuthHeadersFromOutMessage>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file and set its value to `false` .
 
 ##### Can I give special characters in the passwords that appear in the configuration files?
 
@@ -306,12 +306,12 @@ You can protect your server from attacks such as the Logjam attack (Man-in-the-M
 
 ##### Why do I get an illegal access attempt error while trying to authenticate APIKeyValidationService?
 
-If you get the following error: `         org.wso2.carbon.server.admin.module.handler.AuthenticationHandler - Illegal access attempt        ` , it may be due to the following reasons,
+If you get the following error: `org.wso2.carbon.server.admin.module.handler.AuthenticationHandler - Illegal access attempt` , it may be due to the following reasons,
 
 -   Did you change the default admin password?
-    If so, you need to change the credentials stored in the `          <APIKeyValidator>         ` element of the `          <API-M_HOME>/repository/conf/api-manager.xml         ` file of the API Gateway node(s).
--   Have you set the priority of the `           SAML2SSOAuthenticator          ` handler higher than that of the `           BasicAuthenticator          ` handler in the `           authenticators.xml          ` file?
-    If so, the `           SAML2SSOAuthenticator          ` handler tries to manage the basic authentication requests as well. Set a lower priority to the `           SAML2SSOAuthenticator          ` than the `           BasicAuthenticator          ` handler as follows:
+    If so, you need to change the credentials stored in the `<APIKeyValidator>` element of the `<API-M_HOME>/repository/conf/api-manager.xml` file of the API Gateway node(s).
+-   Have you set the priority of the `SAML2SSOAuthenticator` handler higher than that of the `BasicAuthenticator` handler in the `authenticators.xml` file?
+    If so, the `SAML2SSOAuthenticator` handler tries to manage the basic authentication requests as well. Set a lower priority to the `SAML2SSOAuthenticator` than the `BasicAuthenticator` handler as follows:
 
     ``` xml
             <Authenticator name="SAML2SSOAuthenticator" disabled="false">
@@ -331,9 +331,9 @@ If you get the following error: `         org.wso2.carbon.server.admin.module.ha
 
 **Reason for occurrence**
 
-The *`          javax.net.ssl.SSLException: hostname in certificate didn't match: <ip addrees> != <localhost>         `* exception is a very common exception that occurs whenever the WSO2 product server is accessed using a different IP address (e.g., `         https://10.100.0.77:9443/publisher        ` ) except localhost (e.g., `         https://localhost:9443/publisher        ` ).
+The *`javax.net.ssl.SSLException: hostname in certificate didn't match: <ip addrees> != <localhost>         `* exception is a very common exception that occurs whenever the WSO2 product server is accessed using a different IP address (e.g., `https://10.100.0.77:9443/publisher` ) except localhost (e.g., `https://localhost:9443/publisher` ).
 
-The reason that the exception occurs is because the self-signed certificate that is shipped with WSO2 products is configured using the hostname as `         localhost        ` , and as a result Apache Shindig does not allow any other HTTP requests that originate from other hostnames/IP addresses other than localhost.
+The reason that the exception occurs is because the self-signed certificate that is shipped with WSO2 products is configured using the hostname as `localhost` , and as a result Apache Shindig does not allow any other HTTP requests that originate from other hostnames/IP addresses other than localhost.
 
 **Overcoming the issue**
 
@@ -359,7 +359,7 @@ Step 1 - Create a self-signed Java KeyStore file and include your domain as the�
             Re-enter new password: <keystore_password>
     ```
 
-3.  Enter the first name and last name as `           *.foo.com          ` and fill out the other information accordingly when prompted.
+3.  Enter the first name and last name as `*.foo.com` and fill out the other information accordingly when prompted.
 
     **Example**
 
@@ -388,24 +388,24 @@ Step 1 - Create a self-signed Java KeyStore file and include your domain as the�
             Re-enter new password: <key_password>
     ```
 
-    -   `             <key_password>            ` -  Enter the key password that you provided in [step 1.2](#FAQ-Keystorepassword) .
+    -`<key_password>` -  Enter the key password that you provided in [step 1.2](#FAQ-Keystorepassword) .
 
-    This generates a KeyStore with a private key and a public certificate with CN as `           *.foo.com          `
+    This generates a KeyStore with a private key and a public certificate with CN as `*.foo.com          `
 
 **Step 2 - Configure the SSL KeyStore**
 
 Follow the instructions to configure the WSO2 product with the generated KeyStore:
 
-1.  Copy the generated self-signed keystore, `          foo.jks         ` , which was created in [step 1](#FAQ-Step1-CreateaselfsignedJavaKeyStorefileandincludeyourdomainastheCN) , into the `          <PRODUCT_HOME>/repository/resources/security         ` directory.
-2.  Export the public certificate from the keystore and import that certificate to the `          client­-truststore.jks         ` file.
-    1.  Navigate to the `            <API-M_HOME>/repository/resources/security           ` directory.
+1.  Copy the generated self-signed keystore, `foo.jks` , which was created in [step 1](#FAQ-Step1-CreateaselfsignedJavaKeyStorefileandincludeyourdomainastheCN) , into the `<PRODUCT_HOME>/repository/resources/security` directory.
+2.  Export the public certificate from the keystore and import that certificate to the `client­-truststore.jks` file.
+    1.  Navigate to the `<API-M_HOME>/repository/resources/security` directory.
     2.  Export the public certificate from the primary KeyStore.
 
         ``` java
                     keytool -export -alias test.foo.com -file test.foo.com -keystore foo.jks -storepass <KEYSTORE_PASSWORD_GIVEN_ABOVE>
         ```
 
-    3.  Import the certificate to the `             client­-truststore.jks            ` file.
+    3.  Import the certificate to the `client­-truststore.jks` file.
 
         ``` java
                     keytool -import -alias test.foo.com -file test.foo.com -keystore client-truststore.jks -storepass wso2carbon
@@ -413,7 +413,7 @@ Follow the instructions to configure the WSO2 product with the generated KeyStor
 
 **Step 3 - Update the KeyStoreFile and KeyStorePass parameters of the Tomcat HTTPS connector**
 
-1.  Change the `           keystoreFile          ` and `           keystorePass          ` parameter of the `           Server.Service.Connector          ` configuration with regard to port 9443 in the `           <API-M_HOME>/repository/conf/tomcat/catalina­server.xml          ` file as follows, in order to locate the new SSL KeyStore.
+1.  Change the `keystoreFile` and `keystorePass` parameter of the `Server.Service.Connector` configuration with regard to port 9443 in the `<API-M_HOME>/repository/conf/tomcat/catalina­server.xml` file as follows, in order to locate the new SSL KeyStore.
 
     ``` java
             <Connector protocol=”org.apache.coyote.http11.Http11NioProtocol”
@@ -448,7 +448,7 @@ Follow the instructions to configure the WSO2 product with the generated KeyStor
 
 **Step 4 - Configure the new key store**
 
-Update the `         <Password>        ` , `         <KeyAlias>        ` , `         <KeyPassword>        ` values under the `         <KeyStore>        ` field in the `         <API-M_HOME>/repository/conf/carbon.xml        ` file based on your new key store configuration.
+Update the `<Password>` , `<KeyAlias>` , `<KeyPassword>` values under the `<KeyStore>` field in the `<API-M_HOME>/repository/conf/carbon.xml` file based on your new key store configuration.
 
 ``` java
     <KeyStore>
@@ -467,29 +467,29 @@ Update the `         <Password>        ` , `         <KeyAlias>        ` , `    
 
 ##### How can I fix a fatal alert: unknown\_ca error when invoking the methods of an API via the API Console?
 
-The root cause for the `         javax.net                   .ssl.SSLException: Received fatal alert: unknown_ca                 ` error is because the default pack is not shipped with a CA-signed certificate. When using the API Console, the web browser sends an HTTPs request to the API Gateway. As the certificate on the Gateway is not CA-signed, the browser does not accept it.
+The root cause for the `javax.net                   .ssl.SSLException: Received fatal alert: unknown_ca` error is because the default pack is not shipped with a CA-signed certificate. When using the API Console, the web browser sends an HTTPs request to the API Gateway. As the certificate on the Gateway is not CA-signed, the browser does not accept it.
 
 To resolve this issue, first access the Gateway URL via a new browser tab of the same browser and accept the certificate from the browser.
 
-##### I hit the `         DentityExpansionLimit        ` and it gives an error while getting Recently Added APIs Information. What is the cause of this?
+##### I hit the `DentityExpansionLimit` and it gives an error while getting Recently Added APIs Information. What is the cause of this?
 
-The `         {org.wso2.carbon.apimgt.hostobjects.APIStoreHostObject} - Error while getting Recently Added APIs Information        ` error occurs in JDK 1.7.0\_45 and is fixed in JDK 1.7.0\_51 onwards. See [here](http://bugs.java.com/view_bug.do?bug_id=8029404) for details of the bug.
+The `{org.wso2.carbon.apimgt.hostobjects.APIStoreHostObject} - Error while getting Recently Added APIs Information` error occurs in JDK 1.7.0\_45 and is fixed in JDK 1.7.0\_51 onwards. See [here](http://bugs.java.com/view_bug.do?bug_id=8029404) for details of the bug.
 
-In JDK 1.7.0\_45, all XML readers share the same `         XMLSecurityManager        ` and `         XMLLimitAnalyzer        ` . When the total count of all readers hits the entity expansion limit, which is 64000 by default, the XMLLimitanalyzer's total counter is accumulated and the `         XMLInputFactory        ` cannot create more readers. If you still want to use update 45 of the JDK, try restarting the server with a higher value assigned to the `         DentityExpansionLimit.        `
+In JDK 1.7.0\_45, all XML readers share the same `XMLSecurityManager` and `XMLLimitAnalyzer` . When the total count of all readers hits the entity expansion limit, which is 64000 by default, the XMLLimitanalyzer's total counter is accumulated and the `XMLInputFactory` cannot create more readers. If you still want to use update 45 of the JDK, try restarting the server with a higher value assigned to the `DentityExpansionLimit.        `
 
-##### I get a **`          Hostname verfiication failed         `** exception when trying to send requests to a secured endpoint. What should I do?
+##### I get a **`Hostname verfiication failed         `** exception when trying to send requests to a secured endpoint. What should I do?
 
-Set the `         <parameter name="HostnameVerifier">        ` element to `         AllowAll        ` in `         <API-M_HOME>/repository/conf/axis2/axis2.xml        ` file's HTTPS transport sender configuration. For example, `         <parameter name="HostnameVerifier">AllowAll</parameter>        ` .
+Set the `<parameter name="HostnameVerifier">` element to `AllowAll` in `<API-M_HOME>/repository/conf/axis2/axis2.xml` file's HTTPS transport sender configuration. For example, `<parameter name="HostnameVerifier">AllowAll</parameter>` .
 
 This parameter verifies the hostname of the certificate of a server when the API Manager acts as a client and does outbound service calls.
 
 ##### When I add new users or roles, I get an error message stating that the entered user name is not conforming to policy. What should I do?
 
-This is because your user name or password length or any other parameter is not conforming to the `         RegEx        ` configurations of the user store. See [Managing Users and Roles](_Managing_Users_and_Roles_) .
+This is because your user name or password length or any other parameter is not conforming to the `RegEx` configurations of the user store. See [Managing Users and Roles](_Managing_Users_and_Roles_) .
 
 ##### When I call a REST API, a lot of temporary files are created in my server and takes up a lot of space. What should I do?
 
-There might be multiple configuration context objects created per API invocation. Check whether your client creates a configuration context object per API invocation. You can also configure a HouseKeeping task in the `         <API-M_HOME>/repository/conf/carbon.xml        ` file to clear the temporary folders. For example,
+There might be multiple configuration context objects created per API invocation. Check whether your client creates a configuration context object per API invocation. You can also configure a HouseKeeping task in the `<API-M_HOME>/repository/conf/carbon.xml` file to clear the temporary folders. For example,
 
 ``` xml
     <HouseKeeping> 
@@ -504,19 +504,19 @@ There might be multiple configuration context objects created per API invocation
 ```
 ##### Why do I get a Gateway Failures error?
 
-The Gateway Failures UI error occurs when the `         ServerURL        ` , `         username        ` , `         password        ` and/or `         GatewayEndpoint        ` is incorrect. This can be rectified by checking and correcting the gateway configurations under `         <Environments>        ` in the `         <API-M>/repository/conf/api-manager.xml        ` file.
+The Gateway Failures UI error occurs when the `ServerURL` , `username` , `password` and/or `GatewayEndpoint` is incorrect. This can be rectified by checking and correcting the gateway configurations under `<Environments>` in the `<API-M>/repository/conf/api-manager.xml` file.
 
 !!! tip
-If you are using the API-M instance you used as the first instance in the [Publish through Multiple API Gateways](_Publish_through_Multiple_API_Gateways_) tutorial, you may receive the above error when trying out other tutorials. This is because you updated the environments configurations in that pack by adding two API Gateway environments under the `         <Environments>        ` element,  and commenting the `         <environment>        ` element that comes by default. To overcome this error, uncomment the default configuration and delete the newly added configuration under `         <Environments>        ` in the `         <API-M>/repository/conf/api-manager.xml        ` file.
+If you are using the API-M instance you used as the first instance in the [Publish through Multiple API Gateways](_Publish_through_Multiple_API_Gateways_) tutorial, you may receive the above error when trying out other tutorials. This is because you updated the environments configurations in that pack by adding two API Gateway environments under the `<Environments>` element,  and commenting the `<environment>` element that comes by default. To overcome this error, uncomment the default configuration and delete the newly added configuration under `<Environments>` in the `<API-M>/repository/conf/api-manager.xml` file.
 
 
 ##### How can I capture the state of a system?
 
-At the time of an error, you can use a tool called Carbon Dump ( `         carbondump.sh        ` ) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system](https://docs.wso2.com/display/ADMIN44x/Troubleshooting+in+Production+Environments#TroubleshootinginProductionEnvironments-Capturingthestateofthesystem) in the Administration guide.
+At the time of an error, you can use a tool called Carbon Dump ( `carbondump.sh` ) to collect all the necessary data (i.e., heap and thread dumps) from a running WSO2 API Manager instance in order to carryout a head dump and thread stack analysis. For more information on using this tool, see [Capturing the state of the system](https://docs.wso2.com/display/ADMIN44x/Troubleshooting+in+Production+Environments#TroubleshootinginProductionEnvironments-Capturingthestateofthesystem) in the Administration guide.
 
 ##### How can I clean up the REG\_LOG table?
 
-The `         REG_LOG        ` table contains all the registry operations performed for all the registry resources in the system. When you clean up this table, you need to keep the latest record from every resource path to maintain atleast one resource reference in case of reindexing. Exceute the following query to clean this table.
+The `REG_LOG` table contains all the registry operations performed for all the registry resources in the system. When you clean up this table, you need to keep the latest record from every resource path to maintain atleast one resource reference in case of reindexing. Exceute the following query to clean this table.
 
 ``` java
     CREATE TABLE reg_log_ids_to_KEEP (

@@ -1,6 +1,6 @@
 # admin\_Configuring a Read-Write LDAP User Store
 
-User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `         user-mgt.xml        ` file found in the `         <PRODUCT_HOME>/repository/conf/        ` directory. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-write LDAP as the primary user store for the WSO2 server.
+User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `user-mgt.xml` file found in the `<PRODUCT_HOME>/repository/conf/` directory. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-write LDAP as the primary user store for the WSO2 server.
 
 !!! info
 The default User Store
@@ -21,19 +21,19 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
 !!! info
 Before you begin
 
--   If you create the `          user-mgt.xml         ` file yourself, be sure to save it in the `          <PRODUCT_HOME>/repository/conf         ` directory.
--   The `          class         ` attribute for a read-write LDAP is `          <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">         `
+-   If you create the `user-mgt.xml` file yourself, be sure to save it in the `<PRODUCT_HOME>/repository/conf` directory.
+-   The `class` attribute for a read-write LDAP is `<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">`
 
 
 Once the above points are made note of and completed, you can start configuring your external read-write LDAP as the primary user store.
 
-1.  Enable the `           <ReadWriteLDAPUserStoreManager>          ` user store manager class in the `           user-mgt.xml          ` file by uncommenting the relevant code. When it is enabled, the user manager reads/writes into the LDAP user store.
+1.  Enable the `<ReadWriteLDAPUserStoreManager>` user store manager class in the `user-mgt.xml` file by uncommenting the relevant code. When it is enabled, the user manager reads/writes into the LDAP user store.
 
         !!! note
-    Note that these configurations already exist in the `           user-mgt.xml          ` file so you only need to uncomment them and make the appropriate adjustments.Also ensure that you comment out the configurations for other user stores that you are not using; in short, you can only configure one primary user store.
+    Note that these configurations already exist in the `user-mgt.xml` file so you only need to uncomment them and make the appropriate adjustments.Also ensure that you comment out the configurations for other user stores that you are not using; in short, you can only configure one primary user store.
 
 
-2.  The default configuration for the external read/write user store in the `           user-mgt.xml          ` file is as follows. You may have to change some of these values according to your requirements. For more information about each of the properties used in the `           user-mgt.xml          ` file for configuring the primary user store , see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
+2.  The default configuration for the external read/write user store in the `user-mgt.xml` file is as follows. You may have to change some of these values according to your requirements. For more information about each of the properties used in the `user-mgt.xml` file for configuring the primary user store , see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
 
     ``` html/xml
         <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
@@ -73,14 +73,14 @@ Once the above points are made note of and completed, you can start configuring 
         </UserStoreManager>
     ```
 
-    1.  To read and write to an LDAPuserstore, it is important to ensure that the `             ReadGroups            ` and `             WriteGroups            ` properties in the `             <PRODUCT_HOME>/repository/conf/user-mgt.xml            ` file are set to `             true            ` .
+    1.  To read and write to an LDAPuserstore, it is important to ensure that the `ReadGroups` and `WriteGroups` properties in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file are set to `true` .
 
         ``` xml
                 <Property name="ReadGroups">true</Property>
                 <Property name="WriteGroups">true</Property>
         ```
 
-    2.  Set the attribute to use as the username, typically either `             cn            ` or `             uid            ` for LDAP. Ideally, `             <Property name="UserNameAttribute">            ` and `             <Property name="UserNameSearchFilter">            ` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP administrator.
+    2.  Set the attribute to use as the username, typically either `cn` or `uid` for LDAP. Ideally, `<Property name="UserNameAttribute">` and `<Property name="UserNameSearchFilter">` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP administrator.
 
         ``` html/xml
                     <Property name="UserNameAttribute">uid</Property>
@@ -95,9 +95,9 @@ Once the above points are made note of and completed, you can start configuring 
         ```
 
                 !!! note
-        If you are using `             ldaps            ` (secured LDAP) to connect to the LDAP:
+        If you are using `ldaps` (secured LDAP) to connect to the LDAP:
 
-        -   You need set the `               ConnectionURL              ` as shown below.
+        -   You need set the `ConnectionURL` as shown below.
 
             ``` xml
                         <Property name="ConnectionURL">ldaps://10.100.1.100:636</Property>
@@ -106,18 +106,18 @@ Once the above points are made note of and completed, you can start configuring 
         -   You also need to [enable connection pooling](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning#PerformanceTuning-ldaps_pooling) for LDAPS connections at the time of starting your server, which will enhance server performance.
 
 
-    4.  In WSO2 products based on Carbon 4.4.x, you can set the `             LDAPConnectionTimeout            ` property: If the connection to the LDAP is inactive for the length of time (in milliseconds) specified by this property, the connection will be terminated.
+    4.  In WSO2 products based on Carbon 4.4.x, you can set the `LDAPConnectionTimeout` property: If the connection to the LDAP is inactive for the length of time (in milliseconds) specified by this property, the connection will be terminated.
 
-    5.  Set the `             ReadGroups            ` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `             GroupSearchBase            ` , `             GroupSearchFilter            ` and `             GroupNameAttribute            ` properties. If the `             ReadGroups            ` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute as shown below.
-        To read the user/role mapping based on a membership (This is used by the `             ApacheDirectory            ` server and `             OpenLDAP)            ` :
+    5.  Set the `ReadGroups` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute as shown below.
+        To read the user/role mapping based on a membership (This is used by the `ApacheDirectory` server and `OpenLDAP)` :
 
-        -   Enable the `               ReadGroups              ` property.
+        -   Enable the `ReadGroups` property.
 
             ``` html/xml
                         <Property name="ReadGroups">true</Property>
             ```
 
-        -   Set the `               GroupSearchBase              ` property to the directory name where the Roles are stored. That is, the roles you create using the management console of your product will be stored in this directory location. Also, when LDAP searches for groups, it will start from this location of the directory. For example:
+        -   Set the `GroupSearchBase` property to the directory name where the Roles are stored. That is, the roles you create using the management console of your product will be stored in this directory location. Also, when LDAP searches for groups, it will start from this location of the directory. For example:
 
             ``` html/xml
                             <Property name="GroupSearchBase">ou=system,CN=Users,DC=wso2,DC=test</Property>
@@ -130,7 +130,7 @@ Once the above points are made note of and completed, you can start configuring 
                             <Property name="GroupNameAttribute">cn</Property>
             ```
 
-        -   Set the `               MembershipAttribute              ` property as shown below:
+        -   Set the `MembershipAttribute` property as shown below:
 
             ``` html/xml
                             <Property name="MembershipAttribute">member</Property> 
@@ -153,7 +153,7 @@ The **admin** user is the super tenant that will be able to manage all other use
 
 These two alternative configurations can be done as explained below.
 
--   If the user store is read-only, find a valid user that already resides in the user store. For example, say a valid username is AdminSOA. Update the `           <AdminUser>          ` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
+-   If the user store is read-only, find a valid user that already resides in the user store. For example, say a valid username is AdminSOA. Update the `<AdminUser>` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
 
     ``` html/xml
         <AddAdmin>False</AddAdmin> 
@@ -164,7 +164,7 @@ These two alternative configurations can be done as explained below.
         </AdminUser>
     ```
 
--   If the user store can be written to, you can add the super tenant user to the user store. Therefore, `           <AddAdmin>          ` should be set to true as shown below.
+-   If the user store can be written to, you can add the super tenant user to the user store. Therefore, `<AddAdmin>` should be set to true as shown below.
 
     ``` html/xml
             <AddAdmin>true</AddAdmin> 

@@ -59,8 +59,8 @@ We recommend the following patterns for blacklisting.
 To edit the existing sequence follow the steps below.
 
 1.  Log in to the Management Console.
-2.  Navigate to `          /_system/governance/apimgt/customsequences/in/regex_policy.xml         `
-3.  Edit the `          regex_policy.xml         ` file.
+2.  Navigate to `/_system/governance/apimgt/customsequences/in/regex_policy.xml`
+3.  Edit the `regex_policy.xml` file.
 4.  Go to the API Publisher and re-publish your API for the changes to take effect.
 
 ### Applying the Regular Expression Policy
@@ -69,7 +69,7 @@ You can apply the pre-defined Regular Expression Policy through the UI. Follow t
 
 1.  Create an API or edit an existing API.
 2.  Go to **Message Mediation Policies** under the **Implement** tab.
-3.  Select **Enable Message Mediation** . Select `          regex_policy         ` from the drop-down menu for **In Flow** .
+3.  Select **Enable Message Mediation** . Select `regex_policy` from the drop-down menu for **In Flow** .
     ![](attachments/126559459/126559460.png)4.  Click **Save and Publish** to save the changes.
 
 Each request is sanitized through the regular expression threat protector. You can add or modify the regex patterns according to your requirement.
@@ -93,7 +93,7 @@ The regex\_policy sequence is given below.
 ```
 
 !!! note
-If you need to validate only the request headers, you can disable the `         enabledCheckBody        ` and `         enabledCheckPathParams        ` properties by setting the value to `         false        ` .
+If you need to validate only the request headers, you can disable the `enabledCheckBody` and `enabledCheckPathParams` properties by setting the value to `false` .
 
 
 ### Testing the regex threat protector

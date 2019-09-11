@@ -2,7 +2,7 @@
 
 WSO2 products use asymmetric encryption by default for the purposes of authentication and data encryption. In asymmetric encryption, keystores (with key pairs and certificates) are created and stored for the product. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about creating and configuring keystores, see [Using Asymmetric Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption) .
 
-After you have [created a new keystore and updated the `          client-truststore.jks         ` file](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) , you must update a few configuration files in order to make the keystore work.
+After you have [created a new keystore and updated the `client-truststore.jks` file](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) , you must update a few configuration files in order to make the keystore work.
 
 !!! info
 For instructions on the default carbon keystore configurations, see [Configuring Keystores in WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Configuring+Keystores+in+WSO2+Products) in the WSO2 Product Administration Guide.
@@ -26,7 +26,7 @@ Make sure you do the configurations below to configure a keystore in WSO2 API Ma
 
 ### Configuring keystores for AMQP and MQTT transports
 
-To configure AMQP and MQTT transports, open the `         <API-M_HOME>/repository/conf/broker.xml        ` file. The values for the `         location        ` and `         password        ` parameters under `         keyStore        ` and `         trustStore        ` must be updated. The code below shows the default values.
+To configure AMQP and MQTT transports, open the `<API-M_HOME>/repository/conf/broker.xml` file. The values for the `location` and `password` parameters under `keyStore` and `trustStore` must be updated. The code below shows the default values.
 
 ``` java
     <sslConnection enabled="true" port="8672">
@@ -43,7 +43,7 @@ To configure AMQP and MQTT transports, open the `         <API-M_HOME>/repositor
 
 ### Configuring keystores for Jaggery Apps SSO configuration
 
-Open the `         <API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json        ` file. Update the values for `         keyStoreName        ` and `         keyStorePassword        ` as shown below.
+Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json` file. Update the values for `keyStoreName` and `keyStorePassword` as shown below.
 
 ``` java
     "ssoConfiguration" : {
@@ -60,7 +60,7 @@ Open the `         <API-M_HOME>/repository/deployment/server/jaggeryapps/publish
 
 ### Configuring keystores for security
 
-Open the `         <API-M_HOME>/repository/conf         /identity/        ` `         identity.xml        ` file and update the values for `         Location        ` and `         Password        ` under the `         KeyStore        ` section. The default configurations are shown below.
+Open the `<API-M_HOME>/repository/conf/identity/identity.xml` file and update the values for `Location` and `Password` under the `KeyStore` section. The default configurations are shown below.
 
 ``` java
     <EntitlementSettings>
@@ -80,7 +80,7 @@ Open the `         <API-M_HOME>/repository/conf         /identity/        ` `   
 ### 
 Configuring keystores for endpoints
 
-Open the `         <API-M_HOME>/repository/conf         /identity/        ` `         EndpointConfig.properties        ` file and update `         client.keyStore        ` and `         client.trustStore        ` with the location of the keystore and truststore respectively. The default configurations are shown below.
+Open the `<API-M_HOME>/repository/conf/identity/EndpointConfig.properties` file and update `client.keyStore` and `client.trustStore` with the location of the keystore and truststore respectively. The default configurations are shown below.
 
 ``` java
     tenantListEnabled=false
@@ -99,11 +99,11 @@ Open the `         <API-M_HOME>/repository/conf         /identity/        ` `   
 
 ### Configuring keystores for advanced transport handling
 
-To have more advanced transport handling functions using keystores, you must update the `         <APIM_HOME>/repository/conf/tomcat/catalina-server.xml        ` file and the `         <API-M_HOME>/repository/conf/axis2/axis2.xml        ` file.
+To have more advanced transport handling functions using keystores, you must update the `<APIM_HOME>/repository/conf/tomcat/catalina-server.xml` file and the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file.
 
 ### Configuring keystores for Analytics
 
-Open the `         <API-M_HOME>/repository/conf/data-bridge/data-bridge-config.xml        ` file and update keyStoreLocation and keyStorePassword with the location of the keystore and its password respectively. The default configurations are shown below.
+Open the `<API-M_HOME>/repository/conf/data-bridge/data-bridge-config.xml` file and update keyStoreLocation and keyStorePassword with the location of the keystore and its password respectively. The default configurations are shown below.
 
 ``` java
     <keyStoreLocation>${carbon.home}/repository/resources/security/wso2carbon.jks</keyStoreLocation>
@@ -111,6 +111,6 @@ Open the `         <API-M_HOME>/repository/conf/data-bridge/data-bridge-config.x
 ```
 
 !!! note
-The &lt;API-M\_HOME&gt;/repository/conf/data-bridge/data-agent-config.xml file is used by the publishing client. Therefore, a trustore with the public cert of the server is required here. The `         <API-M_HOME>/repository/conf/data-bridge/data-bridge-config.xml        ` file is used by the listening server. This needs to include a keystore with the public and private certs to support SSL.
+The &lt;API-M\_HOME&gt;/repository/conf/data-bridge/data-agent-config.xml file is used by the publishing client. Therefore, a trustore with the public cert of the server is required here. The `<API-M_HOME>/repository/conf/data-bridge/data-bridge-config.xml` file is used by the listening server. This needs to include a keystore with the public and private certs to support SSL.
 
 

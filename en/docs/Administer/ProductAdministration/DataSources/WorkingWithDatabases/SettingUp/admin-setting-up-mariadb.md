@@ -55,10 +55,10 @@ Follow the steps given below to set up MariaDB. See [Tested DBMSs](https://docs.
 
 ### Setting up the drivers
 
-Download the MySQL Java connector [JAR file](http://dev.mysql.com/downloads/connector/j/5.1.html) , and copy it to the &lt; `         PRODUCT_HOME>/repository/components/lib/        ` directory.
+Download the MySQL Java connector [JAR file](http://dev.mysql.com/downloads/connector/j/5.1.html) , and copy it to the &lt; `PRODUCT_HOME>/repository/components/lib/` directory.
 
 !!! warning
-**Note** that you must  use the MySQL connector that is compatible with your MariaDB version. For example, `         mysql-connector-java-5.1.36-bi        ` `         n.jar        ` is compatible with MariaDB version 10.0.20. See [Tested DBMSs](https://docs.wso2.com/display/compatibility/Tested+DBMSs) for information on the WSO2 products that have been tested for compatibility with different versions of MariaDB and MySQL connectors.
+**Note** that you must  use the MySQL connector that is compatible with your MariaDB version. For example, `mysql-connector-java-5.1.36-bin.jar` is compatible with MariaDB version 10.0.20. See [Tested DBMSs](https://docs.wso2.com/display/compatibility/Tested+DBMSs) for information on the WSO2 products that have been tested for compatibility with different versions of MariaDB and MySQL connectors.
 
 
 ## What's next

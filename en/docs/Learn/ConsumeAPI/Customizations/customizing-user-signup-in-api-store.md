@@ -88,7 +88,7 @@ WSO2 API-M allows you to specify different consent purposes of collecting Person
 
 Follow the steps below to add consent purposes.
 
-1.  Sign in to the WSo2 API-M Management console ( `          https://<host>:<port>/carbon         ` )
+1.  Sign in to the WSo2 API-M Management console ( `https://<host>:<port>/carbon` )
 2.  Navigate to the **Main** tab. Select **Consent Purposes** , which is under the **Manage** tab, and click **Add** .
 3.  Fill in the details of the PII categories as shown below.
     ![](attachments/103334790/103334800.png)4.  Click **Finish** .

@@ -25,7 +25,7 @@ Follow the steps below to set up a Remote H2 database.
 
     ![](attachments/126562364/126562369.png)
 
-2.  Go to the &lt; `          H2_HOME>/bin         ` directory and run the H2 network server starting script as follows, where &lt; `          H2_HOME>         ` is the H2 installation directory:
+2.  Go to the &lt; `H2_HOME>/bin` directory and run the H2 network server starting script as follows, where &lt; `H2_HOME>` is the H2 installation directory:
 
     ![](attachments/126562364/126562368.png)
 
@@ -52,8 +52,8 @@ Follow the steps below to set up a Remote H2 database.
 WSO2 currently ships H2 database engine version h2-1.2.140.\* and its related H2 database driver. If you want to use a different H2 database driver, take the following steps:
 
 1.  Delete the following H2 database-related JAR file, which is shipped with WSO2 products:
-    `          <PRODUCT_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar         `
-2.  Find the JAR file of the new H2 database driver ( `           <H2_HOME>/bin/h2-*.jar          ` , where `           <H2_HOME>          ` is the H2 installation directory) and copy it to your WSO2 product's `           <PRODUCT_HOME>/repository/components/lib          ` directory.
+`<PRODUCT_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar`
+2.  Find the JAR file of the new H2 database driver ( `<H2_HOME>/bin/h2-*.jar` , where `<H2_HOME>` is the H2 installation directory) and copy it to your WSO2 product's `<PRODUCT_HOME>/repository/components/lib` directory.
 
 ## What's next
 

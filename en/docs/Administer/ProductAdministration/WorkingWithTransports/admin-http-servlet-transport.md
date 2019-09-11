@@ -1,6 +1,6 @@
 # admin\_HTTP Servlet Transport
 
-The HTTP and [HTTPS](https://docs.wso2.com/display/ADMIN44x/HTTPS+Servlet+Transport) transports in WSO2 products are based on Apache Tomcat's connector implementation. The connector configurations for both HTTP and HTTPS are available in the `         catalina-server.xml        ` file (stored in the `         <PRODUCT_HOME>/repository/conf/tomcat/        ` directory). The transport class that should be specified for each connector configuration in the `         catalina-server.xml        ` file is as follows:
+The HTTP and [HTTPS](https://docs.wso2.com/display/ADMIN44x/HTTPS+Servlet+Transport) transports in WSO2 products are based on Apache Tomcat's connector implementation. The connector configurations for both HTTP and HTTPS are available in the `catalina-server.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/tomcat/` directory). The transport class that should be specified for each connector configuration in the `catalina-server.xml` file is as follows:
 
 ``` java
     <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"/>
@@ -176,11 +176,11 @@ This servlet transport implementation can be further tuned up using the followin
 
 ### Defining multiple tomcat connectors
 
-You have the option of defining multiple tomcat connectors in the `         catalina-server.xml        ` file. Note that when you define multiple connectors, all the endpoints of the applications deployed in your WSO2 server will still be exposed through all the connector ports. However, you can configure your load balancer to ensure that only the relevant applications are exposed through the required connector port.
+You have the option of defining multiple tomcat connectors in the `catalina-server.xml` file. Note that when you define multiple connectors, all the endpoints of the applications deployed in your WSO2 server will still be exposed through all the connector ports. However, you can configure your load balancer to ensure that only the relevant applications are exposed through the required connector port.
 
 Therefore, you can use multiple connectors to strictly separate the applications deployed in your server as explained below.
 
-1.  See the example given below where two connectors are defined in the `           catalina-server.xml          ` file.
+1.  See the example given below where two connectors are defined in the `catalina-server.xml` file.
 
     ``` java
         <!-- Connector using port 9763 -->

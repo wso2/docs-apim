@@ -60,7 +60,7 @@ Environment compatibility
 -   By default, WSO2 products are installed with **OpenJDK** , which allows you to run the product as soon as it is installed.
 
         !!! tip
-    To use a different JDK, point the **`            JAVA_HOME           `** environment variable to the new JDK. Make sure your JDK version is [compatible with the WSO2 product](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) .
+    To use a different JDK, point the **`JAVA_HOME           `** environment variable to the new JDK. Make sure your JDK version is [compatible with the WSO2 product](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) .
 
 
 -   All WSO2 products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. For most enterprise production environments, however, we recommend you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see [Working with Databases](https://docs.wso2.com/display/ADMIN44x/Working+with+Databases) in the Administration Guide. Also, we do not recommend the H2 database as a user store.
@@ -93,10 +93,10 @@ Let's call the installation location of your product as the **&lt;PRODUCT\_HOME&
 
 | OS      | Home directory                                                                                       |
 |---------|------------------------------------------------------------------------------------------------------|
-| Mac OS  | `             /Library/WSO2/<PRODUCT_NAME>/<VERSION>            `                                    |
-| Windows | `             C:\Program Files\WSO2\             <PRODUCT_NAME>/<VERSION>             \            ` |
-| Ubuntu  | `             /usr/lib/wso2/             <PRODUCT_NAME>/<VERSION>            `                       |
-| CentOS  | `             /usr/lib64/             <PRODUCT_NAME>/<VERSION>            `                          |
+| Mac OS  | `/Library/WSO2/<PRODUCT_NAME>/<VERSION>`|
+| Windows | `C:\Program Files\WSO2\             <PRODUCT_NAME>/<VERSION>             \` |
+| Ubuntu  | `/usr/lib/wso2/             <PRODUCT_NAME>/<VERSION>`|
+| CentOS  | `/usr/lib64/             <PRODUCT_NAME>/<VERSION>`|
 
 ### Uninstalling the product
 
@@ -108,27 +108,27 @@ To remove an already installed product, follow the instructions below:
                                                                                                                                                                                                                                              
   ``` java                                                                                                                                                                                                                                   
     sudo bash /Library/WSO2/<PRODUCT_NAME>/<VERSION>/uninstall.sh                                                                                                                                                                              
-  ```                                                                                                                                                                                                                                        |
+  ```|
 | Windows | Go to the **Start Menu -&gt; Programs -&gt; WSO2 -&gt; Uninstall &lt;PRODUCT\_NAME\_VERSION&gt;** or search **Uninstall &lt;PRODUCT\_NAME\_VERSION&gt;** and click the shortcut icon. This will uninstall the product from your computer. |
 | Ubuntu  | Open a terminal and run the following command:                                                                                                                                                                                            
                                                                                                                                                                                                                                              
   ``` java                                                                                                                                                                                                                                   
         sudo apt-get purge <PRODUCT_DISTRIBUTION_NAME>                                                                                                                                                                                             
-  ```                                                                                                                                                                                                                                        |
+  ```|
 | CentOS  | Open a terminal and run the following command:                                                                                                                                                                                            
                                                                                                                                                                                                                                              
   ``` java                                                                                                                                                                                                                                   
         sudo yum remove <PRODUCT_DISTRIBUTION_NAME>-x86_64                                                                                                                                                                                         
-  ```                                                                                                                                                                                                                                        |
+  ```|
 
 #### Setting system properties
 
 If you need to set additional system properties when the server starts, you can take the following approaches:
 
--   **Set the properties from a script** . Setting your system properties in the startup script (i.e. the `           <PRODUCT_HOME>/bin/wso2server.          ` sh file), is ideal because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
+-   **Set the properties from a script** . Setting your system properties in the startup script (i.e. the `<PRODUCT_HOME>/bin/wso2server.` sh file), is ideal because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
 
         !!! note
-    Be sure to set the `           org.wso2.ignoreHostnameVerification          ` system property in the `           <PRODUCT_HOME>/bin/wso2server.          ` sh file to `           false          ` as follows:
+    Be sure to set the `org.wso2.ignoreHostnameVerification` system property in the `<PRODUCT_HOME>/bin/wso2server.` sh file to `false` as follows:
 
         org.wso2.ignoreHostnameVerification=false 
 
@@ -138,7 +138,7 @@ If you need to set additional system properties when the server starts, you can 
 -   **Set the properties from an external registry** . If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a property file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation) .
 
 !!! info
-**Note** : When using SUSE Linux, it ignores `         /etc/resolv.conf        ` and only looks at the `         /etc/hosts        ` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `         127.0.0.1 localhost        ` in the `         /etc/hosts        ` file: `         <ip_address>        ` `         <machine_name> localhost        `
+**Note** : When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost        `
 
 
 You are now ready to run the product.
@@ -152,8 +152,8 @@ To run WSO2 products, you start the product server at the command line. You can 
 #### Before you begin
 
 -   When you move into a production environment, it is recommended to grant restricted access to the management console. See [Securing Carbon Applications](https://docs.wso2.com/display/ADMIN44x/Securing+Carbon+Applications) for instructions.
--   The `          config-validation.xml         ` file in the `          <PRODUCT_HOME>/repository/conf/etc         ` directory contains a list of recommended system parameters, which are validated against your system when the server starts. See [Configuring config-validation.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+config-validation.xml) for details on modifying these parameters before starting the server.
--   The Management Console uses the default [HTTP-NIO transport](https://docs.wso2.com/display/ADMIN44x/HTTP-NIO+Transport) , which is configured in the `          catalina-server.xml         ` file in the `          <PRODUCT_HOME>/repository/conf/tomcat         ` directory. This transport must be properly configured in this file for the management console to be accessible.
+-   The `config-validation.xml` file in the `<PRODUCT_HOME>/repository/conf/etc` directory contains a list of recommended system parameters, which are validated against your system when the server starts. See [Configuring config-validation.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+config-validation.xml) for details on modifying these parameters before starting the server.
+-   The Management Console uses the default [HTTP-NIO transport](https://docs.wso2.com/display/ADMIN44x/HTTP-NIO+Transport) , which is configured in the `catalina-server.xml` file in the `<PRODUCT_HOME>/repository/conf/tomcat` directory. This transport must be properly configured in this file for the management console to be accessible.
 -   As explained in the [installation prerequisites](#admin_ProductionDeploymentGuidelines-installation_prerequisites) , the default product installation uses OpenJDK. Therefore, you don't require a different JDK. However, if you have set up Oracle JDK or IBM JDK, be sure to apply the following settings to your product distribution.
 
     -   [**Oracle JDK**](#cc08b6aaf09742a7b6389db09f3e3b36)
@@ -161,8 +161,8 @@ To run WSO2 products, you start the product server at the command line. You can 
 
     Some updates of JDK 1.8 (for example, **JDK1.8.0\_151** ) are affected by a [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) related to GZIP decoding. Until this issue is fixed, we recommend that you disable GZIP decoding for your product by following the steps given below. This will ensure that your product is not affected by the [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
 
-    1.  Open the `               catalina-server.xml              ` file from the `               <PRODUCT_HOME>/repository/conf/tomcat/              ` directory.
-    2.  Set the `                compression               ` parameter (under each of the connector configurations) to false as shown below:
+    1.  Open the `catalina-server.xml` file from the `<PRODUCT_HOME>/repository/conf/tomcat/` directory.
+    2.  Set the `compression` parameter (under each of the connector configurations) to false as shown below:
 
         ``` java
                 compression="off"
@@ -170,11 +170,11 @@ To run WSO2 products, you start the product server at the command line. You can 
 
     3.  Restart the server.
 
-    If you are using IBM JDK 1.8, change the value of the `              org.owasp.csrfguard.PRNG.Provider             ` property to ' `              IBMJCE             ` ' in the `              Owasp.CsrfGuard.Carbon.properties             ` file. This file is stored in the `              <PRODUCT_HOME>/repository/conf/security             ` / directory.
+    If you are using IBM JDK 1.8, change the value of the `org.owasp.csrfguard.PRNG.Provider` property to ' `IBMJCE` ' in the `Owasp.CsrfGuard.Carbon.properties` file. This file is stored in the `<PRODUCT_HOME>/repository/conf/security` / directory.
 
 #### Starting the product profiles
 
-Open a command prompt and execute the name of the product distribution (For example, `         wso2ei-6.30        ` ):
+Open a command prompt and execute the name of the product distribution (For example, `wso2ei-6.30` ):
 
 ``` java
     <PRODUCT_DISTRIBUTION_NAME>
@@ -191,7 +191,7 @@ The following are security related recommendations to be followed when running t
 -   **Running as a different user** : For security reasons, it's recommended to run the product as an unprivileged user. After adding a user to the system, apply your organizational security policies to that user.
 -   **Running on a different port** : If you want to run on a different port, like port 80, the recommended way is to add a port forwarding rule from your firewall.
 -   **Running as a Unix daemon** : You have the option of running each product as a standard Unix service. You can start, stop, and restart the WSO2 product instances as follows.
-    `          # sh bin/wso2server.sh [start | stop | restart]         `
+`# sh bin/wso2server.sh [start | stop | restart]         `
 
 ------------------------------------------------------------------------
 
@@ -204,7 +204,7 @@ The following are security related recommendations to be followed when running t
 
 ### Hazelcast properties
 
-WSO2 products use [Hazelcast](https://docs.wso2.com/display/ADMIN44x/Clustering+Overview) as its default clustering engine. The following configuration must be placed in the `         <PRODUCT_HOME>/repository/conf/hazelcast.properties        ` file. Create this file if it does not exist.
+WSO2 products use [Hazelcast](https://docs.wso2.com/display/ADMIN44x/Clustering+Overview) as its default clustering engine. The following configuration must be placed in the `<PRODUCT_HOME>/repository/conf/hazelcast.properties` file. Create this file if it does not exist.
 
 ``` java
     hazelcast.shutdownhook.enabled=false
@@ -214,11 +214,11 @@ WSO2 products use [Hazelcast](https://docs.wso2.com/display/ADMIN44x/Clustering+
 The above configurations are explained below.
 
 -   **Hazelcast shutdown hook:** This configuration disables the shutdown hook in hazelcast, which ensures that the hazelcast instance shuts down gracefully whenever the product node shuts down. If the hazelcast shutdown hook is enabled (which is the default behavior of a product), you will see errors such as " *Hazelcast instance is not active!* " at the time of shutting down the product node: This is because the hazelcast instance shuts down too early when the shutdown hook is enabled.
--   **Hazelcast logging type:** This configuration sets the hazelcast logging type to log4j, which allows hazelcast logs to be written to the `          wso2carbon.log         ` file.
+-   **Hazelcast logging type:** This configuration sets the hazelcast logging type to log4j, which allows hazelcast logs to be written to the `wso2carbon.log` file.
 
-Once you enable log4j for hazelcast as explained above, add `         log4j.logger.com.hazelcast=INFO        ` to the `         <PRODUCT_HOME>/repository/conf/log4j.properties        ` file. For more information on logging, see [Monitoring Logs](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) .
+Once you enable log4j for hazelcast as explained above, add `log4j.logger.com.hazelcast=INFO` to the `<PRODUCT_HOME>/repository/conf/log4j.properties` file. For more information on logging, see [Monitoring Logs](https://docs.wso2.com/display/ADMIN44x/Monitoring+Logs) .
 
-Additionally, Hazelcast indicates that if all members are not mentioned in the well-known member list, there can be a split-brain (network partition) situation. If the cluster spans across data centers, it is important to add all the members to the well-known members list in the `         <PRODUCT_HOME>/repository/conf/axis2/axis2.xml        ` file.
+Additionally, Hazelcast indicates that if all members are not mentioned in the well-known member list, there can be a split-brain (network partition) situation. If the cluster spans across data centers, it is important to add all the members to the well-known members list in the `<PRODUCT_HOME>/repository/conf/axis2/axis2.xml` file.
 
 ------------------------------------------------------------------------
 
@@ -470,10 +470,10 @@ None of the WSO2 products persist data in the file systems or retain or generate
 #### What you should back up
 
 1.  **Database backups** :
-    -   Back up of all the databases defined in `            <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml           ` .
-    -   Back up any other databases configured in any files in the `            <PRODUCT_HOME>/repository/conf/datasources           ` directory.
+    -   Back up of all the databases defined in `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` .
+    -   Back up any other databases configured in any files in the `<PRODUCT_HOME>/repository/conf/datasources` directory.
 2.  **Artifact backups** :
-    T his includes hot-deployment artifacts, web applications, synapse files, tenant directories, etc. Back up of the `          <PRODUCT_HOME>/repository         ` directory periodically. The frequency of the back ups depends on your usage. For example, if you are creating or updating APIs daily, take this backup daily.
+    T his includes hot-deployment artifacts, web applications, synapse files, tenant directories, etc. Back up of the `<PRODUCT_HOME>/repository` directory periodically. The frequency of the back ups depends on your usage. For example, if you are creating or updating APIs daily, take this backup daily.
 3.  **WSO2 product instance backups** :
     A one-time-only backup that you take of the entire server directory. This includes all the configuration files, logs, server extensions, and deployment artifacts for both tenants and super tenants. This back up is ideally done when the server is ready to be deployed in a production environment.
 
@@ -503,7 +503,7 @@ We also recommend the following:
 
 The following steps include how to recover your setup using the backups:
 
-1.  Recover the hot-deployment artifacts by replacing the `          <PRODUCT_HOME>/repository         ` directory with the backed up copy.
+1.  Recover the hot-deployment artifacts by replacing the `<PRODUCT_HOME>/repository` directory with the backed up copy.
 2.  Recover the entire WSO2 product by directly replacing the existing WSO2 server directory in the production setup with the backup server directory. This will ensure that all the files, logs, and configurations made to the product do not need to be redone.
 3.  To recover the databases, follow the recovery strategy recommended by the databases you are using. For information on supported and tested databases, see [Tested Database Management Systems](https://docs.wso2.com/display/compatibility/Tested+DBMSs) .
 

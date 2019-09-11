@@ -1,6 +1,6 @@
 # admin\_TCP Transport
 
-The TCP transport implementation is in the Apache WS-Commons Transports project. The two classes that act as the transport listener and the sender are `         org.apache.axis2.transport.tcp.TCPServer        ` and `         org.apache.axis2.transport.tcp.TCPTransportSender        ` respectively. In order to use the transport `         axis2-transport-tcp.jar        ` should be added to the Carbon classpath.
+The TCP transport implementation is in the Apache WS-Commons Transports project. The two classes that act as the transport listener and the sender are `org.apache.axis2.transport.tcp.TCPServer` and `org.apache.axis2.transport.tcp.TCPTransportSender` respectively. In order to use the transport `axis2-transport-tcp.jar` should be added to the Carbon classpath.
 
 ### Transport receiver parameters
 
@@ -43,7 +43,7 @@ The TCP transport implementation is in the Apache WS-Commons Transports project.
 
 The TCP transport sender does not accept any configuration parameters as of now.
 
-To enable the TCP transport for samples, simply open the `         repository/conf/axis2.xml        ` file in a text editor and add the following transport receiver configuration and sender configuration. TCP transport module is shipped with WSO2 ESB by default.
+To enable the TCP transport for samples, simply open the `repository/conf/axis2.xml` file in a text editor and add the following transport receiver configuration and sender configuration. TCP transport module is shipped with WSO2 ESB by default.
 
 ``` java
     <transportReceiver name="tcp">
@@ -51,6 +51,6 @@ To enable the TCP transport for samples, simply open the `         repository/co
     </transportReceiver>
 <transportSender name="tcp"/>
 ```
-If you wish to use the sample Axis2 client to send TCP messages, you have to remove the comment of the TCP transport sender configuration in the `         following file:        `
+If you wish to use the sample Axis2 client to send TCP messages, you have to remove the comment of the TCP transport sender configuration in the `following file:`
 
-`         samples/axis2Client/client_repo/conf/axis2.xml        `
+`samples/axis2Client/client_repo/conf/axis2.xml`

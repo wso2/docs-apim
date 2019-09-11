@@ -15,7 +15,7 @@ Cross Site Request Forgery (CSRF) attacks trick you to send a malicious request,
 The attack includes maliciously tricking you to click a URL or HTML content that will consequently send a request to the website. For example:
 
 -   You send a request to an online banking application to transfer $100 to another bank account.
--   An example URL including the parameters (i.e. account number and transfer amount) of a request is similar to the following: `                     https://bank.com/transfer.do?acct=10220048&amount=100                   `
+-   An example URL including the parameters (i.e. account number and transfer amount) of a request is similar to the following: `https://bank.com/transfer.do?acct=10220048&amount=100                   `
 -   The attacker uses this same URL by replacing the actual account number with a malicious account number. Then the attacker disguises this URL by including it in a clickable image and sends it to you in an email with other content.
 -   You may unknowingly click on this URL, which will send a transfer request to the bank to transfer money to the malicious bank account.
 
@@ -38,8 +38,8 @@ You can protect HTTP GET requests sent as a result of resource inclusions and li
 -   **Important!** Some updates of JDK 1.8 (for example, **JDK1.8.0\_151** ) are affected by a [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) related to GZIP decoding, which may prevent these CSRF-related configurations from working for your product. Therefore, until this issue is fixed, we recommend one of the following approaches:
     -   Be sure that your product is running on **JDK1.8.0\_144** or **JDK1.8.0\_077** . We have verified that these JDK versions are not affected by the [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
     -   Alternatively, you can disable GZIP decoding for your product by following the steps given below. This will ensure that your product is not affected by the [known issue](https://bugs.openjdk.java.net/browse/JDK-8189789) .
-        1.  Open the `              catalina-server.xml             ` file from the `              <PRODUCT_HOME>/repository/conf/tomcat/             ` directory.
-        2.  Set the `               compression              ` parameter (under each of the connector configurations) to false as shown below:
+        1.  Open the `catalina-server.xml` file from the `<PRODUCT_HOME>/repository/conf/tomcat/` directory.
+        2.  Set the `compression` parameter (under each of the connector configurations) to false as shown below:
 
             ``` java
                         compression="off"
@@ -57,7 +57,7 @@ See the following for instructions on manually updating CSRF configurations in W
 
 Follow the steps below to secure web applications.
 
-1.  Add the following configurations in the `           web.xml          ` file of your application.
+1.  Add the following configurations in the `web.xml` file of your application.
 
     ``` xml
         <!-- OWASP CSRFGuard context listener used to read CSRF configuration -->
@@ -94,7 +94,7 @@ Follow the steps below to secure web applications.
         </servlet-mapping>
     ```
 
-2.  Include the following JavaScriptServlet as the first JavaScript inclusion of the `           <head>          ` element, in the HTML template of all pages of the application that you need to protect.
+2.  Include the following JavaScriptServlet as the first JavaScript inclusion of the `<head>` element, in the HTML template of all pages of the application that you need to protect.
 
     ``` js
             … 
@@ -111,8 +111,8 @@ Follow the steps below to secure web applications.
         </body>
     </html>
     ```
-3.  Create a CSRF configuration properties file (e.g. `          abc.properties         ` ) within your application , and copy the content in the `          <CARBON_HOME>repository/conf/security/         ` `          Owasp.CsrfGuard.Carbon.properties         ` file to it.
-4.  Use the `           org.owasp.csrfguard.unprotected.          ` prefix in the configuration property keys, for the relevant patterns that you need to exclude from CSRF protection. For example;
+3.  Create a CSRF configuration properties file (e.g. `abc.properties` ) within your application , and copy the content in the `<CARBON_HOME>repository/conf/security/Owasp.CsrfGuard.Carbon.properties` file to it.
+4.  Use the `org.owasp.csrfguard.unprotected.` prefix in the configuration property keys, for the relevant patterns that you need to exclude from CSRF protection. For example;
 
     ``` js
         org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
@@ -125,15 +125,15 @@ Follow the steps below to secure web applications.
 
     | Property                                                                                                   | Description                                                                      |
     |------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-    | `               org.owasp.csrfguard.PRNG=SHA1PRNG                             `                            | Defines the hashing algorithm used to generate the CSRF token.                   |
-    | `               org.owasp.csrfguard.TokenLength=32              `                                          | Defines the length of the CSRF token.                                            |
-    | `               org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate              ` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
+    | `org.owasp.csrfguard.PRNG=SHA1PRNG`| Defines the hashing algorithm used to generate the CSRF token.                   |
+    | `org.owasp.csrfguard.TokenLength=32`| Defines the length of the CSRF token.                                            |
+    | `org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
 
 #### Securing Jaggery applications
 
 Follow the steps below to secure Jaggery applications.
 
-1.  Add the following configurations in the `           jaggery.conf          ` file of your application.
+1.  Add the following configurations in the `jaggery.conf` file of your application.
 
     ``` java
              "listeners" : [
@@ -164,7 +164,7 @@ Follow the steps below to secure Jaggery applications.
                 ]
     ```
 
-2.  Include the following JavaScriptServlet as the first JavaScript inclusion of the `           <head>          ` element in the HTML template of all pages of the application that you need to protect.
+2.  Include the following JavaScriptServlet as the first JavaScript inclusion of the `<head>` element in the HTML template of all pages of the application that you need to protect.
 
     ``` js
             <html>
@@ -180,8 +180,8 @@ Follow the steps below to secure Jaggery applications.
         </body>
     </html>
     ```
-3.  Create a CSRF configuration properties file (e.g. `          abc.properties         ` ) within your application, and copy the content in the `          <CARBON_HOME>repository/conf/security/         ` `          Owasp.CsrfGuard.Carbon.properties         ` file to it.
-4.  Use the `           org.owasp.csrfguard.unprotected.          ` prefix in the configuration property keys, for the relevant patterns that you need to exclude from CSRF protection. For example;
+3.  Create a CSRF configuration properties file (e.g. `abc.properties` ) within your application, and copy the content in the `<CARBON_HOME>repository/conf/security/Owasp.CsrfGuard.Carbon.properties` file to it.
+4.  Use the `org.owasp.csrfguard.unprotected.` prefix in the configuration property keys, for the relevant patterns that you need to exclude from CSRF protection. For example;
 
     ``` js
         org.owasp.csrfguard.unprotected.Default=%servletContext%/exampleAction
@@ -194,8 +194,8 @@ Follow the steps below to secure Jaggery applications.
 
     | Property                                                                                                                  | Description                                                                      |
     |---------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
-    | `               org.owasp.csrfguard.PRNG=SHA1PRNG              `                                                          | Defines the hashing algorithm used to generate the CSRF token.                   |
-    | `               org.owasp.csrfguard.TokenLength=32                             `                                          | Defines the length of the CSRF token.                                            |
-    | `               org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate                             ` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
+    | `org.owasp.csrfguard.PRNG=SHA1PRNG`| Defines the hashing algorithm used to generate the CSRF token.                   |
+    | `org.owasp.csrfguard.TokenLength=32`| Defines the length of the CSRF token.                                            |
+    | `org.owasp.csrfguard.action.Invalidate=org.owasp.csrfguard.action.Invalidate` | Invalidates the user session, if a CSRF attack attempt was blocked by CSRFGuard. |
 
 

@@ -1,12 +1,12 @@
 # Writing a Custom Geolocation Provider
 
-Each Geolocation Resolver implementation in WSO2 Analytics is inherited from the `         org.wso2.carbon.analytics.apim.spark.geolocation.api.LocationResolver        ` abstract class has the following methods.
+Each Geolocation Resolver implementation in WSO2 Analytics is inherited from the `org.wso2.carbon.analytics.apim.spark.geolocation.api.LocationResolver` abstract class has the following methods.
 
--   **`            getLocation           `** : This contains the Geolocation Resolving implementation. Only this method needs to be implemented for this scenario.
+-   **`getLocation           `** : This contains the Geolocation Resolving implementation. Only this method needs to be implemented for this scenario.
 
--   **`            init           `** : This contains the Geolocation Resolver implementation
+-   **`init           `** : This contains the Geolocation Resolver implementation
 
-To customize the default Geolocation Resolver extension, you should override the `         getLocation()        ` method with your custom implementation. For example, the following class is a sample implementation of the Geolocation Resolving service It returns the `         Location        ` according to the IP of the Geolocation API that provided through the configuration on each IP resolving through the UDF.
+To customize the default Geolocation Resolver extension, you should override the `getLocation()` method with your custom implementation. For example, the following class is a sample implementation of the Geolocation Resolving service It returns the `Location` according to the IP of the Geolocation API that provided through the configuration on each IP resolving through the UDF.
 
 ``` java
     /*

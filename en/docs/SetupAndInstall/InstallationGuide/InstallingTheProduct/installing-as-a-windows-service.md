@@ -17,12 +17,12 @@ WSO2 Carbon and any Carbon-based product can be run as a Windows service as desc
 
 ### Prerequisites
 
--   Install JDK and set up the `          JAVA_HOME         ` environment variable.
--   Download and install a service wrapper library to use for running WSO2 API Manager as a Windows service. WSO2 recommends Yet Another Java Service Wrapper ( [YAJSW](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable11.03/yajsw-stable-11.03.zip/download) ) version 11.03, and several WSO2 products provide a default `          wrapper.conf         ` file in their `          <PRODUCT_HOME>/bin/yajsw/         ` directory. The instructions below describe how to set up this file.
+-   Install JDK and set up the `JAVA_HOME` environment variable.
+-   Download and install a service wrapper library to use for running WSO2 API Manager as a Windows service. WSO2 recommends Yet Another Java Service Wrapper ( [YAJSW](https://sourceforge.net/projects/yajsw/files/yajsw/yajsw-stable11.03/yajsw-stable-11.03.zip/download) ) version 11.03, and several WSO2 products provide a default `wrapper.conf` file in their `<PRODUCT_HOME>/bin/yajsw/` directory. The instructions below describe how to set up this file.
 
 ### Setting up the YAJSW wrapper configuration file
 
-The configuration file used for wrapping Java Applications by YAJSW is `         wrapper.conf        ` , which is located in the `         <YAJSW_HOME>/conf/        ` directory and in the `         <PRODUCT_HOME>/bin/yajsw/        ` directory of many WSO2 products. Following is the minimal `         wrapper.conf        ` configuration for running a WSO2 product as a Windows service. Open your `         wrapper.conf        ` file, set its properties as follows, and save it in `         <YAJSW_HOME>/conf/        ` directory.
+The configuration file used for wrapping Java Applications by YAJSW is `wrapper.conf` , which is located in the `<YAJSW_HOME>/conf/` directory and in the `<PRODUCT_HOME>/bin/yajsw/` directory of many WSO2 products. Following is the minimal `wrapper.conf` configuration for running a WSO2 product as a Windows service. Open your `wrapper.conf` file, set its properties as follows, and save it in `<YAJSW_HOME>/conf/` directory.
 
 !!! info
 If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation) .
@@ -30,7 +30,7 @@ If you want to set additional properties from an external registry at runtime, s
 !!! note
 Manual Configurations
 
-Add the following class path to the `         wrapper.conf        ` file manually to avoid errors in the WSO2 API Manager Management Console:
+Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
 
 ``` bash
     wrapper.java.classpath.3 = ${carbon_home}\\repository\\components\\plugins\\commons-lang_2.6.0.wso2v1.jar 
@@ -152,13 +152,13 @@ Add the following class path to the `         wrapper.conf        ` file manuall
 
 ### Setting up CARBON\_HOME
 
-Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `         CARBON_HOME        ` to the extracted product directory location which is wso2am-2.1.0 here.
+Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location which is wso2am-2.1.0 here.
 
 ### Running the product in console mode
 
 You will now verify that YAJSW is configured correctly for running the WSO2 API Manager as a Windows service.
 
-1.  Open a Windows command prompt and go to the `           <YAJSW_HOME>/bat/          ` directory. For example:
+1.  Open a Windows command prompt and go to the `<YAJSW_HOME>/bat/` directory. For example:
 
     ``` java
             cd C:\Documents and Settings\yajsw_home\bat
@@ -180,7 +180,7 @@ If the configurations are set properly for YAJSW, you will see console output si
 
 ### Working with the WSO2CARBON service
 
-To install the Carbon-based productWSO2 API Manager as a Windows service, execute the following command in the `         <YAJSW_HOME>/bat/        ` directory:
+To install the Carbon-based productWSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
 
 ``` java
     installService.bat

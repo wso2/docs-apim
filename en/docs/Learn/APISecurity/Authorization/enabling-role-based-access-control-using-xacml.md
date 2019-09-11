@@ -106,11 +106,11 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     ![](attachments/103334839/103334831.png)
 
-12. Download the [entitlement-1.0-SNAPSHOT.jar](https://docs.wso2.com/download/attachments/57743363/entitlement-1.0-SNAPSHOT.jar?version=1&modificationDate=1515491619000&api=v2) and add it to the `           <API-M_HOME>/repository/components/lib          ` directory. This JAR file contains the `           APIEntitlementCallbackHandler          ` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
+12. Download the [entitlement-1.0-SNAPSHOT.jar](https://docs.wso2.com/download/attachments/57743363/entitlement-1.0-SNAPSHOT.jar?version=1&modificationDate=1515491619000&api=v2) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
 
 13. Restart the server once the JAR file is added.
 
-14. Now, you need to create a sequence containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `           EntitlementMediator.xml          ` .
+14. Now, you need to create a sequence containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.xml` .
 
     ``` xml
         <sequence xmlns="http://ws.apache.org/ns/synapse"  name="EntitlementMediator">     
@@ -139,10 +139,10 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 17. Save, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail.
 
         !!! note
-    If you encounter an error stating "org.apache.axis2.transport.jms.JMSSender cannot be found by axis2\_1.6.1.wso2v16" when publishing the API, comment out the following JMSSender configuration in the `           <APIM_HOME>/repository/conf/axis2/axis2_blocking_client.xml          ` file and restart the server.
+    If you encounter an error stating "org.apache.axis2.transport.jms.JMSSender cannot be found by axis2\_1.6.1.wso2v16" when publishing the API, comment out the following JMSSender configuration in the `<APIM_HOME>/repository/conf/axis2/axis2_blocking_client.xml` file and restart the server.
 
-    `           <!--transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/-->          `
+`<!--transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/-->          `
 
 
-18. If you want to debug the entitlement mediator, enable debug logs in the Management Console for the `          org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler         ` class.
+18. If you want to debug the entitlement mediator, enable debug logs in the Management Console for the `org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler` class.
 

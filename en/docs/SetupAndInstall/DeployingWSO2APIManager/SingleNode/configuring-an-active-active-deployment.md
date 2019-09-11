@@ -41,9 +41,9 @@ When you use rsync the file synchronization will happen in only one direction. T
 For more details, see the [next step](#ConfiguringanActive-ActiveDeployment-Step5) .
 
 
-Configure the API Publisher in both nodes to be able to publish to the API-M Gateway of one of the nodes. Do this by pointing the `         <ServerURL>        ` to the same Gateway node.
+Configure the API Publisher in both nodes to be able to publish to the API-M Gateway of one of the nodes. Do this by pointing the `<ServerURL>` to the same Gateway node.
 
-You need to configure this in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file.
+You need to configure this in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
 ``` java
     <APIGateway>
@@ -54,7 +54,7 @@ You need to configure this in the `         <API-M_HOME>/repository/conf/api-man
 ### 
 Step 5 - Configure the content synchronization mechanism
 
-Configure a shared file system as the content synchronization mechanism. You can use a common shared file system such as Network File System (NFS) or any other shared file system that is available. You need to mount the `         <API-M_HOME>/repository/deployment/server        ` directory of the two nodes to the shared file system, in order to share all APIs and throttling policies between all the nodes.
+Configure a shared file system as the content synchronization mechanism. You can use a common shared file system such as Network File System (NFS) or any other shared file system that is available. You need to mount the `<API-M_HOME>/repository/deployment/server` directory of the two nodes to the shared file system, in order to share all APIs and throttling policies between all the nodes.
 
 !!! info
 Shared file system is the first preference that WSO2 recommends to synchronize the artifacts among the nodes, because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the vulnerability of a single point of failure that is present when using remote synchronization (rsync). However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For information on setting up a rsync based deployment synchronization, see \_Configuring rsync for Deployment Synchronization .
@@ -64,7 +64,7 @@ Shared file system is the first preference that WSO2 recommends to synchronize t
 If you are using rsync, the API artifacts will be synchronized to one direction. As explained in \_Configuring rsync for Deployment Synchronization section, the synchronization will happen from manager to worker. Hence, The API artifact should be created on one node only, which acts like a manager node for artifact synchronization purpose. Please follow the steps below to configure this:
 Assuming node-1 is the manager node for artifact synchronization,
 
-1.  Open `          <API-M_HOME>/repository/conf/api-manager.xml         ` file in node-1.
+1.  Open `<API-M_HOME>/repository/conf/api-manager.xml` file in node-1.
 2.  Configure Gateway Server URL to point to its own (localhost):
 
     ``` java
@@ -73,7 +73,7 @@ Assuming node-1 is the manager node for artifact synchronization,
         </APIGateway>
     ```
 
-3.  Open `          <API-M_HOME>/repository/conf/api-manager.xml         ` file in node-2.
+3.  Open `<API-M_HOME>/repository/conf/api-manager.xml` file in node-2.
 4.  Configure Gateway Server URL to point to the node-1:
 
     ``` java
@@ -82,14 +82,14 @@ Assuming node-1 is the manager node for artifact synchronization,
             </APIGateway>
     ```
 
-    Note that `           <node-1-mgt-transport-port>          ` is the management transport port, which is by default 9443.
+    Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
 
 
 ### Step 6 - Configure Throttling
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring Throttling.
 
-1.  Configure the data publisher in the `             <DataPublisher>            ` section which comes under the `             <ThrottlingConfigurations>            ` section in the `             <API-M_HOME>/repository/conf/api-manager.xml            ` file.
+1.  Configure the data publisher in the `<DataPublisher>` section which comes under the `<ThrottlingConfigurations>` section in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
     You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and process the data to come up with the Throttling decisions.
 
     -   [**Format**](#53cf34bc662d4c73926c25ba40effaf4)

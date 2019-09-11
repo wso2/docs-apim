@@ -15,7 +15,7 @@ See the documentation of the load balancer that you are using for instructions o
 
 ### Step 2: Enabling RemoteIpValve for Carbon servers
 
-You can enable Tomcat's RemoteIpValve for your Carbon server by simply adding the valve to the `         catalina-sever.xml        ` file (stored in the `         <PRODUCT_HOME>/repository/conf/tomcat        ` directory). This valve should be specified under the `         <Host>        ` element (shown below) in the `         catalina-sever.xml        ` file. See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html) for more information about `         RemoteIpValve        ` .
+You can enable Tomcat's RemoteIpValve for your Carbon server by simply adding the valve to the `catalina-sever.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/tomcat` directory). This valve should be specified under the `<Host>` element (shown below) in the `catalina-sever.xml` file. See the [Tomcat documentation](https://tomcat.apache.org/tomcat-7.0-doc/api/org/apache/catalina/valves/RemoteIpValve.html) for more information about `RemoteIpValve` .
 
 ``` java
     <Host name="localhost" unpackWARs="true" deployOnStartup="false" autoDeploy="false" appBase="${carbon.home}/repository/deployment/server/webapps/">

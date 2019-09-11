@@ -7,7 +7,7 @@ You can register tenant domains using the Management Console of WSO2 products.
 !!! info
 When multitenancy is enabled and a tenant becomes inactive for a long period of time, the tenant is unloaded from the server's memory. By default, the time period is 30 minutes. After that, the tenant has to log in again before sending requests to the server.
 
-You change the default time period allowed for tenant inactiveness by adding `         -Dtenant.idle.time=<time_in_minutes>        ` java property to the product's startup script ( `         ./wso2server.sh        ` file for Linux and `         wso2server.bat        ` for Windows) as shown below:
+You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./wso2server.sh` file for Linux and `wso2server.bat` for Windows) as shown below:
 
 ``` java
     JAVA_OPTS \
@@ -87,12 +87,12 @@ The following example further illustrates how message dispatching is carried out
 
 For example, two tenants named foo.com and bar.com may deploy a service named MyService. When this service is hosted on the two tenants, they would have the following URLs.
 
-`                   http://example.com/t/foo.com/services/MyService                 `
-`                   http://example.com/t/bar.com/services/MyService                 `
+`http://example.com/t/foo.com/services/MyService`
+`http://example.com/t/bar.com/services/MyService`
 
 The name of the tenant in the URL allows the tenant to be identified when the Carbon server receives a message which is addressed to a specific client. Alternatively, you may configure a CNAME record in DNS (Domain Name System) as an alias for this information.
 
-If a request is addressed to the `         MyService        ` service hosted by `         foo.com        ` , the message handlers and dispatchers of the super tenant will be applied and the tenant `         foo.com        ` will be identified by the tenant name in the URL. Then the request will be sent to `         foo.com        ` where it will be processed.
+If a request is addressed to the `MyService` service hosted by `foo.com` , the message handlers and dispatchers of the super tenant will be applied and the tenant `foo.com` will be identified by the tenant name in the URL. Then the request will be sent to `foo.com` where it will be processed.
 
 ### Scaling
 

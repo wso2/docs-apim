@@ -20,11 +20,11 @@ Create the database using either [DB2 command processor](#admin_SettingupIBMDB2-
 
 #### Using the DB2 command processor
 
-1.  Run DB2 console and execute the `          db2start         ` command on a CLI to open DB2.
+1.  Run DB2 console and execute the `db2start` command on a CLI to open DB2.
 2.  Create the database using the following command:
-    `          create database <DB_NAME>         `
+`create database <DB_NAME>         `
 3.  Before issuing an SQL statement, establish the connection to the database using the following command:
-    `          connect to <DB_NAME> user <USER_ID> using <PASSWORD>         `
+`connect to <DB_NAME> user <USER_ID> using <PASSWORD>         `
 4.  Grant required permissions for users as follows:
 
     ``` actionscript3
@@ -41,7 +41,7 @@ Create the database using either [DB2 command processor](#admin_SettingupIBMDB2-
 
 #### Using the DB2 control center
 
-1.  Open the DB2 control center using the `          db2cc         ` command as follows:
+1.  Open the DB2 control center using the `db2cc` command as follows:
 
     ![](attachments/126562333/126562338.png)
 
@@ -51,12 +51,12 @@ Create the database using either [DB2 command processor](#admin_SettingupIBMDB2-
     ![](attachments/126562333/126562337.png)
 ### Setting up DB2 JDBC drivers
 
-Copy the DB2 JDBC drivers ( `         db2jcc.jar        ` and `         db2jcc_license_c0u.jar        ` ) from `         <DB2_HOME>/SQLLIB/java/        ` directory to the `         <PRODUCT_HOME>/repository/components/lib/        ` directory.
+Copy the DB2 JDBC drivers ( `db2jcc.jar` and `db2jcc_license_c0u.jar` ) from `<DB2_HOME>/SQLLIB/java/` directory to the `<PRODUCT_HOME>/repository/components/lib/` directory.
 
 ![](attachments/126562333/126562348.png)
 
 !!! info
-`         <DB2_HOME>        ` refers to the installation directory of DB2 Express-C, and &lt; `         PRODUCT        ` `         _HOME>        ` refers to the directory where you run the WSO2 product instance.
+`<DB2_HOME>` refers to the installation directory of DB2 Express-C, and &lt; `PRODUCT_HOME>` refers to the directory where you run the WSO2 product instance.
 
 
 ## What's next

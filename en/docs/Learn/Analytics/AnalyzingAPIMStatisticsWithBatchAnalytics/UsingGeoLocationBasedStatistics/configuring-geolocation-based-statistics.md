@@ -11,7 +11,7 @@ Note that this documentation uses MySQL as an example for configuring the GEO\_L
     If you have Geo Location Dataset already dowloaded, you can update that dataset by following [Updating Geo Location Data Set](_Updating_Geo_Location_Data_Set_) .
 
 
-3.  Create the `           GEO_LOCATION_DATA          ` database by executing one of the scripts in the `           Geolocation Data/dbscripts          ` directory. In this example, `           mysql.sql          ` is executed.
+3.  Create the `GEO_LOCATION_DATA` database by executing one of the scripts in the `Geolocation Data/dbscripts` directory. In this example, `mysql.sql` is executed.
 
         !!! tip
     This can be done using the [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) .
@@ -19,14 +19,14 @@ Note that this documentation uses MySQL as an example for configuring the GEO\_L
     For detailed instructions to run the database script, see [MySQL Documentation - The Workbench Scripting Shell](https://dev.mysql.com/doc/workbench/en/wb-scripting-shell.html) .
 
 
-4.  Restore data to the  BLOCKS and LOCATION tables by importing data from the BLOCKS.csv and LOCATION.csv from the `           .Geolocation Data/data          ` directory of the extracted zip using the commands given below.
+4.  Restore data to the  BLOCKS and LOCATION tables by importing data from the BLOCKS.csv and LOCATION.csv from the `.Geolocation Data/data` directory of the extracted zip using the commands given below.
 
-    -   **`             Importing Geolocation Data/data/                                          LOCATION              `** .csv `                       ` `            mysqlimport -u root -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <path_to_folder_location>/GeolocationData/data/LOCATION.csv                       `
+    -   **`Importing Geolocation Data/data/LOCATION`** .csv `mysqlimport -u root -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <path_to_folder_location>/GeolocationData/data/LOCATION.csv                       `
 
-    `                     `
+``
 
-    -   **`              Importing Geolocation Data/data/BLOCKS.csv             `**
-        `             mysqlimport -u root -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <Extracted_location>/GeolocationData/data/BLOCKS.csv            `
+    -   **`Importing Geolocation Data/data/BLOCKS.csv             `**
+`mysqlimport -u root -p --ignore-lines=2 --fields-terminated-by=, --fields-optionally-enclosed-by='"' --local GEO_LOCATION_DATA <Extracted_location>/GeolocationData/data/BLOCKS.csv            `
 
                 !!! tip
         For more information, see [MySQL Documentation - Data Export and Import](https://dev.mysql.com/doc/workbench/en/wb-admin-export-import.html) .
@@ -44,9 +44,9 @@ Note that this documentation uses MySQL as an example for configuring the GEO\_L
 
         BETWEEN block.network AND block.broadcast AND block.geoname_id=loc.geoname_id;
 
-6.  Download a JDBC provider depending on the database you are using (MySQL, in this example), and copy it to the `          <APIM_ANALYTICS_HOME>/repository/components/lib         ` directory.
+6.  Download a JDBC provider depending on the database you are using (MySQL, in this example), and copy it to the `<APIM_ANALYTICS_HOME>/repository/components/lib` directory.
 7.  Configure the datasource for the Geo location.
-    A default datasource for Geo location is packed by default in the `           <APIM_ANALYTICS_HOME>           /conf/worker/deployment.yaml          ` file under data sources.
+    A default datasource for Geo location is packed by default in the `<APIM_ANALYTICS_HOME>           /conf/worker/deployment.yaml` file under data sources.
     You can edit the following data source to point to his own db and import the geo location data.
 
     ``` java

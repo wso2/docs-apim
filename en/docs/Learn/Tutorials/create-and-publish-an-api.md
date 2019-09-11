@@ -14,8 +14,8 @@ Click the following topics for a description of the concepts that you need to kn
 
 
 1.  Sign in to the WSO2 API Publisher.
-    `          https://<hostname>:9443/publisher         ` (e.g., `                     https://localhost:9443/publisher                   ` ). Use **admin** as the username and password.
-    `                                        `
+`https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Use **admin** as the username and password.
+``
 2.  Close the interactive tutorial that starts automatically if you are a first-time user, and click **ADD NEW API** .
 
         !!! tip
@@ -33,12 +33,12 @@ Click the following topics for a description of the concepts that you need to kn
     Name
     PhoneVerification
     Context
-    `                 /phoneverify                `
+`/phoneverify                `
 
         !!! info
         The API context is used by the Gateway to identify the API. Therefore, the API context must be unique. This context is the API's root context when invoking the API through the Gateway.
         !!! tip
-        You can define the API's version as a parameter of its context by adding the `                  {version}                 ` into the context. For example, `                  {version}/phoneverify                 ` . The API Manager assigns the actual version of the API to the `                  {version}                 ` parameter internally. For example, `                  https://localhost:8243/1.0.0/phoneverify                 ` . Note that the version appears before the context, allowing you to group your APIs based on the versions.
+        You can define the API's version as a parameter of its context by adding the `{version}` into the context. For example, `{version}/phoneverify` . The API Manager assigns the actual version of the API to the `{version}` parameter internally. For example, `https://localhost:8243/1.0.0/phoneverify` . Note that the version appears before the context, allowing you to group your APIs based on the versions.
 
     Version
     1.0.0
@@ -54,7 +54,7 @@ Click the following topics for a description of the concepts that you need to kn
 
     Resources
     URL pattern
-    `               CheckPhoneNumber              `
+`CheckPhoneNumber              `
     Request types
     GET, POST
 
@@ -65,7 +65,7 @@ Click the following topics for a description of the concepts that you need to kn
 
     For more information on URL patterns, see [API Resources](_Key_Concepts_) .
 
-5.  After you add the resource, click it's `           GET          ` method to expand it. Update the value for **Produces** as `           application/xml          ` and the value for **Consumes** as `           application/json          ` .
+5.  After you add the resource, click it's `GET` method to expand it. Update the value for **Produces** as `application/xml` and the value for **Consumes** as `application/json` .
 
         !!! note
     In the resource definition, you define the MIME types. **Consumes** refers to the MIME type of request accepted by the backend service and **Produces** refers to the MIME type of response produced by the backend service that you define as the endpoint of the API.
@@ -75,8 +75,8 @@ Click the following topics for a description of the concepts that you need to kn
 
     | Parameter Name                             | Description                                   | Parameter Type | Data Type | Required |
     |--------------------------------------------|-----------------------------------------------|----------------|-----------|----------|
-    | `               PhoneNumber              ` | Give the phone number to be validated         | query          | string    | True     |
-    | `               LicenseKey              `  | Give the license key as 0 for testing purpose | query          | string    | True     |
+    | `PhoneNumber` | Give the phone number to be validated         | query          | string    | True     |
+    | `LicenseKey`| Give the license key as 0 for testing purpose | query          | string    | True     |
 
     ![](attachments/103327814/103327783.png)
 
@@ -101,18 +101,18 @@ Click the following topics for a description of the concepts that you need to kn
 
     | Parameter Type                          | Description                                                                                                                                                                                     |
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | `               query              `    | Contains the fields added as part of the invocation URL that holds the data to be used to call the backend service.                                                                             |
-    | `               header              `   | Contains the case-sensitive names followed by a colon (:) and then by its value that carries additional information with the request which defines the operating parameters of the transaction. |
-    | `               formData              ` | Contains a property list of attribute names and values that are included in the body of the message.                                                                                            |
-    | `               body              `     | An arbitrary amount of data of any type sent with a POST message                                                                                                                                |
+    | `query`| Contains the fields added as part of the invocation URL that holds the data to be used to call the backend service.                                                                             |
+    | `header`| Contains the case-sensitive names followed by a colon (:) and then by its value that carries additional information with the request which defines the operating parameters of the transaction. |
+    | `formData` | Contains a property list of attribute names and values that are included in the body of the message.                                                                                            |
+    | `body`| An arbitrary amount of data of any type sent with a POST message                                                                                                                                |
 
     You can use the following data type categories, supported by [swagger](http://docs.swagger.io/spec.html#433-data-type-fields) .
 
-    -   [`             primitive            `](http://docs.swagger.io/spec.html#431-primitives) (input/output)
-    -   `            containers           ` (as arrays/sets) (input/output)
-    -   `                         complex                       ` (as models) (input/output)
-    -   [`             void            `](http://docs.swagger.io/spec.html#432-void) (output)
-    -   [`             file            `](http://docs.swagger.io/spec.html#434-file) (input)
+    -   [`primitive            `](http://docs.swagger.io/spec.html#431-primitives) (input/output)
+    -`containers` (as arrays/sets) (input/output)
+    -`complex` (as models) (input/output)
+    -   [`void            `](http://docs.swagger.io/spec.html#432-void) (output)
+    -   [`file            `](http://docs.swagger.io/spec.html#434-file) (input)
 
 
 8.  Click the **Managed API** option.

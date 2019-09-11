@@ -10,9 +10,9 @@ As with any other java product, if your WSO2 product cluster fails due to a reso
 You can easily create a heap dump and thread dump using the CarbonDump tool that is shipped with your product. These will also provide information about the product version and any patch inconsistencies.
 
 !!! note
-If you are using an Ubuntu version 10.10 or above and if you get an error on being unable to attach the process, execute the following command to rectify it: `         $ echo 0 |        ` sudo `         tee /proc/sys/kernel/        ` yama `         /ptrace_scope        `
+If you are using an Ubuntu version 10.10 or above and if you get an error on being unable to attach the process, execute the following command to rectify it: `$ echo 0 |` sudo `tee /proc/sys/kernel/` yama `/ptrace_scope        `
 
-This changes the yama `         /ptrace_scope        ` variable of the kernel temporarily (i.e., until the next reboot). For more information, go to [Oracle documentation](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=7050524) .
+This changes the yama `/ptrace_scope` variable of the kernel temporarily (i.e., until the next reboot). For more information, go to [Oracle documentation](http://bugs.java.com/bugdatabase/view_bug.do?bug_id=7050524) .
 
 
 When using the tool, you have to provide the process ID (pid) of the Carbon instance and the &lt;PRODUCT\_HOME&gt; which is where your unzipped Carbon distribution files reside. The command takes the following format:

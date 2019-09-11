@@ -38,8 +38,8 @@ The json\_validator sequence specifies the properties to be limited in the paylo
 To edit the existing sequence follow the steps below.
 
 1.  Log in to the Management Console.
-2.  Navigate to `           /_system/governance/apimgt/customsequences/in/json_validator.xml          `
-3.  Edit the `           json_validator.xml          ` file.
+2.  Navigate to `/_system/governance/apimgt/customsequences/in/json_validator.xml          `
+3.  Edit the `json_validator.xml` file.
 4.  Go to the API Publisher and re-publish your API for the changes to take effect.
 
 ### Applying the JSON validator policy

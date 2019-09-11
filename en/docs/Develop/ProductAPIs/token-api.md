@@ -22,9 +22,9 @@ You can use any of the following cURL command options to revoke an access token:
 
 The parameters required to invoke the following API are as follows:
 
--   `           token          ` - The token to be revoked
+-`token` - The token to be revoked
 
--   `           <base64 encoded (clientId:clientSecret)>          ` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `           <clientId>:<clientSecret>          ` Thereafter, enter the encoded value for this parameter.
+-`<base64 encoded (clientId:clientSecret)>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `<clientId>:<clientSecret>` Thereafter, enter the encoded value for this parameter.
 
 -   [**Format**](#option1-format)
 -   [**Example**](#option1-example)
@@ -65,11 +65,11 @@ Note that if you use an invalid access token, you still receive an empty respons
 
 The parameters required to invoke the following API are as follows:
 
--   `           token          ` - The token to be revoked
+-`token` - The token to be revoked
 
--   `           <base64 encoded (clientId:clientSecret)>          ` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `           <clientId>:<clientSecret>          ` Thereafter, enter the encoded value for this parameter.
+-`<base64 encoded (clientId:clientSecret)>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `<clientId>:<clientSecret>` Thereafter, enter the encoded value for this parameter.
 
--   `          token_type_hint         ` = This parameter is optional. If you do not specify this parameter, then WSO2 Identity Server (WSO2 IS) will search in both key spaces (access and refresh) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then WSO2 IS only searches in the respective token key space, hence the token revokation process is much faster.
+-`token_type_hint` = This parameter is optional. If you do not specify this parameter, then WSO2 Identity Server (WSO2 IS) will search in both key spaces (access and refresh) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then WSO2 IS only searches in the respective token key space, hence the token revokation process is much faster.
 
 -   [**Format**](#option2-format)
 -   [**Example**](#option2-example)
@@ -94,11 +94,11 @@ If you obtained an access token with the Implicit grant type, you do not have to
 
 ### Configuring the token expiration time
 
-User access tokens have a fixed expiration time, which is set to 60 minutes by default. Before deploying the API Manager to users, extend the default expiration time by editing the `         <AccessTokenDefaultValidityPeriod>        ` element in the `         <APIM_HOME>/repository/conf/identity/identity.xml        ` file.
+User access tokens have a fixed expiration time, which is set to 60 minutes by default. Before deploying the API Manager to users, extend the default expiration time by editing the `<AccessTokenDefaultValidityPeriod>` element in the `<APIM_HOME>/repository/conf/identity/identity.xml` file.
 
 Also take the **time stamp skew** into account when configuring the expiration time. The time stamp skew is used to manage small time gaps in the system clocks of different servers. For example, let's say you have two Key Managers and you generate a token from the first one and authenticate with the other. If the second server's clock runs 300 seconds ahead, you can configure a 300s time stamp skew in the first server. When the first Key Manager generates a token (e.g., with the default life span, which is 3600 seconds), the time stamp skew is deducted from the token's life span. The new life span is 3300 seconds and the first server calls the second server after 3200 seconds.
 
-You configure the time stamp skew using the `         <TimestampSkew>        ` element in the `         <APIM_HOME>/repository/conf/identity/identity.xml        ` file.
+You configure the time stamp skew using the `<TimestampSkew>` element in the `<APIM_HOME>/repository/conf/identity/identity.xml` file.
 
 !!! tip
 **Tip** : Ideally, the time stamp skew should not be larger than the token's life span. We recommend you to set it to zero if the nodes in your cluster are synchronized.
@@ -113,7 +113,7 @@ The OAuth2 component in WSO2 API Manager (WSO2 API-M) has two implementations th
 -   [Synchronous token persistence (When PoolSize = 0)](#TokenAPI-Synchronoustokenpersistence(WhenPoolSize=0))
 -   [Asynchronous token persistence (When PoolSize &gt; 0)](#TokenAPI-Asynchronoustokenpersistence(WhenPoolSize%3E0))
 
-The Synchronous or Asynchronous  behavior is governed by the `         PoolSize        ` property under `         SessionDataPersist        ` element in the `         identity.xml        ` file.
+The Synchronous or Asynchronous  behavior is governed by the `PoolSize` property under `SessionDataPersist` element in the `identity.xml` file.
 
 #### Synchronous token persistence (When PoolSize = 0)
 
@@ -130,7 +130,7 @@ The flow of synchronous token persistence is as follows:
         !!! tip
     Enabling synchronous token persistence
 
-    To enable synchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `            <poolsize>           ` property to 0** .
+    To enable synchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `<poolsize>` property to 0** .
 
 
 #### Asynchronous token persistence (When PoolSize &gt; 0)
@@ -150,7 +150,7 @@ The flow of asynchronous token persistence is as follows:
         !!! tip
     Enabling asynchronous token persistence
 
-    To enable asynchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `            <poolsize>           ` property to a value higher than 0** . The value provided for the `           <poolsize>          ` property determines the number of threads in the thread pool that are used to consume the token persisting queue.
+    To enable asynchronous token persistence, follow the steps in the [Enabling Authentication Session Persistence](_Enabling_Authentication_Session_Persistence_) tutorial and **set the `<poolsize>` property to a value higher than 0** . The value provided for the `<poolsize>` property determines the number of threads in the thread pool that are used to consume the token persisting queue.
 
 !!! info
 The main difference between synchronous and asynchronous token persistence is that the OAuth2 component in the synchronous token persistence implementation waits for the access token to be persisted in the database before returning it to the client.
@@ -158,7 +158,7 @@ The main difference between synchronous and asynchronous token persistence is th
 
 #### Recovery flow for token persistence
 
-This section explains the recovery flow triggered in WSO2 API Manager for exceptional cases that may occur in a production environment caused by the client application mishandling the `         CON_APP_KEY        ` constraint that is explained below.
+This section explains the recovery flow triggered in WSO2 API Manager for exceptional cases that may occur in a production environment caused by the client application mishandling the `CON_APP_KEY` constraint that is explained below.
 
 -   [CON\_APP\_KEY constraint](#TokenAPI-CON_APP_KEYconstraint)
 -   [Asynchronous token persistence](#TokenAPI-Asynchronoustokenpersistence)
@@ -166,9 +166,9 @@ This section explains the recovery flow triggered in WSO2 API Manager for except
 
 ##### CON\_APP\_KEY constraint
 
-`         CONSTRAINT CON_APP_KEY UNIQUE (CONSUMER_KEY, AUTHZ_USER,USER_TYPE,TOKEN_STATE,TOKEN_STATE_ID,TOKEN_SCOPE)        `
+`CONSTRAINT CON_APP_KEY UNIQUE (CONSUMER_KEY, AUTHZ_USER,USER_TYPE,TOKEN_STATE,TOKEN_STATE_ID,TOKEN_SCOPE)`
 
-As seen in the code snippet above for a given set of consumer key, user, and scope values, there can be only one ACTIVE access token. The `         CON_APP_KEY        ` constraint in the `         IDN_OAUTH2_ACCESS_TOKEN        ` table enforces this by allowing only one active access token for a given set of consumer key, user, and scope values. This constraint may be violated in a scenario where two or more i dentical token requests come from the same application. **
+As seen in the code snippet above for a given set of consumer key, user, and scope values, there can be only one ACTIVE access token. The `CON_APP_KEY` constraint in the `IDN_OAUTH2_ACCESS_TOKEN` table enforces this by allowing only one active access token for a given set of consumer key, user, and scope values. This constraint may be violated in a scenario where two or more i dentical token requests come from the same application. **
 **
 
 !!! info
@@ -187,7 +187,7 @@ For instance, if the violation mentioned above occurs with two nodes of a cluste
 3.  If an existing active access token is found, the token is returned to the client.
 4.  Alternatively, if an existing access token is not found, the OAuth2 component in **both nodes** creates a new access token and adds it to the persisting queue.
 5.  After adding it to the queue, the access token is returned to the client.
-6.  However, the background threads that consume the persisting queue in both servers (nodes) attempt to persist the token to the database. One of the servers succeed and successfully persist the access token to the database, and the other server receives an error due to violation of the `          CON_APP_KEY         ` constraint. The violation is due to the fact that the same access token was already persisted by the first server in the cluster and is currently active.
+6.  However, the background threads that consume the persisting queue in both servers (nodes) attempt to persist the token to the database. One of the servers succeed and successfully persist the access token to the database, and the other server receives an error due to violation of the `CON_APP_KEY` constraint. The violation is due to the fact that the same access token was already persisted by the first server in the cluster and is currently active.
 
 **Recovery flow**
 
@@ -198,7 +198,7 @@ To handle this situation, WSO2 API Manager has a recovery flow for token persist
 -   The access token that is received from the second node is now saved as an ACTIVE access token in the database. Therefore, one of the access tokens returned to the client is an INACTIVE token.
 
 !!! tip
-**Tip:** If the client application is not designed to handle the `         CONN_APP_KEY        ` constraint violation using scopes, you can avoid the situation described above and avoid any invalid tokens by using synchronous token persistence. To do this, set the `         <PoolSize>        ` property in the `         <API-M_HOME>/repository/conf/identity/identity.xml        ` file to 0.
+**Tip:** If the client application is not designed to handle the `CONN_APP_KEY` constraint violation using scopes, you can avoid the situation described above and avoid any invalid tokens by using synchronous token persistence. To do this, set the `<PoolSize>` property in the `<API-M_HOME>/repository/conf/identity/identity.xml` file to 0.
 
 
 ##### Synchronous token persistence
@@ -212,11 +212,11 @@ The flow of the synchronous token persistence when receiving two identical acces
 
 3.  If an existing active access token is found, the token is returned to the client.
 4.  Alternatively, if an existing access token is not found, the OAuth2 component in **both nodes** creates a new access token and persists the access token to the database using the same thread.
-5.  Either one of the nodes persist the token successfully and returns it to the client, but the other node receives an error due to violation of the `          CON_APP_KEY         ` constraint.
+5.  Either one of the nodes persist the token successfully and returns it to the client, but the other node receives an error due to violation of the `CON_APP_KEY` constraint.
 
 **Recovery flow**
 
-The process flow now moves on to the recovery flow described above in order to handle the `         CON_APP_KEY        ` constraint violation and is executed as follows:
+The process flow now moves on to the recovery flow described above in order to handle the `CON_APP_KEY` constraint violation and is executed as follows:
 
 -   As the same thread is being used, the OAuth2 component in the second node checks the database again for an ACTIVE access token.
 -   As there is now an ACTIVE token, which was persisted by the first node, the second node now returns the access token persisted by the first node to the client.

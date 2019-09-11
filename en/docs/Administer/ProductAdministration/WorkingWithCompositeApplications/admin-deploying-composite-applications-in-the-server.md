@@ -12,7 +12,7 @@ Alternatively, you can also do this using one of the following options:
 **Before you begin** , [package your artifacts into a Composite Application](https://docs.wso2.com/display/ADMIN44x/Packaging+Artifacts+into+Composite+Applications) . Note that the examples here are given using WSO2 ESB, but the steps are the same for any WSO2 server.
 
 !!! info
-You need to give the same name, which you gave for the artifact in the `         artifacts.xml        ` file of the Composite Application.
+You need to give the same name, which you gave for the artifact in the `artifacts.xml` file of the Composite Application.
 
 
 #### 
@@ -30,7 +30,7 @@ Then, select the Composite Application you want to deploy from the **Available*
 
 1.  In the Tooling interface, navigate to **Developer Studio Dashboard** , and click **Server** under **Add Server** .
 
-2.  In the **Define a New Server** dialog box, expand the WSO2 folder and select the version of your server. In this case, it is `          WSO2 ESB Server 5.0.0         ` .
+2.  In the **Define a New Server** dialog box, expand the WSO2 folder and select the version of your server. In this case, it is `WSO2 ESB Server 5.0.0` .
     ![](attachments/53121319/53284204.png)3.  Click **Next** . In the CARBON\_HOME field, provide the path to your product's home directory and then click **Next** again. For example,
     ![](attachments/53121319/53284218.png)4.  Review the default port details for your server and click **Next** .
     Typically, you can leave these unchanged but if you are already running another server on these ports, give unused ports here.
@@ -66,7 +66,7 @@ You can also deploy a C-App via the product's Management Console. To do this you
     The **Add Carbon Applications** screen appears.
 
 2.  Click **Choose File** , select your CAR file and click **Upload** .
-    The CAR files that you upload are dropped to the `           <PRODUCT_HOME>/tmp/carbonapps/{tenant-ID}/          ` directory.
+    The CAR files that you upload are dropped to the `<PRODUCT_HOME>/tmp/carbonapps/{tenant-ID}/` directory.
 
 3.  Refresh the browser to see that the CAR file has been deployed.
 
@@ -78,11 +78,11 @@ It is not recommended to use the Management Console to edit the artifacts that h
 
 #### Deploying via hot deployment
 
-You can deploy a C-App by d irectly saving it to the `         <        ` `         PRODUCT_HOME>/repository/deployment/server/carbonapps/        ` `         deployment/        ` directory. If you are running products in a cluster, use the [Deployment Synchronizer](http://docs.wso2.org/display/CLUSTER44x/Configuring+Deployment+Synchronizer) to keep the configurations on all nodes of the cluster in sync.
+You can deploy a C-App by d irectly saving it to the `<PRODUCT_HOME>/repository/deployment/server/carbonapps/deployment/` directory. If you are running products in a cluster, use the [Deployment Synchronizer](http://docs.wso2.org/display/CLUSTER44x/Configuring+Deployment+Synchronizer) to keep the configurations on all nodes of the cluster in sync.
 
 #### Deploying using the Maven plug-in
 
-1.  Open the `           pom.xml          ` file of the **Composite Application Project** . In the **Source** view, search for `           maven-car-deploy-plugin          ` under the `           <plugins>          ` element and edit the `           <trustStorePath>          ` so that it points to the actual location within the product folder structure. See below for an example:
+1.  Open the `pom.xml` file of the **Composite Application Project** . In the **Source** view, search for `maven-car-deploy-plugin` under the `<plugins>` element and edit the `<trustStorePath>` so that it points to the actual location within the product folder structure. See below for an example:
 
     ``` xml
         <plugin>
@@ -118,7 +118,7 @@ You can deploy a C-App by d irectly saving it to the `         <        ` `     
 
 3.  Build and deploy the **Composite Application Project** using one of the following:
 
-    -   Open the `             pom.xml            ` file of the **Composite Application Project** . In the **Source** view, add the following line in the `             <properties>            ` section:
+    -   Open the `pom.xml` file of the **Composite Application Project** . In the **Source** view, add the following line in the `<properties>` section:
 
         ``` xml
                 <maven.car.deploy.skip>true</maven.car.deploy.skip>
@@ -156,6 +156,6 @@ You can deploy a C-App by d irectly saving it to the `         <        ` `     
 !!! tip
 When **deleting a C-App** , it is not recommended to delete individual artifacts of the CAR file. The recommended practice is to delete the entire C-App.
 
-You can delete a C-App from the Management Console or by deleting the CAR archive from `         <PRODUCT_HOME>/repository/carbonapps/{tenant-ID}        ` . `         {tenant-ID}        ` is 0 in a single-tenant environment as 0 is the super tenant ID. Manual undeployment in a multi-tenanted environment is not recommended if you are unaware of the tenant ID.
+You can delete a C-App from the Management Console or by deleting the CAR archive from `<PRODUCT_HOME>/repository/carbonapps/{tenant-ID}` . `{tenant-ID}` is 0 in a single-tenant environment as 0 is the super tenant ID. Manual undeployment in a multi-tenanted environment is not recommended if you are unaware of the tenant ID.
 
 

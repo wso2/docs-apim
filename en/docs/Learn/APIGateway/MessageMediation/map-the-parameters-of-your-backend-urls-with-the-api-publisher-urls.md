@@ -6,16 +6,16 @@ This tutorial uses the WSO2 API Manager Tooling Plug-in .
 
 This tutorial explains how to map your backend URLs to the pattern that you want in the API Publisher. Note the following:
 
-1.  The URL pattern of the APIs in the Publisher is `          http://<hostname>:8280/<context>/<version>/<API resource>         ` .
-2.  You can define variables as part of the URI template of your API's resources. For example, in the URI template /business/{businessId}/address/ , `          businessId         ` is a variable.
-3.  The variables in the resources are read during mediation runtime using property values with the " `          uri.var.         ` " prefix. For example, this HTTP endpoint gets the businessId that you specify in the resource `                     http://localhost:8280/businesses/{uri.var.businessId}/details                   ` .
-4.  The URI template of the API's resource is automatically appended to the end of the HTTP endpoint at runtime. You can use the following mediator setting to remove the URL postfix from the backend endpoint: `          <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>         ` .
+1.  The URL pattern of the APIs in the Publisher is `http://<hostname>:8280/<context>/<version>/<API resource>` .
+2.  You can define variables as part of the URI template of your API's resources. For example, in the URI template /business/{businessId}/address/ , `businessId` is a variable.
+3.  The variables in the resources are read during mediation runtime using property values with the " `uri.var.` " prefix. For example, this HTTP endpoint gets the businessId that you specify in the resource `http://localhost:8280/businesses/{uri.var.businessId}/details` .
+4.  The URI template of the API's resource is automatically appended to the end of the HTTP endpoint at runtime. You can use the following mediator setting to remove the URL postfix from the backend endpoint: `<property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>` .
 
 We do the following mapping in this tutorial:
 
 ![](attachments/45966776/46216133.png)
 
-**Before you begin** , note that a mock backend implementation is set up in this tutorial for the purpose of demonstrating the API invocation. If you have a local API Manager setup, save [this file](https://docs.wso2.com/download/attachments/45966776/Response_API.xml?version=1&modificationDate=1433789423000&api=v2) in the `         <APIM_HOME>/repository/deployment/server/synapse-configs/default/api        ` folder to set up the mock backend.
+**Before you begin** , note that a mock backend implementation is set up in this tutorial for the purpose of demonstrating the API invocation. If you have a local API Manager setup, save [this file](https://docs.wso2.com/download/attachments/45966776/Response_API.xml?version=1&modificationDate=1433789423000&api=v2) in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` folder to set up the mock backend.
 
 1.  Log in to the API Publisher, design a new API with the following information, click **Add** and then click **Next: Implement &gt;** .
 
@@ -74,16 +74,16 @@ We do the following mapping in this tutorial:
     | Field               | Sample value                                                                                                                    |
     |---------------------|---------------------------------------------------------------------------------------------------------------------------------|
     | Endpoint type       | HTTP/REST endpoint                                                                                                              |
-    | Production endpoint | `                                 http://localhost:8280/businesses/{uri.var.businessId}/details                               ` |
-    | Sandbox endpoint    | `                               http://localhost:8280/businesses/{uri.var.businessId}/details                             `     |
+    | Production endpoint | `http://localhost:8280/businesses/{uri.var.businessId}/details` |
+    | Sandbox endpoint    | `http://localhost:8280/businesses/{uri.var.businessId}/details`|
 
     ![](attachments/103332587/103332564.png)
 
-3.  Click **Next: Manage &gt;** to go to the `           Manage          ` tab, select the `           Gold          ` tier and publish the API.
+3.  Click **Next: Manage &gt;** to go to the `Manage` tab, select the `Gold` tier and publish the API.
     ![](attachments/103332587/103332563.png)
     As the API's resource is appended to its endpoint by Synapse at runtime, let's write a custom sequence to remove this appended resource.
 
-4.  Copy the the following to a text editor and save the file in XML format (e.g., `           TestSequence.xml          ` ).
+4.  Copy the the following to a text editor and save the file in XML format (e.g., `TestSequence.xml` ).
 
     ``` java
         <sequence xmlns="http://ws.apache.org/ns/synapse" name="TestSequence">
@@ -91,7 +91,7 @@ We do the following mapping in this tutorial:
         </sequence>
     ```
 
-5.  Download and install the WSO2 API Manager Tooling Plug-in if you have not done so already. Open Eclipse by double clicking the `           Eclipse.app          ` file inside the downloaded folder.
+5.  Download and install the WSO2 API Manager Tooling Plug-in if you have not done so already. Open Eclipse by double clicking the `Eclipse.app` file inside the downloaded folder.
 
 6.  Click **Window &gt; Open Perspective &gt; Other** to open the Eclipse perspective selection window. Alternatively, click the **Open Perspective** icon shown below at the top right corner.
     ![](attachments/103332587/103332575.png)
@@ -103,13 +103,13 @@ We do the following mapping in this tutorial:
 9.  On the dialog box that appears, enter the URL, username and password of the Publisher server.
     ![](attachments/103332587/103332580.png)
 10. On the tree view that appears, expand the folder structure of the existing API.
-11. Right-click on the `          in         ` sequence folder and click **Import Sequence** to import the sequence you create above.
+11. Right-click on the `in` sequence folder and click **Import Sequence** to import the sequence you create above.
     ![](attachments/103332587/103332579.png)
-12. Browse to the `          TestSequence.xml         ` file you created in step 4.
+12. Browse to the `TestSequence.xml` file you created in step 4.
 13. Your sequence now appears on the APIM perspective. Right-click on the imported sequence and click **Commit File** to push the changes to the Publisher server.
     ![](attachments/103332587/103332578.png)
 
-14. Log back into the API Publisher, click **Edit** and go to the **Implement** tab. Select the **Enable Message Mediation** check box and engage the `           In          ` sequence that you created earlier.
+14. Log back into the API Publisher, click **Edit** and go to the **Implement** tab. Select the **Enable Message Mediation** check box and engage the `In` sequence that you created earlier.
     ![](attachments/103332587/103332562.png)
 
         !!! info
@@ -129,10 +129,10 @@ We do the following mapping in this tutorial:
 19. Click the **API Console** tab of your API.
     ![](attachments/103332587/103332560.png)
 
-20. Note that the `           businessId          ` is added in the UI as a parameter. Give a `           businessId          ` and click **Try it out** to invoke the API.
+20. Note that the `businessId` is added in the UI as a parameter. Give a `businessId` and click **Try it out** to invoke the API.
     ![](attachments/103332587/103332559.png)
 
-21. Note the response that you get. According to the mock backend used in this tutorial, you get the response `           Received Request          ` .
+21. Note the response that you get. According to the mock backend used in this tutorial, you get the response `Received Request` .
     ![](attachments/103332587/103332583.png)
 
 In this tutorial, you mapped the URL pattern of the APIs in the Publisher with the endpoint URL pattern of a sample backend.

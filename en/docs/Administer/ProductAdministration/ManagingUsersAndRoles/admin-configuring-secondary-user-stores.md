@@ -10,7 +10,7 @@ The topics below explain how to configure secondary user stores manually or usin
 !!! tip
 Before you begin:
 
-If you are setting up a database other than the default H2 that comes with the product to store user information, select the script relevant to your database type from the `         <PRODUCT_HOME>/dbscripts        ` folder and run it on your database. It creates the necessary tables.
+If you are setting up a database other than the default H2 that comes with the product to store user information, select the script relevant to your database type from the `<PRODUCT_HOME>/dbscripts` folder and run it on your database. It creates the necessary tables.
 
 
 #### Configuring using the management console
@@ -89,12 +89,12 @@ If you are setting up a database other than the default H2 that comes with the p
 
 #### Configuring manually
 
-By default, the configuration of the primary user store is saved in the `         user-mgt.xml        ` file. When you create a secondary user store using the management console as explained above, its configuration is saved to an XML file with the same name as the domain name you specify. Alternatively, you can create this XML file manually and save it as follows:
+By default, the configuration of the primary user store is saved in the `user-mgt.xml` file. When you create a secondary user store using the management console as explained above, its configuration is saved to an XML file with the same name as the domain name you specify. Alternatively, you can create this XML file manually and save it as follows:
 
--   -   When you configure multiple user stores, you must **give a unique domain name to each user store** in the `            <DomainName>           ` element. If you configure a user store without specifying a domain name, the server throws an exception at startup.
-    -   If it is the configuration of a super tenant, save the secondary user store definitions in &lt; `            PRODUCT_HOME>/repository/deployment/server/userstores           ` directory.
-    -   If it is a general tenant, save the configuration in &lt; `            PRODUCT_HOME>/repository/tenants/<tenantid>/userstores           ` directory.
-    -   The secondary user store configuration file must have the same name as the domain with an underscore (\_) in place of the period. For example, if the domain is `            wso2.com,           ` name the file as `            wso2_com.xml           `
+-   -   When you configure multiple user stores, you must **give a unique domain name to each user store** in the `<DomainName>` element. If you configure a user store without specifying a domain name, the server throws an exception at startup.
+    -   If it is the configuration of a super tenant, save the secondary user store definitions in &lt; `PRODUCT_HOME>/repository/deployment/server/userstores` directory.
+    -   If it is a general tenant, save the configuration in &lt; `PRODUCT_HOME>/repository/tenants/<tenantid>/userstores` directory.
+    -   The secondary user store configuration file must have the same name as the domain with an underscore (\_) in place of the period. For example, if the domain is `wso2.com,` name the file as `wso2_com.xml           `
     -   Only one file contains the definition for one user store domain.
 
 

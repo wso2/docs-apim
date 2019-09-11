@@ -40,9 +40,9 @@ The responses is a JSON message.
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Log in to API Store.                                                                                                                                                 |
 | URI            | <http://localhost:9763/store/site/blocks/user/login/ajax/login.jag>                                                                                                  |
-| URI Parameters | `             action=login&username=<username>&password=<password>            `                                                                                      |
+| URI Parameters | `action=login&username=<username>&password=<password>`|
 | HTTP Methods   | POST                                                                                                                                                                 |
-| Example        | `             curl -X POST -c cookies http://localhost:9763/store/site/blocks/user/login/ajax/login.jag -d 'action=login&username=admin&password=admin'            ` |
+| Example        | `curl -X POST -c cookies http://localhost:9763/store/site/blocks/user/login/ajax/login.jag -d 'action=login&username=admin&password=admin'` |
 
 #### Logout
 
@@ -50,9 +50,9 @@ The responses is a JSON message.
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Log out from API Store.                                                                                                                                                |
 | URI            | [http://localhost:9763/store/site/blocks/user/login/ajax/login.jag?action=logout](http://localhost:9763/publisher/site/blocks/user/login/ajax/login.jag?action=logout) |
-| URI Parameters | `             ?action=logout            `                                                                                                                              |
+| URI Parameters | `?action=logout`|
 | HTTP Methods   | GET                                                                                                                                                                    |
-| Example        | `             curl -b cookies http://localhost:9763/store/site/blocks/user/login/ajax/login.jag?action=logout            `                                             |
+| Example        | `curl -b cookies http://localhost:9763/store/site/blocks/user/login/ajax/login.jag?action=logout`|
 
 #### User Signup
 
@@ -125,16 +125,16 @@ The responses is a JSON message.
 | URI            | <http://localhost:9763/store/site/blocks/api/listing/ajax/list.jag>                                                                                                                                                                           |
 | URI Parameters | action= *getAllPaginatedPublishedAPIs* , tenant, start, end, returnAPITags (optional)                                                                                                                                                         
                                                                                                                                                                                                                                                  
-  The `              start             ` and `              end             ` parameters determine the range of APIs you want to retrieve. For example, if start=1 and end=10, the first 10 APIs that appear in the API Store will be returned.  
+  The `start` and `end` parameters determine the range of APIs you want to retrieve. For example, if start=1 and end=10, the first 10 APIs that appear in the API Store will be returned.  
                                                                                                                                                                                                                                                  
-  The `              returnAPITags             ` parameter is optional. If `              returnAPITags=true             ` , the system makes a call to the registry and returns the tags of each API in the response.                           |
+  The `returnAPITags` parameter is optional. If `returnAPITags=true` , the system makes a call to the registry and returns the tags of each API in the response.                           |
 | HTTP Methods   | GET                                                                                                                                                                                                                                           |
 | Example        | To get the first 100 APIs in the API Store:                                                                                                                                                                                                   
                                                                                                                                                                                                                                                  
-  `              curl -b cookies "http://localhost:9763/store/site/blocks/api/listing/ajax/list.jag?action=getAllPaginatedPublishedAPIs&tenant=carbon.super&start=1&end=100"             `                                                       |
+`curl -b cookies "http://localhost:9763/store/site/blocks/api/listing/ajax/list.jag?action=getAllPaginatedPublishedAPIs&tenant=carbon.super&start=1&end=100"`|
 
 !!! note
-Please note that the `         getAllPublishedAPIs        ` API is now deprecated. You can get the same functionality from `         getAllPaginatedPublishedAPIs        ` .
+Please note that the `getAllPublishedAPIs` API is now deprecated. You can get the same functionality from `getAllPaginatedPublishedAPIs` .
 
 
 #### Add an Application
@@ -143,9 +143,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Add a new application.                                                                                                                                                                                                       |
 | URI            | <http://localhost:9763/store/site/blocks/application/application-add/ajax/application-add.jag>                                                                                                                               |
-| URI Parameters | `             action=addApplication&application=xxx&tier=xxx&description=xxx            `                                                                                                                                    |
+| URI Parameters | `action=addApplication&application=xxx&tier=xxx&description=xxx`|
 | HTTP Methods   | POST                                                                                                                                                                                                                         |
-| Example        | `              curl -X POST -b cookies http://localhost:9763/store/site/blocks/application/application-add/ajax/application-add.jag -d 'action=addApplication&application=NewApp1&tier=Unlimited&description='             ` |
+| Example        | `curl -X POST -b cookies http://localhost:9763/store/site/blocks/application/application-add/ajax/application-add.jag -d 'action=addApplication&application=NewApp1&tier=Unlimited&description='` |
 
 #### Update an Application
 
@@ -153,9 +153,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Update an existing application.                                                                                                                                                                                                                                                   |
 | URI            | <http://localhost:9763/store/site/blocks/application/application-update/ajax/application-update.jag>                                                                                                                                                                              |
-| URI Parameters | `              action=updateApplication&applicationOld=<application_name>&applicationNew=<application_name>&callbackUrlNew=xxx&descriptionNew=xxx&tier=<tier_name>             `                                                                                                  |
+| URI Parameters | `action=updateApplication&applicationOld=<application_name>&applicationNew=<application_name>&callbackUrlNew=xxx&descriptionNew=xxx&tier=<tier_name>`|
 | HTTP Methods   | POST                                                                                                                                                                                                                                                                              |
-| Example        | `              curl -X POST -b cookies http://localhost:9763/store/site/blocks/application/application-update/ajax/application-update.jag -d 'action=updateApplication&applicationOld=NewApp1&applicationNew=NewApp2&tier=Unlimited&descriptionNew=&callbackUrlNew'             ` |
+| Example        | `curl -X POST -b cookies http://localhost:9763/store/site/blocks/application/application-update/ajax/application-update.jag -d 'action=updateApplication&applicationOld=NewApp1&applicationNew=NewApp2&tier=Unlimited&descriptionNew=&callbackUrlNew'` |
 
 #### Get Applications
 
@@ -163,9 +163,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Get list of applications.                                                                                                                                        |
 | URI            | <http://localhost:9763/store/site/blocks/application/application-list/ajax/application-list.jag>                                                                 |
-| URI Parameters | `             ?action=getApplications            `                                                                                                               |
+| URI Parameters | `?action=getApplications`|
 | HTTP Methods   | GET                                                                                                                                                              |
-| Example        | `             curl -b cookies http://localhost:9763/store/site/blocks/application/application-list/ajax/application-list.jag?action=getApplications            ` |
+| Example        | `curl -b cookies http://localhost:9763/store/site/blocks/application/application-list/ajax/application-list.jag?action=getApplications` |
 
 #### Get an Application by Name
 
@@ -271,7 +271,7 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 | URI            | <http://localhost:9763/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag>                                                                                                                                                                                    |
 | URI Parameters | action=updateClientApplication& application=&lt;app\_name&gt;&keytype=&lt;PRODUCTION|SANDBOX&gt; &callbackUrl=&lt;URL&gt;& authorizedDomains=&lt;The domains from which requests are allowed to the APIs&gt;& validityTime=&lt;time duration in seconds&gt;&tokenScope               
                                                                                                                                                                                                                                                                                         
-  **`               tokenScope              `** is given in the request when your API has Auth scopes defined. See [OAuth scopes](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-OAuthscopes) .                                                                           |
+  **`tokenScope`** is given in the request when your API has Auth scopes defined. See [OAuth scopes](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-OAuthscopes) .                                                                           |
 | HTTP Methods   | POST                                                                                                                                                                                                                                                                                 |
 | Examples       | 1.  curl -X POST -b cookies <http://localhost:9763/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag> -d 'action=updateClientApplication&application=NewApp1&keytype=PRODUCTION &callbackUrl=& authorizedDomains=ALL&validityTime=360000'                    
   2.  curl -X POST -b cookies <http://localhost:9763/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag> -d 'action=updateClientApplication&application=NewApp1&keytype=SANDBOX&callbackUrl=&authorizedDomains=ALL&validityTime=360000& **tokenScope=scope1** '  |
@@ -448,9 +448,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Deletes an OAuth application in a [third-party Authorization Server](https://docs.wso2.com/display/AM260/Configuring+a+Third-Party+Key+Manager) . If you delete it through the API Store UI, only the mapping that is maintained in the API Manager side will be deleted. |
 | URI            | <http://localhost:9763/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag>                                                                                                                                                                         |
-| URI Parameters | `              action=                             deleteAuthApplication                            &consumerKey=<application_key>             `                                                                                                                          |
+| URI Parameters | `action=deleteAuthApplication&consumerKey=<application_key>`|
 | HTTP Methods   | POST                                                                                                                                                                                                                                                                      |
-| Example        | `              curl -k -X POST -b cookies http://localhost:9763/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag -d 'action=deleteAuthApplication&consumerKey=4lHddsxCtpFa2zJE1EbBpJy_NIQa'             `                                        |
+| Example        | `curl -k -X POST -b cookies http://localhost:9763/store/site/blocks/subscription/subscription-add/ajax/subscription-add.jag -d 'action=deleteAuthApplication&consumerKey=4lHddsxCtpFa2zJE1EbBpJy_NIQa'`|
 
 #### Provision an Out-of-Band OAuth Client
 
@@ -579,9 +579,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Add a comment to an API.                                                                                                                                                                                                                                                               |
 | URI            | <http://localhost:9763/store/site/blocks/comment/comment-add/ajax/comment-add.jag>                                                                                                                                                                                                     |
-| URI Parameters | `              action=addComment&name=xxx&version=xxx&provider=xxx&comment=xxx             `                                                                                                                                                                                           |
+| URI Parameters | `action=addComment&name=xxx&version=xxx&provider=xxx&comment=xxx`|
 | HTTP Methods   | POST                                                                                                                                                                                                                                                                                   |
-| Example        | `              curl -X POST -b cookies                             http://localhost:9763/store/site/blocks/comment/comment-add/ajax/comment-add.jag                            -d 'action=addComment&name=CalculatorAPI&version=1.0&provider=admin&comment=test comment'             ` |
+| Example        | `curl -X POST -b cookies                             http://localhost:9763/store/site/blocks/comment/comment-add/ajax/comment-add.jag                            -d 'action=addComment&name=CalculatorAPI&version=1.0&provider=admin&comment=test comment'` |
 
 #### Get all Endpoint URLs
 
@@ -589,9 +589,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description    | Get all the endpoint URLs of the API Gateway environments configured for an API.                                                                                                                                                                                |
 | URI            | <http://localhost:9763/store/site/blocks/api/api-info/ajax/api-info.jag>                                                                                                                                                                                        |
-| URI Parameters | `              action=getAPIEndpointURLs&name=xxx&version=x.x.x&provider=xxx             `                                                                                                                                                                      |
+| URI Parameters | `action=getAPIEndpointURLs&name=xxx&version=x.x.x&provider=xxx`|
 | HTTP Methods   | POST                                                                                                                                                                                                                                                            |
-| Example        | `              curl -X POST -b cookies                             http://localhost:9763/store/site/blocks/api/api-info/ajax/api-info.jag                            -d 'action=getAPIEndpointURLs&name=CalculatorAPI&version=1.0&provider=admin'             ` |
+| Example        | `curl -X POST -b cookies                             http://localhost:9763/store/site/blocks/api/api-info/ajax/api-info.jag                            -d 'action=getAPIEndpointURLs&name=CalculatorAPI&version=1.0&provider=admin'` |
 
 #### Get all Available Tiers
 
@@ -599,9 +599,9 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 |----------------|----------------------------------------------------------------------------------------------------------------------------|
 | Description    | Get all the tiers available in the deployment.                                                                             |
 | URI            | <http://localhost:9763/store/site/blocks/item-add/ajax/add.jag>                                                            |
-| URI Parameters | `              action=getTiers             `                                                                               |
+| URI Parameters | `action=getTiers`|
 | HTTP Methods   | GET                                                                                                                        |
-| Example        | `              curl -b cookies http://localhost:9763/store/site/blocks/item-add/ajax/add.jag?action=getTiers             ` |
+| Example        | `curl -b cookies http://localhost:9763/store/site/blocks/item-add/ajax/add.jag?action=getTiers` |
 
 #### Update Grant Types
 
@@ -651,7 +651,7 @@ Please note that the `         getAllPublishedAPIs        ` API is now deprecate
 !!! info
 You can also invoke these APIs using mutual SSL authentication. Follow the instructions below to enable this:
 
-1.  Go to `           <APIM_HOME>/repository/conf/tomcat/catalina-server.xml          ` and set the clientAuth attribute to want.
+1.  Go to `<APIM_HOME>/repository/conf/tomcat/catalina-server.xml` and set the clientAuth attribute to want.
 
     ``` java
         <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -662,7 +662,7 @@ You can also invoke these APIs using mutual SSL authentication. Follow the instr
         />
     ```
 
-2.  For each Store API, attach the `          X509Certificate         ` and pass the `          MutualAuthUserName         ` parameter in the header.
+2.  For each Store API, attach the `X509Certificate` and pass the `MutualAuthUserName` parameter in the header.
 3.  Ensure that both client and the server have each other's certificates in the trust store.
 
 

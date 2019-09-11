@@ -18,17 +18,17 @@ The following sections provide information that you need to be aware of when wri
 
 ### AbstractUserStoreManager and implementations
 
-There are a set of methods available in the `          AbstractUserStoreManager         ` class. These methods are used when interacting with user stores. When we implement a custom user store manager, it is important to identify the methods that must be implemented or overridden.
+There are a set of methods available in the `AbstractUserStoreManager` class. These methods are used when interacting with user stores. When we implement a custom user store manager, it is important to identify the methods that must be implemented or overridden.
 
 !!! tip
 **Tip about overriding methods** :
 
-You must select the methods to override based on your requirement. For example, if you want to change the way you encrypt the password, you only need to implement the `          preparePassword         ` method. If you want to implement a completely new read/write user store manager, you must implement all the methods listed in the tables given below. If the user store is read-only, you can implement only the important methods and read methods (if you extend from `          AbstractUserStoreManager         ` you have to keep unrelated methods empty).
+You must select the methods to override based on your requirement. For example, if you want to change the way you encrypt the password, you only need to implement the `preparePassword` method. If you want to implement a completely new read/write user store manager, you must implement all the methods listed in the tables given below. If the user store is read-only, you can implement only the important methods and read methods (if you extend from `AbstractUserStoreManager` you have to keep unrelated methods empty).
 
 There are a few other methods used for internal purposes. You do not need to override those methods.
 
 
-The following list briefly explains the use of the available methods in the `          AbstractUserStoreManager         ` class. Most of the methods provide a configuration option through properties. It is recommended to use these methods with the provided customization options.
+The following list briefly explains the use of the available methods in the `AbstractUserStoreManager` class. Most of the methods provide a configuration option through properties. It is recommended to use these methods with the provided customization options.
 
 #### Important methods
 
@@ -155,31 +155,31 @@ The following list briefly explains the use of the available methods in the `   
 
 #### Read methods
 
-| Available methods                                                                                                                     | Default behaviour                                                                                                                                                                    |
-|---------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `               boolean doCheckExistingUser(String userName)              `                                                           | Returns whether the provided `              userName             ` already exists in the user store.                                                                                 |
-| `               boolean doCheckExistingRole(String roleName)              `                                                           | Returns whether the provided roleName already exists in the user store.                                                                                                              |
-| `               String[] doListUsers(String filter, int maxItemLimit)              `                                                  | This method returns a list of usernames that match with the given filter string.                                                                                                     |
-| `               String[] doGetRoleNames(String filter, int maxItemLimit)              `                                               | Returns a list of role names that match with the given filter string.                                                                                                                |
-| `               String[] doGetExternalRoleListOfUser(String userName, String filter)              `                                   | Returns a list of external role names of a given user that match with the given filter string.                                                                                       |
-| `               String[] doGetSharedRoleListOfUser(String userName, String tenantDomain, String filter)              `                | This method returns a list of shared role names of a given user that match with the given filter string.                                                                             |
-| `               Map<String, String> getUserPropertyValues(String userName, String[] propertyNames, String profileName)              ` | This method returns values for the given `              propertyNames             ` for a given `              userName             ` and `              profileName             ` . |
-| `               String[] getUserListFromProperties(String property, String value, String profileName)              `                  | This returns a list of usernames that match with the given value of the given property and `              profileName             ` .                                                |
-| `               String[] doGetDisplayNamesForInternalRole(String[] userNames)              `                                          | Returns names to display in the UI for given usernames.                                                                                                                              |
-| `               Date getPasswordExpirationTime(String userName)              `                                                        | Returns the password expiry date of a given user. The default value is null.                                                                                                         |
-| `               int getUserId(String username)              `                                                                         | This method returns the identifier of a given user name. Default value is 0.                                                                                                         |
-| `              boolean doCheckIsUserInRole(String userName, String roleName)             `                                            | `              True             ` is returned if the given user is already mapped to the given role name.                                                                            |
-| `              String[] getProfileNames(String userName)             `                                                                | Returns a list of profile names mapped with a given user name.                                                                                                                       |
-| `               String[] doGetSharedRoleNames(String tenantDomain, String filter, int maxItemLimit)              `                    | This returns a list of role names that are associated with the given tenant domain and match with the filter.                                                                        |
-| `               String[] doGetUserListOfRole(String roleName, String filter)              `                                           | This method returns a list of usernames that are mapped with the given rolename.                                                                                                     |
-| `               String[] getAllProfileNames()              `                                                                          | All the profile names are returned including the default profile.                                                                                                                    |
-| `               boolean isValidRememberMeToken(String userName, String token)              `                                          | This method is used to check if the given token exists for the given user.                                                                                                           |
-| `               boolean isMultipleProfilesAllowed()              `                                                                    | Returns whether this user store is allowed to have multiple profiles per user. The default value is `              false             ` .                                             |
-| `               boolean isBulkImportSupported()              `                                                                        | This method returns whether this user store allows bulk transactions or not.                                                                                                         |
+| Available methods                                                                                        | Default behaviour                                                                                                    |
+|----------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| `boolean doCheckExistingUser(String userName)`                                                           | Returns whether the provided `userName` already exists in the user store.                                            |
+| `boolean doCheckExistingRole(String roleName)`                                                           | Returns whether the provided roleName already exists in the user store.                                              |
+| `String[] doListUsers(String filter, int maxItemLimit)`                                                  | This method returns a list of usernames that match with the given filter string.                                     |
+| `String[] doGetRoleNames(String filter, int maxItemLimit)`                                               | Returns a list of role names that match with the given filter string.                                                |
+| `String[] doGetExternalRoleListOfUser(String userName, String filter)`                                   | Returns a list of external role names of a given user that match with the given filter string.                       |
+| `String[] doGetSharedRoleListOfUser(String userName, String tenantDomain, String filter)`                | This method returns a list of shared role names of a given user that match with the given filter string.             |
+| `Map<String, String> getUserPropertyValues(String userName, String[] propertyNames, String profileName)` | This method returns values for the given `propertyNames` for a given `userName` and `profileName` .                  |
+| `String[] getUserListFromProperties(String property, String value, String profileName)`                  | This returns a list of usernames that match with the given value of the given property and `profileName`.            |
+| `String[] doGetDisplayNamesForInternalRole(String[] userNames)`                                          | Returns names to display in the UI for given usernames.                                                              |
+| `Date getPasswordExpirationTime(String userName)`                                                        | Returns the password expiry date of a given user. The default value is null.                                         |
+| `int getUserId(String username)`                                                                         | This method returns the identifier of a given user name. Default value is 0.                                         |
+| `boolean doCheckIsUserInRole(String userName, String roleName)`                                          | `True` is returned if the given user is already mapped to the given role name.                                       |
+| `String[] getProfileNames(String userName)`                                                              | Returns a list of profile names mapped with a given user name.                                                       |
+| `String[] doGetSharedRoleNames(String tenantDomain, String filter, int maxItemLimit)`                    | This returns a list of role names that are associated with the given tenant domain and match with the filter.        |
+| `String[] doGetUserListOfRole(String roleName, String filter)`                                           | This method returns a list of usernames that are mapped with the given rolename.                                     |
+| `String[] getAllProfileNames()`                                                                          | All the profile names are returned including the default profile.                                                    |
+| `boolean isValidRememberMeToken(String userName, String token)`                                          | This method is used to check if the given token exists for the given user.                                           |
+| `boolean isMultipleProfilesAllowed()`                                                                    | Returns whether this user store is allowed to have multiple profiles per user. The default value is `false` .        |
+| `boolean isBulkImportSupported()`                                                                        | This method returns whether this user store allows bulk transactions or not.                                         |
 
 #### Implementations
 
-In WSO2 Carbon-based products, there are four user store manager classes that implement the `          AbstractUserStoreManager         ` class. You can select one of those classes according to the user store that you have in your environment.
+In WSO2 Carbon-based products, there are four user store manager classes that implement the `AbstractUserStoreManager` class. You can select one of those classes according to the user store that you have in your environment.
 
 <table>
 <colgroup>
@@ -328,7 +328,7 @@ To set up this implementation, do the following.
 
 #### Writing a custom user store manager for a sample scenario
 
-As a sample of how this can be done, consider a scenario where you want to use a custom hashing method using a 3rd party library such as [Jasypt](http://www.jasypt.org/) . So, in order to do this, you must override the `          doAuthentication         ` and `          preparePassword         ` methods as an example.
+As a sample of how this can be done, consider a scenario where you want to use a custom hashing method using a 3rd party library such as [Jasypt](http://www.jasypt.org/) . So, in order to do this, you must override the `doAuthentication` and `preparePassword` methods as an example.
 
 Do the following steps to write the custom user store manager.
 
@@ -342,7 +342,7 @@ Do the following steps to write the custom user store manager.
         </dependency>
     ```
 
-2.  Create a new class by extending the existing `            JDBCUserStoreManager           ` implementation. The following code is an example of how this would look.
+2.  Create a new class by extending the existing `JDBCUserStoreManager` implementation. The following code is an example of how this would look.
 
     ``` java
             package com.wso2.custom.usermgt;
@@ -450,8 +450,8 @@ Do the following steps to write the custom user store manager.
 
 Do the following to deploy and configure the custom user store manager in your WSO2 product.
 
-1.  Copy the artifact of your project (custom-userstore.jar, in this case) to the `          <PRODUCT_HOME>/repository/components/dropins         ` directory. Also copy all OSGI bundles to this location. If you have any dependency .jar files, copy them to the `          <PRODUCT_HOME>/repository/components/lib         ` directory.
-2.  Change the configuration of the WSO2 product to use our custom implementation for user store management. To do this, open the `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          ` file and change the `           UserStoreManager          ` class.
+1.  Copy the artifact of your project (custom-userstore.jar, in this case) to the `<PRODUCT_HOME>/repository/components/dropins` directory. Also copy all OSGI bundles to this location. If you have any dependency .jar files, copy them to the `<PRODUCT_HOME>/repository/components/lib` directory.
+2.  Change the configuration of the WSO2 product to use our custom implementation for user store management. To do this, open the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file and change the `UserStoreManager` class.
 
     ``` xml
         <UserStoreManager class="com.wso2.custom.usermgt.CustomUserStoreManager">

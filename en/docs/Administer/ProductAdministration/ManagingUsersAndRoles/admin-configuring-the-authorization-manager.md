@@ -2,7 +2,7 @@
 
 According to the default configuration in WSO2 products, the Users, Roles and Permissions are stored in the same repository (i.e., the default, embedded H2 database). However, you can change this configuration in such a way that the Users and Roles are stored in one repository (User Store) and the Permissions are stored in a separate repository. A user store can be a typical RDBMS, an LDAP or an external Active Directory. For information on how the repositories for storing information about users and roles are configured, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) .
 
-The repository that stores Permissions should always be an RDBMS. The Authorization Manager configuration in the user-mgt.xml file (stored in the `         <PRODUCT_HOME>/repository/conf/        ` directory) connects the system to this RDBMS.
+The repository that stores Permissions should always be an RDBMS. The Authorization Manager configuration in the user-mgt.xml file (stored in the `<PRODUCT_HOME>/repository/conf/` directory) connects the system to this RDBMS.
 
 Follow the instructions given below to set up and configure the Authorization Manager.
 
@@ -15,18 +15,18 @@ By default, the embedded H2 database is used for storing permissions. You can ch
 
 1.  Change the default H2 database or set up another RDBMS for storing permissions.
 2.  W hen you set up an RDBMS for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database.
-    -   If you are replacing the default H2 database with a new RDBMS, update the `            master-datasource.xml           ` file (stored in the `            <PRODUCT_HOME>/repository/conf/datasources/           ` directory) with the relevant information.
-    -   Alternatively, create a new XML file with the datasource information of your new RDBMS and store it in the same `            <PRODUCT_HOME>/repository/conf/datasources/           ` directory.
+    -   If you are replacing the default H2 database with a new RDBMS, update the `master-datasource.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/datasources/` directory) with the relevant information.
+    -   Alternatively, create a new XML file with the datasource information of your new RDBMS and store it in the same `<PRODUCT_HOME>/repository/conf/datasources/` directory.
 
 For information on how you can set up a new RDBMS and configure it for your system, see [Setting Up the Physical Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database) , and for information on the purpose of defining datasources and how they are configured for a product, see [Managing Datasources](https://docs.wso2.com/display/ADMIN44x/Managing+Datasources) .
 
 ### Step 2: Updating the user realm configurations
 
-Once you have set up a new RDBMS and configured the datasource, the `         user-mgt.xml        ` file (user realm configuration) should be updated as explained below.
+Once you have set up a new RDBMS and configured the datasource, the `user-mgt.xml` file (user realm configuration) should be updated as explained below.
 
 #### Setting up the database connection
 
-Update the datasource information using the `         <Property>        ` element under `         <Configuration>        ` . Given below are the properties that are set by default.
+Update the datasource information using the `<Property>` element under `<Configuration>` . Given below are the properties that are set by default.
 
 <table>
 <colgroup>
@@ -55,7 +55,7 @@ Update the datasource information using the `         <Property>        ` elemen
 </tbody>
 </table>
 
-You can add more optional configurations using the `         <Property>        ` element:
+You can add more optional configurations using the `<Property>` element:
 
 <table>
 <colgroup>
@@ -90,9 +90,9 @@ Shown below is how the Authorization Manager is enabled in the user-mgt.xml file
     </AuthorizationManager>
 ```
 
--   The `          org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager         ` class enables the Authorization Manager for your product.
--   The `          AdminRoleManagementPermissions         ` property sets the registry path where the authorization information (role-based permissions) are stored. Note that this links to the repository that you defined in **Step 1** .
--   It is recommended to enable the `           GetAllRolesOfUserEnabled          ` property in the `           AuthorizationManager          ` as follows:
+-   The `org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager` class enables the Authorization Manager for your product.
+-   The `AdminRoleManagementPermissions` property sets the registry path where the authorization information (role-based permissions) are stored. Note that this links to the repository that you defined in **Step 1** .
+-   It is recommended to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows:
 
     ``` java
             <Property name="GetAllRolesOfUserEnabled">true</Property>

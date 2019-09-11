@@ -21,7 +21,7 @@ ABC organization is a mobile phone manufacturing company that has to expose thei
 ### Running the sample
 
 -   Start wso2am-2.2.0-updateX.
--   Go to `          <API-M_HOME>/sample-scenarios         ` . Execute the `          run.sh         ` file. Enter the scenario number as 4, when prompted.
+-   Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 4, when prompted.
 
 ### User credentials
 
@@ -37,7 +37,7 @@ ABC organization is a mobile phone manufacturing company that has to expose thei
     For example, to enable custom security algorithms we can use the [Kerberos OAuth2 Grant.](https://docs.wso2.com/display/AM260/Kerberos+OAuth2+Grant)
 -   We can authorize the users through API Manager access tokens and we can use scopes to authorise the API consumers when consuming the APIS.
 
-The audit logs are printed in the `         <API-M_HOME>/repository/logs/audit.log        ` file, when you run the sample.
+The audit logs are printed in the `<API-M_HOME>/repository/logs/audit.log` file, when you run the sample.
 
 After invoking and creating the APIs the audit logs will be similar to the following sample.
 
@@ -120,9 +120,9 @@ When analysing the audit logs
 
 These data can be viewed via WSO2 API Manager Analytics server. For more details, see copy\_API Governance .
 
-Assume that the `         GET        ` resource in the Salary API should be restricted for admin role users. Follow the steps below to restrict the resource for a particular role.
+Assume that the `GET` resource in the Salary API should be restricted for admin role users. Follow the steps below to restrict the resource for a particular role.
 
-1.  Create a scope named `          new_scope.         ` Assign scope to the admin role. ![](https://lh6.googleusercontent.com/P4ixhA2IooMGlCyw1S0_QnmCFjcI8dPwk3LzArNRIr8rP5hC8FNr3IxkvAPUcYP36fQHWxWPHXysqGUqyea2z1_1gxxV6vAD57Wec6PNvfDZ0tHGM9oe1xypil9nnyrsRXBEL5yt)2.  When you execute the sample, it invokes the API without this scope. ![](https://lh3.googleusercontent.com/xZnDwHf4dbw4ynxUyOBEjYuG87X3nJ2DWsuApHWhW1KKTSbKHLP3YCDEIrqkD3oCezEjuJS4KtbDnbguTyOeTNTs9_YQ1wT5UXFS_BuEaTepB-wvdh8qz9rTEASBvtG6Y8-PSJ4p)
+1.  Create a scope named `new_scope.` Assign scope to the admin role. ![](https://lh6.googleusercontent.com/P4ixhA2IooMGlCyw1S0_QnmCFjcI8dPwk3LzArNRIr8rP5hC8FNr3IxkvAPUcYP36fQHWxWPHXysqGUqyea2z1_1gxxV6vAD57Wec6PNvfDZ0tHGM9oe1xypil9nnyrsRXBEL5yt)2.  When you execute the sample, it invokes the API without this scope. ![](https://lh3.googleusercontent.com/xZnDwHf4dbw4ynxUyOBEjYuG87X3nJ2DWsuApHWhW1KKTSbKHLP3YCDEIrqkD3oCezEjuJS4KtbDnbguTyOeTNTs9_YQ1wT5UXFS_BuEaTepB-wvdh8qz9rTEASBvtG6Y8-PSJ4p)
         !!! note
     You will see the following error in the audit log if the access token does not allow you to access the requested resource.
 
@@ -131,5 +131,5 @@ Assume that the `         GET        ` resource in the Salary API should be rest
     ```
 
 
-3.  Executing the sample also invokes the `          GET         ` resource and return the response as shown below. ![](https://lh4.googleusercontent.com/a9GVqIUs62NnynUA9HpIy6WqU3xEW4Pr9kl_veTTrt89OquS4YHqHLMxBDUMy3o9qKCQwy90U3JjcRFcepETVejA7W9QJibEINQHPmRhuZdY97bTO4iFZLwhC7148fpXMjxcPgr8)
+3.  Executing the sample also invokes the `GET` resource and return the response as shown below. ![](https://lh4.googleusercontent.com/a9GVqIUs62NnynUA9HpIy6WqU3xEW4Pr9kl_veTTrt89OquS4YHqHLMxBDUMy3o9qKCQwy90U3JjcRFcepETVejA7W9QJibEINQHPmRhuZdY97bTO4iFZLwhC7148fpXMjxcPgr8)
 

@@ -20,20 +20,20 @@ Client SDK and Server Stub generation in API Publisher is only supported for Res
 
 The generated server stubs and client SDKs are generated using [Swagger Codegen](http://swagger.io/swagger-codegen/) .
 
-It is recommended to add the `         securityDefinitions        ` in the swagger definition to be able to pass access tokens when invoking an API. Edit the source of the API from the API Publisher and add the code given below.
+It is recommended to add the `securityDefinitions` in the swagger definition to be able to pass access tokens when invoking an API. Edit the source of the API from the API Publisher and add the code given below.
 
-`          securityDefinitions:         `
+`securityDefinitions:         `
 
-`         ` `          default         ` `          :         `
+`default:         `
 
-`         ` `          type: oauth2         `
+`type: oauth2         `
 
-`         ` `          authorizationUrl:         ` `          '                     https://:          >/authorize'         `
+`authorizationUrl:'                     https://:          >/authorize'         `
 
-`         ` `          flow: implicit         `
+`flow: implicit         `
 
-`         ` `          scopes: {}         `
+`scopes: {}         `
 
-`          security:         `
+`security:         `
 
-`         ` `          -         ` `          default         ` `          : []         `
+`-default: []         `

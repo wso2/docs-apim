@@ -48,7 +48,7 @@ API development is usually done by someone who understands the technical aspects
 
 WSO2 API Manager provides a simple Web interface called **WSO2 API Publisher** for API development and management. It is a structured GUI designed for API creators to develop, document, scale and version APIs, while also facilitating more API management-related tasks such as publishing API, monetization, analyzing statistics, and promoting.
 
-The API Publisher URL is **`                 https:                ` `                 //<YourHostName>:9443/publisher                `** and it is accessible on HTTPS only. The default credentials are admin/admin.
+The API Publisher URL is **`https://<YourHostName>:9443/publisher`** and it is accessible on HTTPS only. The default credentials are admin/admin.
 
 The diagram  shows the common lifecycle activities of an API developer/manager:
 
@@ -57,7 +57,7 @@ The diagram  shows the common lifecycle activities of an API developer/manager:
 ![](../assets/attachments/103327648/126556772.png)
 The API Store Web application provides a collaborative interface for API publishers to host and advertise their APIs and for API consumers to [self register](https://docs.wso2.com/display/AM260/Customizing+the+API+Store) , discover, evaluate, subscribe to and use secured, protected, authenticated APIs.
 
-The API Store URL is **`                 https:                ` `                 //<YourHostName>:9443/store                `** and it is accessible on HTTPS only. The default credentials are admin/admin.
+The API Store URL is **`https://<YourHostName>:9443/store`** and it is accessible on HTTPS only. The default credentials are admin/admin.
 
 The diagram below shows common API consumer lifecycle activities:
 
@@ -83,7 +83,7 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
 -   Through a Web service call
 -   Through a [Thrift](http://thrift.apache.org/static/files/thrift-20070401.pdf) call (Thrift is the default communication protocol and is much faster than SOAP over HTTP)
 
-If your setup has a cluster of multiple Key Manager nodes that are fronted by a [load balancer](https://f5.com/glossary/load-balancer) that does not support Thrift, change the key management protocol from `                Thrift               ` to `                WSClient               ` using the `                <KeyValidatorClientType>               ` element in the `                <API-M_HOME>/repository/conf/api-manager.xml               ` file. Thrift uses [TCP](https://tools.ietf.org/html/rfc793) load balancing.
+If your setup has a cluster of multiple Key Manager nodes that are fronted by a [load balancer](https://f5.com/glossary/load-balancer) that does not support Thrift, change the key management protocol from `Thrift` to `WSClient` using the `<KeyValidatorClientType>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file. Thrift uses [TCP](https://tools.ietf.org/html/rfc793) load balancing.
 
 In a typical production environment, you can configure one of the following setups:
 

@@ -1,19 +1,19 @@
 # Extending Key Validation
 
-In WSO2 API Manager (WSO2 API-M) versions prior to 1.9.0, the components were tightly coupled with the [Key Manager](https://docs.wso2.com/display/AM200/Key+Concepts#KeyConcepts-KeyManager) and token validation was done by directly accessing the databases. However, from WSO2 API-M 1.9.0 onwards, you can [plug different OAuth2 providers](https://docs.wso2.com/display/AM260/Configuring+a+Third-Party+Key+Manager) to the key validation. When you call an API providing an access token, the execution flows through the handlers specified in the API. Among them, the API authentication handler extracts the token from the header and calls `         APIKeyValidationService        ` to get the token validated. Upon validating the token, the API Gateway receives `         APIKeyValidationInforDTO        ` as the response, using which the rest of the operations are performed.
+In WSO2 API Manager (WSO2 API-M) versions prior to 1.9.0, the components were tightly coupled with the [Key Manager](https://docs.wso2.com/display/AM200/Key+Concepts#KeyConcepts-KeyManager) and token validation was done by directly accessing the databases. However, from WSO2 API-M 1.9.0 onwards, you can [plug different OAuth2 providers](https://docs.wso2.com/display/AM260/Configuring+a+Third-Party+Key+Manager) to the key validation. When you call an API providing an access token, the execution flows through the handlers specified in the API. Among them, the API authentication handler extracts the token from the header and calls `APIKeyValidationService` to get the token validated. Upon validating the token, the API Gateway receives `APIKeyValidationInforDTO` as the response, using which the rest of the operations are performed.
 
-Before decoupling was done, the entire key validation process was executed inside a single method named `         validateKey()        ` , which performed all the operations by running a single query. After decoupling, that single query was broken down into smaller parts by introducing `         KeyValidationHandler        ` , which runs inside the `         validateKey()        ` operation, providing a way to extend each step.
+Before decoupling was done, the entire key validation process was executed inside a single method named `validateKey()` , which performed all the operations by running a single query. After decoupling, that single query was broken down into smaller parts by introducing `KeyValidationHandler` , which runs inside the `validateKey()` operation, providing a way to extend each step.
 
-The `         KeyValidationHandler        ` has four main operations that are executed in the following order:
+The `KeyValidationHandler` has four main operations that are executed in the following order:
 
 -   **validateToken** - Validates the token. The existing implementation should work for most cases.
 -   **validateSubscription** - Skips/changes the domain validation.
 -   **validateScopes** - Relaxes/reduces scope restrictions.
 -   **GenerateConsumerToken** - Creates different types of tokens.
 
-The default implementation of the `         KeyValidationService        ` is written in a way where you are able to complete the entire key validation flow only by extending the `         getTokenMetaData()        ` method in the `         KeyManagerInterface        ` .
+The default implementation of the `KeyValidationService` is written in a way where you are able to complete the entire key validation flow only by extending the `getTokenMetaData()` method in the `KeyManagerInterface` .
 
-However, there are situations where you need to customize the default key validation flow according to different requirements. In such situations, WSO2 API-M provides the facility to extend the `         KeyValidationHandler        ` and its methods.
+However, there are situations where you need to customize the default key validation flow according to different requirements. In such situations, WSO2 API-M provides the facility to extend the `KeyValidationHandler` and its methods.
 
 A few examples are listed below.
 

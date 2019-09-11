@@ -39,7 +39,7 @@ Create a SSL certificate for the load balancer using the following instructions.
             sudo openssl x509 -req -days 365 -in server.csr -signkey <key_name>.key -out <certificate_name>.crt
     ```
 
-5.  Copy the key and certificate files that you generated in the above step to the `           /etc/nginx/ssl/          ` location.
+5.  Copy the key and certificate files that you generated in the above step to the `/etc/nginx/ssl/` location.
 
 ### Step 2 - Configure the load balancer/reverse proxy server
 
@@ -72,34 +72,34 @@ Carry out the following steps to configure the load balancer to front multiple 
     Active-active deployment using s ingle all-in-one nodes
     N/A
     [NGINX Plus](https://www.nginx.com/products/)
-    This deployment r equires Sticky Sessions, but NGINX Community version does not support it. You can use `               ip_hash              ` as the sticky algorithm.
+    This deployment r equires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.
     Distributed deployment
     **Gateway with a single Gateway Manager**
     [NGINX Community version](http://nginx.org/)
     The Gateway node in this deployment does not need Sticky Sessions.
     **Gateway with multiple Gateway Managers**
     [NGINX Plus](https://www.nginx.com/products/)
-    The Gateway Manager nodes r equire Sticky Sessions, but NGINX Community version does not support it. You can use `               ip_hash              ` as the sticky algorithm. Sticky Sessions are needed for port 9443 in the Gateway, and not needed for the pass through ports in the Gateway (8243, 8280).
+    The Gateway Manager nodes r equire Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm. Sticky Sessions are needed for port 9443 in the Gateway, and not needed for the pass through ports in the Gateway (8243, 8280).
     **Store, Publisher** , and **Key Manager**
     [NGINX Plus](https://www.nginx.com/products/)
-    Requires Sticky Sessions, but NGINX Community version does not support it. You c an use `               ip_hash              ` as the sticky algorithm.
+    Requires Sticky Sessions, but NGINX Community version does not support it. You c an use `ip_hash` as the sticky algorithm.
 
 
     For more information on installing NGINX, see **[NGINX community version](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/#prebuilt)** and **[NGINX Plus](https://www.nginx.com/resources/admin-guide/installing-nginx-plus/) .**
 
 2.  Configure **NGINX** to direct the HTTP and HTTPs requests based on your deployment.
 
-    1.  Run the following command to identify the exact location of the `             <NGINX_HOME>            ` directory. Inspect the output and identify the `             --prefix            ` tag as it provides the location of the `             <NGINX_HOME>            ` directory.
+    1.  Run the following command to identify the exact location of the `<NGINX_HOME>` directory. Inspect the output and identify the `--prefix` tag as it provides the location of the `<NGINX_HOME>` directory.
 
         ``` java
                  nginx -V
         ```
 
-    2.  Update the `             ngnix.conf            ` file with the required NGINX configuration given below. If not, you can create a file with the `             .conf            ` suffix and copy it to the `             <NGINX_HOME>/conf.d            ` directory.
+    2.  Update the `ngnix.conf` file with the required NGINX configuration given below. If not, you can create a file with the `.conf` suffix and copy it to the `<NGINX_HOME>/conf.d` directory.
 
 !!! note
 -   All ports are default ports assuming no port offsets are used.
--   The key and the certificate for SSL is assumed to be at the `          <NGINX_HOME>/ssl/         ` location. The placeholders `          {cert_name}         ` and `          {key_name}         ` are the name of the certificate and key generated.
+-   The key and the certificate for SSL is assumed to be at the `<NGINX_HOME>/ssl/` location. The placeholders `{cert_name}` and `{key_name}` are the name of the certificate and key generated.
 -   The directories used for access and error logs should be created if they do not exist.
 
 
@@ -111,8 +111,8 @@ Carry out the following steps to configure the load balancer to front multiple 
 -   [**HA for Key Manager**](#HA-Key-Manager)
 
 !!! info
--   The placeholder `             {node-ip-address}            ` corresponds to the IP address of the backend node in which the WSO2 API-M server is running.
--   In the sample configuration given below, the hostname `             api.am.wso2.com            ` is used to access all portals (publisher, store, admin, and carbon) and `             gw.am.wso2.com                                      ` is used to invoke APIs. Only HTTPS is allowed.
+-   The placeholder `{node-ip-address}` corresponds to the IP address of the backend node in which the WSO2 API-M server is running.
+-   In the sample configuration given below, the hostname `api.am.wso2.com` is used to access all portals (publisher, store, admin, and carbon) and `gw.am.wso2.com` is used to invoke APIs. Only HTTPS is allowed.
 ``` java
     upstream sslapi.am.wso2.com {
         server {node-ip-address}:9443;
@@ -171,9 +171,9 @@ server {
 }
 ```
 !!! info
--   The placeholders `             {node-1-ip-address}            ` and `             {node-2-ip-address}            ` correspond to the IP addresses of the backend nodes in which APIM servers are running.
--   In the sample configuration given below, the hostname `             api.am.wso2.com            ` is used to access all portals (publisher, store, admin and carbon) and `             gw.am.wso2.com            ` is used to invoke APIs. Only HTTPS is allowed.
--   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `             ip_hash            ` method instead.
+-   The placeholders `{node-1-ip-address}` and `{node-2-ip-address}` correspond to the IP addresses of the backend nodes in which APIM servers are running.
+-   In the sample configuration given below, the hostname `api.am.wso2.com` is used to access all portals (publisher, store, admin and carbon) and `gw.am.wso2.com` is used to invoke APIs. Only HTTPS is allowed.
+-   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `ip_hash` method instead.
 !!! note
 In an Active-Active deployment, It is **mandatory** to set up sticky sessions (session affinity) in the load balancers that front the **Publisher** and **Store** , and it is **optional** in the load balancer (if any) that fronts **Key Manager** or Gateway.
 However, authentication via session ID fails when s ticky sessions are disabled in the load balancers of Publisher and store.
@@ -242,8 +242,8 @@ server {
 }
 ```
 !!! info
--   The placeholder `             {gwm-ip-address}            ` corresponds to the IP addresses of the backend nodes in which Gateway Manager server is running. Similarly, `             {gw-1-ip-address}            ` and `             {gw-2-ip-address}            ` are the nodes in which Gateway Workers are running.
--   In the sample configuration given below, the hostname `             mgtgw.am.wso2.com            ` is used to access management console of the Gateway Manager and `             gw.am.wso2.com            ` is used to invoke APIs. Only HTTPS is allowed.
+-   The placeholder `{gwm-ip-address}` corresponds to the IP addresses of the backend nodes in which Gateway Manager server is running. Similarly, `{gw-1-ip-address}` and `{gw-2-ip-address}` are the nodes in which Gateway Workers are running.
+-   In the sample configuration given below, the hostname `mgtgw.am.wso2.com` is used to access management console of the Gateway Manager and `gw.am.wso2.com` is used to invoke APIs. Only HTTPS is allowed.
 -   If you are using multiple Gateway Managers when using a shared file system (e.g., NFS), then you need to enable sticky sessions.
 ``` java
     upstream mgtgw.am.wso2.com {
@@ -303,9 +303,9 @@ server {
 }
 ```
 !!! info
--   The placeholders `             {publisher-1-ip-address}            ` and `             {publisher-2-ip-address}            ` correspond to the IP addresses of the backend nodes in which APIM Publishers are running.
--   In the sample configuration given below, the hostname `             publisher.am.wso2.com            ` is used to access publisher portal. Only HTTPS is allowed.
--   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use the `             ip_hash            ` method instead.
+-   The placeholders `{publisher-1-ip-address}` and `{publisher-2-ip-address}` correspond to the IP addresses of the backend nodes in which APIM Publishers are running.
+-   In the sample configuration given below, the hostname `publisher.am.wso2.com` is used to access publisher portal. Only HTTPS is allowed.
+-   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use the `ip_hash` method instead.
 ``` java
     upstream publisher.am.wso2.com {
         server {publisher-1-ip-address}:9443;
@@ -343,9 +343,9 @@ server {
 }
 ```
 !!! info
--   The placeholders `             {store-1-ip-address}            ` and `             {store-2-ip-address}            ` correspond to the IP addresses of the backend nodes in which APIM Stores are running.
+-   The placeholders `{store-1-ip-address}` and `{store-2-ip-address}` correspond to the IP addresses of the backend nodes in which APIM Stores are running.
 -   In the sample configuration given below, the hostname store.am.wso2.com is used to access Publisher portal. Only HTTPS is allowed.
--   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `             ip_hash            ` method instead.
+-   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `ip_hash` method instead.
 ``` java
     upstream store.am.wso2.com {
         server {store-1-ip-address}:9443;
@@ -383,9 +383,9 @@ server {
 }
 ```
 !!! info
--   The placeholders `             {km-1-ip-address}            ` and `             {km-2-ip-address}            ` correspond to the IP addresses of the backend nodes in which APIM Key Managers are running.
--   In the sample configuration given below, the hostname `             km.am.wso2.com            ` is used to access Key Manager. Only HTTPS is allowed.
--   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `             ip_hash            ` method instead.
+-   The placeholders `{km-1-ip-address}` and `{km-2-ip-address}` correspond to the IP addresses of the backend nodes in which APIM Key Managers are running.
+-   In the sample configuration given below, the hostname `km.am.wso2.com` is used to access Key Manager. Only HTTPS is allowed.
+-   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `ip_hash` method instead.
 ``` java
     upstream km.am.wso2.com {
         server {km-1-ip-address}:9443;
@@ -454,7 +454,7 @@ You do not need to restart the server if you are simply making a modification to
 When using a load balancer, you need to configure Reverse Proxy for the API Store URL, API Publisher URL, Admin Portal URL, and whatever other URLs that you are working with for the portals to be able to work with the Proxy Server configuration.
 
 1.  Update the **API Store node** .
-    Update the following configuration in the `           <API-M_HOME>\repository\deployment\server\jaggeryapps\store\site\conf\site.json          ` file as shown below, to configure reverse proxying for the API Store.
+    Update the following configuration in the `<API-M_HOME>\repository\deployment\server\jaggeryapps\store\site\conf\site.json` file as shown below, to configure reverse proxying for the API Store.
 
     ``` java
         "reverseProxy" : {
@@ -468,7 +468,7 @@ When using a load balancer, you need to configure Reverse Proxy for the API Stor
 2.  Update the **API Publisher node** .
 
     1.  Configure **reverse proxying** for the **API Publisher.**
-        Update the following configuration in the `             <API-M_HOME>\repository\deployment\server\jaggeryapps\publisher\site\conf\site.json            ` file as shown below:
+        Update the following configuration in the `<API-M_HOME>\repository\deployment\server\jaggeryapps\publisher\site\conf\site.json` file as shown below:
 
         ``` java
                 "reverseProxy" : {
@@ -480,7 +480,7 @@ When using a load balancer, you need to configure Reverse Proxy for the API Stor
         ```
 
     2.  Configure **reverse proxying** for the **Admin Portal** .
-        Update the following configuration in the `             <API-M_HOME>\repository\deployment\server\jaggeryapps\admin\site\conf\site.json            ` file as shown below.
+        Update the following configuration in the `<API-M_HOME>\repository\deployment\server\jaggeryapps\admin\site\conf\site.json` file as shown below.
 
         ``` java
                     "reverseProxy" : {

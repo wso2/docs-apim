@@ -29,7 +29,7 @@ The following section describes the flow involved in exchanging a Kerberos ticke
             curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
     ```
 
-    The `              “scope=my_scope”             ` is an optional parameter that you can add to the string in the token request body.
+    The `“scope=my_scope”` is an optional parameter that you can add to the string in the token request body.
 
     **Example**
 
@@ -72,7 +72,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 Now API Manager comes with kerberos\_grant\_1.0.0\_1.0.0.jar. Therefore you do not need to add this kerberos grant jar manually .
 
 
-1.  Add following entry under `           <SupportedGrantTypes>          ` in the `           <API-M_HOME>/repository/conf/identity/identity.xml          ` file.
+1.  Add following entry under `<SupportedGrantTypes>` in the `<API-M_HOME>/repository/conf/identity/identity.xml` file.
 
     ``` java
         <SupportedGrantType>
@@ -82,7 +82,7 @@ Now API Manager comes with kerberos\_grant\_1.0.0\_1.0.0.jar. Therefore you do n
         </SupportedGrantType>
     ```
 
-2.  Create a file named `           jaas.conf          ` in the `           <API-M_HOME>/repository/conf/identity          ` directory with the following content.
+2.  Create a file named `jaas.conf` in the `<API-M_HOME>/repository/conf/identity` directory with the following content.
 
     ``` java
             Server {
@@ -97,19 +97,19 @@ Now API Manager comes with kerberos\_grant\_1.0.0\_1.0.0.jar. Therefore you do n
             };
     ```
 
-3.  Copy the following JARs into the `          <API-M_HOME>/repository/components/dropins         ` directory.
-    -   `                         org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar                       `
-    -   `                         org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar                       `
+3.  Copy the following JARs into the `<API-M_HOME>/repository/components/dropins` directory.
+    -`org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar                       `
+    -`org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar`
 4.  Configure OAuth2 for your client application with the Kerberos grant type.
 
-    1.  Start the WSO2 API-M server by navigating to the `             <API-M_HOME>/bin            ` directory in your console and running one of the following scripts based on your OS.
+    1.  Start the WSO2 API-M server by navigating to the `<API-M_HOME>/bin` directory in your console and running one of the following scripts based on your OS.
 
-        -   On Windows: `               wso2server.bat --run              `
+        -   On Windows: `wso2server.bat --run`
 
-        -   On Linux/Mac OS: `               sh wso2server.sh              `
+        -   On Linux/Mac OS: `sh wso2server.sh`
 
     2.  Sign into the API Store.
-        `                           https://:9443/store                         `
+`https://:9443/store`
 
     3.  Click **Applications** and click on the name of the application that you want to configure the OAuth2 with the Kerberos grant type.
 
@@ -129,14 +129,14 @@ Now API Manager comes with kerberos\_grant\_1.0.0\_1.0.0.jar. Therefore you do n
 
         3.  Click **Generate Keys** to generate the keys.
 
-5.  Configure the Service Principal Name ( `           SPNName)          ` and Service Principal Password ( `           SPNPassword)          ` .
+5.  Configure the Service Principal Name ( `SPNName)` and Service Principal Password ( `SPNPassword)` .
 
         !!! info
     A **service principal name** ( **SPN** ) is a unique identifier of a **service** instance. SPNs are used by Kerberos authentication to associate a **service** instance with a **service** logon account. This allows a client application to request that the **service** authenticate an account even if the client does not have the account **name** .
 
 
     1.  Sign in to the WSO2 API-M Management Console.
-        `             https://<Server-Host>:9443/carbon            `
+`https://<Server-Host>:9443/carbon            `
 
     2.  Navigate to the **Main** menu, click **Add** under the **Identity Provider** menu.
 

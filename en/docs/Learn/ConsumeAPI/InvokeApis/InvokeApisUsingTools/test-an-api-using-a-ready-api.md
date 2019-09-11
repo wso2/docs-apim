@@ -4,7 +4,7 @@ When an enterprise exposes its APIs for internal or external consumption, applic
 
 This tutorial explains how to integrate Ready! API with WSO2 API Manager and then test APIs that are exposed in the API Manager. It also explains how Ready! API can be used to generate OAuth 2.0 tokens with different grant types and the benefits this integration can bring to an application developer.
 
-This tutorial uses the `         PhoneVerification        ` API, which is created in Create and Publish an API .
+This tutorial uses the `PhoneVerification` API, which is created in Create and Publish an API .
 
 ### Installing the WSO2 API Manager plugin in Ready! API
 
@@ -67,7 +67,7 @@ Let's test an API exposed via WSO2 API Manager.
     |------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | OAuth 2 Flow                             | You can choose from different grant types to generate your token. In this example, we have used the **Client Credentials Grant** type.                                                                                                                                                                                                                      |
     | Client Identification and  Client Secret | Get these values from the API Store. Browse to the application that the API being tested is subscribed to (e.g. DefaultApplication) and copy the values from the **Production Keys** tab.                                                                                                                                                                   |
-    | Access Token URI                         | Provide the URL of the access token endpoint of the API Manager. By default, this URL is `                                                https://localhost:9443/oauth2/token                                             ` . If you are using a componentized API manager deployment, the URI should point to the Key Manager component of the deployment. |
+    | Access Token URI                         | Provide the URL of the access token endpoint of the API Manager. By default, this URL is `https://localhost:9443/oauth2/token` . If you are using a componentized API manager deployment, the URI should point to the Key Manager component of the deployment. |
     | Scope                                    | Define the scope under which the token is generated. If you have not defined any scope restrictions when creating the API you can leave this blank.                                                                                                                                                                                                         |
 
 13. Once done, click **Get Access Token** .

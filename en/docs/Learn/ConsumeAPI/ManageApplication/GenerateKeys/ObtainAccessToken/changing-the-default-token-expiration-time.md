@@ -3,7 +3,7 @@
 Access tokens have an expiration time, which is set to 60 minutes by default.
 
 -   To change the default expiration time of application access tokens,
-    -   Change the value of the `             <AccessTokenDefaultValidityPeriod>            ` element in the `             <API-M_HOME>/repository/conf/identity/identity.xml            ` file. Set this to a negative value to ensure that the token never expires. **Changes to this value are applied only to the new applications that you create** .
+    -   Change the value of the `<AccessTokenDefaultValidityPeriod>` element in the `<API-M_HOME>/repository/conf/identity/identity.xml` file. Set this to a negative value to ensure that the token never expires. **Changes to this value are applied only to the new applications that you create** .
 
         **Example**
 
@@ -25,7 +25,7 @@ Access tokens have an expiration time, which is set to 60 minutes by default.
     -   Alternatively, you can set a default expiration time through the UI when generating/regenerating the application access token.
         This is explained in [previous sections](https://docs.wso2.com/display/SHAN/Am300Working+with+Access+Tokens#Am300WorkingwithAccessTokens-valid) .
 
--   Similarly, to change the default expiration time of user access tokens, edit the value of the `           <UserAccessTokenDefaultValidityPeriod>          ` element in the `           <API-M_HOME>/repository/conf/identity/identity.xml          ` file.
+-   Similarly, to change the default expiration time of user access tokens, edit the value of the `<UserAccessTokenDefaultValidityPeriod>` element in the `<API-M_HOME>/repository/conf/identity/identity.xml` file.
 
     **Example**
 

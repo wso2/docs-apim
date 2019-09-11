@@ -2,7 +2,7 @@
 
 WSO2 Carbon servers display errors, exceptions, and HTTP status codes in full detail. These are known as Verbose error messages. These error messages contain technical details such as stack traces. There may also disclose other sensitive details. Attackers may fingerprint the server, based on the information disclosed in error messages. Alternatively, attackers may attempt to trigger specific error messages to obtain technical information about the server. You can avoid these situations by configuring the server to display generic, non-detailed error messages in Apache Tomcat.
 
-From Carbon 4.4.6 onwards, the pages that should be displayed on a certain throwable exception, error or an HTTP status code are specified in the `         <CARBON_HOME>repository/conf/tomcat/carbon/WEB-INF/web.        ` xml file. You can customize those error pages as preferred. For example, if you try to access a resource that is not available in the Carbon server (e.g., https://10.100.5.72:9443/abc ), you will view the error page as follows: " `         Error 404 - Not Found        ` ".
+From Carbon 4.4.6 onwards, the pages that should be displayed on a certain throwable exception, error or an HTTP status code are specified in the `<CARBON_HOME>repository/conf/tomcat/carbon/WEB-INF/web.xml` file. You can customize those error pages as preferred. For example, if you try to access a resource that is not available in the Carbon server (e.g., https://10.100.5.72:9443/abc ), you will view the error page as follows: " `Error 404 - Not Found` ".
 
 You can customize the above error message by following the instructions given below.
 
@@ -10,13 +10,13 @@ You can customize the above error message by following the instructions given be
 
 2.  [Create a Maven project using your IDE.](https://maven.apache.org/guides/getting-started/index.html#How_do_I_make_my_first_Maven_project)
 
-3.  Create a directory named `           resources          ` inside the `           <PROJECT_HOME>/src/main/          ` directory, and then create another directory named `           web          ` inside it.
+3.  Create a directory named `resources` inside the `<PROJECT_HOME>/src/main/` directory, and then create another directory named `web` inside it.
 
         !!! tip
-    `           <PROJECT_HOME>          ` denotes the top-level directory of your Maven project.
+`<PROJECT_HOME>` denotes the top-level directory of your Maven project.
 
 
-4.  Create a new HTML error page (e.g. `           new_          ` `           error_404.html          ` file) as shown below. This contains the customized error page.
+4.  Create a new HTML error page (e.g. `new_error_404.html` file) as shown below. This contains the customized error page.
 
     ``` xml
         <html>
@@ -30,10 +30,10 @@ You can customize the above error message by following the instructions given be
         </html>
     ```
 
-5.  Add the `          new_         ` `          error_404.html         ` file inside the `          <PROJECT_HOME>/src/main/web         ` directory.
-6.  Add the following property below the `           <version>          ` element in the `           <PROJECT_HOME>/pom.          ` xml file: `           <packaging>bundle</packaging>          `
+5.  Add the `new_error_404.html` file inside the `<PROJECT_HOME>/src/main/web` directory.
+6.  Add the following property below the `<version>` element in the `<PROJECT_HOME>/pom.xml` file: `<packaging>bundle</packaging>`
 
-7.  Add the following configurations inside the `           <plugins>          ` element in the `           <PROJECT_HOME>/pom.          ` xml file.
+7.  Add the following configurations inside the `<plugins>` element in the `<PROJECT_HOME>/pom.xml` file.
 
     ``` xml
              <plugin>
@@ -58,7 +58,7 @@ You can customize the above error message by following the instructions given be
                 </plugin>
     ```
 
-8.  Add the following configurations inside the `           <dependencies>          ` element in the `           <PROJECT_HOME>/pom.          ` xml file:
+8.  Add the following configurations inside the `<dependencies>` element in the `<PROJECT_HOME>/pom.xml` file:
 
     ``` xml
             <dependency>
@@ -68,10 +68,10 @@ You can customize the above error message by following the instructions given be
             </dependency>
     ```
 
-9.  Build the Maven project by executing the following command: mvn `           clean install          `
+9.  Build the Maven project by executing the following command: mvn `clean install`
 
-10. Once the project is built, copy the JAR file (from the `          <PROJECT_HOME>/target/         ` directory) to the `          <CARBON_HOME>/repository/components/dropins/         ` directory.
-11. Change the following configurations in the `           <CARBON_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml          ` file.
+10. Once the project is built, copy the JAR file (from the `<PROJECT_HOME>/target/` directory) to the `<CARBON_HOME>/repository/components/dropins/` directory.
+11. Change the following configurations in the `<CARBON_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file.
 
     ``` text
             <error-page>
@@ -81,11 +81,11 @@ You can customize the above error message by following the instructions given be
     ```
 
         !!! tip
-    You need to replicate this configuration, and change the values of the `           <error-code>          ` and `           <location>          ` elements accordingly for each new HTML error page you add.
+    You need to replicate this configuration, and change the values of the `<error-code>` and `<location>` elements accordingly for each new HTML error page you add.
 
 
 12. Restart the WSO2 Carbon server.
 13. Access the following URL again, to test the error page you customized: https://10.100.5.72:9443/abc.
-    You will view the new error page with the following content: " `           Sorry, this resource is not found.          ` "
+    You will view the new error page with the following content: " `Sorry, this resource is not found.` "
 
 

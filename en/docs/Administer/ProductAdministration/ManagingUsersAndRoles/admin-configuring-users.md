@@ -1,6 +1,6 @@
 # admin\_Configuring Users
 
-User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `         user-mgt.xml        ` file found in the `         <PRODUCT_HOME>/repository/conf/        ` directory. The instructions given in this topic explain how you can add and manage users from the management console.
+User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `user-mgt.xml` file found in the `<PRODUCT_HOME>/repository/conf/` directory. The instructions given in this topic explain how you can add and manage users from the management console.
 
 To enable users to log into the management console, you create user accounts and assign them roles, which are sets of permissions. You can add individual users or import users in bulk.
 
@@ -9,7 +9,7 @@ To enable users to log into the management console, you create user accounts and
 ### Adding a new user and assigning roles
 
 !!! note
-Add the `         GetRoleListOfInternalUserSQL        ` property within the `         <Realm>        ` section in the `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file as shown below, to avoid case sensitivity issues when creating users.
+Add the `GetRoleListOfInternalUserSQL` property within the `<Realm>` section in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file as shown below, to avoid case sensitivity issues when creating users.
 
 ``` xml
     <Realm>
@@ -42,14 +42,14 @@ In addition to creating users manually, user information stored in a CSV or Exce
 !!! info
 Note the following before you use this feature:
 
--   The option to import users in bulk is enabled in your product by default. If not, you can enable it by adding the following property to the JDBC user store configured in the `           user-mgt.          ` xml file (stored in the `           <PRODUCT_HOME>/repository/conf          ` directory).
+-   The option to import users in bulk is enabled in your product by default. If not, you can enable it by adding the following property to the JDBC user store configured in the `user-mgt.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory).
 
     ``` java
         <Property name="IsBulkImportSupported">true</Property>
     ```
 
 -   It is recommended to upload a maximum of 500,000 users at a time. If you need to upload more users, you can upload them in separate batches of 500,000 each.
--   You can also specify the size of the file that you can upload to the product in the `           <PRODUCT_HOME>/repository/conf/carbon.xml          ` file using the `           TotalFileSizeLimit          ` element as shown below. This value is in MB.
+-   You can also specify the size of the file that you can upload to the product in the `<PRODUCT_HOME>/repository/conf/carbon.xml` file using the `TotalFileSizeLimit` element as shown below. This value is in MB.
 
     ``` java
             <TotalFileSizeLimit>100</TotalFileSizeLimit>

@@ -35,7 +35,7 @@ HTTP Authorization header is the most common method of providing authentication 
     SERVER_AUTH : Bearer NtBQkXoKElu0H1a1fQ0DWfo6IX4a
 ```
 
-The string `            NtBQkXoKElu0H1a1fQ0DWfo6IX4a           ` is a sample value of the access token that is being sent from the client application.
+The string `NtBQkXoKElu0H1a1fQ0DWfo6IX4a` is a sample value of the access token that is being sent from the client application.
 
 ### Customizing the authorization header
 
@@ -49,8 +49,8 @@ If the value of the authorization header needs to be changed due to organization
 
 Follow the instructions below to change the value of the authorization header at the server level configurations:
 
-1.  Navigate to the `          <API-M_HOME>/repository/conf/api-manager.xml         ` file and make the following changes.
-    1.  Uncomment the `             <AuthorizationHeader>            ` section and add the customized authorization header.
+1.  Navigate to the `<API-M_HOME>/repository/conf/api-manager.xml` file and make the following changes.
+    1.  Uncomment the `<AuthorizationHeader>` section and add the customized authorization header.
         You need to make this change on all the profiles of WSO2 API Manager.
 
         -   [**Format**](#format-server)
@@ -64,7 +64,7 @@ Follow the instructions below to change the value of the authorization header 
                     <AuthorizationHeader>SERVER_AUTH</AuthorizationHeader>
         ```
 
-    2.  Add the custom authorization header to the list of allowed headers defined in the `             <CORSConfiguration> <Access-Control-Allow-Headers>            ` section.
+    2.  Add the custom authorization header to the list of allowed headers defined in the `<CORSConfiguration> <Access-Control-Allow-Headers>` section.
 
         -   [**Format**](#format-server1)
         -   [**Example**](#example-server1)
@@ -126,7 +126,7 @@ The tenant wide authorization header customizations take precedence over the ser
 
 
 1.  Sign in to the [WSO2 API Manager Management Console](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheManagementConsole) with your tenant credentials.
-    `           https://<server-host>:9443/carbon                     `
+`https://<server-host>:9443/carbon`
 
         !!! tip
     For information on creating a tenant, see [Managing Tenants](_Managing_Tenants_) .
@@ -134,7 +134,7 @@ The tenant wide authorization header customizations take precedence over the ser
 
 2.  Click **Main** , then click **Browse** which is under **Resources** .
     ![](attachments/103334899/103334897.png)
-3.  Enter / `          _system/config/apimgt/applicationdata/tenant-conf.json         ` as the location and click **Go** to access the `          tenant-conf.json         ` file that is in the WSO2 Registry.
+3.  Enter / `_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
 4.  Click **Edit as text** to be able to edit the JSON file.
 5.  Add the following configuration with the customized authorization header to the JSON file and save the file.
 
@@ -293,7 +293,7 @@ The customized authorization header defined per API takes precedence over the 
 Follow the instructions below to add a customized authorization header for an API:
 
 1.  [Sign in to the Publisher](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheAPIPublisher) .
-    `          https://<server-host>:9443/publisher         `
+`https://<server-host>:9443/publisher         `
 2.  When [creating](_Create_and_Publish_an_API_) or updating an API, define the customized authorization header in the **Manage** tab.
 
     -   [**UI without tenants**](#UI-without-tenants)

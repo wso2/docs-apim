@@ -19,7 +19,7 @@ The following diagram illustrates how the user management functionality is struc
     According to the default configuration in WSO2 products, the embedded H2 RDBMS that is shipped with the product is used as the user store as well as the RDBMS for storing information related to permissions.
 
 
--   **Realm configuration:** The user realm consists of the configurations required to initialise the user realm. The `           user-mgt.xml          ` file stored in the `           <PRODUCT_HOME>/repository/conf/          ` directory is used as the realm configuration XML. This includes setting up the **User Store Manager** , the **Authorization Manager** and the **System Administrator** . These configurations are explained below.
+-   **Realm configuration:** The user realm consists of the configurations required to initialise the user realm. The `user-mgt.xml` file stored in the `<PRODUCT_HOME>/repository/conf/` directory is used as the realm configuration XML. This includes setting up the **User Store Manager** , the **Authorization Manager** and the **System Administrator** . These configurations are explained below.
 
     <table>
     <colgroup>

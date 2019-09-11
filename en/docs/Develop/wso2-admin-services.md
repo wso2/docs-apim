@@ -14,8 +14,8 @@ There can be instances where you want to call back-end Web services directly. Fo
 
 By default, the WSDLs of admin services are hidden from consumers. Given below is how to discover them using the [OSGi](https://www.osgi.org/developer/) console.
 
-1.  Set the `          <HideAdminServiceWSDLs>         ` element to false in the `          <PRODUCT_HOME>/repository/conf/carbon.xml         ` file.
-2.  Go to `           <PRODUCT_HOME>/bin/          ` folder and start the WSO2 product as follows,
+1.  Set the `<HideAdminServiceWSDLs>` element to false in the `<PRODUCT_HOME>/repository/conf/carbon.xml` file.
+2.  Go to `<PRODUCT_HOME>/bin/` folder and start the WSO2 product as follows,
 
     **In Linux Environment**
 
@@ -30,10 +30,10 @@ By default, the WSDLs of admin services are hidden from consumers. Given below i
     ```
 
 3.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
-4.  In the OSGI shell, type: `          osgi> listAdminServices         `
+4.  In the OSGI shell, type: `osgi> listAdminServices`
 5.  The list of admin services of your product are listed. For example:
     ![](attachments/103335243/103335245.png)6.  To see the service contract of an admin service, select the admin service's URL and then paste it in your browser with **?wsdl** at the end. For example:
-    `           https://localhost:9443/services/RemoteUserStoreManagerService?wsdl          `
+`https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
 
         !!! tip
     In products like WSO2 ESB and WSO2 API Manager, the port is 8243 (assuming 0 port offset). However, you should be accessing the Admin Services via the management console port, which is 9443 when there is no port offset.
@@ -46,12 +46,12 @@ By default, the WSDLs of admin services are hidden from consumers. Given below i
     ```
 
         !!! note
-    After discovering admin service you can restart the server without `           -DosgiConsole          `
+    After discovering admin service you can restart the server without `-DosgiConsole`
 
 
 ### Invoking an admin service
 
-Admin services are secured using common types of security protocols such as HTTP basic authentication, WS-Security username token, and session based authentication to prevent anonymous invocations. For example, the `         UserAdmin        ` Web service is secured with the HTTP basic authentication. To invoke a service, you do the following:
+Admin services are secured using common types of security protocols such as HTTP basic authentication, WS-Security username token, and session based authentication to prevent anonymous invocations. For example, the `UserAdmin` Web service is secured with the HTTP basic authentication. To invoke a service, you do the following:
 
 1.  Authenticate yourself and get the session cookie.
 2.  Generate the client stubs to access the back-end Web services.
@@ -61,7 +61,7 @@ To generate the stubs, you can write your own client program using the Axis2 cli
 
 The wsdl2java tool, which comes with WSO2 products by default hides all the complexity and presents you with a proxy to the back-end service. The stub generation happens during the project build process within the Maven POM files. It uses the Maven ant run plug-in to execute the wsdl2java tool.
 
-You can also use the Java client program given [here](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/remote-user-api/4.2.X/) to invoke admin services. All dependency JAR files that you need to run this client are found in the `         /lib        ` directory.
+You can also use the Java client program given [here](https://svn.wso2.org/repos/wso2/people/asela/user-mgt/remote-user-api/4.2.X/) to invoke admin services. All dependency JAR files that you need to run this client are found in the `/lib` directory.
 
 
 #### Authenticate the user
@@ -113,7 +113,7 @@ The example code below authenticates the user and gets the session cookie:
 #### 
 Generate the client stubs
 
-After authenticating the user, give the retrieved admin cookie with the service endpoint URL as shown in the sample below. The Remote user management service name is RemoteUserStoreManagerService. You can find its URL (e.g., `          https://localhost:9443/services/RemoteUserStoreManagerService         ` ) in the `          service.xml         ` file in the `          META-INF         ` folder in the respective bundle that you find in `          <PRODUCT_HOME>/repository/components/plugins         ` .
+After authenticating the user, give the retrieved admin cookie with the service endpoint URL as shown in the sample below. The Remote user management service name is RemoteUserStoreManagerService. You can find its URL (e.g., `https://localhost:9443/services/RemoteUserStoreManagerService` ) in the `service.xml` file in the `META-INF` folder in the respective bundle that you find in `<PRODUCT_HOME>/repository/components/plugins` .
 
 ``` java
     import org.apache.axis2.AxisFault;

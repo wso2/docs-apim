@@ -105,9 +105,9 @@ Database<br />
 !!! note
 Notes
 
--   Although the Gateway does not use the WSO2 API Manager database, this connection is required; therefore, do not remove the default configuration in the `           <API-M_HOME>/repository/conf/datasources/master-datasources.xml          ` file. This connection should be your default database.
+-   Although the Gateway does not use the WSO2 API Manager database, this connection is required; therefore, do not remove the default configuration in the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` file. This connection should be your default database.
 -   The Gateway node creates a connection at the startup with the WSO2 API Manager database, but this connection will not be used later on.
--   If you have more than one Traffic Manager node, each Traffic Manager node must have its own Message Broker database ( `           WSO2_MB_STORE_DB)          ` .
+-   If you have more than one Traffic Manager node, each Traffic Manager node must have its own Message Broker database ( `WSO2_MB_STORE_DB)` .
 
 When we consider a distributed deployment of WSO2 API Manager, we have the option of separating the five components and clustering each component as needed. Let's look more closely at how the API Manager components are deployed separately.
 
@@ -116,7 +116,7 @@ When we consider a distributed deployment of WSO2 API Manager, we have the optio
 In the following diagram, the five components are set up in a distributed deployment, and the five databases are connected to the relevant components respectively. The entire setup is also fronted by a load balancer.
 
 !!! note
-In a clustered setup, if the **Key Manager** is **NOT fronted by a load balancer** , you have to set the `         KeyValidatorClientType        ` element to `         ThriftClient        ` in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file, to enable Thrift as the communication protocol. You need to configure this in all the Gateway and Key Manager components.
+In a clustered setup, if the **Key Manager** is **NOT fronted by a load balancer** , you have to set the `KeyValidatorClientType` element to `ThriftClient` in the `<API-M_HOME>/repository/conf/api-manager.xml` file, to enable Thrift as the communication protocol. You need to configure this in all the Gateway and Key Manager components.
 
 
 ![](attachments/103334484/103334485.png)

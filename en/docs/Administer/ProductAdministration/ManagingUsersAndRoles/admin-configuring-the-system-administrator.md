@@ -22,7 +22,7 @@ Ensure that you have a primary user store (for storing users and roles) and an R
 
 ### Updating the administrator
 
-The `         <Configuration>        ` section at the top of the `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file allows you to configure the administrator user in your system as well as the RDBMS that will be used for storing information related to user authentication (i.e. role-based permissions).
+The `<Configuration>` section at the top of the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file allows you to configure the administrator user in your system as well as the RDBMS that will be used for storing information related to user authentication (i.e. role-based permissions).
 
 ``` java
     <Realm>

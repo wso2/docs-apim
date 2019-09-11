@@ -156,10 +156,10 @@ Following are some extension points that can be used:
 -   Change the execution code for each state transition
 
         !!! info
-    For all state transitions, the same execution class is used ( `                       org.wso2.carbon.apimgt.impl.executors.APIExecutor                     ` ). However, you can plug your own execution code when modifying the life cycle configuration. For example, if you want to add notifications for a specific state transition, you can plug your own custom execution class for that particular state in the API life cycle. Any changes are updated in the **Lifecycle** tab accordingly.
+    For all state transitions, the same execution class is used ( `org.wso2.carbon.apimgt.impl.executors.APIExecutor` ). However, you can plug your own execution code when modifying the life cycle configuration. For example, if you want to add notifications for a specific state transition, you can plug your own custom execution class for that particular state in the API life cycle. Any changes are updated in the **Lifecycle** tab accordingly.
 
 
-When a new transition event is introduced to the life cycle, an entry must be made to the `         locale_default.json        ` file in order to view that life cycle transition event in the Publisher **Lifecycle** tab. This is introduced to support multi-language facility. For example, let's say a transition event called Notify Users is introduced in the **DEPRECATED** state as follows,
+When a new transition event is introduced to the life cycle, an entry must be made to the `locale_default.json` file in order to view that life cycle transition event in the Publisher **Lifecycle** tab. This is introduced to support multi-language facility. For example, let's say a transition event called Notify Users is introduced in the **DEPRECATED** state as follows,
 
 ``` xml
                 <state id="Deprecated">
@@ -175,6 +175,6 @@ When a new transition event is introduced to the life cycle, an entry must be ma
                </state>
 ```
 
-You need to add `         "notify users" : "Notify Users"        ` as an entry in the `         <APIM_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/locales/jaggery/locale_default.json        ` file. Note that the key value in this entry should be in lower case (e.g. notify users).
+You need to add `"notify users" : "Notify Users"` as an entry in the `<APIM_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/locales/jaggery/locale_default.json` file. Note that the key value in this entry should be in lower case (e.g. notify users).
 
 For other languages , add the entry to the relevant file. For further information, see [Adding Internationalization and Localization](https://docs.wso2.com/display/AM260/Adding+Internationalization+and+Localization) .

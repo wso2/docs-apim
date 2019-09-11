@@ -6,15 +6,15 @@ This tutorial uses the WSO2 API Manager Tooling Plug-in .
 
 When you send an API request to the backend, you pass a token in the Authorization header of the request. The API Gateway uses this token to authorize access, and then drops it from the outgoing message.  If you wish to use a different (or a custom generated) authorization token than the application generated access token, you can use it as a token exchange mechanism in mediation logic of the API. In this tutorial, we explain how to pass a custom authorization token that is different to the authorization token generated for the application.
 
-**In this tutorial** , you have a sample JAX-RS backend and it always expects 1234 as the authorization token. In your API request, you pass the token that is generated in the `           Authorization          ` header, and 1234 in a `           Custom          ` header. The mediation extension you write extracts the value of the `           Custom          ` header, and sets it as the `           Authorization          ` header before sending it to the backend.
+**In this tutorial** , you have a sample JAX-RS backend and it always expects 1234 as the authorization token. In your API request, you pass the token that is generated in the `Authorization` header, and 1234 in a `Custom` header. The mediation extension you write extracts the value of the `Custom` header, and sets it as the `Authorization` header before sending it to the backend.
 
 Here's a summary:
 
-`                       Client (headers: Authorization, custom) ->            Gateway (drop: Authorization, convert: custom->Authorization) -> Backend                     `
+`Client (headers: Authorization, custom) -> Gateway (drop: Authorization, convert: custom->Authorization) -> Backend                     `
 
 Let's get started.
 
-1.  Download and install the WSO2 API Manager Tooling Plug-in if you have not done so already. Open Eclipse by double clicking the `           Eclipse.app          ` file inside the downloaded folder.
+1.  Download and install the WSO2 API Manager Tooling Plug-in if you have not done so already. Open Eclipse by double clicking the `Eclipse.app` file inside the downloaded folder.
 
 2.  Click **Window &gt; Open Perspective &gt; Other** to open the Eclipse perspective selection window. Alternatively, click the **Open Perspective** icon shown below at the top right corner.
 
@@ -24,12 +24,12 @@ Let's get started.
     ![](attachments/103332633/103332618.png)
 4.  On the APIM perspective, click the **Login** icon as shown below.
     ![](attachments/103332633/103332624.png)
-5.  On the dialog box that appears, enter the URL, username and password (by default `          admin         ` ) of the Publisher server.
+5.  On the dialog box that appears, enter the URL, username and password (by default `admin` ) of the Publisher server.
     ![](attachments/103332633/103332623.png)
 6.  On the tree view that appears, expand the folder structure of the existing API.
-7.  Right-click on the `          in         ` sequence folder and click **Create** to create a new `          in         ` sequence.
+7.  Right-click on the `in` sequence folder and click **Create** to create a new `in` sequence.
     ![](attachments/103332633/103332622.png)
-8.  Name the sequence `           TokenExchange          ` .
+8.  Name the sequence `TokenExchange` .
     ![](attachments/103332633/103332621.png)
 
 9.  Your sequence now appears on the APIM perspective. From under the **Mediators** section, drag and drop a **Property** mediator to your sequence and give the following values to the mediator.
@@ -98,19 +98,19 @@ Let's get started.
     | Field               | Sample value                                                                                                                                                       |
     |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Endpoint type       | HTTP endpoint                                                                                                                                                      |
-    | Production endpoint | `                                 http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header                               ` |
-    | Sandbox endpoint    | `                               http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header                             `     |
+    | Production endpoint | `http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header` |
+    | Sandbox endpoint    | `http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header`|
 
     ![](attachments/103332633/103332615.png)
 
-17. Select the **Enable Message Mediation** check box, engage the `           In          ` sequence that you created earlier and click **Manage** .
+17. Select the **Enable Message Mediation** check box, engage the `In` sequence that you created earlier and click **Manage** .
     ![](attachments/103332633/103332614.png)
 
         !!! note
     In Flow, Out Flow and Fault Flow represent the custom In, Out and Fault sequences attached to the API by the user other than the default sequence definition of the API.
 
 
-18. In the **Manage** tab, select the `           Gold          ` tier and click **Save and Publish** to publish the API to the API Store.
+18. In the **Manage** tab, select the `Gold` tier and click **Save and Publish** to publish the API to the API Store.
     ![](attachments/103332633/103332613.png)
 
     Let's subscribe to the API and invoke it.
@@ -126,8 +126,7 @@ Let's get started.
     ![](attachments/103332633/103332611.png)
 
 22. Install any REST client in your machine. We use [cURL](http://curl.haxx.se/download.html) here.
-
-23. Go to the command line, and invoke the API using the following cURL command. In this command, you pass the token that the backend expects, i.e., 1234, in the **`            Custom           `** header with the authorization token that the system generates in the **`            Authorization           `** header.
+23. Go to the command line, and invoke the API using the following cURL command. In this command, you pass the token that the backend expects, i.e., 1234, in the **`Custom`** header with the authorization token that the system generates in the **`Authorization`** header.
 
     ``` java
         curl -H "Authorization: Bearer <access token>" -H "Custom: Bearer 1234" <API URL>

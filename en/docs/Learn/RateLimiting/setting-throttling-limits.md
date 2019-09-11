@@ -39,10 +39,10 @@ The default throttling tiers are as follows:
 -   **Bronze** : 1000 requests per minute
 -   **Silver** : 2000 requests per minute
 -   **Gold** : 5000 requests per minute
--   **Unlimited:** Allows unlimited access (you can disable the Unlimited tier by editing the `           <EnableUnlimitedTier>          ` element in the `           <ThrottlingConfigurations>          ` node of the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.)
+-   **Unlimited:** Allows unlimited access (you can disable the Unlimited tier by editing the `<EnableUnlimitedTier>` element in the `<ThrottlingConfigurations>` node of the `<API-M_HOME>/repository/conf/api-manager.xml` file.)
 
         !!! note
-    Advanced Throttling is enabled by default with following configuration in the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.
+    Advanced Throttling is enabled by default with following configuration in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
         <ThrottlingConfigurations>
@@ -51,7 +51,7 @@ The default throttling tiers are as follows:
         <ThrottlingConfigurations>
     ```
 
-    If you are disabling **Advanced Throttling** in any case by setting the value of `                       <EnableAdvanceThrottling>                     ` to `           false          ` , Advanced Throttling is disabled and the basic Throttling mechanism is enabled thereafter. In such a scenario, if you want to disable the Unlimited Throttling tier of the basic Throttling configurations, you need to disable it under `                       <TierManagement>                     ` by setting `                       <EnableUnlimitedTier>                     ` to `           false          ` in the of the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.
+    If you are disabling **Advanced Throttling** in any case by setting the value of `<EnableAdvanceThrottling>` to `false` , Advanced Throttling is disabled and the basic Throttling mechanism is enabled thereafter. In such a scenario, if you want to disable the Unlimited Throttling tier of the basic Throttling configurations, you need to disable it under `<TierManagement>` by setting `<EnableUnlimitedTier>` to `false` in the of the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
             <TierManagement>        
@@ -115,7 +115,7 @@ The default throttling tiers are as follows:
 -   **10KPerMin** : 10,000 requests per minute
 -   **20KPerMin** : 20,000 requests per minute
 -   **50KPerMin** : 50,000 requests per minute
--   **Unlimited:** Unlimited access (you can disable the Unlimited tier by editing the `          <EnableUnlimitedTier>         ` element in `          <ThrottlingConfigurations>         ` node which is defined in the `          <API-M_HOME>/repository/conf/api-manager.xml         ` file)
+-   **Unlimited:** Unlimited access (you can disable the Unlimited tier by editing the `<EnableUnlimitedTier>` element in `<ThrottlingConfigurations>` node which is defined in the `<API-M_HOME>/repository/conf/api-manager.xml` file)
 
 It is also possible to specify a bandwidth per unit time instead of a number of requests. This can be defined via the API Manager Admin Portal. For information on editing the values of the existing tiers, defining new tiers, and specifying a bandwidth per unit time, see [Adding a new advanced throttling policy](Adding-New-Throttling-Policies_103334984.html#AddingNewThrottlingPolicies-Addinganewadvancedthrottlingpolicy) .
 

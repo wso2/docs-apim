@@ -2,7 +2,7 @@
 
 This topic is regarding sessions in the WSO2 API Manager (WSO2 API-M) and the process of enabling session persistence for these sessions. This is particularly useful when the remember me option is selected when logging into either the service provider or the WSO2 API-M.
 
-Uncomment the following configuration in the `         <API-M_HOME>/repository/conf/identity/identity.xml        ` file, under the the `         Server        ` and `         JDBCPersistenceManager        ` elements to enable authentication session persistence.
+Uncomment the following configuration in the `<API-M_HOME>/repository/conf/identity/identity.xml` file, under the the `Server` and `JDBCPersistenceManager` elements to enable authentication session persistence.
 
 ``` xml
      <SessionDataPersist>

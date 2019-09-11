@@ -9,7 +9,7 @@ The **Metadata** panel displays the following properties of the resource or the 
 -   **Media Type** - An associated Media type of the resource/collection. For more information about Media types, see [Adding a Resource](https://docs.wso2.com/display/ADMIN44x/Adding+a+Resource) .
 -   **Checkpoint** - Allows to create a checkpoint (URL for the permanent link) of a resource/collection.
 -   **Versions** - Allows to view versions of a resource/collection.
--   **Permalink** - Holds the resource URL in both HTTP and HTTPS. (e.g., `                     http://10.100.2.76:9763/registry/resource/_system/governance/trunk/services/test                   ` )
+-   **Permalink** - Holds the resource URL in both HTTP and HTTPS. (e.g., `http://10.100.2.76:9763/registry/resource/_system/governance/trunk/services/test` )
 -   **Description** - Description of the resource/collection.
 
 For example,

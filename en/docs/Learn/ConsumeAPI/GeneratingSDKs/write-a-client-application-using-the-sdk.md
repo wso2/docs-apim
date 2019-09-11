@@ -17,7 +17,7 @@ If a different API is used, the SDK functions to invoke the API are based on the
 
 
 2.  Go to the API Store. Select your API and download the SDK for Java. For more details, see [Generating client SDKs in the API Store](https://docs.wso2.com/display/AM260/Generating+SDKs#GeneratingSDKs-GeneratingclientSDKsintheAPIStore) .
-    ![](attachments/103333192/103333194.png)3.  In this example, you would have downloaded the `           PizzaShackAPI_1.0.0_java.zip          ` file. This file name includes the API name, version, and language of the SDK. Unzip the `           PizzaShackAPI_1.0.0_java.zip          ` file.
+    ![](attachments/103333192/103333194.png)3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Expand to see the folder structure of the unzipped file...
 
@@ -102,7 +102,7 @@ If a different API is used, the SDK functions to invoke the API are based on the
         !!! info
     Build using maven
 
-    You can build the SDK using the `           mvn clean install          ` command inside the root directory. For more information see [Maven Start Guide](https://maven.apache.org/guides/getting-started/) .
+    You can build the SDK using the `mvn clean install` command inside the root directory. For more information see [Maven Start Guide](https://maven.apache.org/guides/getting-started/) .
 
 
 5.  After creating a maven project, import the following with respect to the SDK. These classes will be accessible from the code once the SDK is built using maven and will be included as maven dependencies in the project.
@@ -113,13 +113,13 @@ If a different API is used, the SDK functions to invoke the API are based on the
         import org.wso2.client.model.PizzaShackAPI.Menu;
     ```
 
-6.  Create an instance of the `           DefaultApi          ` object in the java code. This instance is needed to get the API client which handles the operations related to consuming the API, using the resources of the API.
+6.  Create an instance of the `DefaultApi` object in the java code. This instance is needed to get the API client which handles the operations related to consuming the API, using the resources of the API.
 
     ``` java
             DefaultApi defaultApi = new DefaultApi();
     ```
 
-7.  The API client of the `           DefaultApi          ` object instance is used to set HTTP request headers with the required data. Note that these HTTP request headers might differ from one API to another, depending on the implementation of the API. A sample is show below.
+7.  The API client of the `DefaultApi` object instance is used to set HTTP request headers with the required data. Note that these HTTP request headers might differ from one API to another, depending on the implementation of the API. A sample is show below.
 
     ``` java
             ApiClient apiClient = defaultApi.getApiClient();
@@ -145,7 +145,7 @@ If a different API is used, the SDK functions to invoke the API are based on the
 
     The base path for the client application is the production (or sandbox) URL of the API,  found in the **Overview** tab of the API in the API Store.
     ![](attachments/103333192/103333193.png)
-10. Once the `           ApiClient          ` object has all the required data, set the `           ApiClient          ` for the instance of the `           DefaultApi          ` object.
+10. Once the `ApiClient` object has all the required data, set the `ApiClient` for the instance of the `DefaultApi` object.
 
     ``` java
             defaultApi.setApiClient(apiClient);
@@ -158,7 +158,7 @@ If a different API is used, the SDK functions to invoke the API are based on the
     ```
 
         !!! info
-    `           MenuItem          ` is a model class generated with SDK
+`MenuItem` is a model class generated with SDK
 
 
     Complete java code can be found below

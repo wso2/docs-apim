@@ -2,7 +2,7 @@
 
 When an API call hits the API Gateway, the Gateway carries out security checks to verify if the token is valid. During these verifications, the API Gateway extracts parameters (i.e., access token, API name, and API version) that are passed on to it. Since the entire load of traffic to APIs goes through the API Gateway, this verification process needs to be fast and efficient in order to prevent overhead and delays. WSO2 API Manager uses caching for this purpose, where the validation information is cached with the token, API name, and version, and the cache is stored in either the API Gateway or the Key Manager server.
 
-The default cache size of any type of cache in a WSO2 product is 10,000 elements/records. Cache eviction occurs from the 10001st element. All caches in WSO2 products can be configured using the `         <PRODUCT_HOME>/repository/conf/carbon.xml        ` file. The defaultCacheTimeout is 15 minutes which comes by default.
+The default cache size of any type of cache in a WSO2 product is 10,000 elements/records. Cache eviction occurs from the 10001st element. All caches in WSO2 products can be configured using the `<PRODUCT_HOME>/repository/conf/carbon.xml` file. The defaultCacheTimeout is 15 minutes which comes by default.
 
 ``` java
     <Cache>
@@ -32,7 +32,7 @@ Apart from response caching, all the other caches are enabled by product. When t
 
 When c aching is enabled at the Gateway and a request hits the Gateway, it first populates the cached entry for a given token. If a cache entry does not exist in the cache, it calls the Key Manager server. This process is carried out using Web service calls. After the Key Manager server returns the validation information, it gets stored in the Gateway. As the API Gateway issues a Web service call to the Key Manager server only, if it does not have a cache entry, this method reduces the number of Web service calls to the Key Manager server. Therefore, it is faster than the alternative method.
 
-By default, the API Gateway cache is enabled because the `         <EnableGatewayTokenCache>        ` element is set to true in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file:
+By default, the API Gateway cache is enabled because the `<EnableGatewayTokenCache>` element is set to true in the `<API-M_HOME>/repository/conf/api-manager.xml` file:
 
 ``` html/xml
     <EnableGatewayTokenCache>true</EnableGatewayTokenCache>
@@ -44,11 +44,11 @@ If you need to enable Gateway caching across the entire cluster, see [Working wi
 
 ##### Clearing the API Gateway cache
 
-If you wish to remove old tokens that might still remain active in the Gateway cache, you need to configure the `         <RevokeAPIURL>        ` element in the `         <API-M_HOME>/repository/conf/         api-manager.xml        ` file by providing the URL of the [Revoke API](https://docs.wso2.com/display/AM260/Token+API) that is deployed in the API Gateway node. The revoke API invokes the cache clear handler, which extracts information form transport headers of the revoke request and clears all associated cache entries. If there's a cluster of API Gateways in your setup, provide the URL of the revoke API deployed in one node in the cluster. This way, all revoke requests route to the OAuth service through the Revoke API.
+If you wish to remove old tokens that might still remain active in the Gateway cache, you need to configure the `<RevokeAPIURL>` element in the `<API-M_HOME>/repository/conf/         api-manager.xml` file by providing the URL of the [Revoke API](https://docs.wso2.com/display/AM260/Token+API) that is deployed in the API Gateway node. The revoke API invokes the cache clear handler, which extracts information form transport headers of the revoke request and clears all associated cache entries. If there's a cluster of API Gateways in your setup, provide the URL of the revoke API deployed in one node in the cluster. This way, all revoke requests route to the OAuth service through the Revoke API.
 
 Given below is how to configure this in a distributed API Manager setup.
 
-1.  In the `           api-manager.xml          ` file of the **API Store node** , point the revoke endpoint as follows:
+1.  In the `api-manager.xml` file of the **API Store node** , point the revoke endpoint as follows:
 
     ``` xml
         <RevokeAPIURL>https://${carbon.local.ip}:${https.nio.port}/revoke</RevokeAPIURL>
@@ -85,7 +85,7 @@ Users can make requests to an API by calling any one of the HTTP methods of the 
 
 Note that if you update an API, the resource cache gets invalidated and the changes are reflected within a few minutes.
 
-By default, the resource cache is enabled as the `         <EnableGatewayResourceCache>        ` element is set to true in the `         <APIM_HOME>/repository/conf/api-manager.xml        ` file:
+By default, the resource cache is enabled as the `<EnableGatewayResourceCache>` element is set to true in the `<APIM_HOME>/repository/conf/api-manager.xml` file:
 
 ``` java
     <EnableGatewayResourceCache>true</EnableGatewayResourceCache>
@@ -104,7 +104,7 @@ In a typical API Manager deployment, the Gateway is deployed in a DMZ while the 
 
 Storing the cache in the Key Manager causes lower performance than when storing it in the Gateway, but it is more secure. If you enable the key cache in a clustered environment, you should have only one Gateway per Key Manager, whereas you can have two Gateways per Key Manager when the Gateway cache is enabled instead. Note that you should always have one of the caches enabled, but we do not recommend using both caches combined. For more information, see [Clustering Gateways and Key Managers with key caching](https://docs.wso2.com/display/CLUSTER44x/API+Manager+Deployment+Patterns#APIManagerDeploymentPatterns-keycache) in the WSO2 Clustering Guide.
 
-You configure the key cache by editing the following elements in the `         <APIM_HOME>/repository/conf/api-manager.xml        ` file:
+You configure the key cache by editing the following elements in the `<APIM_HOME>/repository/conf/api-manager.xml` file:
 
 <table>
 <colgroup>
@@ -128,7 +128,7 @@ You configure the key cache by editing the following elements in the `         <
 </tr>
 <tr class="odd">
 <td>Change the key cache duration, which expires after 900 seconds by default.</td>
-<td><code>             &lt;                           Token                                        Cache                                        Expiry                          &gt;900&lt;/                           Token                                        Cache                                        Expiry                          &gt;            </code></td>
+<td><code>&lt;Token                                        Cache                                        Expiry                          &gt;900&lt;/                           Token                                        Cache                                        Expiry                          &gt;            </code></td>
 </tr>
 </tbody>
 </table>
@@ -145,7 +145,7 @@ The API Manager uses [WSO2 ESB's cache mediator](http://docs.wso2.org/enterprise
 You need to enable response caching when creating a new API or editing an existing API using the API Publisher. Go to the API Publisher and click **Add New API** (to create a new API) or click the **Edit** icon associated with an existing API. Then, navigate to the **Manage** tab where you find the response caching section. You can set Response caching to **Enabled** and give a timeout value. This enables the default response caching settings.
 
 ![](attachments/103333424/103333425.png)
-To change the default response caching settings, edit the following cache mediator properties in the `         <API-M_HOME>/repository/resources/api_templates/velocity_template.xml        ` file:
+To change the default response caching settings, edit the following cache mediator properties in the `<API-M_HOME>/repository/resources/api_templates/velocity_template.xml` file:
 
 <table>
 <colgroup>
@@ -189,7 +189,7 @@ When running a distributed deployment, you need to enable the stream builders on
 
 Follow the instructions below to enable the stream builders in the API gateway:
 
-1.  Open the `          <API-M_HOME>/repository/conf/axis2/axis2.xml         ` file.
+1.  Open the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file.
 2.  Disable the default standard builders by commenting the following.
 
     ``` java
@@ -205,15 +205,15 @@ Follow the instructions below to enable the stream builders in the API gateway:
 
 ###### Invalidating Cached Responses Remotely
 
-You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://docs.wso2.com/display/ESB500/JMX+Monitoring) using the exposed MBeans. You can use the `         Invalidatemediatocache()        ` operation of the `         org.wso2.carbon.mediatio        ` `         n        ` MBean for this as shown below.
+You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://docs.wso2.com/display/ESB500/JMX+Monitoring) using the exposed MBeans. You can use the `Invalidatemediatocache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
 
 ![JMX monitoring through JConsole](attachments/38472609/57761804.png)
 ### API Store cache
 
 The API Store has several caches to reduce the page-load times and increase its responsiveness when multiple users access it simultaneously.
 
--   **Tag cache:** This cache saves the API's tags after they have been retrieved from registry. If your APIs and associated tags change frequently, it is recommended to configure a smaller cache refresh time (in milliseconds). This cache disabled by default. To enable it, uncomment the `           <TagCacheDuration>          ` element in the `           <APIM_HOME>/repository/conf/api-manager.xml          ` file.
+-   **Tag cache:** This cache saves the API's tags after they have been retrieved from registry. If your APIs and associated tags change frequently, it is recommended to configure a smaller cache refresh time (in milliseconds). This cache disabled by default. To enable it, uncomment the `<TagCacheDuration>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file.
 
--   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, set the `           <EnableRecentlyAddedAPICache>          ` to `           true          ` in the `           <APIM_HOME>/repository/conf/api-manager.xml          ` file.
+-   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, set the `<EnableRecentlyAddedAPICache>` to `true` in the `<APIM_HOME>/repository/conf/api-manager.xml` file.
 
 

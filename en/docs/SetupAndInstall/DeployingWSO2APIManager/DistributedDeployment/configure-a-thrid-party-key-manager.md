@@ -26,14 +26,14 @@ Follow the instructions below to configure the third-party Key Manager:
 1.  Download the binary located [here](https://github.com/Rajith90/surf-oauth-demo/blob/v2.1.0/resources/surf-oauth.war) and deploy it in a Tomcat server.
 
         !!! info
-    Alternatively, you can build the OAuth Server from scratch and start the server by issuing the [mvn jetty:run](https://github.com/OAuth-Apis/apis/blob/master/README.md#getting-started) command in the `           api-authorization-server-war          ` folder. Detailed steps for building and starting the server are provided [here](https://github.com/OAuth-Apis/apis/blob/master/README.md#getting-started) .
+    Alternatively, you can build the OAuth Server from scratch and start the server by issuing the [mvn jetty:run](https://github.com/OAuth-Apis/apis/blob/master/README.md#getting-started) command in the `api-authorization-server-war` folder. Detailed steps for building and starting the server are provided [here](https://github.com/OAuth-Apis/apis/blob/master/README.md#getting-started) .
 
         !!! tip
     **Tip** : The Surf OAuth web application that you just downloaded has the following customizations:
 
-    -   The `            apis.application.properties           ` file is copied to the classpath.
-    -   All the URLs starting with `            localhost           ` are replaced by the loop back IP (127.0.0.1).
-    -   `            org.surfnet.oaaas.noop.NoopAuthenticator           ` authenticator is set as the default authenticator.
+    -   The `apis.application.properties` file is copied to the classpath.
+    -   All the URLs starting with `localhost` are replaced by the loop back IP (127.0.0.1).
+    -`org.surfnet.oaaas.noop.NoopAuthenticator` authenticator is set as the default authenticator.
     -   Token expiry time is increased to 99999 seconds. This ensures that the tokens issued for the web client last several months.
 
 
@@ -44,12 +44,12 @@ Follow the instructions below to configure the third-party Key Manager:
         mv tomcat7/webapps/surf-oauth tomcat7/webapps/ROOT
     ```
 
-3.  Access `                     http://127.0.0.1:8080/                   ` to see the following page:
+3.  Access `http://127.0.0.1:8080/` to see the following page:
     ![](attachments/126563044/126563117.png)    The server is now up and running.
 4.  Follow the steps below to create a resource server.
     1.  In Surf OAuth, click the **Resource Servers** link where all the OAuth clients are grouped together.
     2.  Register a resource server representing WSO2 API Manager.
-    3.  Add two scopes named `            test           ` and `            scope1           ` and save your changes.
+    3.  Add two scopes named `test` and `scope1` and save your changes.
         You will use them when creating clients.
         ![](attachments/126563044/126563118.png)        The front end is now registered as a distinct client with the authorization server.
 5.  Follow the steps to create an OAuth Client.
@@ -64,23 +64,23 @@ Follow the instructions below to configure the third-party Key Manager:
 
 1.  Build the demo.client available at <https://github.com/Rajith90/surf-oauth-demo/tree/v2.1.0> .
 
-2.  Copy the JAR files that you built in to the `           <API-M_HOME>/repository/components/lib          ` directory.
+2.  Copy the JAR files that you built in to the `<API-M_HOME>/repository/components/lib` directory.
 
         !!! note
     If you are setting up a distributed environment, copy and paste the JAR files that you built in to the respective directories given below in the **Key Manager** node and the **Store** node respectively.
 
-    -   API Key Manager - `             <API-M_KEY_MANAGER_HOME>/repository/components/lib            `
+    -   API Key Manager - `<API-M_KEY_MANAGER_HOME>/repository/components/lib            `
 
-    -   API Store - `             <API-M_STORE_HOME>/repository/components/lib            `
+    -   API Store - `<API-M_STORE_HOME>/repository/components/lib            `
 
 
-3.  Uncomment the `           <APIKeyManager>          ` element in the `           /repository/conf/api-manager.xml          ` file, which is in the API Key Manager and API Store and change the values based on your third-party implementation.
+3.  Uncomment the `<APIKeyManager>` element in the `/repository/conf/api-manager.xml` file, which is in the API Key Manager and API Store and change the values based on your third-party implementation.
 
         !!! tip
-    **Tip:** Be sure to replace the `           <RegistrationEndpoint>          ` and `           <AccessToken>          ` elements with the client registration endpoint and the access token you obtained earlier in step 7 and 6. ConsumerKey and Secret should be that of the created resource server. Also change the `           <hostname>          ` in the `           <IntrospectionURL>          ` accordingly.
+    **Tip:** Be sure to replace the `<RegistrationEndpoint>` and `<AccessToken>` elements with the client registration endpoint and the access token you obtained earlier in step 7 and 6. ConsumerKey and Secret should be that of the created resource server. Also change the `<hostname>` in the `<IntrospectionURL>` accordingly.
 
         !!! note
-    The `           nl.surfnet.demo.SurfOAuthClient          ` class, which is mentioned in the following example, extends the Key Manager interface.
+    The `nl.surfnet.demo.SurfOAuthClient` class, which is mentioned in the following example, extends the Key Manager interface.
 
 
     **Example**
@@ -125,7 +125,7 @@ You have connected WSO2 API Manager with a third-part authorization server. Let
     Note the newly created client listed there.
     ![](attachments/126563044/126563121.png)    You have now created an application and registered an OAuth Client corresponding to it.
 5.  Validate tokens by subscribing to a SurfClient application and obtaining a token.
-    1.  Sign in to the API Publisher and deploy the sample API ( `            PizzaShackAPI           ` ) if you haven't done so already.
+    1.  Sign in to the API Publisher and deploy the sample API ( `PizzaShackAPI` ) if you haven't done so already.
         ![](attachments/126563044/126563122.png)
     2.  Assuming you still have the OAuth client created earlier, subscribe to this API as follows:
 
@@ -135,18 +135,18 @@ You have connected WSO2 API Manager with a third-part authorization server. Let
 
         Let's obtain a token from the OAuth Provider.
 
-    3.  Go to the **Edit** view of the OAuth client and make sure the `             client_credentials            ` grant type is enabled, and a token expiration time is specified.
+    3.  Go to the **Edit** view of the OAuth client and make sure the `client_credentials` grant type is enabled, and a token expiration time is specified.
         ![](attachments/126563044/126563123.png)
     4.  Obtain a token.
-        Replace `             <ConsumerKey:ConsumerSecret>            ` with the Base64 encoded `             ConsumerKey:ConsumerSecret            ` of the client application you just created.
+        Replace `<ConsumerKey:ConsumerSecret>` with the Base64 encoded `ConsumerKey:ConsumerSecret` of the client application you just created.
 
         ``` java
                     curl -k -d "grant_type=client_credentials&scope=test" -H "Authorization: Basic <ConsumerKey:ConsumerSecret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
         ```
 
-    5.  Update the token endpoint in the `            <API-M_GATEWAY_HOME>/repository/deployment/server/synapse-configs/default/api/_TokenAPI_.xml           ` file accordingly.
-    6.  Update the revoke endpoint in the `            <API-M_GATEWAY_HOME>/repository/deployment/server/synapse-configs/default/api/_RevokeAPI_.xml           ` file accordingly.
-    7.  If you use the authorization code grant type to generate tokens, update the authorize endpoint in the `             <API-M_GATEWAY_HOME>/repository/deployment/server/synapse-configs/default/api/AuthorizeAPI.xml            ` file accordingly.
+    5.  Update the token endpoint in the `<API-M_GATEWAY_HOME>/repository/deployment/server/synapse-configs/default/api/_TokenAPI_.xml` file accordingly.
+    6.  Update the revoke endpoint in the `<API-M_GATEWAY_HOME>/repository/deployment/server/synapse-configs/default/api/_RevokeAPI_.xml` file accordingly.
+    7.  If you use the authorization code grant type to generate tokens, update the authorize endpoint in the `<API-M_GATEWAY_HOME>/repository/deployment/server/synapse-configs/default/api/AuthorizeAPI.xml` file accordingly.
 
                 !!! info
         The Token endpoint format for above e, f, and g steps is: http://&lt;surf-hostname&gt;:port/v1/token. A sample change done in \_TokenAPI\_.xml is as follows:

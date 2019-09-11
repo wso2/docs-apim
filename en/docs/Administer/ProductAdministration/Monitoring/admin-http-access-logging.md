@@ -5,7 +5,7 @@ HTTP access logs help you monitor your application's usage with information such
 !!! note
 Using WSO2 ESB, WSO2 EI, or WSO2 APIM?
 
-In products such as **WSO2 Enterprise Service Bus** (WSO2 ESB), **WSO2 Enterprise Integrator** (WSO2 EI), and **WSO2 API Manager** (WSO2 APIM), access logs can be generated for the passthrough transport in addition to the HTTP servlet transport. The passthrough transport works on 8280/8243 ports, and is used for API/Service invocations. By default, the access logs from both the servlet transport and the passthrough transport are written to a common access log file located in the `         <PRODUCT_HOME>/repository/logs/        ` directory.
+In products such as **WSO2 Enterprise Service Bus** (WSO2 ESB), **WSO2 Enterprise Integrator** (WSO2 EI), and **WSO2 API Manager** (WSO2 APIM), access logs can be generated for the passthrough transport in addition to the HTTP servlet transport. The passthrough transport works on 8280/8243 ports, and is used for API/Service invocations. By default, the access logs from both the servlet transport and the passthrough transport are written to a common access log file located in the `<PRODUCT_HOME>/repository/logs/` directory.
 
 See the documentation for these specific products for instructions on how to use access logs.
 
@@ -23,11 +23,11 @@ See the topics given below to configure the default behaviour of HTTP access log
 
 ### Configuring access logs for the HTTP servlet transport
 
-As the runtime of WSO2 products is based on Apache Tomcat, you can use the `         Access_Log_Valve        ` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport:
+As the runtime of WSO2 products is based on Apache Tomcat, you can use the `Access_Log_Valve` variable in Tomcat as explained below to configure access logs to the HTTP servlet transport:
 
-1.  Open the &lt; `           PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml          ` file (which is the server descriptor file for the embedded Tomcat integration)
+1.  Open the &lt; `PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file (which is the server descriptor file for the embedded Tomcat integration)
 
-2.  Customize the attributes for the `           Access_Log_Valve          ` variable shown below.
+2.  Customize the attributes for the `Access_Log_Valve` variable shown below.
 
     ``` java
         <Valve className="org.apache.catalina.valves.AccessLogValve"
@@ -41,7 +41,7 @@ As the runtime of WSO2 products is based on Apache Tomcat, you can use the `    
 
     |           |                                                                                                                                                                                                                                                                                                   |
     |-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | directory | The path to the directory that will store the access log file. By default, this is location is set to `               ${carbon.home}/repository/logs              ` in all WSO2 products.                                                                                                         |
+    | directory | The path to the directory that will store the access log file. By default, this is location is set to `${carbon.home}/repository/logs` in all WSO2 products.                                                                                                         |
     | prefix    | The prefix added to the log file's name.                                                                                                                                                                                                                                                          |
     | suffix    | The suffix added to the log file's name. By default, this is .log for all WSO2 products.                                                                                                                                                                                                          |
     | pattern   | The attribute defines the format for the log pattern, which consists of the information fields from the requests and responses that should be logged. The pattern format is created using the following attributes:                                                                               
@@ -57,19 +57,19 @@ As the runtime of WSO2 products is based on Apache Tomcat, you can use the `    
                                                                                                                                                                                                                                                                                                          
           ``` java                                                                                                                                                                                                                                                                                       
                     pattern=%h %l %u %t "%r" %s %b                                                                                                                                                                                                                                                                 
-          ```                                                                                                                                                                                                                                                                                            
+          ```
                                                                                                                                                                                                                                                                                                          
       -   **combined** ( [Apache combined log pattern](http://httpd.apache.org/docs/1.3/logs.html#combined) ):                                                                                                                                                                                           
                                                                                                                                                                                                                                                                                                          
           ``` java                                                                                                                                                                                                                                                                                       
                         pattern=%h %l %u %t "%r" %s %b "%{Referer}i" "%{User-Agent}i"                                                                                                                                                                                                                                  
-          ```                                                                                                                                                                                                                                                                                            |
+          ```|
 
-3.  Restart the server. According to the default configurations, a log file named `           localhost_access_log_sample.{DATE}.log          ` is created inside the &lt; `           PRODUCT_HOME>/repository/logs          ` directory. The log is rotated on a daily basis.
+3.  Restart the server. According to the default configurations, a log file named `localhost_access_log_sample.{DATE}.log` is created inside the &lt; `PRODUCT_HOME>/repository/logs` directory. The log is rotated on a daily basis.
 
 ### Customizing access logs by pattern
 
-Given below are a few sample configurations for customizing the `         pattern        ` attribute:
+Given below are a few sample configurations for customizing the `pattern` attribute:
 
 -   [Example 1: Logging request headers](#admin_HTTPAccessLogging-Example1:Loggingrequestheaders)
 -   [Example 2: Logging response headers](#admin_HTTPAccessLogging-Example2:Loggingresponseheaders)
@@ -89,13 +89,13 @@ The configuration is as follows:
     />
 ```
 
-This sample configuration logs the Content-type, Accept and Accept-encoding headers of every request coming to the server. For example, in the following example, we use the `         RequestInfoExample        ` to send the HTTP request:
+This sample configuration logs the Content-type, Accept and Accept-encoding headers of every request coming to the server. For example, in the following example, we use the `RequestInfoExample` to send the HTTP request:
 
 ``` java
     GET http://<IP>:<PORT>/example/servlets/servlet/RequestInfoExample?abc=xyz
 ```
 
-The following log entry is recorded in the `         localhost_access_log_sample.{DATE}.log        ` file.
+The following log entry is recorded in the `localhost_access_log_sample.{DATE}.log` file.
 
 ``` java
     text/plain; charset=utf-8        */*        gzip,deflate,sdch
@@ -114,7 +114,7 @@ The configuration is as follows:
     />
 ```
 
-The a bove configuration sample logs the `         Content-type        ` , `         Content-Length        ` , `         Date,        ` and `         Server        ` headers of every response coming from the server as follows:
+The a bove configuration sample logs the `Content-type` , `Content-Length` , `Date,` and `Server` headers of every response coming from the server as follows:
 
 ``` java
     text/html;charset=ISO-8859-1       662       Tue, 09 Jul 2013 11:21:50 GMT        WSO2 Carbon
@@ -141,7 +141,7 @@ The above sample configuration logs the f irst line of the request (method and r
 
 #### Example 4: Logging URL encoded parameters
 
-You cannot use the `         AccessLogValve        ` to log URL encoded parameters. However, you can use the `         ExtendedAccessLogValve        ` attribute for this purpose. In this example only two values (namely, `         className        ` , and `         pattern        ` ) are modified from the previous configuration.
+You cannot use the `AccessLogValve` to log URL encoded parameters. However, you can use the `ExtendedAccessLogValve` attribute for this purpose. In this example only two values (namely, `className` , and `pattern` ) are modified from the previous configuration.
 
 The configuration is as follows:
 
@@ -154,7 +154,7 @@ The configuration is as follows:
     />
 ```
 
-Send the POST request together with the URL encoded values such as `         param1        ` = `         value1        ` and `         param2        ` = `         value2        ` as follows:
+Send the POST request together with the URL encoded values such as `param1` = `value1` and `param2` = `value2` as follows:
 
 ``` java
     POST http://<IP>:<PORT>/example/servlets/servlet/RequestInfoExample
