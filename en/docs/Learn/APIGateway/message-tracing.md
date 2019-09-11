@@ -11,7 +11,7 @@ Follow the steps below to configure the Message Tracer in API Manager to dump tr
 
 1.  Start the WSO2 API Manager server.
 2.  Sign in to the WSO2 APIM Management Console ( <https://localhost:9443/carbon> ).
-3.  Click **Message Tracing** , which **** is under the **Configure** tab, to navigate to the Message Tracing Configurations.
+3.  Click **Message Tracing** , which is under the **Configure** tab, to navigate to the Message Tracing Configurations.
 4.  Select the following options to enable message tracing and click **Update** .
 
     | Configuration                     | Description                                                                          |

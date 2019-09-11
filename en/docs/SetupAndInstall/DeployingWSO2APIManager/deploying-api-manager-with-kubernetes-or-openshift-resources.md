@@ -7,7 +7,7 @@ This page has been restricted because currently APIM 220 does not have artifacts
 Follow the instructions below to use Kubernetes (K8s) or Openshift resources for container-based deployments of WSO2 API Manager (API-M).
 
 !!! note
-In the context of this document, **&lt;** **`          KUBERNETES_HOME>         `** refers to a local copy of the [`          wso2/kubernetes-apim         `](https://github.com/wso2/kubernetes-apim/) Git repository that **includes common resources that can be used for Kubernetes and OpenShift.**
+In the context of this document, **&lt;`          KUBERNETES_HOME>         `** refers to a local copy of the [`          wso2/kubernetes-apim         `](https://github.com/wso2/kubernetes-apim/) Git repository that **includes common resources that can be used for Kubernetes and OpenShift.**
 
 
 1.  Checkout the WSO2 kubernetes-apim repository using `           git clone          ` :
@@ -164,10 +164,9 @@ In the context of this document, **&lt;** **`          KUBERNETES_HOME>         
         -   [https://wso2apim-analytics](https://wso2apim-analytics/)
         -   <https://wso2apim-gw>
 
-    If required, ****undeploy a pattern on OpenShift****
+    If required, **undeploy a pattern on OpenShift**
 
-    ****
-
+    
     You can undeploy any pattern by running the `           undeploy-openshift.sh          ` script that is inside the pattern folder ( `           <KUBERNETES_HOME>/pattern-X/          ` directory).
 
     ``` java

@@ -200,7 +200,7 @@ Next, let us look at the SSO configurations.
     ![](attachments/103333476/103333483.png){height="250"}
 
         !!! tip
-    **In** **a multi tenanted environment,** for all tenants to be able to log in to the APIM Web applications, do the following:
+    **In a multi tenanted environment,** for all tenants to be able to log in to the APIM Web applications, do the following:
 
     -   Click the **SaaS Application** option that appears after registering the service provider.
         ![](attachments/103333476/103333482.png)
@@ -220,7 +220,7 @@ Next, let us look at the SSO configurations.
     -   Because the servers in a multi-tenanted environment interact with all tenants, all nodes should share the same user store. Therefore, make sure you have a shared registry (JDBC mount, WSO2 Governance Registry etc.) instance across all nodes.
 
 
-5.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuratio** **n** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
+5.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuration** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
     ![](attachments/103333476/103333481.png)
         !!! note
     To enable tenant specific SSO with IS 5.7.0 for `           API_PUBLISHER          ` and `           API_STORE          ` , enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
@@ -235,7 +235,7 @@ Next, let us look at the SSO configurations.
 
         -   **Enable Response Signing**
 
-        -   ****Enable**** **Single Logout**
+        -   **Enable Single Logout**
 
     -   Click **Register** once done.
 
@@ -247,7 +247,7 @@ Similarly, provide the configurations to register the API Store as the SSO serv
 -   Assertion Consumer URL: `                           https://localhost:9443/store/jagg/jaggery_acs.jag                         ` . Change the IP and port accordingly. This is the URL for the Assertion Consumer Services (ACS) page in your running Store app.
 -   Select the following options:
     -   **Enable Response Signing**
-    -   **Enable** **Single Logout**
+    -   **Enable Single Logout**
 -   Click **Register** once done.
 
 Make sure that the `          responseSigningEnabled         ` element is set to `          true         ` in both the following files:
@@ -261,7 +261,7 @@ Make sure that the `          responseSigningEnabled         ` element is set to
     -   **enabled:** Set this value to **true** to enable SSO in the application
     -   **issuer:** `            API_PUBLISHER           ` . This value can change depending on the **Issuer** value defined in WSO2 IS SSO configuration above.
     -   **identityProviderURL:** <https://localhost:9444/samlsso> . Change the IP and port accordingly. This is the redirecting SSO URL in your running WSO2 IS server instance.
-    -   **keyStoreName:** The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the APIM and then point to the APIM keystore. The default keystore of the APIM is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . ****Be sure to give the full path of the keystore here** .**
+    -   **keyStoreName:** The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the APIM and then point to the APIM keystore. The default keystore of the APIM is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . **Be sure to give the full path of the keystore here** .
     -   **keyStorePassword:** Password for the above keystore. The default keyStorePassword is `            wso2carbon           ` .
     -   **identityAlias:** wso2carbon
 2.  Similarly, configure the API Store with SSO. The only difference in API Store SSO configurations is setting **API\_STORE** as the **issuer** .

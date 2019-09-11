@@ -90,7 +90,7 @@ Let's get started.
 
     ![](attachments/103332633/103332617.png)
 
-15. Leave the **Resources** section blank, and click **Next: I** **mplement &gt;** . Add a wildcard resource (/\*) when prompted. Click **Next: I** **mplement &gt;** again to move to the **Implement** tab.
+15. Leave the **Resources** section blank, and click **Next: Implement &gt;** . Add a wildcard resource (/\*) when prompted. Click **Next: Implement &gt;** again to move to the **Implement** tab.
     ![](attachments/103332633/103332616.png)
 
 16. The **Implement** tab opens. Give the information in the table below.

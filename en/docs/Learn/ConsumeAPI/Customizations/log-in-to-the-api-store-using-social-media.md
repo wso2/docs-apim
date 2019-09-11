@@ -115,7 +115,7 @@ You have to allow the usage of email addresses as usernames, to use email addres
 
 1.  Go to the Management console of WSO2 Identity Server ( `                     https://localhost:9444/carbon                   ` ) and click on **Service Providers** .
 2.  Click **Edit** to edit the `          API_PUBLISHER         ` .
-    ![](attachments/103333132/103333147.png)3.  Go to the **Local and Outbound Authentication Configuration** **** section.  Select the Identity Provider you created from the dropdown list under **Federated Authentication** .
+    ![](attachments/103333132/103333147.png)3.  Go to the **Local and Outbound Authentication Configuration** section.  Select the Identity Provider you created from the dropdown list under **Federated Authentication** .
 4.  Make sure that **Federated Authentication** is selected. Click **Update** to save the changes.
     ![](attachments/103333132/103333148.png)5.  Repeat steps 1 to 4 and configure the `          API_STORE         ` service provider.
 

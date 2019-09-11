@@ -16,7 +16,7 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
     ![](attachments/103328746/103328735.png)
 3.  Select the option to design a new WebSocket API and click **Start Creating** .
     ![](attachments/103328746/103328734.png)
-4.  The **Design** tab of the API opens. Give the information in the table below and click **Next: I** **mplement &gt;** to proceed to the implementation phase.
+4.  The **Design** tab of the API opens. Give the information in the table below and click **Next: Implement &gt;** to proceed to the implementation phase.
 
     | Field   | Sample value   |
     |---------|----------------|
@@ -27,7 +27,7 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
     ![](attachments/103328746/103328733.png)
 
 5.  Click the **Managed API** option.
-6.  Provide the production endpoint and sandbox endpoint, which is `           ws://echo.websocket.org:80          ` in this example, and click **Next: M** **anage &gt;** .
+6.  Provide the production endpoint and sandbox endpoint, which is `           ws://echo.websocket.org:80          ` in this example, and click **Next: Manage &gt;** .
 
         !!! info
     With WSO2 API Manager, you can maintain a production and a sandbox endpoint for a given API. The production endpoint is the actual location of the API, whereas the sandbox endpoint points to its testing/pre-production environment.

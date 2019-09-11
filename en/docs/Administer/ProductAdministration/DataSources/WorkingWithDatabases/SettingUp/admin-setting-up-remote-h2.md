@@ -45,7 +45,7 @@ Follow the steps below to set up a Remote H2 database.
     The script starts the database engine and opens a pop-up window.
 
 
-4.  Click **Start Browser** to **** open a web browser containing a client application, which you use to connect to a database. If a database does not already exist by the name you provided in the **JDBC URL** text box, H2 will automatically create a database.
+4.  Click **Start Browser** to open a web browser containing a client application, which you use to connect to a database. If a database does not already exist by the name you provided in the **JDBC URL** text box, H2 will automatically create a database.
 
 ### Setting up the drivers
 

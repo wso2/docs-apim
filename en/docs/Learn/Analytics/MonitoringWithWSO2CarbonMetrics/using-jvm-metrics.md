@@ -21,7 +21,7 @@ For detailed instructions to enable/disable JVM metrics and to configure metrics
         Click **Memory** to view statistics relating to the memory as shown below.
         ![](attachments/103335175/103335180.png) ![](attachments/103335175/103335179.png)
     -   **Threading
-        ** Click **Threading** to **** view statistics relating to **** threading as shown below.
+        ** Click **Threading** to **view statistics relating to** threading as shown below.
         ![](attachments/103335175/103335178.png)
     -   **Class Loading
         ** Click **Class Loading** to view statistics relating to class loading as shown below.

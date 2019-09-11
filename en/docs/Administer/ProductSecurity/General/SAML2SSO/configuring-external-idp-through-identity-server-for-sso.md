@@ -154,7 +154,7 @@ Next, let us look at the SSO configurations.
     ![](attachments/103333463/103333466.png)
 
         !!! tip
-    **In** **a multi tenanted environment,** for all tenants to be able to log in to the API Manager web applications, do the following:
+    **In a multi tenanted environment,** for all tenants to be able to log in to the API Manager web applications, do the following:
 
     -   Click the **SaaS Application** option that appears after registering the service provider.
         ![](attachments/103333463/103333464.png)
@@ -174,7 +174,7 @@ Next, let us look at the SSO configurations.
     -   Since the servers in a multi-tenanted environment interact with all tenants, all nodes should share the same user store. Therefore, make sure you have a shared registry (JDBC mount, WSO2 Governance Registry etc.) instance across all nodes.
 
 
-4.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuratio** **n** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
+4.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuration** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
     ![](attachments/103333463/103333465.png)
 
         !!! note
@@ -191,7 +191,7 @@ Next, let us look at the SSO configurations.
 
         -   **Enable Response Signing**
 
-        -   ****Enable**** **Single Logout**
+        -   **Enable Single Logout**
 
         -   **Enable Attribute Profile**
 
@@ -207,7 +207,7 @@ Similarly, provide the configurations to register the API Store as the SSO serv
 -   Assertion Consumer URL: `                           https://localhost:9443/store/jagg/jaggery_acs.jag                         ` Change the IP and port accordingly. This is the URL for the acs page in your running store app.
 -   Select the following options:
     -   **Enable Response Signing**
-    -   **Enable** **Single Logout**
+    -   **Enable Single Logout**
     -   **Enable Attribute Profile**
 
         -   **Include Attributes in the Responses Always**
@@ -242,7 +242,7 @@ Open the management console, and click **Edit** under **Service Providers.**
 Under **Local & Outbound Authentication Configuration** select **Federated Authentication** . Select the newly created external IDP.
 ![](attachments/103333463/103333472.png)
 
-Add `                       http://wso2.org/claims/role                     ` as the Claim URI under **Claim Configuration.** Select the **Mandatory Claim** check box. **** Add `                       http:/wso2.org/claims/username                     ` as the **** Subject Claim URI. **
+Add `                       http://wso2.org/claims/role                     ` as the Claim URI under **Claim Configuration.** Select the **Mandatory Claim** check box. ** Add `                       http:/wso2.org/claims/username                     ` as the Subject Claim URI. **
 ![](attachments/103333463/103333471.png)
 !!! tip
 Additionally, you might need to configure claims to map them to the available claims in WSO2 Identity Server. For more details, see [Configuring Claims for an Identity Provider](https://docs.wso2.com/display/IS570/Configuring+Claims+for+an+Identity+Provider) .
@@ -257,7 +257,7 @@ Additionally, you might need to configure claims to map them to the available cl
     -   **enabled** : Set this value to **true** to enable SSO in the application
     -   **issuer** : API\_PUBLISHER. This value can change depending on the **Issuer** value defined in the WSO2 IS SSO configuration above.
     -   **identityProviderURL** : <https://localhost:9444/samlsso> . Change the IP and port accordingly. This is the redirecting SSO URL in your running WSO2 IS server instance.
-    -   **keyStoreName** : The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the API Manager and then point to the API Manager keystore. The default keystore of the API Manager is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . ****Make sure you give the full path of the keystore here** .**
+    -   **keyStoreName** : The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the API Manager and then point to the API Manager keystore. The default keystore of the API Manager is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . **Make sure you give the full path of the keystore here** .
     -   **keyStorePassword** : Password for the above keystore
     -   **identityAlias** : wso2carbon
 2.  Similarly, configure the API Store with SSO. The only difference in API Store SSO configurations is setting **API\_STORE** as the **issuer** .

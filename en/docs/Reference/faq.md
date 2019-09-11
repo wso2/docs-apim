@@ -181,7 +181,7 @@ If you have multiple versions of an API published, only the latest version is s
 
 ##### When editing an API's resource parameters, how can I add multiple options to the **Response Content Type parameter** ?
 
-You cannot do this **** using the UI. Instead, edit the Swagger definition of the API as shown in the following example,
+You cannot do this using the UI. Instead, edit the Swagger definition of the API as shown in the following example,
 `         content_type: ["text/xml","text/plain"]        `
 
 ##### Why are the changes I did to the `                   Response Content Type                 ` resource parameter of a published API not reflected in the API Store, even after saving?

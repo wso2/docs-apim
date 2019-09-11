@@ -14,7 +14,7 @@ Make sure that you have a valid WSDL URL from the SOAP backend. It should belong
 2.  Select **I Have a SOAP Endpoint** . You see the following two options to create APIs for SOAP backend.
     -   **Pass Through** – Create a pass through proxy for SOAP requests coming to the API Gateway.
     -   **Generate REST APIs** – This option is used to generate REST API definitions from the given WSDL URL .
-3.  Provide the WSDL URL for the SOAP backend and click **Start Creating** . The default option is **Pass Through** . ****
+3.  Provide the WSDL URL for the SOAP backend and click **Start Creating** . The default option is **Pass Through** .
 
 4.  Select the **Generate REST APIs** option and go to the **Design** tab. Click on **Edit Source** to edit the Swagger specification of the API.
     ![](attachments/103328795/103328787.png)

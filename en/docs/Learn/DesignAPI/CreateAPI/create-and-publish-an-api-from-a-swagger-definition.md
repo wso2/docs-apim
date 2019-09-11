@@ -19,7 +19,7 @@ A Swagger definition is a format that describes REST APIs. In this tutorial, you
 
     ![](attachments/103328690/103328667.png)
 
-5.  Notice that all the **API resources** are created **** automatically when the Swagger URL is specified.
+5.  Notice that all the **API resources** are created automatically when the Swagger URL is specified.
     ![](attachments/103328690/103328666.png)
 6.  Click **Edit Source** to edit the Swagger file and remove security headers. This is required to invoke the API in the Store using the Swagger UI.
     ![](attachments/103328690/103328665.png)

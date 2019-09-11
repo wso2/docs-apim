@@ -39,7 +39,7 @@ This panel provides the following information:
 
 This panel provides the following information:
 
--   **Hos** **t** - Shows the IP address of the server.
+-   **Host** - Shows the IP address of the server.
 -   **Server Start Time** - Shows the time when the server started.
 -   **System Up Time** - Shows the time the server has been up and running.
 -   **Memory Allocated** - Shows the memory capacity of the server.

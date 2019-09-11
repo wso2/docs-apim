@@ -174,7 +174,7 @@ If you get an error similar to the following in both or one of the nodes, check 
 This section involves setting up the API Publisher node and enabling it to work with the other components in the distributed deployment .
 
 1.  Open the `            <API-M_HOME>/repository/conf/api-manager.xml           ` file in the API Publisher node and make the following changes .
-    1.  Configure the **Publisher with** the **Key Manager** .
+    1.  Configure the **Publisher with the Key Manager** .
         You need to update the following configuration ONLY when you do not wish to share the user stores with the WSO2 API-M instance.
 
                 !!! warning
@@ -184,7 +184,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         -   [**Single Key Manager**](#single-KM-Publisher)
         -   [**Key Manager with HA**](#HA-KM-Publisher)
 
-        Configure the **Publisher with** a **single** **Key Manager** as follows:
+        Configure the **Publisher with a single Key Manager** as follows:
 
         ``` java
                 <AuthManager>    
@@ -271,7 +271,7 @@ This section involves setting up the API Publisher node and enabling it to work 
                     </ThrottlingConfigurations>
         ```
 
-    3.  Configure the **Publisher with** the **Gateway** .
+    3.  Configure the **Publisher with the Gateway** .
         You need to add these configurations, because when creating an API, it calls the Gateway endpoint to create the actual Synapse file.
 
         -   If you are using a single Gateway node, configure the **Publisher** with the **Gateway** as follows:
@@ -296,7 +296,7 @@ This section involves setting up the API Publisher node and enabling it to work 
             -   [**Gateway with Shared File System**](#gateway-with-NFS-Publisher)
             -   [**Gateway with rsync**](#gateway-with-rsync-Publisher)
 
-            Configure the **Publisher when working with** **multiple** **Gateways** that are fronted by a load balancer when using a **shared file system** (e.g., NFS), to synchronize the data between your Gateway nodes as follows:
+            Configure the **Publisher when working with multiple Gateways** that are fronted by a load balancer when using a **shared file system** (e.g., NFS), to synchronize the data between your Gateway nodes as follows:
 
             ``` xml
                             <APIGateway>
@@ -313,7 +313,7 @@ This section involves setting up the API Publisher node and enabling it to work 
                             </APIGateway>
             ```
 
-            Configure the **Publisher with** a **multiple** **Gateways** that are fronted by a load balancer when using Remote Synchronization ( **rsync),** to synchronize the data between your Gateway nodes as follows:
+            Configure the **Publisher with a multiple Gateways** that are fronted by a load balancer when using Remote Synchronization ( **rsync),** to synchronize the data between your Gateway nodes as follows:
 
             ``` xml
                             <APIGateway>
@@ -340,7 +340,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         -   [**Single Store**](#single-Store-Publisher)
         -   [**Store with HA**](#HA-Store-Publisher)
 
-        Configure the **Publisher with** a **single API Store** as follows:
+        Configure the **Publisher with a single API Store** as follows:
 
         **Example**
 
@@ -408,7 +408,7 @@ This section involves setting up the API Store node and enabling it to work with
 
 1.  Open the `             <API-M_HOME>/repository/conf/api-manager.xml            ` file in the API Store node and make the following changes.
 
-    1.  Configure the **API Store with** the **Key Manager.**
+    1.  Configure the **API Store with the Key Manager.**
 
         -   [**Single Key Manager**](#single-Key-Manager-Store)
         -   [**Key Manager with HA**](#HA-Key-Manager-Store)
@@ -534,7 +534,7 @@ This section involves setting up the API Store node and enabling it to work with
             -   [**Gateway with Shared File System**](#gateway-with-NFS-Store)
             -   [**Gateway with rsync**](#gateway-with-rsync-Store)
 
-            Configure the **Store when working with** **multiple** **Gateways** that are fronted by a load balancer, and when using a **shared file system** (e.g., NFS), to synchronize the data between your Gateway nodes as follows:
+            Configure the **Store when working with multiple Gateways** that are fronted by a load balancer, and when using a **shared file system** (e.g., NFS), to synchronize the data between your Gateway nodes as follows:
 
             ``` java
                             <APIGateway>
@@ -551,7 +551,7 @@ This section involves setting up the API Store node and enabling it to work with
                             </APIGateway>
             ```
 
-            Configure the **Store with** **multiple** **Gateways** that are fronted by a load balancer, and when using Remote Synchronization ( **rsync),** to synchronize the data between your Gateway nodes as follows:
+            Configure the **Store with multiple Gateways** that are fronted by a load balancer, and when using Remote Synchronization ( **rsync),** to synchronize the data between your Gateway nodes as follows:
 
             ``` java
                             <APIGateway>
@@ -815,7 +815,7 @@ This section involves setting up the Gateway node and enabling it to work with t
     -   [**Single Traffic Manager**](#single-TM-GW)
     -   [**HA of Traffic Manager**](#TM-HA-GW)
 
-    Configure the **Gateway** **with a single Traffic Manager** as follows:
+    Configure the **Gateway with a single Traffic Manager** as follows:
 
         !!! info
         9611 and 9711 are the Traffic Manager receiver ports for the binary type.

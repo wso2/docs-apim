@@ -14,7 +14,7 @@ Only the users registered in the EI can deploy BPELs and human tasks in it. Regi
 ![](attachments/103334719/103334720.png)**Figure** : API Manager and EI share the same user and permission store
 
 !!! warning
-**I** **f you are using WSO2 BPS** **3.2.0** , please copy the `                   <APIM_HOME>                  /repository/components/patches/patch0009        ` folder to the `                   <BPS_HOME>                  /repository/components/patches        ` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
+**If you are using WSO2 BPS3.2.0** , please copy the `                   <APIM_HOME>                  /repository/components/patches/patch0009        ` folder to the `                   <BPS_HOME>                  /repository/components/patches        ` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
 
 This patch is built into the BPS version 3.5.0 onwards.
 
@@ -301,6 +301,6 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
 
 #### **Testing the workflow**
 
-You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the **** Admin Portal ( `                   https://:9443/admin                 ` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
+You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the Admin Portal ( `                   https://:9443/admin                 ` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
 
 ![](attachments/103334719/103334721.png)

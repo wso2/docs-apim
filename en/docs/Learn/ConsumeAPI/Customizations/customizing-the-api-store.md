@@ -26,7 +26,7 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
     ![](attachments/103333490/103333511.png)
 5.  Click **Next** and add the following permissions:
     ![subscribePermission.png](attachments/50518268/51250899.png)
-6.  Go to the **Resources** **&gt; Browse** menu.
+6.  Go to the **Resources&gt; Browse** menu.
 7.  Navigate to the `           /_system/governance/apimgt/applicationdata/          ` directory.
 
 8.  Click on `           sign-up-config.xml          ` to load the resource in the registry browser UI and select the "Edit as text " option to edit the configurations.
@@ -118,7 +118,7 @@ If you want to see the APIs grouped according to different topics in the API Sto
 !!! note
 Although the way in which you add a Tag and API group appears to be similar there are differences. Therefore, you need to note the following:
 
--   The **group name** **should always have** the **suffix `           -group          `** and it **can have** **spaces** in it (e.g., APIs groups-group).
+-   The **group name should always have** the **suffix `           -group          `** and it **can have spaces** in it (e.g., APIs groups-group).
 -   The **tag name** should **not have a suffix or prefix** , but it **can have spaces** .
 
 

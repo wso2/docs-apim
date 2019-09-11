@@ -49,7 +49,7 @@ This section allows you to configure appenders individually. Log4j allows loggin
 
     -   **TRACE** \_ **APPENDER** - Writes tracing/debug messages to the &lt; `             PRODUCT_HOME>/repository/logs/wso2-<PRODUCT_NAME>-trace.log            ` for tracing enabled services.
 
-    -   **CARBON** **\_ MEMORY**
+    -   **CARBON\_ MEMORY**
     -   **CARBON\_SYS\_LOG -** Allows separating the software that generates messages, from the system that stores them and the software that reports and analyzes them.
     -   **CARBON\_TRACE\_LOGFILE**
 

@@ -144,7 +144,7 @@ Log in to the API Store. You can [self-subscribe](https://docs.wso2.com/display/
 ![](attachments/103335072/103335078.png)
 Given below are the statistical dashboards that are available:
 
--   **API** **Usage** : The usage of the API per application.
+-   **APIUsage** : The usage of the API per application.
 -   **Top Users** : Users who make the most API invocations per application and the number of registered users per application.
 -   **Resource Usage** : The usage of an API and from which resource path per application.
 -   **Faulty Invocations** : The number of faulty API invocations per application.

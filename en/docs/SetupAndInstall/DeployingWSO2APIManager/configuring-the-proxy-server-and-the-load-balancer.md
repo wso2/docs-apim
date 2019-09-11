@@ -172,7 +172,7 @@ server {
 ```
 !!! info
 -   The placeholders `             {node-1-ip-address}            ` and `             {node-2-ip-address}            ` correspond to the IP addresses of the backend nodes in which APIM servers are running.
--   In the sample configuration given below, the hostname `             api.am.wso2.com            ` is used to access all portals (publisher, store, admin and carbon) and `             gw.am.wso2.com            ` **** is used to invoke APIs. Only HTTPS is allowed.
+-   In the sample configuration given below, the hostname `             api.am.wso2.com            ` is used to access all portals (publisher, store, admin and carbon) and `             gw.am.wso2.com            ` is used to invoke APIs. Only HTTPS is allowed.
 -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use `             ip_hash            ` method instead.
 !!! note
 In an Active-Active deployment, It is **mandatory** to set up sticky sessions (session affinity) in the load balancers that front the **Publisher** and **Store** , and it is **optional** in the load balancer (if any) that fronts **Key Manager** or Gateway.

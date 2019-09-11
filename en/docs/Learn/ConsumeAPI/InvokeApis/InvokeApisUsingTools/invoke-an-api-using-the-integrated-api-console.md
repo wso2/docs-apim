@@ -68,7 +68,7 @@ The examples here use the `         PhoneVerification        ` REST API, which w
 
     If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception** ), it could be because the security certificate issued by the server is not trusted by your browser. To resolve this issue, access the HTTPS endpoint directly from your browser and accept the security certificate.
 
-    If the API Manager has a **certificate signed by a** **Certificate Authority** (CA), the HTTPS endpoints should work out of the box.
+    If the API Manager has a **certificate signed by a Certificate Authority** (CA), the HTTPS endpoints should work out of the box.
 
 
     Note the response for the API invocation. As we used a valid phone number in this example, the response is valid.

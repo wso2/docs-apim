@@ -41,7 +41,7 @@ The above REST message grants you a renewed access token along with a refresh to
 
 After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <http://localhost:8280/revoke> .
 
-****Option 1****
+**Option 1**
 
 The parameters required to invoke the following API are as follows:
 
@@ -83,7 +83,6 @@ The parameters required to invoke the following API are as follows:
     < Transfer-Encoding: chunked
 ```
 
-********
 
 The parameters required to invoke the following API are as follows:
 

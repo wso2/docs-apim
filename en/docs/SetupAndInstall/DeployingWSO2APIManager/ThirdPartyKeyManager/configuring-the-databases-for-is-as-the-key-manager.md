@@ -105,7 +105,7 @@ The steps involved in installing and configuring the databases are the same irre
                     </datasource> 
         ```
 
-    3.  Enable the Key Manager to have access to registry databases by adding the following **`              WSO2REG_DB             `** **** data source related configuration.
+    3.  Enable the Key Manager to have access to registry databases by adding the following **`              WSO2REG_DB             `** data source related configuration.
 
                 !!! note
         This is only applicable in a multi-tenanted environment.

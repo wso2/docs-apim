@@ -202,7 +202,7 @@ The steps involved in installing and configuring the databases are the same irre
                     </datasource> 
         ```
 
-    4.  Enable access to registry databases by adding the **`              WSO2REG_DB             `** **** data sources related configuration in their `             master-datasources.xml            ` files as follows. The components that need to access the registry database differs, based on whether the setup is multi tennanted or not.
+    4.  Enable access to registry databases by adding the **`              WSO2REG_DB             `** data sources related configuration in their `             master-datasources.xml            ` files as follows. The components that need to access the registry database differs, based on whether the setup is multi tennanted or not.
 
         -   [**Single Tenant Setup**](#9dffc186a5444a2ca30cfae7d31a96c4)
         -   [**Multi Tenanted Setup**](#0330750c411846f0a1fde72bfbee48ad)

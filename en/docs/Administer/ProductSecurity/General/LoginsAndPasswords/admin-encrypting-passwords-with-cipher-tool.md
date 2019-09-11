@@ -47,7 +47,7 @@ Follow the steps given below to have passwords encrypted using the automated pro
         -   The `               <file_path>              ` specifies the path to the XML file that contains the password. This can be the relative file path, or the absolute file path (starting from `               <PRODUCT_HOME>              ` ).
 
         -   The `              <xpath>             ` specifies the XPath to the XML **element** / **attribute** / **tag** that should be encrypted. See the examples given below.
-        -   The flag that follows the XPath should be set to 'false' if you are encrypting the value of an **XML element,** or the value of an **XML attribute's tag.** The flag should be 'true' if you are encrypting the **tag** of an **XML** **attribute** . See the examples given below.
+        -   The flag that follows the XPath should be set to 'false' if you are encrypting the value of an **XML element,** or the value of an **XML attribute's tag.** The flag should be 'true' if you are encrypting the **tag** of an **XML attribute** . See the examples given below.
 
         -   When using Secure Vault, as you use the password aliases in the `               <PRODUCT_HOME>/repository/conf/carbon.xml              ` file, make sure to define these aliases in the following files, which are in the `               <PRODUCT_HOME>/repository/conf/security              ` directory as follows:
 
