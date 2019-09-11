@@ -28,12 +28,12 @@ Now, you can download an individual log file, or view it in the Management Conso
 ![](attachments/103333578/103333580.png)
 
 !!! info
-The location of the log files on disk is specified in the `         log4j.configuration        ` file.
+The location of the log files on disk is specified in the `log4j.configuration` file.
 
 
 ### Displaying log mediator logs
 
-When you use the [Log mediator](https://docs.wso2.com/display/ESB490/Log+Mediator) inside sequences and proxy services in WSO2 API Manager, the logs are stored in the `         <PRODUCT_HOME>/repository/logs/wso2carbon.log        ` file by default. To view these logs from the **System Logs** page, open the `         <PRODUCT_HOME>/repository/conf/axis2/axis2.xml        ` file and uncomment the following element:
+When you use the [Log mediator](https://docs.wso2.com/display/ESB490/Log+Mediator) inside sequences and proxy services in WSO2 API Manager, the logs are stored in the `<PRODUCT_HOME>/repository/logs/wso2carbon.log` file by default. To view these logs from the **System Logs** page, open the `<PRODUCT_HOME>/repository/conf/axis2/axis2.xml` file and uncomment the following element:
 
     <handler class="org.wso2.carbon.utils.logging.handler.TenantDomainSetter" name="TenantDomainSetter"> 
 

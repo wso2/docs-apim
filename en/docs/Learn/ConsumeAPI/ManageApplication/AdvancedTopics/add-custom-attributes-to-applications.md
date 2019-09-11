@@ -16,7 +16,7 @@ Custom attributes can be configured in the following ways.
 
 #### Server-specific configuration
 
-To configure server-specific custom attributes, open the `         <API-M-home>/repository/conf/api-manager.xml        ` file. Add `         <ApplicationAttributes>        ` as shown in the example below.
+To configure server-specific custom attributes, open the `<API-M-home>/repository/conf/api-manager.xml` file. Add `<ApplicationAttributes>` as shown in the example below.
 
 ``` java
     <ApplicationConfiguration>
@@ -32,7 +32,7 @@ To configure server-specific custom attributes, open the `         <API-M-home>/
 #### 
 Tenant-specific configuration
 
-To configure server-specific custom attributes, open the `         <API-M-home>/repository/resources/tenant-conf.json        ` file. Add `         ApplicationConfigs        ` under `         Attributes        ` as shown below.
+To configure server-specific custom attributes, open the `<API-M-home>/repository/resources/tenant-conf.json` file. Add `ApplicationConfigs` under `Attributes` as shown below.
 
 ``` java
     "ApplicationConfigs": {

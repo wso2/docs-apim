@@ -10,9 +10,9 @@ Given below are the various transport-level security configurations that are req
 
 ### Enabling TLS and disabling SSL support
 
-The transport-level security protocol of the Tomcat server is configured in the `         <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml        ` file. By default, "TLS" is configured as the SSL protocol for HTTPS communication by setting the sslProtocol="TLS" attribute in the `         catalina-server.xml        ` file. Specifying TLS as the SSL protocol ensures that all TLS versions, as well as SSL protocol versions, are supported. However, due to the [Poodle Attack](https://www.openssl.org/~bodo/ssl-poodle.pdf) , it is necessary to make sure that only TLS protocol versions are enabled.
+The transport-level security protocol of the Tomcat server is configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file. By default, "TLS" is configured as the SSL protocol for HTTPS communication by setting the sslProtocol="TLS" attribute in the `catalina-server.xml` file. Specifying TLS as the SSL protocol ensures that all TLS versions, as well as SSL protocol versions, are supported. However, due to the [Poodle Attack](https://www.openssl.org/~bodo/ssl-poodle.pdf) , it is necessary to make sure that only TLS protocol versions are enabled.
 
-Note that in some WSO2 products, such as WSO2 Enterprise Integrator (ESB profile) and WSO2 API Manager, pass-thru transports are enabled. Therefore, to disable SSL in such products, the `         axis2.xml        ` file stored in the `         <PRODUCT_HOME>/repository/conf/axis2/        ` directory should also be configured.
+Note that in some WSO2 products, such as WSO2 Enterprise Integrator (ESB profile) and WSO2 API Manager, pass-thru transports are enabled. Therefore, to disable SSL in such products, the `axis2.xml` file stored in the `<PRODUCT_HOME>/repository/conf/axis2/` directory should also be configured.
 
 !!! info
 Poodle Attack:
@@ -22,9 +22,9 @@ Poodle Attack:
 
 Follow the steps given below to disable SSL support for the Tomcat layer.
 
-1.  Open the `          <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml         ` file.
-2.  Make a backup of the `          catalina-server.xml         ` file and stop the product server.
-3.  Find the Connector configuration corresponding to TLS (usually, this connector has the port set to 9443 and the `           sslProtocol          ` as TLS). Remove the `           sslProtocol="TLS"          ` attribute and replace it with `           sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"          ` as shown below.
+1.  Open the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file.
+2.  Make a backup of the `catalina-server.xml` file and stop the product server.
+3.  Find the Connector configuration corresponding to TLS (usually, this connector has the port set to 9443 and the `sslProtocol` as TLS). Remove the `sslProtocol="TLS"` attribute and replace it with `sslEnabledProtocols="TLSv1,TLSv1.1,TLSv1.2"` as shown below.
 
     ``` java
         <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -71,7 +71,7 @@ This is applicable for WSO2 Enterprise Integrator (ESB profile) and WSO2 API Man
 
 1.  Stop the server.
 
-2.  Open the `           <PRODUCT_HOME>/repository/conf/axis2/axis2.xml          ` file and add the specified parameter under the `           <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">          ` element as well as under the `           <transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">          ` element. If you are using JDK 1.8, you can add the following parameter:
+2.  Open the `<PRODUCT_HOME>/repository/conf/axis2/axis2.xml` file and add the specified parameter under the `<transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">` element as well as under the `<transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">` element. If you are using JDK 1.8, you can add the following parameter:
 
     ``` java
         <parameter name="HttpsProtocols">TLSv1,TLSv1.1,TLSv1.2</parameter> 
@@ -109,9 +109,9 @@ This is applicable for WSO2 Enterprise Integrator (ESB profile) and WSO2 API Man
 
 ### Enabling SSL protocols and ciphers in ThriftAuthenticationService
 
-Do the following to enable SSL protocols and ciphers in the `         ThriftAuthenticationService.        `
+Do the following to enable SSL protocols and ciphers in the `ThriftAuthenticationService.        `
 
-1.  Add the following configurations in the `           <CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml          ` file as sub-elements of the root `           <Server>          ` element.
+1.  Add the following configurations in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
 
     ``` java
             <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
@@ -119,27 +119,27 @@ Do the following to enable SSL protocols and ciphers in the `         ThriftAuth
     ```
 
         !!! tip
-    **Tip:** You can also add the following additional cipher suites to the `           <Ciphers>          ` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
+    **Tip:** You can also add the following additional cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
 
     ``` java
         TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
     ```
 
-    If you wish to remove `           TLSv1          ` or `           TLSv1.1          ` , you can do so by removing them as values from the `           <SSLEnabledProtocols>          ` property.
+    If you wish to remove `TLSv1` or `TLSv1.1` , you can do so by removing them as values from the `<SSLEnabledProtocols>` property.
 
 
 2.  Restart the server.
 
 ### Enabling TLSv1.1/TLSv1.2 for products with JDK 1.7
 
-The TLS protocol is set to TLSv1.0 (by default), in WSO2 products running on JDK 1.7. You cannot configure this using the `         catalina        ` - `         server.        ` xml file or the `         axis2.        ` xml file as we do with products based on JDK 1.7. Therefore, you need to enable TLSv1.1 and TLSv1.2 globally by setting a system property.
+The TLS protocol is set to TLSv1.0 (by default), in WSO2 products running on JDK 1.7. You cannot configure this using the `catalina` - `server.` xml file or the `axis2.` xml file as we do with products based on JDK 1.7. Therefore, you need to enable TLSv1.1 and TLSv1.2 globally by setting a system property.
 
 1.  Download the following artifacts:
     -   [wso2-ssl-socket-factory-provider-1.0.0.jar](attachments/126562683/126562685.jar)
     -   [wso2-ssl-security](attachments/126562683/126562686)
-2.  Copy the `          wso2-         ` ssl `          -socket-factory-provider-1.0.0.jar         ` file to the `          <                     PRODUCT_HOME>                    /lib/endorsed         ` directory.
-3.  Copy the `          wso2-ssl-security         ` file to the `          <                     PRODUCT_HOME>                    /repository/conf/         ` directory.
-4.  Open the product startup script ( `           wso2server.sh          ` for Linux, or `           wso2server.bat          ` for Windows), which is stored in the `           <PRODUCT_HOME>/bin          ` directory.
+2.  Copy the `wso2-` ssl `-socket-factory-provider-1.0.0.jar` file to the `<PRODUCT_HOME>/lib/endorsed` directory.
+3.  Copy the `wso2-ssl-security` file to the `<PRODUCT_HOME>/repository/conf/` directory.
+4.  Open the product startup script ( `wso2server.sh` for Linux, or `wso2server.bat` for Windows), which is stored in the `<PRODUCT_HOME>/bin` directory.
 
 5.  Add the following system properties to the script:
 
@@ -152,15 +152,15 @@ The TLS protocol is set to TLSv1.0 (by default), in WSO2 products running on JD
 
 ### Disabling weak ciphers
 
-A cipher is an algorithm for performing encryption or decryption. When you set the `         sslprotocol        ` of your server to TLS, the TLS and the default ciphers get enabled without considering the strength of the ciphers. This is a security risk as weak ciphers, also known as EXPORT ciphers, can make your system vulnerable to attacks such as the Logjam attack on Diffie-Hellman key exchange. The Logjam attack is also called the Man-in-the-Middle attack. It downgrades your connection's encryption to a less-secured level (e.g., 512 bit) that can be decrypted with sufficient processing power.
+A cipher is an algorithm for performing encryption or decryption. When you set the `sslprotocol` of your server to TLS, the TLS and the default ciphers get enabled without considering the strength of the ciphers. This is a security risk as weak ciphers, also known as EXPORT ciphers, can make your system vulnerable to attacks such as the Logjam attack on Diffie-Hellman key exchange. The Logjam attack is also called the Man-in-the-Middle attack. It downgrades your connection's encryption to a less-secured level (e.g., 512 bit) that can be decrypted with sufficient processing power.
 
-To prevent these types of security attacks, it is encouraged to disable the weak ciphers. You can enable only the ciphers that you want the server to support in a comma-separated list in the `         ciphers        ` attribute. Also, if you do not add this cipher attribute or keep it blank, the browser will support all the SSL ciphers by JSSE. This will enable the weak ciphers.
+To prevent these types of security attacks, it is encouraged to disable the weak ciphers. You can enable only the ciphers that you want the server to support in a comma-separated list in the `ciphers` attribute. Also, if you do not add this cipher attribute or keep it blank, the browser will support all the SSL ciphers by JSSE. This will enable the weak ciphers.
 
 #### Disabling weak ciphers for the Tomcat transport
 
-1.  Open the `          <PRODUCT_HOME>/repository/conf/tomcat/                     catalina-server.xml          ` file.
-2.  Make a backup of the `          catalina-server.xml         ` file and stop the WSO2 product server.
-3.  Add the `           cipher          ` attribute to the existing configuration in the `           catalina-server.xml          ` file by adding the list of ciphers that you want your server to support as follows: `           ciphers="<cipher-name>,<cipher-name>"          ` . See the example given below.
+1.  Open the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file.
+2.  Make a backup of the `catalina-server.xml` file and stop the WSO2 product server.
+3.  Add the `cipher` attribute to the existing configuration in the `catalina-server.xml` file by adding the list of ciphers that you want your server to support as follows: `ciphers="<cipher-name>,<cipher-name>"` . See the example given below.
 
     ``` java
             For Tomcat version 7.0.59 and JDK version 1.7:
@@ -178,7 +178,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
     ```
 
         !!! note
-    Note the following when you run `           TestSSLServer.jar          ` :
+    Note the following when you run `TestSSLServer.jar` :
 
     -   The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
 
@@ -187,11 +187,11 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 
 #### Disables weak ciphers for the PassThrough transport
 
-Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the axis2. xml file (stored in the `         <PRODUCT_HOME>/repository/conf/axis2/        ` directory).
+Remove any weak ciphers from the PassThrough transport and ensure that the server does not accept connections using those weak ciphers. The PassThrough transport is configured using the axis2. xml file (stored in the `<PRODUCT_HOME>/repository/conf/axis2/` directory).
 
-1.  Open the `          <PRODUCT_HOME>/repository/conf/axis2/                     axis2.xml          ` file.
-2.  Make a backup of the `          axis2.xml         ` file and stop the WSO2 product server.
-3.  You need to add the `           PreferredCiphers          ` parameter under the "Transport Ins (Listeners)" section along with the list of relevant cipher suites.
+1.  Open the `<PRODUCT_HOME>/repository/conf/axis2/axis2.xml` file.
+2.  Make a backup of the `axis2.xml` file and stop the WSO2 product server.
+3.  You need to add the `PreferredCiphers` parameter under the "Transport Ins (Listeners)" section along with the list of relevant cipher suites.
 
     ``` java
         <parameter name="PreferredCiphers">TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</parameter>
@@ -209,14 +209,14 @@ From **Firefox** 39.0 onwards, the browser does not allow to access Web sites t
 !!! tip
 To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index) .
 !!! tip
-From Java 7, you must set the `          jdk.certpath.disabledAlgorithms         ` property in the `          <JAVA_HOME>/jre/lib/security/java.security         ` file to `          jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048         ` . It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
+From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048` . It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
 
 ### Changing the server name in HTTP response headers
 
-By default, all WSO2 products pass "WSO2 Carbon Server" as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 product stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the catalina `         -server.        ` xml file.
+By default, all WSO2 products pass "WSO2 Carbon Server" as the server value in HTTP headers when sending HTTP responses. This means that information about the WSO2 product stack will be exposed through HTTP responses. It is recommended to change this by configuring the server name in the catalina `-server.` xml file.
 
-1.  Open the `          <PRODUCT_HOME>/repository/conf/tomcat/                     catalina-server.xml          ` file.
-2.  Add a new server name using the `           server          ` property (under the relevant Tomcat connector configuration):
+1.  Open the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file.
+2.  Add a new server name using the `server` property (under the relevant Tomcat connector configuration):
 
     ``` java
         server="WSO2 Carbon Server"

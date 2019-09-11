@@ -7,13 +7,13 @@ Before you begin, make sure you have downloaded the following:
 -   [WSO2 Microgateway ToolKit](https://wso2.com/api-management/api-microgateway/)
 
 
-1.  Start the API Manager and log in to the API Publisher ( `          https://<hostname>:9443/publisher         ` ) using `          admin         ` as the username and password.
-2.  Create and [publish an API](https://docs.wso2.com/display/AM250/Create+and+Publish+an+API) (e.g. `          Petstore         ` ).
+1.  Start the API Manager and log in to the API Publisher ( `https://<hostname>:9443/publisher` ) using `admin` as the username and password.
+2.  Create and [publish an API](https://docs.wso2.com/display/AM250/Create+and+Publish+an+API) (e.g. `Petstore` ).
 3.  Log in to the API Store and create an application that supports [JWT tokens](https://docs.wso2.com/display/AM260/Microgateway+Quick+Start#MicrogatewayQuickStart-GenerateaJWTtokenandinvoketheAPI) .
 
-4.  [Subscribe](https://docs.wso2.com/display/AM260/Subscribe+to+an+API) to the `           Petstore          ` API and generate a JWT token to invoke the API.
+4.  [Subscribe](https://docs.wso2.com/display/AM260/Subscribe+to+an+API) to the `Petstore` API and generate a JWT token to invoke the API.
 
-5.  Create a `           deployment.toml          ` file containing the relevant deployment configurations such as docker image name, registry, tag, etc. as shown below.
+5.  Create a `deployment.toml` file containing the relevant deployment configurations such as docker image name, registry, tag, etc. as shown below.
 
     ``` java
         [docker]
@@ -39,9 +39,9 @@ Before you begin, make sure you have downloaded the following:
                 isBallerinaConf = true
     ```
 
-6.  Copy the `          micro-gw.conf         ` file to the docker image as it contains the key manager configurations, JWT configurations, etc. This can be done by enabling the docker copy files configuration as shown above.
-    Let’s create a project called `          petstore_project         ` and provide the `          deployment.toml         ` file as an input.
-7.  Navigate to the `           <MICROGW_TOOLKIT_HOME>/bin          ` directory and run the following command,
+6.  Copy the `micro-gw.conf` file to the docker image as it contains the key manager configurations, JWT configurations, etc. This can be done by enabling the docker copy files configuration as shown above.
+    Let’s create a project called `petstore_project` and provide the `deployment.toml` file as an input.
+7.  Navigate to the `<MICROGW_TOOLKIT_HOME>/bin` directory and run the following command,
 
     ``` java
             ./micro-gw setup <project_name> -a <API_name> -v <version> --deployment-config deployment.toml
@@ -53,47 +53,47 @@ Before you begin, make sure you have downloaded the following:
             ./micro-gw setup petstore-project -a petstore -v 1.0.0 --deployment-config deployment.toml
     ```
 
-    This commands creates the following folders under the `           petstore_project          ` folder.
+    This commands creates the following folders under the `petstore_project` folder.
 
-    `           ├── petstore_project          `
+`├── petstore_project          `
 
-    `           │   ├── conf          `
+`│   ├── conf          `
 
-    `           │   │ └── deployment-config.toml          `
+`│   │ └── deployment-config.toml          `
 
-    `           │   ├── src          `
+`│   ├── src          `
 
-    `           │   │ ├── extension_filter.bal          `
+`│   │ ├── extension_filter.bal          `
 
-    `           │   │ ├── petstore.bal          `
+`│   │ ├── petstore.bal          `
 
-    `           │   │ ├── listeners.bal          `
+`│   │ ├── listeners.bal          `
 
-    `           │   │ └── policies          `
+`│   │ └── policies          `
 
-    `           │   │    ├── application_10PerMin.bal          `
+`│   │    ├── application_10PerMin.bal          `
 
-    `           │   │    ├── application_20PerMin.bal          `
+`│   │    ├── application_20PerMin.bal          `
 
-    `           │   │    ├── application_50PerMin.bal          `
+`│   │    ├── application_50PerMin.bal          `
 
-    `           │   │    ├── subscription_Bronze.bal          `
+`│   │    ├── subscription_Bronze.bal          `
 
-    `           │   │    ├── subscription_Gold.bal          `
+`│   │    ├── subscription_Gold.bal          `
 
-    `           │   │    ├── subscription_Silver.bal          `
+`│   │    ├── subscription_Silver.bal          `
 
-    `           │   │    ├── subscription_Unauthenticated.bal          `
+`│   │    ├── subscription_Unauthenticated.bal          `
 
-    `           │   │    └── throttle_policy_initializer.bal          `
+`│   │    └── throttle_policy_initializer.bal          `
 
-    `           │   ├── target          `
+`│   ├── target          `
 
-    `           │   └── temp          `
+`│   └── temp          `
 
-    `           │       └── hashes.json          `
+`│       └── hashes.json          `
 
-    `           └── test.toml          `
+`└── test.toml          `
 
 8.  Build the project using the following command,
 
@@ -138,17 +138,17 @@ Before you begin, make sure you have downloaded the following:
 11. Using a REST client or a cURL command, access the API using the following details:
 
         !!! note
-    If you are working in a Mac environment, the URL is `           https://<localhost>:9095/<API_name>/<version>/check          ` .
+    If you are working in a Mac environment, the URL is `https://<localhost>:9095/<API_name>/<version>/check` .
 
 
-    URL - `           https://<Container_IP>:9095/<API_name>/<version>/check          `
+    URL - `https://<Container_IP>:9095/<API_name>/<version>/check `
 
-    Headers - `           Authorization Bearer <JWT_TOKEN>          `
+    Headers - `Authorization Bearer <JWT_TOKEN> `
 
-    Method - `           GET          `
+    Method - `GET`
 
 !!! tip
-As JWT is a self-contained access token, the Microgateway does not need to connect to the Key Manager. However, if you are using an Oauth2 access token, point the Microgateway to the Key Manager using the Key Manager details in the `         micro-gw.conf        ` configuration file of the Microgateway. You can provide the Key Manager `         serverUrl        ` as shown below. The `         serverUrl        ` has to be accessible from the Microgateway.
+As JWT is a self-contained access token, the Microgateway does not need to connect to the Key Manager. However, if you are using an Oauth2 access token, point the Microgateway to the Key Manager using the Key Manager details in the `micro-gw.conf` configuration file of the Microgateway. You can provide the Key Manager `serverUrl` as shown below. The `serverUrl` has to be accessible from the Microgateway.
 
 ``` java
     [keyManager]

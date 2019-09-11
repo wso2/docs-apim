@@ -2,19 +2,19 @@
 
 **FIX (Financial Information eXchang) transport** implementation is a module developed under the Apache Synapse project. This transport is mainly used with WSO2 ESB in conjunction with proxy services. The following class acts as the transport receiver:
 
--   `          org.apache.synapse.transport.fix.FIXTransportListener         `
+-`org.apache.synapse.transport.fix.FIXTransportListener`
 
-The `         org.apache.synapse.transport.fix.FIXTransportSender        ` acts as the transport sender implementation. These classes can be found in the `         synapse-fix-transport.jar        ` file. The transport implementation is based on Quickfix/J open source FIX engine. Therefore, the following additional dependencies are required to enable the FIX transport.
+The `org.apache.synapse.transport.fix.FIXTransportSender` acts as the transport sender implementation. These classes can be found in the `synapse-fix-transport.jar` file. The transport implementation is based on Quickfix/J open source FIX engine. Therefore, the following additional dependencies are required to enable the FIX transport.
 
--   `          mina-core.jar         `
--   `          quickfixj-core.jar         `
--   `          quickfixj-msg-fix40.jar         `
--   `          quickfixj-msg-fix41.jar         `
--   `          quickfixj-msg-fix42.jar         `
--   `          quickfixj-msg-fix43.jar         `
--   `          quickfixj-msg-fix44.jar         `
--   `          slf4j-api.jar         `
--   `          slf4j-log4j12.jar         `
+-`mina-core.jar`
+-`quickfixj-core.jar`
+-`quickfixj-msg-fix40.jar`
+-`quickfixj-msg-fix41.jar`
+-`quickfixj-msg-fix42.jar`
+-`quickfixj-msg-fix43.jar`
+-`quickfixj-msg-fix44.jar`
+-`slf4j-api.jar`
+-`slf4j-log4j12.jar`
 
 This transport supports JMX. Download Quickfix/J from here: <http://www.quickfixj.com/downloads> . In the distribution archive, you will find all the dependencies listed above. Also, refer to Quickfix/J documentation on configuring FIX acceptors and initiators.
 

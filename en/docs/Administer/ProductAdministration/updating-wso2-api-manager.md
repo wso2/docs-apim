@@ -5,12 +5,12 @@ WSO2 introduces the [WSO2 Update Manager (WUM)](http://wso2.com/update/) , which
 !!! note
 **Persisting Index data**
 
-The indexing related information of WSO2 API Manager is stored in the `         <API-M_HOME>/solr/data        ` directory. Once the data is indexed, it is stored in the index directory. Refer [Add Apache Solr-Based Indexing](https://docs.wso2.com/display/AM210/Add+Apache+Solr-Based+Indexing) for more information.
+The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. Refer [Add Apache Solr-Based Indexing](https://docs.wso2.com/display/AM210/Add+Apache+Solr-Based+Indexing) for more information.
 
 !!! tip
 Before you discard the old API Manager instance,
 
-You must take a backup of the `         <API-M_HOME>/repository/data        ` directory and copy it to the API Manager binary pack in the `         <API-M_HOME>/repository/data        ` directory that is updated with the WUM updates.
+You must take a backup of the `<API-M_HOME>/repository/data` directory and copy it to the API Manager binary pack in the `<API-M_HOME>/repository/data` directory that is updated with the WUM updates.
 
 
 **Persisting WSO2CarbonDB**
@@ -20,11 +20,11 @@ To avoid conflicts that can be occurred in the update process, it is recommended
 !!! tip
 Before you discard the old API Manager instance,
 
-Take a backup of `         <API-M_HOME>/repository/database/WSO2CARBON_DB.h2.db        ` and replace it to the API Manager binary pack in the `         <API-M_HOME>/repository/database        ` directory that is updated with the WUM updates.
+Take a backup of `<API-M_HOME>/repository/database/WSO2CARBON_DB.h2.db` and replace it to the API Manager binary pack in the `<API-M_HOME>/repository/database` directory that is updated with the WUM updates.
 
 If you are using the existing local H2 database for WSO2MetricsDB as well,
 
-Take a backup of `         <API-M_HOME>/repository/database/WSO2METRICS_DB.h2.db        ` and replace it to the API Manager binary pack in the `         <API-M_HOME>/repository/database        ` directory that is updated with the WUM updates.
+Take a backup of `<API-M_HOME>/repository/database/WSO2METRICS_DB.h2.db` and replace it to the API Manager binary pack in the `<API-M_HOME>/repository/database` directory that is updated with the WUM updates.
 
 
 For more information on run time and configuration artefact directories of API Manager refer [Common Runtime and Configuration Artifacts](https://docs.wso2.com/display/AM260/Common+Runtime+and+Configuration+Artifacts) .

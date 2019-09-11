@@ -4,14 +4,14 @@ When you run multiple WSO2 products/clusters or multiple instances of the same p
 
 There are two ways to set an offset to a port:
 
--   Pass the port offset to the server during startup. The following command starts the server with the default port incremented by 3 `          :./wso2server.sh -DportOffset=3         `
--   Set the offset in the Ports section of `          <PRODUCT_HOME>/repository/conf/carbon.xml         ` . E.g., `          <Offset>3</Offset>         `
+-   Pass the port offset to the server during startup. The following command starts the server with the default port incremented by 3 `:./wso2server.sh -DportOffset=3         `
+-   Set the offset in the Ports section of `<PRODUCT_HOME>/repository/conf/carbon.xml` . E.g., `<Offset>3</Offset>         `
 
 When you offset the server's port, it automatically changes all ports it uses. However, you are also able to manually adjust the ports for the Thrift client and Thrift server if needed.
 
 #### Changing the Thrift client and server ports
 
-The port offset specified earlier in the `         carbon.xml        ` file affects the ports of the Thrift client and server as well (the default port is 10397). However, since Thrift is run as a separate server within WSO2 servers, it is possible to adjust the ports manually in the `         <APIM_HOME>/repository/conf/api-manager.xml        ` file. By default, the `         <ThriftClientPort>        ` and `         <ThriftServerPort>        ` elements are commented out. If you want to adjust those ports manually, first uncomment the elements and change the Thrift ports separately. For example,
+The port offset specified earlier in the `carbon.xml` file affects the ports of the Thrift client and server as well (the default port is 10397). However, since Thrift is run as a separate server within WSO2 servers, it is possible to adjust the ports manually in the `<APIM_HOME>/repository/conf/api-manager.xml` file. By default, the `<ThriftClientPort>` and `<ThriftServerPort>` elements are commented out. If you want to adjust those ports manually, first uncomment the elements and change the Thrift ports separately. For example,
 
 ``` html/xml
     <KeyValidatorClientType>ThriftClient</KeyValidatorClientType>
@@ -23,7 +23,7 @@ The port offset specified earlier in the `         carbon.xml        ` file affe
 ```
 
 !!! note
-If you specify the Thrift client and server ports manually, the port offset specified in the `         carbon.xml        ` file has no effect on those two ports and the value that is set manually is used instead.
+If you specify the Thrift client and server ports manually, the port offset specified in the `carbon.xml` file has no effect on those two ports and the value that is set manually is used instead.
 
 
 When you run multiple instances of the API Manager in distributed mode, the Gateway and Key Manager (used for validation and authentication) can run on two different JVMs. When the API Gateway receives API invocation calls, it contacts the API Key Manager service for verification (given that [caching](https://docs.wso2.com/display/AM260/Configuring+Caching) is not enabled at the Gateway level). Communication between API Gateway and Key Manager happens in either of the following ways:
@@ -37,7 +37,7 @@ To fix this, you must change the Thrift client and server ports of the Gateway a
 
 #### Changing the offset of the Workflow Callback Service
 
-The API Manager has a Service which listens for workflow callbacks. This service configuration can be found at `         <APIM_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml        ` . Open this file and change the port value of the `         <address uri>        ` accordingly.
+The API Manager has a Service which listens for workflow callbacks. This service configuration can be found at `<APIM_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml` . Open this file and change the port value of the `<address uri>` accordingly.
 
 For example,
 

@@ -2,7 +2,7 @@
 
 WSO2 API Manager has [Apache Solr](https://lucene.apache.org/solr/) based indexing for API documentation content. It provides both the API Publisher and Store a full-text search facility to search through the API documentation, and find the documents and related APIs. The search syntax is **doc:keyword *.*** The search criteria looks for the keyword in any word/phrase in the documentation content and returns both the matching documents and associated APIs.
 
-The following media types have Apache Solr based indexers by default, which are configured using the `         <Indexers>        ` element in `         <APIM_HOME>/repository/conf/registry.xml        ` file.
+The following media types have Apache Solr based indexers by default, which are configured using the `<Indexers>` element in `<APIM_HOME>/repository/conf/registry.xml` file.
 
 -   Text : text/plain
 -   PDF : application/pdf
@@ -56,9 +56,9 @@ In addition to the default indexes, you can write your own indexer implementatio
         }    
     }
     ```
-2.  Add the custom indexer JAR file to the `           <API-M_HOME>/repository/components/lib          ` directory.
+2.  Add the custom indexer JAR file to the `<API-M_HOME>/repository/components/lib` directory.
 
-3.  Update the `           <Indexers>          ` element in the `           <API-M_HOME>/repository/conf/registry.xml          ` file with the new indexer.
+3.  Update the `<Indexers>` element in the `<API-M_HOME>/repository/conf/registry.xml` file with the new indexer.
     The content is indexed using this media type. For example,
 
     ``` xml
@@ -71,11 +71,11 @@ In addition to the default indexes, you can write your own indexer implementatio
 
     |                                               |                                                                                                           |
     |-----------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-    | `               class              `          | Java class name of the indexer.                                                                           |
-    | `               mefiaTypeRegEx              ` | A regular expression (regex) pattern to match the media type.                                             |
-    | `               profiles              `       | [API-M profiles](https://docs.wso2.com/display/AM260/Product+Profiles) in which the indexer is available. |
+    | `class`| Java class name of the indexer.                                                                           |
+    | `mefiaTypeRegEx` | A regular expression (regex) pattern to match the media type.                                             |
+    | `profiles`| [API-M profiles](https://docs.wso2.com/display/AM260/Product+Profiles) in which the indexer is available. |
 
 4.  Restart the server.
-5.  Add the API documentation using the new media type and thereafter search some term in the documentation using the syntax ( `          doc:keyword         ` ).
+5.  Add the API documentation using the new media type and thereafter search some term in the documentation using the syntax ( `doc:keyword` ).
     You can now see how the documentation has got indexed according to the media type.
 

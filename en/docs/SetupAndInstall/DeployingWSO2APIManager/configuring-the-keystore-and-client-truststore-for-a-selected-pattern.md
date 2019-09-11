@@ -1,6 +1,6 @@
 # Configuring the keyStore and client trustStore for a Selected Pattern
 
-The [WSO2 API-M GitHub repository](https://github.com/wso2/puppet-apim) includes a custom keyStore and client trustStore in the `         <API-M_HOME>/repository/resources/security        ` directory for the initial setup (i.e., testing) purpose. The same files are copied into the `         wso2am_analytics        ` module and `         wso2is_prepacked        ` module as well. This `         wso2carbon.jks        ` keyStore is created for `         CN=*.dev.wso2.org        ` , and its self-signed certificate is imported into the `         client-truststore.jks        ` .
+The [WSO2 API-M GitHub repository](https://github.com/wso2/puppet-apim) includes a custom keyStore and client trustStore in the `<API-M_HOME>/repository/resources/security` directory for the initial setup (i.e., testing) purpose. The same files are copied into the `wso2am_analytics` module and `wso2is_prepacked` module as well. This `wso2carbon.jks` keyStore is created for `CN=*.dev.wso2.org` , and its self-signed certificate is imported into the `client-truststore.jks` .
 
 !!! note
 In production environments, it is recommended to replace these with your own keyStores and trustStores with certification authority (CA) signed certificates. In addition, if you also change the hostnames given by default in these patterns, you have to create your own hostnames. For more information, see [Creating New Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) .

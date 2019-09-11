@@ -1,8 +1,8 @@
 # Configuring Workflows for Tenants
 
-Using the API Manager, you can configure custom workflows that get invoked at the event of a user signup, application creation, registration, subscription etc. You do these configurations in the `         workflow-extensions.xml        ` as described in the previous sections.
+Using the API Manager, you can configure custom workflows that get invoked at the event of a user signup, application creation, registration, subscription etc. You do these configurations in the `workflow-extensions.xml` as described in the previous sections.
 
-However, in a multi-tenant API Manager setup, not all tenants have access to the file system and not all tenants want to use the same workflow that the super admin has configured in the `         api-manager.xml        ` file. For example, different departments in an enterprise can act as different tenants using the same API Manager instance and they can have different workflows. Also, an enterprise can combine WSO2 API Manager and WSO2 EI (Enterprise Integrator) to provide API Management As a Service to the clients. In this case, each client is a separate enterprise represented by a separate tenant. In both cases, the authority to approve business operations (workflows) resides within a tenant's space.
+However, in a multi-tenant API Manager setup, not all tenants have access to the file system and not all tenants want to use the same workflow that the super admin has configured in the `api-manager.xml` file. For example, different departments in an enterprise can act as different tenants using the same API Manager instance and they can have different workflows. Also, an enterprise can combine WSO2 API Manager and WSO2 EI (Enterprise Integrator) to provide API Management As a Service to the clients. In this case, each client is a separate enterprise represented by a separate tenant. In both cases, the authority to approve business operations (workflows) resides within a tenant's space.
 
 To allow different tenants to define their own custom workflows without editing configuration files, the API Manager provides configuration in tenant-specific locations in the registry, which you can access through the UI.
 
@@ -14,7 +14,7 @@ Only the users registered in the EI can deploy BPELs and human tasks in it. Regi
 ![](attachments/103334719/103334720.png)**Figure** : API Manager and EI share the same user and permission store
 
 !!! warning
-**If you are using WSO2 BPS3.2.0** , please copy the `                   <APIM_HOME>                  /repository/components/patches/patch0009        ` folder to the `                   <BPS_HOME>                  /repository/components/patches        ` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
+**If you are using WSO2 BPS3.2.0** , please copy the `<APIM_HOME>                  /repository/components/patches/patch0009` folder to the `<BPS_HOME>                  /repository/components/patches` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
 
 This patch is built into the BPS version 3.5.0 onwards.
 
@@ -41,13 +41,13 @@ Follow the steps below to deploy a BPEL and a human task for a tenant in the API
     Make sure you copy the database driver (in this case, mysql driver) to the /repository/components/lib folder before starting each server.
 
 
-2.  Run the `           <APIM_HOME>/dbscripts/mysql.sql          ` script (the script may vary depending on your database type) on the database to create the required tables.
+2.  Run the `<APIM_HOME>/dbscripts/mysql.sql` script (the script may vary depending on your database type) on the database to create the required tables.
 
         !!! note
     From WSO2 Carbon Kernel 4.4.6 onwards there are two MySQL DB scripts available in the product distribution. Click [here](https://docs.wso2.com/display/AM200/FAQ#FAQ-WhichMySQLdatabasescriptshouldIuse?) to identify as to which version of the MySQL script to use.
 
 
-3.  Open the `           <APIM_HOME>/repository/conf/datasources/master-datasources.xml          ` and create a datasource pointing to the newly created database. For example,
+3.  Open the `<APIM_HOME>/repository/conf/datasources/master-datasources.xml` and create a datasource pointing to the newly created database. For example,
 
     ``` xml
         <datasource>
@@ -73,10 +73,10 @@ Follow the steps below to deploy a BPEL and a human task for a tenant in the API
     ```
 
 4.  Repeat step 3 in the EI as well.
-5.  Point the datasource name in `           <APIM_HOME>/repository/conf/user-mgt.xml          ` to the new datasource. (note that the user store is configured using the `           <UserStoreManager>          ` element).
+5.  Point the datasource name in `<APIM_HOME>/repository/conf/user-mgt.xml` to the new datasource. (note that the user store is configured using the `<UserStoreManager>` element).
 
         !!! tip
-    If you already have a user store such as the lDAP in your environment, you can point to it from the `           user-mgt.xml          ` file, instead of the user store that we created in step1.
+    If you already have a user store such as the lDAP in your environment, you can point to it from the `user-mgt.xml` file, instead of the user store that we created in step1.
 
 
     In the following example, the same JDBC user store (that is shared by both the API Manager and the EI) is used as the permission store as well:
@@ -107,9 +107,9 @@ To deploy BPELs in an API Manager tenant space, the tenant space should be acces
             Query OK, 1 row affected (0.00 sec)
     ```
 
-2.  Run the `           <APIM_HOME>/dbscripts/mysql.sql          ` script (the script may vary depending on your database type) on the database to create the required tables.
+2.  Run the `<APIM_HOME>/dbscripts/mysql.sql` script (the script may vary depending on your database type) on the database to create the required tables.
 
-3.  Create a new datasource in `           <APIM_HOME>/repository/conf/datasources/master-datasources.xml          ` as done before:
+3.  Create a new datasource in `<APIM_HOME>/repository/conf/datasources/master-datasources.xml` as done before:
 
     ``` xml
             <datasource>
@@ -134,7 +134,7 @@ To deploy BPELs in an API Manager tenant space, the tenant space should be acces
             </datasource>
     ```
 
-4.  Add the following entries to `           <APIM_HOME>/repository/conf/registry.xml          ` :
+4.  Add the following entries to `<APIM_HOME>/repository/conf/registry.xml` :
 
     ``` xml
              <dbConfig name="sharedregistry">
@@ -165,24 +165,24 @@ To deploy BPELs in an API Manager tenant space, the tenant space should be acces
 
 In this section, you create a BPEL that has service endpoints pointing to services hosted in the tenant's space. This example uses the [Application Creation](https://docs.wso2.com/api-manager/Workflow%3A+Application+Creation) workflow.
 
-1.  Set a port offset of 2 to the EI using the `           <EI_HOME>/repository/conf/carbon.xml          ` file. This prevents any port conflicts when you start more than one WSO2 products on the same server.
+1.  Set a port offset of 2 to the EI using the `<EI_HOME>/repository/conf/carbon.xml` file. This prevents any port conflicts when you start more than one WSO2 products on the same server.
 
-2.  Log in to the API Manager's management console ( `                       https://localhost:9443/carbon                     ` ) and create a tenant using the **Configure -&gt; Multitenancy** menu.
+2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and create a tenant using the **Configure -&gt; Multitenancy** menu.
     ![](attachments/103334719/103334732.png)
 
-3.  Create a copy of the BPEL located in `           <APIM_HOME>/business-processes/application-creation/BPEL          ` .
+3.  Create a copy of the BPEL located in `<APIM_HOME>/business-processes/application-creation/BPEL` .
 
 4.  Extract the contents of the new BPEL archive.
 
-5.  Copy `           ApplicationService.epr          ` and `           ApplicationCallbackService.epr          ` from `           <APIM_HOME>/business-processes/epr          ` folder to the folder extracted before. Then, rename the two files as `           ApplicationService-Tenant.epr          ` and `           ApplicationCallbackService-Tenant.epr          ` respectively.
+5.  Copy `ApplicationService.epr` and `ApplicationCallbackService.epr` from `<APIM_HOME>/business-processes/epr` folder to the folder extracted before. Then, rename the two files as `ApplicationService-Tenant.epr` and `ApplicationCallbackService-Tenant.epr` respectively.
 
-6.  Open `           ApplicationService-Tenant.epr          ` and change the `           wsa:Address          ` to `                       http://localhost:9765/services/t/           domain>/ApplicationService          ` and add the tenant admin credentials.
+6.  Open `ApplicationService-Tenant.epr` and change the `wsa:Address` to `http://localhost:9765/services/t/           domain>/ApplicationService` and add the tenant admin credentials.
 
         !!! info
-    In a distributed setup, the ApplicationService-Tenant.epr's wsa:Address should point to the proxy/load balancer of Enterprise Integrator(EI cluster) `           (                       http:///services/t/           domain>/ApplicationService          ` ). Also, the ApplicationCallbackService-Tenant.epr's wsa:Address should point to APIM cluster's Workflow Callback service endpoint. This is normally deployed at the gateway nodes. The wsa:Address should point to the gateway nodes. ( https:///services/WorkflowCallbackService ) and the user credentials which grant access to that service should be used.
+    In a distributed setup, the ApplicationService-Tenant.epr's wsa:Address should point to the proxy/load balancer of Enterprise Integrator(EI cluster) `(                       http:///services/t/           domain>/ApplicationService` ). Also, the ApplicationCallbackService-Tenant.epr's wsa:Address should point to APIM cluster's Workflow Callback service endpoint. This is normally deployed at the gateway nodes. The wsa:Address should point to the gateway nodes. ( https:///services/WorkflowCallbackService ) and the user credentials which grant access to that service should be used.
 
 
-7.  Point the `           deploy.xml          ` file of the extracted folder to the new .epr files provided in the BPEL archive. For example,
+7.  Point the `deploy.xml` file of the extracted folder to the new .epr files provided in the BPEL archive. For example,
 
     ``` xml
         <invoke partnerLink="AAPL">
@@ -229,8 +229,8 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 ###### Step 1: Create a registry resource in the tenant's configuration registry
 
 1.  Start the EI server If it is not started already.
-2.  Navigate to **Registry&gt;Browse** in the **Main** menu of the management console and click on `          /_system/config.         `
-    `                                        `
+2.  Navigate to **Registry&gt;Browse** in the **Main** menu of the management console and click on `/_system/config.         `
+``
 3.  Click on **Entries&gt;Add Resourc** e and fill the form using the values listed below for guidance. See [Adding a Resource](https://docs.wso2.com/display/BPS351/Adding+a+Resource) for more information.
 
     | Method              | Name             | Media Type |
@@ -259,8 +259,8 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 
 Similar to creating a BPEL, create a HumaTask that has service endpoints pointing to services hosted in the tenant's space.
 
-1.  Create a copy of the HumanTask archive in `          <APIM_HOME>/business-processes/application-creation/HumanTask         ` and extract its contents.
-2.  Edit the SOAP service port-bindings in `           ApplicationApprovalTaskService.wsdl          ` . For example,
+1.  Create a copy of the HumanTask archive in `<APIM_HOME>/business-processes/application-creation/HumanTask` and extract its contents.
+2.  Edit the SOAP service port-bindings in `ApplicationApprovalTaskService.wsdl` . For example,
 
     ``` xml
         <wsdl:service name="ApplicationService">
@@ -284,7 +284,7 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
         !!! info
     In a distributed setup, the above addresses should be changed to point to the EI proxy/loadbalancer. A sample is shown below.
 
-    `           <soap:address location="                       http:///services/t//ApplicationServiceCB                      "/>          `
+`<soap:address location="                       http:///services/t//ApplicationServiceCB                      "/>          `
 
 
 3.  Create the HumanTask archive by zipping all the extracted files. When creating the human task, make sure all the files are at the top level of the zip.
@@ -293,14 +293,14 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
 
 5.  Log into the API Manager's management console as the tenant admin and select **Resources &gt; Browse** menu.
 
-6.  Go to the `           /_system/governance/apimgt/applicationdata/workflow-extensions.xml          ` in the registry and change the **service endpoint** as a **tenant-aware service URL** (e.g., `                       http://localhost:9765/services/t//ApplicationApprovalWorkFlowProcess                     ` ). Also set the **credentials** as the **tenant admin's credentials** of the `           ApplicationCreationWSWorkflowExecutor          ` file. For example,
+6.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` in the registry and change the **service endpoint** as a **tenant-aware service URL** (e.g., `http://localhost:9765/services/t//ApplicationApprovalWorkFlowProcess` ). Also set the **credentials** as the **tenant admin's credentials** of the `ApplicationCreationWSWorkflowExecutor` file. For example,
     ![](attachments/103334719/103334728.png)
         !!! note
-    Be sure to disable the `           SimpleWorkflowExecutor          ` and enable the `           ApplicationCreationWSWorkflowExecutor.          `
+    Be sure to disable the `SimpleWorkflowExecutor` and enable the `ApplicationCreationWSWorkflowExecutor.          `
 
 
 #### **Testing the workflow**
 
-You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the Admin Portal ( `                   https://:9443/admin                 ` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
+You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the Admin Portal ( `https://:9443/admin` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
 
 ![](attachments/103334719/103334721.png)

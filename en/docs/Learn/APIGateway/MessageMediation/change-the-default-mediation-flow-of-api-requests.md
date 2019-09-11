@@ -56,7 +56,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
 
     ![](attachments/103332556/103332553.png)
 
-3.  The `           Implement          ` tab opens. Select **Managed API** , provide the information given in the table below and click **Manage** .
+3.  The `Implement` tab opens. Select **Managed API** , provide the information given in the table below and click **Manage** .
 
     | Field               | Sample value                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -68,7 +68,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
 
     ![](attachments/103332556/103332552.png)
 
-4.  Click **Next: Manage &gt;** to go to the `           Manage          ` tab, provide the following information and click **Save & Publish** once you are done.
+4.  Click **Next: Manage &gt;** to go to the `Manage` tab, provide the following information and click **Save & Publish** once you are done.
 
     <table>
     <thead>
@@ -102,18 +102,18 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
 9.  On the dialog box that appears, enter the URL, username, and password of the Publisher server.
     ![](attachments/103332556/103332526.png)
 10. On the tree view that appears, expand the folder structure of the existing API.
-11. Right-click on the `           in          ` sequence folder and click **Create** to create a new `           in          ` sequence.
-    ![](attachments/103332556/103332527.png) This is because you want the custom sequence to be invoked in the `           In          ` direction or the request path. If you want it to be involved in the `           Out          ` or `           Fault          ` paths, select the respective folder under `           customsequences          ` .
+11. Right-click on the `in` sequence folder and click **Create** to create a new `in` sequence.
+    ![](attachments/103332556/103332527.png) This is because you want the custom sequence to be invoked in the `In` direction or the request path. If you want it to be involved in the `Out` or `Fault` paths, select the respective folder under `customsequences` .
 
         !!! tip
     **Tip** : If you prefer not to use the registry to upload the sequence or want to engage a sequence to all APIs in WSO2 API-M at once, you can do so by saving the mediation sequence XML file in the file system. See [Adding Mediation Extensions](_Adding_Mediation_Extensions_) for details.
 
 
-12. Name the sequence `          YahooWeatherSequence         ` .
+12. Name the sequence `YahooWeatherSequence` .
 13. Your sequence now appears on the Developer Studio console. From under the **Mediators** section, drag and drop a [**Property** mediator](https://docs.wso2.com/display/EI630/Property+Mediator) to your sequence and give the following values to the property mediator.
 
         !!! note
-    The **Property Mediator** has no direct impact on the message, but rather on the message context flowing through Synapse. You can retrieve the properties set on a message later through the [Synapse XPath Variables](https://docs.wso2.com/display/EI630/Accessing+Properties+with+XPath#AccessingPropertieswithXPath-SynapseXPathVariables) or the `                       get-property()                     ` extension function. In this sequence, we are using two property mediators and set a Synapse XPath variable and a `           get-property()          ` function to the two mediators respectively to retrieve the properties set to the message context during the execution.
+    The **Property Mediator** has no direct impact on the message, but rather on the message context flowing through Synapse. You can retrieve the properties set on a message later through the [Synapse XPath Variables](https://docs.wso2.com/display/EI630/Accessing+Properties+with+XPath#AccessingPropertieswithXPath-SynapseXPathVariables) or the `get-property()` extension function. In this sequence, we are using two property mediators and set a Synapse XPath variable and a `get-property()` function to the two mediators respectively to retrieve the properties set to the message context during the execution.
 
 
     <table>

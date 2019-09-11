@@ -14,10 +14,10 @@ Microgateway offers you a proxy that is capable of performing security validatio
 Before you begin,
 
 1.  Download the [Microgateway](https://wso2.com/api-management/api-microgateway/) distribution and extract it.
-2.  Append the full path of the `           /bin          ` folder of the extracted Microgateway distribution to the PATH environment variable.
+2.  Append the full path of the `/bin` folder of the extracted Microgateway distribution to the PATH environment variable.
 
 !!! note
-If you are unable to append the path, you can alternatively run the Microgateway commands by navigating to the `         <MICROGW_HOME>/bin        ` folder and running the commands as `         ./micro-gw        ` instead.
+If you are unable to append the path, you can alternatively run the Microgateway commands by navigating to the `<MICROGW_HOME>/bin` folder and running the commands as `./micro-gw` instead.
 
 
 Let's go through the main use case of the Microgateway:
@@ -28,17 +28,17 @@ Let's go through the main use case of the Microgateway:
 
 ### Deploy and subscribe to the sample API
 
-1.  Open the API Publisher ( `          https://<hostname>:9443/publisher         ` ) and sign in with `          admin/admin         ` credentials.
+1.  Open the API Publisher ( `https://<hostname>:9443/publisher` ) and sign in with `admin/admin` credentials.
 2.  Close the interactive tutorial that starts automatically if you are a first-time user.
-3.  Click the **Deploy Sample API** button. It deploys a sample API called `           PizzaShackAPI          ` into the API Manager.
+3.  Click the **Deploy Sample API** button. It deploys a sample API called `PizzaShackAPI` into the API Manager.
 
         !!! note
     The **Deploy Sample API** option is available only when there are no APIs in API Publisher. If you have already created a API, this option is not available.
 
 
-4.  Click `          PizzaShackAPI         ` to open it.
-5.  Go to the **Lifecycle** tab and note that the **State** is `          PUBLISHED         ` . The API is already published to the API Store.
-6.  Sign in to the API Store ( `          https://<hostname>:9443/store         ` ) with the `          admin/admin         ` credentials and click the `          PizzaShackAPI         ` API.
+4.  Click `PizzaShackAPI` to open it.
+5.  Go to the **Lifecycle** tab and note that the **State** is `PUBLISHED` . The API is already published to the API Store.
+6.  Sign in to the API Store ( `https://<hostname>:9443/store` ) with the `admin/admin` credentials and click the `PizzaShackAPI` API.
 7.  Select the default application and an available tier, and click **Subscribe** .
 8.  When the subscription is successful, click **View Subscriptions** on the information message that appears.
 
@@ -60,7 +60,7 @@ For details on how to create a Microgateway distribution for a group of APIs, se
         micro-gw setup <project_name> -a <API_name> -v <version>
     ```
 
-    When the tool requests for the username and password, use `           admin          ` in both instances. Use the default values for the other parameters by pressing **Enter** .
+    When the tool requests for the username and password, use `admin` in both instances. Use the default values for the other parameters by pressing **Enter** .
 
     Here is an example:
 
@@ -104,13 +104,13 @@ For details on how to create a Microgateway distribution for a group of APIs, se
     ```
 
         !!! note
-    If you re-run the setup command while you already have a project named `           pizzashack-project          ` in the current working directory, you receive an error similar to the following:
+    If you re-run the setup command while you already have a project named `pizzashack-project` in the current working directory, you receive an error similar to the following:
 
     ``` java
         $ micro-gw setup pizzashack-project -a PizzaShackAPI -v 1.0.0
     [micro-gw: Project name `pizzashack-project` already exist. use -f or --force to forcefully update the project directory., Run 'micro-gw help' for usage.]
     ```
-    As suggested in the above output, if you need to override the current project, run the setup command with the `           -f (--force)          ` option.
+    As suggested in the above output, if you need to override the current project, run the setup command with the `-f (--force)` option.
 
     ``` java
         $ micro-gw setup pizzashack-project -a PizzaShackAPI -v 1.0.0  -f
@@ -131,11 +131,11 @@ For details on how to create a Microgateway distribution for a group of APIs, se
             $ micro-gw build pizzashack-project
     Build successful for the project - pizzashack-project
     ```
-    Once the above command is executed, the generated source files are built and a Microgateway distribution is created in the `           target          ` folder.
+    Once the above command is executed, the generated source files are built and a Microgateway distribution is created in the `target` folder.
 
-    The name of the distribution will have the format `           micro-gw-<project_name>.zip          ` . In the above example, the name will be `           micro-gw-pizzashack          ` `           -project.zip          ` .
+    The name of the distribution will have the format `micro-gw-<project_name>.zip` . In the above example, the name will be `micro-gw-pizzashack-project.zip` .
 
-4.  Next, unzip the `           micro-gw-pizzashack          ` `           -project.zip          ` and run the `           gateway          ` shell script inside the `           bin          ` folder of the extracted zip using the following command:
+4.  Next, unzip the `micro-gw-pizzashack-project.zip` and run the `gateway` shell script inside the `bin` folder of the extracted zip using the following command:
 
     ``` java
         bash gateway
@@ -155,7 +155,7 @@ You have successfully generated and started a Microgateway distribution for the 
 
 ### Generate a JWT token and invoke the API
 
-Once you start the Microgateway, you can use a JWT or an OAuth2 token to invoke the API. For the invocation URL, you can use either `         https://localhost:9095/        ` (HTTPS) or `         http://localhost:9090/        ` (HTTP).
+Once you start the Microgateway, you can use a JWT or an OAuth2 token to invoke the API. For the invocation URL, you can use either `https://localhost:9095/` (HTTPS) or `http://localhost:9090/` (HTTP).
 
 
 1.  Log in to the API Store, click **Applications** and choose to edit the Default Application. Set the token type to JWT.

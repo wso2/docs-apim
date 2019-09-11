@@ -133,8 +133,8 @@ Each request is sanitized through the XML threat protector. API developer can mo
 To edit the existing sequence follow the steps below.
 
 1.  Log in to the Management Console.
-2.  Navigate to `          /_system/governance/apimgt/customsequences/in/xml_validator.xml         `
-3.  Edit the `          xml_validator.xml         ` file.
+2.  Navigate to `/_system/governance/apimgt/customsequences/in/xml_validator.xml`
+3.  Edit the `xml_validator.xml` file.
 4.  Go to the API Publisher and re-publish your API for the changes to take effect.
 
 ### Applying the XML validator policy

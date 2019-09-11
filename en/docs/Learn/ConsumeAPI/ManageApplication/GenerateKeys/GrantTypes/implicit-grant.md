@@ -23,11 +23,11 @@ The following parameters are required to implement the Implicit grant type in W
 
 | Name                                     | Description                                                 | Sample value                                                                                         |
 |------------------------------------------|-------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| `             scope            `         | The OAuth scope you are requesting for the particular token | `             openid            `                                                                    |
-| `             response_type            ` | The required response format                                | `             id_token            `                                                                  |
-| `             redirect_uri            `  | The URL of the Oauth application requesting for the token   | `                           http://localhost:8080/playground2/oauth2client                         ` |
-| `             nonce            `         | Any random value                                            | `             13e2312637dg136e1            `                                                         |
-| `             client_id            `     | Client ID of the OAuth application                          | `             mzdQQ0RZOIqAf549ucIImB4h0SIa            `                                              |
+| `scope`| The OAuth scope you are requesting for the particular token | `openid`|
+| `response_type` | The required response format                                | `id_token`|
+| `redirect_uri`| The URL of the Oauth application requesting for the token   | `http://localhost:8080/playground2/oauth2client` |
+| `nonce`| Any random value                                            | `13e2312637dg136e1`|
+| `client_id`| Client ID of the OAuth application                          | `mzdQQ0RZOIqAf549ucIImB4h0SIa`|
 
 An example is given below :
 
@@ -68,7 +68,7 @@ The following instructions use the sample playground webapp. For instructions on
     | Client Id                | Consumer Key obtained for your application                                                     |
     | Scope                    | The scope you have selected for you application                                                |
     | Callback URL             | The callback URL of your application                                                           |
-    | Authorize Endpoint       | `                               https://localhost:8243/authorize                             ` |
+    | Authorize Endpoint       | `https://localhost:8243/authorize` |
 
     ![](attachments/103335293/103335294.png)
 5.  The playground application redirects to the login page. Enter you username and password and click **Sign In.**

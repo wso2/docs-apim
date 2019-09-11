@@ -24,7 +24,7 @@ Make sure that you have a valid WSDL URL from the SOAP backend. It should belong
     ![](attachments/103328795/103328791.png)
 
         !!! note
-    The definition properties are mapped with a Swagger vendor-specific field `           x-xpath          ` , which is used to map the SOAP binding operation parameters with the REST parameters. If a parameter does not have this field it is not mapped with a backend operation. To ensure the mapping functions smoothly, do not make any changes to the properties.
+    The definition properties are mapped with a Swagger vendor-specific field `x-xpath` , which is used to map the SOAP binding operation parameters with the REST parameters. If a parameter does not have this field it is not mapped with a backend operation. To ensure the mapping functions smoothly, do not make any changes to the properties.
 
 
 7.  Go to the **Implement** tab and view the **SOAP Mapping** section. Click on a resource to view the In and Out sequences of the API.

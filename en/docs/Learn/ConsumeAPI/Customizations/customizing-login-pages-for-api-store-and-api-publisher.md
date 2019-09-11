@@ -2,7 +2,7 @@
 
 Custom pages for logging into the server are available for SAML2 SSO, OAuth and OpenID. This section guides you through this customization.
 
-The login pages and other pages like error and notification screens of SAML SSO, OAuth, OpenID and Passive STS are located in the authenticationendpoint webapp file found at `         <APIM_HOME>/repository/deployment/server/webapps        ` .
+The login pages and other pages like error and notification screens of SAML SSO, OAuth, OpenID and Passive STS are located in the authenticationendpoint webapp file found at `<APIM_HOME>/repository/deployment/server/webapps` .
 
 You can easily customize these pages within this web application by changing the respective JSPs, JavaScript and CSS. If you want to point to a different web application, you can do so by redirecting or forwarding from **authenticationendpoint** to your webapp. In the case of SAML SSO, the 'issuer' id of the service provider is also sent to this webapp. Therefore, different login pages can be given to different service providers by looking at the 'issuer' request parameter.
 
@@ -48,7 +48,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
     -   Select Enable Single Logout
 
-7.  When attempting to login with SAML from WSO2 Identity Server in API publisher and API store, you can see the following default page located at `           <IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp          `
+7.  When attempting to login with SAML from WSO2 Identity Server in API publisher and API store, you can see the following default page located at `<IS_HOME>/repository/deployment/server/webapps/authenticationendpoint/login.jsp          `
 
     ![](https://lh5.googleusercontent.com/FRmw22OAozRCqZpM5D0BaNMb-fLatRtEe55XWR1QRndVpus4cb8dcCt0khW7KgmkTTY_BlvS5hOjXj4LkDprNjicku1sIqj-yQNWIm-HHSrOYrS8F424ThlRnIWeuta_3rR6ODvL)    For instructions on configuring WSO2 Identity Server as an identity provider, see [Configuring Identity Server as IDP for SSO](https://docs.wso2.com/display/AM260/Configuring+Identity+Server+as+IDP+for+SSO) .
 
@@ -62,7 +62,7 @@ The login page that is displayed during SAML2 SSO, OAuth, OpenID and Passive-STS
 
 -   if needed, place that whole web application in an external application server
 
-The Identity Server knows the location of this web application as it is specified in the `         <IS_HOME>/repository/conf/identity/application-authentication.xml        ` configuration file. This is referenced as shown below.
+The Identity Server knows the location of this web application as it is specified in the `<IS_HOME>/repository/conf/identity/application-authentication.xml` configuration file. This is referenced as shown below.
 
 ``` java
     <AuthenticationEndpointURL>/authenticationendpoint/login.do</AuthenticationEndpointURL>
@@ -77,13 +77,13 @@ If this web app is moved outside the Identity Server, we must ensure that no one
 The following is the structure of this web app.
 
 ![](https://lh5.googleusercontent.com/QOoN6rTi-3ScdoSfWcRtnbcb1kViYyBWr9vAcdsg7RoMHqfFMCnSX5a2mD--kg-y7Uz4_4e1cH7xsKW8CxJ_2IECUmVVu5L6CSGIdDp948cpvhKfZkyu2hRywbnFJ3eW9AXJd3cr)
-The **authenticationendpoint** web application uses a carbon component called `         org.wso2.carbon.identity.application.authentication.endpoint.util.        ` This bundle includes a filter called the `         org.wso2.carbon.identity.application.authentication.endpoint.util.filter.AuthenticationEndpointFilter        ` , which acts as the Front Controller.
+The **authenticationendpoint** web application uses a carbon component called `org.wso2.carbon.identity.application.authentication.endpoint.util.` This bundle includes a filter called the `org.wso2.carbon.identity.application.authentication.endpoint.util.filter.AuthenticationEndpointFilter` , which acts as the Front Controller.
 
-When a request is made to the **authenticationendpoint** web application, based on the authentication protocol type identified by the request parameter ‘type’, the controller first forwards the request to the protocol based login url patterns defined. For example, if the request to the **authenticationendpoint** web application is initiated as a result of a SAML SSO authentication request, the controller will forward the request to the url pattern `         /samlsso_login.do        ` . If you look inside the **web.xml** , you will see that this url pattern is mapped to the **login.jsp** file. The request is finally forwarded to this **login.jsp** page.
+When a request is made to the **authenticationendpoint** web application, based on the authentication protocol type identified by the request parameter ‘type’, the controller first forwards the request to the protocol based login url patterns defined. For example, if the request to the **authenticationendpoint** web application is initiated as a result of a SAML SSO authentication request, the controller will forward the request to the url pattern `/samlsso_login.do` . If you look inside the **web.xml** , you will see that this url pattern is mapped to the **login.jsp** file. The request is finally forwarded to this **login.jsp** page.
 
 Everything on the **authententicationendpoint** web application is customizable. You can customize it by adding JSP pages or modifying them and configuring the web.xml respectively.
 
-The only restriction involved is that the content already sent back by the pages inside the default web app must be submitted to the Identity Server. Additionally, you must point to the correct location via the `         <IS_HOME>/repository/conf/identity/application-authentication.xml        ` file.
+The only restriction involved is that the content already sent back by the pages inside the default web app must be submitted to the Identity Server. Additionally, you must point to the correct location via the `<IS_HOME>/repository/conf/identity/application-authentication.xml` file.
 
 ##### Customizing the login page
 
@@ -96,10 +96,10 @@ When a request comes to the default login page, you can see several parameters b
 When customizing the pages, ensure that the following is applied.
 
 1.  Form submissions should happen to the "commonauth" servlet as a POST.
-    `           <form id="form" name="form" action="../../commonauth" method="POST">          `
+`<form id="form" name="form" action="../../commonauth" method="POST">          `
 
 2.  Make sure to send back the "sessionDataKey" with the form submission, by using a hidden input field.
-    `           <input type="hidden" name="sessionDataKey" value="<%=request.getParameter("sessionDataKey")%>"/>          `
+`<input type="hidden" name="sessionDataKey" value="<%=request.getParameter("sessionDataKey")%>"/>          `
 
 ##### Using a JSP to redirect to SP relevant pages
 

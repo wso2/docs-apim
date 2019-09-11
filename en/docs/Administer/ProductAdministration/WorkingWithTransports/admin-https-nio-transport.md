@@ -2,13 +2,13 @@
 
 HTTPS-NIO transport is also a module that comes from the Apache Synapse code base. Apache Synapse (as well as the WSO2 ESB) ships the HTTPS-NIO transport as the default HTTPS transport implementation; however, other products can install the feature that has this transport if needed. The receiver class is named as follows:
 
-`         org.apache.synapse.transport.nhttp.HttpCoreNIOSSLListener        `
+`org.apache.synapse.transport.nhttp.HttpCoreNIOSSLListener`
 
 The sender class is named as follows:
 
-`         org.apache.synapse.transport.nhttp.HttpCoreNIOSSLSender        `
+`org.apache.synapse.transport.nhttp.HttpCoreNIOSSLSender`
 
-As far as the actual implementation of the transport is concerned, these two classes simply extend the HTTP-NIO implementation by adding SSL support to it. Therefore, they support all the configuration parameters supported by the HTTP-NIO receiver and sender. In addition to that, both HTTPS-NIO listener and the HTTPS-NIO sender support the following two parameters. The above mentioned classes are available in the `         synapse-nhttp-transport.jar        ` bundle.
+As far as the actual implementation of the transport is concerned, these two classes simply extend the HTTP-NIO implementation by adding SSL support to it. Therefore, they support all the configuration parameters supported by the HTTP-NIO receiver and sender. In addition to that, both HTTPS-NIO listener and the HTTPS-NIO sender support the following two parameters. The above mentioned classes are available in the `synapse-nhttp-transport.jar` bundle.
 
 Transport Parameters (Common to both receiver and the sender):
 

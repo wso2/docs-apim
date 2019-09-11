@@ -33,7 +33,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
 
 #### Step 1 - Enable Hazelcast clustering in the Gateway Manager
 
-1.  Open the `          <GATEWAY_MANAGER_HOME>/repository/conf/axis2/axis2.xml         ` file.
+1.  Open the `<GATEWAY_MANAGER_HOME>/repository/conf/axis2/axis2.xml` file.
 2.  Locate the clustering section and verify or configure the properties as follows (some of these properties are already set correctly by default).
     1.  Enable clustering for this node:
 
@@ -41,7 +41,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
                 <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="true">
         ```
 
-    2.  Set the membership scheme to `             wka            ` to enable the well-known address registration method (this node will send cluster initiation messages to WKA members that we will define later):
+    2.  Set the membership scheme to `wka` to enable the well-known address registration method (this node will send cluster initiation messages to WKA members that we will define later):
 
         ``` java
                     <parameter name="membershipScheme">wka</parameter>
@@ -66,7 +66,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
         ```
 
                 !!! info
-        This port number will not be affected by the port offset in `             carbon.xml            ` . If this port number is already assigned to another server, the clustering framework will automatically increment this port number. However, if two servers are running on the same machine, you must ensure that a unique port is set for each server.
+        This port number will not be affected by the port offset in `carbon.xml` . If this port number is already assigned to another server, the clustering framework will automatically increment this port number. However, if two servers are running on the same machine, you must ensure that a unique port is set for each server.
 
 
     6.  Do the following port mapping configurations for the Gateway manager node. There are two types of transports in API Manager and when a request comes into the API Manager, it always goes to the default transport which is the PTT/NIO transport. So when you access the management console of the Gateway Manager node, you send a servlet request. If you do not specify the port mapping parameter in the manager node, it would hit the PTT/NIO transport and the request would fail.
@@ -81,9 +81,9 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
                 </parameter>
         ```
 
-        The receiver's HTTP/HTTPS port values are without the `             portOffset            ` addition; they get auto-incremented by `             portOffset            ` . In the case of an ESB cluster, the ' `             WSDLEPRPrefix            ` ' parameter should point to the worker node's host name ( `             am.wso2.com            ` ) and load balancer's http (80)/https (443) transport ports.
+        The receiver's HTTP/HTTPS port values are without the `portOffset` addition; they get auto-incremented by `portOffset` . In the case of an ESB cluster, the ' `WSDLEPRPrefix` ' parameter should point to the worker node's host name ( `am.wso2.com` ) and load balancer's http (80)/https (443) transport ports.
 
-    7.  Change the members listed in the `             <members>            ` element. This defines the WKA members.
+    7.  Change the members listed in the `<members>` element. This defines the WKA members.
 
         ``` xml
                     <members>
@@ -104,7 +104,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
 
 #### Step 2 - Enable Hazelcast clustering in the Gateway Worker
 
-1.  Open the `          <GATEWAY_WORKER_HOME>/repository/conf/axis2/axis2.xml         ` file.
+1.  Open the `<GATEWAY_WORKER_HOME>/repository/conf/axis2/axis2.xml` file.
 2.  Locate the clustering section and verify or configure the properties as follows (some of these properties are already set correctly by default):
     1.  Enable clustering for this node:
 
@@ -112,7 +112,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
                     <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent" enable="true">
         ```
 
-    2.  Set the membership scheme to `             wka            ` to enable the Well Known Address registration method (this node will send cluster initiation messages to WKA members that we will define later):
+    2.  Set the membership scheme to `wka` to enable the Well Known Address registration method (this node will send cluster initiation messages to WKA members that we will define later):
 
         ``` java
                     <parameter name="membershipScheme">wka</parameter>
@@ -137,16 +137,16 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
         ```
 
                 !!! info
-        This port number will not be affected by the port offset in `             carbon.xml            ` . If this port number is already assigned to another server, the clustering framework will automatically increment this port number. However, if two servers are running on the same machine, you must ensure that a unique port is set for each server.
+        This port number will not be affected by the port offset in `carbon.xml` . If this port number is already assigned to another server, the clustering framework will automatically increment this port number. However, if two servers are running on the same machine, you must ensure that a unique port is set for each server.
 
 
-    6.  Define the sub-domain as worker by adding the following property under the `             <parameter name="properties">            ` element:
+    6.  Define the sub-domain as worker by adding the following property under the `<parameter name="properties">` element:
 
         ``` java
                 <property name="subDomain" value="worker"/>
         ```
 
-    7.  Define the manager and worker nodes as well-known members of the cluster by providing their host name and `             localMemberPort            ` values. The manager node is defined here because it is required for the [Deployment Synchronizer](https://docs.wso2.com/display/CLUSTER44x/Configuring+Deployment+Synchronizer) to function in an efficient manner. The deployment synchronizer uses this configuration to identify the manager and synchronize deployment artifacts across the nodes of a cluster.
+    7.  Define the manager and worker nodes as well-known members of the cluster by providing their host name and `localMemberPort` values. The manager node is defined here because it is required for the [Deployment Synchronizer](https://docs.wso2.com/display/CLUSTER44x/Configuring+Deployment+Synchronizer) to function in an efficient manner. The deployment synchronizer uses this configuration to identify the manager and synchronize deployment artifacts across the nodes of a cluster.
 
         ``` xml
                     <members>
@@ -164,7 +164,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
                 !!! note
         it is recommended to add at least two well-known members here. This is done to ensure that there is high availability for the cluster.
 
-        You can also use IP address ranges for the `             hostName            ` . For example,  192.168.1.2-10. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster the time it takes to discover members, since each node has to scan a lesser number of potential members.
+        You can also use IP address ranges for the `hostName` . For example,  192.168.1.2-10. This should ensure that the cluster eventually recovers after failures. One shortcoming of doing this is that you can define a range only for the last portion of the IP address. You should also keep in mind that the smaller the range, the faster the time it takes to discover members, since each node has to scan a lesser number of potential members.
 
 
     8.  See the instructions on [configuring hazelcast properties](#WorkingwithHazelcastClustering-ConfiguringHazelcastproperties) given below.
@@ -173,7 +173,7 @@ Follow the instructions below to enable Hazelcast clustering when deploying WSO2
 
 You can configure the hazelcast properties for the product nodes by following the steps given below.
 
-1.  Create the `           hazelcast.properties          ` file with the following property configurations, and copy the file to the `           <GATEWAY_HOME>/repository/conf/          ` directory.
+1.  Create the `hazelcast.properties` file with the following property configurations, and copy the file to the `<GATEWAY_HOME>/repository/conf/` directory.
 
     ``` java
         #Disabling the hazelcast shutdown hook
@@ -185,9 +185,9 @@ You can configure the hazelcast properties for the product nodes by following th
     The above configurations are explained below.
 
     -   **Hazelcast shutdown hook:** This configuration disables the shutdown hook in hazelcast, which ensures that the hazelcast instance shuts down gracefully whenever the product node shuts down. If the hazelcast shutdown hook is enabled (which is the default behavior of a product), you will see errors such as " *Hazelcast instance is not active!* " at the time of shutting down the product node: This is because the hazelcast instance shuts down too early when the shutdown hook is enabled.
-    -   **Hazelcast logging type:** This configuration sets the hazelcast logging type to log4j, which allows hazelcast logs to be written to the `            wso2carbon.log           ` file.
+    -   **Hazelcast logging type:** This configuration sets the hazelcast logging type to log4j, which allows hazelcast logs to be written to the `wso2carbon.log` file.
 
-2.  If you have enabled log4j for hazelcast logging as shown above, be sure to enter the configuration shown below in the `           log4j.properties          ` file (stored in the `           <GATEWAY_HOME>/repository/conf/          ` directory ). This can be used to configure the log level for hazelcast logging. For a clustered production environment, it is recommended to use INFO as the log level as shown below.
+2.  If you have enabled log4j for hazelcast logging as shown above, be sure to enter the configuration shown below in the `log4j.properties` file (stored in the `<GATEWAY_HOME>/repository/conf/` directory ). This can be used to configure the log level for hazelcast logging. For a clustered production environment, it is recommended to use INFO as the log level as shown below.
 
     ``` java
             log4j.logger.com.hazelcast=INFO

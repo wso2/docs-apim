@@ -17,18 +17,18 @@ Follow the instructions below to install API Manager on Solaris.
 ### Installing the API Manager
 
 1.  Download the latest version of the API Manager from <https://github.com/wso2/product-apim/releases/tag/v2.2.0-update1> .
-2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `            <API-M_HOME>           ` .
+2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>` .
 
 ### Setting up JAVA\_HOME
 
-You must set your `         JAVA_HOME        ` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
+You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 
 !!! info
 Environment variables are global system variables accessible by all the processes running under the operating system.
 
 
 1.  In your home directory, open the BASHRC file in your favorite text editor, such as vi, emacs, pico, or mcedit.
-2.  Assuming you have JDK 1.7.0\_80 in your system, add the following two lines at the bottom of the file, replacing `           /usr/java/jdk1.7.0_80          ` with the actual directory where the JDK is installed.
+2.  Assuming you have JDK 1.7.0\_80 in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk1.7.0_80` with the actual directory where the JDK is installed.
 
     ``` java
         export JAVA_HOME=/usr/java/jdk1.7.0_80
@@ -41,12 +41,12 @@ Environment variables are global system variables accessible by all the processe
 3.  Save the file.
 
         !!! info
-    If you do not know how to work with text editors in an SSH session, run the following command: `           cat >> .bashrc          `
+    If you do not know how to work with text editors in an SSH session, run the following command: `cat >> .bashrc          `
 
     Paste the string from the clipboard and press "Ctrl+D."
 
 
-4.  To verify that the `          JAVA_HOME         ` variable is set correctly, execute the following command:
+4.  To verify that the `JAVA_HOME` variable is set correctly, execute the following command:
 
         echo $JAVA_HOME
 

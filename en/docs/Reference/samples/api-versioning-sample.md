@@ -13,7 +13,7 @@ API versioning is a key functionality that needs to be addressed when the users,
 ### Running the sample
 
 -   Start wso2am-2.2.0-updateX.
--   Go to `           <API-M_HOME>/sample-scenarios          ` . Execute the `           run.sh          ` file:
+-   Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file:
 
     ``` bash
         bash run.sh

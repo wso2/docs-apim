@@ -11,7 +11,7 @@ The topics below explain the configurations you need to make to configure an ext
 
 First you need to point both WSO2 IS and WSO2 API Manager to a single user store.
 
-You do this to make sure that a user who tries to log in to the API Manager console, the API Store or the API Publisher is authorized. When a user tries to log in to either of the three applications, s/he is redirected to the configured identity provider (WSO2 IS, in this case) where s/he provides the login credentials to be authenticated. In addition to this, the user should also be authorized by the system as some user roles do not have permission to perform certain actions. For the purpose of authorization, the IS and API Manager need to have a shared user store and user management database (by default, this is the H2 database in the `         <API-M_HOME>/repository/conf/user-mgt.xml        ` file) where the user's role and permissions are stored.
+You do this to make sure that a user who tries to log in to the API Manager console, the API Store or the API Publisher is authorized. When a user tries to log in to either of the three applications, s/he is redirected to the configured identity provider (WSO2 IS, in this case) where s/he provides the login credentials to be authenticated. In addition to this, the user should also be authorized by the system as some user roles do not have permission to perform certain actions. For the purpose of authorization, the IS and API Manager need to have a shared user store and user management database (by default, this is the H2 database in the `<API-M_HOME>/repository/conf/user-mgt.xml` file) where the user's role and permissions are stored.
 
 For example, let's take a common JDBC user store (MySQL) for both the IS and API Manager.
 
@@ -19,14 +19,14 @@ For example, let's take a common JDBC user store (MySQL) for both the IS and API
 Refer [Configuring User Stores](_Configuring_User_Stores_) for more information on Configuring different types of user stores.
 
 
-1.  Create a MySQL database (e.g., 410\_um\_db) and run the `           <API-M_HOME>/dbscripts/mysql.sql          ` script on it to create the required tables.
-    If you are using a different database type, find the relevant script from the `           <API-M_HOME>/dbscripts          ` directory.
+1.  Create a MySQL database (e.g., 410\_um\_db) and run the `<API-M_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
+    If you are using a different database type, find the relevant script from the `<API-M_HOME>/dbscripts` directory.
 
         !!! note
-    `           <API-M_HOME>/dbscripts/mysql.sql          ` is the script that should be used to run on the `           410_um_db          ` database for MySQL 5.6 and prior versions. If you database is MySQL 5.7 or later version, use `           <API-M_HOME>/dbscripts/mysql5.7.sql          ` script file.
+`<API-M_HOME>/dbscripts/mysql.sql` is the script that should be used to run on the `410_um_db` database for MySQL 5.6 and prior versions. If you database is MySQL 5.7 or later version, use `<API-M_HOME>/dbscripts/mysql5.7.sql` script file.
 
 
-2.  Open the `           <API-M_HOME>/repository/conf/datasources/master-datasources.xml          ` file and add the datasource configuration for the database that you use for the shared user store and user management information. For example,
+2.  Open the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` file and add the datasource configuration for the database that you use for the shared user store and user management information. For example,
 
     ``` html/xml
         <datasource>
@@ -55,11 +55,11 @@ Refer [Configuring User Stores](_Configuring_User_Stores_) for more information 
     Refer Configuring master-datasources.xml for descriptive information about each property of the datasource configuration.
 
 
-3.  Add the same datasource configuration above to the `           <IS_HOME>/repository/conf/datasources/master-datasources.xml          ` file.
+3.  Add the same datasource configuration above to the `<IS_HOME>/repository/conf/datasources/master-datasources.xml` file.
 
-4.  Copy the database driver JAR file to the `           <IS_HOME>/repository/components/lib          ` and `           <API-M_HOME>/repository/components/lib          ` directories.
+4.  Copy the database driver JAR file to the `<IS_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/lib` directories.
 
-5.  Open the `           <API-M_HOME>/repository/conf/user-mgt.xml          ` file. The `           dataSource          ` property points to the default H2 database. Change it to the jndiConfig name given above (i.e., `           jdbc/WSO2UMDB          ` ). This changes the datasource reference that is pointing to the default H2 database.
+5.  Open the `<API-M_HOME>/repository/conf/user-mgt.xml` file. The `dataSource` property points to the default H2 database. Change it to the jndiConfig name given above (i.e., `jdbc/WSO2UMDB` ). This changes the datasource reference that is pointing to the default H2 database.
 
     ``` html/xml
         <Realm>
@@ -71,17 +71,17 @@ Refer [Configuring User Stores](_Configuring_User_Stores_) for more information 
         </Realm> 
     ```
 
-6.  Add the same configuration above to the `          <IS_HOME>/repository/conf/user-mgt.xml         ` file.
+6.  Add the same configuration above to the `<IS_HOME>/repository/conf/user-mgt.xml` file.
 7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default, follow the instructions in [Internal JDBC User Store Configuration](Configuring-Primary-User-Stores_103333489.html#ConfiguringPrimaryUserStores-Configuringaninternal/externalJDBCuserstore) to disable the default LDAP and enable the JDBC user store instead.
 
 ### Sharing the registry space
 
 In a multi-tenanted environment, by default, the Identity Server uses the key store of the super tenant to sign SAML responses. The API Store and API Publisher are already registered as SPs in the super tenant. However, if you want the Identity Server to use the registry key store of the tenant that the user belongs to, you can create a common registry database and mount it on both the IS and the API Manager.
 
-1.  Create a MySQL database (e.g., registry) and run the `           <IS_HOME>/dbscripts/mysql.sql          ` script on it to create the required tables.
-    If you are using a different database type, find the relevant script from the `           <IS_HOME>/dbscripts          ` directory.
+1.  Create a MySQL database (e.g., registry) and run the `<IS_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
+    If you are using a different database type, find the relevant script from the `<IS_HOME>/dbscripts` directory.
 
-2.  Add the following datasource configuration to both the `           <IS_HOME>/repository/conf/datasources/master-datasources.xml          ` and `           <API-M_HOME>/repository/conf/datasources/master-datasources.xml          ` files.
+2.  Add the following datasource configuration to both the `<IS_HOME>/repository/conf/datasources/master-datasources.xml` and `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` files.
 
     ``` xml
             <datasource>
@@ -106,10 +106,10 @@ In a multi-tenanted environment, by default, the Identity Server uses the key st
             </datasource> 
     ```
 
-3.  Create the registry mounts by inserting the following sections into the `           <IS_HOME>/repository/conf/registry.xml          ` file.
+3.  Create the registry mounts by inserting the following sections into the `<IS_HOME>/repository/conf/registry.xml` file.
 
         !!! tip
-    When doing this change, do not replace the existing `           <dbConfig>          ` for " `           wso2registry          ` ". Simply add the following configuration to the existing configurations. Refer [Configuring registry.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+registry.xml) for more information on the parameters used in configuring registry.xml
+    When doing this change, do not replace the existing `<dbConfig>` for " `wso2registry` ". Simply add the following configuration to the existing configurations. Refer [Configuring registry.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+registry.xml) for more information on the parameters used in configuring registry.xml
 
 
     ``` xml
@@ -136,16 +136,16 @@ In a multi-tenanted environment, by default, the Identity Server uses the key st
         </mount>
     ```
 
-4.  Repeat the above step in the `           <API-M_HOME>/repository/conf/registry.xml          ` file as well.
+4.  Repeat the above step in the `<API-M_HOME>/repository/conf/registry.xml` file as well.
 
 Next, let us look at the SSO configurations.
 
 ### Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider
 
-1.  Start the IS server and log in to its Management Console ( `                       https://localhost:9444/carbon                      )          ` .
+1.  Start the IS server and log in to its Management Console ( `https://localhost:9444/carbon)` .
 
         !!! tip
-    If you use login pages that are hosted externally to log in to the Identity Server, give the absolute URLs of those login pages in the `           authenticators.xml          ` and `           application-authenticators.xml          ` files in the `           <IS_HOME>/repository/conf/identity          ` directory.
+    If you use login pages that are hosted externally to log in to the Identity Server, give the absolute URLs of those login pages in the `authenticators.xml` and `application-authenticators.xml` files in the `<IS_HOME>/repository/conf/identity` directory.
 
 
 2.  Click **Add** under the **Service Providers** menu.
@@ -160,7 +160,7 @@ Next, let us look at the SSO configurations.
         ![](attachments/103333463/103333464.png)
         If not, only users in the current tenant domain (the one you are defining the service provider in) will be allowed to log in to the web application and you have to register new service providers for all web applications (API Store and API Publisher in this case) from each tenant space separately. For example, let's say you have three tenants as TA, TB and TC and you register the service provider in TA only. If you tick the **SaaS Application** option, all users in TA, TB, TC tenant domains will be able to log in. Otherwise, only users in TA will be able to log in.
 
-    -   Add the following inside the `             <SSOService>            ` element in the `             <IS_HOME>/repository/conf/identity/identity.xml            ` file and restart the server.
+    -   Add the following inside the `<SSOService>` element in the `<IS_HOME>/repository/conf/identity/identity.xml` file and restart the server.
 
         ``` java
                 <SSOService>
@@ -186,7 +186,7 @@ Next, let us look at the SSO configurations.
 5.  Provide the configurations to register the API Publisher as the SSO service provider. These sample values may change depending on your configuration.
 
     -   Issuer: API\_PUBLISHER
-    -   Assertion Consumer URL: `                           https://localhost:9443/publisher/jagg/jaggery_acs.jag                         ` Change the IP and port accordingly. This is the URL for the acs page in your running publisher app.
+    -   Assertion Consumer URL: `https://localhost:9443/publisher/jagg/jaggery_acs.jag` Change the IP and port accordingly. This is the URL for the acs page in your running publisher app.
     -   Select the following options:
 
         -   **Enable Response Signing**
@@ -204,7 +204,7 @@ For example:
 Similarly, provide the configurations to register the API Store as the SSO service provider. These sample values may change depending in your configuration.
 
 -   Issuer: API\_STORE
--   Assertion Consumer URL: `                           https://localhost:9443/store/jagg/jaggery_acs.jag                         ` Change the IP and port accordingly. This is the URL for the acs page in your running store app.
+-   Assertion Consumer URL: `https://localhost:9443/store/jagg/jaggery_acs.jag` Change the IP and port accordingly. This is the URL for the acs page in your running store app.
 -   Select the following options:
     -   **Enable Response Signing**
     -   **Enable Single Logout**
@@ -214,14 +214,14 @@ Similarly, provide the configurations to register the API Store as the SSO serv
 
 -   Click **Register** once done.
 
-Make sure that the `           responseSigningEnabled          ` element is set to `           true          ` in both the following files:
+Make sure that the `responseSigningEnabled` element is set to `true` in both the following files:
 
 !!! note
 This is used to sign the SAML2 Responses returned after the authentication process is complete.
 
 
--   `            <API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json           `
--   `            <API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/site.json           `
+-`<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json`
+-`<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/site.json`
 
 Add a new Identity Provider in WSO2 Identity Server. For more details on configuring external IDPs in WSO2 IS, see [Configuring an Identity Provider](https://docs.wso2.com/display/IS570/Configuring+an+Identity+Provider) .
 
@@ -242,7 +242,7 @@ Open the management console, and click **Edit** under **Service Providers.**
 Under **Local & Outbound Authentication Configuration** select **Federated Authentication** . Select the newly created external IDP.
 ![](attachments/103333463/103333472.png)
 
-Add `                       http://wso2.org/claims/role                     ` as the Claim URI under **Claim Configuration.** Select the **Mandatory Claim** check box. ** Add `                       http:/wso2.org/claims/username                     ` as the Subject Claim URI. **
+Add `http://wso2.org/claims/role` as the Claim URI under **Claim Configuration.** Select the **Mandatory Claim** check box. ** Add `http:/wso2.org/claims/username` as the Subject Claim URI. **
 ![](attachments/103333463/103333471.png)
 !!! tip
 Additionally, you might need to configure claims to map them to the available claims in WSO2 Identity Server. For more details, see [Configuring Claims for an Identity Provider](https://docs.wso2.com/display/IS570/Configuring+Claims+for+an+Identity+Provider) .
@@ -253,17 +253,17 @@ Additionally, you might need to configure claims to map them to the available cl
 
 ### Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers
 
-1.  Open the `          <API-M_Home>/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json         ` and modify the following configurations found under **ssoConfiguration** .
+1.  Open the `<API-M_Home>/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json` and modify the following configurations found under **ssoConfiguration** .
     -   **enabled** : Set this value to **true** to enable SSO in the application
     -   **issuer** : API\_PUBLISHER. This value can change depending on the **Issuer** value defined in the WSO2 IS SSO configuration above.
     -   **identityProviderURL** : <https://localhost:9444/samlsso> . Change the IP and port accordingly. This is the redirecting SSO URL in your running WSO2 IS server instance.
-    -   **keyStoreName** : The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the API Manager and then point to the API Manager keystore. The default keystore of the API Manager is `            <API-M_HOME>/repository/resources/security/wso2carbon.jks           ` . **Make sure you give the full path of the keystore here** .
+    -   **keyStoreName** : The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the API Manager and then point to the API Manager keystore. The default keystore of the API Manager is `<API-M_HOME>/repository/resources/security/wso2carbon.jks` . **Make sure you give the full path of the keystore here** .
     -   **keyStorePassword** : Password for the above keystore
     -   **identityAlias** : wso2carbon
 2.  Similarly, configure the API Store with SSO. The only difference in API Store SSO configurations is setting **API\_STORE** as the **issuer** .
 
-3.  Reduce the priority of the `           SAML2SSOAuthenticator          ` configuration in the `           <API-M_HOME>/repository/conf/security/authenticators.xml          ` file.
-    You do this as a workaround for a known issue that will be fixed in a future release. The `           SAML2SSOAuthenticator          ` handler does not process only SAML authentication requests at the moment. If you set its priority higher than that of the `           BasicAuthenticator          ` handler, the `           SAML2SSOAuthenticator          ` tries to process the basic authentication requests as well. This causes login issues in the API Publisher/Store.
+3.  Reduce the priority of the `SAML2SSOAuthenticator` configuration in the `<API-M_HOME>/repository/conf/security/authenticators.xml` file.
+    You do this as a workaround for a known issue that will be fixed in a future release. The `SAML2SSOAuthenticator` handler does not process only SAML authentication requests at the moment. If you set its priority higher than that of the `BasicAuthenticator` handler, the `SAML2SSOAuthenticator` tries to process the basic authentication requests as well. This causes login issues in the API Publisher/Store.
     ``` java
         <Authenticator name="SAML2SSOAuthenticator" disabled="false">
            <Priority>0</Priority>
@@ -274,7 +274,7 @@ Additionally, you might need to configure claims to map them to the available cl
         !!! note
         You can skip this step if you are using Identity Server 5.7.0 as the IDP.
 
-4.  Access the API Publisher (e.g., `                     https://localhost:9443/publisher                   ` ). Observe the request redirecting to the WSO2 IS SAML2.0 based SSO login page. For example,
+4.  Access the API Publisher (e.g., `https://localhost:9443/publisher` ). Observe the request redirecting to the WSO2 IS SAML2.0 based SSO login page. For example,
     ![](attachments/103333463/103333467.png)
 5.  Enter the user credentials. If the user authentication is successful against WSO2 IS, it redirects to the API Publisher with the user that is already authenticated.
 6.  Access the API Store, click its **Login** link (top, right-hand corner) and verify that the same user is already authenticated in the API Store.

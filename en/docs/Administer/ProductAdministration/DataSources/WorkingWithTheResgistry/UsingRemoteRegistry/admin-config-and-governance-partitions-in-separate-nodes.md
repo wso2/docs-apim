@@ -139,7 +139,7 @@ The above configuration is required only when caching is enabled for the Carbon 
 !!! warning
 Deprecation of -DSetup
 
-When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `          -DSetup         ` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the`           -DSetup          `option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
+When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `-DSetup` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the `-DSetup` option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
 
 
 The Governance Registry server instances are now running with all required user manager and registry tables for the server created in ‘registrydb’, ‘registrydb1’ and ‘registrydb2’ databases.
@@ -400,7 +400,7 @@ Define the registry partitions using the remote Governance Registry instance.
     -   true - The existing collection/resource in the specified location will always be deleted and overwritten with the resource/s in the remote registry instance.
     -   false - The resource/s will not be overwritten. An error will be logged if a resource exists at the existing location.
     -   virtual - If the existing location has a resource/collection, it will be preserved but virtual view of the remote registry resource/s can be viewed. The original resource/collection can be viewed once the remote registry configuration is removed.
--   target path : Path to the remote Governance Registry instance where the registry collection is mounted. In each of the mounting configurations, we specify the actual mount path and target mount path. The `          targetPath         ` can be any meaningful name.
+-   target path : Path to the remote Governance Registry instance where the registry collection is mounted. In each of the mounting configurations, we specify the actual mount path and target mount path. The `targetPath` can be any meaningful name.
 
 ***Configuring axis2.xml file***
 

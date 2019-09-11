@@ -1,6 +1,6 @@
 # admin\_Carbon Secure Vault Implementation
 
-WSO2 Carbon is shipped with a Secure Vault implementation, which is a modified version of synapse Secure Vault. This allows you to store encrypted passwords that are mapped to aliases. That is, you can use the aliases instead of the actual passwords in your configuration files for better security. For example, some configurations require the admin username and password. If the admin user password is "admin", you could use the alias `         UserManager.AdminUser.Password        ` in your configuration file. You would then map that alias to the actual password "admin". At runtime, the product will look up this alias in the secure vault and then decrypt and use its password.
+WSO2 Carbon is shipped with a Secure Vault implementation, which is a modified version of synapse Secure Vault. This allows you to store encrypted passwords that are mapped to aliases. That is, you can use the aliases instead of the actual passwords in your configuration files for better security. For example, some configurations require the admin username and password. If the admin user password is "admin", you could use the alias `UserManager.AdminUser.Password` in your configuration file. You would then map that alias to the actual password "admin". At runtime, the product will look up this alias in the secure vault and then decrypt and use its password.
 
 !!! note
 The Cipher Tool is used in WSO2 products to create encrypted values for passwords. See the following sections in the documentation for more information:
@@ -20,8 +20,8 @@ See the following topics:
 
 Some of the important elements in the secure vault implementation, which are used in Carbon products for encrypting plain text passwords are as follows:
 
--   **Secret Repository:** This is used to store the secret values (encrypted values). T he `          cipher-text.properties         ` file, located in the `          <PRODUCT_HOME>/repository/conf/security         ` folder is the default file based secret repository used by the Secret Manager in your Carbon product. Note that, currently, Secure Vault only implements file based secret repositories. The Secret Repository stores aliases vs. their actual secrets in encrypted format (encrypted via a key in keystore). Any secret repositories can be written by implementing the `          SecretRepository         ` and `          SecretRepositoryProvider         ` classes. See the topic on [customizing the Secure Vault configuration](#admin_CarbonSecureVaultImplementation-CustomizingtheSecureVaultconfiguration) .
--   **Secret Manager:** The Secret Manager initializes the Secret Repository and the keystore configured for the Carbon server. The secrets stored in the Secret Repository are accessed using the aliases indicated in the `          cipher-text.properties         ` file. The keystore is required to create the decryption crypto, which can be used to resolve encrypted secret values. The keystore and Secret Repository are configurable through the `          secret-conf.properties         ` file, which is created in the `          <PRODUCT_HOME>/repository/conf/security         ` folder when you execute the Cipher Tool.
+-   **Secret Repository:** This is used to store the secret values (encrypted values). T he `cipher-text.properties` file, located in the `<PRODUCT_HOME>/repository/conf/security` folder is the default file based secret repository used by the Secret Manager in your Carbon product. Note that, currently, Secure Vault only implements file based secret repositories. The Secret Repository stores aliases vs. their actual secrets in encrypted format (encrypted via a key in keystore). Any secret repositories can be written by implementing the `SecretRepository` and `SecretRepositoryProvider` classes. See the topic on [customizing the Secure Vault configuration](#admin_CarbonSecureVaultImplementation-CustomizingtheSecureVaultconfiguration) .
+-   **Secret Manager:** The Secret Manager initializes the Secret Repository and the keystore configured for the Carbon server. The secrets stored in the Secret Repository are accessed using the aliases indicated in the `cipher-text.properties` file. The keystore is required to create the decryption crypto, which can be used to resolve encrypted secret values. The keystore and Secret Repository are configurable through the `secret-conf.properties` file, which is created in the `<PRODUCT_HOME>/repository/conf/security` folder when you execute the Cipher Tool.
 -   **Secret Callback:** This provides the actual password for a given alias. There is a SecretManagerSecretCallbackHandler, which is combined with Secret Manager to resolve the secret. Any callback can be written by implementing the SecretCallbackHandler class. See the topic on [customizing the Secure Vault configuration](#admin_CarbonSecureVaultImplementation-CustomizingtheSecureVaultconfiguration) .
 -   **Secret Resolver:** Any configuration builder that uses secret information within its own configuration file needs to initialize the Secret Resolver when building its own configuration. The Secret Resolver keeps a list of secured elements that need to be defined in the configuration file with secret aliases. Secret Resolver initializes the Secret Callback handler class, which is defined in the configuration file.
 
@@ -57,8 +57,8 @@ Let's see how we can write a new Secret Callback Handler class to secure the use
             }
     ```
 
-3.  Create a JAR or an OSGI bundle and copy the JAR file to the `          <PRODUCT_HOME>/repository/component/lib/         ` directory or the OSGI bundle to the `          <PRODUCT_HOME>/repository/component/dropins/ directory         ` .
-4.  Configure the `           master-datasources.xml          ` file with an alias name and your Secret Callback handler class name. For example,
+3.  Create a JAR or an OSGI bundle and copy the JAR file to the `<PRODUCT_HOME>/repository/component/lib/` directory or the OSGI bundle to the `<PRODUCT_HOME>/repository/component/dropins/ directory` .
+4.  Configure the `master-datasources.xml` file with an alias name and your Secret Callback handler class name. For example,
 
     ``` java
             <datasource>
@@ -83,17 +83,17 @@ Let's see how we can write a new Secret Callback Handler class to secure the use
                     </datasource>
     ```
 
-5.  Go to `           <PRODUCT_HOME>/bin          ` and execute `           ./ciphertool.sh -Dconfigure          `
+5.  Go to `<PRODUCT_HOME>/bin` and execute `./ciphertool.sh -Dconfigure`
 
-6.  Replace the values of two the properties `           keystore.identity.store.secretProvider          ` and `           keystore.identity.key.secretProvider          ` in `           <PRODUCT_HOME>/repository/conf/security/secret-conf.properties          ` file with your Secret Callback handler class name.
+6.  Replace the values of two the properties `keystore.identity.store.secretProvider` and `keystore.identity.key.secretProvider` in `<PRODUCT_HOME>/repository/conf/security/secret-conf.properties` file with your Secret Callback handler class name.
 
 7.  Restart the server.
 
 #### Creating a custom Secret Repository
 
-To create a custom secret repository, you need to implement the `             SecretRepository            ` and `             SecretRepositoryProvider            ` interfaces:
+To create a custom secret repository, you need to implement the `SecretRepository` and `SecretRepositoryProvider` interfaces:
 
-1.  Create your custom secret repository by implementing the `                   org.wso2.securevault.secret.SecretRepository                  ` interface:
+1.  Create your custom secret repository by implementing the `org.wso2.securevault.secret.SecretRepository` interface:
 
     ``` java
             public class CustomSecretRepositoryImpl extends SecretRepository {
@@ -113,7 +113,7 @@ To create a custom secret repository, you need to implement the `             Se
             } 
     ```
 
-2.  Then you need to implement the `                   org.wso2.securevault.secret.SecretRepositoryProvider                  ` class as shown below. This class returns an instance of the custom `                   SecretRepository                  ` that you implemented above.
+2.  Then you need to implement the `org.wso2.securevault.secret.SecretRepositoryProvider` class as shown below. This class returns an instance of the custom `SecretRepository` that you implemented above.
 
     ``` java
             public class CustomSecretRepositoryProvider implements SecretRepositoryProvider {
@@ -126,8 +126,8 @@ To create a custom secret repository, you need to implement the `             Se
 
 3.  Create a JAR or an OSGI bundle.
 
-4.  Then, copy the JAR file to the `               <PRODUCT_HOME>/repository/component/lib/              ` directory or the OSGI bundle to the `               <PRODUCT_HOME>/repository/component/              ` dropins `               /              ` directory .
+4.  Then, copy the JAR file to the `<PRODUCT_HOME>/repository/component/lib/` directory or the OSGI bundle to the `<PRODUCT_HOME>/repository/component/` dropins `/` directory .
 
-5.  Replace the `                   secretRepositories.file.provider                  ` entry in the `                   secret-conf.properties                  ` file (stored in the `                   <PRODUCT_HOME>/repository/conf/security/                  ` directory) with your secret repository class name.
+5.  Replace the `secretRepositories.file.provider` entry in the `secret-conf.properties` file (stored in the `<PRODUCT_HOME>/repository/conf/security/` directory) with your secret repository class name.
 
 

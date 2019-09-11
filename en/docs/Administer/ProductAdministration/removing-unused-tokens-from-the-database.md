@@ -15,7 +15,7 @@ WSO2 API Manager triggers token cleanup during the following instances.
 -   Token refresh
 -   Token revocation
 
-To enable token cleanup, open the `         <API-M_HOME>/repository/conf/identity/identity.xml        ` file and do the following changes.
+To enable token cleanup, open the `<API-M_HOME>/repository/conf/identity/identity.xml` file and do the following changes.
 
 ``` java
     <!-- token cleanup feature config-->
@@ -27,14 +27,10 @@ To enable token cleanup, open the `         <API-M_HOME>/repository/conf/identit
     </TokenCleanup>
 ```
 
-| Property                                          | Description                                                                                                  |
-|---------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| `             <EnableTokenCleanup>            `   | Set this property to **true** to enable token cleanup.                                                       
-                                                                                                                
-  Set it to **false** to disable token cleanup.                                                                 |
-| `             <RetainOldAccessToken>            ` | Set this property to true to move the old, invalid tokens to the Audit table when token cleaning is enabled. 
-                                                                                                                
-  Set it to false if you do not wish to store old tokens in the Audit table.                                    |
+| Property                 | Description                                                                                                                                                                              |
+|--------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<EnableTokenCleanup>`   | Set this property to **true** to enable token cleanup. Set it to **false** to disable token cleanup.                                                                                     |                                                                                                                                  
+| `<RetainOldAccessToken>` | Set this property to true to move the old, invalid tokens to the Audit table when token cleaning is enabled.Set it to false if you do not wish to store old tokens in the Audit table.   |
 
 ### Using stored procedures for token cleanup
 
@@ -90,6 +86,6 @@ Alternatively, you can also use the stored procedures provided below, to run a t
         GO
     ```
 
-    Replace `           WSO2AM_DB          ` with the name of your API Manager database in the above script.
+    Replace `WSO2AM_DB` with the name of your API Manager database in the above script.
 
 

@@ -10,7 +10,7 @@ Data indexed and stored in databases may need to be reindexed due to the followi
 To reindex existing data, follow the steps below:
 
 1.  Shut down API-M Analytics.
-2.  Remove all the index data stored in the `          <API-M_ANALYTICS_HOME>/repository/data         ` directory.
-3.  In the `          <API-M_ANALYTICS_HOME>/repository/conf/analytics/local-shard-allocation-config.conf         ` file, change the mode for all the shards from `          NORMAL         ` to `          INIT         ` .
+2.  Remove all the index data stored in the `<API-M_ANALYTICS_HOME>/repository/data` directory.
+3.  In the `<API-M_ANALYTICS_HOME>/repository/conf/analytics/local-shard-allocation-config.conf` file, change the mode for all the shards from `NORMAL` to `INIT` .
 4.  Restart API-M Analytics.
 

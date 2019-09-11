@@ -8,15 +8,15 @@ It is possible to create a Microgateway distribution for a group of APIs. In or
 
 #### Creating and attaching a Microgateway to an API
 
-1.  Log in to the Admin portal ( `           https://<hostname>:9443/admin          ` ). Use `           admin          ` as the username and password.
+1.  Log in to the Admin portal ( `https://<hostname>:9443/admin` ). Use `admin` as the username and password.
 
 2.  To add a new Microgateway label, click **LABELS** under **MICROGATEWAY** , and then click **ADD MICROGATEWAY** .
     ![](attachments/103333763/103333764.png)
-3.  Create a new label (e.g. MARKETING\_STORE), add a host (e.g. `                       https://localhost:9095                     ` ) and click **Save.**
+3.  Create a new label (e.g. MARKETING\_STORE), add a host (e.g. `https://localhost:9095` ) and click **Save.**
 
     ![](attachments/103333763/103333765.png)
 
-4.  Navigate to the API Publisher ( `          https://<hostname>:9443/publisher         ` ). Sign in using `          admin         ` as the username and password.
+4.  Navigate to the API Publisher ( `https://<hostname>:9443/publisher` ). Sign in using `admin` as the username and password.
 5.  Deploy the sample Pizzashack API by clicking **Deploy Sample API** if you have not already done.
 6.  Choose to edit the created Pizzashack API.
 
@@ -51,13 +51,13 @@ It is possible to create a Microgateway distribution for a group of APIs. In or
 
     Once the above command is executed, the generated source files are built and a Microgateway distribution is created under the **target** folder.
 
-3.  Next, unzip the `           micro-gw-marketing          ` `           -project.zip          ` and run the `           gateway          ` shell script inside the **bin** folder of the extracted zip using the following command:
+3.  Next, unzip the `micro-gw-marketing-project.zip` and run the `gateway` shell script inside the **bin** folder of the extracted zip using the following command:
 
     ``` java
             bash gateway 
     ```
 
-    The Microgateway starts for the APIs grouped with `           MARKETING_STORE          ` label you just created.
+    The Microgateway starts for the APIs grouped with `MARKETING_STORE` label you just created.
 
     ``` java
             micro-gw-marketing-project/bin$ bash gateway
@@ -70,7 +70,7 @@ It is possible to create a Microgateway distribution for a group of APIs. In or
     ```
 #### Viewing Microgateway labels in the API Store
 
-1.  Log in to the API Store ( `          https://<hostname>:9443/store         ` ). Use `          admin         ` as the username and password.
+1.  Log in to the API Store ( `https://<hostname>:9443/store` ). Use `admin` as the username and password.
 2.  Any attached Microgateways are shown in the **Overview** tab of the API.
 
     ![](attachments/103333763/103333768.png)

@@ -30,14 +30,14 @@ This section explains how to secure your backend by enabling mutual SSL between 
              keytool -import -file backend.crt -alias backend -keystore <APIM_HOME>/repository/resources/security/client-truststore.jks
     ```
 
-4.  Export the public certificate from API Manager's keystore. The `           <APIM_HOME>/repository/resources/security/wso2carbon.jks          ` file which is the default keystore shipped with WSO2 API Manager is used in this example. Use the command below to generate the certificate for the default keystore. Give the default passoword `           wso2carbon          ` when prompted.
+4.  Export the public certificate from API Manager's keystore. The `<APIM_HOME>/repository/resources/security/wso2carbon.jks` file which is the default keystore shipped with WSO2 API Manager is used in this example. Use the command below to generate the certificate for the default keystore. Give the default passoword `wso2carbon` when prompted.
 
     ``` java
             keytool -export -keystore wso2carbon.jks -alias wso2carbon -file wso2PubCert.cert
     ```
 
         !!! info
-    To change the default keystore, generate a keystore file and copy it to the `           <APIM_HOME>/repository/resources/security          ` folder. After copying the keystore, generate the certificate as shown in step 2.
+    To change the default keystore, generate a keystore file and copy it to the `<APIM_HOME>/repository/resources/security` folder. After copying the keystore, generate the certificate as shown in step 2.
 
 
 5.  Import the generated certificate to your backend truststore.
@@ -50,7 +50,7 @@ You have now successfully exported the certificates for mutual SSL.
 
 ### Configure API Manager to enable dynamic SSL profiles
 
-To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need to create a new XML file `         <APIM_HOME>/repository/deployment/server/multi_ssl_profiles.xml        ` (this path is configurable) and copy the below configuration into it. This will configure client-truststore.jks as Trust Store for all connections to &lt;localhost:port&gt; .
+To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need to create a new XML file `<APIM_HOME>/repository/deployment/server/multi_ssl_profiles.xml` (this path is configurable) and copy the below configuration into it. This will configure client-truststore.jks as Trust Store for all connections to &lt;localhost:port&gt; .
 
 ``` java
     <parameter name="customSSLProfiles">
@@ -82,7 +82,7 @@ To configure APIM for Dynamic SSL Profiles for HTTPS transport Sender, you need 
 </profile>
 </parameter>
 ```
-To enable dynamic loading of this configuration, add below configurations to the Transport Sender configuration ( `         PassThroughHttpSSLSender        ` ) of API Manager ( `         <APIM_HOME>/repository/conf/axis2.xml        ` ) . Set above file’s path as the `         filePath        ` parameter.
+To enable dynamic loading of this configuration, add below configurations to the Transport Sender configuration ( `PassThroughHttpSSLSender` ) of API Manager ( `<APIM_HOME>/repository/conf/axis2.xml` ) . Set above file’s path as the `filePath` parameter.
 
 ``` java
     <parameter name="dynamicSSLProfilesConfig">  

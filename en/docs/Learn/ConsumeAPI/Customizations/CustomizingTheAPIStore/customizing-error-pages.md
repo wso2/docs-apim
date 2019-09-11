@@ -4,19 +4,19 @@ In API Manager store/publisher and admin webapps, **jaggery.conf** is the Jagger
 
 |                                                                                                                                                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `                 "errorPages"                ` `                 :                `                                                                                                                        
+| `"errorPages":`
                                                                                                                                                                                                               
- `                ` `                 {                `                                                                                                                                                      
+ `{`
                                                                                                                                                                                                               
- `                ` `                 "401"                ` `                 :                ` `                 "/site/pages/error-pages/401.html"                ` `                 ,                `  
+ `"401":"/site/pages/error-pages/401.html",`
                                                                                                                                                                                                               
- `                ` `                 "403"                ` `                 :                ` `                 "/site/pages/error-pages/403.html"                ` `                 ,                `  
+ `"403":"/site/pages/error-pages/403.html",`
                                                                                                                                                                                                               
- `                ` `                 "404"                ` `                 :                ` `                 "/site/pages/error-pages/404.html"                ` `                 ,                `  
+ `"404":"/site/pages/error-pages/404.html",`
                                                                                                                                                                                                               
- `                ` `                 "500"                ` `                 :                ` `                 "/site/pages/error-pages/500.html"                `                                       
+ `"500":"/site/pages/error-pages/500.html"`
                                                                                                                                                                                                               
- `                ` `                 }                `                                                                                                                                                      |
+ `}`|
 
 If such a specified error occurs due to an operation or page redirection inthe web application, it redirects to the specified html page. As an example, if you request for <https://localhost:9443/store/site/conf.site.json,> it gives a 403 response, it serves the html page site/pages/error-pages/403.html specified above.
 

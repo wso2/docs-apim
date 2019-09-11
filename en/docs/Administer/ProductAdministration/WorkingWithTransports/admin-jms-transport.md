@@ -1,17 +1,17 @@
 # admin\_JMS Transport
 
-JMS (Java Message Service) transport implementation also comes from the WS-Commons Transports project. All the relevant classes are packed into the `         axis2-transport-jms-<version>.jar        ` and the following classes act as the transport receiver and the sender respectively.
+JMS (Java Message Service) transport implementation also comes from the WS-Commons Transports project. All the relevant classes are packed into the `axis2-transport-jms-<version>.jar` and the following classes act as the transport receiver and the sender respectively.
 
--   `          org.apache.axis2.transport.jms.JMSListener         `
--   `          org.apache.axis2.transport.jms.JMSSender         `
+-`org.apache.axis2.transport.jms.JMSListener`
+-`org.apache.axis2.transport.jms.JMSSender`
 
 The JMS transport implementation requires an active JMS server instance to be able to receive and send messages. We recommend using Apache ActiveMQ JMS server, but other implementations such as Apache Qpid and Tibco are also supported. You also need to put the client JARs for your JMS server in Carbon classpath. In case of Apache ActiveMQ, you need to put the following JARs in the classpath:
 
--   `          activemq-core.jar         `
--   `          geronimo-j2ee-management_1.0_spec-1.0.jar         `
--   `          geronimo-jms_1.1_spec-1.1.1.jar         `
+-`activemq-core.jar`
+-`geronimo-j2ee-management_1.0_spec-1.0.jar`
+-`geronimo-jms_1.1_spec-1.1.1.jar`
 
-These JAR files can be obtained by downloading the latest version of Apache ActiveMQ (version 5.2.0 is recommended). Extract the downloaded archive and find the required dependencies in the `         $ACTIVEMQ_HOME/lib        ` directory. You need to copy these JAR files over to `         $CARBON_HOME/repository/components/lib        ` directory for Carbon to be able to pick them up at run-time.
+These JAR files can be obtained by downloading the latest version of Apache ActiveMQ (version 5.2.0 is recommended). Extract the downloaded archive and find the required dependencies in the `$ACTIVEMQ_HOME/lib` directory. You need to copy these JAR files over to `$CARBON_HOME/repository/components/lib` directory for Carbon to be able to pick them up at run-time.
 
 Configuration parameters for JMS receiver and the sender are XML fragments that represent JMS connection factories. A typical JMS parameter configuration would look like this:
 

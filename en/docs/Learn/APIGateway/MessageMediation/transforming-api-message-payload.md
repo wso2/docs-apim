@@ -9,7 +9,7 @@ When a message comes in to the API Gateway, the receiving transport selects a **
 -   [Converting a payload between XML and JSON](#TransformingAPIMessagePayload-ConvertingapayloadbetweenXMLandJSON)
 
 !!! tip
-Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's synapse configuration directly. The recommended way to extend an API's mediation flow is by [engaging `          In         ` / `          Out         ` sequences](https://docs.wso2.com/display/AM260/Change+the+Default+Mediation+Flow+of+API+Requests) .
+Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's synapse configuration directly. The recommended way to extend an API's mediation flow is by [engaging `In` / `Out` sequences](https://docs.wso2.com/display/AM260/Change+the+Default+Mediation+Flow+of+API+Requests) .
 
 
 Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to implement the API Gateway through which API messages are transformed:
@@ -23,35 +23,35 @@ Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to
 
 There are two types of message builders and formatters for JSON. The default builder and formatter keep the JSON representation intact without converting it to XML. You can access the payload content using the JSON Path or XPath and convert the payload to XML at any point in the mediation flow.
 
--   `           org.apache.synapse.commons.json.JsonStreamBuilder          `
+-`org.apache.synapse.commons.json.JsonStreamBuilder`
 
--   `           org.apache.synapse.commons.json.JsonStreamFormatter          `
+-`org.apache.synapse.commons.json.JsonStreamFormatter`
 
 If you want to convert the JSON representation to XML before the mediation flow begins, use the following builder and formatter instead. Note that some data loss can occur during the JSON -&gt; XML -&gt; JSON conversion process.
 
--   `           org.apache.synapse.commons.json.JsonBuilder          `
+-`org.apache.synapse.commons.json.JsonBuilder`
 
--   `           org.apache.synapse.commons.json.JsonFormatter          `
+-`org.apache.synapse.commons.json.JsonFormatter`
 
-The builders and formatters are configured respectively in the `         messageBuilders        ` and `         messageFormatters        ` sections of the Axis2 configuration files located in the `         <PRODUCT_HOME>/repository/conf/axis2        ` directory. Both types of JSON builders use [StAXON](https://github.com/beckchr/staxon) as the underlying JSON processor.
+The builders and formatters are configured respectively in the `messageBuilders` and `messageFormatters` sections of the Axis2 configuration files located in the `<PRODUCT_HOME>/repository/conf/axis2` directory. Both types of JSON builders use [StAXON](https://github.com/beckchr/staxon) as the underlying JSON processor.
 
 The following builders and formatters are also included for compatibility with older API Manager versions:
 
--   `          org.apache.axis2.json.JSONBuilder/JSONMessageFormatter         `
--   `           org.apache.synapse.commons.json.JsonStreamBuilder/JSONStreamFormatter          `
+-`org.apache.axis2.json.JSONBuilder/JSONMessageFormatter`
+-`org.apache.synapse.commons.json.JsonStreamBuilder/JSONStreamFormatter`
 
--   `           org.apache.axis2.json.JSONBadgerfishOMBuilder/JSONBadgerfishMessageFormatter          `
+-`org.apache.axis2.json.JSONBadgerfishOMBuilder/JSONBadgerfishMessageFormatter`
 
 !!! note
 Always use the same type of builder and formatter combination. Mixing different builders and formatters will cause errors at runtime.
 
 
-If you want to handle JSON payloads that are sent using a media type other than `         application/json        ` , you must register the JSON builder and formatter for that media type in the following two files at minimum (for best results, register them in all Axis2 configuration files found in the `         <PRODUCT_HOME>/repository/conf/axis2        ` directory):
+If you want to handle JSON payloads that are sent using a media type other than `application/json` , you must register the JSON builder and formatter for that media type in the following two files at minimum (for best results, register them in all Axis2 configuration files found in the `<PRODUCT_HOME>/repository/conf/axis2` directory):
 
--   `          <                     PRODUCT          ` \_HOME&gt;/repository/conf/axis2/axis2.xml
--   `          <                     PRODUCT          ` \_HOME&gt;/repository/conf/axis2/axis2\_blocking\_client.xml
+-`<PRODUCT` \_HOME&gt;/repository/conf/axis2/axis2.xml
+-`<PRODUCT` \_HOME&gt;/repository/conf/axis2/axis2\_blocking\_client.xml
 
-For example, if the media type is `         text/javascript        ` , register the message builder and formatter as follows:
+For example, if the media type is `text/javascript` , register the message builder and formatter as follows:
 
 ``` html/xml
     <messageBuilder contentType="text/javascript" 
@@ -60,7 +60,7 @@ For example, if the media type is `         text/javascript        ` , register 
                 class="org.apache.synapse.commons.json.JsonStreamFormatter"/> 
 ```
 !!! tip
-To support having spaces inside JSON attributes, change the default JSON builder and formatter to the following pair in either `         <API-M_HOME>/repository/conf/axis2/axis2.xml        ` (super tenant scenario) or `         <API-M_HOME>/repository/conf/axis2/tenant-axis2.xml        ` (tenant scenario) file:
+To support having spaces inside JSON attributes, change the default JSON builder and formatter to the following pair in either `<API-M_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or `<API-M_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
 
 ``` java
     <messageBuilder contentType="application/json" class="org.apache.synapse.commons.json.JsonStreamBuilder>
@@ -68,7 +68,7 @@ To support having spaces inside JSON attributes, change the default JSON builder
 ```
 
 !!! tip
-To support use cases for JSON payloads with arrays, change the default JSON builder and formatter to the following pair in either `         <API-M_HOME>        ` `         /repository/conf/axis2/axis2.xml        ` (super tenant scenario) or `         <API-M_HOME>/repository/conf/axis2/tenant-axis2.xml        ` (tenant scenario) file:
+To support use cases for JSON payloads with arrays, change the default JSON builder and formatter to the following pair in either `<API-M_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or `<API-M_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
 
 ``` java
     <messageBuilder contentType="application/json" class="org.apache.synapse.commons.json.JsonStreamBuilder>
@@ -104,7 +104,7 @@ When you modify the builders/formatters in Axis2 configuration, make sure that y
 
 ### XML representation of JSON payloads
 
-When building the XML tree, JSON builders attach the converted XML infoset to a special XML element that acts as the root element of the final XML tree. If the original JSON payload is of type `         object        ` , the special element is `         <jsonObject/>        ` . If it is an `         array        ` , the special element is `         <jsonArray/>        ` . Following are examples of JSON and XML representations of various objects and arrays.
+When building the XML tree, JSON builders attach the converted XML infoset to a special XML element that acts as the root element of the final XML tree. If the original JSON payload is of type `object` , the special element is `<jsonObject/>` . If it is an `array` , the special element is `<jsonArray/>` . Following are examples of JSON and XML representations of various objects and arrays.
 
 ##### Null objects
 
@@ -283,11 +283,11 @@ XML (JsonBuilder):
 
 ##### XML processing instructions (PIs)
 
-Note that the addition of `         xml-multiple        ` processing instructions to the XML payloads whose JSON representations contain arrays. `         JsonBuilder        ` (via StAXON) adds these instructions to the XML payload that it builds during the JSON to XML conversion so that during the XML to JSON conversion, `         JsonFormatter        ` can reconstruct the arrays that are present in the original JSON payload. `         JsonFormatter        ` interprets the elements immediately following a processing instruction to construct an array.
+Note that the addition of `xml-multiple` processing instructions to the XML payloads whose JSON representations contain arrays. `JsonBuilder` (via StAXON) adds these instructions to the XML payload that it builds during the JSON to XML conversion so that during the XML to JSON conversion, `JsonFormatter` can reconstruct the arrays that are present in the original JSON payload. `JsonFormatter` interprets the elements immediately following a processing instruction to construct an array.
 
 ##### Special characters
 
-When building XML elements,  the ‘$’ character and digits are handled in a special manner when they appear as the first character of a JSON key. Following are examples of two such occurrences. Note the addition of the `         _JsonReader_PS_        ` and `         _JsonReader_PD_        ` prefixes in place of the ‘$’ and digit characters, respectively.
+When building XML elements,  the ‘$’ character and digits are handled in a special manner when they appear as the first character of a JSON key. Following are examples of two such occurrences. Note the addition of the `_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the ‘$’ and digit characters, respectively.
 
 JSON:
 
@@ -319,7 +319,7 @@ XML:
 
 ### Converting a payload between XML and JSON
 
-To convert an XML payload to JSON, set the `         messageType        ` property to `         application/json        ` in the axis2 scope before sending message to an endpoint. Similarly, to convert a JSON payload to XML, set the `         messageType        ` property to `         application/xml        ` or `         text/xml        ` . For example:
+To convert an XML payload to JSON, set the `messageType` property to `application/json` in the axis2 scope before sending message to an endpoint. Similarly, to convert a JSON payload to XML, set the `messageType` property to `application/xml` or `text/xml` . For example:
 
 ``` html/xml
      <api name="admin--TOJSON" context="/tojson" version="1.0" version-type="url">

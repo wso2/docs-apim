@@ -8,7 +8,7 @@ The log files can be retrieved in two ways:
 -   If syslog-ng is not configured, log files are taken from the local file system (super-tenant or Stand-alone apps).
 
 !!! info
-The location of the log files on disk is specified in the `         log4j.configuration        ` file.
+The location of the log files on disk is specified in the `log4j.configuration` file.
 
 !!! info
 The log messages displayed on this page are obtained from a memory appender. Therefore, the severity (log level) of the displayed log messages are equal to or higher than the threshold of the memory appender. For more information on appenders, loggers, their log levels and logging, go to [http://logging.apache.org/log4j](http://logging.apache.org/log4j/) .
@@ -29,7 +29,7 @@ The **System Logs** page on the management console displays all events of a runn
 
     ![](attachments/32351462/32525350.png)
 
-    The **Download** link can be used to download the log files. For example, if the server is configured to use the [default log provider](https://docs.wso2.com/display/ADMIN44x/Configuring+the+Log+Provider) , the "wso2carbon.log" file stored in the `           <PRODUCT_HOME>/repository/logs/          ` directory can be downloaded.
+    The **Download** link can be used to download the log files. For example, if the server is configured to use the [default log provider](https://docs.wso2.com/display/ADMIN44x/Configuring+the+Log+Provider) , the "wso2carbon.log" file stored in the `<PRODUCT_HOME>/repository/logs/` directory can be downloaded.
 
 3.  In the **View** list, select the category of logs you want to view. The available categories are:
 

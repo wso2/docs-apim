@@ -20,7 +20,7 @@ Follow the steps below to set up a PostgreSQL database.
 7.  To create a login role, click **Login Roles** in the tree (inside the object browser), and click **New Login Role** . Enter the role name and a password.
 
         !!! info
-    These values will be used in the product configurations as described in the following sections. In the sample configuration, `           gregadmin          ` will be used as both the role name and the password.
+    These values will be used in the product configurations as described in the following sections. In the sample configuration, `gregadmin` will be used as both the role name and the password.
 
 
 8.  Optionally, enter other policies, such as the expiration time for the login and the connection limit.
@@ -29,10 +29,10 @@ Follow the steps below to set up a PostgreSQL database.
 ### Setting up the drivers
 
 1.  Download the [PostgreSQL JDBC4 driver](http://jdbc.postgresql.org/download.html) .
-2.  Copy the driver to your WSO2 product's &lt; `           PRODUCT_HOME>/repository/components/lib          ` directory.
+2.  Copy the driver to your WSO2 product's &lt; `PRODUCT_HOME>/repository/components/lib` directory.
 
         !!! note
-    For **WSO2 IoT Server** you need to copy the driver to the `           <IOTS_HOME>/lib          ` directory.
+    For **WSO2 IoT Server** you need to copy the driver to the `<IOTS_HOME>/lib` directory.
 
 
 ## What's next

@@ -1,10 +1,10 @@
 # Enabling Notifications
 
-You can enable notifications at the creation of new API versions in order to notify existing subscribers (via email) that a new version of the API is available. If you want to send a different type of notification, you can extend the `         org.wso2.carbon.apimgt.impl.notification.Notifier        ` abstract class on your own accordingly.
+You can enable notifications at the creation of new API versions in order to notify existing subscribers (via email) that a new version of the API is available. If you want to send a different type of notification, you can extend the `org.wso2.carbon.apimgt.impl.notification.Notifier` abstract class on your own accordingly.
 
 Follow the instructions below to enable notifications for new API versions:
 
-1.  Set the email server configurations in the `           <API-M_HOME>          ` / `           repository/conf/output-event-adapters.xml          ` file under the `           <adapterConfig type="email">          ` section.
+1.  Set the email server configurations in the `<API-M_HOME>` / `repository/conf/output-event-adapters.xml` file under the `<adapterConfig type="email">` section.
 
     ``` java
          <adapterConfig type="email">
@@ -28,12 +28,12 @@ Follow the instructions below to enable notifications for new API versions:
     | Property               | Description                                                                                                               |
     |------------------------|---------------------------------------------------------------------------------------------------------------------------|
     | mail.smtp.from         | The email address you use to send emails                                                                                  |
-    | mail.smtp.user         | The email address used to authenticate the mail server. This can be same as `               mail.smtp.from              ` |
+    | mail.smtp.user         | The email address used to authenticate the mail server. This can be same as `mail.smtp.from` |
     | mail.smtp.password     | Password used to authenticate the mail server.                                                                            |
 
 2.  Log in to the Management Console and click **Main &gt; Resource &gt; Browse** .
-3.  Browse to the `          /_system/          config          /          apimgt          /          applicationdata          /         ` `          tenant-conf.json         ` file and click **Edit as Text** .
-4.  Set the `           NotificationsEnabled          ` property to true as shown below:
+3.  Browse to the `/_system/          config          /          apimgt          /          applicationdata          /tenant-conf.json` file and click **Edit as Text** .
+4.  Set the `NotificationsEnabled` property to true as shown below:
 
     ``` java
             "NotificationsEnabled":"true",
@@ -48,7 +48,7 @@ Follow the instructions below to enable notifications for new API versions:
       }
       ]
     ```
-    A notification type can have multiple notifier classes that help send multiple notifications. In this case, notification sends via EMail but it could be SMS notification. Each notifier has a class attribute containing the full class path. The following properties should be set for the default `           NewAPIVersionEmailNotifier          ` class:
+    A notification type can have multiple notifier classes that help send multiple notifications. In this case, notification sends via EMail but it could be SMS notification. Each notifier has a class attribute containing the full class path. The following properties should be set for the default `NewAPIVersionEmailNotifier` class:
 
     <table>
     <thead>
@@ -83,7 +83,7 @@ Follow the instructions below to enable notifications for new API versions:
     </tbody>
     </table>
 
-    The following strings are replaced with API specific values in the `           Title          ` and `           Template          ` properties.
+    The following strings are replaced with API specific values in the `Title` and `Template` properties.
 
     $1 - API name
 

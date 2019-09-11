@@ -6,9 +6,9 @@ If you have a backend with a self-signed certificate (or a certificate which is 
 
 1.  Ensure that you have downloaded the latest WUM update. For more details, see [Updating WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products) in the WSO2 Administration Guide.
 2.  If you are an existing user, follow the instructions given below.
-    1.  Run the scripts inside the `             <API-M_HOME>/dbscripts/apimgt            ` directory, according to your preferred database. For instructions on configuring databases, see [Set up the database](https://docs.wso2.com/display/AM260/Changing+the+Default+API-M+Databases#ChangingtheDefaultAPI-MDatabases-Step1-Setupthedatabase) . Verify that the table `             AM_CERTIFICATE_METADATA            ` has been created in your database.
+    1.  Run the scripts inside the `<API-M_HOME>/dbscripts/apimgt` directory, according to your preferred database. For instructions on configuring databases, see [Set up the database](https://docs.wso2.com/display/AM260/Changing+the+Default+API-M+Databases#ChangingtheDefaultAPI-MDatabases-Step1-Setupthedatabase) . Verify that the table `AM_CERTIFICATE_METADATA` has been created in your database.
 
-    2.  The configurations for the `             PassThroughHTTPSSLSender            ` parameter is available by default in the `             <API-M_HOME>/repository/conf/axis2/axis2.xml            ` file as shown below.
+    2.  The configurations for the `PassThroughHTTPSSLSender` parameter is available by default in the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file as shown below.
 
         ``` java
                 <transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">
@@ -25,22 +25,22 @@ If you have a backend with a self-signed certificate (or a certificate which is 
         ```
 
                 !!! note
-        The default time to apply the certificate is 10 minutes. You can configure this by changing the `             <fileReadInterval>            ` parameter. Note that the time is given in milliseconds.
+        The default time to apply the certificate is 10 minutes. You can configure this by changing the `<fileReadInterval>` parameter. Note that the time is given in milliseconds.
 
 
-    3.  If you use a different Trust Store/ Keystore configuration in the `             axis2.xml            ` or `             carbon.xml            ` files ,modify the KeyStore and TrustStore location in `             <API-M_HOME>/repository/resources/security/sslprofiles.xml            ` file accordingly. The `             sslprofiles.xml            ` file is configured with the existing client-truststore.jks
+    3.  If you use a different Trust Store/ Keystore configuration in the `axis2.xml` or `carbon.xml` files ,modify the KeyStore and TrustStore location in `<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly. The `sslprofiles.xml` file is configured with the existing client-truststore.jks
 
 !!! note
 This feature currently supports only the following formats for keystores and certificates.
 
--   Keystore : `           .jks          `
--   Certificate : `           .crt          `
+-   Keystore : `.jks          `
+-   Certificate : `.crt          `
 
 If you need to use a certificate in any other format, you can convert it using a standard tool before uploading.
 
 
 !!! info
-After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `         api-manager.xml        ` . In a clustered setup, as gateway configurations are identical, sync the `         <API-M_HOME>/repository/resources/security/sslprofiles.xml        ` and `         <API-M_HOME>/repository/resources/security/client-truststore.jks        ` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
+After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `api-manager.xml` . In a clustered setup, as gateway configurations are identical, sync the `<API-M_HOME>/repository/resources/security/sslprofiles.xml` and `<API-M_HOME>/repository/resources/security/client-truststore.jks` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
 
 
 ### 

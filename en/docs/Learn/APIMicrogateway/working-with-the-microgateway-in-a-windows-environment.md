@@ -31,10 +31,10 @@ Follow the steps below run a WSO2 API Manager Microgateway instance in a Window
 
 #### Step 1 - Set up JAVA\_HOME
 
-You need to set up `         JAVA_HOME        ` in order to run the Microgateway CLI tool.
+You need to set up `JAVA_HOME` in order to run the Microgateway CLI tool.
 
 1.  Install the Oracle Java 1.8 or higher version.
-2.  Set the `          JAVA_HOME         ` environment variable as a user variable via the edit system properties UI.
+2.  Set the `JAVA_HOME` environment variable as a user variable via the edit system properties UI.
     ![](attachments/103333781/103333794.png)
 #### Step 2 - Set up a Microgateway project
 
@@ -53,20 +53,20 @@ You need to set up `         JAVA_HOME        ` in order to run the Microgateway
 
 4.  Set up the Microgateway CLI tool.
     Add the Microgateway executable location to the path variable.
-    1.  [Download the Microgateway](https://wso2.com/api-management/api-microgateway/) ( `             wso2am-micro-gw-toolkit-x.x.x.zip            ` ).
-    2.  Unzip the downloaded ZIP file to a location of your choice (e.g., `             C:\Program Files\wso2\micro gateway cli\            ` ).
-    3.  Copy the path to the Microgateway `             bin            ` folder ( `             <path-to-wso2am-micro-gw-toolkit>\bin            ` ).
+    1.  [Download the Microgateway](https://wso2.com/api-management/api-microgateway/) ( `wso2am-micro-gw-toolkit-x.x.x.zip` ).
+    2.  Unzip the downloaded ZIP file to a location of your choice (e.g., `C:\Program Files\wso2\micro gateway cli\` ).
+    3.  Copy the path to the Microgateway `bin` folder ( `<path-to-wso2am-micro-gw-toolkit>\bin` ).
     4.  Click **Edit the system preferences** .
         ![](attachments/103333781/103333782.png)    5.  Navigate to the **Advanced** tab and click **Environment Variables** .
         ![](attachments/103333781/103333783.png)    6.  Navigate to the path system variable and click **Edit** .
-        ![](attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `              bin             ` folder that you copied previously and click **OK** three times to save the newly added system variable.
+        ![](attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `bin` folder that you copied previously and click **OK** three times to save the newly added system variable.
         ![](attachments/103333781/103333786.png)
                 !!! info
-        As you have added the Microgateway `              \bin             ` directory path to the system variables, you can invoke the Microgateway command from any directory in the system.
+        As you have added the Microgateway `\bin` directory path to the system variables, you can invoke the Microgateway command from any directory in the system.
 
 
 5.  Initialize the Microgateway project.
-    1.  Open the Microsoft command line ( `             cmd.exe            ` ).
+    1.  Open the Microsoft command line ( `cmd.exe` ).
     2.  Change the location to where you want to set up the Microgateway project.
 
         ``` java
@@ -118,12 +118,12 @@ You need to set up `         JAVA_HOME        ` in order to run the Microgateway
         micro-gw build <project-name>
     ```
 
-    After running the build command, you can find the Microgateway distribution ( `            micro-gw-<project-name>.zip           ` ) specifically designed for the given Microgateway label or the respective API version in the `            <project-name>\target           ` directory.
+    After running the build command, you can find the Microgateway distribution ( `micro-gw-<project-name>.zip` ) specifically designed for the given Microgateway label or the respective API version in the `<project-name>\target` directory.
 
 #### Step 4 - Run the Microgateway
 
-1.  Copy the &lt; `          micro-gw-project-name>.zip         ` file from the `          <project-name>\target         ` directory and extract the files to where you want to run the Microgateway.
-2.  Navigate to the &lt; `           micro-gw-project-name>/bin          ` directory.
+1.  Copy the &lt; `micro-gw-project-name>.zip` file from the `<project-name>\target` directory and extract the files to where you want to run the Microgateway.
+2.  Navigate to the &lt; `micro-gw-project-name>/bin` directory.
 
     ``` java
             cd <micro-gw-project-name>/bin
@@ -148,7 +148,7 @@ You need to set up `         JAVA_HOME        ` in order to run the Microgateway
 You need to set up Java in order to run the Microgateway CLI tool.
 
 1.  Install Oracle Java 1.8 or later.
-2.  Set the `          JAVA_HOME         ` environment variable as a server variable via the edit system properties UI.
+2.  Set the `JAVA_HOME` environment variable as a server variable via the edit system properties UI.
     ![](attachments/103333781/103333795.png)
 #### Step 2 - Set up a Microgateway project
 
@@ -167,20 +167,20 @@ You need to set up Java in order to run the Microgateway CLI tool.
 
 4.  Set up the Microgateway CLI tool.
     Add the Microgateway executable location to the path variable.
-    1.  [Download the Microgateway](https://wso2.com/api-management/api-microgateway/) ( `             wso2am-micro-gw-toolkit-x.x.x.zip            ` ).
-    2.  Unzip the downloaded ZIP file to a location of your choice (e.g., `             C:\Program Files\wso2\micro gateway cli\            ` ).
-    3.  Copy the path to the Microgateway `             bin            ` folder ( `             <path-to-wso2am-micro-gw-toolkit>\bin            ` ).
+    1.  [Download the Microgateway](https://wso2.com/api-management/api-microgateway/) ( `wso2am-micro-gw-toolkit-x.x.x.zip` ).
+    2.  Unzip the downloaded ZIP file to a location of your choice (e.g., `C:\Program Files\wso2\micro gateway cli\` ).
+    3.  Copy the path to the Microgateway `bin` folder ( `<path-to-wso2am-micro-gw-toolkit>\bin` ).
     4.  Click **Edit the system preferences** .
         ![](attachments/103333781/103333782.png)    5.  Navigate to the **Advanced** tab and click **Environment Variables** .
         ![](attachments/103333781/103333783.png)    6.  Navigate to the path system variable and click **Edit** .
-        ![](attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `              bin             ` folder that you copied previously and click **OK** three times to save the newly added system variable.
+        ![](attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `bin` folder that you copied previously and click **OK** three times to save the newly added system variable.
         ![](attachments/103333781/103333786.png)
                 !!! info
-        As you have added the Microgateway `              \bin             ` directory path to the system variables, you can invoke the Microgateway command from any directory in the system.
+        As you have added the Microgateway `\bin` directory path to the system variables, you can invoke the Microgateway command from any directory in the system.
 
 
 5.  Initialize the Microgateway project.
-    1.  Open the Microsoft command line ( `             cmd.exe            ` ).
+    1.  Open the Microsoft command line ( `cmd.exe` ).
     2.  Change the location to where you want to set up the Microgateway project.
 
         ``` java
@@ -232,20 +232,20 @@ You need to set up Java in order to run the Microgateway CLI tool.
         micro-gw build <project-name>
     ```
 
-    After running the build command, you can find the Microgateway distribution ( `            micro-gw-<project-name>.zip           ` ) specifically designed for the given Microgateway label or the respective API version in the `            <project-name>\target           ` directory.
+    After running the build command, you can find the Microgateway distribution ( `micro-gw-<project-name>.zip` ) specifically designed for the given Microgateway label or the respective API version in the `<project-name>\target` directory.
 
 #### Step 4 - Install the Gateway script as a Windows service
 
 1.  Download the [NSSM (Non-Sucking Service Manager) tool](http://nssm.cc/usage) and extract the ZIP file.
 2.  Copy the extracted ZIP file to the location where you want to run the Microgateway.
-3.  Install the `          gateway.bat         ` script as a Windows service.
-    1.  Navigate to the `             win64            ` folder, which is inside the new location of the extracted NSSM tool.
+3.  Install the `gateway.bat` script as a Windows service.
+    1.  Navigate to the `win64` folder, which is inside the new location of the extracted NSSM tool.
 
         ``` java
                 cd apim_2_5_microgateway_bat\nssm-2.24\win64
         ```
 
-    2.  Run the following command to install the `             gateway.bat            ` script as a Windows service.
+    2.  Run the following command to install the `gateway.bat` script as a Windows service.
 
         ``` java
                     nssm.exe install microgw
@@ -253,7 +253,7 @@ You need to set up Java in order to run the Microgateway CLI tool.
 
     3.  Click **Yes** when the following User Account Control message appears.
         You need to do this in order to allow the NSSM tool to make changes to your Microgateway distribution.
-        ![](attachments/103333781/103333789.png)    4.  Click \[...\] and select the location of the `            gateway.bat           ` file, which is in the `            \bin           ` folder of your unzipped Microgateway distribution.
+        ![](attachments/103333781/103333789.png)    4.  Click \[...\] and select the location of the `gateway.bat` file, which is in the `\bin` folder of your unzipped Microgateway distribution.
         ![](attachments/103333781/103333791.png){height="250"}
     5.  Click **Details** , and enter the details of the Microgateway service.
         ![](attachments/103333781/103333792.png){height="250"}
@@ -277,7 +277,7 @@ You can invoke the API through the Microgateway using the following cURL command
 
 ### Resetting the Microgateway CLI tool
 
-When you run the Microgateway CLI tool for the first time, it preserves all the information (i.e., your username, APIM base URL, TrustStore location and the TrustStore password) with the exception of your password, for later use. If you want to reset the Microgateway CLI tool in order to clear all the data that has been preserved by the Microgateway CLI tool, you can use the `         –reset        ` argument as follows. Note that you can invoke the Microgateway CLI tool reset command from any directory in the system.
+When you run the Microgateway CLI tool for the first time, it preserves all the information (i.e., your username, APIM base URL, TrustStore location and the TrustStore password) with the exception of your password, for later use. If you want to reset the Microgateway CLI tool in order to clear all the data that has been preserved by the Microgateway CLI tool, you can use the `–reset` argument as follows. Note that you can invoke the Microgateway CLI tool reset command from any directory in the system.
 
 ``` java
     micro-gw reset

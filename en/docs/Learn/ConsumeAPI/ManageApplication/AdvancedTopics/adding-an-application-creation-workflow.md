@@ -13,10 +13,10 @@ Attaching a custom workflow to application creation allows you to control the cr
 
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
--   Change the credentials of the workflow configurations in the following registry resource: `             _system/governance/apimgt/applicationdata/workflow-extensions.xml            ` .
+-   Change the credentials of the workflow configurations in the following registry resource: `_system/governance/apimgt/applicationdata/workflow-extensions.xml` .
 -   Point the database that has the API Manager user permissions to BPS.
 -   Share any LDAPs, if any exist.
--   Unzip the `              <API-M>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip             ` file, update the role as follows in the `                             ApplicationsApprovalTask.ht                           ` file, and ZIP the ApplicationsApprovalTask-1.0.0 folder.
+-   Unzip the `<API-M>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file, update the role as follows in the `ApplicationsApprovalTask.ht` file, and ZIP the ApplicationsApprovalTask-1.0.0 folder.
 
     **Format**
 
@@ -29,42 +29,42 @@ Attaching a custom workflow to application creation allows you to control the cr
 #### Configuring the Business Process Server
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration) .
-2.  Set an offset of 2 to the default BPS port in the `              <EI_HOME>/wso2/business-process/conf/carbon.xml             ` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
+2.  Set an offset of 2 to the default BPS port in the `<EI_HOME>/wso2/business-process/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
 
     ``` xml
         <Offset>2</Offset>
     ```
 
         !!! tip
-    **Tip** : If you change the BPS port **offset to a value other than 2 or run WSO2 API-M and WSO2 EI on different machines** (therefore, want to set the `              hostname             ` to a different value than `              localhost             ` ), you need to search and replace the value 9765 in all the files ( `              .epr             ` ) inside the `              <API-M_HOME>/business-processes             ` directory with the new port (i.e., the value of 9763 + `              <port-offset>             ` ).
+    **Tip** : If you change the BPS port **offset to a value other than 2 or run WSO2 API-M and WSO2 EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you need to search and replace the value 9765 in all the files ( `.epr` ) inside the `<API-M_HOME>/business-processes` directory with the new port (i.e., the value of 9763 + `<port-offset>` ).
 
 
-3.  Open the `              <EI_HOME>/wso2/business-process/conf/humantask.xml             ` file and `              <EI_HOME>/wso2/business-process/conf/b4p-coordination-config.xml             ` file and set the `              TaskCoordinationEnabled             ` property to true.
+3.  Open the `<EI_HOME>/wso2/business-process/conf/humantask.xml` file and `<EI_HOME>/wso2/business-process/conf/b4p-coordination-config.xml` file and set the `TaskCoordinationEnabled` property to true.
 
     ``` xml
         <TaskCoordinationEnabled>true</TaskCoordinationEnabled>
     ```
 
-4.  Copy the following from the `              <API-M_HOME>/business-processes/epr             ` directory to the `              <EI_HOME>/wso2/business-process/repository/conf/epr             ` directory.
+4.  Copy the following from the `<API-M_HOME>/business-processes/epr` directory to the `<EI_HOME>/wso2/business-process/repository/conf/epr` directory.
 
         !!! note
-    -   If the `               <EI_HOME>/wso2/business-process/repository/conf/epr              ` directory does not exist, create it.
-    -   Make sure to give the correct credentials in the `               <EI_HOME>/wso2/business-process/repository/conf/epr              ` files.
+    -   If the `<EI_HOME>/wso2/business-process/repository/conf/epr` directory does not exist, create it.
+    -   Make sure to give the correct credentials in the `<EI_HOME>/wso2/business-process/repository/conf/epr` files.
 
 
-    -   Update the `                <                EI                _HOME>/business-processes/epr/ApplicationCallbackService.epr               ` file according to API Manager.
+    -   Update the `<                EI                _HOME>/business-processes/epr/ApplicationCallbackService.epr` file according to API Manager.
 
         ``` java
                 <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
         ```
 
-    -   Update the `                <                EI                _HOME>/business-processes/epr/ApplicationService.epr               ` file according to EI.
+    -   Update the `<                EI                _HOME>/business-processes/epr/ApplicationService.epr` file according to EI.
 
         ``` java
                     <wsa:Address>http://localhost:9765/services/ApplicationService</wsa:Address>
         ```
 
-5.  Start the EI server and sign in to the Management Console ( `              https://<Server Host>:9443+<port-offset>/carbon             ` ).
+5.  Start the EI server and sign in to the Management Console ( `https://<Server Host>:9443+<port-offset>/carbon` ).
 
         !!! warning
     If you are using Mac OS with High Sierra, you may encounter the following warning when logging in to the Management Console due to a compression issue that exists in the High Sierra SDK.
@@ -73,18 +73,18 @@ Attaching a custom workflow to application creation allows you to control the cr
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
     ```
 
-    To avoid this issue, open the `              <EI_HOME>/wso2/business-process/             ` `              conf/tomcat/catalina-server.xml             ` file and change the `              compression="on"             ` to `              compression="off"             ` in the Connector configuration, and restart the EI.
+    To avoid this issue, open the `<EI_HOME>/wso2/business-process/conf/tomcat/catalina-server.xml` file and change the `compression="on"` to `compression="off"` in the Connector configuration, and restart the EI.
 
 
-6.  Click **Add** under **Processes** and upload the `             <API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip            ` file to EI. This is the business process archive file.
-    ![](attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `             <API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip            ` file to EI. This is the human task archived file.
+6.  Click **Add** under **Processes** and upload the `<API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip` file to EI. This is the business process archive file.
+    ![](attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
 
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
--   Change the credentials of the workflow configurations in the following registry resource: `             _system/governance/apimgt/applicationdata/workflow-extensions.xml            ` .
+-   Change the credentials of the workflow configurations in the following registry resource: `_system/governance/apimgt/applicationdata/workflow-extensions.xml` .
 -   Point the database that has the API Manager user permissions to BPS.
 -   Share any LDAPs, if any exist.
--   Unzip the `              <API-M>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip             ` file, update the role as follows in the `                             ApplicationsApprovalTask.ht                           ` file, and ZIP the ApplicationsApprovalTask-1.0.0 folder.
+-   Unzip the `<API-M>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file, update the role as follows in the `ApplicationsApprovalTask.ht` file, and ZIP the ApplicationsApprovalTask-1.0.0 folder.
 
     **Format**
 
@@ -97,42 +97,42 @@ Attaching a custom workflow to application creation allows you to control the cr
 #### Configuring the Business Process Server
 
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
-2.  Set an offset of 2 to the default BPS port in the `              <BPS_HOME>/repository/conf/carbon.xml             ` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
+2.  Set an offset of 2 to the default BPS port in the `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM260/Changing+the+Default+Ports+with+Offset) .
 
     ``` xml
         <Offset>2</Offset>
     ```
 
         !!! tip
-    **Tip** : If you change the BPS port **offset to a value other than 2 or run WSO2 API-M and WSO2 BPS on different machines** (therefore, want to set the `              hostname             ` to a different value than `              localhost             ` ), you need to search and replace the value 9765 in all the files ( `              .epr             ` ) inside the `              <API-M_HOME>/business-processes             ` directory with the new port (i.e., the value of 9763 + `              <port-offset>             ` ).
+    **Tip** : If you change the BPS port **offset to a value other than 2 or run WSO2 API-M and WSO2 BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you need to search and replace the value 9765 in all the files ( `.epr` ) inside the `<API-M_HOME>/business-processes` directory with the new port (i.e., the value of 9763 + `<port-offset>` ).
 
 
-3.  Open the `              <BPS_HOME>/repository/conf/humantask.xml             ` file and `              <BPS_HOME>/repository/conf/b4p-coordination-config.xml             ` file and set the `              TaskCoordinationEnabled             ` property to true.
+3.  Open the `<BPS_HOME>/repository/conf/humantask.xml` file and `<BPS_HOME>/repository/conf/b4p-coordination-config.xml` file and set the `TaskCoordinationEnabled` property to true.
 
     ``` xml
         <TaskCoordinationEnabled>true</TaskCoordinationEnabled>
     ```
 
-4.  Copy the following from the `              <API-M_HOME>/business-processes/epr             ` directory to the `              <BPS_HOME>/repository/conf/epr             ` directory.
-    If the `              <BPS_HOME>/repository/conf/epr             ` directory does not exist, create it.
+4.  Copy the following from the `<API-M_HOME>/business-processes/epr` directory to the `<BPS_HOME>/repository/conf/epr` directory.
+    If the `<BPS_HOME>/repository/conf/epr` directory does not exist, create it.
 
         !!! note
-    Make sure to give the correct credentials in the `              <BPS_HOME>/repository/conf/epr             ` files.
+    Make sure to give the correct credentials in the `<BPS_HOME>/repository/conf/epr` files.
 
 
-    -   Update the `                <API-M_HOME>/business-processes/epr/ApplicationCallbackService.epr               ` file according to API Manager.
+    -   Update the `<API-M_HOME>/business-processes/epr/ApplicationCallbackService.epr` file according to API Manager.
 
         ``` java
                 <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
         ```
 
-    -   Update the `                <API-M_HOME>/business-processes/epr/ApplicationService.epr               ` file according to BPS.
+    -   Update the `<API-M_HOME>/business-processes/epr/ApplicationService.epr` file according to BPS.
 
         ``` java
                     <wsa:Address>http://localhost:9765/services/ApplicationService</wsa:Address>
         ```
 
-5.  Start the BPS server and sign in to the Management Console ( `              https://<Server Host>:9443+<port-offset>/carbon             ` ).
+5.  Start the BPS server and sign in to the Management Console ( `https://<Server Host>:9443+<port-offset>/carbon` ).
 
         !!! warning
     If you are using Mac OS with High Sierra, you may encounter the following warning when logging in to the Management Console due to a compression issue that exists in the High Sierra SDK.
@@ -141,25 +141,25 @@ Attaching a custom workflow to application creation allows you to control the cr
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
     ```
 
-    To avoid this issue, open the `              <BPS_HOME>/             ` `              repository/conf/tomcat/catalina-server.xml             ` file and change the `              compression="on"             ` to `              compression="off"             ` in the Connector configuration, and restart the BPS.
+    To avoid this issue, open the `<BPS_HOME>/repository/conf/tomcat/catalina-server.xml` file and change the `compression="on"` to `compression="off"` in the Connector configuration, and restart the BPS.
 
 
-6.  Click **Add** under **Processes** and upload the `             <API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip            ` file to BPS.
+6.  Click **Add** under **Processes** and upload the `<API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip` file to BPS.
     This is the business process archive file.
-    ![](attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `             <API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip            ` file to BPS.
+    ![](attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to BPS.
     This is the human task archived file.
 
 #### Configuring WSO2 API Manager
 
-Open the `         <API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json        ` file and configure " `         workFlowServerURL"        ` under " `         workflows"        ` to point to the BPS server (e.g., `         "workFlowServerURL": "                   https://localhost:9445/services/                  "        ` )
+Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file and configure " `workFlowServerURL"` under " `workflows"` to point to the BPS server (e.g., `"workFlowServerURL": "                   https://localhost:9445/services/                  "` )
 
 #### Engaging the WS Workflow Executor in the API Manager
 
 First, enable the application creation workflow **.**
 
-1.  Sign in to WSO2 API-M Management Console ( `          https://<Server-Host>:9443/carbon         ` ) and select **Browse** under **Resources** .
+1.  Sign in to WSO2 API-M Management Console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources** .
     ![](attachments/103334685/103334688.png)
-2.  Go to the `           /_system/governance/apimgt/applicationdata/workflow-extensions.xml          ` resource, disable the Simple Workflow Executor, and enable WS Workflow Executor. In addition, specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
+2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor, and enable WS Workflow Executor. In addition, specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
 
     ``` html/xml
         <WorkFlowExtensions>
@@ -185,7 +185,7 @@ First, enable the application creation workflow **.**
     It invokes the application creation process and creates a Human Task instance that holds the execution of the BPEL process until some action is performed on it.
     Note that the **Status** field of the application states **INACTIVE (Waiting for approval)** if the BPEL is invoked correctly, indicating that the request is successfully submitted.
 
-4.  Sign in to the Admin Portal ( `                       https://localhost:9443/admin                     ` ), list all the tasks for application creation and approve the task. It resumes the BPEL process and completes the application creation.
+4.  Sign in to the Admin Portal ( `https://localhost:9443/admin` ), list all the tasks for application creation and approve the task. It resumes the BPEL process and completes the application creation.
 
 5.  Go back to the **Applications** page in the WSO2 API Store and see the created application.
 
@@ -219,7 +219,7 @@ First, enable the application creation workflow **.**
     | applicationDescription                                            | Description of the application                                                                                                                                                                                                    |
     | tenantDomain                                                      | Tenant domain associated with the application (domain of the user creating the application).                                                                                                                                      |
     | userName                                                          | Username of the user creating the application.                                                                                                                                                                                    |
-    | `               workflowExternalRef                             ` | The unique reference against which a workflow is tracked. This needs to be sent back from the workflow engine to the API Manager at the time of workflow completion.                                                              |
-    | callBackURL                                                       | This property is configured in the `                <callBackURL>               ` element in the `                workflow-extensions.xml               ` registry file.                                                          |
+    | `workflowExternalRef` | The unique reference against which a workflow is tracked. This needs to be sent back from the workflow engine to the API Manager at the time of workflow completion.                                                              |
+    | callBackURL                                                       | This property is configured in the `<callBackURL>` element in the `workflow-extensions.xml` registry file.                                                          |
 
 

@@ -33,7 +33,7 @@ For all other product versions (that are not listed above), this configuration w
 Before you begin, be sure to check the [prerequisites](#admin_EnablingHostNameVerification-Prerequisites) .
 
 
-If you are using a WSO2 product that is based on a Carbon version between 4.4.6 and 4.4.16,  hostname verification is **disabled** by default. This setting is disabled using the `         org.wso2.ignoreHostnameVerification        ` property in the product startup script ( `         wso2server.sh        ` for Linux, or `         wso2server.bat        ` for Windows) that is stored in the `         <PRODUCT_HOME>/bin/        ` directory.
+If you are using a WSO2 product that is based on a Carbon version between 4.4.6 and 4.4.16,  hostname verification is **disabled** by default. This setting is disabled using the `org.wso2.ignoreHostnameVerification` property in the product startup script ( `wso2server.sh` for Linux, or `wso2server.bat` for Windows) that is stored in the `<PRODUCT_HOME>/bin/` directory.
 
 ``` java
     -Dorg.wso2.ignoreHostnameVerification=true
@@ -45,7 +45,7 @@ If you are using a WSO2 product that is based on a Carbon version between 4.4.6 
 Before you begin, be sure to check the [prerequisites](#admin_EnablingHostNameVerification-Prerequisites) .
 
 
-If you are using a WSO2 product that is based on Carbon 4.4.17 or a later version, hostname verification is **enabled** by default. This is done using the `         httpclien        ` t `         .hostnameVerifier        ` property in the product's startup script ( `         wso2server.sh        ` for Linux and `         wso2server.bat        ` for Windows) as shown below. The product startup script is stored in the `         <PRODUCT_HOME>/bin        ` directory. This property will be effective during server startup.
+If you are using a WSO2 product that is based on Carbon 4.4.17 or a later version, hostname verification is **enabled** by default. This is done using the `httpclien` t `.hostnameVerifier` property in the product's startup script ( `wso2server.sh` for Linux and `wso2server.bat` for Windows) as shown below. The product startup script is stored in the `<PRODUCT_HOME>/bin` directory. This property will be effective during server startup.
 
 ``` java
     -Dhttpclient.hostnameVerifier="DefaultAndLocalhost"

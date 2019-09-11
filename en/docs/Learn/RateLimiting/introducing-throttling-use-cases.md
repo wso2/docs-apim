@@ -60,7 +60,7 @@ You can control/restrict access to your API or its selected resources for a give
 
 ##### HTTP request headers
 
-Advanced policies allow you to apply limits to APIs by filtering requests based on HTTP headers. For example, assume you need to apply a special limit for JSON requests. To do that, you can filter JSON messages by using a policy that inspects the HTTP request headers and checks if the `         Content-Type        ` header is `         application/json        ` and apply a special limit for those requests while allowing a default value for the rest.
+Advanced policies allow you to apply limits to APIs by filtering requests based on HTTP headers. For example, assume you need to apply a special limit for JSON requests. To do that, you can filter JSON messages by using a policy that inspects the HTTP request headers and checks if the `Content-Type` header is `application/json` and apply a special limit for those requests while allowing a default value for the rest.
 
 Here is a sample for configuring JWT claim condition by considering the "Content-Type" header.
 
@@ -74,7 +74,7 @@ Here is a sample for configuring JWT claim condition by considering the version 
 ![](attachments/103334946/103334948.png)
 ##### Query parameters
 
-Filtering based on query parameters almost always apply to HTTP GET requests when doing search type of operations. For example, if you have a search API with `         category        ` as a query parameter, you can have different limits for searching different categories.
+Filtering based on query parameters almost always apply to HTTP GET requests when doing search type of operations. For example, if you have a search API with `category` as a query parameter, you can have different limits for searching different categories.
 
 ![](attachments/103334946/103334949.png)
 Eg : 'sales' category can be allocated with more requests than 'hr' category

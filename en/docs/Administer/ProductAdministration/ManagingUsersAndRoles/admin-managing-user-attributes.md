@@ -22,7 +22,7 @@ The following are the three main ways to view, add, edit and delete attributes o
     4.  From the list of users that appear in the resulting page, identify the user whose attributes you want to modify and click **User Profile** .
         ![](attachments/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
-2.  You can use the `           RemoteUserStoreManagerService          ` API. This is a SOAP-based API and is very easy to use. Supposing you want to set a user attribute, you can call the following method.
+2.  You can use the `RemoteUserStoreManagerService` API. This is a SOAP-based API and is very easy to use. Supposing you want to set a user attribute, you can call the following method.
 
     ``` java
         setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org", null)
@@ -44,7 +44,7 @@ When you are using more than one user store, you must map the attributes correct
     {domain_name/attribute_Name};{domain_name/attribute_Name}; {domain_name/attribute_Name};
 ```
 
-However, for the default user store, you do not need to provide the domain name. As an example, if you have two user stores, one is default and other one with domain “LDAP” then the pattern would be as follows for “ `                   http://wso2.org/claims/emailaddress                 ` ".
+However, for the default user store, you do not need to provide the domain name. As an example, if you have two user stores, one is default and other one with domain “LDAP” then the pattern would be as follows for “ `http://wso2.org/claims/emailaddress` ".
 
 ``` java
     email;LDAP/mail
@@ -63,7 +63,7 @@ If your user store supports having multiple values for attributes, the WSO2 prod
     See the following screen for how this will look in the user interface of the product's Management Console.
     ![](attachments/43997703/44195175.png)
 
-2.  When using the `           RemoteUserStoreManagerService          ` API, call it as follows.
+2.  When using the `RemoteUserStoreManagerService` API, call it as follows.
 
     ``` java
             setUserClaimValue("username", "http://wso2.org/claims/emailaddress", "asela@soasecurity.org,aselapathberiya@gmail.com", null)
@@ -109,15 +109,15 @@ WSO2 products can be deployed with any LDAP based server and it can expose authe
 
 For the purposes of this example, we assume that users need to be authenticated using both their **uid** and **mail** attributes in the LDAP.
 
-1.  Configure the LDAP user store related configurations using the **user-mgt.xml** file found in the `          <PRODUCT_HOME>/repository/conf         ` directory.
-    1.  Configure `            UserNameSearchFilter           ` that helps to search for the user object in the LDAP using both **mail** and **uid** attributes.
-        `            <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(|(mail=?)(uid=?)))</Property>           `
-    2.  Disable `            UserDNPattern           ` property, if it is currently enabled.
-        `            <!--Property name="UserDNPattern">uid={0},ou=Users,dc=wso2,dc=org</Property-->           `
-    3.  The mail attribute has requirements that are unique. If you are using the mail attribute, you need to open the **carbon.xml** file found in the `            <PRODUCT_HOME>/repository/conf           ` directory and uncomment the following.
-        `            <EnableEmailUserName>true</EnableEmailUserName>           `
-2.  If you want to work with multiple attributes (basically to retrieve internal roles with multiple attributes), you must add following property in the `           <PRODUCT_HOME>/repository/conf/user-mgt.xml          ` file.
-    `           <Property name="MultipleAttributeEnable">true</Property>          `
+1.  Configure the LDAP user store related configurations using the **user-mgt.xml** file found in the `<PRODUCT_HOME>/repository/conf` directory.
+    1.  Configure `UserNameSearchFilter` that helps to search for the user object in the LDAP using both **mail** and **uid** attributes.
+`<Property name="UserNameSearchFilter">(&amp;(objectClass=person)(|(mail=?)(uid=?)))</Property>           `
+    2.  Disable `UserDNPattern` property, if it is currently enabled.
+`<!--Property name="UserDNPattern">uid={0},ou=Users,dc=wso2,dc=org</Property-->`
+    3.  The mail attribute has requirements that are unique. If you are using the mail attribute, you need to open the **carbon.xml** file found in the `<PRODUCT_HOME>/repository/conf` directory and uncomment the following.
+`<EnableEmailUserName>true</EnableEmailUserName>`
+2.  If you want to work with multiple attributes (basically to retrieve internal roles with multiple attributes), you must add following property in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
+`<Property name="MultipleAttributeEnable">true</Property>`
 
 3.  To test this, restart the product and try to log in to the Management Console by providing both the mail and uid with the same password.
 
@@ -125,7 +125,7 @@ For the purposes of this example, we assume that users need to be authenticated 
 
 If you are using multiple attribute authentication and want to customize the claim to be used for user name attribute, do the following.
 
-Edit the following element in the `         <PRODUCT_HOME>/repository/conf/security/application-authentication.xml        ` file.
+Edit the following element in the `<PRODUCT_HOME>/repository/conf/security/application-authentication.xml` file.
 
 ``` xml
     <AuthenticatorConfig name="BasicAuthenticator" enabled="true">
@@ -133,4 +133,4 @@ Edit the following element in the `         <PRODUCT_HOME>/repository/conf/secur
     </AuthenticatorConfig>
 ```
 
-This will return the email address of the authenticated user. It can be configured to return any attribute by changing the ' `         UserNameAttributeClaimUri        ` ' parameter.
+This will return the email address of the authenticated user. It can be configured to return any attribute by changing the ' `UserNameAttributeClaimUri` ' parameter.

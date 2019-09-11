@@ -65,7 +65,7 @@ Follow the steps below to configure API lifecycle state notifications.
 
 ### Running the sample to populate the sample data
 
-1.  Go to `           <API-M_HOME>/sample-scenarios          ` . Execute the `           run.sh          ` file. Enter the scenario number as 7, when prompted.
+1.  Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 7, when prompted.
 
 After running the sample two APIs in different states (PUBLISHED and BLOCKED) will be created. Note that both APIs have the same name.
 

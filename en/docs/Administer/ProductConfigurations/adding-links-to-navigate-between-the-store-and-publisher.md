@@ -4,7 +4,7 @@ By default, there are no links in the UIs of the API Store and API Publisher app
 
 **To add a link in the WSO2 API Publisher to the WSO2 API Store:**
 
-1.  Set the `           <DisplayURL>          ` to `           true          ` , and provide the URL of the Store in the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.
+1.  Set the `<DisplayURL>` to `true` , and provide the URL of the Store in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
         !!! tip
     If you are using a **distributed/clustered API Manager setup** , this configuration must be done in the API Publisher node/s.
@@ -19,7 +19,7 @@ By default, there are no links in the UIs of the API Store and API Publisher app
         </APIStore>
     ```
 
-    -   `            <hostname>           ` - The hostname of the API Publisher node.
+    -`<hostname>` - The hostname of the API Publisher node.
 
 2.  Restart the WSO2 API-M server.
     Note that a URL that points to the API Store appears on the top, right-hand corner of the WSO2 API Publisher.

@@ -8,10 +8,10 @@ In WSO2 products (based on Carbon 4.4.0 and later versions), you can use the man
 
 ### Prerequisites
 
-All the required keystore files should first be created and stored in the `         <PRODUCT_HOME>/repository/resources/security/        ` directory. For information on how to create new keystore files see [Creating New Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) , and for information on how to update configuration files in your product with keystore information, see [Configuring Keystores in WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Configuring+Keystores+in+WSO2+Products) .
+All the required keystore files should first be created and stored in the `<PRODUCT_HOME>/repository/resources/security/` directory. For information on how to create new keystore files see [Creating New Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) , and for information on how to update configuration files in your product with keystore information, see [Configuring Keystores in WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Configuring+Keystores+in+WSO2+Products) .
 
 !!! info
-The default `         wso2carbon.jks        ` keystore cannot be deleted.
+The default `wso2carbon.jks` keystore cannot be deleted.
 
 
 ### Viewing keystore details from the UI

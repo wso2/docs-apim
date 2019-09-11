@@ -11,8 +11,8 @@ See [Encrypting Passwords with Cipher Tool](https://docs.wso2.com/display/ADMIN4
 
 The steps below show how to secure the endpoint's password that is given in plain-text in the UI.
 
-1.  Shut down the server if it is already running and set the element `          <EnableSecureVault>         ` in the `          <APIM_HOME>/repository/conf/api-manager.xml         ` file to true. By default, the system stores passwords in configuration files in plain text because this value is set to false.
-2.  Run the cipher tool available in the `           <APIM_HOME>/bin          ` directory. If you are running Windows, it is the `           ciphertool.bat          ` file. If you are using the default keystore, give **wso2carbon** as the primary keystore password when prompted.
+1.  Shut down the server if it is already running and set the element `<EnableSecureVault>` in the `<APIM_HOME>/repository/conf/api-manager.xml` file to true. By default, the system stores passwords in configuration files in plain text because this value is set to false.
+2.  Run the cipher tool available in the `<APIM_HOME>/bin` directory. If you are running Windows, it is the `ciphertool.bat` file. If you are using the default keystore, give **wso2carbon** as the primary keystore password when prompted.
 
     ``` java
         sh ciphertool.sh -Dconfigure

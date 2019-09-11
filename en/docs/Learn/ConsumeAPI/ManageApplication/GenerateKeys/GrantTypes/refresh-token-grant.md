@@ -14,8 +14,8 @@ After an access token is generated, sometimes you might have to renew the old to
 To use this grant type, you need a refresh token, using which you can get a new access token and a refresh token. This can be done by issuing a REST call to the Token API through a REST client like cURL, with the following parameters:
 
 -   The Token API URL is [https://localhost:8243/token](https://localhost:8243/login) , assuming that both the client and the Gateway are run on the same server.
--   payload: `          "grant_type=refresh_token&refresh_token=<retoken>"         ` . Replace the `          <retoken>         ` value with the refresh token generated in the previous step.
--   headers: `          Authorization :Basic <base64 encoded string>, Content-Type: application/x-www-form-urlencoded         ` . Replace `          <base64 encoded string>         ` as appropriate.
+-   payload: `"grant_type=refresh_token&refresh_token=<retoken>"` . Replace the `<retoken>` value with the refresh token generated in the previous step.
+-   headers: `Authorization :Basic <base64 encoded string>, Content-Type: application/x-www-form-urlencoded` . Replace `<base64 encoded string>` as appropriate.
 
 For example, the following cURL command can be used to access the Token API.
 
@@ -35,7 +35,7 @@ You receive a response similar to the following:
     }
 ```
 
-The above REST message grants you a renewed access token along with a refresh token, which you can use the next time you renew the access token. A refresh token can be used only once. You can configure an expiration time for the refresh token by setting it in the `         <RefreshTokenValidityPeriod>        ` element in the `         <APIM_HOME>/repository/conf/identity/identity.xml        ` file.
+The above REST message grants you a renewed access token along with a refresh token, which you can use the next time you renew the access token. A refresh token can be used only once. You can configure an expiration time for the refresh token by setting it in the `<RefreshTokenValidityPeriod>` element in the `<APIM_HOME>/repository/conf/identity/identity.xml` file.
 
 ### Revoking a refresh token
 
@@ -47,7 +47,7 @@ The parameters required to invoke the following API are as follows:
 
 -   <refresh_token_to_be_revoked> - The token to be revoked
 
--   `          <base64 encoded (clientId:clientSecret)>         ` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `          <clientId>:<clientSecret>         ` Thereafter, enter the encoded value for this parameter.
+-`<base64 encoded (clientId:clientSecret)>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `<clientId>:<clientSecret>` Thereafter, enter the encoded value for this parameter.
 
 -   [**Format**](#option1-format)
 -   [**Example**](#option1-example)
@@ -86,10 +86,10 @@ The parameters required to invoke the following API are as follows:
 
 The parameters required to invoke the following API are as follows:
 
--   `            <refresh_token_to_be_revoked>           ` - The token to be revoked.
+-`<refresh_token_to_be_revoked>` - The token to be revoked.
 
--   `           <base64 encoded (clientId:clientSecret)>          ` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `           <clientId>:<clientSecret>          ` Thereafter, enter the encoded value for this parameter.
--   `           token_type_hint -          ` This parameter is optional. If you do not specify this parameter, then WSO2 Identity Server (WSO2 IS) will search in both key spaces (access and refresh) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then WSO2 IS will only searches in the respective token key space, hence the token revokation process is much faster.
+-`<base64 encoded (clientId:clientSecret)>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode your client ID and client secret using the following format: `<clientId>:<clientSecret>` Thereafter, enter the encoded value for this parameter.
+-`token_type_hint -` This parameter is optional. If you do not specify this parameter, then WSO2 Identity Server (WSO2 IS) will search in both key spaces (access and refresh) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then WSO2 IS will only searches in the respective token key space, hence the token revokation process is much faster.
 
 -   [**Format**](#option2-format)
 -   [**Example**](#option2-example)

@@ -31,13 +31,13 @@ You can add a new tenant in the management console and then view it by following
 
 Other tenant management operations such as activating, deactivating, and updating, which are not available in the management console UI, can be done through one of the following admin services:
 
--   `          TenantMgtAdminService         `
--   `          RemoteTenantManagerService         `
+-`TenantMgtAdminService`
+-`RemoteTenantManagerService`
 
 You can invoke these operations using a SOAP client like SOAP UI as follows:
 
-1.  Open the `          <PRODUCT_HOME>/repository/conf/carbon.xml         ` file and set the `          HideAdminServiceWSDLs         ` parameter to false.
-2.  Start the product server by executing the product startup script from the `           <PRODUCT_HOME>/bin          ` directory:
+1.  Open the `<PRODUCT_HOME>/repository/conf/carbon.xml` file and set the `HideAdminServiceWSDLs` parameter to false.
+2.  Start the product server by executing the product startup script from the `<PRODUCT_HOME>/bin` directory:
 
     **In Linux**
 
@@ -71,15 +71,15 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
         ```
 
     2.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
-    3.  In the OSGI shell, enter the following: `             listAdminServices            `
+    3.  In the OSGI shell, enter the following: `listAdminServices`
 
     This will give the list of admin services for your product.
 
 
 3.  Start the SOAP UI client, and import the WSDL of the admin service that you are using:
 
-    -   For `            TenantMgtAdminService:                                                      https://localhost:9443/services/TenantMgtAdminService                           ` `                           ?wsdl                         `
-    -   For `             RemoteTenantManagerService:                           https://localhost:9443/services/RemoteTenantManagerService?wsdl                         `
+    -   For `TenantMgtAdminService: https://localhost:9443/services/TenantMgtAdminService?wsdl`
+    -   For `RemoteTenantManagerService: https://localhost:9443/services/RemoteTenantManagerService?wsdl`
 
     This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the wsdl file:
 
@@ -91,9 +91,9 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
     -   Note that it is **not recommended** to delete tenants.
 
 
-4.  Click on the operation to open the request view. For example, to activate a tenant use the `           activateTenant          ` operation.
+4.  Click on the operation to open the request view. For example, to activate a tenant use the `activateTenant` operation.
 
-5.  If your tenant domain is abc.com, invoke the `           activateTenant          ` operation with the following request:
+5.  If your tenant domain is abc.com, invoke the `activateTenant` operation with the following request:
 
     ``` java
         <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ser="http://services.mgt.tenant.carbon.wso2.org">

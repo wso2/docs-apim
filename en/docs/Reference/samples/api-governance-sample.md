@@ -24,7 +24,7 @@
 
 ### Business use cases
 
--   ABC company is a mobile phone manufacturing company. Assume they had a requirement to publish mobile phone stock availability through an API and they need to give more traffic availability to this API’s `           getStock          ` resource.
+-   ABC company is a mobile phone manufacturing company. Assume they had a requirement to publish mobile phone stock availability through an API and they need to give more traffic availability to this API’s `getStock` resource.
 
 -   They have a separate finance department to which they need to allocate less traffic since this API is only accessed by the finance department.
 
@@ -34,7 +34,7 @@
 
 ### How this business scenario is achieved using WSO2 API Manager
 
--   Place the `           wso2am-analytics-2.2.0-updateX          ` pack in the same location as the `           wso2am-2.2.0-updateX          ` pack.
+-   Place the `wso2am-analytics-2.2.0-updateX` pack in the same location as the `wso2am-2.2.0-updateX` pack.
 
 -   Custom advanced throttling policies for the APIs.
 
@@ -56,7 +56,7 @@ Created API for super tenant
 Created API for finance department
 
 ![](https://lh6.googleusercontent.com/x1kqXpd2q2vm_9rr5Q8rZHClJEX9h3T-87ph7b8_4zJGxp0I3p2xHCRhgLs0Ider67VOaYTY9FmARDv2WSr53hycsQALmRFoOSwYySEeqRhIcjM9IMqMOUoSpiTk4TxDyHrJ3XXo)
-Engaged advance throttle policy for the stock `         GET        ` request in super tenant
+Engaged advance throttle policy for the stock `GET` request in super tenant
 
 ![](https://lh4.googleusercontent.com/0z7Bg6VgIuCSctQhZQ7EGCp01-8MQV7LDqv8KA3LAappv5N9hlSmyK2ynwdHqFjoZkeJcq4lcsVusOJGWPbxLvuIRBRLXEiAfwNX-790V3dpxaOZTz6tagXaJjfwOET-rGl0VN33)
 Alex can log in to the Store
@@ -82,7 +82,7 @@ After users start invoking APIs, statistics appear in the Publisher, as shown be
 
 -   Start the wso2am-analytics-2.2.0-updateX distribution.
 -   Start wso2am-2.2.0-updateX, after starting the APIM analytics node.
--   Go to `          <API-M_HOME>/sample-scenarios         ` . Execute the `          run.sh         ` file. Enter the scenario number as 9, when prompted.
+-   Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 9, when prompted.
 
 ### User credentials needed for log in
 

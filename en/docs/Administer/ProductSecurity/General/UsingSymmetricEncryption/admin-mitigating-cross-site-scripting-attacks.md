@@ -19,7 +19,7 @@ The XSS Valve acts as a filter to differentiate between the malicious scripts fr
 
 ##### **Configuring the XSS Valve**
 
-1.  Open the `           <PRODUCT_HOME>/repository/conf/carbon.xml          ` file and add the following code snippet under the `           <Security>          ` tag.
+1.  Open the `<PRODUCT_HOME>/repository/conf/carbon.xml` file and add the following code snippet under the `<Security>` tag.
 
     ``` xml
         <XSSPreventionConfig>
@@ -31,7 +31,7 @@ The XSS Valve acts as a filter to differentiate between the malicious scripts fr
         </XSSPreventionConfig>
     ```
 
-2.  Add the following configuration within the `           <Hosts>          ` element of the `           <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml          ` file.
+2.  Add the following configuration within the `<Hosts>` element of the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 
     ``` xml
             <Valve className="org.wso2.carbon.ui.valve.XSSValve"/>

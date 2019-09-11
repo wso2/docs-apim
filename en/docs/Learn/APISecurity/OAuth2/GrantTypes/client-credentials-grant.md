@@ -7,7 +7,7 @@ Please refer to the [WSO2 IS documentation](https://docs.wso2.com/display/IS540/
 ### Invoking the Token API to generate the tokens
 
 1.  Get a valid consumer key and consumer secret pair. Initially, you generate these keys through the API Store by clicking **Generate Keys** on the **Production Keys** tab of the application.
-2.  Combine the consumer key and consumer secret keys in the format `          consumer-key:consumer-secret         ` and encode the combined string using base64 ( [http://base64encode.org](http://base64encode.org/) ).
+2.  Combine the consumer key and consumer secret keys in the format `consumer-key:consumer-secret` and encode the combined string using base64 ( [http://base64encode.org](http://base64encode.org/) ).
 3.  Use the following sample cuRL command to obtain the access token.
 
     -   [**Format**](#format)

@@ -112,7 +112,7 @@ Verify the following:
 
 | Error code                          | Error response                                               | Possible reasons                                                                   |
 |-------------------------------------|--------------------------------------------------------------|------------------------------------------------------------------------------------|
-| `              101503             ` | ``` java                                                     
+| `101503` | ``` java                                                     
       {                                                             
           "fault": {                                                
               "code": "101503",                                     
@@ -120,9 +120,9 @@ Verify the following:
               "description": "Error connecting to the back end"     
           }                                                         
       }                                                             
-  ```                                                           | -   The network is not reachable by the backend.                                   
+  ```| -   The network is not reachable by the backend.                                   
    -   The connection from the backend has been refused.                               |
-| `              101504             ` | ``` java                                                     
+| `101504` | ``` java                                                     
       {                                                             
           "fault": {                                                
               "code": "101504",                                     
@@ -130,7 +130,7 @@ Verify the following:
               "description": "Connection timed out"                 
           }                                                         
       }                                                             
-  ```                                                           | -   The connection has timed out.                                                  
+  ```| -   The connection has timed out.                                                  
    -   The connection has timed out from the Microgateway end.                         
    -   Response is getting delayed and hence timeout occurs in the Microgateway side.  |
 | 900900                              | ``` java                                                     
@@ -141,7 +141,7 @@ Verify the following:
               "description": "Unclassified Authentication Failure"  
           }                                                         
       }                                                             
-  ```                                                           | -   The Key Manager is down.                                                       |
+  ```| -   The Key Manager is down.                                                       |
 
 ### Error codes
 
@@ -149,21 +149,21 @@ Given below are some API Manager-specific error codes and their meanings. For mo
 
 | Error code                        | Possible reason                                                                                                                                                                                                    |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `             900901            ` | The production/sandbox key offered by the requested endpoint is not specified.                                                                                                                                     |
-| `             900900            ` | API-M authentication related error.                                                                                                                                                                                |
-| `             900901            ` | Invalid access token.                                                                                                                                                                                              |
-| `             900902            ` | Missing credentials.                                                                                                                                                                                               |
-| `             900903            ` | Access token expired.                                                                                                                                                                                              |
-| `             900904            ` | Access token inactive.                                                                                                                                                                                             |
-| `             900905            ` | Incorrect access token type provided.                                                                                                                                                                              |
-| `             900906            ` | No matching resource found in the API for the given request.                                                                                                                                                       |
-| `             900907            ` | The requested API is temporarily blocked.                                                                                                                                                                          |
-| `             900908            ` | Resource forbidden.                                                                                                                                                                                                |
-| `             900909            ` | The subscription to the API is inactive.                                                                                                                                                                           |
-| `             900910            ` | The access token does not allow you to access the requested resource.                                                                                                                                              |
-| `             900803            ` | Application level throttled out.                                                                                                                                                                                   |
-| `             900804            ` | Subscription level throttled out.                                                                                                                                                                                  |
-| `             900808            ` | An internal error occurred in the Microgateway.                                                                                                                                                                    |
-| `             900809            ` | An internal error occurred in the Microgateway, since a subscription or application throttle policy is not deployed. This might be due to adding a throttle policy to API-M and not regenerating the Microgateway. |
+| `900901` | The production/sandbox key offered by the requested endpoint is not specified.                                                                                                                                     |
+| `900900` | API-M authentication related error.                                                                                                                                                                                |
+| `900901` | Invalid access token.                                                                                                                                                                                              |
+| `900902` | Missing credentials.                                                                                                                                                                                               |
+| `900903` | Access token expired.                                                                                                                                                                                              |
+| `900904` | Access token inactive.                                                                                                                                                                                             |
+| `900905` | Incorrect access token type provided.                                                                                                                                                                              |
+| `900906` | No matching resource found in the API for the given request.                                                                                                                                                       |
+| `900907` | The requested API is temporarily blocked.                                                                                                                                                                          |
+| `900908` | Resource forbidden.                                                                                                                                                                                                |
+| `900909` | The subscription to the API is inactive.                                                                                                                                                                           |
+| `900910` | The access token does not allow you to access the requested resource.                                                                                                                                              |
+| `900803` | Application level throttled out.                                                                                                                                                                                   |
+| `900804` | Subscription level throttled out.                                                                                                                                                                                  |
+| `900808` | An internal error occurred in the Microgateway.                                                                                                                                                                    |
+| `900809` | An internal error occurred in the Microgateway, since a subscription or application throttle policy is not deployed. This might be due to adding a throttle policy to API-M and not regenerating the Microgateway. |
 
 

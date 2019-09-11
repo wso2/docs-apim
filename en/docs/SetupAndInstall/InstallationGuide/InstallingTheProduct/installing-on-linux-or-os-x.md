@@ -17,18 +17,18 @@ Follow the instructions below to install API Manager on Linux or Mac OS X.
 ### Installing the API Manager
 
 1.  Download the latest version of the API Manager from <https://github.com/wso2/product-apim/releases/tag/v2.2.0-update1> .
-2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `            <API-M_HOME>           ` .
+2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>` .
 
 ### Setting up JAVA\_HOME
 
-You must set your `         JAVA_HOME        ` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
+You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer.
 
 !!! info
 Environment variables are global system variables accessible by all the processes running under the operating system.
 
 
 1.  In your home directory, open the BASHRC file (.bash\_profile file  on Mac) using editors such as vi, emacs, pico, or mcedit.
-2.  Assuming you have JDK 1.7.0\_80 in your system, add the following two lines at the bottom of the file, replacing `           /usr/java/jdk1.7.0_80          ` with the actual directory where the JDK is installed.
+2.  Assuming you have JDK 1.7.0\_80 in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk1.7.0_80` with the actual directory where the JDK is installed.
 
     ``` java
         On Linux:
@@ -42,10 +42,10 @@ Environment variables are global system variables accessible by all the processe
 3.  Save the file.
 
         !!! info
-    If you do not know how to work with text editors in a Linux SSH session, run the following command: `           cat >> .bashrc.          ` Paste the string from the clipboard and press "Ctrl+D."
+    If you do not know how to work with text editors in a Linux SSH session, run the following command: `cat >> .bashrc.` Paste the string from the clipboard and press "Ctrl+D."
 
 
-4.  To verify that the `           JAVA_HOME          ` variable is set correctly, execute the following command:
+4.  To verify that the `JAVA_HOME` variable is set correctly, execute the following command:
 
 5.  The system returns the JDK installation path.
 
@@ -66,7 +66,7 @@ If you need to set additional system properties when the server starts, you can 
 -   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation) .
 
 !!! info
-When using SUSE Linux, it ignores `         /etc/resolv.conf        ` and only looks at the `         /etc/hosts        ` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `         127.0.0.1 localhost        ` in the `         /etc/hosts        ` file: `         <ip_address>        ` `         <machine_name> localhost        `
+When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost        `
 
 
 You are now ready to [run the product](_Running_the_Product_) .

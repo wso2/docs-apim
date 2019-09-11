@@ -2,14 +2,14 @@
 
 OAuth 2.0 authorization servers provide support for four main grant types according to the OAuth 2.0 specification. They also allow you to add custom grant types and extend the existing ones.
 
-See [Writing a Custom OAuth 2.0 Grant Type](https://docs.wso2.com/display/IS560/Writing+a+Custom+OAuth+2.0+Grant+Type) in the WSO2 identity Server documentation to implement custom grant types for the API Manager. Note that API Manager has already customized the Grant Type handlers for `         authorization_code        ` , `         password        ` , `         client_credentials        ` and `         saml2-bearer        ` grant types. If you require any additional functionality for these grant types, its advisable to extend the following grant handler implementations.
+See [Writing a Custom OAuth 2.0 Grant Type](https://docs.wso2.com/display/IS560/Writing+a+Custom+OAuth+2.0+Grant+Type) in the WSO2 identity Server documentation to implement custom grant types for the API Manager. Note that API Manager has already customized the Grant Type handlers for `authorization_code` , `password` , `client_credentials` and `saml2-bearer` grant types. If you require any additional functionality for these grant types, its advisable to extend the following grant handler implementations.
 
 | Grant Type                                                               | Existing Handler Class (which can be extended if required)                                              |
 |--------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| `             authorization_code            `                            | `             org.wso2.carbon.apimgt.keymgt.handlers.ExtendedAuthorizationCodeGrantHandler            ` |
-| `             password            `                                      | `             org.wso2.carbon.apimgt.keymgt.handlers.ExtendedPasswordGrantHandler            `          |
-| `             client_credentials            `                            | `             org.wso2.carbon.apimgt.keymgt.handlers.ExtendedClientCredentialsGrantHandler            ` |
-| `             urn:ietf:params:oauth:grant-type:saml2-bearer            ` | `             org.wso2.carbon.apimgt.keymgt.handlers.ExtendedSAML2BearerGrantHandler            `       |
+| `authorization_code`| `org.wso2.carbon.apimgt.keymgt.handlers.ExtendedAuthorizationCodeGrantHandler` |
+| `password`| `org.wso2.carbon.apimgt.keymgt.handlers.ExtendedPasswordGrantHandler`|
+| `client_credentials`| `org.wso2.carbon.apimgt.keymgt.handlers.ExtendedClientCredentialsGrantHandler` |
+| `urn:ietf:params:oauth:grant-type:saml2-bearer` | `org.wso2.carbon.apimgt.keymgt.handlers.ExtendedSAML2BearerGrantHandler`|
 
 !!! tip
 **A re you using WSO2 Identity Server as the Key Manager?** If so, be sure to follow the this compatibility matrix.

@@ -13,7 +13,7 @@ WSO2 API Manager suspends your API if the endpoint of your API cannot be reached
 
 To prevent or turn off API suspension, do the following:
 
-1.  Log into API Publisher ( `          https://<HostName>:9443/publisher         ` ). Select your API and click **Edit API** .
+1.  Log into API Publisher ( `https://<HostName>:9443/publisher` ). Select your API and click **Edit API** .
     ![](attachments/103333692/103333695.png)2.  In the **Implement** tab, click the cogwheel icon next to the endpoint you want to re-configure.
     ![](attachments/103333692/103333694.png)3.  In the dialog box that appears, set the values for **Initial Duration** and **Max Duration** to zero to turn off suspension.
     ![](attachments/103333692/103333693.png)4.  Click **Save** and re-publish the API.
@@ -23,8 +23,8 @@ For more details on creating and publishing an API, see [Create and Publish an A
 !!! info
 To avoid backend endpoint suspension,
 
-1.  Navigate to the `          <API-M_HOME>/repository/deployment/server/synapse-configs/default/api         ` folder.
-2.  Open the configuration file of the API that has to be prevented from being suspended. (e.g. `          admin--testApi_v1.0.0.xml         ` )
+1.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder.
+2.  Open the configuration file of the API that has to be prevented from being suspended. (e.g. `admin--testApi_v1.0.0.xml` )
 3.  Add the following configurations,
 
     ``` java

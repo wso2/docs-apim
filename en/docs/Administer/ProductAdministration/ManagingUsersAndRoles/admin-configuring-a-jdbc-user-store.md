@@ -25,11 +25,11 @@ Therefore, before you begin, ensure that the RDBMS that you want to use as the J
 !!! info
 Before you begin
 
--   If you create the `          user-mgt.xml         ` file yourself, be sure to save it in the `          <PRODUCT_HOME>/repository/conf/         ` directory.
--   The `          class         ` attribute for JDBC is `          <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">         ` .
+-   If you create the `user-mgt.xml` file yourself, be sure to save it in the `<PRODUCT_HOME>/repository/conf/` directory.
+-   The `class` attribute for JDBC is `<UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">` .
 
 
-To configure a JDBC user store as the primary user store, you must change the `         JDBCUserStoreManager        ` section in the `         <PRODUCT_HOME>/repository/conf/user-mgt.xml        ` file.
+To configure a JDBC user store as the primary user store, you must change the `JDBCUserStoreManager` section in the `<PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
 
 1.  Uncomment the following section:
 
@@ -37,7 +37,7 @@ To configure a JDBC user store as the primary user store, you must change the ` 
         <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">
     ```
 
-2.  Specify the connection to the RDBMS inside the JDBC user store manager according to your requirement. For more information on user store properties in the `           <PRODUCT_HOME>/repository/conf/           user-mgt.xm          ` l file which are used for configuring the primary user store, see [Properties of Primary User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
+2.  Specify the connection to the RDBMS inside the JDBC user store manager according to your requirement. For more information on user store properties in the `<PRODUCT_HOME>/repository/conf/user-mgt.xm` l file which are used for configuring the primary user store, see [Properties of Primary User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
 
     -   [**Internal JDBC User Store**](#07558322bc01441bb93d694b1a414907)
     -   [**External JDBC User Store**](#a7ce30ed25ea4009a85474287ec472e5)
@@ -147,7 +147,7 @@ To configure a JDBC user store as the primary user store, you must change the ` 
     The sample for the external JDBC user store consists of properties pertaining to various SQL statements. This is because the schema may be different for an external user store, and these adjustments need to be made in order to streamline the configurations with WSO2 products.
 
 
-3.  Add the `           PasswordHashMethod          ` property to the `           UserStoreManager          ` configuration for `           JDBCUserStoreManager          ` . For example:
+3.  Add the `PasswordHashMethod` property to the `UserStoreManager` configuration for `JDBCUserStoreManager` . For example:
 
     ``` html/xml
         <UserStoreManager class="org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager">
@@ -156,11 +156,11 @@ To configure a JDBC user store as the primary user store, you must change the ` 
         </UserStoreManager>
     ```
 
-    The `           PasswordHashMethod          ` property specifies how the password should be stored. It usually has the following values:
+    The `PasswordHashMethod` property specifies how the password should be stored. It usually has the following values:
 
-    -   `            SHA           ` - Uses SHA digest method.
-    -   `            MD5           ` - Uses MD 5 digest method.
-    -   `            PLAIN_TEXT           ` - Plain text passwords.
+    -`SHA` - Uses SHA digest method.
+    -`MD5` - Uses MD 5 digest method.
+    -`PLAIN_TEXT` - Plain text passwords.
 
     In addition, it also supports all digest methods in <http://docs.oracle.com/javase/6/docs/api/java/security/MessageDigest.html> .
 
@@ -176,7 +176,7 @@ The **admin** user is the super tenant that will be able to manage all other use
 
 These two alternative configurations can be done as explained below.
 
--   If the user store is read-only, find a valid user that already resides in the RDBMS. For example, say a valid username is AdminSOA. Update the `           <AdminUser>          ` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
+-   If the user store is read-only, find a valid user that already resides in the RDBMS. For example, say a valid username is AdminSOA. Update the `<AdminUser>` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
 
     ``` html/xml
             <AddAdmin>False</AddAdmin> 
@@ -187,7 +187,7 @@ These two alternative configurations can be done as explained below.
             </AdminUser>
     ```
 
--   If the user store can be written to, you can add the super tenant user to the user store. Therefore, `           <AddAdmin>          ` should be set to `           true          ` as shown below.
+-   If the user store can be written to, you can add the super tenant user to the user store. Therefore, `<AddAdmin>` should be set to `true` as shown below.
 
     ``` html/xml
             <AddAdmin>true</AddAdmin> 
@@ -198,7 +198,7 @@ These two alternative configurations can be done as explained below.
             </AdminUser>
     ```
 
-In the realm configuration section, set the value of the `         MultiTenantRealmConfigBuilder        ` property to `         org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder        ` . For example:
+In the realm configuration section, set the value of the `MultiTenantRealmConfigBuilder` property to `org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder` . For example:
 
 ``` html/xml
     <Property name="MultiTenantRealmConfigBuilder">org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder</Property>
@@ -206,10 +206,10 @@ In the realm configuration section, set the value of the `         MultiTenantRe
 
 ### Step 3: Updating the datasources
 
-Whenever there is an RDBMS set up for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database. The datasource for the internal H2 database that is shipped with WSO2 products by default, is configured in the `         master-datasources.xml        ` file, which is stored in the `         <PRODUCT_HOME>/repository/conf/datasources/        ` directory. F or detailed information on setting up databases, see [Setting Up the Physical Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database) , and for information on the purpose of defining datasources and how they are configured for a product, see [Managing Datasources](https://docs.wso2.com/display/ADMIN44x/Managing+Datasources) .
+Whenever there is an RDBMS set up for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database. The datasource for the internal H2 database that is shipped with WSO2 products by default, is configured in the `master-datasources.xml` file, which is stored in the `<PRODUCT_HOME>/repository/conf/datasources/` directory. F or detailed information on setting up databases, see [Setting Up the Physical Database](https://docs.wso2.com/display/ADMIN44x/Setting+up+the+Physical+Database) , and for information on the purpose of defining datasources and how they are configured for a product, see [Managing Datasources](https://docs.wso2.com/display/ADMIN44x/Managing+Datasources) .
 
 1.  There are two possible methods for updating datasources:
-    -   Shown below is how the `             master-datasources.xml            ` file is configured to connect to the default H2 database in your system. If you have replaced the default database with a new RDBMS, which you are now using as the JDBC users store, you have to update the `             master-datasource.xml            ` file with the relevant information.
+    -   Shown below is how the `master-datasources.xml` file is configured to connect to the default H2 database in your system. If you have replaced the default database with a new RDBMS, which you are now using as the JDBC users store, you have to update the `master-datasource.xml` file with the relevant information.
 
         ``` java
                 <datasource>
@@ -236,10 +236,10 @@ Whenever there is an RDBMS set up for your system, it is necessary to create a c
 
 <!-- -->
 
-1.  -   Alternatively, instead of using the master-datasource.xml file, you can also create a new XML file with the datasource information of your new RDBMS and store it in the same `            <PRODUCT_HOME>/repository/conf/datasources/           ` directory.
+1.  -   Alternatively, instead of using the master-datasource.xml file, you can also create a new XML file with the datasource information of your new RDBMS and store it in the same `<PRODUCT_HOME>/repository/conf/datasources/` directory.
 
-2.  Now, the datasource configuration and the user store manager configuration in the user-mgt.xml file should be linked together. You can do this by referring to the datasource information (typically defined in the `          master-datasources.xml         ` file) from the `          user-mgt.xml         ` file as explained below.
-    -   The RDBMS that is used for storing Authorization information is configured under the `             <Configuration>            ` section in the `             user-mgt.xml            ` file, by adding `             <Property name="dataSource">            ` as shown below. The following example refers to the default H2 database.
+2.  Now, the datasource configuration and the user store manager configuration in the user-mgt.xml file should be linked together. You can do this by referring to the datasource information (typically defined in the `master-datasources.xml` file) from the `user-mgt.xml` file as explained below.
+    -   The RDBMS that is used for storing Authorization information is configured under the `<Configuration>` section in the `user-mgt.xml` file, by adding `<Property name="dataSource">` as shown below. The following example refers to the default H2 database.
 
         ``` html/xml
                     <Configuration> 
@@ -250,10 +250,10 @@ Whenever there is an RDBMS set up for your system, it is necessary to create a c
 
         If you are using the same RDBMS as the user store in your system, this datasource reference will suffice.
 
-    -   However, if you have set up a separate RDBMS as the user store, instead of using a common RDBMS for Authorization information as well as the user store, you must refer to the datasource configuration from within the User Store Manager configuration in the `             user-mgt.xml            ` file by adding the `             <Property name="dataSource">            ` property.
+    -   However, if you have set up a separate RDBMS as the user store, instead of using a common RDBMS for Authorization information as well as the user store, you must refer to the datasource configuration from within the User Store Manager configuration in the `user-mgt.xml` file by adding the `<Property name="dataSource">` property.
 
 ### Step 4: Starting the server
 
-1.  Add the JDBC driver to the classpath by copying its JAR file into the `          <PRODUCT_HOME>/repository/components/lib         ` directory.
+1.  Add the JDBC driver to the classpath by copying its JAR file into the `<PRODUCT_HOME>/repository/components/lib` directory.
 2.  Start the server.
 

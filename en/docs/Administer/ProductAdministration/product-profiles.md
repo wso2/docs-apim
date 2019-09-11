@@ -3,7 +3,7 @@
 When a WSO2 product starts, it starts all components, features and related artifacts bundled with it. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features start up with the server.
 
 !!! tip
-Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `         api-store        ` for example, you can still access the API Publisher web application.
+Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `api-store` for example, you can still access the API Publisher web application.
 
 !!! info
 OSGI Bundle
@@ -93,7 +93,7 @@ It is recommended to start the components in the following order: Key Manager, 
 
 Create an optimized distribution for a particular API-M profile.
 
-1.  Run the `           <PRODUCT_HOME>/bin/profileSetup.sh          ` script or `           <PRODUCT_HOME>/bin/profileSetup.bat          ` script based on your operating system, with the profile flag.
+1.  Run the `<PRODUCT_HOME>/bin/profileSetup.sh` script or `<PRODUCT_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
 
     -   [**Sample commands**](#079827d8c1d84ff1819b83512255f00e)
     -   [**Example**](#94cb7f5f7ca345b38935a151bce7ade1)
@@ -165,7 +165,7 @@ Create an optimized distribution for a particular API-M profile.
     ```
 
 !!! note
-Note that registry indexing for the Traffic Manager and Gateway worker profiles are disabled when you run the profile optimization. To enable registry indexing, open the `         <PRODUCT_HOME>/repository/conf/registry.xml        ` file. Set the value of the `         <startIndexing>        ` parameter in the `         <indexingConfiguration>        ` section to true as shown below.
+Note that registry indexing for the Traffic Manager and Gateway worker profiles are disabled when you run the profile optimization. To enable registry indexing, open the `<PRODUCT_HOME>/repository/conf/registry.xml` file. Set the value of the `<startIndexing>` parameter in the `<indexingConfiguration>` section to true as shown below.
 
 ``` java
     <indexingConfiguration>
@@ -177,8 +177,8 @@ Note that registry indexing for the Traffic Manager and Gateway worker profiles 
 
 ### How multi-profiling works
 
-Starting a product on a preferred profile starts only a subset of features bundled in the product. In order to identify what feature bundles apply to which profile, each product maintains a set of `         bundles.info        ` files in the `         <PRODUCT_HOME>/repository/components/                   <profile-name>                  /configuration/org.eclipse.equinox.simpleconfigurator        ` directories. The `         bundles.info        ` files contain references to the actual bundles. Note that `         <profile-name>        ` in the directory path refers to the name of the profile. For example, when there's a product profile named webapp, references to all the feature bundles required for webapp profile to function are in a `         bundles.info        ` file saved in the `         <PRODUCT_HOME>/repository/components/webapp/configuration/org.eclipse.equinox.simpleconfigurator        ` directory.
+Starting a product on a preferred profile starts only a subset of features bundled in the product. In order to identify what feature bundles apply to which profile, each product maintains a set of `bundles.info` files in the `<PRODUCT_HOME>/repository/components/<profile-name>/configuration/org.eclipse.equinox.simpleconfigurator` directories. The `bundles.info` files contain references to the actual bundles. Note that `<profile-name>` in the directory path refers to the name of the profile. For example, when there's a product profile named webapp, references to all the feature bundles required for webapp profile to function are in a `bundles.info` file saved in the `<PRODUCT_HOME>/repository/components/webapp/configuration/org.eclipse.equinox.simpleconfigurator` directory.
 
-Note that when you start the server without using a preferred profile, the server refers to the `         <PRODUCT_HOME>/repository/components/                   default                  /configuration/org.eclipse.equinox.simpleconfigurator/bundles.info        ` file by default. This file contains references to all bundles in the `         <PRODUCT_HOME>/repository/components/plugins        ` directory, which is where all components/bundles of a product are saved.
+Note that when you start the server without using a preferred profile, the server refers to the `<PRODUCT_HOME>/repository/components/default/configuration/org.eclipse.equinox.simpleconfigurator/bundles.info` file by default. This file contains references to all bundles in the `<PRODUCT_HOME>/repository/components/plugins` directory, which is where all components/bundles of a product are saved.
 
 

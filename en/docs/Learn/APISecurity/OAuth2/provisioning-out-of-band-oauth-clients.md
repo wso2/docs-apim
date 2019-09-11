@@ -7,7 +7,7 @@ The steps below describe how to provision OAuth clients created outside the API 
 In this example, we use a standalone API Manager instance and do this via the WSO2 APIM Management Console.
 
 
-1.  Sign in to the WSO2 APIM Management Console ( `           https://<Server Host>:9443/carbon          ` ) and click **Add** under **Service Providers** .
+1.  Sign in to the WSO2 APIM Management Console ( `https://<Server Host>:9443/carbon` ) and click **Add** under **Service Providers** .
     ![](attachments/103334858/103334847.png)
 
 2.  Enter the name of the service provider and click **Register** .
@@ -19,7 +19,7 @@ In this example, we use a standalone API Manager instance and do this via the WS
     ![](attachments/103334858/103334848.png)
     You have now created the OAuth client and are provided with the OAuth client key and OAuth client secret.
     ![](attachments/103334858/103334846.png)
-5.  Enable the option to provide out-of-band keys by opening the `           <APIM_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/site.json          ` file and changing the `           "mapExistingAuthApps"          ` setting to `           true          ` .
+5.  Enable the option to provide out-of-band keys by opening the `<APIM_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/site.json` file and changing the `"mapExistingAuthApps"` setting to `true` .
 
     ``` java
         "mapExistingAuthApps" : true
@@ -30,7 +30,7 @@ In this example, we use a standalone API Manager instance and do this via the WS
 
 
 6.  Sign into the WSO2 API Store.
-    `          https://<Server Host>:9443/store         `
+`https://<Server Host>:9443/store         `
 7.  Click **Applications** .
     ![](attachments/103334858/103334853.png)
 8.  Click on the respective application to view the subscriptions details for the application.

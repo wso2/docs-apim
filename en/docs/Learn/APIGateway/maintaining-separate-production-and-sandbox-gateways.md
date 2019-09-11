@@ -21,7 +21,7 @@ The diagram below depicts this using two Gateways:
 ![](attachments/103333581/103333583.png)
 In either of the two approaches, if an API Gateway receives an invalid token, it returns an error to the requesting client saying that the token is invalid.
 
-You configure production and sandbox Gateways using the `         <Environments>        ` element in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file in API Publisher nodes, as shown in the following example:
+You configure production and sandbox Gateways using the `<Environments>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file in API Publisher nodes, as shown in the following example:
 
 ``` java
     <Environments>
@@ -42,15 +42,15 @@ You configure production and sandbox Gateways using the `         <Environments>
     </Environments>
 ```
 
-The `         <ServerURL>        ` parameter should have the value of the environment instance. For information about the `         <GatewayEndpoint>        ` , see [Working with Endpoints](https://docs.wso2.com/display/AM260/Working+with+Endpoints) .
+The `<ServerURL>` parameter should have the value of the environment instance. For information about the `<GatewayEndpoint>` , see [Working with Endpoints](https://docs.wso2.com/display/AM260/Working+with+Endpoints) .
 
-The `         type        ` attribute of the `         <Environment>        ` element can take the following values:
+The `type` attribute of the `<Environment>` element can take the following values:
 
 -   **Production** : A production type Gateway
 -   **Sandbox** : A sandbox type Gateway
 -   **Hybrid** : The Gateway handles both types of tokens
 
-If you work with Gateways in different geographical locations, configuring multiple environments using the `         <APIGateway>        ` element in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file is recommended. The diagram below depicts a sample setup:
+If you work with Gateways in different geographical locations, configuring multiple environments using the `<APIGateway>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file is recommended. The diagram below depicts a sample setup:
 
 ![](attachments/103333581/103333582.png)
 **Figure** : API Gateways in different geographical regions

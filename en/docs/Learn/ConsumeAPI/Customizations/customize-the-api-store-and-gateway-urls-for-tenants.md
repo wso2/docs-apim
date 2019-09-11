@@ -1,6 +1,6 @@
 # Customize the API Store and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Store is `         https://<HostName>:9443/store        ` . Follow the steps below to change the URL of the Gateways and API Store tenants in WSO2 API Manager.
+The default URL of WSO2 API Manager Store is `https://<HostName>:9443/store` . Follow the steps below to change the URL of the Gateways and API Store tenants in WSO2 API Manager.
 
 -   [Install Nginx and create SSL certificates](#CustomizetheAPIStoreandGatewayURLsforTenants-InstallNginxandcreateSSLcertificates)
 -   [Setup custom domain mapping in the registry](#CustomizetheAPIStoreandGatewayURLsforTenants-Setupcustomdomainmappingintheregistry)
@@ -40,13 +40,13 @@ If you are using Mac OS, you need to install Nginx using the [brew package manag
             sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
     ```
 
-3.  Navigate to the `           <API-M_HOME>/repository/resources/security          ` directory and use the following command to add the certificate to the client trust store.
+3.  Navigate to the `<API-M_HOME>/repository/resources/security` directory and use the following command to add the certificate to the client trust store.
 
     ``` java
             keytool -import -file /etc/nginx/ssl/nginx.crt -keystore client-truststore.jks -storepass wso2carbon -alias wso2carbon2
     ```
 
-4.  Navigate to the `           /etc/nginx/sites-enabled/default          ` directory in your terminal and add the following configurations with your custom domain name.
+4.  Navigate to the `/etc/nginx/sites-enabled/default` directory in your terminal and add the following configurations with your custom domain name.
 
     ``` java
             server {
@@ -74,18 +74,18 @@ If you are using Mac OS, you need to install Nginx using the [brew package manag
 Only the super tenant can add custom URLs in their registry space for other tenants. Tenants cannot configure custom URLs for their Store or Gateway.
 
 
-1.  Log in to the management console ( `           https://<HostName>:9443/carbon          ` ) as the super admin.
+1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the super admin.
 
 2.  In the **Main** menu, click **Browse** under **Resources.
     ![](attachments/103334773/103334777.png)**
 
-3.  Navigate to the `           /_system/governance registry          ` path and create the following directory structure in the registry.
+3.  Navigate to the `/_system/governance registry` path and create the following directory structure in the registry.
 
         !!! note
     In [API Cloud](https://docs.wso2.com/display/APICloud/Customize+Cloud+URLs) , this directory structure is created automatically when specifying the custom URL through the UI.
 
 
-    `           customurl/api-cloud/<tenant-domain>/urlMapping          `
+`customurl/api-cloud/<tenant-domain>/urlMapping          `
 
     ![](attachments/103334773/103334776.png)
 
@@ -99,7 +99,7 @@ Only the super tenant can add custom URLs in their registry space for other ten
     ![](attachments/103334773/103334775.png)
 
 
-4.  Navigate to `           /_system/governance/customurl/api-cloud/< tenant-domain>/urlMapping          ` . Click **Add Resource** under **Entries** and click **Create Text Content.**
+4.  Navigate to `/_system/governance/customurl/api-cloud/< tenant-domain>/urlMapping` . Click **Add Resource** under **Entries** and click **Create Text Content.**
 
 5.  Add the following resource configurations to the registry and click **Add** .
 
@@ -120,7 +120,7 @@ The URLs of the Store and Gateway are updated accordingly.
 
 #### Configure the store webapp
 
-1.  Go to `           <API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf          ` directory, open the `           site.json          ` file and add the tenant header parameter as shown below.
+1.  Go to `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf` directory, open the `site.json` file and add the tenant header parameter as shown below.
 
     ``` java
             "reverseProxy" : {

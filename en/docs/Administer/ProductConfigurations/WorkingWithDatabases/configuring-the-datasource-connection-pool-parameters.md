@@ -2,7 +2,7 @@
 
 When the server processes a database operation, it spawns a database connection from an associated datasource. After using this connection, the server returns it to the pool of connections. This is called datasource connection pooling. It is a recommended way to gain more performance/throughput in the system. In datasource connection pooling, the physical connection is not dropped with the database server, unless it becomes stale or the datasource connection is closed.
 
-RDBMS datasources in WSO2 products use Tomcat JDBC connection pool ( `          org.apache.tomcat.jdbc.pool         ` ). It is common to all components that access databases for data persistence, such as the registry, user management (if configured against a JDBC userstore), etc.
+RDBMS datasources in WSO2 products use Tomcat JDBC connection pool ( `org.apache.tomcat.jdbc.pool` ). It is common to all components that access databases for data persistence, such as the registry, user management (if configured against a JDBC userstore), etc.
 
 You can configure the datasource connection pool parameters, such as how long a connection is persisted in the pool, using the datasource configuration parameters section that appears in the product management console when creating a datasource. Click and expand the option as shown below:
 

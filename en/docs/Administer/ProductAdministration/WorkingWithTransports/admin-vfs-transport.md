@@ -2,14 +2,14 @@
 
 **VFS (Virtual File System) transport** implementation is a module which belongs to the Apache Synapse project. The following classes implement the listener and sender APIs.
 
--   `          org.apache.synapse.transport.vfs.VFSTransportListener         `
--   `          org.apache.synapse.transport.vfs.VFSTransportSender         `
+-`org.apache.synapse.transport.vfs.VFSTransportListener`
+-`org.apache.synapse.transport.vfs.VFSTransportSender`
 
-The necessary classes can be found in the `         synapse-vfs-transport.jar        ` file. Unlike the transports described previously, VFS transport does not have any global parameters to be configured. Rather, it has a set of service level parameters that needs to be specified for each service. VFS transport implementation is mainly used and mostly effective in the WSO2 ESB.
+The necessary classes can be found in the `synapse-vfs-transport.jar` file. Unlike the transports described previously, VFS transport does not have any global parameters to be configured. Rather, it has a set of service level parameters that needs to be specified for each service. VFS transport implementation is mainly used and mostly effective in the WSO2 ESB.
 
 Carbon VFS transport supports the **FTPS protocol** . Configuration is identical to other protocols with the only difference being the URL prefixes.
 
-The VFS transport implementation is based on Apache Commons VFS implementation. Therefore `         commons-vfs.jar        ` file should be included in the Carbon classpath to enable the VFS transport.
+The VFS transport implementation is based on Apache Commons VFS implementation. Therefore `commons-vfs.jar` file should be included in the Carbon classpath to enable the VFS transport.
 
 Since VFS transport deals with file operations, there are instances that these can fail due to unavailability of some resource. In such an instance, the VFS transport is equipped with the following fault-handling mechanism.
 

@@ -2,7 +2,7 @@
 
 Deployment synchronization can be done using [rsync](https://download.samba.org/pub/rsync/rsync.html) , which is a file copying tool. These changes must be done in the manager node and in the same directory.
 
-1.  Create a file named `           workers-list.txt          ` , somewhere in your machine, that lists all the worker nodes in the deployment. The following is a sample of the file where there are two worker nodes.
+1.  Create a file named `workers-list.txt` , somewhere in your machine, that lists all the worker nodes in the deployment. The following is a sample of the file where there are two worker nodes.
 
         !!! tip
     Different nodes are separated by new lines.
@@ -16,7 +16,7 @@ Deployment synchronization can be done using [rsync](https://download.samba.org/
     ```
 
         !!! note
-    If you have configured tenants in worker nodes, you need to add the `           repository/tenants          ` directory of the worker node to the list to synchronize tenant space. For example, if the node `           ubuntu@192.168.1.1          ` needs to be synced with both the super tenant and the tenant space, the following two entries should be added to the `           workers-list.txt          ` file.
+    If you have configured tenants in worker nodes, you need to add the `repository/tenants` directory of the worker node to the list to synchronize tenant space. For example, if the node `ubuntu@192.168.1.1` needs to be synced with both the super tenant and the tenant space, the following two entries should be added to the `workers-list.txt` file.
 
     **workers-list.txt**
 
@@ -26,10 +26,10 @@ Deployment synchronization can be done using [rsync](https://download.samba.org/
     ```
 
 
-2.  Create a file to synchronize the `           <API-M_HOME>/repository/deployment/server          ` folders between the manager and all worker nodes.
+2.  Create a file to synchronize the `<API-M_HOME>/repository/deployment/server` folders between the manager and all worker nodes.
 
         !!! note
-    You must create your own SSH key and define it as the `           pem_file          ` . Alternatively, you can use an existing SSH key. For information on generating and using the SSH Keys, go to the [SSH documentation](https://www.ssh.com/ssh/keygen/) . Specify the `           manager_server_dir          ` depending on the location in your local machine. Change the `           logs.txt          ` file path and the lock location based on where they are located in your machine.
+    You must create your own SSH key and define it as the `pem_file` . Alternatively, you can use an existing SSH key. For information on generating and using the SSH Keys, go to the [SSH documentation](https://www.ssh.com/ssh/keygen/) . Specify the `manager_server_dir` depending on the location in your local machine. Change the `logs.txt` file path and the lock location based on where they are located in your machine.
 
 
     **rsync-for-carbon-depsync.sh**

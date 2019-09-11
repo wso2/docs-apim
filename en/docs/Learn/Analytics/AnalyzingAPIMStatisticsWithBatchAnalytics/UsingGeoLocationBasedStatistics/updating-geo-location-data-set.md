@@ -20,7 +20,7 @@ Follow the procedure below in order to update your existing Geo Location dataset
 
         E.g :  /&lt;PATH\_TO&gt;/geoip2-csv-converter-v1.0.0
 
-    -   After executing the script, you will find the `             final.csv            ` file inside your current directory.
+    -   After executing the script, you will find the `final.csv` file inside your current directory.
 
         ``` java
                 ** get first column form original
@@ -43,7 +43,7 @@ Alternatively you can drop the tables in the GEO\_LOCATION\_DATA database and cr
 
 ##### Importing Data
 
-1.  Import the created `           final.csv          ` file into BLOCKS table. Use the command given below.
+1.  Import the created `final.csv` file into BLOCKS table. Use the command given below.
 
     ``` java
         load data local infile '[PATH_TO_FINAL.CSV]/final.csv' into table BLOCKS
@@ -53,7 +53,7 @@ Alternatively you can drop the tables in the GEO\_LOCATION\_DATA database and cr
          (network_cidr, network, broadcast, geoname_id, registered_country_geoname_id, represented_country_geoname_id, is_anonymous_proxy, is_satellite_provider, postal_code, latitude, longitude, network_blocks);
     ```
 
-2.  Import the `           GeoLite2-City-Locations-en.csv          ` file located inside the extracted geoip-2-csv-converter directory (e.g  geoip-2-csv-converterGeoLite2-City-CSV\_2017110) into LOCATION table. Use the command given below.
+2.  Import the `GeoLite2-City-Locations-en.csv` file located inside the extracted geoip-2-csv-converter directory (e.g  geoip-2-csv-converterGeoLite2-City-CSV\_2017110) into LOCATION table. Use the command given below.
 
     ``` java
             load data local infile '[PATH_TO_GeoLite2-City-Locations-en]/GeoLite2-City-Locations-en.csv' into table LOCATION

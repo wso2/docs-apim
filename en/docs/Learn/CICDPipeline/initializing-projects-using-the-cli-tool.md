@@ -88,14 +88,14 @@ The page: **Migrating the APIs and Applications to a Different Environment** was
     </tbody>
     </table>
 
-4.  Open the `           api.yaml          ` file. You can edit the mandatory configurations listed below.
+4.  Open the `api.yaml` file. You can edit the mandatory configurations listed below.
 
     | Field                                        | Description                                             |
     |----------------------------------------------|---------------------------------------------------------|
-    | `               apiName              `       | The name of API without spaces.                         |
-    | `               context              `       | Context of the API in API Manager with a leading slash. |
-    | `               productionUrl              ` | Production endpoint for API.                            |
-    | `               sandboxUrl              `    | Sandbox endpoint for API.                               |
+    | `apiName`| The name of API without spaces.                         |
+    | `context`| Context of the API in API Manager with a leading slash. |
+    | `productionUrl` | Production endpoint for API.                            |
+    | `sandboxUrl`| Sandbox endpoint for API.                               |
 
     For more information about the configurations, go to the [gist](https://gist.github.com/kasvith/01e704611b6c301f470ab0e3b5cb0607) .
 
@@ -126,7 +126,7 @@ The page: **Migrating the APIs and Applications to a Different Environment** was
     For more information, see Migrating the APIs to a Different Environment .
 
         !!! note
-    To publish the API immediately after importing, set the `           status          ` field to " `           PUBLISHED"          `
+    To publish the API immediately after importing, set the `status` field to " `PUBLISHED"          `
 
 
 ### Generate API projects using a Swagger/Open API specification
@@ -153,7 +153,7 @@ You can also initialize an API project from a remote Swagger/Open API specificat
 
 ### Change the default API template
 
-APIs are generated using a default template specified in the `         HOME/.wso2apimcli/default_api.yaml        ` file. You can edit this file to change how the API projects are initialized. This file contains the same notation as the `         api.yaml        ` file.
+APIs are generated using a default template specified in the `HOME/.wso2apimcli/default_api.yaml` file. You can edit this file to change how the API projects are initialized. This file contains the same notation as the `api.yaml` file.
 
 ### Generate APIs with dynamic data
 

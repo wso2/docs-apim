@@ -1,6 +1,6 @@
 # admin\_HTTP-NIO Transport
 
-**HTTP-NIO transport** is a module of the Apache Synapse project. Apache Synapse (as well as the WSO2 ESB) ships the HTTP-NIO transport as the default HTTP transport implementation; however, other products can install the feature that has this transport if needed. The two classes that implement the receiver and sender APIs are `         org.apache.synapse.transport.nhttp.HttpCoreNIOListener        ` and `         org.apache.synapse.transport.nhttp.HttpCoreNIOSender        ` respectively. These classes are available in the JAR file named `         synapse-nhttp-transport.jar        ` . This non-blocking transport implementation is one of the secrets behind the superior performance figures of the WSO2 ESB. The transport implementation is based on Apache HTTP Core - NIO and uses a configurable pool of non-blocking worker threads to grab incoming HTTP messages off the wire.
+**HTTP-NIO transport** is a module of the Apache Synapse project. Apache Synapse (as well as the WSO2 ESB) ships the HTTP-NIO transport as the default HTTP transport implementation; however, other products can install the feature that has this transport if needed. The two classes that implement the receiver and sender APIs are `org.apache.synapse.transport.nhttp.HttpCoreNIOListener` and `org.apache.synapse.transport.nhttp.HttpCoreNIOSender` respectively. These classes are available in the JAR file named `synapse-nhttp-transport.jar` . This non-blocking transport implementation is one of the secrets behind the superior performance figures of the WSO2 ESB. The transport implementation is based on Apache HTTP Core - NIO and uses a configurable pool of non-blocking worker threads to grab incoming HTTP messages off the wire.
 
 ### HTTP relay transport
 
@@ -8,7 +8,7 @@ Message Relay in older versions of Carbon was simply a message builder-formatter
 
 The Relay transport in newer versions of Carbon, is an entire HTTP transport implementation based on HTTP Core NIO. This can be used as an alternative to the NHTTP transport. It doesn't really care about the content type and simply streams all received messages through. It's as if the old Message Relay was engaged on all possible content types. The new transport also has a simpler and cleaner model for forwarding messages back and forth.
 
-To enable this, remove the comment of the relevant HTTP transport entries in the `         axis2.xml        ` . Also, comment out the usual settings for NHTTP transport receiver and sender.
+To enable this, remove the comment of the relevant HTTP transport entries in the `axis2.xml` . Also, comment out the usual settings for NHTTP transport receiver and sender.
 
 ### Transport receiver parameters
 

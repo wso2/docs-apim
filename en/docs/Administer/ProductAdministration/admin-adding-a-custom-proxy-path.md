@@ -18,7 +18,7 @@ Note the following:
 -   Once you have configured your products with a proxy server, it will no longer be possible to access the product behind the proxy. See the section given below on [configuring products to use the proxy server](#admin_AddingaCustomProxyPath-Step2) for more information.
 
 
-In the above example, "apimanager", "esb" and "appserver" are the "proxy context paths" of the respective products, which are configured in the `         carbon.xml        ` file (stored in `         <PRODUCT_HOME>/repository/conf/        ` directory) for each product. When a client sends a request to the proxy entry url path, e.g. <https://wso2test.com/apimanager> , the request is directed to the back-end service url ( [https://10.100.1.1:&lt;PortNumber&gt;/carbon](https://10.100.1.1:9443/carbon) ) where the original service lies. Eventually, the client has to be served via the requested proxy entry url path. The mapping between the proxy url path and the back-end service url path is resolved by the reverse proxy server fronting the back-end service.
+In the above example, "apimanager", "esb" and "appserver" are the "proxy context paths" of the respective products, which are configured in the `carbon.xml` file (stored in `<PRODUCT_HOME>/repository/conf/` directory) for each product. When a client sends a request to the proxy entry url path, e.g. <https://wso2test.com/apimanager> , the request is directed to the back-end service url ( [https://10.100.1.1:&lt;PortNumber&gt;/carbon](https://10.100.1.1:9443/carbon) ) where the original service lies. Eventually, the client has to be served via the requested proxy entry url path. The mapping between the proxy url path and the back-end service url path is resolved by the reverse proxy server fronting the back-end service.
 
 !!! info
 Prior to this solution, it was necessary to host these products as sub domains of the "wso2.com" domain as: [https://apim.wso2.com](https://apim.wso2test.com) , [https://esb.wso2.com](https://esb.wso2test.com) , [https://as.wso2.com](https://as.wso2test.com) .
@@ -86,7 +86,7 @@ Follow the steps given below.
 
     The host is now activated.
 
-9.  Open the `           /etc/nginx/sites-enabled/wso2          ` file and enter the following configurations.
+9.  Open the `/etc/nginx/sites-enabled/wso2` file and enter the following configurations.
 
     ``` java
             #Configurations for listener 8243.
@@ -150,7 +150,7 @@ Follow the steps given below.
         sudo service nginx restart
     ```
 
-11. In the above configuration, the https and http requests are listening on 8243 and 8280 ports respectively. Server name is set to wso2test.com. To test this in a local machine, you need to add `           wso2test.com          ` and `           as.wso2.com          ` to the `           /etc/hosts          ` file as shown below.
+11. In the above configuration, the https and http requests are listening on 8243 and 8280 ports respectively. Server name is set to wso2test.com. To test this in a local machine, you need to add `wso2test.com` and `as.wso2.com` to the `/etc/hosts` file as shown below.
 
     ``` java
             127.0.0.1  wso2test.com 
@@ -161,7 +161,7 @@ Follow the steps given below.
 #### Step 2: Configure products with proxy context path
 
 1.  Download WSO2 Application Server and WSO2 ESB.
-2.  Open the `                       carbon.xml                     ` file stored in the `           <PRODUCT_HOME>/repository/conf/          ` directory and set the HostName to what you defined in the nginx configuration as shown below (for both products):
+2.  Open the `carbon.xml` file stored in the `<PRODUCT_HOME>/repository/conf/` directory and set the HostName to what you defined in the nginx configuration as shown below (for both products):
 
     ``` java
             <HostName>wso2test.com</HostName>
@@ -197,14 +197,14 @@ Follow the steps given below.
 
 5.  Since you need to run both products (AS and ESB) simultaneously, set port offsets as shown below.
 
-    -   For Application Server: `             <Offset>0</Offset>            `
+    -   For Application Server: `<Offset>0</Offset>`
 
-    -   For ESB: `             <Offset>10</Offset>            `
+    -   For ESB: `<Offset>10</Offset>`
 
-6.  According to the nginx configuration, the https, http requests are listening on 8243 and 8280 ports. However, by default WSO2 products are listening on 9443 (WSO2 Application Server) and 9453 (WSO2 ESB). Therefore, the listening ports of the reverse proxy should be configured as proxy ports in Application Server and ESB respectively. T o enable proxy ports, open the `           <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml          ` file and add the "proxyPort" entries.
+6.  According to the nginx configuration, the https, http requests are listening on 8243 and 8280 ports. However, by default WSO2 products are listening on 9443 (WSO2 Application Server) and 9453 (WSO2 ESB). Therefore, the listening ports of the reverse proxy should be configured as proxy ports in Application Server and ESB respectively. T o enable proxy ports, open the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file and add the "proxyPort" entries.
 
         !!! note
-    Note that after you define proxy ports (8243 and 8280) in the `           catalina-server.xml          ` file, it will no longer be possible to access the products using the normal ports (9443 and 9453).
+    Note that after you define proxy ports (8243 and 8280) in the `catalina-server.xml` file, it will no longer be possible to access the products using the normal ports (9443 and 9453).
 
 
     For example, the "proxyPort" entries for Application Server are as follows:

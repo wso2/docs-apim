@@ -11,7 +11,7 @@ A WebSocket API allows an API creator to expose a WebSocket backend as an API to
 In this tutorial, you create and publish an API with a WebSocket backend and then invoke it using a Netty-based WebSocket client. You can use any WebSocket client to invoke the API.
 
 1.  Sign in to the API Publisher.
-    `          https://<hostname>:9443/publisher         ` (e.g. `                     https://localhost:9443/publisher                   ` ). Use `          admin         ` as the username and password.
+`https://<hostname>:9443/publisher` (e.g. `https://localhost:9443/publisher` ). Use `admin` as the username and password.
 2.  In the **APIS** menu, click **Add New API** .
     ![](attachments/103328746/103328735.png)
 3.  Select the option to design a new WebSocket API and click **Start Creating** .
@@ -27,7 +27,7 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
     ![](attachments/103328746/103328733.png)
 
 5.  Click the **Managed API** option.
-6.  Provide the production endpoint and sandbox endpoint, which is `           ws://echo.websocket.org:80          ` in this example, and click **Next: Manage &gt;** .
+6.  Provide the production endpoint and sandbox endpoint, which is `ws://echo.websocket.org:80` in this example, and click **Next: Manage &gt;** .
 
         !!! info
     With WSO2 API Manager, you can maintain a production and a sandbox endpoint for a given API. The production endpoint is the actual location of the API, whereas the sandbox endpoint points to its testing/pre-production environment.
@@ -42,7 +42,7 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
     ![](attachments/103328746/103328731.png)
     You have now published the WebSocket API to the API Store. Let's subscribe to it.
 8.  When prompted, choose to open the newly published API in the API Store.
-9.  The `          EchoWebSocket         ` API opens. Select an application (e.g., DefaultApplication), the **Gold tier** and subscribe to the API.
+9.  The `EchoWebSocket` API opens. Select an application (e.g., DefaultApplication), the **Gold tier** and subscribe to the API.
     ![](attachments/103328746/103328730.png)
 10. Click the **View Subscriptions** button when prompted. The **Subscriptions** tab opens.
 
@@ -56,12 +56,12 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
         !!! note
         SDK generation is not supported for WebSocket APIs as they don't have swagger definitions.
 
-13. In this example, make sure that the URL in the `          sample-ws-client/src/main/java/io/netty/example/http/websocketx/client/WebSocketClient.java         ` file matches the one in the API Store.
+13. In this example, make sure that the URL in the `sample-ws-client/src/main/java/io/netty/example/http/websocketx/client/WebSocketClient.java` file matches the one in the API Store.
     ![](attachments/103328746/103328739.png)
 14. In the same file, copy and paste the Authorization Bearer access token you generated in step 11 as shown below.
     ![](attachments/103328746/103328740.png)
 15. Save your changes.
-16. Open the `          sample-ws-client         ` directory you downloaded in step 11 using an IDE. This tutorial uses IntelliJ Idea 15 CE as the IDE.
+16. Open the `sample-ws-client` directory you downloaded in step 11 using an IDE. This tutorial uses IntelliJ Idea 15 CE as the IDE.
 17. Run the WebSocket client as shown below.
     ![](attachments/103328746/103328738.png)
 18. Type a message in the WebSocket client and you will see that it echoes the message as intended by the WebSocket API.

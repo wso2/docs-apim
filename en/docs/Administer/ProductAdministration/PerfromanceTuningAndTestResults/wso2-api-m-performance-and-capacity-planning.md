@@ -225,7 +225,7 @@ GC throughput and other GC related details were obtained from the GC logs produc
 
 The following are the GC flags used:
 
-`         -XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:"$CARBON_HOME/repository/logs/gc.log        `
+`-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:"$CARBON_HOME/repository/logs/gc.log        `
 
 !!! info
 The process memory was not considered as Java is working on an already reserved heap area.

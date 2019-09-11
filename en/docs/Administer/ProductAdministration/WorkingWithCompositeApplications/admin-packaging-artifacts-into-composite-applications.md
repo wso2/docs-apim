@@ -19,7 +19,7 @@ To [deploy a C-App via the product's management console](https://docs.wso2.com/d
 
 OR
 
-1.  -   Open the `            pom.xml           ` file in the **Composite Application Project POM Editor** and click the button for creating an archive in the upper-right corner.
+1.  -   Open the `pom.xml` file in the **Composite Application Project POM Editor** and click the button for creating an archive in the upper-right corner.
 
 2.  Give the location of the CAR file and the artifacts you want to include in it.
 

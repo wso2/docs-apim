@@ -40,8 +40,8 @@ The following example shows how to have two throttling policies for a single API
 
 To engage the two throttling layers, you add two throttling tier definitions and engage them to the API using the steps below:
 
-1.  Go to the Synapse configuration file of the particular API located in `          <         ` `          API-M_HOME>/repository/deployment/server/synapse-configs/default/api         ` .
-2.  Copy the following content inside the `           <handlers>          ` section in the API configuration.
+1.  Go to the Synapse configuration file of the particular API located in `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` .
+2.  Copy the following content inside the `<handlers>` section in the API configuration.
 
     ``` xml
         <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"/>
@@ -55,7 +55,7 @@ To engage the two throttling layers, you add two throttling tier definitions and
         </handler>
     ```
 
-3.  Replace the existing content of the `           /_system/governance/apimgt/applicationdata/tiers.xml          ` file with following content.
+3.  Replace the existing content of the `/_system/governance/apimgt/applicationdata/tiers.xml` file with following content.
 
     **throttling-l1.xml**
 
@@ -110,7 +110,7 @@ To engage the two throttling layers, you add two throttling tier definitions and
             </wsp:Policy>
     ```
 
-4.  Create an XML as `           throttling-l2.xml          ` with the following content and add it to `           /_system/governance/apimgt/applicationdata          ` registry location.
+4.  Create an XML as `throttling-l2.xml` with the following content and add it to `/_system/governance/apimgt/applicationdata` registry location.
     The code adds two policies for each role (free, Silver, Gold) and engages them to the APIs with different keys. Both throttling layers execute in runtime sequentially.
 
     **throttling-l2.xml**

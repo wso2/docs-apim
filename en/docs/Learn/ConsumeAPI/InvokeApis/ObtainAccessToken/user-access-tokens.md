@@ -11,11 +11,11 @@ User access tokens are tokens that authenticate the final user of an API, and ar
 By default, access tokens and consumer secrets are not saved in an encrypted format in the database. An admin can **enable encryption** following the instructions in [Encrypting OAuth Keys](https://docs.wso2.com/display/AM210/Encrypting+OAuth+Keys) .
 
 !!! tip
-**Tip** : If you want to maintain authorization headers in messages, which are going out from the API Gateway, an admin can go to the `         <API_Gateway_node>/repository/conf/api-manager.xml        ` file, uncomment the `         <RemoveOAuthHeadersFromOutMessage>        ` element, set its value to `         false        ` , and then restart the server to apply the changes.
+**Tip** : If you want to maintain authorization headers in messages, which are going out from the API Gateway, an admin can go to the `<API_Gateway_node>/repository/conf/api-manager.xml` file, uncomment the `<RemoveOAuthHeadersFromOutMessage>` element, set its value to `false` , and then restart the server to apply the changes.
 
 |                                                                                                                                                                                       |
 |---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `                 <RemoveOAuthHeadersFromOutMessage>                ` `                 false                ` `                 </RemoveOAuthHeadersFromOutMessage>                ` |
+| `<RemoveOAuthHeadersFromOutMessage>false</RemoveOAuthHeadersFromOutMessage>` |
 
 !!! note
 Note that when a user is deleted, the access token is automatically invalidated.

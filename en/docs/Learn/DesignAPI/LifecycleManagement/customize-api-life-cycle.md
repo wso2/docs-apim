@@ -136,7 +136,7 @@ Follow the steps below to add a new state to the default life cycle.
         Copy and paste the following sample code in the file.
 
                 !!! info
-        The sample **REJECTED** state is added between **PUBLISHED** and **RETIRED** . It uses the `             Re-submit            ` and `             Retire            ` state transition events to change to the consequent states. Custom checklist items are also given under `             "checkItems"            ` , which are tasks to be done in a state transition. You can select/deselect these items in the management console.
+        The sample **REJECTED** state is added between **PUBLISHED** and **RETIRED** . It uses the `Re-submit` and `Retire` state transition events to change to the consequent states. Custom checklist items are also given under `"checkItems"` , which are tasks to be done in a state transition. You can select/deselect these items in the management console.
 
 
         ``` java
@@ -161,7 +161,7 @@ Follow the steps below to add a new state to the default life cycle.
         ```
 
                 !!! note
-        The same execution class is used ( `                           org.wso2.carbon.apimgt.impl.executors.APIExecutor                         ` ) for all state transitions. However, you can plug your own execution code when modifying the life cycle configuration.
+        The same execution class is used ( `org.wso2.carbon.apimgt.impl.executors.APIExecutor` ) for all state transitions. However, you can plug your own execution code when modifying the life cycle configuration.
 
         For example, if you want to add notifications for a specific state transition, you can plug your own custom execution class for that particular state in the API life cycle. Any changes are updated in the **Lifecycle** tab accordingly.
 
@@ -175,7 +175,7 @@ Follow the steps below to add a new state to the default life cycle.
         ```
 
 7.  Make the transition event visible in API Publisher.
-    1.  Open the `            <API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/locales/jaggery/locale_default.json           ` file.
+    1.  Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/locales/jaggery/locale_default.json` file.
     2.  Add the following code in the file. Note that the key value in the JSON pair should be lowercase.
 
         ``` java

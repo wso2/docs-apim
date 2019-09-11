@@ -5,31 +5,31 @@ WSO2 API Manager is a complete solution for designing and publishing APIs, creat
 ##### Before you begin....
 
 !!! tip
-        1.  Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 1.7.\* or 1.8.\* and set the `          JAVA_HOME         ` environment variable. Refer [Installing the product](https://docs.wso2.com/display/AM210/Installing+the+Product) documentation to set `          JAVA_HOME         ` environment variable for different operating systems
+        1.  Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 1.7.\* or 1.8.\* and set the `JAVA_HOME` environment variable. Refer [Installing the product](https://docs.wso2.com/display/AM210/Installing+the+Product) documentation to set `JAVA_HOME` environment variable for different operating systems
         2.  [Download the latest version of WSO2 API Manager](https://wso2.com/api-management/install/) .
-        3.  Start WSO2 API Manager by going to the `          <API-M_HOME>/bin         ` directory using the command-line and then executing `          wso2server.bat         ` (for Windows) or `          wso2server.sh         ` (for Linux.)
+        3.  Start WSO2 API Manager by going to the `<API-M_HOME>/bin` directory using the command-line and then executing `wso2server.bat` (for Windows) or `wso2server.sh` (for Linux.)
 
 
 ##### Let's get started....
 
 Follow the steps in this section to quickly deploy a sample API, publish it, subscribe to it, and invoke it.
 
-1.  Open the API Publisher ( `          https://<hostname>:9443/publisher         ` ) and sign in with **`           admin/admin          `** credentials.
+1.  Open the API Publisher ( `https://<hostname>:9443/publisher` ) and sign in with **`admin/admin`** credentials.
 2.  Exit from API creation tutorial by clicking the close icon(X) on top right corner.
-    ![](../assets/attachments/103328418/103328310.png)3.  Click the **Deploy Sample API** button. It deploys a sample API called `           PizzaShackAPI          ` into the API Manager.
+    ![](../assets/attachments/103328418/103328310.png)3.  Click the **Deploy Sample API** button. It deploys a sample API called `PizzaShackAPI` into the API Manager.
 
 !!! note
         This **Deploy Sample API** option is available only when there are no APIs in API Publisher. If you have already created a API, this option will not be available.
 
 ![](../assets/attachments/103328418/103328344.png)
-4.  Click `           PizzaShackAPI          ` to open it.
+4.  Click `PizzaShackAPI` to open it.
     ![](../assets/attachments/103328418/103328343.png)
 
-5.  Go to the **Lifecycle** tab and note that the **State** is `           PUBLISHED          ` . The API is already published to the API Store.
+5.  Go to the **Lifecycle** tab and note that the **State** is `PUBLISHED` . The API is already published to the API Store.
 
     ![](../assets/attachments/103328418/103328342.png)
 
-6.  Sign in to the API Store ( `           https://<hostname>:9443/store          ` ) with the `                       admin/admin                     ` credentials and click on the `           PizzaShackAPI          ` API.
+6.  Sign in to the API Store ( `https://<hostname>:9443/store` ) with the `admin/admin` credentials and click on the `PizzaShackAPI` API.
     ![](../assets/attachments/103328418/103328341.png)
     !!! tip
         API Store Walkthrough
@@ -45,7 +45,7 @@ Follow the steps in this section to quickly deploy a sample API, publish it, sub
     ![](../assets/attachments/103328418/103328399.png)
     You have now successfully subscribed to an API. Let's invoke the API using the integrated Swagger-based API Console.
 
-9.  Click the **APIs** menu again and click the `           PizzaShackAPI          ` to open it. When the API opens, click its **API Console** tab.
+9.  Click the **APIs** menu again and click the `PizzaShackAPI` to open it. When the API opens, click its **API Console** tab.
     ![](../assets/attachments/103328418/103328339.png)    Expand the GET method (which retrieves the menu) and click **Try it out** .
     ![](../assets/attachments/103328418/103328338.png)    Note the response for the API invocation. It returns the list of menu items.
     ![](../assets/attachments/103328418/103328337.png)

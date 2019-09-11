@@ -1,6 +1,6 @@
 # Configuring Metrics Properties
 
-The `         <APIM_HOME>/repository/conf/metrics.properties        ` file specifies properties that correspond to the gauges in the **Metrics Dashboard** . See the topic on [using JVM metrics](_Using_JVM_Metrics_) for details on using the metrics dashboard for JVM metrics. The level defined for a property in this file determines the extent to which the relevant gauge in the dashboard should be updated with information. The different levels that can be defined for properties are as follows:
+The `<APIM_HOME>/repository/conf/metrics.properties` file specifies properties that correspond to the gauges in the **Metrics Dashboard** . See the topic on [using JVM metrics](_Using_JVM_Metrics_) for details on using the metrics dashboard for JVM metrics. The level defined for a property in this file determines the extent to which the relevant gauge in the dashboard should be updated with information. The different levels that can be defined for properties are as follows:
 
 | Level     | Description                                                                                                    |
 |-----------|----------------------------------------------------------------------------------------------------------------|
@@ -10,7 +10,7 @@ The `         <APIM_HOME>/repository/conf/metrics.properties        ` file speci
 | **Trace** | Designates finer-grained informational events than the DEBUG.                                                  |
 | **All**   | Designates all the informational events.                                                                       |
 
-If no specific level is configured for a property in the `         metrics.properties        ` file, the metrics root level applies. The root level is defined as shown in the following example in the `         metrics.properties        ` file.
+If no specific level is configured for a property in the `metrics.properties` file, the metrics root level applies. The root level is defined as shown in the following example in the `metrics.properties` file.
 
 ``` java
     metrics.rootLevel=OFF
@@ -22,7 +22,7 @@ If you want to change the current root level, you can also use the following com
     -Dmetrics.rootLevel=INFO
 ```
 
-The levels in `         metrics.properties        ` file can be configured to any hierarchy. However, if the level defined for an individual property is different to the level defined for its parent in the hierarchy, the level defined for the individual property overrules that of the parent. For example, if we have `         metric.level.jvm.memory=INFO        ` in the `         <APIM_HOME>/repository/conf/metrics.properties        ` file, all metrics under `         jvm.memory        ` have `         INFO        ` as the configured level. However, if you have `         metric.level.jvm.memory.heap=TRACE        ` , the `         TRACE        ` level would apply for the `         metric.level.jvm.memory.heap        ` property even though it is a child property of `         jvm.memory.        `
+The levels in `metrics.properties` file can be configured to any hierarchy. However, if the level defined for an individual property is different to the level defined for its parent in the hierarchy, the level defined for the individual property overrules that of the parent. For example, if we have `metric.level.jvm.memory=INFO` in the `<APIM_HOME>/repository/conf/metrics.properties` file, all metrics under `jvm.memory` have `INFO` as the configured level. However, if you have `metric.level.jvm.memory.heap=TRACE` , the `TRACE` level would apply for the `metric.level.jvm.memory.heap` property even though it is a child property of `jvm.memory.        `
 
 The properties that are included in this file by default are as follows:
 
@@ -75,8 +75,8 @@ The properties that are included in this file by default are as follows:
 | metric.level.jvm.threads.new.count            | OFF           | The gauge for showing the number of new threads generated in the JVM thread pool.                                                                                                                                                                                                          |
 | metric.level.jvm.threads.runnable.count       | OFF           | The gauge for showing the number of runnable threads currently available in the JVM thread pool.                                                                                                                                                                                           |
 | metric.level.jvm.threads.terminated.count     | OFF           | The gauge for showing the number of threads terminated from the JVM thread pool since you started running the WSO2 API Manager instance.                                                                                                                                                   |
-| metric.level.jvm.threads.timed\_waiting.count | OFF           | The gauge for showing the number of threads in the `             Timed_Waiting            ` state.                                                                                                                                                                                         |
-| metric.level.jvm.threads.waiting.count        | OFF           | The gauge for showing the number of threads in the `             Waiting            ` state in the JVM thread pool. One or more other threads are required to perform certain actions before these threads can proceed with their actions.                                                 |
+| metric.level.jvm.threads.timed\_waiting.count | OFF           | The gauge for showing the number of threads in the `Timed_Waiting` state.                                                                                                                                                                                         |
+| metric.level.jvm.threads.waiting.count        | OFF           | The gauge for showing the number of threads in the `Waiting` state in the JVM thread pool. One or more other threads are required to perform certain actions before these threads can proceed with their actions.                                                 |
 
 #### Viewing API specific Handler Metrics
 
@@ -88,7 +88,7 @@ Follow the below steps to view API specific metrics for handlers which are expos
             INFO - JMXServerManager JMX Service URL  : service:jmx:rmi://localhost:11111/jndi/rmi://localhost:9999/jmxrmi
     ```
 
-2.  Go to `           <JDK_HOME>/bin          ` . JDK\_HOME is the directory where the JDK(Java Development Kit) is installed. Find the **jconsole** executable file in the directory and run it on the command/shell prompt.
+2.  Go to `<JDK_HOME>/bin` . JDK\_HOME is the directory where the JDK(Java Development Kit) is installed. Find the **jconsole** executable file in the directory and run it on the command/shell prompt.
 
         !!! tip
     You can type **jconsole** in the command/shell prompt to run the file.

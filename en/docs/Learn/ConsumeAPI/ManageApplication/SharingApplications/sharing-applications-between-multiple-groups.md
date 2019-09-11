@@ -13,7 +13,7 @@ By default, API Manager considers the organization name you enter when signing u
 You can enable application sharing between multiple groups by following the steps below.
 
 1.  Shutdown the server if its running
-2.  Uncomment the `           <GroupingExtractor>          ` element in the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file.
+2.  Uncomment the `<GroupingExtractor>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
     ``` java
         <GroupingExtractor>org.wso2.carbon.apimgt.impl.DefaultGroupIDExtractorImpl</GroupingExtractor>
@@ -27,7 +27,7 @@ You can enable application sharing between multiple groups by following the step
 
 ### Using the group sharing feature
 
-Group IDs are extracted using a `         GroupingExtractor        ` class which is an implementation of `         NewPostLoginExecutor        ` interface. The default implementation is done through the `                   DefaultGroupIDExtractorImpl                 ` class. The organization claim is extracted using the group ID. If a particular user is in more than one organization, provide the organizations as a string separated by commas.
+Group IDs are extracted using a `GroupingExtractor` class which is an implementation of `NewPostLoginExecutor` interface. The default implementation is done through the `DefaultGroupIDExtractorImpl` class. The organization claim is extracted using the group ID. If a particular user is in more than one organization, provide the organizations as a string separated by commas.
 
 The steps below show how to use the group sharing feature
 
@@ -47,10 +47,10 @@ The steps below show how to use the group sharing feature
     ![](attachments/103333711/103333717.png)
 ### Extending the group ID extractor
 
-The default implementation picks the organization claim as the group ID. The organization names are returned in a string array. To use a different claim or a different type of group ID , should create your own group ID extractor class by extending `         NewPostLoginExecutor        ` interface and overriding the method below.
+The default implementation picks the organization claim as the group ID. The organization names are returned in a string array. To use a different claim or a different type of group ID , should create your own group ID extractor class by extending `NewPostLoginExecutor` interface and overriding the method below.
 
 ``` java
     String[] getGroupingIdentifierList(String response);
 ```
 
-This particular method will be called when a user is logging into the store and it will return all the groupIds for the logged in user. After logging in users will be able to see the applications created by themselves, and the applications shared with groupIds returned by `         getGroupingIdentifierList        ` Method.
+This particular method will be called when a user is logging into the store and it will return all the groupIds for the logged in user. After logging in users will be able to see the applications created by themselves, and the applications shared with groupIds returned by `getGroupingIdentifierList` Method.

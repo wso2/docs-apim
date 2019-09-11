@@ -3,7 +3,7 @@
 The Forum is enabled by default in the API Manager Store.
 Follow the instructions below to disable the Forum:
 
-1.  Navigate to the `           <API_HOME>/repository/conf/api-manager.xml          ` file.
+1.  Navigate to the `<API_HOME>/repository/conf/api-manager.xml` file.
 2.  Uncomment the following code.
 
     <table>

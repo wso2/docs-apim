@@ -10,12 +10,12 @@ See the following topics for a description of the concepts that you need to know
 -   [Access tokens](Key-Concepts_103328852.html#KeyConcepts-Accesstokens)
 
 
-The examples here use the `         PhoneVerification        ` API, which is created in section [Create and Publish an API](_Create_and_Publish_an_API_) .
+The examples here use the `PhoneVerification` API, which is created in section [Create and Publish an API](_Create_and_Publish_an_API_) .
 
-Let's invoke the `         PhoneVerification        ` API using a SOAP client.
+Let's invoke the `PhoneVerification` API using a SOAP client.
 
-1.  Sign in to the API Store and click an API that you want to invoke (e.g., `          PhoneVerification         ` ).
-2.  The API's **Overview** page opens. Select an application (e.g., `          DefaultApplication         ` ), the **Bronze tier** and subscribe to the API.
+1.  Sign in to the API Store and click an API that you want to invoke (e.g., `PhoneVerification` ).
+2.  The API's **Overview** page opens. Select an application (e.g., `DefaultApplication` ), the **Bronze tier** and subscribe to the API.
     ![](attachments/103332601/103332597.png)
 3.  Click the **Applications** menu, open the default application using which you subscribed to the API, and generate a production key.
     ![](attachments/103332601/103332593.png)
@@ -31,15 +31,15 @@ Let's invoke the `         PhoneVerification        ` API using a SOAP client.
 7.  Give your API's WSDL and click **OK** .
     In this case, the WSDL is as follows: <http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl>
     ![](attachments/103332601/103332596.png)
-8.  The WSDL defines two operations. Let's work with `          CheckPhoneNumber         ` . Double click on `          Request 1         ` . Then, click the **Header** tab and add an authorization header to your request by clicking on the add icon.
+8.  The WSDL defines two operations. Let's work with `CheckPhoneNumber` . Double click on `Request 1` . Then, click the **Header** tab and add an authorization header to your request by clicking on the add icon.
     ![](attachments/103332601/103332595.png)
-9.  Give the value of the Authorization header in the following format: `           Bearer <the-access-token-you-copied-in-step4>          `
+9.  Give the value of the Authorization header in the following format: `Bearer <the-access-token-you-copied-in-step4>          `
     ![](attachments/103332601/103332594.png)
 
 10. Add the following dummy values and submit the request.
 
     1.  Change the endpoint with the production URL of the API.
-        You can copy the production URL from the API's **Overview** tab in the API Store (i.e., It is `             https://localhost:8243/phoneverify/1.0.0            ` for the `             PhoneVerification            ` API). Append the resources to the end of the URL, if any. The resource is `             /CheckPhoneNumber            ` for the `             PhoneVerification            ` API that we use here.
+        You can copy the production URL from the API's **Overview** tab in the API Store (i.e., It is `https://localhost:8243/phoneverify/1.0.0` for the `PhoneVerification` API). Append the resources to the end of the URL, if any. The resource is `/CheckPhoneNumber` for the `PhoneVerification` API that we use here.
 
     2.  In the SOAP request, change the parameters, which are PhoneNumber and LicenseKey.
 

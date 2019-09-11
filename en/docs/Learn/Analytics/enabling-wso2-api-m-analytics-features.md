@@ -4,13 +4,13 @@ WSO2 API Manager Analytics is powered by WSO2 Stream Processor .These features a
 
 Follow the steps below to enable the WSO2 API-M Analytics features:
 
-1.  Open the `           <API-M_ANALYTICS_HOME>/conf/<PROFILE>/deployment.yaml          ` file.
+1.  Open the `<API-M_ANALYTICS_HOME>/conf/<PROFILE>/deployment.yaml` file.
 
         !!! info
-    `           <PROFILE>          ` refers to `           dashboard          ` , `           editor          ` , `           manager          ` and `           worker          ` profile directories. Each of these directories contain a `           deployment.yaml          ` file and all of them need to be edited when you enable/disable solutions.
+`<PROFILE>` refers to `dashboard` , `editor` , `manager` and `worker` profile directories. Each of these directories contain a `deployment.yaml` file and all of them need to be edited when you enable/disable solutions.
 
 
-2.  Enable API-M Analytics is enabled by setting the `           APIM-analytics.enabled:          ` paramater to `           true          ` as shown in the sample below.
+2.  Enable API-M Analytics is enabled by setting the `APIM-analytics.enabled:` paramater to `true` as shown in the sample below.
 
     ``` java
         # Carbon Configuration Parameters

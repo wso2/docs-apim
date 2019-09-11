@@ -17,7 +17,7 @@ Follow the instructions below to configure and deploy API-M using a single node:
 ### Step 1 - Create a SSL certificate
 
 !!! note
-This step is optional based on the setup that you configure. All WSO2 products are by default shipped with a keystore file and truststore file (stored in the `         <PRODUCT_HOME>/repository/resources/security/        ` directory). The default keystore that is shipped with a WSO2 product ( `         wso2carbon.jks)        ` is by default configured for all of the following purposes.
+This step is optional based on the setup that you configure. All WSO2 products are by default shipped with a keystore file and truststore file (stored in the `<PRODUCT_HOME>/repository/resources/security/` directory). The default keystore that is shipped with a WSO2 product ( `wso2carbon.jks)` is by default configured for all of the following purposes.
 
 -   Authenticating the communication over Secure Sockets Layer (SSL)/Transport Layer Security (TLS) protocols.
 -   Encrypting sensitive data such as plain-text passwords found in both product-level and product feature-level configurations/configuration files using [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation) .
@@ -45,7 +45,7 @@ This step is only required if you are using a hostname to expose APIs.
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for more information.
 
-Add this hostname in the `           <API-M_HOME>/repository/conf/api-manager.xml          ` file. Update the `           <GatewayEndpoint>          ` element with your chosen hostname as shown below. In this case we are using `           localhost          ` as the hostname:
+Add this hostname in the `<API-M_HOME>/repository/conf/api-manager.xml` file. Update the `<GatewayEndpoint>` element with your chosen hostname as shown below. In this case we are using `localhost` as the hostname:
 
 ``` java
     <!-- Endpoint URLs for the APIs hosted in this API gateway.-->

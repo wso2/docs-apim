@@ -3,7 +3,7 @@
 To run WSO2 products, you start the product server at the command line. You can then run the Management Console to configure and manage the product.
 
 !!! info
-The Management Console uses the default HTTP-NIO transport, which is configured in the `         <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml        ` file. ( `         <PRODUCT_HOME>        ` is the directory where you installed the WSO2 product you want to run.) In order to access the Management Console, you must configure the HTTP-NIO transport properly in this file. For more information on the HTTP-NIO transport, see the related topics section at the bottom of this page.
+The Management Console uses the default HTTP-NIO transport, which is configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file. ( `<PRODUCT_HOME>` is the directory where you installed the WSO2 product you want to run.) In order to access the Management Console, you must configure the HTTP-NIO transport properly in this file. For more information on the HTTP-NIO transport, see the related topics section at the bottom of this page.
 
 
 The following sections describe how to run the product.
@@ -21,61 +21,61 @@ Follow the instructions below to start your WSO2 product based on the operating 
 
 #### On Windows/Linux/Mac OS
 
-To start the server, run `         <PRODUCT_HOME>\bin\wso2server.bat        ` (on Windows) or `         <PRODUCT_HOME>/bin/wso2server.sh        ` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
+To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<PRODUCT_HOME>/bin/wso2server.sh` (on Linux/Mac OS) from the command prompt as described below. Alternatively, you can install and run the server as a Windows or Linux service (see the related topics section at the end of this page).
 
 Open a command prompt by following the instructions below.
 
--   On Windows: Click **Start &gt;Run,** type `           cmd          ` at the prompt, and then press **Enter** .
+-   On Windows: Click **Start &gt;Run,** type `cmd` at the prompt, and then press **Enter** .
 -   On Linux/Mac OS: Establish an SSH connection to the server, log on to the text Linux console, or open a terminal window.
 
-Navigate to the `          <PRODUCT_HOME>/bin/         ` directory using the command prompt.
+Navigate to the `<PRODUCT_HOME>/bin/` directory using the command prompt.
 
 Execute one of the following commands:
 
 -   To start the server in a typical environment:
-    -   On Windows: `             wso2server.bat --run            `
-    -   On Linux/Mac OS: `              sh wso2server.sh             `
+    -   On Windows: `wso2server.bat --run            `
+    -   On Linux/Mac OS: `sh wso2server.sh             `
 
--   To start the server in the background mode of Linux: `            sh wso2server.sh start           `
-    To stop the server running in this mode, you will enter: `            sh wso2server.sh stop           `
+-   To start the server in the background mode of Linux: `sh wso2server.sh start           `
+    To stop the server running in this mode, you will enter: `sh wso2server.sh stop           `
 
 -   To provide access to the production environment without allowing any user group (including admin) to log in to the Management Console:
 
-    -   On Windows: `             wso2server.bat --run -DworkerNode            `
-    -   On Linux/Mac OS: `             sh wso2server.sh -DworkerNode            `
+    -   On Windows: `wso2server.bat --run -DworkerNode            `
+    -   On Linux/Mac OS: `sh wso2server.sh -DworkerNode            `
 
--   To check for additional options you can use with the startup commands, type `           -help          ` after the command, such as:
-    `           sh wso2server.sh -help          ` (see the related topics section at the end of this page).
+-   To check for additional options you can use with the startup commands, type `-help` after the command, such as:
+`sh wso2server.sh -help` (see the related topics section at the end of this page).
 
 The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 #### On Solaris
 
-To start the server, run `         <PRODUCT_HOME>/bin/wso2server.sh        ` from the command prompt as described below.
+To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command prompt as described below.
 
 !!! note
 Following instructions are tested on an Oracle Solaris 10 8/11 x86 environment.
 
 
-1.  Click **Launch &gt;Run Applications,** type `          dtterm         ` at the prompt, and then press **Enter** to open a command prompt.
-2.  Navigate to the `          <PRODUCT_HOME>/bin/         ` directory using the command prompt.
-3.  Execute the following command: `          bash         ` wso2server.sh
+1.  Click **Launch &gt;Run Applications,** type `dtterm` at the prompt, and then press **Enter** to open a command prompt.
+2.  Navigate to the `<PRODUCT_HOME>/bin/` directory using the command prompt.
+3.  Execute the following command: `bash` wso2server.sh
 4.  The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 !!! info
 If you are starting the product in service/nohup mode in Solaris, do the following:
 
-1.  Update the `          <PRODUCT_HOME>/bin/wso2server.sh         ` file as follows:
-    1.  Search for the following occurrences: `                           nohup sh "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &                         `
+1.  Update the `<PRODUCT_HOME>/bin/wso2server.sh` file as follows:
+    1.  Search for the following occurrences: `nohup sh "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &                         `
 
-    2.  Replace those occurrences with the following: **`              nohup                             bash                            "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &             `
+    2.  Replace those occurrences with the following: **`nohup                             bash                            "$CARBON_HOME"/bin/wso2server.sh $args > /dev/null 2>&1 &             `
         **
 
                 !!! tip
-        The only change is replacing `             sh            ` with `             bash            ` . This is required only for Solaris.
+        The only change is replacing `sh` with `bash` . This is required only for Solaris.
 
 
-2.  Update your **PATH** variable to have `                       /usr/xpg4/bin/sh                     ` as the first element. This is because `                       /usr/xpg4/bin/sh                     ` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `           wso2server.sh          ` script or you can run the following command on a terminal:
+2.  Update your **PATH** variable to have `/usr/xpg4/bin/sh` as the first element. This is because `/usr/xpg4/bin/sh` contains an **sh** shell that is newer than the default **sh** shell. You can set this variable as a system property in the `wso2server.sh` script or you can run the following command on a terminal:
 
     ``` java
         export PATH=/usr/xpg4/bin/sh:$PATH
@@ -95,16 +95,16 @@ Once the server has started, you can run the Management Console by typing its UR
 
 ##### Working with the URL
 
-The URL appears next to `         Mgt Console URL        ` in the start script log that is displayed in the command window. For example:
+The URL appears next to `Mgt Console URL` in the start script log that is displayed in the command window. For example:
 
 ![](attachments/103334417/103334420.png)
 
-The URL should be in the following format: `         https://<Server Host>:9443/carbon        `
+The URL should be in the following format: `https://<Server Host>:9443/carbon`
 
-You can use this URL to access the Management Console on this computer from any other computer connected to the Internet or LAN. When accessing the Management Console from the same server where it is installed, you can type `         localhost        ` instead of the IP address as follows: `                              https://localhost:9443/carbon                           `
+You can use this URL to access the Management Console on this computer from any other computer connected to the Internet or LAN. When accessing the Management Console from the same server where it is installed, you can type `localhost` instead of the IP address as follows: `https://localhost:9443/carbon`
 
 !!! note
-You can change the Management Console URL by modifying the value of the `         <MgtHostName>        ` property in the `         <PRODUCT_HOME>/repository/conf/carbon.xml        ` file. When the host is internal or not resolved by a DNS, map the hostname alias to its IP address in the `         /etc/hosts        ` file of your system, and then enter that alias as the value of the `         <MgtHostName>        ` property in `         carbon.xml        ` . For example:
+You can change the Management Console URL by modifying the value of the `<MgtHostName>` property in the `<PRODUCT_HOME>/repository/conf/carbon.xml` file. When the host is internal or not resolved by a DNS, map the hostname alias to its IP address in the `/etc/hosts` file of your system, and then enter that alias as the value of the `<MgtHostName>` property in `carbon.xml` . For example:
 
 ``` java
     In /etc/hosts:
@@ -131,7 +131,7 @@ The tabs and menu items in the navigation pane on the left may vary depending o
 
 ##### Configuring the session time-out
 
-If you leave the Management Console unattended for a defined time, its login session will time out. The default timeout value is 15 minutes, but you can change this in the `         <PRODUCT_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml        ` file as follows.
+If you leave the Management Console unattended for a defined time, its login session will time out. The default timeout value is 15 minutes, but you can change this in the `<PRODUCT_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file as follows.
 
 ``` html/xml
     <session-config>
@@ -140,7 +140,7 @@ If you leave the Management Console unattended for a defined time, its login ses
 ```
 
 !!! tip
-In products like WSO2 API Manager where web applications such as API Publisher/API Store exist, you can configure a session timeout for those web apps by changing the `         repository/conf/tomcat/web.xml        ` file as follows:
+In products like WSO2 API Manager where web applications such as API Publisher/API Store exist, you can configure a session timeout for those web apps by changing the `repository/conf/tomcat/web.xml` file as follows:
 
 ``` java
         <session-config>
@@ -158,13 +158,13 @@ Once the server has started, you can run the API Publisher by typing its URL in 
 
 ##### Working with the URL
 
-The URL appears next to `         API Publisher Default Context        ` in the start script log that is displayed in the command window. For example:
+The URL appears next to `API Publisher Default Context` in the start script log that is displayed in the command window. For example:
 
 ![](attachments/103334417/103334419.png)
 
-The URL should be in the following format: `         https://<Server Host>:9443/publisher        `
+The URL should be in the following format: `https://<Server Host>:9443/publisher        `
 
-You can use this URL to access the API Publisher on this computer from any other computer connected to the Internet or LAN. When accessing the API Publisher from the same server where it is installed, you can type `         localhost        ` instead of the IP address as follows: `                              https://localhost:9443/publisher                                    `
+You can use this URL to access the API Publisher on this computer from any other computer connected to the Internet or LAN. When accessing the API Publisher from the same server where it is installed, you can type `localhost` instead of the IP address as follows: `https://localhost:9443/publisher`
 
 ##### Signing in
 
@@ -187,13 +187,13 @@ Once the server has started, you can run the API Store by typing its URL in a we
 
 ##### Working with the URL
 
-The URL appears next to `         API Store Default Context        ` in the start script log that is displayed in the command window. For example:
+The URL appears next to `API Store Default Context` in the start script log that is displayed in the command window. For example:
 
 ![](attachments/103334417/103334418.png)
 
-The URL should be in the following format: `         https://<Server Host>:9443/store        `
+The URL should be in the following format: `https://<Server Host>:9443/store        `
 
-You can use this URL to access the API Store on this computer from any other computer connected to the Internet or LAN. When accessing the API Store from the same server where it is installed, you can type `         localhost        ` instead of the IP address as follows: `                              https://localhost:9443/store                                    `
+You can use this URL to access the API Store on this computer from any other computer connected to the Internet or LAN. When accessing the API Store from the same server where it is installed, you can type `localhost` instead of the IP address as follows: `https://localhost:9443/store                                    `
 
 ##### Signing in
 
@@ -211,35 +211,35 @@ This scenario is suitable for testing purposes, or for running the program on th
 
 To stop the server, press **Ctrl+C** in the command window, or click the **Shutdown/Restart** link in the navigation pane in the Management Console. If you started the server in background mode in Linux, enter the following command instead:
 
-`         sh <PRODUCT_HOME>/bin/wso2server.sh stop        `
+`sh <PRODUCT_HOME>/bin/wso2server.sh stop        `
 
 ### Restricting access to the Management Console and web applications
 
 You can restrict access to the management console of your product by binding the management console with selected IP addresses. Note that you can either restrict access to the management console only, or you can restrict access to all web applications in your server as explained below.
 
--   To control access only to the management console, add the IP addresses to the `           <PRODUCT_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml          ` file as follows:
+-   To control access only to the management console, add the IP addresses to the `<PRODUCT_HOME>/repository/conf/tomcat/carbon/META-INF/context.xml` file as follows:
 
     ``` java
         <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="<IP-address-01>|<IP-address-02>|<IP-address-03>"/>
     ```
 
-    The `           RemoteAddrValve          ` Tomcat valve defined in this file will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.
+    The `RemoteAddrValve` Tomcat valve defined in this file will only apply to the Carbon management console, and thereby all outside requests to the management console will be blocked.
 
 <!-- -->
 
--   To control access to all web applications deployed in your server, add the IP addresses to the `           <PRODUCT_HOME>/repository/conf/context.xml          ` file as follows:
+-   To control access to all web applications deployed in your server, add the IP addresses to the `<PRODUCT_HOME>/repository/conf/context.xml` file as follows:
 
     ``` java
             <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="<IP-address-01>|<IP-address-02>|<IP-address-03>"/>
     ```
 
-    The `           RemoteAddrValve          ` Tomcat valve defined in this file will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.
+    The `RemoteAddrValve` Tomcat valve defined in this file will apply to each web application hosted on the Carbon server. Therefore, all outside requests to any web application will be blocked.
 
 <!-- -->
 
--   You can also restrict access to particular servlets in a web application by adding a Remote Address Filter to the `           web.xml          ` file (stored in the `           <PRODUCT_HOME>/repository/conf/tomcat/          ` directory), and by mapping that filter to the servlet url. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.
+-   You can also restrict access to particular servlets in a web application by adding a Remote Address Filter to the `web.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/tomcat/` directory), and by mapping that filter to the servlet url. In the Remote Address Filter that you add, you can specify the IP addresses that should be allowed to access the servlet.
 
-    The following example from a `           web.xml          ` file illustrates how access to the management page ( `           /carbon/admin/login.jsp          ` ) is granted only to one IP address:
+    The following example from a `web.xml` file illustrates how access to the management page ( `/carbon/admin/login.jsp` ) is granted only to one IP address:
     ``` java
             <filter> <filter-name>Remote Address Filter</filter-name> <filter-class>org.apache.catalina.filters.RemoteAddrFilter</filter-class> <init-param> <param-name>allow</param-name> <param-value>127.0.01</param-value> </init-param> </filter> <filter-mapping> <filter-name>Remote Address Filter</filter-name> <url-pattern>/carbon/admin/login.jsp</url-pattern> </filter-mapping>
     ```

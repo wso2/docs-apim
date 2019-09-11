@@ -26,10 +26,10 @@ These MBeans provide connection statistics for the HTTP and HTTPS transports.
 
 You can view the following Connection MBeans:
 
--   `          org.apache.synapse/PassThroughConnections/http-listener         `
--   `          org.apache.synapse/PassThroughConnections/http-sender         `
--   `          org.apache.synapse/PassThroughConnections/https-listener         `
--   `          org.apache.synapse/PassThroughConnections/https-sender         `
+-`org.apache.synapse/PassThroughConnections/http-listener`
+-`org.apache.synapse/PassThroughConnections/http-sender`
+-`org.apache.synapse/PassThroughConnections/https-listener`
+-`org.apache.synapse/PassThroughConnections/https-sender`
 
 **Attributes**
 
@@ -53,8 +53,8 @@ This view provides statistics of the latencies from all backend services connect
 
 You can view the following Latency MBeans:
 
--   `          org.apache.synapse/PassthroughLatencyView/nio-http-http         `
--   `          org.apache.synapse/PassthroughLatencyView/nio-https-https         `
+-`org.apache.synapse/PassthroughLatencyView/nio-http-http`
+-`org.apache.synapse/PassthroughLatencyView/nio-https-https`
 
 **Attributes**
 
@@ -92,7 +92,7 @@ These MBeans are only available in the NHTTP transport and not in the default Pa
 
 You can view the following Threading MBeans:
 
--   `          org.apache.synapse/Threading/PassThroughHttpServerWorker         `
+-`org.apache.synapse/Threading/PassThroughHttpServerWorker`
 
 **Attributes**
 
@@ -132,16 +132,16 @@ Description
 
 #### Transport MBeans
 
-For each transport listener and sender enabled in the ESB, there will be an MBean under the `         org.apache.axis2/Transport        ` domain. For example, when the JMS transport is enabled, the following MBean will be exposed:
+For each transport listener and sender enabled in the ESB, there will be an MBean under the `org.apache.axis2/Transport` domain. For example, when the JMS transport is enabled, the following MBean will be exposed:
 
--   `          org.apache.axis2/Transport/jms-sender-                     n                   `
+-`org.apache.axis2/Transport/jms-sender-n`
 
 You can also view the following Transport MBeans:
 
--   `          org.apache.synapse/Transport/passthru-http-receiver         `
--   `          org.apache.synapse/Transport/passthru-http-sender         `
--   `          org.apache.synapse/Transport/passthru-https-receiver         `
--   `          org.apache.synapse/Transport/passthru-https-sender         `
+-`org.apache.synapse/Transport/passthru-http-receiver`
+-`org.apache.synapse/Transport/passthru-http-sender`
+-`org.apache.synapse/Transport/passthru-https-receiver`
+-`org.apache.synapse/Transport/passthru-https-sender`
 
 **Attributes**
 

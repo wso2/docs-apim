@@ -27,25 +27,25 @@ These nodes refer to the management nodes that specialize in the management of t
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring the Gateway Manager.
 
-1.  Configure the `            carbon.xml           ` file.
-    The following configurations are done in the `            <API-M_GATEWAY_MANAGER_HOME>/repository/conf/carbon.xml           ` file.
-    1.  Open `              <API-M_GATEWAY_MANAGER_HOME>/repository/conf/carbon.xml             ` file on the management node.
-    2.  Locate the `               <HostName>              ` tag and add the cluster hostname.
+1.  Configure the `carbon.xml` file.
+    The following configurations are done in the `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/carbon.xml` file.
+    1.  Open `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/carbon.xml` file on the management node.
+    2.  Locate the `<HostName>` tag and add the cluster hostname.
 
         ``` java
                 <HostName>am.wso2.com</HostName>
         ```
 
-        `                             `
+``
 
-    3.  Locate the `               <MgtHostName>              ` tag and uncomment it. Make sure that the management hostname is defined as follows:
+    3.  Locate the `<MgtHostName>` tag and uncomment it. Make sure that the management hostname is defined as follows:
 
         ``` java
                     <MgtHostName> mgt.am.wso2.com </MgtHostName>
         ```
 
-2.  Configure the `             catalina-server.xml            ` file.
-    Specify the following configurations in the `             <API-M_GATEWAY_MANAGER_HOME>/repository/conf/tomcat/catalina-server.xml            ` file.
+2.  Configure the `catalina-server.xml` file.
+    Specify the following configurations in the `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 
     ``` html/xml
             <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -60,10 +60,10 @@ These nodes refer to the management nodes that specialize in the management of t
             />
     ```
 
-    The TCP `             port            ` number is the value that this `             Connector            ` uses to create a server socket and await incoming connections. The operating system will allow only one server application to listen to a particular port number on a particular IP address.
+    The TCP `port` number is the value that this `Connector` uses to create a server socket and await incoming connections. The operating system will allow only one server application to listen to a particular port number on a particular IP address.
 
 3.  Map the hostnames to IPs.
-    Open the server's `             /etc/hosts            ` file and add the following.
+    Open the server's `/etc/hosts` file and add the following.
 
     ``` plain
             <GATEWAY-WORKER-IP> am.wso2.com
@@ -83,16 +83,16 @@ Worker nodes specialize in serving requests to deployment artifacts and reading 
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring the Gateway Worker.
 
-1.  Configure the `            carbon.xml           ` file.
-    1.  Open `              <GATEWAY_WORKER_HOME>/repository/conf/carbon.xml             ` file on each worker node.
+1.  Configure the `carbon.xml` file.
+    1.  Open `<GATEWAY_WORKER_HOME>/repository/conf/carbon.xml` file on each worker node.
     2.  Specify the hostname as follows:
 
         ``` java
                     <HostName>am.wso2.com</HostName>
         ```
 
-2.  Configure the `             catalina-server.xml            ` file.
-    Make the following configuration changes in the `             <API-M_GATEWAY_WORKER_HOME>/repository/conf/tomcat/catalina-server.xml            ` file.
+2.  Configure the `catalina-server.xml` file.
+    Make the following configuration changes in the `<API-M_GATEWAY_WORKER_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 
     ``` html/xml
             <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -108,7 +108,7 @@ Worker nodes specialize in serving requests to deployment artifacts and reading 
     ```
 
 3.  Map the hostnames to IPs.
-    Open the server's `             /etc/hosts            ` file and add the following in order to map the hostnames with the specified real IPs.
+    Open the server's `/etc/hosts` file and add the following in order to map the hostnames with the specified real IPs.
 
     ``` plain
             <GATEWAY-MANAGER-IP> mgt.am.wso2.com
@@ -138,11 +138,11 @@ Start the Gateway Manager by typing the following command in the command prompt.
 #### Step 5.2 - Start the Gateway Worker
 
 !!! tip
-It is recommendation to delete the `           <API-M_HOME>/repository/deployment/server          ` directory and create an empty server directory in the worker node. This is done to avoid any SVN conflicts that may arise. Note that when you do this, you have to restart the worker node after you start it in order to avoid any errors from occurring .
+It is recommendation to delete the `<API-M_HOME>/repository/deployment/server` directory and create an empty server directory in the worker node. This is done to avoid any SVN conflicts that may arise. Note that when you do this, you have to restart the worker node after you start it in order to avoid any errors from occurring .
 Start the Gateway Worker by typing the following command in the command prompt.
 
 ``` java
     sh <GATEWAY_WORKER_HOME>/bin/wso2server.sh -Dprofile=gateway-worker
 ```
 
-The additional `           -Dprofile=gateway-worker          ` argument indicates that this is a worker node specific to the Gateway. You need to use this parameter to make a server read-only. Changes (i.e., writing or making modifications to the deployment repository, etc.) can not be made in the Gateway worker nodes. Furthermore, starting a node as a Gateway worker ensures that the Store and Publisher related functions are disabled in the respective node. This parameter also ensures that the node starts in the worker profile, where the UI bundles are not activated and only the backend bundles are activated when the server starts up. For more information on the various product profiles available in WSO2 API Manager, see [API Manager product profiles](https://docs.wso2.com/display/AM260/Product+Profiles) .
+The additional `-Dprofile=gateway-worker` argument indicates that this is a worker node specific to the Gateway. You need to use this parameter to make a server read-only. Changes (i.e., writing or making modifications to the deployment repository, etc.) can not be made in the Gateway worker nodes. Furthermore, starting a node as a Gateway worker ensures that the Store and Publisher related functions are disabled in the respective node. This parameter also ensures that the node starts in the worker profile, where the UI bundles are not activated and only the backend bundles are activated when the server starts up. For more information on the various product profiles available in WSO2 API Manager, see [API Manager product profiles](https://docs.wso2.com/display/AM260/Product+Profiles) .

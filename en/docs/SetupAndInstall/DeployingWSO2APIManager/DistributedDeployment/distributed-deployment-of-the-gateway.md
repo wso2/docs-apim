@@ -29,23 +29,23 @@ When using the shared file system, all nodes have the manager worker capability.
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring the Gateway.
 
-1.  Configure the `            carbon.xml           ` file.
-    The following configurations are done in the `            <API-M_GATEWAY_HOME>/repository/conf/carbon.xml           ` file.
-    1.  Open `              <              API-M_              GATEWAY_HOME>/repository/conf/carbon.xml             ` .
-    2.  Locate the `               <HostName>              ` tag and add the cluster hostname. For an example, if the hostname is `               gw.am.wso2.com              ` :
+1.  Configure the `carbon.xml` file.
+    The following configurations are done in the `<API-M_GATEWAY_HOME>/repository/conf/carbon.xml` file.
+    1.  Open `<              API-M_              GATEWAY_HOME>/repository/conf/carbon.xml` .
+    2.  Locate the `<HostName>` tag and add the cluster hostname. For an example, if the hostname is `gw.am.wso2.com` :
 
         ``` java
                 <HostName>gw.am.wso2.com</HostName>
         ```
 
-    3.  Locate the `               <MgtHostName>              ` tag and uncomment it. Make sure that the management hostname is defined as follows:
+    3.  Locate the `<MgtHostName>` tag and uncomment it. Make sure that the management hostname is defined as follows:
 
         ``` java
                     <MgtHostName>gw.am.wso2.com</MgtHostName>
         ```
 
-2.  Configure the `             catalina-server.xml            ` file.
-    Specify the following configurations in the `             catalina-server.xml            ` file, which is located in the `             <             API-M_             GATEWAY_HOME>/repository/conf/tomcat            ` directory.
+2.  Configure the `catalina-server.xml` file.
+    Specify the following configurations in the `catalina-server.xml` file, which is located in the `<             API-M_             GATEWAY_HOME>/repository/conf/tomcat` directory.
 
     ``` html/xml
             <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
@@ -60,10 +60,10 @@ When using the shared file system, all nodes have the manager worker capability.
             />
     ```
 
-    The TCP `             port            ` number is the value that this `             Connector            ` uses to create a server socket and waits for incoming connections. In your operating system, only one server application can listen to a particular port number on a particular IP address.
+    The TCP `port` number is the value that this `Connector` uses to create a server socket and waits for incoming connections. In your operating system, only one server application can listen to a particular port number on a particular IP address.
 
 3.  Map the hostnames to IPs.
-    Open the server's `             /etc/hosts            ` file and add the following.
+    Open the server's `/etc/hosts` file and add the following.
 
     ``` plain
             <GATEWAY-IP> gw.am.wso2.com
@@ -80,7 +80,7 @@ When using the shared file system, all nodes have the manager worker capability.
 
 
 4.  Mount the directory required for the shared file system.
-    Mount the `             <API-M_HOME>/repository/deployment/server            ` directory of all the Gateway nodes to the shared file system to share all APIs between all the Gateway nodes.
+    Mount the `<API-M_HOME>/repository/deployment/server` directory of all the Gateway nodes to the shared file system to share all APIs between all the Gateway nodes.
 
 ### Step 3 - Optionally, configure Hazelcast
 

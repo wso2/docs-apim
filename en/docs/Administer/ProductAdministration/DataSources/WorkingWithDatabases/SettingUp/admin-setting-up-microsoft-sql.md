@@ -14,7 +14,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
 1.  In the start menu, click **Programs** and launch **Microsoft SQL Server 2012.**
 2.  Click **Configuration Tools** , and then click **SQL Server Configuration Manager** .
 3.  Enable **TCP/IP** and disable **Named Pipes** from protocols of your Microsoft SQL server.
-4.  Double click **TCP/IP** to open the TCP/IP properties window and set **Listen All** to `          Yes         ` on the **Protocol** tab.
+4.  Double click **TCP/IP** to open the TCP/IP properties window and set **Listen All** to `Yes` on the **Protocol** tab.
 5.  On the **IP Address** tab, disable **TCP Dynamic Ports** by leaving it blank and give a valid TCP port, so that Microsoft SQL server will listen on that port.
 
         !!! info
@@ -36,10 +36,10 @@ Assign newly created users the required grants/permissions to log in and create 
 
 ### Setting up the JDBC driver
 
-[Download](https://msdn.microsoft.com/en-us/data/aa937724.aspx) and copy the sqljdbc4 Microsoft SQL JDBC driver file to the WSO2 product's `         <PRODUCT_HOME>/repository/components/lib/        ` directory. Use `         com.microsoft.sqlserver.jdbc.SQLServerDriver        ` asthe `         <driverClassName>        ` in your datasource configuration in `         <PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml        ` file as explained in the next section.
+[Download](https://msdn.microsoft.com/en-us/data/aa937724.aspx) and copy the sqljdbc4 Microsoft SQL JDBC driver file to the WSO2 product's `<PRODUCT_HOME>/repository/components/lib/` directory. Use `com.microsoft.sqlserver.jdbc.SQLServerDriver` asthe `<driverClassName>` in your datasource configuration in `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as explained in the next section.
 
 !!! info
-In WSO2 IoT Server copy the driver file to the `         <IOTS_HOME>/lib        ` directory
+In WSO2 IoT Server copy the driver file to the `<IOTS_HOME>/lib` directory
 
 
 ## What's next

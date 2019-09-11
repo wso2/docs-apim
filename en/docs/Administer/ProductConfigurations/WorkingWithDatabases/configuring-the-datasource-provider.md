@@ -9,7 +9,7 @@ To use the default datasource provider, select **default** , and then enter the 
 ![](attachments/43977371/44172370.png)
 ### External datasource provider
 
-If you need to add a datasource supported by an external provider class such as `          com.mysql.jdbc.jdbc2.optional.MysqlXADataSource         ` , select **External Data Source** , click **Add Property** , and then enter the name and value of each connection property you need to configure. Following is an example datasource for an external datasource provider:
+If you need to add a datasource supported by an external provider class such as `com.mysql.jdbc.jdbc2.optional.MysqlXADataSource` , select **External Data Source** , click **Add Property** , and then enter the name and value of each connection property you need to configure. Following is an example datasource for an external datasource provider:
 
 ![](attachments/43977371/44172371.png)
 

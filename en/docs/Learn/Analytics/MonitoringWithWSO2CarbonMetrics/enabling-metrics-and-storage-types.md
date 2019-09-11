@@ -8,7 +8,7 @@ Given below are the configurations that should be in place for your API Manager 
 
 ### Enabling metrics
 
-To enable metrics for your product, set the `         Enabled        ` parameter under the `         Metrics        ` element to `         true        ` in the `         <APIM_HOME>/repository/conf/metrics.xml        ` file. Alternatively, you can enable metrics at the time of starting the API Manager server by using the following command:
+To enable metrics for your product, set the `Enabled` parameter under the `Metrics` element to `true` in the `<APIM_HOME>/repository/conf/metrics.xml` file. Alternatively, you can enable metrics at the time of starting the API Manager server by using the following command:
 
 ``` java
     -Dmetrics.enabled=true
@@ -16,10 +16,10 @@ To enable metrics for your product, set the `         Enabled        ` parameter
 
 ### Configuring the storage of metrics
 
-WSO2 API Manager is configured by default to store the information from metrics in the following reporters: JMX, CSV and JDBC. These reporters are configured in the `         metrics.xml        ` file (stored in the `         <APIM_HOME>/repository/conf        ` directory). You can disable metrics for individual reporters by setting the `         Enabled        ` parameter to `         false        ` .
+WSO2 API Manager is configured by default to store the information from metrics in the following reporters: JMX, CSV and JDBC. These reporters are configured in the `metrics.xml` file (stored in the `<APIM_HOME>/repository/conf` directory). You can disable metrics for individual reporters by setting the `Enabled` parameter to `false` .
 
 !!! note
-If you set the  the `         Enabled        ` parameter under the `         metrics        ` element to `         false        ` in the `         metrics.xml        ` file, metrics is disabled for all the reporters and it is not possible to enable metrics for individual reporters.
+If you set the  the `Enabled` parameter under the `metrics` element to `false` in the `metrics.xml` file, metrics is disabled for all the reporters and it is not possible to enable metrics for individual reporters.
 
 
 See the following topics for information on configuring each of the available storage types.
@@ -30,7 +30,7 @@ See the following topics for information on configuring each of the available st
 
 #### JMX
 
-The following parameters in the `         metrics.xml        ` file can be used to configure a JMX storage for metrics data.
+The following parameters in the `metrics.xml` file can be used to configure a JMX storage for metrics data.
 
 | Element Name | Description                                                                   | Type    | Default Value | Mandatory/Optional |
 |--------------|-------------------------------------------------------------------------------|---------|---------------|--------------------|
@@ -38,7 +38,7 @@ The following parameters in the `         metrics.xml        ` file can be used 
 
 #### CSV
 
-The following parameters in the `         metrics.xml        ` file can be used to configure a CSV storage for metrics data.
+The following parameters in the `metrics.xml` file can be used to configure a CSV storage for metrics data.
 
 <table>
 <thead>
@@ -79,7 +79,7 @@ The following parameters in the `         metrics.xml        ` file can be used 
 
 #### JDBC
 
-The following parameters in the `         metrics.xml        ` file can be used to configure a JDBC storage for metrics data.
+The following parameters in the `metrics.xml` file can be used to configure a JDBC storage for metrics data.
 
 <table>
 <thead>
@@ -166,7 +166,7 @@ The following parameters in the `         metrics.xml        ` file can be used 
 </tbody>
 </table>
 
-If you have enabled JDBC, then you also need to specify a datasource configuration to be used to create the connection between WSO2 API Manager and the JDBC data storage system. The `         metrics-datasources.xml        ` file is used for configuring this datasource for metrics.
+If you have enabled JDBC, then you also need to specify a datasource configuration to be used to create the connection between WSO2 API Manager and the JDBC data storage system. The `metrics-datasources.xml` file is used for configuring this datasource for metrics.
 
 Parameters that can be configured for a datasource are as follows:
 
@@ -401,7 +401,7 @@ When set to true, the <code>             validationQuery            </code> para
 
 ### Sample configuration
 
-Shown below is a sample `         metrics.xml        ` file with the default configurations specifying the types of storages enabled for metrics data. See the above topics for instructions.
+Shown below is a sample `metrics.xml` file with the default configurations specifying the types of storages enabled for metrics data. See the above topics for instructions.
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} The default configurations in the metrics.xml file
 

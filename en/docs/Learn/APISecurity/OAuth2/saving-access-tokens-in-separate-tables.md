@@ -15,7 +15,7 @@ The following topics explain how to enable user token partitioning:
 
 You use assertions to embed parameters into tokens and generate a strong access token. You can also use these parameters later for other processing. At the moment, the API Manager only supports UserName as an assertion.
 
-By default, assertions are set to `         false        ` in the `         <APIM_HOME>/repository/conf/identity/identity.xml        ` . To enable it, set the `         <UserName>        ` element to `         true        ` . You can add a user name to an access token when generating the key, and verify it by encoding the retrieved access token with Base64.
+By default, assertions are set to `false` in the `<APIM_HOME>/repository/conf/identity/identity.xml` . To enable it, set the `<UserName>` element to `true` . You can add a user name to an access token when generating the key, and verify it by encoding the retrieved access token with Base64.
 
 **&lt;APIM\_HOME&gt;/repository/conf/identity/identity.xml**
 
@@ -27,7 +27,7 @@ By default, assertions are set to `         false        ` in the `         <API
 
 #### Storing keys in different tables
 
-1.  If the `           <UserName>          ` assertion is enabled, set the `           <EnableAccessTokenPartitioning>          ` element in `           <APIM_HOME>/repository/conf/identity/identity.xml          ` file to `           true          ` . It determines whether you want to store the keys in different tables or not.
+1.  If the `<UserName>` assertion is enabled, set the `<EnableAccessTokenPartitioning>` element in `<APIM_HOME>/repository/conf/identity/identity.xml` file to `true` . It determines whether you want to store the keys in different tables or not.
 
     ``` xml
             <EnableAccessTokenPartitioning>true</EnableAccessTokenPartitioning> 
@@ -38,7 +38,7 @@ By default, assertions are set to `         false        ` in the `         <API
     -   if userId = foo.com/admin where 'foo.com' is the user store domain name, then a 'mapping:domain' combo can be defined as 'A:foo.com'
     -   'A' is the mapping for the table that stores tokens relevant to users coming from the 'foo.com' user store
 
-    In this case, the actual table name is `           IDN_OAUTH2_ACCESS_TOKEN_A          ` . We use a mapping simply to prevent any issues caused by lengthy table names when lengthy domain names are used. You must manually create the tables you are going to use to store the access tokens in each user store (i.e., manually create the tables `           IDN_OAUTH2_ACCESS_TOKEN_A          ` and `           IDN_OAUTH2_ACCESS_TOKEN_B          ` according to the following defined domain mapping). This table structure is similar to the `           IDN_OAUTH2_ACCESS_TOKEN          ` table defined in the api-manager dbscript, which is inside the `           <APIM_HOME>/dbscripts/apimgt          ` directory.
+    In this case, the actual table name is `IDN_OAUTH2_ACCESS_TOKEN_A` . We use a mapping simply to prevent any issues caused by lengthy table names when lengthy domain names are used. You must manually create the tables you are going to use to store the access tokens in each user store (i.e., manually create the tables `IDN_OAUTH2_ACCESS_TOKEN_A` and `IDN_OAUTH2_ACCESS_TOKEN_B` according to the following defined domain mapping). This table structure is similar to the `IDN_OAUTH2_ACCESS_TOKEN` table defined in the api-manager dbscript, which is inside the `<APIM_HOME>/dbscripts/apimgt` directory.
 
     You can provide multiple mappings separated by commas as follows. Note that the domain names need to be specified in upper case.
 
@@ -46,7 +46,7 @@ By default, assertions are set to `         false        ` in the `         <API
             <AccessTokenPartitioningDomains>A:FOO.COM, B:BAR.COM</AccessTokenPartitioningDomains>
     ```
 
-3.  According to the information given above, change the `           <OAuth>          ` element in the `           <APIM_HOME>/repository/conf/identity/identity.xml          ` file as shown in the following example:
+3.  According to the information given above, change the `<OAuth>` element in the `<APIM_HOME>/repository/conf/identity/identity.xml` file as shown in the following example:
 
     **&lt;APIM\_HOME&gt;/repository/conf/identity/identity.xml**
 

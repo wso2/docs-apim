@@ -5,7 +5,7 @@ The Swagger API Console is a JavaScript client that runs in the API Store and ma
 !!! note
 Before you begin...
 
-Open the CORS configuration in the `         <API-M_HOME>/repository/conf/api-manager.xml        ` file, enable CORS if it is not enabled already and specify the additional headers ( `         SOAPAction        ` , in this case) under the `         <Access-Control-Allow-Headers>        ` element:
+Open the CORS configuration in the `<API-M_HOME>/repository/conf/api-manager.xml` file, enable CORS if it is not enabled already and specify the additional headers ( `SOAPAction` , in this case) under the `<Access-Control-Allow-Headers>` element:
 
 **CORS configurations in api-manager.xml**
 
@@ -24,10 +24,10 @@ This configuration is only valid for APIs created through the API manager Publis
 
 Next, let's see how to add the header as a parameter to the API Console.
 
-1.  Log in to the API Publisher and click the API that you want to invoke (e.g., `          PhoneVerification         ` ).
-2.  Click the **Edit** link next to the API's name, navigate down to the **API Definition** section and click on the `           POST          ` method to expand it.
+1.  Log in to the API Publisher and click the API that you want to invoke (e.g., `PhoneVerification` ).
+2.  Click the **Edit** link next to the API's name, navigate down to the **API Definition** section and click on the `POST` method to expand it.
     ![](attachments/103333115/103333116.png)
-3.  Update the **Produces** and **Consumes** fields to `           text/xml          ` and create the following header using the **Add Parameter** button.
+3.  Update the **Produces** and **Consumes** fields to `text/xml` and create the following header using the **Add Parameter** button.
 
     <table>
     <thead>
@@ -72,7 +72,7 @@ Next, let's see how to add the header as a parameter to the API Console.
                 </CheckPhoneNumber>                                                                                                                                                             
               </soap:Body>                                                                                                                                                                      
             </soap:Envelope>                                                                                                                                                                    
-      ```                                                                                                                                                                                 |
+      ```|
     | Parameter Content Type | text/xml                                                                                                                                                                           |
     | SOAPAction             | <http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber>                                                                                                                           |
 
@@ -83,9 +83,9 @@ You have added SOAP parameters to the API Console and invoked a SOAP service usi
 
 ## Enabling CORS for OAuth Token related APIs
 
-Enabling CORS configuration through `         api-manager.xml        ` is only valid for APIs created through the API manager Publisher application. Hence, enabling CORS for OAuth token related APIs ( **/authorize, /revoke, /token, /userinfo** ) can be carried out as follows.
+Enabling CORS configuration through `api-manager.xml` is only valid for APIs created through the API manager Publisher application. Hence, enabling CORS for OAuth token related APIs ( **/authorize, /revoke, /token, /userinfo** ) can be carried out as follows.
 
-Based on the API that you need to enable CORS, add the following handler configuration to the relevant API synapse file present in `         <API-M_HOME>/repository/deployment/server/synapse-configs/default/api/        ` folder. It should be added within the `         <handlers>        ` parent element.
+Based on the API that you need to enable CORS, add the following handler configuration to the relevant API synapse file present in `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api/` folder. It should be added within the `<handlers>` parent element.
 
 ``` java
     <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler">
@@ -97,9 +97,9 @@ The following are the mappings of the synapse files corresponding to the OAuth t
 
 | Endpoint   | Synapse configuration                         |
 |------------|-----------------------------------------------|
-| /authorize | `             _AuthorizeAPI_.xml            ` |
-| /revoke    | `             _RevokeAPI_.xml            `    |
-| /token     | `             _TokenAPI_.xml            `     |
-| /userinfo  | `             _UserInfoAPI_.xml            `  |
+| /authorize | `_AuthorizeAPI_.xml` |
+| /revoke    | `_RevokeAPI_.xml`|
+| /token     | `_TokenAPI_.xml`|
+| /userinfo  | `_UserInfoAPI_.xml`|
 
 

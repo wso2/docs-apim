@@ -9,8 +9,8 @@ For more details on the API lifecycle stages, see [API lifecycle](https://docs.w
 The steps below show you how to publish an API to its default API Store:
 
 1.  Sign in to the WSO2 API Publisher as a user who has the publisher role assigned to themselves.
-    `          https://<hostname>:9443/publisher         `
-2.  Click on the API that you prototyped in the previous tutorial (e.g., `           PhoneVerification 2.0.0          ` ).
+`https://<hostname>:9443/publisher         `
+2.  Click on the API that you prototyped in the previous tutorial (e.g., `PhoneVerification 2.0.0` ).
     ![Select the PhoneVerification 2.0.0 API](attachments/103328593/103328597.png "Select API")
 3.  Click **GO TO OVERVIEW** .
 
@@ -30,7 +30,7 @@ The steps below show you how to publish an API to its default API Store:
     The API is now published to the default API Store.
 
 5.  Sign in to the default Store and click on the APIs menu to see the API that you just published listed there.
-6.  Go back to the WSO2 API Publisher and click the API that you want to deprecate (e.g., `           PhoneVerification 1.0.0          ` ).
+6.  Go back to the WSO2 API Publisher and click the API that you want to deprecate (e.g., `PhoneVerification 1.0.0` ).
 
 7.  Go to the API's **Lifecycle** tab and click **Deprecate** .
     ![Deprecate the PhoneVerification 1.0.0 API](attachments/103328593/103328594.png "Deprecate the API")    The API is now deprecated.

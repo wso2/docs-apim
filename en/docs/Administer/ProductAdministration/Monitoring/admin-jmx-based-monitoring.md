@@ -21,7 +21,7 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 
 #### Configuring JMX ports for the server
 
-The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in the `         carbon.xml        ` file (stored in the `         <PRODUCT_HOME>/repository/conf        ` directory) as shown below. If required, you can update these default values.
+The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in the `carbon.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) as shown below. If required, you can update these default values.
 
 ``` java
     <JMX>
@@ -34,7 +34,7 @@ The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in 
 
 #### Disabling JMX for the server
 
-The JMX configuration is available in the jmx `         .xml        ` file (stored in the `         <PRODUCT_HOME>/repository/conf/etc        ` directory) as shown below. You can disable the JMX server for your product by setting the `         <StartRMIServer>        ` property to `         false        ` . Note that this configuration refers to the [JMX ports configured in the `          carbon.         ` xml file](#admin_JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .
+The JMX configuration is available in the jmx `.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/etc` directory) as shown below. You can disable the JMX server for your product by setting the `<StartRMIServer>` property to `false` . Note that this configuration refers to the [JMX ports configured in the `carbon.xml` file](#admin_JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .
 
 ``` java
     <JMX xmlns="http://wso2.org/projects/carbon/jmx.xml">
@@ -50,7 +50,7 @@ The JMX configuration is available in the jmx `         .xml        ` file (stor
 
 #### Enabling JMX for a datasource
 
-You can enable JMX for a datasource by adding the `         <jmxEnabled>true</jmxEnabled>        ` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `         master-datasources        ` `         .        ` xml file (stored in the `         <PRODUCT_HOME>/repository/conf/datasources        ` directory).
+You can enable JMX for a datasource by adding the `<jmxEnabled>true</jmxEnabled>` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `master-datasources.` xml file (stored in the `<PRODUCT_HOME>/repository/conf/datasources` directory).
 
 ``` java
     <datasource>
@@ -79,14 +79,14 @@ You can enable JMX for a datasource by adding the `         <jmxEnabled>true</jm
 
 ### Monitoring a WSO2 product with JConsole
 
-Jconsole is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK) 1.5 and newer versions. You can find this tool inside your `         <JDK_HOME>/bin        ` directory. See the instructions on [Installing the JDK](index) for more information.
+Jconsole is a JMX-compliant monitoring tool, which comes with the Java Development Kit (JDK) 1.5 and newer versions. You can find this tool inside your `<JDK_HOME>/bin` directory. See the instructions on [Installing the JDK](index) for more information.
 
 #### Starting the WSO2 product with JMX
 
 First, start the WSO2 product:
 
-1.  Open a command prompt and navigate to the `          <PRODUCT_HOME>/bin         ` directory.
-2.  Execute the product startup script ( `           wso2server.sh          ` for Linux and `           wso2server.bat          ` for Windows) to start the server.
+1.  Open a command prompt and navigate to the `<PRODUCT_HOME>/bin` directory.
+2.  Execute the product startup script ( `wso2server.sh` for Linux and `wso2server.bat` for Windows) to start the server.
 
         !!! info
     If [JMX is enabled](_admin_JMX-Based_Monitoring_) , the **JMX server URL** will be published on the console when the server starts as shown below.
@@ -96,17 +96,17 @@ First, start the WSO2 product:
     ```
 
 
-Once the product server is started, you can start the JC `         onsole        ` tool as follows:
+Once the product server is started, you can start the JC `onsole` tool as follows:
 
-1.  Open a command prompt and navigate to the `          <JDK_HOME>/bin         ` directory.
-2.  Execute the j `          console         ` command to open the log-in screen of the **Java Monitoring & Management Console** as shown below.
+1.  Open a command prompt and navigate to the `<JDK_HOME>/bin` directory.
+2.  Execute the j `console` command to open the log-in screen of the **Java Monitoring & Management Console** as shown below.
     ![](attachments/126562846/126562847.png)3.  Enter the connection details in the above screen as follows:
     1.  Enter the **JMX server URL** in the **Remote Process** field. This URL is published on the command prompt when you start the WSO2 server as explained [above](#admin_JMX-BasedMonitoring-start_jconsole) .
 
                 !!! info
         Tip
 
-        If you are connecting with a remote IP address instead of localhost, you need to bind the JMX service to the externally accessible IP address by adding the following system property to the product startup script stored in the `             <PRODUCT_HOME>/bin            ` directory ( `             wso2server.sh            ` for Linux and `             wso2server.bat            ` for Windows). For more information, read [Troubleshooting Connection Problems in JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting_connection_problems_in_jconsole) .
+        If you are connecting with a remote IP address instead of localhost, you need to bind the JMX service to the externally accessible IP address by adding the following system property to the product startup script stored in the `<PRODUCT_HOME>/bin` directory ( `wso2server.sh` for Linux and `wso2server.bat` for Windows). For more information, read [Troubleshooting Connection Problems in JConsole](https://blogs.oracle.com/jmxetc/entry/troubleshooting_connection_problems_in_jconsole) .
 
         ``` java
                 -Djava.rmi.server.hostname=<IP_ADDRESS_WHICH_YOU_USE_TO_CONNECT_TO_SERVER>
@@ -227,7 +227,7 @@ Operations available in the **Statistics** MBean:
 
 If you have [JMX enabled for a datasource connected to the product](#admin_JMX-BasedMonitoring-EnablingJMXforadatasource) , you can monitor the performance of the datasource using this MBean. The **DataSource** MBean will be listed as shown below.
 ![](attachments/126562846/126562865.png)
-**Example:** If you have JMX enabled for the default Carbon datasource in the `         master-datasources.xml.        ` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning) for instructions on how these parameters are configured for a datasource.
+**Example:** If you have JMX enabled for the default Carbon datasource in the `master-datasources.xml.` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning) for instructions on how these parameters are configured for a datasource.
 ![](attachments/126562846/126562864.png)
 #### Using product-specific MBeans
 
@@ -239,11 +239,11 @@ The WSO2 product that you are using may have product-specific MBeans enabled for
 
 Follow the steps below to use Jolokia to monitor a WSO2 product.
 
-1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html) . (These instructions are tested with the Jolokia OSGI Agent version 1.3.6 by downloading the `          jolokia-osgi-1.3.6.jar         ` file.)
-2.  Add it to the `           <PRODUCT-HOME>/repository/components/dropins/          ` directory.
+1.  Download [Jolokia OSGi Agent](https://jolokia.org/download.html) . (These instructions are tested with the Jolokia OSGI Agent version 1.3.6 by downloading the `jolokia-osgi-1.3.6.jar` file.)
+2.  Add it to the `<PRODUCT-HOME>/repository/components/dropins/` directory.
 
         !!! tip
-    In WSO2 EI, add it to the `           <EI-HOME>          ` `           /dropins/          ` directory.
+    In WSO2 EI, add it to the `<EI-HOME>/dropins/` directory.
 
 
 3.  Start the WSO2 product server.

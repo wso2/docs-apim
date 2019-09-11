@@ -16,8 +16,8 @@ Follow the steps below to set up a remote Derby database.
     For instructions on installing Apache Derby, see the [Apache Derby documentation](http://db.apache.org/derby/manuals/) .
 
 
-3.  Go to the `          <DERBY_HOME>/bin         ` / directory and run the Derby network server start script. Usually, it is named `          startNetworkServer         ` .
+3.  Go to the `<DERBY_HOME>/bin` / directory and run the Derby network server start script. Usually, it is named `startNetworkServer` .
 
 ### Setting up the drivers
 
-Copy the `         derby.jar        ` , `         derbyclient.jar        ` JAR and the `         derbynet.jar        ` JAR from the &lt; `         DERBY_HOME>/lib/        ` directory to the &lt; `         PRODUCT_HOME>/repository/components/extensions/        ` directory (the classpath of the Carbon web application).
+Copy the `derby.jar` , `derbyclient.jar` JAR and the `derbynet.jar` JAR from the &lt; `DERBY_HOME>/lib/` directory to the &lt; `PRODUCT_HOME>/repository/components/extensions/` directory (the classpath of the Carbon web application).

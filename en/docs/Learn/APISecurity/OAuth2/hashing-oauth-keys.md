@@ -6,8 +6,8 @@ If you want to enable this feature, we strongly recommend to use a fresh databas
 
 WSO2 API Manager allows you to hash any sensitive OAuth2.0 keys you create. API Manager can hash access tokens, refresh tokens, client secrets, and authorization codes. Follow the steps below to configure this feature.
 
-1.  Open the `          <API-M_HOME>/repository/conf/api-manager.xml         ` file. To enable token hashing, set the `          <EnableTokenHashMode>         ` parameter to `          true         ` under `          <OAuthConfigurations>.         `
-2.  Open the `          ` `           <APIM_HOME>/repository/conf/identity/identity.xml          ` file and add the following configurations. Within the `           <OAuth>          ` root tag, add the `           <TokenPersistenceProcessor>          ` parameter. Add the `           <EnableClientSecretHash>          ` parameter and set it to `           true          ` .
+1.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file. To enable token hashing, set the `<EnableTokenHashMode>` parameter to `true` under `<OAuthConfigurations>.         `
+2.  Open the `<APIM_HOME>/repository/conf/identity/identity.xml` file and add the following configurations. Within the `<OAuth>` root tag, add the `<TokenPersistenceProcessor>` parameter. Add the `<EnableClientSecretHash>` parameter and set it to `true` .
 
     ``` java
         <OAuth>
