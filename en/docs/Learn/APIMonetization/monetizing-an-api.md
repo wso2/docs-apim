@@ -30,7 +30,7 @@ Let's use the
 
     2.  [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
 
-        ![Obtain keys](../../assets/img/Learn/APIMonetization/obtain-keys.png)
+        ![Obtain keys](../../assets/img/Learn/obtain-keys.png)
         
 2.  Create an account in [Stripe](https://dashboard.stripe.com/register) and obtain the keys for the API provider.  
     
@@ -529,13 +529,13 @@ When working with API Monetization, it is mandatory to enable WSO2 API Manager A
          <head>
          </head>
          <body>
-             <img src="../../assets/img/Learn/APIMonetization/subscription-commercial-tier.png" alt="Subscription to a commercial tier" title="Commercial tier subscription" width="400" />
+             <img src="../../assets/img/Learn/subscription-commercial-tier.png" alt="Subscription to a commercial tier" title="Commercial tier subscription" width="400" />
          </body>
      </html>
 
      After you save the policy, a plan gets created in the Stripe account of the tenant admin.  
 
-     ![Stripe account after creating a commercial tier](../../assets/img/Learn/APIMonetization/Stripe-account-after-creating-a-commercial-tier.png)  
+     ![Stripe account after creating a commercial tier](../../assets/img/Learn/Stripe-account-after-creating-a-commercial-tier.png)  
      
      The newly created Stripe product ID and plan ID will be stored in `AM_POLICY_PLAN_MAPPING` table along with the `UUID` of the tier. When you update the details of this tier, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete this tier, the plan in Stripe will get deleted and the corresponding record in the DB will also get deleted.
 
@@ -582,7 +582,7 @@ When working with API Monetization, it is mandatory to enable WSO2 API Manager A
     1.  Sign in to the WSO2 API Manager Publisher.  
         `https://<hostname>:9443/publisher-new`
     2.  Click on the API that you wish to monetize.  
-        ![Enable monetization](../../assets/img/Learn/APIMonetization/enable-monetization.png)
+        ![Enable monetization](../../assets/img/Learn/enable-monetization.png)
     3.  Click **Monetization** to go to the Monetization configurations.
     4.  Enter the connect ID as the connected account key and click
         **Save**.  
@@ -595,21 +595,21 @@ When working with API Monetization, it is mandatory to enable WSO2 API Manager A
 
 At the time of subscribing to an API, a Stripe customer is created in the Stripe platform account (e.g., the Stripe account for tenant admin). The following screenshot shows the customer record in the platform Stripe account.
 
-![Customer created in stripe](../../assets/img/Learn/APIMonetization/customer-created-in-stripe.png)
+![Customer created in stripe](../../assets/img/Learn/customer-created-in-stripe.png)
 
 The following screenshot depicts the details of the newly created customer in the platform Stripe account.
 
-![New customer details](../../assets/img/Learn/APIMonetization/new-customer-details.png)
+![New customer details](../../assets/img/Learn/new-customer-details.png)
 
 Thereafter, the customer will be copied to the Stripe account of the API
 provider, which is the connected account.
 
-![Shared customer in connected account](../../assets/img/Learn/APIMonetization/shared-customer-in-connected-account.png)
+![Shared customer in connected account](../../assets/img/Learn/shared-customer-in-connected-account.png)
 
 The following are the details of the shared customer that appears in the
 Stripe UI.
 
-![Shared customer details](../../assets/img/Learn/APIMonetization/shared-customer-details.png)
+![Shared customer details](../../assets/img/Learn/shared-customer-details.png)
 
 A Stripe subscription will be created in the billing engine by fetching the details specified in the Stripe plan, which is associated with the subscription tier.
 
@@ -661,7 +661,7 @@ You can use the admin API that is available in WSO2 API Manager to publish the s
       
     In addition, after the admin API call is made the aggregated bill
     gets generated in Stripe (connected account).  
-    ![Pricing](../../assets/img/Learn/APIMonetization/pricing.png) At the end of
+    ![Pricing](../../assets/img/Learn/pricing.png) At the end of
     the billing cycle, the amount will be charged from the customer. As
     this scenario uses a usage based billing model, the revenue goes from the subscriber to the API provider in the billing engine.
 
@@ -694,7 +694,7 @@ Follow the instructions below to disable monetization for an API:
     `https://<hostname>:9443/publisher-new`
 2.  Click on the monetized API.
 3.  Click **Monetization** to go to the Monetization configurations.  
-    ![Disable monetization](../../assets/img/Learn/APIMonetization/disable-monetization.png)
+    ![Disable monetization](../../assets/img/Learn/disable-monetization.png)
 4.  Click **Enable Monetization** to unselect the enable monetization option.
 5.  Enter the connect ID as the connected account key.
 6.  Click **Save**.  
