@@ -70,7 +70,7 @@ You can apply the pre-defined Regular Expression Policy through the UI. Follow t
 1.  Create an API or edit an existing API.
 2.  Go to **Message Mediation Policies** under the **Implement** tab.
 3.  Select **Enable Message Mediation** . Select `regex_policy` from the drop-down menu for **In Flow** .
-    ![](attachments/103334905/103334906.png)4.  Click **Save and Publish** to save the changes.
+    ![](/assets/attachments/103334905/103334906.png)4.  Click **Save and Publish** to save the changes.
 
 Each request is sanitized through the regular expression threat protector. You can add or modify the regex patterns according to your requirement.
 

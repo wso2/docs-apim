@@ -117,7 +117,7 @@ The Synchronous or Asynchronous  behavior is governed by the `PoolSize` propert
 
 #### Synchronous token persistence (When PoolSize = 0)
 
-![](attachments/103335249/103335250.png)
+![](/assets/attachments/103335249/103335250.png)
 The flow of synchronous token persistence is as follows:
 
 1.  The client sends an access token request.
@@ -135,7 +135,7 @@ The flow of synchronous token persistence is as follows:
 
 #### Asynchronous token persistence (When PoolSize &gt; 0)
 
-![](attachments/103335249/103335251.png)
+![](/assets/attachments/103335249/103335251.png)
 The flow of asynchronous token persistence is as follows:
 
 1.  The client sends an access token request.

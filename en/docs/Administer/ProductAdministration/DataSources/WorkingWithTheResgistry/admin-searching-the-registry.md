@@ -3,16 +3,16 @@
 The management console provides facility to search all resources in the registry.
 
 1.  Log in to the product's management console a nd select **Search -&gt; Metadata** under the **Registry** menu.
-    ![](attachments/126562657/126562660.png)
+    ![](/assets/attachments/126562657/126562660.png)
 2.  The **Search** page opens .
-    ![](attachments/126562657/126562659.png) You can define a search criteria using the following parameters:
+    ![](/assets/attachments/126562657/126562659.png) You can define a search criteria using the following parameters:
 
     -   Resource name
     -   **Created/updated date range** - The date when a resource was created/updated
 
                 !!! info
         Created/updated dates must be in MM/DD/YYYY format. Alternatively, you can pick it from the calendar interface provided.
-        ![](attachments/126562657/126562658.png)
+        ![](/assets/attachments/126562657/126562658.png)
 
 
     -   **Created/updated author** - The person who created/updated the resource

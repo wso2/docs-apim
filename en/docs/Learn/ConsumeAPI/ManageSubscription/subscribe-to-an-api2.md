@@ -20,13 +20,13 @@ The examples here use the `PhoneVerification` REST API, which is created in the
 
 
 2.  Note the subscription options for the REST API.
-    ![](attachments/126558223/126558237.png)
+    ![](/assets/attachments/126558223/126558237.png)
 3.  Click the **Applications** menu and click **Add Application** to create a new application.
-    ![](attachments/126558223/126558238.png)
+    ![](/assets/attachments/126558223/126558238.png)
 4.  Enter the name as TestApp and select the per token quota as 50PerMin for the application and click **Add** .
-    ![](attachments/126558223/126558239.png)5.  Click **APIs** and click the PhoneVerification API to view the API's subscription options.
+    ![](/assets/attachments/126558223/126558239.png)5.  Click **APIs** and click the PhoneVerification API to view the API's subscription options.
 6.  Select the application that you just created, a tier, and click **Subscribe** .
-    ![](attachments/126558223/126558240.png)7.  Click the **View Subscriptions** button when prompted.
+    ![](/assets/attachments/126558223/126558240.png)7.  Click the **View Subscriptions** button when prompted.
     The **Subscriptions** tab opens.
 
 8.  Click the **Production Keys** tab.
@@ -35,7 +35,7 @@ The examples here use the `PhoneVerification` REST API, which is created in the
     If you have a supported callback URL that sends a callback to a specific server or program soon after your application request is sent, you can specify it under the **Callback URL** field in the **Production Keys** tab.
 
 
-    ![](attachments/126558223/126558241.png)
+    ![](/assets/attachments/126558223/126558241.png)
 9.  Click **Generate Keys** to create an application access token. You can use this token to invoke all APIs that you subscribe to using the same application.
 
         !!! tip
@@ -81,13 +81,13 @@ The examples here use the `PhoneVerification` REST API, which is created in the
             Make sure you have updated the flash plugin in your web browser in order to get the **copy button** working.
 
 
-            ![](attachments/126558223/126558235.png)
+            ![](/assets/attachments/126558223/126558235.png)
         -   **&lt;API URL&gt;** : Click the respective API, in this case, PhoneVerification - 1.0.0. When the API's **Overview** tab appears in the API Store, copy the production URL and append the required query params to it.
             For example, <https://localhost:8243/phoneverify/1.0.0/CheckPhoneNumber?PhoneNumber=18006785432&LicenseKey=0>
             The above example is made up as follows:
 `<API-endpoint>/<resource>?<query-parameter-1>=<query-parameter-1-value>&<query-parameter-2>=<query-parameter-2-value>                  `
 
-            ![](attachments/126558223/126558236.png)
+            ![](/assets/attachments/126558223/126558236.png)
         Note the result `<Valid>true</Valid>` that appears in the command line.
 
         ``` java
@@ -181,7 +181,7 @@ You have subscribed to an API and invoked it.
 
 !!! tip
 **To unsubscribe from an API** , click the **Applications** menu and click **View** next to the application used for the subscription. Go to the **Subscriptions** tab, locate the API, and click the **Unsubscribe** link associated with it.
-![](attachments/126558223/126558242.png)
+![](/assets/attachments/126558223/126558242.png)
 If you unsubscribe from an API and then resubscribe with a different tier, it takes approximately 15 minutes for the tier change to be reflected. This is because the older tier remains in the cache until it is refreshed periodically by the system.
 
 

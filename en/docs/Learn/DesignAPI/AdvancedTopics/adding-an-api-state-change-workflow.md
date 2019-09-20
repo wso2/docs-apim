@@ -32,7 +32,7 @@ This section explains how to add a custom workflow to control the API state chan
     To avoid this issue open `<EI_HOME>/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
 
 
-4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to EI. ![](attachments/103334737/103334744.png)
+4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to EI. ![](/assets/attachments/103334737/103334744.png)
 #### Configuring the Business Process Server
 
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
@@ -60,7 +60,7 @@ This section explains how to add a custom workflow to control the API state chan
     To avoid this issue open `<BPS_HOME>/repository/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the BPS.
 
 
-4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to BPS. ![](attachments/103334737/103334744.png)
+4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to BPS. ![](/assets/attachments/103334737/103334744.png)
 #### Configuring the API Manager
 
 1.  Open `<APIM_HOME>/repository/conf/api-manager.xm` l and set in `<Enabled>` to `true` in the `<WorkflowConfigurations>` section.
@@ -71,7 +71,7 @@ This section explains how to add a custom workflow to control the API state chan
 First, enable the API state change workflow.
 
 1.  Log in to the APIM management console ( `https://<Server Host>:9443/carbon` ) and select Browse under Resources.
-    ![](attachments/103334737/103334743.png)
+    ![](/assets/attachments/103334737/103334743.png)
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 
     ``` html/xml
@@ -90,13 +90,13 @@ First, enable the API state change workflow.
     You have now engaged the API WS Workflow. The default configuration is set for **Created to Publish** and **Published to Block** state changes. See [Advanced Configurations](#AddinganAPIStateChangeWorkflow-AdvancedConfigurations) for information on configuring more state changes.
 
 
-3.  Log in to the API Publisher ( `https://<Server Host>:9443/publisher` ) and publish an API. See [Create and Publish an API](https://docs.wso2.com/display/AM220/Create+and+Publish+an+API) . A message related to the publish workflow will be displayed because the workflow is enabled for **Created to Publish** state change. ![](attachments/103334737/103334742.png)
+3.  Log in to the API Publisher ( `https://<Server Host>:9443/publisher` ) and publish an API. See [Create and Publish an API](https://docs.wso2.com/display/AM220/Create+and+Publish+an+API) . A message related to the publish workflow will be displayed because the workflow is enabled for **Created to Publish** state change. ![](/assets/attachments/103334737/103334742.png)
         !!! info
-    Note that the **Save & Publish** button will be disabled until the workflow task is completed or deleted. ![](attachments/103334737/103334741.png)
+    Note that the **Save & Publish** button will be disabled until the workflow task is completed or deleted. ![](/assets/attachments/103334737/103334741.png)
 
 4.  You can revoke the state change by clicking **Delete Task** in the **Lifecycle** tab.
-    ![](attachments/103334737/103334740.png)
-5.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) and click API State Change to see the list of tasks awaiting approval. ![](attachments/103334737/103334739.png)    Click **Assign to Me** to approve the task **.** Select Approve and click **Complete** to resume and complete the API state change. **![](attachments/103334737/103334738.png)
+    ![](/assets/attachments/103334737/103334740.png)
+5.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) and click API State Change to see the list of tasks awaiting approval. ![](/assets/attachments/103334737/103334739.png)    Click **Assign to Me** to approve the task **.** Select Approve and click **Complete** to resume and complete the API state change. **![](/assets/attachments/103334737/103334738.png)
 -   [**Using WSO2 EI**](#f966f632f4284a7aa63bcef263c516f3)
 -   [**Using WSO2 BPS**](#3c84109f04d94b2eaa9c687036e56d28)
 

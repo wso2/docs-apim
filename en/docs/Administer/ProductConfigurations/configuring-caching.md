@@ -80,7 +80,7 @@ Given below is how to configure this in a distributed API Manager setup.
 
 An API's resources are HTTP methods that handle particular types of requests such as GET, POST etc. They are similar to methods of a particular class. Each resource has parameters such as its throttling level, Auth type etc.
 
-![](attachments/103333424/103333426.png)
+![](/assets/attachments/103333424/103333426.png)
 Users can make requests to an API by calling any one of the HTTP methods of the API's resources. The API Manager uses the resource cache at the Gateway node to store the API's resource-level parameters (Auth type and throttling level). The cache entry is identified by a cache key, which is based on the API's context, version, request path and HTTP method. Caching avoids the need to do a separate back-end call to check the Auth type and throttling level of a resource, every time a request to the API comes. It improves performance.
 
 Note that if you update an API, the resource cache gets invalidated and the changes are reflected within a few minutes.
@@ -144,7 +144,7 @@ The API Manager uses [WSO2 ESB's cache mediator](http://docs.wso2.org/enterprise
 
 You need to enable response caching when creating a new API or editing an existing API using the API Publisher. Go to the API Publisher and click **Add New API** (to create a new API) or click the **Edit** icon associated with an existing API. Then, navigate to the **Manage** tab where you find the response caching section. You can set Response caching to **Enabled** and give a timeout value. This enables the default response caching settings.
 
-![](attachments/103333424/103333425.png)
+![](/assets/attachments/103333424/103333425.png)
 To change the default response caching settings, edit the following cache mediator properties in the `<API-M_HOME>/repository/resources/api_templates/velocity_template.xml` file:
 
 <table>
@@ -207,7 +207,7 @@ Follow the instructions below to enable the stream builders in the API gateway:
 
 You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://docs.wso2.com/display/ESB500/JMX+Monitoring) using the exposed MBeans. You can use the `Invalidatemediatocache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
 
-![JMX monitoring through JConsole](attachments/38472609/57761804.png)
+![JMX monitoring through JConsole]/assets/attachments/38472609/57761804.png)
 ### API Store cache
 
 The API Store has several caches to reduce the page-load times and increase its responsiveness when multiple users access it simultaneously.

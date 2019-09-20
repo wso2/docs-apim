@@ -10,7 +10,7 @@ The following sections explain how to configure the WSO2 API-M Analytics server 
 
 The current architecture depicting the connection between the API Microgateway and the Analytics server is shown below.
 
-![](attachments/103333771/103333776.png)
+![](/assets/attachments/103333771/103333776.png)
 ### How Analytics works with the Microgateway
 
 The Microgateway receives the requests from the API. To process the requests, there are two main tasks that run in the Microgateway.

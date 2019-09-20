@@ -16,11 +16,11 @@ Follow the instructions below to access the Message Flows.
     3.  **In Fault Flow** : A faulty message coming into the system.
     4.  **Out Fault Flow** : A faulty message going out of the system.
 3.  In each flow, a message passes through a set of phases to reach the service. These phases vary according to the currently engaged modules within the system. The interface displays the current phases in each and every flow as shown in the diagram below.
-    ![](attachments/126562874/126562875.png)
+    ![](/assets/attachments/126562874/126562875.png)
 4.  In the graphical view of the message flows, click the links to get a view of the engaged handlers in each phase. For example, the figure below shows the handlers engaged in the Addressing phase at system start up.
-    ![](attachments/126562874/126562880.png)
+    ![](/assets/attachments/126562874/126562880.png)
 5.  You can see the text view of message flows by clicking **Show Text View** .
-    ![](attachments/126562874/126562877.png)
+    ![](/assets/attachments/126562874/126562877.png)
 6.  The page with the text view of message flows appears. The textual view provides the name and the fully qualified classes of all handlers within each and every phase.
-    ![](attachments/126562874/126562878.png)
+    ![](/assets/attachments/126562874/126562878.png)
 

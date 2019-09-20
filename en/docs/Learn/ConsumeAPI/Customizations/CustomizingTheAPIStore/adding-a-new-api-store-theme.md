@@ -4,11 +4,11 @@ A **theme** consists of UI elements such as logos, images, copyrights messages, 
 
 #### Folder structure of the API Store themes
 
-The default theme of the API Store is named `wso2` . You find it inside the `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/themes/wso2` folder. If you do not have access to the file system, download the [default theme from here](attachments/103334757/103334760.zip) .
+The default theme of the API Store is named `wso2` . You find it inside the `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/themes/wso2` folder. If you do not have access to the file system, download the [default theme from here]/assets/attachments/103334757/103334760.zip) .
 
 The easiest way to create a new theme is to copy the files of an existing theme to a folder that is named after your new theme, and do the modifications you want to the files inside it. All themes have the same folder structure as shown below:
 
-![](attachments/103334757/103334762.png)
+![](/assets/attachments/103334757/103334762.png)
 
 You can add a new theme as a main theme or a sub-theme.
 
@@ -32,7 +32,7 @@ Let's see how to create a new theme and set it to the API Store:
 
 As a main theme already has most of the UIs, the syntax, and logic of Jaggery code defined, in a typical scenario, you do not have to implement a theme from scratch. Rather, you just add in your edits as a sub-theme of the existing main theme as given below:
 
-1.  Download the default main theme [from here](attachments/103334757/103334760.zip) , unzip it, and rename the folder according to the name of your new theme (e.g., ancient). Let's refer to this folder as `<THEME_HOME>                    .         `
+1.  Download the default main theme [from here]/assets/attachments/103334757/103334760.zip) , unzip it, and rename the folder according to the name of your new theme (e.g., ancient). Let's refer to this folder as `<THEME_HOME>                    .         `
 2.  Make any changes you want to the theme.
     For example, make the following changes in the CSS styles in the `<THEME_HOME>/css/custom.css` file using a text editor and save.
 
@@ -85,15 +85,15 @@ The following are the two methods in which you can set your new theme as the def
 
 3.  Open the API Store.
     Note the new theme that is applied to it.
-    ![](attachments/103334757/103334759.png)
+    ![](/assets/attachments/103334757/103334759.png)
 #### Uploading through the Admin Portal (Tenants Only)
 
 **If you do not have access to the file system** , you can upload the theme through the Admin Portal as shown below:
 
-1.  Navigate inside the `<THEME_HOME>` folder that [contains the sub-theme of the main theme](#AddingaNewAPIStoreTheme-Writingasubthemeofthemaintheme) , select all the folders inside it, and right-click to compress all the selected files and folders. Then rename the ZIP file based on the name of your sub-theme. For this example use the [ancient.zip](attachments/103334757/103334758.zip) file.
+1.  Navigate inside the `<THEME_HOME>` folder that [contains the sub-theme of the main theme](#AddingaNewAPIStoreTheme-Writingasubthemeofthemaintheme) , select all the folders inside it, and right-click to compress all the selected files and folders. Then rename the ZIP file based on the name of your sub-theme. For this example use the [ancient.zip]/assets/attachments/103334757/103334758.zip) file.
 2.  Sign in to the WSO2 Admin Portal ( `https://<server-host>:9443/admin` ) with your tenant username (format `<username>@<domain>.com kim@testorg.com` ) and password.
 3.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file.
-    ![](attachments/103334757/103334761.png){height="250"}
+    ![](/assets/attachments/103334757/103334761.png){height="250"}
 4.  Access the API Store ( `https://<server-host>:9443/store` ) using your tenant username and password.
     Note the new theme that is applied.
 

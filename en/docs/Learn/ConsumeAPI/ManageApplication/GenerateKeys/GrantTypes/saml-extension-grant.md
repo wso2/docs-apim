@@ -13,7 +13,7 @@ When SAML beare token is used, the roles of the user can be retrieved from eithe
 
 The diagram below depicts the above with **WSO2 Identity Server** as the IdP.
 
-![](attachments/103335249/103335258.png)** The steps of the above diagram are explained below:
+![](/assets/attachments/103335249/103335258.png)** The steps of the above diagram are explained below:
 
 **Step \[1\]** : User initiates a login call to an enterprise application
 
@@ -38,7 +38,7 @@ The diagram below depicts the above with **WSO2 Identity Server** as the IdP.
 -   [Invoking the Token API to generate tokens](#SAMLExtensionGrant-InvokingtheTokenAPItogeneratetokens)
 
 A sequence diagram explaining the above flow would be as follows:
-![](attachments/103335282/103335283.png)
+![](/assets/attachments/103335282/103335283.png)
 ### Configuring the token exchange
 
 !!! note
@@ -60,7 +60,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
 
 
 2.  Click **Main &gt; Identity Providers &gt; Add** .
-    ![](attachments/103335282/103335288.png)
+    ![](/assets/attachments/103335282/103335288.png)
 3.  Provide the following values to configure the IdP:
     -   Under **Basic Information**
         -   **Identity Provider Name** : Enter a unique name for the IdP.
@@ -91,12 +91,12 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
                 https://localhost:9443/samlsso?tenantDomain=<tenantDomain>
 
 
-    ![](attachments/103335282/103335286.png)
+    ![](/assets/attachments/103335282/103335286.png)
     Next, let's  register a service provider.
 4.  Sign in to the management console of the Identity Server and click **Main &gt; Service Providers &gt; Add** .
-    ![](attachments/103335282/103335287.png)
+    ![](/assets/attachments/103335282/103335287.png)
 5.  Choose to edit the service provider that you just registered and click **Inbound Authentication Configuration &gt;SAML2 Web SSO Configuration** .
-    ![](attachments/103335282/103335284.png)6.  Provide the following values to configure the SP and click **Update** :
+    ![](/assets/attachments/103335282/103335284.png)6.  Provide the following values to configure the SP and click **Update** :
     -   **Issuer** : Give any name
     -   **Assertion Consumer URL** : The URL to which the IDP sends the SAML response. For example: `https://localhost:9443/store/jagg/jaggery_acs.jag                       `
     -   **Enable Response Signing** : true
@@ -104,7 +104,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
     -   **Audience** : URL of the token API.
         For example: `https://localhost:9443/oauth2/token                       `
 
-    ![](attachments/103335282/103335285.png)
+    ![](/assets/attachments/103335282/103335285.png)
     Let's see how to get a signed SAML2 token (encoded assertion value) when authenticating against a SAML2 IDP. With the authentication request, you pass attributes such as the SAML2 issuer name, token endpoint and the restricted audience. In this guide, we use a command-line client program developed by WSO2 to create the 64-bit, URL-encoded SAML assertion.
 
 ### Invoking the Token API to generate tokens
@@ -113,7 +113,7 @@ Follow the steps below to invoke the token API to generate access tokens from SA
 
 1.  Combine the consumer key and consumer secret keys as ** `consumer-key:consumer-secret` . Encode the combined string using base64 ( [http://base64encode.org](http://base64encode.org/) ). Here's an example consumer key and secret combination: `wU62DjlyDBnq87GlBwplfqvmAbAa:ksdSdoefDDP7wpaElfqvmjDue.         `
     Let's create a SAML2 assertion using the same command-line client that you used in the previous section.
-2.  Download the command-line too from [here](attachments/103335282/103335290.zip) and extract the ZIP file.
+2.  Download the command-line too from [here]/assets/attachments/103335282/103335290.zip) and extract the ZIP file.
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:8243/token                      .          `
 
     -   [**Format**](#format)

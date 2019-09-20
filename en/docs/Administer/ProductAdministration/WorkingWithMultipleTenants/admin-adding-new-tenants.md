@@ -11,7 +11,7 @@ You can add a new tenant in the management console and then view it by following
 
 1.  Click **Add New Tenant** in the **Configure** tab of your product's management console.
 
-    ![](attachments/126562777/126562778.png)
+    ![](/assets/attachments/126562777/126562778.png)
 
 2.  Enter the tenant information in **Register A New Organization** screen as follows, and click **Save** .
 
@@ -26,7 +26,7 @@ You can add a new tenant in the management console and then view it by following
     | **Email**                        | The email address of the admin.                                                                                                                                                                                                                                                                   |
 
 3.  After saving, the newly added tenant appears in the **Tenants List** page as shown below. Click **View Tenants** in the **Configure** tab of the management console to see information of all the tenants that currently exist in the system. If you want to view only tenants of a specific domain, enter the domain name in the **Enter the Tenant Domain** parameter and click **Find** .
-    ![](attachments/126562777/126562781.png)
+    ![](/assets/attachments/126562777/126562781.png)
 ### Managing tenants using Admin Services
 
 Other tenant management operations such as activating, deactivating, and updating, which are not available in the management console UI, can be done through one of the following admin services:
@@ -83,7 +83,7 @@ You can invoke these operations using a SOAP client like SOAP UI as follows:
 
     This assumes that you are running the SOAP UI client from the same machine as the product instance. Note that there are several operations shown in the SOAP UI after importing the wsdl file:
 
-    ![](attachments/126562777/126562782.png)
+    ![](/assets/attachments/126562777/126562782.png)
         !!! warning
     Before invoking an operation:
 

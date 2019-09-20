@@ -51,15 +51,15 @@ The following instructions use the sample playground webapp. For instructions on
 
 
 1.  Login to WSO2 API Manager Store and create an application as shown below.
-    ![](attachments/126561132/126561134.png)2.  Go to the **Production keys** tab for the application. Add <http://localhost:8080/playground2/oauth2client> as the **Callback URL.** Select **Implicit** from the list of grant types and click **Generate Keys** .
+    ![](/assets/attachments/126561132/126561134.png)2.  Go to the **Production keys** tab for the application. Add <http://localhost:8080/playground2/oauth2client> as the **Callback URL.** Select **Implicit** from the list of grant types and click **Generate Keys** .
 
         !!! note
     The Implicit grant and Code grant type checkboxes are disabled by default in the UI. To enable selecting the checkboxes, enter the Callback URL for the application.
 
 
-    ![](attachments/126561132/126561135.png)
+    ![](/assets/attachments/126561132/126561135.png)
 3.  Go to playground app <http://wso2is.local:8080/playground2/index.jsp> and click **import photos.**
-    **![](attachments/126561132/126561136.png)    **
+    **![](/assets/attachments/126561132/126561136.png)    **
 4.  Give the information in the table below and click **Authorize** .
 
     | Field                    | Sample Value                                                                                   |
@@ -70,16 +70,16 @@ The following instructions use the sample playground webapp. For instructions on
     | Callback URL             | The callback URL of your application                                                           |
     | Authorize Endpoint       | `https://localhost:8243/authorize` |
 
-    ![](attachments/126561132/126561133.png)
+    ![](/assets/attachments/126561132/126561133.png)
 5.  The playground application redirects to the login page. Enter you username and password and click **Sign In.**
 
-    ![](attachments/126561132/126561139.png)
+    ![](/assets/attachments/126561132/126561139.png)
 6.  Click Approve to provide access to your information.
 
-    ![](attachments/126561132/126561137.png)
+    ![](/assets/attachments/126561132/126561137.png)
 7.  You will receive the access token as follows
 
-    ![access-token.png](attachments/57743277/61047220.png)
+    ![access-token.png]/assets/attachments/57743277/61047220.png)
 !!! note
 For users to be counted in the [Registered Users for Application statistics](https://docs.wso2.com/display/AM220/Viewing+API+Statistics#ViewingAPIStatistics-topUsers) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](https://docs.wso2.com/display/AM210/Password+Grant) type.
 

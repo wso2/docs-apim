@@ -22,10 +22,10 @@ Click the following topics for a description of the concepts that you need to kn
     You can go back to the interactive tutorial at a later stage by clicking **API Walkthrough** on the top right corner.
 
 
-    ![](attachments/103327814/103327786.png)
+    ![](/assets/attachments/103327814/103327786.png)
 
 3.  Click **Design a New REST API** and click **Start Creating** .
-    ![](attachments/103327814/103327785.png)
+    ![](/assets/attachments/103327814/103327785.png)
 4.  Give the information in the table below and click **Add** to add the resource.
 
     Field
@@ -61,7 +61,7 @@ Click the following topics for a description of the concepts that you need to kn
         !!! info
         The selection of the HTTP method should match the actual backend resource. For example, if the actual backend contains the GET method to retrieve details of a phone number, that resource should match a GET resource type with a proper context.
 
-    ![](attachments/103327814/103327784.png)
+    ![](/assets/attachments/103327814/103327784.png)
 
     For more information on URL patterns, see [API Resources](_Key_Concepts_) .
 
@@ -78,7 +78,7 @@ Click the following topics for a description of the concepts that you need to kn
     | `PhoneNumber` | Give the phone number to be validated         | query          | string    | True     |
     | `LicenseKey`| Give the license key as 0 for testing purpose | query          | string    | True     |
 
-    ![](attachments/103327814/103327783.png)
+    ![](/assets/attachments/103327814/103327783.png)
 
         !!! info
     HTTP Post
@@ -88,7 +88,7 @@ Click the following topics for a description of the concepts that you need to kn
         !!! note
     Import or Edit API definition
 
-    ![](attachments/103327814/103327782.png)
+    ![](/assets/attachments/103327814/103327782.png)
 
     To import an existing swagger definition from a file or a URL, click **Import** . Click **Edit Source** to manually edit the API swagger definition.
 
@@ -117,7 +117,7 @@ Click the following topics for a description of the concepts that you need to kn
 
 8.  Click the **Managed API** option.
 
-    ![](attachments/103327814/103327781.png)
+    ![](/assets/attachments/103327814/103327781.png)
 
 9.  The **Implement** tab opens. Enter the information in the table below.
 
@@ -156,13 +156,13 @@ Click the following topics for a description of the concepts that you need to kn
 
     For more information on Endpoints, see [Working with Endpoints](https://docs.wso2.com/display/AM2xx/Working+with+Endpoints) .
 
-    ![](attachments/103327814/103327780.png)
+    ![](/assets/attachments/103327814/103327780.png)
     For additional information, see [Enabling CORS for APIs](_Enabling_CORS_for_APIs_) and [Adding Mediation Extensions](_Adding_Mediation_Extensions_) . For details on adding and managing certificates, see [Dynamic SSL Certificate Installation](_Add_SSL_Certificates_for_Endpoints_) .
 
         !!! info
     You can deploy your API as a **Prototyped API** in the **Implement** tab. A prototyped API is usually a mock implementation made public in order to get feedback about its usability. You can implement it **inline** or by specifying an **endpoint** .
 
-    ![](attachments/103327814/103327779.png)
+    ![](/assets/attachments/103327814/103327779.png)
 
     You can invoke the API without a subscription after publishing the API to the Store. For more information, see [Deploy and Test as a Prototype](_Deploy_and_Test_Mock_APIs_) .
 
@@ -196,14 +196,14 @@ Click the following topics for a description of the concepts that you need to kn
     </tbody>
     </table>
 
-    ![](attachments/103327814/103327778.png)
+    ![](/assets/attachments/103327814/103327778.png)
 
         !!! info
     Make Default Version
 
     **Make this the Default Version** checkbox ensures that the API is available in the Gateway without a version specified in the production and sandbox URLs. This option allows you to create a new version of an API and set it as the default version. Then, you can invoke the same resources in the client applications without changing the API gateway URL. This allows you to create new versions of an API with changes, while at the same time allowing existing client applications to be invoked without the client having to change the URLs.
 
-    ![](attachments/103327814/103327777.png)
+    ![](/assets/attachments/103327814/103327777.png)
 
 
     For more information on **maximum backend throughput** and **advanced throttling policies** , see [Working with Throttling](_Rate_Limiting_) .

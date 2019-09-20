@@ -4,7 +4,7 @@ Java Naming and Directory Interface (JNDI) is a Java Application Programming Int
 
 When adding a datasource, to expose a RDBMS datasource as a JNDI datasource, click **Expose as a JNDI Data Source** to display the JNDI fields as follows:
 
-![](attachments/43977372/44172372.png)
+![](/assets/attachments/43977372/44172372.png)
 Following are descriptions of the JNDI fields:
 
 -   **Name** : Name of the JNDI datasource that will be visible to others in object look-up.

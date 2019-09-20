@@ -115,7 +115,7 @@ Follow the instructions below to change the value of the authorization header 
 ```
 
 Note that the customized authorization header appears in the Store UI as well.
-![](attachments/103334899/103334896.png)
+![](/assets/attachments/103334899/103334896.png)
 
 ###### Tenant wide customization
 
@@ -133,7 +133,7 @@ The tenant wide authorization header customizations take precedence over the ser
 
 
 2.  Click **Main** , then click **Browse** which is under **Resources** .
-    ![](attachments/103334899/103334897.png)
+    ![](/assets/attachments/103334899/103334897.png)
 3.  Enter / `_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
 4.  Click **Edit as text** to be able to edit the JSON file.
 5.  Add the following configuration with the customized authorization header to the JSON file and save the file.
@@ -280,7 +280,7 @@ The tenant wide authorization header customizations take precedence over the ser
 
 Note that the customized authentication header appears in the Store UI as well.
 
-![](attachments/103334899/103334895.png)
+![](/assets/attachments/103334899/103334895.png)
 
 ###### Per API customization
 
@@ -299,9 +299,9 @@ Follow the instructions below to add a customized authorization header for an AP
     -   [**UI without tenants**](#UI-without-tenants)
     -   [**UI with tenants**](#UI-with-tenants)
 
-    ![](attachments/103334899/103334898.png)
+    ![](/assets/attachments/103334899/103334898.png)
 
-    ![](attachments/103334899/103334894.png)
+    ![](/assets/attachments/103334899/103334894.png)
 
     The subscription field appears only if you have any tenants.
 

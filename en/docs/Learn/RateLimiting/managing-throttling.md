@@ -18,8 +18,8 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 1.  Login to the admin portal of WSO2 API Manager (https://&lt;ip\_address&gt;:9443/admin).
 2.  Open **Throttling Policies** tab and navigate to **Advanced Throttling.**
 3.  Click ADD NEW POLICY to add a new Throttling tier.
-    ![](attachments/103335009/103335012.png)4.  Fill the details as below and click **Add Conditional Group** .
-    ![](attachments/103335009/103335011.png)5.  Open the Conditional Group added and fill the details.
+    ![](/assets/attachments/103335009/103335012.png)4.  Fill the details as below and click **Add Conditional Group** .
+    ![](/assets/attachments/103335009/103335011.png)5.  Open the Conditional Group added and fill the details.
 
     | Property            | Value                                                                                                          |
     |---------------------|----------------------------------------------------------------------------------------------------------------|
@@ -31,24 +31,24 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 
     Following is a example configuration.
 
-    ![](attachments/103335009/103335019.png)
+    ![](/assets/attachments/103335009/103335019.png)
         !!! note
     In above configuration we are whitelisting a Specific IP.
 
     You can whitelist a rang of IP as well by selecting **IP Range** for the IP Condition Type in the Conditional Group and specifying the range.
 
-    ![](attachments/103335009/103335018.png){height="250"}
+    ![](/assets/attachments/103335009/103335018.png){height="250"}
 
 
 6.  Click **Save** .
-    ![](attachments/103335009/103335017.png)    You have successfully created the policy. Now we should engage this policy to an API.
+    ![](/assets/attachments/103335009/103335017.png)    You have successfully created the policy. Now we should engage this policy to an API.
 
 ##### Engage the policy with an API
 
 1.  Login to API Publisher https://:9443/publisher.
 2.  Edit API and go to Manage tab.
 3.  Enable **Apply to API** under **Advance Throttling Policies** and select the newly created Throttling policy.
-    ![](attachments/103335009/103335016.png)4.  Save and Publish the API.
+    ![](/assets/attachments/103335009/103335016.png)4.  Save and Publish the API.
     Now the API will be accessible only by the IP specified in the throttling policy.
 
         !!! info
@@ -71,15 +71,15 @@ To blacklist a request,
 
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Black List** under the **Throttle Policies** section and click **Add Item** .
-    ![](attachments/103335009/103335010.png)
+    ![](/assets/attachments/103335009/103335010.png)
 Select the item to black list, enter a value and click **Blacklist** .
-![](attachments/103335009/103335024.png)
+![](/assets/attachments/103335009/103335024.png)
 
 !!! warning
 Note that you have to use " **/** " always infront of the **${context}** value when blacklisting the APIs with API context. E.g. **/test/1.0.0.** The sample provided in the product does not include "/" due to a known issue.
 !!! info
 You can temporary on/off the blacklisting condition by enabling/disabling the **Condition status** that is auto enabled when a blacklisting condition is created.
-![](attachments/103335009/103335013.png){height="250"}
+![](/assets/attachments/103335009/103335013.png){height="250"}
 
 ##### Blacklisting PhoneVerification API
 
@@ -88,10 +88,10 @@ As described above you can blacklist requests for APIs, by Applications, to IP A
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Black List** under the **Throttle Policies** section and click **Add Item** .
 3.  Select **API Context** and provide the Context of PhoneVerification API with version as the **Value.**
-    ![](attachments/103335009/103335014.png)4.  Click **Blacklist.**
+    ![](/assets/attachments/103335009/103335014.png)4.  Click **Blacklist.**
 5.  Now login to API Store using the URL `https://localhost:9443/s                      tore` and [invoke the API](https://docs.wso2.com/display/AM2xx/Quick+Start+Guide#QuickStartGuide-InvokingtheAPI) .
     You will see the following response.
-    ![](attachments/103335009/103335015.png)
+    ![](/assets/attachments/103335009/103335015.png)
 ### Custom throttling
 
 Custom throttling allows system administrators to define dynamic rules for specific use cases, which are applied globally across all tenants. When a custom throttling policy is created, it is possible to define any policy you like. The Traffic Manager acts as the global throttling engine and is based on the same technology as WSO2 Complex Event Processor (CEP), which uses the [Siddhi query language](https://docs.wso2.com/complex-event-processor/SiddhiQL+Guide+3.1) . Users are therefore able to create their own custom throttling policies by writing custom Siddhi queries. The specific combination of attributes being checked in the policy need to be defined as the key (also called the key template). The key template usually includes a predefined format and a set of predefined parameters. It can contain a combination of allowed keys separated by a colon (:), where each key must start with the prefix $. The following keys can be used to create custom throttling policies:
@@ -118,6 +118,6 @@ For example, the following sample custom policy allows the admin user to send 5 
     INSERT ALL EVENTS into ResultStream;
 ```
 
-![](attachments/103335009/103335022.png)
+![](/assets/attachments/103335009/103335022.png)
 
 As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.

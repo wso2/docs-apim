@@ -8,10 +8,10 @@ A C-App is a collection of artifacts deployable on different WSO2 product runtim
 
 A typical C-App contains individual directories for its artifacts, along with a file named `artifacts.xml` , which contains metadata about the artifacts that are inside the C-App. The diagram below depicts the structure of a sample C-App:
 
-![](attachments/126562738/126562741.png)
+![](/assets/attachments/126562738/126562741.png)
 Given below is a sample `artifacts.xml` file:
 
-![](attachments/126562738/126562740.png)
+![](/assets/attachments/126562738/126562740.png)
 
 The sample file contains the name of the C-App, its version and the artifact type according to which the deployer for the artifact is identified. For C-Apps, the artifact type of the sample is " `carbon/application"` . In addition, it also contains details about the artifacts that are bundled in the CAR file. If it's an Axis2 service, the file extension used is `.aar` , if it is a web app, it is `.war` etc. The artifact type changes accordingly. For example, if it's an Axis2 service, the type is " `service/axis2` " and if it's a web app, the type is " `web/application` " or " `webapp/jaxws` ".
 
@@ -45,9 +45,9 @@ This is the easiest and the most recommended way to configure your server roles.
 
 1.  Log in to the Management Console of your product and click **Server Roles** in the **Configure** tab.
 2.  Click **Add New Server Role** , e nter the r ole name and click **Add** . You can add any textual name as a server role without special characters except underscore.
-    ![](attachments/41255091/41517078.png)
+    ![](/assets/attachments/41255091/41517078.png)
 3.  Note that the newly added server role is displayed in the list.
-    ![](attachments/41255091/41517077.png) You can delete the server role by clicking **Delete** .
+    ![](/assets/attachments/41255091/41517077.png) You can delete the server role by clicking **Delete** .
 
         !!! tip
     **Tip** : You cannot undo a deletion once performed. Users can even delete a default server role. Once deleted, the server role manager will not pick up the deleted server role from the `carbon.xml` file, next time the server starts.

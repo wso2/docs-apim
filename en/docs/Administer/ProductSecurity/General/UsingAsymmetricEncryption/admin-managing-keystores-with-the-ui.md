@@ -36,8 +36,8 @@ Follow the instructions below to view details of the keystore you uploaded.
 2.  Go to the **Configure** tab and click **Key Stores** .
 3.  The **Key Store Management** page appears. All the keystores that are currently added to the product will be listed here.
 4.  Click **View** in the list of actions. The **View Key Store** screen shows information about the available certificates.
-    ![](attachments/126562694/126562697.png)
+    ![](/assets/attachments/126562694/126562697.png)
     It also displays information about private key certificates:
-    ![](attachments/126562694/126562696.png)
+    ![](/assets/attachments/126562694/126562696.png)
 5.  Click **Finish** to go back to the **Key Store Management** screen.
 

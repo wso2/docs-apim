@@ -17,7 +17,7 @@ If a different API is used, the SDK functions to invoke the API are based on the
 
 
 2.  Go to the API Store. Select your API and download the SDK for Java. For more details, see [Generating client SDKs in the API Store](https://docs.wso2.com/display/AM260/Generating+SDKs#GeneratingSDKs-GeneratingclientSDKsintheAPIStore) .
-    ![](attachments/103333192/103333194.png)3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
+    ![](/assets/attachments/103333192/103333194.png)3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Expand to see the folder structure of the unzipped file...
 
@@ -144,7 +144,7 @@ If a different API is used, the SDK functions to invoke the API are based on the
     ```
 
     The base path for the client application is the production (or sandbox) URL of the API,  found in the **Overview** tab of the API in the API Store.
-    ![](attachments/103333192/103333193.png)
+    ![](/assets/attachments/103333192/103333193.png)
 10. Once the `ApiClient` object has all the required data, set the `ApiClient` for the instance of the `DefaultApi` object.
 
     ``` java

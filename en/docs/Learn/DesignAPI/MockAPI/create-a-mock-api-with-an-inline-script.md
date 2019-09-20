@@ -5,7 +5,7 @@ In this tutorial, you create a prototyped API with an inline script, deploy it a
 1.  Sign in to the API Publisher using `admin` as the username and password.
 `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ).
 2.  Select the option to design a new REST API and click **Start Creating** .
-    ![](attachments/103328761/103328756.png)
+    ![](/assets/attachments/103328761/103328756.png)
 3.  Give the information in the table below. To add resources, click the **Add** button. Since the URL Pattern used here is a variable, it is denoted within curly braces.
 
     <table>
@@ -50,7 +50,7 @@ In this tutorial, you create a prototyped API with an inline script, deploy it a
     </tbody>
     </table>
 
-    ![](attachments/103328761/103328755.png)
+    ![](/assets/attachments/103328761/103328755.png)
 
 4.  After the resource is added, expand its `GET` method and note that a parameter by the name `town` is added under the resource. You use it to pass the payload to the backend. Once done, click **Next: Implement &gt;** .
 
@@ -62,10 +62,10 @@ In this tutorial, you create a prototyped API with an inline script, deploy it a
     ```
 
 
-    ![](attachments/103328761/103328754.png)
+    ![](/assets/attachments/103328761/103328754.png)
 
 5.  In the **Prototyped API** section under the **Implement** tab, select the implementation method as **Inline** .
-    ![](attachments/103328761/103328753.png)
+    ![](/assets/attachments/103328761/103328753.png)
 
         !!! note
     The inline JavaScript engine does not provide support for SOAP APIs. If you opt for the endpoint implementation method instead of inline, you need to provide an endpoint to a prototype API. For example, <http://ws.cdyne.com/phoneverify/phoneverify.asmx>
@@ -79,7 +79,7 @@ In this tutorial, you create a prototyped API with an inline script, deploy it a
         mc.setPayloadJSON('{ "Town" : "'+town+'"}');
     ```
 
-    ![](attachments/103328761/103328752.png)
+    ![](/assets/attachments/103328761/103328752.png)
 
 7.  Click **Deploy as a Prototype** .
 
@@ -90,12 +90,12 @@ In this tutorial, you create a prototyped API with an inline script, deploy it a
 
 
 9.  The Location API opens. Click the **API Console** tab.
-    ![](attachments/103328761/103328750.png)
+    ![](/assets/attachments/103328761/103328750.png)
 
 10. Expand the `GET` method, click **Try it out** . Give any value for the town (e.g. London) and click **Execute** to invoke the API.
-    ![](attachments/103328761/103328749.png)
+    ![](/assets/attachments/103328761/103328749.png)
 11. Note the payload you gave as a JSON output in the response.
-    ![](attachments/103328761/103328748.png)
+    ![](/assets/attachments/103328761/103328748.png)
 
 You have created an API with inline script, deployed it as a prototype and invoked it through the integrated API Console.
 

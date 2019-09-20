@@ -17,9 +17,9 @@
 ``
 2.  Click **CREATE AN API** .
 
-    ![](../../../assets/attachments/119129032/119128996.png)
+    ![](/assets/attachments/119129032/119128996.png)
 3.  Click **Design a New REST API** .
-    ![](../../../assets/attachments/119129032/119128994.png)
+    ![](/assets/attachments/119129032/119128994.png)
 
 4.  Enter the information provided in the table below and click **Create** to create the API.
 
@@ -30,14 +30,14 @@
         It is mandatory to add the endpoint for this milestone. However, in the future this will be an optional feild.
 
 
-![](../../../assets/attachments/119129032/119128993.png)
+![](/assets/attachments/119129032/119128993.png)
 The created API appears in the publisher as follows:
 
-![](../../../assets/attachments/119129032/119129471.png)
+![](/assets/attachments/119129032/119129471.png)
 
 !!! note
         In this milestone release you will not be able to click EDIT to add the advanced configurations related to an API. However, if you add an API via the old Publisher interface ( <https://localhost:9443/publisher> ), you will be able to view all its details via the new Publisher interface ( <https://localhost:9443/publisher-new> ).
 
 
-![](../../../assets/attachments/119129032/119129472.png)
+![](/assets/attachments/119129032/119129472.png)
 

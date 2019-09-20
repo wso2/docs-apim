@@ -46,7 +46,7 @@ It is required to enable CORS globally before you enable CORS Per API. Therefore
 
 
 1.  Sign in to API Publisher and choose to design a new API.
-    ![](attachments/103333519/103333521.png)2.  Click **Start Creating** .
+    ![](/assets/attachments/103333519/103333521.png)2.  Click **Start Creating** .
 3.  Give the information in the table below and click **Add** to add the resource.
 
     Field
@@ -62,7 +62,7 @@ It is required to enable CORS globally before you enable CORS Per API. Therefore
     URL Pattern: current/{country}/{zipcode}
     Request types: GET method to return the current weather conditions of a zip code that belongs to a particular country
 
-    ![](attachments/103333519/103333520.png)
+    ![](/assets/attachments/103333519/103333520.png)
 4.  Once done, click **Next: Implement &gt;**
 
 5.  In the **Implementation** tab, provide the following endpoint details.
@@ -91,7 +91,7 @@ It is required to enable CORS globally before you enable CORS Per API. Therefore
     </table>
 
 6.  Select the **Enable API based CORS Configuration** check box to enable CORS for the API.
-    ![](attachments/103333519/103333530.png)7.  Once you enable CORS, you will be able to see the CORS response header configuration section. Listed below are the CORS specific response headers supported by the API Gateway and how to configure them.
+    ![](/assets/attachments/103333519/103333530.png)7.  Once you enable CORS, you will be able to see the CORS response header configuration section. Listed below are the CORS specific response headers supported by the API Gateway and how to configure them.
 
     | Header                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Sample values                                                        |
     |----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
@@ -101,8 +101,8 @@ It is required to enable CORS globally before you enable CORS Per API. Therefore
     | Access-Control-Allow-Credentials | Determines whether or not the response to the request can be exposed to the page. It can be exposed when the header value is true. The header value can be set to true/false by enabling/disabling the Access Control Allow Credentials configuration.                                                                                                                                                                                                                                              | true, false                                                          |
 
 8.  Once the CORS configurations are done, click **Next: Manage &gt;** .
-    ![](attachments/103333519/103333529.png)9.  Select the **Unlimited** subscription tier and click **Save and Publish** to create and publish the API to the API Store.
-    ![](attachments/103333519/103333528.png)
+    ![](/assets/attachments/103333519/103333529.png)9.  Select the **Unlimited** subscription tier and click **Save and Publish** to create and publish the API to the API Store.
+    ![](/assets/attachments/103333519/103333528.png)
 You have successfully enabled CORS for a specific API.
 
 

@@ -26,7 +26,7 @@ Next, let's see how to add the header as a parameter to the API Console.
 
 1.  Log in to the API Publisher and click the API that you want to invoke (e.g., `PhoneVerification` ).
 2.  Click the **Edit** link next to the API's name, navigate down to the **API Definition** section and click on the `POST` method to expand it.
-    ![](attachments/103333115/103333116.png)
+    ![](/assets/attachments/103333115/103333116.png)
 3.  Update the **Produces** and **Consumes** fields to `text/xml` and create the following header using the **Add Parameter** button.
 
     <table>
@@ -47,15 +47,15 @@ Next, let's see how to add the header as a parameter to the API Console.
     </tbody>
     </table>
 
-    ![](attachments/103333115/103333117.png)
+    ![](/assets/attachments/103333115/103333117.png)
 4.  Once you are done, click **Save** .
 
 5.  Log in to the API Store, subscribe to the API and generate an access token for the application you subscribed with.
     If it's an API that you are already subscribed to, you might have to re-generate the access token from the **Applications** page.
-    ![](attachments/103333115/103333118.png)6.  Click on the API again to open it and then click its **API Console** tab.
-    ![](attachments/103333115/103333119.png)7.  Expand the POST method and click **Try it out** .
+    ![](/assets/attachments/103333115/103333118.png)6.  Click on the API again to open it and then click its **API Console** tab.
+    ![](/assets/attachments/103333115/103333119.png)7.  Expand the POST method and click **Try it out** .
 
-    ![](attachments/103333115/103333120.png)
+    ![](/assets/attachments/103333115/103333120.png)
 8.  Fill the parameter values and click **Execute** to invoke the API. For example,
 
     | Parameter              | Value                                                                                                                                                                              |
@@ -76,9 +76,9 @@ Next, let's see how to add the header as a parameter to the API Console.
     | Parameter Content Type | text/xml                                                                                                                                                                           |
     | SOAPAction             | <http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber>                                                                                                                           |
 
-    ![](attachments/103333115/103333121.png)
+    ![](/assets/attachments/103333115/103333121.png)
 9.  A result similar to the following appears on the console.
-    ![](attachments/103333115/103333122.png)
+    ![](/assets/attachments/103333115/103333122.png)
 You have added SOAP parameters to the API Console and invoked a SOAP service using the API Console.
 
 ## Enabling CORS for OAuth Token related APIs

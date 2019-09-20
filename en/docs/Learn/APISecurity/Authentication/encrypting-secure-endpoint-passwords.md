@@ -2,7 +2,7 @@
 
 When creating an API using the API Publisher, you specify the endpoint of its backend implementation in the **Implement** tab. If you select the endpoint as secured, you are prompted to give credentials in plain-text.
 
-![](attachments/103334881/103334882.png)
+![](/assets/attachments/103334881/103334882.png)
 !!! tip
 Cipher Tool
 

@@ -51,7 +51,7 @@ You can apply the pre-defined JSON Policy through the UI. Follow the instruction
 -   Go to **Message Mediation** Policies under the **Implement** tab.
 
 -   Select **Enable Message Mediation** . Select json\_validator from the drop-down menu for In Flow.
-    ![](attachments/126559464/126559465.png)
+    ![](/assets/attachments/126559464/126559465.png)
 -   Click **Save and Publish** to save the changes.
 
 ### Testing the JSON threat protector

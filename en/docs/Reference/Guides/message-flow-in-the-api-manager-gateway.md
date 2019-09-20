@@ -2,7 +2,7 @@
 
 The Gateway of an API Manager deployment is responsible for the main business functionality of serving API traffic. The following diagram illustrates the message flow in the Gateway at a very high level.
 
-![](attachments/103335234/103335235.png)
+![](/assets/attachments/103335234/103335235.png)
 
 -   [The handlers](#MessageFlowintheAPIManagerGateway-Thehandlers)
 -   [Mediation extensions](#MessageFlowintheAPIManagerGateway-Mediationextensions)

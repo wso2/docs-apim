@@ -16,7 +16,7 @@ A **subscriber** logs into the WSO2 API Developer portal and creates an **applic
 
 The WSO2 API Manager consists of the following component
 
-![](attachments/103328852/119142745.jpg)
+![](/assets/attachments/103328852/119142745.jpg)
 ### Terminology & Concepts
 
 <table>

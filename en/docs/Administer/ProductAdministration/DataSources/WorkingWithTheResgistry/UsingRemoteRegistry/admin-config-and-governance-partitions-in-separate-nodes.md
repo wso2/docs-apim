@@ -2,7 +2,7 @@
 
 In this deployment strategy, let's assume 2 clusters of Carbon-based product Foo and Carbon-based product Bar that share a governance registry space by the name G-Reg 1. In addition, the product Foo cluster shares a configuration registry space by the name G-Reg 2 and the product Bar cluster shares a configuration registry space by the name G-Reg 3.
 
-![](attachments/126562675/126562676.png)
+![](/assets/attachments/126562675/126562676.png)
 Figure 4: Config and governance partitions in separate registry instances .
 
 Configuration steps are given in the following sections.

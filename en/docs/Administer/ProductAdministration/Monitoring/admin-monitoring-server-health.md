@@ -33,7 +33,7 @@ This API is supported by default from WSO2 Identity Server 5.7.0 onwards. It is 
 
 This section guides you through deploying the Carbon Health Check components in a WSO2 Carbon product that does not support this feature by default.
 
-1.  Download the [org.wso2.carbon.healthcheck.server.feature-&lt;version-number&gt;.zip](attachments/126562954/126562955.zip) and extract it. This folder is reffered to as `<API_HOME>` in this document.
+1.  Download the [org.wso2.carbon.healthcheck.server.feature-&lt;version-number&gt;.zip]/assets/attachments/126562954/126562955.zip) and extract it. This folder is reffered to as `<API_HOME>` in this document.
 2.  Copy the `org.wso2.carbon.healthcheck.api.core-<version-number>.jar` found in the `<API_HOME>/plugins` directory and paste it in the `<PRODUCT_HOME>/repository/components/dropins` directory.
 3.  Copy the webapp `api#health-check#v1.0.war` found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory and paste it in the the `<PRODUCT_HOME>/repository/deployment/server/webapps` directory.
 4.  **(Optional step)** Copy the `health-check.config.xml` configuration file found in the `<API_HOME>/features/org.wso2.carbon.healthcheck.server_1.0.0` directory to your `<PRODUCT_HOME>/repository/conf/` directory.

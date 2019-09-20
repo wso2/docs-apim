@@ -20,7 +20,7 @@ The following are the three main ways to view, add, edit and delete attributes o
     2.  On the **Configure** tab in the Management Console, click **Users and Roles** .
     3.  Click **Users** . This link is only visible to users with the Admin role.
     4.  From the list of users that appear in the resulting page, identify the user whose attributes you want to modify and click **User Profile** .
-        ![](attachments/43997703/44195174.png)
+        ![](/assets/attachments/43997703/44195174.png)
     5.  Click **Update** to save changes to the attributes.
 2.  You can use the `RemoteUserStoreManagerService` API. This is a SOAP-based API and is very easy to use. Supposing you want to set a user attribute, you can call the following method.
 
@@ -61,7 +61,7 @@ If your user store supports having multiple values for attributes, the WSO2 prod
     ```
 
     See the following screen for how this will look in the user interface of the product's Management Console.
-    ![](attachments/43997703/44195175.png)
+    ![](/assets/attachments/43997703/44195175.png)
 
 2.  When using the `RemoteUserStoreManagerService` API, call it as follows.
 
@@ -76,7 +76,7 @@ If your user store supports having multiple values for attributes, the WSO2 prod
     ```
 
     The following screen shows how this looks in the LDAP.
-    ![](attachments/43997703/44195177.png)
+    ![](/assets/attachments/43997703/44195177.png)
 ### Writing custom attributes
 
 Supposing the attributes of a user are stored in both the user store (LDAP) and another location (JDBC table), the product needs to retrieve/add the user’s attribute in both these places. In scenarios like this, some customization must be done. To customize this, you can simply extend the current user store manager implementation and write a custom implementation to do it. In the custom user store implementation, you only need to extend the following three methods that help to retrieve/add a user attribute. Other methods can be kept as they are.

@@ -149,15 +149,15 @@ Next, let us look at the SSO configurations.
 
 
 2.  Click **Add** under the **Service Providers** menu.
-    ![](attachments/103333463/103333469.png)
+    ![](/assets/attachments/103333463/103333469.png)
 3.  Give a service provider name and click **Register** .
-    ![](attachments/103333463/103333466.png)
+    ![](/assets/attachments/103333463/103333466.png)
 
         !!! tip
     **In a multi tenanted environment,** for all tenants to be able to log in to the API Manager web applications, do the following:
 
     -   Click the **SaaS Application** option that appears after registering the service provider.
-        ![](attachments/103333463/103333464.png)
+        ![](/assets/attachments/103333463/103333464.png)
         If not, only users in the current tenant domain (the one you are defining the service provider in) will be allowed to log in to the web application and you have to register new service providers for all web applications (API Store and API Publisher in this case) from each tenant space separately. For example, let's say you have three tenants as TA, TB and TC and you register the service provider in TA only. If you tick the **SaaS Application** option, all users in TA, TB, TC tenant domains will be able to log in. Otherwise, only users in TA will be able to log in.
 
     -   Add the following inside the `<SSOService>` element in the `<IS_HOME>/repository/conf/identity/identity.xml` file and restart the server.
@@ -175,12 +175,12 @@ Next, let us look at the SSO configurations.
 
 
 4.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuration** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
-    ![](attachments/103333463/103333465.png)
+    ![](/assets/attachments/103333463/103333465.png)
 
         !!! note
     To enable tenant specific SSO with IS 5.7.0 for API\_PUBLISHER and API\_STORE, enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
 
-    ![](attachments/103333463/103333468.png)
+    ![](/assets/attachments/103333463/103333468.png)
 
 
 5.  Provide the configurations to register the API Publisher as the SSO service provider. These sample values may change depending on your configuration.
@@ -200,7 +200,7 @@ Next, let us look at the SSO configurations.
     -   Click **Register** once done.
 
 For example:
-![](attachments/103333463/103333470.png)
+![](/assets/attachments/103333463/103333470.png)
 Similarly, provide the configurations to register the API Store as the SSO service provider. These sample values may change depending in your configuration.
 
 -   Issuer: API\_STORE
@@ -236,14 +236,14 @@ Add a new Identity Provider in WSO2 Identity Server. For more details on configu
 Enable JIT Provisioning for the external IDP. For more information, see [Configuring Just-In-Time Provisioning for an Identity Provider](https://docs.wso2.com/display/IS570/Configuring+Just-In-Time+Provisioning+for+an+Identity+Provider) .
 
 Map the external IDP roles to the roles configured in API Manager. For more information on mapping roles, see [Configuring Roles for an Identity Provider](https://docs.wso2.com/display/IS570/Configuring+Roles+for+an+Identity+Provider) .
-![](attachments/103333463/103333473.png)
+![](/assets/attachments/103333463/103333473.png)
 Open the management console, and click **Edit** under **Service Providers.**
 
 Under **Local & Outbound Authentication Configuration** select **Federated Authentication** . Select the newly created external IDP.
-![](attachments/103333463/103333472.png)
+![](/assets/attachments/103333463/103333472.png)
 
 Add `http://wso2.org/claims/role` as the Claim URI under **Claim Configuration.** Select the **Mandatory Claim** check box. ** Add `http:/wso2.org/claims/username` as the Subject Claim URI. **
-![](attachments/103333463/103333471.png)
+![](/assets/attachments/103333463/103333471.png)
 !!! tip
 Additionally, you might need to configure claims to map them to the available claims in WSO2 Identity Server. For more details, see [Configuring Claims for an Identity Provider](https://docs.wso2.com/display/IS570/Configuring+Claims+for+an+Identity+Provider) .
 
@@ -275,7 +275,7 @@ Additionally, you might need to configure claims to map them to the available cl
         You can skip this step if you are using Identity Server 5.7.0 as the IDP.
 
 4.  Access the API Publisher (e.g., `https://localhost:9443/publisher` ). Observe the request redirecting to the WSO2 IS SAML2.0 based SSO login page. For example,
-    ![](attachments/103333463/103333467.png)
+    ![](/assets/attachments/103333463/103333467.png)
 5.  Enter the user credentials. If the user authentication is successful against WSO2 IS, it redirects to the API Publisher with the user that is already authenticated.
 6.  Access the API Store, click its **Login** link (top, right-hand corner) and verify that the same user is already authenticated in the API Store.
 

@@ -626,7 +626,7 @@ Only the following types of users are allowed to access the API import/export to
 
     ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to see a screen shot of the above listed permissions.
 
-    ![](attachments/126563297/126563295.png)
+    ![](/assets/attachments/126563297/126563295.png)
 
 
 To allow access to the import/export feature only for a particular tenant, log in to WSO2 API Manager's Management Console and add the downloaded archive file as a web application to the server.
@@ -649,7 +649,7 @@ The 'admin' role is the default role which is specified in the Realm configurati
 
 The API export functionality retrieves the information required for the requested API from the registry and databases and generates a ZIP file, which the exporter can download. This exported ZIP file has the following structure:
 
-![Structure of the exported ZIP file](attachments/126563297/126563296.png)
+![Structure of the exported ZIP file]/assets/attachments/126563297/126563296.png)
 
 The structure of the ZIP file is explained below:
 

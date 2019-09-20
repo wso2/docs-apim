@@ -11,14 +11,14 @@ When you publish an API using the API Publisher, it gets deployed on the API Gat
 
 This is the default scenario. Because this Gateway instance handles both production and sandbox token traffic, it is called a hybrid API Gateway. When an API request comes to the API Gateway, it checks whether the requesting token is of type PRODUCTION or SANDBOX and forwards the request to the appropriate endpoint. The diagram below depicts this scenario.
 
-![](attachments/103333581/103333584.png)
+![](/assets/attachments/103333581/103333584.png)
 #### Multiple Gateways to handle production and sandbox requests separately
 
 Having a single Gateway instance to pass through both types of requests can negatively impact the performance of the production server. To avoid this, you can set up separate API Gateways. The production API Gateway handles requests that are made using PRODUCTION type tokens and the sandbox API Gateway handles requests that are made using SANDBOX type tokens.
 
 The diagram below depicts this using two Gateways:
 
-![](attachments/103333581/103333583.png)
+![](/assets/attachments/103333581/103333583.png)
 In either of the two approaches, if an API Gateway receives an invalid token, it returns an error to the requesting client saying that the token is invalid.
 
 You configure production and sandbox Gateways using the `<Environments>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file in API Publisher nodes, as shown in the following example:
@@ -52,7 +52,7 @@ The `type` attribute of the `<Environment>` element can take the following value
 
 If you work with Gateways in different geographical locations, configuring multiple environments using the `<APIGateway>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file is recommended. The diagram below depicts a sample setup:
 
-![](attachments/103333581/103333582.png)
+![](/assets/attachments/103333581/103333582.png)
 **Figure** : API Gateways in different geographical regions
 
 !!! info

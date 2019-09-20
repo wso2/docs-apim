@@ -13,16 +13,16 @@ To analyze the Log Overview,
 At any given time, this page displays the statistics for a selected time interval.
 
 -   If you want to view statistics for a pre-defined time interval, click on the relevant time interval (e.g., **Last 30 Days** ).
-    ![](attachments/103335208/103335209.gif)
+    ![](/assets/attachments/103335208/103335209.gif)
 -   If you want to define a custom time interval, click **Custom** and select the start and end dates of the required time interval in the calendar that appears. Then click **Apply.
-    ![](attachments/103335223/103335224.gif)**
+    ![](/assets/attachments/103335223/103335224.gif)**
 
 
 ### Introduction
 
 This page displays the overall statistics for all the available types of log events (i.e. **INFO** , **DEBUG** , **ERROR** , **WARN** and **FATAL** ) that were created during the selected time interval. The information displayed allows you to understand the overall health of the API Manager installation. The exact count for each log event type can be viewed by moving the cursor over the relevant bar. The following is an example of this report.
 
-![](attachments/103335223/103335225.gif)
+![](/assets/attachments/103335223/103335225.gif)
 
 ### Purpose
 

@@ -64,7 +64,7 @@ In summary, the Microgateway is a simplified lightweight version of the API Gate
 
 ### How the Microgateway works
 
-![](attachments/103333747/103333748.png)
+![](/assets/attachments/103333747/103333748.png)
 API Manager comes with a Microgateway that is responsible for Microgateway related management tasks. This command line tool accepts issued commands and you are able to communicate with the API Management core runtime (API Publisher) and build the Microgateway runtime. The API Microgateway communicates with the API Publisher to retrieve the API metadata required to create the Microgateway runtime.
 
 Upon API Gateway CLI setup, users provide the label name (logical group of APIs), the API Management core base URL, the username and password. With this information, the CLI communicates with APIs exposed from the API core and creates a Gateway runtime project for the given label where all APIs are included under a given label. All throttling policies required for runtime are also created.

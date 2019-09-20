@@ -28,19 +28,19 @@ See the following topics for the descriptions on the concepts that you need to k
     1.  Sign in to the WSO2 API Publisher.
     2.  Create two APIs by the names `TestAPI1` and `TestAPI2` and publish them to the WSO2 API Store.
         For more information, see [Create and Publish an API](_Create_and_Publish_an_API_) .
-        ![](attachments/103332508/103332500.png)
+        ![](/assets/attachments/103332508/103332500.png)
 2.  Subscribe to both the APIs.
     1.  Sign in to the WSO2 API Store and click **APIS** .
         Note that the two APIs are visible in the APIs page.
     2.  Subscribe to both APIs using the same application.
         You can use the default application or create your own.
-        ![](attachments/103332508/103332495.png)
+        ![](/assets/attachments/103332508/103332495.png)
     3.  Click the **View Subscriptions** button when prompted.
         The **Subscriptions** tab opens.
 
     4.  Click the **Production Keys** tab and click **Generate Keys** to create an application access token.
         If you have already generated an access token before, click **Re-generate** to renew the token.
-        ![](attachments/103332508/103332496.png)
+        ![](/assets/attachments/103332508/103332496.png)
 
 3.  Invoke both APIs using the access token you received in the previous step.
 
@@ -105,7 +105,7 @@ See the following topics for the descriptions on the concepts that you need to k
     2.  Click **API** and click on the API that you need to block.
         In this case, click on the `TestAPI1` API.
     3.  Click **Subscriptions** to navigate to the managed subscription section.
-        ![](attachments/103332508/103332497.png)
+        ![](/assets/attachments/103332508/103332497.png)
 
     4.  Click **Block** .
         Note that the **Block** link immediately turns to **Unblock** , allowing you to activate the subscription back at any time.
@@ -137,7 +137,7 @@ See the following topics for the descriptions on the concepts that you need to k
 
     If you click **Applications** in the API Store, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
 
-    ![](attachments/103332508/103332498.png)
+    ![](/assets/attachments/103332508/103332498.png)
 
 6.  Unblock the API.
 

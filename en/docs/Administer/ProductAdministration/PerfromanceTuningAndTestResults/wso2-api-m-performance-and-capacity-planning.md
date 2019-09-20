@@ -38,7 +38,7 @@ The deployment used was [All-in-one API Manager](#WSO2API-MPerformanceandCapacit
 
 The following figure shows how the Throughput changes for different number of concurrent users.
 
-![](attachments/103333651/103333679.png)
+![](/assets/attachments/103333651/103333679.png)
 
 Key observations:
 
@@ -48,7 +48,7 @@ Key observations:
 
 The following figure shows how the **Average Response Time** changes  for different number of concurrent users.
 
-![](attachments/103333651/103333678.png)
+![](/assets/attachments/103333651/103333678.png)
 
 Key observations:
 
@@ -60,7 +60,7 @@ Let’s look at the 90th, 95th, and 99th Response Time percentiles. This is usef
 
 For example, when there are 100 concurrent users, 90th response time percentile for Echo API is 37ms. This means that 10% of the requests have taken more than 37ms to respond. Similarly, 99th response time percentile for Echo API is 86ms, which means that 99% of the requests have completed within 86ms.
 
-![](attachments/103333651/103333677.png)
+![](/assets/attachments/103333651/103333677.png)
 
 Key observations:
 
@@ -80,7 +80,7 @@ The **GC Throughput** was calculated for each test to check whether GC operation
 
 The following chart shows the GC Throughput (%) for different number of concurrent users.
 
-![](attachments/103333651/103333676.png)
+![](/assets/attachments/103333651/103333676.png)
 
 Key observations:
 
@@ -92,7 +92,7 @@ In this deployment, the WSO2 API Manager is deployed in one EC2 instance and a R
 
 See: [JMeter Remote Test](http://jmeter.apache.org/usermanual/remote-test.html) . Two JMeter servers are used to simulate high number of concurrent users.
 
-![](attachments/103333651/103333684.png)
+![](/assets/attachments/103333651/103333684.png)
 
 The following are the EC2 instances that the API-M 2.6.0 performance tests were carried out on.
 
@@ -255,61 +255,61 @@ All scripts used to run the performance tests and analyze results are in the fol
 
 ### Throughput Comparison
 
-![](attachments/103333651/103333675.png)
+![](/assets/attachments/103333651/103333675.png)
 The Echo API has some errors with 100KiB message size for 1000 and 2000 concurrent users.
 
 The following charts show what happens to the server throughput when considering all results.
 
 -   ##### Throughput (Requests/sec) vs Concurrent Users
 
-    ![](attachments/103333651/103333674.png)
+    ![](/assets/attachments/103333651/103333674.png)
 
 -   ##### Throughput (Requests/sec) vs Message Size (Bytes)
 
-    ![](attachments/103333651/103333673.png)
+    ![](/assets/attachments/103333651/103333673.png)
 
 -   ##### Throughput (Requests/sec) vs Sleep Time (ms)
 
-    ![](attachments/103333651/103333672.png)
+    ![](/assets/attachments/103333651/103333672.png)
 
 ### Average Response Time Comparison
 
-![](attachments/103333651/103333671.png)
+![](/assets/attachments/103333651/103333671.png)
 
 The following charts show what happens to the average response time when considering all results.
 
 -   ##### Average Response Time (ms) vs Concurrent Users
 
-    ![](attachments/103333651/103333670.png)
+    ![](/assets/attachments/103333651/103333670.png)
 
 <!-- -->
 
 -   ##### Average Response Time (ms) vs Message Size (Bytes)
 
-    ![](attachments/103333651/103333669.png)
+    ![](/assets/attachments/103333651/103333669.png)
 
 -   ##### Average Response Time (ms) vs Sleep Time (ms)
 
-    ![](attachments/103333651/103333668.png)
+    ![](/assets/attachments/103333651/103333668.png)
 
 ### GC Throughput Comparison
 
 The following chart shows the GC throughput behavior when considering all results.
 
-![](attachments/103333651/103333667.png)
+![](/assets/attachments/103333651/103333667.png)
 
 -   ##### API Manager GC Throughput (%) vs Concurrent Users
 
-    ![](attachments/103333651/103333666.png)
+    ![](/assets/attachments/103333651/103333666.png)
 
 -   ##### API Manager GC Throughput (%) vs Message Size (Bytes)
 
-    ![](attachments/103333651/103333665.png)
+    ![](/assets/attachments/103333651/103333665.png)
 
 <!-- -->
 
 -   ##### API Manager GC Throughput (%) vs Sleep Time (ms)
 
-    ![](attachments/103333651/103333664.png)
+    ![](/assets/attachments/103333651/103333664.png)
 
 Refer [Observations from all results](#WSO2API-MPerformanceandCapacityPlanning-observation) for more details on the charts.

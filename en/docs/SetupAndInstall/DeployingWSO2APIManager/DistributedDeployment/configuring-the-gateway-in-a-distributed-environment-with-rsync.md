@@ -15,7 +15,7 @@ Follow the instructions below to configure the API-M Gateway in a distributed en
 -   [Step 5 - Start the Gateway Nodes](#ConfiguringtheGatewayinaDistributedEnvironmentwithrsync-Step5-StarttheGatewayNodes)
 
 Note that the configurations in this topic are done based on the following pattern. This pattern is used as a basic Gateway cluster where the worker nodes and manager nodes are separated.
-![](attachments/103334495/103334496.png)
+![](/assets/attachments/103334495/103334496.png)
 
 ### Step 1 - Configure the load balancer
 

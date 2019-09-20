@@ -5,7 +5,7 @@ When you select a collection in the registry, the **Permissions** panel opens wi
 #### Adding new role permissions
 
 1.  In the **New Role Permissions** section, select a role from the drop-down list. This list is populated by all user roles configured in the system.
-    ![](attachments/126562645/126562646.png)
+    ![](/assets/attachments/126562645/126562646.png)
 
         !!! info
     The `wso2.anonymous.role` is a special role that represents a user who is not logged in to the management console. Granting `Read` access to this role means that you do not require authentication to access resources using the respective Permalinks.
@@ -21,7 +21,7 @@ When you select a collection in the registry, the **Permissions** panel opens wi
     -   **Authorize** - A special permission that gives a role the ability to grant and revoke permissions to/from others
 
 3.  Select whether to allow the action or deny and click **Add Permission** . For example
-    ![](attachments/126562645/126562647.png)
+    ![](/assets/attachments/126562645/126562647.png)
 
         !!! info
 `Deny` permissions have higher priority over `Allow.` That is, a `Deny` permission always overrides an `Allow` permission assigned to a role.
@@ -30,5 +30,5 @@ When you select a collection in the registry, the **Permissions** panel opens wi
 
 
 4.  The new permission appears in the list.
-    ![](attachments/126562645/126562648.png) From here, you can edit the permissions by selecting and clearing the check boxes. After editing the permissions, click **Apply All Permissions** to save the alterations.
+    ![](/assets/attachments/126562645/126562648.png) From here, you can edit the permissions by selecting and clearing the check boxes. After editing the permissions, click **Apply All Permissions** to save the alterations.
 

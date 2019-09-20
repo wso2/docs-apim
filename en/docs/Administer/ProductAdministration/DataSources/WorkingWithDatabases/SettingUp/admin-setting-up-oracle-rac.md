@@ -16,8 +16,8 @@ To test products on Oracle RAC, rename `oracle_rac.sql` to `oracle.sql` before r
 Follow the steps below to set up an Oracle RAC database.
 
 1.  Set environment variables &lt; `ORACLE_HOME>` , `PATH` , `` and `ORACLE_SID` with the corresponding values ( `/oracle/app/oracle/product/11.2.0/dbhome_1` , `$PATH:<ORACLE_HOME>/bin` , and `orcl1` ) as follows:
-    ![](attachments/126562524/126562530.png)2.  Connect to Oracle using SQL\*Plus as SYSDBA.
-    ![](attachments/126562524/126562542.png)3.  Create a database user and grant privileges to the user as shown below:
+    ![](/assets/attachments/126562524/126562530.png)2.  Connect to Oracle using SQL\*Plus as SYSDBA.
+    ![](/assets/attachments/126562524/126562542.png)3.  Create a database user and grant privileges to the user as shown below:
 
     ``` powershell
         Create user <USER_NAME> identified by password account unlock;

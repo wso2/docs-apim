@@ -178,7 +178,7 @@ Follow the steps below to run the script in Web console:
 2.  Copy the script text from the SQL file.
 3.  Paste it into the console.
 4.  Click **Run** .
-    ![](attachments/53125507/53287421.png)5.  Restart the server.
+    ![](/assets/attachments/53125507/53287421.png)5.  Restart the server.
 
         !!! info
     You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:

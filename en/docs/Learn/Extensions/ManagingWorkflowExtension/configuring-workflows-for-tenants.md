@@ -11,7 +11,7 @@ The topics below explain how to deploy a BPEL/human task using WSO2 EI and how t
 ### **Deploying a BPEL and a HumanTask for a tenant**
 
 Only the users registered in the EI can deploy BPELs and human tasks in it. Registration adds you to the user store in the EI. In this guide, the API Manager and EI use the same user store and all the users present in the EI are visible to the API Manager as well. This is depicted by the diagram below:
-![](attachments/103334719/103334720.png)**Figure** : API Manager and EI share the same user and permission store
+![](/assets/attachments/103334719/103334720.png)**Figure** : API Manager and EI share the same user and permission store
 
 !!! warning
 **If you are using WSO2 BPS3.2.0** , please copy the `<APIM_HOME>                  /repository/components/patches/patch0009` folder to the `<BPS_HOME>                  /repository/components/patches` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
@@ -168,7 +168,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 1.  Set a port offset of 2 to the EI using the `<EI_HOME>/repository/conf/carbon.xml` file. This prevents any port conflicts when you start more than one WSO2 products on the same server.
 
 2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and create a tenant using the **Configure -&gt; Multitenancy** menu.
-    ![](attachments/103334719/103334732.png)
+    ![](/assets/attachments/103334719/103334732.png)
 
 3.  Create a copy of the BPEL located in `<APIM_HOME>/business-processes/application-creation/BPEL` .
 
@@ -222,7 +222,7 @@ In this section, you create a BPEL that has service endpoints pointing to servic
     To avoid this issue open &lt;EI\_HOME&gt;/ repository/conf/tomcat/catalina-server.xml and change the compression="on" to compression="off" in Connector configuration and restart the EI.
 
 
-    ![](attachments/103334719/103334729.png)
+    ![](/assets/attachments/103334719/103334729.png)
 
 #### Creating a Tenant for Authentication
 
@@ -238,12 +238,12 @@ In this section, you create a BPEL that has service endpoints pointing to servic
     | Create Text Content | TaskCoordination | text/plain |
 
 4.  Click **Add** to finish adding the resource.
-    ![](attachments/103334719/103334723.png)
+    ![](/assets/attachments/103334719/103334723.png)
 ###### Step 2: Create username and password registry properties and define credentials
 
 1.  Click on the registry resource you created (Task Coordination) found under the **Entries** section.
 
-    ![](attachments/103334719/103334724.png)
+    ![](/assets/attachments/103334719/103334724.png)
 2.  Add two new registry properties for the resource called "Username" and "Password", and define the tenant coordination user credentials. To do this, click **Properties&gt;Add New Property** and enter the following values. See [Managing Properties](https://docs.wso2.com/display/BPS351/Managing+Properties) for more information.
 
     | **Username Property**       | **Password Property**       |
@@ -251,10 +251,10 @@ In this section, you create a BPEL that has service endpoints pointing to servic
     | **Name:** username          | **Name:** password          |
     | **Value:** (username value) | **Value:** (password value) |
 
-    ![](attachments/103334719/103334725.png)
+    ![](/assets/attachments/103334719/103334725.png)
 3.  Click **Add** to finish adding the property.
 
-![](attachments/103334719/103334726.png)
+![](/assets/attachments/103334719/103334726.png)
 #### Creating a human task
 
 Similar to creating a BPEL, create a HumaTask that has service endpoints pointing to services hosted in the tenant's space.
@@ -294,7 +294,7 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
 5.  Log into the API Manager's management console as the tenant admin and select **Resources &gt; Browse** menu.
 
 6.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` in the registry and change the **service endpoint** as a **tenant-aware service URL** (e.g., `http://localhost:9765/services/t//ApplicationApprovalWorkFlowProcess` ). Also set the **credentials** as the **tenant admin's credentials** of the `ApplicationCreationWSWorkflowExecutor` file. For example,
-    ![](attachments/103334719/103334728.png)
+    ![](/assets/attachments/103334719/103334728.png)
         !!! note
     Be sure to disable the `SimpleWorkflowExecutor` and enable the `ApplicationCreationWSWorkflowExecutor.          `
 
@@ -303,4 +303,4 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
 
 You have now completed configuring the Application Creation workflow for a tenant. Whenever a tenant user logs in to the tenant store and create an application, the workflow will be invoked. You log in to the Admin Portal ( `https://:9443/admin` ) as the tenant admin and browse **Application Creation** menu to see all approval tasks have been created for newly created applications.
 
-![](attachments/103334719/103334721.png)
+![](/assets/attachments/103334719/103334721.png)

@@ -32,7 +32,7 @@ By default, the WSDLs of admin services are hidden from consumers. Given below i
 3.  When the server is started, hit the enter/return key several times to get the OSGI shell in the console.
 4.  In the OSGI shell, type: `osgi> listAdminServices`
 5.  The list of admin services of your product are listed. For example:
-    ![](attachments/103335243/103335245.png)6.  To see the service contract of an admin service, select the admin service's URL and then paste it in your browser with **?wsdl** at the end. For example:
+    ![](/assets/attachments/103335243/103335245.png)6.  To see the service contract of an admin service, select the admin service's URL and then paste it in your browser with **?wsdl** at the end. For example:
 `https://localhost:9443/services/RemoteUserStoreManagerService?wsdl`
 
         !!! tip
@@ -202,4 +202,4 @@ public class AdminServiceClientManager {
     }
 }
 ```
-The complete maven project can be found at: [org.wso2.carbon.sample.admin.service.invoker.zip](attachments/103335243/103335244.zip)
+The complete maven project can be found at: [org.wso2.carbon.sample.admin.service.invoker.zip]/assets/attachments/103335243/103335244.zip)

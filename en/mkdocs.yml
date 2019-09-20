@@ -54,9 +54,9 @@ nav:
     - Learn: 
         - Design API: 
             - Create API:
-                - Create and Publish a REST API: Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api.md
-                - Create and Publish an API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition.md
-                - Create and Publish a SOAP API: Learn/DesignAPI/CreateAPI/create-and-publish-a-soap-api.md
+                - Create and Publish a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
+                - Create and Publish an API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
+                - Create and Publish a SOAP API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
                 - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
                 - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
             - Publish API:

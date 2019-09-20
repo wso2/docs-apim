@@ -97,7 +97,7 @@ Custom Handler is a way of extending API Manager which the product offer to chan
 
 Let's see how you can write a custom handler and apply it to the API Manager. In this example, we extend the authentication handler. Make sure your custom handler name is not the same as the name of an existing handler.
 
-WSO2 API Manager provides the OAuth2 bearer token as its default authentication mechanism. A sample implementation is [here](attachments/103334745/103334748.java) . Similarly, you can extend the API Manager to support any custom authentication mechanism by writing your own authentication handler class.
+WSO2 API Manager provides the OAuth2 bearer token as its default authentication mechanism. A sample implementation is [here]/assets/attachments/103334745/103334748.java) . Similarly, you can extend the API Manager to support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive [org.wso2.carbon.test.authenticator.zip](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&modificationDate=1516171792000&api=v2) . You can download, unzip and build the project using maven and Java 7/8.
 

@@ -54,7 +54,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![](attachments/103332556/103332553.png)
+    ![](/assets/attachments/103332556/103332553.png)
 
 3.  The `Implement` tab opens. Select **Managed API** , provide the information given in the table below and click **Manage** .
 
@@ -66,7 +66,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
       To verify the URL, click the **Test** button next to it.                                                                                                                                                                                                                                                                                                                                                                                          |
     | Sandbox endpoint    | [https://query.yahooapis.com/v1/public/yql](https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys) To verify the URL, click the **Test** button next to it.                                                                                       |
 
-    ![](attachments/103332556/103332552.png)
+    ![](/assets/attachments/103332556/103332552.png)
 
 4.  Click **Next: Manage &gt;** to go to the `Manage` tab, provide the following information and click **Save & Publish** once you are done.
 
@@ -90,20 +90,20 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![](attachments/103332556/103332551.png)
+    ![](/assets/attachments/103332556/103332551.png)
 
 5.  Download and install the WSO2 API Manager Tooling Plug-in by following one of the three possible methods described in Installing the API Manager Tooling Plug-In if you have not done so already. Start Eclipse by double clicking on the Eclipse application, which is  inside the downloaded folder.
 
 6.  Navigate to the **Window** menu, click **Perspective** , **Open Perspective,** and **Other** to open the Eclipse perspective selection window.
 7.  On the dialog box that appears, click **WSO2 API Manager** and click **OK** .
-    ![](attachments/103332556/103332544.png)
+    ![](/assets/attachments/103332556/103332544.png)
 8.  On the APIM perspective, click the **Login** icon as shown below.
-    ![](attachments/103332556/103332531.png)
+    ![](/assets/attachments/103332556/103332531.png)
 9.  On the dialog box that appears, enter the URL, username, and password of the Publisher server.
-    ![](attachments/103332556/103332526.png)
+    ![](/assets/attachments/103332556/103332526.png)
 10. On the tree view that appears, expand the folder structure of the existing API.
 11. Right-click on the `in` sequence folder and click **Create** to create a new `in` sequence.
-    ![](attachments/103332556/103332527.png) This is because you want the custom sequence to be invoked in the `In` direction or the request path. If you want it to be involved in the `Out` or `Fault` paths, select the respective folder under `customsequences` .
+    ![](/assets/attachments/103332556/103332527.png) This is because you want the custom sequence to be invoked in the `In` direction or the request path. If you want it to be involved in the `Out` or `Fault` paths, select the respective folder under `customsequences` .
 
         !!! tip
     **Tip** : If you prefer not to use the registry to upload the sequence or want to engage a sequence to all APIs in WSO2 API-M at once, you can do so by saving the mediation sequence XML file in the file system. See [Adding Mediation Extensions](_Adding_Mediation_Extensions_) for details.
@@ -157,7 +157,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![](attachments/103332556/103332533.png)
+    ![](/assets/attachments/103332556/103332533.png)
 
 14. Similarly, add another property mediator with the following values. This is an HTTP transport property that appends its value to the address endpoint URL. Once you are done, save the sequence.
 
@@ -191,7 +191,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![](attachments/103332556/103332532.png)
+    ![](/assets/attachments/103332556/103332532.png)
 
 15. Navigate to the **File** menu, and click **Save** to save the sequence.
 16. Right-click on the sequence and click **Commit File** to push the changes to the Publisher server.
@@ -201,24 +201,24 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
 
 
 17. Sign in to the API Publisher again, select the API that you created earlier, and click the **Edit** link right next to its name to go to the edit wizard.
-    ![](attachments/103332556/103332530.png)
+    ![](/assets/attachments/103332556/103332530.png)
 18. Navigate to the API's **Implement** tab, select the **Enable Message Mediation** check box and select the sequence that you created for the In flow. Next, click **Manage** and **Save & Publish** the API again.
 
         !!! tip
     **Tip** : It might take a few minutes for the sequence to be uploaded into the API Publisher. If it isn't there, please check again later.
 
 
-    ![](attachments/103332556/103332550.png)
+    ![](/assets/attachments/103332556/103332550.png)
 
         !!! note
     When selecting a mediator, make sure that it is a non-blocking mediator as blocking mediators are not supported in API Gateway custom mediations. For more details, see [Adding Mediation Extensions](_Adding_Mediation_Extensions_) .
 
 
 19. Sign in to the API Store, subscribe to the API that you just published, and generate the access tokens in order to invoke the API.
-    ![](attachments/103332556/103332529.png)
+    ![](/assets/attachments/103332556/103332529.png)
 20. Click the **API Console** tab of the API.
     It opens the integrated API Console using which you can invoke the API.
-    ![](attachments/103332556/103332528.png)
+    ![](/assets/attachments/103332556/103332528.png)
 21. Give the following values for the parameters and invoke the API. You can also give any other value of your choice.
 
     <table>
@@ -238,7 +238,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![](attachments/103332556/103332549.png)
+    ![](/assets/attachments/103332556/103332549.png)
     Note the response that you get as a JSON object from Yahoo.
 
     ``` java
