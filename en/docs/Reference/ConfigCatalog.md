@@ -2,7 +2,7 @@
 template: templates/2-column.html
 ---
 # Configuration Catalog
-This document describes all the configuration parameters that are used in WSO2 Identity Server. 
+This document describes all the configuration parameters that are used in WSO2 API Manager.
 ## Instructions for use
 > Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.
 ```toml
@@ -17,7 +17,7 @@ gateway_environments=["dev","test"]
 [[database]]
 pool_options.maxActiv=5
 ```
-    
+
 <div class="mb-config-catalog">
 	<section class="title">
 		<div class="mb-config-options">
