@@ -14,42 +14,59 @@ You need to set up MySQL before following the steps to configure your product wi
 
 ### Creating the datasource connection to MySQL
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is configured in the `master-datasources.xml` file for the purpose of connecting to the default H2 database, which stores registry and user management data.
+A datasource is used to establish the connection to a database. By default, `WSO2_SHARED_DB` datasource is configured in the `master-datasources.xml` file for the purpose of connecting to the default H2 database, which stores registry and user management data.
 
-After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_CARBON_DB` datasource, or configure a new datasource to point it to the new database as explained below.
+After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` datasource, or configure a new datasource to point it to the new database as explained below.
 
-Follow the steps below to change the type of the default `WSO2_CARBON_DB` datasource.
+Follow the steps below to change the type of the default `WSO2_SHARED_DB` datasource.
 
-1.  Open the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file and locate the `<datasource>` configuration element.
+1.  Open the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` configuration element.
 
 2.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details as shown below.
 
     | Element                       | Description                                                 |
     |-------------------------------|-------------------------------------------------------------|
+    | **type**                      | The database type used                                      |
     | **url**                       | The URL of the database. The default port for MySQL is 3306 |
     | **username** and **password** | The name and password of the database user                  |
     | **driverClassName**           | The class name of the database driver                       |
 
+    Sample configuration is shown below:
+
+    ```
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
+        username = "regadmin"
+        password = "regadmin"
+    ```
+
+    !!! info
+
+    If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
+    ```
+        driver="com.mysql.cj.jdbc.Driver"
+    ```
+
+    After adding these configurations, you could see that master-datasource.xml which located in <PRODUCT_HOME>/repository/conf/datasource will be updated as follows after server startup:
+
     ``` html/xml
         <datasource>
-               <name>WSO2_CARBON_DB</name>
+               <name>WSO2_SHARED_DB</name>
                <description>The datasource used for registry and user manager</description>
                <jndiConfig>
-                   <name>jdbc/WSO2CarbonDB</name>
+                   <name>jdbc/SHARED_DB</name>
                </jndiConfig>
                <definition type="RDBMS">
                    <configuration>
-                       <url>jdbc:mysql://localhost:3306/regdb</url>
+                       <url>jdbc:mysql://localhost:3306/<DATABASE_NAME></url>
                        <username>regadmin</username>
                        <password>regadmin</password>
-                       <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                       <maxActive>80</maxActive>
-                       <maxWait>60000</maxWait>
-                       <minIdle>5</minIdle>
+                       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
                        <testOnBorrow>true</testOnBorrow>
-                       <validationQuery>SELECT 1</validationQuery>
+                       <maxWait>60000</maxWait>
+                       <defaultAutoCommit>true</defaultAutoCommit>
                        <validationInterval>30000</validationInterval>
-                       <defaultAutoCommit>false</defaultAutoCommit>
+                       <maxActive>50</maxActive>
                    </configuration>
                </definition>
         </datasource>
@@ -65,8 +82,8 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
     | **testOnBorrow**       | The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.                                                                                                                              |
     | **validationQuery**    | The SQL query that will be used to validate connections from this pool before returning them to the caller.                                                                                                                                                                                                                                  |
     | **validationInterval** | The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.                                                                                      |
-    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. 
-                                                                                                                                                                                                                                                                                                                                                    
+    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.
+
       When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.                                                                                                                                                     |
 
         !!! info
@@ -131,7 +148,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
                                  <definition type="RDBMS">
                                      <configuration>
                                            ...
-                                           <defaultAutoCommit>false</defaultAutoCommit> 
+                                           <defaultAutoCommit>false</defaultAutoCommit>
                                            <rollbackOnReturn>true</rollbackOnReturn>
                                            ...
                                      </configuration>
@@ -175,7 +192,7 @@ When proper Database Administrative (DBA) practices are followed, the systems (e
 
 
 
-1.  To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), execute the relevant script as shown below.
+1.  To create tables in the registry and user manager database ( `WSO2SHARED_DB` ), execute the relevant script as shown below.
 
     ``` powershell
         mysql -u regadmin -p -Dregdb < '<PRODUCT_HOME>/dbscripts/mysql.sql';
@@ -201,5 +218,3 @@ When proper Database Administrative (DBA) practices are followed, the systems (e
 
 
 2.  Restart the server.
-
-
