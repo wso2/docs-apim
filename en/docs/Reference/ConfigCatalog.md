@@ -1,6 +1,3 @@
----
-template: templates/2-column.html
----
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 API Manager.
 ## Instructions for use
@@ -23,8 +20,7 @@ gateway_environments=["dev","test"]
 pool_options.maxActiv=5
 
 ```
-
-## Connecting to the primary data store
+## Super admin configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -33,6 +29,100 @@ pool_options.maxActiv=5
             
             <input name="2" type="checkbox" id="_tab_2">
                 <label class="tab-selector" for="_tab_2"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+<pre><code class="toml">[super_admin]
+username = "admin"
+password = "admin"
+create_admin_account = true</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[super_admin]</code>
+                            <span class="badge-required">Required</span>
+                            <p>
+                                This includes the configurations related to the super admin user.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>admin</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>super admin username</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>admin</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>super admin password</p>
+                                    </div>
+                                </div>
+                            </div><div class="param">
+                                <div class="param-name">
+                                  <span class="param-name-wrap"> <code>create_admin_account</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                            
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="param-description">
+                                        <p>If this is true whether to create a new user with the super admin details given.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+## Connecting to the primary data store
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+            
+            <input name="3" type="checkbox" id="_tab_3">
+                <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
 <pre><code class="toml">[server]
@@ -48,7 +138,7 @@ enable_swa=false</code></pre>
                             <code>[server]</code>
                             <span class="badge-required">Required</span>
                             <p>
-                                You can count on it.This toml header groups the parameters that define the server node details.
+                                This groups the parameters that define the server node details.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -70,7 +160,7 @@ enable_swa=false</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The hostname of the WSO2 EI server instance.</p>
+                                        <p>The hostname of the WSO2 API-M server instance.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -102,101 +192,7 @@ enable_swa=false</code></pre>
 </div>
 
 
-## Super admin configurations
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-            
-            <input name="3" type="checkbox" id="_tab_3">
-                <label class="tab-selector" for="_tab_3"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-<pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[super_admin]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-                                This includes the configurations related to the super admin user.
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>username</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>admin</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>super admin username</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>password</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>admin</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>super admin password</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>create_admin_account</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>TRUE</code></span>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Specifies whether to insert defined super admin to the userstore or not</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-
-## API-M DB configs
+## Database configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -242,7 +238,7 @@ password = "wso2carbon"</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>DB vendor</p>
+                                        <p>Database vendor</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -291,7 +287,7 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>jdbc:h2:repository/database/WSO2AM_DB;DB_CLOSE_ON_EXIT=FALSE</code></span>
@@ -318,7 +314,7 @@ password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The username used to connect to the DB</p>
+                                        <p>The username used to create a connection to the database</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -337,7 +333,7 @@ password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The password used for the DB connection</p>
+                                        <p>The password used to create a connection to the database</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -356,7 +352,7 @@ password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>The value changes according to the DB query</p>
+                                        <p> The value changes according to the Database query</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -367,7 +363,7 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>50</code></span>
@@ -375,7 +371,7 @@ password = "wso2carbon"</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Tuning parameters. Change according to the preferred DB.</p>
+                                        <p>Tuning parameters. Change according to the preferred database.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -386,7 +382,7 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>60000</code></span>
@@ -405,7 +401,7 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -424,7 +420,7 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>30000</code></span>
@@ -443,7 +439,7 @@ password = "wso2carbon"</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -499,17 +495,17 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>h2</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>mysql,h2</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>mysql,h2,mssql,postgre,oracle,db2</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>DB type</p>
+                                        <p>Database type</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -520,7 +516,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>jdbc:h2:repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE</code></span>
@@ -539,7 +535,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>wso2carbon</code></span>
@@ -558,7 +554,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>wso2carbon</code></span>
@@ -624,7 +620,7 @@ create_admin_account = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enbale JWT</p>
+                                        <p>Enable JWT.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -635,38 +631,17 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>base64</code></span>
                                         </div>
                                         <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>base64</code></span>
+                                            <span class="param-possible-values">Possible Values: <code>base64,base64url</code></span>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use default JWT generator</p>
-                                    </div>
-                                </div>
-                            </div><div class="param">
-                                <div class="param-name">
-                                  <span class="param-name-wrap"> <code>encoding</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values: <code>base64url</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Use url-safe JWT generator</p>
+                                        <p>Use default JWT generator. Use url-safe JWT generator if it is base64url.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -677,7 +652,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -696,7 +671,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>X-JWT-Assertion</code></span>
@@ -715,7 +690,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -736,7 +711,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -757,7 +732,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -765,7 +740,9 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Can define custom claim retiriver implmentation and need to apim.jwt.enable_user_claims=true. It should be the fully-qualified class name.</p>
+                                        <p>You can define the custom claim retiriver implmentation by adding the following 
+ ```apim.jwt.enable_user_claims=true```. 
+ Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -776,7 +753,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>http://wso2.org/claims</code></span>
@@ -795,7 +772,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>SHA256withRSA</code></span>
@@ -920,7 +897,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Describe the function of the GW.</p>
+                                        <p>Describe the function of the gateway.</p>
                                     </div>
                                 </div>
                             </div><div class="param">
@@ -1045,7 +1022,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>no default value</code></span>
@@ -1101,7 +1078,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -1120,7 +1097,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>15 m</code></span>
@@ -1128,7 +1105,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>set cache expirary time. m for minutes. Recommended value for 15 minutes.</p>
+                                        <p>set cache expiry time. m for minutes. Recommended value for 15 minutes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1176,7 +1153,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -1232,7 +1209,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -1251,7 +1228,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>15 m</code></span>
@@ -1307,7 +1284,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -1363,7 +1340,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -1419,7 +1396,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -1475,7 +1452,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -1531,7 +1508,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -1550,7 +1527,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>Not defined</code></span>
@@ -1558,7 +1535,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Set the cache expirary time. Would be same as the JWT expiry time.</p>
+                                        <p>Set the cache expiry time. Would be same as the JWT expiry time.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1606,7 +1583,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>2m</code></span>
@@ -1614,7 +1591,7 @@ create_admin_account = true</code></pre>
                                         
                                     </div>
                                     <div class="param-description">
-                                        <p>Set tag cache expirary time. Check with the new UI. Disabled when not defined.</p>
+                                        <p>Set tag cache expiry time. Check with the new UI. Disabled when not defined.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1738,7 +1715,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>use apim.analytics.username</code></span>
@@ -1757,7 +1734,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>use apim.analytics.password</code></span>
@@ -1776,7 +1753,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>use apim.analytics.username</code></span>
@@ -1795,7 +1772,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>use apim.analytics.password</code></span>
@@ -1814,7 +1791,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -1833,7 +1810,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -1889,7 +1866,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -1946,7 +1923,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>no default value</code></span>
@@ -2021,7 +1998,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>user super admin username</code></span>
@@ -2040,7 +2017,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>user super admin password</code></span>
@@ -2059,7 +2036,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>50</code></span>
@@ -2078,7 +2055,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>100</code></span>
@@ -2097,7 +2074,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>default</code></span>
@@ -2118,7 +2095,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -2174,7 +2151,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2193,7 +2170,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>Authorization</code></span>
@@ -2214,7 +2191,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:8243/revoke</code></span>
@@ -2233,7 +2210,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2252,7 +2229,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2271,7 +2248,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>[&quot;^device_.*,openid&quot;]</code></span>
@@ -2346,7 +2323,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2365,7 +2342,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>If the config is not mentioned, then undefined.default</code></span>
@@ -2386,7 +2363,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>Based on the application sharing type.</code></span>
@@ -2405,7 +2382,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -2424,7 +2401,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2443,7 +2420,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2462,7 +2439,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -2481,7 +2458,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -2500,7 +2477,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -2519,7 +2496,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>http://wso2.org/claims/organization</code></span>
@@ -2575,7 +2552,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2631,7 +2608,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -2650,7 +2627,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>*</code></span>
@@ -2669,7 +2646,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>GET,PUT,POST,DELETE,PATCH,OPTIONS</code></span>
@@ -2688,7 +2665,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction</code></span>
@@ -2707,7 +2684,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -2763,7 +2740,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>Binary</code></span>
@@ -2784,7 +2761,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>if None of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}</code></span>
@@ -2803,7 +2780,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -2859,7 +2836,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
@@ -2878,7 +2855,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
@@ -2897,7 +2874,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
@@ -2916,7 +2893,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
@@ -2935,7 +2912,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
@@ -2954,7 +2931,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
@@ -2973,7 +2950,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
@@ -2992,7 +2969,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
@@ -3011,7 +2988,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>1000</code></span>
@@ -3030,7 +3007,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>200</code></span>
@@ -3049,7 +3026,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>200</code></span>
@@ -3068,7 +3045,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>1000</code></span>
@@ -3087,7 +3064,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>200s</code></span>
@@ -3125,7 +3102,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>not define</code></span>
@@ -3144,7 +3121,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>throttleData</code></span>
@@ -3163,7 +3140,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>not define</code></span>
@@ -3182,7 +3159,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TopicConnectionFactory</code></span>
@@ -3203,7 +3180,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>topic</code></span>
@@ -3222,7 +3199,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>andes</code></span>
@@ -3241,7 +3218,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code></code></span>
@@ -3279,7 +3256,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -3298,7 +3275,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -3317,7 +3294,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -3415,7 +3392,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>failover</code></span>
@@ -3473,7 +3450,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -3492,7 +3469,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:9445/bpmn</code></span>
@@ -3511,7 +3488,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
@@ -3530,7 +3507,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super user password</code></span>
@@ -3549,7 +3526,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.14/workflows/update-workflow-status</code></span>
@@ -3568,7 +3545,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:${https.nio.port}/token</code></span>
@@ -3587,7 +3564,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:${mgt.transport.https.port}/client-registration/v0.14/register</code></span>
@@ -3606,7 +3583,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>super username</code></span>
@@ -3662,7 +3639,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2</code></span>
@@ -3681,7 +3658,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.client.</code></span>
@@ -3700,7 +3677,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.client.model.</code></span>
@@ -3719,7 +3696,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.client.api.</code></span>
@@ -3738,7 +3715,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>android,java,scala,csharp,dart,flash,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,asyncScala,csharpDotNet2</code></span>
@@ -3794,7 +3771,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -3813,7 +3790,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>zipkin</code></span>
@@ -3832,7 +3809,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>localhost</code></span>
@@ -3851,7 +3828,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>9411</code></span>
@@ -3870,7 +3847,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>FALSE</code></span>
@@ -3926,7 +3903,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl</code></span>
@@ -3945,7 +3922,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -3964,7 +3941,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>TRUE</code></span>
@@ -3983,7 +3960,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>5000</code></span>
@@ -4002,7 +3979,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>https://localhost:2379/v2/keys/jti/</code></span>
@@ -4021,7 +3998,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>5000</code></span>
@@ -4040,7 +4017,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>root</code></span>
@@ -4059,7 +4036,7 @@ create_admin_account = true</code></pre>
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
+                                            
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>root</code></span>
@@ -4136,3 +4113,4 @@ create_admin_account = true</code></pre>
         </div>
     </section>
 </div>
+
