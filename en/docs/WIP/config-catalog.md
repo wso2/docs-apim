@@ -110,8 +110,7 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>If this is true whether to create a new user with the super admin details
-                                            given.</p>
+                                        <p>Set this to true to create a new user with the super admin details given.</p>
                                     </div>
                                 </div>
                             </div>
@@ -273,8 +272,8 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>You can use either hostname and port or the URL[required]. If you specify the
-                                            URL the hostname and port will be overridden.</p>
+                                        <p>You can use either hostname and port or the URL(given below). If you specify
+                                            the URL the hostname and port will be overridden.</p>
                                     </div>
                                 </div>
                             </div>
@@ -315,9 +314,10 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>connection url - required when you use the h2 db. You have to add the URL if
-                                            you need to use the JDBC properties listed below. Otherwise it is optional.
-                                        </p>
+                                        <p>The connection URL is required when you use the h2 db.
+
+                                            You have to add the URL to use the JDBC properties listed below. Otherwise
+                                            it is optional.</p>
                                     </div>
                                 </div>
                             </div>
@@ -337,7 +337,7 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>The username used to create a connection to the database</p>
+                                        <p>The username used to create a connection to the database.</p>
                                     </div>
                                 </div>
                             </div>
@@ -357,7 +357,7 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>The password used to create a connection to the database</p>
+                                        <p>The password used to create a connection to the database.</p>
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +397,9 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Tuning parameters. Change according to the preferred database.</p>
+                                        <p>The maximum number of active connections that can be allocated from the
+                                            connection pool at the same time. Change according to the preferred
+                                            database.</p>
                                     </div>
                                 </div>
                             </div>
@@ -417,7 +419,10 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>The maximum time that requests are expected to wait in the queue for a
+                                            connection to be released. This property comes into effect when the maximum
+                                            number of active connections allowed in the connection pool (see maxActive
+                                            property) is used up.</p>
                                     </div>
                                 </div>
                             </div>
@@ -437,7 +442,10 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>The indication of whether connection objects will be validated before they
+                                            are borrowed from the pool. If the object validation fails, the connection
+                                            is dropped from the pool, and there will be an attempt to borrow another
+                                            connection.</p>
                                     </div>
                                 </div>
                             </div>
@@ -457,7 +465,10 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>This parameter controls how frequently a given validation query is executed
+                                            (time in milliseconds). That is, if a connection is due for validation, but
+                                            has been validated previously within this interval, it will not be validated
+                                            again.</p>
                                     </div>
                                 </div>
                             </div>
@@ -477,7 +488,9 @@ password = "wso2carbon"</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p></p>
+                                        <p>When auto committing is enabled, each SQL statement will be committed to the
+                                            database as an individual transaction, as opposed to committing multiple
+                                            statements as a single transaction.</p>
                                     </div>
                                 </div>
                             </div>
@@ -634,6 +647,9 @@ create_admin_account = true</code></pre>
                             <span class="badge-required">Required</span>
                             <p>
                                 Enable APIM to generate a JWT within itself.
+
+                                JSON Web Token (JWT) is used to represent claims that are transferred between two
+                                parties such as the end-user and the backend.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -679,7 +695,9 @@ create_admin_account = true</code></pre>
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Use default JWT generator. Use url-safe JWT generator if it is base64url.</p>
+                                        <p>Use base64 encoding for the default JWT generator.
+
+                                            Use the url-safe JWT generator if it is base64url.</p>
                                     </div>
                                 </div>
                             </div>
@@ -699,9 +717,11 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>can be define custom generation implmetation. If this is defnied
-                                            apim.jwt.encoding will be ignored. It should be the fully-qualified class
-                                            name. e.g., &lt;take it from doc&gt;</p>
+                                        <p>This can be defined as a custom generation implmetation.
+
+                                            If this is defined, the &quot;apim.jwt.encoding&quot; will be ignored.
+
+                                            Note that this should be the fully-qualified class name.</p>
                                     </div>
                                 </div>
                             </div>
@@ -790,7 +810,8 @@ create_admin_account = true</code></pre>
                                     <div class="param-description">
                                         <p>You can define the custom claim retiriver implmentation by adding the
                                             following
-                                            &lt;code&gt;apim.jwt.enable_user_claims=true&lt;/code&gt;.
+                                            apim.jwt.enable_user_claims=true.
+
                                             Make sure that it is the fully-qualified class name.</p>
                                     </div>
                                 </div>
@@ -812,7 +833,8 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Defined claim set under user management. Refer IS doc.</p>
+                                        <p>A set of claims are identified as a dialect. Different dialects represent the
+                                            same piece of information with different claim URIs.</p>
                                     </div>
                                 </div>
                             </div>
