@@ -21,7 +21,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
    <div class="content"> 
      <div class="card" onclick="location.href='GettingStarted/quick-start-guide';">
 		<div class="line"></div>
-           	<div class="icon">
+           	<div class="card-icon">
 			<i class="material-icons md-36">timer</i>
 		</div>
 		<div class="card-content" >
@@ -33,7 +33,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       <!-- card -->
       <div class="card" onclick="location.href='Learn/APIPublish/create-and-Publish-an-API';">
             <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">create</i></div>
+            <div class="card-icon"><i class="material-icons md-36">create</i></div>
              <div class="card-content">
                   <p class="title">Design API</p>
                   <p class="hint">Develop, publish, manage and monitor APIs </p>
@@ -43,7 +43,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       <!-- card -->
       <div class="card" onclick="location.href='Learn/ConsumeAPI/DiscoverAPIs/search';">
             <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">store</i></div>
+            <div class="card-icon"><i class="material-icons md-36">store</i></div>
 <div class="card-content">
             <div><p class="title">Consume API</p></div>
             <p class="hint"> Find, explore, subscribe, consume and evaluate APIs</p>
@@ -53,7 +53,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       <!-- card -->
       <div class="card" onclick="location.href='Learn/APIGateway/overview-of-the-api-gateway';">
             <div class="line"></div> 
-            <div class="icon"><i class="material-icons md-36">input</i></div>
+            <div class="card-icon"><i class="material-icons md-36">input</i></div>
 <div class="card-content">
             <p class="title">API Gateway</p>
             <p class="hint">Intercept API requests, apply policies and manage API statistics</p>
@@ -70,7 +70,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
    <!-- card -->
       <div class="card" onclick="location.href='https://docs.wso2.com/display/MG301/';">
 	   <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">input</i></div>
+            <div class="card-icon"><i class="material-icons md-36">input</i></div>
             <div class="card-content">
                 <p class="title">API Microgateway</p>
                 <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices.</p>
@@ -78,7 +78,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       </div>
       <div class="card" onclick="location.href='Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens';">
 	    <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">security</i></div>
+            <div class="card-icon"><i class="material-icons md-36">security</i></div>
             <div class="card-content">
 		    <p class="title">API Security</p>
 		    <p class="hint">Authenticate and authorize API requests</p>
@@ -86,7 +86,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       </div>
       <div class="card" onclick="location.href='Learn/RateLimiting/introducing-throttling-use-cases';">
 	    <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">traffic</i></div>
+            <div class="card-icon"><i class="material-icons md-36">traffic</i></div>
             <div class="card-content">
 		    <p class="title">Rate Limiting</p>
 		    <p class="hint"> Regulate API traffic and secure APIs against security attacks</p>
@@ -96,7 +96,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       <!-- card -->
       <div class="card" onclick="location.href='Learn/Analytics/overview-of-api-analytics';">
 	    <div class="line"></div>
-            <div class="icon"><i class="material-icons md-36">show_chart</i></div>
+            <div class="card-icon"><i class="material-icons md-36">show_chart</i></div>
             <div class="card-content">
 		    <p class="title">Analytics</p>
 		    <p class="hint">Monitor system behavior, as well as API and application usage</p>

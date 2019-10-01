@@ -1,6 +1,6 @@
 # Create and Publish an API
 
-**API creation** is the process of linking an existing backend API implementation to the [API Publisher](https://docs.wso2.com/display/AM300/Key+Concepts#KeyConcepts-APIPublisher) so that you can manage and monitor the [API's lifecycle](https://docs.wso2.com/display/AM300/Key+Concepts#KeyConcepts-APILifecycle) , documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](https://docs.wso2.com/display/AM300/Key+Concepts#KeyConcepts-APIPublisher) itself.
+**API creation** is the process of linking an existing backend API implementation to the [API Publisher](/GettingStarted/overview/#api-publisher) so that you can manage and monitor the [API's lifecycle](/Learn/DesignAPI/LifecycleManagement/api-lifecycle/) , documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](/GettingStarted/overview/#api-publisher) itself.
 
 !!! note
         Click the following topics for a description of the concepts that you need to know when creating an API:
