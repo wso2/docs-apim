@@ -16,7 +16,7 @@ This topic includes the following sections.
 
 The following diagram illustrates the main components of an API Manager distributed deployment.
 
-![Main components in a WSO2 API-M distributed deployment]/assets/attachments/103334440/103334463.png "Main components in a WSO2 API-M distributed deployment")
+![Main components in a WSO2 API-M distributed deployment](/assets/attachments/103334440/103334463.png)
 
 ***Figure** : Main components of an APIM distributed setup*
 
@@ -91,7 +91,7 @@ The three main use cases of API Manager are API publishing, subscribing and invo
 
 The diagram below summarizes these message flows where the Publisher is referred to as the publishing portal and the Store is referred to as the developer portal.
 
-![WSO2 API-M message flow]/assets/attachments/103334440/103334464.png "WSO2 API Manager message flow")
+![WSO2 API-M message flow](/assets/attachments/103334440/103334464.png)
 
 ***Figure** : WSO2 API Manager message flows*
 

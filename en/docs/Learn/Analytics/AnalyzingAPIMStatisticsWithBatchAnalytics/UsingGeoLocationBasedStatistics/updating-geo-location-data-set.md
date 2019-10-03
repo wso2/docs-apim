@@ -8,7 +8,7 @@ Follow the procedure below in order to update your existing Geo Location dataset
 ##### Prepare the database entries
 
 1.  Unzip the latest CSV file and the geoip-2-csv-converter you have downloaded in the steps above.
-2.  Run [update-geolocation-data.sh]/assets/attachments/103335136/103335137.sh) file using the command below.
+2.  Run [update-geolocation-data.sh](/assets/attachments/103335136/103335137.sh) file using the command below.
 
         sh update-geolocation-data.sh
 

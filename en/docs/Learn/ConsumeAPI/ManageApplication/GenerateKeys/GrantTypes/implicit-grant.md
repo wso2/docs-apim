@@ -79,7 +79,7 @@ The following instructions use the sample playground webapp. For instructions on
     ![](/assets/attachments/103335293/103335298.png)
 7.  You will receive the access token as follows
 
-    ![access-token.png]/assets/attachments/57743277/61047220.png)
+    ![access-token.png](/assets/attachments/57743277/61047220.png)
 !!! note
 For users to be counted in the [Registered Users for Application statistics](https://docs.wso2.com/display/AM220/Viewing+API+Statistics#ViewingAPIStatistics-topUsers) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](https://docs.wso2.com/display/AM210/Password+Grant) type.
 

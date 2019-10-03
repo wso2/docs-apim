@@ -207,7 +207,7 @@ Follow the instructions below to enable the stream builders in the API gateway:
 
 You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://docs.wso2.com/display/ESB500/JMX+Monitoring) using the exposed MBeans. You can use the `Invalidatemediatocache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
 
-![JMX monitoring through JConsole]/assets/attachments/38472609/57761804.png)
+![JMX monitoring through JConsole](/assets/attachments/38472609/57761804.png)
 ### API Store cache
 
 The API Store has several caches to reduce the page-load times and increase its responsiveness when multiple users access it simultaneously.

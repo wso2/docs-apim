@@ -112,7 +112,7 @@ Follow the steps below to invoke the token API to generate access tokens from SA
 
 1.  Combine the consumer key and consumer secret keys as `consumer-key:consumer-secret` . Encode the combined string using base64 ( [http://base64encode.org](http://base64encode.org/) ). Here's an example consumer key and secret combination: `wU62DjlyDBnq87GlBwplfqvmAbAa:ksdSdoefDDP7wpaElfqvmjDue.         `
     Let's create a SAML2 assertion using the same command-line client that you used in the previous section.
-2.  Download the command-line too from [here]/assets/attachments/126561121/126561129.zip) and extract the ZIP file.
+2.  Download the command-line too from [here](/assets/attachments/126561121/126561129.zip) and extract the ZIP file.
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:8243/token                      .          `
 
     -   [**Format**](#format)

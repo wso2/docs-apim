@@ -16,7 +16,7 @@ This guide explains how to setup API Manager in order to feed runtime statistics
 5.  If you want to enable tracking for tenants, log in to the management console with a tenant's credentials, click **Source View** , and then add the following parameter to the `org.wso2.carbon.mediation.registry.WSO2Registry` registry definition near the top (repeat this step for each tenant):
 `<parameter name="cachableDuration">15000</parameter>         `
     The following screen shot illustrates this change:
-    ![Screen shot of service bus source view with registry configuration highlighted]/assets/attachments/103335165/103335169.png "Registry configuration")6.  API Manager is now integrated with Google Analytics. A user who has subscribed to a published API through the API Store should see an icon as `Real-Time` after logging into their Google Analytics account. Click on this icon and select **Overview** .
+    ![Screen shot of service bus source view with registry configuration highlighted](/assets/attachments/103335165/103335169.png)6.  API Manager is now integrated with Google Analytics. A user who has subscribed to a published API through the API Store should see an icon as `Real-Time` after logging into their Google Analytics account. Click on this icon and select **Overview** .
 7.  Invoke the above API using the embedded WSO2 REST Client (or any third-part rest client such as cURL).
 
     #### Real-time statistics

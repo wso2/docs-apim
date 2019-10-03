@@ -87,7 +87,7 @@ Do you want to set different visibility levels to the API documentation than the
         | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
-        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]/assets/attachments/103328543/103328555.pdf) . |
+        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here](/assets/attachments/103328543/103328555.pdf) . |
 
         ![](/assets/attachments/103328543/103328547.png)
     3.  Click **Add Document** .

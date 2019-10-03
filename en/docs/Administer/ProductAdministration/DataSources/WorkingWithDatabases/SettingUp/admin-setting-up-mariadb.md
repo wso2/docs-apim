@@ -12,7 +12,7 @@ Follow the steps given below to set up MariaDB. See [Tested DBMSs](https://docs.
 1.  Download, install and start MariaDB on your computer. See <https://downloads.mariadb.org/> .
 
         !!! info
-    You can install MariaDB standalone or as a [galera cluster]/assets/attachments/126562397/126562405.png) for high availability. Database clustering is independent of WSO2 product clustering.
+    You can install MariaDB standalone or as a [galera cluster](/assets/attachments/126562397/126562405.png) for high availability. Database clustering is independent of WSO2 product clustering.
 
     For instructions on installing MariaDB on MAC OS, go to [Homebrew](http://brew.sh/) .
 

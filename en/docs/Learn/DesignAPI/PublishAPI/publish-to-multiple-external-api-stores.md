@@ -4,7 +4,7 @@ You can share an API with application developers who are subscribed to the API S
 
 The following diagram illustrates the process involved when an API Publisher publishes to multiple API Stores.
 
-![Illustrates the process involved when an API Publisher publishes to multiple API Stores]/assets/attachments/103332470/103332466.png)
+![Illustrates the process involved when an API Publisher publishes to multiple API Stores](/assets/attachments/103332470/103332466.png)
 
 The API Publisher of Tenant\_1, who is located in Node\_1, is publishing an API to it's API Store. In addition to that the API Publisher publishes the API to the following three external stores.
 
@@ -32,11 +32,11 @@ The capability to publish to external API Stores is not configured by default. F
 
 
 5.  Click **Main&gt; Resources &gt; Browse** .
-    ![Menu option to navigate to the Browse option]/assets/attachments/103332470/103332465.png)
+    ![Menu option to navigate to the Browse option](/assets/attachments/103332470/103332465.png)
     The Registry opens.
 
 6.  Go to the `/_system/governance/apimgt/externalstores/external-api-stores.xml` resource.
-    ![Navigating to the external-api-stores.xml file]/assets/attachments/103332470/103332464.png)
+    ![Navigating to the external-api-stores.xml file](/assets/attachments/103332470/103332464.png)
 
 7.  Click the **Edit as Text** link, uncomment the `<StoreURL>` element under the `<ExternalAPIStores>` element, and add the details of each external API store that you need to publish APIs to.
     In this example,
@@ -159,7 +159,7 @@ The capability to publish to external API Stores is not configured by default. F
     This tab is only visible when viewing API's that are in the published state.
 
 
-    ![View of the link to External API Stores tab]/assets/attachments/103332470/103332463.png)
+    ![View of the link to External API Stores tab](/assets/attachments/103332470/103332463.png)
 
         !!! note
     -   You can select multiple external API stores and click **Save** to publish your API to them.
@@ -168,7 +168,7 @@ The capability to publish to external API Stores is not configured by default. F
 
 
 11. Select the Store that you want to publish to (in this case, Store2) and click **Save** .
-    ![Selecting the External API Store]/assets/attachments/103332470/103332467.png)
+    ![Selecting the External API Store](/assets/attachments/103332470/103332467.png)
 
 12. Sign in to the external API Store (in this case, `http://localhost:                       9764                      /store` ) and click on the API that you just published.
 

@@ -21,11 +21,11 @@ Deploying using the Tooling interface
 !!! info
 If you have already added a WSO2 product server instance to Tooling, right click on it in the **Servers** tab, and c lick **Add and Remove...**
 
-![add and remove to an already-added server]/assets/attachments/126562765/126562767.png "add and remove to an already-added server")
+![add and remove to an already-added server](/assets/attachments/126562765/126562767.png)
 
 Then, select the Composite Application you want to deploy from the **Available** list, click **Add** to move it into the **Configured** list, and then click **Finish** .
 
-![select the composite app you want to deploy]/assets/attachments/126562765/126562768.png "select the composite app you want to deploy")
+![select the composite app you want to deploy](/assets/attachments/126562765/126562768.png)
 
 
 1.  In the Tooling interface, navigate to **Developer Studio Dashboard** , and click **Server** under **Add Server** .
@@ -52,7 +52,7 @@ Then, select the Composite Application you want to deploy from the **Available*
 !!! tip
 If you want to remove a Composite Application, which you already deployed, click the WSO2 product server instance in the **Servers** tab to expand it, right-click on the Composite Application, which you want to remove, and click **Remove** as shown below.
 
-![remove a deployed Composite Application]/assets/attachments/126562765/126562769.png "remove a deployed Composite Application")
+![remove a deployed Composite Application](/assets/attachments/126562765/126562769.png)
 
 
 If you do not use the Tooling interface to deploy your artifacts to the server, you can alternatively do that using the product's Management Console or via hot deployment.

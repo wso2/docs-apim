@@ -8,7 +8,7 @@ Kerberos is a security protocol that has support built into various operating sy
 ### Kerberos OAuth2 grant flow
 
 The following section describes the flow involved in exchanging a Kerberos ticket for an OAuth2 token.
-![Kerberos-OAuth2 Grant Flow when using WSO2 API-M]/assets/attachments/126561100/126561104.png "Kerberos-OAuth2 Grant Flow")
+![Kerberos-OAuth2 Grant Flow when using WSO2 API-M](/assets/attachments/126561100/126561104.png)
 1.  The Kerberos client requests the Kerberos Service Ticket from the Kerberos Key Distribution Center (KDC) to invoke the service.
     The Kerberos Key Distribution Center can be any Kerberos Server.
 2.  The Kerberos Key Distribution Center sends a response with the Kerberos Service Ticket.
@@ -151,7 +151,7 @@ Now API Manager comes with kerberos\_grant\_1.0.0\_1.0.0.jar. Therefore you do n
         -   **Alias** : https://192.168.53.12:9443/oauth2/token
         -   **Server Principal Name** : HTTP/idp.example.com@EXAMPLE.COM
 
-        ![Adding an IDP in WSO2 API Manager]/assets/attachments/126561100/126561105.png "Adding an IDP in WSO2 API Manager")
+        ![Adding an IDP in WSO2 API Manager](/assets/attachments/126561100/126561105.png)
 6.  Invoke the token endpoint using the message format discussed in [step 3](#dup_KerberosOAuth2Grant-MessageFormat) .
 
         !!! note

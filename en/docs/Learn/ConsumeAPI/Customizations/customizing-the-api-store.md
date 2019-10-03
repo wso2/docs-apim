@@ -25,7 +25,7 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
 4.  Add a role by the name subscriber (or any other name you prefer).
     ![](/assets/attachments/103333490/103333511.png)
 5.  Click **Next** and add the following permissions:
-    ![subscribePermission.png]/assets/attachments/50518268/51250899.png)
+    ![subscribePermission.png](/assets/attachments/50518268/51250899.png)
 6.  Go to the **Resources&gt; Browse** menu.
 7.  Navigate to the `/_system/governance/apimgt/applicationdata/` directory.
 

@@ -35,7 +35,7 @@ Follow the steps given below to disable SSL support for the Tomcat layer.
 
 4.  Start the server.
 
-5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]/assets/attachments/126562683/126562684.jar) .
+5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar](/assets/attachments/126562683/126562684.jar) .
 
     ``` java
             java -jar TestSSLServer.jar localhost 9443
@@ -135,8 +135,8 @@ Do the following to enable SSL protocols and ciphers in the `ThriftAuthenticatio
 The TLS protocol is set to TLSv1.0 (by default), in WSO2 products running on JDK 1.7. You cannot configure this using the `catalina` - `server.` xml file or the `axis2.` xml file as we do with products based on JDK 1.7. Therefore, you need to enable TLSv1.1 and TLSv1.2 globally by setting a system property.
 
 1.  Download the following artifacts:
-    -   [wso2-ssl-socket-factory-provider-1.0.0.jar]/assets/attachments/126562683/126562685.jar)
-    -   [wso2-ssl-security]/assets/attachments/126562683/126562686)
+    -   [wso2-ssl-socket-factory-provider-1.0.0.jar](/assets/attachments/126562683/126562685.jar)
+    -   [wso2-ssl-security](/assets/attachments/126562683/126562686)
 2.  Copy the `wso2-` ssl `-socket-factory-provider-1.0.0.jar` file to the `<PRODUCT_HOME>/lib/endorsed` directory.
 3.  Copy the `wso2-ssl-security` file to the `<PRODUCT_HOME>/repository/conf/` directory.
 4.  Open the product startup script ( `wso2server.sh` for Linux, or `wso2server.bat` for Windows), which is stored in the `<PRODUCT_HOME>/bin` directory.
@@ -171,7 +171,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
     See the list of [supported cipher suites](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) .
 
 4.  Start the server.
-5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]/assets/attachments/126562683/126562684.jar) .
+5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar](/assets/attachments/126562683/126562684.jar) .
 
     ``` java
         $ java -jar TestSSLServer.jar localhost 9443

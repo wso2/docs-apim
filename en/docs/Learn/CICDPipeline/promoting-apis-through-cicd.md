@@ -649,7 +649,7 @@ The 'admin' role is the default role which is specified in the Realm configurati
 
 The API export functionality retrieves the information required for the requested API from the registry and databases and generates a ZIP file, which the exporter can download. This exported ZIP file has the following structure:
 
-![Structure of the exported ZIP file]/assets/attachments/126563297/126563296.png)
+![Structure of the exported ZIP file](/assets/attachments/126563297/126563296.png)
 
 The structure of the ZIP file is explained below:
 
