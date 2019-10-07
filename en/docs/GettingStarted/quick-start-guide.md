@@ -16,38 +16,38 @@ Follow the steps in this section to quickly deploy a sample API, publish it, sub
 
 1.  Open the API Publisher ( `https://<hostname>:9443/publisher` ) and sign in with **`admin/admin`** credentials.
 2.  Exit from API creation tutorial by clicking the close icon(X) on top right corner.
-    ![](../assets/attachments/103328418/103328310.png)3.  Click the **Deploy Sample API** button. It deploys a sample API called `PizzaShackAPI` into the API Manager.
+    ![](/assets/attachments/103328418/103328310.png)3.  Click the **Deploy Sample API** button. It deploys a sample API called `PizzaShackAPI` into the API Manager.
 
 !!! note
         This **Deploy Sample API** option is available only when there are no APIs in API Publisher. If you have already created a API, this option will not be available.
 
-![](../assets/attachments/103328418/103328344.png)
+![](/assets/attachments/103328418/103328344.png)
 4.  Click `PizzaShackAPI` to open it.
-    ![](../assets/attachments/103328418/103328343.png)
+    ![](/assets/attachments/103328418/103328343.png)
 
 5.  Go to the **Lifecycle** tab and note that the **State** is `PUBLISHED` . The API is already published to the API Store.
 
-    ![](../assets/attachments/103328418/103328342.png)
+    ![](/assets/attachments/103328418/103328342.png)
 
 6.  Sign in to the API Store ( `https://<hostname>:9443/store` ) with the `admin/admin` credentials and click on the `PizzaShackAPI` API.
-    ![](../assets/attachments/103328418/103328341.png)
+    ![](/assets/attachments/103328418/103328341.png)
     !!! tip
         API Store Walkthrough
 
     You can click "API Store walkthrough" to view the interactive tutorial to invoke the API.
-    ![](../assets/attachments/103328418/103328300.png)
+    ![](/assets/attachments/103328418/103328300.png)
 
 
 7.  Select the default application and an available tier, and click **Subscribe.**
-    ![](../assets/attachments/103328418/103328340.png)
+    ![](/assets/attachments/103328418/103328340.png)
 8.  When the subscription is successful, click **View Subscriptions** on the information message that appears. Click the **Production Keys** tab and click **Generate Keys** to generate an [access token](_Key_Concepts_) to invoke the API.
 
-    ![](../assets/attachments/103328418/103328399.png)
+    ![](/assets/attachments/103328418/103328399.png)
     You have now successfully subscribed to an API. Let's invoke the API using the integrated Swagger-based API Console.
 
 9.  Click the **APIs** menu again and click the `PizzaShackAPI` to open it. When the API opens, click its **API Console** tab.
-    ![](../assets/attachments/103328418/103328339.png)    Expand the GET method (which retrieves the menu) and click **Try it out** .
-    ![](../assets/attachments/103328418/103328338.png)    Note the response for the API invocation. It returns the list of menu items.
-    ![](../assets/attachments/103328418/103328337.png)
+    ![](/assets/attachments/103328418/103328339.png)    Expand the GET method (which retrieves the menu) and click **Try it out** .
+    ![](/assets/attachments/103328418/103328338.png)    Note the response for the API invocation. It returns the list of menu items.
+    ![](/assets/attachments/103328418/103328337.png)
 
 You have deployed a sample API, published it to the API Store, subscribed to it, and invoked the API using our integrated API Console.

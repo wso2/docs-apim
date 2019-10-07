@@ -16,7 +16,7 @@ This topic includes the following sections.
 
 The following diagram illustrates the main components of an API Manager distributed deployment.
 
-![Main components in a WSO2 API-M distributed deployment](attachments/103334440/103334463.png "Main components in a WSO2 API-M distributed deployment")
+![Main components in a WSO2 API-M distributed deployment](/assets/attachments/103334440/103334463.png)
 
 ***Figure** : Main components of an APIM distributed setup*
 
@@ -91,7 +91,7 @@ The three main use cases of API Manager are API publishing, subscribing and invo
 
 The diagram below summarizes these message flows where the Publisher is referred to as the publishing portal and the Store is referred to as the developer portal.
 
-![WSO2 API-M message flow](attachments/103334440/103334464.png "WSO2 API Manager message flow")
+![WSO2 API-M message flow](/assets/attachments/103334440/103334464.png)
 
 ***Figure** : WSO2 API Manager message flows*
 
@@ -103,21 +103,21 @@ The diagram below summarizes these message flows where the Publisher is referred
 
 Single node (all-in-one) deployment.
 
-![](attachments/103334440/103334441.png)
+![](/assets/attachments/103334440/103334441.png)
 You can use this pattern when you are working with a low throughput.
 
 #### Pattern 2
 
 Deployment with a separate Gateway and separate Key Manager.
 
-![](attachments/103334440/103334442.png)
+![](/assets/attachments/103334440/103334442.png)
 You can use this pattern when you require a high throughput scenario that requires a shorter token lifespan.
 
 #### Pattern 3
 
 Fully distributed setup.
 
-![](attachments/103334440/103334445.png)
+![](/assets/attachments/103334440/103334445.png)
 You can use this pattern to maintain scalability at each layer and higher flexibility at each component.
 
 #### **Pattern 4** *
@@ -125,13 +125,13 @@ You can use this pattern to maintain scalability at each layer and higher flexib
 
 Internal and external (on-premise) API Management.
 
-![](attachments/103334440/103334444.png)
+![](/assets/attachments/103334440/103334444.png)
 You can use this pattern when you require a separate internal and external API Management with separated Gateway instances.
 
 #### Pattern 5
 
 Internal and external (public and private cloud) API Management.
-![](attachments/103334440/103334443.png)
+![](/assets/attachments/103334440/103334443.png)
 You can use this pattern when you wish to maintain a cloud deployment as an external API Gateway layer.
 
 #### Traffic Manager scalable deployment patterns

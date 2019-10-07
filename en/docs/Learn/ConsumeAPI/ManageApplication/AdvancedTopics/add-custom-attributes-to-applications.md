@@ -54,6 +54,6 @@ To configure server-specific custom attributes, open the `<API-M-home>/repositor
 After configuring the custom attributes as shown in the previous section, you will be able to add these attributes to the applications you create in the API Store.
 
 1.  Log in to the API Store. Click **Add Application** , to add a new application
-    ![](attachments/103333199/103333200.png)
+    ![](/assets/attachments/103333199/103333200.png)
 2.  You will see the configured custom attribute as shown below.
-    ![](attachments/103333199/103333201.png)
+    ![](/assets/attachments/103333199/103333201.png)

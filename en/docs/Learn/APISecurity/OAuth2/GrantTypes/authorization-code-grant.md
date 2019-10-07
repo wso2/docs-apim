@@ -64,16 +64,16 @@ The following instructions use the sample playground webapp. For instructions on
 
 
 1.  Log in to the API Manager Store and create a new application.
-    ![](attachments/126561109/126561118.png)2.  Go to the **Production Keys** tab.
+    ![](/assets/attachments/126561109/126561118.png)2.  Go to the **Production Keys** tab.
 3.  Add the Callback URL of your playground app, select **Code** Grant type click **Generate Keys** .
 
         !!! note
     By default the implicit and code grant type selection checkboxes are disabled in the UI. You need to enter the callback URL first to enable selecting the code grant type.
 
 
-    ![](attachments/126561109/126561110.png)
+    ![](/assets/attachments/126561109/126561110.png)
 4.  Go to the playground app and click Import Photos.
-    ![](attachments/126561109/126561115.png)5.  Give the information in the table below and click **Authorize** .
+    ![](/assets/attachments/126561109/126561115.png)5.  Give the information in the table below and click **Authorize** .
 
     | Field                    | Sample Value                                                                                          |
     |--------------------------|-------------------------------------------------------------------------------------------------------|
@@ -83,11 +83,11 @@ The following instructions use the sample playground webapp. For instructions on
     | Callback URL             | The callback URL of your application                                                                  |
     | Authorize Endpoint       | `https://localhost:9443/oauth2/authorize` |
 
-    ![](attachments/126561109/126561114.png)
+    ![](/assets/attachments/126561109/126561114.png)
 6.  The playground application redirects to the login page. Enter you username and password and click **Sign In.**
-    ![](attachments/126561109/126561113.png)7.  Click Approve to provide access to your information.
-    ![](attachments/126561109/126561112.png)    You will receive the access token as follows
-    ![](attachments/126561109/126561111.png)
+    ![](/assets/attachments/126561109/126561113.png)7.  Click Approve to provide access to your information.
+    ![](/assets/attachments/126561109/126561112.png)    You will receive the access token as follows
+    ![](/assets/attachments/126561109/126561111.png)
         !!! note
     Note that for users to be counted in the [Registered Users for Application statistics](https://docs.wso2.com/display/AM260/Viewing+API+Statistics#ViewingAPIStatistics-topUsers) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](_Password_Grant_) type.
 

@@ -48,8 +48,8 @@ Adding a certificate
 
 1.  Log in to the API Publisher. [Create a new API](https://docs.wso2.com/display/AM300/Create+and+Publish+an+API) or edit an existing API.
 2.  Go to the **Implement** tab. Click **Manage Certificates** and click **Add New Certificate**
-    ![](attachments/126560467/126560484.png)3.  Enter the following information and click **Upload** .
-    ![](attachments/126560467/126560485.png)
+    ![](/assets/attachments/126560467/126560484.png)3.  Enter the following information and click **Upload** .
+    ![](/assets/attachments/126560467/126560485.png)
     | Name        | Description                                                                              |
     |-------------|------------------------------------------------------------------------------------------|
     | Alias       | Enter a name for your certificate.                                                       |
@@ -57,9 +57,9 @@ Adding a certificate
     | Certificate | Enter the location of your certificate file or click **Browse** to select through the UI |
 
 4.  The uploaded certificate aliases will be displayed.
-    ![](attachments/126560467/126560486.png){height="250"}
+    ![](/assets/attachments/126560467/126560486.png){height="250"}
 5.  You can repeat from step 2 to add a certificate to the sandbox endpoint.
-    ![](attachments/126560467/126560487.png)
+    ![](/assets/attachments/126560467/126560487.png)
 !!! note
 You add only one certificate per endpoint. Make sure that your certificates have not expired.
 
@@ -68,6 +68,6 @@ You add only one certificate per endpoint. Make sure that your certificates have
 
 To delete a certificate, click the icon adjacent to the certificate, as shown below.
 
-![](attachments/126560467/126560488.png)
+![](/assets/attachments/126560467/126560488.png)
 
 

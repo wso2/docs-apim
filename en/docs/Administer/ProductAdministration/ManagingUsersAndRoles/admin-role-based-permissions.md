@@ -7,10 +7,10 @@ The **User Management** module in WSO2 products enable role-based access. With t
 
 The permissions navigator that you use to enable permissions for a role is divided into these two categories ( **Super Admin** permissions and **Admin** permissions) as shown below. However, note that there may be other categories of permissions enabled for a WSO2 product, depending on the type of features that are installed in the product.
 
-![](attachments/44826804/45088792.png)
+![](/assets/attachments/44826804/45088792.png)
 
 You can access the permissions navigator for a particular role by clicking **Permissions** as shown below.
-![](attachments/126562801/126562803.png)
+![](/assets/attachments/126562801/126562803.png)
 
 By default, every WSO2 product comes with the following User, Role and Permissions configured:
 

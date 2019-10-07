@@ -54,9 +54,9 @@ nav:
     - Learn: 
         - Design API: 
             - Create API:
-                - Create and Publish a REST API: Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api.md
-                - Create and Publish an API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition.md
-                - Create and Publish a SOAP API: Learn/DesignAPI/CreateAPI/create-and-publish-a-soap-api.md
+                - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
+                - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
+                - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
                 - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
                 - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
             - Publish API:
@@ -150,14 +150,14 @@ nav:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
                 -  Customizing the API Store:
-                    - Adding a New API Store Theme: Learn/ConsumeAPI/Customizations/adding-a-new-api-store-theme.md
+                    - Adding a New API Store Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme.md
                     - Customize API Listing:
                         - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
                         - Change Default API Description and Thumbnail: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-api-description-and-thumbnail.md
-                    - Customizing error Pages: Learn/ConsumeAPI/Customizations/customizing-error-pages.md
-                    - Enabling or disabling the forum: Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-forum.md
-                    - Enabling or disabling the walkthrough: Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-walkthrough.md
-                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/enabling-or-disabling-self-signup.md   
+                    - Customizing error Pages: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages.md
+                    - Enabling or disabling the forum: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum.md
+                    - Enabling or disabling the walkthrough: Learn/ConsumeAPI/Customizations//CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough.md
+                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md   
                 - Customizing the API Store: Learn/ConsumeAPI/Customizations/customizing-the-api-store.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md

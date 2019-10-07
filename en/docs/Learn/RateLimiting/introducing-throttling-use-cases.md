@@ -16,7 +16,7 @@ The API Gateway architecture model, which solves the API management problem, com
 -   The applications that consume the APIs in the API Gateway
 -   The users of the applications
 
-![](attachments/103334946/103334951.png)
+![](/assets/attachments/103334946/103334951.png)
 
 The following sections describe the type of throttling policy applicable to each of the above areas and why the relevant stakeholders must consider each of them carefully.
 
@@ -64,19 +64,19 @@ Advanced policies allow you to apply limits to APIs by filtering requests based 
 
 Here is a sample for configuring JWT claim condition by considering the "Content-Type" header.
 
-![](attachments/103334946/103334947.png)
+![](/assets/attachments/103334946/103334947.png)
 ##### JWT claims
 
 A JWT claim contains meta information of an API request. It can include application details, API details, user claims, etc. Advanced throttling policies based on JWT claims allow you to filter requests by JWT claim values and apply limits for requests. For example, if you need to allow special limits for users in a specific user role, you can create an advanced policy that checks for a particular regular expression on the role claim of the user and apply special limits for the ones that match.
 
 Here is a sample for configuring JWT claim condition by considering the version of the API (" <http://wso2.org/claims/version> ").
 
-![](attachments/103334946/103334948.png)
+![](/assets/attachments/103334946/103334948.png)
 ##### Query parameters
 
 Filtering based on query parameters almost always apply to HTTP GET requests when doing search type of operations. For example, if you have a search API with `category` as a query parameter, you can have different limits for searching different categories.
 
-![](attachments/103334946/103334949.png)
+![](/assets/attachments/103334946/103334949.png)
 Eg : 'sales' category can be allocated with more requests than 'hr' category
 
 ### Implications on applications that consume APIs
@@ -88,7 +88,7 @@ When an application developer subscribes their application to an API, they selec
 !!! info
 The below diagram shows how throttle policies are applied at different levels.
 
-![](attachments/103334946/103334950.png){height="250"}
+![](/assets/attachments/103334946/103334950.png){height="250"}
 
 If [advanced throttling](https://docs.wso2.com/display/AM2xx/Introducing+Throttling+Use-Cases#IntroducingThrottlingUse-Cases-Advancedthrottlingpolicies:APIPublisher) is enabled, it will also be applied here. Requests will be allowed/rejected based on the conditions specified in advanced throttling policies as well.
 

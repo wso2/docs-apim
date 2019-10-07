@@ -26,7 +26,7 @@ ABC organization exposes the prices of their products through an API. The API is
 
 WSO2 API Manager has the following subscription tiers defined by default.
 
-![](plugins/servlet/confluence/placeholder/unknown-attachment "subscription-tiers.png")
+![](/assets/attachments/reference-sample-subscription-tiers)
 
 You can add custom subscription tiers according your pricing requirements. You can also create a free subscription tier as a trail version, by limiting the number of requests and the consumption of resources. Once the  limit is exceeded, you can offer a pricing model or terminate the trial usage.
 

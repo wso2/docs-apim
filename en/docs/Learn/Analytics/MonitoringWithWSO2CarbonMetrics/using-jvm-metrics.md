@@ -8,25 +8,25 @@ For detailed instructions to enable/disable JVM metrics and to configure metrics
 
 1.  Log into the Management Console of the WSO2 product. Click **Monitor -&gt; Metrics -&gt; JVM Metrics** to open the **View Metrics** page.
 2.  Specify the source for the JVM metrics by selecting a value from the drop-down list for the **Source** parameter in the top panel.
-    ![](attachments/103335175/103335185.png)
+    ![](/assets/attachments/103335175/103335185.png)
 3.  Specify the time interval for which the statistics should be displayed in the dashboard by selecting a value from the following drop-down list in the top panel.
-    ![](attachments/103335175/103335184.png)
+    ![](/assets/attachments/103335175/103335184.png)
 4.  Click the required buttons opposite **Views** in the top panel to select the types of information you want to view in the dashboard, and refresh the web page.
-    ![](attachments/103335175/103335183.png) Statistics corresponding to each button can be viewed as follows:
+    ![](/assets/attachments/103335175/103335183.png) Statistics corresponding to each button can be viewed as follows:
     -   **CPU
         ** Click this button to view statistics relating to the CPU as shown below.
-        ![](attachments/103335175/103335182.png)
-        ![](attachments/103335175/103335181.png)
+        ![](/assets/attachments/103335175/103335182.png)
+        ![](/assets/attachments/103335175/103335181.png)
     -   **Memory**
         Click **Memory** to view statistics relating to the memory as shown below.
-        ![](attachments/103335175/103335180.png) ![](attachments/103335175/103335179.png)
+        ![](/assets/attachments/103335175/103335180.png) ![](/assets/attachments/103335175/103335179.png)
     -   **Threading
         ** Click **Threading** to **view statistics relating to** threading as shown below.
-        ![](attachments/103335175/103335178.png)
+        ![](/assets/attachments/103335175/103335178.png)
     -   **Class Loading
         ** Click **Class Loading** to view statistics relating to class loading as shown below.
-        ![](attachments/103335175/103335177.png)
+        ![](/assets/attachments/103335175/103335177.png)
     -   **File Descriptor
         ** Click **File Descriptor** to view information relating to the file descriptor count as shown below.
-        ![](attachments/103335175/103335176.png)
+        ![](/assets/attachments/103335175/103335176.png)
 

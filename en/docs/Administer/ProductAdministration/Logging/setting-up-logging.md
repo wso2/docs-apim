@@ -15,8 +15,8 @@ Follow the instructions below to set up logging.
 
 1.  Sign in to the [API-M Management Console](https://docs.wso2.com/display/AM210/Running+the+Product#RunningtheProduct-run) .
 2.  Click **Configure &gt; Logging** .
-    ![](attachments/103333565/103333572.png)3.  If you want your modifications to be persisted and available even after a server restart, select the **Persist All Configurations Changes** check box.
-    ![](attachments/103333565/103333571.png)4.  Use the options in the following sections to configure the layout and the amount of information about system activity that you want to record.
+    ![](/assets/attachments/103333565/103333572.png)3.  If you want your modifications to be persisted and available even after a server restart, select the **Persist All Configurations Changes** check box.
+    ![](/assets/attachments/103333565/103333571.png)4.  Use the options in the following sections to configure the layout and the amount of information about system activity that you want to record.
 
 -   [Global Log4J configuration](#SettingUpLogging-GlobalLog4Jconfiguration)
 -   [Configure Log4J appenders](#SettingUpLogging-ConfigureLog4Jappenders)
@@ -24,7 +24,7 @@ Follow the instructions below to set up logging.
 
 #### Global Log4J configuration
 
-![](attachments/103333565/103333570.png)
+![](/assets/attachments/103333565/103333570.png)
 This section allows you to assign a single log level and log pattern to all loggers.
 
 -   **Log Level** - Reflects a minimum level that this logger cares about. You can view the hierarchy of levels [below](#SettingUpLogging-Hierarchyoflevels) .
@@ -32,7 +32,7 @@ This section allows you to assign a single log level and log pattern to all logg
 
 #### Configure Log4J appenders
 
-![](attachments/103333565/103333569.png)
+![](/assets/attachments/103333565/103333569.png)
 `Log4j` allows logging requests to print to multiple destinations. These output destinations are called appenders. You can attach several appenders to one logger.
 
 -   **Name** - The name of an appender. By default, WSO2 API Manager comes with the following log appenders configured:
@@ -57,7 +57,7 @@ This section allows you to assign a single log level and log pattern to all logg
 
 #### Configure Log4J loggers
 
-![](attachments/103333565/103333568.png){height="250"}
+![](/assets/attachments/103333565/103333568.png){height="250"}
 
 This section allows you to browse through all loggers, define a log level, and switch on/off additivity to any of them. You can filter loggers using the first few characters (use the **Starts With** button) or using a combination of characters (use the **Contains** button).
 
@@ -72,10 +72,10 @@ Use the following procedure to enable logs to view HTTP headers and messages:
 
 1.  In the **Filter Loggers by** field, enter **wire** and then click **Contains** .
     You see `org.apache.synapse.transport.http.wire` displayed under **Logger** .
-    ![](attachments/103333565/103333567.png)2.  Change the level of this logger to **DEBUG** .
+    ![](/assets/attachments/103333565/103333567.png)2.  Change the level of this logger to **DEBUG** .
 3.  Search for the `org.apache.synapse.transport.http.headers` logger and change the level to **DEBUG** .
 
-![](attachments/103333565/103333566.png)
+![](/assets/attachments/103333565/103333566.png)
 Alternatively, you can uncomment the entry for the two loggers as follows:
 
 1.  Go to the `<API-M_HOME>/repository/conf` directory and open the `log4j.properties` file with a text editor.

@@ -14,8 +14,8 @@ The log files can be retrieved in two ways:
 For more information on logs and how to change log properties according to your preferences, see [Logging](_Logging_) . Follow the instructions below to access statistics on application logs.
 
 1.  Log in to the product's Management Console and click **Monitor &gt; Application Logs** .
-    ![](attachments/103333559/103333560.png)2.  The **Application Logs** page appears. This page displays logs of a selected application in a bottom-up manner. For example,
-    ![](attachments/38472324/38766337.png)
+    ![](/assets/attachments/103333559/103333560.png)2.  The **Application Logs** page appears. This page displays logs of a selected application in a bottom-up manner. For example,
+    ![](/assets/attachments/38472324/38766337.png)
 
         !!! info
     Note
@@ -24,7 +24,7 @@ For more information on logs and how to change log properties according to your 
 
 
 3.  Use the drop-down list shown below to select a deployed web service or web application to view its log files.
-    ![](attachments/103333559/103333562.png)
+    ![](/assets/attachments/103333559/103333562.png)
 4.  In the **View** list, select the category of logs you want to view. The available categories are:
 
     -   TRACE - Trace messages
@@ -37,13 +37,13 @@ For more information on logs and how to change log properties according to your 
 
     For example,
 
-    ![](attachments/103333559/103333563.png)
+    ![](/assets/attachments/103333559/103333563.png)
 
 5.  You can also search for a specific log using the search function. Enter a keyword (or part of a keyword) and click **Search.** When a search criteria is given, the **View** field is displayed as **Custom.**
 
     For example,
 
-    ![](attachments/103333559/103333564.png)
+    ![](/assets/attachments/103333559/103333564.png)
 
         !!! info
     Note

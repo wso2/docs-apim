@@ -119,6 +119,6 @@ In the following diagram, the five components are set up in a distributed deploy
 In a clustered setup, if the **Key Manager** is **NOT fronted by a load balancer** , you have to set the `KeyValidatorClientType` element to `ThriftClient` in the `<API-M_HOME>/repository/conf/api-manager.xml` file, to enable Thrift as the communication protocol. You need to configure this in all the Gateway and Key Manager components.
 
 
-![](attachments/103334484/103334485.png)
+![](/assets/attachments/103334484/103334485.png)
 
 

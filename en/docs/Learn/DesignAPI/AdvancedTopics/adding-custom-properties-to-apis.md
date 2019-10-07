@@ -22,7 +22,8 @@ After the custom properties have been added, you can [search for APIs using cust
 1.  Sign in to the API Publisher as an API creator using the following URL: `https://<localhost>:9443/publisher` .
 2.  [Create a new API](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) or edit an existing API.
 3.  In the **Manage** tab, expand the **API Properties** area, enter a custom property name and value (e.g. property name: environment, property value: preprod) and click the plus (+) sign to add it.
-    ![Add custom API properties](attachments/103333404/103333406.png "Add custom API properties")4.  Save the API.
+    ![Add custom API properties](/assets/attachments/103333404/103333406.png)
+4.  Save the API.
 
 ### Add custom properties via the REST API
 
@@ -38,7 +39,7 @@ You can use the following format to search for an API using the custom propertie
 
 For example, if you want to search for the **environment** property with a specific value (e.g., preprod) in the Publisher, you can search as shown below:
 
-![Search for APIs with custom properties](attachments/103333404/103333408.png "Search for APIs")
+![Search for APIs with custom properties](/assets/attachments/103333404/103333408.png)
 When you click on the name of the API in the above screen, you are taken to the respective API Overview page that has details with regard to the API properties that you added.
 
-![API overview with API properties highlighted](attachments/103333404/103333405.png "API overview")
+![API overview with API properties highlighted](/assets/attachments/103333404/103333405.png)

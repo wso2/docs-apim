@@ -18,7 +18,7 @@ Follow the instructions below to configure the API-M Gateway in a distributed en
 -   [Step 4 - Start the Gateway Nodes](#DistributedDeploymentoftheGateway-Step4-StarttheGatewayNodes)
 
 Note that the configurations in this topic are done based on the following pattern.
-![](attachments/103334491/103334492.png)
+![](/assets/attachments/103334491/103334492.png)
 ### Step 1 - Configure the load balancer
 
 For more information see, \_Configuring the Proxy Server and the Load Balancer .

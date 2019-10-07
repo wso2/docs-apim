@@ -2,21 +2,14 @@
 
 Let's take a look at some concepts and terminology that you need to know in order to follow the use cases.
 
-\[ [Main usecase](#KeyConcepts-Mainusecase) \] \[ [API Manager components - Overview](#KeyConcepts-APIManagercomponents-Overview) \] \[ [Terminology & Concepts](#KeyConcepts-Terminology&Concepts) \]
+\[ [API Manager components - Overview](#KeyConcepts-APIManagercomponents-Overview) \] \[ [Terminology & Concepts](#KeyConcepts-Terminology&Concepts) \]
 
-### Main usecase
-
-The WSO2 API Manager is used to design, publish and manage API's. A typical scenario utilizing the main features of the product is as follows.
-
-A **creator** designs or imports an **API** on the WSO2 API publisher portal. A **publisher** will log onto the WSO2 API Publisher portal and publish the created API(s). This will make the API appear on the store.
-
-A **subscriber** logs into the WSO2 API Developer portal and creates an **application** . An application is a logical collection of APIs & may consist of any number of APIs. The subscriber will then proceed to add API's to relevant applications. In order to invoke the API's the subscriber will  generate tokens for the applications.  Using the token created for the application, the resources of the API can be invoked. The invocations to the API(s) will be subjected to any throttling policies applied.
 
 ### API Manager components - Overview
 
 The WSO2 API Manager consists of the following component
 
-![](attachments/103328852/119142745.jpg)
+![](/assets/attachments/103328852/119142745.jpg)
 ### Terminology & Concepts
 
 <table>
@@ -29,7 +22,7 @@ The WSO2 API Manager consists of the following component
 <tbody>
 <tr class="odd">
 <td>Admin</td>
-<td><p>The API management provider who hosts and manages the API Gateway . S/he is responsible for creating user roles in the system, assign them roles, managing databases, security etc. The Admin role is available by default with the credentials admin/admin. The API Manager offers four distinct community roles that are applicable to most enterprises. Admon role is one of them.</p></td>
+<td><p> The admin user is responsible for managing the admin portal which includes tasks such as  approving workflows, managing throttling policies, configuring emails for bot detection and viewing the status of the API. In addition to  this, the admin user is also expected to carry out general adminstrative tasks such as managing users, roles, databases, security etc.  </p></td>
 </tr>
 <tr class="even">
 <td><p>API</p></td>

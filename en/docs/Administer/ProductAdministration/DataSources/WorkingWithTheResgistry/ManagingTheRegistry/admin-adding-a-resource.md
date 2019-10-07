@@ -6,7 +6,7 @@ Follow the instructions below to add a new child entry to a collection.
 
 1. To add a new resource, click on the *Add Resource* link.
 
-![](attachments/126562631/126562638.png)
+![](/assets/attachments/126562631/126562638.png)
 
 2. In the *Add Resource* panel, select *Method* from the drop-down menu.
 
@@ -17,7 +17,7 @@ The following methods are available:
 -   **[Create Text content](#admin_AddingaResource-3)**
 -   **[Create custom content](#admin_AddingaResource-4)**
 
-![](attachments/126562631/126562637.png)
+![](/assets/attachments/126562631/126562637.png)
 
 ### Uploading Content from File
 
@@ -30,7 +30,7 @@ The following methods are available:
 
 2. Click *Add* once the information is added as shown in the example below.
 
-![](attachments/126562631/126562635.png)
+![](/assets/attachments/126562631/126562635.png)
 
 ### Importing Content from URL
 
@@ -43,7 +43,7 @@ The following methods are available:
 
 2. Click *Add* once the information is added.
 
-![](attachments/126562631/126562633.png)
+![](/assets/attachments/126562631/126562633.png)
 
 ### Text Content Creation
 
@@ -56,13 +56,13 @@ The following methods are available:
 
 2. Click *Add* once the information is added.
 
-![](attachments/126562631/126562632.png)
+![](/assets/attachments/126562631/126562632.png)
 
 ### Custom Content Creation
 
 1. If this method was selected, choose the *Media Type* from the drop-down menu and click *Create Content* .
 
-![](attachments/126562631/126562636.png)
+![](/assets/attachments/126562631/126562636.png)
 
 **Media Types**
 

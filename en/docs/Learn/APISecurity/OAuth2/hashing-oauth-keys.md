@@ -32,17 +32,17 @@ WSO2 API Manager allows you to hash any sensitive OAuth2.0 keys you create. API 
 
 4.  Restart the server.
 5.  Log in to the API Store.
-    ![](attachments/103334938/103334937.png)
+    ![](/assets/attachments/103334938/103334937.png)
 6.  Click on the **Applications** tab. Click **Add Application** to create a new application
-    ![](attachments/103334938/103334936.png)
+    ![](/assets/attachments/103334938/103334936.png)
     Click **Add** to save the application.
-    ![](attachments/103334938/103334935.png)
+    ![](/assets/attachments/103334938/103334935.png)
 7.  Select the application and go to the **Production Keys** tab. Click **Generate** to generate the access token for your application.
-    ![](attachments/103334938/103334934.png)
+    ![](/assets/attachments/103334938/103334934.png)
 8.  The consumer secret and access token will be displayed in a pop-up window as shown below. Make sure you note these down, as this will be displayed only once.
-    ![](attachments/103334938/103334933.png)
+    ![](/assets/attachments/103334938/103334933.png)
 9.  The consumer key will be accessible through the UI.
-    ![](attachments/103334938/103334932.png)
+    ![](/assets/attachments/103334938/103334932.png)
 
 !!! info
 Regenerating the consumer secret
@@ -50,8 +50,8 @@ Regenerating the consumer secret
 You can regenerate the consumer key in the following ways.
 
 1.  To regenerate the consumer secret through the UI, click **Regenerate** below the **Consumer Secret** label.
-    ![](attachments/103334938/103334931.png)
-    The new consumer secret will be displayed in a pop-up window as shown below. ![](attachments/103334938/103334930.png)
+    ![](/assets/attachments/103334938/103334931.png)
+    The new consumer secret will be displayed in a pop-up window as shown below. ![](/assets/attachments/103334938/103334930.png)
 2.  You can regenerate the consumer secret by sending a cURL request. The sample command is given below.
 
     ``` java

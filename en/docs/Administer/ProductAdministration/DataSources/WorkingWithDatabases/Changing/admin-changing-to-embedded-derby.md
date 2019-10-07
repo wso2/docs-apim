@@ -159,7 +159,7 @@ Follow the steps below to configure new datasources to point to the new databa
 You can create database tables by executing the database scripts as follows:
 
 1.  Run the `ij` tool located in the `<DERBY_HOME>/bin/` directory as illustrated below:
-    ![](attachments/126562586/126562587.png)
+    ![](/assets/attachments/126562586/126562587.png)
 2.  Create the database and connect to it using the following command inside the `ij` prompt:
 
         connect 'jdbc:derby:repository/database/WSO2CARBON_DB;create=true';

@@ -34,7 +34,7 @@ Create the database using either [DB2 command processor](#admin_SettingupIBMDB2-
 
     For example:
 
-    ![](attachments/126562333/126562335.png)
+    ![](/assets/attachments/126562333/126562335.png)
         !!! info
     For more information on DB2 commands, see the [DB2 Express-C Guide](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/Big%20Data%20University/page/FREE%20eBook%20-%20Getting%20Started%20with%20DB2%20Express-C) .
 
@@ -43,17 +43,17 @@ Create the database using either [DB2 command processor](#admin_SettingupIBMDB2-
 
 1.  Open the DB2 control center using the `db2cc` command as follows:
 
-    ![](attachments/126562333/126562338.png)
+    ![](/assets/attachments/126562333/126562338.png)
 
 2.  Right-click **All Databases** in the control center tree (inside the object browser), click **Create Database** , and then click **Standard** and follow the steps in the **Create New Database** wizard.
-    ![](attachments/126562333/126562353.png)3.  Click **User and Group Objects** in the control center tree to create users for the newly created database.
-    ![](attachments/126562333/126562336.png)4.  Give the required permissions to the newly created users.
-    ![](attachments/126562333/126562337.png)
+    ![](/assets/attachments/126562333/126562353.png)3.  Click **User and Group Objects** in the control center tree to create users for the newly created database.
+    ![](/assets/attachments/126562333/126562336.png)4.  Give the required permissions to the newly created users.
+    ![](/assets/attachments/126562333/126562337.png)
 ### Setting up DB2 JDBC drivers
 
 Copy the DB2 JDBC drivers ( `db2jcc.jar` and `db2jcc_license_c0u.jar` ) from `<DB2_HOME>/SQLLIB/java/` directory to the `<PRODUCT_HOME>/repository/components/lib/` directory.
 
-![](attachments/126562333/126562348.png)
+![](/assets/attachments/126562333/126562348.png)
 
 !!! info
 `<DB2_HOME>` refers to the installation directory of DB2 Express-C, and &lt; `PRODUCT_HOME>` refers to the directory where you run the WSO2 product instance.

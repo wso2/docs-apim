@@ -5,14 +5,14 @@ Users are consumers who interact with your enterprise's applications, databases 
 Follow the steps below to create users and assign them to roles via the Management console. Also, if you want to authenticate users via **e-mail** , **social media** , **multiple user store attributes** , see [Maintaining Logins and Passwords](https://docs.wso2.com/display/AM260/Maintaining+Logins+and+Passwords) .
 
 1.  Log in to the Management Console ( `https://<hostname>:9443/carbon` ) and click **Add** under **Users and Roles** in the **Main** menu.
-    ![](attachments/103333608/103333613.png)
+    ![](/assets/attachments/103333608/103333613.png)
 
 2.  Click **Add New User** .
-    ![](attachments/103333608/103333612.png)
+    ![](/assets/attachments/103333608/103333612.png)
 
 3.  The **Add User** page opens. Provide the username and password and click **Next** .
 
-    ![](attachments/103333608/103333611.png)
+    ![](/assets/attachments/103333608/103333611.png)
 
         !!! info
     **Tip** : The **Domain** drop-down list contains all user stores configured in the system. By default, you only have the PRIMARY user store. To configure secondary user stores, see [Configuring Secondary User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+Secondary+User+Stores) .
@@ -20,7 +20,7 @@ Follow the steps below to create users and assign them to roles via the Manageme
 
 4.  Select the roles you want to assign to the user. In this example, we assign the `creator` role defined in the previous section.
 
-    ![](attachments/103333608/103333610.png)
+    ![](/assets/attachments/103333608/103333610.png)
 
         !!! info
     By default, all WSO2 products have the following roles configured:
@@ -45,7 +45,7 @@ Follow the steps below to create users and assign them to roles via the Manageme
     You cannot change the user name of an existing user.
 
 
-    ![](attachments/103333608/103333609.png)
+    ![](/assets/attachments/103333608/103333609.png)
 
 ### Accessing the Admin Dashboard
 

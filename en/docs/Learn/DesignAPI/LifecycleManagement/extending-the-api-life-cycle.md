@@ -18,7 +18,7 @@ To see the default API life cycle configuration, follow the steps below.
 1.  Start the API Manager server and log into the management console: <https://localhost:9443/carbon> .
 2.  Navigate to **Extensions &gt; Configure &gt; Lifecycles** .
 
-    ![](attachments/103334766/103334772.png)
+    ![](/assets/attachments/103334766/103334772.png)
 3.  Click the **View/Edit** link corresponding to the API LifeCycle. T he default API life cycle configuration opens.
 
     ``` xml
@@ -126,11 +126,11 @@ The above configuration includes the following important information:
 
     The state transition events that occur in the default API life cycle is shown in the following diagram:
 
-    ![](attachments/103334766/103334771.png)
+    ![](/assets/attachments/103334766/103334771.png)
 The **Lifecycle** tab shows the current state of an API, the target events defined in the API life cycle for that state, and the set of checklist items.
 
-![](attachments/103334766/103334768.png)
-![](attachments/103334766/103334767.png)
+![](/assets/attachments/103334766/103334768.png)
+![](/assets/attachments/103334766/103334767.png)
 !!! note
 This UI is static in the default stage and is dynamically generated based on the defined API life cycle in the above XML configuration.
 

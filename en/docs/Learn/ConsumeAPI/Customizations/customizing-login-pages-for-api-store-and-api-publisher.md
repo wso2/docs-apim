@@ -25,7 +25,7 @@ Usually WSO2 API Manager displays a default login page for all the SAML SSO serv
 
 4.  Enter "publisher" as the Service Provider Name in the form that appears and click Register.
 
-    ![](attachments/103334781/103334783.png)
+    ![](/assets/attachments/103334781/103334783.png)
 5.  In the page that appears next, expand the **Inbound Authentication Configuration** section and the **SAML2 Web SSO Configuration** section. Click **Configure** . The Register New Service Provider page appears.
 
     ![publisher\_inbound.png](https://lh3.googleusercontent.com/UzCGo1SYfdrB8pIcY2qyfD_rQclVWnwvMzQSs6Sm5d3b-8bDJnSN9bGArmWs6Dsmn8S1hNq1yh2YKuhsfAn_GKc4nCX3aMix_DwsTN6zP8p1DYXIWLkrIFHjqWGRqLFExsXlb_y_)    Configure the following details for publisher.
@@ -129,7 +129,7 @@ When customizing the pages, ensure that the following is applied.
 
 4.  Log in to the publisher web app again. You are presented with a different page.
 
-    ![](attachments/103334781/103334782.png)
+    ![](/assets/attachments/103334781/103334782.png)
 5.  Follow steps 1 to 4 to configure the custom login page to the store web app.
 
 

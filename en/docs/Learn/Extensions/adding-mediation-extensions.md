@@ -69,14 +69,14 @@ In this example, the Send mediator in a proxy service using the [VFS transport](
 
 You can also create a mediation sequence manually and upload it from the API Publisher itself. For instance, you can copy the above default mediation flow content into an XML file. In the **Implement** tab of the API, select the **Enable Message Mediation** check box and click the **Upload In Flow** or **UploadOut Flow** field (for the example above, it needs to be uploaded to the `In` flow). Once the file is uploaded, save and publish the API. When you invoke the API, the request is sent to the endpoint referred to in the **To** header.
 
-![](attachments/103334749/103334751.png)
+![](/assets/attachments/103334749/103334751.png)
 #### **Editing a mediation policy**
 
 If you want to edit an already uploaded mediation policy,
 
 1.  Select the mediation policy from the drop down list.
 2.  Click the download icon next to it, as shown below:
-    ![](attachments/103334749/103334750.png)3.  Edit the downloaded mediation XML file and re-upload it.
+    ![](/assets/attachments/103334749/103334750.png)3.  Edit the downloaded mediation XML file and re-upload it.
 
 #### Create manually and save in the file system
 

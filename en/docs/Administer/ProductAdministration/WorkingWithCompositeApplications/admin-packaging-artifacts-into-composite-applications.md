@@ -5,11 +5,11 @@ After working on your artifacts using the Tooling environment, you bundle them i
 Also, you can package individual artifacts into separate C-Apps as well. See [Packaging individual artifacts into separate Composite Applications](#admin_PackagingArtifactsintoCompositeApplications-PackagingindividualartifactsintoseparateCompositeApplications) .
 
 1.  Open the Tooling interface with all the artifacts/projects that you created. For example, shown below is an ESB mediation sequeance created with ESB artifacts.
-    ![](attachments/126562745/126562760.png)2.  Right-click the **Project Explorer** and click **New -&gt; Project** .
-    ![](attachments/126562745/126562761.png)3.  From the window that opens, click **Composite Application Project** .
-    ![](attachments/126562745/126562751.png)4.  Give a name to the **Composite Application** project and select the projects that you need to group into your C-App from the list of available projects below. For example,
-    ![](attachments/126562745/126562764.png)5.  In the **Composite Application Project POM Editor** that opens, under **Dependencies** , note the information for each of the projects you selected earlier. You can also change the project details here.
-    ![](attachments/126562745/126562763.png)
+    ![](/assets/attachments/126562745/126562760.png)2.  Right-click the **Project Explorer** and click **New -&gt; Project** .
+    ![](/assets/attachments/126562745/126562761.png)3.  From the window that opens, click **Composite Application Project** .
+    ![](/assets/attachments/126562745/126562751.png)4.  Give a name to the **Composite Application** project and select the projects that you need to group into your C-App from the list of available projects below. For example,
+    ![](/assets/attachments/126562745/126562764.png)5.  In the **Composite Application Project POM Editor** that opens, under **Dependencies** , note the information for each of the projects you selected earlier. You can also change the project details here.
+    ![](/assets/attachments/126562745/126562763.png)
 #### Creating a Composite Application Archive (CAR) file
 
 To [deploy a C-App via the product's management console](https://docs.wso2.com/display/ADMIN44x/Deploying+Composite+Applications+in+the+Server) , you will need to first create a Composite Application Archive (CAR) file of that C-App.
@@ -56,4 +56,4 @@ Following are the deployable archives that will be generated for each artifact t
 | Registry Resource            | Registry Resource with necessary metadata |
 | Third Party Library Artifact | .jar (OSGI Bundle)                        |
 
-![](attachments/126562745/126562758.png)
+![](/assets/attachments/126562745/126562758.png)

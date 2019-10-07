@@ -11,14 +11,14 @@ After you created, published, and subscribed to the API, let's see how the API G
 1.  Sign in to the API Store and select the PhoneVerification API.
     Make sure to subscribe to the API as mentioned in the before you begin section.
 
-    ![](attachments/97564951/97564954.png)
+    ![](/assets/attachments/97564951/97564954.png)
 2.  Go to the Default Application, click the **Production Keys** tab and generate an access token.
     If you already have an access token for the application, you have to regenerate it after 1 hour.
-    ![](attachments/97564951/97564958.png)
+    ![](/assets/attachments/97564951/97564958.png)
     Let's invoke this API.
 
 3.  Click on the API, then go to its **API Console** tab.
-    ![](attachments/97564951/97564957.png)
+    ![](/assets/attachments/97564951/97564957.png)
 4.  Expand the GET method and click Try it out. Provide the required parameters and click **Execute** to invoke the API. For example,
 
     |                 |                            |
@@ -26,13 +26,13 @@ After you created, published, and subscribed to the API, let's see how the API G
     | **PhoneNumber** | E.g., 18006785432          |
     | **LicenseKey**  | Give 0 for testing purpose |
 
-    ![](attachments/97564951/97564953.png)
+    ![](/assets/attachments/97564951/97564953.png)
     Note the response that appears in the API Console. As we used a valid phone number in this example, the response returns as valid.
-    ![](attachments/97564951/97564956.png)    Note that you subscribed to the API on the Bronze throttling tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a throttling error as shown below.
-    ![](attachments/97564951/97564952.png)    Let's try to invoke the API using an unavailable resource name.
+    ![](/assets/attachments/97564951/97564956.png)    Note that you subscribed to the API on the Bronze throttling tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a throttling error as shown below.
+    ![](/assets/attachments/97564951/97564952.png)    Let's try to invoke the API using an unavailable resource name.
 
 5.  Go to the API's **Overview** page in the API Store and get the API's URL.
-    ![](attachments/97564951/97564955.png)
+    ![](/assets/attachments/97564951/97564955.png)
 6.  Install [cURL](http://curl.haxx.se/download.html) or any other REST client.
 
 7.  Go to the command-line invoke the API using the following cURL command.

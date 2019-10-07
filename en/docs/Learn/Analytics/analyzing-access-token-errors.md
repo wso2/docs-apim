@@ -13,9 +13,9 @@ To analyze the statistics of Access Token Errors,
 At any given time, this page displays the statistics for a selected time interval.
 
 -   If you want to view statistics for a pre-defined time interval, click on the relevant time interval (e.g., **Last 30 Days** ).
-    ![](attachments/103335208/103335209.gif)
+    ![](/assets/attachments/103335208/103335209.gif)
 -   If you want to define a custom time interval, click **Custom** and select the start and end dates of the required time interval in the calendar that appears. Then click **Apply.
-    ![](attachments/103335208/103335210.gif)**
+    ![](/assets/attachments/103335208/103335210.gif)**
 
 
 ### Introduction
@@ -23,13 +23,13 @@ At any given time, this page displays the statistics for a selected time interva
 This page displays information about the access token violations that have taken place during a selected time interval.
 
 -   The **API Token Status** gadget provides a comparison of the count for each access token violation type that has taken place during the selected time interval in a bar chard. Each violation type is displayed with a specific status in the relevant bar. Move the cursor over the relevant bar as demonstrated below to view the exact count for each violation type.
-    ![](attachments/103335208/103335216.gif)
+    ![](/assets/attachments/103335208/103335216.gif)
 -   The **APIKey Status** gadget at a given time displays all the records for a selected API token status in a table. To populate this table, click on the required status in the **API Token Status** gadget as demonstrated below.
-    ![](attachments/103335208/103335215.gif)
+    ![](/assets/attachments/103335208/103335215.gif)
     The records in this table can be sorted in the ascending or the descending order by the timestamp as demonstrated below.
-    ![](attachments/103335208/103335214.gif)
+    ![](/assets/attachments/103335208/103335214.gif)
 -   The **Log Viewer** gadget displays the detailed log for a selected record in the **API Key Status** table s demonstrated below.
-    ![](attachments/103335208/103335213.gif)
+    ![](/assets/attachments/103335208/103335213.gif)
 
 ### Purpose
 

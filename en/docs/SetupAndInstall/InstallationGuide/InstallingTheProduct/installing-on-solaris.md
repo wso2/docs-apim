@@ -37,7 +37,7 @@ Environment variables are global system variables accessible by all the processe
 
     The file should now look like this:
 
-    ![](attachments/103334399/103334401.png)
+    ![](/assets/attachments/103334399/103334401.png)
 3.  Save the file.
 
         !!! info

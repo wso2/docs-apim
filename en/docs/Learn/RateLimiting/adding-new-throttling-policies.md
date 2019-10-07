@@ -8,7 +8,7 @@ WSO2 API Manager admins can add new throttling policies and define extra propert
 
 !!! warning
 To make changes in the throttling configurations, set the `EnableAdvanceThrottling` parameter in api `-manager.xml` . This parameter is set to `true` by default. If you set it to `false` , you only see the available tiers.
-![](attachments/50518321/59575603.png){height="250"}
+![](/assets/attachments/50518321/59575603.png){height="250"}
 
 
 ### Adding a new advanced throttling policy
@@ -18,10 +18,10 @@ You can add advanced throttling policies to both APIs and resources.
 1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials (admin/admin by default).
 2.  Click **Advanced Throttling** under the **Throttle Policies** section to see the set of existing throttling tiers.
 3.  To add a new tier, click **Add Tier** .
-    ![](attachments/103334984/103334995.png)4.  Fill in the required details and click **Save** .
+    ![](/assets/attachments/103334984/103334995.png)4.  Fill in the required details and click **Save** .
 
-    ![](attachments/103334984/103334994.png)
-    ![](attachments/103334984/103334986.png)
+    ![](/assets/attachments/103334984/103334994.png)
+    ![](/assets/attachments/103334984/103334986.png)
         !!! info
     **Request Count** and **Request Bandwidth** are the two options for default limit. You can use the option according to your requirement. For example, If your using API for File sharing, Data transmission you can use request bandwidth option and limit the data bandwidth for given time unit.
 
@@ -34,7 +34,7 @@ You can add advanced throttling policies to both APIs and resources.
 
     You can add Description about condition group by click **Sample description about condition group** under **Condition Group.**
 
-    ![](attachments/103334984/103334989.png)
+    ![](/assets/attachments/103334984/103334989.png)
     | Condition             | Description                                                                                |
     |-----------------------|--------------------------------------------------------------------------------------------|
     | IP Condition          | Allows you to set a throttling limit for a specific IP address or a range of IP addresses. |
@@ -49,7 +49,7 @@ You can add advanced throttling policies to both APIs and resources.
 6.  Turn on the required condition and enter a condition and value.
 7.  Header condition and JWT claim condition values allow regex patterns to be defined.
     You can configure it to make either an exact match or a pattern match for the value using the regex values. For example,
-    ![](attachments/103334984/103334988.png)
+    ![](/assets/attachments/103334984/103334988.png)
         !!! note
     Claim name : Name of the JWT Claim
     Eg : "iss" - The issuer of the JWT, " <http://wso2.org/claims/apicontext> " - Context of the API, " <http://wso2.org/claims/version> " - API version
@@ -76,8 +76,8 @@ Application-level throttling policies are applicable per access token generated 
 1.  Sign in to the Admin Portal using the URL https://localhost:9443/admin and your admin credentials (admin/admin by default).
 2.  Click **Application Tiers** under the **Throttle Policies** section to see the set of existing throttling tiers.
 3.  To add a new tier, click **Add New Policy** .
-    ![](attachments/103334984/103334993.png)4.  Fill in the required details and click **Save** .
-    ![](attachments/103334984/103334992.png)
+    ![](/assets/attachments/103334984/103334993.png)4.  Fill in the required details and click **Save** .
+    ![](/assets/attachments/103334984/103334992.png)
 You have added a new application-level throttling policy.
 
 ### Adding a new subscription-level throttling tier
@@ -85,13 +85,13 @@ You have added a new application-level throttling policy.
 1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Subscription Policies** under the **Throttling Policies** section. The existing set of throttling tiers are displayed.
 3.  To add a new tier, click **Add New Policy** .
-    ![](attachments/103334984/103334985.png)
+    ![](/assets/attachments/103334984/103334985.png)
         !!! info
     When you are going to add a new Subscription level throttling tier, you can see the existing list of subscription tiers in **Subscription Tier List** . In this list, you will find a tier named **Unauthenticated** which have a request quota of 500. This is a subscription tier which automatically applied when the authentication type of your resources is **'None'.** That is, when you can invoke APIs without tokens. And this tier is not visiblie in the Throttling tier list of the application.
 
 
 4.  Fill in the details required by this form and click **Save** once you are done.
-    ![](attachments/103334984/103334990.png)
+    ![](/assets/attachments/103334984/103334990.png)
 
     Given below are the descriptions of the fields you find in the form:
 

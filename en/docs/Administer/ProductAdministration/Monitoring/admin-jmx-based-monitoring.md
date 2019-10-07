@@ -100,7 +100,7 @@ Once the product server is started, you can start the JC `onsole` tool as follow
 
 1.  Open a command prompt and navigate to the `<JDK_HOME>/bin` directory.
 2.  Execute the j `console` command to open the log-in screen of the **Java Monitoring & Management Console** as shown below.
-    ![](attachments/126562846/126562847.png)3.  Enter the connection details in the above screen as follows:
+    ![](/assets/attachments/126562846/126562847.png)3.  Enter the connection details in the above screen as follows:
     1.  Enter the **JMX server URL** in the **Remote Process** field. This URL is published on the command prompt when you start the WSO2 server as explained [above](#admin_JMX-BasedMonitoring-start_jconsole) .
 
                 !!! info
@@ -132,26 +132,26 @@ Once the product server is started, you can start the JC `onsole` tool as follow
 
     See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs.
 
-    ![](attachments/126562846/126562857.png)
+    ![](/assets/attachments/126562846/126562857.png)
     See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs.
 
-    ![](attachments/126562846/126562858.png)
+    ![](/assets/attachments/126562846/126562858.png)
     See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs.
 
-    ![](attachments/126562846/126562859.png)
+    ![](/assets/attachments/126562846/126562859.png)
     See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs.
 
-    ![](attachments/126562846/126562860.png)
+    ![](/assets/attachments/126562846/126562860.png)
     See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs.
 
-    ![](attachments/126562846/126562861.png)
+    ![](/assets/attachments/126562846/126562861.png)
     See the Oracle documentation on [using JConsole](http://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html) for more information on these tabs.
 
-    ![](attachments/126562846/126562862.png)
+    ![](/assets/attachments/126562846/126562862.png)
 #### Using the ServerAdmin MBean
 
 When you go to the **MBeans** tab in the JConsole, the **ServerAdmin** MBean will be listed under the "org.wso2.carbon" domain as shown below.
-![](attachments/126562846/126562855.png)
+![](/assets/attachments/126562846/126562855.png)
 The **ServerAdmin** MBean is used for administering the product server instance. There are several server attributes such as "ServerStatus", "ServerData" and "ServerVersion". The "ServerStatus" attribute can take any of the following values:
 
 -   RUNNING
@@ -159,7 +159,7 @@ The **ServerAdmin** MBean is used for administering the product server instance.
 -   RESTARTING
 -   IN\_MAINTENANCE
 
-![](attachments/126562846/126562852.png)
+![](/assets/attachments/126562846/126562852.png)
 The **ServerAdmin** MBean has the following operations:
 
 | Operation              | Description                                                                                                 |
@@ -171,7 +171,7 @@ The **ServerAdmin** MBean has the following operations:
 | **startMaintenance**   | Switch the server to maintenance mode. No new requests will be accepted while the server is in maintenance. |
 | **endMaintenance**     | Switch the server to normal mode if it was switched to maintenance mode earlier.                            |
 
-![](attachments/126562846/126562854.png)
+![](/assets/attachments/126562846/126562854.png)
 #### Using the ServiceAdmin MBean
 
 This MBean is used for administering services deployed in your product. Its attributes are as follows:
@@ -182,7 +182,7 @@ This MBean is used for administering services deployed in your product. Its attr
 | **NumberOfInactiveServices** | The number of services which have been disabled by an administrator. |
 | **NumberOfFaultyServices**   | The number of services which are faulty.                             |
 
-![](attachments/45968791/57747545.png)
+![](/assets/attachments/45968791/57747545.png)
 The operations available in the ServiceAdmin MBean:
 
 | Operation                                          | Description                                                                                      |
@@ -190,7 +190,7 @@ The operations available in the ServiceAdmin MBean:
 | **startService** ( [p1:string](http://p1string/) ) | The p1 parameter is the service name. You can activate a service using this operation.           |
 | **stopService** ( [p1:string](http://p1string/) )  | The p1 parameter is the service name. You can deactivate/disable a service using this operation. |
 
-![](attachments/45968791/57747543.png)
+![](/assets/attachments/45968791/57747543.png)
 #### Using the StatisticsAdmin MBean
 
 This MBean is used for monitoring system and server statistics. Its attributes are as follows:
@@ -204,7 +204,7 @@ This MBean is used for monitoring system and server statistics. Its attributes a
 | **SystemRequestCount**    | The total number of requests that has been served by the system since the server was started.                                                    |
 | **SystemResponseCount**   | The total number of response that has been sent by the system since the server was started.                                                      |
 
-![](attachments/45968791/57747542.png)
+![](/assets/attachments/45968791/57747542.png)
 Operations available in the **Statistics** MBean:
 
 | Operation                                                                                         | Description                                                                                                                                                                                                         |
@@ -222,13 +222,13 @@ Operations available in the **Statistics** MBean:
 | **getMinOperationResponseTime** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the minimum response time of this operation since deployment.                                                             |
 | **getAvgOperationResponseTime** ( [p1:string](http://p1string/) , [p2:string](http://p2string/) ) | The p1 parameter is the service name. The p2 parameter is the operation name. You can get the average response time of this operation since deployment.                                                             |
 
-![](attachments/45968791/57747540.png)
+![](/assets/attachments/45968791/57747540.png)
 #### Using the DataSource MBean
 
 If you have [JMX enabled for a datasource connected to the product](#admin_JMX-BasedMonitoring-EnablingJMXforadatasource) , you can monitor the performance of the datasource using this MBean. The **DataSource** MBean will be listed as shown below.
-![](attachments/126562846/126562865.png)
+![](/assets/attachments/126562846/126562865.png)
 **Example:** If you have JMX enabled for the default Carbon datasource in the `master-datasources.xml.` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning) for instructions on how these parameters are configured for a datasource.
-![](attachments/126562846/126562864.png)
+![](/assets/attachments/126562846/126562864.png)
 #### Using product-specific MBeans
 
 The WSO2 product that you are using may have product-specific MBeans enabled for monitoring and managing specific functions. See the documentation for your product for detailed instructions on such product-specific MBeans.

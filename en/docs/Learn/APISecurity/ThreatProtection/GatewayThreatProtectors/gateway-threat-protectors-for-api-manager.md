@@ -46,6 +46,6 @@ You can add custom sequences depending on the threats that you need to address. 
 1.  Create an xml file with your custom sequence, or edit and save the sequence given above.
 2.  Go to **Message Mediation Policies** as described in the previous section.
 3.  Click **Upload In Flow** .
-    ![](attachments/103334901/103334902.png)4.  Select and upload your custom sequence.
-    ![](attachments/103334901/103334903.png)
+    ![](/assets/attachments/103334901/103334902.png)4.  Select and upload your custom sequence.
+    ![](/assets/attachments/103334901/103334903.png)
 

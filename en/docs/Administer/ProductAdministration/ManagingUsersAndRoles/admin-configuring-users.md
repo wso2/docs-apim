@@ -25,7 +25,7 @@ Follow the instructions below to add a new user account and configure its role.
 1.  On the **Main** tab in the management console, and click **Add** under **Users and Roles** .
 2.  Click **Users** . This link is only visible to users with the Admin role.
 3.  Click **Add New User** . The following screen will open:
-    ![](attachments/126562789/126562790.png)
+    ![](/assets/attachments/126562789/126562790.png)
 4.  Do the following:
     1.  In the **Domain** list, specify the user store where you want to create this user account. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on configuring user stores, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) .
     2.  Enter a unique username and the password that the person will use to log in. By default, the password must be at least five characters and should have at least one character with a capital letter, characters, numbers and special characters.
@@ -93,7 +93,7 @@ To import users with username, password, roles, and other attributes (as claim U
 !!! note
 If you are using **WSO2 Identity Server** , you can choose to leave the password empty as shown by the third line in the below sample. To use this option, you need to first enable the [Ask Password option](https://docs.wso2.com/display/IS530/Creating+Users+Using+the+Ask+Password+Option) for the server.
 
-![](attachments/126562789/126562794.png)
+![](/assets/attachments/126562789/126562794.png)
 
 #### Importing users from the CSV/Excel file
 
@@ -102,7 +102,7 @@ To import users in bulk:
 1.  Log in to the management console of your WSO2 product.
 2.  In the **Configure** menu, Under **Users and Roles** , click **Add.**
 3.  Click **Bulk Import Users** .
-4.  The user stores configured for your product will be listed in the **Domain** field. Select the user store to which you want to import the users from the list, upload the CSV or excel sheet, and click Finish. ![](attachments/126562789/126562800.png){height="250"}
+4.  The user stores configured for your product will be listed in the **Domain** field. Select the user store to which you want to import the users from the list, upload the CSV or excel sheet, and click Finish. ![](/assets/attachments/126562789/126562800.png){height="250"}
 
 !!! info
 The default password of the imported users is valid only for 24 hours. As the system administrator, you can resolve issues of expired passwords by logging in as the Admin and changing the user's password from the **User Management -&gt;Users** page. The 'Everyone' role will be assigned to the users by default.

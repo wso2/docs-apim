@@ -33,13 +33,13 @@ The gadgets that display publisher statistics can only be viewed via users that 
 
 Log in to the API Publisher. Anyone who can create and/or publish APIs can view the API-level usage and subscription statistics by clicking on a selected API and referring to its **Versions** and **Users** tabs.
 
-![](attachments/103335072/103335085.png)
-![](attachments/103335072/103335086.png)
+![](/assets/attachments/103335072/103335085.png)
+![](/assets/attachments/103335072/103335086.png)
 Given below are the statistical dashboards that are available from the **Analytics** menu.
 
-![](attachments/103335072/103335079.png)![](attachments/103335072/103335080.png)
+![](/assets/attachments/103335072/103335079.png)![](/assets/attachments/103335072/103335080.png)
 In each of the dashboards, you can choose to view all APIs or if you are an API creator, only the APIs that you have created. You can also select the time period for which you wish to view the statistics.
-![](attachments/103335072/103335092.png)
+![](/assets/attachments/103335072/103335092.png)
 
 Several examples of usage and performance statistics are given below:
 
@@ -68,80 +68,80 @@ Several examples of usage and performance statistics are given below:
 ##### Created APIs Over Time
 
 The number of APIs published over a given time period.
-![](attachments/103335072/103335084.png)
+![](/assets/attachments/103335072/103335084.png)
 ##### API Usage
 
 The number of subscriptions of each API with a grahical view of the count.
-![](attachments/103335072/103335106.png)
+![](/assets/attachments/103335072/103335106.png)
 ##### API Last Access Times
 
 A tabular representation of the last access times of an API, according to the version and the accessed subscriber.
-![](attachments/103335072/103335104.png)
+![](/assets/attachments/103335072/103335104.png)
 ##### Usage by Resource Path
 
 The number of invocations made by resources for an API, represented in a tabular view.
-![](attachments/103335072/103335089.png)
+![](/assets/attachments/103335072/103335089.png)
 ##### Usage by Destination
 
 The number of times an API was accessed based on the destination, represented in a tabular view.
-![](attachments/103335072/103335103.png)
+![](/assets/attachments/103335072/103335103.png)
 ##### API Usage Comparison
 
 The number of invocations made for an API represented as a combination of all resources and all versions of the API.
-![](attachments/103335072/103335102.png)
+![](/assets/attachments/103335072/103335102.png)
 ##### API Throttled Requests
 
 The total count of the successful request count and throttled request count towards an API over time.
-![](attachments/103335072/103335074.png)
+![](/assets/attachments/103335072/103335074.png)
 ##### Faulty Invocations
 
 A successful invocation is when an API receives the expected response. If it results in any kind of error response, that invocation is considered a faulty invocation. The total number of invocations of an API represented as a combination of successful and faulty invocations is denoted in the faulty invocations graph.
-![](attachments/103335072/103335073.png)
+![](/assets/attachments/103335072/103335073.png)
 ##### API Latency Time
 
 The execution time of the APIs represented as a combination of throttling, In mediation, Out mediation, backend response time, and authentication time.
 
 You can also see a comparison view of the latencies.
 
-![](attachments/103335072/103335101.png)
+![](/assets/attachments/103335072/103335101.png)
 ##### API Usage Across Geo Locations
 
 The data script that updates statistics related to geo locations is executed once a day. Therefore, at a given time, some of the statistics generated within the last 24 hours may not be displayed in this gadget.
-![](attachments/103335072/103335077.png)
+![](/assets/attachments/103335072/103335077.png)
 
 ##### API Usage Across User Agent
 
 The proportional distribution of the usage (invocation) of each API differentiated by the user agent HTTP header received in requests towards the API.
-![](attachments/103335072/103335099.png)
+![](/assets/attachments/103335072/103335099.png)
 ##### App Throttled Requests
 
 The successful request count and throttled request count of each API invoked by each application.
-![](attachments/103335072/103335098.png)
+![](/assets/attachments/103335072/103335098.png)
 ##### Applications Created Over Time
 
 The number of applications created over a given time period.
-![](attachments/103335072/103335097.png)
+![](/assets/attachments/103335072/103335097.png)
 ##### API Subscriptions
 
 The subscriptions created for each of the APIs as a distribution of API versions.
-![](attachments/103335072/103335096.png)
+![](/assets/attachments/103335072/103335096.png)
 ##### Developer Signups Over Time
 
 The number of developers who signed up to the API Store over time.
-![](attachments/103335072/103335095.png)
+![](/assets/attachments/103335072/103335095.png)
 ##### Subscriptions Created Over Time
 
 The number of subscriptions created for an API over a given period.
 
 First, select the API for which you wish to view subscriptions.
 
-![](attachments/103335072/103335083.png)
-![](attachments/103335072/103335093.png)
+![](/assets/attachments/103335072/103335083.png)
+![](/assets/attachments/103335072/103335093.png)
 ### API Store statistics
 
 Log in to the API Store. You can [self-subscribe](https://docs.wso2.com/display/AM260/Customizing+the+API+Store#CustomizingtheAPIStore-Enablingordisablingselfsignup) to the store. Next, click the **Statistics** menu.
 
-![](attachments/103335072/103335078.png)
+![](/assets/attachments/103335072/103335078.png)
 Given below are the statistical dashboards that are available:
 
 -   **APIUsage** : The usage of the API per application.
@@ -155,11 +155,11 @@ Several examples of usage and performance statistics are given below:
 ##### API Usage per Application
 
 The number of invocations made for each API by each application.
-![](attachments/103335072/103335114.png)
+![](/assets/attachments/103335072/103335114.png)
 ##### Top Users per Application
 
 The users who made the largest number of API calls per application.
-![](attachments/103335072/103335088.png)
+![](/assets/attachments/103335072/103335088.png)
 !!! note
 The statistics for the registered users for applications takes the number of users shared across each application in to consideration. To enable application sharing among users within the same organization, see [Sharing Applications](https://docs.wso2.com/display/AM260/Sharing+Applications) .
 
@@ -169,12 +169,12 @@ Only users who have generated access tokens using the [password grant](https://d
 ##### Resource Usage per Application
 
 The usage of resources of the APIs by each application.
-![](attachments/103335072/103335112.png)
+![](/assets/attachments/103335072/103335112.png)
 ##### Faulty Invocations per Application
 
 The total number of invocations made by each application that are unsuccessful (faulty).
 
-![](attachments/103335072/103335111.png)
+![](/assets/attachments/103335072/103335111.png)
 ### Admin Portal Statistics
 
 Log in to the Admin Portal ( `https://localhost:9443/admin` ). API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY** .
@@ -183,7 +183,7 @@ Log in to the Admin Portal ( `https://localhost:9443/admin` ). API Availability 
 
 The status of the APIs (all API versions) represented in a tabular view.
 
-![](attachments/103335072/103335076.png)
+![](/assets/attachments/103335072/103335076.png)
 <table>
 <tbody>
 <tr class="odd">
@@ -205,7 +205,7 @@ The status of the APIs (all API versions) represented in a tabular view.
 
 The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)](Alert-Types_103335140.html#AlertTypes-AvailabilityofAPIs(healthmonitoring)) alert type. You can edit the default configurations of the numbers set as parameters to cumstomize generating alerts by navigating to **SETTINGS &gt; ANALYTICS** and by going to the **Edit** view of **HealthAvailabilityPerMinAlert** as shown below.
 
-![](attachments/103335072/103335075.png)
+![](/assets/attachments/103335072/103335075.png)
 
 The parameter configurations of this alert type are given below.
 

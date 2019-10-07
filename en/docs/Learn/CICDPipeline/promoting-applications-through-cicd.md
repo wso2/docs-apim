@@ -29,7 +29,7 @@ After running the CLI tool make sure to add an environment before you start work
 #### Managing application lifecycle
 
 The lifecycle of an application could be defined as the stages of an application between the development and production environments. The feature facilitates to manage the application life cycle by allowing the user to migrate the applications within desired environments. The user should have admin permissions in order to use this.
-![](attachments/103333635/103333639.png)
+![](/assets/attachments/103333635/103333639.png)
 
 #### Exporting an application
 
@@ -127,12 +127,12 @@ The username and password are optional flags. You will be prompted to enter your
 There are three options to import applications in a single tenant environment.
 
 -   Application A in environment 1 is migrated to environment 2. Some APIs may not be available in environment 2 (API B in this case) and the relevant subscriptions are not added in such cases (skipped).
-    ![](attachments/103333635/103333637.png)
+    ![](/assets/attachments/103333635/103333637.png)
 
 -   A different owner can be specified while importing an application to environment 2,  without preserving the original user of environment 1.
-    ![](attachments/103333635/103333638.png)
+    ![](/assets/attachments/103333635/103333638.png)
 -   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserveOwner` flag.
-    ![](attachments/103333635/103333636.png)
+    ![](/assets/attachments/103333635/103333636.png)
 
 #### 
 Importing applications in a multi-tenant environment

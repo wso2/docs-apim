@@ -37,9 +37,9 @@ Group IDs are extracted using a `GroupingExtractor` class which is an implementa
 Share an application with multiple users who are in the same group or who are in multiple groups as follows:
 
 1.  Start WSO2 API Manager, navigate to the WSO2 Store, and click **Sign-up** .
-    ![](attachments/126559217/126559218.png)2.  Sign up to the API store as two different users (e.g., usera, userb) belonging to the same organizations. Click **Show Additional Details** to set the organization.
+    ![](/assets/attachments/126559217/126559218.png)2.  Sign up to the API store as two different users (e.g., usera, userb) belonging to the same organizations. Click **Show Additional Details** to set the organization.
 
-    ![](attachments/126559217/126559219.png)
+    ![](/assets/attachments/126559217/126559219.png)
 3.  Sign in as **usera** and add application **App\_A** .
 
 4.  Enter the Group ID as **org1** and press enter. Click **Add** . App\_A will be shared with all the users in **org1** group.
@@ -50,7 +50,7 @@ Share an application with multiple users who are in the same group or who are in
     -   If you have [enabled group sharing](#SharingApplications-Enablinggroupsharing) , but if you have not entered a group ID in the **Groups** section, WSO2 API-M will automatically share the application with the users who are in the same organization that you are in, because they are considered as part of the same group.
 
 
-    ![](attachments/126559217/126559220.png)
+    ![](/assets/attachments/126559217/126559220.png)
 ### Using application sharing
 
 You can use application sharing as follows:
@@ -58,10 +58,10 @@ You can use application sharing as follows:
 1.  Sign out of the API Store.
 2.  Sign in to the API Store as **userb** .
 3.  Go to the **Applications** tab. You will see App\_A which was added by **usera** .
-    ![](attachments/126559217/126559221.png)    Note that the name of the application creator is appended to the application name to differentiate the applications.
+    ![](/assets/attachments/126559217/126559221.png)    Note that the name of the application creator is appended to the application name to differentiate the applications.
 4.  Subscribe to the default API using App\_A.
-    ![](attachments/126559217/126559222.png)5.  Log in to the API Store as **usera.** The subscriptions for App\_A by **userb** will be displayed.
-    ![](attachments/126559217/126559223.png)
+    ![](/assets/attachments/126559217/126559222.png)5.  Log in to the API Store as **usera.** The subscriptions for App\_A by **userb** will be displayed.
+    ![](/assets/attachments/126559217/126559223.png)
 ### Extending the group ID extractor
 
 The default implementation picks the organization claim as the group ID. The organization names are returned in a string array. To use a different claim or a different type of group ID , you should create your own group ID extractor class by extending the `NewPostLoginExecutor` interface and overriding the following method.

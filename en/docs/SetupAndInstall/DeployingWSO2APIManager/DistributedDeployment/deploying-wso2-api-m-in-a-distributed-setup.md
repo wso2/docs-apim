@@ -9,7 +9,7 @@ Follow the instructions below to deploy WSO2 API Manager (WSO2 API-M) in a distr
 -   [Step 5 - Configure API-M Analytics](#DeployingWSO2API-MinaDistributedSetup-Step5-ConfigureAPI-MAnalytics)
 -   [Step 6 - Configure the connections among the components and start the servers](#DeployingWSO2API-MinaDistributedSetup-Step6-Configuretheconnectionsamongthecomponentsandstarttheservers)
 
-![](attachments/103334487/103334488.png)
+![](/assets/attachments/103334487/103334488.png)
 ### Step 1 - Install and configure WSO2 API-M
 
 ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on installing and configuring WSO2 API-M.

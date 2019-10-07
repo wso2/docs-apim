@@ -16,11 +16,11 @@ The steps below show you how to create a new version of an existing API.
 2.  Click on the API name that corresponds to the API for which you want to create a new version (e.g., `PhoneVerification 1.0.0` ).
     The API opens.
 3.  Click **Create New Version** .
-    ![Create New Version button](attachments/103328571/103328574.png "Create New Version button")4.  
+    ![Create New Version button](/assets/attachments/103328571/103328574.png)
 
-    Enter a version number, select the default version option, and click **Done** .
+4.  Enter a version number, select the default version option, and click **Done** .
     The **APIS** page opens.
-    ![Create New API Version](attachments/103328571/103328576.png "Create New API Version")
+    ![Create New API Version](/assets/attachments/103328571/103328576.png)
 
         !!! tip
     -   The **Default Version** option means that you make this version the default in a group of different versions of the API. A default API can be invoked without specifying the version number in the URL. For example, if you mark http://host:port/youtube/ 2.0 as the default version when the API has 1.0 and 3.0 versions as well, requests made to [http://host:port/youtube/](http://hostport) get automatically routed to version 2.0.
@@ -31,15 +31,15 @@ The steps below show you how to create a new version of an existing API.
 
 
 5.  Click the **Edit** icon of the new API version to edit it.
-    ![View New API Version](attachments/103328571/103328575.png "View New API Version")
+    ![View New API Version](/assets/attachments/103328571/103328575.png)
 
 6.  Do the required modifications to the API.
     For example, let's assume that the POST method is redundant, and let's delete it from the resource that we added to the API at the time it was created.
-    ![Update New API Version](attachments/103328571/103328573.png "Update New API Version")
+    ![Update New API Version](/assets/attachments/103328571/103328573.png)
         !!! note
     There is a known issue in API Manager 2.2.0 which is when creating a new version of an API with the SOAP Endpoint, it cannot be modified and saved with the existing WSDL endpoint set. Therefore, as a workaround, edit the API and change the existing WSDL endpoint to the correct WSDL endpoint before doing other modifications to the new version of the API.
 
-    ![Known Error can not update existing WSDL endpoint](attachments/103328571/103328572.png "Known Error existing WSDL endpoint ")
+    ![Known Error can not update existing WSDL endpoint](/assets/attachments/103328571/103328572.png)
 
 7.  Click **Save** once the edits are done.
 

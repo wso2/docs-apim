@@ -13,9 +13,9 @@ To analyze the Application Errors Statistics,
 At any given time, this page displays the statistics for a selected time interval.
 
 -   If you want to view statistics for a pre-defined time interval, click on the relevant time interval (e.g., **Last 30 Days** ).
-    ![](attachments/103335217/103335221.gif)
+    ![](/assets/attachments/103335217/103335221.gif)
 -   If you want to define a custom time interval, click **Custom** and select the start and end dates of the required time interval in the calendar that appears. Then click **Apply.
-    ![](attachments/103335217/103335220.gif)**
+    ![](/assets/attachments/103335217/103335220.gif)**
 
 
 ### Introduction
@@ -24,7 +24,7 @@ This page displays information relating to application errors that have occurred
 
 ##### Errors Distribution
 
-![](attachments/103335217/103335219.gif)
+![](/assets/attachments/103335217/103335219.gif)
 
 This gadget displays the count of application errors for each day/time over the selected time interval in a bar chart as shown in the example below. Each bar provides a breakdown of errors based on their exception category. If you move the cursor over a specific category, the following information is displayed as demonstrated above.
 
@@ -34,13 +34,13 @@ This gadget displays the count of application errors for each day/time over the 
 
 ##### Filtered Messages
 
-![](attachments/103335217/103335218.gif)
+![](/assets/attachments/103335217/103335218.gif)
 
 If you click on a coloured block representing an exception category, the **Filtered Messages** section is populated with details of all the individual occurrences of that exception category as shown above. At a give time, it displays only messages that belong to a selected category. You can sort the records in this table in the ascending/descending order based on the time stamp.
 
 ##### Log viewer
 
-**![](attachments/103335217/103335222.gif)**
+**![](/assets/attachments/103335217/103335222.gif)**
 
 If you want to view more details about an individual exception occurrence displayed in the **Filtered Messages** section, click **View** on the relevant row. As a result, the **Log Viewer** section displays the log in which the exception was recorded, including the 100 rows that were logged before the exception as well as the 100 rows that were logged after the exception. Different log levels are highlighted in different colours (i.e. **ERROR** level in red, **WARN** level in yellow, and **INFO** level in blue).
 

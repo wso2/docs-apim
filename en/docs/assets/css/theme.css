@@ -105,8 +105,14 @@
     }
 }
 
+html .md-typeset .superfences-tabs > label{
+    color: #ff7043;
+    font-weight: normal;
+}
+
 html .md-typeset .superfences-tabs > label:hover {
     color: #ff7043;
+    font-weight: bold;
 }
 
 .md-search__input {
@@ -265,16 +271,16 @@ html .md-typeset .superfences-tabs > label:hover {
 }
 
 .mb-config-catalog .superfences-content {
+    flex-direction: column;
     order: 0;
 }
 
 .mb-config-catalog .superfences-tabs > input + label:after {
-    content: "View Example";
+    content: "View Sample";
 }
 
 .mb-config-catalog .superfences-tabs > input:checked + label:after {
-    content: "Hide Example";
-    font-weight: 500;
+    content: "Hide Sample";
 }
 
 .mb-config-catalog .superfences-tabs .doc-wrapper {
@@ -288,7 +294,23 @@ html .md-typeset .superfences-tabs > label:hover {
 .mb-config-catalog > section > .mb-config-options,
 .mb-config-catalog > section > .mb-config-example {
     display: table-cell;
+    flex-direction: column;
 }
+
+.mb-config-catalog > section > .mb-config-example > .example-config-wrap {
+    margin-right: 1em;
+}
+
+.mb-config-catalog .mb-config > .params-wrap {
+    display: table;
+    width: 100%;
+}
+
+.mb-config-catalog > section > .mb-config-example > code {
+    font-weight: bold;
+    font-size: 105%;
+}
+
 
 .mb-config-catalog > section:not(.title) > .mb-config-options {
     border-bottom: 1px solid #f5f5f5;
@@ -926,7 +948,7 @@ html .md-footer-meta.md-typeset a,
     flex-direction: column;
 }
 
-.icon {
+.card-icon {
     width: 75px;
     height: 88px;
     max-width: 80px;
@@ -949,7 +971,7 @@ html .md-footer-meta.md-typeset a,
    font-style: normal;
    font-size: 14px;
    margin: 0;
-   text-align: center;
+   text-align: left;
    color: 404040;
    font-weight: 600;
    text-transform: uppercase;
