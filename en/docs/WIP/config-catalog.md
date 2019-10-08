@@ -2090,7 +2090,7 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>list of server urls ex: analytics_url = [&quot;tcp: //localhost:7611,
+                                        <p>list of server urls e.g.,: analytics_url = [&quot;tcp: //localhost:7611,
                                             tcp://localhost:7611&quot;]&quot;</p>
                                     </div>
                                 </div>
@@ -2112,7 +2112,7 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>list of auth server urls ex: analytics_auth_url = [&quot;ssl:
+                                        <p>list of auth server urls e.g.,: analytics_auth_url = [&quot;ssl:
                                             //localhost:7711,ssl://localhost:7711&quot;]</p>
                                     </div>
                                 </div>
@@ -3496,7 +3496,7 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Define JMS type ex: andes</p>
+                                        <p>Define JMS type e.g.,: andes</p>
                                     </div>
                                 </div>
                             </div>
