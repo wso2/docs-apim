@@ -1,0 +1,2 @@
+[database_configuration]
+enable_h2_console = true
