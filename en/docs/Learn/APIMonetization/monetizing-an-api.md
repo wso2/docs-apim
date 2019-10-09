@@ -1,71 +1,185 @@
 # Monetizing an API
 
-API Monetization is the process that allows API publishers to earn money by charging developers for using their services that have been exposed as APIs. When using API Monetization, API publishers can select billing plans based on their requirements and API providers are able to maximize their revenue by selecting the most profitable pricing plan for their APIs.
+API Monetization allows organizations to expand their business and generate higher revenue by exposing their services and data via APIs. API Publishers can publish their APIs with competitive business plans to the Developer Portal. Thereafter, API subscribers (e.g., Application Developers) can discover, subscribe, and invoke these monetized APIs, and pay for their API usage based on dynamic or fixed business plans.
 
-WSO2 provides a API Monetization solution via WSO2 API Manager (WSO2 API-M) that allows you to generate revenue off your APIs based on your business
-monetization goals. WSO2 API Manager provides an extendable interface that allows you to work with any third-party billing engine to monetize APIs using commercial tiers. 
+WSO2 API Manager (WSO2 API-M) allows API Publishers to manage, govern, and monetize their APIs based on their business monetization goals. API Publishers can use the monetization capability in WSO2 API Manager to define various business plans for the same service; therefore, API subscribers have the freedom of selecting a preferred business plan as their subscription. 
 
-WSO2 API Manager uses Stripe as its default billing engine for the purpose of demonstrating API monetization; however, you can plug in any custom implementation based on your requirement. WSO2 API Manager allows you to define various billing plans for the same service; therefore, subscribers have the freedom of selecting a suitable subscription for a billing plan based on their personal preferences. Overall, WSO2 API Manager allows you to manage, govern, and monetize APIs.
+WSO2 API Manager provides an extendable interface that allows API Management solution developers to provide custom implementations with any third-party billing engine for the purpose of monetizing APIs based on paid business plans. 
 
-### Monetize an API
+WSO2 API Manager uses <a href="https://stripe.com">Stripe</a> as its sample implementation billing engine to handle the payments for API monetization. However, you can use any custom implementation with WSO2 API Manager's API Monetization capabilities based on your requirement.
 
-Let's use the
-[wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java) to monetize an API.
+## Monetize an API
 
 <html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>The following steps are based on the [Stripe billing engine](https://dashboard.stripe.com/). If you wish to work with another third-party billing engine, you need to first create a custom implementation by extending the <a href="https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/model/Monetization.java">monetization interface</a>, and only thereafter will you be able to monetize your API.</p>
+      <div class="admonition warning">
+      <p class="admonition-title">Warning</p>
+      <p><b>The following steps are based on the [Stripe billing engine](https://dashboard.stripe.com/)</b>. If you wish to work with another third-party billing engine, you need to first create a custom implementation by extending the <a href="https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/model/Monetization.java">monetization interface</a>, and only thereafter will you be able to monetize your API.</p>
       </div> 
 </html>
 
-#### Before you begin
+Let's use the
+[wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java) to monetize an API in the following example scenario.
 
-##### (A.) - Configure the billing engine
+### Before you begin
 
-1.  [Create an account in Stripe](https://dashboard.stripe.com/register) and obtain the keys for the tenant admin.
-    1.  Create an account.  
+#### (A.) - Configure the billing engine
 
-         Use the details of the tenant admin and verify the account.
+ Create a connected account to configure the Stripe billing engine.  
 
-    2.  [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
+ The Stripe connected account will connect all the API Publisher accounts to the Tenant Admin's account. This allows the Tenant Admin to access the API Publishers' data, and create payments and customers on behalf of them. 
 
-        ![Obtain keys](../../assets/img/Learn/obtain-keys.png)
+ For more information go to, [Using Connect with Standard Accounts](https://stripe.com/docs/connect/standard-accounts).
+
+ <html>
+ <div class="admonition note">
+ <p class="admonition-title">Note</p>
+ <ul><li><p>
+ Make sure to configure the <a href="https://dashboard.stripe.com/account">timezone to UTC</a> before creating any objects in the Stripe accounts.</p></li>
+ <li>Create the following two Stripe accounts only if you do not have an existing Stripe account.</li>
+ </ul>
+ </div> 
+ </html>
+
+ 1. Create an account for the Tenant Admin.
+
+     The Tenant Admin account will be used to create a connected account in order to centrally manage the payments for the Publisher accounts.
+
+     1. [Create an account in Stripe](https://dashboard.stripe.com/register).  
+
+         Use the details of the Tenant Admin and verify the account. Let's name this account as Tenant Admin. <a name="tenantSK"></a>
+
+     2. [Obtain the keys](https://stripe.com/docs/keys#api-keys).  
+
+        ![Obtain keys](/assets/img/Learn/obtain-keys.png)
         
-2.  Create an account in [Stripe](https://dashboard.stripe.com/register) and obtain the keys for the API provider.  
+ 2.  Create an account for the API Publisher.  
     
-     Each API owner should create a Stripe account if they wish to monetize their APIs.
+     Each Publisher Stripe account corresponds to a specific Publisher in WSO2 API Manager. Every Publisher should create a separate Stripe account if they wish to monetize their APIs.
 
-    1.  Create an account.
-        <html>
-        <div class="admonition note">
-        <p class="admonition-title">Note</p>
-        <p>Make sure to configure the <a href="https://dashboard.stripe.com/account">timezone to UTC</a> before creating any objects in the Stripe accounts.</p>
-        </div> 
-        </html>
+    1.  [Create an account in Stripe](https://dashboard.stripe.com/register). 
 
     2.  [Obtain the keys](https://stripe.com/docs/keys#api-keys).
 
-3.  Create a [connected account](https://stripe.com/docs/connect/quickstart#create-account) in Stripe.  
+ 3.  Enable Connect and create a [connected account](https://stripe.com/docs/connect/quickstart#create-account) in Stripe.  
+
+    1. Sign in to the Tenant Admin's Stripe account.
+    2. Click **Connect** > **Get Started** > **Build a platform or marketplace** > **Continue** to create a platform account.
+
+        ![Create a platform account](/assets/img/Learn/create-platform-account.png)
+
+    3. The Tenant Admin has to share the OAuth link, which is in the following format, with the API Publisher.
+        
+        <html>
+        <div class="admonition tip">
+        <p class="admonition-title">Tip</p>
+        <p>This link gets auto generated based on your credentials in the Stripe documentation. Therefore, sign in to the Tenant Admin account and copy the link that is listed <a href="https://stripe.com/docs/connect/standard-accounts#integrating-oauth"> in step 1 under the Using Connect with Standard Accounts </a> section of the Stripe documentation.</p>
+        </div> 
+        </html>
+        
+
+        ```
+        https://connect.stripe.com/oauth/authorize?response_type=code&client_id=<client-id>&scope=read_write
+        ```
+        
+    4.  The API Publisher has to access and sign in to the latter mentioned link.
+
+    5.  Activate your API Publisher account or click **skip this account form** to work in developer mode.
+
+         ![Work in developer mode](/assets/img/Learn/developer-mode.png)
+
+         A cURL command appears.
+
+         ![cURL to get the Connect ID](/assets/img/Learn/stripe-connect-id-curl.png)
+
+    6. The API Publisher has to share the latter mentioned cURL command with the Tenant Admin.
+
+     <a name="connectID"> </a>
+
+    7. Tenant Admin has to execute the above cURL command after replacing the placeholder (`YOUR_SECRET_KEY`) with his/her own client secret. 
     
-     Use the connected account to connect the API provider’s Stripe account to the tenant admin’s Stripe account. After you create the connected account, get the connect ID of the account, and save the details somewhere.
+        This will connect the accounts. The connected account ID (Connect ID) for the API Publisher's account appears. The Tenant Admin will use the connected account ID via the connected platform account to make transactions on behalf of the connected account (API Publisher's account).
 
+#### (B.) - Configure WSO2 API-M Analytics
 
-##### (B.) - Configure the billing engine with WSO2 API-M
+ <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>These sub-steps are not applicable when working with fixed business plans, because such plans have a fixed billing scheme as opposed to billing based on the API usage.</p>
+      </div> 
+ </html>
+
+When working with API Monetization that involves dynamic business plans (usage-based plans), it is mandatory to enable WSO2 API Manager Analytics, because WSO2 API Manager needs to retrieve the most up-to-date API usage details from WSO2 API Manager Analytics and thereafter publish this data to the billing engine.
+
+<a name="APIM_MONETIZATION_SUMMARY-siddhi"></a>     
+
+1. Enable WSO2 API-M Analytics.
+
+    <html>
+    <p>
+    Copy the <a href="https://raw.githubusercontent.com/wso2/analytics-apim/master/features/org.wso2.analytics.apim.feature/src/main/resources/monetization-summary-siddhi-file/APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi</a>
+    file and add it into the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory if it is not already available.
+    </p>
+    </html>
+
+2. Optionally, preserve the required API usage data table in WSO2 API Manager Analytics.
+
+     <html>
+     <div class="admonition note">
+     <p class="admonition-title">Note</p>
+     <p>This is only mandatory if you customized the API usage-based [monetization granularity](#granularity).</p>
+     </div> 
+     </html>
+     
+     You need to do this to ensure that the data is not deleted from WSO2 API-M Analytics before these details are published to the billing engine.
+
+     1. Navigate to the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/APIM_MONETIZATION_SUMMARY.siddhi` file, which you [added previously](#APIM_MONETIZATION_SUMMARY-siddhi).
+
+     2. Increase the timeframe for data deletion based on the [monetization granularity timeframe](#apim-monetization-granularity) and the frequency that you publish the API usage data to the billing engine.  
+
+        ``` java tab="Format"
+        @purge(enable='true', interval='60 min', @retentionPeriod(<update-based-on-apim.monetization.granularity>))
+        ```
+
+        ``` java tab="Example"
+        @purge(enable='true', interval='60 min', @retentionPeriod(sec='7 days', min='1 month', hours='1 month', days='2 month', months='2 years'))
+        ```
+
+         **Example:**
+
+         If we want to publish the usage to Stripe only once in a week, but want to query data from the seconds table, based on the API-M monetization granularity for more accuracy, then you need to preserve the data of the seconds table for one week by editing the purging timeframe to 7 days as shown in the above example. 
+         
+         Otherwise, the seconds table will be purged based on the default value set in the `<API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files/APIM_MONETIZATION_SUMMARY.siddhi` file with regard to the `@purge` section.
+
+3. Start the WSO2 API Manager Analytics server.
+    
+    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
+     - On Windows:  `worker.bat --run`
+
+     - On Linux/Mac OS:  `sh worker.sh`
+
+#### (C.) - Configure WSO2 API Manager
+
+<html>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In a distributed WSO2 API Manager deployment, you need to do the following configurations in the Publisher and the Store nodes.</p>
+</div> 
+</html>
 
 1. Connect WSO2 API Manager to the billing engine.
 
-    1. Download and copy the billing engine related JAR in to the `<API-M_HOME>/repository/components/lib` directory.
+    1. Download and copy the JAR specific to the billing engine, which you are working with, into the `<API-M_HOME>/repository/components/lib` directory.
         
-        For Stripe you need to add the [Stripe Java 9.8.0 JAR](https://mvnrepository.com/artifact/com.stripe/stripe-java/9.8.0).
+        In this example scenario, add the [Stripe Java 9.8.0 JAR](https://mvnrepository.com/artifact/com.stripe/stripe-java/9.8.0) into the latter mentioned `lib` folder.
 
-    2. Build the implementation of the monetization interface and add the JAR in to the `<API-M_HOME>/repository/components/lib` directory.
+    2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        For Stripe you need to build the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin) and add the   `org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar` JAR.
+        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar](/assets/attachments/learn/org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-         Decompile the JAR that you get in the previous step and add the name of the package in the `<API-M_HOME>/repository/resources/conf/default.json` file as follows:
+        Decompile the `org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/resources/conf/default.json` file as follows:
 
         ``` json tab="Format"
         "apim.monetization.monetization_impl": "<monetization-implementation>"
@@ -77,10 +191,9 @@ Let's use the
 
 2.  Configure the database.
   
-    1. Download and add the database related connector JAR in to the`<APIM_HOME/repository/components/lib` directory. 
+    1. Download and add the database related connector JAR into the`<APIM_HOME/repository/components/lib` directory. 
         
-        As a MySQL database is used for this scenario, download and copy the [MySQL connector
-       JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) to the `<APIM_HOME/repository/components/lib` directory.
+        As a MySQL database is used for this example scenario, download and copy the [MySQL connector JAR](https://mvnrepository.com/artifact/mysql/mysql-connector-java/5.1.36) into the `<APIM_HOME/repository/components/lib` directory.
 
     2. Configure the WSO2 API Manager related datasource.  
         
@@ -101,13 +214,13 @@ Let's use the
         validationInterval = "30000"
         ```
 
-    3.  Select the DB script based on the DB that you are working with from the `<API-M_HOME>/dbscripts/apimgt/` directory and execute it.
+    3.  Navigate to the `<API-M_HOME>/dbscripts/apimgt/` directory and execute the database script that corresponds to the database management system that you are working on.
          
-         As a MySQL database is used for this scenario, execute the `mysql5.7.sql` script.
+         As a MySQL database is used for this example scenario, execute the `mysql5.7.sql` script.
          
-    4.  Execute one of the following DB scripts in the `WSO2AM_DB` database, based on the DB that you are using.
+    4.  Execute one of the following database scripts in the `WSO2AM_DB` database, based on the RDBMS that you are using.
          
-         Execute the MySQL script in this scenario.
+         Execute the MySQL script in this example scenario.
     
         ``` java tab="MySQL"
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION (
@@ -445,105 +558,7 @@ Let's use the
             );
         ```
 
-    6.  Configure the tenant admin on WSO2 API Manager.
-        1.  Start the WSO2 API Manager server.
-        2.  Sign in to the WSO2 API-M management console.
-        3.  Add the following configuration in
-            `tenant-conf.json` (`/_system/config/apimgt/applicationdata/tenant-conf.json`) file using the management console.  
-
-            ``` json tab="Format"
-            "MonetizationInfo": {
-                "<key-value-pair>"
-            }
-            ```
-
-             * `<key-value-pair>` - The key value pair varies based on your monetization interface. There can be multiple key value pairs.
-
-            ``` json tab="Example"
-            "MonetizationInfo": {
-                "BillingEnginePlatformAccountKey": "sk_test_QEGKUR7yt83Bc0RdAme0bZPL00hnxaNCE6"
-            }
-            ```
-
-             * `sk_test_QEGKUR7yt83Bc0RdAme0bZPL00hnxaNCE6` - In the case of Stripe this is the platform account key that corresponds to the tenant admin, which you obtained after creating the Stripe account for tenant admin.
-
-    7. Optionally, change the granularity for data aggregation if required.
-
-        1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
-        2.  Add the following configuration in the TOML file. 
-
-            ``` java
-            "apim.monetization.granularity": "seconds" 
-            ```
-
-##### (C.) - Configure the billing engine with WSO2 API-M Analytics
-When working with API Monetization, it is mandatory to enable WSO2 API Manager Analytics, because WSO2 API Manager needs to fetch API usage from analytics.
-
-1.  Enable WSO2 API Manager Analytics.  
-    
-     You need to enable WSO2 API Manager Analytics in order to use Monetization, because when working with Monetization the API usage is derived from WSO2 API Manager Analytics.  
-     
-     <html>
-     <p>
-     Copy the <a href="https://raw.githubusercontent.com/wso2/analytics-solutions/master/features/apim-analytics-feature/org.wso2.analytics.solutions.apim.analytics.feature/src/main/resources/monetization-summary-siddhi-file/APIM_MONETIZATION_SUMMARY.siddhi">APIM_MONETIZATION_SUMMARY.siddhi</a>
-    file and add it in to the <code><API-M-ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files</code> directory if it is not already available.
-    </p>
-    </html>
-
-2.  Configure the workflows.  
-
-     You need to do this in order to ensure that the correct workflows are engaged when a subscription is added or removed.
-
-     1.  Sign in to the WSO2 API-M management console.
-     2.  Edit the workflow executors in the `workflow-extensions.xml` (`/_system/governance/apimgt/applicationdata/workflow-extensions.xml`) file.
-        
-    ``` xml tab="Format"
-    <SubscriptionCreation executor="<billing-engine-related-SubscriptionCreationWorkflowExecutor>"/>
-    <SubscriptionDeletion executor="<billing-engine-related-StripeSubscriptionDeletionWorkflowExecutor>"/> 
-    ```
-
-    ``` xml tab="Example"
-    <SubscriptionCreation executor="org.wso2.apim.monetization.impl.workflow.StripeSubscriptionCreationWorkflowExecutor"/>
-    <SubscriptionDeletion executor="org.wso2.apim.monetization.impl.workflow.StripeSubscriptionDeletionWorkflowExecutor"/>
-    ```
-
-#### Step 1 - Create a subscription tier
-
-1.  Navigate to the WSO2 API Manager admin dashboard.  
-     
-     `https://<API-M_host>:<port>/admin`
-
-2.  Create a subscription policy.  
-     
-     Specify the monetization plan and other relevant data based on your preference. For more information, see [Adding a new subscription-level throttling tier](../../Learn/RateLimiting/adding-new-throttling-policies#Adding-a-new-subscription---level-throttling-tier).
-
-     <html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>When using Stripe as a billing engine it only allows you to create monetization plans for commercial tiers. Therefore, as Stripe is the billing engine in this example, make sure to create a subscription policy that has a commercial tier.</p>
-      </div> 
-     </html>
-
-
-     <html>
-         <head>
-         </head>
-         <body>
-             <img src="../../assets/img/Learn/subscription-commercial-tier.png" alt="Subscription to a commercial tier" title="Commercial tier subscription" width="400" />
-         </body>
-     </html>
-
-     After you save the policy, a plan gets created in the Stripe account of the tenant admin.  
-
-     ![Stripe account after creating a commercial tier](../../assets/img/Learn/Stripe-account-after-creating-a-commercial-tier.png)  
-     
-     The newly created Stripe product ID and plan ID will be stored in `AM_POLICY_PLAN_MAPPING` table along with the `UUID` of the tier. When you update the details of this tier, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete this tier, the plan in Stripe will get deleted and the corresponding record in the DB will also get deleted.
-
-#### Step 2 - Enable monetization
-
-1.  <a name> additionalProp </a> Configure the additional properties that are specific to the billing engine with regard to monetization in WSO2 API Manager.  
-     
-     After saving these configurations, the properties get populated in the Monetization enable/disable page on the Publisher in WSO2 API Manager.  
+3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.    
 
     1.  Add the following configuration under Monetization in the `<API-M_HOME>/repository/resources/conf/templates/repository/conf/api-manager.xml.j2` file.
 
@@ -571,65 +586,200 @@ When working with API Monetization, it is mandatory to enable WSO2 API Manager A
     2.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
         ``` java
-        [apim.monetization]
-        additional_attributes=['ConnectedAccountKey']
+        [[apim.monetization.additional_attributes]]
+        name = "connectedAccountKey"
+        display_name = "ConnectedAccountKey"
+        required = "true"
+        description = “connected account of the publisher”
+        ```
+        
+        The name property has to be identical to `connectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
+ 
+    After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the WSO2 API Publisher.   
+
+    <a name="granularity"></a>
+
+4. Optionally, change the granularity for the API usage data if required.
+      
+    This defines the depth of information of the API usage details that you want to publish to the billing engine. The default value is `days`. 
+    
+      **Example** 
+
+      If you need details on the exact time the API requests were made, then you need to change the granularity to `seconds` to query data from the seconds table.
+
+      <html>
+       <div class="admonition tip">
+       <p class="admonition-title">Tip</p>
+       <p>When the API usage data is more detailed, WSO2 API Manager Analytics will need more storage space to maintain this data.</p>
+       </div> 
+      </html>
+
+     1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+         <a name="apim-monetization-granularity"></a>
+
+     2.  Add the following configuration in the TOML file. 
+
+        ``` java tab="Format"
+        "apim.monetization.granularity": "<time-period>" 
         ```
 
-        When using Stripe as the billing engine, you need to enter the connect ID, which is the ID that indicates the link between the tenant admin and API provider Stripe accounts.
+        ``` java tab="Example"
+        "apim.monetization.granularity": "seconds" 
+        ```
 
-2.  Enable API monetization.
+        - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
 
-    1.  Sign in to the WSO2 API Manager Publisher.  
-        `https://<hostname>:9443/publisher-new`
-    2.  Click on the API that you wish to monetize.  
-        ![Enable monetization](../../assets/img/Learn/enable-monetization.png)
-    3.  Click **Monetization** to go to the Monetization configurations.
-    4.  Enter the connect ID as the connected account key and click
-        **Save**.  
-         
-         This creates the products and plans in Stripe based on the commercial tiers attached to the API.
 
-#### Step 3 - Subscribe to a monetized API
+5.  Configure the Tenant Admin on WSO2 API Manager.
+    1.  Start the WSO2 API Manager server.
 
-[Subscribe to an API](../../Learn/Tutorials/subscribe-to-an-api) and invoke the API. When subscribing to an API, the price of the tier and billing plan is shown. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
+    2.  Sign in to the WSO2 API-M Management Console.
+       
+         `https://<hostname>:9443/carbon`
 
-At the time of subscribing to an API, a Stripe customer is created in the Stripe platform account (e.g., the Stripe account for tenant admin). The following screenshot shows the customer record in the platform Stripe account.
+    3. Click **Main**, navigate to **Resources**, and click **Browse**.
+    
+    4. Enter the following path in **Location:** and click **Go**.
 
-![Customer created in stripe](../../assets/img/Learn/customer-created-in-stripe.png)
+         `/_system/config/apimgt/applicationdata/tenant-conf.json`
+
+         ![Resources page](/assets/img/Learn/tenant-config.png)
+    
+    5. Add the following configuration in the `tenant-conf.json` file using the WSO2 API-M Management Console.  
+
+        ``` json tab="Format"
+        "MonetizationInfo": {
+            "<key-value-pair>"
+        }
+        ```
+
+        ``` json tab="Example"
+        "MonetizationInfo": {
+            "BillingEnginePlatformAccountKey": "sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi"
+        }
+        ```
+
+        * `<key-value-pair>` - The key-value pair varies based on your monetization interface. There can be multiple key-value pairs.
+
+        * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
+
+6.  Configure the workflows.  
+
+     You need to do this to ensure that the correct workflows are engaged when a subscription is added or removed.
+
+     1.  Navigate to the **Browse** page.
+        1.  Sign in to the WSO2 API-M Management Console.
+       
+             `https://<hostname>:9443/carbon`
+
+        2. Click **Main**, navigate to **Resources**, and click **Browse**.
+    
+     2. Enter the following path in the **Location:** text-box and click **Go**.
+
+         `/_system/governance/apimgt/applicationdata/workflow-extensions.xml`
+
+     3.  Edit the workflow executors in the `workflow-extensions.xml` file.
+        
+         ``` xml tab="Format"
+         <SubscriptionCreation executor="<billing-engine-related-SubscriptionCreationWorkflowExecutor>"/>
+         <SubscriptionDeletion executor="<billing-engine-related-StripeSubscriptionDeletionWorkflowExecutor>"/> 
+         ```
+
+         ``` xml tab="Example"
+         <SubscriptionCreation executor="org.wso2.apim.monetization.impl.workflow.StripeSubscriptionCreationWorkflowExecutor"/>
+         <SubscriptionDeletion executor="org.wso2.apim.monetization.impl.workflow.StripeSubscriptionDeletionWorkflowExecutor"/>
+         ```            
+
+### Step 1 - Create a subscription policy
+
+1.  Navigate to the WSO2 API Manager admin dashboard.  
+     
+     `https://<API-M_host>:<port>/admin`
+
+2.  Create a subscription policy.  
+     
+     Specify the subscription policy-related data based on your monetization goals. For more information, see [Adding a new subscription-level throttling policy](/Learn/RateLimiting/adding-new-throttling-policies#Adding-a-new-subscription---level-throttling-tier).
+
+     <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>When using Stripe as a billing engine it only allows you to create monetization plans for commercial business plans. Therefore, make sure to create a subscription policy that has a paid business plan.</p>
+      </div> 
+     </html>
+
+
+     <html>
+         <head>
+         </head>
+         <body>
+             <img src="/assets/img/Learn/subscription-commercial-tier.png" alt="Subscription to a paid business plan" title="Paid business plan" width="400" />
+         </body>
+     </html>
+
+     After you save the policy, a plan gets created in the Stripe account of the Tenant Admin.  
+
+     ![Stripe account after creating a paid business plan](/assets/img/Learn/Stripe-account-after-creating-a-commercial-tier.png)  
+     
+     When you update the details of this business plan, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete a business plan, the plan in Stripe will get deleted.
+
+### Step 2 - Enable monetization
+
+1.  Sign in to the WSO2 API Publisher.  
+    `https://<hostname>:9443/publisher-new`
+
+2.  Click on the API that you wish to monetize.  
+    ![Enable monetization](/assets/img/Learn/enable-monetization.png)
+
+3.  Click **Monetization** to navigate to the Monetization configurations.
+
+4.  Enter the connect ID as the connected account key and click
+    **Save**.  
+
+    When using Stripe as the billing engine, you need to enter the [connect ID](#connectID), which is the ID that indicates the link between the Tenant Admin and the API Publisher Stripe accounts.
+        
+    The plans get created in Stripe based on the business plan attached to the API.
+
+### Step 3 - Subscribe to a monetized API
+
+[Subscribe to an API](/Learn/Tutorials/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
+
+When subscribing to an API, simultaneously a customer is created in the Stripe platform account (e.g., the Stripe account is created for the Tenant Admin). The following screenshot shows the customer record in the platform Stripe account.
+
+![Customer created in stripe](/assets/img/Learn/customer-created-in-stripe.png)
 
 The following screenshot depicts the details of the newly created customer in the platform Stripe account.
 
-![New customer details](../../assets/img/Learn/new-customer-details.png)
+![New customer details](/assets/img/Learn/new-customer-details.png)
 
-Thereafter, the customer will be copied to the Stripe account of the API
-provider, which is the connected account.
+Thereafter, the customer details are copied to the Stripe account of the API Publisher, which is the connected account.
 
-![Shared customer in connected account](../../assets/img/Learn/shared-customer-in-connected-account.png)
+![Shared customer in connected account](/assets/img/Learn/shared-customer-in-connected-account.png)
 
 The following are the details of the shared customer that appears in the
 Stripe UI.
 
-![Shared customer details](../../assets/img/Learn/shared-customer-details.png)
+![Shared customer details](/assets/img/Learn/shared-customer-details.png)
 
-A Stripe subscription will be created in the billing engine by fetching the details specified in the Stripe plan, which is associated with the subscription tier.
+Specific Stripe billing plans correspond to specific WSO2 API Manager business plans. Therefore, when an App developer subscribes to an API via the WSO2 API Developer Portal, Stripe will use the information in their business plan to create a corresponding subscription for the App developer in Stripe.  
 
-#### Step 4 - Send usage data to the billing engine
+### Step 4 - Send usage data to the billing engine
 
-You can use the admin API that is available in WSO2 API Manager to publish the summarized data to Stripe. After this API call takes place, it pushes the usage data to Stripe. After Stripe gets the usage data, it will check for the subscriptions that are completing their billing cycle and charge the customer accordingly.
+You can use the admin REST API, which is available in WSO2 API Manager, to publish the summarized data to Stripe. After this API call takes place, it pushes the usage data to Stripe. After Stripe gets the usage data, it checks for the subscriptions that have completed their billing cycle and charges the customer based on their API usage.
 
 1.  Obtain the consumer key and secret key pair by calling the dynamic client registration endpoint.  
      
-     For more information, see [Admin REST API - Getting Started](https://docs.wso2.com/display/AM260/apidocs/admin/index.html#guide).
+     For more information, see the [Getting Started section in the Admin REST API guide](https://docs.wso2.com/display/AM260/apidocs/admin/index.html#guide).
 
     ``` java
     curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.14/register
     ```
 
-    -   `<base64encoded-admin-account-credentials>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode the username and password       that corresponds to your admin user account using the following format: 
+    -   `<base64encoded-admin-account-credentials>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode the username and password that corresponds to your admin user account using the following format: 
         
         `<username>:<password>` 
         
-        Thereafter, enter the encoded value as this parameter.
+        Thereafter, enter the encoded value.
 
 2.  Obtain a token with the monetization usage scope (`scope apim:monetization_usage_publish`).
 
@@ -637,19 +787,17 @@ You can use the admin API that is available in WSO2 API Manager to publish the s
     curl -X POST https://localhost:8243/token -H 'Authorization: Basic <base64encoded-registeration-credentials>' -d 'grant_type=password&username=admin&password=admin&scope=apim:monetization_usage_publish'
     ```
       
-    -   `<base64encoded-registeration-credentials>` - Use a base64 encoder (e.g., <https://www.base64encode.org/>) to encode the username and password          that corresponds to the client ID and client secret that you received as the response in the previous step using the following format: 
+    -   `<base64encoded-registeration-credentials>` - Use the following format in a [base64 encoder](#https://www.base64encode.org) to encode the client ID and client secret, which you received as the response in the previous step. Thereafter, enter the encoded value.
     
         `<clientID>:<clientSecret>` 
     
-        Thereafter, enter the encoded value as this parameter.
-
 3.  Publish usage data to the Stripe billing engine.
 
     ``` java
     curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X POST -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v0.14/monetization/publish-usage
     ```
 
-    -   `<monetization-usage-publish-token>` - This is the token that you got when you executed the Admin REST API with the monetization usage scope.
+    -   `<monetization-usage-publish-token>` - This is the token that you got when executing the Admin REST API with the monetization usage scope.
 
     The REST API response is as follows:
 
@@ -657,47 +805,56 @@ You can use the admin API that is available in WSO2 API Manager to publish the s
     {"status":"Request Accepted","message":"Server is running the usage publisher"}
     ```
 
-    The aggregation count will be stored in `ApiPerDestinationAgg_SECONDS` table, which corresponds to the WSO2 API-M Analytics database. If you check the `AM_MONETIZATION_USAGE_PUBLISHER` table after the admin API call is made, you will see that the record for the API usage is published.  
-      
-    In addition, after the admin API call is made the aggregated bill
-    gets generated in Stripe (connected account).  
-    ![Pricing](../../assets/img/Learn/pricing.png) At the end of
-    the billing cycle, the amount will be charged from the customer. As
-    this scenario uses a usage based billing model, the revenue goes from the subscriber to the API provider in the billing engine.
+    After making an admin API call the bill gets generated in the Stripe connected account.
 
-#### Step 5 - Monitor usage of a monetized API
+    ![Pricing](/assets/img/Learn/pricing.png) The charging process takes place at the end of the billing cycle. As this example scenario uses a usage-based business plan, the payment that the subscribers make for their bills are sent to the API Publisher via the billing engine.
 
-There are two types of billing plans for monetized APIs, namely the fixed billing plan and the dynamic billing plan. Usage needs to be monitored for APIs associated with dynamic billing plans, which is also referred to as metered billing. 
+### Step 5 - Monitor usage of a monetized API
 
-When an API request is initiated, the API Gateway will publish the analytics related to that request. The successful API calls is recorded in the database and this data is used to aggregate the API usage and charge from the subscriber.
+Two types of business plans are available for monetized APIs namely, the fixed business plan and the dynamic business plan. Dynamic business plans are based on the subscribers' API usage. However, users who are on fixed business plans are changed a fixed price irrespective of their API usage. When deciding on a business plan, the Publisher takes into account the type of the API, the value that the API creates, and its organization business model.
 
-##### View the revenue for a particular subscription in a given API
+The monitoring of API usage is only done for APIs associated with dynamic business plans (metered billing). When an API request is initiated, the API Gateway publishes the analytics related to that request. The successful API calls are recorded in the database, and this data is used to calculate the API usage and charge the subscriber.
 
-If a subscription is based on metered billing it is possible to get the revenue up-to now, which is within the current billing cycle. Subscriptions with a fixed amount is not counted here.
+#### View the revenue for a particular subscription in a given API via WSO2 API Developer Portal
 
-##### View the revenue for a given API from all subscriptions
+The Application Developers who are subscribed to a dynamic business plan can sign in to the WSO2 API Developer Portal to view the billing details of their subscription from the start of the current billing cycle to the current date, which is the date of viewing the bill.
 
-This refers to the revenue related to the aggregation of all metered billing subscriptions. The API provider can use this chart to get an idea of the total revenue up-to now for each subscription.
+#### View the revenue for a given API via WSO2 API Publisher
 
-### Disable monetization
+The API Publisher can access the billing information related to each of the subscriptions that correspond to a specific API via the WSO2 API Publisher interface.
+
+1.  Sign in to the WSO2 API Publisher.  
+    `https://<hostname>:9443/publisher-new`
+
+2. Click on the specific monetized API.
+
+3. Click **Subscriptions**.
+
+     The list of subscriptions that correspond to the API appears.
+
+     ![Subscription details](/assets/img/Learn/subscription-details.png)
+
+4. Click on **View Invoice** to view the corresponding API monetization invoice.
+
+     ![Invoice details](/assets/img/Learn/invoice-details.png)
+
+## Disable monetization
 
 Follow the instructions below to disable monetization for an API:
 
-<html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>It is assumed that you have already [configured the additional properties](../../Learn/APIMonetization/monetizing-an-api#additionalProp) that are specific to the billing engine with regard to monetization in WSO2 API Manager.</p>
-      </div> 
-</html>
-
-1.  Sign in to the WSO2 API Manager Publisher.  
+1.  Sign in to the WSO2 API Publisher.  
     `https://<hostname>:9443/publisher-new`
-2.  Click on the monetized API.
+
+2.  Click on the monetized API for which you need to disable monetization.
+
 3.  Click **Monetization** to go to the Monetization configurations.  
-    ![Disable monetization](../../assets/img/Learn/disable-monetization.png)
+    ![Disable monetization](/assets/img/Learn/disable-monetization.png)
+
 4.  Click **Enable Monetization** to unselect the enable monetization option.
-5.  Enter the connect ID as the connected account key.
+
+5.  Enter the [connect ID](#connectID) as the connected account key.
+
 6.  Click **Save**.  
     
-     The products and plans are removed in the Stripe billing engine based on the commercial tiers attached to the API.
+     The products and plans are removed in the Stripe billing engine based on the business plan attached to the API.
 
