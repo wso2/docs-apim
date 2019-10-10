@@ -1,0 +1,1637 @@
+{
+    "configs": [
+        {
+            "title": "Super admin configurations",
+            "options": [
+                {
+                    "name": "super_admin",
+                    "required": true,
+                    "description": "This includes the configurations related to the super admin user.",
+                    "params": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "admin",
+                            "description": "super admin username"
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "admin",
+                            "description": "super admin password"
+                        },
+                        {
+                            "name": "create_admin_account",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "description": "Set this to true to create a new user with the super admin details given."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "Connecting to the primary data store",
+            "options": [
+                {
+                    "name": "server",
+                    "required": true,
+                    "description": "This groups the parameters that define the server node details.",
+                    "params": [
+                        {
+                            "name": "hostname",
+                            "type": "string",
+                            "required": true,
+                            "default": "\"localhost\"",
+                            "possible": "\"127.0.0.1\",\"localhost\",\"<any-ip-address>\"",
+                            "description": "The hostname of the WSO2 API-M server instance."
+                        },
+                        {
+                            "name": "node_ip",
+                            "type": "string",
+                            "required": true,
+                            "default": "\"127.0.0.1\"",
+                            "description": "The IP address of the server node."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_primary-data-store.toml"
+        },
+        {
+            "title": "Enabling the H2 database console",
+            "options": [
+                {
+                    "name": "database_configuration",
+                    "required": false,
+                    "description": "Configurations required to enable browsing the H2 database from a web browser.",
+                    "params": [
+                        {
+                            "name": "enable_h2_console",
+                            "type": "boolean",
+                            "required": true,
+                            "default": "false",
+                            "possible": "true, false",
+                            "description": "True when required to browser the H2 database from a browser. False when not."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_enable_h2_console.toml"
+        },
+        {
+            "title": "Database configurations",
+            "options": [
+                {
+                    "name": "database.apim_db",
+                    "required": true,
+                    "description": "Database configurations related to API Manager",
+                    "params": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": true,
+                            "default": "h2",
+                            "possible": "mysql,h2,mssql,postgre,oracle,db2",
+                            "description": "Database vendor"
+                        },
+                        {
+                            "name": "hostname",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "You can use either hostname and port or the URL(given below). If you specify the URL the hostname and port will be overridden."
+                        },
+                        {
+                            "name": "port",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "jdbc:h2:repository/database/WSO2AM_DB;DB_CLOSE_ON_EXIT=FALSE",
+                            "description": "The connection URL is required when you use the h2 db.\n\n You have to add the URL to use the JDBC properties listed below. Otherwise it is optional."
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "description": "The username used to create a connection to the database."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": true,
+                            "default": "wso2carbon",
+                            "description": "The password used to create a connection to the database."
+                        },
+                        {
+                            "name": "*validationQuery",
+                            "type": "string",
+                            "required": true,
+                            "default": "SELECT 1",
+                            "description": " The value changes according to the Database query"
+                        },
+                        {
+                            "name": "pool_options.maxActive",
+                            "type": "string",
+                            "required": false,
+                            "default": "50",
+                            "description": "The maximum number of active connections that can be allocated from the connection pool at the same time. Change according to the preferred database."
+                        },
+                        {
+                            "name": "pool_options.maxWait",
+                            "type": "string",
+                            "required": false,
+                            "default": "60000",
+                            "description": "The maximum time that requests are expected to wait in the queue for a connection to be released. This property comes into effect when the maximum number of active connections allowed in the connection pool (see maxActive property) is used up."
+                        },
+                        {
+                            "name": "pool_options.testOnBorrow",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "description": "The indication of whether connection objects will be validated before they are borrowed from the pool. If the object validation fails, the connection is dropped from the pool, and there will be an attempt to borrow another connection."
+                        },
+                        {
+                            "name": "pool_options.validationInterval",
+                            "type": "string",
+                            "required": false,
+                            "default": "30000",
+                            "description": "This parameter controls how frequently a given validation query is executed (time in milliseconds). That is, if a connection is due for validation, but has been validated previously within this interval, it will not be validated again."
+                        },
+                        {
+                            "name": "pool_options.defaultAutoCommit",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "description": "When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_database_apim_db.toml"
+        },
+        {
+            "title": "Shared database configurations",
+            "options": [
+                {
+                    "name": "database.shared_db",
+                    "required": true,
+                    "description": "Configurations related to the databases shared between nodes",
+                    "params": [
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "h2",
+                            "possible": "mysql,h2,mssql,postgre,oracle,db2",
+                            "description": "Database type"
+                        },
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": false,
+                            "default": "jdbc:h2:repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE",
+                            "description": "connection url"
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "wso2carbon",
+                            "description": "username"
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "wso2carbon",
+                            "description": "password"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_database_shared_db.toml"
+        },
+        {
+            "title": "JWT Configurations",
+            "options": [
+                {
+                    "name": "apim.jwt",
+                    "required": true,
+                    "description": "Enable APIM to generate a JWT within itself. \n\n JSON Web Token (JWT) is used to represent claims that are transferred between two parties such as the end-user and the backend.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": true,
+                            "default": "FALSE",
+                            "possible": "true, false",
+                            "description": "Enable JWT."
+                        },
+                        {
+                            "name": "encoding",
+                            "type": "string",
+                            "required": false,
+                            "default": "base64",
+                            "possible": "base64,base64url",
+                            "description": "Use base64 encoding for the default JWT generator. \n\nUse the url-safe JWT generator if it is base64url."
+                        },
+                        {
+                            "name": "generator_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "This can be defined as a custom generation implmetation. \n\nIf this is defined, the \"apim.jwt.encoding\" will be ignored. \n\nNote that this should be the fully-qualified class name."
+                        },
+                        {
+                            "name": "header",
+                            "type": "string",
+                            "required": false,
+                            "default": "X-JWT-Assertion",
+                            "description": "The HTTP header name used to send the JWT generated prev."
+                        },
+                        {
+                            "name": "enable_user_claims",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "FALSE",
+                            "description": "No user store claims included in the JWT if false. "
+                        },
+                        {
+                            "name": "enable_user_claims",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "TRUE",
+                            "description": "THe default user claims will be added to the JWT"
+                        },
+                        {
+                            "name": "claims_extractor_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "You can define the custom claim retiriver implmentation by adding the following \n apim.jwt.enable_user_claims=true. \n\n Make sure that it is the fully-qualified class name."
+                        },
+                        {
+                            "name": "claim_dialect",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://wso2.org/claims",
+                            "possible": "",
+                            "description": "A set of claims are identified as a dialect. Different dialects represent the same piece of information with different claim URIs."
+                        },
+                        {
+                            "name": "signing_algorithm",
+                            "type": "string",
+                            "required": false,
+                            "default": "SHA256withRSA",
+                            "possible": "NONE",
+                            "description": "Specify NONE to disbale the sigining."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_apim_jwt.toml"
+        },
+        {
+            "title": "API-M gateway environment configurations",
+            "options": [
+                {
+                    "name": "apim.gateway.environment",
+                    "required": true,
+                    "description": "Configuring the gateways used by API Manager.",
+                    "params": [
+                        {
+                            "name": "name",
+                            "type": "string",
+                            "required": true,
+                            "default": "Production and Sandbox",
+                            "possible": "",
+                            "description": "User can add preferred values as the name."
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": true,
+                            "default": "hybrid",
+                            "possible": "production, sandbox, hybrid",
+                            "description": ""
+                        },
+                        {
+                            "name": "display_in_api_console  ",
+                            "type": "string",
+                            "required": true,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Displays the environment under 'Try it' in the API Store, in the API console."
+                        },
+                        {
+                            "name": "description",
+                            "type": "string",
+                            "required": true,
+                            "default": "This is a hybrid gateway that handles both production and sandbox token traffic.",
+                            "possible": "",
+                            "description": "Describe the function of the gateway here."
+                        },
+                        {
+                            "name": "show_as_token_endpoint_url  ",
+                            "type": "string",
+                            "required": true,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Use to construct the sample curl request in the API Store."
+                        },
+                        {
+                            "name": "service_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "https://localhost:9443/services/",
+                            "possible": "",
+                            "description": "APIs will be published using this URL"
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "default": "$conf{super_admin.username}",
+                            "possible": "",
+                            "description": "Credentials used to publish APIs"
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": true,
+                            "default": "$conf{super_admin.password}",
+                            "possible": "",
+                            "description": "Credentials used to publish APIs"
+                        },
+                        {
+                            "name": "ws_endpoint",
+                            "type": "string",
+                            "required": true,
+                            "default": "no default value",
+                            "possible": "",
+                            "description": "E.g., ws://localhost:9099"
+                        },
+                        {
+                            "name": "https_endpoint",
+                            "type": "string",
+                            "required": true,
+                            "default": "no default value",
+                            "possible": "",
+                            "description": "https://localhost:8243/"
+                        },
+                        {
+                            "name": "http_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "no default value",
+                            "possible": "",
+                            "description": "http://localhost:8280/"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.gateway.environment.toml"
+        },
+        {
+            "title": "Gateway token cache",
+            "options": [
+                {
+                    "name": "apim.cache.gateway_token",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable the gateway token cache. WSO2 recommends to enable this feature by default. The token validation request checks with the cached value."
+                        },
+                        {
+                            "name": "expiry_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "15 m",
+                            "possible": "",
+                            "description": "Set the cache expiry time in minutes. Recommended value is 15 minutes."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.cache.gateway_token.toml"
+        },
+        {
+            "title": "Cache resource",
+            "options": [
+                {
+                    "name": "apim.cache.resource",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable the gateway resource cache. Caches the API resources at the gateway. Expires in 15 minutes."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.cache.resource.toml"
+        },
+        {
+            "title": "Cache Keymanager token",
+            "options": [
+                {
+                    "name": "apim.cache.km_token",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable the Key Manager token cache. The token validation request checks with the value cached at the Key Manager. At any given time you should only have one cache enabled, which is either the Key Manager cache or the API Gateway cache. WSO2 does not recommend using both caches at the same time."
+                        },
+                        {
+                            "name": "expiry_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "15 m",
+                            "possible": "",
+                            "description": "Set the cache expiry time"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.cache.km_token.toml"
+        },
+        {
+            "title": "Cache recent APIs",
+            "options": [
+                {
+                    "name": "apim.cache.recent_apis",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable cache for recently added apis in the API Store. This expires in 15 minutes by default"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "apim.cache.recent_apis.toml"
+        },
+        {
+            "title": "Cache scopes",
+            "options": [
+                {
+                    "name": "apim.cache.scopes",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enabel cache for scopes. This expires in 15 minutes by default."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "Cache publisher roles",
+            "options": [
+                {
+                    "name": "apim.cache.publisher_roles",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable cache for publisher roles. Expires in 15 minutes by default"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "Cache publisher roles",
+            "options": [
+                {
+                    "name": "apim.cache.publisher_roles",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable cache for publisher roles. Expires in 15 minutes by default"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "Cache JWT claims",
+            "options": [
+                {
+                    "name": "apim.cache.jwt_claim",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable JWT claim cache. The user's claims used to create the JWT are cached."
+                        },
+                        {
+                            "name": "expiry_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "Not defined",
+                            "possible": "",
+                            "description": "Set the cache expiry time. Would be same as the JWT expiry time."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "Cache tags",
+            "options": [
+                {
+                    "name": "apim.cache.tags",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "expiry_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "2m",
+                            "possible": "",
+                            "description": "Set tag cache expiry time. Check with the new UI. Disabled when not defined."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Analytics related configurations",
+            "options": [
+                {
+                    "name": "apim.analytics",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": true,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "enable/disable analytics on the API Manager"
+                        },
+                        {
+                            "name": "store_api_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "https://localhost:7444",
+                            "possible": "",
+                            "description": "Analytics store rest api url. If there are mutiple analytics node, use LB url"
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": true,
+                            "default": "user super admin username",
+                            "possible": "",
+                            "description": "username of the analytics node"
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": true,
+                            "default": "user super admin password",
+                            "possible": "",
+                            "description": "password of the analytics node"
+                        },
+                        {
+                            "name": "receiver_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "use apim.analytics.username",
+                            "possible": "",
+                            "description": "if specific user need to used for the event publishing"
+                        },
+                        {
+                            "name": "receiver_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "use apim.analytics.password",
+                            "possible": "",
+                            "description": "if specific user need to used for the event publishing"
+                        },
+                        {
+                            "name": "store_api_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "use apim.analytics.username",
+                            "possible": "",
+                            "description": "if specific user need to used for access Store rest api"
+                        },
+                        {
+                            "name": "store_api_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "use apim.analytics.password",
+                            "possible": "",
+                            "description": "if specific user need to used for access rest api"
+                        },
+                        {
+                            "name": "event_publisher_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "if the event_publisher_type is custom, the custom publisher needs to be definied to this value 'event_publisher_impl = \"org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageDataBridgeDataPublisher\""
+                        },
+                        {
+                            "name": "publish_response_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "enable whather to publisher response size to analytics. Size is bytes."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Analytics - URL group",
+            "options": [
+                {
+                    "name": "apim.analytics.url_group",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Define analytics nodes that the API Manager will connect to, as an array. If there are mutiple node, need to define this configuration mutiple times."
+                        },
+                        {
+                            "name": "analytics_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "tcp://localhost:7612",
+                            "possible": "",
+                            "description": "list of server urls e.g.,: analytics_url = [\"tcp: //localhost:7611, tcp://localhost:7611\"]\""
+                        },
+                        {
+                            "name": "analytics_auth_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "ssl://localhost:7712",
+                            "possible": "",
+                            "description": "list of auth server urls e.g.,: analytics_auth_url = [\"ssl: //localhost:7711,ssl://localhost:7711\"]"
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "no default value",
+                            "possible": "",
+                            "description": "loadbalance or failover"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Key Manager related configurations",
+            "options": [
+                {
+                    "name": "apim.key_manager",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "service_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "https://localhost:9443/services/",
+                            "possible": "",
+                            "description": "URL that offers services of the KM"
+                        },
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "user super admin username",
+                            "possible": "",
+                            "description": "Given previously. - The admin username of the KM."
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "user super admin password",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "pool.init_idle_capacity",
+                            "type": "string",
+                            "required": false,
+                            "default": "50",
+                            "possible": "",
+                            "description": "Min no of clients created to connect to the key manager."
+                        },
+                        {
+                            "name": "pool.max_idle",
+                            "type": "string",
+                            "required": false,
+                            "default": "100",
+                            "possible": "",
+                            "description": "Max no of clients created to connect to the key manager."
+                        },
+                        {
+                            "name": "key_validation_handler_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "default",
+                            "possible": "default or custom",
+                            "description": "If custom, then provide the value below"
+                        },
+                        {
+                            "name": "key_validation_handler_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Can provide custom key validation handler implmentation. Need to set key_validation_handler_type to custom"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M OAuth configurations",
+            "options": [
+                {
+                    "name": "apim.oauth_config",
+                    "required": true,
+                    "description": "Collection of OAuth related configs",
+                    "params": [
+                        {
+                            "name": "enable_outbound_auth_header",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "If TRUE, sends Auth header to the backend as received from the client."
+                        },
+                        {
+                            "name": "auth_header",
+                            "type": "string",
+                            "required": false,
+                            "default": "Authorization",
+                            "possible": "Any custom value",
+                            "description": ""
+                        },
+                        {
+                            "name": "revoke_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://localhost:8243/revoke",
+                            "possible": "",
+                            "description": "Token revocation endpoint used in the API Store"
+                        },
+                        {
+                            "name": "enable_token_encryption",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "if true - token stored in the database will be encrypted/decrypted when reading and storing. RSA/ECB/OAEPwithSHA1andMGF1PaddingIf FALSE - Setting Up OAuth Token Encryption | Extension Points for OAuth - IS Docs"
+                        },
+                        {
+                            "name": "enable_token_hashing",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Similar to prev. Get desc from  IS docs"
+                        },
+                        {
+                            "name": "white_listed_scopes",
+                            "type": "string",
+                            "required": false,
+                            "default": "[\"^device_.*,openid\"]",
+                            "possible": "",
+                            "description": "List of whitelisted scopes. Take desc from Key Concepts page."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Store configurations",
+            "options": [
+                {
+                    "name": "apim.store",
+                    "required": true,
+                    "description": "Configures the API Store",
+                    "params": [
+                        {
+                            "name": "url",
+                            "type": "string",
+                            "required": true,
+                            "default": "https://localhost:9443/store",
+                            "possible": "",
+                            "description": "Public store URL"
+                        },
+                        {
+                            "name": "enable_application_sharing",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable application sharing according to the claims."
+                        },
+                        {
+                            "name": "application_sharing_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "If the config is not mentioned, then undefined.default",
+                            "possible": "default, saml",
+                            "description": "Use the application_sharing_impl as default implmentationIf it is saml, the group extractor extracts the claims to group the applications from the saml response."
+                        },
+                        {
+                            "name": "application_sharing_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "Based on the application sharing type.",
+                            "possible": "",
+                            "description": "Need to define if the application_sharing_type is custom. If both application_sharing_type and application_sharing_impl is defined, take value from application_sharing_impl."
+                        },
+                        {
+                            "name": "login_username_case_insensitive",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Check with new UI"
+                        },
+                        {
+                            "name": "display_multiple_versions",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "If TRUE displays all the versions of the API under the API listing (and search depending on the new UI)"
+                        },
+                        {
+                            "name": "display_deprecated_apis",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "If TRUE displays all the deprecated APIs under the API listing (and search depending on the new UI)"
+                        },
+                        {
+                            "name": "enable_comments",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Can comment on the API"
+                        },
+                        {
+                            "name": "enable_ratings",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable rating the API with a star-based rating"
+                        },
+                        {
+                            "name": "enable_forum",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "^"
+                        },
+                        {
+                            "name": "application_sharing_claim",
+                            "type": "string",
+                            "required": false,
+                            "default": "http://wso2.org/claims/organization",
+                            "possible": "",
+                            "description": "The user claim used to group the applications."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Publisher configurations",
+            "options": [
+                {
+                    "name": "apim.publisher",
+                    "required": true,
+                    "description": "Configures the API Publisher",
+                    "params": [
+                        {
+                            "name": "enable_api_doc_visibility",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M CORS configurations",
+            "options": [
+                {
+                    "name": "apim.cors",
+                    "required": true,
+                    "description": "Configures CORS headers on the Publisher and the GW.",
+                    "params": [
+                        {
+                            "name": "enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "default configuration in the toml"
+                        },
+                        {
+                            "name": "allow_origins",
+                            "type": "string",
+                            "required": false,
+                            "default": "*",
+                            "possible": "",
+                            "description": "Get desc online. "
+                        },
+                        {
+                            "name": "allow_methods",
+                            "type": "string",
+                            "required": false,
+                            "default": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow_headers",
+                            "type": "string",
+                            "required": false,
+                            "default": "authorization,Access-Control-Allow-Origin,Content-Type,SOAPAction",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "allow_credentials",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Throttling configurations",
+            "options": [
+                {
+                    "name": "apim.throttling",
+                    "required": true,
+                    "description": "Configures API-M traffic control.",
+                    "params": [
+                        {
+                            "name": "event_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "Binary",
+                            "possible": "Thrift",
+                            "description": "Binary - Uses the binary transport. Recommended.Thrift - Uses thrift tranport"
+                        },
+                        {
+                            "name": "receiver_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "if None of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}",
+                            "possible": "",
+                            "description": "Define traffic manager connection url inline. If none of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}"
+                        },
+                        {
+                            "name": "receiver_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Define array of traffic manager connections"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Throttling URL group configs",
+            "options": [
+                {
+                    "name": "apim.throttling.url_group",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "username",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "TM username"
+                        },
+                        {
+                            "name": "password",
+                            "type": "string",
+                            "required": false,
+                            "default": "super user password",
+                            "possible": "",
+                            "description": "TM password"
+                        },
+                        {
+                            "name": "receiver_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "receiver username if it is diffrent. The username of the receiver configured on the TM."
+                        },
+                        {
+                            "name": "receiver_password",
+                            "type": "string",
+                            "required": false,
+                            "default": "super user password",
+                            "possible": "",
+                            "description": "receiver password if it is diffrent"
+                        },
+                        {
+                            "name": "policy_deploy.username",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "user name for policy deploy. if it is diffrentReceiver configured for deploying policies."
+                        },
+                        {
+                            "name": "policy_deploy.password",
+                            "type": "string",
+                            "required": false,
+                            "default": "super user password",
+                            "possible": "",
+                            "description": "user password for policy deploy. if it is diffrent"
+                        },
+                        {
+                            "name": "jms.username",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "JMS connection user if it is diffrent"
+                        },
+                        {
+                            "name": "jms.password",
+                            "type": "string",
+                            "required": false,
+                            "default": "super user password",
+                            "possible": "",
+                            "description": "JMS connection password if it is diffrent"
+                        },
+                        {
+                            "name": "publisher.max_idle",
+                            "type": "string",
+                            "required": false,
+                            "default": "1000",
+                            "possible": "",
+                            "description": "data publisher pool max connections ideal values"
+                        },
+                        {
+                            "name": "publisher.init_idle_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "200",
+                            "possible": "",
+                            "description": "data publisher pool min connections ideal values"
+                        },
+                        {
+                            "name": "publisher.pool_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "200",
+                            "possible": "",
+                            "description": "publisher thread pool size"
+                        },
+                        {
+                            "name": "publisher.max_pool_size",
+                            "type": "string",
+                            "required": false,
+                            "default": "1000",
+                            "possible": "",
+                            "description": "publisher threax pool max size"
+                        },
+                        {
+                            "name": "publisher.keep_alive_time",
+                            "type": "string",
+                            "required": false,
+                            "default": "200s",
+                            "possible": "",
+                            "description": "publisher thread pool, keep alive time"
+                        },
+                        {
+                            "name": "service_url",
+                            "type": "string",
+                            "required": true,
+                            "default": "https://localhost:${mgt.transport.https.port}${carbon.context}services/",
+                            "possible": "",
+                            "description": "TM service URL "
+                        },
+                        {
+                            "name": "blacklist_condition.start_delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "not define",
+                            "possible": "",
+                            "description": "Define delay time to get blocking data from KM"
+                        },
+                        {
+                            "name": "jms.destination",
+                            "type": "string",
+                            "required": false,
+                            "default": "throttleData",
+                            "possible": "",
+                            "description": "JMS topic name"
+                        },
+                        {
+                            "name": "jms.start_delay",
+                            "type": "string",
+                            "required": false,
+                            "default": "not define",
+                            "possible": "",
+                            "description": "Connection delay to read TM at startup"
+                        },
+                        {
+                            "name": "jms.conn_jndi_name",
+                            "type": "string",
+                            "required": false,
+                            "default": "TopicConnectionFactory",
+                            "possible": "custom value",
+                            "description": ""
+                        },
+                        {
+                            "name": "jms.destination_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "topic",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "decision_connection_type",
+                            "type": "string",
+                            "required": false,
+                            "default": "andes",
+                            "possible": "",
+                            "description": "Define JMS type e.g.,: andes"
+                        },
+                        {
+                            "name": "jms.java_naming_factory_initial",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Define JMS factory initials. If decision_connection_type is andes, this is \"org.wso2.andes.jndi.PropertiesFileInitialContextFactory\""
+                        },
+                        {
+                            "name": "throttle_decision_endpoints",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "",
+                            "description": "Define array of JMS connection as a array."
+                        },
+                        {
+                            "name": "enable_unlimited_tier",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Enable unlimited tier"
+                        },
+                        {
+                            "name": "enable_header_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable header condition based thortlling. Ref docs."
+                        },
+                        {
+                            "name": "enable_jwt_claim_based_throttling",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "enable JWT claim based throtlling"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Throttling URL group",
+            "options": [
+                {
+                    "name": "apim.throttling.url_group",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "traffic_manager_urls",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "TM binary server url",
+                            "description": "[[apim.throttling.url_group]]traffic_manager_urls = [\"tcp://localhost:9611\",\"tcp://localhost:9611\"]traffic_manager_auth_urls = [\"ssl://localhost:9711\",\"ssl://localhost:9711\"]type = \"loadbalance\""
+                        },
+                        {
+                            "name": "traffic_manager_auth_urls",
+                            "type": "string",
+                            "required": true,
+                            "default": "",
+                            "possible": "TM binary auth server url",
+                            "description": ""
+                        },
+                        {
+                            "name": "type",
+                            "type": "string",
+                            "required": false,
+                            "default": "failover",
+                            "possible": "failover,loadbalance",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Workflow configurations",
+            "options": [
+                {
+                    "name": "apim.workflow",
+                    "required": true,
+                    "description": "Configures the workflows in API Manager",
+                    "params": [
+                        {
+                            "name": "enable ",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "enable API State Change workflow"
+                        },
+                        {
+                            "name": "service_url",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://localhost:9445/bpmn",
+                            "possible": "",
+                            "description": "WF engine service URL"
+                        },
+                        {
+                            "name": "wf_engine_user",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "WF username"
+                        },
+                        {
+                            "name": "wf_engine_pass",
+                            "type": "string",
+                            "required": false,
+                            "default": "super user password",
+                            "possible": "",
+                            "description": "WF password"
+                        },
+                        {
+                            "name": "callback_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.14/workflows/update-workflow-status",
+                            "possible": "",
+                            "description": "Callback URL  for the WF engine"
+                        },
+                        {
+                            "name": "token_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://localhost:${https.nio.port}/token",
+                            "possible": "",
+                            "description": "token endpoint used for the WF."
+                        },
+                        {
+                            "name": "client_registration_endpoint",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://localhost:${mgt.transport.https.port}/client-registration/v0.14/register",
+                            "possible": "",
+                            "description": "DCR endpoint"
+                        },
+                        {
+                            "name": "client_registration_username",
+                            "type": "string",
+                            "required": false,
+                            "default": "super username",
+                            "possible": "",
+                            "description": "DCR username"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M SDK configurations",
+            "options": [
+                {
+                    "name": "apim.sdk",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "group_id",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2",
+                            "possible": "",
+                            "description": "group ID of the of the generating project"
+                        },
+                        {
+                            "name": "artifact_id",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.client.",
+                            "possible": "",
+                            "description": "artifact ID of the of the generating project"
+                        },
+                        {
+                            "name": "model_package",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.client.model.",
+                            "possible": "",
+                            "description": "model package of the generating project"
+                        },
+                        {
+                            "name": "api_package",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.client.api.",
+                            "possible": "",
+                            "description": "API package of the generating project"
+                        },
+                        {
+                            "name": "supported_languages",
+                            "type": "string",
+                            "required": false,
+                            "default": "android,java,scala,csharp,dart,flash,groovy,javascript,jmeter,nodejs,perl,php,python,ruby,swift,clojure,asyncScala,csharpDotNet2",
+                            "possible": "",
+                            "description": "Supported language"
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M Open tracer configurations",
+            "options": [
+                {
+                    "name": "apim.open_tracer",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "remote_tracer.enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Enable tracing on APIM. Traces the execution time upto message level"
+                        },
+                        {
+                            "name": "remote_tracer.name",
+                            "type": "string",
+                            "required": false,
+                            "default": "zipkin",
+                            "possible": "",
+                            "description": "tracer name"
+                        },
+                        {
+                            "name": "remote_tracer.properties.hostname",
+                            "type": "string",
+                            "required": false,
+                            "default": "localhost",
+                            "possible": "",
+                            "description": "Hostname of the zipkin tool (tracer)"
+                        },
+                        {
+                            "name": "remote_tracer.properties.port",
+                            "type": "string",
+                            "required": false,
+                            "default": "9411",
+                            "possible": "",
+                            "description": "Port of the tool"
+                        },
+                        {
+                            "name": "log_tracer.enable",
+                            "type": "string",
+                            "required": false,
+                            "default": "FALSE",
+                            "possible": "",
+                            "description": "Whether to log the tracer values or not."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "API-M token revocation",
+            "options": [
+                {
+                    "name": "apim.token.revocation",
+                    "required": true,
+                    "description": "Configures the token revocation on KM",
+                    "params": [
+                        {
+                            "name": "notifier_impl",
+                            "type": "string",
+                            "required": false,
+                            "default": "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl",
+                            "possible": "",
+                            "description": "If only custom.If a token is revoked, the notification will be sent to the JMS topic. If we need to change this we need to write a custom implementation."
+                        },
+                        {
+                            "name": "enable_realtime_notifier",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "(Only applicable if the MGW is used)If FALSE, works as persistent."
+                        },
+                        {
+                            "name": "enable_persistent_notifier",
+                            "type": "string",
+                            "required": false,
+                            "default": "TRUE",
+                            "possible": "",
+                            "description": "Notifications will be persisted to etcd. At MGW server startup, the etcd will be queried by the MGW."
+                        },
+                        {
+                            "name": "realtime_notifier.ttl",
+                            "type": "string",
+                            "required": false,
+                            "default": "5000",
+                            "possible": "",
+                            "description": "[TBD]"
+                        },
+                        {
+                            "name": "persistent_notifier.hostname",
+                            "type": "string",
+                            "required": false,
+                            "default": "https://localhost:2379/v2/keys/jti/",
+                            "possible": "",
+                            "description": "etcd hostname"
+                        },
+                        {
+                            "name": "persistent_notifier.ttl",
+                            "type": "string",
+                            "required": false,
+                            "default": "5000",
+                            "possible": "",
+                            "description": "Ask Sampath for desc and unit"
+                        },
+                        {
+                            "name": "persistent_notifier.username",
+                            "type": "string",
+                            "required": false,
+                            "default": "root",
+                            "possible": "",
+                            "description": ""
+                        },
+                        {
+                            "name": "persistent_notifier.password",
+                            "type": "string",
+                            "required": false,
+                            "default": "root",
+                            "possible": "",
+                            "description": ""
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        },
+        {
+            "title": "Sample",
+            "options": [
+                {
+                    "name": "name",
+                    "required": true,
+                    "description": "",
+                    "params": [
+                        {
+                            "name": "hostname",
+                            "type": "string",
+                            "required": true,
+                            "default": "\"localhost\"",
+                            "possible": "\"127.0.0.1\",\"localhost\",\"<any-ip-address>\"",
+                            "description": "The hostname of the WSO2 EI server instance."
+                        }
+                    ]
+                }
+            ],
+            "exampleFile": "_super-admin.toml"
+        }
+    ]
+}
