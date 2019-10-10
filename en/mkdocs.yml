@@ -253,7 +253,7 @@ nav:
                 - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md 
         - API Monetization:
             - Configuring API Monetization Category Labels: Learn/APIMonetization/configuring-api-monetization-category-labels.md
-            - Monetizing an API: Learn/APIMonetization/monetizing-an-api
+            - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
         - Analytics:
             - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
