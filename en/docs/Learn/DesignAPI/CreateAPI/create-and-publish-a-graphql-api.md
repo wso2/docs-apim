@@ -154,9 +154,22 @@ Let's create a simple GraphQL API named "HackerNews" that has the following func
       </html>
 
       ![Import GraphQL schema](/assets/img/Learn/import-graphQL-schema.png)
-   
 
-5. Update the GraphQL API operations as required.
+5. Optionally, modify the existing schema definition.
+
+    1. Click **SCHEMA DEFINITION**.
+
+    2. Click **DOWNLOAD DEFINITION**.
+
+       This downloads the existing GraphQL API schema.
+
+      ![Add schema definition](/assets/img/Learn/add-schema-definition.png)   
+
+    3. Update the schema definition as required.
+
+    4. Click **IMPORT DEFINITION** to import the updated schema definition.
+
+6. Update the GraphQL API operations as required.
 
     Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
 
@@ -176,14 +189,6 @@ Let's create a simple GraphQL API named "HackerNews" that has the following func
          
          - Throttling - The API Creator can add a throttling policy for each operation via the API Publisher. When a query request has multiple operations, the throttle policies apply for each of the operations. Therefore, if one operation for the API request is throttled out,based on its throttling policy, the whole request will be throttled out.
 
-   
-6. Add a schema definition.
-
-    1. Click **SCHEMA DEFINITIONS**.
-
-    2. Download the schema or import a new schema.
-
-      ![Add schema definition](/assets/img/Learn/add-schema-definition.png)
 
 7. Click **LIFECYCLE** to navigate to the API lifecycle and publish the API.
 
