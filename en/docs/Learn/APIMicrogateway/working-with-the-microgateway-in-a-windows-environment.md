@@ -35,7 +35,7 @@ You need to set up `JAVA_HOME` in order to run the Microgateway CLI tool.
 
 1.  Install the Oracle Java 1.8 or higher version.
 2.  Set the `JAVA_HOME` environment variable as a user variable via the edit system properties UI.
-    ![](/assets/attachments/103333781/103333794.png)
+    ![]({{base_path}}/assets/attachments/103333781/103333794.png)
 #### Step 2 - Set up a Microgateway project
 
 1.  Start the WSO2 API Manager server.
@@ -57,10 +57,10 @@ You need to set up `JAVA_HOME` in order to run the Microgateway CLI tool.
     2.  Unzip the downloaded ZIP file to a location of your choice (e.g., `C:\Program Files\wso2\micro gateway cli\` ).
     3.  Copy the path to the Microgateway `bin` folder ( `<path-to-wso2am-micro-gw-toolkit>\bin` ).
     4.  Click **Edit the system preferences** .
-        ![](/assets/attachments/103333781/103333782.png)    5.  Navigate to the **Advanced** tab and click **Environment Variables** .
-        ![](/assets/attachments/103333781/103333783.png)    6.  Navigate to the path system variable and click **Edit** .
-        ![](/assets/attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `bin` folder that you copied previously and click **OK** three times to save the newly added system variable.
-        ![](/assets/attachments/103333781/103333786.png)
+        ![]({{base_path}}/assets/attachments/103333781/103333782.png)    5.  Navigate to the **Advanced** tab and click **Environment Variables** .
+        ![]({{base_path}}/assets/attachments/103333781/103333783.png)    6.  Navigate to the path system variable and click **Edit** .
+        ![]({{base_path}}/assets/attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `bin` folder that you copied previously and click **OK** three times to save the newly added system variable.
+        ![]({{base_path}}/assets/attachments/103333781/103333786.png)
                 !!! info
         As you have added the Microgateway `\bin` directory path to the system variables, you can invoke the Microgateway command from any directory in the system.
 
@@ -104,8 +104,8 @@ You need to set up `JAVA_HOME` in order to run the Microgateway CLI tool.
         If you have run the Microgateway CLI tool before, you are not prompted to enter the following details unless you have [reset the Microgateway CLI tool](#WorkingwiththeMicrogatewayinaWindowsEnvironment-ResettingtheMicrogatewayCLItool) .
 
 
-        ![](/assets/attachments/103333781/103333787.png)        After this process is complete, a directory is created with the given project name. The structure of the project is similar to the following:
-        ![](/assets/attachments/103333781/103333788.png)
+        ![]({{base_path}}/assets/attachments/103333781/103333787.png)        After this process is complete, a directory is created with the given project name. The structure of the project is similar to the following:
+        ![]({{base_path}}/assets/attachments/103333781/103333788.png)
 #### Step 3 - Build the Microgateway
 
 1.  Navigate to the Microgateway project root directory.
@@ -149,7 +149,7 @@ You need to set up Java in order to run the Microgateway CLI tool.
 
 1.  Install Oracle Java 1.8 or later.
 2.  Set the `JAVA_HOME` environment variable as a server variable via the edit system properties UI.
-    ![](/assets/attachments/103333781/103333795.png)
+    ![]({{base_path}}/assets/attachments/103333781/103333795.png)
 #### Step 2 - Set up a Microgateway project
 
 1.  Start the WSO2 API Manager server.
@@ -171,10 +171,10 @@ You need to set up Java in order to run the Microgateway CLI tool.
     2.  Unzip the downloaded ZIP file to a location of your choice (e.g., `C:\Program Files\wso2\micro gateway cli\` ).
     3.  Copy the path to the Microgateway `bin` folder ( `<path-to-wso2am-micro-gw-toolkit>\bin` ).
     4.  Click **Edit the system preferences** .
-        ![](/assets/attachments/103333781/103333782.png)    5.  Navigate to the **Advanced** tab and click **Environment Variables** .
-        ![](/assets/attachments/103333781/103333783.png)    6.  Navigate to the path system variable and click **Edit** .
-        ![](/assets/attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `bin` folder that you copied previously and click **OK** three times to save the newly added system variable.
-        ![](/assets/attachments/103333781/103333786.png)
+        ![]({{base_path}}/assets/attachments/103333781/103333782.png)    5.  Navigate to the **Advanced** tab and click **Environment Variables** .
+        ![]({{base_path}}/assets/attachments/103333781/103333783.png)    6.  Navigate to the path system variable and click **Edit** .
+        ![]({{base_path}}/assets/attachments/103333781/103333785.png)    7.  Click **New,** add the path to the Microgateway `bin` folder that you copied previously and click **OK** three times to save the newly added system variable.
+        ![]({{base_path}}/assets/attachments/103333781/103333786.png)
                 !!! info
         As you have added the Microgateway `\bin` directory path to the system variables, you can invoke the Microgateway command from any directory in the system.
 
@@ -218,8 +218,8 @@ You need to set up Java in order to run the Microgateway CLI tool.
         If you have run the Microgateway CLI tool before, you are not prompted to enter the following details unless you have [reset the Microgateway CLI tool](#WorkingwiththeMicrogatewayinaWindowsEnvironment-ResettingtheMicrogatewayCLItool) .
 
 
-        ![](/assets/attachments/103333781/103333787.png)        After this process is complete, a directory is created with the given project name. The structure of the project is similar to the following:
-        ![](/assets/attachments/103333781/103333788.png)
+        ![]({{base_path}}/assets/attachments/103333781/103333787.png)        After this process is complete, a directory is created with the given project name. The structure of the project is similar to the following:
+        ![]({{base_path}}/assets/attachments/103333781/103333788.png)
 #### Step 3 - Build the Microgateway
 
 1.  Navigate to the Microgateway project root directory.
@@ -253,13 +253,13 @@ You need to set up Java in order to run the Microgateway CLI tool.
 
     3.  Click **Yes** when the following User Account Control message appears.
         You need to do this in order to allow the NSSM tool to make changes to your Microgateway distribution.
-        ![](/assets/attachments/103333781/103333789.png)    4.  Click \[...\] and select the location of the `gateway.bat` file, which is in the `\bin` folder of your unzipped Microgateway distribution.
-        ![](/assets/attachments/103333781/103333791.png){height="250"}
+        ![]({{base_path}}/assets/attachments/103333781/103333789.png)    4.  Click \[...\] and select the location of the `gateway.bat` file, which is in the `\bin` folder of your unzipped Microgateway distribution.
+        ![]({{base_path}}/assets/attachments/103333781/103333791.png){height="250"}
     5.  Click **Details** , and enter the details of the Microgateway service.
-        ![](/assets/attachments/103333781/103333792.png){height="250"}
+        ![]({{base_path}}/assets/attachments/103333781/103333792.png){height="250"}
     6.  Click **Install service** .
         A confirmation message appears.
-        ![](/assets/attachments/103333781/103333793.png)
+        ![]({{base_path}}/assets/attachments/103333781/103333793.png)
 ### Testing the Microgateway
 
 You can invoke the API through the Microgateway using the following cURL command in order to test the Microgateway. By default, the Microgateway serves the HTTPS/WSS request via the 9095 port.

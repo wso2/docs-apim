@@ -48,9 +48,9 @@ Adding a certificate
 
 1.  Log in to the API Publisher. [Create a new API](_Create_and_Publish_an_API_) or edit an existing API.
 2.  Go to the **Implement** tab. Click **Manage Certificates** and click **Add New Certificate**
-    ![](/assets/attachments/103334607/103334605.png)
+    ![]({{base_path}}/assets/attachments/103334607/103334605.png)
 3.  Enter the following information and click **Upload** .
-    ![](/assets/attachments/103334607/103334604.png)
+    ![]({{base_path}}/assets/attachments/103334607/103334604.png)
 
     | Name        | Description                                                                              |
     |-------------|------------------------------------------------------------------------------------------|
@@ -59,9 +59,9 @@ Adding a certificate
     | Certificate | Enter the location of your certificate file or click **Browse** to select through the UI |
 
 4.  The uploaded certificate aliases will be displayed.
-    ![](/assets/attachments/103334607/103334602.png)
+    ![]({{base_path}}/assets/attachments/103334607/103334602.png)
 5.  You can repeat from step 2 to add a certificate to the sandbox endpoint.
-    ![](/assets/attachments/103334607/103334603.png)
+    ![]({{base_path}}/assets/attachments/103334607/103334603.png)
 
 !!! note
 You add only one certificate per endpoint. Make sure that your certificates have not expired.
@@ -71,6 +71,6 @@ You add only one certificate per endpoint. Make sure that your certificates have
 
 To delete a certificate, click the icon adjacent to the certificate, as shown below.
 
-![](/assets/attachments/103334607/103334601.png)
+![]({{base_path}}/assets/attachments/103334607/103334601.png)
 
 

@@ -77,7 +77,7 @@ Only the super tenant can add custom URLs in their registry space for other ten
 1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the super admin.
 
 2.  In the **Main** menu, click **Browse** under **Resources.
-    ![](/assets/attachments/103334773/103334777.png)**
+    ![]({{base_path}}/assets/attachments/103334773/103334777.png)**
 
 3.  Navigate to the `/_system/governance registry` path and create the following directory structure in the registry.
 
@@ -87,7 +87,7 @@ Only the super tenant can add custom URLs in their registry space for other ten
 
 `customurl/api-cloud/<tenant-domain>/urlMapping          `
 
-    ![](/assets/attachments/103334773/103334776.png)
+    ![]({{base_path}}/assets/attachments/103334773/103334776.png)
 
         !!! tip
     To create a directory in the registry path,
@@ -96,7 +96,7 @@ Only the super tenant can add custom URLs in their registry space for other ten
 
     2. Click **Add Collection** and specify the name of the directory and click **Add** .
 
-    ![](/assets/attachments/103334773/103334775.png)
+    ![]({{base_path}}/assets/attachments/103334773/103334775.png)
 
 
 4.  Navigate to `/_system/governance/customurl/api-cloud/< tenant-domain>/urlMapping` . Click **Add Resource** under **Entries** and click **Create Text Content.**
@@ -114,7 +114,7 @@ Only the super tenant can add custom URLs in their registry space for other ten
         }
     ```
 
-    ![](/assets/attachments/103334773/103334774.png)
+    ![]({{base_path}}/assets/attachments/103334773/103334774.png)
 
 The URLs of the Store and Gateway are updated accordingly.
 

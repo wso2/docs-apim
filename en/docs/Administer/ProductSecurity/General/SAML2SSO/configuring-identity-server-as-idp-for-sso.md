@@ -195,15 +195,15 @@ Next, let us look at the SSO configurations.
 
 
 3.  Select **Add** under the **Service Providers** menu.
-    ![](/assets/attachments/103333476/103333477.png)
+    ![]({{base_path}}/assets/attachments/103333476/103333477.png)
 4.  Give a service provider name and click **Register** .
-    ![](/assets/attachments/103333476/103333483.png){height="250"}
+    ![]({{base_path}}/assets/attachments/103333476/103333483.png){height="250"}
 
         !!! tip
     **In a multi tenanted environment,** for all tenants to be able to log in to the APIM Web applications, do the following:
 
     -   Click the **SaaS Application** option that appears after registering the service provider.
-        ![](/assets/attachments/103333476/103333482.png)
+        ![]({{base_path}}/assets/attachments/103333476/103333482.png)
         If not, only users in the current tenant domain (the one you are defining the service provider in) will be allowed to log in to the Web application and you have to register new service providers for all Web applications (API Store and API Publisher in this case) from each tenant space separately. For example, let's say you have three tenants as TA, TB and TC and you register the service provider in TA only. If you tick the **SaaS Application** option, all users in TA, TB, TC tenant domains will be able to log in. Else, only users in TA will be able to log in.
 
     -   Add the following inside the `<SSOService>` element in the `<IS_HOME>/repository/conf/identity/identity.xml` file and restart the server.
@@ -221,11 +221,11 @@ Next, let us look at the SSO configurations.
 
 
 5.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuration** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
-    ![](/assets/attachments/103333476/103333481.png)
+    ![]({{base_path}}/assets/attachments/103333476/103333481.png)
         !!! note
     To enable tenant specific SSO with IS 5.7.0 for `API_PUBLISHER` and `API_STORE` , enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
 
-    ![](/assets/attachments/103333476/103333478.png)
+    ![]({{base_path}}/assets/attachments/103333476/103333478.png)
 
 6.  Provide the configurations to register the API Publisher as the SSO service provider. These sample values may change depending in your configuration.
 
@@ -240,7 +240,7 @@ Next, let us look at the SSO configurations.
     -   Click **Register** once done.
 
 For example:
-![](/assets/attachments/103333476/103333479.png)
+![]({{base_path}}/assets/attachments/103333476/103333479.png)
 Similarly, provide the configurations to register the API Store as the SSO service provider. These sample values may change depending in your configuration.
 
 -   Issuer: API\_STORE
@@ -279,7 +279,7 @@ Make sure that the `responseSigningEnabled` element is set to `true` in both the
         You can skip this step if you are using Identity Server 5.7.0 as the IDP.
 
 4.  Access the API Publisher: `https://localhost:/publisher` (e.g., `https://localhost:9443/publisher` ). Observe the request redirect to the WSO2 IS SAML2.0 based SSO login page. For example,
-    ![](/assets/attachments/103333476/103333480.png)5.  Enter user credentials. If the user authentication is successful against WSO2 IS, it will redirect to the API Publisher Web application with the user already authenticated.
+    ![]({{base_path}}/assets/attachments/103333476/103333480.png)5.  Enter user credentials. If the user authentication is successful against WSO2 IS, it will redirect to the API Publisher Web application with the user already authenticated.
 6.  Access the API Store application, click its **Login** link (top, right-hand corner) and verify that the same user is already authenticated in API Store.
 
 !!! note

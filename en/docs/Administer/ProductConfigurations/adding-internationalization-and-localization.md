@@ -17,7 +17,7 @@ The API Manager comes with two Web interfaces as API Publisher and API Store. Th
 
     For example,
 
-    ![](/assets/attachments/103333409/103333411.png)
+    ![]({{base_path}}/assets/attachments/103333409/103333411.png)
 
     To implement localization support for jaggery, we use its in-built script module 'i18n'. For more information, refer to <http://jaggeryjs.org/documentation.jag?api=i18n> .
 
@@ -35,7 +35,7 @@ Add the key-value pairs to locale\_es.json file. For an example on adding key v
 
 In addition, a section of a sample `locale_es.json` file is shown below for your reference.
 
-![](/assets/attachments/16847625/17225875.png)
+![]({{base_path}}/assets/attachments/16847625/17225875.png)
 
 #### Localizing strings in client-side Javascript files
 

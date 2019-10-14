@@ -32,19 +32,19 @@ Group IDs are extracted using a `GroupingExtractor` class which is an implementa
 The steps below show how to use the group sharing feature
 
 1.  Start WSO2 API Manager and click **Sign-up** .
-    ![](/assets/attachments/103333711/103333712.png)2.  Sign up to the API store as two different users(e.g., usera, userb) belonging to the the same organizations. Click **Show Additional Details** to set the organization.
+    ![]({{base_path}}/assets/attachments/103333711/103333712.png)2.  Sign up to the API store as two different users(e.g., usera, userb) belonging to the the same organizations. Click **Show Additional Details** to set the organization.
 
-    ![](/assets/attachments/103333711/103333713.png)
+    ![]({{base_path}}/assets/attachments/103333711/103333713.png)
 3.  Sign in as **usera** and add application App\_A.
 
 4.  Enter the Group ID as **org1** and press enter. Click **Add** . App\_A will be shared with all the users in **org1** group.
-    ![](/assets/attachments/103333711/103333714.png)
+    ![]({{base_path}}/assets/attachments/103333711/103333714.png)
 5.  Sign out of the API Store. Sign in as **userb** .
 6.  Go to the **Applications** tab. You will see App\_A which was added by **usera** .
-    ![](/assets/attachments/103333711/103333715.png)    Note that the name of the application creator is appended to the application name to differentiate the applications.
+    ![]({{base_path}}/assets/attachments/103333711/103333715.png)    Note that the name of the application creator is appended to the application name to differentiate the applications.
 7.  Subscribe to the default API using App\_A.
-    ![](/assets/attachments/103333711/103333716.png)8.  Log in to the API Store as **usera.** The subscriptions for App\_A by **userb** will be displayed.
-    ![](/assets/attachments/103333711/103333717.png)
+    ![]({{base_path}}/assets/attachments/103333711/103333716.png)8.  Log in to the API Store as **usera.** The subscriptions for App\_A by **userb** will be displayed.
+    ![]({{base_path}}/assets/attachments/103333711/103333717.png)
 ### Extending the group ID extractor
 
 The default implementation picks the organization claim as the group ID. The organization names are returned in a string array. To use a different claim or a different type of group ID , should create your own group ID extractor class by extending `NewPostLoginExecutor` interface and overriding the method below.

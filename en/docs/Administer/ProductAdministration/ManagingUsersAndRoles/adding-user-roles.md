@@ -19,13 +19,13 @@ Creator, Publisher and Subscriber roles are available by default in API Manager.
 
 1.  Log in to the management console ( https://&lt;APIM\_Host&gt;:&lt;APIM\_Port&gt;/admin ) as admin (default credentials are admin/admin).
 2.  In the **Main** menu, click **Add** under **Users and Roles** .
-    ![](/assets/attachments/103333587/103333591.png)
+    ![]({{base_path}}/assets/attachments/103333587/103333591.png)
 
 3.  Click **Add New Role** .
-    ![](/assets/attachments/103333587/103333590.png)
+    ![]({{base_path}}/assets/attachments/103333587/103333590.png)
 
 4.  Enter the name of the user role (e.g., `creator` ) and click **Next** .
-    ![](/assets/attachments/103333587/103333603.png)
+    ![]({{base_path}}/assets/attachments/103333587/103333603.png)
 
         !!! info
     **Tip** : The **Domain** drop-down list contains all user stores configured in the system. By default, you only have the PRIMARY user store. To configure secondary user stores, see [Configuring Secondary User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+Secondary+User+Stores) .

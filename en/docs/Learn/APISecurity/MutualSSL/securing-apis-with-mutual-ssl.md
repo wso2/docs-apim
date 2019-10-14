@@ -240,14 +240,14 @@ Follow the steps below to enable this feature in WSO2 API Manager.
 1.  [Create an API](_Create_and_Publish_an_API_) .
 2.  **Edit** the API and navigate to the **Manage** tab.
 3.  Select **Mutual SSL** under **API Security** .
-    ![](/assets/attachments/103334944/103334943.png)
+    ![]({{base_path}}/assets/attachments/103334944/103334943.png)
 
         !!! info
     You can select both OAuth2 and Mutual SSL options. This means that the user can access the API using a valid OAuth2 token or using a valid client certificate.
 
 
 4.  Click **Manage Certificates** to upload a new client certificate. Select **Add New Certificate** .
-    ![](/assets/attachments/103334944/103334942.png)
+    ![]({{base_path}}/assets/attachments/103334944/103334942.png)
         !!! note
     This feature currently supports only the following formats for keystores and certificates.
 
@@ -262,7 +262,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
 
 
 5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload** .
-    ![](/assets/attachments/103334944/103334941.png)
+    ![]({{base_path}}/assets/attachments/103334944/103334941.png)
 6.  **Save and Publish** the API
 
 ### Invoke an API secured with Mutual SSL from the API Store
@@ -275,7 +275,7 @@ Add the relevant certificate to your browser according to your private certifica
 
 1.  [Invoke an API from the API Store](_Invoke_an_API_using_the_Integrated_API_Console_) .
 2.  When you click **Execute** the browser will send a prompt similar to the one shown below. Select the corresponding certificate for the API.
-    ![](/assets/attachments/103334944/103334940.png)
+    ![]({{base_path}}/assets/attachments/103334944/103334940.png)
 
 #### Limitations
 

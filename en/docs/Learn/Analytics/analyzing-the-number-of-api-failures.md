@@ -13,16 +13,16 @@ To analyze the number of API failures,
 At any given time, this page displays the statistics for a selected time interval.
 
 -   If you want to view statistics for a pre-defined time interval, click on the relevant time interval (e.g., **Last 30 Days** ).
-    ![](/assets/attachments/103335197/103335198.gif)
+    ![]({{base_path}}/assets/attachments/103335197/103335198.gif)
 -   If you want to define a custom time interval, click **Custom** and select the start and end dates of the required time interval in the calendar that appears. Then click **Apply.
-    ![](/assets/attachments/103335197/103335200.gif)**
+    ![]({{base_path}}/assets/attachments/103335197/103335200.gif)**
 
 
 ### Introduction
 
 This report indicates the number of API failures that have occurred during the selected time interval. Each API is represented by a different colour. To check the exact failure count for an API on a specific date, move the cursor over the relevant colour block as demonstrated below.
 
-![](/assets/attachments/103335197/103335199.gif)
+![]({{base_path}}/assets/attachments/103335197/103335199.gif)
 
 ### Purpose
 

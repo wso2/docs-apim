@@ -4,17 +4,17 @@ We can extend the [multiple gateway environments](https://docs.wso2.com/display/
 
 However, the API Publisher can only provide a single static endpoint for an API in the implementation. Therefore, the API call is directed to a single endpoint in whichever Gateway the API is deployed in, as depicted in the diagram below.
 
-![](/assets/attachments/103334784/103334785.png)
+![]({{base_path}}/assets/attachments/103334784/103334785.png)
 However, in most situations, you would want to have each Gateway proxying to a dedicated backend API. To provide that capability, WSO2 API Manager provides the ability to specify dynamic endpoint URLs at the time of specifying the API endpoint URL. This UEL is resolved at runtime with the details (host and port) specified at the startup of each Gateway. Each gateway then points to a dedicated backend API, as depicted in the digram below.
 
-![](/assets/attachments/103334784/103334786.png)
+![]({{base_path}}/assets/attachments/103334784/103334786.png)
 ### Configuring dynamic endpoints
 
 Follow the steps below to configure a dynamic endpoint as the API endpoint.
 
 1.  Start the WSO2 API Manager server that includes the API Publisher component and create an API.
 2.  Go to the **Implement** tab of the API and replace the host and port of the API endpoint with {uri.var.host} and {uri.var.port} respectively, as shown below.
-    ![](/assets/attachments/103334784/103334787.png)3.  Save and [publish](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) the API.
+    ![]({{base_path}}/assets/attachments/103334784/103334787.png)3.  Save and [publish](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) the API.
 
 4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` directory of each Gateway and create the following sequence.
 

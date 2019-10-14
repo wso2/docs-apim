@@ -16,11 +16,11 @@ Note that by default this feature is turned off. You have to enable tracing when
 Follow the instructions below to access the SOAP Tracer.
 
 1.  Log in to the management console and select **Monitor -&gt; SOAP Tracer** .
-    ![](/assets/attachments/126562899/126562902.png)
+    ![]({{base_path}}/assets/attachments/126562899/126562902.png)
 2.  In the drop-down menu, select **Yes** .
-    ![](/assets/attachments/126562899/126562905.png)
+    ![]({{base_path}}/assets/attachments/126562899/126562905.png)
 3.  The tracer will show the messages of the operations that were invoked. For example,
-    ![](/assets/attachments/126562899/126562901.png)
+    ![]({{base_path}}/assets/attachments/126562899/126562901.png)
     By using the SOAP Tracer, you can see the SOAP messages with their time-stamps, service name, operation invoked and the number of requests to the server. The most recent SOAP messages are listed at the top. When a particular SOAP message is selected, its "Request" and "Response" can be viewed.
 
         !!! info
@@ -30,7 +30,7 @@ Follow the instructions below to access the SOAP Tracer.
 
 
 4.  If you want to find a message, fill in the Filter field with a word (or a part of word) in the message and click **Search** .
-    ![](/assets/attachments/126562899/126562904.png)
+    ![]({{base_path}}/assets/attachments/126562899/126562904.png)
 5.  You will see the message in the **Messages** list and its full description will be shown in the **Request** or **Response** text area. For example,
-    ![](/assets/attachments/126562899/126562900.png)
+    ![]({{base_path}}/assets/attachments/126562899/126562900.png)
 

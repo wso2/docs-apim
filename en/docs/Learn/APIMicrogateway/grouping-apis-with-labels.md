@@ -11,21 +11,21 @@ It is possible to create a Microgateway distribution for a group of APIs. In or
 1.  Log in to the Admin portal ( `https://<hostname>:9443/admin` ). Use `admin` as the username and password.
 
 2.  To add a new Microgateway label, click **LABELS** under **MICROGATEWAY** , and then click **ADD MICROGATEWAY** .
-    ![](/assets/attachments/103333763/103333764.png)
+    ![]({{base_path}}/assets/attachments/103333763/103333764.png)
 3.  Create a new label (e.g. MARKETING\_STORE), add a host (e.g. `https://localhost:9095` ) and click **Save.**
 
-    ![](/assets/attachments/103333763/103333765.png)
+    ![]({{base_path}}/assets/attachments/103333763/103333765.png)
 
 4.  Navigate to the API Publisher ( `https://<hostname>:9443/publisher` ). Sign in using `admin` as the username and password.
 5.  Deploy the sample Pizzashack API by clicking **Deploy Sample API** if you have not already done.
 6.  Choose to edit the created Pizzashack API.
 
-    ![](/assets/attachments/103333763/103333766.png)
+    ![]({{base_path}}/assets/attachments/103333763/103333766.png)
 
 7.  Navigate to the **Manage** section and click **Gateway Environments** .
 
 8.  Select the newly created label to attach it to the Pizzashack API.
-    ![](/assets/attachments/103333763/103333767.png)
+    ![]({{base_path}}/assets/attachments/103333763/103333767.png)
 9.  Click **Save & Publish** .
 10. Similarly, you can select MARKETING\_STORE label for few other Published APIs.
 
@@ -73,6 +73,6 @@ It is possible to create a Microgateway distribution for a group of APIs. In or
 1.  Log in to the API Store ( `https://<hostname>:9443/store` ). Use `admin` as the username and password.
 2.  Any attached Microgateways are shown in the **Overview** tab of the API.
 
-    ![](/assets/attachments/103333763/103333768.png)
+    ![]({{base_path}}/assets/attachments/103333763/103333768.png)
 
 

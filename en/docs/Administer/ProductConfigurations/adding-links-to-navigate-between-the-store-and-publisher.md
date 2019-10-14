@@ -24,7 +24,7 @@ By default, there are no links in the UIs of the API Store and API Publisher app
 2.  Restart the WSO2 API-M server.
     Note that a URL that points to the API Store appears on the top, right-hand corner of the WSO2 API Publisher.
     Example:
-    ![](/assets/attachments/103333412/103333413.png)
+    ![]({{base_path}}/assets/attachments/103333412/103333413.png)
 !!! tip
 -   For information on clustering, see [Clustering WSO2 API Manager](http://docs.wso2.org/display/CLUSTER44x/Clustering+API+Manager) .
 -   For information on deployment patterns, see [Deployment Patterns of WSO2 API Manager](http://docs.wso2.com/display/CLUSTER44x/API+Manager+Deployment+Patterns) .

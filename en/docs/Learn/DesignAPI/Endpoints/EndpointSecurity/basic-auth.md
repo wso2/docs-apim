@@ -4,13 +4,13 @@ When you create an API using the API Publisher, you can specify the endpoint of 
 
 If this endpoint is secured, there is an option for you to set the Auth type and credentials for the endpoint under **Show More Options.**
 
-![](/assets/attachments/103334868/103334863.png)
+![]({{base_path}}/assets/attachments/103334868/103334863.png)
 
 Here you can click the **Show More Options** link to select the endpoint security scheme. If you select **Secured** , you are prompted to select the authentication type for the endpoint and also to give its credentials.
 
 Then select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports basic authentication, you can select the **Basic Auth** option from the drop down list and give your credentials.
 
-![](/assets/attachments/103334868/103334862.png)
+![]({{base_path}}/assets/attachments/103334868/103334862.png)
 
 To give more context on the above scenario, a secured endpoint is where we have access-protected resourses. You have to specify the username and the password when a request is sent to a secured endpoint. The endpoint authentication mechanism can either be Basic Authentication or Digest Authentication. They differ on how the credentials are communicated and how access is granted by the backend server.
 

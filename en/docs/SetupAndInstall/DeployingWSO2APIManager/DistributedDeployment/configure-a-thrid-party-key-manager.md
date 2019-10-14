@@ -45,21 +45,21 @@ Follow the instructions below to configure the third-party Key Manager:
     ```
 
 3.  Access `http://127.0.0.1:8080/` to see the following page:
-    ![](/assets/attachments/126563044/126563117.png)    The server is now up and running.
+    ![]({{base_path}}/assets/attachments/126563044/126563117.png)    The server is now up and running.
 4.  Follow the steps below to create a resource server.
     1.  In Surf OAuth, click the **Resource Servers** link where all the OAuth clients are grouped together.
     2.  Register a resource server representing WSO2 API Manager.
     3.  Add two scopes named `test` and `scope1` and save your changes.
         You will use them when creating clients.
-        ![](/assets/attachments/126563044/126563118.png)        The front end is now registered as a distinct client with the authorization server.
+        ![]({{base_path}}/assets/attachments/126563044/126563118.png)        The front end is now registered as a distinct client with the authorization server.
 5.  Follow the steps to create an OAuth Client.
     1.  Click the **Access Tokens** link and note all the tokens issued for the web client.
         These tokens are obtained at the time you sign in, by a Javascript client running on the browser. The same token is then used for subsequent operations.
-        ![](/assets/attachments/126563044/126563119.png)    2.  Pick an active access token from the above list.
+        ![]({{base_path}}/assets/attachments/126563044/126563119.png)    2.  Pick an active access token from the above list.
         You use it to create clients through WSO2 API Manager.
     3.  Get a registration endpoint that is needed to register the client.
         As Surf OAuth doesn’t support a spec-compliant client registration yet, you can use an endpoint with similar capabilities. For example, as shown below, you can enable Developer Tools in Google Chrome to see the URL and the request:
-        ![](/assets/attachments/126563044/126563120.png)
+        ![]({{base_path}}/assets/attachments/126563044/126563120.png)
 ### Step 2: Configure WSO2 API Manager
 
 1.  Build the demo.client available at <https://github.com/Rajith90/surf-oauth-demo/tree/v2.1.0> .
@@ -123,10 +123,10 @@ You have connected WSO2 API Manager with a third-part authorization server. Let
 
 4.  Go to the **Client Applications** link in the Surf OAuth UI.
     Note the newly created client listed there.
-    ![](/assets/attachments/126563044/126563121.png)    You have now created an application and registered an OAuth Client corresponding to it.
+    ![]({{base_path}}/assets/attachments/126563044/126563121.png)    You have now created an application and registered an OAuth Client corresponding to it.
 5.  Validate tokens by subscribing to a SurfClient application and obtaining a token.
     1.  Sign in to the API Publisher and deploy the sample API ( `PizzaShackAPI` ) if you haven't done so already.
-        ![](/assets/attachments/126563044/126563122.png)
+        ![]({{base_path}}/assets/attachments/126563044/126563122.png)
     2.  Assuming you still have the OAuth client created earlier, subscribe to this API as follows:
 
         ``` java
@@ -136,7 +136,7 @@ You have connected WSO2 API Manager with a third-part authorization server. Let
         Let's obtain a token from the OAuth Provider.
 
     3.  Go to the **Edit** view of the OAuth client and make sure the `client_credentials` grant type is enabled, and a token expiration time is specified.
-        ![](/assets/attachments/126563044/126563123.png)
+        ![]({{base_path}}/assets/attachments/126563044/126563123.png)
     4.  Obtain a token.
         Replace `<ConsumerKey:ConsumerSecret>` with the Base64 encoded `ConsumerKey:ConsumerSecret` of the client application you just created.
 

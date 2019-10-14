@@ -146,7 +146,7 @@ You can apply the pre-defined XML Policy through the UI. Follow the instructions
 -   Go to **Message Mediation** Policies under the **Implement** tab.
 
 -   Select **Enable Message Mediation** . Select xml\_validator from the drop-down menu for In Flow.
-    ![](/assets/attachments/126559467/126559468.png)
+    ![]({{base_path}}/assets/attachments/126559467/126559468.png)
 -   Click **Save and Publish** to save the changes.
 
 ### Testing the XML threat protector

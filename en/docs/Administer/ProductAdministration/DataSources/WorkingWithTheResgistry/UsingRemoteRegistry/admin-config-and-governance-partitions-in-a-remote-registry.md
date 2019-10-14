@@ -2,7 +2,7 @@
 
 In this deployment strategy, the configuration and governance spaces are shared among instances of a group/cluster. For example, two WSO2 Application Server instances that have been configured to operate in a clustered environment can have a single configuration and governance registry that is shared across each node of the cluster. A separate instance of the WSO2 Governance Registry is used to provide the space used in common.
 
-![](/assets/attachments/21037149/21331972.png)
+![]({{base_path}}/assets/attachments/21037149/21331972.png)
 Figure 2: Config and governance partitions in the remote Governance Registry instance .
 
 Configuration steps are given in the following sections.
@@ -198,7 +198,7 @@ Note
 
 3. Start both servers and note the log entries that indicate successful mounting to the remote Governance Registry instance. For example,
 
-![](/assets/attachments/21037149/21332021.png)
+![]({{base_path}}/assets/attachments/21037149/21332021.png)
 4. Navigate to the registry browser in the Carbon server's management console and note the config and governance partitions indicating successful mounting to the remote registry instance. For example,
 
-![](/assets/attachments/21037149/21332022.png)
+![]({{base_path}}/assets/attachments/21037149/21332022.png)

@@ -29,11 +29,11 @@ The steps below show how to engage a throttling policy to an API at runtime.
 
 
 2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and go to the **Resource &gt; Browse** menu to view the registry.
-    ![](/assets/attachments/103335026/103335031.png)
+    ![]({{base_path}}/assets/attachments/103335026/103335031.png)
 3.  Click the `/_system/goverence/apimgt/applicationdata` path to go to its detailed view.
-    ![](/assets/attachments/103335026/103335030.png)
+    ![]({{base_path}}/assets/attachments/103335026/103335030.png)
 4.  In the detail view, click **Add Resource** .
-    ![](/assets/attachments/103335026/103335033.png)
+    ![]({{base_path}}/assets/attachments/103335026/103335033.png)
 5.  Upload the policy file to the server as a registry resource.
 
 6.  Open the synapse configuration file of a selected API you want to engage the policy, from the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory.

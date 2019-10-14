@@ -19,7 +19,7 @@ This section explains how to attach a custom workflow to the **application regis
     a. Login to the Management console of WSO2 API Manager in <https://localhost:9443/carbon> .
     b. Click on browse under Resources in left Navigation under Main tab.
     c. Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` location in registry browser and open the workflow-extensions.xml clicking **Edit as text** .
-    ![](/assets/attachments/103334690/103334695.png)    d. Uncomment the following two sections and change the credentials of API Manager's default user credentials you have given.
+    ![]({{base_path}}/assets/attachments/103334690/103334695.png)    d. Uncomment the following two sections and change the credentials of API Manager's default user credentials you have given.
 
         !!! warning
     This configuration is provided assuming that WSO2 EI is running with offset 2. If you are running WSO2 EI in a different offset change the port of **serviceEndpoint** properties in following configuration according to the changed port offset.
@@ -163,15 +163,15 @@ This section explains how to attach a custom workflow to the **application regis
 
 
 6.  Log into Management console of WSO2 EI, select **Add &gt; BPEL** under the **Processes** menu and upload the `<APIM_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip file` to EI. This is the business process archive file.
-    ![](/assets/attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to EI. This is the human task archived file.
-    ![](/assets/attachments/103334690/103334693.png)
+    ![]({{base_path}}/assets/attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to EI. This is the human task archived file.
+    ![]({{base_path}}/assets/attachments/103334690/103334693.png)
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
 1.  Change the credentials of the workflow configurations in the registry resource `_system/governance/apimgt/applicationdata/workflow-extensions.xml` .
     a. Login to the Management console of WSO2 API Manager in <https://localhost:9443/carbon> .
     b. Click on browse under Resources in left Navigation under Main tab.
     c. Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` location in registry browser and open the workflow-extensions.xml clicking **Edit as text** .
-    ![](/assets/attachments/103334690/103334695.png)    d. Uncomment the following two sections and change the credentials of API Manager's default user credetials you have given.
+    ![]({{base_path}}/assets/attachments/103334690/103334695.png)    d. Uncomment the following two sections and change the credentials of API Manager's default user credetials you have given.
 
         !!! warning
     This configuration is provided assuming that WSO2 BPS is running with offset 2. If you are running WSO2 BPS in a different offset change the port of **serviceEndpoint** properties in following configuration according to the changed port offset.
@@ -305,8 +305,8 @@ This section explains how to attach a custom workflow to the **application regis
 
 
 6.  Log into Management console of WSO2 BPS, select **Add &gt; BPEL** under the **Processes** menu and upload the `<APIM_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip file` to BPS. This is the business process archive file.
-    ![](/assets/attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to BPS. This is the human task archived file.
-    ![](/assets/attachments/103334690/103334693.png)
+    ![]({{base_path}}/assets/attachments/103334690/103334694.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to BPS. This is the human task archived file.
+    ![]({{base_path}}/assets/attachments/103334690/103334693.png)
 #### 
 Configuring the API Manager
 
@@ -331,7 +331,7 @@ Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/
 First, enable the application registration workflow.
 
 1.  Start WSO2 API Manager and login to the APIM management console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources** .
-    ![](/assets/attachments/103334690/103334700.png)
+    ![]({{base_path}}/assets/attachments/103334690/103334700.png)
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor as described in the tip provided at the start of this documentation if you haven't done already.
 
     ``` html/xml
@@ -366,12 +366,12 @@ First, enable the application registration workflow.
 
 4.  In the **Production Keys** tab of the Application, click the **Generate Keys** button.
     It invokes the `ApplicationRegistrationWorkFlowProcess.bpel` that is bundled with the `ApplicationRegistrationWorkflowProcess_1.0.0.zip` file and creates a HumanTask instance that holds the execution of the BPEL process until some action is performed on it.
-    ![](/assets/attachments/103334690/103334692.png)
+    ![]({{base_path}}/assets/attachments/103334690/103334692.png)
 5.  Note that a message appears saying that the request is successfully submitted if the BPEL was invoked correctly.
 
 6.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) with admin credentials and list all the tasks for application registrations. Click **Start** to start the Human Task and then change its state. Once you select **Approve** and click **Complete** the task, it resumes the BPEL process and completes the registration.
 
-    ![](/assets/attachments/103334690/103334691.png){height="250"}
+    ![]({{base_path}}/assets/attachments/103334690/103334691.png){height="250"}
 
 7.  Go back to the API Store and view your application.
 

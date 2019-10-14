@@ -16,18 +16,18 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
 
 1.  Sign in to the API Publisher and choose to design a new REST API.
 `https://<hostname>:9443/publisher          `
-    ![](/assets/attachments/103328505/103328458.png)
+    ![]({{base_path}}/assets/attachments/103328505/103328458.png)
 
         !!! note
     You can select the OpenAPI specification version when you start creating a new REST API. To see the options, click **Show More Options** . Select the supported API specification from the drop-down list.
 
-    ![](/assets/attachments/103328505/103328459.png)
+    ![]({{base_path}}/assets/attachments/103328505/103328459.png)
 
 
 2.  Click **Start Creating** .
 3.  In the **Design** tab, give an API name, a context and a version, and click **Edit Source** under the **API Definition** section.
     The Swagger UI opens.
-    ![](/assets/attachments/103328505/103328460.png)
+    ![]({{base_path}}/assets/attachments/103328505/103328460.png)
 4.  Add a GET and POST method for the API.
 
     1.  Under the `paths` object, remove the `{}` and add the following code, as shown in the screenshot below.
@@ -63,11 +63,11 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
         If you get an error after adding the API definition in the Swagger UI, first check the indentation of the code that you added, which defines the API, because Swagger throw errors if the indention is not correct.
 
 
-        ![](/assets/attachments/103328505/103328461.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328461.png)
 
     2.  Click **Apply Changes** .
         This adds a resource with two HTTP methods into the API, which is visible in the API Publisher.
-        ![](/assets/attachments/103328505/103328462.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328462.png)
 
     Let's assume that the backend of this API sends the response in XML format. Let's document this under the GET method in the resource that we just added.
 
@@ -80,7 +80,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
                         - text/xml
         ```
 
-        ![](/assets/attachments/103328505/103328478.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328478.png)
 
     2.  Click **Apply Changes** .
         The response content type that you updated is visible when you expand the GET method in the API Publisher.
@@ -95,7 +95,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
         ```
 
 
-        ![](/assets/attachments/103328505/103328463.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328463.png)
 
 6.  Define parameters that correspond to the GET method.
 
@@ -115,11 +115,11 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
                           description: Give the license key as 0 for testing purpose
         ```
 
-        ![](/assets/attachments/103328505/103328476.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328476.png)
 
     2.  Click **Apply Changes** .
         The two parameters with their descriptions that you added are visible when you expand the GET method in API Publisher.
-        ![](/assets/attachments/103328505/103328464.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328464.png)
 
 7.  Add a summary and description for the GET method.
 
@@ -130,11 +130,11 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
                     description: "Phone Verification validates a telephone number and returns carrier information, location routing etc."
         ```
 
-        ![](/assets/attachments/103328505/103328474.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328474.png)
 
     2.  Click **Apply Changes** .
         The summary and description of the GET method that you added is visible when you expand the GET method in the API Publisher.
-        ![](/assets/attachments/103328505/103328465.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328465.png)
 
 8.  Add parameters to the POST method and change the POST method datatype.
 
@@ -156,11 +156,11 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
                               description: Give the license key as 0 for testing purpose
         ```
 
-        ![](/assets/attachments/103328505/103328472.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328472.png)
 
     2.  Click **Apply Changes** .
         The two parameters with their descriptions that you added are visible when you expand the POST method in the API Publisher.
-        ![](/assets/attachments/103328505/103328466.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328466.png)
 
 9.  Change the title of the API.
 
@@ -172,7 +172,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
                       title: PhoneVerificationAPI
         ```
 
-        ![](/assets/attachments/103328505/103328467.png)
+        ![]({{base_path}}/assets/attachments/103328505/103328467.png)
         You can see how this change is reflected in the API Store in step 15.
 
     2.  Click **Apply Changes** and complete the API creation process.
@@ -183,7 +183,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
 11. Click **Go to APIStore** and the API you just published appears.
 12. Click **API Console** .
     Note that the changes that you made earlier now appear in the API Store for consumers.
-    ![](/assets/attachments/103328505/103328468.png)
+    ![]({{base_path}}/assets/attachments/103328505/103328468.png)
 
 In this tutorial, you have seen how the integrated Swagger Editor can be used to design, describe, and document your API, so that the API consumers get a better understanding of the API's functionality.
 

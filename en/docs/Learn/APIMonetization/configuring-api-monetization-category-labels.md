@@ -14,7 +14,7 @@ Follow the configuration steps below to enable API monetization category labels:
 2.  Navigate to the **Main** menu, and click **Browse** , which is under the **Resources** tab.
 3.  Enter the following path in the **Location:** text-box and click **Go** .
 `/_system/config/apimgt/applicationdata/          tenant-conf.json         `
-    ![](/assets/attachments/103333418/103333419.png)4.  In the **Contents** panel, click the **Edit as text** link and the `tenant-conf.json` file opens.
+    ![]({{base_path}}/assets/attachments/103333418/103333419.png)4.  In the **Contents** panel, click the **Edit as text** link and the `tenant-conf.json` file opens.
 5.  To enable monetization categories for APIs, set the `EnableMonetization` property to true. By default, it is set to false.
 6.  Define the subscription tiers as required.
     For example if you are working with the unlimited tier,
@@ -34,7 +34,7 @@ Note that the above configuration can be done independently on a per tenant basi
 
 When the above `EnableMonetization` property is set to true for the respective tenant, the API monetization category labels are displayed in the tenant API store.
 
-![](/assets/attachments/103333418/103333420.png)
+![]({{base_path}}/assets/attachments/103333418/103333420.png)
 **Related links**
 
 For more information on Monetization of APIs, see [Enabling Monetization of APIs-](https://docs.wso2.com/pages/viewpage.action?pageId=97564601) .

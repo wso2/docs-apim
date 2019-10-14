@@ -8,7 +8,7 @@ The BPEL process in WSO2 BPS should contain a cancel event to support process ca
 
 The final BPEL should have a design similar to the following diagram,
 
-![](/assets/attachments/103334735/103334736.png)
+![]({{base_path}}/assets/attachments/103334735/103334736.png)
 
 Follow the steps below to test this out.
 

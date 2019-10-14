@@ -1047,7 +1047,7 @@ As you are upgrading from WSO2 API-M Analytics 2.0.0, in order migrate the confi
 
 4.  Upgrade the WSO2 API Manager database from version 2.0.0 to version 2.6.0.
 
-    1.  Download the [apimgt-db-migration-scripts-2.0to2.6.zip](/assets/attachments/103334533/103334535.zip) ZIP and extract it.
+    1.  Download the [apimgt-db-migration-scripts-2.0to2.6.zip]({{base_path}}/assets/attachments/103334533/103334535.zip) ZIP and extract it.
 
     2.  Execute the relevant database script, from the scripts that are provided in the extracted directory, on the `WSO2AM_DB` database.
 
@@ -1582,7 +1582,7 @@ From WSO2 API Manager 2.0.0 onwards, statistics can be configured only for RDBM
 
 7.  Upgrade the WSO2 API Manager database from version 2.0.0 to version 2.6.0.
 
-    1.  Download the [apimgt-db-migration-scripts-2.0to2.6.zip](/assets/attachments/103334533/103334535.zip) and extract it.
+    1.  Download the [apimgt-db-migration-scripts-2.0to2.6.zip]({{base_path}}/assets/attachments/103334533/103334535.zip) and extract it.
 
     2.  Execute the relevant database script, from the scripts that are provided in the extracted directory, on the `WSO2AM_DB` database.
 

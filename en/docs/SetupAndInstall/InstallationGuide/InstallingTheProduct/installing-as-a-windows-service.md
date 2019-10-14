@@ -172,11 +172,11 @@ You will now verify that YAJSW is configured correctly for running the WSO2 API 
 
     For example:
 
-    ![](/assets/attachments/28717183/29364287.png)
+    ![]({{base_path}}/assets/attachments/28717183/29364287.png)
 
 If the configurations are set properly for YAJSW, you will see console output similar to the following and can now access the WSO2 management console from your web browser via <https://localhost:9443/carbon> .
 
-![](/assets/attachments/28717183/29364286.png)
+![]({{base_path}}/assets/attachments/28717183/29364286.png)
 
 ### Working with the WSO2CARBON service
 
@@ -188,7 +188,7 @@ To install the Carbon-based productWSO2 API Manager as a Windows service, execut
 
 The console will display a message confirming that the WSO2CARBON service was installed.
 
-![](/assets/attachments/28717183/29364285.png)
+![]({{base_path}}/assets/attachments/28717183/29364285.png)
 
 To start the service, execute the following command in the same console window:
 
@@ -198,7 +198,7 @@ To start the service, execute the following command in the same console window:
 
 The console will display a message confirming that the WSO2CARBON service was started.
 
-![](/assets/attachments/28717183/29364288.png)
+![]({{base_path}}/assets/attachments/28717183/29364288.png)
 
 To stop the service, execute the following command in the same console window:
 
@@ -208,7 +208,7 @@ To stop the service, execute the following command in the same console window:
 
 The console will display a message confirming that the WSO2CARBON service has stopped.
 
-![](/assets/attachments/28717183/29364290.png)
+![]({{base_path}}/assets/attachments/28717183/29364290.png)
 
 To uninstall the service, execute the following command in the same console window:
 
@@ -218,4 +218,4 @@ To uninstall the service, execute the following command in the same console win
 
 The console will display a message confirming that the WSO2CARBON service was removed.
 
-![](/assets/attachments/28717183/29364291.png)
+![]({{base_path}}/assets/attachments/28717183/29364291.png)

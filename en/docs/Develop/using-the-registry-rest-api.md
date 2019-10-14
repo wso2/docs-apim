@@ -2,7 +2,7 @@
 
 The registry REST API can be used to perform CRUD operations on registry resources. This is not packed with WSO2 API Manager by default. Follow the steps below to use the registry REST API with WSO2 API Manager.
 
-1.  Download the [registry REST API webapp](/assets/attachments/103335316/103335317.war) .
+1.  Download the [registry REST API webapp]({{base_path}}/assets/attachments/103335316/103335317.war) .
 2.  Copy the webapp to `<API-M_HOME>/repository/deployment/server/webapps` .
 3.  Invoke the registry REST API. For an example, to get the content of the `app-tiers.xml` file, in the registry path `_system/governance/apimgt/applicationdata,` the following curl command can be used:
 

@@ -77,7 +77,7 @@ Attaching a custom workflow to application creation allows you to control the cr
 
 
 6.  Click **Add** under **Processes** and upload the `<API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip` file to EI. This is the business process archive file.
-    ![](/assets/attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
+    ![]({{base_path}}/assets/attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
 
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
@@ -146,7 +146,7 @@ Attaching a custom workflow to application creation allows you to control the cr
 
 6.  Click **Add** under **Processes** and upload the `<API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip` file to BPS.
     This is the business process archive file.
-    ![](/assets/attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to BPS.
+    ![]({{base_path}}/assets/attachments/103334685/103334686.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to BPS.
     This is the human task archived file.
 
 #### Configuring WSO2 API Manager
@@ -158,7 +158,7 @@ Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/
 First, enable the application creation workflow **.**
 
 1.  Sign in to WSO2 API-M Management Console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources** .
-    ![](/assets/attachments/103334685/103334688.png)
+    ![]({{base_path}}/assets/attachments/103334685/103334688.png)
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor, and enable WS Workflow Executor. In addition, specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
 
     ``` html/xml

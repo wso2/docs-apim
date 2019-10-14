@@ -18,20 +18,20 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
 
 1.  Sign in to the management console ( `https://<HostName>:9443/carbon` ) as admin (or tenant admin).
 2.  In the **Main** menu, click **Add** under **Users and Roles** .
-    ![](/assets/attachments/103333490/103333513.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333513.png)
 
 3.  Click **Add New Role** .
-    ![](/assets/attachments/103333490/103333512.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333512.png)
 4.  Add a role by the name subscriber (or any other name you prefer).
-    ![](/assets/attachments/103333490/103333511.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333511.png)
 5.  Click **Next** and add the following permissions:
-    ![subscribePermission.png](/assets/attachments/50518268/51250899.png)
+    ![subscribePermission.png]({{base_path}}/assets/attachments/50518268/51250899.png)
 6.  Go to the **Resources&gt; Browse** menu.
 7.  Navigate to the `/_system/governance/apimgt/applicationdata/` directory.
 
 8.  Click on `sign-up-config.xml` to load the resource in the registry browser UI and select the "Edit as text " option to edit the configurations.
 
-    ![](/assets/attachments/103333490/103333502.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333502.png)
 9.  Do the following changes in the signup configuration and save.
 
     -   Set `<EnableSignup>` to `true.           `
@@ -61,9 +61,9 @@ In a multi-tenanted API Manager setup, self signup to the API Store is disabled 
     ```
 10. Restart the server and open the API Store ( `https://<HostName>:9443/store` )
     Note the **Sign-up** link that appears in the top, right-hand corner of the window.
-    ![](/assets/attachments/103333490/103333501.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333501.png)
 11. To disable the self signup capability, n avigate to the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` file in the registry again and set the `<SelfSignUp><EnableSignup>` element to false.
-    ![](/assets/attachments/103333490/103333500.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333500.png)
 !!! tip
 Tip : To engage your own signup process, see Adding a User Signup Workflow .
 
@@ -84,7 +84,7 @@ Set the `isEnabledTutorial` parameter to false as show below.
 ### Enabling or disabling the forum
 
 The Forum is enabled by default in the API Manager Store.
-![](/assets/attachments/103333490/103333491.png){height="250"}
+![]({{base_path}}/assets/attachments/103333490/103333491.png){height="250"}
 Follow the instructions below to disable the Forum:
 
 1.  Navigate to the `<API_HOME>/repository/conf/api-manager.xml` file.
@@ -112,7 +112,7 @@ Single sign-on (SSO) allows users who are logged in to one application to automa
 ### Categorizing and grouping APIs
 
 API providers add tags to APIs when designing them using the API Publisher. Tags allow API providers to categorize APIs that have similar attributes. When a tagged API gets published to the API Store, its tags appear as clickable links to the API consumers, who can use them to quickly jump to a category of interest. The font size of the tag in the Store varies based on the number of APIs that are assigned to it. Therefore, for example the font size of a tag which has 10 APIs assigned to it will be bigger than the font size of a tag that has only 2 APIs assigned to it.
-![](/assets/attachments/103333490/103333494.png)
+![]({{base_path}}/assets/attachments/103333490/103333494.png)
 If you want to see the APIs grouped according to different topics in the API Store, add an API group:
 
 !!! note
@@ -126,7 +126,7 @@ Although the way in which you add a Tag and API group appears to be similar ther
 2.  Add an API group to the APIs that you wish to group.
     1.  Go to the API Publisher ( `https://<HostName>:9443/publisher` ).
     2.  Click on the edit link of the respective API as shown below.
-        ![](/assets/attachments/103333490/103333498.png)    3.  Add a group name to the APIs that you wish to group.
+        ![]({{base_path}}/assets/attachments/103333490/103333498.png)    3.  Add a group name to the APIs that you wish to group.
 
         For example add the "APIs groups-group" tag to the Workflow and Integration APIs.
 
@@ -135,18 +135,18 @@ Although the way in which you add a Tag and API group appears to be similar ther
     5.  Repeat steps 2 (a) to (d) to add another APIs to the newly created group.
 
     Sign in to the API Store and note the API groups.
-    ![](/assets/attachments/103333490/103333496.png)    If you wish, you can click on a group to see the APIs that belong to a specific group.
-    ![](/assets/attachments/103333490/103333495.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333496.png)    If you wish, you can click on a group to see the APIs that belong to a specific group.
+    ![]({{base_path}}/assets/attachments/103333490/103333495.png)
 ### Customizing the API group
 
 If you want to change the descriptions and the thumbnail images that come by default, do the following:
 
 1.  Sign in to the Management Console and click the **Resources &gt; Browse** menu to open the registry.
-    ![](/assets/attachments/103333490/103333506.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333506.png)
 2.  Create a collection named `tags` under the registry location `/_system/governance/apimgt/applicationdata` .
-    ![](/assets/attachments/103333490/103333505.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333505.png)
 3.  Give read permission to the `system/wso2.anonymous.role` role.
-    ![](/assets/attachments/103333490/103333504.png)
+    ![]({{base_path}}/assets/attachments/103333490/103333504.png)
 4.  Add each tag as collections under the tags collection (e.g., Workflow APIs-group, Integration APIs-group, Quote APIs-group.)
 5.  Navigate to each tag collection and upload the following:
     -   **description.txt** with the description of the tag
@@ -169,7 +169,7 @@ In API Manager store/publisher and admin webapps, **jaggery.conf** is the Jagger
 
 If such a specified error occurs due to an operation or page redirection inthe web application, it redirects to the specified html page. As an example, if you request for <https://localhost:9443/store/site/conf.site.json,> it gives a 403 response, it serves the html page site/pages/error-pages/403.html specified above.
 
-![](/assets/attachments/103333490/103333493.png)
+![]({{base_path}}/assets/attachments/103333490/103333493.png)
 ``` java
     <html>
         <head>

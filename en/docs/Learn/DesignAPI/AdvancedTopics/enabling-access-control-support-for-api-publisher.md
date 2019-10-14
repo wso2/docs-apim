@@ -41,8 +41,8 @@ Restart the server after doing these changes.
 
 1.  Log in to API Publisher as an API Creator. For more information on User Roles, see [Managing Users and Roles](_Managing_Users_and_Roles_) .
 2.  Create an API. Select **Restricted by roles** for **Access Control** in the **Design** tab.
-    ![](/assets/attachments/103333516/103333518.png)3.  Add the roles that have permission to view or modify this API.
-    ![](/assets/attachments/103333516/103333517.png){height="250"}
+    ![]({{base_path}}/assets/attachments/103333516/103333518.png)3.  Add the roles that have permission to view or modify this API.
+    ![]({{base_path}}/assets/attachments/103333516/103333517.png){height="250"}
 
         !!! info
     Ensure that the roles you add are valid. If the current creator is not an APIM admin, there should be at least one role of the current creator.

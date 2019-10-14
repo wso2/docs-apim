@@ -21,11 +21,11 @@ To view system logs, click **System Logs** on the **Monitor** tab in the Managem
 -   **File Size -** The size of the file in bytes.
 -   **Action** - Allows to view and download files.
 
-![](/assets/attachments/103333578/103333579.png)
+![]({{base_path}}/assets/attachments/103333578/103333579.png)
 
 Now, you can download an individual log file, or view it in the Management Console. When viewing a log file, you can choose a category such as ERROR in the **View** list to filter the messages by that category. You can also enter a search term to find a specific log message, and you can use the **Log Head** field to specify how many log lines to display.
 
-![](/assets/attachments/103333578/103333580.png)
+![]({{base_path}}/assets/attachments/103333578/103333580.png)
 
 !!! info
 The location of the log files on disk is specified in the `log4j.configuration` file.

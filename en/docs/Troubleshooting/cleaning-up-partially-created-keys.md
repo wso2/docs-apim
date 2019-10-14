@@ -4,4 +4,4 @@ An application created in WSO2 API Manager has a corresponding OAuth application
 
 To delete the remaining application data from API Manager, go to the **Production Keys** tab, and click **Clean up** .
 
-![](/assets/attachments/103333197/103333198.png)
+![]({{base_path}}/assets/attachments/103333197/103333198.png)

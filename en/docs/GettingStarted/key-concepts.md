@@ -9,7 +9,7 @@ Let's take a look at some concepts and terminology that you need to know in orde
 
 The WSO2 API Manager consists of the following component
 
-![](/assets/attachments/103328852/119142745.jpg)
+![]({{base_path}}/assets/attachments/103328852/119142745.jpg)
 ### Terminology & Concepts
 
 <table>

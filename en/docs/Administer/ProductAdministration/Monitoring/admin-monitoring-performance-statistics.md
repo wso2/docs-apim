@@ -9,9 +9,9 @@ Access and performance statistics are available in system level as follows:
 Follow the instructions given below to access system-level statistics.
 
 1.  Log in to the management console and click **System Statistics** in the **Monitor** tab:
-    ![](/assets/attachments/126562881/126562882.png)
+    ![]({{base_path}}/assets/attachments/126562881/126562882.png)
 2.  The **System Statistics** page appears as follows:
-    ![](/assets/attachments/126562881/126562886.png)
+    ![]({{base_path}}/assets/attachments/126562881/126562886.png)
     The following information is available:
     -   [Service Summary](#admin_MonitoringPerformanceStatistics-ServiceSummary)
     -   [Server Information](#admin_MonitoringPerformanceStatistics-ServerInformation)
@@ -21,7 +21,7 @@ Follow the instructions given below to access system-level statistics.
 
 #### Service Summary
 
-![](/assets/attachments/126562881/126562883.png)
+![]({{base_path}}/assets/attachments/126562881/126562883.png)
 
 This panel provides the following information:
 
@@ -35,7 +35,7 @@ This panel provides the following information:
 
 #### Server Information
 
-![](/assets/attachments/126562881/126562885.png)
+![]({{base_path}}/assets/attachments/126562881/126562885.png)
 
 This panel provides the following information:
 
@@ -47,13 +47,13 @@ This panel provides the following information:
 
 #### Response Time Graph
 
-![](/assets/attachments/126562881/126562884.png)
+![]({{base_path}}/assets/attachments/126562881/126562884.png)
 
 This graph shows the temporal variation of the Average Response time.
 
 #### Memory Graph
 
-![](/assets/attachments/126562881/126562890.png)
+![]({{base_path}}/assets/attachments/126562881/126562890.png)
 
 This graph shows the temporal variation of the server Memory.
 
@@ -61,7 +61,7 @@ This graph shows the temporal variation of the server Memory.
 
 The **Statistics Configuration** panel is provided to customize the **System Statistics** display by configuring the level information that can be viewed on the panel.
 
-![](/assets/attachments/126562881/126562888.png)
+![]({{base_path}}/assets/attachments/126562881/126562888.png)
 
 The following information can be configured:
 
