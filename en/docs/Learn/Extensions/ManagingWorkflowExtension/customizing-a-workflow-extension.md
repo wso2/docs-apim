@@ -138,7 +138,7 @@ After the implementation of the class is done, follow the steps below to impleme
 
 2.  After exporting the JAR, copy it to `<API-M_HOME>/repository/components/lib` directory.
 3.  Log in to APIM management console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources.**
-    **![](/assets/attachments/103334715/103334716.png)**
+    **![]({{base_path}}/assets/attachments/103334715/103334716.png)**
 
 4.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable the WS Workflow Executor. Also specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication). For example:
 

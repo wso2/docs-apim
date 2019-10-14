@@ -19,8 +19,8 @@ Note that the Facebook application development UI might be slightly different fr
 2.  Select **My Apps** in the navigation and create a new app by clicking **Add a New App** .
 3.  Enter the name of your app and your email address. Click **Create App ID** .
 4.  Click **Set Up** to create a **Facebook Login** product.
-    ![](/assets/attachments/103333132/103333133.png)5.  Select **Web** to work with this sample. You can select any other platform you wish to use.
-    ![](/assets/attachments/103333132/103333134.png)
+    ![]({{base_path}}/assets/attachments/103333132/103333133.png)5.  Select **Web** to work with this sample. You can select any other platform you wish to use.
+    ![]({{base_path}}/assets/attachments/103333132/103333134.png)
         !!! note
     Change the port offset to 1 by modifying the `<Offset>` element value in `<IAM_HOME>/repository/conf/carbon.xml` as following.
 
@@ -35,13 +35,13 @@ Note that the Facebook application development UI might be slightly different fr
     For example, if the host name is [identity.com](http://identity.com/) , then the server URL is [https://identity.com:9444/](https://localhost:9444/)
 
 
-    ![](/assets/attachments/103333132/103333135.png)
+    ![]({{base_path}}/assets/attachments/103333132/103333135.png)
 7.  Go to **Set Up the Facebook SDK for JavaScript** . Click **Next**
 8.  Click **Settings** and select **Basic** . You can find your App ID and the App Secret as shown in the image below.
-    ![](/assets/attachments/103333132/103333136.png)9.  Select a **Category** for you application.
-    ![](/assets/attachments/103333132/103333137.png){height="250"} Add the correct **Site URL** as shown below and click **Save Changes** .
-    ![](/assets/attachments/103333132/103333138.png)10. Click on the new **Facebook Login** product you have added and configure it as follows.
-    ![](/assets/attachments/103333132/103333139.png)
+    ![]({{base_path}}/assets/attachments/103333132/103333136.png)9.  Select a **Category** for you application.
+    ![]({{base_path}}/assets/attachments/103333132/103333137.png){height="250"} Add the correct **Site URL** as shown below and click **Save Changes** .
+    ![]({{base_path}}/assets/attachments/103333132/103333138.png)10. Click on the new **Facebook Login** product you have added and configure it as follows.
+    ![]({{base_path}}/assets/attachments/103333132/103333139.png)
     | Parameter                 | Value                                                                                           |
     |---------------------------|-------------------------------------------------------------------------------------------------|
     | Client OAuth Login        | `Yes`|
@@ -82,7 +82,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
     The **Scope** defines the permission to access particular information from a Facebook profile. See the [Permissions Reference](https://developers.facebook.com/docs/facebook-login/permissions) for a list of the different permission groups in Facebook APIs.
 
 
-    ![](/assets/attachments/103333132/103333140.png)
+    ![]({{base_path}}/assets/attachments/103333132/103333140.png)
 ### Configuring requested claims for user authentication in Facebook Identity Provider
 
 We need to acquire the identity information by configuring claims for use Authentication in facebook. Let's see how you can configure Identity Server with Facebook by mapping the claims. For more information on claim Mapping refer [Claim Management](https://docs.wso2.com/display/IS560/Claim+Management) .
@@ -91,7 +91,7 @@ We need to acquire the identity information by configuring claims for use Authen
 2.  Click **Edit** to edit the facebook identity provider you created.
 3.  Go to **Basic Claim Configuration** under **Claim Configuration**
 4.  Select the **Define Custom Claim Dialect** option under **Select Claim mapping Dialect** . Click **Add Claim Mapping** to add custom claim mappings as follows.
-    ![](/assets/attachments/103333132/103333146.png)    If you prefer to use the User ID as your first name of Facebook account, configure `first_name` claim as above. You need to select the same claim as **UserID Claim URI** .
+    ![]({{base_path}}/assets/attachments/103333132/103333146.png)    If you prefer to use the User ID as your first name of Facebook account, configure `first_name` claim as above. You need to select the same claim as **UserID Claim URI** .
 5.  The following are some common attribute names. You can map these names to any suitable **Local Claim URI** . (Local Claim is a set of standard claim values which are local to the WSO2 Identity Server)
     -`id           `
     -`email           `
@@ -115,15 +115,15 @@ You have to allow the usage of email addresses as usernames, to use email addres
 
 1.  Go to the Management console of WSO2 Identity Server ( `https://localhost:9444/carbon` ) and click on **Service Providers** .
 2.  Click **Edit** to edit the `API_PUBLISHER` .
-    ![](/assets/attachments/103333132/103333147.png)3.  Go to the **Local and Outbound Authentication Configuration** section.  Select the Identity Provider you created from the dropdown list under **Federated Authentication** .
+    ![]({{base_path}}/assets/attachments/103333132/103333147.png)3.  Go to the **Local and Outbound Authentication Configuration** section.  Select the Identity Provider you created from the dropdown list under **Federated Authentication** .
 4.  Make sure that **Federated Authentication** is selected. Click **Update** to save the changes.
-    ![](/assets/attachments/103333132/103333148.png)5.  Repeat steps 1 to 4 and configure the `API_STORE` service provider.
+    ![]({{base_path}}/assets/attachments/103333132/103333148.png)5.  Repeat steps 1 to 4 and configure the `API_STORE` service provider.
 
 ### Test Facebook authentication
 
 1.  Access the API Publisher via https://localhost:/publisher . Observe the request redirect to the WSO2 IS SAML2.0 based SSO login page and then Facebook login page.
 2.  Enter the username and password of you facebook account.
-    ![](/assets/attachments/103333132/103333149.png)3.  After successfully authenticating the log in, you will be logged into the API Publisher. Your username will be the first name of your Facebook account. This is because you have already configured the first name as the **UserID Claim URI** .
+    ![]({{base_path}}/assets/attachments/103333132/103333149.png)3.  After successfully authenticating the log in, you will be logged into the API Publisher. Your username will be the first name of your Facebook account. This is because you have already configured the first name as the **UserID Claim URI** .
     If you configure your **UserID Claim URI** with the `last_name` , your username will be the last name of your Facebook account.
 
 ### Configure the associated social login in IS dashboard
@@ -132,10 +132,10 @@ Identity Server has a dashboard which offers multiple options for users to maint
 
 1.  Login to the dashboard with API Store user account.
 2.  Click **View Details** in the **Social Login** gadget.
-    ![](/assets/attachments/103333132/103333150.png)3.  Click **Associate Social Login** to give your facebook account details.
-    ![](/assets/attachments/103333132/103333151.png)4.  Enter your IDP ID (facebook) and your username (as configured in **Subject Claim URI** ) and click **Register** .
-    ![](/assets/attachments/103333132/103333152.png)5.  Select **Local & Outbound Configuration** and check **Assert identity using mapped local subject identifier.
-    ** ![](/assets/attachments/103333132/103333153.png)
+    ![]({{base_path}}/assets/attachments/103333132/103333150.png)3.  Click **Associate Social Login** to give your facebook account details.
+    ![]({{base_path}}/assets/attachments/103333132/103333151.png)4.  Enter your IDP ID (facebook) and your username (as configured in **Subject Claim URI** ) and click **Register** .
+    ![]({{base_path}}/assets/attachments/103333132/103333152.png)5.  Select **Local & Outbound Configuration** and check **Assert identity using mapped local subject identifier.
+    ** ![]({{base_path}}/assets/attachments/103333132/103333153.png)
 After logging in to API Publisher, you will see the configured local claim appearing as your username.
 
 You have now successfully logged in to the API Publisher using your facebook credentials.

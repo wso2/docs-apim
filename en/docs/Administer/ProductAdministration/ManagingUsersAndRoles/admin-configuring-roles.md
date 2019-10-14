@@ -23,7 +23,7 @@ Follow the instructions below to add a user role.
 1.  On the **Main** tab in the management console, click **Add** under **Users and Roles** .
 2.  Click **Roles** . This link is only visible to users with **Security** level permissions role. By default, the admin user has this permission enabled. For more information on permissions, see [Role-based Permissions](https://docs.wso2.com/display/ADMIN44x/Role-based+Permissions) .
 3.  Click **Add New Role** . The following screen appears:
-    ![](/assets/attachments/126562787/126562788.png)
+    ![]({{base_path}}/assets/attachments/126562787/126562788.png)
 4.  Do the following:
     1.  In the **Domain** list, specify the user store where you want to create this role. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on ow user stores (which are repositories storing information about users and roles) are set up and configured, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) .
     2.  Enter a unique name for this role.

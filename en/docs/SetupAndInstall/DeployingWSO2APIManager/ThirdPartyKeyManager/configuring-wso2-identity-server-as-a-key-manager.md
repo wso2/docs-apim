@@ -93,7 +93,7 @@ If you have already created the databases, you need to only configure the data s
 
 The following diagram illustrates how the databases are shared between WSO2 IS and WSO2 API-M.
 
-![](/assets/attachments/103334507/103334508.png)
+![]({{base_path}}/assets/attachments/103334507/103334508.png)
 -   **WSO2REG\_DB** - This database (DB) stores the registry information. The registry database is shared between WSO2 IS as the Key Manager and WSO2 API-M to share artifacts such as, metadata configurations, policies, and API details.
 
 -   **WSO2UM\_DB** - This DB stores the permissions (i.e., permission store) and the internal roles of the users.

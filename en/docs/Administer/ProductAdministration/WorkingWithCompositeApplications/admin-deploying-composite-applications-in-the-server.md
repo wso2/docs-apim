@@ -21,38 +21,38 @@ Deploying using the Tooling interface
 !!! info
 If you have already added a WSO2 product server instance to Tooling, right click on it in the **Servers** tab, and c lick **Add and Remove...**
 
-![add and remove to an already-added server](/assets/attachments/126562765/126562767.png)
+![add and remove to an already-added server]({{base_path}}/assets/attachments/126562765/126562767.png)
 
 Then, select the Composite Application you want to deploy from the **Available** list, click **Add** to move it into the **Configured** list, and then click **Finish** .
 
-![select the composite app you want to deploy](/assets/attachments/126562765/126562768.png)
+![select the composite app you want to deploy]({{base_path}}/assets/attachments/126562765/126562768.png)
 
 
 1.  In the Tooling interface, navigate to **Developer Studio Dashboard** , and click **Server** under **Add Server** .
 
 2.  In the **Define a New Server** dialog box, expand the WSO2 folder and select the version of your server. In this case, it is `WSO2 ESB Server 5.0.0` .
-    ![](/assets/attachments/53121319/53284204.png)3.  Click **Next** . In the CARBON\_HOME field, provide the path to your product's home directory and then click **Next** again. For example,
-    ![](/assets/attachments/53121319/53284218.png)4.  Review the default port details for your server and click **Next** .
+    ![]({{base_path}}/assets/attachments/53121319/53284204.png)3.  Click **Next** . In the CARBON\_HOME field, provide the path to your product's home directory and then click **Next** again. For example,
+    ![]({{base_path}}/assets/attachments/53121319/53284218.png)4.  Review the default port details for your server and click **Next** .
     Typically, you can leave these unchanged but if you are already running another server on these ports, give unused ports here.
 
         !!! tip
     **Tip** : See [Default Ports of WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Default+Ports+of+WSO2+Products) for more information.
 
 
-    ![](/assets/attachments/53121319/53284206.png)
+    ![]({{base_path}}/assets/attachments/53121319/53284206.png)
 5.  To deploy the C-App project to your server, select **SampleServicesCompositeApplication** from the list, click **Add** to move it into the **Configured** list, and then click **Finish** .
 
 6.  Note that your server is now added to the Tooling interface.
 
-    ![](/assets/attachments/53121319/53285006.png)
+    ![]({{base_path}}/assets/attachments/53121319/53285006.png)
 7.  On the **Servers** tab, note that the server is currently stopped. Click the "start the server" icon on the **Servers** tab's toolbar. If prompted to save changes to any of the artifact files you created earlier, click **Yes** .
-    ![](/assets/attachments/53121319/53285075.png)
+    ![]({{base_path}}/assets/attachments/53121319/53285075.png)
 8.  As the server starts, the **Console** tab appears. Note messages indicating that the Composite app was successfully deployed. The C-App is now available in the product's Management Console, under **Manage -&gt; Carbon Applications -&gt; List** .
 
 !!! tip
 If you want to remove a Composite Application, which you already deployed, click the WSO2 product server instance in the **Servers** tab to expand it, right-click on the Composite Application, which you want to remove, and click **Remove** as shown below.
 
-![remove a deployed Composite Application](/assets/attachments/126562765/126562769.png)
+![remove a deployed Composite Application]({{base_path}}/assets/attachments/126562765/126562769.png)
 
 
 If you do not use the Tooling interface to deploy your artifacts to the server, you can alternatively do that using the product's Management Console or via hot deployment.
@@ -151,7 +151,7 @@ You can deploy a C-App by d irectly saving it to the `<PRODUCT_HOME>/repository/
         12. Other types
 
 
-        ![](/assets/attachments/126562765/126562766.png){height="250"}
+        ![]({{base_path}}/assets/attachments/126562765/126562766.png){height="250"}
 
 !!! tip
 When **deleting a C-App** , it is not recommended to delete individual artifacts of the CAR file. The recommended practice is to delete the entire C-App.

@@ -6,7 +6,7 @@ RDBMS datasources in WSO2 products use Tomcat JDBC connection pool ( `org.apache
 
 You can configure the datasource connection pool parameters, such as how long a connection is persisted in the pool, using the datasource configuration parameters section that appears in the product management console when creating a datasource. Click and expand the option as shown below:
 
-![](/assets/attachments/43977373/44172374.png)
+![]({{base_path}}/assets/attachments/43977373/44172374.png)
 
 Following are descriptions of the parameters you can configure. For more details on datasource configuration parameters, see [ApacheTomcat JDBC Connection Pool guide](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) .
 

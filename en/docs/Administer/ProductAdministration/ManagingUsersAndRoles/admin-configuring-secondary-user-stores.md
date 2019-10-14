@@ -67,7 +67,7 @@ If you are setting up a database other than the default H2 that comes with the p
 
 5.  Enter values for the properties, using the descriptions in the Descriptions column for guidance. The properties that appear vary based on the user store manager class you selected, and there may be additional properties in Optional or Advanced sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
 
-    ![](/assets/attachments/126562324/126562326.png)
+    ![]({{base_path}}/assets/attachments/126562324/126562326.png)
         !!! note
     Make sure that you do not enter “federated” as the domain name as the term is reserved for federated users.
 
@@ -75,7 +75,7 @@ If you are setting up a database other than the default H2 that comes with the p
 6.  Ensure that all the mandatory fields are filled and a valid domain name is given and click **Add** .
 
 7.  A message appears saying that the user stores are being added.
-    ![](/assets/attachments/31130739/31359112.png)
+    ![]({{base_path}}/assets/attachments/31130739/31359112.png)
 
         !!! info
     **Note** : The above message does not imply that the user store is added successfully. It simply means that the server is attempting to add the new user store to the end of the available chain of stores.

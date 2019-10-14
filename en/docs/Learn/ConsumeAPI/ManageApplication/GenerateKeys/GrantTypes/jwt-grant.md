@@ -37,13 +37,13 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its Key Manager fe
 
 
     -   **Alias** : Give the name of the alias if the Identity Provider identifies this token endpoint by an alias (e.g., `https://localhost:9443/oauth2/token                        ).` For more information, see [Adding a new identity provider](https://docs.wso2.com/display/IS550/Configuring+an+Identity+Provider) .
-        ![](/assets/attachments/103335306/103335307.png)
+        ![]({{base_path}}/assets/attachments/103335306/103335307.png)
 4.  Navigate to the **Main** menu to access the **Identity** menu. Click **Add** under **Service Providers** .
 5.  Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://docs.wso2.com/display/IS550/Adding+a+Service+Provider) for more information.
 6.  Expand the **OAuth/OpenID Connect Configuration** and click **Configure** .
 7.  Enter a **Callback URL** . For example, use `http://localhost:8080/playground2/oauth2client` and click **Add** .
     The **OAuth Client Key** and **OAuth Client Secret** will now be visible.
-    ![](/assets/attachments/103335306/103335308.png)
+    ![]({{base_path}}/assets/attachments/103335306/103335308.png)
 ### Using the JWT grant
 
 The cURL commands below can be used to retrieve the access token and refresh the token using a JWT.

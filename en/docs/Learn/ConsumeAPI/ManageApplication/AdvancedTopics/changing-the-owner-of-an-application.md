@@ -30,7 +30,7 @@ The transfer application ownership feature is only available as a WUM update a
         This shows you the list of applications together with the respective owners.
 
     3.  Search for the application that you want to share and click **Edit** .
-        ![](/assets/attachments/126559224/126559225.png)
+        ![]({{base_path}}/assets/attachments/126559224/126559225.png)
     4.  Update the **Owner** field with the new owner's username (Kim).
 
                 !!! tip
@@ -40,6 +40,6 @@ The transfer application ownership feature is only available as a WUM update a
 
 
         The application page shows the new ownership.
-        ![](/assets/attachments/126559224/126559226.png)        Now, when Chris signs in to the Store, the TestApp does not appear, and when Kim signs in to the Store the TestApp appears under the application list.
+        ![]({{base_path}}/assets/attachments/126559224/126559226.png)        Now, when Chris signs in to the Store, the TestApp does not appear, and when Kim signs in to the Store the TestApp appears under the application list.
 
 

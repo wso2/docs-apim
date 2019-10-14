@@ -2,7 +2,7 @@
 
 When adding a datasource, if you select the custom datasource type, the following screen will appear:
 
-![](/assets/attachments/43977374/44172375.png)
+![]({{base_path}}/assets/attachments/43977374/44172375.png)
 Following are descriptions of the custom datasource fields:
 
 -   **Data Source Type** : Custom
@@ -31,7 +31,7 @@ In the `init` methods of all custom datasources, user-supplied properties will b
 
 Shown below is an example configuration of a custom datasource of type `<DS_CUSTOM_TABULAR>` :
 
-![](/assets/attachments/43977374/44172376.png)
+![]({{base_path}}/assets/attachments/43977374/44172376.png)
 After creating datasources, they will appear on the **Data Sources** page. You can edit and delete them as needed by clicking **Edit** or **Delete** links.
 
 

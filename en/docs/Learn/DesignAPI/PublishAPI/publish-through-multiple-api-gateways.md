@@ -99,7 +99,7 @@ The steps below explain how to configure and publish to multiple Gateways. In t
         !!! tip
     If you have multiple gateways that support one type of key (e.g., when there are two gateways that support the production keys, as seen in the above code snippet.), the environments you add via the `<API-M_HOME>/repository/conf/api-manager.xml` file will be visible in a drop-down list of the API Console tab, which is in the API Store of instance 1. This allows subscribers to send API requests to any selected Gateway.
 
-    ![](/assets/attachments/103332478/103332476.png)
+    ![]({{base_path}}/assets/attachments/103332478/103332476.png)
 
     To stop a given Gateway environment from being displayed in the API Console tab, you can set the `api-console` attribute to `false` in the `<Environment>` element in the `api-manager.xml` file.
     For example,
@@ -112,15 +112,15 @@ The steps below explain how to configure and publish to multiple Gateways. In t
 8.  Start all the WSO2 API-M instances.
     Make sure to start instance 1 first before starting the other two instances.
 9.  Sign in to the API Publisher in the **first** WSO2 API-M instance and choose to edit an API.
-    ![](/assets/attachments/103332478/103332474.png)
+    ![]({{base_path}}/assets/attachments/103332478/103332474.png)
 10. Navigate to the **Manage** tab, expand the **API Gateways** section.
     Note that the two Gateway environments are listed there.
-    ![](/assets/attachments/103332478/103332473.png)
+    ![]({{base_path}}/assets/attachments/103332478/103332473.png)
 11. Select both Gateways and **Save and Publish** the API in order to be able to publish to both the gateways.
 12. Sign in to the API Store (of the **first** instance) and click the API to open it.
-    ![](/assets/attachments/103332478/103332472.png)
+    ![]({{base_path}}/assets/attachments/103332478/103332472.png)
 13. In the API's **Overview** tab, note that it has two sets of URLs for the two Gateway instances:
-    ![](/assets/attachments/103332478/103332475.png)
+    ![]({{base_path}}/assets/attachments/103332478/103332475.png)
 
 You have published an API to the API Stores through multiple Gateway environments.
 
@@ -129,7 +129,7 @@ If you have published your API through more than one Gateway,
 
 When you have generated keys for the Applications, the sample cURL command shows how to generate an access token using the Password Grant type provides the Gateway URL of the first published Gateway Environments listed in API Publisher as shown in the step 10.
 
-![](/assets/attachments/103332478/103332477.png)
+![]({{base_path}}/assets/attachments/103332478/103332477.png)
 
 Change this gateway URL according to the Gateway that you want to publish the API if you are using this cURL command to generate access tokens.
 

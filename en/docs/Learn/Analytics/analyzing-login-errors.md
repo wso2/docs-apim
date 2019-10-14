@@ -13,15 +13,15 @@ To analyze the Login Errors,
 At any given time, this page displays the statistics for a selected time interval.
 
 -   If you want to view statistics for a pre-defined time interval, click on the relevant time interval (e.g., **Last 30 Days** ).
-    ![](/assets/attachments/103335204/103335207.gif)
+    ![]({{base_path}}/assets/attachments/103335204/103335207.gif)
 -   If you want to define a custom time interval, click **Custom** and select the start and end dates of the required time interval in the calendar that appears. Then click **Apply.
-    ![](/assets/attachments/103335201/103335203.gif)**
+    ![]({{base_path}}/assets/attachments/103335201/103335203.gif)**
 
 
 ### Introduction
 
 This page indicates the number of login attempt failures that have occurred during the selected time interval in a bar chart as shown in the example below. The exact count for a specific unit of time (e.g., day, hour, etc.) can be viewed by moving the cursor over the relevant bar.
-![](/assets/attachments/103335201/103335202.gif)
+![]({{base_path}}/assets/attachments/103335201/103335202.gif)
 
 ### Purpose
 

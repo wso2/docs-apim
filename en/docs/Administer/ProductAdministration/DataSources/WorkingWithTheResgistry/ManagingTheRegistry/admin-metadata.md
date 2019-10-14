@@ -14,12 +14,12 @@ The **Metadata** panel displays the following properties of the resource or the 
 
 For example,
 
-![](/assets/attachments/22185146/22514191.png)
+![]({{base_path}}/assets/attachments/22185146/22514191.png)
 #### Creating a checkpoint
 
 T o create a checkpoint, click on the **Create Checkpoint** link:
 
-![](/assets/attachments/126562605/126562606.png)
+![]({{base_path}}/assets/attachments/126562605/126562606.png)
 
 !!! info
 **NOTE** : When checkpoints are created, properties, comments, ratings and tags will also be taken into consideration. If you do not want them to be versioned along with resource content, you can disable it by making changes to the [Static Configuration](https://docs.wso2.com/display/Governance460/Configuration+for+Static+%28One-time%29+and+Auto+Versioning+Resources) . However, these changes need to be done before the server starts for the first time.
@@ -29,11 +29,11 @@ T o create a checkpoint, click on the **Create Checkpoint** link:
 
 To view the resource versions, click on the **View versions** link:
 
-![](/assets/attachments/126562605/126562611.png)
+![]({{base_path}}/assets/attachments/126562605/126562611.png)
 
 It opens the versions. For example,
 
-![](/assets/attachments/22185146/22514195.png)
+![]({{base_path}}/assets/attachments/22185146/22514195.png)
 This page gives the following information:
 
 -   The number of a resource/collection version

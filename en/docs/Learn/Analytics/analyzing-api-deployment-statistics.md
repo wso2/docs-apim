@@ -13,16 +13,16 @@ To analyze the API Deployment Statistics,
 At any given time, this page displays the statistics for a selected time interval.
 
 -   If you want to view statistics for a pre-defined time interval, click on the relevant time interval (e.g., **Last 30 Days** ).
-    ![](/assets/attachments/103335204/103335207.gif)
+    ![]({{base_path}}/assets/attachments/103335204/103335207.gif)
 -   If you want to define a custom time interval, click **Custom** and select the start and end dates of the required time interval in the calendar that appears. Then click **Apply.
-    ![](/assets/attachments/103335204/103335206.gif)**
+    ![]({{base_path}}/assets/attachments/103335204/103335206.gif)**
 
 
 ### Introduction
 
 This page shows the artifacts that were deployed as well as the artifacts that were deleted during the selected time period. It also indicates the number of times each artifact was deployed/deleted. In each gadget, you can search for a specific API and sort the APIs in the ascending/descending order by the available fields
 
-![](/assets/attachments/103335204/103335205.gif)
+![]({{base_path}}/assets/attachments/103335204/103335205.gif)
 
 ### Purpose
 

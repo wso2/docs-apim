@@ -3,7 +3,7 @@
 Adding a custom proxy path is useful when you have a proxy server fronting your Carbon server. In this scenario, the "custom proxy path" is used for mapping a proxy url with the actual url of your Carbon server, which allows clients to access the Carbon server with the proxy url.
 
 This feature is particularly useful when multiple WSO2 products are hosted under the same domain name. For example, consider that you have three WSO2 products; Application Server, API Manager and ESB, deployed in your production environment and you want all of them to be hosted with the "wso2test.com" domain. By using a reverse proxy and by configuring your servers with 'custom proxy paths' , you can host all products under a single domain and assign proxy paths for each product separately as shown below:
-![Custom Proxy Paths](/assets/attachments/126562770/126562773.png)
+![Custom Proxy Paths]({{base_path}}/assets/attachments/126562770/126562773.png)
 
 **Proxy URLs mapped to Carbon server URLs:**
 

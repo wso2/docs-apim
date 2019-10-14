@@ -8,17 +8,17 @@ In this example, we use a standalone API Manager instance and do this via the WS
 
 
 1.  Sign in to the WSO2 APIM Management Console ( `https://<Server Host>:9443/carbon` ) and click **Add** under **Service Providers** .
-    ![](/assets/attachments/103334858/103334847.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334847.png)
 
 2.  Enter the name of the service provider and click **Register** .
-    ![](/assets/attachments/103334858/103334854.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334854.png)
 3.  Click **Configure** under **Inbound Authentication Configuration &gt; OAuth/OpenId Connect Configuration** to add a new OAuth client.
-    ![](/assets/attachments/103334858/103334857.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334857.png)
 4.  Provide a callback URL and click **Add** .
     If you do not have a callback URL, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth client.
-    ![](/assets/attachments/103334858/103334848.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334848.png)
     You have now created the OAuth client and are provided with the OAuth client key and OAuth client secret.
-    ![](/assets/attachments/103334858/103334846.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334846.png)
 5.  Enable the option to provide out-of-band keys by opening the `<APIM_HOME>/repository/deployment/server/jaggeryapps/store/site/conf/site.json` file and changing the `"mapExistingAuthApps"` setting to `true` .
 
     ``` java
@@ -32,9 +32,9 @@ In this example, we use a standalone API Manager instance and do this via the WS
 6.  Sign into the WSO2 API Store.
 `https://<Server Host>:9443/store         `
 7.  Click **Applications** .
-    ![](/assets/attachments/103334858/103334853.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334853.png)
 8.  Click on the respective application to view the subscriptions details for the application.
-    ![](/assets/attachments/103334858/103334845.png)
+    ![]({{base_path}}/assets/attachments/103334858/103334845.png)
 9.  Provision an out-of-band OAuth client for the required environment.
 
         !!! note
@@ -43,9 +43,9 @@ In this example, we use a standalone API Manager instance and do this via the WS
 
     1.  Click **Production Keys** .
         Notice that you now see a **Provide Keys** button for your application.
-        ![](/assets/attachments/103334858/103334844.png)
+        ![]({{base_path}}/assets/attachments/103334858/103334844.png)
     2.  Click **Provide Keys** , paste the consumer key and consumer secret pair, which you received in [step 4](#ProvisioningOut-of-BandOAuthClients-step4) , and click **Save** .
-        ![](/assets/attachments/103334858/103334843.png)
+        ![]({{base_path}}/assets/attachments/103334858/103334843.png)
 
     You have successfully provisioned an out-of-band OAuth client.
 

@@ -24,7 +24,7 @@ The following steps show a demonstration:
     You can also use the curl request listed under the **Generate Access Tokens** section for the steps 3 and 4 based on the grant type.
 
 
-    ![](/assets/attachments/103334763/103334764.png)
+    ![]({{base_path}}/assets/attachments/103334763/103334764.png)
 4.  Use the Base64 encoded value obtained above in the Authorization header when invoking the following command. This is used to get the token by calling the token API.
 
         !!! tip

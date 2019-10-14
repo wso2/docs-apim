@@ -11,7 +11,7 @@ In most systems, logging properties should be specified before the server starts
 To configure logging properties of the system and application logs of a Carbon server at run time:
 
 1.  Log in to the management console of your product and go to **Configure** -&gt; **Logging** in the navigator. The **Logging Configuration** window appears as shown below.
-    ![](/assets/attachments/28705820/28870019.png)
+    ![]({{base_path}}/assets/attachments/28705820/28870019.png)
 2.  If you select the **Persist All Configuration Changes** check box, all the modifications will persist and they will be available even after the server restarts.
 3.  The **Logging Configuration** window consists of three sections, which you can use to configure the layout and the amount of information you want to receive about system activity. The following topics describes each of these settings:
 
@@ -21,7 +21,7 @@ To configure logging properties of the system and application logs of a Carbon s
 
 #### Global Log4J Configuration
 
-![](/assets/attachments/28705820/28870018.png)
+![]({{base_path}}/assets/attachments/28705820/28870018.png)
 
 This section allows you to assign a single log level and log pattern to all loggers.
 
@@ -32,7 +32,7 @@ If you click **Restore Defaults** , the Registry will be overwritten by logging 
 
 #### Configure Log4J Appenders
 
-![](/assets/attachments/28705820/28870017.png)
+![]({{base_path}}/assets/attachments/28705820/28870017.png)
 
 This section allows you to configure appenders individually. Log4j allows logging requests to print to multiple destinations. These output destinations are called 'Appenders'. You can attach several appenders to one logger.
 
@@ -73,7 +73,7 @@ This section allows you to configure appenders individually. Log4j allows loggin
 
 #### Configure Log4J Loggers
 
-![](/assets/attachments/28705820/28870022.png)
+![]({{base_path}}/assets/attachments/28705820/28870022.png)
 
 A Logger is an object used to log messages for a specific system or application component. Loggers are normally named using a hierarchical dot-separated namespace and have a 'child-parent' relationship. For example, the logger named 'root.sv' is a parent of the logger named 'root.sv.sf' and a child of 'root'.
 

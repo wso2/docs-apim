@@ -9,12 +9,12 @@ This capability is not available in WSO2 API Manager versions prior to 1.10.0.
 Follow the steps below to add a new state to the default life cycle.
 
 1.  Sign in to the API Publisher and click on the API that you created previously (e.g., PizzaShackAPI - 1.0.0).
-    ![Published life cycle state](/assets/attachments/103328609/103328610.png)2.  Click **Lifecycle** to view the current states available by default.
+    ![Published life cycle state]({{base_path}}/assets/attachments/103328609/103328610.png)2.  Click **Lifecycle** to view the current states available by default.
 3.  Open the WSO2 API Manager Management Console: <https://localhost:9443/carbon>
 4.  Navigate to **Extensions &gt; Configure &gt; Lifecycles** .
-    ![](/assets/attachments/103328609/103328614.png)
+    ![]({{base_path}}/assets/attachments/103328609/103328614.png)
 5.  Click the **View/Edit** link corresponding to the default API LifeCycle.
-    ![](/assets/attachments/103328609/103328613.png)    The APILifeCycle configurations appear.
+    ![]({{base_path}}/assets/attachments/103328609/103328613.png)    The APILifeCycle configurations appear.
 
     ``` java
         <aspect name="APILifeCycle" class="org.wso2.carbon.governance.registry.extensions.aspects.DefaultLifeCycle">
@@ -185,7 +185,7 @@ Follow the steps below to add a new state to the default life cycle.
 
 8.  Restart the WSO2 API Manager server.
 9.  Re-open API Publisher and check the Lifecycle to see the changes.
-    ![](/assets/attachments/103328609/103328611.png)
+    ![]({{base_path}}/assets/attachments/103328609/103328611.png)
 !!! tip
 Consider the following points when extending and customizing the API lifecycle XML configuration.
 

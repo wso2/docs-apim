@@ -84,7 +84,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 
 6.  Select **Add** under the **Processes** menu and upload the `<API-M_HOME>/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0.zip` file to EI. This is the business process archive file.
-    ![](/assets/attachments/103334709/103334710.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
+    ![]({{base_path}}/assets/attachments/103334709/103334710.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
 
 !!! tip
 **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
@@ -162,7 +162,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 
 6.  Select **Add** under the **Processes** menu and upload the `<API-M_HOME>/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0.zip` file to BPS. This is the business process archive file.
-    ![](/assets/attachments/103334709/103334710.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` file to BPS. This is the human task archived file.
+    ![]({{base_path}}/assets/attachments/103334709/103334710.png)7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` file to BPS. This is the human task archived file.
 
 #### 
 Configuring the API Manager
@@ -174,7 +174,7 @@ Configuring the API Manager
 First, enable the user signup workflow **.**
 
 1.  Log in to APIM management console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources** .
-    ![](/assets/attachments/103334709/103334713.png)
+    ![]({{base_path}}/assets/attachments/103334709/103334713.png)
 2.  Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor. Also specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
 
     ``` html/xml

@@ -28,10 +28,10 @@ The examples here use the `PhoneVerification` REST API, which was created in [Cr
 `https://<hostname>:9443/store          `
 
 2.  Subscribe to the API (e.g., `PhoneVerification` 1.0.0) using the **default application** and an available tier.
-    ![](/assets/attachments/103327857/103327843.png)
+    ![]({{base_path}}/assets/attachments/103327857/103327843.png)
 
 3.  On the **Applications** menu, open the default application you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
-    ![](/assets/attachments/103327857/103327842.png)
+    ![]({{base_path}}/assets/attachments/103327857/103327842.png)
 
         !!! tip
     Production and Sandbox Tokens
@@ -40,7 +40,7 @@ The examples here use the `PhoneVerification` REST API, which was created in [Cr
 
 
 4.  On the **APIs** menu, select the API that you want to invoke. When the API opens, go to its **API Console** tab.
-    ![](/assets/attachments/103327857/103327841.png)
+    ![]({{base_path}}/assets/attachments/103327857/103327841.png)
     If you have subscribed to an application, the retrieved access token value appears automatically as the **Authorization Bearer Token.
     **
 
@@ -49,7 +49,7 @@ The examples here use the `PhoneVerification` REST API, which was created in [Cr
 
     The **Documentation** tab contains any relevant [documents that are attached](_Add_API_Documentation_) to the API.
 
-    ![](/assets/attachments/103327857/103327844.png)
+    ![]({{base_path}}/assets/attachments/103327857/103327844.png)
 
 
 5.  Expand the GET method and click Try it out. Provide the required parameters and click **Execute.** For example,
@@ -61,7 +61,7 @@ The examples here use the `PhoneVerification` REST API, which was created in [Cr
     | **Authorization** | The API console is automatically populated by the access token that you generated in [step 3](#InvokeanAPIusingtheIntegratedAPIConsole-step3) after subscribing to the API.                                                               
       The token is prefixed by the string "Bearer" as per the OAuth bearer token profile. [OAuth security](_Key_Concepts_) is enforced on all published APIs. If the application key is invalid, you get a 401 Unauthorized response in return.  |
 
-    ![](/assets/attachments/103327857/103327840.png)
+    ![]({{base_path}}/assets/attachments/103327857/103327840.png)
 
         !!! info
     Troubleshooting
@@ -73,6 +73,6 @@ The examples here use the `PhoneVerification` REST API, which was created in [Cr
 
     Note the response for the API invocation. As we used a valid phone number in this example, the response is valid.
 
-    ![](/assets/attachments/103327857/103327839.png)
+    ![]({{base_path}}/assets/attachments/103327857/103327839.png)
 
 You have invoked an API using the Swagger API Console.

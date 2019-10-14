@@ -23,13 +23,13 @@ Password recovery for a store user can be done by enabling the password recovery
     ```
 
 2.  After you configure the mail server, the user can click on the **Forgot Password** link on the Sign In page of the API Store and request a password change.
-    ![](/assets/attachments/103334928/103334920.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334920.png)
 3.  You need to have a user account with an email configured for this feature to work. Click the **Forgot Password** link. You will be directed to the Password Reset page. Enter the username you are trying to recover the password of.
-    ![](/assets/attachments/103334928/103334921.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334921.png)
 4.  After you add the username, click **Request Password Change.**
-    ![](/assets/attachments/103334928/103334922.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334922.png)
     You will receive a notification that the password recovery instructions have been sent to your email address. Note that this is the email address stored during user sign up.
-    ![](/assets/attachments/103334928/103334923.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334923.png)
 5.  You will receive an email with the following information. A sample is shown below. Click on the link given in the email.
 
     ``` java
@@ -56,7 +56,7 @@ Password recovery for a store user can be done by enabling the password recovery
 
 
 6.  You will be redirected to the page shown below to change your password.
-    ![](/assets/attachments/103334928/103334924.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334924.png)
 
 ### Account locking
 
@@ -119,13 +119,13 @@ An administrative user can lock a user account by editing the user’s profile i
 
 2.  Go to **Claims &gt; List** on the **Configure** menu and select the `http://wso2.org/claims` claim dialect.
 3.  Select the **Account Locked** claim and click **Edit** .
-    ![](/assets/attachments/103334928/103334925.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334925.png)
 4.  Select the **Supported by Default** checkbox and click **Update** . This is done to make the **Account Locked** status appear in the user's profile.
-    ![](/assets/attachments/103334928/103334926.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334926.png)
 5.  Go to **Users and Roles &gt; List &gt; Users** on the **Main** menu and click on **User Profile** of the user you want to lock.
 
 6.  Tick the checkbox in front of the Account Locked field to lock the account for the user and click **Update** .
-    ![](/assets/attachments/103334928/103334927.png)
+    ![]({{base_path}}/assets/attachments/103334928/103334927.png)
 
 ### Paasword policies
 

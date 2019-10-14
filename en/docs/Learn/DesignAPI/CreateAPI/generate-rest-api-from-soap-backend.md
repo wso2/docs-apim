@@ -17,18 +17,18 @@ Make sure that you have a valid WSDL URL from the SOAP backend. It should belong
 3.  Provide the WSDL URL for the SOAP backend and click **Start Creating** . The default option is **Pass Through** .
 
 4.  Select the **Generate REST APIs** option and go to the **Design** tab. Click on **Edit Source** to edit the Swagger specification of the API.
-    ![](/assets/attachments/103328795/103328787.png)
+    ![]({{base_path}}/assets/attachments/103328795/103328787.png)
 5.  Click **Apply Changes** to save your API.
-    ![](/assets/attachments/103328795/103328788.png)
+    ![]({{base_path}}/assets/attachments/103328795/103328788.png)
 6.  The generated API definitions are added to the API as shown below.
-    ![](/assets/attachments/103328795/103328791.png)
+    ![]({{base_path}}/assets/attachments/103328795/103328791.png)
 
         !!! note
     The definition properties are mapped with a Swagger vendor-specific field `x-xpath` , which is used to map the SOAP binding operation parameters with the REST parameters. If a parameter does not have this field it is not mapped with a backend operation. To ensure the mapping functions smoothly, do not make any changes to the properties.
 
 
 7.  Go to the **Implement** tab and view the **SOAP Mapping** section. Click on a resource to view the In and Out sequences of the API.
-    ![](/assets/attachments/103328795/103328790.png)
+    ![]({{base_path}}/assets/attachments/103328795/103328790.png)
 8.  The following sample shows the generated API In-sequence for a GET method with query parameters.
 
     ``` java
@@ -72,7 +72,7 @@ Make sure that you have a valid WSDL URL from the SOAP backend. It should belong
     The incoming JSON message parameters are stored using properties. The SOAP payload needed for the backend is generated using a payload factory mediator.
 
 9.  Enter the SOAP endpoint URL. The endpoint type should be the **HTTP/SOAP Endpoint** as shown below.
-    ![](/assets/attachments/103328795/103328789.png)
+    ![]({{base_path}}/assets/attachments/103328795/103328789.png)
 10. Go to the **Manage** tab and the relevant configuration. Click **Publish** to publish the API to the API Store. For instructions, see [Create and Publish an API](https://docs.wso2.com/display/AM2xx/Create+and+Publish+an+API) .
 11. Navigate to the API Store and [invoke the AP](https://docs.wso2.com/display/AM2xx/Quick+Start+Guide#QuickStartGuide-InvokingtheAPI) I.
 

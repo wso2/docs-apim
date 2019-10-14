@@ -58,4 +58,4 @@ The users of your APIs can subscribe to analytics-related alerts from the API Pu
 2.  Go to the Business Rules and Status Dashboard. ( e.g., `https://localhost:9643/business-rules                    )         `
 3.  You can view the existing business rules that are applied for API Manager. Depending on your privileges, you can view, edit, and delete business rules.
     For more details on working with business rules, see [Managing Business Rules](https://docs.wso2.com/display/SP430/Managing+Business+Rules) .
-    ![](/assets/attachments/103335144/103335145.png)
+    ![]({{base_path}}/assets/attachments/103335144/103335145.png)

@@ -73,23 +73,23 @@ Rates and comments give useful insights to potential API consumers on the qualit
 
 1.  Log in to the API Store and click on a published API.
 2.  The API's **Overview** page opens. Note the rating and commenting options there:
-    ![](/assets/attachments/103333177/103333179.png)3.  Add a rating and a comment. Note that the comments appear sorted by the time they were entered, alongside the author's name.
-    ![](/assets/attachments/103333177/103333184.png)
+    ![]({{base_path}}/assets/attachments/103333177/103333179.png)3.  Add a rating and a comment. Note that the comments appear sorted by the time they were entered, alongside the author's name.
+    ![]({{base_path}}/assets/attachments/103333177/103333184.png)
 #### Share on social media/e-mail
 
 1.  Log in to the API Store and click on a published API.
 2.  On the API's **Overview** page, you get the social media options using which you can share and advertise APIs.
-    ![](/assets/attachments/103333177/103333180.png)
+    ![]({{base_path}}/assets/attachments/103333177/103333180.png)
 #### Embed an API widget
 
 A widget is an embeddable version of the API in HTML that you can share on your website or other web pages. This is similar to how YouTube videos are embedded in a web page.
 
 1.  Log in to the API Store and click on a published API.
 2.  Note the **Embed** tab under the API's sharing options.
-    ![](/assets/attachments/103333177/103333181.png)
+    ![]({{base_path}}/assets/attachments/103333177/103333181.png)
 #### Participate in the forum
 
 1.  Log in to the API Store.
 2.  Click the **Forum** tab to go to the forum, where you can initiate conversations and share your opinions with other users.
-    ![](/assets/attachments/103333177/103333190.png)3.  Enter the Subject and Description of your topic and click Create.
-    ![](/assets/attachments/103333177/103333182.png)
+    ![]({{base_path}}/assets/attachments/103333177/103333190.png)3.  Enter the Subject and Description of your topic and click Create.
+    ![]({{base_path}}/assets/attachments/103333177/103333182.png)

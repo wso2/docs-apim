@@ -98,7 +98,7 @@ In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. T
 ##### Timeout configurations for an API call
 
 The following diagram shows the communication/network paths that occur when an API is called. The timeout configurations for each network call are explained below.
-![](/assets/attachments/103333648/103333650.png)
+![]({{base_path}}/assets/attachments/103333648/103333650.png)
 -   **Key validation**
     Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
 

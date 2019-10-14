@@ -39,7 +39,7 @@ The super tenant as well as each individual tenant has its own configuration a
 
 Each tenant has its own security domain. A domain has a set of users, and permissions for those users to access resources. Thus, a tenant is restricted by the users and permissions of the domain assigned to it. The artifact repositories of the tenants are separated from each other.
 
-![](/assets/attachments/45960071/46211144.png)
+![]({{base_path}}/assets/attachments/45960071/46211144.png)
 
 An individual tenant can carry out the following activities within the boundaries of its own configuration and context module:
 

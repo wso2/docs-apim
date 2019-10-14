@@ -5,7 +5,7 @@ User management functionality is provided by default in all WSO2 Carbon-based pr
 The complete functionality and contents of the User Management module is called a **user realm** . The realm includes the user management classes, configurations and repositories that store information. Therefore, configuring the User Management functionality in a WSO2 product involves setting up the relevant repositories and updating the relevant configuration files.
 
 The following diagram illustrates the required configurations and repositories:
-![](/assets/attachments/126562314/126562315.png)
+![]({{base_path}}/assets/attachments/126562314/126562315.png)
 
 The following sections include instructions on the above required configurations and repositories:
 

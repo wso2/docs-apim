@@ -27,7 +27,7 @@ The **System Logs** page on the management console displays all events of a runn
 
 2.  To view old archived logs, click **Show archived logs** tab at the bottom of the **System Logs** page.
 
-    ![](/assets/attachments/32351462/32525350.png)
+    ![]({{base_path}}/assets/attachments/32351462/32525350.png)
 
     The **Download** link can be used to download the log files. For example, if the server is configured to use the [default log provider](https://docs.wso2.com/display/ADMIN44x/Configuring+the+Log+Provider) , the "wso2carbon.log" file stored in the `<PRODUCT_HOME>/repository/logs/` directory can be downloaded.
 
@@ -40,11 +40,11 @@ The **System Logs** page on the management console displays all events of a runn
     -   **ERROR** - Error messages.
     -   **FATAL** - Fatal error messages.
 
-    ![](/assets/attachments/32351462/32525349.png)
+    ![]({{base_path}}/assets/attachments/32351462/32525349.png)
 
 4.  You can also find a specific log using the search function. Enter a keyword (or part of a keyword) and click **Search** .
 
-    ![](/assets/attachments/32351462/32525348.png)
+    ![]({{base_path}}/assets/attachments/32351462/32525348.png)
 
 ### View application logs
 
@@ -56,7 +56,7 @@ Follow the instructions given below to access statistics on application logs:
 2.  The "Application Logs" page appears. This page displays logs of a selected application in a bottom-up manner.
 
 3.  You can see a drop-down list from which a deployed web services or a web applications can be selected to view its log files.
-    ![](/assets/attachments/12421402/12747658.png)
+    ![]({{base_path}}/assets/attachments/12421402/12747658.png)
 4.  In the **View** list, select the category of logs you want to view. The available categories are:
 
     -   **TRACE** - Trace messages.
@@ -69,8 +69,8 @@ Follow the instructions given below to access statistics on application logs:
 
     For Example,
 
-    ![](/assets/attachments/12421402/12747656.png)
+    ![]({{base_path}}/assets/attachments/12421402/12747656.png)
 
 5.  You can also find a certain log using the search function. Enter a keyword (or part of a keyword) and click **Search** . When a search criterion is given, the value in the **View** field is displayed as **Custom** . For example,
-    ![](/assets/attachments/12421402/12747655.png)
+    ![]({{base_path}}/assets/attachments/12421402/12747655.png)
 

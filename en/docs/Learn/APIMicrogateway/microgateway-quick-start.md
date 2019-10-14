@@ -160,7 +160,7 @@ Once you start the Microgateway, you can use a JWT or an OAuth2 token to invoke 
 
 1.  Log in to the API Store, click **Applications** and choose to edit the Default Application. Set the token type to JWT.
 
-    ![](/assets/attachments/103333749/103333761.png)
+    ![]({{base_path}}/assets/attachments/103333749/103333761.png)
 2.  Click the **Production Keys** tab and click **Generate Keys** to generate an access token to invoke the API.
 
         !!! note
