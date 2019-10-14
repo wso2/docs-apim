@@ -560,7 +560,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.    
 
-    1.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+      Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
         ``` java
         [[apim.monetization.additional_attributes]]
