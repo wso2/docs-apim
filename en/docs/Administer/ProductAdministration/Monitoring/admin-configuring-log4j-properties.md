@@ -55,7 +55,7 @@ This section allows you to configure appenders individually. Log4j allows loggin
 
 <!-- -->
 
--   **Log pattern** - Defines the output format of the log file. From Carbon 4.4.3 onwards, t he conversion character 'K' can be used in the pattern layout to log a UUID . For example, the log pattern can be \[%K\] \[%T\] \[%S\] \[%d\] %P%5p {%c} - %x %m {%c}%n, where \[%K\] is the UUID.
+-   **Log pattern** - Defines the output format of the log file. From Carbon 4.4.3 onwards, t he conversion character 'K' can be used in the pattern layout to log a UUID . For example, the log pattern can be \[%K\] \[%T\] \[%S\] \[%d\] %P%5p {{c}} - %x %m {{c}}n, where \[%K\] is the UUID.
 
         !!! info
     **Note** that the following capability was introduced by the Carbon 4.4.3 release. Therefore, it is only applicable to products that a based on Carbon 4.4.3 or later versions.

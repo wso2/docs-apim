@@ -600,7 +600,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-    
+plugins:
+  - markdownextradata: {}
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css
