@@ -560,30 +560,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.    
 
-    1.  Add the following configuration under Monetization in the `<API-M_HOME>/repository/resources/conf/templates/repository/conf/api-manager.xml.j2` file.
-
-        ``` java
-        <AdditionalProperties>
-        {% for origin in apim.monetization.additional_properties %}
-                <Property>{{origin}}</Property>
-        {% endfor %}
-        </AdditionalProperties>
-
-        {% if apim.monetization.additional_attributes is defined %}
-                    <AdditionalAttributes>
-                        {% for attribute in apim.monetization.additional_attributes %}
-                        <Attribute required="{{attribute.required}}">
-                            <Name>{{attribute.name}}</Name>
-                            <DisplayName>{{attribute.display_name}}</DisplayName>
-                            <Description>{{attribute.description}}</Description>
-                            <Default>{{attribute.default}}</Default>
-                        </Attribute>
-                        {% endfor %}
-                    </AdditionalAttributes>
-        {% endif %}
-        ```
-
-    2.  Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+      Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
         ``` java
         [[apim.monetization.additional_attributes]]
