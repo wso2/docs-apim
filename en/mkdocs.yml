@@ -55,6 +55,7 @@ nav:
         - Design API: 
             - Create API:
                 - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
+                - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
                 - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
                 - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
                 - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
