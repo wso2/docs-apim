@@ -170,7 +170,8 @@ Follow the instructions below to design and publish a GraphQL API:
                   </p>
                   </div>
                   
-                  Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Create user roles](/Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles/#create-user-roles).
+                  Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Adding Users](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/adding-users/) and [Adding User Roles](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles/).
+
 
                   <img src="../../../../assets/img/Learn/create-scope.png" alt="create a scope" title="Create a scope" width="600" />
                   </body>
@@ -258,7 +259,7 @@ Follow the instructions below to design and publish a GraphQL API:
         }   
         ```
 
-       ![Try out the post operation](../../../../assets/img/Learn/post-try-out.png)
+       ![Try out the post operation](../../../../assets/img/Learn/post-try-out-starwars.png)
 
     6. Click **Execute**.
 
