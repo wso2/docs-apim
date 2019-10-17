@@ -1,12 +1,10 @@
 # Overview
 
-In an age where organizations are becoming more and more "data-driven", exposing services & microservices via APIs is becoming the norm. These APIs are consumed by a wide range of devices for various day to day activities such as banking, shopping, smart solutions etc. In the recent past, the number of consumers, consuming these APIs have increased exponentially. This brings in new challenges for enterprises to deal with such as security of services,  maintaining APIs, managing APIs, enforcing policies etc. This is where an API Management solution is required. An API management solution manages the APIs by taking care of the exposure related complexities such as security, rate limiting, monitoring etc, while providing a platform to manage the APIs .
-
-**The WSO2 API Manager is a high performant API Management solution** designed to solve this problem elegantly. It is the **only 100% open source** solution and comes with an [Apache Software License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0) which makes it **free to use** .
+WSO2 API Manager is a fully open source solution for end to end API Management in the cloud, on-prem or in hybrid environments. It comes with an [Apache Software License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0) which makes it **free to use** . It allows API developers to design publish and manage the lifecycle of APIs and API product managers to create API products from one or more APIs. It hosts an application developer portal which helps in building and managing a developer community for your APIs. Its cloud native API gateway is used for securing, routing, controlling and monitoring your API traffic in a scalable manner.
 
 ## **What is the WSO2 API Manager** ?
 
-WSO2 API Manager is the only 100% open source product that addresses all aspects of API management including API creation, consumption, security, rate limitation, monetization and analytics. The WSO2 API Manager was named as **a leader in "The Forrester Wave™: API Management Solutions, Q4 2018."**
+WSO2 API Manager is the only 100% open source product that addresses all aspects of API management including API development, productization, consumption, security, rate limitation, monetization and analytics.
 
 ![]({{base_path}}/assets/attachments/103327648/103346653.png)
 In brief, the WSO2 API Manager consists of 6 main components, the [API Publisher,](#api-publisher) the [API developer Portal,](#developer-portal) [API Gateway](#api-gateway) (now comes as a [API Microgateway](_API_Microgateway_) as well ), [Key Manager,](#key-manager) [Traffic Manager](#traffic-manager) and the [API Analytics](#analytics) . For more information on these components see [Basic Architecture and Key Components]() .
@@ -17,7 +15,9 @@ The key features of the product are listed below.
 
 -   Design and Prototype APIs
 
--   Publish APIs and Govern API Use
+-   Publish and govern the use of APIs
+
+-   Create API products
 
 -   Consume and Manage APIs
 
