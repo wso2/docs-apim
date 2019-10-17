@@ -1,0 +1,26 @@
+[apim.throttling.blacklist_condition]
+start_delay = "5m"
+period = "1h"
+
+[apim.throttling.jms]
+start_delay = "5m"
+
+[apim.throttling.event_sync]
+hostName = "0.0.0.0"
+port = 11224
+
+[apim.throttling.event_management]
+hostName = "0.0.0.0"
+port = 10005
+
+LOADBALANCE CONFIGS
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
+traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
+type = "loadbalance"
+
+FAILOVER CONFIGS
+[[apim.throttling.url_group]]
+traffic_manager_urls = ["tcp://localhost:9611","tcp://localhost:9611"]
+traffic_manager_auth_urls = ["ssl://localhost:9711","ssl://localhost:9711"]
+type = "failover"

@@ -1,0 +1,9 @@
+[apim.key_manager]
+service_url = "https://localhost:${mgt.transport.https.port}/services/"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+pool.init_idle_capacity = 50
+pool.max_idle = 100
+key_validation_handler_type = "default"
+key_validation_handler_type = "custom"
+key_validation_handler_impl = "org.wso2.carbon.apimgt.keymgt.handlers.DefaultKeyValidationHandler"

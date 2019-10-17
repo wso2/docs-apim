@@ -1,0 +1,6 @@
+[apim.throttling]
+enable_data_publishing = true
+enable_policy_deploy = true
+enable_blacklist_condition = true
+enable_persistence = true
+throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]

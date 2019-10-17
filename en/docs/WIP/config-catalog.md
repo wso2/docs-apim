@@ -223,7 +223,7 @@ enable_h2_console = true</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[database_configuration]</code>
+                            <code>[databaseconfiguration]</code>
 
                             <p>
                                 Configurations required to enable browsing the H2 database from a web browser.
@@ -4191,10 +4191,15 @@ client_registration_password = "$ref{super_admin.password}"</code></pre>
                 <label class="tab-selector" for="_tab_29"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-                        <pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
+                        <pre><code class="toml">[apim.token.revocation]
+notifier_impl = "org.wso2.carbon.apimgt.keymgt.events.TokenRevocationNotifierImpl"
+enable_realtime_notifier = true
+realtime_notifier.ttl = 5000
+enable_persistent_notifier = true
+persistent_notifier.hostname = "https://localhost:2379/v2/keys/jti/"
+persistent_notifier.ttl = 5000
+persistent_notifier.username = "root"
+persistent_notifier.password = "root"</code></pre>
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -4330,7 +4335,7 @@ create_admin_account = true</code></pre>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Ask Sampath for desc and unit</p>
+                                        <p></p>
                                     </div>
                                 </div>
                             </div>
@@ -4371,66 +4376,6 @@ create_admin_account = true</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</div>
-
-
-## Sample
-
-<div class="mb-config-catalog">
-    <section>
-        <div class="mb-config-options">
-            <div class="superfences-tabs">
-
-                <input name="30" type="checkbox" id="_tab_30">
-                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
-                <div class="superfences-content">
-                    <div class="mb-config-example">
-                        <pre><code class="toml">[super_admin]
-username = "admin"
-password = "admin"
-create_admin_account = true</code></pre>
-                    </div>
-                </div>
-                <div class="doc-wrapper">
-                    <div class="mb-config">
-                        <div class="config-wrap">
-                            <code>[name]</code>
-                            <span class="badge-required">Required</span>
-                            <p>
-
-                            </p>
-                        </div>
-                        <div class="params-wrap">
-                            <div class="param">
-                                <div class="param-name">
-                                    <span class="param-name-wrap"> <code>hostname</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-                                            <span class="badge-required">Required</span>
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default:
-                                                <code>&quot;localhost&quot;</code></span>
-                                        </div>
-                                        <div class="param-possible">
-                                            <span class="param-possible-values">Possible Values:
-                                                <code>&quot;127.0.0.1&quot;,&quot;localhost&quot;,&quot;&lt;any-ip-address&gt;&quot;</code></span>
-                                        </div>
-                                    </div>
-                                    <div class="param-description">
-                                        <p>The hostname of the WSO2 EI server instance.</p>
                                     </div>
                                 </div>
                             </div>
