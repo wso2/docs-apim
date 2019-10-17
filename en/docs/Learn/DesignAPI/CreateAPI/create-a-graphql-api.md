@@ -92,8 +92,8 @@ Follow the instructions below to design and publish a GraphQL API:
                <p>Endpoint</p>
             </td>
             <td>
-               <a href="https://api.graph.cool/simple/v1/swapi">https://api.graph.cool/simple/v1/swapi</a>   
-              <p>This endpoint should be the GraphQL Java backend that you created. </br>For more information on creating a GraphQL Java backend, go to the <a href="https://www.howtographql.com/graphql-java/1-getting-started/"> GraphQL Java Tutorials Getting Started guide</a>.</p>
+               <a href="https://api.graph.cool/simple/v1/swapi" target="_blank">https://api.graph.cool/simple/v1/swapi</a>   
+              <p>This endpoint should be the GraphQL Java backend that you created. </br>For more information on creating a GraphQL Java backend, go to the <a href="https://www.howtographql.com/graphql-java/1-getting-started/" target="_blank"> GraphQL Java Tutorials Getting Started guide</a>.</p>
             </td>
             </tr>
             <tr>
@@ -253,13 +253,13 @@ Follow the instructions below to design and publish a GraphQL API:
     4. Click **POST**.
     
     5. Click **Try it out** and enter the following sample payload as the StarWarsAPI POST request.
-        ```
-        {
-        "query": "{ allFilms{title  episodeId}  allPlanets {films { species {skinColor} } }}"
-        }   
-        ```
+         ```
+         {
+         "query": "{ allFilms{title  episodeId}  allPlanets {films { species {skinColor} } }}"
+         }   
+         ```
 
-       ![Try out the post operation](../../../../assets/img/Learn/post-try-out-starwars.png)
+         ![Try out the post operation](../../../../assets/img/Learn/post-try-out-starwars.png)
 
     6. Click **Execute**.
 
