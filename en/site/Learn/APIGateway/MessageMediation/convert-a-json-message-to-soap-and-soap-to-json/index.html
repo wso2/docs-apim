@@ -16,10 +16,112 @@
  * under the License.
 -->
 
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Documentation for WSO2 API Manager"><link rel="canonical" href="https://wso2.com/Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json/"><meta name="author" content="WSO2"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Convert a JSON Message to SOAP and SOAP to JSON - WSO2 API Manager Documentation 3.0.0</title>
-  <link rel="stylesheet" href="../../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ff7043">
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Convert a JSON Message to SOAP and SOAP to JSON - WSO2 API Manager Documentation 3.0.0</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
   <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
-<script src="../../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css"><link rel="stylesheet" href="../../../../assets/css/theme.css"></head><body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#convert-a-json-message-to-soap-and-soap-to-json" tabindex="1" class="md-skip">Skip to content </a><!--
+
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#convert-a-json-message-to-soap-and-soap-to-json" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -77,13 +179,17 @@
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          <div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div>
-        
       </div>
     </div>
   </nav>
-</header><div class="md-container">
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
 
   
 
@@ -106,7 +212,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../GettingStarted/key-concepts/" title="Get Started" class="md-tabs__link">
+        <a href="../../../../GettingStarted/overview/" title="Get Started" class="md-tabs__link">
           Get Started
         </a>
       
@@ -127,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Learn" class="md-tabs__link">
+        <a href="../../../DesignAPI/CreateAPI/create-a-rest-api/" title="Learn" class="md-tabs__link">
           Learn
         </a>
       
@@ -199,25 +305,13 @@
         
   
   
-    
-    
-  
-  
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../../../Reference/samples/APIDevelopmentSample/managing-apis-sample/" title="Reference" class="md-tabs__link">
+        <a href="../../../../Reference/ConfigCatalog/" title="Reference" class="md-tabs__link">
           Reference
         </a>
       
     </li>
-  
-
-  
-
   
 
       
@@ -226,7 +320,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting" class="md-tabs__link">
+        <a href="../../../../Troubleshooting/error-handling/" title="Troubleshooting" class="md-tabs__link">
           Troubleshooting
         </a>
       
@@ -247,7 +341,16 @@
         onclick=window.open("https://github.com/"+"wso2/docs-apim"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
         Report Issues</a>
   </div>
-</nav><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0">
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
     <label class="md-nav__title md-nav__title--site" for="__drawer">
       <a href="https://wso2.com/" title="WSO2 API Manager Documentation 3.0.0"
          class="md-nav__button md-logo">
@@ -259,7 +362,23 @@
     </label>
     
       <div class="md-nav__source">
-        <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">wso2/docs-apim</div></a>
+        
+
+
+  
+
+<a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    wso2/docs-apim
+  </div>
+</a>
       </div>
     
     <ul class="md-nav__list" data-md-scrollfix>
@@ -301,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/key-concepts/" title="Overview" class="md-nav__link">
+    <a href="../../../../GettingStarted/overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -313,7 +432,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/overview/" title="Key Concepts" class="md-nav__link">
+    <a href="../../../../GettingStarted/key-concepts/" title="Key Concepts" class="md-nav__link">
       Key Concepts
     </a>
   </li>
@@ -401,8 +520,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Create and Publish a REST API" class="md-nav__link">
-      Create and Publish a REST API
+    <a href="../../../DesignAPI/CreateAPI/create-a-rest-api/" title="Create a REST API" class="md-nav__link">
+      Create a REST API
     </a>
   </li>
 
@@ -413,8 +532,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition/" title="Create and Publish an API from a Swagger Definition" class="md-nav__link">
-      Create and Publish an API from a Swagger Definition
+    <a href="../../../DesignAPI/CreateAPI/create-a-graphql-api/" title="Create a GraphQL API" class="md-nav__link">
+      Create a GraphQL API
     </a>
   </li>
 
@@ -425,8 +544,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../DesignAPI/CreateAPI/create-and-publish-a-soap-api/" title="Create and Publish a SOAP API" class="md-nav__link">
-      Create and Publish a SOAP API
+    <a href="../../../DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition/" title="Create a REST API from a Swagger Definition" class="md-nav__link">
+      Create a REST API from a Swagger Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api/" title="Expose a SOAP Service as a REST API" class="md-nav__link">
+      Expose a SOAP Service as a REST API
     </a>
   </li>
 
@@ -1860,7 +1991,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/adding-a-new-api-store-theme.md" title="Adding a New API Store Theme" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme/" title="Adding a New API Store Theme" class="md-nav__link">
       Adding a New API Store Theme
     </a>
   </li>
@@ -1920,7 +2051,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/customizing-error-pages.md" title="Customizing error Pages" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages/" title="Customizing error Pages" class="md-nav__link">
       Customizing error Pages
     </a>
   </li>
@@ -1932,7 +2063,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/enabling-or-disabling-the-forum.md" title="Enabling or disabling the forum" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum/" title="Enabling or disabling the forum" class="md-nav__link">
       Enabling or disabling the forum
     </a>
   </li>
@@ -1944,7 +2075,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/enabling-or-disabling-the-walkthrough.md" title="Enabling or disabling the walkthrough" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough/" title="Enabling or disabling the walkthrough" class="md-nav__link">
       Enabling or disabling the walkthrough
     </a>
   </li>
@@ -1956,7 +2087,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/enabling-or-disabling-self-signup.md" title="Enabling or disabling self signup" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup/" title="Enabling or disabling self signup" class="md-nav__link">
       Enabling or disabling self signup
     </a>
   </li>
@@ -3161,18 +3292,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../.." title="Rate Limiting - Security Concerns" class="md-nav__link">
-      Rate Limiting - Security Concerns
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -3373,6 +3492,18 @@
   <li class="md-nav__item">
     <a href="../../../APIMonetization/configuring-api-monetization-category-labels/" title="Configuring API Monetization Category Labels" class="md-nav__link">
       Configuring API Monetization Category Labels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../APIMonetization/monetizing-an-api/" title="Monetizing an API" class="md-nav__link">
+      Monetizing an API
     </a>
   </li>
 
@@ -7611,15 +7742,135 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
+      WSO2 API Manager Best Practices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
-    <label class="md-nav__link" for="nav-7-1" >
+    <label class="md-nav__link" for="nav-7-4" >
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4" >
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
+      Changing the Default Ports with Offset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
+      Message Flow in the API Manager Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
+      Accessing API Manager by Multiple Devices Simultaneously
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
+      admin_Database Upgrade Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
+      admin_Directory Structure of WSO2 Products
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5" >
       Samples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1" >
+      <label class="md-nav__title" for="nav-7-5" >
         Samples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7632,13 +7883,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1-1" type="checkbox" id="nav-7-1-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5-1" type="checkbox" id="nav-7-5-1">
     
-    <label class="md-nav__link" for="nav-7-1-1" >
+    <label class="md-nav__link" for="nav-7-5-1" >
       API Development Sample
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-1-1" >
+      <label class="md-nav__title" for="nav-7-5-1" >
         API Development Sample
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7768,8 +8019,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
+      Business Scenarios
     </a>
   </li>
 
@@ -7782,126 +8033,6 @@
   <li class="md-nav__item">
     <a href="../../../../Reference/other/" title="Other" class="md-nav__link">
       Other
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
-      WSO2 API Manager Best Practices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5" >
-      Guides
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5" >
-        Guides
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
-      Changing the Default Ports with Offset
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
-      Message Flow in the API Manager Gateway
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
-      Accessing API Manager by Multiple Devices Simultaneously
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
-      admin_Database Upgrade Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
-      admin_Directory Structure of WSO2 Products
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
-      Configuration Catalog
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
-      Business Scenarios
     </a>
   </li>
 
@@ -7936,8 +8067,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="admin_Troubleshooting in Production Environments" class="md-nav__link">
-      admin_Troubleshooting in Production Environments
+    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
+      Error Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting in Production Environments" class="md-nav__link">
+      Troubleshooting in Production Environments
     </a>
   </li>
 
@@ -7950,18 +8093,6 @@
   <li class="md-nav__item">
     <a href="../../../../Troubleshooting/cleaning-up-partially-created-keys/" title="Cleaning Up Partially Created Keys" class="md-nav__link">
       Cleaning Up Partially Created Keys
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
-      Error Handling
     </a>
   </li>
 
@@ -7984,15 +8115,37 @@
 
       
     </ul>
-  </nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner">
+  </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 <nav class="md-nav md-nav--secondary">
     
     
     
     
     
-</nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset">
-  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="convert-a-json-message-to-soap-and-soap-to-json">Convert a JSON Message to SOAP and SOAP to JSON<a class="headerlink" href="#convert-a-json-message-to-soap-and-soap-to-json" title="Permanent link">&para;</a></h1>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="convert-a-json-message-to-soap-and-soap-to-json">Convert a JSON Message to SOAP and SOAP to JSON<a class="headerlink" href="#convert-a-json-message-to-soap-and-soap-to-json" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
@@ -8005,7 +8158,7 @@
 </li>
 <li>
 <p>Click the <strong>Edit</strong> icon to go to its edit mode.
-    <img alt="" src="attachments/103328726/103328721.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328721.png" /></p>
 </li>
 <li>
 <p>Create the following resource and add it to the API.</p>
@@ -8036,7 +8189,7 @@
 </tr>
 </tbody>
 </table></p>
-<p><img alt="" src="attachments/103328726/103328720.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328720.png" /></p>
 </li>
 <li>
 <p>After the resource is added, expand it and edit the parameter as follows. This parameter is used to pass the payload to the backend.</p>
@@ -8060,35 +8213,35 @@
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="attachments/103328726/103328719.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328719.png" /></p>
 <p>Next, let's write a sequence to convert the JSON payload to a SOAP request. We do this because the backend accepts SOAP requests.</p>
 </li>
 <li>
 <p>Navigate to the <strong>Implement</strong> page and change the endpoint of the API to <a href="http://ws.cdyne.com/phoneverify/phoneverify.asmx?WSDL">http://ws.cdyne.com/phoneverify/phoneverify.asmx?WSDL</a> . Once the edits are done, click <strong>Save</strong> .
-    <img alt="" src="attachments/103328726/103328718.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328718.png" /></p>
 </li>
 <li>
 <p>Download and install the <a href="https://docs.wso2.com/display/AM250/Installing+the+API+Manager+Tooling+Plug-In">WSO2 API Manager Tooling Plug-in</a> if you have not done so already. Open Eclipse by double clicking the <code class="codehilite">Eclipse.app</code> file inside the downloaded folder.</p>
 </li>
 <li>
 <p>Click <strong>Window &gt; Open Perspective &gt; Other</strong> to open the Eclipse perspective selection window. Alternatively, click the <strong>Open Perspective</strong> icon shown below at the top right corner.
-    <img alt="" src="attachments/103328726/103328725.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328725.png" /></p>
 </li>
 <li>On the dialog box that appears, select <strong>WSO2 API Manager</strong> and click <strong>OK</strong> .
-    <img alt="" src="attachments/103328726/103328724.png" /></li>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328724.png" /></li>
 <li>
 <p>On the API-M perspective, click the <strong>Login</strong> icon as shown below.</p>
-<p><img alt="" src="attachments/103328726/103328723.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328723.png" /></p>
 </li>
 <li>
 <p>On the dialog box that appears, enter the URL, username and password of the Publisher server.
-    <img alt="" src="attachments/103328726/103328711.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328711.png" /></p>
 </li>
 <li>On the tree view that appears, expand the folder structure of the existing API.</li>
 <li>Right-click on the <strong>In</strong> sequence folder and click <strong>Create</strong> to create a new <a href="https://docs.wso2.com/display/AM250/Key+Concepts#KeyConcepts-Sequences"><strong>In</strong> sequence</a> .
-    <img alt="" src="attachments/103328726/103328710.png" /></li>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328710.png" /></li>
 <li>Name the sequence <code class="codehilite">JSONtoSOAP</code> .
-    <img alt="" src="attachments/103328726/103328709.png" /></li>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328709.png" /></li>
 <li>
 <p>Your sequence now appears on the APIM perspective. From under the <strong>Mediators</strong> section, drag and drop a <strong>PayloadFactory</strong> mediator to your sequence and give the following values to the mediator.</p>
 <pre class="codehilite"><code class="linenums">!!! tip</code></pre>
@@ -8097,7 +8250,7 @@
 <p><strong>Tip</strong> : The <strong>PayloadFactory</strong> mediator transforms the content of your message. The <code class="codehilite">&lt;args&gt;</code> elements define arguments that retrieve values at runtime by evaluating the provided expression against the SOAP body. You can configure the format of the request/response and map it to the arguments.</p>
 <p>For example, in the following configuration, the values for the format parameters <strong>PhoneNumber</strong> and <strong>LicenseKey</strong> will be assigned with values that are taken from the <code class="codehilite">&lt;args&gt;</code> elements (arguments,) in that particular order.</p>
 <p>For details on how you got this configuration, see <a href="https://docs.wso2.com/display/ESB500/PayloadFactory+Mediator">PayloadFactory Mediator</a> in the WSO2 ESB documentation.</p>
-<p><img alt="" src="attachments/103328726/103328708.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328708.png" /></p>
 <table>
 <thead>
 <tr>
@@ -8183,7 +8336,7 @@
 </li>
 <li>
 <p>Similarly, add a <strong>Property</strong> mediator to the same sequence and give the following values to the property mediator. This mediator changes the payload type of the outgoing message to soap+xml. More information about the Property mediator can be found <a href="https://docs.wso2.com/display/ESB500/Property+Mediator">here</a> .
-    <img alt="" src="attachments/103328726/103328707.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328707.png" /></p>
 <table>
 <thead>
 <tr>
@@ -8216,11 +8369,11 @@
 </li>
 <li>
 <p>Right-click on the <strong>Out</strong> sequence folder and click <strong>Create</strong> to create a new <a href="https://docs.wso2.com/display/AM250/Key+Concepts#KeyConcepts-Sequences"><strong>Out</strong> sequence</a> .
-    <img alt="" src="attachments/103328726/103328706.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328706.png" /></p>
 </li>
 <li>
 <p>Name the sequence <code class="codehilite">SOAPtoJSON</code> .
-    <img alt="" src="attachments/103328726/103328716.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328716.png" /></p>
 </li>
 <li>
 <p>Add a <strong>Log</strong> mediator to the sequence and give the following values. Note that the property value provided is a string literal.</p>
@@ -8250,7 +8403,7 @@ Value/Expression: Global Mediation Extension</td>
 </tr>
 </tbody>
 </table></p>
-<p><img alt="" src="attachments/103328726/103328702.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328702.png" /></p>
 </li>
 <li>
 <p>Similarly, add a <strong>PayLoadFactory</strong> mediator with the following values. This mediator in the out sequence is used to transform the SOAP message content returned from the backend into JSON.</p>
@@ -8317,18 +8470,18 @@ Evaluator: xml</td>
 </tr>
 </tbody>
 </table>
-<p><img alt="" src="attachments/103328726/103328699.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328699.png" /></p>
 </li>
 <li>
 <p>Save the sequence, which is in XML format (e.g., <code class="codehilite">SOAPtoJSON.xml</code> ). This will be the <strong>Out</strong> sequence for your API.</p>
 </li>
 <li>
 <p>Click the <strong>Push all changes to the server</strong> icon shown below to commit your changes to the Publisher server.
-    <img alt="" src="attachments/103328726/103328714.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328714.png" /></p>
 </li>
 <li>
 <p>Log back in to the API Publisher, click the <strong>Edit</strong> link associated with the API and navigate to the <strong>Implement</strong> tab. Select the <strong>Enable Message Mediation</strong> check box and engage the <strong>In</strong> and <strong>Out</strong> sequences that you created earlier.
-    <img alt="" src="attachments/103328726/103328698.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328698.png" /></p>
 <pre class="codehilite"><code class="linenums">!!! info</code></pre>
 
 
@@ -8340,23 +8493,38 @@ Evaluator: xml</td>
 </li>
 <li>
 <p>Log in to the API Store and subscribe to the API and create an access token if you have not done so already.
-    <img alt="" src="attachments/103328726/103328717.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328717.png" /></p>
 </li>
 <li>
 <p>Go to the API Console tab and expand the POST method.</p>
 </li>
 <li>
 <p>Give the payload in the <code class="codehilite">body</code> parameter in JSON format and click <strong>Try it out</strong> . Here's a sample JSON payload: {"request":{"PhoneNumber":"18006785432","LicenseKey":"0"}}
-    <img alt="" src="attachments/103328726/103328712.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328712.png" /></p>
 </li>
 <li>
 <p>Note that you get a JSON response to the JSON request whereas the backend accepts SOAP messages. The request and response are converted by the sequences that you engaged.
-    <img alt="" src="attachments/103328726/103328697.png" /></p>
+    <img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103328726/103328697.png" /></p>
 </li>
 </ol>
 <p>In this tutorial, you converted a message from JSON to SOAP and back to JSON using <strong>In</strong> and <strong>Out</strong> sequences.</p>
+                
+                  
+                
+              
   <a href="#" class="cd-top text--replace js-cd-top">Top</a>
-</article></div></div></main>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
 <footer class="md-footer">
   
     <div class="md-footer-nav">
@@ -8406,4 +8574,22 @@ Evaluator: xml</td>
       </div>
     </div>
   </div>
-</footer></div><script src="../../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script><script src="../../../../assets/lib/highlightjs/highlight.min.js"></script><script src="../../../../assets/js/theme.js"></script><script src="../../../../assets/lib/backtotop/js/util.js"></script><script src="../../../../assets/lib/backtotop/js/main.js"></script></body></html>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../../../assets/js/theme.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/util.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/main.js"></script>
+      
+    
+  </body>
+</html>
