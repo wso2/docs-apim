@@ -16,10 +16,112 @@
  * under the License.
 -->
 
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Documentation for WSO2 API Manager"><link rel="canonical" href="https://wso2.com/Learn/APIGateway/Handlers/writing-custom-handlers/"><meta name="author" content="WSO2"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Writing Custom Handlers - WSO2 API Manager Documentation 3.0.0</title>
-  <link rel="stylesheet" href="../../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ff7043">
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/Learn/APIGateway/Handlers/writing-custom-handlers/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Writing Custom Handlers - WSO2 API Manager Documentation 3.0.0</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
   <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
-<script src="../../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css"><link rel="stylesheet" href="../../../../assets/css/theme.css"></head><body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#writing-custom-handlers" tabindex="1" class="md-skip">Skip to content </a><!--
+
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#writing-custom-handlers" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -77,13 +179,17 @@
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          <div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div>
-        
       </div>
     </div>
   </nav>
-</header><div class="md-container">
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
 
   
 
@@ -106,7 +212,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../GettingStarted/key-concepts/" title="Get Started" class="md-tabs__link">
+        <a href="../../../../GettingStarted/overview/" title="Get Started" class="md-tabs__link">
           Get Started
         </a>
       
@@ -127,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Learn" class="md-tabs__link">
+        <a href="../../../DesignAPI/CreateAPI/create-a-rest-api/" title="Learn" class="md-tabs__link">
           Learn
         </a>
       
@@ -199,25 +305,13 @@
         
   
   
-    
-    
-  
-  
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../../../Reference/samples/APIDevelopmentSample/managing-apis-sample/" title="Reference" class="md-tabs__link">
+        <a href="../../../../Reference/ConfigCatalog/" title="Reference" class="md-tabs__link">
           Reference
         </a>
       
     </li>
-  
-
-  
-
   
 
       
@@ -226,7 +320,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting" class="md-tabs__link">
+        <a href="../../../../Troubleshooting/error-handling/" title="Troubleshooting" class="md-tabs__link">
           Troubleshooting
         </a>
       
@@ -247,7 +341,16 @@
         onclick=window.open("https://github.com/"+"wso2/docs-apim"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
         Report Issues</a>
   </div>
-</nav><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0">
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
     <label class="md-nav__title md-nav__title--site" for="__drawer">
       <a href="https://wso2.com/" title="WSO2 API Manager Documentation 3.0.0"
          class="md-nav__button md-logo">
@@ -259,7 +362,23 @@
     </label>
     
       <div class="md-nav__source">
-        <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">wso2/docs-apim</div></a>
+        
+
+
+  
+
+<a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    wso2/docs-apim
+  </div>
+</a>
       </div>
     
     <ul class="md-nav__list" data-md-scrollfix>
@@ -301,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/key-concepts/" title="Overview" class="md-nav__link">
+    <a href="../../../../GettingStarted/overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -313,7 +432,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/overview/" title="Key Concepts" class="md-nav__link">
+    <a href="../../../../GettingStarted/key-concepts/" title="Key Concepts" class="md-nav__link">
       Key Concepts
     </a>
   </li>
@@ -401,8 +520,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Create and Publish a REST API" class="md-nav__link">
-      Create and Publish a REST API
+    <a href="../../../DesignAPI/CreateAPI/create-a-rest-api/" title="Create a REST API" class="md-nav__link">
+      Create a REST API
     </a>
   </li>
 
@@ -413,8 +532,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition/" title="Create and Publish an API from a Swagger Definition" class="md-nav__link">
-      Create and Publish an API from a Swagger Definition
+    <a href="../../../DesignAPI/CreateAPI/create-a-graphql-api/" title="Create a GraphQL API" class="md-nav__link">
+      Create a GraphQL API
     </a>
   </li>
 
@@ -425,8 +544,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../DesignAPI/CreateAPI/create-and-publish-a-soap-api/" title="Create and Publish a SOAP API" class="md-nav__link">
-      Create and Publish a SOAP API
+    <a href="../../../DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition/" title="Create a REST API from a Swagger Definition" class="md-nav__link">
+      Create a REST API from a Swagger Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api/" title="Expose a SOAP Service as a REST API" class="md-nav__link">
+      Expose a SOAP Service as a REST API
     </a>
   </li>
 
@@ -1860,7 +1991,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/adding-a-new-api-store-theme.md" title="Adding a New API Store Theme" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme/" title="Adding a New API Store Theme" class="md-nav__link">
       Adding a New API Store Theme
     </a>
   </li>
@@ -1920,7 +2051,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/customizing-error-pages.md" title="Customizing error Pages" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages/" title="Customizing error Pages" class="md-nav__link">
       Customizing error Pages
     </a>
   </li>
@@ -1932,7 +2063,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/enabling-or-disabling-the-forum.md" title="Enabling or disabling the forum" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum/" title="Enabling or disabling the forum" class="md-nav__link">
       Enabling or disabling the forum
     </a>
   </li>
@@ -1944,7 +2075,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/enabling-or-disabling-the-walkthrough.md" title="Enabling or disabling the walkthrough" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough/" title="Enabling or disabling the walkthrough" class="md-nav__link">
       Enabling or disabling the walkthrough
     </a>
   </li>
@@ -1956,7 +2087,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../ConsumeAPI/Customizations/enabling-or-disabling-self-signup.md" title="Enabling or disabling self signup" class="md-nav__link">
+    <a href="../../../ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup/" title="Enabling or disabling self signup" class="md-nav__link">
       Enabling or disabling self signup
     </a>
   </li>
@@ -2293,9 +2424,19 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#introducing-handlers" title="Introducing Handlers" class="md-nav__link">Introducing Handlers</a></li>
+        <li class="md-nav__item">
+  <a href="#introducing-handlers" class="md-nav__link">
+    Introducing Handlers
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#engaging-the-custom-handler" title="Engaging the custom handler" class="md-nav__link">Engaging the custom handler</a></li>
+        <li class="md-nav__item">
+  <a href="#engaging-the-custom-handler" class="md-nav__link">
+    Engaging the custom handler
+  </a>
+  
+</li>
         
         
         
@@ -3189,18 +3330,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../.." title="Rate Limiting - Security Concerns" class="md-nav__link">
-      Rate Limiting - Security Concerns
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -3401,6 +3530,18 @@
   <li class="md-nav__item">
     <a href="../../../APIMonetization/configuring-api-monetization-category-labels/" title="Configuring API Monetization Category Labels" class="md-nav__link">
       Configuring API Monetization Category Labels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../APIMonetization/monetizing-an-api/" title="Monetizing an API" class="md-nav__link">
+      Monetizing an API
     </a>
   </li>
 
@@ -7639,15 +7780,135 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
+      WSO2 API Manager Best Practices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
-    <label class="md-nav__link" for="nav-7-1" >
+    <label class="md-nav__link" for="nav-7-4" >
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4" >
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
+      Changing the Default Ports with Offset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
+      Message Flow in the API Manager Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
+      Accessing API Manager by Multiple Devices Simultaneously
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
+      admin_Database Upgrade Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
+      admin_Directory Structure of WSO2 Products
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5" >
       Samples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1" >
+      <label class="md-nav__title" for="nav-7-5" >
         Samples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7660,13 +7921,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1-1" type="checkbox" id="nav-7-1-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5-1" type="checkbox" id="nav-7-5-1">
     
-    <label class="md-nav__link" for="nav-7-1-1" >
+    <label class="md-nav__link" for="nav-7-5-1" >
       API Development Sample
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-1-1" >
+      <label class="md-nav__title" for="nav-7-5-1" >
         API Development Sample
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7796,8 +8057,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
+      Business Scenarios
     </a>
   </li>
 
@@ -7810,126 +8071,6 @@
   <li class="md-nav__item">
     <a href="../../../../Reference/other/" title="Other" class="md-nav__link">
       Other
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
-      WSO2 API Manager Best Practices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5" >
-      Guides
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5" >
-        Guides
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
-      Changing the Default Ports with Offset
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
-      Message Flow in the API Manager Gateway
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
-      Accessing API Manager by Multiple Devices Simultaneously
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
-      admin_Database Upgrade Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
-      admin_Directory Structure of WSO2 Products
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
-      Configuration Catalog
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
-      Business Scenarios
     </a>
   </li>
 
@@ -7964,8 +8105,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="admin_Troubleshooting in Production Environments" class="md-nav__link">
-      admin_Troubleshooting in Production Environments
+    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
+      Error Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting in Production Environments" class="md-nav__link">
+      Troubleshooting in Production Environments
     </a>
   </li>
 
@@ -7978,18 +8131,6 @@
   <li class="md-nav__item">
     <a href="../../../../Troubleshooting/cleaning-up-partially-created-keys/" title="Cleaning Up Partially Created Keys" class="md-nav__link">
       Cleaning Up Partially Created Keys
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
-      Error Handling
     </a>
   </li>
 
@@ -8012,7 +8153,16 @@
 
       
     </ul>
-  </nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner">
+  </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 <nav class="md-nav md-nav--secondary">
     
     
@@ -8024,9 +8174,19 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#introducing-handlers" title="Introducing Handlers" class="md-nav__link">Introducing Handlers</a></li>
+        <li class="md-nav__item">
+  <a href="#introducing-handlers" class="md-nav__link">
+    Introducing Handlers
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#engaging-the-custom-handler" title="Engaging the custom handler" class="md-nav__link">Engaging the custom handler</a></li>
+        <li class="md-nav__item">
+  <a href="#engaging-the-custom-handler" class="md-nav__link">
+    Engaging the custom handler
+  </a>
+  
+</li>
         
         
         
@@ -8034,8 +8194,21 @@
         
     </ul>
     
-</nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset">
-  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Learn/APIGateway/Handlers/writing-custom-handlers.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="writing-custom-handlers">Writing Custom Handlers<a class="headerlink" href="#writing-custom-handlers" title="Permanent link">&para;</a></h1>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Learn/APIGateway/Handlers/writing-custom-handlers.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="writing-custom-handlers">Writing Custom Handlers<a class="headerlink" href="#writing-custom-handlers" title="Permanent link">&para;</a></h1>
 <p>This section introduces handlers and using an example, explains how to write a custom handler:</p>
 <ul>
 <li><a href="#WritingCustomHandlers-IntroducingHandlers">Introducing Handlers</a></li>
@@ -8065,40 +8238,40 @@
 <pre class="codehilite"><code class="linenums">
 Let's see what each handler does:
 
--   `                                              CORSRequestHandler:                                 ` Sets the CORS headers to the request and executes the CORS sequence mediation logic. This handler is thereby responsible for returning the CORS headers from the gateway or routing the requests to the backend and letting the backend send the CORS headers.
--   `                     APIAuthenticationHandler:                   ` Validates the OAuth2 bearer token used to invoke the API. It also determines whether the token is of type `          Production         ` or `          Sandbox         ` and sets `          MessageContext         ` variables as appropriate.
--   `                     APIThrottleHandler:                   ` Throttles requests based on the throttling policy specified by the `          policyKey         ` property. Throttling is applied both at the application level as well as subscription level.
--   **`           APIMgtUsageHandler:          `** Publishes events to WSO2 Stream Processor (WSO2 SP) for collection and analysis of statistics. This handler only comes to effect if API usage tracking is enabled . See the [Working with Analytics](https://docs.wso2.com/display/AM260/Working+with+Analytics) section for more information.
--   `                     APIMgtGoogleAnalyticsTrackingHandler:                   ` Publishes events to Google Analytics. This handler only comes into effect if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
--   **`            APIManagerExtensionHandler           `** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, uncomment the `           &lt;ExtensionHandlerPosition&gt;          ` section in the `           &lt;APIM_HOME&gt;/repository/conf/api-manager.xml          ` file and provide the value `           top          ` . This is useful when you want to execute your own extensions before our default handlers in situations like  doing additional security checks such as signature verification on access tokens before executing the default security handler.
+-`CORSRequestHandler:` Sets the CORS headers to the request and executes the CORS sequence mediation logic. This handler is thereby responsible for returning the CORS headers from the gateway or routing the requests to the backend and letting the backend send the CORS headers.
+-`APIAuthenticationHandler:` Validates the OAuth2 bearer token used to invoke the API. It also determines whether the token is of type `Production` or `Sandbox` and sets `MessageContext` variables as appropriate.
+-`APIThrottleHandler:` Throttles requests based on the throttling policy specified by the `policyKey` property. Throttling is applied both at the application level as well as subscription level.
+-   **`APIMgtUsageHandler:`** Publishes events to WSO2 Stream Processor (WSO2 SP) for collection and analysis of statistics. This handler only comes to effect if API usage tracking is enabled . See the [Working with Analytics](https://docs.wso2.com/display/AM260/Working+with+Analytics) section for more information.
+-`APIMgtGoogleAnalyticsTrackingHandler:` Publishes events to Google Analytics. This handler only comes into effect if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
+-   **`APIManagerExtensionHandler`** : Triggers extension sequences. By default, the extension handler is listed at last in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, except the extension handler. To configure the API Gateway to execute extension handler first, uncomment the `&lt;ExtensionHandlerPosition&gt;` section in the `&lt;APIM_HOME&gt;/repository/conf/api-manager.xml` file and provide the value `top` . This is useful when you want to execute your own extensions before our default handlers in situations like  doing additional security checks such as signature verification on access tokens before executing the default security handler.
     See [Adding Mediation Extensions](_Adding_Mediation_Extensions_) .
 
 ##### Using APILogMessageHandler
 
-Message logging is handled by `                   APIManagerExtensionHandler                  .        ` **`          APILogMessageHandler         `** is a sample handler that comes with WSO2 API Manager that can be used for logging.
+Message logging is handled by `APIManagerExtensionHandler.` **`APILogMessageHandler`** is a sample handler that comes with WSO2 API Manager that can be used for logging.
 
 !!! info
-**Why are logs removed from `          APIManagerExtensionHandler         ` ?**
+**Why are logs removed from `APIManagerExtensionHandler` ?**
 
-The primary purpose of `         ExtensionHandler        ` is handling extensions to mediation and not for logging messages. When the logs are also included in `         ExtensionHandler        ` , there's a limitation to improve the `         ExtensionHandler        ` for developing features because it breaks the logs.
+The primary purpose of `ExtensionHandler` is handling extensions to mediation and not for logging messages. When the logs are also included in `ExtensionHandler` , there's a limitation to improve the `ExtensionHandler` for developing features because it breaks the logs.
 
-For example, When the `         ExtensionHandler        ` moves to the top of the handlers set, most of the logs print null values since the handler runs before the `                   APIAuthenticationHandler                 ` . Therefore, the logs are removed from the extension handler and `         APILogMessageHandler        ` introduced as a sample.
+For example, When the `ExtensionHandler` moves to the top of the handlers set, most of the logs print null values since the handler runs before the `APIAuthenticationHandler` . Therefore, the logs are removed from the extension handler and `APILogMessageHandler` introduced as a sample.
 
 !!! note
 To achieve logging requirements, this handler is not the only approach and with custom sequences also it is possible to log messages using the Log Mediator.
 
 
-In order to enable logging by invoking `         APILogMessageHandler        ` , follow the steps below.
+In order to enable logging by invoking `APILogMessageHandler` , follow the steps below.
 
 **To enable Message Logging per API :**
 
-1.  Open the synapse Configuration of the API located in `           &lt;APIM_HOME&gt;/repository/deployment/server/synapse-configs/default/api          ` directory and add below handler before `           &lt;/Handlers&gt;          ` .
+1.  Open the synapse Configuration of the API located in `&lt;APIM_HOME&gt;/repository/deployment/server/synapse-configs/default/api` directory and add below handler before `&lt;/Handlers&gt;` .
 
     ``` java
         &lt;handler class="org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler"/&gt; 
     ```
 
-2.  Copy the following code into the `           &lt;APIM_HOME&gt;/repository/conf/log4j.properties          ` file to enable printing DEBUG logs.
+2.  Copy the following code into the `&lt;APIM_HOME&gt;/repository/conf/log4j.properties` file to enable printing DEBUG logs.
 
     ``` java
             log4j.logger.org.wso2.carbon.apimgt.gateway.handlers.logging.APILogMessageHandler = DEBUG
@@ -8130,7 +8303,7 @@ Custom Handler is a way of extending API Manager which the product offer to chan
 
 Let's see how you can write a custom handler and apply it to the API Manager. In this example, we extend the authentication handler. Make sure your custom handler name is not the same as the name of an existing handler.
 
-WSO2 API Manager provides the OAuth2 bearer token as its default authentication mechanism. A sample implementation is [here](attachments/103334745/103334748.java) . Similarly, you can extend the API Manager to support any custom authentication mechanism by writing your own authentication handler class.
+WSO2 API Manager provides the OAuth2 bearer token as its default authentication mechanism. A sample implementation is [here](https://apim.docs.wso2.com/en/next//assets/attachments/103334745/103334748.java) . Similarly, you can extend the API Manager to support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive [org.wso2.carbon.test.authenticator.zip](https://docs.wso2.com/download/attachments/57743326/org.wso2.carbon.test.authenticator.zip?version=1&amp;modificationDate=1516171792000&amp;api=v2) . You can download, unzip and build the project using maven and Java 7/8.
 
@@ -8227,8 +8400,23 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
 <p>Restart the API Manager server.</p>
 </li>
 </ol>
+                
+                  
+                
+              
   <a href="#" class="cd-top text--replace js-cd-top">Top</a>
-</article></div></div></main>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
 <footer class="md-footer">
   
     <div class="md-footer-nav">
@@ -8278,4 +8466,22 @@ public class CustomAPIAuthenticationHandler extends AbstractHandler {
       </div>
     </div>
   </div>
-</footer></div><script src="../../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script><script src="../../../../assets/lib/highlightjs/highlight.min.js"></script><script src="../../../../assets/js/theme.js"></script><script src="../../../../assets/lib/backtotop/js/util.js"></script><script src="../../../../assets/lib/backtotop/js/main.js"></script></body></html>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../../../assets/js/theme.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/util.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/main.js"></script>
+      
+    
+  </body>
+</html>

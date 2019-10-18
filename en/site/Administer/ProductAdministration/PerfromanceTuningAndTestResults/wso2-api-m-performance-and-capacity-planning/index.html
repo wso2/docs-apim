@@ -16,10 +16,112 @@
  * under the License.
 -->
 
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Documentation for WSO2 API Manager"><link rel="canonical" href="https://wso2.com/Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning/"><meta name="author" content="WSO2"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>WSO2 API-M Performance and Capacity Planning - WSO2 API Manager Documentation 3.0.0</title>
-  <link rel="stylesheet" href="../../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ff7043">
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>WSO2 API-M Performance and Capacity Planning - WSO2 API Manager Documentation 3.0.0</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
   <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
-<script src="../../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css"><link rel="stylesheet" href="../../../../assets/css/theme.css"></head><body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#wso2-api-m-performance-and-capacity-planning" tabindex="1" class="md-skip">Skip to content </a><!--
+
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#wso2-api-m-performance-and-capacity-planning" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -77,13 +179,17 @@
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          <div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div>
-        
       </div>
     </div>
   </nav>
-</header><div class="md-container">
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
 
   
 
@@ -106,7 +212,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../GettingStarted/key-concepts/" title="Get Started" class="md-tabs__link">
+        <a href="../../../../GettingStarted/overview/" title="Get Started" class="md-tabs__link">
           Get Started
         </a>
       
@@ -127,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Learn" class="md-tabs__link">
+        <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/" title="Learn" class="md-tabs__link">
           Learn
         </a>
       
@@ -199,25 +305,13 @@
         
   
   
-    
-    
-  
-  
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../../../Reference/samples/APIDevelopmentSample/managing-apis-sample/" title="Reference" class="md-tabs__link">
+        <a href="../../../../Reference/ConfigCatalog/" title="Reference" class="md-tabs__link">
           Reference
         </a>
       
     </li>
-  
-
-  
-
   
 
       
@@ -226,7 +320,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting" class="md-tabs__link">
+        <a href="../../../../Troubleshooting/error-handling/" title="Troubleshooting" class="md-tabs__link">
           Troubleshooting
         </a>
       
@@ -247,7 +341,16 @@
         onclick=window.open("https://github.com/"+"wso2/docs-apim"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
         Report Issues</a>
   </div>
-</nav><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0">
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
     <label class="md-nav__title md-nav__title--site" for="__drawer">
       <a href="https://wso2.com/" title="WSO2 API Manager Documentation 3.0.0"
          class="md-nav__button md-logo">
@@ -259,7 +362,23 @@
     </label>
     
       <div class="md-nav__source">
-        <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">wso2/docs-apim</div></a>
+        
+
+
+  
+
+<a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    wso2/docs-apim
+  </div>
+</a>
       </div>
     
     <ul class="md-nav__list" data-md-scrollfix>
@@ -301,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/key-concepts/" title="Overview" class="md-nav__link">
+    <a href="../../../../GettingStarted/overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -313,7 +432,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/overview/" title="Key Concepts" class="md-nav__link">
+    <a href="../../../../GettingStarted/key-concepts/" title="Key Concepts" class="md-nav__link">
       Key Concepts
     </a>
   </li>
@@ -399,8 +518,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Create and Publish a REST API" class="md-nav__link">
-      Create and Publish a REST API
+    <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/" title="Create a REST API" class="md-nav__link">
+      Create a REST API
     </a>
   </li>
 
@@ -411,8 +530,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition/" title="Create and Publish an API from a Swagger Definition" class="md-nav__link">
-      Create and Publish an API from a Swagger Definition
+    <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-graphql-api/" title="Create a GraphQL API" class="md-nav__link">
+      Create a GraphQL API
     </a>
   </li>
 
@@ -423,8 +542,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-a-soap-api/" title="Create and Publish a SOAP API" class="md-nav__link">
-      Create and Publish a SOAP API
+    <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition/" title="Create a REST API from a Swagger Definition" class="md-nav__link">
+      Create a REST API from a Swagger Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api/" title="Expose a SOAP Service as a REST API" class="md-nav__link">
+      Expose a SOAP Service as a REST API
     </a>
   </li>
 
@@ -1858,7 +1989,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/adding-a-new-api-store-theme.md" title="Adding a New API Store Theme" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme/" title="Adding a New API Store Theme" class="md-nav__link">
       Adding a New API Store Theme
     </a>
   </li>
@@ -1918,7 +2049,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/customizing-error-pages.md" title="Customizing error Pages" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages/" title="Customizing error Pages" class="md-nav__link">
       Customizing error Pages
     </a>
   </li>
@@ -1930,7 +2061,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-forum.md" title="Enabling or disabling the forum" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum/" title="Enabling or disabling the forum" class="md-nav__link">
       Enabling or disabling the forum
     </a>
   </li>
@@ -1942,7 +2073,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-walkthrough.md" title="Enabling or disabling the walkthrough" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough/" title="Enabling or disabling the walkthrough" class="md-nav__link">
       Enabling or disabling the walkthrough
     </a>
   </li>
@@ -1954,7 +2085,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/enabling-or-disabling-self-signup.md" title="Enabling or disabling self signup" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup/" title="Enabling or disabling self signup" class="md-nav__link">
       Enabling or disabling self signup
     </a>
   </li>
@@ -3146,18 +3277,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../.." title="Rate Limiting - Security Concerns" class="md-nav__link">
-      Rate Limiting - Security Concerns
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -3358,6 +3477,18 @@
   <li class="md-nav__item">
     <a href="../../../../Learn/APIMonetization/configuring-api-monetization-category-labels/" title="Configuring API Monetization Category Labels" class="md-nav__link">
       Configuring API Monetization Category Labels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Learn/APIMonetization/monetizing-an-api/" title="Monetizing an API" class="md-nav__link">
+      Monetizing an API
     </a>
   </li>
 
@@ -4825,19 +4956,189 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#summary" title="Summary" class="md-nav__link">Summary</a></li>
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#wso2-api-manager-all-in-one-deployment" title="WSO2 API Manager All-in-one Deployment" class="md-nav__link">WSO2 API Manager All-in-one Deployment</a></li>
+        <li class="md-nav__item">
+  <a href="#wso2-api-manager-all-in-one-deployment" class="md-nav__link">
+    WSO2 API Manager All-in-one Deployment
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#observations-from-all-results" title="Observations from all results" class="md-nav__link">Observations from all results</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#key-observations-related-to-throughput" title="Key observations related to throughput:" class="md-nav__link">Key observations related to throughput:</a></li><li class="md-nav__item"><a href="#key-observations-related-to-response-time" title="Key observations related to response time:" class="md-nav__link">Key observations related to response time:</a></li><li class="md-nav__item"><a href="#key-observations-related-to-gc-throughput" title="Key observations related to GC Throughput:" class="md-nav__link">Key observations related to GC Throughput:</a></li></ul></nav></li>
+        <li class="md-nav__item">
+  <a href="#observations-from-all-results" class="md-nav__link">
+    Observations from all results
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#backend-service" title="Backend Service" class="md-nav__link">Backend Service</a></li>
+          <li class="md-nav__item">
+  <a href="#key-observations-related-to-throughput" class="md-nav__link">
+    Key observations related to throughput:
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#performance-testing-tool" title="Performance Testing Tool" class="md-nav__link">Performance Testing Tool</a></li>
+          <li class="md-nav__item">
+  <a href="#key-observations-related-to-response-time" class="md-nav__link">
+    Key observations related to response time:
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#performance-test-scripts" title="Performance Test Scripts" class="md-nav__link">Performance Test Scripts</a></li>
+          <li class="md-nav__item">
+  <a href="#key-observations-related-to-gc-throughput" class="md-nav__link">
+    Key observations related to GC Throughput:
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#comparison-of-results" title="Comparison of results" class="md-nav__link">Comparison of results</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#throughput-comparison" title="Throughput Comparison" class="md-nav__link">Throughput Comparison</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#throughput-requestssec-vs-concurrent-users" title="Throughput (Requests/sec) vs Concurrent Users" class="md-nav__link">Throughput (Requests/sec) vs Concurrent Users</a></li><li class="md-nav__item"><a href="#throughput-requestssec-vs-message-size-bytes" title="Throughput (Requests/sec) vs Message Size (Bytes)" class="md-nav__link">Throughput (Requests/sec) vs Message Size (Bytes)</a></li><li class="md-nav__item"><a href="#throughput-requestssec-vs-sleep-time-ms" title="Throughput (Requests/sec) vs Sleep Time (ms)" class="md-nav__link">Throughput (Requests/sec) vs Sleep Time (ms)</a></li></ul></nav></li><li class="md-nav__item"><a href="#average-response-time-comparison" title="Average Response Time Comparison" class="md-nav__link">Average Response Time Comparison</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#average-response-time-ms-vs-concurrent-users" title="Average Response Time (ms) vs Concurrent Users" class="md-nav__link">Average Response Time (ms) vs Concurrent Users</a></li><li class="md-nav__item"><a href="#average-response-time-ms-vs-message-size-bytes" title="Average Response Time (ms) vs Message Size (Bytes)" class="md-nav__link">Average Response Time (ms) vs Message Size (Bytes)</a></li><li class="md-nav__item"><a href="#average-response-time-ms-vs-sleep-time-ms" title="Average Response Time (ms) vs Sleep Time (ms)" class="md-nav__link">Average Response Time (ms) vs Sleep Time (ms)</a></li></ul></nav></li><li class="md-nav__item"><a href="#gc-throughput-comparison" title="GC Throughput Comparison" class="md-nav__link">GC Throughput Comparison</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#api-manager-gc-throughput-vs-concurrent-users" title="API Manager GC Throughput (%) vs Concurrent Users" class="md-nav__link">API Manager GC Throughput (%) vs Concurrent Users</a></li><li class="md-nav__item"><a href="#api-manager-gc-throughput-vs-message-size-bytes" title="API Manager GC Throughput (%) vs Message Size (Bytes)" class="md-nav__link">API Manager GC Throughput (%) vs Message Size (Bytes)</a></li><li class="md-nav__item"><a href="#api-manager-gc-throughput-vs-sleep-time-ms" title="API Manager GC Throughput (%) vs Sleep Time (ms)" class="md-nav__link">API Manager GC Throughput (%) vs Sleep Time (ms)</a></li></ul></nav></li></ul></nav></li>
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#backend-service" class="md-nav__link">
+    Backend Service
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#performance-testing-tool" class="md-nav__link">
+    Performance Testing Tool
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#performance-test-scripts" class="md-nav__link">
+    Performance Test Scripts
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#comparison-of-results" class="md-nav__link">
+    Comparison of results
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throughput-comparison" class="md-nav__link">
+    Throughput Comparison
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throughput-requestssec-vs-concurrent-users" class="md-nav__link">
+    Throughput (Requests/sec) vs Concurrent Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput-requestssec-vs-message-size-bytes" class="md-nav__link">
+    Throughput (Requests/sec) vs Message Size (Bytes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput-requestssec-vs-sleep-time-ms" class="md-nav__link">
+    Throughput (Requests/sec) vs Sleep Time (ms)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-comparison" class="md-nav__link">
+    Average Response Time Comparison
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-ms-vs-concurrent-users" class="md-nav__link">
+    Average Response Time (ms) vs Concurrent Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-ms-vs-message-size-bytes" class="md-nav__link">
+    Average Response Time (ms) vs Message Size (Bytes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-ms-vs-sleep-time-ms" class="md-nav__link">
+    Average Response Time (ms) vs Sleep Time (ms)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc-throughput-comparison" class="md-nav__link">
+    GC Throughput Comparison
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-manager-gc-throughput-vs-concurrent-users" class="md-nav__link">
+    API Manager GC Throughput (%) vs Concurrent Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-manager-gc-throughput-vs-message-size-bytes" class="md-nav__link">
+    API Manager GC Throughput (%) vs Message Size (Bytes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-manager-gc-throughput-vs-sleep-time-ms" class="md-nav__link">
+    API Manager GC Throughput (%) vs Sleep Time (ms)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
         
         
@@ -7649,15 +7950,135 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
+      WSO2 API Manager Best Practices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
-    <label class="md-nav__link" for="nav-7-1" >
+    <label class="md-nav__link" for="nav-7-4" >
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4" >
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
+      Changing the Default Ports with Offset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
+      Message Flow in the API Manager Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
+      Accessing API Manager by Multiple Devices Simultaneously
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
+      admin_Database Upgrade Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
+      admin_Directory Structure of WSO2 Products
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5" >
       Samples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1" >
+      <label class="md-nav__title" for="nav-7-5" >
         Samples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7670,13 +8091,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1-1" type="checkbox" id="nav-7-1-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5-1" type="checkbox" id="nav-7-5-1">
     
-    <label class="md-nav__link" for="nav-7-1-1" >
+    <label class="md-nav__link" for="nav-7-5-1" >
       API Development Sample
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-1-1" >
+      <label class="md-nav__title" for="nav-7-5-1" >
         API Development Sample
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7806,8 +8227,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
+      Business Scenarios
     </a>
   </li>
 
@@ -7820,126 +8241,6 @@
   <li class="md-nav__item">
     <a href="../../../../Reference/other/" title="Other" class="md-nav__link">
       Other
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
-      WSO2 API Manager Best Practices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5" >
-      Guides
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5" >
-        Guides
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
-      Changing the Default Ports with Offset
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
-      Message Flow in the API Manager Gateway
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
-      Accessing API Manager by Multiple Devices Simultaneously
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
-      admin_Database Upgrade Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
-      admin_Directory Structure of WSO2 Products
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
-      Configuration Catalog
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
-      Business Scenarios
     </a>
   </li>
 
@@ -7974,8 +8275,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="admin_Troubleshooting in Production Environments" class="md-nav__link">
-      admin_Troubleshooting in Production Environments
+    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
+      Error Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting in Production Environments" class="md-nav__link">
+      Troubleshooting in Production Environments
     </a>
   </li>
 
@@ -7988,18 +8301,6 @@
   <li class="md-nav__item">
     <a href="../../../../Troubleshooting/cleaning-up-partially-created-keys/" title="Cleaning Up Partially Created Keys" class="md-nav__link">
       Cleaning Up Partially Created Keys
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
-      Error Handling
     </a>
   </li>
 
@@ -8022,7 +8323,16 @@
 
       
     </ul>
-  </nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner">
+  </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 <nav class="md-nav md-nav--secondary">
     
     
@@ -8034,19 +8344,189 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#summary" title="Summary" class="md-nav__link">Summary</a></li>
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#wso2-api-manager-all-in-one-deployment" title="WSO2 API Manager All-in-one Deployment" class="md-nav__link">WSO2 API Manager All-in-one Deployment</a></li>
+        <li class="md-nav__item">
+  <a href="#wso2-api-manager-all-in-one-deployment" class="md-nav__link">
+    WSO2 API Manager All-in-one Deployment
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#observations-from-all-results" title="Observations from all results" class="md-nav__link">Observations from all results</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#key-observations-related-to-throughput" title="Key observations related to throughput:" class="md-nav__link">Key observations related to throughput:</a></li><li class="md-nav__item"><a href="#key-observations-related-to-response-time" title="Key observations related to response time:" class="md-nav__link">Key observations related to response time:</a></li><li class="md-nav__item"><a href="#key-observations-related-to-gc-throughput" title="Key observations related to GC Throughput:" class="md-nav__link">Key observations related to GC Throughput:</a></li></ul></nav></li>
+        <li class="md-nav__item">
+  <a href="#observations-from-all-results" class="md-nav__link">
+    Observations from all results
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#backend-service" title="Backend Service" class="md-nav__link">Backend Service</a></li>
+          <li class="md-nav__item">
+  <a href="#key-observations-related-to-throughput" class="md-nav__link">
+    Key observations related to throughput:
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#performance-testing-tool" title="Performance Testing Tool" class="md-nav__link">Performance Testing Tool</a></li>
+          <li class="md-nav__item">
+  <a href="#key-observations-related-to-response-time" class="md-nav__link">
+    Key observations related to response time:
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#performance-test-scripts" title="Performance Test Scripts" class="md-nav__link">Performance Test Scripts</a></li>
+          <li class="md-nav__item">
+  <a href="#key-observations-related-to-gc-throughput" class="md-nav__link">
+    Key observations related to GC Throughput:
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#comparison-of-results" title="Comparison of results" class="md-nav__link">Comparison of results</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#throughput-comparison" title="Throughput Comparison" class="md-nav__link">Throughput Comparison</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#throughput-requestssec-vs-concurrent-users" title="Throughput (Requests/sec) vs Concurrent Users" class="md-nav__link">Throughput (Requests/sec) vs Concurrent Users</a></li><li class="md-nav__item"><a href="#throughput-requestssec-vs-message-size-bytes" title="Throughput (Requests/sec) vs Message Size (Bytes)" class="md-nav__link">Throughput (Requests/sec) vs Message Size (Bytes)</a></li><li class="md-nav__item"><a href="#throughput-requestssec-vs-sleep-time-ms" title="Throughput (Requests/sec) vs Sleep Time (ms)" class="md-nav__link">Throughput (Requests/sec) vs Sleep Time (ms)</a></li></ul></nav></li><li class="md-nav__item"><a href="#average-response-time-comparison" title="Average Response Time Comparison" class="md-nav__link">Average Response Time Comparison</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#average-response-time-ms-vs-concurrent-users" title="Average Response Time (ms) vs Concurrent Users" class="md-nav__link">Average Response Time (ms) vs Concurrent Users</a></li><li class="md-nav__item"><a href="#average-response-time-ms-vs-message-size-bytes" title="Average Response Time (ms) vs Message Size (Bytes)" class="md-nav__link">Average Response Time (ms) vs Message Size (Bytes)</a></li><li class="md-nav__item"><a href="#average-response-time-ms-vs-sleep-time-ms" title="Average Response Time (ms) vs Sleep Time (ms)" class="md-nav__link">Average Response Time (ms) vs Sleep Time (ms)</a></li></ul></nav></li><li class="md-nav__item"><a href="#gc-throughput-comparison" title="GC Throughput Comparison" class="md-nav__link">GC Throughput Comparison</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#api-manager-gc-throughput-vs-concurrent-users" title="API Manager GC Throughput (%) vs Concurrent Users" class="md-nav__link">API Manager GC Throughput (%) vs Concurrent Users</a></li><li class="md-nav__item"><a href="#api-manager-gc-throughput-vs-message-size-bytes" title="API Manager GC Throughput (%) vs Message Size (Bytes)" class="md-nav__link">API Manager GC Throughput (%) vs Message Size (Bytes)</a></li><li class="md-nav__item"><a href="#api-manager-gc-throughput-vs-sleep-time-ms" title="API Manager GC Throughput (%) vs Sleep Time (ms)" class="md-nav__link">API Manager GC Throughput (%) vs Sleep Time (ms)</a></li></ul></nav></li></ul></nav></li>
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#backend-service" class="md-nav__link">
+    Backend Service
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#performance-testing-tool" class="md-nav__link">
+    Performance Testing Tool
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#performance-test-scripts" class="md-nav__link">
+    Performance Test Scripts
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#comparison-of-results" class="md-nav__link">
+    Comparison of results
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throughput-comparison" class="md-nav__link">
+    Throughput Comparison
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#throughput-requestssec-vs-concurrent-users" class="md-nav__link">
+    Throughput (Requests/sec) vs Concurrent Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput-requestssec-vs-message-size-bytes" class="md-nav__link">
+    Throughput (Requests/sec) vs Message Size (Bytes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#throughput-requestssec-vs-sleep-time-ms" class="md-nav__link">
+    Throughput (Requests/sec) vs Sleep Time (ms)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-comparison" class="md-nav__link">
+    Average Response Time Comparison
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-ms-vs-concurrent-users" class="md-nav__link">
+    Average Response Time (ms) vs Concurrent Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-ms-vs-message-size-bytes" class="md-nav__link">
+    Average Response Time (ms) vs Message Size (Bytes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#average-response-time-ms-vs-sleep-time-ms" class="md-nav__link">
+    Average Response Time (ms) vs Sleep Time (ms)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gc-throughput-comparison" class="md-nav__link">
+    GC Throughput Comparison
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#api-manager-gc-throughput-vs-concurrent-users" class="md-nav__link">
+    API Manager GC Throughput (%) vs Concurrent Users
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-manager-gc-throughput-vs-message-size-bytes" class="md-nav__link">
+    API Manager GC Throughput (%) vs Message Size (Bytes)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api-manager-gc-throughput-vs-sleep-time-ms" class="md-nav__link">
+    API Manager GC Throughput (%) vs Sleep Time (ms)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
         
         
         
@@ -8054,8 +8534,21 @@
         
     </ul>
     
-</nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset">
-  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="wso2-api-m-performance-and-capacity-planning">WSO2 API-M Performance and Capacity Planning<a class="headerlink" href="#wso2-api-m-performance-and-capacity-planning" title="Permanent link">&para;</a></h1>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="wso2-api-m-performance-and-capacity-planning">WSO2 API-M Performance and Capacity Planning<a class="headerlink" href="#wso2-api-m-performance-and-capacity-planning" title="Permanent link">&para;</a></h1>
 <p>The following sections analyze the results of WSO2 API Manager performance tests done in the Amazon EC2 environment.</p>
 <ul>
 <li><a href="#WSO2API-MPerformanceandCapacityPlanning-Summary">Summary</a></li>
@@ -8094,7 +8587,7 @@
 <p>With WSO2 API Manager, an average user use ~1KiB messages and most of the back-ends usually responds in ~30ms. Therefore, let’s look at some charts to understand performance test results for above APIs when using 1KiB messages with 30ms backend delay.</p>
 <p>The deployment used was <a href="#WSO2API-MPerformanceandCapacityPlanning-allinone">All-in-one API Manager</a> .</p>
 <p>The following figure shows how the Throughput changes for different number of concurrent users.</p>
-<p><img alt="" src="attachments/103333651/103333679.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333679.png" /></p>
 <p>Key observations:</p>
 <ul>
 <li>
@@ -8105,7 +8598,7 @@
 </li>
 </ul>
 <p>The following figure shows how the <strong>Average Response Time</strong> changes  for different number of concurrent users.</p>
-<p><img alt="" src="attachments/103333651/103333678.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333678.png" /></p>
 <p>Key observations:</p>
 <ul>
 <li>
@@ -8117,7 +8610,7 @@
 </ul>
 <p>Let’s look at the 90<sup>th</sup>, 95<sup>th</sup>, and 99<sup>th</sup> Response Time percentiles. This is useful to measure the percentage of requests exceeded the response time value for a given percentile. A percentile can also tell the percentage of requests completed below the particular response time value.</p>
 <p>For example, when there are 100 concurrent users, 90<sup>th</sup> response time percentile for Echo API is 37ms. This means that 10% of the requests have taken more than 37ms to respond. Similarly, 99<sup>th</sup> response time percentile for Echo API is 86ms, which means that 99% of the requests have completed within 86ms.</p>
-<p><img alt="" src="attachments/103333651/103333677.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333677.png" /></p>
 <p>Key observations:</p>
 <ul>
 <li>
@@ -8137,7 +8630,7 @@
 <p>In order to see the memory usage, the Garbage Collection (GC) logs in the API Manager was enabled and the GC log for each performance test was analyzed using the <a href="https://github.com/chewiebug/GCViewer">GCViewer</a> .</p>
 <p>The <strong>GC Throughput</strong> was calculated for each test to check whether GC operations are not impacting the performance of the server. The GC Throughput is the time percentage of the application, which was not busy with GC operations. For example, if the application ran for 10 minutes and 30 seconds were taken for GC operations, the GC Throughput is 1-301060100=95%. A GC Throughput over 90% is good and that means the allocated heap was enough to handle all concurrent requests, which allocate objects in the memory.</p>
 <p>The following chart shows the GC Throughput (%) for different number of concurrent users.</p>
-<p><img alt="" src="attachments/103333651/103333676.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333676.png" /></p>
 <p>Key observations:</p>
 <ul>
 <li>GC Throughput for Mediation API is better than Echo API. The Mediation API processes requests slower than the Echo API, which means that the object allocation rate is also less than the Echo API.</li>
@@ -8145,7 +8638,7 @@
 <h2 id="wso2-api-manager-all-in-one-deployment">WSO2 API Manager All-in-one Deployment<a class="headerlink" href="#wso2-api-manager-all-in-one-deployment" title="Permanent link">&para;</a></h2>
 <p>In this deployment, the WSO2 API Manager is deployed in one EC2 instance and a RDS instance is used for databases. The back-end service, which is a simple Netty HTTP Echo Service is deployed in a separate EC2 instance. There are two JMeter servers with a JMeter client in three EC2 instances.</p>
 <p>See: <a href="http://jmeter.apache.org/usermanual/remote-test.html">JMeter Remote Test</a> . Two JMeter servers are used to simulate high number of concurrent users.</p>
-<p><img alt="" src="attachments/103333651/103333684.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333684.png" /></p>
 <p>The following are the EC2 instances that the API-M 2.6.0 performance tests were carried out on.</p>
 <p><strong>Synapse Gateway</strong></p>
 <table>
@@ -8465,30 +8958,30 @@
 </li>
 </ul>
 <h3 id="throughput-comparison">Throughput Comparison<a class="headerlink" href="#throughput-comparison" title="Permanent link">&para;</a></h3>
-<p><img alt="" src="attachments/103333651/103333675.png" />
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333675.png" />
 The Echo API has some errors with 100KiB message size for 1000 and 2000 concurrent users.</p>
 <p>The following charts show what happens to the server throughput when considering all results.</p>
 <ul>
 <li>
 <h5 id="throughput-requestssec-vs-concurrent-users">Throughput (Requests/sec) vs Concurrent Users<a class="headerlink" href="#throughput-requestssec-vs-concurrent-users" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333674.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333674.png" /></p>
 </li>
 <li>
 <h5 id="throughput-requestssec-vs-message-size-bytes">Throughput (Requests/sec) vs Message Size (Bytes)<a class="headerlink" href="#throughput-requestssec-vs-message-size-bytes" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333673.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333673.png" /></p>
 </li>
 <li>
 <h5 id="throughput-requestssec-vs-sleep-time-ms">Throughput (Requests/sec) vs Sleep Time (ms)<a class="headerlink" href="#throughput-requestssec-vs-sleep-time-ms" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333672.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333672.png" /></p>
 </li>
 </ul>
 <h3 id="average-response-time-comparison">Average Response Time Comparison<a class="headerlink" href="#average-response-time-comparison" title="Permanent link">&para;</a></h3>
-<p><img alt="" src="attachments/103333651/103333671.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333671.png" /></p>
 <p>The following charts show what happens to the average response time when considering all results.</p>
 <ul>
 <li>
 <h5 id="average-response-time-ms-vs-concurrent-users">Average Response Time (ms) vs Concurrent Users<a class="headerlink" href="#average-response-time-ms-vs-concurrent-users" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333670.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333670.png" /></p>
 </li>
 </ul>
 <!-- -->
@@ -8496,24 +8989,24 @@ The Echo API has some errors with 100KiB message size for 1000 and 2000 concurre
 <ul>
 <li>
 <h5 id="average-response-time-ms-vs-message-size-bytes">Average Response Time (ms) vs Message Size (Bytes)<a class="headerlink" href="#average-response-time-ms-vs-message-size-bytes" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333669.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333669.png" /></p>
 </li>
 <li>
 <h5 id="average-response-time-ms-vs-sleep-time-ms">Average Response Time (ms) vs Sleep Time (ms)<a class="headerlink" href="#average-response-time-ms-vs-sleep-time-ms" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333668.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333668.png" /></p>
 </li>
 </ul>
 <h3 id="gc-throughput-comparison">GC Throughput Comparison<a class="headerlink" href="#gc-throughput-comparison" title="Permanent link">&para;</a></h3>
 <p>The following chart shows the GC throughput behavior when considering all results.</p>
-<p><img alt="" src="attachments/103333651/103333667.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333667.png" /></p>
 <ul>
 <li>
 <h5 id="api-manager-gc-throughput-vs-concurrent-users">API Manager GC Throughput (%) vs Concurrent Users<a class="headerlink" href="#api-manager-gc-throughput-vs-concurrent-users" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333666.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333666.png" /></p>
 </li>
 <li>
 <h5 id="api-manager-gc-throughput-vs-message-size-bytes">API Manager GC Throughput (%) vs Message Size (Bytes)<a class="headerlink" href="#api-manager-gc-throughput-vs-message-size-bytes" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333665.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333665.png" /></p>
 </li>
 </ul>
 <!-- -->
@@ -8521,12 +9014,27 @@ The Echo API has some errors with 100KiB message size for 1000 and 2000 concurre
 <ul>
 <li>
 <h5 id="api-manager-gc-throughput-vs-sleep-time-ms">API Manager GC Throughput (%) vs Sleep Time (ms)<a class="headerlink" href="#api-manager-gc-throughput-vs-sleep-time-ms" title="Permanent link">&para;</a></h5>
-<p><img alt="" src="attachments/103333651/103333664.png" /></p>
+<p><img alt="" src="https://apim.docs.wso2.com/en/next//assets/attachments/103333651/103333664.png" /></p>
 </li>
 </ul>
 <p>Refer <a href="#WSO2API-MPerformanceandCapacityPlanning-observation">Observations from all results</a> for more details on the charts.</p>
+                
+                  
+                
+              
   <a href="#" class="cd-top text--replace js-cd-top">Top</a>
-</article></div></div></main>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
 <footer class="md-footer">
   
     <div class="md-footer-nav">
@@ -8576,4 +9084,22 @@ The Echo API has some errors with 100KiB message size for 1000 and 2000 concurre
       </div>
     </div>
   </div>
-</footer></div><script src="../../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script><script src="../../../../assets/lib/highlightjs/highlight.min.js"></script><script src="../../../../assets/js/theme.js"></script><script src="../../../../assets/lib/backtotop/js/util.js"></script><script src="../../../../assets/lib/backtotop/js/main.js"></script></body></html>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../../../assets/js/theme.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/util.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/main.js"></script>
+      
+    
+  </body>
+</html>

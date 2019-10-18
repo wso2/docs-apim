@@ -16,10 +16,112 @@
  * under the License.
 -->
 
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Documentation for WSO2 API Manager"><link rel="canonical" href="https://wso2.com/Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release/"><meta name="author" content="WSO2"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>Upgrading from the Previous Release - WSO2 API Manager Documentation 3.0.0</title>
-  <link rel="stylesheet" href="../../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ff7043">
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Upgrading from the Previous Release - WSO2 API Manager Documentation 3.0.0</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
   <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
-<script src="../../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css"><link rel="stylesheet" href="../../../../assets/css/theme.css"></head><body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#upgrading-from-the-previous-release" tabindex="1" class="md-skip">Skip to content </a><!--
+
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#upgrading-from-the-previous-release" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -77,13 +179,17 @@
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          <div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div>
-        
       </div>
     </div>
   </nav>
-</header><div class="md-container">
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
 
   
 
@@ -106,7 +212,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../GettingStarted/key-concepts/" title="Get Started" class="md-tabs__link">
+        <a href="../../../../GettingStarted/overview/" title="Get Started" class="md-tabs__link">
           Get Started
         </a>
       
@@ -127,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Learn" class="md-tabs__link">
+        <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/" title="Learn" class="md-tabs__link">
           Learn
         </a>
       
@@ -199,25 +305,13 @@
         
   
   
-    
-    
-  
-  
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../../../Reference/samples/APIDevelopmentSample/managing-apis-sample/" title="Reference" class="md-tabs__link">
+        <a href="../../../../Reference/ConfigCatalog/" title="Reference" class="md-tabs__link">
           Reference
         </a>
       
     </li>
-  
-
-  
-
   
 
       
@@ -226,7 +320,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting" class="md-tabs__link">
+        <a href="../../../../Troubleshooting/error-handling/" title="Troubleshooting" class="md-tabs__link">
           Troubleshooting
         </a>
       
@@ -247,7 +341,16 @@
         onclick=window.open("https://github.com/"+"wso2/docs-apim"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
         Report Issues</a>
   </div>
-</nav><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0">
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
     <label class="md-nav__title md-nav__title--site" for="__drawer">
       <a href="https://wso2.com/" title="WSO2 API Manager Documentation 3.0.0"
          class="md-nav__button md-logo">
@@ -259,7 +362,23 @@
     </label>
     
       <div class="md-nav__source">
-        <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">wso2/docs-apim</div></a>
+        
+
+
+  
+
+<a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    wso2/docs-apim
+  </div>
+</a>
       </div>
     
     <ul class="md-nav__list" data-md-scrollfix>
@@ -301,7 +420,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/key-concepts/" title="Overview" class="md-nav__link">
+    <a href="../../../../GettingStarted/overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -313,7 +432,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/overview/" title="Key Concepts" class="md-nav__link">
+    <a href="../../../../GettingStarted/key-concepts/" title="Key Concepts" class="md-nav__link">
       Key Concepts
     </a>
   </li>
@@ -399,8 +518,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api/" title="Create and Publish a REST API" class="md-nav__link">
-      Create and Publish a REST API
+    <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/" title="Create a REST API" class="md-nav__link">
+      Create a REST API
     </a>
   </li>
 
@@ -411,8 +530,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition/" title="Create and Publish an API from a Swagger Definition" class="md-nav__link">
-      Create and Publish an API from a Swagger Definition
+    <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-graphql-api/" title="Create a GraphQL API" class="md-nav__link">
+      Create a GraphQL API
     </a>
   </li>
 
@@ -423,8 +542,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/DesignAPI/CreateAPI/create-and-publish-a-soap-api/" title="Create and Publish a SOAP API" class="md-nav__link">
-      Create and Publish a SOAP API
+    <a href="../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition/" title="Create a REST API from a Swagger Definition" class="md-nav__link">
+      Create a REST API from a Swagger Definition
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api/" title="Expose a SOAP Service as a REST API" class="md-nav__link">
+      Expose a SOAP Service as a REST API
     </a>
   </li>
 
@@ -1858,7 +1989,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/adding-a-new-api-store-theme.md" title="Adding a New API Store Theme" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme/" title="Adding a New API Store Theme" class="md-nav__link">
       Adding a New API Store Theme
     </a>
   </li>
@@ -1918,7 +2049,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/customizing-error-pages.md" title="Customizing error Pages" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages/" title="Customizing error Pages" class="md-nav__link">
       Customizing error Pages
     </a>
   </li>
@@ -1930,7 +2061,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-forum.md" title="Enabling or disabling the forum" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum/" title="Enabling or disabling the forum" class="md-nav__link">
       Enabling or disabling the forum
     </a>
   </li>
@@ -1942,7 +2073,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/enabling-or-disabling-the-walkthrough.md" title="Enabling or disabling the walkthrough" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough/" title="Enabling or disabling the walkthrough" class="md-nav__link">
       Enabling or disabling the walkthrough
     </a>
   </li>
@@ -1954,7 +2085,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Learn/ConsumeAPI/Customizations/enabling-or-disabling-self-signup.md" title="Enabling or disabling self signup" class="md-nav__link">
+    <a href="../../../../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup/" title="Enabling or disabling self signup" class="md-nav__link">
       Enabling or disabling self signup
     </a>
   </li>
@@ -3146,18 +3277,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../.." title="Rate Limiting - Security Concerns" class="md-nav__link">
-      Rate Limiting - Security Concerns
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -3358,6 +3477,18 @@
   <li class="md-nav__item">
     <a href="../../../../Learn/APIMonetization/configuring-api-monetization-category-labels/" title="Configuring API Monetization Category Labels" class="md-nav__link">
       Configuring API Monetization Category Labels
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Learn/APIMonetization/monetizing-an-api/" title="Monetizing an API" class="md-nav__link">
+      Monetizing an API
     </a>
   </li>
 
@@ -4753,29 +4884,209 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-api-manager-configurations" title="Step 1.1 - Migrate the API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics" title="Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-121-configure-wso2-api-m-analytics-260" title="Step 1.2.1 - Configure WSO2 API-M Analytics 2.6.0" class="md-nav__link">Step 1.2.1 - Configure WSO2 API-M Analytics 2.6.0</a></li><li class="md-nav__item"><a href="#step-122-configure-wso2-api-m-260-for-analytics" title="Step 1.2.2 - Configure WSO2 API-M 2.6.0 for Analytics" class="md-nav__link">Step 1.2.2 - Configure WSO2 API-M 2.6.0 for Analytics</a></li></ul></nav></li></ul></nav></li>
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-api-manager-configurations" class="md-nav__link">
+    Step 1.1 - Migrate the API Manager configurations
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_1" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-api-manager-configurations_1" title="Step 1.1 - Migrate the API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics_1" title="Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics</a></li></ul></nav></li>
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260_1" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-121-configure-wso2-api-m-analytics-260" class="md-nav__link">
+    Step 1.2.1 - Configure WSO2 API-M Analytics 2.6.0
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_2" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-wso2-api-manager-configurations" title="Step 1.1 - Migrate the WSO2 API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the WSO2 API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics" title="Step 1.2 - Optionally, migrate the configurations for API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for API-M Analytics</a></li></ul></nav></li>
+          <li class="md-nav__item">
+  <a href="#step-122-configure-wso2-api-m-260-for-analytics" class="md-nav__link">
+    Step 1.2.2 - Configure WSO2 API-M 2.6.0 for Analytics
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260_2" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+      </ul>
+    </nav>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_3" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-api-manager-configurations_2" title="Step 1.1 - Migrate the API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics_1" title="Step 1.2 - Optionally, migrate the configurations for API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for API-M Analytics</a></li></ul></nav></li>
+      </ul>
+    </nav>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260_3" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_4" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-wso2-api-manager-configurations_1" title="Step 1.1 - Migrate the WSO2 API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the WSO2 API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-statistics-related-data-from-wso2-das-to-api-manager-analytics" title="Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics</a></li></ul></nav></li>
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_1" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-wso2-api-manager-to-260" title="Step 2 - Upgrade WSO2 API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade WSO2 API Manager to 2.6.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-api-manager-configurations_1" class="md-nav__link">
+    Step 1.1 - Migrate the API Manager configurations
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-upgrade-wso2-api-manager-to-200" title="Step 1 - Upgrade WSO2 API Manager to 2.0.0" class="md-nav__link">Step 1 - Upgrade WSO2 API Manager to 2.0.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics_1" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-wso2-api-manager-to-260_1" title="Step 2 - Upgrade WSO2 API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade WSO2 API Manager to 2.6.0</a></li>
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260_1" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_2" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-wso2-api-manager-configurations" class="md-nav__link">
+    Step 1.1 - Migrate the WSO2 API Manager configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for API-M Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260_2" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_3" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-api-manager-configurations_2" class="md-nav__link">
+    Step 1.1 - Migrate the API Manager configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics_1" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for API-M Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260_3" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_4" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-wso2-api-manager-configurations_1" class="md-nav__link">
+    Step 1.1 - Migrate the WSO2 API Manager configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-statistics-related-data-from-wso2-das-to-api-manager-analytics" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-wso2-api-manager-to-260" class="md-nav__link">
+    Step 2 - Upgrade WSO2 API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-upgrade-wso2-api-manager-to-200" class="md-nav__link">
+    Step 1 - Upgrade WSO2 API Manager to 2.0.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-wso2-api-manager-to-260_1" class="md-nav__link">
+    Step 2 - Upgrade WSO2 API Manager to 2.6.0
+  </a>
+  
+</li>
         
         
         
@@ -7659,15 +7970,135 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
+      WSO2 API Manager Best Practices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
-    <label class="md-nav__link" for="nav-7-1" >
+    <label class="md-nav__link" for="nav-7-4" >
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4" >
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
+      Changing the Default Ports with Offset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
+      Message Flow in the API Manager Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
+      Accessing API Manager by Multiple Devices Simultaneously
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
+      admin_Database Upgrade Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
+      admin_Directory Structure of WSO2 Products
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5" >
       Samples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1" >
+      <label class="md-nav__title" for="nav-7-5" >
         Samples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7680,13 +8111,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1-1" type="checkbox" id="nav-7-1-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5-1" type="checkbox" id="nav-7-5-1">
     
-    <label class="md-nav__link" for="nav-7-1-1" >
+    <label class="md-nav__link" for="nav-7-5-1" >
       API Development Sample
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-1-1" >
+      <label class="md-nav__title" for="nav-7-5-1" >
         API Development Sample
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7816,8 +8247,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
+      Business Scenarios
     </a>
   </li>
 
@@ -7830,126 +8261,6 @@
   <li class="md-nav__item">
     <a href="../../../../Reference/other/" title="Other" class="md-nav__link">
       Other
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
-      WSO2 API Manager Best Practices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5" >
-      Guides
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5" >
-        Guides
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
-      Changing the Default Ports with Offset
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
-      Message Flow in the API Manager Gateway
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
-      Accessing API Manager by Multiple Devices Simultaneously
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
-      admin_Database Upgrade Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
-      admin_Directory Structure of WSO2 Products
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
-      Configuration Catalog
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
-      Business Scenarios
     </a>
   </li>
 
@@ -7984,8 +8295,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="admin_Troubleshooting in Production Environments" class="md-nav__link">
-      admin_Troubleshooting in Production Environments
+    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
+      Error Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting in Production Environments" class="md-nav__link">
+      Troubleshooting in Production Environments
     </a>
   </li>
 
@@ -7998,18 +8321,6 @@
   <li class="md-nav__item">
     <a href="../../../../Troubleshooting/cleaning-up-partially-created-keys/" title="Cleaning Up Partially Created Keys" class="md-nav__link">
       Cleaning Up Partially Created Keys
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
-      Error Handling
     </a>
   </li>
 
@@ -8032,7 +8343,16 @@
 
       
     </ul>
-  </nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner">
+  </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 <nav class="md-nav md-nav--secondary">
     
     
@@ -8044,29 +8364,209 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-api-manager-configurations" title="Step 1.1 - Migrate the API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics" title="Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-121-configure-wso2-api-m-analytics-260" title="Step 1.2.1 - Configure WSO2 API-M Analytics 2.6.0" class="md-nav__link">Step 1.2.1 - Configure WSO2 API-M Analytics 2.6.0</a></li><li class="md-nav__item"><a href="#step-122-configure-wso2-api-m-260-for-analytics" title="Step 1.2.2 - Configure WSO2 API-M 2.6.0 for Analytics" class="md-nav__link">Step 1.2.2 - Configure WSO2 API-M 2.6.0 for Analytics</a></li></ul></nav></li></ul></nav></li>
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-api-manager-configurations" class="md-nav__link">
+    Step 1.1 - Migrate the API Manager configurations
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_1" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-api-manager-configurations_1" title="Step 1.1 - Migrate the API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics_1" title="Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics</a></li></ul></nav></li>
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260_1" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-121-configure-wso2-api-m-analytics-260" class="md-nav__link">
+    Step 1.2.1 - Configure WSO2 API-M Analytics 2.6.0
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_2" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-wso2-api-manager-configurations" title="Step 1.1 - Migrate the WSO2 API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the WSO2 API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics" title="Step 1.2 - Optionally, migrate the configurations for API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for API-M Analytics</a></li></ul></nav></li>
+          <li class="md-nav__item">
+  <a href="#step-122-configure-wso2-api-m-260-for-analytics" class="md-nav__link">
+    Step 1.2.2 - Configure WSO2 API-M 2.6.0 for Analytics
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260_2" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+      </ul>
+    </nav>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_3" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-api-manager-configurations_2" title="Step 1.1 - Migrate the API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics_1" title="Step 1.2 - Optionally, migrate the configurations for API-M Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the configurations for API-M Analytics</a></li></ul></nav></li>
+      </ul>
+    </nav>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-api-manager-to-260_3" title="Step 2 - Upgrade API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade API Manager to 2.6.0</a></li>
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-migrate-the-configurations_4" title="Step 1 - Migrate the configurations" class="md-nav__link">Step 1 - Migrate the configurations</a><nav class="md-nav"><ul class="md-nav__list"><li class="md-nav__item"><a href="#step-11-migrate-the-wso2-api-manager-configurations_1" title="Step 1.1 - Migrate the WSO2 API Manager configurations" class="md-nav__link">Step 1.1 - Migrate the WSO2 API Manager configurations</a></li><li class="md-nav__item"><a href="#step-12-optionally-migrate-the-statistics-related-data-from-wso2-das-to-api-manager-analytics" title="Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics" class="md-nav__link">Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics</a></li></ul></nav></li>
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_1" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-wso2-api-manager-to-260" title="Step 2 - Upgrade WSO2 API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade WSO2 API Manager to 2.6.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-api-manager-configurations_1" class="md-nav__link">
+    Step 1.1 - Migrate the API Manager configurations
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-1-upgrade-wso2-api-manager-to-200" title="Step 1 - Upgrade WSO2 API Manager to 2.0.0" class="md-nav__link">Step 1 - Upgrade WSO2 API Manager to 2.0.0</a></li>
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics_1" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#step-2-upgrade-wso2-api-manager-to-260_1" title="Step 2 - Upgrade WSO2 API Manager to 2.6.0" class="md-nav__link">Step 2 - Upgrade WSO2 API Manager to 2.6.0</a></li>
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260_1" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_2" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-wso2-api-manager-configurations" class="md-nav__link">
+    Step 1.1 - Migrate the WSO2 API Manager configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for API-M Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260_2" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_3" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-api-manager-configurations_2" class="md-nav__link">
+    Step 1.1 - Migrate the API Manager configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics_1" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the configurations for API-M Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-api-manager-to-260_3" class="md-nav__link">
+    Step 2 - Upgrade API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-migrate-the-configurations_4" class="md-nav__link">
+    Step 1 - Migrate the configurations
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-migrate-the-wso2-api-manager-configurations_1" class="md-nav__link">
+    Step 1.1 - Migrate the WSO2 API Manager configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-12-optionally-migrate-the-statistics-related-data-from-wso2-das-to-api-manager-analytics" class="md-nav__link">
+    Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-wso2-api-manager-to-260" class="md-nav__link">
+    Step 2 - Upgrade WSO2 API Manager to 2.6.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-1-upgrade-wso2-api-manager-to-200" class="md-nav__link">
+    Step 1 - Upgrade WSO2 API Manager to 2.0.0
+  </a>
+  
+</li>
+        
+        <li class="md-nav__item">
+  <a href="#step-2-upgrade-wso2-api-manager-to-260_1" class="md-nav__link">
+    Step 2 - Upgrade WSO2 API Manager to 2.6.0
+  </a>
+  
+</li>
         
         
         
@@ -8074,9 +8574,22 @@
         
     </ul>
     
-</nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset">
-  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="upgrading-from-the-previous-release">Upgrading from the Previous Release<a class="headerlink" href="#upgrading-from-the-previous-release" title="Permanent link">&para;</a></h1>
-<p>The following information describes how to upgrade your API Manager server <strong>from APIM 1.8.0/1.9.0/1.9.1/1.10.0/2.0.0/2.1.0/2.2.0/2.5.0</strong> <strong>to 2.6.0</strong> .</p>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="upgrading-from-the-previous-release">Upgrading from the Previous Release<a class="headerlink" href="#upgrading-from-the-previous-release" title="Permanent link">&para;</a></h1>
+<p>The following information describes how to upgrade your API Manager server <strong>from APIM 1.8.0/1.9.0/1.9.1/1.10.0/2.0.0/2.1.0/2.2.0/2.5.0 to 2.6.0</strong> .</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
@@ -8240,7 +8753,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 2.6.0</
 
 </li>
 <li>
-<p>The second datasource points to the <strong>WSO2</strong> <strong>Data Analytics (WSO2</strong> <strong>DAS) based previous datasource WSO2AM_STATS_DB for statistics</strong> .</p>
+<p>The second datasource points to the <strong>WSO2 Data Analytics (WSO2 DAS) based previous datasource WSO2AM_STATS_DB for statistics</strong> .</p>
 <pre class="codehilite"><code class="language-java linenums">                       &lt;datasource&gt;
                             &lt;name&gt;WSO2AM_STATS_DB&lt;/name&gt;
                             &lt;description&gt;The datasource used for getting statistics to API Manager&lt;/description&gt;
@@ -8299,7 +8812,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 2.6.0</
 <li>Copy the <strong>migrate.client-2.6.x-1.jar</strong> to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins</code> folder.</li>
 <li>Copy the relevant JDBC driver to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/lib</code> folder.</li>
 <li>
-<p>Make sure that WSO2 API-M Analytics is disabled in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/conf/</code> <code class="codehilite">api-manager.xml</code> file.</p>
+<p>Make sure that WSO2 API-M Analytics is disabled in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/conf/api-manager.xml</code> file.</p>
 <pre class="codehilite"><code class="language-java linenums">        &lt;Analytics&gt;    
             &lt;Enabled&gt;false&lt;/Enabled&gt;
             ...
@@ -8319,7 +8832,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 2.6.0</
 <p>The following are the table names that needs to be migrated.</p>
 <pre class="codehilite"><code class="language-java linenums">    ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,GeoLocationAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg</code></pre>
 
-<p>You need to use the <code class="codehilite">statTable</code> **** migration property for table wise migration.</p>
+<p>You need to use the <code class="codehilite">statTable</code> migration property for table wise migration.</p>
 <p>For example, if you need to migrate only the <code class="codehilite">ApiPerDestinationAgg</code> and <code class="codehilite">ApiResPathPerApp</code> tables use the following command:</p>
 <pre class="codehilite"><code class="linenums">!!! note</code></pre>
 
@@ -8357,7 +8870,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 2.6.0</
 </li>
 <li>Remove both the old and new <code class="codehilite">STAT_DB</code> datasources from the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/conf/datasources/master-datasources.xml</code> file, which you defined in <a href="http://docs.wso2.com#1221">step 1.2.2 - (1.)</a> .</li>
 <li>
-<p>Enable analytics in WSO2 API-M by setting the following configuration to true in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/conf/</code> <code class="codehilite">api-manager.xml</code> file.</p>
+<p>Enable analytics in WSO2 API-M by setting the following configuration to true in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/conf/api-manager.xml</code> file.</p>
 <pre class="codehilite"><code class="language-java linenums">    &lt;Analytics&gt;    
         &lt;Enabled&gt;true&lt;/Enabled&gt;
         ...
@@ -8400,7 +8913,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 2.6.0</
 <p>Shut down WSO2 API Manager 2.6.0 (if you have already started it).</p>
 </li>
 <li>
-<p>If the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/</code> <code class="codehilite">solr</code> directory exists, take a backup and thereafter delete it.</p>
+<p>If the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/solr</code> directory exists, take a backup and thereafter delete it.</p>
 </li>
 </ol>
 </li>
@@ -8422,7 +8935,7 @@ migrateVersion: "5.7.0"</code></pre>
 Make sure you have enabled migration by setting the <code class="codehilite">migrationEnable</code> element to <code class="codehilite">true</code> as shown above.</p>
 </li>
 <li>
-<p>Copy the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> from the extracted folder to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> / <code class="codehilite">repository/components/dropins</code> directory.</p>
+<p>Copy the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> from the extracted folder to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code>/<code class="codehilite">repository/components/dropins</code> directory.</p>
 </li>
 <li>
 <p>Copy the keystores (i.e., <code class="codehilite">client-truststore.jks</code> , <code class="codehilite">wso2cabon.jks</code> and any other custom JKS) used in the previous version and replace the existing keystores in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/resources/security</code> directory</p>
@@ -8436,33 +8949,26 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 <p>sh wso2server.sh -Dmigrate -Dcomponent=identity</p>
 </li>
 </ul>
+</li>
+</ol>
+</li>
+</ol>
 <p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
-</li>
-<li>
-<p>After you have successfully completed the migration, stop the server and remove the following files and folders.</p>
-<ul>
-<li>
-<p>Remove the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> file, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins</code> directory.</p>
-</li>
-<li>
-<p>Remove the <code class="codehilite">migration-resources</code> directory, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> directory.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Restart the WSO2 API-M server.</p>
-<ul>
-<li><a href="#linux"><strong>Linux / Mac OS</strong></a></li>
-<li>
-<p><a href="#windows"><strong>Windows</strong></a></p>
-<p>sh wso2server.sh</p>
-</li>
-</ul>
+<pre class="codehilite"><code class="linenums">7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+
+    -   Remove the `org.wso2.carbon.is.migration-5.7.0.jar` file, which is in the `&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins` directory.
+
+    -   Remove the `migration-resources` directory, which is in the `&lt;API-M_2.6.0_HOME&gt;` directory.
+
+8.  Restart the WSO2 API-M server.
+
+    -   [**Linux / Mac OS**](#linux)
+    -   [**Windows**](#windows)
+
+        sh wso2server.sh</code></pre>
+
+
 <p><code class="codehilite">wso2server.bat</code></p>
-</li>
-</ol>
-</li>
-</ol>
 <p>Follow the instructions below to upgrade your WSO2 API Manager server <strong>from WSO2 API-M 2.2.0 to 2.6.0</strong> .</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -8547,72 +9053,80 @@ Follow the instructions below to move all the existing API Manager configuration
 <p>Run the <code class="codehilite">apim220_to_apim260_gateway_artifact_migrator.sh</code> script, as shown below, to migrate from WSO2 API Manager 2.2.0 to 2.6.0.</p>
 <pre class="codehilite"><code class="language-java linenums">    ./apim220_to_apim260_gateway_artifact_migrator.sh &lt;API-definitions-path&gt;</code></pre>
 
-<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.2.0 deployment, reside.</p>
-<p>The API definition paths <code class="codehilite">&lt;API-definition-path&gt;</code> are as follows:</p>
-<ul>
-<li>
-<p>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></p>
-</li>
-<li>
-<p>Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></p>
-</li>
-</ul>
-<p>Where, <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0</code> .</p>
-<ul>
-<li><a href="#supertenant"><strong>Super Tenant</strong></a></li>
-<li><a href="#8cc7415520c24b539aa7abe95ce514ee"><strong>Tenants</strong></a></li>
-</ul>
-<p>Run the PowerShell script <code class="codehilite">apim220_to_apim260_gateway_artifact_migrator.ps1</code> as shown below, to migrate from WSO2 API Manager 2.2.0 to 2.6.0.</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">        powershell</code></pre>
-
-<p>A message about PowerShell appears, and the shell changes to PowserShell (PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim220_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;</code></pre>
-
-<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.2.0 deployment, reside.</p>
-<ul>
-<li>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
 </li>
 </ol>
-<p>Run the PowerShell script <code class="codehilite">apim220_to_apim260_gateway_artifact_migrator_for_tenants.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">            powershell</code></pre>
+<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.2.0 deployment, reside.</p>
+<pre class="codehilite"><code class="linenums">The API definition paths `&lt;API-definition-path&gt;` are as follows:
 
-<p>A message about PowerShell appears, and the shell changes to PowserShell (PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim220_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;</code></pre>
+-   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
+
+-   Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+Where, `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0` .
+
+-   [**Super Tenant**](#supertenant)
+-   [**Tenants**](#8cc7415520c24b539aa7abe95ce514ee)
+
+Run the PowerShell script `apim220_to_apim260_gateway_artifact_migrator.ps1` as shown below, to migrate from WSO2 API Manager 2.2.0 to 2.6.0.
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+            powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowserShell (PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim220_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
 
 <p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.2.0 deployment, reside.</p>
-<ul>
-<li>Tenants - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-</div>
-<p>Troubleshooting
-    <strong>Why do I get the following error - apim220_to_apim260_gateway_artifact_migrator.ps1 / apim220_to_apim250_gateway_artifact_migrator_for_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?</strong></p>
-</li>
-</ol>
-<p>When running the <code class="codehilite">apim220_to_apim260_gateway_artifact_migrator.ps1</code> script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system.</p>
-<p>To overcome this issue and allow the execution of such scripts, run the following command in the terminal/command-line as the Administrator.</p>
-<pre class="codehilite"><code class="language-java linenums">    Set-ExecutionPolicy RemoteSigned</code></pre>
+<pre class="codehilite"><code class="linenums">    -   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
 
-</li>
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+Run the PowerShell script `apim220_to_apim260_gateway_artifact_migrator_for_tenants.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+                powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowserShell (PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim220_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
+
+<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.2.0 deployment, reside.</p>
+<pre class="codehilite"><code class="linenums">    -   Tenants - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+    !!! note
+    It may take a considerable amount of time, which is proportionate to the amount of artifacts, to complete the migration process.
+    !!! info
+    Troubleshooting
+**Why do I get the following error - apim220\_to\_apim260\_gateway\_artifact\_migrator.ps1 / apim220\_to\_apim250\_gateway\_artifact\_migrator\_for\_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?**
+
+When running the `apim220_to_apim260_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system.
+
+To overcome this issue and allow the execution of such scripts, run the following command in the terminal/command-line as the Administrator.
+
+``` java
+    Set-ExecutionPolicy RemoteSigned
+```</code></pre>
+
+
+<ol>
 <li>
 <p>Upgrade the API Manager database from version 2.2.0 to version 2.6.0.</p>
 <ol>
@@ -8672,33 +9186,26 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 <p>sh wso2server.sh -Dmigrate -Dcomponent=identity</p>
 </li>
 </ul>
+</li>
+</ol>
+</li>
+</ol>
 <p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
-</li>
-<li>
-<p>After you have successfully completed the migration, stop the server and remove the following files and folders.</p>
-<ul>
-<li>
-<p>Remove the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> file, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins</code> directory.</p>
-</li>
-<li>
-<p>Remove the <code class="codehilite">migration-resources</code> directory, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> directory.</p>
-</li>
-</ul>
-</li>
-<li>
-<p>Restart the WSO2 API-M server.</p>
-<ul>
-<li><a href="#linux"><strong>Linux / Mac OS</strong></a></li>
-<li>
-<p><a href="#windows"><strong>Windows</strong></a></p>
-<p>sh wso2server.sh</p>
-</li>
-</ul>
+<pre class="codehilite"><code class="linenums">7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+
+    -   Remove the `org.wso2.carbon.is.migration-5.7.0.jar` file, which is in the `&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins` directory.
+
+    -   Remove the `migration-resources` directory, which is in the `&lt;API-M_2.6.0_HOME&gt;` directory.
+
+8.  Restart the WSO2 API-M server.
+
+    -   [**Linux / Mac OS**](#linux)
+    -   [**Windows**](#windows)
+
+        sh wso2server.sh</code></pre>
+
+
 <p><code class="codehilite">wso2server.bat</code></p>
-</li>
-</ol>
-</li>
-</ol>
 <p>Follow the instructions below to upgrade your WSO2 API Manager server <strong>from WSO2 API-M 2.1.0 to 2.6.0</strong> .</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -8751,11 +9258,13 @@ Follow the instructions below to move all the existing API Manager configuration
 <p>In a <strong>clustered/distributed API Manager setup</strong> , follow steps <a href="#UpgradingfromthePreviousRelease-step5-2.1.0">5</a> and <a href="#UpgradingfromthePreviousRelease-step6-2.1.0">6</a> for the Gateway node.</p>
 </li>
 <li>
-<p>Move all your Synapse configurations <strong>with the exception of the files mentioned below</strong> , by copying the contents in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory and by using it to replace the contents of the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory. <code class="codehilite"></code></p>
+<p>Move all your Synapse configurations <strong>with the exception of the files mentioned below</strong> , by copying the contents in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory and by using it to replace the contents of the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory. ``</p>
 <pre class="codehilite"><code class="linenums">!!! warning</code></pre>
 
 
 <p><strong>NOTE:</strong> Do not replace the files listed below from the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> folder to API Manager 2.6.0. These are application-specific APIs and sequences. If you made any custom changes to the files below, you need to merge the changes to the corresponding files in 2.6.0.</p>
+</li>
+</ol>
 <p><code class="codehilite">/api/_AuthorizeAPI_.xml</code></p>
 <p><code class="codehilite">/api/_RevokeAPI_.xml</code></p>
 <p><code class="codehilite">/api/_TokenAPI_.xml</code></p>
@@ -8771,13 +9280,13 @@ Follow the instructions below to move all the existing API Manager configuration
 <p><code class="codehilite">/sequences/_throttle_out_handler_.xml</code></p>
 <p><code class="codehilite">/sequences/_token_fault_.xml</code></p>
 <p><code class="codehilite">/proxy-services/WorkflowCallbackService.xml</code></p>
-</li>
-<li>
-<p>Move all your tenant Synapse configurations by copying the contents in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/tenants</code> directory and adding the copied contents to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code> directory.</p>
-<pre class="codehilite"><code class="linenums">!!! warning</code></pre>
+<ol>
+<li>Move all your tenant Synapse configurations by copying the contents in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/tenants</code> directory and adding the copied contents to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code> directory.<pre class="codehilite"><code class="linenums">!!! warning</code></pre>
 
 
 <p><strong>NOTE:</strong> Copy the files listed below from the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default/sequences</code> directory and replace the corresponding files in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants/&lt;tenant-id&gt;/synapse-configs/default/sequences</code> directory.</p>
+</li>
+</ol>
 <p><code class="codehilite">_auth_failure_handler_.xml</code></p>
 <p><code class="codehilite">_cors_request_handler_.xml</code></p>
 <p><code class="codehilite">fault.xml</code></p>
@@ -8786,12 +9295,10 @@ Follow the instructions below to move all the existing API Manager configuration
 <p><code class="codehilite">_resource_mismatch_handler_.xml</code></p>
 <p><code class="codehilite">_sandbox_key_error_.xml</code></p>
 <p><code class="codehilite">_throttle_out_handler_.xml</code></p>
-<pre class="codehilite"><code class="linenums">!!! info</code></pre>
+<pre class="codehilite"><code class="linenums">    !!! info
+In a **clustered/distributed API Manager setup** , do this step on the Gateway node.</code></pre>
 
 
-<p>In a <strong>clustered/distributed API Manager setup</strong> , do this step on the Gateway node.</p>
-</li>
-</ol>
 <h4 id="step-12-optionally-migrate-the-configurations-for-api-m-analytics">Step 1.2 - Optionally, migrate the configurations for API-M Analytics<a class="headerlink" href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -8816,71 +9323,78 @@ Follow the instructions below to move all the existing API Manager configuration
 <p>Run the <code class="codehilite">apim210_to_apim260_gateway_artifact_migrator.sh</code> script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 2.6.0.</p>
 <pre class="codehilite"><code class="language-java linenums">    ./apim210_to_apim260_gateway_artifact_migrator.sh &lt;API-definitions-path&gt;</code></pre>
 
-<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the WSO2 API-M 2.1.0 deployment, reside.</p>
-<p>The API definition paths <code class="codehilite">&lt;API-definition-path&gt;</code> are as follows:</p>
-<ul>
-<li>
-<p>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></p>
-</li>
-<li>
-<p>Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></p>
-</li>
-</ul>
-<p>Where, <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0</code> . <code class="codehilite"></code></p>
-<ul>
-<li><a href="#supertenant"><strong>Super Tenant</strong></a></li>
-<li><a href="#ab5422b341814c8eaddf4a4082f1b4a8"><strong>Tenants</strong></a></li>
-</ul>
-<p>Run the PowerShell script <code class="codehilite">apim210_to_apim260_gateway_artifact_migrator.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">        powershell</code></pre>
-
-<p>A message about PowerShell appears, and the shell changes to PowerShell (PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim210_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;</code></pre>
-
-<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the WSO2 API-M 2.1.0 deployment, reside.</p>
-<ul>
-<li>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
 </li>
 </ol>
-<p>Run the PowerShell script <code class="codehilite">apim210_to_apim260_gateway_artifact_migrator_for_tenants.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">            powershell</code></pre>
+<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the WSO2 API-M 2.1.0 deployment, reside.</p>
+<pre class="codehilite"><code class="linenums">The API definition paths `&lt;API-definition-path&gt;` are as follows:
 
-<p>A message about PowerShell appears, and the shell changes to PowerShell (PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim210_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;</code></pre>
+-   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
+
+-   Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+Where, `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0` .
+
+-   [**Super Tenant**](#supertenant)
+-   [**Tenants**](#ab5422b341814c8eaddf4a4082f1b4a8)
+
+Run the PowerShell script `apim210_to_apim260_gateway_artifact_migrator.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+            powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowerShell (PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim210_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
 
 <p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the WSO2 API-M 2.1.0 deployment, reside.</p>
-<ul>
-<li>Tenants - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-</div>
-<p>Troubleshooting
-    <strong>Why do I get the following error - apim210_to_apim260_gateway_artifact_migrator.ps1 / apim210_to_apim260_gateway_artifact_migrator_for_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?</strong></p>
-</li>
-</ol>
-<p>When running the <code class="codehilite">apim210_to_apim260_gateway_artifact_migrator.ps1</code> script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system. To overcome this issue and allow the execution of such scripts, run the following command in the terminal as the Administrator.</p>
-<pre class="codehilite"><code class="language-java linenums">    Set-ExecutionPolicy RemoteSigned</code></pre>
+<pre class="codehilite"><code class="linenums">    -   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
 
-</li>
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+Run the PowerShell script `apim210_to_apim260_gateway_artifact_migrator_for_tenants.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+                powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowerShell (PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim210_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
+
+<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the WSO2 API-M 2.1.0 deployment, reside.</p>
+<pre class="codehilite"><code class="linenums">    -   Tenants - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+    !!! note
+    It may take a considerable amount of time, which is proportionate to the amount of artifacts, to complete the migration process.
+    !!! info
+    Troubleshooting
+**Why do I get the following error - apim210\_to\_apim260\_gateway\_artifact\_migrator.ps1 / apim210\_to\_apim260\_gateway\_artifact\_migrator\_for\_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?**
+
+When running the `apim210_to_apim260_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system. To overcome this issue and allow the execution of such scripts, run the following command in the terminal as the Administrator.
+
+``` java
+    Set-ExecutionPolicy RemoteSigned
+```</code></pre>
+
+
+<ol>
 <li>
 <p>Upgrade the WSO2 API Manager database from version 2.1.0 to version 2.6.0.</p>
 <ol>
@@ -8962,26 +9476,23 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 <p>sh wso2server.sh -Dmigrate -Dcomponent=identity</p>
 </li>
 </ul>
-<p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
-</li>
-<li>
-<p>After you have successfully completed the migration, stop the server and remove the following files and folders.</p>
-<ul>
-<li>
-<p>Remove the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> file, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins</code> directory.</p>
-</li>
-<li>
-<p>Remove the <code class="codehilite">migration-resources</code> folder, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> directory.</p>
-</li>
-</ul>
 </li>
 </ol>
 </li>
+</ol>
+<p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
+<pre class="codehilite"><code class="linenums">8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+
+    -   Remove the `org.wso2.carbon.is.migration-5.7.0.jar` file, which is in the `&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins` directory.
+
+    -   Remove the `migration-resources` folder, which is in the `&lt;API-M_2.6.0_HOME&gt;` directory.</code></pre>
+
+
+<ol>
 <li>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are upgrading from a vanilla distribution of WSO2 API Manager 2.1.0 or a WUM updated distribution taken before the 5<sup>th</sup> December 2017 of WSO2 API Manager 2.1.0, you have to run the following migration client for migrating Access Control support for API Publisher because <a href="https://docs.wso2.com/display/AM260/Enabling+Access+Control+Support+for+API+Publisher">Publisher Access Control</a> is enabled by default in WSO2 API Manager 2.6.0. <strong>If not, you can skip this step.</strong></p>
-</div>
+If you are upgrading from a vanilla distribution of WSO2 API Manager 2.1.0 or a WUM updated distribution taken before the 5<sup>th</sup> December 2017 of WSO2 API Manager 2.1.0, you have to run the following migration client for migrating Access Control support for API Publisher because <a href="https://docs.wso2.com/display/AM260/Enabling+Access+Control+Support+for+API+Publisher">Publisher Access Control</a> is enabled by default in WSO2 API Manager 2.6.0. <strong>If not, you can skip this step.</strong></div>
 <ol>
 <li>
 <p>Download <a href="https://docs.wso2.com/download/attachments/28718536/wso2-api-migration-client.zip?api=v2">WSO2 API Manager Migration Client</a> and copy it to the <code class="codehilite">&lt;API-M_HOME&gt;/repository/components/dropins</code> directory.</p>
@@ -9051,11 +9562,13 @@ In this section, you move all existing API Manager configurations from the curre
 <p>In a <strong>clustered/distributed API Manager setup</strong> , follow steps <a href="#UpgradingfromthePreviousRelease-step5-200">5</a> and <a href="#UpgradingfromthePreviousRelease-step6-200">6</a> for the Gateway node.</p>
 </li>
 <li>
-<p>Move all your Synapse configurations, <strong>except the files mentioned below</strong> , by copying the contents of the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory and by using it to replace the contents of the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory. <code class="codehilite"></code></p>
+<p>Move all your Synapse configurations, <strong>except the files mentioned below</strong> , by copying the contents of the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory and by using it to replace the contents of the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory. ``</p>
 <pre class="codehilite"><code class="linenums">!!! warning</code></pre>
 
 
 <p><strong>NOTE:</strong> Do not replace the files listed below from the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> folder to WSO2 API Manager 2.6.0. These are application-specific APIs and sequences. If you made any custom changes to the files below, you need to merge the changes to the corresponding files in WSO2 API-M 2.6.0.</p>
+</li>
+</ol>
 <p><code class="codehilite">/api/_AuthorizeAPI_.xml</code></p>
 <p><code class="codehilite">/api/_RevokeAPI_.xml</code></p>
 <p><code class="codehilite">/api/_TokenAPI_.xml</code></p>
@@ -9071,13 +9584,13 @@ In this section, you move all existing API Manager configurations from the curre
 <p><code class="codehilite">/sequences/_throttle_out_handler_.xml</code></p>
 <p><code class="codehilite">/sequences/_token_fault_.xml</code></p>
 <p><code class="codehilite">/proxy-services/WorkflowCallbackService.xml</code></p>
-</li>
-<li>
-<p>Move all your tenant Synapse configurations by updating the configurations made in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/tenants</code> directory to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code> directory.</p>
-<pre class="codehilite"><code class="linenums">!!! warning</code></pre>
+<ol>
+<li>Move all your tenant Synapse configurations by updating the configurations made in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/tenants</code> directory to the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code> directory.<pre class="codehilite"><code class="linenums">!!! warning</code></pre>
 
 
 <p><strong>NOTE:</strong> Get the files listed below from the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default/sequences</code> directory and replace the corresponding files in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants/&lt;tenant-id&gt;/synapse-configs/default/sequences</code> directory.</p>
+</li>
+</ol>
 <p><code class="codehilite">_auth_failure_handler_.xml</code></p>
 <p><code class="codehilite">_cors_request_handler_.xml</code></p>
 <p><code class="codehilite">fault.xml</code></p>
@@ -9086,12 +9599,10 @@ In this section, you move all existing API Manager configurations from the curre
 <p><code class="codehilite">_resource_mismatch_handler_.xml</code></p>
 <p><code class="codehilite">_sandbox_key_error_.xml</code></p>
 <p><code class="codehilite">_throttle_out_handler_.xml</code></p>
-<pre class="codehilite"><code class="linenums">!!! info</code></pre>
+<pre class="codehilite"><code class="linenums">    !!! info
+In a **clustered/distributed API Manager setup** , follow this step for the Gateway node.</code></pre>
 
 
-<p>In a <strong>clustered/distributed API Manager setup</strong> , follow this step for the Gateway node.</p>
-</li>
-</ol>
 <h4 id="step-12-optionally-migrate-the-configurations-for-api-m-analytics_1">Step 1.2 - Optionally, migrate the configurations for API-M Analytics<a class="headerlink" href="#step-12-optionally-migrate-the-configurations-for-api-m-analytics_1" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -9115,76 +9626,83 @@ In this section, you move all existing API Manager configurations from the curre
 <p>Run the <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator.sh</code> script, as shown below, to migrate from API Manager 2.0.0 to 2.6.0.</p>
 <pre class="codehilite"><code class="language-java linenums">    ./apim200_to_apim260_gateway_artifact_migrator.sh &lt;API-definitions-path&gt;</code></pre>
 
+</li>
+</ol>
 <p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the WSO2 API-M 2.0.0 deployment, reside.</p>
-<p>The API definition paths <code class="codehilite">&lt;API-definition-path&gt;</code> are as follows:</p>
-<ul>
-<li>
-<p>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></p>
-</li>
-<li>
-<p>Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></p>
-</li>
-</ul>
-<p>Where, <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0</code> . <code class="codehilite"></code></p>
-<ul>
-<li><a href="#supertenant"><strong>Super Tenant</strong></a></li>
-<li><a href="#4314f6fd42184ef0b98e585488e1896f"><strong>Tenants</strong></a></li>
-</ul>
-<p>Run the PowerShell script <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">        powershell</code></pre>
+<pre class="codehilite"><code class="linenums">The API definition paths `&lt;API-definition-path&gt;` are as follows:
 
-<p>A message about PowerShell appears, and the shell changes to PowerShell (PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim200_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;</code></pre>
+-   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
+
+-   Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+Where, `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0` .
+
+-   [**Super Tenant**](#supertenant)
+-   [**Tenants**](#4314f6fd42184ef0b98e585488e1896f)
+
+Run the PowerShell script `apim200_to_apim260_gateway_artifact_migrator.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+            powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowerShell (PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim200_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
 
 <p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which are copied from the WSO2 API-M 2.0.0 deployment, reside.</p>
-<ul>
-<li>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
-</li>
-</ol>
-<p>Run the PowerShell script <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">            powershell</code></pre>
+<pre class="codehilite"><code class="linenums">    -   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
 
-<p>A message about PowerShell appears, and the shell changes to PowerShell ( PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;</code></pre>
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+Run the PowerShell script `apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+                powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowerShell ( PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
 
 <p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.</p>
-<ul>
-<li>Tenants - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-</div>
-<p>Troubleshooting
-    ##### Why do I get the following error - apim200_to_apim260_gateway_artifact_migrator.ps1 / apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?</p>
-</li>
-</ol>
-<p>When running the <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator.ps1</code> script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system. To overcome this issue and allow the execution of such scripts, run the following command in the terminal as the Administrator.</p>
-<pre class="codehilite"><code class="language-java linenums">    Set-ExecutionPolicy RemoteSigned</code></pre>
+<pre class="codehilite"><code class="linenums">    -   Tenants - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
 
-</li>
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+    !!! note
+    It may take a considerable amount of time, which is proportionate to the amount of artifacts, to complete the migration process.
+    !!! info
+    Troubleshooting
+##### Why do I get the following error - apim200\_to\_apim260\_gateway\_artifact\_migrator.ps1 / apim200\_to\_apim260\_gateway\_artifact\_migrator\_for\_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?
+
+When running the `apim200_to_apim260_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system. To overcome this issue and allow the execution of such scripts, run the following command in the terminal as the Administrator.
+
+``` java
+    Set-ExecutionPolicy RemoteSigned
+```</code></pre>
+
+
+<ol>
 <li>
 <p>Upgrade the WSO2 API Manager database from version 2.0.0 to version 2.6.0.</p>
 <ol>
 <li>
-<p>Download the <a href="attachments/103334533/103334535.zip">apimgt-db-migration-scripts-2.0to2.6.zip</a> ZIP and extract it.</p>
+<p>Download the <a href="https://apim.docs.wso2.com/en/next//assets/attachments/103334533/103334535.zip">apimgt-db-migration-scripts-2.0to2.6.zip</a> ZIP and extract it.</p>
 </li>
 <li>
 <p>Execute the relevant database script, from the scripts that are provided in the extracted directory, on the <code class="codehilite">WSO2AM_DB</code> database.</p>
@@ -9255,21 +9773,19 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 <p>sh wso2server.sh -Dmigrate -Dcomponent=identity</p>
 </li>
 </ul>
-<p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
-</li>
-<li>
-<p>After you have successfully completed the migration, stop the server and remove the following files and folders.</p>
-<ul>
-<li>
-<p>Remove the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> file, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins</code> directory.</p>
-</li>
-<li>
-<p>Remove the <code class="codehilite">migration-resources</code> directory, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> directory.</p>
-</li>
-</ul>
 </li>
 </ol>
 </li>
+</ol>
+<p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
+<pre class="codehilite"><code class="linenums">8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+
+    -   Remove the `org.wso2.carbon.is.migration-5.7.0.jar` file, which is in the `&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins` directory.
+
+    -   Remove the `migration-resources` directory, which is in the `&lt;API-M_2.6.0_HOME&gt;` directory.</code></pre>
+
+
+<ol>
 <li>
 <p>Download the <a href="https://docs.wso2.com/download/attachments/28718536/wso2-api-migration-client.zip?api=v2">WSO2 API Manager Migration Client</a> and copy it to the <code class="codehilite">&lt;API-M_HOME&gt;/repository/components/dropins</code> directory.</p>
 </li>
@@ -9301,7 +9817,7 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 
 </li>
 </ol>
-<p>Follow the instructions below to upgrade your WSO2 API Manager server <strong>from APIM 1.10.0</strong> <strong>to 2.6.0</strong> .</p>
+<p>Follow the instructions below to upgrade your WSO2 API Manager server <strong>from APIM 1.10.0 to 2.6.0</strong> .</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
@@ -9357,6 +9873,8 @@ Follow the instructions below to move all the existing API Manager configuration
 
 
 <p><strong>NOTE:</strong> Do not replace the files listed below from the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/deployment/server/synapse-configs/default</code> folder to WSO2 API-M 2.6.0. These are application-specific APIs and sequences. If you made any custom changes to the files below, you need to merge the changes to the corresponding files in 2.6.0.</p>
+</li>
+</ol>
 <p><code class="codehilite">/api/_AuthorizeAPI_.xml</code></p>
 <p><code class="codehilite">/api/_RevokeAPI_.xml</code></p>
 <p><code class="codehilite">/api/_TokenAPI_.xml</code></p>
@@ -9372,14 +9890,14 @@ Follow the instructions below to move all the existing API Manager configuration
 <p><code class="codehilite">/sequences/_throttle_out_handler_.xml</code></p>
 <p><code class="codehilite">/sequences/_token_fault_.xml</code></p>
 <p><code class="codehilite">/proxy-services/WorkflowCallbackService.xml</code></p>
-</li>
-<li>
-<p>Move all your tenant Synapse configurations.
-    Copy the contents in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/tenants</code> directory. Replace the contents in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code> directory with the copied contents.</p>
-<pre class="codehilite"><code class="linenums">!!! warning</code></pre>
+<ol>
+<li>Move all your tenant Synapse configurations.
+    Copy the contents in the <code class="codehilite">&lt;CURRENT_API-M_HOME&gt;/repository/tenants</code> directory. Replace the contents in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code> directory with the copied contents.<pre class="codehilite"><code class="linenums">!!! warning</code></pre>
 
 
 <p><strong>NOTE:</strong> Get the files listed below from the <code class="codehilite">&lt;API_M_2.6.0_MANAGER_HOME&gt;/repository/deployment/server/synapse-configs/default/sequences</code> directory and replace the corresponding files in the <code class="codehilite">&lt;API_M_2.6.0_MANAGER_HOME&gt;/repository/tenants/&lt;tenant-id&gt;/synapse-configs/default/sequences</code> directory.</p>
+</li>
+</ol>
 <p><code class="codehilite">_auth_failure_handler_.xml</code></p>
 <p><code class="codehilite">_cors_request_handler_.xml</code></p>
 <p><code class="codehilite">fault.xml</code></p>
@@ -9388,15 +9906,13 @@ Follow the instructions below to move all the existing API Manager configuration
 <p><code class="codehilite">_resource_mismatch_handler_.xml</code></p>
 <p><code class="codehilite">_sandbox_key_error_.xml</code></p>
 <p><code class="codehilite">_throttle_out_handler_.xml</code></p>
-<pre class="codehilite"><code class="linenums">!!! info</code></pre>
+<pre class="codehilite"><code class="linenums">    !!! info
+In a **clustered/distributed API Manager setup** , do this step for the Gateway node.</code></pre>
 
 
-<p>In a <strong>clustered/distributed API Manager setup</strong> , do this step for the Gateway node.</p>
-</li>
-<li>
-<p>If you have documentation defined for your APIs, make sure you add a value to the <strong>Documentation Summary</strong> field.
-    Documentation summary is mandatory in APIM 2.0.0 onwards. Therefore, you may face issues when trying to migrate with an empty documentation summary field from an older version.</p>
-</li>
+<ol>
+<li>If you have documentation defined for your APIs, make sure you add a value to the <strong>Documentation Summary</strong> field.
+    Documentation summary is mandatory in APIM 2.0.0 onwards. Therefore, you may face issues when trying to migrate with an empty documentation summary field from an older version.</li>
 </ol>
 <h4 id="step-12-optionally-migrate-the-statistics-related-data-from-wso2-das-to-api-manager-analytics">Step 1.2 - Optionally, migrate the statistics related data from WSO2 DAS to API Manager Analytics<a class="headerlink" href="#step-12-optionally-migrate-the-statistics-related-data-from-wso2-das-to-api-manager-analytics" title="Permanent link">&para;</a></h4>
 <div class="admonition note">
@@ -9416,10 +9932,10 @@ From WSO2 API Manager 2.0.0 onwards, statistics can be configured only for RDBM
 
 
 <p><code class="codehilite">com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'TestStatsDB_new.API_REQ_USER_BROW_SUMMARY' doesn't exist.</code></p>
-<p><code class="codehilite">com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'TestStatsDB_new.API_EXE_TME_SUMMARY' doesn't exist</code></p>
-<p><code class="codehilite">com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'TestStatsDB_new.API_REQ_GEO_LOC_SUMMARY' doesn't exist</code></p>
 </li>
 </ol>
+<p><code class="codehilite">com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'TestStatsDB_new.API_EXE_TME_SUMMARY' doesn't exist</code></p>
+<p><code class="codehilite">com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Table 'TestStatsDB_new.API_REQ_GEO_LOC_SUMMARY' doesn't exist</code></p>
 <p><strong>If you configured analytics using the REST client in API-M 1.10.0 with DAS 3.0.x -</strong></p>
 <ol>
 <li>Configure analytics using WSO2 API Manager 1.10.0 and WSO2 DAS 3.0.x with the RDBMS client based on the instructions in <a href="https://docs.wso2.com/display/AM1100/Publishing+API+Runtime+Statistics+Using+RDBMS">Publishing API Runtime Statistics Using RDBMS</a> , which is in the WSO2 API-M 1.10.0 documentation.</li>
@@ -9571,7 +10087,7 @@ This migrates Synapse config files, the API-M database with new throttle policie
 <li>
 <p>Run the <code class="codehilite">-DmigrateFS=true -Dcomponent=apim -DmigrateFromVersion=1.10.0</code> options in the API Gateway node.</p>
 <pre class="codehilite"><code class="linenums">    !!! tip
-        -   To migrate to the throttling engine of WSO2 API-M 2.6.0, you have to use a node that has `                    AM_DB                   ` pointed as well as API Gateway Synapse configurations in place in the file system.</code></pre>
+        -   To migrate to the throttling engine of WSO2 API-M 2.6.0, you have to use a node that has `AM_DB` pointed as well as API Gateway Synapse configurations in place in the file system.</code></pre>
 
 
 </li>
@@ -9653,76 +10169,83 @@ This migrates Synapse config files, the API-M database with new throttle policie
 <p>Run the <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator.sh</code> script, as shown below, to migrate from WSO2 API Manager 2.0.0 to 2.6.0.</p>
 <pre class="codehilite"><code class="language-java linenums">    ./apim200_to_apim260_gateway_artifact_migrator.sh &lt;API-definitions-path&gt;</code></pre>
 
-<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.</p>
-<p>The API definition paths <code class="codehilite">&lt;API-definition-path&gt;</code> are as follows:</p>
-<ul>
-<li>
-<p>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></p>
-</li>
-<li>
-<p>Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></p>
-</li>
-</ul>
-<p>Where, <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0</code> . <code class="codehilite"></code></p>
-<ul>
-<li><a href="#supertenant"><strong>Super Tenant</strong></a></li>
-<li><a href="#595cdd57b0e34ae583150868556c51e2"><strong>Tenants</strong></a></li>
-</ul>
-<p>Run the PowerShell script <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">        powershell</code></pre>
-
-<p>A message about PowerShell appears, and the shell changes to PowerShell (PS).</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim200_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;</code></pre>
-
-<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.</p>
-<ul>
-<li>Super Tenant - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
 </li>
 </ol>
-<p>Run the PowerShell script <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1</code> as follows:</p>
-<ol>
-<li>
-<p>Open a Windows command prompt and type the following command.</p>
-<pre class="codehilite"><code class="language-java linenums">            powershell</code></pre>
+<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.</p>
+<pre class="codehilite"><code class="linenums">The API definition paths `&lt;API-definition-path&gt;` are as follows:
 
-<p>A message about PowerShell (PS) appears, and the shell changes to PS.</p>
-</li>
-<li>
-<p>Run the PowerShell script by passing the location of the Gateway artifacts that you need to migrate.</p>
-<pre class="codehilite"><code class="language-java linenums">            .\apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;</code></pre>
+-   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
+
+-   Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+Where, `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0` .
+
+-   [**Super Tenant**](#supertenant)
+-   [**Tenants**](#595cdd57b0e34ae583150868556c51e2)
+
+Run the PowerShell script `apim200_to_apim260_gateway_artifact_migrator.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+            powershell
+    ```
+
+    A message about PowerShell appears, and the shell changes to PowerShell (PS).
+
+2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim200_to_apim260_gateway_artifact_migrator.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
 
 <p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.</p>
-<ul>
-<li>Tenants - <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants</code></li>
-</ul>
-<p>Where <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> can be, for example, <code class="codehilite">/Users/user12/Documents/wso2am-2.6.0.</code></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-</div>
-<p>Troubleshooting
-    ##### Why do I get the following error - apim200_to_apim260_gateway_artifact_migrator.ps1 / apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?</p>
-</li>
-</ol>
-<p>When running the <code class="codehilite">apim200_to_apim260_gateway_artifact_migrator.ps1</code> script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system. To overcome this issue and allow the execution of such scripts, run the following command in the terminal/command-line as the Administrator.</p>
-<pre class="codehilite"><code class="language-java linenums">    Set-ExecutionPolicy RemoteSigned</code></pre>
+<pre class="codehilite"><code class="linenums">    -   Super Tenant - `&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default`
 
-</li>
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+Run the PowerShell script `apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1` as follows:
+
+1.  Open a Windows command prompt and type the following command.
+
+    ``` java
+                powershell
+    ```
+
+    A message about PowerShell (PS) appears, and the shell changes to PS.
+
+2.  Run the PowerShell script by passing the location of the Gateway artifacts that you need to migrate.
+
+    ``` java
+                .\apim200_to_apim260_gateway_artifact_migrator_for_tenants.ps1 &lt;API-definitions-path&gt;
+    ```</code></pre>
+
+
+<p><code class="codehilite">&lt;API-definition-path&gt;</code> - This is the location where the WSO2 API-M 2.6.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.</p>
+<pre class="codehilite"><code class="linenums">    -   Tenants - `&lt;API-M_2.6.0_HOME&gt;/repository/tenants`
+
+    Where `&lt;API-M_2.6.0_HOME&gt;` can be, for example, `/Users/user12/Documents/wso2am-2.6.0.`
+
+    !!! note
+    It may take a considerable amount of time, which is proportionate to the amount of artifacts, to complete the migration process.
+    !!! info
+    Troubleshooting
+##### Why do I get the following error - apim200\_to\_apim260\_gateway\_artifact\_migrator.ps1 / apim200\_to\_apim260\_gateway\_artifact\_migrator\_for\_tenants.ps1 cannot be loaded because the execution of scripts is disabled on this system?
+
+When running the `apim200_to_apim260_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system. To overcome this issue and allow the execution of such scripts, run the following command in the terminal/command-line as the Administrator.
+
+``` java
+    Set-ExecutionPolicy RemoteSigned
+```</code></pre>
+
+
+<ol>
 <li>
 <p>Upgrade the WSO2 API Manager database from version 2.0.0 to version 2.6.0.</p>
 <ol>
 <li>
-<p>Download the <a href="attachments/103334533/103334535.zip">apimgt-db-migration-scripts-2.0to2.6.zip</a> and extract it.</p>
+<p>Download the <a href="https://apim.docs.wso2.com/en/next//assets/attachments/103334533/103334535.zip">apimgt-db-migration-scripts-2.0to2.6.zip</a> and extract it.</p>
 </li>
 <li>
 <p>Execute the relevant database script, from the scripts that are provided in the extracted directory, on the <code class="codehilite">WSO2AM_DB</code> database.</p>
@@ -9733,7 +10256,7 @@ This migrates Synapse config files, the API-M database with new throttle policie
 <p>Do the following to re-index the artifacts in the registry:</p>
 <ol>
 <li>
-<p>Rename the <code class="codehilite">&lt;lastAccessTimeLocation&gt;</code> element in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository</code> <code class="codehilite">/conf/registry.xml</code> file.
+<p>Rename the <code class="codehilite">&lt;lastAccessTimeLocation&gt;</code> element in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/conf/registry.xml</code> file.
     If you use a <strong>clustered/distributed API Manager setup</strong> , change the file in the API Publisher node.
     For example, change the <code class="codehilite">/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime</code> registry path to <code class="codehilite">/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1</code> .</p>
 </li>
@@ -9791,26 +10314,23 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 <p>sh wso2server.sh -Dmigrate -Dcomponent=identity</p>
 </li>
 </ul>
-<p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
-</li>
-<li>
-<p>After you have successfully completed the migration, stop the server and remove the following files and folders.</p>
-<ul>
-<li>
-<p>Remove the <code class="codehilite">org.wso2.carbon.is.migration-5.7.0.jar</code> file, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins</code> directory.</p>
-</li>
-<li>
-<p>Remove the <code class="codehilite">migration-resources</code> directory, which is in the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;</code> directory.</p>
-</li>
-</ul>
 </li>
 </ol>
 </li>
+</ol>
+<p><code class="codehilite">wso2server.bat -Dmigrate -Dcomponent=identity</code></p>
+<pre class="codehilite"><code class="linenums">8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+
+    -   Remove the `org.wso2.carbon.is.migration-5.7.0.jar` file, which is in the `&lt;API-M_2.6.0_HOME&gt;/repository/components/dropins` directory.
+
+    -   Remove the `migration-resources` directory, which is in the `&lt;API-M_2.6.0_HOME&gt;` directory.</code></pre>
+
+
+<ol>
 <li>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>You have to run the following migration client for migrating Access Control support for API Publisher, because <a href="https://docs.wso2.com/display/AM260/Enabling+Access+Control+Support+for+API+Publisher">Publisher Access Control</a> is enabled by default in API Manager 2.6.0.</p>
-</div>
+You have to run the following migration client for migrating Access Control support for API Publisher, because <a href="https://docs.wso2.com/display/AM260/Enabling+Access+Control+Support+for+API+Publisher">Publisher Access Control</a> is enabled by default in API Manager 2.6.0.</div>
 <ol>
 <li>
 <p>Download <a href="https://docs.wso2.com/download/attachments/28718536/wso2-api-migration-client.zip?api=v2">WSO2 API Manager Migration Client</a> (You can use the same JAR that download in <a href="#UpgradingfromthePreviousRelease-step5JAR">step 5</a> )  and copy it to the <code class="codehilite">&lt;API-M_HOME&gt;/repository/components/dropins</code> directory.</p>
@@ -9836,7 +10356,7 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 
 </li>
 </ol>
-<p>Follow the instructions below to upgrade your WSO2 API Manager server <strong>from APIM 1.8.0/1.9.0/1.9.1</strong> <strong>to 2.6.0</strong> .</p>
+<p>Follow the instructions below to upgrade your WSO2 API Manager server <strong>from APIM 1.8.0/1.9.0/1.9.1 to 2.6.0</strong> .</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 </div>
@@ -9862,8 +10382,23 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
 <p class="admonition-title">Tip</p>
 </div>
 <p><strong>Tip 3</strong> : If you are using an SVN based deployment synchronizer, start with a clean SVN repository and point the new deployment nodes to the new SVN repository. In addition, you need to remove any existing <code class="codehilite">.svn</code> directories in the new deployment's <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/deployment/server/synapse-configs/default</code> directory and the <code class="codehilite">&lt;API-M_2.6.0_HOME&gt;/repository/tenants/&lt;tenant-id&gt;/synapse-configs/default</code> directory before starting the servers. For more details, see <a href="https://docs.wso2.com/display/CLUSTER44x/Configuring+SVN-Based+Deployment+Synchronizer">Configuring Deployment Synchronization</a> .</p>
+                
+                  
+                
+              
   <a href="#" class="cd-top text--replace js-cd-top">Top</a>
-</article></div></div></main>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
 <footer class="md-footer">
   
     <div class="md-footer-nav">
@@ -9913,4 +10448,22 @@ Make sure you have enabled migration by setting the <code class="codehilite">mig
       </div>
     </div>
   </div>
-</footer></div><script src="../../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script><script src="../../../../assets/lib/highlightjs/highlight.min.js"></script><script src="../../../../assets/js/theme.js"></script><script src="../../../../assets/lib/backtotop/js/util.js"></script><script src="../../../../assets/lib/backtotop/js/main.js"></script></body></html>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../../../assets/js/theme.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/util.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/main.js"></script>
+      
+    
+  </body>
+</html>
