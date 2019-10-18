@@ -16,10 +16,112 @@
  * under the License.
 -->
 
-<!doctype html><html lang="en" class="no-js"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="description" content="Documentation for WSO2 API Manager"><link rel="canonical" href="https://wso2.com/Administer/ProductAdministration/Customizations/admin-customizing-the-management-console/"><meta name="author" content="WSO2"><meta name="lang:clipboard.copy" content="Copy to clipboard"><meta name="lang:clipboard.copied" content="Copied to clipboard"><meta name="lang:search.language" content="en"><meta name="lang:search.pipeline.stopwords" content="True"><meta name="lang:search.pipeline.trimmer" content="True"><meta name="lang:search.result.none" content="No matching documents"><meta name="lang:search.result.one" content="1 matching document"><meta name="lang:search.result.other" content="# matching documents"><meta name="lang:search.tokenizer" content="[\s\-]+"><link rel="shortcut icon" href="../../../../images/favicon.png"><meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.3.1"><title>admin_Customizing the Management Console - WSO2 API Manager Documentation 3.0.0</title>
-  <link rel="stylesheet" href="../../../../assets/stylesheets/application.4031d38b.css"><link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.224b79ff.css"><meta name="theme-color" content="#ff7043">
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for WSO2 API Manager">
+      
+      
+        <link rel="canonical" href="https://wso2.com/Administer/ProductAdministration/Customizations/admin-customizing-the-management-console/">
+      
+      
+        <meta name="author" content="WSO2">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>admin_Customizing the Management Console - WSO2 API Manager Documentation 3.0.0</title>
+      
+    
+    
+  
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#ff7043">
+      
+    
   <link rel="stylesheet" href="../../../../assets/fonts/font-awesome.css">
-<script src="../../../../assets/javascripts/modernizr.74668098.js"></script><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=swap"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel="stylesheet" href="../../../../assets/fonts/material-icons.css"><link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css"><link rel="stylesheet" href="../../../../assets/css/theme.css"></head><body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange"><svg class="md-svg"><defs><svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg></defs></svg> <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off"> <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off"> <label class="md-overlay" data-md-component="overlay" for="__drawer"></label><a href="#admin95customizing-the-management-console" tabindex="1" class="md-skip">Skip to content </a><!--
+
+    
+      <script src="../../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../../assets/lib/highlightjs/default.min.css">
+    
+      <link rel="stylesheet" href="../../../../assets/css/theme.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="deep-orange" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#admin95customizing-the-management-console" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
  *
  * WSO2 Inc. licenses this file to you under the Apache License,
@@ -78,12 +180,41 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         
           <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          <div class="md-search" data-md-component="search" role="dialog"><label class="md-search__overlay" for="__search"></label><div class="md-search__inner" role="search"><form class="md-search__form" name="search"><input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active"> <label class="md-icon md-search__icon" for="__search"></label> <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">&#xE5CD;</button></form><div class="md-search__output"><div class="md-search__scrollwrap" data-md-scrollfix><div class="md-search-result" data-md-component="result"><div class="md-search-result__meta">Type to start searching</div><ol class="md-search-result__list"></ol></div></div></div></div></div>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         
       </div>
     </div>
   </nav>
-</header><div class="md-container">
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
 
   
 
@@ -106,7 +237,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../GettingStarted/key-concepts/" title="Get Started" class="md-tabs__link">
+        <a href="../../../../GettingStarted/overview/" title="Get Started" class="md-tabs__link">
           Get Started
         </a>
       
@@ -199,25 +330,13 @@
         
   
   
-    
-    
-  
-  
-    
-    
-  
-  
     <li class="md-tabs__item">
       
-        <a href="../../../../Reference/samples/APIDevelopmentSample/managing-apis-sample/" title="Reference" class="md-tabs__link">
+        <a href="../../../../Reference/ConfigCatalog/" title="Reference" class="md-tabs__link">
           Reference
         </a>
       
     </li>
-  
-
-  
-
   
 
       
@@ -226,7 +345,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting" class="md-tabs__link">
+        <a href="../../../../Troubleshooting/error-handling/" title="Troubleshooting" class="md-tabs__link">
           Troubleshooting
         </a>
       
@@ -247,7 +366,16 @@
         onclick=window.open("https://github.com/"+"wso2/docs-apim"+"/issues/new?title=Doc%20Feedback:&body=Location%20:%20"+window.location.href); >
         Report Issues</a>
   </div>
-</nav><main class="md-main"><div class="md-main__inner md-grid" data-md-component="container"><div class="md-sidebar md-sidebar--primary" data-md-component="navigation"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner"><nav class="md-nav md-nav--primary" data-md-level="0">
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
     <label class="md-nav__title md-nav__title--site" for="__drawer">
       <a href="https://wso2.com/" title="WSO2 API Manager Documentation 3.0.0"
          class="md-nav__button md-logo">
@@ -259,7 +387,23 @@
     </label>
     
       <div class="md-nav__source">
-        <a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github"><div class="md-source__icon"><svg viewBox="0 0 24 24" width="24" height="24"><use xlink:href="#__github" width="24" height="24"></use></svg></div><div class="md-source__repository">wso2/docs-apim</div></a>
+        
+
+
+  
+
+<a href="https://github.com/wso2/docs-apim/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    wso2/docs-apim
+  </div>
+</a>
       </div>
     
     <ul class="md-nav__list" data-md-scrollfix>
@@ -301,7 +445,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/key-concepts/" title="Overview" class="md-nav__link">
+    <a href="../../../../GettingStarted/overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -313,7 +457,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../GettingStarted/overview/" title="Key Concepts" class="md-nav__link">
+    <a href="../../../../GettingStarted/key-concepts/" title="Key Concepts" class="md-nav__link">
       Key Concepts
     </a>
   </li>
@@ -3143,18 +3287,6 @@
         
       </ul>
     </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../.." title="Rate Limiting - Security Concerns" class="md-nav__link">
-      Rate Limiting - Security Concerns
-    </a>
   </li>
 
         
@@ -6661,11 +6793,26 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#changing-the-management-consoles-url" title="Changing the management console's URL" class="md-nav__link">Changing the management console's URL</a></li>
+        <li class="md-nav__item">
+  <a href="#changing-the-management-consoles-url" class="md-nav__link">
+    Changing the management console's URL
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#configuring-the-session-time-out" title="Configuring the session time-out" class="md-nav__link">Configuring the session time-out</a></li>
+        <li class="md-nav__item">
+  <a href="#configuring-the-session-time-out" class="md-nav__link">
+    Configuring the session time-out
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#changing-the-management-consoles-interface" title="Changing the management console's interface" class="md-nav__link">Changing the management console's interface</a></li>
+        <li class="md-nav__item">
+  <a href="#changing-the-management-consoles-interface" class="md-nav__link">
+    Changing the management console's interface
+  </a>
+  
+</li>
         
         
         
@@ -7641,15 +7788,135 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
+      Configuration Catalog
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
+      WSO2 API Manager Best Practices
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-4" type="checkbox" id="nav-7-4">
     
-    <label class="md-nav__link" for="nav-7-1" >
+    <label class="md-nav__link" for="nav-7-4" >
+      Guides
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-4" >
+        Guides
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
+      Changing the Default Ports with Offset
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
+      Message Flow in the API Manager Gateway
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
+      Accessing API Manager by Multiple Devices Simultaneously
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
+      admin_Database Upgrade Guide
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
+      admin_Directory Structure of WSO2 Products
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
+    
+    <label class="md-nav__link" for="nav-7-5" >
       Samples
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-1" >
+      <label class="md-nav__title" for="nav-7-5" >
         Samples
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7662,13 +7929,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1-1" type="checkbox" id="nav-7-1-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5-1" type="checkbox" id="nav-7-5-1">
     
-    <label class="md-nav__link" for="nav-7-1-1" >
+    <label class="md-nav__link" for="nav-7-5-1" >
       API Development Sample
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-7-1-1" >
+      <label class="md-nav__title" for="nav-7-5-1" >
         API Development Sample
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -7798,8 +8065,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Reference/faq/" title="FAQ" class="md-nav__link">
-      FAQ
+    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
+      Business Scenarios
     </a>
   </li>
 
@@ -7812,126 +8079,6 @@
   <li class="md-nav__item">
     <a href="../../../../Reference/other/" title="Other" class="md-nav__link">
       Other
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/wso2-api-manager-best-practices/" title="WSO2 API Manager Best Practices" class="md-nav__link">
-      WSO2 API Manager Best Practices
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-5" type="checkbox" id="nav-7-5">
-    
-    <label class="md-nav__link" for="nav-7-5" >
-      Guides
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-5" >
-        Guides
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md" title="Changing the Default Ports with Offset" class="md-nav__link">
-      Changing the Default Ports with Offset
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md" title="Message Flow in the API Manager Gateway" class="md-nav__link">
-      Message Flow in the API Manager Gateway
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md" title="Accessing API Manager by Multiple Devices Simultaneously" class="md-nav__link">
-      Accessing API Manager by Multiple Devices Simultaneously
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-database-upgrade-guide/" title="admin_Database Upgrade Guide" class="md-nav__link">
-      admin_Database Upgrade Guide
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/admin-directory-structure-of-wso2-products/" title="admin_Directory Structure of WSO2 Products" class="md-nav__link">
-      admin_Directory Structure of WSO2 Products
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/ConfigCatalog/" title="Configuration Catalog" class="md-nav__link">
-      Configuration Catalog
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Reference/Guides/business-scenarios/" title="Business Scenarios" class="md-nav__link">
-      Business Scenarios
     </a>
   </li>
 
@@ -7966,8 +8113,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="admin_Troubleshooting in Production Environments" class="md-nav__link">
-      admin_Troubleshooting in Production Environments
+    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
+      Error Handling
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../Troubleshooting/admin-troubleshooting-in-production-environments/" title="Troubleshooting in Production Environments" class="md-nav__link">
+      Troubleshooting in Production Environments
     </a>
   </li>
 
@@ -7980,18 +8139,6 @@
   <li class="md-nav__item">
     <a href="../../../../Troubleshooting/cleaning-up-partially-created-keys/" title="Cleaning Up Partially Created Keys" class="md-nav__link">
       Cleaning Up Partially Created Keys
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../Troubleshooting/error-handling/" title="Error Handling" class="md-nav__link">
-      Error Handling
     </a>
   </li>
 
@@ -8014,7 +8161,16 @@
 
       
     </ul>
-  </nav></div></div></div><div class="md-sidebar md-sidebar--secondary" data-md-component="toc"><div class="md-sidebar__scrollwrap"><div class="md-sidebar__inner">
+  </nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
 <nav class="md-nav md-nav--secondary">
     
     
@@ -8026,11 +8182,26 @@
     <label class="md-nav__title" for="__toc">On this page</label>
     <ul class="md-nav__list" data-md-scrollfix>
         
-        <li class="md-nav__item"><a href="#changing-the-management-consoles-url" title="Changing the management console's URL" class="md-nav__link">Changing the management console's URL</a></li>
+        <li class="md-nav__item">
+  <a href="#changing-the-management-consoles-url" class="md-nav__link">
+    Changing the management console's URL
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#configuring-the-session-time-out" title="Configuring the session time-out" class="md-nav__link">Configuring the session time-out</a></li>
+        <li class="md-nav__item">
+  <a href="#configuring-the-session-time-out" class="md-nav__link">
+    Configuring the session time-out
+  </a>
+  
+</li>
         
-        <li class="md-nav__item"><a href="#changing-the-management-consoles-interface" title="Changing the management console's interface" class="md-nav__link">Changing the management console's interface</a></li>
+        <li class="md-nav__item">
+  <a href="#changing-the-management-consoles-interface" class="md-nav__link">
+    Changing the management console's interface
+  </a>
+  
+</li>
         
         
         
@@ -8038,8 +8209,21 @@
         
     </ul>
     
-</nav></div></div></div><div class="md-content"><article class="md-content__inner md-typeset">
-  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Administer/ProductAdministration/Customizations/admin-customizing-the-management-console.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a><h1 id="admin95customizing-the-management-console">admin_Customizing the Management Console<a class="headerlink" href="#admin95customizing-the-management-console" title="Permanent link">&para;</a></h1>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+  
+                
+                  <a href="https://github.com/wso2/docs-apim/edit/master/en/docs/Administer/ProductAdministration/Customizations/admin-customizing-the-management-console.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="admin95customizing-the-management-console">admin_Customizing the Management Console<a class="headerlink" href="#admin95customizing-the-management-console" title="Permanent link">&para;</a></h1>
 <p>See the following topics to do customizations to the management console:</p>
 <ul>
 <li><a href="#admin_CustomizingtheManagementConsole-Changingthemanagementconsole'sURL">Changing the management console's URL</a></li>
@@ -8082,13 +8266,13 @@ In carbon.xml:
 <p>Follow the steps below to customize the above management console by changing the logo.</p>
 <ol>
 <li>
-<p>Open the <code class="codehilite">&lt;PRODUCT_HOME&gt;/repository/components/plugins/</code> directory. You need to find the bundle that contains the resource files that you want to modify. In this case, the logo and the related CSS files are contained in the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;.jar</code> file. Copy the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;.jar</code> file to a separate location on your computer, and extract the file. Note the symbolic name of this bundle, which is ' <code class="codehilite">org.wso2.carbon.ui_</code> <code class="codehilite">&lt;version-number&gt;</code> '.</p>
+<p>Open the <code class="codehilite">&lt;PRODUCT_HOME&gt;/repository/components/plugins/</code> directory. You need to find the bundle that contains the resource files that you want to modify. In this case, the logo and the related CSS files are contained in the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;.jar</code> file. Copy the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;.jar</code> file to a separate location on your computer, and extract the file. Note the symbolic name of this bundle, which is ' <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> '.</p>
 </li>
 <li>
-<p>Create a new Maven project using your IDE. Be sure to include the symbolic name of the original bundle that you extracted in the previous step (which is ' <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> ') in the Maven project name. For example, you can use <code class="codehilite">o</code> <code class="codehilite">rg.wso2.carbon.ui_&lt;version-number&gt;_patch</code> as the Maven project name.</p>
+<p>Create a new Maven project using your IDE. Be sure to include the symbolic name of the original bundle that you extracted in the previous step (which is ' <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> ') in the Maven project name. For example, you can use <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> as the Maven project name.</p>
 </li>
 <li>
-<p>Add the following content to the <code class="codehilite">pom.xml</code> file of the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> project. In this <code class="codehilite">pom.xml</code> file, be sure to replace the <code class="codehilite">&lt;version-number&gt;</code> of <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> <code class="codehilite">_patch</code> with the correct version value.</p>
+<p>Add the following content to the <code class="codehilite">pom.xml</code> file of the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> project. In this <code class="codehilite">pom.xml</code> file, be sure to replace the <code class="codehilite">&lt;version-number&gt;</code> of <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> with the correct version value.</p>
 <p>``` xml
     &lt;?xml version="1.0" encoding="UTF-8"?&gt;
     <project xmlns="http://maven.apache.org/POM/4.0.0"
@@ -8123,16 +8307,16 @@ In carbon.xml:
 4.  Create directories in your Maven project as explained below.</p>
 <ol>
 <li>
-<p>Create the <code class="codehilite">/web</code> folder under the <code class="codehilite">/src/main/resources</code> directory of the <code class="codehilite">o</code> <code class="codehilite">rg.wso2.carbon.ui_&lt;version-number&gt;_patch</code> project.</p>
+<p>Create the <code class="codehilite">/web</code> folder under the <code class="codehilite">/src/main/resources</code> directory of the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> project.</p>
 </li>
 <li>
 <p>Then, create the /admin directory under /web.</p>
 </li>
 <li>
-<p>Finally, create the <code class="codehilite">/</code> css, <code class="codehilite">/images</code> , and <code class="codehilite">/layout</code> directories under <code class="codehilite">/admin</code> .</p>
+<p>Finally, create the <code class="codehilite">/css</code>, <code class="codehilite">/images</code> , and <code class="codehilite">/layout</code> directories under <code class="codehilite">/admin</code> .</p>
 </li>
 </ol>
-<p>Your <code class="codehilite">org.wso2.carbon.ui_           &lt;version-number&gt;</code> <code class="codehilite">_patch</code> project should now look as shown below.
+<p>Your <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> project should now look as shown below.
 <img alt="" src="attachments/126562834/126562838.png" />
 5.  Create a new CSS file (e.g. <code class="codehilite">customizations.css</code> ) with the following content.</p>
 <p><code class="codehilite">css
@@ -8156,10 +8340,10 @@ In carbon.xml:
 <p>Add the <code class="codehilite">customizations.css</code> file to the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/src/main/resources/web/admin/css/</code> directory.</p>
 </li>
 <li>
-<p>Locate the <code class="codehilite">template.</code> jsp file that is in the <code class="codehilite">org.wso2.carbon.ui_           &lt;version-number&gt;           .jar</code> bundle, which you extracted in step 1 above. You will find template <code class="codehilite">.</code> jsp file inside the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;.jar&gt;/</code> <code class="codehilite">web/admin/layout/</code> directory. Then, copy this file to the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/src/main/resources/web/admin/layout/</code> directory.</p>
+<p>Locate the <code class="codehilite">template.jsp</code> file that is in the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;.jar</code> bundle, which you extracted in step 1 above. You will find <code class="codehilite">template.jsp</code> file inside the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;.jar&gt;/web/admin/layout/</code> directory. Then, copy this file to the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/src/main/resources/web/admin/layout/</code> directory.</p>
 </li>
 <li>
-<p>Locate the following line in the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/           src/main/resources/</code> <code class="codehilite">web/admin/layout/template.jsp</code> file, which you added in the previous step:</p>
+<p>Locate the following line in the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/src/main/resources/web/admin/layout/template.jsp</code> file, which you added in the previous step:</p>
 <p><code class="codehilite">java
     &lt;link href="&lt;%=globalCSS%&gt;" rel="stylesheet" type="text/css" media="all"/&gt;</code></p>
 </li>
@@ -8169,18 +8353,18 @@ In carbon.xml:
         &lt;link href="../admin/css/customizations.css" rel="stylesheet" type="text/css" media="all"/&gt;</code></p>
 </li>
 <li>
-<p>Add the below image as the new logo (e.g. <code class="codehilite">new-logo.png</code> ) to the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/src/main/resources/</code> <code class="codehilite">web/admin/images/</code> directory.</p>
+<p>Add the below image as the new logo (e.g. <code class="codehilite">new-logo.png</code> ) to the <code class="codehilite">&lt;org.wso2.carbon.ui_&lt;version-number&gt;_patch&gt;/src/main/resources/web/admin/images/</code> directory.</p>
 <p><img alt="new logo" src="attachments/126562834/126562836.png" title="new logo" /></p>
 </li>
 <li>
-<p>Create another Maven project using your IDE. Be sure to include the symbolic name of the original bundle that you extracted in step 1 above (which is ' <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> ') in the project name. For example, you can use <code class="codehilite">o</code> <code class="codehilite">rg.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> as the Maven project name.</p>
+<p>Create another Maven project using your IDE. Be sure to include the symbolic name of the original bundle that you extracted in step 1 above (which is ' <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> ') in the project name. For example, you can use <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> as the Maven project name.</p>
 <pre class="codehilite"><code class="linenums">!!! info</code></pre>
 
 
-<p>This creates a project for the fragment bundle. Since the symbolic name of the original bundle is ‘ <code class="codehilite">org.wso2.carbon.ui</code> ’, the fragment host value of this bundle should be the same (e.g. o <code class="codehilite">rg.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> ). This fragment bundle will not contain anything (expect the <code class="codehilite">pom.xml</code> file) when it is built.</p>
+<p>This creates a project for the fragment bundle. Since the symbolic name of the original bundle is ‘ <code class="codehilite">org.wso2.carbon.ui</code> ’, the fragment host value of this bundle should be the same (e.g. <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> ). This fragment bundle will not contain anything (expect the <code class="codehilite">pom.xml</code> file) when it is built.</p>
 </li>
 <li>
-<p>Add the following content to the <code class="codehilite">pom.xml</code> file of the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> project. In this <code class="codehilite">pom.xml</code> file, replace the <code class="codehilite">&lt;version-number&gt;</code> of <code class="codehilite">org.wso2.carbon.ui_           &lt;version-number&gt;</code> <code class="codehilite">_patch</code> and <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;</code> <code class="codehilite">_fragment</code> with the correct version value.</p>
+<p>Add the following content to the <code class="codehilite">pom.xml</code> file of the <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> project. In this <code class="codehilite">pom.xml</code> file, replace the <code class="codehilite">&lt;version-number&gt;</code> of <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code> and <code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment</code> with the correct version value.</p>
 <pre class="codehilite"><code class="linenums">!!! info</code></pre>
 
 
@@ -8217,21 +8401,13 @@ In carbon.xml:
 
 <p></project>
 <code class="codehilite">``
-13. Now you can build the two projects. Open a terminal, navigate to the relevant project directory (listed above), and execute the following command: mvn</code>          clean install.         <code class="codehilite">-</code>             org.wso2.carbon.ui_<version-number>_fragment            `</p>
-<ul>
-<li><code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code></li>
-</ul>
+13. Now you can build the two projects. Open a terminal, navigate to the relevant project directory (listed above), and execute the following command: mvn</code>clean install.<code class="codehilite">-</code>org.wso2.carbon.ui_<version-number>_fragment`</p>
+<p>-<code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch</code></p>
 </li>
 <li>
-<p>Once the project is built, copy the two JAR files listed below (from the <code class="codehilite">&lt;PROJECT_HOME&gt;/target/</code> directory) to the <code class="codehilite">&lt;PRODUCT_HOME&gt;/repository/components/dropins/</code> directory.</p>
-<ul>
-<li>
-<p><code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment-1.0.0.jar</code></p>
-</li>
-<li>
-<p><code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch-1.0.0.jar</code></p>
-</li>
-</ul>
+<p>Once the project is built, copy the two JAR files listed below (from the <code class="codehilite">&lt;PROJECT_HOME&gt;/target/</code> directory) to the <code class="codehilite">&lt;PRODUCT_HOME&gt;/repository/components/dropins/</code> directory.
+    -<code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_fragment-1.0.0.jar</code></p>
+<p>-<code class="codehilite">org.wso2.carbon.ui_&lt;version-number&gt;_patch-1.0.0.jar</code></p>
 </li>
 <li>
 <p>Restart the WSO2 product server.</p>
@@ -8241,8 +8417,23 @@ In carbon.xml:
 <p><img alt="Management Console with the new logo" src="attachments/126562834/126562839.png" title="Management Console with the new logo" /></p>
 </li>
 </ol>
+                
+                  
+                
+              
   <a href="#" class="cd-top text--replace js-cd-top">Top</a>
-</article></div></div></main>
+
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
 <footer class="md-footer">
   
     <div class="md-footer-nav">
@@ -8292,4 +8483,22 @@ In carbon.xml:
       </div>
     </div>
   </div>
-</footer></div><script src="../../../../assets/javascripts/application.b260a35d.js"></script><script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script><script src="../../../../assets/lib/highlightjs/highlight.min.js"></script><script src="../../../../assets/js/theme.js"></script><script src="../../../../assets/lib/backtotop/js/util.js"></script><script src="../../../../assets/lib/backtotop/js/main.js"></script></body></html>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../../.."}})</script>
+      
+        <script src="../../../../assets/lib/highlightjs/highlight.min.js"></script>
+      
+        <script src="../../../../assets/js/theme.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/util.js"></script>
+      
+        <script src="../../../../assets/lib/backtotop/js/main.js"></script>
+      
+    
+  </body>
+</html>

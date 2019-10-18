@@ -2,187 +2,187 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://wso2.com/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/GettingStarted/key-concepts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/GettingStarted/overview/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/GettingStarted/key-concepts/</loc>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/GettingStarted/quick-start-guide/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/CreateAPI/create-and-publish-a-rest-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/CreateAPI/create-and-publish-an-api-from-a-swagger-definition/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/CreateAPI/create-and-publish-a-soap-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/CreateAPI/create-a-websocket-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/PublishAPI/publish-an-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/PublishAPI/publish-through-multiple-api-gateways/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/endpoint-types/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/endpoint-timeouts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/certificates/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/high-availability-for-endpoints/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/LifecycleManagement/api-lifecycle/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/LifecycleManagement/extending-the-api-life-cycle/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/APIVersioning/create-a-new-api-version/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/APIVersioning/deprecate-the-old-version/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/APIVersioning/backward-compatibility/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/APIVersioning/enabling-notifications/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/APIDocumentation/add-api-documentation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/AdvancedTopics/adding-custom-properties-to-apis/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/AdvancedTopics/enabling-access-control-support-for-api-publisher/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/AdvancedTopics/generating-server-stubs-and-client-sdks-in-the-api-publisher/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -192,122 +192,122 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/DiscoverAPIs/search/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/create-application/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/jwt-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/kerberos-oauth2-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/refresh-token-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/authorization-code-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/grant-type/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications-between-multiple-groups/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/AdvancedTopics/changing-the-owner-of-an-application/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-creation-workflow/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-key-generation-workflow/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -317,57 +317,57 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageSubscription/AdvancedTopics/adding-an-api-subscription-workflow/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/include-additional-headers-in-the-api-console/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Collaboration/use-the-community-features/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -377,12 +377,12 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-api-description-and-thumbnail/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -407,132 +407,132 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/customizing-the-api-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-api-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/customizing-user-signup-in-api-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/Customizations/customizing-login-pages-for-api-store-and-api-publisher/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/overview-of-the-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/remove-specific-request-headers-from-response/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/pass-a-custom-authorization-token-to-the-backend/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/map-the-parameters-of-your-backend-urls-with-the-api-publisher-urls/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/disable-message-chunking/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/MessageMediation/transforming-api-message-payload/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/Handlers/writing-custom-handlers/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/message-tracing/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-http-headers/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/scaling-the-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/api-gateways-with-dedicated-backends/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -542,152 +542,152 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/Authentication/encrypting-secure-endpoint-passwords/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/Authentication/add-ssl-certificates-for-endpoints/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/Authorization/enabling-role-based-access-control-using-xacml/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/token-types/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/AOuth2Scopes/applying-a-scope/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/AOuth2Scopes/scope-whitelisting/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/AOuth2Scopes/scope-management-with-oauth-scopes/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/AOuth2Scopes/fine-grained-access-control-with-oauth-scopes/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/jwt-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/kerberos-oauth2-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/refresh-token-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/authorization-code-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/token-expiration/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/token-persistence/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/encrypting-oauth-keys/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/hashing-oauth-keys/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/saving-access-tokens-in-separate-tables/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -702,37 +702,32 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/MutualSSL/securing-apis-with-mutual-ssl/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc></loc>
-     
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/introducing-throttling-use-cases/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -742,682 +737,682 @@
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/setting-throttling-limits/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/managing-throttling/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/enforcing-throttling-to-an-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/engaging-multiple-throttling-policies-to-a-single-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/enforce-throttling-and-resource-access-policies/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/setting-maximum-backend-throughput-limits/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/RateLimiting/AdvancedTopics/custom-throttling/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/APIMonetization/configuring-api-monetization-category-labels/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/overview-of-api-analytics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/configuring-apim-analytics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/analyzing-the-number-of-api-failures/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/analyzing-login-errors/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/analyzing-api-deployment-statistics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/analyzing-access-token-errors/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/analyzing-application-errors/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/analyzing-the-log-overview/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/writing-a-custom-geolocation-provider/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/integrating-with-google-analytics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/purging-analytics-data/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/default-ports-of-wso2-api-m-analytics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/viewing-live-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/CICDPipeline/initializing-projects-using-the-cli-tool/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/CICDPipeline/promoting-apis-through-cicd/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/CICDPipeline/promoting-applications-through-cicd/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Tutorials/create-and-publish-an-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Tutorials/subscribe-to-an-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Tutorials/edit-and-consume-apis-using-swagger-tools/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/customizing-a-workflow-extension/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/configuring-http-redirection-for-workflows/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-for-tenants/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-in-a-cluster/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/changing-the-default-user-role-in-workflows/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/ManagingWorkflowExtension/cleaning-up-workflow-tasks/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/adding-mediation-extensions/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/writing-custom-grant-types/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/extending-key-validation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/extending-the-key-manager-interface/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/extending-scope-validation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Learn/Extensions/editing-api-templates/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Develop/ProductAPIs/restful-apis/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Develop/wso2-admin-services/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Develop/using-the-registry-rest-api/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Develop/working-with-audit-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Develop/working-with-the-source-code/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Develop/java-documentation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/installation-prerequisites/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-linux-or-os-x/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-solaris/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-windows/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-as-a-linux-service/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-as-a-windows-service/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/running-the-product/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/InstallationGuide/basic-health-checks/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/deployment-patterns/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/SingleNode/configuring-a-single-node/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/installing-and-configuring-the-databases/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/updating-wso2-api-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-introduction-to-user-management/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-understanding-the-user-realm/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-users-roles-and-permissions/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/adding-users/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-roles/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-users/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-changing-a-password/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-role-based-permissions/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-user-attributes/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-primary-user-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-jdbc-user-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-only-ldap-user-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-write-active-directory-user-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-write-ldap-user-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-secondary-user-stores/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-working-with-properties-of-user-stores/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-writing-a-custom-user-store-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-system-administrator/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-authorization-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-extending-the-identity-anonymization-tool/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-ibm-db2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-ibm-informix/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-h2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-h2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-h2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-mariadb/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-microsoft-sql/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-mysql/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-a-mysql-cluster/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle-rac/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-postgresql/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-derby/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-derby/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-embedded-derby/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-embedded-h2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-ibm-db2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-ibm-informix/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mariadb/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mssql/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mysql/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-oracle/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-oracle-rac/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-postgresql/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-remote-h2/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -1427,327 +1422,327 @@
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-metadata/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-properties/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-adding-a-resource/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-link-creation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-editing-collections-using-the-entries-panel/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-role-permissions/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/admin-searching-the-registry/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-all-partitions-in-a-single-server/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-governance-partition-in-a-remote-registry/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-config-and-governance-partitions-in-a-remote-registry/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-config-and-governance-partitions-in-separate-nodes/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/admin-working-with-users-roles-and-permissions/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/admin-default-ports-of-wso2-products/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-capturing-system-data-in-error-situations/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-jmx-based-monitoring/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-configuring-log4j-properties/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-configuring-the-log-provider/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-view-and-download-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-http-access-logging/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-masking-sensitive-information-in-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-monitoring-message-flows/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-monitoring-performance-statistics/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-starting-tcpmon/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-monitoring-tcp-based-messages/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-other-usages-of-tcpmon/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Monitoring/admin-monitoring-server-health/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Logging/working-with-audit-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Logging/application-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Logging/setting-up-logging/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Logging/system-logs/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Administration-APIMAnalytics/re-indexing-existing-data/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/product-profiles/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/admin-adding-a-custom-proxy-path/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/changing-the-default-api-m-databases/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/common-runtime-and-configuration-artifacts/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/removing-unused-tokens-from-the-database/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/revoke-oauth2-application/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/jmx-monitoring/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-introduction-to-transports/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-http-servlet-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-https-servlet-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-http-nio-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-https-nio-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-vfs-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-jms-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-mailto-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-tcp-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-local-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-udp-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithTransports/admin-fix-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithCompositeApplications/admin-introduction-to-composite-applications/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithCompositeApplications/admin-packaging-artifacts-into-composite-applications/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithCompositeApplications/admin-deploying-composite-applications-in-the-server/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithMultipleTenants/admin-introduction-to-multitenancy/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithMultipleTenants/admin-configuring-the-tenant-loading-policy/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Customizations/admin-customizing-error-pages/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductAdministration/Customizations/admin-customizing-the-management-console/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/WorkingWithDatabases/adding-datasources/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/WorkingWithDatabases/configuring-an-rdbms-datasource/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/WorkingWithDatabases/configuring-the-datasource-provider/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-jndi-datasource/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/WorkingWithDatabases/configuring-the-datasource-connection-pool-parameters/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-custom-datasource/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -1757,62 +1752,62 @@
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/ConfiguringUserStores/realm-configuration/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/ConfiguringUserStores/configuring-primary-user-stores/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/ConfiguringUserStores/changing-the-rdbms/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/ConfiguringTransports/changing-the-default-transport/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/default-product-ports/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/configuring-caching/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/changing-the-hostname/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/adding-links-to-navigate-between-the-store-and-publisher/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/adding-internationalization-and-localization/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/configuring-multiple-tenants/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductConfigurations/managing-tenants/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -1822,17 +1817,17 @@
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -1842,7 +1837,7 @@
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/admin-configuring-transport-level-security/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -1877,52 +1872,52 @@
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -1932,77 +1927,32 @@
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/whitelisting-host-names-for-api-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Administer/ProductSecurity/identity-management-for-the-api-store/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://wso2.com/Reference/samples/APIDevelopmentSample/managing-apis-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/APIDevelopmentSample/collaborative-api-development-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/APIDevelopmentSample/development-of-developer-optimized-apis-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/api-governance-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/api-lifecycle-management-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/api-rate-limiting-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/api-rate-monetization-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/api-security-sample-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/samples/api-versioning-sample/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/faq/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Reference/other/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <loc>https://wso2.com/Reference/ConfigCatalog/</loc>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Reference/wso2-api-manager-best-practices/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/faq/</loc>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
@@ -2022,42 +1972,87 @@
     </url>
     <url>
      <loc>https://wso2.com/Reference/Guides/admin-database-upgrade-guide/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Reference/Guides/admin-directory-structure-of-wso2-products/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://wso2.com/Reference/ConfigCatalog/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <loc>https://wso2.com/Reference/samples/APIDevelopmentSample/managing-apis-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/APIDevelopmentSample/collaborative-api-development-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/APIDevelopmentSample/development-of-developer-optimized-apis-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/api-governance-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/api-lifecycle-management-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/api-rate-limiting-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/api-rate-monetization-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/api-security-sample-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Reference/samples/api-versioning-sample/</loc>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Reference/Guides/business-scenarios/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://wso2.com/Troubleshooting/admin-troubleshooting-in-production-environments/</loc>
-     <lastmod>2019-08-28</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>https://wso2.com/Troubleshooting/cleaning-up-partially-created-keys/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <loc>https://wso2.com/Reference/other/</loc>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/Troubleshooting/error-handling/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Troubleshooting/admin-troubleshooting-in-production-environments/</loc>
+     <lastmod>2019-10-18</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://wso2.com/Troubleshooting/cleaning-up-partially-created-keys/</loc>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://wso2.com/page-not-found/</loc>
-     <lastmod>2019-08-28</lastmod>
+     <lastmod>2019-10-18</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
