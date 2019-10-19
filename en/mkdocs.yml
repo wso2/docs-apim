@@ -232,6 +232,7 @@ nav:
                 - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md   
             - SAML: ''
             - Threat Protection:
+                - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
                 - Gateway Threat Protectors: ''
                 - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
@@ -253,8 +254,8 @@ nav:
             - Advanced Topics:
                 - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md 
         - API Monetization:
-            - Configuring API Monetization Category Labels: Learn/APIMonetization/configuring-api-monetization-category-labels.md
             - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
+            - Configuring API Monetization Category Labels: Learn/APIMonetization/configuring-api-monetization-category-labels.md
         - Analytics:
             - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
