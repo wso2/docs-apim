@@ -25,7 +25,7 @@ Follow the instructions below to enable email notifications for bot detection:
 
 1. Enable WSO2 API Manager Analytics.
 
-    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics](../../../Learn/Analytics/configuring-apim-analytics/).
+    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics](../../../../Learn/Analytics/configuring-apim-analytics/).
     
 2. Share your API-M database (`AM_DB`).
 
