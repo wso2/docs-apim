@@ -89,4 +89,35 @@ Once these steps are done we will take a look at how we can create an API using 
 
     ![](../assets/img/get_started/try_it_success.png)  
 
-12. Congratulations!. You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing and tested your API with the access token.
+12. Congratulations!. You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing and tested your API with the access token.  
+
+### Creating and deploying an API using the API controller (apictl)  
+
+In this section we look at how we can use the CI/CD tooling for APIs for developing and deploying an API on API Manager.  
+
+1. Download the API controller from `https://wso2.com/api-management/tooling/`. Download the latest version of the tool for your operating system from the `Dev-Ops Tooling` section.  
+
+2. Extract the zip to a preferred location and use your command line tool to navigate to the `apictl` directory. Execute the command `./apictl --help` to see the operations available.  
+
+3. The next step is to point the API controller to the instance of API Manager on which you want to deploy APIs to. Execute the command to add an environment as shown below. Note that we assume you are running API Manager locally (localhost) using default ports.  
+`./apictl add-env -e dev --registration https://localhost:9443/client-registration/v0.15/register --apim  https://localhost:9443 --token https://localhost:8243/token`  
+
+    You should see a message saying `Successfully added environment 'dev'`  
+
+4. The next step is to initialize an API project by giving a name for the project. Type `./apictl init --help` to see the various options of initializing a project. We will use the command below to create an API named `PetstoreAPI`.  
+
+    `./apictl init PetstoreAPI --oas https://petstore.swagger.io/v2/swagger.json`  
+
+5. This will create a folder named `PetstoreAPI` in your current directory. Open the contents of this folder with an IDE (ex: VSCode) and open the `api.yaml` file located within the `Meta-information` directory. You can use a text editor to open this file as well. Change the values of the attributes `status` and `productionUrl` as shown below and save the file.  
+`status: PUBLISHED`  
+`productionUrl: http://petstore.swagger.io/v2`  
+
+    !!! tip  
+        Changing the default status of the API (`CREATED`) to `PUBLISHED` will deploy the API directly to the developer portal and API gateway when we push this API to API Manager. If you want to push this to the API publishing portal only, leave the status as `CREATED`.    
+        
+6. Execute the command below to push the API to API Manager. If this is the first time you are using the API controller you will be prompted to enter credentials of your account on API Manager. You can enter **`admin/admin`**.  
+
+    `./apictl import-api --file ./PetstoreAPI --environment dev -k`  
+
+7. You should now see your API deployed successfully on API Manager. You can browse the developer portal or the API publisher portal to view its details and consume it as explained earlier in this document.
+
