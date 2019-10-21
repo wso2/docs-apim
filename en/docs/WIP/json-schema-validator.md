@@ -14,13 +14,13 @@ If the request fails the validations, the JSON Schema Validator sends a bad requ
 
 The following diagram illustrates the message flow when sending a valid request.
 
-![JSON schema validator - Sending a valid request](../../../WIP/assets/img/json-validator-send-valid-request.png)
+![JSON schema validator - Sending a valid request](../../WIP/assets/img/json-validator-send-valid-request.png)
 
 **Sending an invalid request**
 
 The following diagram illustrates the message flow when sending an invalid request.
 
-![JSON schema validator - Sending an invalid request](../../../WIP/assets/img/json-validator-send-invalid-request.png)
+![JSON schema validator - Sending an invalid request](../../WIP/assets/img/json-validator-send-invalid-request.png)
 
 ## Response Validation
 
@@ -28,13 +28,13 @@ The following diagram illustrates the message flow when sending an invalid reque
 
 The following diagram illustrates the message flow when sending a valid response.
 
-![JSON schema validator - Sending a valid response](../../../WIP/assets/img/json-validator-send-valid-response.png)
+![JSON schema validator - Sending a valid response](../../WIP/assets/img/json-validator-send-valid-response.png)
 
 **Invalid response from the backend**
 
 The following diagram illustrates the message flow when sending an invalid response.
 
-![JSON schema validator - Sending an invalid response](../../../WIP/assets/img/json-validator-send-invalid-response.png)
+![JSON schema validator - Sending an invalid response](../../WIP/assets/img/json-validator-send-invalid-response.png)
 
 ## Enabling the JSON Schema Validator
 
@@ -61,6 +61,6 @@ The following diagram illustrates the message flow when sending an invalid respo
 
      By default, the schema validation property is set to `false`.
 
-     ![Enable API schema validation](../../../WIP/assets/img/api-runtime-config.png)
+     ![Enable API schema validation](../../WIP/assets/img/api-runtime-config.png)
 
 5. Click **SAVE**.
