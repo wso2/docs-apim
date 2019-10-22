@@ -42,7 +42,7 @@ Follow the instructions below to design and publish a GraphQL API:
       </html>
 
 
-      ![Import a graphQL schema by adding a file](../../../../assets/img/Learn/import-graphQL-schema-via-file.png)
+      ![Import a graphQL schema by adding a file](../../../assets/img/Learn/import-graphQL-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**. 
     
