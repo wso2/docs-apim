@@ -23,12 +23,10 @@ Blocking can be done at two levels:
   <p class="admonition-title">Note</p>
   <p>See the following topics for the descriptions on the concepts that you need to know when you block subscriptions to an API:
   <ul>
-    <li>   
-    <a href="../../../../GettingStarted/key-concepts/#application">Applications</a></li>
-    <li>  
-    <a href="../../../../GettingStarted/key-concepts/#rate-limits">Rate Limiting</a></li>
-    <li> <a href="../../../../GettingStarted/key-concepts/#access-token">Access tokens</a>
-    </li></ul></p>
+    <li><a href="../../../../GettingStarted/key-concepts/#application">Applications</a></li>
+    <li><a href="../../../../GettingStarted/key-concepts/#rate-limits">Rate Limiting</a></li>
+    <li> <a href="../../../../GettingStarted/key-concepts/#access-token">Access tokens</a></li></ul>
+    </p>
   </div> 
   </html>
 
@@ -84,40 +82,40 @@ Blocking can be done at two levels:
 
      The placeholders mentioned in the format cURL command are replaced as follows:
 
-     -`<access_token>` : Give the token generated in [step 2 (d)](#BlockSubscriptiontoanAPI-step2.d).
+     - `<access_token>` : Give the token generated in [step 2 (d)](#BlockSubscriptiontoanAPI-step2.d).
 
-     -`<API_URL>` : Go to the API's **Overview** tab in the API Store and copy the production URL and append the payload to it.
+     - `<API_URL>` : Go to the API's **Overview** tab in the API Store and copy the production URL and append the payload to it.
 
-     ``` java
+     ```
      <?xml version="1.0" encoding="utf-8"?>
      <PhoneReturn xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ws.cdyne.com/PhoneVerify/query">
-        <Company>Toll Free</Company>
-        <Valid>true</Valid>
-        <Use>Assigned to a code holder for normal use.</Use>
-        <State>TF</State>
-        <RC />
-        <OCN />
-        <OriginalNumber>18006785432</OriginalNumber>
-        <CleanNumber>8006785432</CleanNumber>
-        <SwitchName />
-        <SwitchType />
-        <Country>United States</Country>
-        <CLLI />
-        <PrefixType>Landline</PrefixType>
-        <LATA />
-        <sms>Landline</sms>
-        <Email />
-        <AssignDate>Unknown</AssignDate>
-        <TelecomCity />
-        <TelecomCounty />
-        <TelecomState>TF</TelecomState>
-        <TelecomZip />
-        <TimeZone />
-        <Lat />
-        <Long />
-        <Wireless>false</Wireless>
-        <LRN />
-    ```
+     <Company>Toll Free</Company>
+     <Valid>true</Valid>
+     <Use>Assigned to a code holder for normal use.</Use>
+     <State>TF</State>
+     <RC />
+     <OCN />
+     <OriginalNumber>18006785432</OriginalNumber>
+     <CleanNumber>8006785432</CleanNumber>
+     <SwitchName />
+     <SwitchType />
+     <Country>United States</Country>
+     <CLLI />
+     <PrefixType>Landline</PrefixType>
+     <LATA />
+     <sms>Landline</sms>
+     <Email />
+     <AssignDate>Unknown</AssignDate>
+     <TelecomCity />
+     <TelecomCounty />
+     <TelecomState>TF</TelecomState>
+     <TelecomZip />
+     <TimeZone />
+     <Lat />
+     <Long />
+     <Wireless>false</Wireless>
+     <LRN />
+     ```
 
      You have subscribed to two APIs and invoked them successfully. Let's block one subscription and see the outcome.
 
@@ -143,14 +141,21 @@ Blocking can be done at two levels:
 
     2. Invoke the two APIs ( `TestAPI1` and `TestAPI2` ) again as mentioned in [step 3](#BlockSubscriptiontoanAPI-step3).
 
-         !!! tip
-             You might have to **regenerate the access token** for the respective application that you subscribed the APIs to (for example in this case it will be `DefaultApplication)` if the access token expiration time (1 hour by default) has passed since the last time you generated it.
+         <html>
+         <div class="admonition tip">
+         <p class="admonition-title">tip</p>
+         <p>You might have to <b>regenerate the access token</b> for the respective application that you subscribed the APIs to (for example in this case it will be `DefaultApplication)` if the access token expiration time (1 hour by default) has passed since the last time you generated it. </p>
+         </div>
+         </html>
 
+         Note that you can invoke `TestAPI2` again, but when you invoke `TestAPI1` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
 
-        Note that you can invoke `TestAPI2` again, but when you invoke `TestAPI1` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
-
-         !!! warning
-             When [Gateway caching](../../../../GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.
+         <html>
+         <div class="admonition warning">
+         <p class="admonition-title">Warning</p>
+         <p>When [Gateway caching](../../../../GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.</p>
+         </div>
+         </html>
 
 
         **Response when invoking TestAPI1**
@@ -169,20 +174,23 @@ Blocking can be done at two levels:
 
 6.  Unblock the API.
 
-    1.  Go back to the API Publisher.
+     1.  Go back to the API Publisher.
 
-    2.  Click on the respective API
+     2.  Click on the respective API
 
          In this case click `TestAPI1 1.0.0`.
 
-    3.  Click **Subscriptions** and click **Unblock** corresponding to the respective subscription.
+     3.  Click **Subscriptions** and click **Unblock** corresponding to the respective subscription.
 
          Make sure to click on the subscription that corresponds to the correct Application.
 
-    If you invoke `TestAPI1` again, you will notice that you can invoke the API as usual.
+         If you invoke `TestAPI1` again, you will notice that you can invoke the API as usual.
 
-     !!! warning
-         When [Gateway caching](../../../../GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.
+         <html>
+         <div class="admonition warning">
+         <p class="admonition-title">Warning</p>
+         <p>When [Gateway caching](../../../../GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.</p>
+         </div>
+         </html>
 
-
-You have subscribed to two APIs, blocked subscription to one and tested that you cannot invoke the blocked API.
+         You have subscribed to two APIs, blocked subscription to one and tested that you cannot invoke the blocked API.
