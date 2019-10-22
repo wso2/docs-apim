@@ -98,7 +98,7 @@ nav:
                 - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
                 - Generating server stubs and client SDKs in the API Publisher:  Learn/DesignAPI/AdvancedTopics/generating-server-stubs-and-client-sdks-in-the-api-publisher.md
                 - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
-                - Block Subscription to an API: Learn/RateLimiting/AdvancedTopics/block-subscription-to-an-api.md 
+                - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md 
         - Consume API:
             - Discover API:
                 - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md    
