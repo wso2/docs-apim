@@ -22,6 +22,24 @@ The following diagram illustrates the message flow when sending an invalid reque
 
 ![JSON schema validator - Sending an invalid request](../WIP/assets/img/json-validator-send-invalid-request.png)
 
+**Example:**
+
+The following is an invalid request based on the [Petstore API](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/json/petstore.json).
+
+```
+curl -X POST "https://localhost:8243/rfrf/1.0.0/pet" -H "accept: */*" -H "Content-Type: application/json" -H "Authorization: Bearer c06e0cb0-af4a-3e5e-b8c3-99449ff7e3e5" -d "{\"id\":0,\"category\":{\"id\":0,\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":0,\"name\":\"string\"}],\"status\":\"available\"}"
+```
+
+The following response is displayed.
+
+```
+<am:fault xmlns:am="http://wso2.org/apimanager">
+  <am:code>400</am:code>
+  <am:message>Bad Request</am:message>
+  <am:description>Schema validation failed in the Request: #/photoUrls: expected type: JSONArray, found: String, #/tags: expected type: JSONArray, found: JSONObject</am:description>
+</am:fault>
+```
+
 ## Response Validation
 
 **Valid response from the backend**
@@ -35,6 +53,24 @@ The following diagram illustrates the message flow when sending a valid response
 The following diagram illustrates the message flow when sending an invalid response.
 
 ![JSON schema validator - Sending an invalid response](../WIP/assets/img/json-validator-send-invalid-response.png)
+
+**Example**
+
+The following is a sample request from the client based on the [Petstore API](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/json/petstore.json).
+
+```
+curl -X GET "https://localhost:8243/rfrf/1.0.0/pet/1" -H "accept: application/xml" -H "Authorization: Bearer c06e0cb0-af4a-3e5e-b8c3-99449ff7e3e5"
+```
+
+The following validation response from the Gateway is displayed.
+
+```
+<am:fault xmlns:am="http://wso2.org/apimanager">
+  <am:code>500</am:code>
+  <am:message>Bad Response</am:message>
+  <am:description>Schema validation failed in the Response: #: required key [name] not found, #: required key [photoUrls] not found, </am:description>
+</am:fault>
+```
 
 ## Enabling the JSON Schema Validator
 
