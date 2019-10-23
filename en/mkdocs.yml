@@ -535,9 +535,9 @@ nav:
                     - admin_Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
                     - admin_Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
                     - admin_Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
+                - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
                 - admin_Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
-            - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
             - SAML2 SSO:
                 - Configuring Single Sign-on with SAML2: Administer/ProductSecurity/SAML2SSO/configuring-single-sign-on-with-saml2.md
                 - Configuring API Manager for SSO: Administer/ProductSecurity/SAML2SSO/configuring-api-manager-for-sso.md
