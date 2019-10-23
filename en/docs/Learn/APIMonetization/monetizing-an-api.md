@@ -689,11 +689,11 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 
      <html>
-         <head>
-         </head>
-         <body>
-             <img src="../../assets/img/Learn/subscription-commercial-tier.png" alt="Subscription to a paid business plan" title="Paid business plan" width="400" />
-         </body>
+     <head>
+     </head>
+     <body>
+     <img src="../../../assets/img/Learn/subscription-commercial-tier.png" alt="Subscription to a paid business plan" title="Paid business plan" width="400" />
+     </body>
      </html>
 
      After you save the policy, a plan gets created in the Stripe account of the Tenant Admin.  
@@ -813,7 +813,7 @@ The Application Developers who are subscribed to a dynamic business plan can sig
     <head>
     </head>
     <body>
-    <img src="../../assets/img/Learn/invoice-details.png" alt="Subscriber's Invoice details" title="Subscriber's invoice details" width="500" />
+    <img src="../../../assets/img/Learn/invoice-details.png" alt="Subscriber's Invoice details" title="Subscriber's invoice details" width="500" />
     </body>
      </html>
 
@@ -839,7 +839,7 @@ The API Publisher can access the billing information related to each of the subs
     <head>
     </head>
     <body>
-    <img src="../../assets/img/Learn/invoice-details.png" alt="Invoice details" title="Invoice details" width="500" />
+    <img src="../../../assets/img/Learn/invoice-details.png" alt="Invoice details" title="Invoice details" width="500" />
     </body>
      </html>
 

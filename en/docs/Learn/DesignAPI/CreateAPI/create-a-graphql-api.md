@@ -20,13 +20,8 @@ Follow the instructions below to design and publish a GraphQL API:
 
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
-    <html>
-    <head>
-    </head>
-    <body>
-         <img src="../../../assets/img/Learn/create-graphQL-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600" />
-    </body>
-    </html>
+     ![Create GraphQL schema option](../../../assets/img/Learn/create-graphQL-schema-option.png)
+
 
 3. Import the schema and click **Next**.  
 
@@ -136,7 +131,7 @@ Follow the instructions below to design and publish a GraphQL API:
 
     1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
 
-        ![GraphQL API operations](../../../assets/img/Learn/operations.png) 
+         ![GraphQL API operations](../../../assets/img/Learn/operations.png) 
      
     2. Update the operations as required.
          
@@ -148,13 +143,7 @@ Follow the instructions below to design and publish a GraphQL API:
 
             1. Click **Scopes** > **ADD NEW SCOPE**.
 
-                  <html>
-                  <head>
-                  </head>
-                  <body>
-                  <img src="../../../assets/img/Learn/add-scope.png" alt="Add a scope" title="Add a scope" width="600" />
-                  </body>
-                  </html>
+                  ![Add a scope page](../../../assets/img/Learn/add-scope.png)
 
             2. Enter the required details.
 
@@ -170,11 +159,10 @@ Follow the instructions below to design and publish a GraphQL API:
                   </div>
                   
                   Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Adding Users](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/adding-users/) and [Adding User Roles](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles/).
-
-
-                  <img src="../../../assets/img/Learn/create-scope.png" alt="create a scope" title="Create a scope" width="600" />
                   </body>
                   </html>
+
+                  ![Create a scope](../../../assets/img/Learn/create-scope.png)
 
             3. Click **SAVE**.
                 
