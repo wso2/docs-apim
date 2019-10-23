@@ -244,7 +244,7 @@ nav:
                 - Obtaining User Profile Information with OpenID Connect: Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect.md
         - Rate Limiting:
             - Throttling Use-Cases: Learn/RateLimiting/introducing-throttling-use-cases.md
-            - Adding New Throttling Policies: Learn/RateLimiting/AdvancedTopics/adding-new-throttling-policies.md
+            - Adding New Throttling Policies: Learn/RateLimiting/adding-new-throttling-policies.md
             - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
             - Blacklisting and Whitelisting Requests: Learn/RateLimiting/managing-throttling.md
             - Enforcing Throttling to an API: Learn/RateLimiting/enforcing-throttling-to-an-api.md
@@ -499,7 +499,7 @@ nav:
                     - Custom Datasource:
                         - Configuring a Custom Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-custom-datasource.md
             - Configuring User Stores:
-                - Configuring User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores 
+                - Configuring User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores.md
                 - Realm Configuration: Administer/ProductConfigurations/ConfiguringUserStores/realm-configuration.md
                 - Configuring Primary User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-primary-user-stores.md
                 - Changing the RDBMS: Administer/ProductConfigurations/ConfiguringUserStores/changing-the-rdbms.md
@@ -554,9 +554,9 @@ nav:
         - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
         - FAQ: Reference/faq.md
         - Guides:
-            - Changing the Default Ports with Offset: Reference/Guides/ReferenceGuides/changing-the-default-ports-with-offset.md
-            - Message Flow in the API Manager Gateway: Reference/Guides/ReferenceGuides/message-flow-in-the-api-manager-gateway.md
-            - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/ReferenceGuides/accessing-api-manager-by-multiple-devices-simultaneously.md
+            - Changing the Default Ports with Offset: Reference/Guides/changing-the-default-ports-with-offset.md
+            - Message Flow in the API Manager Gateway: Reference/Guides/message-flow-in-the-api-manager-gateway.md
+            - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/accessing-api-manager-by-multiple-devices-simultaneously.md
             - admin_Database Upgrade Guide: Reference/Guides/admin-database-upgrade-guide.md
             - admin_Directory Structure of WSO2 Products: Reference/Guides/admin-directory-structure-of-wso2-products.md
         - Samples:
