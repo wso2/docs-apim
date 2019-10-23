@@ -517,37 +517,38 @@ nav:
         - Product Security:
             - General:
                 -  Logins and Passwords:    
-                    - Maintaining Logins and Passwords: Administer/ProductSecurity/maintaining-logins-and-passwords.md
+                    - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
                     - admin_Securing Passwords in Configuration Files:
                         - admin_Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
                         - admin_Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
                         - admin_Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
-                    - Working with Encrypted Passwords: Administer/ProductSecurity/working-with-encrypted-passwords.md
+                    - Working with Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
+                - admin_Using Asymmetric Encryption:
+                    - admin_Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
+                    - admin_Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
+                    - admin_Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
+                    - admin_Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
+                - admin_Using Symmetric Encryption:
+                    - admin_Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
+                    - admin_Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
+                    - admin_Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
+                    - admin_Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
+                    - admin_Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
+                    - admin_Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
+                - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
                 - admin_Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
-            - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
-            - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/mutual-ssl-between-api-gateway-and-backend.md
+                - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
             - SAML2 SSO:
-                - Configuring Single Sign-on with SAML2: Administer/ProductSecurity/configuring-single-sign-on-with-saml2.md
-                - Configuring API Manager for SSO: Administer/ProductSecurity/configuring-api-manager-for-sso.md
-                - Configuring External IDP through Identity Server for SSO: Administer/ProductSecurity/configuring-external-idp-through-identity-server-for-sso.md
-                - Configuring Identity Server as IDP for SSO: Administer/ProductSecurity/configuring-identity-server-as-idp-for-sso.md
-            - admin_Using Asymmetric Encryption:
-                - admin_Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
-                - admin_Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
-                - admin_Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
-                - admin_Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
-            - admin_Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
-            - admin_Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
-            - admin_Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
-            - admin_Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
-            - admin_Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
-            - admin_Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
-        - admin_Supported Cipher Suites: ''
-        - API Designer Portal: 
-            - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-        - Application Developer Portal:
-            - Whitelisting Hostnames for API Store: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
-            - Identity Management for the API Store: Administer/ProductSecurity/identity-management-for-the-api-store.md
+                - Configuring Single Sign-on with SAML2: Administer/ProductSecurity/SAML2SSO/configuring-single-sign-on-with-saml2.md
+                - Configuring API Manager for SSO: Administer/ProductSecurity/SAML2SSO/configuring-api-manager-for-sso.md
+                - Configuring External IDP through Identity Server for SSO: Administer/ProductSecurity/SAML2SSO/configuring-external-idp-through-identity-server-for-sso.md
+                - Configuring Identity Server as IDP for SSO: Administer/ProductSecurity/SAML2SSO/configuring-identity-server-as-idp-for-sso.md
+            - admin_Supported Cipher Suites: ''
+            - API Designer Portal: 
+                - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+            - Application Developer Portal:
+                - Whitelisting Hostnames for API Store: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
+                - Identity Management for the API Store: Administer/ProductSecurity/identity-management-for-the-api-store.md
     - Reference:
         - Configuration Catalog: Reference/ConfigCatalog.md
         - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
