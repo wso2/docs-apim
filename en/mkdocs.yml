@@ -605,6 +605,7 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 plugins:
+  - search
   - markdownextradata: {}
 # Extra
 extra_css:
