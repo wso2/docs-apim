@@ -26,21 +26,21 @@ The following sections explain how to work with Api Key Authentication on the WS
 
 Create and publish an API secured with Api Key security scheme as the application level security.
 
-![](../../../WIP/assets/img/api-key-option.png)
+![](../WIP/assets/img/api-key-option.png)
 
 ### Step 2
 
 Login to the Developer portal and subscribe to the API.
 
-![](../../../WIP/assets/img/subscribe-to-api.png)
+![](../WIP/assets/img/subscribe-to-api.png)
 
 ### Step 3
 
 Generate the Api Key from the developer portal.
 
-![](../../../WIP/assets/img/generate-api-key.png)
+![](../WIP/assets/img/generate-api-key.png)
 
-![](../../../WIP/assets/img/copy-api-key.png)
+![](../WIP/assets/img/copy-api-key.png)
 
 ### Step 4
 
