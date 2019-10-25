@@ -1056,3 +1056,11 @@ html .md-footer-meta.md-typeset a,
    transition: height 100s;
 }
 
+.beta-badge {
+    display: inline-block;
+    background: #ffd600;
+    font-size: 14px;
+    padding: 5px;
+    line-height: 1;
+}
+
