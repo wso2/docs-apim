@@ -256,6 +256,12 @@ html .md-typeset .superfences-tabs > label:hover {
 .mb-config-catalog {
     display: table;
     width: 100%;
+    max-width: 770px;
+}
+
+.hide-toc .mb-config-catalog {
+    display: table;
+    max-width: 1000px;
 }
 
 .mb-config-catalog .superfences-tabs {
@@ -295,6 +301,13 @@ html .md-typeset .superfences-tabs > label:hover {
 .mb-config-catalog > section > .mb-config-example {
     display: table-cell;
     flex-direction: column;
+    max-width: 770px;
+}
+
+.hide-toc .mb-config-catalog > section > .mb-config-options,
+.hide-toc .mb-config-catalog > section > .mb-config-example {
+    display: table-cell;
+    max-width: 1000px;
 }
 
 .mb-config-catalog > section > .mb-config-example > .example-config-wrap {
