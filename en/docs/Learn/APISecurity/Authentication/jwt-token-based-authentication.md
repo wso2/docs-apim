@@ -59,7 +59,7 @@ Sign in to the Developer Portal.
 
 2. Click **ADD NEW APPLICATION**.
 
-     ![Add new application option](../assets/img/Learn/add-new-application-option.png)
+     ![Add new application option](../../../assets/img/Learn/add-new-application-option.png)
 
 3. Enter the application details.
 
@@ -75,7 +75,7 @@ Sign in to the Developer Portal.
      </table>
      </html>
 
-     ![Add new Application](../assets/img/Learn/add-new-application.png)
+     ![Add new Application](../../../assets/img/Learn/add-new-application.png)
 
 ### Step 3 - Generate a JWT token
 
@@ -86,11 +86,11 @@ Sign in to the Developer Portal.
 3. Select the JWT token-based application that you created and select a throttling policy.
 
 4. Click **Subscribe**.
-     ![Subscribe to the API](../assets/img/Learn/subscribe-to-api.png)
+     ![Subscribe to the API](../../../assets/img/Learn/subscribe-to-api.png)
 
 5. Click **PROD KEYS**, which corresponds to the JWT token-based application.
 
-     ![View list of credentials](../assets/img/Learn/view-credentials-list.png)
+     ![View list of credentials](../../../assets/img/Learn/view-credentials-list.png)
 
 6. Click **GENERATE ACCESS TOKEN**, click **Generate**, and copy the JWT access token.
 
