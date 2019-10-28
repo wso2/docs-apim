@@ -19,8 +19,8 @@ Once the API is published, chunking is disabled for the message that is sent to 
     <div class="admonition info">
         <p class="admonition-title">Info</p>
         <p>
-            To stop chunked messages from being sent to the client, you can apply the same mediation extension to the out 
-            sequence as well.
+            To stop chunked messages from being sent to the client, you can apply the same mediation extension to the 
+            out sequence as well.
         </p>
     </div>
         
