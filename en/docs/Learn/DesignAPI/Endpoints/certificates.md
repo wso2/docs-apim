@@ -8,27 +8,26 @@ If your api backend is secured with a self-signed certificate (or a certificate 
 
 ### Configuration (Optional)
 
-1.  The configurations for the `PassThroughHTTPSSLSender` parameter is available by default in the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file as shown below.
-    ``` xml
-        <transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">
-        ...
-            <!-- ============================================== -->
-            <!-- Configuration for Dynamic SSL Profile loading. -->
-            <!-- Configured for 10 mins. -->
-            <!-- ============================================== -->
-            <parameter name="dynamicSSLProfilesConfig">
-                <filePath>repository/resources/security/sslprofiles.xml</filePath>
-                <fileReadInterval>600000</fileReadInterval>
-            </parameter>
-         </transportSender>
+1.  The configurations for the Endpoint Certificates can be modified by adding following config elements to the 
+ `<API-M_HOME>/repository/conf/deployment.toml` file as shown below. 
+    ``` toml
+        [transport.passthru_https.sender.ssl_profile]
+        file_path = "repository/resources/security/sslprofiles.xml"
+        interval = 60000
     ```
+    
+    | Configuration Parameter        | Description|
+    |-------------|---------------------------------------------------|
+    | file_path   | The sslprofiles.xml file path. ***DO NOT MODIFY***|
+    | interval    | The time taken to load the newly added certificate|
+      
 
       <html>
           <div class="admonition note">
               <p class="admonition-title">Note</p>
               <p>
-                The default time to apply the certificate is 10 minutes. You can configure this by changing the
-                      `fileReadInterval` parameter.
+                 The default time to apply the certificate is 10 minutes. You can
+                 configure this by changing  the  `interval` parameter.
               </p>
               <p>
                 The time is given in <b>milliseconds</b>.
@@ -36,9 +35,8 @@ If your api backend is secured with a self-signed certificate (or a certificate 
           </div> 
       </html>
 
-2.  If you use a different Trust Store/ Keystore configuration in the `axis2.xml` or `deployment.toml` files, modify the
- KeyStore and TrustStore location in `<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly. 
- The `sslprofiles.xml` file is configured with the default client-truststore.jks
+2.  If you use a different Trust Store/ Keystore configuration for `[transport.passthru_https.sender]` in `deployment.toml` file, modify the KeyStore and TrustStore location in
+`<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly.  The `sslprofiles.xml` file is configured with the default client-truststore.jks
     
     <html>
       <div class="admonition note">
@@ -62,7 +60,7 @@ If your api backend is secured with a self-signed certificate (or a certificate 
           <p class="admonition-title">Info</p>
           <p>
             The certificate will be added to the Gateway nodes which are defined under the
-             Environments in `deployment.toml` . 
+             `[[apim.gateway.environment]]` in `deployment.toml` . 
              In a clustered setup, since gateway configurations are identical, sync the
              `[API-M_HOME]/repository/resources/security/sslprofiles.xml` and `[API-M_HOME]/repository/resources
              /security/client-truststore.jks` among the gateway nodes in the cluster. After the configured interval, the
