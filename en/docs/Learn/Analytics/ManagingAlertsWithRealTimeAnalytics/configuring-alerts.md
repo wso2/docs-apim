@@ -2,13 +2,11 @@
 
 WSO2 API Manager Analytics allows you to customize and configure the analytics-based alerts sent to the subscribers using the features listed below.
 
--   [Configure sending email alerts](#ConfiguringAlerts-Configuresendingemailalerts)
--   [Edit alerts as business rules](#ConfiguringAlerts-Editalertsasbusinessrules)
+-   Configure sending email alerts
+-   Edit alerts as business rules
 
 !!! note
-Before you begin...
-
-Make sure that you have configured Analytics for API Manager. For instructions, see [Configuring APIM Analytics](_Configuring_APIM_Analytics_) .
+     Before you begin, make sure that you have configured Analytics for API Manager. For instructions, see [Configuring APIM Analytics](../../../../../Learn/Analytics/configuring-apim-analytics) .
 
 
 ### Configure sending email alerts
