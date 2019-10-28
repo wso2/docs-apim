@@ -20,14 +20,20 @@ After the custom properties have been added, you can [search for APIs using cust
 ### Add custom properties via the API Publisher
 
 1.  Sign in to the API Publisher as an API creator using the following URL: `https://<localhost>:9443/publisher` .
-2.  [Create a new API](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) or edit an existing API.
-3.  In the **Manage** tab, expand the **API Properties** area, enter a custom property name and value (e.g. property name: environment, property value: preprod) and click the plus (+) sign to add it.
-    ![Add custom API properties]({{base_path}}/assets/attachments/103333404/103333406.png)
+2.  [Create a new API](https://apim.docs.wso2.com/en/next/Learn/DesignAPI/CreateAPI/create-a-rest-api/) or edit an existing API.
+3.  In the **Properties** tab, Click the **ADD NEW PROPERTY**, enter a custom property name and value (e.g. property name: environment, property value: preprod) and click **ADD** to add it.
+    <html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/add-new-property.png" alt="Add custom API properties" title="Add custom API properties" width="800" height="300"/>
+     </body>
+     </html>
 4.  Save the API.
 
 ### Add custom properties via the REST API
 
-You can use the [existing REST API](https://docs.wso2.com/display/AM210/apidocs/publisher/#!/operations#APICollection#apisPost) to add a new API with custom properties. Add the following element to the request body including the relevant properties,
+You can use the [existing REST API](https://apim.docs.wso2.com/en/next/Develop/ProductAPIs/restful-apis/) to add a new API with custom properties. Add the following element to the request body including the relevant properties,
 
 `"additionalProperties : {"environment": "preprod", "secured": "true"}        `
 
@@ -38,8 +44,20 @@ You can use the following format to search for an API using the custom propertie
 `<property_name>:<property_value>        `
 
 For example, if you want to search for the **environment** property with a specific value (e.g., preprod) in the Publisher, you can search as shown below:
+<html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/search-apis-with-custom-properties.png" alt="Search for APIs with custom properties" title="Search for APIs with custom properties" width="600" height="300"/>
+     </body>
+</html>
 
-![Search for APIs with custom properties]({{base_path}}/assets/attachments/103333404/103333408.png)
-When you click on the name of the API in the above screen, you are taken to the respective API Overview page that has details with regard to the API properties that you added.
+When you click on the name of the API in the above screen, you are taken to the respective API Overview page. Click on the **Properties** tab to list the API properties that you have added.
 
-![API overview with API properties highlighted]({{base_path}}/assets/attachments/103333404/103333405.png)
+<html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/view-custom-api-properties.png" alt="Search for APIs with custom properties" title="Search for APIs with custom properties"/>
+     </body>
+</html>
