@@ -20,7 +20,7 @@ After the custom properties have been added, you can [search for APIs using cust
 ### Add custom properties via the API Publisher
 
 1.  Sign in to the API Publisher as an API creator using the following URL: `https://<localhost>:9443/publisher` .
-2.  [Create a new API](https://apim.docs.wso2.com/en/next/Learn/DesignAPI/CreateAPI/create-a-rest-api/) or edit an existing API.
+2.  [Create a new API](../../../DesignAPI/CreateAPI/create-a-rest-api/) or edit an existing API.
 3.  In the **Properties** tab, Click the **ADD NEW PROPERTY**, enter a custom property name and value (e.g. property name: environment, property value: preprod) and click **ADD** to add it.
     <html>
      <head>
@@ -33,7 +33,7 @@ After the custom properties have been added, you can [search for APIs using cust
 
 ### Add custom properties via the REST API
 
-You can use the [existing REST API](https://apim.docs.wso2.com/en/next/Develop/ProductAPIs/restful-apis/) to add a new API with custom properties. Add the following element to the request body including the relevant properties,
+You can use the [existing REST API](../../../../../../Develop/ProductAPIs/restful-apis/) to add a new API with custom properties. Add the following element to the request body including the relevant properties,
 
 `"additionalProperties : {"environment": "preprod", "secured": "true"}        `
 
