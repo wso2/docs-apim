@@ -12,11 +12,11 @@ The following example shows how to have two throttling policies for a single API
 </colgroup>
 <thead>
 <tr class="header">
-<th>Tier</th>
+<th><p>Tier</p></th>
 <th><div style="margin-left: 0.0pt;">
 <p>throttle-l1</p>
 </div></th>
-<th>throttle-l2</th>
+<th><p>throttle-l2</p></th>
 </tr>
 </thead>
 <tbody>
