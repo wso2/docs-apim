@@ -18,9 +18,9 @@ To give more context on the above scenario, a secured endpoint is where we have 
     The selected Endpoint Auth Type should match with the authentication mechanism supported by the secured endpoint.
 
 
-Digest Authentication applies a hash function to the username and the password before sending them over the network. It is a process of applying MD5 cryptographic hashing with the usage of nonce values to prevent replay attacks. It is a simple challenge-response authentication mechanism that may be used by a server to challenge a client request and by a client to provide authentication infromation for the secured endpoint.
+Digest Authentication applies a hash function to the username and the password before sending them over the network. It is a process of applying MD5 cryptographic hashing with the usage of nonce values to prevent replay attacks. It is a simple challenge-response authentication mechanism that may be used by a server to challenge a client request and by a client to provide authentication information for the secured endpoint.
 
-This approach is safer than Basic Authentication, which uses unencrypted base64 encoding instead of a hashing mechanism .
+This approach is safer than Basic Authentication, which uses unencrypted base64 encoding instead of a hashing mechanism.
 
 !!! info
     The following is the sample format of the header that will be sent to the backend when Digest Auth is specified as the endpoint auth type. The attributes added to the authorization header depends on the challenge header sent from the backend server.

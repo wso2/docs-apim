@@ -9,7 +9,7 @@ If this endpoint is secured, there is an option for you to set the Auth type, cr
 
 Here you can expand the **General Endpoint Configurations** to select the endpoint security scheme. If you enable **Endpoint Security** , you are prompted to select the authentication type for the endpoint and also to give its credentials.
 
-Then select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports basic authentication, you can select the **Basic Auth** option from the drop down list and give your credentials and click on **save.**
+Then select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports basic authentication, you can select the **Basic Auth** option from the drop-down list and give your credentials and click on **save.**
 
 ![endpoint-security-type-basic](../../../../assets/img/Learn/endpoint-security-type-basic.png)
 
@@ -19,7 +19,7 @@ To give more context on the above scenario, a secured endpoint is where we have 
     The Endpoint Auth Type selected should match with the authentication mechanism supported by the secured endpoint.
 
 
-Basic Authentication  is the simplest mechanism used to enforce access controls to web resources. Here, the HTTP user agent provides the username and the password when making a request. The string containing the username and the password separated by a colon is Base64 encoded and sent in the authorization header when calling the backend when authentication is required.
+Basic Authentication is the simplest mechanism used to enforce access controls to web resources. Here, the HTTP user agent provides the username and the password when making a request. The string containing the username and the password separated by a colon is Base64 encoded and sent in the authorization header when calling the backend when authentication is required.
 
 !!! info
     If the user name and password is admin, the following header will be sent to the backend.
