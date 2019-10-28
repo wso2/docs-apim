@@ -4,14 +4,14 @@ When you create an API using the API Publisher, you can specify the endpoint of 
 
 If this endpoint is secured, there is an option for you to set the Auth type, credentials for the endpoint and endpoint certification under **General Endpoint Configurations.**
 
-![](../../../../assets/img/Learn/general-endpoint-detail.png)
+![general-endpoint-detail](../../../../assets/img/Learn/general-endpoint-detail.png)
 
 
 Here you can expand the **General Endpoint Configurations** to select the endpoint security scheme. If you enable **Endpoint Security** , you are prompted to select the authentication type for the endpoint and also to give its credentials.
 
 Then select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports basic authentication, you can select the **Basic Auth** option from the drop down list and give your credentials and click on **save.**
 
-![](../../../../assets/img/Learn/enpoint-security-type.png)
+![endpoint-security-type-basic](../../../../assets/img/Learn/endpoint-security-type-basic.png)
 
 To give more context on the above scenario, a secured endpoint is where we have access-protected resources. You have to specify the username and the password when a request is sent to a secured endpoint. The endpoint authentication mechanism can either be Basic Authentication or Digest Authentication. They differ on how the credentials are communicated and how access is granted by the backend server.
 
@@ -26,5 +26,3 @@ Basic Authentication  is the simplest mechanism used to enforce access controlsÂ
     ```
     Authorization: Basic YWRtaW46YWRtaW4=` (where `YWRtaW46YWRtaW4=` is equivalent to Base64Encoded{admin:admin} )
     ``` 
-
-

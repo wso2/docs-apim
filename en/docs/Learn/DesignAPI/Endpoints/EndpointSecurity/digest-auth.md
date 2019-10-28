@@ -4,13 +4,13 @@ When you create an API using the API Publisher, you can specify the endpoint of 
 
 If this endpoint is secured, there is an option for you to set the Auth type, credentials for the endpoint and endpoint certification under **General Endpoint Configurations.**
 
-![](../../../../assets/img/Learn/general-endpoint-detail.png)
+![general-endpoint-detail](../../../../assets/img/Learn/general-endpoint-detail.png)
 
 Click **General Endpoint Configurations** to select the endpoint security scheme. If you enable **Endpoint Security** , you are prompted to select the authentication type for the endpoint and also to give its credentials.
 
 Select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports Digest authentication, you can select the **Digest Auth** option from the drop down list and give your credentials and click on **save.**
 
-![](../../../../assets/img/Learn/enpoint-security-type-digest.png)
+![enpoint-security-type-digest](../../../../assets/img/Learn/enpoint-security-type-digest.png)
 
 To give more context on the above scenario, a secured endpoint is where we have access-protected resources. You have to specify the username and the password when a request is sent to a secured endpoint. The endpoint authentication mechanism can either be Basic Authentication or Digest Authentication. They differ on how the credentials are communicated and how access is granted by the backend server.
 
@@ -27,5 +27,3 @@ This approach is safer than Basic Authentication, which uses unencrypted base64 
     ``` java
     Authorization: Digest username="Admin", realm="admin@wso2.com", nonce="dcd98b7102dd2f0e8b11d0f600bfb0c093", uri="/dir/index.html", qop=auth, nc=00000001, cnonce="0a4f113b", response="6629fae49393a05397450978507c4ef1", opaque="5ccc069c403ebaf9f0171e9517f40e41"
     ```
-
-
