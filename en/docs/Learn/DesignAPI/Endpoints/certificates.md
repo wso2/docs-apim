@@ -20,7 +20,7 @@ If your api backend is secured with a self-signed certificate (or a certificate 
     ``` toml
         [transport.passthru_https.sender.ssl_profile]
         file_path = "repository/resources/security/sslprofiles.xml"
-        interval = 60000
+        interval = 600000
     ```
     
     | Configuration Parameter        | Description|
