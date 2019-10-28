@@ -26,21 +26,7 @@ If your api backend is secured with a self-signed certificate (or a certificate 
     | Configuration Parameter        | Description|
     |-------------|---------------------------------------------------|
     | file_path   | The sslprofiles.xml file path. ***DO NOT MODIFY***|
-    | interval    | The time taken to load the newly added certificate|
-      
-
-      <html>
-          <div class="admonition note">
-              <p class="admonition-title">Note</p>
-              <p>
-                 The default time to apply the certificate is 10 minutes. You can
-                 configure this by changing  the  `interval` parameter.
-              </p>
-              <p>
-                The time is given in <b>milliseconds</b>.
-              </p>
-          </div> 
-      </html>
+    | interval    | The time taken to load the newly added certificate in ***milliseconds***. Default 10 mins. (600000ms) |
 
 2.  If you use a different Trust Store/ Keystore configuration for `[transport.passthru_https.sender]` in `deployment.toml` file, modify the KeyStore and TrustStore location in
 `<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly.  The `sslprofiles.xml` file is configured with the default client-truststore.jks
@@ -69,8 +55,7 @@ If your api backend is secured with a self-signed certificate (or a certificate 
             The certificate will be added to the Gateway nodes which are defined under the
              `[[apim.gateway.environment]]` in `deployment.toml` . 
              In a clustered setup, since gateway configurations are identical, sync the
-             `[API-M_HOME]/repository/resources/security/sslprofiles.xml` and `[API-M_HOME]/repository/resources
-             /security/client-truststore.jks` among the gateway nodes in the cluster. After the configured interval, the
+             `[API-M_HOME]/repository/resources/security/sslprofiles.xml` and `[API-M_HOME]/repository/resources/security/client-truststore.jks` among the gateway nodes in the cluster. After the configured interval, the
               synapse transport will be reloaded in all the gateway nodes.
           </p>
       </div> 
