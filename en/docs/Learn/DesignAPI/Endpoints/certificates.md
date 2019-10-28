@@ -1,10 +1,17 @@
 # Managing Endpoint Certificates
 
 If your api backend is secured with a self-signed certificate (or a certificate which is not signed by a CA) you need to
- import it to the api manager (gateway) client-truststore and restart the server. This feature enables you to upload the
-  backend certificate through API Publisher while creating or editing your API **without restarting the server**. 
-  Follow the steps below to add a certificate to an endpoint. Note that this feature supports only **HTTP
-  /REST** and **HTTP/SOAP** endpoints.
+ import the backend certificate to the api manager (gateway) client-truststore and restart the server. This feature
+  enables you to upload the backend certificate through API Publisher while creating or editing your API **without
+   restarting the server**. Follow the steps below to add a certificate to an endpoint. 
+    
+   <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>Note that this feature supports only <b>HTTP/REST</b> and <b>HTTP/SOAP</b> endpoints.
+            </p>
+        </div> 
+   </html>
 
 ### Configuration (Optional)
 
