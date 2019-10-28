@@ -69,16 +69,16 @@ nav:
                 - Deploy and Test Mock APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
             - Endpoints:
                 - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
-                - Endpoint Timeouts: Learn/DesignAPI/Endpoints/endpoint-timeouts.md
-                - Certificates: Learn/DesignAPI/Endpoints/certificates.md
                 - Security:
                     - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
                     - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
+                - Endpoint Timeouts: Learn/DesignAPI/Endpoints/endpoint-timeouts.md
                 - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
                 - Resiliency:
                     - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
-                    - Endpoint Suspension: Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension.md 
+                    - Endpoint Suspension: Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension.md
                     - Prevent API Suspension: Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension.md
+                - Manage Certificates: Learn/DesignAPI/Endpoints/certificates.md
             - Lifecycle Managament:
                 - API Lifecycle: Learn/DesignAPI/LifecycleManagement/api-lifecycle.md
                 - Customize API Life Cycle: Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle.md
