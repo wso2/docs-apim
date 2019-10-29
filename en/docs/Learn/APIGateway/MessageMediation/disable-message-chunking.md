@@ -13,7 +13,7 @@ chunked messages. To disable sending chunked messages to the backend for a spec
     ```
 
 2.  Use the same sequence and apply it as a mediation extension to the inflow of this particular API. For more details, 
-see [Creating per-API extensions](/Learn/Extensions/adding-mediation-extensions#creating-per-api-extensions). 
+see [Creating per-API extensions](../../../Extensions/adding-mediation-extensions#creating-per-api-extensions). 
 Once the API is published, chunking is disabled for the message that is sent to the backend.
 
     <div class="admonition info">
