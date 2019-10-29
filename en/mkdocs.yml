@@ -95,6 +95,7 @@ nav:
             - Advanced Topics:
                 - Adding Custom Properties to APIs: Learn/DesignAPI/AdvancedTopics/adding-custom-properties-to-apis.md
                 - Enabling Access Control Support for API Publisher: Learn/DesignAPI/AdvancedTopics/enabling-access-control-support-for-api-publisher.md
+                - Control API Visibility and Subscription Availability in the Developer Portal: Learn/DesignAPI/AdvancedTopics/control-api-visibility-and-subscription-availability-in-developer-portal.md
                 - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
                 - Generating server stubs and client SDKs in the API Publisher:  Learn/DesignAPI/AdvancedTopics/generating-server-stubs-and-client-sdks-in-the-api-publisher.md
                 - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
