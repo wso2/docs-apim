@@ -2,16 +2,25 @@
 
 #### Overview
 
-An application is a logical collection of APIs/API Products and it is primarily used to decouple the consumer from the 
-APIs.
- It allows you to:
+An application is a logical representation of an physical application such as mobile app, webapp, device etc. If an 
+application to consume an API, it should subscribe to the required API over a 
+selected 
+business 
+plan, which determined the usage quota the application is allowed to have. A single application can 
+have 
+multiple 
+API subscriptions. Each application 
+has consumer key 
+and 
+consumer secret pair and the requests to the subscribed APIs are authenticated via the tokens generated using them. 
+
+Applications allow you to:
 
 -   Generate and use a single key for multiple APIs
--   Subscribe multiple times to a single API with different tiers/Service Level Agreement (SLA) levels
+-   Subscribe multiple times to a single API with different Service Level Agreements (SLAs)/business plans which 
+operate on per access token basis
 
-You can subscribe to APIs through an application. Applications are available at different SLA levels and have 
-application-level throttling tiers engaged to them. A throttling tier determines the maximum number of calls you can 
-make to an API during a given period of time.
+
 
 The API Manager comes with a pre-created default application, which allows unlimited access by default. You can also 
 [create](create-application.md####Create Applications) your own.
