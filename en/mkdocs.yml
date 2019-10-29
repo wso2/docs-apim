@@ -15,18 +15,18 @@
 # under the License.
 
 # Project information
-site_name: WSO2 Identity Server Documentation
-site_description: Documentation for WSO2 Identity Server
+site_name: WSO2 API Manager Documentation
+site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://wso2.com/
 
 # Repository
-repo_name: wso2/docs-is
-repo_url: https://github.com/wso2/docs-is
-edit_uri: https://github.com/wso2/docs-is/edit/master/en/docs/
+repo_name: wso2/docs-apim
+repo_url: https://github.com/wso2/docs-apim
+edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
 
 # Copyright
-copyright: WSO2 Identity Server - Documentation
+copyright: WSO2 API Manager - Documentation
 
 # Configuration
 theme: material
