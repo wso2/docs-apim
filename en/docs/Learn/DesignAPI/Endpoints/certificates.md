@@ -63,7 +63,7 @@ If your api backend is secured with a self-signed certificate (or a certificate 
 
 ### Adding a Certificate for an Endpoint
 
-1.  Log in to the API Publisher. [Create a new API](../CreateAPI/create-a-rest-api.md) or edit an existing API.
+1.  Log in to the API Publisher. [Create a new API](../CreateAPI/create-a-rest-api.md) or click on an existing API.
 2.  Go to the **Endpoints** tab and expand **General Endpoint Configuration**. 
     ![Open General Endpoint Configuration](../../../assets/img/Learn/open-general-endpoint-configuration.png)
 3.  In the Certificates section, click on **\+ Add Certificates** button.
