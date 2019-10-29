@@ -31,7 +31,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       		</div>
 		</div>
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIPublish/create-and-Publish-an-API';">
+      <div class="card" onclick="location.href='Learn/DesignAPI/CreateAPI/create-a-rest-api';">
             <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">create</i></div>
              <div class="card-content">
