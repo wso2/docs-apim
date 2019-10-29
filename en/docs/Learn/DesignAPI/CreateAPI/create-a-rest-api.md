@@ -53,8 +53,7 @@ Follow the steps bellow to create a REST API.
      </div>
      </html>
 
-8. By default, the api will have five resources with /* uri 
-   template.
+8. By default, the api will have five resources with /* URL Pattern.
    Click **Show More** option to navigate **Resource** page.
    ![](../../../assets/img/Learn/overview-page-resource-section.jpg)
 
