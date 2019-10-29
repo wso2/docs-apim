@@ -1,6 +1,6 @@
 # Subscribe to an API
 
-You **subscribe** to a published API before using it in your applications. Subscription enables you to receive access tokens and be authenticated to invoke the API.
+You __subscribe__ to a published API before using it in your applications. Subscription enables you to receive access tokens and be authenticated to invoke the API.
 
 !!! note
 See the following topics for a description of the concepts that you need to know when subscribing to an API:
@@ -11,16 +11,27 @@ See the following topics for a description of the concepts that you need to know
 -   [Access tokens](_Key_Concepts_)
 
 
-The examples here use the `PhoneVerification` REST API, which is created in the section [Create and Publish an API](_Create_and_Publish_an_API_) .
+The examples here use the `PhoneVerification` REST API, which is created in the section [Create and Publish an API](/Learn/Tutorials/create-and-publish-an-api).
 
-1.  Sign in to the WSO2 API Store ( `https://<hostname>:9443/store` ) and click on an API (e.g., `PhoneVerification 1.0.0` ) to open it.
 
-        !!! tip
+1.  Sign in to the WSO2 API Developer Portal ( `https://<hostname>:9443/devportal` ) and click on an API (e.g., `PhoneVerification 1.0.0` ) to open it.
+
+   ![](../../assets/img/Learn/developer-portal-subscriptions.png)
+
+
+
+!!! tip
     In a [multi-tenanted](https://docs.wso2.com/display/AM210/Configuring+Multiple+Tenants) WSO2 API Manager setup, you can access any tenant's store using the URL `http://<hostname>:<port>/store?tenant=<tenant_name>` .
 
+*New in API Manager 3.0.0: Now you start creating an Application from API overview page and subscribe to the API and generate credentials/keys in a five step wizard.
 
-2.  Note the subscription options for the REST API.
-    ![]({{base_path}}/assets/attachments/103327837/103327823.png)
+- A. Create an application on the go and subscribe current API to new application
+
+- B. Subscribe to an existing application
+
+## Method A
+
+2.  Click on the `SUBSCRIBE TO AN APPLICATION` button, You will be redirected to `Overview` page
 
 3.  Click the **Applications** menu and click **Add Application** to create a new application.
     ![]({{base_path}}/assets/attachments/103327837/103327822.png)
@@ -191,5 +202,3 @@ You have subscribed to an API and invoked it.
 ![]({{base_path}}/assets/attachments/103327837/103327818.png)
 
 If you unsubscribe from an API and then resubscribe with a different tier, it takes approximately 15 minutes for the tier change to be reflected. This is because the older tier remains in the cache until it is refreshed periodically by the system.
-
-
