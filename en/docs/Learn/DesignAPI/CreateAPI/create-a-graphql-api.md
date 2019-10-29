@@ -1,10 +1,11 @@
 # Create and Publish a GraphQL API
 
+WSO2 API Manager supports the management of Graphql APIs.
 GraphQL, which has been developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify as to what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. 
 
 You can use a Schema Definition Language (SDL) schema to design a GraphQL API in WSO2 API Manager (WSO2 API-M) similar to creating SOAP APIs using WSDLs and developing REST APIs using OpenAPI Specifications (a.k.a. Swagger Definitions).
 
-All GraphQL schemas generally have three operation root types, which are namely query, mutation, and subscription. Therefore, every POST request or GET request against a GraphQL endpoint of a GraphQL server should have a payload starting with any one of the root types, including its related operation name. You can manage the security, authorization, and rate limiting aspect of each operation based on its operation name. 
+All GraphQL schemas generally have three operation root types, which are namely query, mutation, and subscription. Therefore, every request against a GraphQL endpoint of a GraphQL server should have a payload starting with any one of the root types, including its related operation name. You can manage the security, authorization, and rate limiting aspect of each operation based on its operation name. 
 
 Follow the instructions below to design and publish a GraphQL API:
 
@@ -20,19 +21,27 @@ Follow the instructions below to design and publish a GraphQL API:
 
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
-     ![Create GraphQL schema option](../../../assets/img/Learn/create-graphQL-schema-option.png)
+     <html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/create-graphQL-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600" />
+     </body>
+     </html>
 
 
 3. Import the schema and click **Next**.  
 
-    Let's use the [StarWarsAPI schema definition](../../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
+     ![Import a graphQL schema by adding a file](../../../assets/img/Learn/import-graphQL-schema.png)
+
+     Let's use the [StarWarsAPI schema definition](../../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
    
       <html>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
       <ul><li>
       <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://leapgraph.com/graphql-schema-design-best-practices).</p></li>
-      <li>The file extension can be either `.graphql`, `.txt`, or `.json`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
+      <li>The file extension can be either `.graphql` or `.txt`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
       </div> 
       </html>
 
@@ -98,14 +107,6 @@ Follow the instructions below to design and publish a GraphQL API:
                <p>Unlimited</p>
             </td>
             </tr>
-            <tr>
-            <td >
-               <p>Visibility on Store</p>
-            </td>
-            <td>
-               <p>Public</p>
-            </td>
-            </tr>
          </table>
       </html>
 
@@ -117,9 +118,9 @@ Follow the instructions below to design and publish a GraphQL API:
 
     2. Click **DOWNLOAD DEFINITION**.
 
-        The existing GraphQL API schema will get downloaded.
+         The existing GraphQL API schema gets downloaded.
 
-      ![Add schema definition](../../../assets/img/Learn/add-schema-definition.png)   
+         ![Add schema definition](../../../assets/img/Learn/download-schema-definition.png)   
 
     3. Update the schema definition as required.
 
@@ -164,26 +165,31 @@ Follow the instructions below to design and publish a GraphQL API:
 
                   ![Create a scope](../../../assets/img/Learn/create-scope.png)
 
-            3. Click **SAVE**.
-                
+            3. Press `Enter` to add each scope. 
+
+            4. Click **SAVE**.
+
+                 ![List of added scopes](../../../assets/img/Learn/starwars-scope-list.png) 
 
          2. Define the operation level configurations.
 
-            1. Click **Operation Level** to apply rate limiting for operations.
-
-                ![Update GraphQL API operations](../../../assets/img/Learn/update-operations.png) 
-
-            2. Select a throttling policy, scope, and enable or disable security for each of the operations.
-
-                For more information on the payload, see [GraphQL operations](#graphql-operations). 
-
-                Apply the `adminScope` and `FilmSubscriberScope` scopes to the `allFilms` and `allPlanets` operations, respectively.
+            1. Click **Operations**.
             
-            3. Click **Save**.
+            2. Click **Operation Level** to apply rate limiting for operations.
 
-                If you check the list of scopes, it should appear as follows:
+                 ![Update GraphQL API operations](../../../assets/img/Learn/update-operations.png) 
 
-                ![Scope list](../../../assets/img/Learn/scope-list.png)
+            3. Select a throttling policy, scope, and enable or disable security for each of the operations.
+
+                 For more information on the payload, see [GraphQL operations](#graphql-operations). 
+
+                 Apply the `adminScope` and `FilmSubscriberScope` scopes to the `allFilms` and `allPlanets` operations, respectively.
+            
+            4. Click **Save**.
+
+                 If you check the list of scopes, it should appear as follows:
+
+                 ![Scope list](../../../assets/img/Learn/scope-list.png)
 
 
 7. Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API.
@@ -192,41 +198,55 @@ Follow the instructions below to design and publish a GraphQL API:
 
 ### Step 2 - Invoke a GraphQL API
 
-1. Navigate to the Developer Portal.
+1. Sign in to the Developer Portal.
    
-    `https://<hostname>:9443/devportal` 
+     `https://<hostname>:9443/devportal` 
    
-    Example: `https://localhost:9443/devportal`
+     Example: `https://localhost:9443/devportal`
 
-    ![Developer Portal](../../../assets/img/Learn/starwars-in-dev-portal.png)
+     ![Developer Portal](../../../assets/img/Learn/starwars-in-dev-portal.png)
     
 2. Click on the GraphQL API.
    
-    The API overview appears.
-
-    ![StarWarsAPI API overview](../../../assets/img/Learn/api-overview.png)
+     The API overview appears.
+ 
+     ![StarWarsAPI API overview](../../../assets/img/Learn/api-overview.png)
 
 3. Optionally, download the API schema if required.
 
-    Click **More** on the API overview page and then click **GRAPHQL SCHEMA** to download the API schema.
+      <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p> You can download the API schema even without signing in to the Developer Portal</p>
+      </div> 
+      </html>
 
-    ![Download GraphQL API schema](../../../assets/img/Learn/download-schema.png)
+     Click **More** on the API overview page and then click **GRAPHQL SCHEMA** to download the API schema.
 
-4. Sign in to the Developer Portal.
-
-      `https://<hostname>:9443/devportal`
-
-      ![StarWarsAPI API overview](../../../assets/img/Learn/sign-in-to-portal-starwarsapi.png)
+     ![Download GraphQL API schema](../../../assets/img/Learn/download-schema.png)
 
 5. Subscribe to the API.
 
     1. Click **KEY GENERATION WIZARD**.
     
-        This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (allFilms, allPlanets) that you assigned to the operations.
+         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (allFilms, allPlanets) that you assigned to the operations.
+
+         <html>
+         <head>
+         </head>
+         <body>
+         <div class="admonition note">
+         <p class="admonition-title">Note</p>
+         <p> 
+         The application that the API subscribes to can be a JWT or an OAuth based application.
+         </p>
+         </div>
+
+         ![Key generation wizard](../../../assets/img/Learn/starwars-scopes-gen-access-token.png)
 
     2. Copy the authorization token that appears.
 
-       ![Copy the authorization token](../../../assets/img/Learn/copy-access-token-starwars.png)
+         ![Copy the authorization token](../../../assets/img/Learn/copy-access-token-starwars.png)
 
 6. Try out the operations.
     1. Click **TEST** to navigate to the developer console.

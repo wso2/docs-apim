@@ -1,73 +1,102 @@
-# Certificates
+# Managing Endpoint Certificates
 
-If you have a backend with a self-signed certificate (or a certificate which is not signed by a CA) you need to import it to the client-truststore and restart the server. This feature enables you to upload the backend certificate through API Publisher while creating or editing your API. Follow the steps below to add a new certificate to any endpoint. Note that this feature supports only **HTTP/REST** and **HTTP/SOAP** endpoints.
+If your api backend is secured with a self-signed certificate (or a certificate which is not signed by a CA) you need to
+ import the backend certificate to the api manager (gateway) client-truststore and restart the server. This feature
+  enables you to upload the backend certificate through API Publisher while creating or editing your API **without
+   restarting the server**. Follow the steps below to add a certificate to an endpoint. 
+    
+   <html>
+        <div class="admonition note">
+            <p class="admonition-title">Note</p>
+            <p>Note that this feature supports only <b>HTTP/REST</b> and <b>HTTP/SOAP</b> endpoints.
+            </p>
+        </div> 
+   </html>
 
-### Prerequisites
+### Configuration (Optional)
 
-1.  Ensure that you have downloaded the latest WUM update. For more details, see [Updating WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products) in the WSO2 Administration Guide.
-2.  If you are an existing user, follow the instructions given below.
-    1.  Run the scripts inside the `<API-M_HOME>/dbscripts/apimgt` directory, according to your preferred database. For instructions on configuring databases, see [Set up the database](https://docs.wso2.com/display/AM260/Changing+the+Default+API-M+Databases#ChangingtheDefaultAPI-MDatabases-Step1-Setupthedatabase) . Verify that the table `AM_CERTIFICATE_METADATA` has been created in your database.
+1.  The configurations for the Endpoint Certificates can be modified by adding following config elements to the 
+ `<API-M_HOME>/repository/conf/deployment.toml` file as shown below. 
+    ``` toml
+        [transport.passthru_https.sender.ssl_profile]
+        interval = 600000
+    ```
+    
+    | Configuration Parameter        | Description|
+    |-------------|---------------------------------------------------|
+    | interval    | The time taken to load the newly added certificate in ***milliseconds***. Default 10 mins. (600000ms) Minimum interval : 60000ms (1 min)|
 
-    2.  The configurations for the `PassThroughHTTPSSLSender` parameter is available by default in the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file as shown below.
+2.  If you use a different Trust Store/ Keystore configuration for `[transport.passthru_https.sender]` in `deployment.toml` file, modify the KeyStore and TrustStore location in
+`<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly.  The `sslprofiles.xml` file is configured with the default client-truststore.jks
+    
+    <html>
+      <div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <p>
+            This feature currently supports only the following keystore and certificate types.
+          </p>
+          <ul>
+            <li>Keystore : `.jks`</li>
+            <li>Certificate : `.crt`</li>
+          </ul>
+          <p>
+            If you need to use a certificate in any other format, you can convert it to `.crt/ .cert` using a standard
+             tool before uploading.
+          </p>
+      </div> 
+    </html>
 
-        ``` java
-                <transportSender name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLSender">
-                    ...
-                      <!-- ============================================== -->
-                      <!-- Configuration for Dynamic SSL Profile loading. -->
-                      <!-- Configured for 10 mins. -->
-                      <!-- ============================================== -->
-                      <parameter name="dynamicSSLProfilesConfig">
-                              <filePath>repository/resources/security/sslprofiles.xml</filePath>
-                              <fileReadInterval>600000</fileReadInterval>
-                      </parameter>
-                </transportSender>
-        ```
+    <html>
+      <div class="admonition info">
+          <p class="admonition-title">Info</p>
+          <p>
+            The certificate will be added to the Gateway nodes which are defined under the
+             `[[apim.gateway.environment]]` in `deployment.toml` . 
+             In a clustered setup, since gateway configurations are identical, sync the
+             `[API-M_HOME]/repository/resources/security/sslprofiles.xml` and `[API-M_HOME]/repository/resources/security/client-truststore.jks` among the gateway nodes in the cluster. After the configured interval, the
+              synapse transport will be reloaded in all the gateway nodes.
+          </p>
+      </div> 
+    </html>
 
-                !!! note
-        The default time to apply the certificate is 10 minutes. You can configure this by changing the `<fileReadInterval>` parameter. Note that the time is given in milliseconds.
+### Adding a Certificate for an Endpoint
 
+1.  Log in to the API Publisher. [Create a new API](../CreateAPI/create-a-rest-api.md) or click on an existing API.
+2.  Go to the **Endpoints** tab and expand **General Endpoint Configuration**. 
+    ![Open General Endpoint Configuration](../../../assets/img/Learn/open-general-endpoint-configuration.png)
+3.  In the Certificates section, click on **\+ Add Certificates** button.
+   ![Click on Add Certificate](../../../assets/img/Learn/click-add-certificate.png)
+   
+    The Upload Certificate dialog box will be open.
+    ![Upload Certificate Dialog](../../../assets/img/Learn/upload-certificate-open.png)
 
-    3.  If you use a different Trust Store/ Keystore configuration in the `axis2.xml` or `carbon.xml` files ,modify the KeyStore and TrustStore location in `<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly. The `sslprofiles.xml` file is configured with the existing client-truststore.jks
-
-!!! note
-This feature currently supports only the following formats for keystores and certificates.
-
--   Keystore : `.jks          `
--   Certificate : `.crt          `
-
-If you need to use a certificate in any other format, you can convert it using a standard tool before uploading.
-
-
-!!! info
-After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `api-manager.xml` . In a clustered setup, as gateway configurations are identical, sync the `<API-M_HOME>/repository/resources/security/sslprofiles.xml` and `<API-M_HOME>/repository/resources/security/client-truststore.jks` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
-
-
-### 
-Adding a certificate
-
-1.  Log in to the API Publisher. [Create a new API](https://docs.wso2.com/display/AM300/Create+and+Publish+an+API) or edit an existing API.
-2.  Go to the **Implement** tab. Click **Manage Certificates** and click **Add New Certificate**
-    ![]({{base_path}}/assets/attachments/126560467/126560484.png)3.  Enter the following information and click **Upload** .
-    ![]({{base_path}}/assets/attachments/126560467/126560485.png)
+    *  Enter the following information and click **Save** .
+    
     | Name        | Description                                                                              |
     |-------------|------------------------------------------------------------------------------------------|
     | Alias       | Enter a name for your certificate.                                                       |
     | Endpoint    | Select an endpoint from the dropdown list                                                |
-    | Certificate | Enter the location of your certificate file or click **Browse** to select through the UI |
+    | Certificate | Drop the certificate file or click on the drop zone to select the certificate through the UI |
 
-4.  The uploaded certificate aliases will be displayed.
-    ![]({{base_path}}/assets/attachments/126560467/126560486.png){height="250"}
-5.  You can repeat from step 2 to add a certificate to the sandbox endpoint.
-    ![]({{base_path}}/assets/attachments/126560467/126560487.png)
-!!! note
-You add only one certificate per endpoint. Make sure that your certificates have not expired.
+    ![](../../../assets/img/Learn/certificate-inputs-provided.png)
 
+4.  The uploaded certificate will be displayed.
+    ![](../../../assets/img/Learn/certificate-added.png)
+5.  You can repeat from step 3 to add certificates to the other endpoints.
+
+### Check Certificate Information
+
+You can check the information of the certificate, i.e: Status and subject DN.
+
+Click on the 'Info Icon' in the certificate listing adjacent to the required certificate.
+![](../../../assets/img/Learn/certificate-info-click.jpg)
+
+The details of the selected certificated will be displayed.
+![](../../../assets/img/Learn/certificate-details.png)
 
 ### Deleting a certificate
 
-To delete a certificate, click the icon adjacent to the certificate, as shown below.
+To delete a certificate, click the Delete button adjacent to the certificate, as shown below.
 
-![]({{base_path}}/assets/attachments/126560467/126560488.png)
-
+![](../../../assets/img/Learn/certificate-delete-btn-select.jpg)
 
