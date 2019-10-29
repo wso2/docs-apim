@@ -1,20 +1,22 @@
 # Create a Mock API with an Inline Script
 
 ## Introduction
-In this tutorial, you create a prototyped API with an inline script, deploy it as a prototype, and invoke it using the API Console integrated in the API Store.
+In this tutorial, we will be creating a prototyped API with an inline script, deploy it as a prototype, and
+ invoke it using the API Console integrated in the API Developer Portal.
 Typically, you create APIs with inline scripts for testing purposes. An API prototype is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and provide feedback to improve. After a period of time, publishers can make changes that the users request and publish the API.
 
 ## Creating Mock API with Inline Script
 1.  Sign in to the API Publisher using `admin` as the username and password.
 `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ).
 
-2.  Click ***CREATE AN API***, and ***Select Design a new REST API*** from the menu. 
+2.  Click ***CREATE API***, and click on the ***Design a new REST API*** menu item. 
 
     ![](../../../assets/img/Learn/create-api-design-rest-api-link.png)
    
-3.  Give the information in the table below and click on ***CREATE*** button.
+3.  Provide the the api name, context and version and click on ***CREATE*** button. (In this example, we have provided
+ following values.)
 
-    |Field | Sample Value|
+    |||
     |------|-------------|
     |Name|Location_API|
     |Context|/location|
@@ -22,23 +24,26 @@ Typically, you create APIs with inline scripts for testing purposes. An API pr
 
     ![](../../../assets/img/Learn/create-api-form-filled.png)
     
-4. In the API, go to the ***Resources*** tab and add a new Resource.
-
-    |Field | Sample Value|
+    You will be directed to the API Overview page.
+    
+4. From the left navigation panel, click on the ***Resources*** tab to go to the ***Resources*** page.
+   <br/>Select the ***HTTP Verb***, provide the ***URI Pattern*** and click on ***+*** button to add a new resource.
+    
+    | | |
     |------|-------------|
     |HTTP Verb|GET|
     |URI Pattern|/{town}|
     
-     ![](../../../assets/img/Learn/create-api-add-resource.png)
+    ![](../../../assets/img/Learn/create-api-add-resource.png)
     
-    (***Optional***) Delete all the existing Resources after the new resource is added by clicking on the Delete
-     Button \[1\] of each resource. You also can select all the resources at once by clicking on ***Select all for
-      Delete***\[2\] button.
+    !!! tip
+        Once the new Resource is added, delete the default Resources (/\*) by clicking on the Delete Button \[1\] of
+         each resource. Or select all the resources at once by clicking on ***Select all for Delete*** \[2\] button.
       
     ![](../../../assets/img/Learn/create-api-delete-resource.png)
       
 
-4. Expand the newly added resource and note that the path parameter by the name `town` is set properly under Parameters.
+5. Expand the newly added resource and note that the path parameter by the name `town` is set properly under Parameters.
 
     ![](../../../assets/img/Learn/create-api-resource-parameter-view.png)
 
@@ -52,19 +57,19 @@ Typically, you create APIs with inline scripts for testing purposes. An API pr
         
 5. Click on ***SAVE*** button to save the API.
 
-6. Goto the ***Select an Endpoint Type to Add*** page by clicking on the Endpoints tab in the left panel.
+6. Goto the ***Endpoints*** page by clicking on the Endpoints tab in the left panel.
 
 7. In the ***Select an Endpoint Type to Add*** page, select ***Prototype Implementation*** in Prototype Endpoint card
- and Click ***ADD***.
+ and Click ***ADD***. (This page has been prompted because, there is no endpoint has been added to the api yet.)
  
     ![](../../../assets/img/Learn/create-api-prototype-endpoint-add.png)
 
-5.  In the **Prototyped API** section under the **Implement** tab, select the implementation method as **Inline** .
-    ![]({{base_path}}/assets/attachments/103328761/103328753.png)
+    You will be directed to the endpoints page.
+    
+    ![](../../../assets/img/Learn/create-api-prototype-endpoint-page.png)
 
-        !!! note
-    The inline JavaScript engine does not provide support for SOAP APIs. If you opt for the endpoint implementation method instead of inline, you need to provide an endpoint to a prototype API. For example, <http://ws.cdyne.com/phoneverify/phoneverify.asmx>
-
+    !!! note
+        The inline JavaScript engine does not provide support for SOAP APIs. If you opt for the endpoint implementation method instead of inline, you need to provide an endpoint to a prototype API. For example, <http://ws.cdyne.com/phoneverify/phoneverify.asmx>
 
 6.  Expand the `GET` method and give the following as the script. It reads the payload that the user sends with the API request and returns it as a JSON value. The value **mc** is the message context.
 
@@ -74,35 +79,43 @@ Typically, you create APIs with inline scripts for testing purposes. An API pr
         mc.setPayloadJSON('{ "Town" : "'+town+'"}');
     ```
 
-    ![]({{base_path}}/assets/attachments/103328761/103328752.png)
+    ![](../../../assets/img/Learn/create-api-prototype-script-added.png)
+    
+    Click on ***SAVE*** button to save the api.
 
-7.  Click **Deploy as a Prototype** .
+7. To Deploy the api as a prototype, goto ***Lifecycle*** page by clicking on the Lifecycle tab in the left
+ navigation panel. Click on ***DEPLOY AS A PROTOTYPE*** button to deploy the api as a prototype
+ ![](../../../assets/img/Learn/create-api-prototype-lc-page.png) 
+ 
+8.  Once the API is deployed, click on the ***View in Dev Portal*** button to goto the API Developer Portal.
 
-8.  When prompted, choose to open the newly published API in the API Store.
+    !!! tip
+        You can invoke prototyped APIs without signing in to the API Developer Portal or subscribing to the API. The
+         purpose of a prototype api is advertising and giving an early implementation for users to test.
 
-        !!! tip
-    **Tip** : You can invoke prototyped APIs without signing in to the API Store or subscribing to the API. The purpose of a prototype is advertising and giving an early implementation for users to test.
 
-
-9.  The Location API opens. Click the **API Console** tab.
-    ![]({{base_path}}/assets/attachments/103328761/103328750.png)
+9.  The Location API opens in the Developer Portal. Click the **Try Out** tab from the left menu to go to the
+ API Console.
+    ![](../../../assets/img/Learn/create-api-prototype-dev-portal-overview.png) 
 
 10. Expand the `GET` method, click **Try it out** . Give any value for the town (e.g. London) and click **Execute** to invoke the API.
-    ![]({{base_path}}/assets/attachments/103328761/103328749.png)
+    ![](../../../assets/img/Learn/create-api-prototype-tryout-execute.png) 
 11. Note the payload you gave as a JSON output in the response.
-    ![]({{base_path}}/assets/attachments/103328761/103328748.png)
+    ![](../../../assets/img/Learn/create-api-prototype-execute-response.png)
 
-You have created an API with inline script, deployed it as a prototype and invoked it through the integrated API Console.
+You have successfully created an API with inline script, deployed it as a prototype and invoked it through the
+ integrated API Console.
 
-An API can also be prototyped by moving the API to the prototyped state in the API lifecycle. For more information, see the [Deploy and Test Mock APIs](_Deploy_and_Test_Mock_APIs_) tutorial.
+An API can also be prototyped by moving the API to the prototyped state by changing the API lifecycle state and
+ providing prototype endpoints. For more information, see the [Deploy and Test Mock APIs](deploy-and-test-mock-apis.md) tutorial.
 
 !!! info
-### Related Tutorials
+    Related Tutorials
+    
+    -   [Create and Publish an API](_Create_and_Publish_an_API_)
 
--   [Create and Publish an API](_Create_and_Publish_an_API_)
+    -   [Create a WebSocket API](_Create_a_WebSocket_API_)
 
--   [Create a WebSocket API](_Create_a_WebSocket_API_)
-
--   [Create and Publish an API from a Swagger definition](_Create_and_Publish_an_API_from_a_Swagger_Definition_)
+    -   [Create and Publish an API from a Swagger definition](_Create_and_Publish_an_API_from_a_Swagger_Definition_)
 
 
