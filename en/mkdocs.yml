@@ -49,6 +49,7 @@ nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
     - Get Started: 
         - Overview:  GettingStarted/overview.md
+        - About this Release: GettingStarted/about-this-release.md
         - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
     - Learn: 
@@ -233,8 +234,7 @@ nav:
                 - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
                 - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
                 - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2/saving-access-tokens-in-separate-tables.md
-                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md   
-            - SAML: ''
+                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
                 - Gateway Threat Protectors: ''
