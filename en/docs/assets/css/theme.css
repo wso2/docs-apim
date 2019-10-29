@@ -927,13 +927,14 @@ html .md-footer-meta.md-typeset a,
 
 .card {
    width: 350px;
-   height: 90px;
+   height: 110px;
    color: #404040;
    margin: 10px;
-   -webkit-box-shadow: 5px 5px 0px -1px rgba(242,242,242,1);
-   -moz-box-shadow: 5px 5px 0px -1px rgba(242,242,242,1);
-   box-shadow: 5px 5px 0px -1px rgba(242,242,242,1);
-   border: 1px solid #f1f1f1;
+   background: #f8f8f8;
+   -webkit-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+   -moz-box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+   box-shadow: 0px 5px 4px 0px rgba(105, 113, 120, 0.4);
+   border-left: 4px solid #f8f8f8;
    border-radius:0;
    font-size: 14px;   
    transition: all 0.3s ease;
@@ -943,12 +944,16 @@ html .md-footer-meta.md-typeset a,
    align-items: center;
    flex-direction: row;
    cursor: pointer;
-   transition: all 0.3s ease;
+   transition: all 0.6s ease;
+}
+.card:hover {
+    border-left: 4px solid #ff5003;
 }
 .line {
 	background:#ff5003;
 	width:5px;
-	height:88px;
+    height:88px;
+    display: none;                                                                                                                           
 }
 .card-content {
     justify-content: center;
@@ -959,15 +964,15 @@ html .md-footer-meta.md-typeset a,
     text-align: center;
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
 }
 
 .card-icon {
-    width: 75px;
+    width: 50px;
     height: 88px;
     max-width: 80px;
     border-radius: 0%;
     display: flex;
-    justify-content: center;
     align-items: center;
     color: #ff5003;
     transition: all 0.8s ease;
@@ -992,29 +997,15 @@ html .md-footer-meta.md-typeset a,
 }
 
 .hint {
-  display: none;
+  display: block;
   flex-direction: column;
   visibility: visible;
-  height: 0px;
   text-align: left;
-  
 }
 
-.card:hover .hint{
-	display:block;
-	width: 225px;
-        visibility: visible;
-   transition: height 100s ease;
+.md-typeset .hint {
+    margin: 5px 0;
 }
-
-.card:hover .card-content{
-   margin-top: 10px;
-	display:block;
-	height: 110px;
-        visibility: visible;
-   transition: height 100s ease;
-}
-
 
 .card .text {
    width: 80%;
@@ -1028,32 +1019,7 @@ html .md-footer-meta.md-typeset a,
    font-weight: 400;
    opacity: 0;
    max-height:0;
-   transition: height 100s ease;
 
-}
-
-.card:hover {
-   height: 115px;
-}
-
-.card:hover .
- {
-   transition: height 100s ease;
-   opacity: 1;
-   max-height:40px;
-}
-
-.card:hover .icon {
-   background-position: -120px;
-   transition: height 100s ease;
-}
-
-.card:hover .icon i {
-   background: linear-gradient(90deg, #FF7E7E, #FF4848);
-   -webkit-background-clip: text;
-   -webkit-text-fill-color: transparent;
-   opacity: 1;
-   transition: height 100s;
 }
 
 .beta-badge {
