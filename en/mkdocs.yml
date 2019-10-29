@@ -188,7 +188,6 @@ nav:
                 - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
             - Passing Enduser Attributes to the Backend:
                 - Passing Enduser Attributes to the Backend Using JWT: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt.md
-                - Passing Enduser Attributes to the Backend using HTTP Headers: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-http-headers.md
             - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
             - Advanced Topics:
