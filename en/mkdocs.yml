@@ -283,7 +283,6 @@ nav:
             - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
-            - Viewing Live Logs: Learn/Analytics/viewing-live-logs.md
             - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md
         - CICD Pipeline:
             - Initializing projects using the CLI Tool: Learn/CICDPipeline/initializing-projects-using-the-cli-tool.md
