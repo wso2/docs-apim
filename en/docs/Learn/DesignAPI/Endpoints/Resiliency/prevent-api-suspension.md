@@ -13,19 +13,16 @@ WSO2 API Manager suspends your API if the endpoint of your API cannot be reached
 
 To prevent or turn off API suspension, do the following:
 
-1.  Log into API Publisher ( `https://<HostName>:9443/publisher` ). Select your API and click **Edit API** .
-    ![]({{base_path}}/assets/attachments/103333692/103333695.png)2.  In the **Implement** tab, click the cogwheel icon next to the endpoint you want to re-configure.
-    ![]({{base_path}}/assets/attachments/103333692/103333694.png)3.  In the dialog box that appears, set the values for **Initial Duration** and **Max Duration** to zero to turn off suspension.
-    ![]({{base_path}}/assets/attachments/103333692/103333693.png)4.  Click **Save** and re-publish the API.
+1.  Log in to API Publisher ( `https://<HostName>:9443/publisher` ). Select your API and click **Endpoints** tab.
+2.  In the **Endpoints** tab, click the cogwheel icon next to the endpoint you want to re-configure.![prevent-endpoint-suspension](../../../..//assets/img/Learn/prevent-endpoint-suspension.png)
+3.  In the dialogue box that appears, set the values for **Initial Duration** and **Max Duration** to zero to turn off suspension.
+    ![initial-duration-and-max-duration](../../../..//assets/img/Learn/initial-duration-and-max-duration.png)4.  Click **Save** and re-publish the API.
 
-For more details on creating and publishing an API, see [Create and Publish an API](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API) .
+For more details on creating and publishing an API, see [Create](https://apim.docs.wso2.com/en/next/Learn/DesignAPI/CreateAPI/create-a-rest-api/) and [Publish an API](https://apim.docs.wso2.com/en/next/Learn/DesignAPI/PublishAPI/publish-an-api/).
 
 !!! info
-To avoid backend endpoint suspension,
-
-1.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder.
-2.  Open the configuration file of the API that has to be prevented from being suspended. (e.g. `admin--testApi_v1.0.0.xml` )
-3.  Add the following configurations,
+    To avoid backend endpoint suspension,
+    Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder. Open the configuration file of the API that has to be prevented from being suspended. (e.g. `admin--testApi_v1.0.0.xml` ) Add the following configurations.
 
     ``` java
          <endpoint name="admin--testApi_APIproductionEndpoint_0">
@@ -48,4 +45,4 @@ To avoid backend endpoint suspension,
     ```
 
 
-For more details on configuring different timeouts, see [Timeout configurations for an API call](https://docs.wso2.com/display/SHAN/Tuning+Performance#TuningPerformance-TimeoutconfigurationsforanAPIcall) in the Performance Tuning guide.
+For more details on configuring different timeouts, see [Timeout configurations for an API call](https://apim.docs.wso2.com/en/next/Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance/) in the Performance Tuning guide.
