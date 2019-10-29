@@ -40,7 +40,7 @@ Let's see what each handler does:
  Throttling is applied both at the application level as well as subscription level.
  - **APIMgtUsageHandler:** Publishes events to WSO2 Stream Processor (WSO2 SP) for collection and analysis of statistics. 
  This handler only comes to effect if API usage tracking is enabled . 
- See the [Overview of API Analytics](/Learn/Analytics/overview-of-api-analytics) 
+ See the [Overview of API Analytics](../../../Analytics/overview-of-api-analytics) 
  section for more information.
  - **APIMgtGoogleAnalyticsTrackingHandler:** Publishes events to Google Analytics. This handler only comes into effect 
  if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
@@ -51,7 +51,7 @@ Let's see what each handler does:
  `top` . This is useful when you want to execute your own extensions before our default handlers in situations like  
  doing additional security checks such as signature verification on access tokens before executing the default security 
  handler.
-    See [Adding Mediation Extensions](/Learn/Extensions/adding-mediation-extensions).
+    See [Adding Mediation Extensions](../../../Extensions/adding-mediation-extensions).
 
 ### Using APILogMessageHandler
 
@@ -113,7 +113,7 @@ before `</Handlers>`.
 
 !!! note
     To perform analytics with the logs, see 
-    [Analyzing the Log Overview](/Learn/Analytics/analyzing-the-log-overview) .
+    [Analyzing the Log Overview](../../../Analytics/analyzing-the-log-overview) .
 
 
 ## Writing a custom handler
@@ -123,7 +123,7 @@ before `</Handlers>`.
     you need to maintain a customized velocity template file that needs to be manually merged when you upgrade your 
     product to a newer version. Therefore, it is recommended to use custom Handlers when you wish to specify the exact 
     order of execution of JARs as this can not be done with 
-    [Mediators](/Learn/Extensions/adding-mediation-extensions) .
+    [Mediators](../../../Extensions/adding-mediation-extensions) .
 
 
 Custom Handler is a way of extending API Manager which the product offer to change the API flow through the API Gateway. 
@@ -135,7 +135,7 @@ Let's see how you can write a custom handler and apply it to the API Manager. In
 authentication handler. Make sure your custom handler name is not the same as the name of an existing handler.
 
 WSO2 API Manager provides the OAuth2 bearer token as its default authentication mechanism. A sample implementation 
-is <a href="/assets/attachments/APIAuthenticationHandler.java" download>here</a>. Similarly, you can extend the API Manager to 
+is <a href="../../../../assets/attachments/learn/APIAuthenticationHandler.java" download>here</a>. Similarly, you can extend the API Manager to 
 support any custom authentication mechanism by writing your own authentication handler class.
 
 Given below is an example implementation. Please find the complete project archive 
