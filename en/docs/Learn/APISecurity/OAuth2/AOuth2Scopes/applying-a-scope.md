@@ -1,8 +1,10 @@
 # Applying a scope
 
-You apply scopes to an API resource at the time the API is created or modified. In the API Publisher, click the **API &gt; Add** menu (to add a new API) or the **Edit** link next to an existing API. Then, navigate to the **Manage** tab and scroll down to see the **Add Scopes** button under **Resources** .
+You apply scopes to an API resource at the time the API is created or modified. In the API Publisher, click the **APIs &gt; CREATE API** button (to add a new API) or the **Edit** an existing API. Then, navigate to the **Scopes** section and wou will see the **Create Scopes** button.
 
-On the screen that appears, enter a scope key, scope name and optionally, allowed roles and a description. Click **Add Scope** .
+On the screen that appears, enter a scope key, scope name and optionally, allowed roles and a description. Click **Save** .
+
+![](/../../../../assets/img/Learn/create-scope.png)
 
 <table>
 <tbody>
@@ -18,21 +20,22 @@ On the screen that appears, enter a scope key, scope name and optionally, allowe
 <td><strong>Roles</strong></td>
 <td><div class="content-wrapper">
 <p>The user role(s) that are allowed to obtain a token against this scope. E.g., manager, employee.</p>
-!!! note
 <p>Note that the role name is <strong>case sensitive</strong> in the DBMSs that are case sensitive, such as PostgreSQL.</p>
-<p>When the role you specify is in a secondary user store, you have to give the role as &lt;userstore name&gt;/&lt;role name&gt;.</p>
+<p>When the role you specify is in a secondary user store, you have to give the role as <code>&lt;userstore name&gt;/&lt;role name&gt;</code>.</p>
 
 </div></td>
 </tr>
 </tbody>
 </table>
 
-To apply the scope, you add the scope to a resource, save and publish the API.
+To apply the scope, you can add the scope to a resource in **Resources** section, save and publish the API.
 
 !!! tip
-**Tip** : When you generate [access tokens](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Accesstokens) for applications with APIs protected by scope/s in the API Store, a **Scopes** drop down list is displayed in the **Production Keys** tab of the application, where you can select the scope/s after the token is generated.
+     When you generate [access tokens](../../../../ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens/) for applications with APIs protected by scope/s in the API Developer Portal, a **Scopes** drop down list is displayed in the **Production Keys** tab of the application, where you can select the scope/s and generate the token.
+
+![](/../../../../assets/img/Learn/resource-scope.png)
 
 !!! note
-For a complete example, please refer the article : [An Overview of Scope Management with WSO2 API Manager](https://wso2.com/library/articles/2017/01/article-an-overview-of-scope-management-with-wso2-api-manager/#example)
+    For a complete example, please refer the article : [An Overview of Scope Management with WSO2 API Manager](https://wso2.com/library/articles/2017/01/article-an-overview-of-scope-management-with-wso2-api-manager/#example)
 
 
