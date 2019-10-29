@@ -31,7 +31,7 @@ A few examples are listed below.
 <tbody>
 <tr class="odd">
 <td>You need to skip trivial steps, because its validation does not add value.</td>
-<td><p>When creating a key via the API Store, the subscriber can specify which domains are allowed to make calls using a token granted against a particular consumer key. If this validation does not add any value, these trivial steps can be ignored and skipped by extending the <strong><code>               KeyValidationHandler              </code></strong> .</p>
+<td><p>When creating a key via the API Devportal, the subscriber can specify which domains are allowed to make calls using a token granted against a particular consumer key. If this validation does not add any value, these trivial steps can be ignored and skipped by extending the <strong><code>               KeyValidationHandler              </code></strong> .</p>
 !!! info
 <p>For another example scenario, see <a href="_Extending_Scope_Validation_">Skipping Role Validation for Scopes</a> .</p>
 </td>
