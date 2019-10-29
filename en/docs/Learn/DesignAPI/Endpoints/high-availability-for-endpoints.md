@@ -15,8 +15,8 @@ Following are the other configurations that you need to do in order to specify a
 
 <table>
 <colgroup>
-<col width="50%" />
-<col width="50%" />
+<col width="30%" />
+<col width="70%" />
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -27,7 +27,7 @@ Following are the other configurations that you need to do in order to specify a
 </tr>
 <tr class="even">
 <td>Sandbox endpoints</td>
-<td>The set of sandbox endpoints can be specified here where te requests need to be load balanced. You can specify more than one endpoint by clicking on <strong>&quot;+&quot;</strong> sign and can delete the endpoints by clicking on <strong>&quot;-&quot;</strong> sign</td>
+<td>The set of sandbox endpoints can be specified here where te requests need to be load balanced. You can specify more than one endpoint by clicking on <strong>&quot;+&quot;</strong> sign and can delete the endpoints by clicking on <strong>bin</strong> icon</td>
 </tr>
 <tr class="odd">
 <td>Algorithm</td>
