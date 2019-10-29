@@ -13,25 +13,17 @@ The key features of the product are listed below.
 
 ## Key Features
 
--   Design and Prototype APIs
+-  Design and Prototype APIs
+-  Publish API Products and Govern the Use of APIs
+-  Control Access and Enforce Security
+-  Developer Portal
+-  Manage Developer Community
+-  Manage and Scale API Traffic
+-  Monitor and Monetize
+-  Pluggable, Extensible, and Themeable
+-  Easily Deployable in Your Enterprise
+-  WSO2 Platform Multi-Tenancy Support
 
--   Publish and govern the use of APIs
-
--   Create API products
-
--   Consume and Manage APIs
-
--   Manage and Scale API Traffic
-
--   Control Access and Enforce Security
-
--   Monitor and Monetize
-
--   Pluggable, Extensible, and Themeable
-
--   Easily Deployable in Your Enterprise
-
--   Manage Developer Community
 
 ## Competitive Advantage
 
