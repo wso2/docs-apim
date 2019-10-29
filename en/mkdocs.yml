@@ -162,8 +162,8 @@ nav:
                 - Customizing the API Store: Learn/ConsumeAPI/Customizations/customizing-the-api-store.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
-                - Directing the Root Context to the API Store: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-api-store.md
-                - Customizing User SignUp in API Store: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-api-store.md
+                - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
+                - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
                 - Customize the API Store and Gateway URLs for Tenants: Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Customizing Login Pages for API Store and API Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-api-store-and-api-publisher.md
             - Generating SDKs:  
