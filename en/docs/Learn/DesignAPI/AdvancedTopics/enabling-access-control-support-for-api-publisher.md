@@ -30,7 +30,7 @@ Restart the server after doing these changes.
 ### Using the API Publisher UI
 
 1.  Log in to API Publisher as an API Creator. For more information on User Roles, see [Managing Users and Roles](_Managing_Users_and_Roles_) .
-2.  Create an API. Go to the **Design Configurations** tab. Select **Restricted by roles** for **Publisher Access Control**.
+2.  [Create a new API](../../../DesignAPI/CreateAPI/create-a-rest-api/). Go to the **Design Configurations** tab. Select **Restricted by roles** for **Publisher Access Control**.
     <html>
      <head>
      </head>
