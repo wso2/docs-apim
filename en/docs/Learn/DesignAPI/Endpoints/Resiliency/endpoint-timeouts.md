@@ -11,7 +11,6 @@ The Advanced Endpoint Configuration dialog box appears as below.
 ![](../../../../assets/img/Learn/advance-config-dialog.png)
 
 Following are the configurations that we can do with the Advanced Endpoint Configurations. You can do advanced configurations for both production and sandbox endpoints.
-
 <table>
     <tbody>
         <tr class="odd">
@@ -19,13 +18,16 @@ Following are the configurations that we can do with the Advanced Endpoint Confi
             <td>
                 <div class="content-wrapper">
                     <p>If you want to configure the suspension of an endpoint specifying error codes, maximum suspension time, suspension factors etc., you can use the endpoint suspension state in the Advanced Endpoint Configuration.</p>
-                    <p><strong>Error Codes:</strong> Error codes in the drop down list which need to make the endpoint suspension. If the selected error codes are received from the endpoint, the endpoint will be suspended. Specify the <a href="https://apim.docs.wso2.com/en/next/Troubleshooting/error-handling/#transport-error-codes">transport error codes</a> where the endpoint suspension should be triggered. You can select single or error codes here.</p>
-                    <p><strong>Initial duration:</strong> The time duration for which the endpoint will be suspended, when one or more suspend error codes are received from it for the first time.</p>
+                    <p><strong>Error Codes:</strong> Error codes which need to make the endpoint suspended. If the
+                     selected error codes are received from the backend endpoint, the endpoint will be marked as
+                      suspended. Specify the [transport error codes](../../../../Troubleshooting/error-handling.md) where the endpoint suspension should be
+                      triggered. You can select single or multiple error codes here.</p>
+                    <p><strong>Initial duration:</strong> The time duration for which the endpoint will be suspended, when one or more suspend error codes are received from the endpoint for the first time.</p>
                         <div class="admonition note">
                               <p class="admonition-title">Note</p>
                               <p>When creating (or updating) Failover endpoints through the Publisher UI, you need to go into this configuration box of each endpoint and specify a set of Error Codes for the endpoint to fail over on and take off the Initial Duration by setting its value to -1.</p>
                         </div> 
-                    <p><strong>Max duration:</strong> The maximum time duration for which the endpoint is suspended when suspend error codes are received from it.</p>
+                    <p><strong>Max duration:</strong> The maximum time duration for which the endpoint will be suspended</p>
                     <p><strong>Factor:</strong> The duration to suspend can vary from the first time suspension to the subsequent time. The factor value decides the suspense duration variance between subsequent suspensions.</p>
                 </div>
             </td>
@@ -34,7 +36,8 @@ Following are the configurations that we can do with the Advanced Endpoint Confi
             <td>Endpoint Timeout state</td>
             <td><p>Configurations of retry, error codes and delays in terms of endpoint timeout can be configured with the endpoint timeout state in the Advanced Endpoint Configuration.</p>
             <p><strong>Error Codes:</strong> A list of error codes. If these error codes are received from the endpoint, the request will be subjected to a timeout.</p>
-            <p><strong>Retries Before Suspension:</strong> The number of re-tries in case of a timeout, caused by the above listed error codes.</p>
+            <p><strong>Retries Before Suspension:</strong> The number of re-tries performed by the gateway before
+             the endpoint timeout when any  of the selected error codes are received</p>
             <p><strong>Retry Delay:</strong> The delay between retries in milliseconds.</p></td>
         </tr>
         <tr class="odd">
