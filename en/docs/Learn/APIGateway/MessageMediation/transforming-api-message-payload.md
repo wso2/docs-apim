@@ -14,7 +14,7 @@ from the message. As with message builders, the message formatter is selected ba
     Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API 
     Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's 
     synapse configuration directly. The recommended way to extend an API's mediation flow is by 
-    [engaging <code>In/Out</code> sequences](change-the-default-mediation-flow-of-api-requests.md) .
+    [engaging <code>In/Out</code> sequences](../change-the-default-mediation-flow-of-api-requests) .
 
 
 Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to implement the API Gateway through 
@@ -73,434 +73,449 @@ For example, if the media type is `text/javascript` , register the message build
 <messageFormatter contentType="text/javascript"   
                 class="org.apache.synapse.commons.json.JsonStreamFormatter"/> 
 ```
-<div class="admonition tip">
-        <p class="admonition-title">Tip</p>
-        <p>
-            To support having spaces inside JSON attributes, change the default JSON builder and formatter to the following 
-            pair in either <code><API-M_HOME>/repository/conf/axis2/axis2.xml</code> (super tenant scenario) or 
-            <code><API-M_HOME>/repository/conf/axis2/tenant-axis2.xml</code> (tenant scenario) file:
-        </p>
-</div>
+    
 !!! tip
     To support having spaces inside JSON attributes, change the default JSON builder and formatter to the following 
-    pair in either `<API-M_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or 
-    `<API-M_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
-    ``` java
-    <messageBuilder contentType="application/json" class="org.apache.synapse.commons.json.JsonStreamBuilder>
-    <messageFormatter contentType="application/json" class="org.apache.synapse.commons.json.JsonStreamFormatter”/>
+    pair in either `<APIM_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or   
+    `<APIM_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
+    
+    ``` xml
+    <messageBuilder contentType="application/json"  
+                    class="org.apache.synapse.commons.json.JsonStreamBuilder">
+    <messageFormatter contentType="application/json"  
+                    class="org.apache.synapse.commons.json.JsonStreamFormatter"/>
     ```
 
 !!! tip
-To support use cases for JSON payloads with arrays, change the default JSON builder and formatter to the following pair in either `<API-M_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or `<API-M_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
+    To support use cases for JSON payloads with arrays, change the default JSON builder and formatter to the following 
+    pair in either `<APIM_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or 
+    `<APIM_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
 
     ``` xml
-    <messageBuilder contentType="application/json"<br/>
-                    class="org.apache.synapse.commons.json.JsonStreamBuilder>
-    <messageFormatter contentType="application/json"   
-                    class="org.apache.synapse.commons.json.JsonStreamFormatter”/>
+    <messageBuilder contentType="application/json"  
+                    class="org.apache.synapse.commons.json.JsonStreamBuilder">
+    <messageFormatter contentType="application/json"  
+                    class="org.apache.synapse.commons.json.JsonStreamFormatter"/>
     ```
 
-Else, in JSON to XML conversion, there might be issues as below:
+    Else, in JSON to XML conversion, there might be issues as below:
 
-**JSON**
+    **JSON**
 
-``` java
+    ``` java
     "phoneNumbers":[
-          {
+        {
             "phoneNumber":"4027161289",
             "phoneNumberType":"home"
-          }
+        }
     ]
-```
+    ```
 
-**Converted XML**
+    **Converted XML**
 
-``` java
+    ``` java
     <?xml-multiple phoneNumbers?>
     <phoneNumbers>
        <phoneNumber>4027161289</phoneNumber>
        <phoneNumberType>home</phoneNumberType>
     </phoneNumbers>
-```
+    ```
 
 !!! note
-When you modify the builders/formatters in Axis2 configuration, make sure that you have enabled only one correct message builder/formatter pair for a given media type.
+    When you modify the builders/formatters in Axis2 configuration, make sure that you have enabled only one correct 
+    message builder/formatter pair for a given media type.
 
 
 ### XML representation of JSON payloads
 
-When building the XML tree, JSON builders attach the converted XML infoset to a special XML element that acts as the root element of the final XML tree. If the original JSON payload is of type `object` , the special element is `<jsonObject/>` . If it is an `array` , the special element is `<jsonArray/>` . Following are examples of JSON and XML representations of various objects and arrays.
+When building the XML tree, JSON builders attach the converted XML infoset to a special XML element that acts as 
+the root element of the final XML tree. If the original JSON payload is of type `object` , the special element is 
+`<jsonObject/>` . If it is an `array` , the special element is `<jsonArray/>` . Following are examples of JSON and 
+XML representations of various objects and arrays.
 
-##### Null objects
+#### Null objects
 
 JSON:
 
 ``` javascript
-    {"object":null}
+{"object":null}
 ```
 
 XML:
 
-``` html/xml
-    <jsonObject>
-        <object></object>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <object></object>
+</jsonObject>
 ```
 
-##### Empty objects
+#### Empty objects
 
 JSON:
 
 ``` javascript
-    {"object":{}}
+{"object":{}}
 ```
 
 XML:
 
-``` html/xml
-    <jsonObject>
-       <object></object>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <object></object>
+</jsonObject>
 ```
 
-##### Empty strings
+#### Empty strings
 
 JSON:
 
 ``` javascript
-    {"object":""}
+]{"object":""}
 ```
 
 XML:
 
-``` html/xml
-    <jsonObject>
-       <object></object>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <object></object>
+</jsonObject>
 ```
 
-##### Empty array
+#### Empty array
 
 JSON:
 
 ``` javascript
-    []
+[]
 ```
 
 XML (JsonStreamBuilder):
 
-``` html/xml
-    <jsonArray></jsonArray>
+``` xml
+<jsonArray></jsonArray>
 ```
 
 XML (JsonBuilder):
 
-``` html/xml
-    <jsonArray>
-       <?xml-multiple jsonElement?>
-    </jsonArray>
+``` xml
+<jsonArray>
+    <?xml-multiple jsonElement?>
+</jsonArray>
 ```
 
-##### Named arrays
+#### Named arrays
 
 JSON:
 
 ``` javascript
-    {"array":[1,2]}
+{"array":[1,2]}
 ```
 
 XML (JsonStreamBuilder):
 
-``` html/xml
-    <jsonObject>
-       <array>1</array>
-       <array>2</array>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <array>1</array>
+    <array>2</array>
+</jsonObject>
 ```
 
 XML (JsonBuilder):
 
-``` html/xml
-    <jsonObject>
-       <?xml-multiple array?>
-       <array>1</array>
-       <array>2</array>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <?xml-multiple array?>
+    <array>1</array>
+    <array>2</array>
+</jsonObject>
 ```
 
 JSON:
 
 ``` javascript
-    {"array":[]}
+{"array":[]}
 ```
 
 XML (JsonStreamBuilder):
 
-``` html/xml
-    <jsonObject></jsonObject>
+``` xml
+<jsonObject></jsonObject>
 ```
 
 XML (JsonBuilder):
 
-``` html/xml
-    <jsonObject>
-       <?xml-multiple array?>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <?xml-multiple array?>
+</jsonObject>
 ```
 
-##### Anonymous arrays
+#### Anonymous arrays
 
 JSON:
 
 ``` javascript
-    [1,2]
+[1,2]
 ```
 
 XML (JsonStreamBuilder):
 
-``` html/xml
-    <jsonArray>
-       <jsonElement>1</jsonElement>
-       <jsonElement>2</jsonElement>
-    </jsonArray>
+``` xml
+<jsonArray>
+    <jsonElement>1</jsonElement>
+    <jsonElement>2</jsonElement>
+</jsonArray>
 ```
 
 XML (JsonBuilder):
 
-``` html/xml
-    <jsonArray>
-       <?xml-multiple jsonElement?>
-       <jsonElement>1</jsonElement>
-       <jsonElement>2</jsonElement>
-    </jsonArray>
+``` xml
+<jsonArray>
+    <?xml-multiple jsonElement?>
+    <jsonElement>1</jsonElement>
+    <jsonElement>2</jsonElement>
+</jsonArray>
 ```
 
 JSON:
 
 ``` javascript
-    [1, []]
+[1, []]
 ```
 
 XML (JsonStreamBuilder):
 
-``` html/xml
-    <jsonArray>
-       <jsonElement>1</jsonElement>
-       <jsonElement>
-           <jsonArray></jsonArray>
-       </jsonElement>
-    </jsonArray>
+``` xml
+<jsonArray>
+    <jsonElement>1</jsonElement>
+    <jsonElement>
+        <jsonArray></jsonArray>
+    </jsonElement>
+</jsonArray>
 ```
 
 XML (JsonBuilder):
 
-``` html/xml
-    <jsonArray>
-       <?xml-multiple jsonElement?>
-       <jsonElement>1</jsonElement>
-       <jsonElement>
-           <jsonArray>
-               <?xml-multiple jsonElement?>
-           </jsonArray>
-       </jsonElement>
-    </jsonArray>
+``` xml
+<jsonArray>
+    <?xml-multiple jsonElement?>
+    <jsonElement>1</jsonElement>
+    <jsonElement>
+        <jsonArray>
+            <?xml-multiple jsonElement?>
+        </jsonArray>
+    </jsonElement>
+</jsonArray>
 ```
 
-##### XML processing instructions (PIs)
+#### XML processing instructions (PIs)
 
-Note that the addition of `xml-multiple` processing instructions to the XML payloads whose JSON representations contain arrays. `JsonBuilder` (via StAXON) adds these instructions to the XML payload that it builds during the JSON to XML conversion so that during the XML to JSON conversion, `JsonFormatter` can reconstruct the arrays that are present in the original JSON payload. `JsonFormatter` interprets the elements immediately following a processing instruction to construct an array.
+Note that the addition of `xml-multiple` processing instructions to the XML payloads whose JSON representations contain 
+arrays. `JsonBuilder` (via StAXON) adds these instructions to the XML payload that it builds during the JSON to XML 
+conversion so that during the XML to JSON conversion, `JsonFormatter` can reconstruct the arrays that are present in 
+the original JSON payload. `JsonFormatter` interprets the elements immediately following a processing instruction to 
+construct an array.
 
-##### Special characters
+#### Special characters
 
-When building XML elements,  the ‘$’ character and digits are handled in a special manner when they appear as the first character of a JSON key. Following are examples of two such occurrences. Note the addition of the `_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the ‘$’ and digit characters, respectively.
+When building XML elements,  the ‘\$’ character and digits are handled in a special manner when they appear as the 
+first character of a JSON key. Following are examples of two such occurrences. Note the addition of the 
+`_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the ‘\$’ and digit characters, respectively.
 
 JSON:
 
 ``` javascript
-    {"$key":1234}
+{"$key":1234}
 ```
 
 XML:
 
-``` html/xml
-    <jsonObject>
-       <_JsonReader_PS_key>1234</_JsonReader_PS_key>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <_JsonReader_PS_key>1234</_JsonReader_PS_key>
+</jsonObject>
 ```
 
 JSON:
 
 ``` javascript
-    {"32X32":"image_32x32.png"}
+{"32X32":"image_32x32.png"}
 ```
 
 XML:
 
-``` html/xml
-    <jsonObject>
-       <_JsonReader_PD_32X32>image_32x32.png</_JsonReader_PD_32X32>
-    </jsonObject>
+``` xml
+<jsonObject>
+    <_JsonReader_PD_32X32>image_32x32.png</_JsonReader_PD_32X32>
+</jsonObject>
 ```
 
 ### Converting a payload between XML and JSON
 
-To convert an XML payload to JSON, set the `messageType` property to `application/json` in the axis2 scope before sending message to an endpoint. Similarly, to convert a JSON payload to XML, set the `messageType` property to `application/xml` or `text/xml` . For example:
+To convert an XML payload to JSON, set the `messageType` property to `application/json` in the axis2 scope before 
+sending message to an endpoint. Similarly, to convert a JSON payload to XML, set the `messageType` property to 
+`application/xml` or `text/xml` . For example:
 
-``` html/xml
-     <api name="admin--TOJSON" context="/tojson" version="1.0" version-type="url">
-            <resource methods="POST GET DELETE OPTIONS PUT" url-mapping="/*">
-                <inSequence>
-                    <property name="POST_TO_URI" value="true" scope="axis2"/>
-                    <property name="messageType" value="application/json" scope="axis2"/>
-                    <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
-                        <then>
-                            <send>
-                                <endpoint name="admin--Test_APIproductionEndpoint_0">
-                                    <http uri-template="http://localhost:9767/services/StudentService">
-                                        <timeout>
-                                            <duration>30000</duration>
-                                            <responseAction>fault</responseAction>
-                                        </timeout>
-                                        <suspendOnFailure>
-                                            <errorCodes>-1</errorCodes>
-                                            <initialDuration>0</initialDuration>
-                                            <progressionFactor>1.0</progressionFactor>
-                                            <maximumDuration>0</maximumDuration>
-                                        </suspendOnFailure>
-                                        <markForSuspension>
-                                            <errorCodes>-1</errorCodes>
-                                        </markForSuspension>
-                                    </http>
-                                </endpoint>
-                            </send>
-                        </then>
-                        <else>
-                            <sequence key="_sandbox_key_error_"/>
-                        </else>
-                    </filter>
-                </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
-            </resource>
-            <handlers>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"/>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">
-                    <property name="id" value="A"/>
-                    <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml"/>
-                </handler>
-                <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler"/>
-                <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtGoogleAnalyticsTrackingHandler"/>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerExtensionHandler"/>
-            </handlers>
-        </api>
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="admin--TOJSON" context="/tojson" version="1.0" version-type="url">
+    <resource methods="POST GET DELETE OPTIONS PUT" url-mapping="/*">
+        <inSequence>
+            <property name="POST_TO_URI" value="true" scope="axis2" />
+            <property name="messageType" value="application/json" scope="axis2" />
+            <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
+                <then>
+                    <send>
+                        <endpoint name="admin--Test_APIproductionEndpoint_0">
+                            <http uri-template="http://localhost:9767/services/StudentService">
+                                <timeout>
+                                    <duration>30000</duration>
+                                    <responseAction>fault</responseAction>
+                                </timeout>
+                                <suspendOnFailure>
+                                    <errorCodes>-1</errorCodes>
+                                    <initialDuration>0</initialDuration>
+                                    <progressionFactor>1.0</progressionFactor>
+                                    <maximumDuration>0</maximumDuration>
+                                </suspendOnFailure>
+                                <markForSuspension>
+                                    <errorCodes>-1</errorCodes>
+                                </markForSuspension>
+                            </http>
+                        </endpoint>
+                    </send>
+                </then>
+                <else>
+                    <sequence key="_sandbox_key_error_" />
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence>
+            <send />
+        </outSequence>
+    </resource>
+    <handlers>
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler" />
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">
+            <property name="id" value="A" />
+            <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml" />
+        </handler>
+        <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler" />
+        <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtGoogleAnalyticsTrackingHandler" />
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerExtensionHandler" />
+    </handlers>
+</api>
 ```
 
 An example command to invoke above API:
 
 ``` bash
-    curl -v -X POST -H "Content-Type:application/xml" -H "Authorization: Bearer xxx" -d@request1.xml "http://10.100.1.110:8280/tojson/1.0"
+curl -v -X POST -H "Content-Type:application/xml" -H "Authorization: Bearer xxx" -d@request1.xml "http://10.100.1.110:8280/tojson/1.0"
 ```
 
 If the request payload is as follows:
 
-``` html/xml
-    <coordinates>
-       <location>
-           <name>Bermuda Triangle</name>
-           <n>25.0000</n>
-           <w>71.0000</w>
-       </location>
-       <location>
-           <name>Eiffel Tower</name>
-           <n>48.8582</n>
-           <e>2.2945</e>
-       </location>
-    </coordinates>
+```  xml
+<?xml version="1.0" encoding="UTF-8"?>
+<coordinates>
+    <location>
+        <name>Bermuda Triangle</name>
+        <n>25.0000</n>
+        <w>71.0000</w>
+    </location>
+    <location>
+        <name>Eiffel Tower</name>
+        <n>48.8582</n>
+        <e>2.2945</e>
+    </location>
+</coordinates>
 ```
 
 The response payload will look like this:
 
 ``` javascript
-    {
-      "coordinates":{
-         "location":[
-            {
-               "name":"Bermuda Triangle",
-               "n":25.0000,
-               "w":71.0000
+{ 
+    "coordinates":{ 
+        "location":[ 
+            { 
+                "name":"Bermuda Triangle",
+                "n":25.0000,
+                "w":71.0000
             },
-            {
-               "name":"Eiffel Tower",
-               "n":48.8582,
-               "e":2.2945
+            { 
+                "name":"Eiffel Tower",
+                "n":48.8582,
+                "e":2.2945
             }
-         ]
-      }
+        ]
     }
+}
 ```
 
-Note that we have used the Property mediator to mark the outgoing payload to be formatted as JSON. For more information about the Property Mediator, see the [Property Mediator](https://docs.wso2.com/display/EI620/Property+Mediator) page on WSO2 EI documentation.
+Note that we have used the Property mediator to mark the outgoing payload to be formatted as JSON. For more information 
+about the Property Mediator, see the [Property Mediator](https://docs.wso2.com/display/EI620/Property+Mediator) page 
+on WSO2 EI documentation.
 
-``` html/xml
-    <property name="messageType" value="application/json" scope="axis2"/>
+``` xml
+<property name="messageType" value="application/json" scope="axis2"/>
 ```
 
 Similarly if the response message needs to be transformed, set the messageType property in the outSequence.
 
-``` html/xml
-     <api name="admin--TOJSON" context="/tojson" version="1.0" version-type="url">
-            <resource methods="POST GET DELETE OPTIONS PUT" url-mapping="/*">
-                <inSequence>
-                    <property name="POST_TO_URI" value="true" scope="axis2"/>
-                    <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
-                        <then>
-                            <send>
-                                <endpoint name="admin--Test_APIproductionEndpoint_0">
-                                    <http uri-template="http://localhost:9767/services/StudentService">
-                                        <timeout>
-                                            <duration>30000</duration>
-                                            <responseAction>fault</responseAction>
-                                        </timeout>
-                                        <suspendOnFailure>
-                                            <errorCodes>-1</errorCodes>
-                                            <initialDuration>0</initialDuration>
-                                            <progressionFactor>1.0</progressionFactor>
-                                            <maximumDuration>0</maximumDuration>
-                                        </suspendOnFailure>
-                                        <markForSuspension>
-                                            <errorCodes>-1</errorCodes>
-                                        </markForSuspension>
-                                    </http>
-                                </endpoint>
-                            </send>
-                        </then>
-                        <else>
-                            <sequence key="_sandbox_key_error_"/>
-                        </else>
-                    </filter>
-                </inSequence>
-                <outSequence>
-                    <property name="messageType" value="application/json" scope="axis2"/>
-                    <send/>
-                </outSequence>
-            </resource>
-            <handlers>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"/>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">
-                    <property name="id" value="A"/>
-                    <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml"/>
-                </handler>
-                <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler"/>
-                <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtGoogleAnalyticsTrackingHandler"/>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerExtensionHandler"/>
-            </handlers>
-        </api>
+``` xml
+<?xml version="1.0" encoding="UTF-8"?>
+<api name="admin--TOJSON" context="/tojson" version="1.0" version-type="url">
+    <resource methods="POST GET DELETE OPTIONS PUT" url-mapping="/*">
+        <inSequence>
+            <property name="POST_TO_URI" value="true" scope="axis2" />
+            <filter source="$ctx:AM_KEY_TYPE" regex="PRODUCTION">
+                <then>
+                    <send>
+                        <endpoint name="admin--Test_APIproductionEndpoint_0">
+                            <http uri-template="http://localhost:9767/services/StudentService">
+                                <timeout>
+                                    <duration>30000</duration>
+                                    <responseAction>fault</responseAction>
+                                </timeout>
+                                <suspendOnFailure>
+                                    <errorCodes>-1</errorCodes>
+                                    <initialDuration>0</initialDuration>
+                                    <progressionFactor>1.0</progressionFactor>
+                                    <maximumDuration>0</maximumDuration>
+                                </suspendOnFailure>
+                                <markForSuspension>
+                                    <errorCodes>-1</errorCodes>
+                                </markForSuspension>
+                            </http>
+                        </endpoint>
+                    </send>
+                </then>
+                <else>
+                    <sequence key="_sandbox_key_error_" />
+                </else>
+            </filter>
+        </inSequence>
+        <outSequence>
+            <property name="messageType" value="application/json" scope="axis2" />
+            <send />
+        </outSequence>
+    </resource>
+    <handlers>
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler" />
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.APIThrottleHandler">
+            <property name="id" value="A" />
+            <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml" />
+        </handler>
+        <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler" />
+        <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtGoogleAnalyticsTrackingHandler" />
+        <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerExtensionHandler" />
+    </handlers>
+</api>
 ```
 
 !!! info
-XML to JSON Transformation Parameters
-
-See [JSON Transformation Parameters](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-XMLtoJSONtransformationparameters) for additional parameters for converting XML to JSON.
+    **XML to JSON Transformation Parameters**  
+    See [JSON Transformation Parameters](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-XMLtoJSONtransformationparameters) 
+    for additional parameters for converting XML to JSON.
 
 
