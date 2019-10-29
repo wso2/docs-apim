@@ -19,14 +19,12 @@ If your api backend is secured with a self-signed certificate (or a certificate 
  `<API-M_HOME>/repository/conf/deployment.toml` file as shown below. 
     ``` toml
         [transport.passthru_https.sender.ssl_profile]
-        file_path = "repository/resources/security/sslprofiles.xml"
         interval = 600000
     ```
     
     | Configuration Parameter        | Description|
     |-------------|---------------------------------------------------|
-    | file_path   | The sslprofiles.xml file path. ***DO NOT MODIFY***|
-    | interval    | The time taken to load the newly added certificate in ***milliseconds***. Default 10 mins. (600000ms) |
+    | interval    | The time taken to load the newly added certificate in ***milliseconds***. Default 10 mins. (600000ms) Minimum interval : 60000ms (1 min)|
 
 2.  If you use a different Trust Store/ Keystore configuration for `[transport.passthru_https.sender]` in `deployment.toml` file, modify the KeyStore and TrustStore location in
 `<API-M_HOME>/repository/resources/security/sslprofiles.xml` file accordingly.  The `sslprofiles.xml` file is configured with the default client-truststore.jks

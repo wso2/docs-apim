@@ -72,7 +72,6 @@ nav:
                 - Security:
                     - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
                     - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
-                - Endpoint Timeouts: Learn/DesignAPI/Endpoints/endpoint-timeouts.md
                 - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
                 - Resiliency:
                     - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
