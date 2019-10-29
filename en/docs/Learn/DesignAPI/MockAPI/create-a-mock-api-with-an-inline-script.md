@@ -112,10 +112,10 @@ An API can also be prototyped by moving the API to the prototyped state by chang
 !!! info
     Related Tutorials
     
-    -   [Create and Publish an API](_Create_and_Publish_an_API_)
+    - [Create and Publish an API](../CreateAPI/create-a-rest-api.md)
+    
+    - [Create a WebSocket API](../CreateAPI/create-a-websocket-api.md)
 
-    -   [Create a WebSocket API](_Create_a_WebSocket_API_)
-
-    -   [Create and Publish an API from a Swagger definition](_Create_and_Publish_an_API_from_a_Swagger_Definition_)
+    - [Create and Publish an API from a Swagger definition](../CreateAPI/create-a-rest-api-from-a-swagger-definition.md)
 
 
