@@ -6,10 +6,6 @@
     "3.0.x"
    ],
   "all": {
-   "3.0.x": {
-        "doc": "3.0.x",
-        "notes": "3.0.x/release-notes"
-    },
     "2.7.0": {
         "doc": "2.7.0",
         "notes": "2.7.0/release-notes"
@@ -39,8 +35,12 @@
         "notes": "https://docs.wso2.com/display/AM110/About+this+Release"
     },
     "1.9.0": {
-        "doc": "https://docs.wso2.com/display/AM190/",
-        "notes": "https://docs.wso2.com/display/AM190/About+this+Release"
+    "doc": "https://docs.wso2.com/display/AM190/",
+    "notes": "https://docs.wso2.com/display/AM190/About+this+Release"
+    },
+    "1.9.1": {
+        "doc": "https://docs.wso2.com/display/AM191/",
+        "notes": "https://docs.wso2.com/display/AM191/About+this+Release"
     }
   }
 }
