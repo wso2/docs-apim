@@ -11,6 +11,7 @@
        -   [Sequences](https://docs.wso2.com/display/AM300/Key+Concepts#KeyConcepts-Sequences)
        -   [Response caching](https://docs.wso2.com/display/AM300/Configuring+Caching#ConfiguringCaching-Responsecache)
 
+Follow the steps bellow to create a REST API.
 
 1. Sign in to the WSO2 API Publisher providing username and password `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ).
 
@@ -43,7 +44,7 @@
        ![](../../../assets/img/Learn/design-configuration.jpg)
 
 7. Navigate to **Runtime Configuration** page. 
-   Transport Level Security can be defined the transport protocol on which the API is exposed.  
+   Transport Level Security  defines the transport protocol on which the API is exposed.  
    ![](../../../assets/img/Learn/transportLevel-security.jpg)
 
      <html><div class="admonition note">
@@ -95,9 +96,11 @@
       ![](../../../assets/img/Learn/adding-params-to-resources.jpg)
 
 
-11. Click Save and navigate to **API Definition** tab.
+11. Click Save and Navigate to **API Definition** page, then it will display the swagger definition of the phoneVerification API.
    ![](../../../assets/img/Learn/api-definiton-rest.jpg)
 
+
+Now, a REST API has been created and configured successfully.
 
 
 
