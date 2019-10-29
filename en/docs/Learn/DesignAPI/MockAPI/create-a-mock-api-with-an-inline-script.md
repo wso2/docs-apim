@@ -1,68 +1,63 @@
 # Create a Mock API with an Inline Script
 
-In this tutorial, you create a prototyped API with an inline script, deploy it as a prototype, and invoke it using the API Console integrated in the API Store. Typically, you create APIs with inline scripts for testing purposes. An API prototype is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and provide feedback to improve. After a period of time, publishers can make changes that the users request and publish the API.
+## Introduction
+In this tutorial, you create a prototyped API with an inline script, deploy it as a prototype, and invoke it using the API Console integrated in the API Store.
+Typically, you create APIs with inline scripts for testing purposes. An API prototype is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and provide feedback to improve. After a period of time, publishers can make changes that the users request and publish the API.
 
+## Creating Mock API with Inline Script
 1.  Sign in to the API Publisher using `admin` as the username and password.
 `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ).
-2.  Select the option to design a new REST API and click **Start Creating** .
-    ![]({{base_path}}/assets/attachments/103328761/103328756.png)
-3.  Give the information in the table below. To add resources, click the **Add** button. Since the URL Pattern used here is a variable, it is denoted within curly braces.
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th><br />
-    </th>
-    <th>Sample value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Name</td>
-    <td><br />
-    </td>
-    <td>Location_API</td>
-    </tr>
-    <tr class="even">
-    <td>Context</td>
-    <td><br />
-    </td>
-    <td>/location</td>
-    </tr>
-    <tr class="odd">
-    <td>Version</td>
-    <td><br />
-    </td>
-    <td>1.0.0</td>
-    </tr>
-    <tr class="even">
-    <td>Resources</td>
-    <td>URL pattern</td>
-    <td>{town}</td>
-    </tr>
-    <tr class="odd">
-    <td><br />
-    </td>
-    <td>Request types</td>
-    <td><p>GET</p></td>
-    </tr>
-    </tbody>
-    </table>
+2.  Click ***CREATE AN API***, and ***Select Design a new REST API*** from the menu. 
 
-    ![]({{base_path}}/assets/attachments/103328761/103328755.png)
+    ![](../../../assets/img/Learn/create-api-design-rest-api-link.png)
+   
+3.  Give the information in the table below and click on ***CREATE*** button.
 
-4.  After the resource is added, expand its `GET` method and note that a parameter by the name `town` is added under the resource. You use it to pass the payload to the backend. Once done, click **Next: Implement &gt;** .
+    |Field | Sample Value|
+    |------|-------------|
+    |Name|Location_API|
+    |Context|/location|
+    |Version|1.0.0|
 
-        !!! tip
-    To specify multiple parameters in the API resource, separate the parameters with a forward slash.
+    ![](../../../assets/img/Learn/create-api-form-filled.png)
+    
+4. In the API, go to the ***Resources*** tab and add a new Resource.
 
-    ``` java
-        {param1}/{param2}
-    ```
+    |Field | Sample Value|
+    |------|-------------|
+    |HTTP Verb|GET|
+    |URI Pattern|/{town}|
+    
+     ![](../../../assets/img/Learn/create-api-add-resource.png)
+    
+    (***Optional***) Delete all the existing Resources after the new resource is added by clicking on the Delete
+     Button \[1\] of each resource. You also can select all the resources at once by clicking on ***Select all for
+      Delete***\[2\] button.
+      
+    ![](../../../assets/img/Learn/create-api-delete-resource.png)
+      
 
+4. Expand the newly added resource and note that the path parameter by the name `town` is set properly under Parameters.
 
-    ![]({{base_path}}/assets/attachments/103328761/103328754.png)
+    ![](../../../assets/img/Learn/create-api-resource-parameter-view.png)
+
+    !!! tip
+        To specify multiple parameters in the API resource, separate the parameters with a forward slash in the URI
+         Pattern.
+    
+        ``` js
+            {param1}/{param2}
+        ```
+        
+5. Click on ***SAVE*** button to save the API.
+
+6. Goto the ***Select an Endpoint Type to Add*** page by clicking on the Endpoints tab in the left panel.
+
+7. In the ***Select an Endpoint Type to Add*** page, select ***Prototype Implementation*** in Prototype Endpoint card
+ and Click ***ADD***.
+ 
+    ![](../../../assets/img/Learn/create-api-prototype-endpoint-add.png)
 
 5.  In the **Prototyped API** section under the **Implement** tab, select the implementation method as **Inline** .
     ![]({{base_path}}/assets/attachments/103328761/103328753.png)
