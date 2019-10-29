@@ -115,7 +115,7 @@ Immediately after the response period of the API exceeds the above defined time 
 Immediately after the backend time of the API exceeds the above defined time period an alert gets triggered, such alerts could be treated as an indication of a slow backend. In technical terms, if the backend time of a particular API of a tenant lies outside the predefined value, an alert is sent.
 ### Configure alerts via the Developer Portal
 
-Follow the instructions below to manage alert types via the Store:
+Follow the instructions below to manage alert types via the Developer Portal:
 
 - [Create an abnormal requests per minute alert](../../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts/#create-an-abnormal-requests-per-minute-alert)
 
