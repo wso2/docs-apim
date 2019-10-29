@@ -43,17 +43,12 @@ The above JWT token contains tthe following information.
 
 Let's see how to enable and pass information in the JWT or completely alter the JWT generation logic in the API Manager:
 
--   [Configuring JWT](#PassingEnduserAttributestotheBackendUsingJWT-ConfiguringJWT)
--   [Customizing the JWT generation](#PassingEnduserAttributestotheBackendUsingJWT-CustomizingtheJWTgeneration)
--   [Changing the JWT encoding to Base64URL encoding](#PassingEnduserAttributestotheBackendUsingJWT-ChangingtheJWTencodingtoBase64URLencoding)
--   [Expiry time of the JWT](#PassingEnduserAttributestotheBackendUsingJWT-ExpirytimeoftheJWT)
-
 ### Configuring JWT
 
-Before passing enduser attributes, you enable and configure the JWT implementation in the `<API-M_HOME>/repository/conf/api-manager.xml` file. The relevant elements are described below. If you do not configure these elements, they take their default values.
+Before passing enduser attributes, you enable and configure the JWT implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file. The relevant elements are described below. If you do not configure these elements, they take their default values.
 
 !!! note
-Enable JWT in all Gateway and Key Manager nodes. For more information on setting up a distributed deployment of API Manager, see Distributed Deployment of API Manager .
+    Enable JWT in all Gateway and Key Manager nodes. For more information on setting up a distributed deployment of API Manager, see [Distributed Deployment of API Manager](https://apim.docs.wso2.com/en/next/SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-api-manager/) .
 
 
 <table>
@@ -66,22 +61,22 @@ Enable JWT in all Gateway and Key Manager nodes. For more information on settin
 </thead>
 <tbody>
 <tr class="odd">
-<td><pre><code>&lt;EnableJWTGeneration&gt;</code></pre></td>
-<td>Uncomment &lt;EnableJWTGeneration&gt; property and set this value to <strong><code>              true             </code></strong> to enable JWT.</td>
+<td><pre><code>apim.jwt.enable</code></pre></td>
+<td>Uncomment this property and set this value to <strong><code>true</code></strong> to enable JWT.</td>
 <td>false</td>
 </tr>
 <tr class="even">
-<td><code>             &lt;JWTHeader&gt;            </code></td>
+<td><pre><code>apim.jwt.header</code></pre></td>
 <td>The name of the HTTP header to which the JWT is attached.</td>
 <td>X-JWT-Assertion</td>
 </tr>
 <tr class="odd">
-<td><code>             &lt;ClaimsRetrieverImplClass&gt;            </code></td>
+<td><pre><code>apim.jwt.claims_extractor_impl</code></pre></td>
 <td><div class="content-wrapper">
-<p>By default, the <code>               &lt;ClaimsRetrieverImplClass&gt;              </code> parameter is commented out in the <code>               api-manager.xml              </code> file. Enable it to add all user claims in the JWT token:</p>
+<p>By default, the <code>claims_extractor_impl</code> parameter is commented out in the <code>deployment.toml</code> file. Enable it to add all user claims in the JWT token:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="xml" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><code>&lt;ClaimsRetrieverImplClass&gt;org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever&lt;/ClaimsRetrieverImplClass&gt; </code></pre>
+<pre class="xml" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><code>claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever"</code></pre>
 </div>
 </div>
 <p>By default, the following are encoded to the JWT:</p>
@@ -127,15 +122,15 @@ if the <code>                    getClaims                   </code> method retu
 <td>org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever</td>
 </tr>
 <tr class="even">
-<td><code>             &lt;ConsumerDialectURI&gt;            </code></td>
+<td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
-<p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>               &lt;ClaimsRetrieverImplClass&gt;              </code> element defined above.</p>
-<p>The JWT token contains all claims define in the <code>               &lt;ConsumerDialectURI&gt;              </code> element. The default value of this element is <code>                               http://wso2.org/claims                             </code> . To get a list of users to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>                                                http://wso2.org/claims                                             </code> to the JWT token.</p>
+<p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>apim.jwt.claims_extractor_impl</code> element defined above.</p>
+<p>The JWT token contains all claims define in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>                               http://wso2.org/claims                             </code> . To get a list of users to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>                                                http://wso2.org/claims                                             </code> to the JWT token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
 </tr>
 <tr class="odd">
-<td><code>             &lt;SignatureAlgorithm&gt;            </code></td>
+<td><pre><code>apim.jwt.signing_algorithm</code></pre></td>
 <td><p>The signing algorithm used to sign the JWT. The general format of the JWT is <code>              {token infor}.{claims list}.{signature}             </code> . When NONE is specified as the algorithm, signing is turned off and the JWT looks as <code>              {token infor}.{claims list}             </code> with two strings delimited by a period and a period at the end.</p>
 <p>This element can have only two values - the default value, which is SHA256withRSA or NONE.</p></td>
 <td>SHA256withRSA</td>
@@ -144,17 +139,16 @@ if the <code>                    getClaims                   </code> method retu
 </table>
 
 !!! tip
-You can use TCPMon or API Gateway debug logs to capture JWT token headerwithenduserdetails. To enable gateway DEBUG logs for wire messages,
+    You can use TCPMon or API Gateway debug logs to capture JWT token headerwithenduserdetails. To enable gateway DEBUG logs for wire messages,
 
-1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j.properties` file with a text editor.
-2.  Edit the entries for the two loggers as follows (remove the \# in order to enable debug logs):
-    [log4j.logger.org](http://log4j.logger.org) `.          apache.synapse.transport.http.headers=DEBUG`
-    [log4j.logger.org](http://log4j.logger.org) `.apache.synapse.transport.http.wire=DEBUG`
+1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
+2.  Add these two loggers to the list of loggers:<br/>
+    <code>loggers = AUDIT_LOG, trace-messages, ... <strong>, synapse-headers, synapse-wire</strong></code>
 
 
 ### Customizing the JWT generation
 
-The JWT that is generated by default (see example [above](#PassingEnduserAttributestotheBackendUsingJWT-JWT) ) has predefined attributes that are passed to the backend. These include basic application-specific details, subscription details, and user information that are defined in the JWT generation class that comes with the API Manager by the name `org.wso2.carbon.apimgt.keymgt.token.JWTGenerator` . If you want to pass additional attributes to the backend with the JWT or completely change the default JWT generation logic, do the following:
+The JWT that is generated by default (see example above) has predefined attributes that are passed to the backend. These include basic application-specific details, subscription details, and user information that are defined in the JWT generation class that comes with the API Manager by the name `org.wso2.carbon.apimgt.keymgt.token.JWTGenerator` . If you want to pass additional attributes to the backend with the JWT or completely change the default JWT generation logic, do the following:
 
 1.  Write your own custom JWT implementation class by extending the default `JWTGenerator` class . A typical example of implementing your own claim generator is given below. It implements the `populateCustomClaims()` method to generate some custom claims and adds them to the JWT.
 
@@ -202,52 +196,35 @@ The JWT that is generated by default (see example [above](#PassingEnduserAttribu
     }
     ```
 2.  Build your class and add the JAR file to the `<API-M_HOME>/repository/components/lib` directory.
-3.  Add your class in the `<JWTGeneratorImpl>` element of the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+3.  Add your class in the `apim.jwt.generator_impl` element of the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    ``` xml
-        <JWTConfiguration>
-           ....
-           <JWTGeneratorImpl>org.wso2.carbon.test.CustomTokenGenerator</JWTGeneratorImpl>
-           ....
-        </JWTConfiguration>
+    ``` toml
+        [apim.jwt]
+        ...
+        generator_impl = "org.wso2.carbon.test.CustomTokenGenerator"
     ```
 
-4.  Set the `<EnableJWTGeneration>` element to **true** in the `api-manager.xml` file.
+4.  Set the `apim.jwt.enable` element to **true** in the `deployment.toml` file.
 5.  Restart the server.
 
 ### Changing the JWT encoding to Base64URL encoding
 
-The default JWT generator, `org.wso2.carbon.apimgt.impl.token.JWTGenerator` , encodes the value of the JWT using Base64 encoding. However, for certain apps you might need to have it in Base64URL encoding. To encode the JWT using Base64URL encoding, add the `URLSafeJWTGenerator` class in the `<TokenGeneratorImpl>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file as shown below.
+The default JWT generator, `org.wso2.carbon.apimgt.impl.token.JWTGenerator` , encodes the value of the JWT using Base64 encoding. However, for certain apps you might need to have it in Base64URL encoding. To encode the JWT using Base64URL encoding, add the `URLSafeJWTGenerator` class in the `apim.jwt.generator_impl` element in the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
-``` xml
-    <JWTConfiguration>
-       ....
-       <JWTGeneratorImpl>org.wso2.carbon.apimgt.keymgt.token.URLSafeJWTGenerator</JWTGeneratorImpl>
-       ....
-    </JWTConfiguration>
+``` toml
+    [apim.jwt]
+    ...
+    generator_impl = "org.wso2.carbon.apimgt.keymgt.token.URLSafeJWTGenerator"
 ```
 
 ### Expiry time of the JWT
 
-JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 API-M Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `<EnableGatewayTokenCache>` or `<EnableKeyManagerTokenCache>` elements respectively in the `<API-M_HOME>/repository/conf/api-manager.xml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time .
+JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 API-M Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time .
 
-The claims that are retrieved for the JWT Token generation are cached. The expiry time of these JWT claims can be set by setting the **JWTClaimCacheExpiry** in the `api-manager.xml` , under CacheConfigurations element:
+The claims that are retrieved for the JWT Token generation are cached. The expiry time of these JWT claims can be set by setting the **apim.cache.jwt_claim.expiry_time** in the `deployment.toml`:
 
-``` xml
-    <CacheConfigurations>
-        ...
-        <!-- JWT claims Cache expiry in seconds -->
-        <JWTClaimCacheExpiry>900</JWTClaimCacheExpiry>
-        ...
-    </CacheConfigurations>
-```
-
-When both Gateway and Key Manager caches are **disabled** , the JWT expiry time can be set by adding the **JWTExpiryTime property** under **APIKeyValidator** element in `<API-M_HOME>/repository/conf/api-manager.xml:        `
-
-``` xml
-    <APIKeyValidator>       
-        ...
-        <JWTExpiryTime>900</JWTExpiryTime>
-        ...
-    </APIKeyValidator>
+``` toml
+    [apim.cache.jwt_claim]
+    enable = true
+    expiry_time = "900"
 ```
