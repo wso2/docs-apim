@@ -14,11 +14,11 @@ WSO2 API Manager suspends your API if the endpoint of your API cannot be reached
 To prevent or turn off API suspension, do the following:
 
 1.  Log in to API Publisher ( `https://<HostName>:9443/publisher` ). Select your API and click **Endpoints** tab.
-2.  In the **Endpoints** tab, click the cogwheel icon next to the endpoint you want to re-configure.![prevent-endpoint-suspension](../../../..//assets/img/Learn/prevent-endpoint-suspension.png)
+2.  In the **Endpoints** tab, click the cogwheel icon next to the endpoint you want to re-configure.![prevent-endpoint-suspension](../../../../assets/img/Learn/prevent-endpoint-suspension.png)
 3.  In the dialogue box that appears, set the values for **Initial Duration** and **Max Duration** to zero to turn off suspension.
-    ![initial-duration-and-max-duration](../../../..//assets/img/Learn/initial-duration-and-max-duration.png)4.  Click **Save** and re-publish the API.
+    ![initial-duration-and-max-duration](../../../../assets/img/Learn/initial-duration-and-max-duration.png)4.  Click **Save** and re-publish the API.
 
-For more details on creating and publishing an API, see [Create](https://apim.docs.wso2.com/en/next/Learn/DesignAPI/CreateAPI/create-a-rest-api/) and [Publish an API](https://apim.docs.wso2.com/en/next/Learn/DesignAPI/PublishAPI/publish-an-api/).
+For more details on creating and publishing an API, see [Create](../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api.md) and [Publish an API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api.md).
 
 !!! info
     To avoid backend endpoint suspension,
@@ -45,4 +45,4 @@ For more details on creating and publishing an API, see [Create](https://apim.do
     ```
 
 
-For more details on configuring different timeouts, see [Timeout configurations for an API call](https://apim.docs.wso2.com/en/next/Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance/) in the Performance Tuning guide.
+For more details on configuring different timeouts, see [Timeout configurations for an API call](../../../../Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance.md) in the Performance Tuning guide.
