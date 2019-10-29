@@ -15,7 +15,8 @@ Follow the steps bellow to create a REST API.
 
 1. Sign in to the WSO2 API Publisher providing username and password `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ).
 
-2.  Go to **CREATE AN API** and Click **Design a New REST API**.
+2.  Go to **CREATE API** and Click **Design a New REST API**.
+
     ![](../../../assets/img/Learn/create-a-rest-api.jpg)
 
 4.  Enter the information provided in the table below and click **CREATE** or **CREATE & PUBLISH** to create the API.
