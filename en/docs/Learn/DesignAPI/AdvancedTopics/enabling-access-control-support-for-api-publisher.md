@@ -2,37 +2,27 @@
 
 Visibility settings prevent certain user roles from viewing and modifying APIs created by another user role. This feature allows you to restrict the ability to view and modify APIs for a set of users.
 
--   [Enabling Access Control](#EnablingAccessControlSupportforAPIPublisher-EnablingAccessControl)
+-   [Instructions to existing users](#EnablingAccessControlSupportforAPIPublisher-InstructionsToExistingUsers)
 -   [Using the API Publisher UI](#EnablingAccessControlSupportforAPIPublisher-UsingtheAPIPublisherUI)
 -   [Using the REST API](#EnablingAccessControlSupportforAPIPublisher-UsingtheRESTAPI)
 
-### Enabling Access Control
-
-To enable this feature, open the `<API-M_HOME>/repository/conf/api-manager.xml` file. Add the code given below under &lt; `APIPublisher>` .
-
-``` java
-    <APIPublisher>
-        ...
-        <EnableAccessControl>true</EnableAccessControl>
-    </APIPublisher>
-```
+### Instructions to existing users
 
 !!! note
-Instructions to existing users
 
 Re-indexing the artifacts in the registry.
 
--   Rename the `<lastAccessTimeLocation>` element in the `<API-M_HOME>` / `repository/conf/registry.xml` file. If you use a **clustered/distributed API Manager setup** , change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstimexyz                         .                       `
+-   Add the following configuration in the `<API-M_HOME>` / `repository/conf/deployment.toml` file. If you use a **clustered/distributed API Manager setup** , change the file in the API Publisher node. This will change the value `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path in the `<API-M_HOME>` / `repository/conf/registry.xml` to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1`
 
     ``` java
-        <lastAccessTimeLocation>/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstimexyz
-        </lastAccessTimeLocation>
+        [indexing]
+        re_indexing="1"
     ```
 
 -   Shut down API Manager if you have already started it, backup and delete the &lt;API-M\_HOME&gt;/solr directory if it exist
 
 !!! info
-Note that the registry indexing takes some time depending on the number of APIs you have in your store, so the existing APIs may not appear if you are accessing the publisher/store immediately after you start the server.
+    Note that the registry indexing takes some time depending on the number of APIs you have in your store, so the existing APIs may not appear if you are accessing the publisher/store immediately after you start the server.
 
 
 Restart the server after doing these changes.
@@ -40,21 +30,35 @@ Restart the server after doing these changes.
 ### Using the API Publisher UI
 
 1.  Log in to API Publisher as an API Creator. For more information on User Roles, see [Managing Users and Roles](_Managing_Users_and_Roles_) .
-2.  Create an API. Select **Restricted by roles** for **Access Control** in the **Design** tab.
-    ![]({{base_path}}/assets/attachments/103333516/103333518.png)3.  Add the roles that have permission to view or modify this API.
-    ![]({{base_path}}/assets/attachments/103333516/103333517.png){height="250"}
+2.  Create an API. Go to the **Design Configurations** tab. Select **Restricted by roles** for **Publisher Access Control**.
+    <html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/select-restricted-by-role.png" alt="Select restricted by role" title="Select restricted by role" width="800" height="250"/>
+     </body>
+     </html>
+3.  Add the roles that have permission to view or modify this API.
+    <html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/enter-role-to-restrict.png" alt="Enter roles to restrict" title="Enter roles to restrict" width="800" height="300"/>
+     </body>
+     </html>
 
-        !!! info
+4.  Save the API.
+
+!!! info
     Ensure that the roles you add are valid. If the current creator is not an APIM admin, there should be at least one role of the current creator.
 
-
 !!! note
-Users with APIM admin permission are treated differently. Even if an API is restricted to certain set of creators of publishers, it will be visible to all the API creators and publishers with APIM admin role.
+    Users with APIM admin permission are treated differently. Even if an API is restricted to certain set of creators of publishers, it will be visible to all the API creators and publishers with APIM admin role.
 
 
 ### Using the REST API
 
-You can use the [existing REST API](https://docs.wso2.com/display/AM210/apidocs/publisher/#!/operations#APICollection#apisPost) to add a new API. To create an API with publisher access control restriction, add the two elements shown below in your request body,
+You can use the [existing REST API](../../../../../../Develop/ProductAPIs/restful-apis/) to add a new API. To create an API with publisher access control restriction, add the two elements shown below in your request body,
 
 ``` java
     "accessControl" : "RESTRICTED",
@@ -64,16 +68,15 @@ You can use the [existing REST API](https://docs.wso2.com/display/AM210/apidocs/
 Note that the roles should be valid. If the API creator is not an API-M admin he/she should at least have one of his/her roles in the `accessControlRoles` field.
 
 !!! tip
-The publisher role cache is enabled by default in API Manager. This is to avoid sending repeated requests to the Key Manager node in a distributed deployment, to authenticate user roles.
+    The publisher role cache is enabled by default in API Manager. This is to avoid sending repeated requests to the Key Manager node in a distributed deployment, to authenticate user roles.
 
-This WUM update allows you to disable the feature by disabling `<EnablePublisherRoleCache>` under `<CacheConfigurations>` . We recommend enabling the elements shown in the example below.
+    In order to disable this feature, add the following to the `<API-M_HOME>` / `repository/conf/deployment.toml`.
 
-``` java
-    <CacheConfigurations>
-        <EnablePublisherRoleCache>true</EnablePublisherRoleCache>
-    ...
-```
+    ``` java
+        [apim.cache.publisher_roles]
+        enable = false
+    ```
 
-Note that if disabled it results in lowering performance due to repeatedly accessing the Key Manager.
+    Note that if disabled it results in lowering performance due to repeatedly accessing the Key Manager. Hence, we recommend to keep this enabled.
 
 
