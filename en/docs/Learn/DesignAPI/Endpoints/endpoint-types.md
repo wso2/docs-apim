@@ -23,7 +23,7 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 -   You can expose both REST and SOAP services to consumers through APIs.
 -   You cannot call backend services secured with OAuth through APIs created in the API Publisher. At the moment, you
  can call only services secured with username/password (Basic Auth/ Digest Auth).
--   The system reads gateway endpoints from the `<APIM_HOME>/repository/conf/deployment.toml` file. When there are
+-   The system reads gateway endpoints from the `<API-M_HOME>/repository/conf/deployment.toml` file. When there are
  multiple gateway environments defined, it picks the gateway endpoint of the production environment. You can define both HTTP and HTTPS gateway endpoints as follows:
 
 ```toml
@@ -39,7 +39,7 @@ If both types of endpoints are defined, the HTTPS endpoint will be picked as the
 
 !!! tip
     When you define secure (HTTPS) endpoints, set the `HostnameVerifier` parameter to `AllowAll` in
-     the `<APIM_HOME>/repository/conf/deployment.toml` file's HTTPS transport sender configuration.
+     the `<API-M_HOME>/repository/conf/deployment.toml` file's HTTPS transport sender configuration.
      ```toml
          [transport.passthru_https.sender.parameters]
          HostnameVerifier = "AllowAll"
