@@ -1,14 +1,14 @@
 {
   "next": "3.0.x",
-  "current": "2.7.0",
+  "current": "3.0.0",
   "list": [
-    "2.7.0",
+    "3.0.0",
     "3.0.x"
    ],
   "all": {
-    "2.7.0": {
-        "doc": "2.7.0",
-        "notes": "2.7.0/release-notes"
+    "3.0.0": {
+        "doc": "3.0.0",
+        "notes": "3.0.0/release-notes"
     },
     "2.6.0": {
         "doc": "https://docs.wso2.com/display/AM260/",
