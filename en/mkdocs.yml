@@ -151,10 +151,10 @@ nav:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
                 -  Customizing the API Store:
-                    - Adding a New API Store Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme.md
+                    - Overriding Developer Portal Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/overriding-developer-portal-theme.md
                     - Customize API Listing:
                         - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
-                        - Change Default API Description and Thumbnail: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-api-description-and-thumbnail.md
+                        - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-view.md
                     - Customizing error Pages: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages.md
                     - Enabling or disabling the forum: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum.md
                     - Enabling or disabling the walkthrough: Learn/ConsumeAPI/Customizations//CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough.md

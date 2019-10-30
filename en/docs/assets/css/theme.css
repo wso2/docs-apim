@@ -915,7 +915,6 @@ html .md-footer-meta.md-typeset a,
 
 @media screen and (max-width: 767px) {
    .content {
-      padding-top: 300px;
       flex-direction: column;
    }
 }
@@ -1017,3 +1016,21 @@ html .md-footer-meta.md-typeset a,
 
 }
 
+@media screen and (min-width: 767px) {
+    .leftContent {
+        float:left; 
+        width: 35%;
+        text-align:justify;
+        max-height:100%;
+    }
+    .rightImage {
+        float:centre;
+        width: 60%;
+        text-align:left; 
+        flex-shrink: 0;
+        min-width: 35%;
+        max-height: 100%;
+        max-width:100%;
+        margin-left:10px;
+    }
+ }
