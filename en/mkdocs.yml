@@ -65,9 +65,9 @@ nav:
                 - Publish an API: Learn/DesignAPI/PublishAPI/publish-an-api.md
                 - Publish through Multiple API Gateways: Learn/DesignAPI/PublishAPI/publish-through-multiple-api-gateways.md
                 - Publish to Multiple External API Stores: Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores.md
-            - Mock API:
-                - Create a Mock API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
-                - Deploy and Test Mock APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
+            - Prototype API:
+                - Create a Prototype API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
+                - Deploy and Test Prototype APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
             - Endpoints:
                 - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
                 - Security:

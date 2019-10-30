@@ -1,16 +1,17 @@
-# Deploy and Test Mock APIs
+# Deploy and Test Prototype APIs
 
 An **API prototype** is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and provide feedback to improve. After a period of time, publishers can make changes that the users request and publish the API.
 
 !!! note
-The example here uses the API `PhoneVerification 2.0.0` , which you created in the [previous tutorial](_Create_a_New_API_Version_) .
+    The example here uses the API `PizzaShaclAPI 1.0.0` , which is the sample API that can be deployed when you first
+     log in to API Publisher. Also, the steps will be same for any published api.
 
 
-1.  Sign in to the WSO2 API Publisher and select the API (e.g., `PhoneVerification 2.0.0` ) that you want to prototype.
+1.  Sign in to the WSO2 API Publisher and select the API (e.g., `PizzaShaclAPI 1.0.0` ) that you want to prototype.
 `https://<hostname>:9443/publisher         `
-    ![Select API - PhoneVerification 2.0.0]({{base_path}}/assets/attachments/103328581/103328591.png)
+    [![](../../../assets/img/Learn/prototype-api-select-pizzashack.png)](../../../assets/img/Learn/prototype-api-select-pizzashack.png)
 
-2.  Click **GO TO OVERVIEW** .
+2.  Click **Lifecycle** from the left navigation panel to go to the Lifecycle page.
 
 3.  Click the **Lifecycle** tab of the API and click **Deploy as Prototype** .
     After creating a new version, you typically deploy it as a prototype for the purpose of testing and early promotion.

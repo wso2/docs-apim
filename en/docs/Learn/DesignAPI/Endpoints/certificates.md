@@ -63,12 +63,12 @@ If your api backend is secured with a self-signed certificate (or a certificate 
 
 1.  Log in to the API Publisher. [Create a new API](../CreateAPI/create-a-rest-api.md) or click on an existing API.
 2.  Go to the **Endpoints** tab and expand **General Endpoint Configuration**. 
-    ![Open General Endpoint Configuration](../../../assets/img/Learn/open-general-endpoint-configuration.png)
+    [![Open General Endpoint Configuration](../../../assets/img/Learn/open-general-endpoint-configuration.png)](../../../assets/img/Learn/open-general-endpoint-configuration.png)
 3.  In the Certificates section, click on **\+ Add Certificates** button.
-   ![Click on Add Certificate](../../../assets/img/Learn/click-add-certificate.png)
+   [![Click on Add Certificate](../../../assets/img/Learn/click-add-certificate.png)](../../../assets/img/Learn/click-add-certificate.png)
    
     The Upload Certificate dialog box will be open.
-    ![Upload Certificate Dialog](../../../assets/img/Learn/upload-certificate-open.png)
+    [![Upload Certificate Dialog](../../../assets/img/Learn/upload-certificate-open.png)](../../../assets/img/Learn/upload-certificate-open.png)
 
     *  Enter the following information and click **Save** .
     
@@ -78,10 +78,10 @@ If your api backend is secured with a self-signed certificate (or a certificate 
     | Endpoint    | Select an endpoint from the dropdown list                                                |
     | Certificate | Drop the certificate file or click on the drop zone to select the certificate through the UI |
 
-    ![](../../../assets/img/Learn/certificate-inputs-provided.png)
+    [![](../../../assets/img/Learn/certificate-inputs-provided.png)](../../../assets/img/Learn/certificate-inputs-provided.png)
 
 4.  The uploaded certificate will be displayed.
-    ![](../../../assets/img/Learn/certificate-added.png)
+    [![](../../../assets/img/Learn/certificate-added.png)](../../../assets/img/Learn/certificate-added.png)
 5.  You can repeat from step 3 to add certificates to the other endpoints.
 
 ### Check Certificate Information
@@ -89,14 +89,14 @@ If your api backend is secured with a self-signed certificate (or a certificate 
 You can check the information of the certificate, i.e: Status and subject DN.
 
 Click on the 'Info Icon' in the certificate listing adjacent to the required certificate.
-![](../../../assets/img/Learn/certificate-info-click.jpg)
+[![](../../../assets/img/Learn/certificate-info-click.jpg)](../../../assets/img/Learn/certificate-info-click.jpg)
 
 The details of the selected certificated will be displayed.
-![](../../../assets/img/Learn/certificate-details.png)
+[![](../../../assets/img/Learn/certificate-details.png)](../../../assets/img/Learn/certificate-details.png)
 
 ### Deleting a certificate
 
 To delete a certificate, click the Delete button adjacent to the certificate, as shown below.
 
-![](../../../assets/img/Learn/certificate-delete-btn-select.jpg)
+[![](../../../assets/img/Learn/certificate-delete-btn-select.jpg)](../../../assets/img/Learn/certificate-delete-btn-select.jpg)
 
