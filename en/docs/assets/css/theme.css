@@ -115,6 +115,10 @@ html .md-typeset .superfences-tabs > label:hover {
     font-weight: bold;
 }
 
+.swagger-ui .topbar {
+    display: none;
+}
+
 .md-search__input {
     background-color: #dedede;
 }
@@ -892,16 +896,7 @@ html .md-footer-meta.md-typeset a,
     color: #4d4d4d;
 }
 
-.wrapper {
-   width: 100vw;
-   margin: 0 auto;
-   height: 400px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   position: relative;
-   transition: all 0.3s ease;
-}
+
 
 @media screen and (max-width: 767px) {
    .wrapper {
