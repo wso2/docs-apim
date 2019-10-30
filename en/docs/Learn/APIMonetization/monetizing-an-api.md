@@ -745,7 +745,7 @@ Specific Stripe billing plans correspond to specific WSO2 API Manager business p
 <html>
     <div class="admonition note">
         <p class="admonition-title">Note</p>
-        <p>The customers are created in Stripe with sample payment(card) details. The real card details should be updated in order to process real payments. Once the real card details are updated for the relevant customer created for a particular subscriber in the platform account, it will be copied when shared customers are created in the connected accounts for the same subscriber there after. So its important that you collect and edit the correct payment details in both platform and connected account for a subscriber when he subscribes for the first time</p>
+        <p>The customers are created in Stripe with sample payment(card) details. The real card details should be updated in order to process real payments. Once the real card details are updated for the relevant customer created for a particular subscriber in the platform account, it will be copied when shared customers are created in the connected accounts for the same subscriber there after. So its important that you collect and edit the correct payment details in both platform and connected account for a subscriber when he subscribes for the first time.</p>
         <p>Please refer the [document](https://stripe.com/docs/payments/cards/collecting) to find out how to collect the card details safely in Stripe.</p>
     </div> 
 </html>
