@@ -49,6 +49,7 @@ nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
     - Get Started: 
         - Overview:  GettingStarted/overview.md
+        - About this Release: GettingStarted/about-this-release.md
         - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
     - Learn: 
@@ -72,7 +73,6 @@ nav:
                 - Security:
                     - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
                     - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
-                - Endpoint Timeouts: Learn/DesignAPI/Endpoints/endpoint-timeouts.md
                 - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
                 - Resiliency:
                     - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
@@ -94,9 +94,9 @@ nav:
                     - Add New Search Keyword: Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword.md
             - Advanced Topics:
                 - Adding Custom Properties to APIs: Learn/DesignAPI/AdvancedTopics/adding-custom-properties-to-apis.md
-                - Enabling Access Control Support for API Publisher: Learn/DesignAPI/AdvancedTopics/enabling-access-control-support-for-api-publisher.md
+                - Enable Publisher Access Control in API Publisher Portal: Learn/DesignAPI/AdvancedTopics/enable-publisher-access-control-in-api-publisher-portal.md
+                - Control API Visibility and Subscription Availability in the Developer Portal: Learn/DesignAPI/AdvancedTopics/control-api-visibility-and-subscription-availability-in-developer-portal.md
                 - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
-                - Generating server stubs and client SDKs in the API Publisher:  Learn/DesignAPI/AdvancedTopics/generating-server-stubs-and-client-sdks-in-the-api-publisher.md
                 - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md 
         - Consume API:
@@ -162,8 +162,8 @@ nav:
                 - Customizing the API Store: Learn/ConsumeAPI/Customizations/customizing-the-api-store.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
-                - Directing the Root Context to the API Store: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-api-store.md
-                - Customizing User SignUp in API Store: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-api-store.md
+                - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
+                - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
                 - Customize the API Store and Gateway URLs for Tenants: Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Customizing Login Pages for API Store and API Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-api-store-and-api-publisher.md
             - Generating SDKs:  
@@ -187,7 +187,6 @@ nav:
                 - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
             - Passing Enduser Attributes to the Backend:
                 - Passing Enduser Attributes to the Backend Using JWT: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt.md
-                - Passing Enduser Attributes to the Backend using HTTP Headers: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-http-headers.md
             - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
             - Advanced Topics:
@@ -233,8 +232,7 @@ nav:
                 - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
                 - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
                 - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2/saving-access-tokens-in-separate-tables.md
-                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md   
-            - SAML: ''
+                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
                 - Gateway Threat Protectors: ''
@@ -251,7 +249,6 @@ nav:
             - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
             - Blacklisting and Whitelisting Requests: Learn/RateLimiting/managing-throttling.md
             - Enforcing Throttling to an API: Learn/RateLimiting/enforcing-throttling-to-an-api.md
-            - Engaging Multiple Throttling Policies to a Single API: Learn/RateLimiting/engaging-multiple-throttling-policies-to-a-single-api.md
             - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
             - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
             - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
@@ -261,16 +258,10 @@ nav:
             - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
             - Configuring API Monetization Category Labels: Learn/APIMonetization/configuring-api-monetization-category-labels.md
         - Analytics:
-            - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md 
+            - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md
+            - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
             - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
-            - Analyzing API Statistics:
-                - Analyzing the Number of API Failures: Learn/Analytics/analyzing-the-number-of-api-failures.md
-                - Analyzing Login Errors: Learn/Analytics/analyzing-login-errors.md
-                - Analyzing API Deployment Statistics: Learn/Analytics/analyzing-api-deployment-statistics.md
-                - Analyzing Access Token Errors: Learn/Analytics/analyzing-access-token-errors.md
-                - Analyzing Application Errors: Learn/Analytics/analyzing-application-errors.md
-                - Analyzing the Log Overview: Learn/Analytics/analyzing-the-log-overview.md            
             - Alerts for APIs: 
                 - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
                 - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
@@ -283,8 +274,6 @@ nav:
             - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
-            - Viewing Live Logs: Learn/Analytics/viewing-live-logs.md
-            - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md
         - CICD Pipeline:
             - Initializing projects using the CLI Tool: Learn/CICDPipeline/initializing-projects-using-the-cli-tool.md
             - Promoting APIs Through CICD: Learn/CICDPipeline/promoting-apis-through-cicd.md

@@ -29,3 +29,6 @@ hs_err_pid*
 
 # generated docs
 en/site
+
+#Ignore DS_Store files generated in mac
+.DS_Store
