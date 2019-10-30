@@ -62,8 +62,10 @@ An **API prototype** is created for the purpose of early promotion and testing. 
 
 7.  Click **Execute** to invoke the API.
     Note the response that appears in the console. You do not have to subscribe to the API or pass an authorization key to invoke a prototyped API.
-    ![Response based on the try out option of the PhoneVerification 2.0.0 API]({{base_path}}/assets/attachments/103328581/103328587.png)
+    
+    [![](../../../assets/img/Learn/prototype-api-invoke-success.png)](../../../assets/img/Learn/prototype-api-invoke-success.png)
 
 8.  Similarly, try to invoke the 1.0.0 version of the API without an access token.
     Note that you get an authentication error as "Missing credentials", because version 1.0.0 is a published API.
-    ![Try out the PhoneVerification 1.0.0 API]({{base_path}}/assets/attachments/103328581/103328586.png)
+    
+    [![](../../../assets/img/Learn/prototype-api-invoke-error.png)](../../../assets/img/Learn/prototype-api-invoke-error.png)
