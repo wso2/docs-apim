@@ -82,12 +82,13 @@ You can apply the pre-defined Regular Expression Policy through the UI. Follow t
 regex\_policy in sequence.
 
 1.  Create an API or edit an existing API.
-2.  Go to **Message Mediation Policies** under the **Implement** tab.
-3.  Select **Enable Message Mediation**. Select `regex_policy` from the drop-down menu for **In Flow** .
+2.  Go to **Message Mediation** Policies under **Request** configurations of the **Runtime Configurations** tab.
+3.  Select **Edit** in the message mediation bar and select **Common Policies** .
+4.  Select `regex_policy` from the drop-down menu for Common Policies.
 
-    ![](../../../assets/img/Learn/select-in-seq.png)  
+    [ ![](../../../assets/img/Learn/mediation-regex_policy.png) ](../../../assets/img/Learn/mediation-regex_policy.png)
     
-4.  Click **Save and Publish** to save the changes.
+4.  Scroll down the page and click **Save** to save the changes.
 
 Each request is sanitized through the regular expression threat protector. You can add or modify the regex patterns 
 according to your requirement.
