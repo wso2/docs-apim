@@ -1,6 +1,6 @@
 # Subscribing for Alerts
 
-You can subscribe to events as a system administrator or as a API publisher/subscriber. These users can subscribe to any of the alert types listed in the **Manage Alert Subscriptions** page specific to them. For more information about different types of alerts and their importance, see [Alert Types](../../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types) .
+You can subscribe to events as a system administrator or as a API publisher/subscriber. These users can subscribe to any of the alert types listed in the **Manage Alert Subscriptions** page specific to them. For more information about different types of alerts and their importance, see [Alert Types](../../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types/) .
 
 ### Subscribe to alerts
 
