@@ -9,38 +9,44 @@ The documentation types supported in the API Publisher are as follows:
 -   **File:** Allows to upload the documentation directly to the server.
 -   Using the integrated API Console
 
-!!! tip
-Do you want to set different visibility levels to the API documentation than the API? See [API documentation visibility](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-APIdocumentationvisibility) .
-
+Follow the steps below to learn how to add a documentation to an API.
 
 1.  Sign in to the WSO2 API Publisher.
 `https://<hostname>:9443/publisher         `
-2.  Click the API (e.g., `PhoneVerification 1.0.0` ) for which you want to add documentation.
-    ![]({{base_path}}/assets/attachments/103328543/103328553.png)
+2.  Click the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add documentation.
+    ![](../../../assets/img/Learn/add-docs-select-api.png)
 3.  **Add in-line documentation.**
 
-    1.  Select the **Docs** tab of the API and click **Add New Document** .
-        ![]({{base_path}}/assets/attachments/103328543/103328552.png)
+    1.  Select the **Documents** tab of the API and click **Add New Document** .
+        ![](../../../assets/img/Learn/add-docs-documents.png)
     2.  Enter the following details to create documentation in-line.
 
         |         |                                      |
         |---------|--------------------------------------|
-        | Name    | PhoneVerification                    |
-        | Summary | Check the validity of a phone number |
+        | Name    | PizzaShack                    |
+        | Summary | This is the official documentation for the PizzaShack API |
         | Type    | How To                               |
         | Source  | In-line                              |
 
-        ![]({{base_path}}/assets/attachments/103328543/103328551.png)
+        ![](../../../assets/img/Learn/add-docs-create-inline.png)
+
     3.  Click **Add Document** .
-    4.  Click **Edit Content** to open an embedded editor.
+    4.  Click **Add Content** to open an embedded editor.
+
+        ![](../../../assets/img/Learn/add-docs-add-content.png)
+
+                !!! note
+        You can edit the content later by clicking **Edit Content**. It will open up the embedded editor to proceed.
+
+
+        ![](../../../assets/img/Learn/add-docs-edit-content.png)
 
                 !!! info
-        Update button can be used to update/change the document information.
+        Edit button can be used to update/change the document information.
 
-
-        ![]({{base_path}}/assets/attachments/103328543/103328550.png)
-    5.  Edit the document content in-line using the embedded editor and click **Save and Close** .
-        ![]({{base_path}}/assets/attachments/103328543/103328549.png)        The API's **Doc** tab opens.
+    5.  Edit the document content in-line using the embedded editor and click **Update Content** .
+        ![](../../../assets/img/Learn/add-docs-update-content.png)
+        The API's **Documents** tab opens.
 
 4.  **Add documentation using a URL** .
 
@@ -52,29 +58,34 @@ Do you want to set different visibility levels to the API documentation than the
         <tbody>
         <tr class="odd">
         <td>Name</td>
-        <td>CDYNE Wiki</td>
+        <td>PizzaShack Wiki</td>
         </tr>
         <tr class="even">
         <td>Summary</td>
         <td><div class="company-logo-container">
-        <p>CDYNE Phone Notify API</p>
+        <p>Sample PizzaShack API</p>
         </div></td>
         </tr>
         <tr class="odd">
         <td>Type</td>
-        <td>Other (specify)</td>
+        <td>Other</td>
         </tr>
         <tr class="even">
+        <td>Other Document Type</td>
+        <td>Other</td>
+        </tr>
+        <tr class="eveoddn">
         <td>Source</td>
         <td>URL<br />
-        <a href="https://cdyne.com/downloads/SPECS_Phone-Notify.pdf" class="uri">https://cdyne.com/downloads/SPECS_Phone-Notify.pdf</a></td>
+        <a href="http://www.dummy.com/PizzaShackAPIDoc.pdf" class="uri">http://www.dummy.com/PizzaShackAPIDoc.pdf</a></td>
         </tr>
         </tbody>
         </table>
 
-        ![]({{base_path}}/assets/attachments/103328543/103328548.png)
+        ![](../../../assets/img/Learn/add-docs-url-type.png)
+
     3.  Click **Add Document** .
-        The API's **Doc** tab opens.
+        The API's **Documents** tab opens.
 
 5.  **Add documentation using a file** .
 
@@ -87,15 +98,20 @@ Do you want to set different visibility levels to the API documentation than the
         | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
-        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/103328543/103328555.pdf) . |
+        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here](../../../assets/attachments/learn/api-docs-sample.pdf) . |
 
-        ![]({{base_path}}/assets/attachments/103328543/103328547.png)
+        ![](../../../assets/img/Learn/add-docs-pdf-file.png)
+
     3.  Click **Add Document** .
         You have now added three documents to the API: in-line, using a URL, and a file.
-        ![]({{base_path}}/assets/attachments/103328543/103328546.png)
-6.  Log in to the WSO2 API Store and click the `PhoneVerification` 1.0.0 API.
-`https://<hostname>:9443/store         `
-    ![]({{base_path}}/assets/attachments/103328543/103328545.png)7.  Go to the API's **Documentation** tab and see the documents listed by type.
+        ![](../../../assets/img/Learn/add-docs-all.png)
+
+6.  Log in to the WSO2 Developer Portal and click the `PizzaShackAPI` 1.0.0 version.
+`https://<hostname>:9443/devportal         `
+    ![](../../../assets/img/Learn/view-docs-devportal.png)
+
+7.  Go to the API's **Documentation** tab and see the documents listed by type.
     Click the links to see the documentation content. As a subscriber, you can read the documentation and learn about the API.
-    ![]({{base_path}}/assets/attachments/103328543/103328544.png)
-You have created documentation using the API Publisher and viewed them as a subscriber in the API Store.
+    ![](../../../assets/img/Learn/view-docs-api.png)
+
+You have created documentation using the API Publisher and viewed them as a subscriber in the Develper Portal.
