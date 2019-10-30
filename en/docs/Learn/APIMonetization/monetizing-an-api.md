@@ -742,6 +742,14 @@ Stripe UI.
 
 Specific Stripe billing plans correspond to specific WSO2 API Manager business plans. Therefore, when an App developer subscribes to an API via the API Developer Portal, Stripe will use the information in their business plan to create a corresponding subscription for the App developer in Stripe.  
 
+<html>
+    <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>The customers are created in Stripe with sample payment(card) details. The real card details should be updated in order to process real payments. Once the real card details are updated for the relevant customer created for a particular subscriber in the platform account, it will be copied when shared customers are created in the connected accounts for the same subscriber there after. So its important that you collect and edit the correct payment details in both platform and connected account for a subscriber when he subscribes for the first time.</p>
+        <p>Please refer the [document](https://stripe.com/docs/payments/cards/collecting) to find out how to collect the card details safely in Stripe.</p>
+    </div> 
+</html>
+
 ### Step 4 - Send usage data to the billing engine
 
 You can use the admin REST API, which is available in WSO2 API Manager, to publish the summarized data to Stripe. After this API call takes place, it pushes the usage data to Stripe. After Stripe gets the usage data, it checks for the subscriptions that have completed their billing cycle and charges the customer based on their API usage.
