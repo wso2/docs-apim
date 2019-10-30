@@ -6,7 +6,7 @@ APIs created in the API Publisher Portal are visible to any user who logs in to 
 
 Re-indexing the artifacts in the registry.
 
--   Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file. (Note: If you want to reindex again in future, you can increment the value "1" to "2").) 
+-   Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file. (Note: If you want to reindex again in future, you can increment the value "1" to "2").
   If what you have is a **distributed API Manager setup** , change the file in the API Publisher node. 
 
     ``` 
