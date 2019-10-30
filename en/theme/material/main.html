@@ -38,10 +38,6 @@
       'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
   })(window, document, 'script', 'dataLayer', 'GTM-TSWTP6');</script>
 <!-- End Google Tag Manager -->
-{% endblock %}
-
-{% block script %}
-{{ super() }}
 
 <!-- Hotjar Tracking Code for https://apim.docs.wso2.com/ -->
 <script>
@@ -55,6 +51,7 @@
   })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
 </script>
 <!-- End Google Tag Manager (noscript) -->
+
 {% endblock %}
 
 {% block styles %}
