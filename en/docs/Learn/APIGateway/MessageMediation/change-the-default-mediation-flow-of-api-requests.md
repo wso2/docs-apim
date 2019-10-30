@@ -106,7 +106,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     ![]({{base_path}}/assets/attachments/103332556/103332527.png) This is because you want the custom sequence to be invoked in the `In` direction or the request path. If you want it to be involved in the `Out` or `Fault` paths, select the respective folder under `customsequences` .
 
         !!! tip
-    **Tip** : If you prefer not to use the registry to upload the sequence or want to engage a sequence to all APIs in WSO2 API-M at once, you can do so by saving the mediation sequence XML file in the file system. See [Adding Mediation Extensions](_Adding_Mediation_Extensions_) for details.
+    **Tip** : If you prefer not to use the registry to upload the sequence or want to engage a sequence to all APIs in WSO2 API-M at once, you can do so by saving the mediation sequence XML file in the file system. See [Adding Mediation Extensions](../../../../Learn/Extensions/adding-mediation-extensions.md) for details.
 
 
 12. Name the sequence `YahooWeatherSequence` .
@@ -214,7 +214,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     When selecting a mediator, make sure that it is a non-blocking mediator as blocking mediators are not supported in API Gateway custom mediations. For more details, see [Adding Mediation Extensions](_Adding_Mediation_Extensions_) .
 
 
-19. Sign in to the API Store, subscribe to the API that you just published, and generate the access tokens in order to invoke the API.
+19. Sign in to the API Devportal, subscribe to the API that you just published, and generate the access tokens in order to invoke the API.
     ![]({{base_path}}/assets/attachments/103332556/103332529.png)
 20. Click the **API Console** tab of the API.
     It opens the integrated API Console using which you can invoke the API.

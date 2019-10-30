@@ -17,49 +17,59 @@ A financial institution has the following three APIs,
 
     Used to access and update the financial information of customers. The API consists of the following resources,
 
-      GET /customers                    - Get list of all existing customers
-      GET /customers/{customerId}       - Get details of specific customer with {customerId}
-      POST /customers                   - Add a new customer
-      PUT /customers/{customerId}       - Update a specific customer with {customerId}
-      DELETE /customers/{customerId}    - Delete a specific customer with {customerId}
+      | Resources                    |  Description                                        |                                        
+      |------------------------------|-----------------------------------------------------|
+      **GET  /customers**                    | Get list of all existing customers 
+      **GET  /customers/{customerId}**       | Get details of specific customer with {customerId} 
+      **POST  /customers**                   | Add a new customer 
+      **PUT  /customers/{customerId}**       | Update a specific customer with {customerId} 
+      **DELETE  /customers/{customerId}**    | Delete a specific customer with {customerId} 
   
 - Leasing API
 
     Used to access and update the information regarding the leases of the institution. The API consists of the following 
     resources,
     
-      GET /assets                   - Get list of all existing assets that can be leased
-      GET /assets/{assetId}         - Get details of specific asset with {assetId}
-      POST /assets                  - Add a new asset
-      PUT /assets/{assetId}         - Update a specific asset with {assetId}
-      DELETE /assets/{assetId}      - Delete a specific asset with {assetId}
+      | Resources                    |  Description                                        |
+      |------------------------------|-----------------------------------------------------| 
+      **GET /assets**                   | Get list of all existing assets that can be leased
+      **GET /assets/{assetId}**         | Get details of specific asset with {assetId} 
+      **POST /assets**                  | Add a new asset
+      **PUT /assets/{assetId}**         |Update a specific asset with {assetId}
+      **DELETE /assets/{assetId}**      | Delete a specific asset with {assetId}
       
 - Credit API
     
     Used to access and update the credit information of a given customer. The API consists of the following resources,      
     
-      GET /accounts/{customerId}    - Get list of credit accounts for a customer with {customerId}
-      GET /accounts/{accountId}     - Get details of specific credit account with {accountId}
-      POST /accounts/{customerId}   - Add a new credit account for a customer with {customerId}
-      PUT /accounts/{accountId}     - Update a specific credit account with {accountId}
-      DELETE /accounts/{accountId}  - Delete a specific credit account with {accountId}
+     | Resources                    |  Description                                        |
+     |------------------------------|-----------------------------------------------------|
+      **GET /accounts/{customerId}**    | Get list of credit accounts for a customer with {customerId}
+      **GET /accounts/{accountId}**     | Get details of specific credit account with {accountId}
+      **POST /accounts/{customerId}**   | Add a new credit account for a customer with {customerId}
+      **PUT /accounts/{accountId}**     | Update a specific credit account with {accountId}
+      **DELETE /accounts/{accountId}**  | Delete a specific credit account with {accountId}
       
       
 The resources of these existing APIs can be reused and exposed via API Products as shown below,
 
 - Leasing API Product
     
-      GET /customers                (From Customer Info API)              
-      GET /customers/{customerId}   (From Customer Info API)
-      GET /assets/{assetId}         (From Leasing API)
-      POST /assets                  (From Leasing API)
+    | Resources                    |  Parent API                                        |
+    |------------------------------|-----------------------------------------------------|
+      **GET /customers**               | Customer Info API              
+      **GET /customers/{customerId}**  | Customer Info API
+      **GET /assets/{assetId}**        | Leasing API
+      **POST /assets**                 | Leasing API
       
 - Credit API Product
 
-      GET /customers                (From Customer Info API)              
-      GET /customers/{customerId}   (From Customer Info API)
-      GET /accounts/{accountId}     (From Credit API)
-      POST /accounts/{customerId}   (From Credit API)
+    | Resources                    |  Parent API                                        |
+    |------------------------------|-----------------------------------------------------|
+      **GET /customers**              |  Customer Info API              
+      **GET /customers/{customerId}**  | Customer Info API
+      **GET /accounts/{accountId}**    | Credit API
+      **POST /accounts/{customerId}**   |Credit API
       
 A subset of the resources from different APIs have been combined to provide customized hybrid offerings that can appeal 
 to different subscribers. This also ensures that only specific resources are exposed via the API Product.

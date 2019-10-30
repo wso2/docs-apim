@@ -3,13 +3,13 @@
 Software Development Kits (SDKs) contain the necessary toolkits to create a client application to invoke a particular API. If an API consumer wants to create an application, they can generate a server stub or client side SDK for a supported language/framework and use it to write a software application to consume the subscribed APIs.
 
 !!! note
-SDK generation is not supported with the APIs that are created using OpenAPI 3.0 support.
+    SDK generation is not supported with the APIs that are created using OpenAPI 3.0 support.
 
 
 The API Publisher has an embedded [swagger editor](http://editor.swagger.io/#/) with the ability to generate server code and client SDKs then and there.
 
 !!! note
-Client SDK and Server Stub generation in API Publisher is only supported for Rest APIs.
+    Client SDK and Server Stub generation in API Publisher is only supported for Rest APIs.
 
 
 1.  Open an existing API and choose to edit it.
