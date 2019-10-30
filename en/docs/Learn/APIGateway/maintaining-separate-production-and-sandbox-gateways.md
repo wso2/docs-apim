@@ -4,21 +4,18 @@ With WSO2 API Manager, you can maintain a production and a sandbox endpoint for 
 
 When you publish an API using the API Publisher, it gets deployed on the API Gateway. By default, there's a single Gateway instance (deployed either externally or embedded within the publisher), but you can also set up multiple Gateways:
 
--   [Single Gateway to handle both production and sandbox requests](#MaintainingSeparateProductionandSandboxGateways-SingleGatewaytohandlebothproductionandsandboxrequests)
--   [Multiple Gateways to handle production and sandbox requests separately](#MaintainingSeparateProductionandSandboxGateways-MultipleGatewaystohandleproductionandsandboxrequestsseparately)
-
 #### Single Gateway to handle both production and sandbox requests
 
 This is the default scenario. Because this Gateway instance handles both production and sandbox token traffic, it is called a hybrid API Gateway. When an API request comes to the API Gateway, it checks whether the requesting token is of type PRODUCTION or SANDBOX and forwards the request to the appropriate endpoint. The diagram below depicts this scenario.
 
-![](../../../../assets/img/Learn/hybrid-gw.png)
+![](../../../assets/img/Learn/hybrid-gw.png)
 #### Multiple Gateways to handle production and sandbox requests separately
 
 Having a single Gateway instance to pass through both types of requests can negatively impact the performance of the production server. To avoid this, you can set up separate API Gateways. The production API Gateway handles requests that are made using PRODUCTION type tokens and the sandbox API Gateway handles requests that are made using SANDBOX type tokens.
 
 The diagram below depicts this using two Gateways:
 
-![](../../../../assets/img/Learn/production-sandbox-gws.png)
+![](../../../assets/img/Learn/production-sandbox-gws.png)
 
 In either of the two approaches, if an API Gateway receives an invalid token, it returns an error to the requesting client saying that the token is invalid.
 
@@ -64,7 +61,7 @@ The `type` attribute of the environment can take the following values:
 
 If you work with Gateways in different geographical locations, configuring multiple environments in the `<API-M_HOME>/repository/conf/deployment.toml` file is recommended. The diagram below depicts a sample setup:
 
-![](../../../../assets/img/Learn/multi-reigion-gw.png)
+![](../../../assets/img/Learn/multi-reigion-gw.png)
 
 **Figure** : API Gateways in different geographical regions
 
