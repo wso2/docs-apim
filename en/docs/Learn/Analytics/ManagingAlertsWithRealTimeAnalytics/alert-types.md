@@ -72,6 +72,7 @@ These alerts are triggered for the reasons specified in the tables below.
 | Indication            | A server side error has occurred.                                                                                                                                                              |
 
 !!! info
-     For more information on API status changing over availability of APIs, see [Viewing Availability Of APIs](../../../../../Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#availability-of-apis) .
+     For more information on API status changing over availability of APIs, see [Viewing Availability Of APIs](../../../../../Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#availability-of-apis/).
+
 
 
