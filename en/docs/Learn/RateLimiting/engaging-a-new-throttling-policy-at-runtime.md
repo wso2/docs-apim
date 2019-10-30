@@ -20,16 +20,18 @@ The steps below show how to engage a throttling policy to an API at runtime.
         </wsp:Policy>
     ```
 
-        !!! info
-    Attributes
+!!! info
+     Attributes
 
-    -   Throttle policy - This section is used to specify the policy for throttling.
-    -   Maximum concurrent accesses - The maximum number of messages that are served at a given time.
-    -   Throttle assertion - Assertion for a concurrency-based policy.
+     -   Throttle policy - This section is used to specify the policy for throttling.
+     -   Maximum concurrent accesses - The maximum number of messages that are served at a given time.
+     -   Throttle assertion - Assertion for a concurrency-based policy.
 
 
 2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and go to the **Resource &gt; Browse** menu to view the registry.
+
     ![]({{base_path}}/assets/attachments/103335026/103335031.png)
+
 3.  Click the `/_system/goverence/apimgt/applicationdata` path to go to its detailed view.
     ![]({{base_path}}/assets/attachments/103335026/103335030.png)
 4.  In the detail view, click **Add Resource** .
@@ -64,8 +66,8 @@ The steps below show how to engage a throttling policy to an API at runtime.
         </api>
     ```
 
-        !!! note
-    **Note:** Be sure to specify the same path used in step 5 in the policy key of your API definition. Also, use the same tier name you selected when creating the API as the throttle id in the policy (example `<throttle:ID throttle:type ="ROLE">Gold</throttle:ID>)` .
+!!! note
+    Be sure to specify the same path used in step 5 in the policy key of your API definition. Also, use the same tier name you selected when creating the API as the throttle id in the policy (example `<throttle:ID throttle:type ="ROLE">Gold</throttle:ID>)` .
 
 
 You have successfully engaged a throttling policy to an API at runtime, without restarting the server.
