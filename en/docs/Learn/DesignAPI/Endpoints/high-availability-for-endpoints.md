@@ -27,13 +27,13 @@ Following are the other configurations that you need to do in order to specify a
 </tr>
 <tr class="even">
 <td>Sandbox endpoints</td>
-<td>The set of sandbox endpoints can be specified here where te requests need to be load balanced. You can specify more than one endpoint by clicking on <strong>&quot;+&quot;</strong> sign and can delete the endpoints by clicking on <strong>bin</strong> icon</td>
+<td>The set of sandbox endpoints can be specified here where te requests need to be load balanced. You can specify more than one endpoint by clicking on <strong>&quot;+&quot;</strong> sign and can delete the endpoints by clicking on <strong>bin</strong> icon.</td>
 </tr>
 <tr class="odd">
 <td>Algorithm</td>
 <td><div class="content-wrapper">
 <p>The load balancing algorithm is specified here.</p>
-<p>Click on the gearbox icon to setting up</p>
+<p>Click on the cogwheel icon to setting up algorithm</p>
 <p>The default is <strong>Round Robin</strong> Algorithm which has the className of <a href="https://synapse.apache.org/apidocs/org/apache/synapse/endpoints/algorithms/RoundRobin.html">org.apache.synapse.endpoints.algorithms.RoundRobin</a> <a href="https://synapse.apache.org/apidocs/org/apache/synapse/endpoints/algorithms/RoundRobin.html">.</a> If you select other from the dropdown list of Algorithms you need to specify the class name of the algorithm. Class names of other algorithms can be found <a href="https://synapse.apache.org/apidocs/org/apache/synapse/endpoints/algorithms/package-summary.html">here</a> .</p>
 <p></p>
 </div></td>
@@ -41,7 +41,7 @@ Following are the other configurations that you need to do in order to specify a
 <tr class="even">
 <td>Session Management</td>
 <td>
-<p>Click on the gearbox icon to setting up</p>
+<p>Click on the cogwheel icon to setting up session management</p>
 <p>A session management method from the load balancing group. The possible values are as follows.</p>
 <p><strong>None</strong> - If this is selected, session management is not used.</p>
 <p><strong>Transport</strong> - If this is selected, session management is done on the transport level using HTTP cookies.</p>
@@ -52,6 +52,7 @@ Following are the other configurations that you need to do in order to specify a
 <tr class="odd">
 <td>Session Timeout</td>
 <td>The number of milliseconds after which the session would time out.</td>
+<p>Click on the cogwheel icon to setting up session timeout</p>
 </tr>
 </tbody>
 </table>
