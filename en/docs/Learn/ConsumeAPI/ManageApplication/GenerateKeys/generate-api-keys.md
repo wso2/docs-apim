@@ -53,8 +53,7 @@ after the generation.
      Once the keys are generated, you can find the consumer key and consumer secret pair from the application detail 
      page.
      
-     <a href="../../../../../assets/img/Learn/application-key-secret-view.png" ><img src="../../../../.
-     ./assets/img/Learn/application-key-secret-view.png" alt="Application Consumer Key Secret" title="Application
+     <a href="../../../../../assets/img/Learn/application-key-secret-view.png" ><img src="../../../../../assets/img/Learn/application-key-secret-view.png" alt="Application Consumer Key Secret" title="Application
       Consumer Key Secret" width="70%" /></a>
      
 !!! tip
