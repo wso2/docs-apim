@@ -64,7 +64,7 @@ register the JSON builder and formatter for that media type using the `deploymen
 
 For example, if the media type is `text/javascript` , register the message builder and formatter as follows:
 
-``` java
+``` toml
 [message_builder]
 text_javascript = "org.apache.synapse.commons.json.JsonStreamBuilder"
 
@@ -76,7 +76,7 @@ text_javascript = "org.apache.synapse.commons.json.JsonStreamFormatter"
     To support having spaces inside JSON attributes, change the default JSON builder and formatter to the following 
     pair to the `<APIM_HOME>/repository/conf/deployment.toml` file:
     
-    ``` xml
+    ``` toml
     [message_builder]
     application_json = "org.apache.synapse.commons.json.JsonStreamBuilder"
     
@@ -88,7 +88,7 @@ text_javascript = "org.apache.synapse.commons.json.JsonStreamFormatter"
     To support use cases for JSON payloads with arrays, change the default JSON builder and formatter to the following 
     pair to the `<APIM_HOME>/repository/conf/deployment.toml` file:
 
-    ``` xml
+    ``` toml
     [message_builder]
     application_json = "org.apache.synapse.commons.json.JsonStreamBuilder"
         
