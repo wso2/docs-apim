@@ -53,19 +53,22 @@ nav:
         - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
     - Learn: 
-        - Design API: 
-            - Create API:
-                - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
-                - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
-                - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
-                - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
-                - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
-                - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
-            - Publish API:
+        - Design APIs:
+            - Create APIs:
+                  - Create a new API:
+                        - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
+                        - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
+                        - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
+                        - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
+                        - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
+                        - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
+                  - Adding Custom Properties to APIs: Learn/DesignAPI/CreateAPI/adding-custom-properties-to-apis.md
+                  - Change the Thumbnail of an API : Learn/DesignAPI/CreateAPI/change-api-thumbnail.md
+            - Publish APIs:
                 - Publish an API: Learn/DesignAPI/PublishAPI/publish-an-api.md
                 - Publish through Multiple API Gateways: Learn/DesignAPI/PublishAPI/publish-through-multiple-api-gateways.md
                 - Publish to Multiple External API Stores: Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores.md
-            - Prototype API:
+            - Prototype APIs:
                 - Create a Prototype API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
                 - Deploy and Test Prototype APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
             - Endpoints:
@@ -93,14 +96,13 @@ nav:
                 - Search Documentation:
                     - Add New Search Keyword: Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword.md
             - Advanced Topics:
-                - Adding Custom Properties to APIs: Learn/DesignAPI/AdvancedTopics/adding-custom-properties-to-apis.md
                 - Enable Publisher Access Control in API Publisher Portal: Learn/DesignAPI/AdvancedTopics/enable-publisher-access-control-in-api-publisher-portal.md
                 - Control API Visibility and Subscription Availability in the Developer Portal: Learn/DesignAPI/AdvancedTopics/control-api-visibility-and-subscription-availability-in-developer-portal.md
                 - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
                 - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md 
-        - Consume API:
-            - Discover API:
+        - Consume APIs:
+            - Discover APIs:
                 - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md    
             - Manage Applications:
                 - Create Application: Learn/ConsumeAPI/ManageApplication/create-application.md
@@ -147,7 +149,7 @@ nav:
                         - Include Additional Headers in the API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/include-additional-headers-in-the-api-console.md
                         - Invoke an API using a SOAP Client: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client.md
                         - Test an API using a Ready! API: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api.md  
-            - Collaboration:
+            - Collaborations:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
                 -  Customizing the API Store:
