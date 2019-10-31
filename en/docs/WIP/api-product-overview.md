@@ -82,8 +82,8 @@ When a given resource of an API is added to an API Product, the following attrib
 - Authentication scheme
 - Throttling policy
 
-      !!! info
-      In essence, an API Product will share the resource(s) of an existing API.
+!!! info
+    In essence, an API Product will share the resource(s) of an existing API.
     
 
 The Publisher is able to define a separate set of subscription level throttling policies which are different from the
@@ -93,7 +93,7 @@ The same backend endpoint that is defined by the resources respective API will b
 Due to the fact that the API Product may contain resources from multiple APIs, an API Product may route to multiple
 backend endpoints.
 
-    !!! note
+!!! note
     API Products cannot define their own backend endpoints, apart from reusing the existing endpoints belonging to its 
     API resources respective parent API.
     

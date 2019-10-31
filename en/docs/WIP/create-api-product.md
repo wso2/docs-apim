@@ -7,12 +7,12 @@
 the attached Swagger definition files [customer-info-api.yaml](assets/attachments/api-product/customer-info-api.yaml) 
 and [leasing-api.yaml](assets/attachments/api-product/leasing-api.yaml). 
 
-        !!! note
-        Ensure that you provide an endpoint for each API after it has been imported. The API Product will reuse the
-        endpoint specified at the API level.
+!!! note
+    Ensure that you provide an endpoint for each API after it has been imported. The API Product will reuse the
+    endpoint specified at the API level.
         
-        !!! note
-        It is not necessary to publish an API in order for it to be used to create an API Product
+!!! note
+    It is not necessary to publish an API in order for it to be used to create an API Product
         
 3. After the APIs have been created, their respective resources will be as follows,
 
@@ -22,10 +22,10 @@ and [leasing-api.yaml](assets/attachments/api-product/leasing-api.yaml).
     - leasing API
     ![](assets/img/api-product/leasing-api.png)
 
-          !!! note
-          If you have not already logged into the WSO2 API Publisher with a user who has **publisher** permissions(such
-          as 'admin'), you need to logout and login as a user who has those permissions. The following steps required to
-          create and API Product can only be performed by a user with **publisher** permissions.
+!!! note
+    If you have not already logged into the WSO2 API Publisher with a user who has **publisher** permissions(such
+    as 'admin'), you need to logout and login as a user who has those permissions. The following steps required to
+    create and API Product can only be performed by a user with **publisher** permissions.
 
 4. Click on the 'API Products' link in the WSO2 API Publisher and click on the **CREATE AN API PRODUCT** button as 
 shown below
