@@ -20,10 +20,10 @@ from the message. As with message builders, the message formatter is selected ba
 Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to implement the API Gateway through 
 which API messages are transformed:
 
--   [Accessing content from JSON payloads](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-AccessingcontentfromJSONpayloads)
--   [Logging JSON payloads](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-LoggingJSONpayloads)
--   [Constructing and transforming JSON payloads](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-ConstructingandtransformingJSONpayloads)
--   [Troubleshooting, debugging, and logging](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-Troubleshootingdebuggingandlogging)
+-   [Accessing content from JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#accessing-content-from-json-payloads)
+-   [Logging JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#logging-json-payloads)
+-   [Constructing and transforming JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#constructing-and-transforming-json-payloads)
+-   [Troubleshooting, debugging, and logging](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#troubleshooting-debugging-and-logging)
 
 ### JSON message builders and formatters
 
@@ -44,7 +44,7 @@ Note that some data loss can occur during the JSON -&gt; XML -&gt; JSON conversi
 - `org.apache.synapse.commons.json.JsonFormatter`
 
 The builders and formatters are configured respectively in the `messageBuilders` and `messageFormatters` sections of 
-the Axis2 configuration files located in the `<PRODUCT_HOME>/repository/conf/axis2` directory. Both types of JSON 
+the Axis2 configuration files located in the `<APIM_HOME>/repository/conf/axis2` directory. Both types of JSON 
 builders use [StAXON](https://github.com/beckchr/staxon) as the underlying JSON processor.
 
 The following builders and formatters are also included for compatibility with older API Manager versions:
@@ -59,43 +59,41 @@ The following builders and formatters are also included for compatibility with o
 
 
 If you want to handle JSON payloads that are sent using a media type other than `application/json` , you must 
-register the JSON builder and formatter for that media type in the following two files at minimum (for best results, 
-register them in all Axis2 configuration files found in the `<PRODUCT_HOME>/repository/conf/axis2` directory):
-
-- `<PRODUCT_HOME>/repository/conf/axis2/axis2.xml`
-- `<PRODUCT_HOME>/repository/conf/axis2/axis2\_blocking\_client.xml`
+register the JSON builder and formatter for that media type using the `deployment.toml` file found in the 
+`<APIM_HOME>/repository/conf` directory):
 
 For example, if the media type is `text/javascript` , register the message builder and formatter as follows:
 
-``` xml
-<messageBuilder contentType="text/javascript"   
-                class="org.apache.synapse.commons.json.JsonStreamBuilder"/>
-<messageFormatter contentType="text/javascript"   
-                class="org.apache.synapse.commons.json.JsonStreamFormatter"/> 
+``` java
+[message_builder]
+text_javascript = "org.apache.synapse.commons.json.JsonStreamBuilder"
+
+[message_formatter]
+text_javascript = "org.apache.synapse.commons.json.JsonStreamFormatter"
 ```
     
 !!! tip
     To support having spaces inside JSON attributes, change the default JSON builder and formatter to the following 
-    pair in either `<APIM_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or   
-    `<APIM_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
+    pair to the `<APIM_HOME>/repository/conf/deployment.toml` file:
     
     ``` xml
-    <messageBuilder contentType="application/json"  
-                    class="org.apache.synapse.commons.json.JsonStreamBuilder">
-    <messageFormatter contentType="application/json"  
-                    class="org.apache.synapse.commons.json.JsonStreamFormatter"/>
+    [message_builder]
+    application_json = "org.apache.synapse.commons.json.JsonStreamBuilder"
+    
+    [message_formatter]
+    application_json = "org.apache.synapse.commons.json.JsonStreamFormatter"
     ```
 
 !!! tip
     To support use cases for JSON payloads with arrays, change the default JSON builder and formatter to the following 
-    pair in either `<APIM_HOME>/repository/conf/axis2/axis2.xml` (super tenant scenario) or 
-    `<APIM_HOME>/repository/conf/axis2/tenant-axis2.xml` (tenant scenario) file:
+    pair to the `<APIM_HOME>/repository/conf/deployment.toml` file:
 
     ``` xml
-    <messageBuilder contentType="application/json"  
-                    class="org.apache.synapse.commons.json.JsonStreamBuilder">
-    <messageFormatter contentType="application/json"  
-                    class="org.apache.synapse.commons.json.JsonStreamFormatter"/>
+    [message_builder]
+    application_json = "org.apache.synapse.commons.json.JsonStreamBuilder"
+        
+    [message_formatter]
+    application_json = "org.apache.synapse.commons.json.JsonStreamFormatter"
     ```
 
     Else, in JSON to XML conversion, there might be issues as below:
@@ -453,7 +451,8 @@ The response payload will look like this:
 ```
 
 Note that we have used the Property mediator to mark the outgoing payload to be formatted as JSON. For more information 
-about the Property Mediator, see the [Property Mediator](https://docs.wso2.com/display/EI620/Property+Mediator) page 
+about the Property Mediator, see the 
+[Property Mediator](https://ei.docs.wso2.com/en/latest/micro-integrator/references/mediators/property-Mediator/) page 
 on WSO2 EI documentation.
 
 ``` xml
@@ -515,7 +514,7 @@ Similarly if the response message needs to be transformed, set the messageType p
 
 !!! info
     **XML to JSON Transformation Parameters**  
-    See [JSON Transformation Parameters](https://docs.wso2.com/display/EI620/JSON+Support#JSONSupport-XMLtoJSONtransformationparameters) 
+    See [JSON Transformation Parameters](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#xml-to-json-transformation-parameters) 
     for additional parameters for converting XML to JSON.
 
 
