@@ -78,7 +78,6 @@ The Key Manager manages all clients, security and access token-related operation
 You can avoid making the Gateway connect with the Key Manager every time it receives an API invocation call, by enabling API Gateway [caching](https://docs.wso2.com/display/AM260/Configuring+Caching) . When caching is not enabled, a verification call happens every time the Gateway receives an API invocation call. For this verification, the Gateway passes an access token, the API, and API version to the Key Manager. Communication between the API Gateway and the Key Manager happens in either of the following ways:
 
 -   Through a Web service call
--   Through a [Thrift](http://thrift.apache.org/static/files/thrift-20070401.pdf) call (Thrift is the default communication protocol and is much faster than SOAP over HTTP)
 
  The Key Manager properly decouples the operations for creating OAuth applications and validating access tokens so that you can even plug in a third party-authorization server for key validations. In a typical production environment, you can configure one of the following setups:
 
