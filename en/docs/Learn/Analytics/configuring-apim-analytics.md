@@ -71,8 +71,8 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 1 - Download and install WSO2 API-M](#step-1-download-and-install-wso2-api-m)
 -   [Step 2 - Download and install WSO2 API-M Analytics](#step-2-download-and-install-wso2-api-m-analytics)
 -   [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3-configure-wso2-api-manager-to-publish-statistics)
--   [Step 5 - Configure databases](#step-4-configure-databases)
--   [Step 6 - Configure keystores](#step-5-configure-keystores)
+-   [Step 4 - Configure databases](#step-4-configure-databases)
+-   [Step 5 - Configure keystores](#step-5-configure-keystores)
 
 #### Step 1 - Download and install WSO2 API-M
 
@@ -94,13 +94,14 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 
 !!! warning
       If you are working on a distributed (clustered) setup of API Manager, carryout the instructed configurations in the Publisher, Store and Gateway nodes of the API Manager.
-1.Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the following section as shown below. Save this change.
 
-  ``` toml
-      [apim.analytics]
-      enable = true
-  ```
-2.  Configure the following parameters under the `[apim.analytics]` section if required.
+Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the following section as shown below. Save this change.
+
+   ``` toml
+       [apim.analytics]
+       enable = true
+   ```
+Configure the following parameters under the `[apim.analytics]` section if required.
 
 <table>
 <thead>
@@ -112,125 +113,264 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 </thead>
 <tbody>
 <tr class="odd">
-<td width="32%"><code>receiver_urls</code></td>
+<td width="10%"><code>receiver_urls</code></td>
 <td width="30%">
 <code>
 &lt;protocol&gt;://&lt;hostname&gt;:&lt;port&gt;/
 </code>
-<br/> ex: "tcp://localhost:7612"
 </td>
-<td>The server URL of the remote WSO2 API-M Analytics server used to collect statistics from WSO2 API Manager. Use this configuration if there is only one group with either one or many receivers.</td>
+<td>
+The server URL of the remote WSO2 API-M Analytics server used to collect statistics from WSO2 API Manager. Use this configuration if there is only one group with either one or many receivers.
+<p> e.g., Three receivers within a single group can be specified as follows.
+<br/><code>receiver_urls = tcp://localhost:7612,tcp://localhost:7613,tcp://localhost:7614</code>
+</p>
+<html><div class="admonition warning">
+<p class="admonition-title">From DAS to SI</p>
+<p>
+Previously, when WSO2 API-M Analytics was powered by WSO2 Data Analytics Server 3.1.0, you had to add a comma to separate the DAS URLs so that the analytics events were published to both nodes. 
+However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Streaming Integrator 1.0.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+<br/>e.g.,
+<br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
+</p>
+</div>
+</html>
+</td>
 </tr>
 <tr class="odd">
 <td><code>[[apim.analytics.url_group]]
-analytics_url</code></td>
+<br/>analytics_url</code></td>
 <td><code>&lt;protocol&gt;://&lt;hostname&gt;:&lt;port&gt;/</code></td>
-<td>The server URL of the remote WSO2 API-M Analytics server used to collect statistics from WSO2 API Manager. Use this configuration if there is only one group with either one or many receivers.
- An event can also be published to multiple receiver groups, where each group has one or more receivers. Receiver groups are delimited by curly braces, whereas receivers are delimited by commas.
-<p>e.g., Three receivers within a single group can be specified as follows.<br />
-<code>tcp://localhost:7612,tcp://localhost:7613,tcp://localhost:7614</code></p>
-<p>Two receiver groups with two receivers each can be specified as follows.<br />
-<code>                   {                                       tcp://localhost:7612,tcp://localhost:7613},{tcp://localhost:7712,tcp://localhost:7713                                      }                  </code></p></td>
+<td>
+An event can also be published to multiple receiver groups, where each group has one or more receivers. 
+For each receiver groups we need to repeat the above section, whereas receivers are delimited by commas.
+<p>
+e.g., Two receiver groups with two receivers each can be specified as follows.
+<br />
+<code>
+<br/>[[apim.analytics.url_group]]
+<br/>analytics_url =["tcp://localhost:7612,tcp://localhost:7613"]
+<br/>
+<br />[[apim.analytics.url_group]]
+<br />analytics_url =["tcp://localhost:7712,tcp://localhost:7713"]
+</code>
+</p>
+</td>
 </tr>
 <tr class="even">
-<td><code>                  &lt;StreamProcessorUsername&gt;                 </code></td>
+<td><code>receiver_username</code></td>
 <td>A valid administrator username</td>
 <td><div class="content-wrapper">
 <p>The administrator user name to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
-!!! info
-<ul>
-<li>If you enable email user, you need to configure <code>                     @carbon.super                    </code> to the username of the API-M Analytics admin user. e.g., If the username of the API-M Analytics admin use is <code>                     demo@wso2.com                    </code> , it must be <code>                     demo@wso2.com @carbon.super                    </code> once you have enabled email user.</li>
-<li>It is required to change the values <code>                     StreamProcessorUsername                    </code> and <code>                     StreamProcessorPassword                    </code> parameters if the user of WSO2 API-M is different to the user of WSO2 WSO2 API-M Analytics. The default value <code>                     ${admin.username}                    </code> retrieves the admin user of the current API-M node as the <code>                     StreamProcessorUsername                    </code> .</li>
-</ul>
+<html><div class="admonition info">
+<p class="admonition-title">Info</p>
+<p><ul>
+   <li>If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. 
+   e.g., If the username of the API-M Analytics admin use is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com @carbon.super</code> once you have enabled email user.</li>
+   <li>It is required to change the values <code>receiver_username</code> and <code>receiver_password</code> parameters if the user of WSO2 API-M is different to the user of WSO2 WSO2 API-M Analytics. 
+   The default value <code>${admin.username}</code> retrieves the admin user of the current API-M node as the <code>receiver_username</code>.</li>
+   </ul></p>
+</div>
+</html>
 </div></td>
 </tr>
 <tr class="odd">
-<td><code>                  &lt;StreamProcessorPassword&gt;                 </code></td>
+<td><code>receiver_password</code></td>
 <td>The password of the username specified.</td>
 <td><div class="content-wrapper">
 <p>The administrator password to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
-    !!! info
-    <p>It is required to change the values <code>                    StreamProcessorUsername                   </code> and <code>                    StreamProcessorPassword                   </code> parameters if the user of WSO2 API-M is different to the user of WSO2 API-M Analytics. The default value <code>                    ${admin.password}                   </code> retrieves the admin user of the current API-M node as the <code>                    StreamProcessorUsername                   </code> .</p>
-
+<html><div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>It is required to change the values <code>receiver_username</code> and <code>receiver_password</code> parameters if the user of WSO2 API-M is different to the user of WSO2 API-M Analytics. 
+The default value <code>${admin.password}</code> retrieves the admin user's password of the current API-M node as the <code>receiver_password</code>.</p>
+</div>
+</html>
 </div></td>
 </tr>
 <tr class="even">
-<td><code>                  &lt;StreamProcessorRestApiURL&gt;                 </code></td>
-<td><code>                  https://&lt;host&gt;:&lt;port&gt;                 </code></td>
+<td><code>store_api_url</code></td>
+<td><code>https://&lt;host&gt;:&lt;port&gt;</code></td>
 <td>The WSO2 API-M Analytics REST API URL. The WSO2 API-M Analytics REST API connection information, which are included under the REST API-M connection information, are defined as global properties, as they are common to all the WSO2 API-M analytics.</td>
 </tr>
 <tr class="odd">
-<td><code>                  &lt;StreamProcessorRestApiUsername&gt;                 </code></td>
+<td><code>store_api_username </code></td>
 <td>A valid administrator username</td>
 <td>The administrator username to log into the remote WSO2 API-M Analytics server.</td>
 </tr>
 <tr class="even">
-<td><code>                  &lt;StreamProcessorRestApiPassword&gt;                 </code></td>
+<td><code>store_api_password</code></td>
 <td>The password of the username specified.</td>
 <td>The administrator password to log into the remote WSO2 API-M Analytics server.</td>
 </tr>
 </tbody>
 </table>
 
-4.  Save the changes.
+Save the changes.
 
 #### Step 4 - Configure databases
 
-Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. !!! info
-The following is a list of database versions that are compatible with WSO2 API-M Analytics.
-
--   Postgres 9.5 and later
--   MySQL 5.6
--   MySQL 5.7
--   Oracle 12c
--   MS SQL Server 2012
--   DB2
+Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
 
 1.  Stop the WSO2 API-M Analytics server if it is running already.
-2.  To configure the worker, open the `<API-M_Analytics_HOME>/conf/               dashboard               /deployment.yaml` file and edit the `APIM_ANALYTICS_DB` section. A sample for MySQL is shown below.
-
-    ``` java
-         - name: APIM_ANALYTICS_DB
-              description: "The datasource used for APIM statistics aggregated data."
+2.  Configure the dashboard profile.
+    1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
+    2. Edit the `WSO2_DASHBOARD_DB, APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
+       <br/>A sample for MySQL is shown below.
+       
+         ``` java
+           - name: WSO2_DASHBOARD_DB
+              description: The datasource used for dashboard feature
               jndiConfig:
-                name: jdbc/APIM_ANALYTICS_DB
+                name: jdbc/DASHBOARD_DB
+                useJndiReference: true
               definition:
                 type: RDBMS
                 configuration:
-                  jdbcUrl: 'jdbc:mysql://localhost:3306/stats_db'
-                  username: 'root'
-                  password: '123'
+                  jdbcUrl: 'jdbc:mysql://localhost:3306/dashboard_db'
+                  username: root
+                  password: 123
                   driverClassName: com.mysql.jdbc.Driver
                   maxPoolSize: 50
                   idleTimeout: 60000
                   connectionTestQuery: SELECT 1
                   validationTimeout: 30000
                   isAutoCommit: false
-    ```
+         ```
+    
+3.  Configure the worker profile. 
+    
+      1. Open the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file 
+      2. Edit the `APIM_ANALYTICS_DB` section. 
+       <br/>A sample for MySQL is shown below.
 
-3.  To configure the dashboard, open the `<API-M_Analytics_HOME>/conf/worker/deployment.yaml` file and repeat the above step.
-4.  Do the following to integrate third party products when configuring databases.
+          ``` java
+            - name: APIM_ANALYTICS_DB
+                 description: "The datasource used for APIM statistics aggregated data."
+                 jndiConfig:
+                   name: jdbc/APIM_ANALYTICS_DB
+                 definition:
+                   type: RDBMS
+                   configuration:
+                     jdbcUrl: 'jdbc:mysql://localhost:3306/stats_db'
+                     username: 'root'
+                     password: '123'
+                     driverClassName: com.mysql.jdbc.Driver
+                     maxPoolSize: 50
+                     idleTimeout: 60000
+                  connectionTestQuery: SELECT 1
+                  validationTimeout: 30000
+                  isAutoCommit: false
+          ```
+         
+    !!! Info
+          If your deployment does not consist of any Microgateways, you do not need to configure the WSO2AM_MGW_ANALYTICS_DB to an external database as you can use the default embedded H2 database.
 
-        !!! note
-    WSO2 SP is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_Analytics_HOME>/lib` directory.
-
-    To convert the jar files to OSGi bundles, follow the steps below.
-
-    1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
-
-    2. Go to the `<API-M_Analytics_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_Analytics_HOME>/lib` directory.
-
-    ``` java
-        ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
-    ```
-
-
+      3. Configure `WSO2AM_MGW_ANALYTICS_DB` to the same database as `APIM_ANALYTICS_DB` in the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
+         
+         ``` java
+           - name: WSO2AM_MGW_ANALYTICS_DB
+               description: "The datasource used for APIM MGW analytics data."
+               jndiConfig:
+                 name: jdbc/WSO2AM_MGW_ANALYTICS_DB
+               definition:
+                 type: RDBMS
+                 configuration:
+                   jdbcUrl: 'jdbc:mysql://localhost:3306/stats_db'
+                   username: 'root'
+                   password: '123'
+                   driverClassName: com.mysql.jdbc.Driver
+                 maxPoolSize: 50
+                 idleTimeout: 60000
+                 connectionTestQuery: SELECT 1
+                 validationTimeout: 30000
+                 isAutoCommit: false
+         ```
+         
+      4. Create the AM_USAGE_UPLOADED_FILES table in the APIM_ANALYTICS_DB database. 
+      
+         ```tab="MySQL"
+            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+            FILE_NAME varchar(255) NOT NULL,
+            FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FILE_PROCESSED tinyint(1) DEFAULT 0,
+            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
+            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+            );
+               
+         ```
+         
+         ```tab="MSSQL"
+            CREATE TABLE AM_USAGE_UPLOADED_FILES (
+            FILE_NAME varchar(255) NOT NULL,
+            FILE_TIMESTAMP DATETIME2(0) DEFAULT GETDATE(),
+            FILE_PROCESSED smallint DEFAULT 0,
+            FILE_CONTENT VARBINARY(max) DEFAULT NULL,
+            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+            );
+         ```
+         
+         ```tab="Oracle"
+            CREATE TABLE AM_USAGE_UPLOADED_FILES (
+            FILE_NAME varchar2(255) NOT NULL,
+            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT SYSTIMESTAMP,
+            FILE_PROCESSED number(3) DEFAULT 0,
+            FILE_CONTENT BLOB DEFAULT NULL,
+            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+            );
+         ```
+         
+         ```tab="Postgres"
+            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+            FILE_NAME varchar(255) NOT NULL,
+            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
+            FILE_PROCESSED smallint DEFAULT 0,
+            FILE_CONTENT BYTEA DEFAULT NULL,
+            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+            );
+         ```
+         
+         ```tab="DB2"
+            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+            FILE_NAME varchar(255) NOT NULL,
+            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
+            FILE_PROCESSED tinyint DEFAULT 0,
+            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
+            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+            );
+         ```
+         
+         ```tab="Informix"
+            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+            FILE_NAME varchar(255) NOT NULL,
+            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
+            FILE_PROCESSED tinyint DEFAULT 0,
+            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
+            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+            );
+         ```
+   
+       
+4.  Point the following data sources to external databases. 
+       None of the following databases need DB scripts. The tables will be automatically created.
+      1. BUSINESS_RULES_DB (dashboard)
+      2. WSO2_PERMISSIONS_DB (worker + dashboard)
+      3. GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
 5.  Start the WSO2 API-M Analytics server.
 
+!!! Info
+      **Do the following to integrate third party products when configuring databases.**
+      <br/>WSO2 SI is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
+      To convert the jar files to OSGi bundles, follow the steps below.
+      <br/>  1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
+      <br/>  2. Go to the `<API-M_ANALYTICS_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_ANALYTICS_HOME>/lib` directory.
+        
+      ``` java
+          ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
+      ```
+      
 #### Step 5 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores#CreatingNewKeystores-ca_certificate) in the Administration Guide.
+If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores](../../../Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
 
