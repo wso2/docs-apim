@@ -164,7 +164,6 @@ nav:
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
-                - Customize the API Store and Gateway URLs for Tenants: Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Customizing Login Pages for API Store and API Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-api-store-and-api-publisher.md
             - Generating SDKs:  
                 - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md     
