@@ -1,4 +1,4 @@
-# Create a GraphQL API
+# Create and Publish a GraphQL API
 
 WSO2 API Manager supports the management of Graphql APIs.
 GraphQL, which has been developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify as to what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. 
@@ -7,9 +7,9 @@ You can use a Schema Definition Language (SDL) schema to design a GraphQL API in
 
 All GraphQL schemas generally have three operation root types, which are namely query, mutation, and subscription. Therefore, every request against a GraphQL endpoint of a GraphQL server should have a payload starting with any one of the root types, including its related operation name. You can manage the security, authorization, and rate limiting aspect of each operation based on its operation name. 
 
-Follow the instructions below to design a GraphQL API
+This tutorial will explain the steps to design, publish and invoke a GraphQL API.
 
-### Design a GraphQL API
+### Step 1 - Design a GraphQL API
 
 1. Sign in to the API Publisher Portal.
    
@@ -41,7 +41,7 @@ Follow the instructions below to design a GraphQL API
       <p class="admonition-title">Note</p>
       <ul><li>
       <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://leapgraph.com/graphql-schema-design-best-practices).</p></li>
-      <li>The file extension can be either `.graphql` or `.txt`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
+      <li>The file extension can be either `.graphql`, `.txt`, or `.json`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
       </div> 
       </html>
 
@@ -191,15 +191,94 @@ Follow the instructions below to design a GraphQL API
 
                  ![Scope list](../../../assets/img/Learn/scope-list.png)
 
-Now, a Graphql API has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-ap)  to get details of publishing API.
 
-Refer [Tutorial on create and publish a Graphql API](../../../../Learn/Tutorials/create-a-graphql-api/) to learn more about Graphql APIs.
+7. Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API.
+
+    ![Publish GraphQL API](../../../assets/img/Learn/publish-graphql-api.png)
+
+### Step 2 - Invoke a GraphQL API
+
+1. Sign in to the Developer Portal.
+   
+     `https://<hostname>:9443/devportal` 
+   
+     Example: `https://localhost:9443/devportal`
+
+     ![Developer Portal](../../../assets/img/Learn/starwars-in-dev-portal.png)
+    
+2. Click on the GraphQL API.
+   
+     The API overview appears.
+ 
+     ![StarWarsAPI API overview](../../../assets/img/Learn/api-overview.png)
+
+3. Optionally, download the API schema if required.
+
+      <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p> You can download the API schema even without signing in to the Developer Portal</p>
+      </div> 
+      </html>
+
+     Click **More** on the API overview page and then click **GRAPHQL SCHEMA** to download the API schema.
+
+     ![Download GraphQL API schema](../../../assets/img/Learn/download-schema.png)
+
+5. Subscribe to the API.
+
+    1. Click **KEY GENERATION WIZARD**.
+    
+         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (allFilms, allPlanets) that you assigned to the operations.
+
+         <html>
+         <head>
+         </head>
+         <body>
+         <div class="admonition note">
+         <p class="admonition-title">Note</p>
+         <p> 
+         The application that the API subscribes to can be a JWT or an OAuth based application.
+         </p>
+         </div>
+
+         ![Key generation wizard](../../../assets/img/Learn/starwars-scopes-gen-access-token.png)
+
+    2. Copy the authorization token that appears.
+
+         ![Copy the authorization token](../../../assets/img/Learn/copy-access-token-starwars.png)
+
+6. Try out the operations.
+    1. Click **TEST** to navigate to the developer console.
+
+        ![Authorization token](../../../assets/img/Learn/authorization-token.png)
+
+    2. Select whether to invoke the API using HTTP or HTTPS from **Servers**.
+
+    3. Paste the access token that you previously copied into the **Access Token** field.
+
+    4. Click **POST**.
+    
+    5. Click **Try it out** and enter the following sample payload as the StarWarsAPI POST request.
+         ```
+         {
+         "query": "{ allFilms{title  episodeId}  allPlanets {films { species {skinColor} } }}"
+         }   
+         ```
+
+         ![Try out the post operation](../../../assets/img/Learn/post-try-out-starwars.png)
+
+    6. Click **Execute**.
+
+        ![Try out the post operation](../../../assets/img/Learn/post-response-starwars.png)
+
 
 ### GraphQL operations
 
 The following sub-sections explain as to how authorization, security, and throttling affect API operations.
 
 #### Authorization for GraphQL operations
+
 A scope acts as a limiting factor on what API resources can be accessed using an access token and thereby defines the authorization aspect for API requests.
 
 - **Authorization for a single operation**
@@ -211,6 +290,7 @@ A scope acts as a limiting factor on what API resources can be accessed using an
     When a query has multiple operations, the access token should include all the scopes that are attached to the operations that correspond to that specific API to be able to invoke the API.
 
 #### Security for GraphQL operations
+
 Security can be enabled or disabled for GraphQL operations. Security is enabled for GraphQL operations by default.
 
 - **Security for a single operation**
@@ -222,6 +302,7 @@ Security can be enabled or disabled for GraphQL operations. Security is enabled 
     The API request takes into consideration the security configurations of all the operations that belong to the API. When a query has security enabled for one of the operations that belong to a specific API, then security is automatically applied for all the operations. Therefore, in such cases, users have to use their credentials when invoking that respective API.
 
 #### Rate limiting for GraphQL operations
+
 Rate limiting is set to unlimited, and thereby disabled by default. 
 
 - **Rate limiting for a single operation**
