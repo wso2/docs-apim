@@ -237,7 +237,7 @@ nav:
             - SAML: ''
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
-                - Gateway Threat Protectors: ''
+                - Gateway Threat Protectors: Learn/APISecurity/ThreatProtection/GatewayThreatProtectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
                 - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md 
@@ -259,7 +259,6 @@ nav:
                 - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md 
         - API Monetization:
             - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
-            - Configuring API Monetization Category Labels: Learn/APIMonetization/configuring-api-monetization-category-labels.md
         - Analytics:
             - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
