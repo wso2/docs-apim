@@ -100,7 +100,7 @@ text_javascript = "org.apache.synapse.commons.json.JsonStreamFormatter"
 
     **JSON**
 
-    ``` java
+    ``` json
     "phoneNumbers":[
         {
             "phoneNumber":"4027161289",
@@ -111,7 +111,7 @@ text_javascript = "org.apache.synapse.commons.json.JsonStreamFormatter"
 
     **Converted XML**
 
-    ``` java
+    ``` xml
     <?xml-multiple phoneNumbers?>
     <phoneNumbers>
        <phoneNumber>4027161289</phoneNumber>
@@ -135,7 +135,7 @@ XML representations of various objects and arrays.
 
 JSON:
 
-``` javascript
+``` json
 {"object":null}
 ```
 
@@ -151,7 +151,7 @@ XML:
 
 JSON:
 
-``` javascript
+``` json
 {"object":{}}
 ```
 
@@ -167,8 +167,8 @@ XML:
 
 JSON:
 
-``` javascript
-]{"object":""}
+``` json
+{"object":""}
 ```
 
 XML:
@@ -183,7 +183,7 @@ XML:
 
 JSON:
 
-``` javascript
+``` json
 []
 ```
 
@@ -205,7 +205,7 @@ XML (JsonBuilder):
 
 JSON:
 
-``` javascript
+``` json
 {"array":[1,2]}
 ```
 
@@ -230,7 +230,7 @@ XML (JsonBuilder):
 
 JSON:
 
-``` javascript
+``` json
 {"array":[]}
 ```
 
@@ -252,7 +252,7 @@ XML (JsonBuilder):
 
 JSON:
 
-``` javascript
+``` json
 [1,2]
 ```
 
@@ -277,7 +277,7 @@ XML (JsonBuilder):
 
 JSON:
 
-``` javascript
+``` json
 [1, []]
 ```
 
@@ -322,7 +322,7 @@ first character of a JSON key. Following are examples of two such occurrences. N
 
 JSON:
 
-``` javascript
+``` json
 {"$key":1234}
 ```
 
@@ -336,7 +336,7 @@ XML:
 
 JSON:
 
-``` javascript
+``` json
 {"32X32":"image_32x32.png"}
 ```
 
@@ -431,7 +431,7 @@ If the request payload is as follows:
 
 The response payload will look like this:
 
-``` javascript
+``` json
 { 
     "coordinates":{ 
         "location":[ 
