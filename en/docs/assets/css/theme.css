@@ -477,6 +477,7 @@ html .md-typeset .superfences-tabs > label:hover {
     border-bottom: 1px solid #eee;
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
+    word-break: break-word;
 }
 
 .mb-config-catalog .mb-config .param-default {
