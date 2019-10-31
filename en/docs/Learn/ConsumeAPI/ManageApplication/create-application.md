@@ -48,15 +48,20 @@ The API Manager comes with a pre-created default application, which allows unlim
         </table>
      </html>
    
-     ![Add new Application](../../../assets/img/Learn/create-new-application.png)
+    <a href="../../../../assets/img/Learn/create-new-application.png" ><img src="../../../../assets/img/Learn/create-new-application.png" alt="Create New Application" title="Create New Application" 
+     width="60%" /></a>
       
     If the application creation is successful, you will be redirected to the application overview page
 
-     ![Application_overview](../../../assets/img/Learn/application-overview.png)
+    <a href="../../../../assets/img/Learn/application-overview.png" ><img src="../../../.
+    ./assets/img/Learn/application-overview.png" alt="Application Overview" title="Application Overview" 
+         width="70%" /></a>
     
 5.  Navigate to Applications listing page, and you will find the PizzaShack application listed with other applications
 . The application can be edited or deleted by the application owner.
 
-    ![Applications_listing](../../../assets/img/Learn/applications-listing.png)
+    <a href="../../../../assets/img/Learn/applications-listing.png" ><img src="../../../.
+    ./assets/img/Learn/applications-listing.png" alt="Application Listing" title="Application Listing" 
+             width="80%" /></a>
 
     
