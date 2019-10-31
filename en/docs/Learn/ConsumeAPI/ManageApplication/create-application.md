@@ -27,11 +27,7 @@ The API Manager comes with a pre-created default application, which allows unlim
 
 #### **Create Applications**
 
-1.  Sign in to the WSO2 API developer portal ( `https://<hostname>:9443/devportal` ).
-    
-    !!! tip
-        In a multi-tenanted WSO2 API Manager setup, you can access any tenant's store using the URL 
-            `http://<hostname>:<port>/devportal?tenant=<tenant_name>`
+1.  Sign in to WSO2 API developer portal ( `https://<hostname>:9443/devportal`).
 
 2.  Click **Applications** tab.
 
