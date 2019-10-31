@@ -8,7 +8,7 @@ We appreciate your help and contributions!
 
 ## Getting started with contribution
 
-* Get started with the WSO2 Enterprise Integrator by accessing the [documentation landing](https://ei.docs.wso2.com/en/latest/) and navigating to the integrator of your choice. Start trying out our quick start guides and tutorials available in the Get Started and Learn sections.
+* Get started with the WSO2 API Manager by accessing the [documentation landing](https://apim.docs.wso2.com/en/latest/). Start trying out our quick start guides and tutorials available in the Get Started and Learn sections.
 * Submit issues and contribute content. Go to the **Issues** tab of this GitHub repo and click the New Issue button to file a bug report.
 * Fix issues: Use comments on the issue itself to indicate that you will be working on it and get guidance and help.
 
