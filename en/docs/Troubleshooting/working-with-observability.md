@@ -122,7 +122,7 @@ In API Manager, by default the important methods are marked with the `@MethodSt
 
 You can enable correlation logs in WSO2 API-M to track the complete round trip of an individual HTTP message, which means the monitoring of individual HTTP requests from the point that a message is received by WSO2 API-M until the corresponding response message is sent back to the original message sender (client → API-M → back-end → API-M → client). Thereby, you can use the correlation log file to monitor and analyze external calls in detail. The following are the two types of external call logs that can be tracked via observability in WSO2 API-M.
 
-#### Synapse global handler level external call logs
+#### External call logs with APIM specific information
 
 All external calls done by the API Manager is logged via this category. Note that this does not include DB calls. This is done via a Synapse Global Handler that logs the important information of the external calls. The format for a Synapse global handler level external call log entry is as follows:
 
@@ -278,7 +278,7 @@ All external calls done by the API Manager is logged via this category. Note tha
     </tbody>
     </table>
 
-#### Synapse passthrough transport level external call logs
+#### External call logs with transport level information
 
 In contrast to the information provided by the Synapse global handler level, the passthrough transport level gives certain additional data such as, the Synapse internal state of the request. The format for a Synapse passthrough transport level external call log entry is as follows:
 
@@ -570,21 +570,20 @@ Enable observability with WSO2 API-M and start the WSO2 API-M server as explain
 
 #### Step 2 - Invoke an API
 
-Follow the instructions below to invoke an API.
+If you don't have an API to access, follow the following links: 
 
-1.  Create and publish an API.
+[Creating and Publishing an API](../../../Learn/Learn/Tutorials/create-and-publish-an-api/)
 
-    For more information, see [Create and Publish an API](https://docs.wso2.com/display/AM260/Create+and+Publish+an+API).
+[Subscribe to an API](../../../Learn/Learn/Tutorials/subscribe-to-an-api/)
 
-2.  Subscribe to an API.
+Use the following command to invoke the API.
 
-    For more information, see steps 1 to 10 under [Subscribe to an API](https://docs.wso2.com/display/AM260/Subscribe+to+an+API).
+``` java
+curl -k -H "Authorization :Bearer <access-token>" "activityid:<example-correlation-ID>" --data "<payload>" <api_url>
+```
 
-3.  Invoke the API.
-
-    ``` java
-    curl -k -H "Authorization :Bearer <access-token>" "activityid:<example-correlation-ID>" --data "<payload>" <api_url>
-    ```
+!!! note
+    If curl is not available, you can use any tool to invoke the API. But make sure the add the `activityid` header
 
 #### Step 3 - Check the correlation logs
 
@@ -593,7 +592,6 @@ Follow the instructions below to invoke an API.
     Replace `<correlation_ID>` with the `<example-correlation-ID>` given above.
 
     `cat correlation.log | grep "<correlation_ID>"`
-* * * * *
 
 ### Reading and analyzing the correlation logs
 
@@ -687,7 +685,7 @@ Let's analyze the following sample correlation log.
 </tbody>
 </table>
 
-### Narrowing down bottleneck using Observability
+### Narrowing down a bottleneck using Observability
 
 #### Scenario: A request sent to the API Manager takes a lot of time to respond back
 
