@@ -104,7 +104,7 @@ The default implementation picks the organization claim as the group ID. The org
     String[] getGroupingIdentifierList(String response);
 ```
 
-When a user signs in to the Developer Portal, the latter mentioned method is called and it will return all the group IDs that correspond to the user who has logged in to the store. After users sign in to the Developer Portal, they will be able to see their own applications, which they created, and also the applications that are shared with the group IDs that were returned by the `getGroupingIdentifierList` method.
+When a user signs in to the Developer Portal, the latter mentioned method is called and it will return all the group IDs that correspond to the user who has logged in to the Developer Portal. After users sign in to the Developer Portal, they will be able to see their own applications, which they created, and also the applications that are shared with the group IDs that were returned by the `getGroupingIdentifierList` method.
 
 Once you have written your custom group extractor, add the jar of the custom group extractor to `<API-M_HOME>/repository/components/lib` and do the necessary configuration changes mentioned in [enabling application sharing](#enabling-application-sharing)
 
