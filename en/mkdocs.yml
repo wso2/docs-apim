@@ -299,7 +299,12 @@ nav:
             - Extending Scope Validation: Learn/Extensions/extending-scope-validation.md
             - Editing API Templates: Learn/Extensions/editing-api-templates.md
     - Develop:
-        - Product REST APIs: Develop/ProductAPIs/restful-apis.md
+        - Product REST APIs:
+            - WSO2 Publisher API v1: Develop/ProductAPIs/publisher-v1.md
+            - WSO2 Publisher API v0.15: Develop/ProductAPIs/publisher-v0.15.md
+            - WSO2 Developer Portal API v1: Develop/ProductAPIs/devportal-v1.md
+            - WSO2 Developer Portal API v0.15: Develop/ProductAPIs/devportal-v0.15.md
+            - WSO2 Admin Portal: Develop/ProductAPIs/admin-v1.md
         - Admin Services: Develop/wso2-admin-services.md
         - Using the Registry REST API: Develop/using-the-registry-rest-api.md
         - Working with Audit Logs: Develop/working-with-audit-logs.md
