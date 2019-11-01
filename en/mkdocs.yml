@@ -125,9 +125,7 @@ nav:
                         - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
                         - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
                     -  Grant Types: Learn/ConsumeAPI/ManageApplication/grant-type.md 
-                - Sharing Applications:
-                        - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md 
-                        - Sharing Applications Between Multiple Groups: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications-between-multiple-groups.md
+                - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md
                 - Advanced Topics:
                         - Add Custom Attributes to Applications: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications.md
                         - Changing the Owner of an Application: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/changing-the-owner-of-an-application.md
