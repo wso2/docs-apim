@@ -577,6 +577,7 @@ nav:
         - Error Handling: Troubleshooting/error-handling.md
         - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
+        - Working with Observability: Troubleshooting/working-with-observability.md
     - '': page-not-found.md    
 # Extensions
 markdown_extensions:
