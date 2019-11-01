@@ -196,28 +196,24 @@ nav:
         - API Microgateway: ''
         - API Security:
             - Authentication:
-                - Securing APIs using OAuth2 Access Tokens: Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens.md
-                - Encrypting Secure Endpoint Passwords: Learn/APISecurity/Authentication/encrypting-secure-endpoint-passwords.md
-                - Add SSL Certificates for Endpoints: Learn/APISecurity/Authentication/add-ssl-certificates-for-endpoints.md
-                - JWT Token-based Authentication: Learn/APISecurity/Authentication/jwt-token-based-authentication.md
+                - API Authentication : Learn/APISecurity/api-authentication.md
+                - Secure APIs using OAuth2 Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
+                - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
+                - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
+                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
+                - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
             - Authorization:
-                - Enabling Role-Based Access Control Using XACML: Learn/APISecurity/Authorization/enabling-role-based-access-control-using-xacml.md
-            - Schema Validation:
+                - API Authorization: Learn/APISecurity/api-authorization.md
+                - Role-Basec Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
+            - Request-Response Schema Validation:
                 - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md            
-            - API Keys:
-                 - Secure APIs Using API Keys: Learn/APISecurity/APIKeys/secure-apis-using-api-keys.md
-                 - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
-                 - Application Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens.md
-                 - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
-                 - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
-                 - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
-            - OAuth2:
-                - Token types: Learn/APISecurity/OAuth2/token-types.md 
+            - OAuth2 Deep Dive:
+                - Token types: Learn/APISecurity/OAuth2DeepDive/token-types.md
                 - OAuth2 Scopes:
-                    - Applying a scope: Learn/APISecurity/OAuth2/AOuth2Scopes/applying-a-scope.md
-                    - Scope Whitelisting: Learn/APISecurity/OAuth2/AOuth2Scopes/scope-whitelisting.md
-                    - Scope Management with OAuth Scopes: Learn/APISecurity/OAuth2/AOuth2Scopes/scope-management-with-oauth-scopes.md
-                    - Fine Grained Access Control with OAuth Scopes: Learn/APISecurity/OAuth2/AOuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Fine Grained Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
+                    - Scope Management with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-management-with-oauth-scopes.md
                 - Grant Types:
                     - Password Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant.md
                     - Client Credentials Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant.md
@@ -228,21 +224,20 @@ nav:
                     - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
                     - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
                     - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
-                - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
-                - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
-                - Encrypting OAuth Keys: Learn/APISecurity/OAuth2/encrypting-oauth-keys.md
-                - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
-                - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
-                - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2/saving-access-tokens-in-separate-tables.md
-                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md
+                - Token Revocation: Learn/APISecurity/OAuth2DeepDive/token-revocation.md
+                - Token Expiration: Learn/APISecurity/OAuth2DeepDive/token-expiration.md
+                - Token Persistence: Learn/APISecurity/OAuth2DeepDive/token-persistence.md
+                - Encrypting OAuth Keys: Learn/APISecurity/OAuth2DeepDive/encrypting-oauth-keys.md
+                - Hashing OAuth Keys: Learn/APISecurity/OAuth2DeepDive/hashing-oauth-keys.md
+                - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2DeepDive/provisioning-out-of-band-oauth-clients.md
+                - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2DeepDive/saving-access-tokens-in-separate-tables.md
+                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2DeepDive/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
                 - Gateway Threat Protectors: ''
                 - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
                 - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md 
-            - Mutual SSL:
-                - Securing APIs with Mutual SSL:  Learn/APISecurity/MutualSSL/securing-apis-with-mutual-ssl.md
             - OpenID Connect:
                 - Obtaining User Profile Information with OpenID Connect: Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect.md
         - Rate Limiting:
