@@ -282,7 +282,9 @@ nav:
         - Tutorials:
             - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
             - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
-            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md   
+            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
+            - Expose a Graphql API as a managed API: Learn/Tutorials/create-a-graphql-api.md
+            - Create and Publish WebSocket API: Learn/Tutorials/create-a-websocket-api.md
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
