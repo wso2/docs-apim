@@ -106,7 +106,7 @@ As described above you can blacklist requests for APIs, by Applications, to IP A
     ![](../../assets/img/Learn/select-context-blacklist.png)
 
 4.  Click **Blacklist.**
-5.  Now login to API Store using the URL `https://localhost:9443/devportal` and invoke the API.
+5.  Now login to API Developer Portal using the URL `https://localhost:9443/devportal` and invoke the API.
     You will see the following response.
 
     ![](../../assets/img/Learn/blacklisted-api.png)
