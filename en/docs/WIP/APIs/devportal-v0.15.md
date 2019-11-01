@@ -1,7 +1,7 @@
 ---
 template: templates/swagger.html
 ---
-??? Info "Note: Click to view"
+??? Note "Note: Click to view"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager. 
      
        1.  Expand the relevant API operation and click the **Try It Out** button.  
@@ -15,7 +15,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "../devportal-v1.yaml",
+    url: "../devportal-v0.15.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
