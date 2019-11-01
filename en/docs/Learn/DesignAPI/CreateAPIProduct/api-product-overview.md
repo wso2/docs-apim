@@ -9,7 +9,7 @@ API offerings in various combinations, to provide a tailor made experience for t
 
 Lets take a look at the below example to understand how this works
 
-   ![](assets/img/api-product/api-product-overview.png)
+   ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)
   
 A financial institution has the following three APIs,
 
