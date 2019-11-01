@@ -35,14 +35,14 @@ Follow the steps below to learn how to add a documentation to an API.
 
         ![](../../../assets/img/Learn/add-docs-add-content.png)
 
-                !!! note
-        You can edit the content later by clicking **Edit Content**. It will open up the embedded editor to proceed.
+        !!! note
+            You can edit the content later by clicking **Edit Content**. It will open up the embedded editor to proceed.
 
 
         ![](../../../assets/img/Learn/add-docs-edit-content.png)
 
-                !!! info
-        Edit button can be used to update/change the document information.
+        !!! info
+            Edit button can be used to update/change the document information.
 
     5.  Edit the document content in-line using the embedded editor and click **Update Content** .
         ![](../../../assets/img/Learn/add-docs-update-content.png)
