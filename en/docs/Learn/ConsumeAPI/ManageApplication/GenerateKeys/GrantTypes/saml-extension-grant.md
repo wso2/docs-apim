@@ -139,7 +139,7 @@ Here's an example consumer key and secret combination:
 
 2.  Download the command-line tool from [here](../../../../../assets/attachments/learn/SAML2AssertionCreator.zip) and extract the ZIP file.
 
-3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:9443/oauth2/token
+3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:8243/token`
 
     ``` java tab="Format"
     java -jar SAML2AssertionCreator.jar <Identity_Provider_Entity_Id> <saml-subject> <saml-recipient> <saml-audience> <Identity_Provider_JKS_file> <Identity_Provider_JKS_password> <Identity_Provider_certificate_alias> <Identity_Provider_private_key_password>
@@ -197,7 +197,7 @@ Here's an example consumer key and secret combination:
 4.  Access the Token API using a REST client such as cURL. For example, the following cURL command generates an access token and a refresh token. You can use the refresh token at the time a token is renewed.
 
     ``` java
-    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=<base64-URL_encoded_assertion>&scope=PRODUCTION" -H "Authorization: Basic <base64_encoded_consumer-key:consumer_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:9443/oauth2/token
+    curl -k -d "grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer&assertion=<base64-URL_encoded_assertion>&scope=PRODUCTION" -H "Authorization: Basic <base64_encoded_consumer-key:consumer_secret>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
     ```
 
 !!! note

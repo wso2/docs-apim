@@ -55,11 +55,11 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager fe
 The cURL commands below can be used to retrieve the access token and refresh the token using a JWT.
 
 ``` java tab="Format"
-curl -i -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/oauth2/token
+curl -i -X POST -u <clientid>:<clientsecret> -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:<HTTPS-port>/token
 ```
 
 ``` java tab="Example"
-curl -i -X POST -u liXJsel4bJ76arbg3DXC3rU4w60a:wQEYq83njU29ZFbpQWdZsUlXcnga -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:9443/oauth2/token
+curl -i -X POST -u liXJsel4bJ76arbg3DXC3rU4w60a:wQEYq83njU29ZFbpQWdZsUlXcnga -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<JWT>' -H 'Content-Type: application/x-www-form-urlencoded' https://localhost:8243/token
 ```
 
 The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value. The assertion parameter value is the signed base64 encoded JWT.
@@ -71,14 +71,14 @@ The value of the assertion parameter **MUST** contain a **single JWT** . You can
     If the tenant domain is `wso2.com` , the access token endpoint will be as follows.
 
     ``` java
-        Access Token Endpoint: https://localhost:9443/oauth2/token?tenantDomain=wso2.com
+    Access Token Endpoint: https://localhost:8243/token?tenantDomain=wso2.com
     ```
 
 
 **Sample request**
 
 ``` java
-curl -i -X POST -H 'Content-Type: application/x-www-form-urlencoded' -u bBhEoE2wIpU1zB8HA3GfvZz8xxAa:RKgXUC3pTRQg9xPpNwyuTPGtnSQa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0NTgxNjY5ODUsInN1YiI6ImFkbWluIiwibmJmIjoxNDU4MTA2OTg1LCJhdWQiOlsiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwid3NvMi1JUyJdLCJpc3MiOiJqd3RJRFAiLCJqdGkiOiJUb2tlbjU2NzU2IiwiaWF0IjoxNDU4MTA2OTg1fQ.ZcxdoTVEsWoil80ne42QzmsfelMWyjRZJEjUK1c2vMZJjjtrZnsWExyCA5tN6iXYFAXC_7rkFuuNSgOlBi51MNLPZw3WcgGI52j6apGEW92V2tib9zRRWOeLQLAdo8ae8KzLp7kuKZ2XunfQ2WYU9TvvLDm_vp5ruuYz3ZZrJOc' https://localhost:9443/oauth2/token
+curl -i -X POST -H 'Content-Type: application/x-www-form-urlencoded' -u bBhEoE2wIpU1zB8HA3GfvZz8xxAa:RKgXUC3pTRQg9xPpNwyuTPGtnSQa -k -d 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=eyJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0NTgxNjY5ODUsInN1YiI6ImFkbWluIiwibmJmIjoxNDU4MTA2OTg1LCJhdWQiOlsiaHR0cHM6XC9cL2xvY2FsaG9zdDo5NDQzXC9vYXV0aDJcL3Rva2VuIiwid3NvMi1JUyJdLCJpc3MiOiJqd3RJRFAiLCJqdGkiOiJUb2tlbjU2NzU2IiwiaWF0IjoxNDU4MTA2OTg1fQ.ZcxdoTVEsWoil80ne42QzmsfelMWyjRZJEjUK1c2vMZJjjtrZnsWExyCA5tN6iXYFAXC_7rkFuuNSgOlBi51MNLPZw3WcgGI52j6apGEW92V2tib9zRRWOeLQLAdo8ae8KzLp7kuKZ2XunfQ2WYU9TvvLDm_vp5ruuYz3ZZrJOc' https://localhost:8243/token
 ```
 
 You would have now received the response from the token endpoint. The response would contain the access token, refresh token, expiry time and token type.
