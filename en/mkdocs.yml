@@ -71,6 +71,9 @@ nav:
             - Prototype APIs:
                 - Create a Prototype API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
                 - Deploy and Test Prototype APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
+            - Create API Product:
+                - API Product Overview: Learn/DesignAPI/CreateAPIProduct/api-product-overview.md
+                - Create an API Product: Learn/DesignAPI/CreateAPIProduct/create-api-product.md
             - Endpoints:
                 - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
                 - Security:
