@@ -1035,3 +1035,20 @@ html .md-footer-meta.md-typeset a,
         margin-left:10px;
     }
  }
+
+.md-sidebar ::-webkit-scrollbar {
+    width: 5px;
+}
+
+.md-sidebar ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.md-sidebar ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2.5px;
+}
+
+.md-sidebar__scrollwrap {
+    margin: 0;
+}
