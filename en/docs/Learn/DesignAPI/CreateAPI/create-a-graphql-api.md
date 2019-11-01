@@ -193,7 +193,7 @@ Follow the instructions below to design a GraphQL API
 
 Now, a Graphql API has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-ap)  to get details of publishing API.
 
-Refer [Tutorial on create and publish a Graphql API](../../../../Learn/Tutorials/create-a-graphql-api/) to learn more about Graphql APIs.
+Refer a tutorial on [Create and Publish a Graphql API](../../../../Learn/Tutorials/create-a-graphql-api/) to learn more about Graphql APIs.
 
 ### GraphQL operations
 

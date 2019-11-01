@@ -42,11 +42,11 @@ Follow the instructions below to design a WebSocket API.
 5.  When click **CREATE** or **CREATE & PUBLISH**, page will be redirected to the overview page of the created WebSocket API.
     ![](../../../../assets/img/Learn/overview-websocket-api.jpg)
 
-6.  Navigate to Endpoint page, check the endpoints and click following to add details if needed.
+6.  Navigate to the Endpoint page, verfiy the endpoints details and click following to add configurations if needed.
     ![](../../../../assets/img/Learn/endpoint-view-of-websocket-api.jpg)
 
 7. Now, the WebSocket API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) 
 to know details of publishing API.
 
-Refer [Tutorial on create and publish websocket API](../../../../Learn/Tutorials/create-a-websocket-api/) to learn more about websocket APIs.
+Refer a tutorial on [Create and Publish a websocket API](../../../../Learn/Tutorials/create-a-websocket-api/) to learn more about websocket APIs.
 

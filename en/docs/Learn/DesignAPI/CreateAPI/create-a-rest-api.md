@@ -1,6 +1,6 @@
 # Create a REST API
 
-**API creation** is the process of linking an existing backend API implementation to the [API Publisher](/GettingStarted/overview/#api-publisher) so that you can manage and monitor the [API's lifecycle](/Learn/DesignAPI/LifecycleManagement/api-lifecycle/) , documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](/GettingStarted/overview/#api-publisher) itself.
+**API creation** is the process of linking an existing backend API implementation to the [API Publisher](/GettingStarted/overview/#api-publisher) , so that you can manage and monitor the [API's lifecycle](/Learn/DesignAPI/LifecycleManagement/api-lifecycle/) , documentation, security, community, and subscriptions. Alternatively, you can provide the API implementation in-line in the [API Publisher](/GettingStarted/overview/#api-publisher) itself.
 
 Follow the instruction below to create a REST API.
 ## Create an API using basic flow
@@ -59,18 +59,18 @@ Follow the instruction below to create a REST API.
      </html>
 
 ## Resources
-1. By default, the api will have five resources with /* URL Pattern.
+1. By default, the api will have five resources with /* URL pattern.
    Click **Show More** option to navigate **Resource** page.
    ![](../../../assets/img/Learn/overview-page-resource-section.jpg)
 
 2. Modify the resources as follows and click **SAVE** to update the resources.
-      1. Click following button to remove all resources.
+      1. Click following button to remove all existing resources.
       [![](../../../assets/img/Learn/delete-all-existing-resources.jpg)](../../../assets/img/Learn/delete-all-existing-resources.jpg)
 
-      2. Click + to add new resouce.
+      2. Click (+) to add a new resouce.
           [![](../../../assets/img/Learn/add-new-resource.jpg)](../../../assets/img/Learn/add-new-resource.jpg)
       
-      3. Newly added resource is displayed as follows and Click **SAVE**.
+      3. Newly added resource is displayed as follows.
          
          [![](../../../assets/img/Learn/newly-added-resource.jpg)](../../../assets/img/Learn/newly-added-resource.jpg)
 
@@ -80,11 +80,11 @@ Follow the instruction below to create a REST API.
       [![](../../../assets/img/Learn/adding-params-to-resources.jpg)](../../../assets/img/Learn/adding-params-to-resources.jpg)
 
 ## API Definition
-   Navigate to **API Definition** page, then it will display the swagger definition of the phoneVerification API.
+   Navigate to **API Definition** page, then it will display the swagger definition of the PizzaShack API.
    [![](../../../assets/img/Learn/api-definiton-rest.jpg)](../../../assets/img/Learn/api-definiton-rest.jpg)
 
 Now, a REST API has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) 
-to know details of publishing API.
+for get to know about the details of publishing API.
 
 !!! More
         Click the following topics for a description of the concepts that you need to know when creating an API:

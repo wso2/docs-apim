@@ -26,10 +26,11 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
       </div>
     </html>
 
-2. Select **Generate REST APIs** and Provide the WSDL URL for the SOAP backend.
-         ![](../../../assets/img/Learn/create-soap-api-as-a-generated-api.jpg)
+2. Select **Generate REST APIs** and provide the WSDL URL for the SOAP backend. After, click **NEXT** button to proceed to the next phase.
 
-3.  Click **NEXT** button to proceed to the next phase and Provide the information in the table below and click **CREATE** button.
+      ![](../../../assets/img/Learn/create-soap-api-as-a-generated-api.jpg)
+
+3.  Provide the information in the table below and click **CREATE** button.
 
     | Field   | Sample value       |
     |---------|--------------------|
@@ -41,7 +42,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
     ![](../../../assets/img/Learn/create-soap-api-form.jpg)
 
-4.  Select the **Generate REST APIs** option and go to the **Design** tab. Click on **Edit Source** to edit the Swagger specification of the API.
+4.  Navigate to the **API Definition** tab and click on **Edit** to modify the open API Definition of the API.
     ![]({{base_path}}/assets/attachments/103328795/103328787.png)
     
 5.  Click **Apply Changes** to save your API.
