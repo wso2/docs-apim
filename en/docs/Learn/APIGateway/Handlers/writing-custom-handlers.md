@@ -46,11 +46,12 @@ Let's see what each handler does:
  if Google analytics tracking is enabled. See Integrating with Google Analytics for more information.
  - **APIManagerExtensionHandler** : Triggers extension sequences. By default, the extension handler is listed at last 
  in the handler chain, and therefore is executed last. You cannot change the order in which the handlers are executed, 
- except the extension handler. To configure the API Gateway to execute extension handler first, uncomment the 
- `<ExtensionHandlerPosition>` section in the `<APIM_HOME>/repository/conf/api-manager.xml` file and provide the value 
- `top` . This is useful when you want to execute your own extensions before our default handlers in situations like  
- doing additional security checks such as signature verification on access tokens before executing the default security 
- handler.
+ except the extension handler. To configure the API Gateway to execute extension handler first, log in to management console
+ (<https://localhost:9443/carbon>) and in the main tab, expand the resources section and browse for 
+ `_system/config/apimgt/applicationdata/tenant-conf.json`. Edit the field `ExtensionHandlerPosition` and provide 
+ the value `top` . This is useful when you want to execute your own extensions before our default handlers in 
+ situations like doing additional security checks such as signature verification on access tokens before executing the 
+ default security handler.
     See [Adding Mediation Extensions](../../../Extensions/adding-mediation-extensions).
 
 ### Using APILogMessageHandler
@@ -102,7 +103,7 @@ directory and add below handler before `</Handlers>` .
 
 **To enable Message Logging into APIS created from publisher automatically :**
 
-1.  Open the `<APIM_HOME>/repository/resources/api\_templates/velocity\_template.xml` file and copy the following handler 
+1.  Open the `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` file and copy the following handler 
 before `</Handlers>`.
 
     ``` java

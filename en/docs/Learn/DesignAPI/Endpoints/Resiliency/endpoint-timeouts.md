@@ -5,10 +5,10 @@ WSO2 API Manager provides controlling the production and sandbox endpoints with 
 To configure your endpoints with this feature, click on an API in the API Publisher listing page, navigate to the
  **Endpoints** tab and click the cogwheel icon next to the endpoint you want to configure.
  
-![](../../../../assets/img/Learn/advance-ep-config-cogwheel.png)
+[![](../../../../assets/img/Learn/advance-ep-config-cogwheel.png)](../../../../assets/img/Learn/advance-ep-config-cogwheel.png)
 
 The Advanced Endpoint Configuration dialog box appears as below.
-![](../../../../assets/img/Learn/advance-config-dialog.png)
+[![](../../../../assets/img/Learn/advance-config-dialog.png)](../../../../assets/img/Learn/advance-config-dialog.png)
 
 Following are the configurations that we can do with the Advanced Endpoint Configurations. You can do advanced configurations for both production and sandbox endpoints.
 <table>

@@ -12,15 +12,15 @@ After you created, published, and subscribed to the API, let's see how the API G
 
 1.  Sign in to the Devportal and select the PhoneVerification API.
     Go to the credentials tab and make sure we have subscribed to an application or if not subscribe.
-    ![](../../../assets/img/Learn/learn-throttling-isapplication-subscribed.png)
+    ![](../../assets/img/Learn/learn-throttling-isapplication-subscribed.png)
 
 2.  Go to the Applications tab and go in to the Default Application, click the **Production Keys** tab and generate an access       token. If you already have an access token for the application, you have to regenerate it after 1 hour. Copy the access         token after it has been generated
-    ![](../../../assets/img/Learn/learn-throttling-generate-keys.png)
+    ![](../../assets/img/Learn/learn-throttling-generate-keys.png)
 
     Let's invoke this API.
 
 3.  Click on the API, then go to its **Try Out** tab. Enter the copied access token.
-    ![](../../../assets/img/Learn/learn-throttling-tryout.png)
+    ![](../../assets/img/Learn/learn-throttling-tryout.png)
 
 4.  Expand the GET method and click Try it out. Provide the required parameters and click **Execute** to invoke the API. For example,
 
@@ -29,16 +29,16 @@ After you created, published, and subscribed to the API, let's see how the API G
     | **PhoneNumber** | E.g., 18006785432          |
     | **LicenseKey**  | Give 0 for testing purpose |
 
-    ![](../../../assets/img/Learn/learn-throttling-enter-query.png)
+    ![](../../assets/img/Learn/learn-throttling-enter-query.png)
 
      Note the response that appears in the API Console. As we used a valid phone number in this example, the response returns as valid.
-    ![](../../../assets/img/Learn/learn-throttling-query-response.png)
+    ![](../../assets/img/Learn/learn-throttling-query-response.png)
     Note that you subscribed to the API on the Bronze throttling tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a throttling error as shown below.
-    ![](../../../assets/img/Learn/learn-throttling-error-response.png)
+    ![](../../assets/img/Learn/learn-throttling-error-response.png)
     Let's try to invoke the API using an unavailable resource name. -->
 
 5.  Go to the API's **Overview** page in the Devportal and get the API's URL.
-    ![](../../../assets/img/Learn/learn-throttling-overview.png)
+    ![](../../assets/img/Learn/learn-throttling-overview.png)
 
 6.  Install [cURL](http://curl.haxx.se/download.html) or any other REST client.
 

@@ -2,8 +2,8 @@
 template: templates/single-column.html
 ---
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div style="max-height:360px">
-   <div class="md-main md-content" style="float:left; width: 35%;  text-align:justify; max-height:100%; ">
+<div>
+   <div class="md-main md-content leftContent">
     <p> From creating and publishing an API, to securing, rate limiting & viewing analytics of APIs, the WSO2 API Manager addresses all aspects of API Management. 
         
 
@@ -12,8 +12,8 @@ The WSO2 API Manager is a high performant, <b>100% open source </b> API Manageme
 Get a head start with our 5-minute quick start or dive straight into our learning material to discover the full potential of the product.
 </p> 
    </div>
-   <div class="md-main md-content " style="float:centre; width: 60%; text-align:left;  flex-shrink: 0;min-width: 35%; max-height: 100%; max-width:100%; margin-left:10px;">
-    <img src="assets/attachments/wso2-apim-overview.png" width="100%"  height="360px"/>
+   <div class="md-main md-content rightImage">
+   [ ![](assets/attachments/wso2-apim-overview.png) ](assets/attachments/wso2-apim-overview.png)
 </a>
    </div>
 </div>
