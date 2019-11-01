@@ -248,7 +248,7 @@ nav:
             - Throttling Use-Cases: Learn/RateLimiting/introducing-throttling-use-cases.md
             - Adding New Throttling Policies: Learn/RateLimiting/adding-new-throttling-policies.md
             - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
-            - Blacklisting and Whitelisting Requests: Learn/RateLimiting/managing-throttling.md
+            - Blacklisting and Whitelisting Requests: Learn/RateLimiting/blacklisting-whitelisting.md
             - Enforcing Throttling to an API: Learn/RateLimiting/enforcing-throttling-to-an-api.md
             - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
             - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
