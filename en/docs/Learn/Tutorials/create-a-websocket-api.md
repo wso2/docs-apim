@@ -57,23 +57,21 @@ Now, the WebSocket API created and configured successfully. Navigate to **Lifecy
 2. Click **KEY GENERATION WIZARD**.
      ![](../../../../assets/img/Learn/websocket-api-credential-page.jpg)
 
-3. Go through the each step in order to generate access token.
+3. Go through the each step in order to generate accesstoken.
 
      ![](../../../../assets/img/Learn/websocket-api-key-generation-wizard.jpg)
 
-3. Copy the generated token and invoke the WebSocket API.
+3. Copy the generated token and use it as authorization token to invoke the WebSocket API.
     1. Install wscat client. (npm install -g wscat)
     2. Invoke the API using following command.
-
-       <html>
-       <code>
-        <b>wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer accesstoken"</b>
-       </code>
-        </html>
+        
+          ```
+           wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+          ```
 
       <html>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p> <b> Basic Auth , API Key </b> doesn't work for WebSocket API.</p>
+      <p> <b> Basic Auth and API Key </b> do not work for security of WebSocket API.</p>
       </div> 
       </html>

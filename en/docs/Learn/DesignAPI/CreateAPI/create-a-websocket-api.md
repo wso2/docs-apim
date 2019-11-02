@@ -7,7 +7,7 @@ WebSocket is a protocol similar to HTTP that is part of the HTML5 specification.
 -   Be backward compatible with the pre-WebSocket world by starting up as an HTTP connection before switching to WebSocket frames
 
 A WebSocket API allows an API creator to expose a WebSocket backend as an API to offer services via a WebSocket protocol while providing 
-[OAuth security](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/)), [Throttling](../../../../Learn/RateLimiting/introducing-throttling-use-cases/, [analytics](../../../../Learn/Analytics/overview-of-api-analytics/) , etc.
+[OAuth security](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/), [Throttling](../../../../Learn/RateLimiting/introducing-throttling-use-cases/), [analytics](../../../../Learn/Analytics/overview-of-api-analytics/) , etc.
 
 Follow the instructions below to design a WebSocket API.
 
@@ -19,7 +19,8 @@ Follow the instructions below to design a WebSocket API.
     </html>
 
 2.  Go to **CREATE API** and Click **Design a New Websocket API**.
-    ![](../../../../assets/img/Learn/create-websocket-api.jpg)
+    
+     ![](../../../../assets/img/Learn/create-websocket-api.jpg)
 
 3.  Provide the information in the table below and click **CREATE** or **CREATE & PUBLISH**.
 
@@ -49,5 +50,5 @@ Follow the instructions below to design a WebSocket API.
 7. Now, the WebSocket API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) 
 to know details of publishing API.
 
-Refer a tutorial on [Create and Publish a websocket API](../../../../Learn/Tutorials/create-a-websocket-api/) to learn more about websocket APIs.
+Refer a tutorial on [Create and Publish a websocket API](../../../../Learn/Tutorials/create-a-websocket-api/) to learn more.
 
