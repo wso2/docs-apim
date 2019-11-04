@@ -1,21 +1,77 @@
-# admin\_Changing to MSSQL
+# admin\_Setting up IBM Informix
 
-By default, WSO2 products use the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use a MSSQL database for this purpose.
+The following sections describe how to set up IBM Informix to replace the default H2 database in your WSO2 product:
 
--   [Setting up datasource configurations](#admin_ChangingtoMSSQL-Settingupdatasourceconfigurations)
-    -   [Changing the default WSO2\_CARBON\_DB datasource](#admin_ChangingtoMSSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
-    -   [Configuring new  datasources to manage registry or user management data](#admin_ChangingtoMSSQL-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
--   [Creating the database tables](#admin_ChangingtoMSSQL-Creatingthedatabasetables)
+-   [Prerequisites](#admin_SettingupIBMInformix-Prerequisites)
+-   [Creating the database](#admin_SettingupIBMInformix-Creatingthedatabase)
+-   [Setting up Informix JDBC drivers](#admin_SettingupIBMInformix-SettingupInformixJDBCdrivers)
+
+### Prerequisites
+
+Download the latest version of [IBM Informix](http://www-01.ibm.com/software/data/informix/downloads.html) and install it on your computer.
+
+### Creating the database
+
+Create the database and users in Informix. For instructions on creating the database and users, see [Informix product documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_links/information_management/informix_servers?productContext=-1122713425) [.](http://www-01.ibm.com/software/data/informix/)
+
+!!! tip
+Do the following changes to the default database when creating the Informix database.
+
+-   Define the page size as 4K or higher when creating the dbspace as shown in the following command (i.e. denoted by `-k 4` ) :
+
+    ``` java
+        onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
+    ```
+
+-   Add the following system environment variables.
+
+    ``` text
+            export DB_LOCALE=en_US.UTF-8
+            export CLIENT_LOCALE=en_US.UTF-8
+    ```
+
+-   Create an sbspace other than the dbspace by executing the following command:
+
+    ``` java
+            onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
+    ```
+
+-   Add the following entry to the `<INFORMIX_HOME>/etc/onconfig` file, and replace the given example sbspace name (i.e. `testspace4` ) with your sbspace name:
+
+    ``` java
+            SBSPACENAME testspace4
+    ```
+
+
+### Setting up Informix JDBC drivers
+
+Download the Informix JDBC drivers and copy them to your WSO2 product's `<PRODUCT_HOME>/repository/components/lib/` directory.
+
+!!! info
+Use Informix JDBC driver version 3.70.JC8, 4.10.JC2 or higher.
+
+
+## What's next
+
+By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with IBM Informix, see [Changing to IBM Informix](https://docs.wso2.com/display/ADMIN44x/Changing+to+IBM+Informix) .
+
+
+# admin\_Changing to IBM Informix
+
+The following sections describe how to replace the default H2 databases with IBM Informix:
+
+-   [Setting up datasource configurations](#admin_ChangingtoIBMInformix-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
+-   [Creating database tables](#admin_ChangingtoIBMInformix-Creatingdatabasetables)
 
 !!! tip
 Before you begin
 
-You need to set up MSSQL before following the steps to configure your product with MSSQL. For more information, see [Setting up Microsoft SQL](https://docs.wso2.com/display/ADMIN44x/Setting+up+Microsoft+SQL) .
+You need to set up IBM Informix before following the steps to configure your product with it. For more information, see [Setting up IBM Informix](https://docs.wso2.com/display/ADMIN44x/Setting+up+IBM+Informix) .
 
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default H2 database, which stores registry and user management data. After setting up the Microsoft SQL database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoMSSQL-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoMSSQL-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the IBM Informix database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoIBMInformix-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoIBMInformix-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -23,28 +79,29 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
 1.  Edit the default datasourceconfigurationin the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as shown below.
 
-    ``` html/xml
+    ``` xml
         <datasource>
-            <name>WSO2_CARBON_DB</name>
-            <description>The datasource used for registry and user manager</description>
-            <jndiConfig>
-                   <name>jdbc/WSO2CarbonDB</name>
-            </jndiConfig>
-            <definition type="RDBMS">
-                   <configuration>
-                      <url>jdbc:sqlserver://<IP>:1433;databaseName=wso2greg;SendStringParametersAsUnicode=false</url>
-                      <username>regadmin</username>
-                      <password>regadmin</password>
-                      <driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverClassName>
-                      <maxActive>50</maxActive>
-                      <maxWait>60000</maxWait>
-                      <testOnBorrow>true</testOnBorrow>
-                      <validationQuery>SELECT 1</validationQuery>
-                      <validationInterval>30000</validationInterval>
-                      <defaultAutoCommit>false</defaultAutoCommit>
-                   </configuration>
-            </definition>
-        </datasource>
+                    <name>WSO2AM_DB</name>
+                    <description>The datasource used for API Manager database</description>
+                    <jndiConfig>
+                        <name>jdbc/WSO2AM_DB</name>
+                    </jndiConfig>
+                    <definition type="RDBMS">
+                        <configuration>
+                            <!-- IP ADDRESS AND PORT OF DB SERVER -->
+                            <url>jdbc:informix-sqli://localhost:1533/AM_DB;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;</url>
+                            <username>wso2carbon</username>
+                            <password>wso2carbon</password>
+                            <driverClassName>com.informix.jdbc.IfxDriver</driverClassName>
+                            <maxActive>50</maxActive>
+                            <maxWait>60000</maxWait>
+                            <testOnBorrow>true</testOnBorrow>
+                            <validationQuery>SELECT 1</validationQuery>
+                            <validationInterval>30000</validationInterval>
+                            <defaultAutoCommit>false</defaultAutoCommit>
+                        </configuration>
+                    </definition>
+                </datasource>
     ```
 
     The elements in the above configuration are described below:
@@ -60,15 +117,10 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
     <tr class="odd">
     <td><strong>url</strong></td>
     <td><div class="content-wrapper">
-    <p>Give the URL to connect to the Microsoft SQL database. Shown below is the most simple form of the database connection URL. It includes the URL and two parameters:</p>
-    <div class="code panel pdl" style="border-width: 1px;">
-    <div class="codeContent panelContent pdl">
-    <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>jdbc:sqlserver://&lt;IP&gt;:&lt;PORT&gt;;databaseName=&lt;db_name_value&gt;;SendStringParametersAsUnicode=false</code></pre>
-    </div>
-    </div>
-    <p>Change &lt;IP&gt; to the IP of the server. The best practice is to use port 1433 because you can use it in order processing services.</p>
-        !!! warning
-        <p>Set <strong><code>                  SendStringParametersAsUnicode                 </code></strong> to ‘false’ in order to overcome a limitation in the Microsoft SQL client driver. Without this parameter, the database driver will erroneously convert <code>                 VARCHAR                </code> data into <code>                 NVARCHAR                </code> and lower the database's performance.</p>
+    <p>The URL of the database. The default port for a DB2 instance is 50000.</p>
+    <p>You need to add the following configuration when specifying the connection URL as shown in the example above:</p>
+        !!! tip
+        <p>Add the following configuration to the connection URL when specifying it as shown in the example above: <code>                 CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;                </code></p>
 
     </div></td>
     </tr>
@@ -102,7 +154,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
     </tr>
     <tr class="odd">
     <td><strong>validationInterval</strong></td>
-    <td>The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation, but has been validated previously within this interval, it will not be validated again.</td>
+    <td>The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.</td>
     </tr>
     <tr class="even">
     <td><strong>defaultAutoCommit</strong></td>
@@ -113,7 +165,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
     </table>
 
         !!! info
-    For more information on other parameters that can be defined in the `<PRODUCT_HOME>/repository/conf/` datasources/ `master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
+    For more information on other parameters that can be defined in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
 
 
         !!! warning
@@ -184,9 +236,9 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
 #### Configuring new  datasources to manage registry or user management data
 
-Follow the steps below to configure new datasources to point to the new  databases you create to manage registry and/or user management data separately.
+Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoMSSQL-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoMSSQL-Settingupdatasourceconfigurations)
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoIBMInformix-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoIBMInformix-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml
@@ -203,14 +255,14 @@ Follow the steps below to configure new datasources to point to the new  data
             </Configuration>
     ```
 
-### Creating the database tables
+### Creating database tables
 
 To create the database tables, connect to the database that you created earlier and run the following scripts.
 
 1.  To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), use the below script:
 
     ``` java
-            <PRODUCT_HOME>/dbscripts/mssql.sql
+            <PRODUCT_HOME>/dbscripts/informix.sql
     ```
 
 2.  Restart the server.
