@@ -180,7 +180,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Decompile the `org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/resources/conf/default.json` file as follows:
+        Decompile the `org.wso2.apim.monetization.impl-1.0.0.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
 
         ``` json tab="Format"
         [apim.monetization]
