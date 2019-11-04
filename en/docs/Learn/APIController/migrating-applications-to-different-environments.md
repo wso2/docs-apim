@@ -18,7 +18,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 -   [Export an Application](#export-an-application)
 -   [Import an Application](#import-an-application)
     -   [Import Applications in a Single Tenant Environment](#import-applications-in-a-single-tenant-environment)
-    -   [Import Applications in a Multi-Tenant Environment](#import-applications-in-a-multi-tenant-environment)
+    -   [Import Applications in a Multi Tenant Environment](#import-applications-in-a-multi-tenant-environment)
 
 ## Manage Application Lifecycle
 
@@ -186,6 +186,6 @@ There are three options to import applications in a single-tenant environment.
 -   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserveOwner` flag.
     ![Importing Applications across Two environments with Preserve Owner](../../../assets/img/Learn/import-apps-tenanted-env3.png)
 
-### Import Applications in a Multi-Tenant Environment
+### Import Applications in a Multi Tenant Environment
 
 In a situation where an application has API subscriptions in different tenant domains, such subscriptions are added if the relevant APIs with the target tier, are available in the importing environment. Note that the provider of the API may not be the same in the importing environment.
