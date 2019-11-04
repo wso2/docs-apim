@@ -1,25 +1,3 @@
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@ruthryi 
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
- 
-66
-12 54 wso2/docs-is
- Code  Issues 160  Pull requests 12  Actions  Projects 0  Wiki  Security  Insights
-docs-is/en/docs/assets/css/theme-material.css
-@ayshsandu ayshsandu Enable authorization section in swagger docs
-6bcd14f on Sep 25
-@sherenewso2 @ayshsandu
-1729 lines (1468 sloc)  34 KB
     
 @charset "UTF-8";
 .swagger-ui html {
