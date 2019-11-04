@@ -339,7 +339,6 @@ nav:
                 - WSO2 Identity Server as Key Manager: 
                     - Configuring WSO2 Identity Server as a Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md
                     - Configuring the Databases for IS as the Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager.md
-            - Installing and Configuring the Databases: SetupAndInstall/DeployingWSO2APIManager/installing-and-configuring-the-databases.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: SetupAndInstall/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring rsync for Deployment Synchronization: SetupAndInstall/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: SetupAndInstall/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
@@ -349,19 +348,19 @@ nav:
                 - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
         - Setting up Databases:
-              - Changing Default Databases:
-                    - Overview: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/overview.md
-                    - Changing to Embedded H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2.md
-                    - Changing to MySQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mysql.md
-                    - Changing to MSSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mssql.md
-                    - Changing to PostgreSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-postgresql.md
-                    - Changing to Oracle: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle.md
-                    - Changing to MariaDB: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mariadb.md
-                    - Changing to IBM DB2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
-                    - Changing to Remote H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
-                    - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
-                    - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
-                    - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
+            - Overview: SetupAndInstall/SettingUpDatabases/overview.md
+            - Changing Default Databases:
+                - Changing to Embedded H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2.md
+                - Changing to MySQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mysql.md
+                - Changing to MSSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mssql.md
+                - Changing to PostgreSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-postgresql.md
+                - Changing to Oracle: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle.md
+                - Changing to MariaDB: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mariadb.md
+                - Changing to IBM DB2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
+                - Changing to Remote H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
+                - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
+                - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
+                - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
     - Administer:
         - Product Administration:
             - Upgrading WSO2 API Manager:
@@ -424,7 +423,6 @@ nav:
             - Administration - API-M Analytics:
                 - Re-indexing Existing Data: Administer/ProductAdministration/Administration-APIMAnalytics/re-indexing-existing-data.md
             - admin_Adding a Custom Proxy Path: Administer/ProductAdministration/admin-adding-a-custom-proxy-path.md
-            - Changing the Default API-M Databases: Administer/ProductAdministration/changing-the-default-api-m-databases.md
             - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
