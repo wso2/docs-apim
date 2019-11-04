@@ -54,7 +54,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
     The definition properties are mapped with a Swagger vendor-specific field `x-xpath` , which is used to map the SOAP binding operation parameters with the REST parameters. If a parameter does not have this field it is not mapped with a backend operation. To ensure the mapping functions smoothly, do not make any changes to the properties.
 
 
-7.  Go to the **Implement** tab and view the **SOAP Mapping** section. Click on a resource to view the In and Out sequences of the API.
+7.  Click on a resource to view the In and Out sequences of the API.
     ![]({{base_path}}/assets/attachments/103328795/103328790.png)
 8.  The following sample shows the generated API In-sequence for a GET method with query parameters.
 
@@ -100,6 +100,4 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
 9.  Enter the SOAP endpoint URL. The endpoint type should be the **HTTP/SOAP Endpoint** as shown below.
     ![]({{base_path}}/assets/attachments/103328795/103328789.png)
-10. Go to the **Manage** tab and the relevant configuration. Click **Publish** to publish the API to the API Store. For instructions, see [Create and Publish an API](https://docs.wso2.com/display/AM2xx/Create+and+Publish+an+API) .
-11. Navigate to the API Store and [invoke the AP](https://docs.wso2.com/display/AM2xx/Quick+Start+Guide#QuickStartGuide-InvokingtheAPI) I.
 

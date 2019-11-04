@@ -6,7 +6,8 @@ WebSocket is a protocol similar to HTTP that is part of the HTML5 specification.
 -   Allow streaming through proxies and firewalls while simultaneously supporting upstream and downstream communication
 -   Be backward compatible with the pre-WebSocket world by starting up as an HTTP connection before switching to WebSocket frames
 
-A WebSocket API allows an API creator to expose a WebSocket backend as an API to offer services via a WebSocket protocol while providing [OAuth security](https://tools.ietf.org/html/rfc6749) , [throttling](_Rate_Limiting_) , [analytics](_Analytics_) , etc.
+A WebSocket API allows an API creator to expose a WebSocket backend as an API to offer services via a WebSocket protocol while providing 
+[OAuth security](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/), [Throttling](../../../../Learn/RateLimiting/introducing-throttling-use-cases/), [analytics](../../../../Learn/Analytics/overview-of-api-analytics/) , etc.
 
 Follow the instructions below to design a WebSocket API.
 
@@ -18,7 +19,8 @@ Follow the instructions below to design a WebSocket API.
     </html>
 
 2.  Go to **CREATE API** and Click **Design a New Websocket API**.
-    ![](../../../../assets/img/Learn/create-websocket-api.jpg)
+    
+     ![](../../../../assets/img/Learn/create-websocket-api.jpg)
 
 3.  Provide the information in the table below and click **CREATE** or **CREATE & PUBLISH**.
 
@@ -35,18 +37,18 @@ Follow the instructions below to design a WebSocket API.
     <html>
      <div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p>The **CREATE & PUBLISH** option will appear only if the optional fields **Endpoint** and **Business plan(s)** are provided by a user who has publisher permission.</p>
+     <p>The **CREATE & PUBLISH** option will appear only if the optional fields **Endpoint** and **Business plan(s)** are provided by a user who has publisher permission. In order to create the API, Name, Context, version and a valid Enpoint(the protocol should be given as ws://) needs to be provided.</p>
      </div>
      </html>
 
 5.  When click **CREATE** or **CREATE & PUBLISH**, page will be redirected to the overview page of the created WebSocket API.
     ![](../../../../assets/img/Learn/overview-websocket-api.jpg)
 
-6.  Navigate to the Endpoint page, verfiy the endpoints details and click following to add configurations if needed.
+6.  Navigate to the Endpoint page, verfiy the endpoints details and click following to add endpoint configurations if needed.
     ![](../../../../assets/img/Learn/endpoint-view-of-websocket-api.jpg)
 
 7. Now, the WebSocket API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) 
 to know details of publishing API.
 
-Refer a tutorial on [Create and Publish a websocket API](../../../../Learn/Tutorials/create-a-websocket-api/) to learn more about websocket APIs.
+Refer a tutorial on [Create and Publish a websocket API](../../../../Learn/Tutorials/create-a-websocket-api/) to learn more.
 

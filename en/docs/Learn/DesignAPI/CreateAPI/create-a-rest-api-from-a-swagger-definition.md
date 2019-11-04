@@ -102,7 +102,7 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
-  ![](../../../assets/img/Learn/add-bussiness-plans-for-pet-store-api.jpg )
+   ![](../../../assets/img/Learn/add-bussiness-plans-for-pet-store-api.jpg )
 
 
 Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-ap)  to get details of publishing API.
