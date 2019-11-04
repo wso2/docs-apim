@@ -21,3 +21,5 @@ template: templates/no-nav.html
 -->
 
 ## Page not found.
+
+Go back to [home](https://apim.docs.wso2.com/en/latest/)
