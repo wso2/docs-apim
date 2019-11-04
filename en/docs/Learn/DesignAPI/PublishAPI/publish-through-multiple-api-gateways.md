@@ -126,6 +126,6 @@ When you have generated keys for the Applications, the sample cURL command shows
 Change this gateway URL according to the Gateway that you want to publish the API if you are using this cURL command to generate access tokens.
 
 !!! note
-        If you wish to use the API-M pack that you used as the first instance to try-out other tutorials, please ensure to delete the API Gateway configurations that you added in [step 5](#PublishthroughMultipleAPIGateways-step6) , and uncomment the default `[[apim.gateway.environment]]` configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+        If you wish to use the API-M pack that you used as the first instance to try-out other tutorials, please ensure to delete the API Gateway configurations that you added in step 5, and uncomment the default `[[apim.gateway.environment]]` configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 
