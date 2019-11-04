@@ -4,7 +4,7 @@ The maximum backend throughput setting limits the total number of calls a parti
 
 You set a maximum backend throughput by going into the API page in **API Publisher** using the **Runtime Configurations** tab. Select the **Specify** option for the maximum backend throughput and specify the limits of the Production and Sandbox endpoints separately, as the two endpoints can come from two servers with different capacities.
 
-![](../../../assets/img/Learn/learn-throttling-maxtps.png)
+![](../../assets/img/Learn/learn-throttling-maxtps.png)
 
 Alternatively, you can go to the synapse configuration of the API, which is created at the point of creating the API, in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory (for a tenant user, the location would be the `<API-M_HOME>/repository/tenants/<TenantID>/synapse-configs/default/api directory` ), and specify the maximum backend throughput by modifying the synapse configuration. Maximum backend throughput limits are usually counted over a duration of 1 second, but you can increase the duration using the **productionUnitTime** and **sandboxUnitTime** properties in the API's synapse configuration. For example,
 

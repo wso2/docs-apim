@@ -2,27 +2,32 @@
 
 #### Overview
 
-An application is a logical collection of APIs/API Products and it is primarily used to decouple the consumer from the 
-APIs.
- It allows you to:
+An application is a logical representation of an physical application such as mobile app, webapp, device etc. If an 
+application to consume an API, it should subscribe to the required API over a 
+selected 
+business 
+plan, which determined the usage quota the application is allowed to have. A single application can 
+have 
+multiple 
+API subscriptions. Each application 
+has consumer key 
+and 
+consumer secret pair and the requests to the subscribed APIs are authenticated via the tokens generated using them. 
+
+Applications allow you to:
 
 -   Generate and use a single key for multiple APIs
--   Subscribe multiple times to a single API with different tiers/Service Level Agreement (SLA) levels
+-   Subscribe multiple times to a single API with different Service Level Agreements (SLAs)/business plans which 
+operate on per access token basis
 
-You can subscribe to APIs through an application. Applications are available at different SLA levels and have 
-application-level throttling tiers engaged to them. A throttling tier determines the maximum number of calls you can 
-make to an API during a given period of time.
+
 
 The API Manager comes with a pre-created default application, which allows unlimited access by default. You can also 
 [create](create-application.md####Create Applications) your own.
 
 #### **Create Applications**
 
-1.  Sign in to the WSO2 API developer portal ( `https://<hostname>:9443/devportal` ).
-    
-    !!! tip
-        In a multi-tenanted WSO2 API Manager setup, you can access any tenant's store using the URL 
-            `http://<hostname>:<port>/devportal?tenant=<tenant_name>`
+1.  Sign in to WSO2 API developer portal ( `https://<hostname>:9443/devportal`).
 
 2.  Click **Applications** tab.
 
@@ -43,15 +48,20 @@ The API Manager comes with a pre-created default application, which allows unlim
         </table>
      </html>
    
-     ![Add new Application](../../../assets/img/Learn/create-new-application.png)
+    <a href="../../../../assets/img/Learn/create-new-application.png" ><img src="../../../../assets/img/Learn/create-new-application.png" alt="Create New Application" title="Create New Application" 
+     width="60%" /></a>
       
     If the application creation is successful, you will be redirected to the application overview page
 
-     ![Application_overview](../../../assets/img/Learn/application-overview.png)
+    <a href="../../../../assets/img/Learn/application-overview.png" ><img src="../../../.
+    ./assets/img/Learn/application-overview.png" alt="Application Overview" title="Application Overview" 
+         width="70%" /></a>
     
 5.  Navigate to Applications listing page, and you will find the PizzaShack application listed with other applications
 . The application can be edited or deleted by the application owner.
 
-    ![Applications_listing](../../../assets/img/Learn/applications-listing.png)
+    <a href="../../../../assets/img/Learn/applications-listing.png" ><img src="../../../.
+    ./assets/img/Learn/applications-listing.png" alt="Application Listing" title="Application Listing" 
+             width="80%" /></a>
 
     
