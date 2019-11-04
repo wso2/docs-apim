@@ -1,52 +1,105 @@
-# admin\_Changing to MariaDB
+# admin\_Setting up Oracle
 
-The following sections describe how to replace the default H2 database with MariaDB, which is a drop-in replacement for MySQL.
+The following sections describe how to set up an Oracle database to replace the default H2 database in your WSO2 product:
 
--   [Setting up datasource configurations](#admin_ChangingtoMariaDB-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
--   [Creating database tables](#admin_ChangingtoMariaDB-Creatingdatabasetables)
+-   [Setting up the database and users](#admin_SettingupOracle-Settingupthedatabaseandusers)
+-   [Setting up the JDBC driver](#admin_SettingupOracle-SettinguptheJDBCdriver)
+
+### Setting up the database and users
+
+Follow the steps below to set up an Oracle database.
+
+1.  Create a new database by using the Oracle database configuration assistant (dbca) or manually.
+
+2.  Make the necessary changes in the Oracle `tnsnames.ora` and `listner.ora` files in order to define addresses of the databases for establishing connections to the newly created database.
+
+3.  After configuring the `.ora` files, start the Oracle instance using the following command:
+
+        $ sudo /etc/init.d/oracle-xe restart
+
+4.  Connect to Oracle using SQL\*Plus as SYSDBA as follows:
+
+`$ ./$<ORACLE_HOME>/config/scripts/sqlplus.sh sysadm/password as SYSDBA          `
+
+5.  Connect to the instance with the username and password using the following command:
+
+        $ connect
+
+6.  As SYSDBA, create a database user and grant privileges to the user as shown below:
+
+    ``` powershell
+        Create user <USER_NAME> identified by <PASSWORD> account unlock;
+        grant connect to <USER_NAME>;
+        grant create session, create table, create sequence, create trigger to <USER_NAME>;
+        alter user <USER_NAME> quota <SPACE_QUOTA_SIZE_IN_MEGABYTES> on '<TABLE_SPACE_NAME>';
+        commit;
+    ```
+
+7.  Exit from the SQL\*Plus session by executing the `quit` command.
+
+### Setting up the JDBC driver
+
+1.  Copy the Oracle JDBC libraries (for example, &lt; `ORACLE_HOME/jdbc/lib/ojdbc14.jar)` to the &lt; `PRODUCT_HOME>/repository/components/lib/` directory.
+2.  Remove the old database driver from the `<PRODUCT_HOME>/repository/components/dropins/` directory.
+
+!!! info
+If you get a " `timezone region not found"` error when using the `ojdbc6.jar` file with WSO2 servers, set the Java property as follows: `export JAVA_OPTS="-Duser.timezone='+05:30'"        `
+
+The value of this property should be the GMT difference of the country. If it is necessary to set this property permanently, define it inside the `wso2server.sh` as a new `JAVA_OPT` property.
+
+
+## What's next
+
+By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with Oracle, see [Changing to Oracle](https://docs.wso2.com/display/ADMIN44x/Changing+to+Oracle) .
+
+
+# admin\_Changing to Oracle
+
+By default, WSO2 products use the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use an Oracle database for this purpose.
+
+-   [Setting up datasource configurations](#admin_ChangingtoOracle-Settingupdatasourceconfigurations)
+    -   [Changing the default WSO2\_CARBON\_DB datasource](#admin_ChangingtoOracle-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+    -   [Configuring new datasources to manage registry or user management data](#admin_ChangingtoOracle-ConfiguringanewdatabaseConfiguringnewdatasourcestomanageregistryorusermanagementdata)
+-   [Creating the database tables](#admin_ChangingtoOracle-Creatingthedatabasetables)
 
 !!! tip
 Before you begin
 
-You need to set up MariaDB before following the steps to configure your product with it. For more information, see [Setting up MariaDB](https://docs.wso2.com/display/ADMIN44x/Setting+up+MariaDB) .
+You need to set up Oracle before following the steps to configure your product with Oracle. For more information, see [Setting up Oracle](https://docs.wso2.com/display/ADMIN44x/Setting+up+Oracle) .
 
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the MariaDB database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoMariaDB-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoMariaDB-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Oracle database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoOracle-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoOracle-Configuringanewdatabase) to point it to the new database as explained below.
 
-#### Changing the default WSO2\_CARBON\_DB datasource
+#### Changing the default WSO2\_CARBON\_DB datasource
 
 Follow the steps below to change the type of the default `WSO2_CARBON_DB` datasource.
 
-1.  Edit the default datasourceconfigurationin the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as shown below.
+1.  Edit the default datasource configuration in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as shown below.
 
-        !!! note
-    Do not change the `WSO2_CARBON_DB` datasource name in the below configuration.
-
-
-    ``` html/xml
+    ``` xml
         <datasource>
-               <name>WSO2_CARBON_DB</name>
-               <description>The datasource used for registry and user manager</description>
-               <jndiConfig>
+             <name>WSO2_CARBON_DB</name>
+             <description>The datasource used for registry and user manager</description>
+             <jndiConfig>
                    <name>jdbc/WSO2CarbonDB</name>
-               </jndiConfig>
-               <definition type="RDBMS">
+             </jndiConfig>
+             <definition type="RDBMS">
                    <configuration>
-                       <url>jdbc:mysql://localhost:3306/regdb</url>
+                       <url>jdbc:oracle:thin:@SERVER_NAME:PORT/SID</url>
                        <username>regadmin</username>
                        <password>regadmin</password>
-                       <defaultAutoCommit>false</defaultAutoCommit>
-                       <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                       <driverClassName>oracle.jdbc.OracleDriver</driverClassName>
                        <maxActive>80</maxActive>
                        <maxWait>60000</maxWait>
                        <minIdle>5</minIdle>
                        <testOnBorrow>true</testOnBorrow>
-                       <validationQuery>SELECT 1</validationQuery>
+                       <validationQuery>SELECT 1 FROM DUAL</validationQuery>
                        <validationInterval>30000</validationInterval>
+                       <defaultAutoCommit>false</defaultAutoCommit>
                    </configuration>
-               </definition>
+             </definition>
         </datasource>
     ```
 
@@ -54,7 +107,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
     | Element                       | Description                                                                                                                                                                                                                                                                                                                                  |
     |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **url**                       | The URL of the database. The default port for MariaDB is 3306                                                                                                                                                                                                                                                                                |
+    | **url**                       | The URL of the database. The default port for a DB2 instance is 50000.                                                                                                                                                                                                                                                                       |
     | **username** and **password** | The name and password of the database user                                                                                                                                                                                                                                                                                                   |
     | **driverClassName**           | The class name of the database driver                                                                                                                                                                                                                                                                                                        |
     | **maxActive**                 | The maximum number of active connections that can be allocated  at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.                                                                                                                                                               |
@@ -68,7 +121,10 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
       When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.                                                                                                                                                     |
 
         !!! info
-    For more information on other parameters that can be defined in the `<PRODUCT_HOME>/repository/conf/` datasources/ `master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
+    The default port for Oracle is 1521.
+
+        !!! info
+    For more information on other parameters that can be defined in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
 
 
         !!! warning
@@ -137,12 +193,12 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
                             </datasource>
             ```
 
-#### Configuring new  datasources to manage registry or user management data
+#### Configuring new datasources to manage registry or user management data
 
-Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
+Follow the steps below to configure new datasources to point to the new  databases you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoMariaDB-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoMariaDB-Settingupdatasourceconfigurations)
-2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/          `
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoOracle-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoOracle-Settingupdatasourceconfigurations)
+2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml
             <dbConfig name="wso2registry">
@@ -150,7 +206,7 @@ Follow the steps below to configure new datasources to point to the new database
             </dbConfig>
     ```
 
-3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
+3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
 
     ``` xml
             <Configuration>
@@ -158,18 +214,14 @@ Follow the steps below to configure new datasources to point to the new database
             </Configuration>
     ```
 
-### Creating database tables
+### Creating the database tables
 
-To create the database tables, connect to the database that you created earlier and run the following scripts.
+To create the database tables, connect to the database that you created earlier and run the following scripts in SQL\*Plus:
 
 1.  To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), use the below script:
 
-        !!! info
-    You may have to enter the password for each command when prompted.
-
-
     ``` powershell
-        mysql -u regadmin -p -Dregdb < '<PRODUCT_HOME>/dbscripts/mysql.sql';
+            SQL> @$<PRODUCT_HOME>/dbscripts/oracle.sql
     ```
 
 2.  Restart the server.

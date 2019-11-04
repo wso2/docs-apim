@@ -79,6 +79,7 @@ nav:
                 - Security:
                     - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
                     - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
+                    - Encrypting the secured endpoint passwords: Learn/DesignAPI/Endpoints/EndpointSecurity/encrypting-secure-endpoint-passwords.md
                 - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
                 - Resiliency:
                     - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
@@ -345,6 +346,20 @@ nav:
             - Deployment Guidelines:
                 - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
+        - Setting up Databases:
+              - Changing Default Databases:
+                    - Overview: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/overview.md
+                    - Changing to Embedded H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2.md
+                    - Changing to MySQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mysql.md
+                    - Changing to MSSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mssql.md
+                    - Changing to PostgreSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-postgresql.md
+                    - Changing to Oracle: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle.md
+                    - Changing to MariaDB: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mariadb.md
+                    - Changing to IBM DB2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
+                    - Changing to Remote H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
+                    - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
+                    - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
+                    - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
     - Administer:
         - Product Administration:
             - Upgrading WSO2 API Manager:
@@ -380,53 +395,6 @@ nav:
                 - admin_Removing References to Deleted User Identities in WSO2 Products: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
                 - admin_Extending the Identity Anonymization Tool: Administer/ProductAdministration/ManagingUsersAndRoles/admin-extending-the-identity-anonymization-tool.md
                 - admin_Product Startup Options: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
-            - admin_Data Stores:
-                - admin_Working with Databases:
-                    - admin_Setting up the Physical Database:
-                        - admin_Setting up IBM DB2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-ibm-db2.md
-                        - admin_Setting up IBM Informix: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-ibm-informix.md
-                        - admin_Setting up H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-h2.md
-                        - admin_Setting up Embedded H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-h2.md
-                        - admin_Setting up Remote H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-h2.md
-                        - admin_Setting up MariaDB: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-mariadb.md
-                        - admin_Setting up Microsoft SQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-microsoft-sql.md
-                        - admin_Setting up MySQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-mysql.md
-                        - admin_Setting up a MySQL Cluster: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-a-mysql-cluster.md
-                        - admin_Setting up Oracle: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle.md
-                        - admin_Setting up Oracle RAC: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle-rac.md
-                        - admin_Setting up PostgreSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-postgresql.md
-                        - admin_Setting up Derby: 
-                            - admin_Setting up Embedded Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-derby.md
-                            - admin_Setting up Remote Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-derby.md
-                    - admin_Changing the Carbon Database:
-                        - admin_Changing to Embedded Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-embedded-derby.md
-                        - admin_Changing to Embedded H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-embedded-h2.md
-                        - admin_Changing to IBM DB2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-ibm-db2.md
-                        - admin_Changing to IBM Informix: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-ibm-informix.md
-                        - admin_Changing to MariaDB: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mariadb.md
-                        - admin_Changing to MSSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mssql.md
-                        - admin_Changing to MySQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-mysql.md
-                        - admin_Changing to Oracle: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-oracle.md
-                        - admin_Changing to Oracle RAC: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-oracle-rac.md
-                        - admin_Changing to PostgreSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-postgresql.md
-                        - admin_Changing to Remote H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-remote-h2.md
-                    - admin_Browsing the H2 Database: ''
-                - admin_Working with the Registry:
-                    - admin_Managing the Registry: 
-                        - admin_Metadata: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-metadata.md
-                        - admin_Properties: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-properties.md
-                        - admin_Entries and Content:
-                            - admin_Adding a Resource: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-adding-a-resource.md
-                            - admin_Link Creation: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-link-creation.md
-                            - admin_Editing collections using the Entries panel: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-editing-collections-using-the-entries-panel.md
-                        - admin_Role Permissions: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-role-permissions.md
-                - admin_Searching the Registry: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/admin-searching-the-registry.md
-                - admin_Using Remote Registry Instances for the Registry Partitions:
-                    - admin_All Partitions in a Single Server: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-all-partitions-in-a-single-server.md
-                    - admin_Config and Governance Partitions in a Remote Registry: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-governance-partition-in-a-remote-registry.md
-                    - admin_Governance Partition in a Remote Registry: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-config-and-governance-partitions-in-a-remote-registry.md
-                    - admin_Config and Governance Partitions in Separate Nodes: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/UsingRemoteRegistry/admin-config-and-governance-partitions-in-separate-nodes.md
-                - admin_Working with Users, Roles and Permissions: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/admin-working-with-users-roles-and-permissions.md
             - admin_Default Ports of WSO2 Products: Administer/ProductAdministration/admin-default-ports-of-wso2-products.md
             - admin_Monitoring:
                 - admin_Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/admin-capturing-system-data-in-error-situations.md
