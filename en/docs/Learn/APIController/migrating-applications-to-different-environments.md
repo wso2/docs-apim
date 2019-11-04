@@ -78,7 +78,7 @@ You can export an application in the API Store and download it as a zipped file.
     -   Response
         ``` java
         Successfully exported Application!
-        Find the exported Application at /Users/kim/.wso2apimcli/exported/apps/dev/admin_SampleApp.zip
+        Find the exported Application at /Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip
         ```
 
 The exported application zipped file will be as follows:
