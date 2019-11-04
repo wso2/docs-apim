@@ -24,7 +24,7 @@ site_url: https://wso2.com/
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
 edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
-dev_addr: 0.0.0.0:8000
+dev_addr: localhost:8000
 
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -227,7 +227,6 @@ nav:
                     - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
                     - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
                     - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
-                - Token API: Learn/APISecurity/OAuth2/token-api.md
                 - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
                 - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
                 - Encrypting OAuth Keys: Learn/APISecurity/OAuth2/encrypting-oauth-keys.md
