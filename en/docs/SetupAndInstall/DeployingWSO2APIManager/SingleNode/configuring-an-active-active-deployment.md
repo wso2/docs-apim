@@ -25,7 +25,7 @@ For information on configuring the load balancer, see [Configuring the Proxy Ser
 
 ### Step 3 - Configure the databases
 
-For information on configuring the databases, see [Installing and Configuring the Databases](../installing-and-configuring-the-databases.md).
+For information on configuring the databases, see [Installing and Configuring the Databases](../../SettingUpDatabases/overview.md).
 
 ### Step 4 - Configure the Publisher with the Gateway
 
@@ -83,27 +83,32 @@ Configure a shared file system as the content synchronization mechanism. You ca
 
 ### Step 6 - Configure Throttling
 
-1.  Configure the data publisher in the `<DataPublisher>` section which comes under the `<ThrottlingConfigurations>` section in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+    
     You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and process the data to come up with the Throttling decisions.
 
     ``` tab="Format"
-    <DataPublisher>
-        <Enabled>true</Enabled>
-        <Type>Binary</Type>
-        <ReceiverUrlGroup>{tcp://<node1-hostname>:<node1-port>},{tcp://<node2-hostname>:<node2-port>} </ReceiverUrlGroup>
-        <AuthUrlGroup>{ssl://<node1-hostname>:<node1-port>},{ssl://<node2-hostname>:<node2-port>}</AuthUrlGroup>
-        ………………….
-    </DataPublisher>
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+    traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+    type = "loadbalance"
+
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+    traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+    type = "loadbalance"
     ```
 
     ``` tab="Example"
-    <DataPublisher>
-        <Enabled>true</Enabled>
-        <Type>Binary</Type>
-        <ReceiverUrlGroup>{tcp://127.0.0.1:9612},{tcp://127.0.0.1:9613} </ReceiverUrlGroup>
-        <AuthUrlGroup>{ssl://127.0.0.1:9712},{ssl://127.0.0.1:9713}</AuthUrlGroup>
-        ………………….
-    </DataPublisher>
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+    traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+    type = "loadbalance"
+
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+    traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+    type = "loadbalance"
     ```
 
 2.  Save your changes.
@@ -113,7 +118,7 @@ Configure a shared file system as the content synchronization mechanism. You ca
 Make a copy of the active instance configured above and use this copy as the second active instance.
 
 !!! info
-    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 in [step 1](#ConfiguringanActive-ActiveDeployment-step1).
+    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 in [step 1](#step-1-create-a-ssl-certificate).
 
 
 ### Step 8 - Configure your deployment with production hardening
@@ -122,7 +127,7 @@ Ensure that you have taken into account the respective security hardening factor
 
 ### Step 9 - Configure Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure API-M Analytics. Follow the [standard setup]() to configure API-M Analytics in a production setup, and follow the [quick setup]() to configure API-M Analytics in a development setup.
+If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure API-M Analytics. Follow the [standard setup](https://apim.docs.wso2.com/en/latest/Learn/Analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup](https://apim.docs.wso2.com/en/latest/Learn/Analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
 
 ### Step 10 - Start the WSO2 API-M servers
 
