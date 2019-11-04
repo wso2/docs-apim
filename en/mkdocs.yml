@@ -301,6 +301,7 @@ nav:
             - Editing API Templates: Learn/Extensions/editing-api-templates.md
     - Develop:
         - Product REST APIs:
+            - RESTful APIs: Develop/ProductAPIs/restful-apis.md
             - WSO2 Publisher API v1: Develop/ProductAPIs/publisher-v1.md
             - WSO2 Publisher API v0.15: Develop/ProductAPIs/publisher-v0.15.md
             - WSO2 Developer Portal API v1: Develop/ProductAPIs/devportal-v1.md
