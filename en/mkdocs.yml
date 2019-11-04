@@ -270,10 +270,12 @@ nav:
             - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
-        - CICD Pipeline:
-            - Initializing projects using the CLI Tool: Learn/CICDPipeline/initializing-projects-using-the-cli-tool.md
-            - Promoting APIs Through CICD: Learn/CICDPipeline/promoting-apis-through-cicd.md
-            - Promoting Applications Through CICD: Learn/CICDPipeline/promoting-applications-through-cicd.md
+        - API Controller:
+            - Getting Started with WSO2 API Controller: Learn/APIController/getting-started-with-wso2-api-controller.md
+            - Importing APIs Via Dev First Approach: Learn/APIController/importing-apis-via-dev-first-approach.md
+            - Migrating APIs to Different Environments: Learn/APIController/migrating-apis-to-different-environments.md
+            - Migrating Apps to Different Environments: Learn/APIController/migrating-applications-to-different-environments.md
+            - Building a CI/CD Pipeline: Learn/APIController/building-a-cicd-pipeline.md
         - Tutorials:
             - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
             - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
