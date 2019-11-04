@@ -335,6 +335,7 @@ nav:
                 - Configure WSO2 API-M Gateways in a Distributed Deployment: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
                 - Configuring the Gateway in a Distributed Environment with rsync: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
                 - Configure a Thrid Party Key Manager: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
+                - Product Profiles: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
                 - WSO2 Identity Server as Key Manager: 
                     - Configuring WSO2 Identity Server as a Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md
                     - Configuring the Databases for IS as the Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager.md
@@ -422,7 +423,6 @@ nav:
                 - System Logs: Administer/ProductAdministration/Logging/system-logs.md
             - Administration - API-M Analytics:
                 - Re-indexing Existing Data: Administer/ProductAdministration/Administration-APIMAnalytics/re-indexing-existing-data.md
-            - Product Profiles: Administer/ProductAdministration/product-profiles.md
             - admin_Adding a Custom Proxy Path: Administer/ProductAdministration/admin-adding-a-custom-proxy-path.md
             - Changing the Default API-M Databases: Administer/ProductAdministration/changing-the-default-api-m-databases.md
             - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
@@ -455,16 +455,6 @@ nav:
                 - admin_Customizing Error Pages: Administer/ProductAdministration/Customizations/admin-customizing-error-pages.md
                 - admin_Customizing the Management Console: Administer/ProductAdministration/Customizations/admin-customizing-the-management-console.md
         - Product Configurations:
-            - Working with Databases:
-                - Managing Datasources:
-                    - Adding Datasources: Administer/ProductConfigurations/WorkingWithDatabases/adding-datasources.md
-                    - Configuring an RDBMS Datasource: 
-                        - Configuring an RDBMS Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-an-rdbms-datasource.md
-                        - Configuring the Datasource Provider: Administer/ProductConfigurations/WorkingWithDatabases/configuring-the-datasource-provider.md
-                        - Configuring a JNDI Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-jndi-datasource.md
-                        - Configuring the Datasource Connection Pool Parameters: Administer/ProductConfigurations/WorkingWithDatabases/configuring-the-datasource-connection-pool-parameters.md
-                    - Custom Datasource:
-                        - Configuring a Custom Datasource: Administer/ProductConfigurations/WorkingWithDatabases/configuring-a-custom-datasource.md
             - Configuring User Stores:
                 - Configuring User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores.md
                 - Realm Configuration: Administer/ProductConfigurations/ConfiguringUserStores/realm-configuration.md
