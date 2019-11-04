@@ -35,28 +35,3 @@ After you created, published, and subscribed to the API, let's see how the API G
     ![](../../assets/img/Learn/learn-throttling-query-response.png)
     Note that you subscribed to the API on the Bronze throttling tier. The Bronze tier allows you to make a 1000 calls to the API per minute. If you exceed your quota, you get a throttling error as shown below.
     ![](../../assets/img/Learn/learn-throttling-error-response.png)
-    Let's try to invoke the API using an unavailable resource name. -->
-
-5.  Go to the API's **Overview** page in the Devportal and get the API's URL.
-    ![](../../assets/img/Learn/learn-throttling-overview.png)
-
-6.  Install [cURL](http://curl.haxx.se/download.html) or any other REST client.
-
-7.  Go to the command-line invoke the API using the following cURL command.
-
-    ``` java
-        curl -k -H "Authorization :Bearer <access-token-in-step-3>" '<API's URL in step 5>/<API's-resource-name>?<parameter1>=<parameter1-value>&<parameter2>=<parameter2-value>'
-    ```
-
-    Note that the `PhoneVerification` API's resource name is **`CheckPhoneNumber              `** , but we use an undefined resource name as **`CheckPhoneNum              `** . Here's an example:
-
-    ``` java
-            curl -k -H "Authorization :Bearer 63cc9779d6557f4346a9a28b5cfd8b53" 'https://localhost:8243/phoneverify/1.0.0/CheckPhoneNum?PhoneNumber=18006785432&LicenseKey=0'
-    ```
-
-    Note that the call gets blocked by the API Gateway with a 'no matching resource' message. It doesn't reach your backend services as you are trying to access a REST resource that is not defined for the API.
-
-    ``` java
-            <am:fault xmlns:am="http://wso2.org/apimanager"><am:code>404</am:code><am:type>Status report</am:type><am:message>Runtime Error</am:message><am:description>No matching resource found for given API Request</am:description></am:fault>
-    ```
-    You have seen how the API Gateway enforces throttling and resource access policies for APIs.
