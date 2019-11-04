@@ -2,19 +2,20 @@
 
 WSO2 API Controller, **apictl** allows to create and deploy APIs without using WSO2 API Publisher Portal. You can use this feature to create an API **from scratch** or **using an existing Swagger or Open API specification** and then deploy it to the desired API Manager environment.
 
--   [Initializing an API Project](#initializing-an-api-project)
--   [Importing an API Project](#importing-an-api-project)
+-   [Initialize an API Project](#initialize-an-api-project)
+-   [Import an API Project](#import-an-api-project)
+    -   [Configure Environment Specific Details](#configure-environment-specific-details)
 
 !!! info
     **Before you begin...** 
 
-    -   Make sure WSO2 API Manager CLI Tool is initialized and running, if not follow the steps in [Downloading and Initilazing the CLI Tool](#downloading-and-initializing-the-cli-tool).
+    -   Make sure WSO2 API Manager CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool](../getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
-    -   Make sure you already have added an environment using the CLI tool for the API Manager environment you plan to import the API to. 
+    -   Make sure you already have added an environment using the CTL tool for the API Manager environment you plan to import the API to. 
 
-        If not, follow the steps in [Adding an Environment](#adding-an-environment).
+        If not, follow the steps in [Add an Environment](../getting-started-with-wso2-api-controller#add-an-environment).
 
-## Initializing an API Project
+## Initialize an API Project
 
 1. Open a terminal window and navigate to the path you need to create the project.
 
@@ -49,7 +50,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 
 
     2.   **From OpenAPI/Swagger Specification**  
-        You can use Swagger2 and OpenAPI3 specifications to generate an API. File format should be yaml or json.
+        You can use a Swagger2 and OpenAPI3 specification to generate an API. The file format should be yaml or json.
 
         -   Command
             ```bash
@@ -79,15 +80,15 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
             ```
 
             !!! info
-                When you initialize an API project using an OpenAPI specification, the CTL Tool will automatically read the OpenAPI definition and populate certain set of configs in the API definition file, `api.yaml`.     
+                When you initialize an API project using an OpenAPI specification, the CTL Tool will automatically read the OpenAPI definition and populate a certain set of configs in the API definition file, `api.yaml`.     
 
-    !!! info
-        **Flags:**  
-            
-        -   Optional :  
-                `--definition` or `-d` : Provide a YAML definition of API  
-                `--oas` : Provide an OpenAPI specification file/URL for the API   
-                `--force` or `-f` : To overwrite directory and create project 
+            !!! info
+                **Flags:**  
+                    
+                -   Optional :  
+                        `--definition` or `-d` : Provide a YAML definition of API  
+                        `--oas` : Provide an OpenAPI specification file/URL for the API   
+                        `--force` or `-f` : To overwrite directory and create project 
 
 
 3. A project folder with the following default structure will be created in the given directory.
@@ -99,7 +100,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     ├── Image
     ├── Meta-information
     │    ├── api.yaml
-    │   └── swagger.yaml
+    │    └── swagger.yaml
     ├── README.md
     └── Sequences
         ├── fault-sequence
@@ -139,7 +140,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
         <td><pre><code>Docs
       |── FileContents</code></pre>
         </td>
-        <td>Contains the summary of all the documents and the uploaded file type documents available for the API</td>
+        <td>Contains the documents. To add a documentation, add them to the <code>Docs/FileContents/</code>directory.</td>
         </tr>
         </tbody>
     </table>
@@ -180,9 +181,9 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
             version: $APIVERSION
         ```
 
-        When executing the `apictl init` command, the CLI tool automatically injects the values to the API definition. If an environment variable is not set, the tool will fail and request for a set of required environment variables on the system.
+        When executing the `apictl init` command, the CLI tool automatically injects the values to the API definition. If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
 
-        In runtime, the CTL look will inject the environment variable values and create the artifacts in the API project.
+        In runtime, the CTL tool will automatically inject the environment variable values to the artifacts in the API project.
 
         !!! tip
             To make this work you will need to set up required environment variables according to your OS. In a Linux/Unix environment, it can be done using
@@ -200,7 +201,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     | `productionUrl` | Production endpoint for API.                            |
     | `sandboxUrl`| Sandbox endpoint for API.                               |
 
-    For more information about the configurations, go to the [gist](https://gist.github.com/kasvith/01e704611b6c301f470ab0e3b5cb0607) .
+    For more information about the configurations, refer the [gist](https://gist.github.com/kasvith/01e704611b6c301f470ab0e3b5cb0607).
 
     **api.yaml**
 
@@ -221,14 +222,14 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     ```
 
 
-## Importing an API Project
+## Import an API Project
 
 !!! info
     **Before you begin...** 
 
-    -   Make sure you have already created an environment which you are planning to import the API to. If not follow steps in [Adding an Environment](#adding-an-environment). 
+    -   Make sure you have already created an environment which you are planning to import the API to. If not follow steps in [Add an Environment](../getting-started-with-wso2-api-controller#add-an-environment).
     
-    -   Make sure you have logged-in to that importing environment. If not follow steps in [Login to an Environment](#login-to-an-environment). 
+    -   Make sure you have logged-in to the importing environment. If not follow steps in [Login to an Environment](../getting-started-with-wso2-api-controller#login-to-an-environment). 
 
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
 
@@ -253,35 +254,35 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--preserve-provider` : Preserve existing provider of API after importing. Default value is true  
             `--update` : Update an existing API or create a new API in the importing environment  
             `--params` : Provide a API Manager environment params file (default "api_params.yaml")   
-            Refer [Configure Environment Specific Details](#configure-enviroment-specific-details) for more information.  
+            Refer [Configure Environment Specific Details](#configure-environment-specific-details) for more information.  
             `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is false.  
 
     !!! example
         ```bash
-        apimcli import-api -f ~/myapi -e production -k
+        apictl import-api -f ~/myapi -e production -k
         ```
         ```bash
         apictl import-api --file ~/myapi --environment production -k
         ```    
         ``` go
-        apimcli import-api --file ~/myapi --environment production --params prod/custom_api_params.yaml -k 
+        apictl import-api --file ~/myapi --environment production --params prod/custom_api_params.yaml -k 
         ```
         
     !!! tip
-        When using `--update` flag with `import-api` command, CTL tool will check if the given API exists in the targeted environment. If then, it will update the existing API. If not, it will create a new API in the imported environment. 
+        When using `--update` flag with `import-api` command, the CTL tool will check if the given API exists in the targeted environment. If then, it will update the existing API. If not, it will create a new API in the imported environment. 
 
        
 -   **Response**
     ``` bash
-    Succesfully imported API!
+    Successfully imported API!
     ```
 
 #### Configure Environment Specific Details
 When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. We recommend storing the parameter file with the API Project; however, it can be stored anywhere as required. 
 
-Once the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import-api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. It can also provide a custom path for the parameter file using the `--params` flag.
+Once the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import-api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. 
 
-Following is the structure of the parameter file.
+The following is the structure of the parameter file.
 
 ```go
 environments:
@@ -330,8 +331,7 @@ Refer below to view a sample configuration of the parameter file.
             sandbox:
               url: 'https://test.sandbox.wso2.com'
     ```
-
+-   You can also provide a custom path for the parameter file using the `--params` flag.
 -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
--   Certificates for each URL can be configured in the paramater file. For certificates, a valid path to the certificate file is required. 
--   Parameter file supports detecting environment variables during the API import process. You can use the usual notation. For eg: `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request for a set of required environment variables on the system.   
-
+-   Certificates for each URL can be configured in the parameter file. For certificates, a valid path to the certificate file is required. 
+-   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For eg: `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.   
