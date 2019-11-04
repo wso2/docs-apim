@@ -169,7 +169,7 @@ You can use the API archive exported from the previous section and import it to 
 
         !!! example
             ```bash
-            apimcli import-api -f dev/PhoneVerification_1.0.0.zip -e production -k
+            apictl import-api -f dev/PhoneVerification_1.0.0.zip -e production -k
             ```
             ```bash
             apictl import-api --file /home/user/apis/PhoneVerification_1.0.0.zip --environment production -k
