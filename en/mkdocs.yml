@@ -227,6 +227,7 @@ nav:
                     - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
                     - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
                     - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
+                - Token API: Learn/APISecurity/OAuth2/token-api.md
                 - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
                 - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
                 - Encrypting OAuth Keys: Learn/APISecurity/OAuth2/encrypting-oauth-keys.md
