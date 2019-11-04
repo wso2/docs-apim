@@ -28,10 +28,10 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
         <Offset>2</Offset>
     ```
 
-!!! tip
-    **Tip** : If you change the EI **port offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
+    !!! tip
+        **Tip** : If you change the EI **port offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside the `<API-M_HOME>/business-processes` folder with the new port (9763 + port offset.)
+        -   Search and replace the value 9765 in all the files (.epr) inside the `<API-M_HOME>/business-processes` folder with the new port (9763 + port offset.)
 
 
 3.  Open the `<EI_HOME>/wso2/business-process/conf/humantask.xml` file and `<EI_HOME>              /wso2/business-process/conf              /b4p-coordination-config.xml` file and set the `TaskCoordinationEnabled` property to true.
@@ -42,8 +42,8 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
 
 4.  Copy the following from `<API-M_HOME>/business-processes/eprto<EI_HOME>              /wso2/business-process/repository/conf              /epr` folder. If the `<EI_HOME>/wso2/business-process/repository/conf/epr` folder isn't there, please create it.
 
-        !!! note
-    Make sure to give the correct credentials in the `<EI_HOME>/wso2/business-process/repository/conf/epr` files.
+    !!! note
+        Make sure to give the correct credentials in the `<EI_HOME>/wso2/business-process/repository/conf/epr` files.
 
 
     -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionCallbackService.epr` file according to API Manager.
@@ -60,14 +60,14 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
 
 5.  Start the EI server and sign in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
 
-!!! warning
-    If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+    !!! warning
+        If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
 
-    ``` java
-        WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
-    ```
+        ``` java
+            WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
+        ```
 
-    To avoid this issue open `<EI_HOME>/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
+        To avoid this issue open `<EI_HOME>/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
 
 
 6.  Select **Add** under the **Processes** menu and upload the `<API-M_HOME>/business-processes/subscription-creation/BPEL/SubscriptionApprovalWorkFlowProcess_1.0.0.zip` file to EI. This is the business process archive file.
@@ -98,10 +98,10 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
         <Offset>2</Offset>
     ```
 
-!!! tip
-    **Tip** : If you change the BPS **port offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
+    !!! tip
+        **Tip** : If you change the BPS **port offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside the `<API-M_HOME>/business-processes` folder with the new port (9763 + port offset.)
+        -   Search and replace the value 9765 in all the files (.epr) inside the `<API-M_HOME>/business-processes` folder with the new port (9763 + port offset.)
 
 
 3.  Open the `<BPS_HOME>/repository/conf/humantask.xm` file and `<BPS_HOME>/repository/conf/b4p-coordination-config.xml` file and set the `TaskCoordinationEnabled` property to true.
@@ -112,32 +112,28 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
 
 4.  Copy the following from `<API-M_HOME>/business-processes/eprto<BPS_HOME>/repository/conf/epr` folder. If the `<BPS_HOME>/repository/conf/epr` folder isn't there, please create it.
 
-!!! note
-    Make sure to give the correct credentials in the `<BPS_HOME>/repository/conf/epr` files.
-
-
-    -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionCallbackService.epr` file according to API Manager.
-
-        ``` java
-                <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
+    !!! note
+        Make sure to give the correct credentials in the `<BPS_HOME>/repository/conf/epr` files.
+        
+        -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionCallbackService.epr` file according to API Manager.
+        ```
+        <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
         ```
 
-    -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionService.epr` file according to BPS.
-
-        ``` java
-                    <wsa:Address>http://localhost:9765/services/SubscriptionService/ </wsa:Address>
+        -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionService.epr` file according to BPS.
         ```
-
+        <wsa:Address>http://localhost:9765/services/SubscriptionService/</wsa:Address>
+        ```
 5.  Start the BPS server and sign in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
 
-!!! warning
-    If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+    !!! warning
+        If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
 
-    ``` java
-        WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
-    ```
+        ``` java
+            WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
+        ```
 
-    To avoid this issue open `<BPS_HOME>/repository/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the BPS.
+        To avoid this issue open `<BPS_HOME>/repository/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the BPS.
 
 
 6.  Select **Add** under the **Processes** menu and upload the `<API-M_HOME>/business-processes/subscription-creation/BPEL/SubscriptionApprovalWorkFlowProcess_1.0.0.zip` file to BPS. This is the business process archive file.
@@ -170,11 +166,11 @@ First, enable the API subscription workflow **.**
         ...
     </WorkFlowExtensions>
     ```
-!!! tip
-    **Note** that all workflow process services of the EI/BPS run on port 9765 because you changed its default port (9763) with an offset of 2.
+    !!! tip
+        **Note** that all workflow process services of the EI/BPS run on port 9765 because you changed its default port (9763) with an offset of 2.
 
 
-    The application creation WS Workflow Executor is now engaged.
+        The application creation WS Workflow Executor is now engaged.
 
 
 3.  Go to the API Store Web interface and subscribe to an API.
