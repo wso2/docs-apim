@@ -245,7 +245,6 @@ nav:
             - Adding New Throttling Policies: Learn/RateLimiting/adding-new-throttling-policies.md
             - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
             - Blacklisting and Whitelisting Requests: Learn/RateLimiting/blacklisting-whitelisting.md
-            - Enforcing Throttling to an API: Learn/RateLimiting/enforcing-throttling-to-an-api.md
             - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
             - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
             - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
