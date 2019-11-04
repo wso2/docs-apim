@@ -67,7 +67,6 @@ In addition to the default indexes, you can write your own indexer implementatio
     [[custom_indexers]]
     class = "org.wso2.indexing.sample.PlainTextIndexer"
     media_type_regex = "text/plain"
-    profiles = "default,api-devportal,api-publisher"
     ```
     The attributes of the above configuration are described below:
 
