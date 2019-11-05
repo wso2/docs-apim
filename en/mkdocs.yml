@@ -368,14 +368,6 @@ nav:
                 - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
     - Administer:
         - Product Administration:
-            - Upgrading WSO2 API Manager:
-                - Upgrading from the Previous Release: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
-                - Upgrading from the Previous Release when WSO2 IS is the Key Manager: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
-            - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
-            - Performance Tuning:
-                - Tuning Performance: Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance.md
-                - WSO2 API-M Performance and Capacity Planning: Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
-                - Performance Tuning and Testing Results: Administer/ProductAdministration/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md             
             - Managing Users and Roles:
                 - Introduction to User Management (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-introduction-to-user-management.md
                 - Understanding the User Realm (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-understanding-the-user-realm.md
@@ -401,6 +393,14 @@ nav:
                 - admin_Removing References to Deleted User Identities in WSO2 Products: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
                 - admin_Extending the Identity Anonymization Tool: Administer/ProductAdministration/ManagingUsersAndRoles/admin-extending-the-identity-anonymization-tool.md
                 - admin_Product Startup Options: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
+            - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
+            - Upgrading WSO2 API Manager:
+                - Upgrading from the Previous Release: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
+                - Upgrading from the Previous Release when WSO2 IS is the Key Manager: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
+            - Performance Tuning:
+                - Tuning Performance: Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance.md
+                - WSO2 API-M Performance and Capacity Planning: Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
+                - Performance Tuning and Testing Results: Administer/ProductAdministration/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md
             - admin_Default Ports of WSO2 Products: Administer/ProductAdministration/admin-default-ports-of-wso2-products.md
             - admin_Monitoring:
                 - admin_Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/admin-capturing-system-data-in-error-situations.md
@@ -432,7 +432,7 @@ nav:
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
             - JMX Monitoring: Administer/jmx-monitoring.md
-            - admin_Working with Transports:
+            - Transports:
                 - admin_Introduction to Transports: Administer/ProductAdministration/WorkingWithTransports/admin-introduction-to-transports.md
                 - admin_Carbon Transports:
                     - admin_HTTP Servlet Transport: Administer/ProductAdministration/WorkingWithTransports/admin-http-servlet-transport.md
@@ -446,17 +446,11 @@ nav:
                     - admin_Local Transport: Administer/ProductAdministration/WorkingWithTransports/admin-local-transport.md
                     - admin_UDP Transport: Administer/ProductAdministration/WorkingWithTransports/admin-udp-transport.md
                     - admin_FIX Transport: Administer/ProductAdministration/WorkingWithTransports/admin-fix-transport.md
-            - admin_Working with Composite Applications:
-                - admin_Introduction to Composite Applications: Administer/ProductAdministration/WorkingWithCompositeApplications/admin-introduction-to-composite-applications.md
-                - admin_Packaging Artifacts into Composite Applications: Administer/ProductAdministration/WorkingWithCompositeApplications/admin-packaging-artifacts-into-composite-applications.md
-                - admin_Deploying Composite Applications in the Server: Administer/ProductAdministration/WorkingWithCompositeApplications/admin-deploying-composite-applications-in-the-server.md
-            - admin_Working with Multiple Tenants:
-                - admin_Introduction to Multitenancy: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-introduction-to-multitenancy.md
-                - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-configuring-the-tenant-loading-policy.md
+            - Multitenancy:
+                - admin_Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/admin-introduction-to-multitenancy.md
+                - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/admin-configuring-the-tenant-loading-policy.md
                 - admin_Adding New Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants.md
-            - admin_Customizations:
-                - admin_Customizing Error Pages: Administer/ProductAdministration/Customizations/admin-customizing-error-pages.md
-                - admin_Customizing the Management Console: Administer/ProductAdministration/Customizations/admin-customizing-the-management-console.md
+            - Customizing the Management Console: Administer/ProductAdministration/Customizations/customizing-the-management-console.md
         - Product Configurations:
             - Configuring User Stores:
                 - Configuring User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores.md
