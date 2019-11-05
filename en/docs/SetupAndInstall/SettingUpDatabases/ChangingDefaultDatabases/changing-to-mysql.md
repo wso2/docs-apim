@@ -1,126 +1,207 @@
-# admin\_Setting up MySQL
+# Changing to MySQL
+
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use MySQL for this purpose.
+
+!!! info
+    The steps involved in installing and configuring the databases are the same irrespective of whether you are using a single node (standalone) deployment, an active-active deployment, or a distributed deployment.
+
+## Setting up MySQL
 
 The following sections describe how to set up a MySQL database to replace the default H2 database in your WSO2 product:
 
--   [Setting up the database and users](#admin_SettingupMySQL-Settingupthedatabaseandusers)
--   [Setting up the drivers](#admin_SettingupMySQL-Settingupthedrivers)
--   [Executing db scripts on MySQL database](#admin_SettingupMySQL-ExecutingdbscriptsonMySQLdatabase)
+-   [Setting up the database and users](#setting-up-the-database-and-users)
+-   [Setting up the drivers](#setting-up-the-drivers)
+-   [Executing db scripts on MySQL database](#executing-db-scripts-on-mysql-database)
 
 ### Setting up the database and users
 
 Follow the steps below to set up a MySQL database:
 
-1.  Download and install MySQL on your computer.
+!!! note
+    Note that we recommend to use Fail Over configuration over Load Balanced configuration with the MySQL clusters.
 
-2.  Start the MySQL service
+1.  Download and install [MySQL Server](http://dev.mysql.com/downloads/) in your computer.
 
-3.  Log in to the MySQL client as the root user (or any other user with database creation privileges).
+2.  Define the hostname for configuring permissions for the new database by opening the `/etc/hosts` file and adding the following:
+
+    !!! warning
+        Do this step only if your database is not on your local machine and on a separate server.
 
     ``` java
-            mysql -u root -p
+    <MYSQL-DB-SERVER-IP> carbondb.mysql-wso2.com
     ```
 
-4.  Enter the password when prompted.
+3.  Start the MySQL service.
 
-5.  In the MySQL command prompt, create the database using the following command:
+4.  Install mysql-client in each of the API-M servers in which WSO2 API-M is deployed. You need to do this in order to check if the servers can access the MySQL database.
 
+    ``` java
+    sudo apt install mysql-client
+    mysql -h <mysqldb_host_ip> -u username -p
     ```
-        mysql> create database <DATABASE_NAME>;
+
+5.  Enter the following command in a command prompt, where `username` is the username that you will use to access the databases.
+
+    !!! tip
+        User should have the database creation privileges.
+
+    ``` java
+    mysql -u username -p
+    ```
+
+6.  When prompted, specify the password that will be used to access the databases with the username you specified.
+
+7.  In the MySQL command prompt, create the database using the following command:
+
+    ``` java
+    mysql> create database <DATABASE_NAME>;
     ```
 
     !!! info
+        If you are using MySQL version - 8.0.x, it is important to specify the character set as latin1 when creating databases. Failure to do this may result in an error
+        It is related to the UTF-8 encoding. MySQL version 8.0.x defaults to character set UTF-8 to be friendlier to international users which uses 4 bytes per character. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The database creation command should be as follows:
 
-    If you are using MySQL version - 8.0.x, it is important to specify the character set as latin1 when creating databases. Failure to do this may result in an error
-    It is related to the UTF-8 encoding. MySQL version 8.0.x defaults to character set UTF-8 to be friendlier to international users which uses 4 bytes per character. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The database creation command should be as follows:
-
+        ``` java
         mysql> create database <DATABASE_NAME> character set latin1;
+        ```
 
-6.  Give authorization to the regadmin user as follows:
+8.  Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
 
     ``` java
-        GRANT ALL ON regdb.* TO regadmin@localhost IDENTIFIED BY "regadmin";
+    GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
     ```
 
     !!! info
+        If you are using MySQL version - 8.0.x, use following commands to create the user and grant authorization:
 
-    If you are using MySQL version - 8.0.x, use following commands to create the user and  grant authorization:
+        ``` java
+        CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
+        ```
 
-    ```
-        CREATE USER 'regadmin'@'localhost' IDENTIFIED BY 'regadmin';
-    ```
+        ``` java
+        GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
+        ```
 
-    ```
-        GRANT ALL ON APIM.* TO 'regadmin'@'localhost';
-    ```
-
-7.  Once you have finalized the permissions, reload all the privileges by executing the following command:
-
-    ``` java
-            FLUSH PRIVILEGES;
-    ```
-
-8.  Log out from the MySQL prompt by executing the following command:
+9.  Once you have finalized the permissions, reload all the privileges by executing the following command:
 
     ``` java
-            quit;
+    FLUSH PRIVILEGES;
+    ```
+
+10.  Log out from the MySQL command prompt by executing the following command:
+
+    ``` java
+    quit;
     ```
 
 ### Setting up the drivers
 
-Download the MySQL Java connector [JAR file](https://dev.mysql.com/downloads/connector/j/) , and copy it to the &lt; `PRODUCT_HOME>/repository/components/lib/` directory.
+1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
+
+2. Download the MySQL Java connector [JAR file](https://dev.mysql.com/downloads/connector/j/), and extract it.
+
+3. Copy it to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
 !!! tip
+    Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the steps below:
 
-Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the steps below:
-
-1.  Shut down the server and remove all existing connectors from `<PRODUCT_HOME>/repository/components/lib` and `<PRODUCT_HOME>/repository/components/dropins` .
-2.  Download the connector JAR that is compatible with your current MySQL version.
-3.  Copy the JAR file **only to** `<PRODUCT_HOME>/repository/components/lib` . Files will be copied automatically to the dropins folder during server startup.
-
+    1.  Shut down the server and remove all existing connectors from `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins`.
+    2.  Download the connector JAR that is compatible with your current MySQL version.
+    3.  Copy the JAR file **only to** `<API-M_HOME>/repository/components/lib` location. Files will be copied automatically to the dropins folder during the server startup.
 
 ### Executing db scripts on MySQL database
 
 To run the database script against the database you created, login to the MySQL client and point to the corresponding database.
 
 ``` java
-    use regdb;
+use shareddb;
 ```
 
 Execute the mysql.sql database script against the pointed database using following command.
 
 ``` java
-    mysql> source <path to the script>\mysql.sql;
+mysql> source <path to the script>\mysql.sql;
+```
+!!! info
+    About using MySQL in different operating systems
+
+    For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look.
+
+    ``` java
+    mysql> create database <DATABASE_NAME> character set latin1;
+    ```
+
+    For users of other operating systems, the standard database creation commands are sufficient. For these operating systems, the following is how your database creation command should look.
+
+    ``` java
+    mysql> create database <DATABASE_NAME>;
+    ```
+
+!!! note
+    If you are using MySQL to configure your datasources, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html) . The default database collation, which is `latin1_swedish_ci` , is case insensitive. However, you need to maintain case sensivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information, because when deleting the API, it keeps the Registry collection left behind.
+
+    This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
+
+!!! note
+    Additional notes
+
+    -   Ensure that MySQL is configured so that all nodes can connect to it.
+    -   To access the databases from remote instances, its required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
+
+```tab="Format"
+mysql> create database apimgtdb;
+mysql> use apimgtdb;
+mysql> source <API-M_HOME>/dbscripts/apimgt/mysql.sql;
+mysql> grant all on apimgtdb.* TO '<username>'@'%' identified by '<password>';
+    
+mysql> create database shareddb;
+mysql> use shareddb;
+mysql> source <API-M_HOME>/dbscripts/mysql.sql;
+mysql> grant all on shareddb.* TO '<username>'@'%' identified by '<password>';
+     
+mysql> create database mbstoredb;
+mysql> use mbstoredb;
+mysql> source <API-M_HOME>/dbscripts/mb-store/mysql-mb.sql;
+mysql> grant all on mbstoredb.* TO '<username>'@'%' identified by '<password>';
 ```
 
-##
-What's next
+``` tab="Example"
+mysql> create database apimgtdb;
+mysql> use apimgtdb;
+mysql> source <API-M_HOME>/dbscripts/apimgt/mysql.sql;
+mysql> grant all on apimgtdb.* TO 'wso2user'@'%' identified by 'wso2123';
 
-By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with MySQL, see [Changing to MySQL](https://docs.wso2.com/display/ADMIN44x/Changing+to+MySQL) .
+mysql> create database shareddb;
+mysql> use shareddb;
+mysql> source <API-M_HOME>/dbscripts/mysql.sql;
+mysql> grant all on shareddb.* TO 'wso2user'@'%' identified by 'wso2123';
 
+mysql> create database mbstoredb;
+mysql> use mbstoredb;
+mysql> source <API-M_HOME>/dbscripts/mb-store/mysql-mb.sql;
+mysql> grant all on mbstoredb.* TO 'wso2user'@'%' identified by 'wso2123';
+```
 
-# admin\_Changing to MySQL
+!!! note
+    In the sample commands above, its assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
 
-By default, WSO2 products use the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use a MySQL database for this purpose.
+## Changing to MySQL
 
--   [Creating the datasource connection to MySQL](#admin_ChangingtoMySQL-CreatingthedatasourceconnectiontoMySQL)
--   [Updating other configuration files](#admin_ChangingtoMySQL-Updatingotherconfigurationfiles)
--   [Creating database tables](#admin_ChangingtoMySQL-Creatingdatabasetables)
-
-!!! tip
-Before you begin
-
-You need to set up MySQL before following the steps to configure your product with MySQL. For more information, see [Setting up MySQL](https://docs.wso2.com/display/ADMIN44x/Setting+up+MySQL) .
-
+-   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
+-   [Creating database tables](#creating-database-tables)
 
 ### Creating the datasource connection to MySQL
 
-A datasource is used to establish the connection to a database. By default, `WSO2_SHARED_DB` datasource is configured in the `master-datasources.xml` file for the purpose of connecting to the default H2 database, which stores registry and user management data.
+A datasource is used to establish the connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasources are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
 
-After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` datasource, or configure a new datasource to point it to the new database as explained below.
+After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasources, or configure a new datasource to point it to the new database as explained below.
 
-Follow the steps below to change the type of the default `WSO2_SHARED_DB` datasource.
+!!! note
+    **If you are configuring API-M in a distributed setup** , do the changes in all the WSO2 API-M components.
 
-1.  Open the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` configuration element.
+Follow the steps below to change the type of the default datasources.
+
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
 2.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details as shown below.
 
@@ -133,43 +214,77 @@ Follow the steps below to change the type of the default `WSO2_SHARED_DB` dataso
 
     Sample configuration is shown below:
 
+    ``` tab="Format"
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
+    username = "regadmin"
+    password = "regadmin"
     ```
-        type = "mysql"
-        url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
-        username = "regadmin"
-        password = "regadmin"
+
+    ``` tab="Example"
+    [database.shared_db]
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/shared_db"
+    username = "regadmin"
+    password = "regadmin"
+
+    [database.apim_db]
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/apim_db"
+    username = "apimadmin"
+    password = "apimadmin"
     ```
 
     !!! info
-
-    If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
-    ```
+        If you are using MySQL version - 8.0.x, you should add the driver name in the configuration as:
+        ``` java
         driver="com.mysql.cj.jdbc.Driver"
-    ```
+        ```
 
-    After adding these configurations, you could see that master-datasource.xml which located in <PRODUCT_HOME>/repository/conf/datasource will be updated as follows after server startup:
+    After adding these configurations, you could see that master-datasource.xml which located in <API-M_HOME>/repository/conf/datasource will be updated as follows after server startup:
 
-    ``` html/xml
-        <datasource>
-               <name>WSO2_SHARED_DB</name>
-               <description>The datasource used for registry and user manager</description>
-               <jndiConfig>
-                   <name>jdbc/SHARED_DB</name>
-               </jndiConfig>
-               <definition type="RDBMS">
-                   <configuration>
-                       <url>jdbc:mysql://localhost:3306/<DATABASE_NAME></url>
-                       <username>regadmin</username>
-                       <password>regadmin</password>
-                       <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
-                       <testOnBorrow>true</testOnBorrow>
-                       <maxWait>60000</maxWait>
-                       <defaultAutoCommit>true</defaultAutoCommit>
-                       <validationInterval>30000</validationInterval>
-                       <maxActive>50</maxActive>
-                   </configuration>
-               </definition>
-        </datasource>
+    ``` xml
+    <datasource>
+        <name>WSO2_SHARED_DB</name>
+        <description>The datasource used for registry and user manager</description>
+        <jndiConfig>
+            <name>jdbc/SHARED_DB</name>
+        </jndiConfig>
+        <definition type="RDBMS">
+            <configuration>
+                <url>jdbc:mysql://localhost:3306/<DATABASE_NAME></url>
+                <username>regadmin</username>
+                <password>regadmin</password>
+                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+                <testOnBorrow>true</testOnBorrow>
+                <maxWait>60000</maxWait>
+                <defaultAutoCommit>true</defaultAutoCommit>
+                <validationInterval>30000</validationInterval>
+                <maxActive>50</maxActive>
+            </configuration>
+        </definition>
+    </datasource>
+
+    <datasource>
+        <name>WSO2AM_DB</name>
+        <description>The datasource used for API Manager database</description>
+        <jndiConfig>
+            <name>jdbc/WSO2AM_DB</name>
+        </jndiConfig>
+        <definition type="RDBMS">
+            <configuration>
+                <url>jdbc:mysql://localhost:3306/<DATABASE_NAME></url>
+                <username>apimadmin</username>
+                <password>apimadmin</password>
+                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
+                <testOnBorrow>true</testOnBorrow>
+                <maxWait>60000</maxWait>
+                <defaultAutoCommit>true</defaultAutoCommit>
+                <validationInterval>30000</validationInterval>
+                <maxActive>50</maxActive>
+            </configuration>
+            </definition>
+    </datasource>       
     ```
 
 3.  You can update the configuration elements given below for your database connection.
@@ -182,139 +297,33 @@ Follow the steps below to change the type of the default `WSO2_SHARED_DB` dataso
     | **testOnBorrow**       | The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.                                                                                                                              |
     | **validationQuery**    | The SQL query that will be used to validate connections from this pool before returning them to the caller.                                                                                                                                                                                                                                  |
     | **validationInterval** | The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.                                                                                      |
-    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.
+    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
+    | **commitOnReturn**     | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false.|
+    | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
 
-      When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.                                                                                                                                                     |
-
-        !!! info
-    For more information on other parameters that can be defined in the `<PRODUCT_HOME>/repository/conf/` datasources/ `master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
-
-
-        !!! warning
-    The following elements are available only as a **WUM** update and is effective from 14th September 2018 (2018-09-14).  For more information, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) .
-    This WUM update is only applicable to Carbon 4.4.11 and will be shipped out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more information on Carbon compatibility, see [Release Matrix](https://wso2.com/products/carbon/release-matrix/) .
-
-
-    | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
-    |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **commitOnReturn**   | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false. |
-    | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                |
-
-    **Configuring the connection pool behavior on return
-    ** When a database connection is returned to the pool, by default  the product rolls back the pending transactions if defaultAutoCommit =true . However, if required you can disable the latter mentioned default behavior by disabling the `ConnectionRollbackOnReturnInterceptor` , which is a JDBC-Pool JDBC interceptor, and setting the connection pool behavior on return via the datasource configurations by using the following options.
-
-        !!! warning
-    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) . This WUM update is only applicable to Carbon 4.4.11.
-
-
-    -   **Configure the connection pool to commit pending transactions on connection return**
-        1.  Navigate to either one of the following locations based on your OS.
-            -   On Linux/Mac OS: `<PRODUCT_HOME>/bin/wso2server.sh/`
-            -   On Windows: `<PRODUCT_HOME>\bin\wso2server.bat`
-        2.  Add the following JVM option:
-
-            ``` java
-                        -Dndatasource.disable.rollbackOnReturn=true \
-            ```
-
-        3.  Navigate to the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file.
-        4.  Disable the `defaultAutoCommit` by defining it as false.
-        5.  Add the `commitOnReturn` property and set it to true for all the datasources, including the custom datasources.
-
-            ``` html/xml
-                            <datasource>
-                                 ...
-                                 <definition type="RDBMS">
-                                     <configuration>
-                                           ...
-                                           <defaultAutoCommit>false</defaultAutoCommit>
-                                           <commitOnReturn>true</commitOnReturn>    
-                                           ...
-                                     </configuration>
-                                 </definition>
-                            </datasource>
-            ```
-
-    -   **Configure the connection pool to rollback pending transactions on connection return**
-
-        1.  Navigate to the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file.
-        2.  Disable the `defaultAutoCommit` by defining it as false.
-
-        3.  Add the `rollbackOnReturn` property to the datasources.
-
-            ``` html/xml
-                            <datasource>
-                                 ...
-                                 <definition type="RDBMS">
-                                     <configuration>
-                                           ...
-                                           <defaultAutoCommit>false</defaultAutoCommit>
-                                           <rollbackOnReturn>true</rollbackOnReturn>
-                                           ...
-                                     </configuration>
-                                 </definition>
-                            </datasource>
-            ```
-
-### Updating other configuration files
-
--   The `registry.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) specifies the datasource information corresponding to the database that stores registry information. Therefore, if you have changed the datasource name, you need to update the following accordingly:
-
-    ``` xml
-            <dbConfig name="wso2registry">
-                <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-            </dbConfig>
-    ```
-
--   The `user-mgt.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) specifies the datasource information corresponding to the database that stores user management information. Therefore, if you have changed the datasource name, you need to update the following accordingly:
-
-    ``` xml
-            <Configuration>
-                <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-            </Configuration>
-    ```
+    !!! info
+        For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
 ### Creating database tables
 
 To create the database tables, connect to the database that you created earlier and run the relevant scripts.
 
-!!! info
-Alternatively, you can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:
-
--   For Windows: `<PRODUCT_HOME>/bin/wso2server.bat -Dsetup`
-
--   For Linux: `<PRODUCT_HOME>/bin/wso2server.sh -Dsetup`
-
-!!! warning
-Deprecation of -DSetup
-
-When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `-DSetup` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the `-DSetup` option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
-
-
-
-1.  To create tables in the registry and user manager database ( `WSO2SHARED_DB` ), execute the relevant script as shown below.
+1.  To create tables in the registry and user manager database ( `WSO2_SHARED_DB` ), execute the relevant script as shown below.
 
     ``` powershell
-        mysql -u regadmin -p -Dregdb < '<PRODUCT_HOME>/dbscripts/mysql.sql';
+    mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
-        !!! note
-    For MySQL 5.7:
+2.  To create tables in the apim database ( `WSO2AM_DB` ), execute the relevant script as shown below.
 
-    From Carbon kernel 4.4.6 onwards your product will be shipped with two scripts for MySQL as follows (click [here](http://wso2.com/products/carbon/release-matrix/) to see if your product is based on this kernel version or newer):
+    ``` powershell
+    mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
+    ```
 
-    -`mysql.sql` : Use this script for MySQL versions prior to version 5.7.
+    !!! note
+        `<API-M_HOME>/dbscripts/mb-store/mysql.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
 
-    -`mysql5.7.sql` : Use this script for MySQL 5.7 and later versions.
+3.  Restart the server.
 
-    Note that if you are automatically creating databases during server startup using the `-DSetup` option, the `mysql.sql` script will be used by default to set up the database. Therefore, if you have MySQL version 5.7 set up for your server, be sure to do the following **before starting the server** :
-
-    1.  First, change the existing `mysql.sql` file to a different filename.
-
-    2.  Change the `<PRODUCT_HOME>/dbscripts/mysql5.7.sql` script to **`mysql.sql`** .
-    3.  Change the `<PRODUCT_HOME>/dbscripts/identity/mysql5.7.sql` script to **`mysql.sql`** .
-
-    MySQL 5.7 is only recommended for products that are based on Carbon 4.4.6 or a later version.
-
-
-2.  Restart the server.
+!!! note
+    To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores](../../../Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores.md).
