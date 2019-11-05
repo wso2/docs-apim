@@ -42,7 +42,7 @@ Create and publish an API that is secured with the API key security scheme as th
     
      `https://<hostname>:9443/publisher`
 
-2. Click **DEPLOY SAMPLE APP** to deploy the sample PizzaShack API.
+2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
 
      ![Configure API key authentication](../../../assets/img/Learn/api-key-option.png)
 
