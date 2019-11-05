@@ -1,6 +1,3 @@
----
-template: templates/no-nav.html
----
 
 <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
@@ -20,4 +17,6 @@ template: templates/no-nav.html
  * under the License.
 -->
 
-## Page not found.
+<!-- ## Page not found. -->
+
+<!-- Go back to [Home](https://apim.docs.wso2.com/en/latest/) -->
