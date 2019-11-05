@@ -23,7 +23,7 @@ site_url: https://wso2.com/
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/3.0.0/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
