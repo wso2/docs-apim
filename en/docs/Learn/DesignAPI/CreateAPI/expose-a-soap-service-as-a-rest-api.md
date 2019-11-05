@@ -3,7 +3,7 @@
 WSO2 API Manager supports the management of an existing SOAP and WSDL based services exposing as REST APIs.
 The organizations who have SOAP/ WSDL based services, can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two kinds of services as one for performing a  "pass through" of the SOAP message to the backend and other one is generating [a RESTful api from the backend SOAP service](../../../../Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend/).
 
-Follow the instruction below to create a SOAP service as a RESTful API using **Pass Through**
+Follow the instructions below to create a SOAP service as a RESTful API using **Pass Through**
 
 1.  Sign in to the API Publisher and click **CREATE API**.
       <html>
@@ -42,87 +42,19 @@ Follow the instruction below to create a SOAP service as a RESTful API using **P
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
             <p>
-            If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes,    
-
-    see [OAuthscopes](../../../../docs/Learn/APISecurityOAuth2/AOuth2Scopes/applying-a-scope/)
+            If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
+    [OAuthscopes](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/)
             </p>
         </div></html>   
 
     ![](../../../assets/img/Learn/add-scope-for-passthrough-soap-api.jpg)
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p> Note that when creating this API, the default option of **Rate limiting level** , was selected to ***API Level***. For more information on setting advanced throttling policies,
-  see [Enforce Throttling and Resource Access Policies](../../../../docs/Learn/APISecurityOAuth2/AOuth2Scopes/applying-a-scope/).</p>
-     </div>
-     </html>
-     
-5.  Navigate to **Life Cycle** and Click **Publish** button.
-      You have now published SOAP API at the Developer portal.
-
-6.  Log in to the developer portal, navigate to **Credentials** tab and subscribe to       the api using (e.g.,DefaultApplication)
-
-      ![](../../../assets/img/Learn/subscribed-to-api.jpg)
-
-7.  Click the **MANAGE APP** button when prompted **View Credentials**.
-    ![](../../../assets/img/Learn/view-credentials.jpg)
-
-8.  Click **GENERATED ACCESS TOKEN** and then it propmt popupto create an application      access token.
-
-    ![](../../../assets/img/Learn/generate-accesstoken.jpg)
-
-
-9. Click **GENERATE** button, generated JWT token can be seen at the popup and copy       it.
-    ![](../../../assets/img/Learn/generate-accessToken-popup.jpg)
-
-    Let's invoke the API.
-
-10. Navigate to **TryOut** tab and paste the token at Access token input field.
-    ![](../../../assets/img/Learn/soap-tryout.jpg)
-
-11. Expand the POST method and click **Try it out** . Enter the following, and click       **Execute** to invoke the API.
-      <html>
-      <table>
-      <tr>
-      <td>SOAP Request</td>
-       <td>
-       <pre>
-         &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:quer="http://ws.cdyne.com/PhoneVerify/query"&gt;
-            &lt;soapenv:Header/&gt;
-            &lt;soapenv:Body"&gt;
-                &lt;quer:CheckPhoneNumber&gt;
-                  <!--Optional:-->
-                  &lt;quer:PhoneNumber&gt;18006785432
-                   &lt;/quer:PhoneNumber&gt;
-                  <!--Optional:-->
-                   &lt;quer:LicenseKey>0&lt;/quer:LicenseKey&gt;
-                &lt;/quer:CheckPhoneNumber&gt;
-            &lt;/soapenv:Body&gt;
-          &lt;/soapenv:Envelope&gt;
-      </pre>
-      </td>
-      </tr>
-      <tr>
-      <td>SOAP Action
-      </td>
-      <td>
-      <pre>
-      http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
-      </pre>
-      </td>
-      </tr>
-      </table>
-      </html>
-
-    ![](../../../assets/img/Learn/soap-response.png)
-
-12.  Note the API response that appears on the console.
-
-    <html><div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <p>You can also invoke this API using a third-party tool such as SOAP UI. For more information on how to invoke an API using a SOAP client, 
-     see [Invoke an API using a SOAP Client](_Invoke_an_API_using_a_SOAP_Client_) .</p>
+     <p> Note that when creating this API, the default option of **Rate limiting level** , was selected to **API Level**. For more information on setting advanced throttling policies,
+     see [Enforce Throttling and Resource Access Policies](../../../../Learn/RateLimiting/setting-throttling-limits/).</p>
      </div>
      </html>
 
+5. Now, the SOAP service as a RESTful API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) to know details of publishing API.
 
-
+Refer a tutorial on [Create and Publish a SOAP service as a RESTful API](../../../../Learn/Tutorials/expose-a-soap-service-as-a-rest-api/) to learn more.

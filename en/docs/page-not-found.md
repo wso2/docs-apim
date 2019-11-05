@@ -20,6 +20,6 @@ template: templates/no-nav.html
  * under the License.
 -->
 
-## Page not found.
+<!-- ## Page not found. -->
 
-Go back to [home](https://apim.docs.wso2.com/en/latest/)
+<!-- Go back to [Home](https://apim.docs.wso2.com/en/latest/) -->

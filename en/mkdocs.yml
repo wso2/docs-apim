@@ -23,7 +23,7 @@ site_url: https://wso2.com/
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/3.0.0/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -49,10 +49,11 @@ nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
     - Get Started:
         - Overview:  GettingStarted/overview.md
+        - About this Release: GettingStarted/about-this-release.md
         - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
-    - Learn:
-        - Design API:
+    - Learn: 
+        - Design API: 
             - Create API:
                 - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
                 - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
@@ -63,16 +64,19 @@ nav:
             - Publish API:
                 - Publish an API: Learn/DesignAPI/PublishAPI/publish-an-api.md
                 - Publish through Multiple API Gateways: Learn/DesignAPI/PublishAPI/publish-through-multiple-api-gateways.md
-                - Publish to Multiple External API Stores: Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores.md
-            - Mock API:
-                - Create a Mock API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
-                - Deploy and Test Mock APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
+                - Publish to Multiple External API Developer Portals: Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores.md
+            - Prototype APIs:
+                - Create a Prototype API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
+                - Deploy and Test Prototype APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
+            - Create API Product:
+                - API Product Overview: Learn/DesignAPI/CreateAPIProduct/api-product-overview.md
+                - Create an API Product: Learn/DesignAPI/CreateAPIProduct/create-api-product.md
             - Endpoints:
                 - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
                 - Security:
                     - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
                     - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
-                - Endpoint Timeouts: Learn/DesignAPI/Endpoints/endpoint-timeouts.md
+                    - Encrypting the secured endpoint passwords: Learn/DesignAPI/Endpoints/EndpointSecurity/encrypting-secure-endpoint-passwords.md
                 - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
                 - Resiliency:
                     - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
@@ -93,15 +97,14 @@ nav:
                 - Search Documentation:
                     - Add New Search Keyword: Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword.md
             - Advanced Topics:
-                - Adding Custom Properties to APIs: Learn/DesignAPI/AdvancedTopics/adding-custom-properties-to-apis.md
-                - Enabling Access Control Support for API Publisher: Learn/DesignAPI/AdvancedTopics/enabling-access-control-support-for-api-publisher.md
+                - Enable Publisher Access Control in API Publisher Portal: Learn/DesignAPI/AdvancedTopics/enable-publisher-access-control-in-api-publisher-portal.md
+                - Control API Visibility and Subscription Availability in the Developer Portal: Learn/DesignAPI/AdvancedTopics/control-api-visibility-and-subscription-availability-in-developer-portal.md
                 - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
-                - Generating server stubs and client SDKs in the API Publisher:  Learn/DesignAPI/AdvancedTopics/generating-server-stubs-and-client-sdks-in-the-api-publisher.md
                 - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
-                - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md
+                - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md 
         - Consume API:
             - Discover API:
-                - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md
+                - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md    
             - Manage Applications:
                 - Create Application: Learn/ConsumeAPI/ManageApplication/create-application.md
                 - Generate Keys:
@@ -122,9 +125,9 @@ nav:
                         - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
                         - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
                         - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
-                    -  Grant Types: Learn/ConsumeAPI/ManageApplication/grant-type.md
+                    -  Grant Types: Learn/ConsumeAPI/ManageApplication/grant-type.md 
                 - Sharing Applications:
-                        - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md
+                        - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md 
                         - Sharing Applications Between Multiple Groups: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications-between-multiple-groups.md
                 - Advanced Topics:
                         - Add Custom Attributes to Applications: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications.md
@@ -146,15 +149,15 @@ nav:
                         - Invoke an API using the Integrated API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console.md
                         - Include Additional Headers in the API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/include-additional-headers-in-the-api-console.md
                         - Invoke an API using a SOAP Client: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client.md
-                        - Test an API using a Ready! API: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api.md
+                        - Test an API using a Ready! API: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api.md  
             - Collaboration:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
                 -  Customizing the API Store:
-                    - Adding a New API Store Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/adding-a-new-api-store-theme.md
+                    - Overriding Developer Portal Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/overriding-developer-portal-theme.md
                     - Customize API Listing:
                         - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
-                        - Change Default API Description and Thumbnail: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-api-description-and-thumbnail.md
+                        - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-view.md
                     - Customizing error Pages: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages.md
                     - Enabling or disabling the forum: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum.md
                     - Enabling or disabling the walkthrough: Learn/ConsumeAPI/Customizations//CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough.md
@@ -166,8 +169,8 @@ nav:
                 - Customizing User SignUp in API Store: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-api-store.md
                 - Customize the API Store and Gateway URLs for Tenants: Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Customizing Login Pages for API Store and API Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-api-store-and-api-publisher.md
-            - Generating SDKs:
-                - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md
+            - Generating SDKs:  
+                - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md     
         - API Gateway:
             -  Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
             - Message Mediation:
@@ -187,7 +190,6 @@ nav:
                 - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
             - Passing Enduser Attributes to the Backend:
                 - Passing Enduser Attributes to the Backend Using JWT: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt.md
-                - Passing Enduser Attributes to the Backend using HTTP Headers: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-http-headers.md
             - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
             - Advanced Topics:
@@ -195,14 +197,16 @@ nav:
         - API Microgateway: ''
         - API Security:
             - Authentication:
-                - Securing APIs using OAuth2 Access Tokens: Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens.md
-                - Encrypting Secure Endpoint Passwords: Learn/APISecurity/Authentication/encrypting-secure-endpoint-passwords.md
-                - Add SSL Certificates for Endpoints: Learn/APISecurity/Authentication/add-ssl-certificates-for-endpoints.md
-                - JWT Token-based Authentication: Learn/APISecurity/Authentication/jwt-token-based-authentication.md
+                - API Authentication : Learn/APISecurity/api-authentication.md
+                - Secure APIs using OAuth2 Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
+                - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
+                - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
+                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
+                - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
             - Authorization:
                 - Enabling Role-Based Access Control Using XACML: Learn/APISecurity/Authorization/enabling-role-based-access-control-using-xacml.md
             - Schema Validation:
-                - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md
+                - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md            
             - API Keys:
                  - Secure APIs Using API Keys: Learn/APISecurity/APIKeys/secure-apis-using-api-keys.md
                  - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
@@ -211,12 +215,11 @@ nav:
                  - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
                  - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
             - OAuth2:
-                - Token types: Learn/APISecurity/OAuth2/token-types.md
+                - Token types: Learn/APISecurity/OAuth2/token-types.md 
                 - OAuth2 Scopes:
-                    - Applying a scope: Learn/APISecurity/OAuth2/AOuth2Scopes/applying-a-scope.md
-                    - Scope Whitelisting: Learn/APISecurity/OAuth2/AOuth2Scopes/scope-whitelisting.md
-                    - Scope Management with OAuth Scopes: Learn/APISecurity/OAuth2/AOuth2Scopes/scope-management-with-oauth-scopes.md
-                    - Fine Grained Access Control with OAuth Scopes: Learn/APISecurity/OAuth2/AOuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Fine Grained Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
+                    - Scope Management with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-management-with-oauth-scopes.md
                 - Grant Types:
                     - Password Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant.md
                     - Client Credentials Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant.md
@@ -227,21 +230,20 @@ nav:
                     - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
                     - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
                     - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
-                - Token API: Learn/APISecurity/OAuth2/token-api.md
                 - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
                 - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
                 - Encrypting OAuth Keys: Learn/APISecurity/OAuth2/encrypting-oauth-keys.md
                 - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
                 - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
                 - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2/saving-access-tokens-in-separate-tables.md
-                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md
+                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md   
             - SAML: ''
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
                 - Gateway Threat Protectors: Learn/APISecurity/ThreatProtection/GatewayThreatProtectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
+                - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md 
             - Mutual SSL:
                 - Securing APIs with Mutual SSL:  Learn/APISecurity/MutualSSL/securing-apis-with-mutual-ssl.md
             - OpenID Connect:
@@ -250,9 +252,7 @@ nav:
             - Throttling Use-Cases: Learn/RateLimiting/introducing-throttling-use-cases.md
             - Adding New Throttling Policies: Learn/RateLimiting/adding-new-throttling-policies.md
             - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
-            - Blacklisting and Whitelisting Requests: Learn/RateLimiting/managing-throttling.md
-            - Enforcing Throttling to an API: Learn/RateLimiting/enforcing-throttling-to-an-api.md
-            - Engaging Multiple Throttling Policies to a Single API: Learn/RateLimiting/engaging-multiple-throttling-policies-to-a-single-api.md
+            - Blacklisting and Whitelisting Requests: Learn/RateLimiting/blacklisting-whitelisting.md
             - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
             - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
             - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
@@ -261,7 +261,7 @@ nav:
         - API Monetization:
             - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
         - Analytics:
-            - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md
+            - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
             - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
             - Analyzing API Statistics:
@@ -270,8 +270,8 @@ nav:
                 - Analyzing API Deployment Statistics: Learn/Analytics/analyzing-api-deployment-statistics.md
                 - Analyzing Access Token Errors: Learn/Analytics/analyzing-access-token-errors.md
                 - Analyzing Application Errors: Learn/Analytics/analyzing-application-errors.md
-                - Analyzing the Log Overview: Learn/Analytics/analyzing-the-log-overview.md
-            - Alerts for APIs:
+                - Analyzing the Log Overview: Learn/Analytics/analyzing-the-log-overview.md            
+            - Alerts for APIs: 
                 - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
                 - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
                 - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
@@ -283,18 +283,16 @@ nav:
             - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
-            - Viewing Live Logs: Learn/Analytics/viewing-live-logs.md
-            - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md
-        - CICD Pipeline:
-            - Initializing projects using the CLI Tool: Learn/CICDPipeline/initializing-projects-using-the-cli-tool.md
-            - Promoting APIs Through CICD: Learn/CICDPipeline/promoting-apis-through-cicd.md
-            - Promoting Applications Through CICD: Learn/CICDPipeline/promoting-applications-through-cicd.md
+        - API Controller:
+            - Getting Started with WSO2 API Controller: Learn/APIController/getting-started-with-wso2-api-controller.md
+            - Importing APIs Via Dev First Approach: Learn/APIController/importing-apis-via-dev-first-approach.md
+            - Migrating APIs to Different Environments: Learn/APIController/migrating-apis-to-different-environments.md
+            - Migrating Apps to Different Environments: Learn/APIController/migrating-applications-to-different-environments.md
+            - Building a CI/CD Pipeline: Learn/APIController/building-a-cicd-pipeline.md
         - Tutorials:
             - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
             - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
-            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
-            - Expose a Graphql API as a managed API: Learn/Tutorials/create-a-graphql-api.md
-            - Create and Publish WebSocket API: Learn/Tutorials/create-a-websocket-api.md
+            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md   
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
@@ -311,7 +309,13 @@ nav:
             - Extending Scope Validation: Learn/Extensions/extending-scope-validation.md
             - Editing API Templates: Learn/Extensions/editing-api-templates.md
     - Develop:
-        - Product REST APIs: Develop/ProductAPIs/restful-apis.md
+        - Product REST APIs:
+            - RESTful APIs: Develop/ProductAPIs/restful-apis.md
+            - WSO2 Publisher API v1: Develop/ProductAPIs/publisher-v1.md
+            - WSO2 Publisher API v0.15: Develop/ProductAPIs/publisher-v0.15.md
+            - WSO2 Developer Portal API v1: Develop/ProductAPIs/devportal-v1.md
+            - WSO2 Developer Portal API v0.15: Develop/ProductAPIs/devportal-v0.15.md
+            - WSO2 Admin Portal: Develop/ProductAPIs/admin-v1.md
         - Admin Services: Develop/wso2-admin-services.md
         - Using the Registry REST API: Develop/using-the-registry-rest-api.md
         - Working with Audit Logs: Develop/working-with-audit-logs.md
@@ -352,6 +356,20 @@ nav:
             - Deployment Guidelines:
                 - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
+        - Setting up Databases:
+              - Changing Default Databases:
+                    - Overview: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/overview.md
+                    - Changing to Embedded H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2.md
+                    - Changing to MySQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mysql.md
+                    - Changing to MSSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mssql.md
+                    - Changing to PostgreSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-postgresql.md
+                    - Changing to Oracle: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle.md
+                    - Changing to MariaDB: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mariadb.md
+                    - Changing to IBM DB2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
+                    - Changing to Remote H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
+                    - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
+                    - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
+                    - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
     - Administer:
         - Product Administration:
             - Upgrading WSO2 API Manager:
@@ -402,7 +420,7 @@ nav:
                         - admin_Setting up Oracle: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle.md
                         - admin_Setting up Oracle RAC: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-oracle-rac.md
                         - admin_Setting up PostgreSQL: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-postgresql.md
-                        - admin_Setting up Derby:
+                        - admin_Setting up Derby: 
                             - admin_Setting up Embedded Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-embedded-derby.md
                             - admin_Setting up Remote Derby: Administer/ProductAdministration/DataSources/WorkingWithDatabases/SettingUp/admin-setting-up-remote-derby.md
                     - admin_Changing the Carbon Database:
@@ -419,7 +437,7 @@ nav:
                         - admin_Changing to Remote H2: Administer/ProductAdministration/DataSources/WorkingWithDatabases/Changing/admin-changing-to-remote-h2.md
                     - admin_Browsing the H2 Database: ''
                 - admin_Working with the Registry:
-                    - admin_Managing the Registry:
+                    - admin_Managing the Registry: 
                         - admin_Metadata: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-metadata.md
                         - admin_Properties: Administer/ProductAdministration/DataSources/WorkingWithTheResgistry/ManagingTheRegistry/admin-properties.md
                         - admin_Entries and Content:
@@ -581,7 +599,7 @@ nav:
         - Error Handling: Troubleshooting/error-handling.md
         - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
-    - '': page-not-found.md
+    - '': page-not-found.md    
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition

@@ -115,6 +115,10 @@ html .md-typeset .superfences-tabs > label:hover {
     font-weight: bold;
 }
 
+.swagger-ui .topbar {
+    display: none;
+}
+
 .md-search__input {
     background-color: #dedede;
 }
@@ -473,6 +477,7 @@ html .md-typeset .superfences-tabs > label:hover {
     border-bottom: 1px solid #eee;
     padding: 10px 10px 10px 0;
     box-sizing: border-box;
+    word-break: break-word;
 }
 
 .mb-config-catalog .mb-config .param-default {
@@ -892,16 +897,7 @@ html .md-footer-meta.md-typeset a,
     color: #4d4d4d;
 }
 
-.wrapper {
-   width: 100vw;
-   margin: 0 auto;
-   height: 400px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   position: relative;
-   transition: all 0.3s ease;
-}
+
 
 @media screen and (max-width: 767px) {
    .wrapper {
@@ -920,7 +916,6 @@ html .md-footer-meta.md-typeset a,
 
 @media screen and (max-width: 767px) {
    .content {
-      padding-top: 300px;
       flex-direction: column;
    }
 }
@@ -1022,11 +1017,38 @@ html .md-footer-meta.md-typeset a,
 
 }
 
-.beta-badge {
-    display: inline-block;
-    background: #ffd600;
-    font-size: 14px;
-    padding: 5px;
-    line-height: 1;
+@media screen and (min-width: 767px) {
+    .leftContent {
+        float:left; 
+        width: 35%;
+        text-align:justify;
+        max-height:100%;
+    }
+    .rightImage {
+        float:centre;
+        width: 60%;
+        text-align:left; 
+        flex-shrink: 0;
+        min-width: 35%;
+        max-height: 100%;
+        max-width:100%;
+        margin-left:10px;
+    }
+ }
+
+.md-sidebar ::-webkit-scrollbar {
+    width: 5px;
 }
 
+.md-sidebar ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.md-sidebar ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2.5px;
+}
+
+.md-sidebar__scrollwrap {
+    margin: 0;
+}
