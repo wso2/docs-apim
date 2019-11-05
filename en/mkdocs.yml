@@ -24,7 +24,7 @@ site_url: https://wso2.com/
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
 edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
-dev_addr: 0.0.0.0:8000
+dev_addr: localhost:8000
 
 # Copyright
 copyright: WSO2 API Manager - Documentation
@@ -199,6 +199,7 @@ nav:
                 - Encrypting Secure Endpoint Passwords: Learn/APISecurity/Authentication/encrypting-secure-endpoint-passwords.md
                 - Add SSL Certificates for Endpoints: Learn/APISecurity/Authentication/add-ssl-certificates-for-endpoints.md
                 - JWT Token-based Authentication: Learn/APISecurity/Authentication/jwt-token-based-authentication.md
+                - Basic Authentication: Learn/APISecurity/Authentication/securing-apis-with-basic-authentication.md
             - Authorization:
                 - Enabling Role-Based Access Control Using XACML: Learn/APISecurity/Authorization/enabling-role-based-access-control-using-xacml.md
             - Schema Validation:
