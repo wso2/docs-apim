@@ -73,7 +73,6 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
 6.  Select **Add** under the **Processes** menu and upload the `<API-M_HOME>/business-processes/subscription-creation/BPEL/SubscriptionApprovalWorkFlowProcess_1.0.0.zip` file to EI. This is the business process archive file.
         ![](../../../../assets/img/Learn/learn-subscription-workflow-upload.png)
 
-
 7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/subscription-creation/HumanTask/SubscriptionsApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
 
 
