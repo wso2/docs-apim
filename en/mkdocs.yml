@@ -292,6 +292,10 @@ nav:
                 - Configuring Workflows in a Cluster: Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-in-a-cluster.md
                 - Changing the Default User Role in Workflows: Learn/Extensions/ManagingWorkflowExtension/changing-the-default-user-role-in-workflows.md
                 - Cleaning Up Workflow Tasks: Learn/Extensions/ManagingWorkflowExtension/cleaning-up-workflow-tasks.md
+            - SAML2 SSO:
+                - Configuring Single Sign-on with SAML2: Learn/Extensions/SAML2SSO/configuring-single-sign-on-with-saml2.md
+                - Configuring Identity Server as IDP for SSO: Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md
+                - Configuring External IDP through Identity Server for SSO: Learn/Extensions/SAML2SSO/configuring-external-idp-through-identity-server-for-sso.md
             - Adding Mediation Extensions: Learn/Extensions/adding-mediation-extensions.md
             - Writing Custom Grant Types: Learn/Extensions/writing-custom-grant-types.md
             - Extending Key Validation: Learn/Extensions/extending-key-validation.md
@@ -536,11 +540,6 @@ nav:
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
                 - admin_Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
-            - SAML2 SSO:
-                - Configuring Single Sign-on with SAML2: Administer/ProductSecurity/SAML2SSO/configuring-single-sign-on-with-saml2.md
-                - Configuring API Manager for SSO: Administer/ProductSecurity/SAML2SSO/configuring-api-manager-for-sso.md
-                - Configuring External IDP through Identity Server for SSO: Administer/ProductSecurity/SAML2SSO/configuring-external-idp-through-identity-server-for-sso.md
-                - Configuring Identity Server as IDP for SSO: Administer/ProductSecurity/SAML2SSO/configuring-identity-server-as-idp-for-sso.md
             - admin_Supported Cipher Suites: ''
             - API Designer Portal: 
                 - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
