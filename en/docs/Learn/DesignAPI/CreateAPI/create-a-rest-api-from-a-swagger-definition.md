@@ -32,13 +32,11 @@ Follow the instructions below to create a REST API using a Open API definition f
 
 ## Resources
    Navigate to **Resources** tab and notice that all the **API resources** are created automatically when the Swagger URL is specified.
-   
    [![](../../../assets/img/Learn/resource-of-pet-store-api.jpg)](../../../assets/img/Learn/resource-of-pet-store-api.jpg)
 
 ## API Definition
 1. Navigate to **API Definition** and Click **Edit** to remove the security headers. This is required to invoke the API in the developer portal using the Swagger UI.
-    
-    ![](../../../assets/img/Learn/edit-api-definition-pet-store.jpg)
+    ![]()../../../assets/img/Learn/edit-api-definition-pet-store.jpg)
 
 
 2. Remove the security tag from the `/pet` POST resource given below.
@@ -66,7 +64,7 @@ Follow the instructions below to create a REST API using a Open API definition f
  ![](../../../assets/img/Learn/update-content-pet-store.jpg)
 
 ## Enpoints
-1. Navigate to the **Endpoints** page. Enter the information shown below and click **SAVE**.
+1. Navigate to the **Endpoints** page. Enter the information shown below and click **Save**.
 
     | Field               | Sample value                                          |
     |---------------------|-------------------------------------------------------|
@@ -94,7 +92,7 @@ Follow the instructions below to create a REST API using a Open API definition f
      </html>
 
 ## Subscriptions
-   Navigate to **Subscriptions** page and select **Gold** and **Silver** as the Bussiness plans. After Click **SAVE**
+   Navigate to **Subscriptions** page and Click Bussiness plans.
 
    <html><div class="admonition note">
      <p class="admonition-title">Note</p>
@@ -102,7 +100,7 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
-   ![](../../../assets/img/Learn/add-bussiness-plans-for-pet-store-api.jpg )
+  ![](../../../assets/img/Learn/add-bussiness-plans-for-pet-store-api.jpg )
 
 
 Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-ap)  to get details of publishing API.

@@ -198,11 +198,11 @@ This tutorial will explain the steps to design, publish and invoke a GraphQL API
 
 ### Step 2 - Invoke a GraphQL API
 
-1. Sign in to the **DEVELOPER PORTAL**.
+1. Sign in to the Developer Portal.
    
      `https://<hostname>:9443/devportal` 
    
-      e.g: `https://localhost:9443/devportal`
+     Example: `https://localhost:9443/devportal`
 
      ![Developer Portal](../../../assets/img/Learn/starwars-in-dev-portal.png)
     

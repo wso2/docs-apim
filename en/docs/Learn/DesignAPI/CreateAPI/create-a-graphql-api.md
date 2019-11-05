@@ -34,7 +34,7 @@ Follow the instructions below to design a GraphQL API
 
      ![Import a graphQL schema by adding a file](../../../assets/img/Learn/import-graphQL-schema.png)
 
-     Let's use the [StarWarsAPI schema definition](../../../assets/attachments/Learn/schema_graphql.graphql) to create the schema file. 
+     Let's use the [StarWarsAPI schema definition](../../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
    
       <html>
       <div class="admonition note">
@@ -193,7 +193,7 @@ Follow the instructions below to design a GraphQL API
 
 Now, a Graphql API has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-ap)  to get details of publishing API.
 
-Refer a tutorial on [Create and Publish a Graphql API](../../../../Learn/Tutorials/create-a-graphql-api/) to learn more.
+Refer [Tutorial on create and publish a Graphql API](../../../../Learn/Tutorials/create-a-graphql-api/) to learn more about Graphql APIs.
 
 ### GraphQL operations
 

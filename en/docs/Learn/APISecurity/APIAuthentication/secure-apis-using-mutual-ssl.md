@@ -1,16 +1,12 @@
 # Securing APIs with Mutual SSL
 
 !!! warning
-This is available only as a **WUM** update and is effective from 22nd October 2018 (2018-10-22). For more information on updating WSO2 API Manager, see [Updating WSO2 API Manager](_Updating_WSO2_API_Manager_) .
+    This is available only as a **WUM** update and is effective from 22nd October 2018 (2018-10-22). For more information on updating WSO2 API Manager, see [Updating WSO2 API Manager](../../../../Administer/ProductAdministration/updating-wso2-api-manager).
 
 
 In contrast to the usual one-way SSL authentication where a client verifies the identity of the server, in mutual SSL the server validates the identity of the client so that both parties trust each other. This builds a system that has a very tight security and avoids any requests made to the client to provide the username/password, as long as the server is aware of the certificates that belong to the client.
 
 This section explains how to APIs in WSO2 API Manager can be secured using mutual SSL in addition to OAuth2.
-
--   [Enable securing APIs with mutual SSL](#SecuringAPIswithMutualSSL-EnablesecuringAPIswithmutualSSL)
--   [Create an API secured with mutual SSL](#SecuringAPIswithMutualSSL-CreateanAPIsecuredwithmutualSSL)
--   [Invoke an API secured with Mutual SSL from the API Store](#SecuringAPIswithMutualSSL-InvokeanAPIsecuredwithMutualSSLfromtheAPIStore)
 
 ### Enable securing APIs with mutual SSL
 
@@ -18,29 +14,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
 
 1.  Create the `AM_API_CLIENT_CERTIFICATE` table in the APIM DB using the appropriate script given below. Note that the database name will depend on the databases present in your environment.
 
-    -   [**H2**](#H2)
-    -   [**MSSQL**](#MSSQL)
-    -   [**MySQL**](#MySQL)
-    -   [**MySQL Cluster**](#MySQLC)
-    -   [**Oracle**](#Oracle)
-    -   [**Oracle\_rac**](#OracleR)
-    -   [**PostgreSQL**](#PostgreSQL)
-    -   [**DB2**](#DB2)
-
-    ``` java
-        CREATE TABLE IF NOT EXISTS `AM_API_CLIENT_CERTIFICATE` (
-         `TENANT_ID` INT(11) NOT NULL,
-         `ALIAS` VARCHAR(45) NOT NULL,
-         `API_ID` INTEGER NOT NULL,
-         `CERTIFICATE` BLOB NOT NULL,
-         `REMOVED` BOOLEAN NOT NULL DEFAULT 0,
-         `TIER_NAME` VARCHAR (512),
-         FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-         PRIMARY KEY (`ALIAS`,`TENANT_ID`, `REMOVED`)
-        );
-    ```
-
-    ``` java
+    ``` java tab="H2"
             IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_CLIENT_CERTIFICATE]') AND TYPE IN (N'U'))
             CREATE TABLE AM_API_CLIENT_CERTIFICATE (
                TENANT_ID INTEGER NOT NULL,
@@ -54,7 +28,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             );
     ```
 
-    ``` java
+    ``` java tab="MSSQL"
             CREATE TABLE IF NOT EXISTS `AM_API_CLIENT_CERTIFICATE` (
              `TENANT_ID` INT(11) NOT NULL,
              `ALIAS` VARCHAR(45) NOT NULL,
@@ -67,7 +41,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             ) ENGINE=InnoDB;
     ```
 
-    ``` java
+    ``` java tab="MySQL"
             CREATE TABLE IF NOT EXISTS `AM_API_CLIENT_CERTIFICATE` (
              `TENANT_ID` INT(11) NOT NULL,
              `ALIAS` VARCHAR(45) NOT NULL,
@@ -80,7 +54,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             ) ENGINE=NDB;
     ```
 
-    ``` java
+    ``` java tab="MySQL Cluster"
             CREATE TABLE AM_API_CLIENT_CERTIFICATE (
              TENANT_ID INTEGER NOT NULL,
              ALIAS VARCHAR2(45) NOT NULL,
@@ -94,7 +68,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             /
     ```
 
-    ``` java
+    ``` java tab="Oracle"
             CREATE TABLE AM_API_CLIENT_CERTIFICATE (
              TENANT_ID INTEGER NOT NULL,
              ALIAS VARCHAR2(45) NOT NULL,
@@ -108,7 +82,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             /
     ```
 
-    ``` java
+    ``` java tab="Oracle rac"
             DROP TABLE IF EXISTS AM_API_CLIENT_CERTIFICATE;
             CREATE TABLE AM_API_CLIENT_CERTIFICATE (
              TENANT_ID INTEGER NOT NULL,
@@ -122,7 +96,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             );
     ```
 
-    ``` java
+    ``` java tab="DB2"
             CREATE TABLE AM_API_CLIENT_CERTIFICATE (
               TENANT_ID INT NOT NULL,
               ALIAS VARCHAR(45) NOT NULL,
@@ -141,7 +115,7 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpSSLListener">
     ```
 
-    Change the class name to `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener` . The sample is given below.
+    Change the class name to `org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener`. The sample is given below.
 
     ``` java
             <transportReceiver name="https" class="org.apache.synapse.transport.passthru.PassThroughHttpMultiSSLListener">
@@ -221,11 +195,11 @@ Follow the steps below to enable this feature in WSO2 API Manager.
             </parameter>
     ```
 
-        !!! note
-    The `<API-M_HOME>/repository/resources/security` directory can be changed according to the file path you have configured in Step 2.
+    !!! note
+        The `<API-M_HOME>/repository/resources/security` directory can be changed according to the file path you have configured in Step 2.
 
 
-5.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file. Set the `EnableMTLSForAPIs` parameter to `true` .
+5.  Open the `<API-M_HOME>/repository/conf/api-manager.xml` file. Set the `EnableMTLSForAPIs` parameter to `true`.
 
     ``` java
         <APIManager>
@@ -237,19 +211,20 @@ Follow the steps below to enable this feature in WSO2 API Manager.
 
 ### Create an API secured with mutual SSL
 
-1.  [Create an API](_Create_and_Publish_an_API_) .
+1.  [Create an API](../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api).
 2.  **Edit** the API and navigate to the **Manage** tab.
-3.  Select **Mutual SSL** under **API Security** .
+3.  Select **Mutual SSL** under **API Security**.
     ![]({{base_path}}/assets/attachments/103334944/103334943.png)
 
-        !!! info
-    You can select both OAuth2 and Mutual SSL options. This means that the user can access the API using a valid OAuth2 token or using a valid client certificate.
+    !!! info
+        You can select both OAuth2 and Mutual SSL options. This means that the user can access the API using a valid OAuth2 token or using a valid client certificate.
 
 
-4.  Click **Manage Certificates** to upload a new client certificate. Select **Add New Certificate** .
+4.  Click **Manage Certificates** to upload a new client certificate. Select **Add New Certificate**.
     ![]({{base_path}}/assets/attachments/103334944/103334942.png)
-        !!! note
-    This feature currently supports only the following formats for keystores and certificates.
+    
+    !!! note
+        This feature currently supports only the following formats for keystores and certificates.
 
     -   Keystore : `.jks            `
     -   Certificate : `.crt            `
@@ -257,23 +232,21 @@ Follow the steps below to enable this feature in WSO2 API Manager.
     If you need to use a certificate in any other format, you can convert it using a standard tool before uploading.
 
 
-        !!! info
-    After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `api-manager.xml` . In a clustered setup, as gateway configurations are identical, sync the `<API-M_HOME>/repository/resources/security/           listenerprofiles           .xml` and `<API-M_HOME>/repository/resources/security/client-truststore.jks` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
+    !!! info
+        After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `api-manager.xml`. In a clustered setup, as gateway configurations are identical, sync the `<API-M_HOME>/repository/resources/security/listenerprofiles.xml` and `<API-M_HOME>/repository/resources/security/client-truststore.jks` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
 
 
-5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload** .
+5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload**.
     ![]({{base_path}}/assets/attachments/103334944/103334941.png)
 6.  **Save and Publish** the API
 
 ### Invoke an API secured with Mutual SSL from the API Store
 
-!!! note
-Before you begin...
-
-Add the relevant certificate to your browser according to your private certificate.
+!!! note "Before you begin..."
+    Add the relevant certificate to your browser according to your private certificate.
 
 
-1.  [Invoke an API from the API Store](_Invoke_an_API_using_the_Integrated_API_Console_) .
+1.  [Invoke an API from the API Store](../../../../Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console).
 2.  When you click **Execute** the browser will send a prompt similar to the one shown below. Select the corresponding certificate for the API.
     ![]({{base_path}}/assets/attachments/103334944/103334940.png)
 
@@ -281,12 +254,11 @@ Add the relevant certificate to your browser according to your private certifica
 
 Listed below are the known limitations for this feature.
 
--   Application subscription is not permitted for APIs that are only protected with mutual SSL. Hence, s ubscription/application level throttling is not applicable for these type of APIs.
+-   Application subscription is not permitted for APIs that are only protected with mutual SSL. Hence, subscription/application level throttling is not applicable for these type of APIs.
 
 -   Resource level throttling is not applicable for the APIs that are only protected with mutual SSL.
 
 -   Resource level security will not be applicable for the APIs that are only protected with mutual SSL.
 
 -   Scope level security will not be applicable for the APIs that are only protected with mutual SSL.
-
 
