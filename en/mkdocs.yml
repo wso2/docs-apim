@@ -201,7 +201,7 @@ nav:
                 - Secure APIs using OAuth2 Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
                 - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
                 - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
-                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/securing-apis-with-basic-authentication.md
+                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/securing-apis-using-basic-authentication.md
                 - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
             - Authorization:
                 - API Authorization: Learn/APISecurity/api-authorization.md
