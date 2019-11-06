@@ -17,7 +17,7 @@ The CI/CD process makes a developer’s life easier by providing an automated me
 
 ## CI/CD With WSO2 API Management
 
-![CI/CD Pipeline for APIs with WSO2 API Manager](../../../assets/img/Learn/ci-cd-pipeline-for-apis-with-wso2-apim.png)
+[![CI/CD Pipeline for APIs with WSO2 API Manager](../../assets/img/Learn/ci-cd-pipeline-for-apis-with-wso2-apim.png)](../../assets/img/Learn/ci-cd-pipeline-for-apis-with-wso2-apim.png)
 
 WSO2 API Manager provides a clean and elegant solution to address automating API deployment. It automates from environment migration to lifecycle management and solves many issues regarding the manual process. The solution was designed to be platform-agnostic and version control-centric.
 
@@ -65,7 +65,7 @@ The apictl tool supports detecting environment variables defined in usual notati
 
 Once the file is placed in the project directory, the tool will auto-detect the parameters file upon import and create an environment-based artifact for API Manager. If the api_params.yaml is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. It can also provide a custom path for the parameter file using the --params flag. We recommend keeping API and environment-specific parameters in separate repositories.
 
-![Creating environment-based artifacts with API-M CTL](../../../assets/img/Learn/creating-env-based-artifacts.png)
+[![Creating environment-based artifacts with API-M CTL](../../assets/img/Learn/creating-env-based-artifacts.png)](../../assets/img/Learn/creating-env-based-artifacts.png)
 
 The Automation Server can be configured to run a specific pipeline for promoting artifacts to other environments. The DevOps team can develop this pipeline further to include automated tests, workflow approvals, and other tasks. The apictl tool should be installed in automation servers to begin the process. Since the tool supports a variety of platforms, including Linux/Windows and macOS, this can be done easily.
 
@@ -99,7 +99,7 @@ With this, the Swagger/OpenAPI specification becomes a single source of truth fo
 
 For example, when an organization depends on microservices architecture, this method can be utilized to create an automated pipeline to take Swagger/OpenAPI specification to upper environments.
 
-![API automation with OpenAPI/Swagger](../../../assets/img/Learn/api-automation-with-openapi-swagger.png)
+[![API automation with OpenAPI/Swagger](../../assets/img/Learn/api-automation-with-openapi-swagger.png)](../../assets/img/Learn/api-automation-with-openapi-swagger.png)
 
 Based on API Project generation, a powerful pipeline for API automation can be developed with OpenAPI/Swagger. It allows rapid API development and increases developer productivity.
 
