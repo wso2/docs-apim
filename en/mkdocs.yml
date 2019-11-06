@@ -199,6 +199,7 @@ nav:
                 - Encrypting Secure Endpoint Passwords: Learn/APISecurity/Authentication/encrypting-secure-endpoint-passwords.md
                 - Add SSL Certificates for Endpoints: Learn/APISecurity/Authentication/add-ssl-certificates-for-endpoints.md
                 - JWT Token-based Authentication: Learn/APISecurity/Authentication/jwt-token-based-authentication.md
+                - Basic Authentication: Learn/APISecurity/Authentication/securing-apis-with-basic-authentication.md
             - Authorization:
                 - Enabling Role-Based Access Control Using XACML: Learn/APISecurity/Authorization/enabling-role-based-access-control-using-xacml.md
             - Schema Validation:
