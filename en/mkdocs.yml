@@ -366,8 +366,13 @@ nav:
                 - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
                 - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
                 - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
+        - Performance Tuning:
+              - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
+              - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
+              - Performance Tuning and Testing Results: SetupAndInstall/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md
     - Administer:
         - Product Administration:
+            - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
             - Managing Users and Roles:
                 - Introduction to Users Management: Administer/ProductAdministration/ManagingUsersAndRoles/introduction-to-user-management.md
                 - Managing User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles.md
@@ -383,14 +388,13 @@ nav:
                             - Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-active-directory-user-store.md
                       - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
                       - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
-            - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
+            - Multitenancy:
+                  - admin_Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/admin-introduction-to-multitenancy.md
+                  - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/admin-configuring-the-tenant-loading-policy.md
+                  - admin_Adding New Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants.md
             - Upgrading WSO2 API Manager:
                 - Upgrading from the Previous Release: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
                 - Upgrading from the Previous Release when WSO2 IS is the Key Manager: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
-            - Performance Tuning:
-                - Tuning Performance: Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance.md
-                - WSO2 API-M Performance and Capacity Planning: Administer/ProductAdministration/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
-                - Performance Tuning and Testing Results: Administer/ProductAdministration/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md
             - admin_Default Ports of WSO2 Products: Administer/ProductAdministration/admin-default-ports-of-wso2-products.md
             - admin_Monitoring:
                 - admin_Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/admin-capturing-system-data-in-error-situations.md
@@ -417,8 +421,6 @@ nav:
                 - Application Logs: Administer/ProductAdministration/Logging/application-logs.md
                 - Setting Up Logging: Administer/ProductAdministration/Logging/setting-up-logging.md
                 - System Logs: Administer/ProductAdministration/Logging/system-logs.md
-            - Administration - API-M Analytics:
-                - Re-indexing Existing Data: Administer/ProductAdministration/Administration-APIMAnalytics/re-indexing-existing-data.md
             - admin_Adding a Custom Proxy Path: Administer/ProductAdministration/admin-adding-a-custom-proxy-path.md
             - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
@@ -438,10 +440,6 @@ nav:
                     - admin_Local Transport: Administer/ProductAdministration/WorkingWithTransports/admin-local-transport.md
                     - admin_UDP Transport: Administer/ProductAdministration/WorkingWithTransports/admin-udp-transport.md
                     - admin_FIX Transport: Administer/ProductAdministration/WorkingWithTransports/admin-fix-transport.md
-            - Multitenancy:
-                - admin_Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/admin-introduction-to-multitenancy.md
-                - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/admin-configuring-the-tenant-loading-policy.md
-                - admin_Adding New Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants.md
             - Customizing the Management Console: Administer/ProductAdministration/Customizations/customizing-the-management-console.md
         - Product Configurations:
             - Configuring User Stores:
