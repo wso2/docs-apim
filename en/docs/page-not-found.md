@@ -20,8 +20,5 @@ template: templates/single-column.html
  * under the License.
 -->
 
-## 404 Page not found
-
-
-Try one of the navigation links above or the search engine in the top right corner. 
+Try one of the navigation links above or use the search engine in the top right corner. 
 
