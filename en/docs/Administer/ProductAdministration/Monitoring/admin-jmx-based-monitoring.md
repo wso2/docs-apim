@@ -24,12 +24,9 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in the `carbon.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) as shown below. If required, you can update these default values.
 
 ``` java
-    <JMX>
-         <!--The port RMI registry is exposed-->
-         <RMIRegistryPort>9999</RMIRegistryPort>
-         <!--The port RMI server should be exposed-->
-         <RMIServerPort>11111</RMIServerPort>
-    </JMX> 
+ [monitoring.jmx]
+ rmi_registry_port
+ rmi_server_port
 ```
 
 #### Disabling JMX for the server
@@ -37,22 +34,21 @@ The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in 
 The JMX configuration is available in the jmx `.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/etc` directory) as shown below. You can disable the JMX server for your product by setting the `<StartRMIServer>` property to `false` . Note that this configuration refers to the [JMX ports configured in the `carbon.xml` file](#admin_JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .
 
 ``` java
-    <JMX xmlns="http://wso2.org/projects/carbon/jmx.xml">
-        <StartRMIServer>true</StartRMIServer>
-        <!-- HostName, or Network interface to which this RMI server should be bound -->
-        <HostName>localhost</HostName>
-        <!--  ${Ports.JMX.RMIRegistryPort} is defined in the Ports section of the carbon.xml-->
-        <RMIRegistryPort>${Ports.JMX.RMIRegistryPort}</RMIRegistryPort>
-        <!--  ${Ports.JMX.RMIRegistryPort} is defined in the Ports section of the carbon.xml-->
-        <RMIServerPort>${Ports.JMX.RMIServerPort}</RMIServerPort>
-    </JMX>
+ [monitoring.jmx]
+ rmi_registry_port
+ rmi_server_port
+ rmi_server_start=true
 ```
 
 #### Enabling JMX for a datasource
 
 You can enable JMX for a datasource by adding the `<jmxEnabled>true</jmxEnabled>` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `master-datasources.` xml file (stored in the `<PRODUCT_HOME>/repository/conf/datasources` directory).
 
+TODO: Update with toml config with jmxEnabled=true
+ 
 ``` java
+
+
     <datasource>
                 <name>WSO2_CARBON_DB</name>
                 <description>The datasource used for registry and user manager</description>

@@ -369,30 +369,20 @@ nav:
     - Administer:
         - Product Administration:
             - Managing Users and Roles:
-                - Introduction to User Management (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-introduction-to-user-management.md
-                - Understanding the User Realm (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-understanding-the-user-realm.md
-                - Managing Users, Roles and Permissions (admin Guide): Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-users-roles-and-permissions.md
-                - Adding Users: Administer/ProductAdministration/ManagingUsersAndRoles/adding-users.md
-                - Adding User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles.md
-                - admin_Configuring Roles: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-roles.md
-                - admin_Configuring Users: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-users.md
-                - admin_Changing a Password: Administer/ProductAdministration/ManagingUsersAndRoles/admin-changing-a-password.md
-                - admin_Role-based Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/admin-role-based-permissions.md
-                - admin_Managing User Attributes: Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-user-attributes.md
-                - admin_Configuring User Stores:
-                    - admin_Configuring the Primary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-primary-user-store.md
-                    - admin_Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-jdbc-user-store.md
-                    - admin_Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-only-ldap-user-store.md
-                    - admin_Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-write-active-directory-user-store.md
-                    - admin_Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-a-read-write-ldap-user-store.md
-                    - admin_Configuring Secondary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-secondary-user-stores.md
-                    - admin_Working with Properties of User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/admin-working-with-properties-of-user-stores.md
-                    - admin_Writing a Custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/admin-writing-a-custom-user-store-manager.md
-                - admin_Configuring the System Administrator: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-system-administrator.md
-                - admin_Configuring the Authorization Manager: Administer/ProductAdministration/ManagingUsersAndRoles/admin-configuring-the-authorization-manager.md
-                - admin_Removing References to Deleted User Identities in WSO2 Products: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
-                - admin_Extending the Identity Anonymization Tool: Administer/ProductAdministration/ManagingUsersAndRoles/admin-extending-the-identity-anonymization-tool.md
-                - admin_Product Startup Options: Administer/ProductAdministration/ManagingUsersAndRoles/admin-removing-references-to-deleted-user-identities-in-wso2-products.md
+                - Introduction to Users Management: Administer/ProductAdministration/ManagingUsersAndRoles/introduction-to-user-management.md
+                - Managing User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles.md
+                - Managing Users: Administer/ProductAdministration/ManagingUsersAndRoles/managing-users.md
+                - Managing Role Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/managing-permissions.md
+                - Managing User Stores:
+                      - Introduction to User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores.md
+                      - Configuring Primary User Stores:
+                            - Configuring Primary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-the-primary-user-store.md
+                            - Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md
+                            - Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md
+                            - Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-only-ldap-user-store.md
+                            - Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-active-directory-user-store.md
+                      - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
+                      - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
             - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
             - Upgrading WSO2 API Manager:
                 - Upgrading from the Previous Release: Administer/ProductAdministration/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
@@ -414,6 +404,8 @@ nav:
                     - admin_Masking Sensitive Information in Logs: Administer/ProductAdministration/Monitoring/admin-masking-sensitive-information-in-logs.md
                 - admin_Monitoring Message Flows: Administer/ProductAdministration/Monitoring/admin-monitoring-message-flows.md
                 - admin_Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/admin-monitoring-performance-statistics.md
+                - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
+                - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
                 - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
                 - admin_Monitoring TCP-Based Messages:
                     - admin_Starting TCPMon: Administer/ProductAdministration/Monitoring/admin-starting-tcpmon.md

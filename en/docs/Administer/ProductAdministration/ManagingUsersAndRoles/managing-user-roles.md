@@ -26,6 +26,12 @@ Creator, Publisher and Subscriber roles are available by default in API Manager.
 
 4.  Enter the name of the user role (e.g., `creator` ) and click **Next** .
     ![]({{base_path}}/assets/attachments/103333587/103333603.png)
+    
+    Do the following:
+    In the Domain list, specify the user store where you want to create this role. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on ow user stores (which are repositories storing information about users and roles) are set up and configured, see Configuring User Stores .
+    Enter a unique name for this role.
+    Click Next .
+    
 
         !!! info
     **Tip** : The **Domain** drop-down list contains all user stores configured in the system. By default, you only have the PRIMARY user store. To configure secondary user stores, see [Configuring Secondary User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+Secondary+User+Stores) .
@@ -90,5 +96,60 @@ When a user creates an application and generates application keys, a role is cre
 ```
 
 These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
+
+
+#### Editing or deleting a role
+
+If you need to do modifications to a role, select the domain (user store) where the role resides, and then use the relevant links in the **Actions** column on the **Roles** screen:
+
+-   Rename the role
+-   Change the default permissions associated with this role
+-   Assign this role to users
+-   View the users who are assigned this role
+-   Delete the role if you no longer need it
+
+!!! info
+If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
+
+
+##### Update before the first startup (recommended)
+
+The default role names ( `admin` and `everyone` ) can be changed before starting the WSO2 product by editing `<PRODUCT_HOME>/repository/conf/user-mgt.xml` . For more information on configuring the system administrator, see [Configuring the System Administrator](https://docs.wso2.com/display/ADMIN44x/Configuring+the+System+Administrator) .
+
+``` html/xml
+    <Configuration> 
+        <AdminRole>admin</AdminRole> 
+        <AdminUser> 
+            <UserName>admin</UserName> 
+            <Password>admin</Password> 
+        </AdminUser> 
+        <EveryOneRoleName>everyone</EveryOneRoleName> <!-- By default users in this role sees the registry root --> 
+        <Property name="dataSource">jdbc/WSO2CarbonDB</Property> 
+        <Property name="MultiTenantRealmConfigBuilder">org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder</Property> 
+    </Configuration>
+```
+
+The following are the changes that need to be made in the configurations above:
+
+-   Change `<AdminRole>admin</AdminRole>` to `<AdminRole>administrator</AdminRole>` .
+-   Change `<EveryOneRoleName>everyone</EveryOneRoleName>` to `<EveryOneRoleName>Your role</EveryOneRoleName>` .
+
+##### Update after the product is used for some time
+
+You do not have to do this when updating before the first startup. The following steps guide you through updating the role names:
+
+1.  Do the configuration changes indicated in [the above section](#admin_ConfiguringRoles-UpdateRole1) .
+2.  You need to do the following user store level changes for existing users if you have changed the role names as mentioned earlier.
+    -   If you are connected to `JDBCUserStoreManager` you need to update the `UM_USER_ROLE` table with the existing users after changing the `admin` and `everyone` role names. Also if you have changed the permission of `everyone` role, the `UM_ROLE_PERMISSION` has to be updated with the permissions to the new role.
+
+                !!! info
+        The schema can be located by referring to the data source defined in the user-mgt.xml file. The data source definition can be found under `<PRODUCT_HOME>` / `repository/conf/datasources/master-datasources.xml` .
+
+
+    -   If you are connected to `ReadWriteLdapUserStoreManager` , you need to populate the members of the previous admin role to the new role under the Groups. For more information, see [Configuring User Stores](https://docs.wso2.com/display/ADMIN44x/Configuring+User+Stores) .
+
+3.  After the changes, restart the server.
+
+
 
 
