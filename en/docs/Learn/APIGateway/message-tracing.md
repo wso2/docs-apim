@@ -22,12 +22,12 @@ can be viewed via the terminal or the `wso2carbon` log file.
     | Enable Logging                    | Enable Logging in the available logging handler in order to log the tracing message. |
     | Enable Analytics Event Publishing | Publish tracing events to WSO2 API Manager Analytics                                 |
 
-    ![](../../../assets/img/Learn/messageTraceronly.png)
+    [![Message tracing](../../assets/img/Learn/messageTraceronly.png)](../../assets/img/Learn/messageTraceronly.png)
     
 5.  Add an event publisher to log the trace messages in the APIM the `wso2carbon` log file.
 
     1.  Go to **Main &gt; Event &gt; Publishers** and click **Add Event Publisher** .
-        ![](../../../assets/img/Learn/addEventPublisher.png)
+        [![Add event publisher option](../../assets/img/Learn/addEventPublisher.png)](../../assets/img/Learn/addEventPublisher.png)
     2.  In Create a New Event Publisher page, add the following details and click **Add Event Publisher** .
 
         <table>
@@ -67,7 +67,7 @@ can be viewed via the terminal or the `wso2carbon` log file.
 
         Leave the **Unique Identifier** field blank.
         
-        ![](../../../assets/img/Learn/message_tracer_logger_publisher.png)
+        [![Add a Event Publisher](../../assets/img/Learn/message_tracer_logger_publisher.png)](../../assets/img/Learn/message_tracer_logger_publisher.png)
 
 After enabling message tracing, dump message content, and logging, you will see a log message similar to the following 
 on the API Console/terminal for events such as API invocation etc.
@@ -131,7 +131,7 @@ As an additional step you can publish these trace messages to WSO2 API Manager A
 1.  Sign in to WSO2 APIM Management Console ( <https://localhost:9443/carbon> ) if you have not done so already.
 2.  Select **Enable Analytics Event Publishing** , which is in the Message Tracing Configuration page and click **Update** .
 
-    ![](../../../assets/img/Learn/analyticsEventPublishing.png)
+    [![Enable analytics Event Publishing](../../assets/img/Learn/analyticsEventPublishing.png)](../../assets/img/Learn/analyticsEventPublishing.png)
     After you have saved the changes, WSO2 APIM will generate a stream definition in the 
     `<APIM_HOME>/repository/deployment/server/eventstreams/DAS_MESSAGE_TRACE_1.0.0.json` file.
 
@@ -147,7 +147,7 @@ WSO2 API Manager Analytics.
 
         You will see the deployed stream under event streams.
         
-        ![](../../../assets/img/Learn/dasStream.png)
+        [![DAS_MESSAGE_TRACE:1.0.0](../../assets/img/Learn/dasStream.png)](../../assets/img/Learn/dasStream.png)
         
     2.  Click the **Edit** option that is relevant to the stream definition `DAS_MESSAGE_TRACE:1.0.0` file so that it 
     opens in the edit view.
@@ -157,16 +157,16 @@ WSO2 API Manager Analytics.
     4.  In the next page select Persist Event Stream and select all the attribute check-boxes in order to persist all 
     the information and click Save Event Stream.
         
-        ![](../../../assets/img/Learn/saveEventStream.png)
+        [![Save Event Stream](../../assets/img/Learn/saveEventStream.png)](../../assets/img/Learn/saveEventStream.png)
     
 7.  Add an Event receiver to point to the Event stream.
 
     1.  Go to **Main -&gt; Event -&gt; Receivers** in WSO2 API Manager Analytics and click **Add Event Receiver** .
         
-        ![](../../../assets/img/Learn/addReceiver.png)    
+        [![Add Receiver option](../../assets/img/Learn/addReceiver.png)] (../../assets/img/Learn/addReceiver.png)   
     
     2.  Add the following details and click 
-        **Add Event Receiver** .
+        **Add Event Receiver**.
 
         | Property                        | Value                     |
         |---------------------------------|---------------------------|
@@ -176,13 +176,13 @@ WSO2 API Manager Analytics.
         | Event Stream                    | DAS\_MESSAGE\_TRACE:1.0.0 |
         | Message format                  | wso2event                 |
 
-        ![](../../../assets/img/Learn/newEventReceiver.png)
+        [![Add a new Event Receiver](../../assets/img/Learn/newEventReceiver.png)](../../assets/img/Learn/newEventReceiver.png)
         
 8.  Configure a publisher that can publish events to WSO2 API Manager Analytics.
     1.  Sign in to WSO2 APIM Management console ( <https://localhost:9443/carbon> ) if you have not done so already.
     2.  Go to **Main &gt; Event &gt; Publishers** and click **Add Event Publisher** .
-        ![](../../../assets/img/Learn/addEventPublisher.png)
-    3.  In Create a New Event Publisher page, add the following details and click **Add Event Publisher** .
+        [![Add Event Publisher option](../../assets/img/Learn/addEventPublisher.png)](../../assets/img/Learn/addEventPublisher.png)
+    3.  In Create a New Event Publisher page, add the following details and click **Add Event Publisher**.
 
         <table>
             <thead>
@@ -245,7 +245,7 @@ WSO2 API Manager Analytics.
 
         Leave the **Authenticator URL** field blank.  
         
-        ![](../../../assets/img/Learn/newEventPublisher.png)
+        [![Add a new Event Publisher](../../assets/img/Learn/newEventPublisher.png)](../../assets/img/Learn/newEventPublisher.png)
         
 If you have also enabled Analytics event Publishing in addition to enabling message tracing, dump message content, and logging, you can see the results in WSO2 API Manager Analytics by following the steps below:
 
@@ -253,4 +253,4 @@ If you have also enabled Analytics event Publishing in addition to enabling mess
 2.  Navigate to **Main &gt; Data Explorer.**
 3.  Select the table **DAS\_MESSAGE\_TRACE** and click **Search** .
     You will see the event data traced in the WSO2 Analytics Data Explorer as shown below.
-    ![](../../../assets/img/Learn/dasMessageData.png)
+    [![](../../assets/img/Learn/dasMessageData.png)](../../assets/img/Learn/dasMessageData.png)

@@ -63,31 +63,33 @@ In this example, the Send mediator in a proxy service using the [VFS transport](
 
 #### Create and upload using the WSO2 API Manager Tooling Plug-in
 
-**The recommended way** to engage a mediation extension sequence per API is to create a custom sequence using the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In), upload it via its APIM Perspective and then engage it using the API Publisher. The following tutorial demonstrates how to do this: [Change the Default Mediation Flow of API Requests](../../../Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests.md).
+**The recommended way** to engage a mediation extension sequence per API is to create a custom sequence using the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In), upload it via its APIM Perspective and then engage it using the API Publisher. The following tutorial demonstrates how to do this: [Change the Default Mediation Flow of API Requests](../../../Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests/).
 
 #### Create and upload manually in the API Publisher
 
 You can also create a mediation sequence manually and upload it from the API Publisher itself. For instance, you can copy the above default mediation flow content into an XML file. 
 From the **Left Menu** Goto **Runtime Configurations** and select **Edit** option in the **Message Mediation** section. You can do this for Request, Response and/or Fault message flows.
 
-![](../../../assets/img/Learn/edit-mediation.png)
+![](../../assets/imgLearn/edit-mediation.png)
 
 In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation XML file.
 Once the file is uploaded, save the API. When you invoke the API, the request is sent to the endpoint referred to in the **To** header.
 
-![](../../../assets/img/Learn/upload-mediation.png)
+![](../../assets/imgLearn/upload-mediation.png)
 #### **Editing a mediation policy**
 
 If you want to edit an already uploaded mediation policy,
 
 1.  Click the download icon next to it, as shown below:
-    ![](../../../assets/img/Learn/download-and-edit-mediation.png)3.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
+    ![](../../assets/img/Learn/download-and-edit-mediation.png)
+    
+2.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
 
 #### Deselect an already selected a mediation policy
 
 If you want to dis-engage any mediation policy that is already engaged in Request/ Response/ Fault flow you can go to the Edit option as above and select **None** as the mediation policy and save the API.
 
-![](../../../assets/img/Learn/none-mediation.png)
+![](../../assets/img/Learn/none-mediation.png)
 
 #### Create manually and save in the file system
 
