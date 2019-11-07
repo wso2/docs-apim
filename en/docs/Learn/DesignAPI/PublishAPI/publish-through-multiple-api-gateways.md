@@ -91,7 +91,7 @@ In a typical production environment, the Gateways will ideally be in separate se
     !!! tip
             If you have multiple gateways that support one type of key (e.g., when there are two gateways that support the production keys, as seen in the above code snippet.), the environments you add via the `<API-M_HOME>/repository/conf/deployment.toml` file will be visible in a drop-down list of the API Try Out tab, which is in the API Developer Portal of instance 1. This allows subscribers to send API requests to any selected Gateway.
 
-    [![](../../../../assets/img/Learn/api-tryout-tab.png)](../../../../assets/img/Learn/api-tryout-tab.png)
+    [![](../../../assets/img/Learn/api-tryout-tab.png)](../../../assets/img/Learn/api-tryout-tab.png)
 
     To stop a given Gateway environment from being displayed in the API Try Out tab, you can set the `display_in_api_console` attribute to `false` in the `apim.gateway.environment` element in the `deployment.toml` file.
     For example,
@@ -104,15 +104,15 @@ In a typical production environment, the Gateways will ideally be in separate se
 6.  Start all the WSO2 API-M instances.
     Make sure to start instance 1 first before starting the other two instances.
 7.  Sign in to the API Publisher in the **first** WSO2 API-M instance and click to edit an API.
-    [![](../../../../assets/img/Learn/new-devportal-app.png)](../../../../assets/img/Learn/new-devportal-app.png)
+    [![](../../../assets/img/Learn/new-devportal-app.png)](../../../assets/img/Learn/new-devportal-app.png)
 8.  Navigate to the **Manage** tab, expand the **API Gateways** section.
     Note that the two Gateway environments are listed there.
-    [![](../../../../assets/img/Learn/api-gateways.png)](../../../../assets/img/Learn/api-gateways.png)
+    [![](../../../assets/img/Learn/api-gateways.png)](../../../assets/img/Learn/api-gateways.png)
 9.  Select both Gateways and **Save and Publish** the API in order to be able to publish to both the gateways.
 10. Sign in to the API Developer Portal (of the **first** instance) and click the API to open it.
-    [![](../../../../assets/img/Learn/dev-portal-apis.png)](../../../../assets/img/Learn/dev-portal-apis.png)
+    [![](../../../assets/img/Learn/dev-portal-apis.png)](../../../assets/img/Learn/dev-portal-apis.png)
 11. In the API's **Overview** tab, note that it has two sets of URLs for the two Gateway instances:
-    [![](../../../../assets/img/Learn/api-overview-tab.png)](../../../../assets/img/Learn/api-overview-tab.png)
+    [![](../../../assets/img/Learn/api-overview-tab.png)](../../../assets/img/Learn/api-overview-tab.png)
 
 You have published an API to the API Developer Portals through multiple Gateway environments.
 
@@ -121,7 +121,7 @@ You have published an API to the API Developer Portals through multiple Gateway 
 
 When you have generated keys for the Applications, the sample cURL command shows how to generate an access token using the Password Grant type provides the Gateway URL of the first published Gateway Environments listed in API Publisher as shown in the step 8.
 
-[![](../../../../assets/img/Learn/generate-access-tokens.png)](../../../../assets/img/Learn/generate-access-tokens.png)
+[![](../../../assets/img/Learn/generate-access-tokens.png)](../../../assets/img/Learn/generate-access-tokens.png)
 
 Change this gateway URL according to the Gateway that you want to publish the API if you are using this cURL command to generate access tokens.
 

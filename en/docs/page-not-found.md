@@ -1,3 +1,6 @@
+---
+template: templates/single-column.html
+---
 
 <!--
  * Copyright (c) 2019, WSO2 Inc. (http://www.wso2.org) All Rights Reserved.
@@ -17,6 +20,5 @@
  * under the License.
 -->
 
-<!-- ## Page not found. -->
+Try one of the navigation links above or use the search engine in the top right corner. 
 
-<!-- Go back to [Home](https://apim.docs.wso2.com/en/latest/) -->

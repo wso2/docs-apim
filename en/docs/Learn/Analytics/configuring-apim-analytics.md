@@ -46,7 +46,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 5.  Start the API Manager server.
     <br/>Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `wso2server.bat --run`
-    -   On Linux/Mac OS: `sh wso2server.sh 
+    -   On Linux/Mac OS: `sh wso2server.sh` 
     
         !!! info
                   If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
@@ -55,8 +55,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
                     
 6.  Start the Dashboard profile of the Analytics Server.
     <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `dashboard.bat --run  
-    -   On Linux/Mac OS: `sh dashboard.sh    
+    -   On Windows: `dashboard.bat --run`  
+    -   On Linux/Mac OS: `sh dashboard.sh`    
     
     
 
@@ -144,15 +144,18 @@ However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Streaming
 An event can also be published to multiple receiver groups, where each group has one or more receivers. 
 For each receiver groups we need to repeat the above section, whereas receivers are delimited by commas.
 <p>
-e.g., Two receiver groups with two receivers each can be specified as follows.
+e.g., Two receiver groups with two load balanced receivers in each can be specified as follows.
 <br />
 <code>
 <br/>[[apim.analytics.url_group]]
-<br/>analytics_url =["tcp://localhost:7612,tcp://localhost:7613"]
+<br/>analytics_url =["tcp://localhost:7612","tcp://localhost:7613"]
+<br/>type = "loadbalance"
 <br/>
 <br />[[apim.analytics.url_group]]
-<br />analytics_url =["tcp://localhost:7712,tcp://localhost:7713"]
+<br />analytics_url =["tcp://localhost:7712","tcp://localhost:7713"]
+<br/>type = "loadbalance"
 </code>
+<br/>If the type is not specified it defaults to the fail over.
 </p>
 </td>
 </tr>
@@ -213,27 +216,27 @@ Configuring databases allow you to persist data relating to APIs, process them a
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.
     1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
-    2. Edit the `WSO2_DASHBOARD_DB, APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
+    2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
        <br/>A sample for MySQL is shown below.
        
          ``` java
-           - name: WSO2_DASHBOARD_DB
-              description: The datasource used for dashboard feature
-              jndiConfig:
-                name: jdbc/DASHBOARD_DB
-                useJndiReference: true
-              definition:
-                type: RDBMS
-                configuration:
-                  jdbcUrl: 'jdbc:mysql://localhost:3306/dashboard_db'
-                  username: root
-                  password: 123
-                  driverClassName: com.mysql.jdbc.Driver
-                  maxPoolSize: 50
-                  idleTimeout: 60000
-                  connectionTestQuery: SELECT 1
-                  validationTimeout: 30000
-                  isAutoCommit: false
+           - name: AM_DB
+               description: Main datasource used by API Manager
+               jndiConfig:
+                 name: jdbc/AM_DB
+               definition:
+                 type: RDBMS
+                 configuration:
+                   jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
+                   username: wso2carbon
+                   password: wso2carbon
+                   driverClassName: com.mysql.jdbc.Driver
+                   maxPoolSize: 10
+                   idleTimeout: 60000
+                   connectionTestQuery: SELECT 1
+                   validationTimeout: 30000
+                   isAutoCommit: false
+
          ```
     
 3.  Configure the worker profile. 
@@ -351,9 +354,10 @@ Configuring databases allow you to persist data relating to APIs, process them a
        
 4.  Point the following data sources to external databases. 
        None of the following databases need DB scripts. The tables will be automatically created.
-      1. BUSINESS_RULES_DB (dashboard)
-      2. WSO2_PERMISSIONS_DB (worker + dashboard)
-      3. GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
+      1. WSO2_DASHBOARD_DB (dashboard profile)
+      2. BUSINESS_RULES_DB (dashboard profile)
+      3. WSO2_PERMISSIONS_DB (worker + dashboard)
+      4. GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
 5.  Start the WSO2 API-M Analytics server.
 
 !!! Info
