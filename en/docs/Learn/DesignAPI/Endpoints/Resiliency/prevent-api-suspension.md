@@ -45,4 +45,4 @@ For more details on creating and publishing an API, see [Create](../../../../Lea
     ```
 
 
-For more details on configuring different timeouts, see [Timeout configurations for an API call](../../../../Administer/ProductAdministration/PerfromanceTuningAndTestResults/tuning-performance.md) in the Performance Tuning guide.
+For more details on configuring different timeouts, see [Timeout configurations for an API call](../../../../SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md) in the Performance Tuning guide.
