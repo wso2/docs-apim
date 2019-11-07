@@ -119,8 +119,7 @@ In the context of this document, **&lt;`KUBERNETES_HOME>         `** refers to a
             ./undeploy-kubernetes.sh
     ```
 
-    #### **
-    Deploy a pattern on Openshift**
+    #### **Deploy a pattern on Openshift**
 
     1.  Create a user named `admin` and assign the user to the `cluster-admin` role.
         This user with the `cluster-admin` role is used to deploy the OpenShift artifacts.
