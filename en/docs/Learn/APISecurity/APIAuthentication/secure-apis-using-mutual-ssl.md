@@ -1,6 +1,6 @@
 # Securing APIs with Mutual SSL
 
-In contrast to the usual one-way SSL authentication where a client verifies the identity of the server, in mutual SSL the server validates the identity of the client so that both parties trust each other. This builds a system that has a very tight security and avoids any requests made to the client to provide the username/password, as long as the server is aware of the certificates that belong to the client.
+In contrast to the usual one-way SSL authentication where a client verifies the identity of the server, in mutual SSL the server validates the identity of the client so that both parties trust each other. This builds a system that has a very tight security and avoids any requests made to the client to provide the username/password, as long as the server is aware of the certificates that belong to the client.
 
 This section explains how to APIs in WSO2 API Manager can be secured using mutual SSL in addition to OAuth2.
 
@@ -48,7 +48,7 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
     Add the relevant certificate to your browser according to your private certificate.
 
 1.  [Invoke an API using the Integrated API Console](/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/) .
-2.  When you click **Execute** the browser will send a prompt similar to the one shown below. Select the corresponding certificate for the API.
+2.  When you click **Execute** the browser will send a prompt similar to the one shown below. Select the corresponding certificate for the API.
     ![]({{base_path}}/assets/attachments/103334944/103334940.png)
 
 #### Limitations
@@ -62,5 +62,3 @@ Listed below are the known limitations for this feature.
 -   Resource level security will not be applicable for the APIs that are only protected with mutual SSL.
 
 -   Scope level security will not be applicable for the APIs that are only protected with mutual SSL.
-
-
