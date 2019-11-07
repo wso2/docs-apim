@@ -406,8 +406,6 @@ nav:
                 - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
                 - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
                 - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
-            - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
-            - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
         - Product Configurations:
             - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
@@ -415,6 +413,7 @@ nav:
             - Configuring Caching: Administer/ProductConfigurations/configuring-caching.md
             - Changing the Hostname: Administer/ProductConfigurations/changing-the-hostname.md
             - Configuring Keystores: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
+            - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
         - Product Security:
             - General:
