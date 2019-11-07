@@ -166,8 +166,9 @@ If you use any other JMS provider (e.g., Apache Qpid), install any necessary lib
 
 You are now ready to install. Click one of the following links for instructions:
 
--   [Installing on Linux or OS X](_Installing_on_Linux_or_OS_X_)
--   [Installing on Solaris](_Installing_on_Solaris_)
--   [Installing on Windows](_Installing_on_Windows_)
--   [Installing as a Linux Service](_Installing_as_a_Linux_Service_)
+-   [Installing on Linux or OS X](InstallingTheProduct/installing-on-linux-or-os-x.md)
+-   [Installing on Solaris](InstallingTheProduct/installing-on-solaris.md)
+-   [Installing on Windows](InstallationGuide/InstallingTheProduct/installing-on-windows.md)
+-   [Installing as a Linux Service](InstallingTheProduct/installing-as-a-linux-service.md)
+-   [Installing as a Windows Service](InstallingTheProduct/installing-as-a-windows-service.md)
 

@@ -16,7 +16,7 @@ Follow the instructions below to install API Manager on Solaris.
 
 ### Installing the API Manager
 
-1.  Download the latest version of the API Manager from <https://github.com/wso2/product-apim/releases/tag/v2.2.0-update1> .
+1.  [Download the latest version of WSO2 API Manager](https://wso2.com/api-management/install/).
 2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>` .
 
 ### Setting up JAVA\_HOME
