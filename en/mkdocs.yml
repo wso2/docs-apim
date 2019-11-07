@@ -395,50 +395,22 @@ nav:
                   - admin_Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/admin-introduction-to-multitenancy.md
                   - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/admin-configuring-the-tenant-loading-policy.md
                   - admin_Adding New Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants.md
-            - admin_Monitoring:
-                - admin_Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/admin-capturing-system-data-in-error-situations.md
-                - admin_JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/admin-jmx-based-monitoring.md
-                - admin_Monitoring Logs:
-                    - admin_Monitoring Logs using Management Console:
-                        - admin_Configuring Log4j Properties: Administer/ProductAdministration/Monitoring/admin-configuring-log4j-properties.md
-                        - admin_Configuring the Log Provider: Administer/ProductAdministration/Monitoring/admin-configuring-the-log-provider.md
-                        - admin_View and Download Logs: Administer/ProductAdministration/Monitoring/admin-view-and-download-logs.md
-                    - admin_HTTP Access Logging: Administer/ProductAdministration/Monitoring/admin-http-access-logging.md
-                    - admin_Masking Sensitive Information in Logs: Administer/ProductAdministration/Monitoring/admin-masking-sensitive-information-in-logs.md
-                - admin_Monitoring Message Flows: Administer/ProductAdministration/Monitoring/admin-monitoring-message-flows.md
-                - admin_Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/admin-monitoring-performance-statistics.md
-                - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
-                - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
-                - admin_Monitoring SOAP Messages: Administer/ProductAdministration/Monitoring/admin-monitoring-soap-messages.md
-                - admin_Monitoring TCP-Based Messages:
-                    - admin_Starting TCPMon: Administer/ProductAdministration/Monitoring/admin-starting-tcpmon.md
-                    - admin_Message Monitoring with TCPMon: Administer/ProductAdministration/Monitoring/admin-monitoring-tcp-based-messages.md
-                    - admin_Other Usages of TCPMon: Administer/ProductAdministration/Monitoring/admin-other-usages-of-tcpmon.md
-                - admin_Monitoring Server Health: Administer/ProductAdministration/Monitoring/admin-monitoring-server-health.md
+            - Monitoring:
+                - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
+                - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
+                - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md
+                - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
+                - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
+                - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
             - Logging:
-                - Working with Audit Logs: Administer/ProductAdministration/Logging/working-with-audit-logs.md
-                - Application Logs: Administer/ProductAdministration/Logging/application-logs.md
                 - Setting Up Logging: Administer/ProductAdministration/Logging/setting-up-logging.md
-                - System Logs: Administer/ProductAdministration/Logging/system-logs.md
+                - Http Access Logs: Administer/ProductAdministration/Logging/monitoring-http-access-logs.md
+                - Working with Audit Logs: Administer/ProductAdministration/Logging/working-with-audit-logs.md
             - admin_Adding a Custom Proxy Path: Administer/ProductAdministration/admin-adding-a-custom-proxy-path.md
             - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
             - JMX Monitoring: Administer/jmx-monitoring.md
-            - Transports:
-                - admin_Introduction to Transports: Administer/ProductAdministration/WorkingWithTransports/admin-introduction-to-transports.md
-                - admin_Carbon Transports:
-                    - admin_HTTP Servlet Transport: Administer/ProductAdministration/WorkingWithTransports/admin-http-servlet-transport.md
-                    - admin_HTTPS Servlet Transport: Administer/ProductAdministration/WorkingWithTransports/admin-https-servlet-transport.md
-                    - admin_HTTP-NIO Transport: Administer/ProductAdministration/WorkingWithTransports/admin-http-nio-transport.md
-                    - admin_HTTPS-NIO Transport: Administer/ProductAdministration/WorkingWithTransports/admin-https-nio-transport.md
-                    - admin_VFS Transport: Administer/ProductAdministration/WorkingWithTransports/admin-vfs-transport.md
-                    - admin_JMS Transport: Administer/ProductAdministration/WorkingWithTransports/admin-jms-transport.md
-                    - admin_MailTo Transport: Administer/ProductAdministration/WorkingWithTransports/admin-mailto-transport.md
-                    - admin_TCP Transport: Administer/ProductAdministration/WorkingWithTransports/admin-tcp-transport.md
-                    - admin_Local Transport: Administer/ProductAdministration/WorkingWithTransports/admin-local-transport.md
-                    - admin_UDP Transport: Administer/ProductAdministration/WorkingWithTransports/admin-udp-transport.md
-                    - admin_FIX Transport: Administer/ProductAdministration/WorkingWithTransports/admin-fix-transport.md
             - Customizing the Management Console: Administer/ProductAdministration/Customizations/customizing-the-management-console.md
         - Product Configurations:
             - Configuring User Stores:
