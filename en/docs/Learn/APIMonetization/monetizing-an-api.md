@@ -180,14 +180,16 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Decompile the `org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/resources/conf/default.json` file as follows:
+        Decompile the `org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
 
         ``` json tab="Format"
-        "apim.monetization.monetization_impl": "<monetization-implementation>"
+        [apim.monetization]
+        monetization_impl = "<monetization-implementation>"
         ```
 
         ``` json tab="Example"
-        "apim.monetization.monetization_impl": "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
+        [apim.monetization]
+        monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
         ```
 
 2.  Configure the database.
@@ -592,18 +594,20 @@ When working with API Monetization that involves dynamic business plans (usage-b
        </div> 
       </html>
 
-     1.  Navigate to the `<API-M_HOME>/repository/resources/conf/default.json` file.
+     1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
          <a name="apim-monetization-granularity"></a>
 
-     2.  Edit the following configuration in the JSON file. 
+     2.  Add the following configuration in the JSON file. 
 
         ``` java tab="Format"
-        "apim.monetization.granularity": "<time-period>" 
+        [apim.monetization]
+        granularity = "<time-period>" 
         ```
 
         ``` java tab="Example"
-        "apim.monetization.granularity": "seconds" 
+        [apim.monetization]
+        granularity = "seconds" 
         ```
 
         - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
