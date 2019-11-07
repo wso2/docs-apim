@@ -72,4 +72,4 @@ If you need to set additional system properties when the server starts, you can 
     When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost        `
 
 
-You are now ready to [run the product](../../../../SetupAndInstall/InstallationGuide/running-the-product/).
+You are now ready to [run the product](../../../../SetupAndInstall/InstallationGuide/running-the-product).
