@@ -12,12 +12,12 @@ Follow the instructions below to install API Manager on Solaris.
 ### Installing the required applications
 
 1.  Establish an SSH connection to the Solaris machine or log in on the text console.
-2.  Be sure your system meets the Installation Prerequisites . Java Development Kit (JDK) is essential to run the product.
+2.  Be sure your system meets the Installation Prerequisites. Java Development Kit (JDK) is essential to run the product.
 
 ### Installing the API Manager
 
-1.  Download the latest version of the API Manager from <https://github.com/wso2/product-apim/releases/tag/v3.0.0> .
-2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>` .
+1.  Download the latest version of the API Manager from <https://github.com/wso2/product-apim/releases/tag/v3.0.0>.
+2.  Extract the archive file to a dedicated directory for the API Manager, which will hereafter be referred to as `<API-M_HOME>`.
 
 ### Setting up JAVA\_HOME
 
@@ -58,6 +58,6 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 If you need to set additional system properties when the server starts, you can take the following approaches:
 
 -   **Set the properties from a script** : Setting your system properties in the startup script is ideal, because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
--   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation) .
+-   **Set the properties from an external registry** : If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a properties file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation).
 
-You are now ready to [run the product](../../../../SetupAndInstall/InstallationGuide/running-the-product) .
+You are now ready to [run the product](../../../../SetupAndInstall/InstallationGuide/running-the-product).
