@@ -12,6 +12,12 @@ Explained below are the default databases that you will find in the `database` d
 -   **Metrics database:** `WSO2METRICS_DB.mv.db` This database has the metrics monitoring data. This data is stored in the embedded H2 database.
 -   **MB database:** `WSO2MB_DB.mv.db` This database has the message brokering data.
 
+!!! Warning
+    **Do not share** `WSO2MB_DB` among the nodes in an **Active-Active set-up** or **Traffic Manager HA** scenario, because each node should have its own local `WSO2_MB_STORE_DB` database to act as separate Traffic Managers.
+
+Following image shows the default databases and the data that are stored in each database.
+![](../../../assets/img/setup-and-install/working-with-dbs-overview.png)
+
 ### Changing the default databases
 
 The embedded H2 databases shipped with your product are suitable for suitable for development and testing environments. However, for **production environments,** it is recommended to use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc.

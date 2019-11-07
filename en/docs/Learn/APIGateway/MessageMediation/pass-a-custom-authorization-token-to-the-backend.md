@@ -1,7 +1,8 @@
 # Pass a Custom Authorization Token to the Backend
 
 !!! note
-This tutorial uses the WSO2 API Manager Tooling Plug-in .
+    
+    This tutorial uses the WSO2 API Manager Tooling Plug-in .
 
 
 When you send an API request to the backend, you pass a token in the Authorization header of the request. The API Gateway uses this token to authorize access, and then drops it from the outgoing message.  If you wish to use a different (or a custom generated) authorization token than the application generated access token, you can use it as a token exchange mechanism in mediation logic of the API. In this tutorial, we explain how to pass a custom authorization token that is different to the authorization token generated for the application.
@@ -18,19 +19,19 @@ Let's get started.
 
 2.  Click **Window &gt; Open Perspective &gt; Other** to open the Eclipse perspective selection window. Alternatively, click the **Open Perspective** icon shown below at the top right corner.
 
-    ![](../../../assets/img/Learn/eclipse-open-perspective.png)
+    [![](../../../assets/img/Learn/eclipse-open-perspective.png)](../../../assets/img/Learn/eclipse-open-perspective.png)
 
 3.  On the dialog box that appears, click **WSO2 APIManager** and click **OK** .
-    ![](../../../assets/img/Learn/eclipse-open-apim.png)
+    [![](../../../assets/img/Learn/eclipse-open-apim.png)](../../../assets/img/Learn/eclipse-open-apim.png)
 4.  On the APIM perspective, click the **Login** icon as shown below.
-    ![](../../../assets/img/Learn/eclipse-login.png)
+    [![](../../../assets/img/Learn/eclipse-login.png)](../../../assets/img/Learn/eclipse-login.png)
 5.  On the dialog box that appears, enter the URL, username and password (by default `admin` ) of the Publisher server.
-    ![](../../../assets/img/Learn/eclipse-login-to-apim-registry.png)
+    [![](../../../assets/img/Learn/eclipse-login-to-apim-registry.png)](../../../assets/img/Learn/eclipse-login-to-apim-registry.png)
 6.  On the tree view that appears, expand the folder structure of the existing API.
 7.  Right-click on the `in` sequence folder and click **Create** to create a new `in` sequence.
-    ![](../../../assets/img/Learn/eclipse-create-in-seq.png)
-8.  Name the sequence `TokenExchange` .
-    ![](../../../assets/img/Learn/token-exchange-seq.png)
+    [![](../../../assets/img/Learn/eclipse-create-in-seq.png)](../../../assets/img/Learn/eclipse-create-in-seq.png)
+8.  Name the sequence `TokenExchange`.
+    [![](../../../assets/img/Learn/token-exchange-seq.png)](../../../assets/img/Learn/token-exchange-seq.png)
 
 9.  Your sequence now appears on the APIM perspective. From under the **Mediators** section, drag and drop a **Property** mediator to your sequence and give the following values to the mediator.
 
@@ -38,7 +39,7 @@ Let's get started.
     **Tip** : The **Property Mediator** has no direct impact on a message, but rather on the message context flowing through [Synapse](https://docs.wso2.com/display/EI611/Synapse+Configuration+Reference) . For more information, see [Property Mediator](https://docs.wso2.com/display/EI650/Property+Mediator) in the WSO2 EI documentation.
 
 
-    The following property mediator is used to assign the Custom transport level property to another property called **Custom** .
+    The following property mediator is used to assign the Custom transport level property to another property called **Custom**.
 
     |                   |                                     |
     |-------------------|-------------------------------------|
@@ -47,7 +48,7 @@ Let's get started.
     | Value Type        | EXPRESSION                          |
     | Value Expression  | get-property('transport', 'Custom') |
 
-    ![](../../../assets/img/Learn/eclipse-token-exchange-property.png)
+    [![](../../../assets/img/Learn/eclipse-token-exchange-property.png)](../../../assets/img/Learn/eclipse-token-exchange-property.png)
 
 10. Similarly, add another **Property** mediator to your sequence and give the following values to the mediator. This property mediator is used to construct a transport level property called **Authorization** and assign itself the value of the Custom property created above.
 
@@ -59,7 +60,7 @@ Let's get started.
     | Value Expression  | get-property('Custom') |
     | Property Scope    | transport              |
 
-    ![](../../../assets/img/Learn/eclipse-token-exchange-property-2.png)
+    [![](../../../assets/img/Learn/eclipse-token-exchange-property-2.png)](../../../assets/img/Learn/eclipse-token-exchange-property-2.png)
 
 11. Add a third **Property** mediator to your sequence and give the following values to the mediator. This property mediator is used to remove the **Custom** property from the transport level.
 
@@ -70,7 +71,7 @@ Let's get started.
     | Property Action   | remove       |
     | Property Scope    | transport    |
 
-    ![](/assets/img/Learn/eclipse-token-exchange-property-3.png)
+    [![](../../../assets/img/Learn/eclipse-token-exchange-property-3.png)](../../../assets/img/Learn/eclipse-token-exchange-property-3.png)
 
 12. Save the sequence.
 
@@ -144,6 +145,6 @@ Let's get started.
     ```
 
 24. Note the response that you get in the command line. According to the sample backend used in this tutorial, you get the response as "Request Received."
-    ![](../../../assets/img/Learn/custom-header-response.png.png)
+    [![](../../../assets/img/Learn/custom-header-response.png)](../../../assets/img/Learn/custom-header-response.png)
 
 In this tutorial, you passed a custom token that the backend expects along with the system-generated Authorization token, and invoked an API successfully by swapping the system's token with your custom token.

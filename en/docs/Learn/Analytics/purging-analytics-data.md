@@ -19,7 +19,7 @@ Data Purging is enabled by default for all the aggregation tables. However, you 
 
 3.  Click the **edit** link that corresponds to the APIM DATA PURGING business rule.
 
-    ![](../../../assets/img/Learn/business-rules-manager.png)
+    ![](../../assets/img/Learn/business-rules-manager.png)
 
 4.  Click **Save and Deploy** to enable data purging in the `APIMIpAccessSummary` and `APIMIpAccessAlertCount` tables. When the above business rule is enabled, it will purge data from `APIMIpAccessSummary` and `APIMIpAccessAlertCount` tables every time the trigger is triggered. The default time interval for the trigger is 1 years.
 

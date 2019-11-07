@@ -159,11 +159,12 @@ nav:
                     - Customize API Listing:
                         - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
                         - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-view.md
-                    - Customizing error Pages: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/customizing-error-pages.md
-                    - Enabling or disabling the forum: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-the-forum.md
-                    - Enabling or disabling the walkthrough: Learn/ConsumeAPI/Customizations//CustomizingTheAPIStore/enabling-or-disabling-the-walkthrough.md
+                    - Enabling or disabling api detail tabs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-api-detail-tabs.md
+                    - Override API overview page per API: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/override-api-overview-page-per-api.md
+                    - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-rating.md
+                    - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-home-page.md
+                    - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-tag-cloud.md
                     - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md   
-                - Customizing the API Store: Learn/ConsumeAPI/Customizations/customizing-the-api-store.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
@@ -197,8 +198,8 @@ nav:
         - API Microgateway: ''
         - API Security:
             - Authentication:
-                - API Authentication : Learn/APISecurity/api-authentication.md
-                - Secure APIs using OAuth2 Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
+            #    - API Authentication : Learn/APISecurity/api-authentication.md
+                - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
                 - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
                 - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
                 - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
@@ -531,7 +532,6 @@ nav:
         - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
         - Working with Observability: Troubleshooting/working-with-observability.md
-    - '': page-not-found.md    
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
