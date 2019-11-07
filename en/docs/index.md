@@ -76,7 +76,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
                 <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices.</p>
             </div>
       </div>
-      <div class="card" onclick="location.href='Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens';">
+      <div class="card" onclick="location.href='Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens';">
 	    <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">security</i></div>
             <div class="card-content">
