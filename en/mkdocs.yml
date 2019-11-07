@@ -393,7 +393,7 @@ nav:
                       - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
             - Multitenancy:
                   - Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy.md
-                  - Managing Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/adding-new-tenants.md
+                  - Managing Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/managing-tenants.md
                   - Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/configuring-the-tenant-loading-policy.md
             - Monitoring:
                 - Monitoring Logs:
