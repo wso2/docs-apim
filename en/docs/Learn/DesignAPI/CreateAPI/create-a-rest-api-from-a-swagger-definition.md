@@ -77,7 +77,8 @@ Follow the instructions below to create a REST API using a Open API definition f
      <html>
      <img src="../../../../assets/img/Learn/add-endpoint-pet-store-api.jpg" height="400" width="400">
      </html>
-    ![](../../../../assets/img/Learn/add-endpoint-configuration-for-pet-store-api.jpg)
+
+    ![](../../../assets/img/Learn/add-endpoint-configuration-for-pet-store-api.jpg)
 
 ## Runtime Configuration
   Navigate to **Runtime Configuration** page. 

@@ -97,7 +97,7 @@ The capability to publish to external Developer Portals is not configured by def
         ```
     
     !!! tip
-            In a **multi-tenant environment** , each tenant can publish to different external Developer Portals by changing the above file in their tenant space. For more information on how APIs appear and are available for subscription in a multi-tenant environment, see [API visibility and subscription](Key-Concepts_103328852.html#KeyConcepts-APIvisibilityandsubscription) . Note that publishing to an external Developer Portal only means that the API is advertised there. To subscribe, you must always register and sign in to the original publisher's tenant Developer Portal.
+            In a **multi-tenant environment**, each tenant can publish to different external Developer Portals by changing the above file in their tenant space. For more information on how APIs appear and are available for subscription in a multi-tenant environment, see [API visibility](../../../../GettingStarted/key-concepts#api-visibility). Note that publishing to an external Developer Portal only means that the API is advertised there. To subscribe, you must always register and sign in to the original publisher's tenant Developer Portal.
 
 
     Note the following in the configuration above:
@@ -159,7 +159,7 @@ The capability to publish to external Developer Portals is not configured by def
             This tab is only visible when viewing API's that are in the published state.
 
 
-    [![](../../../../assets/img/Learn/external-dev-portals.png)](../../../../assets/img/Learn/external-dev-portals.png)
+    [![](../../../assets/img/Learn/external-dev-portals.png)](../../../assets/img/Learn/external-dev-portals.png)
 
     !!! note
             -   You can select multiple external API developer portals and click **Save** to publish your API to them.
@@ -168,11 +168,11 @@ The capability to publish to external Developer Portals is not configured by def
 
 
 11. Select the Developer Portal that you want to publish to (in this case, DeveloperPortal2) and click **Save** .
-    [![](../../../../assets/img/Learn/publish-to-external-devportal.png)](../../../../assets/img/Learn/publish-to-external-devportal.png)
+    [![](../../../assets/img/Learn/publish-to-external-devportal.png)](../../../assets/img/Learn/publish-to-external-devportal.png)
 
 12. Sign in to the external API Developer Portal (in this case, `http://localhost:9444/devportal` ) and click on the API that you just published.
 
-    A link appears as **Visit Publisher Developer Portal** , which directs you to the original publisher’s Developer Portal (in this case, `http://localhost:9443/devportal` ) through which you can subscribe to the API.
-    [![](../../../../assets/img/Learn/external-dev-portals.png)](../../../../assets/img/Learn/external-dev-portals.png)
+    A link appears as **Visit Publisher Developer Portal** , which directs you to the original publisher’s Developer Portal (in this case, `http://localhost:9443/devportal`) through which you can subscribe to the API.
+    [![](../../../assets/img/Learn/external-dev-portals.png)](../../../assets/img/Learn/external-dev-portals.png)
 
 You have successfully added multiple external developer portals to your registry and published your APIs to them.

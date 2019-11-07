@@ -1,15 +1,16 @@
 # Adding an API State Change Workflow
 
-This section explains how to add a custom workflow to control the API state changes in the API Manager. First see [Workflow Extensions](../../../../../../Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine) for more information on different types of workflow executors. For more details on API states see [API Lifecycle](../../../../../GettingStarted/key-concepts) .
+This section explains how to add a custom workflow to control the API state changes in the API Manager. First see [Workflow Extensions](../../../../Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine) for more information on different types of workflow executors. For more details on API states see [API Lifecycle](../../../../GettingStarted/key-concepts#api-lifecycle) .
 
 !!! Note
+
     You will only need to configure either  **WSO2 EI** or **WSO2 BPS**. The WSO2 API Manager configuration will be common for both.
 
 ##Configuring WSO2 EI
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration) .
-2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../../Reference/Guides/changing-the-default-ports-with-offset) .
-2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../../GettingStarted/key-concepts.md).
+2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../Reference/Guides/changing-the-default-ports-with-offset) .
+2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../GettingStarted/key-concepts/).
 
     ``` xml
         <Offset>2</Offset>
@@ -39,7 +40,7 @@ This section explains how to add a custom workflow to control the API state chan
 ##Configuring WSO2 BPS
 
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
-2.  Set an offset of 2 to the default BPS port in `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../../Reference/Guides/changing-the-default-ports-with-offset) .
+2.  Set an offset of 2 to the default BPS port in `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../Reference/Guides/changing-the-default-ports-with-offset) .
 
     ``` xml
         <Offset>2</Offset>
