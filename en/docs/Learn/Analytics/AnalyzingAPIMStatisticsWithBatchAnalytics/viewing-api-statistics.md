@@ -194,7 +194,7 @@ The status of the APIs (all API versions) represented in a tabular view.
 !!! note
 <p>Note that only the APIs that have traffic are represented in this tabular representation.</p>
 
-<p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in <a href="Alert-Types_103335140.html#AlertTypes-AvailabilityofAPIs(healthmonitoring)">Availability of APIs (health monitoring)</a> , the API status changes to <strong>Limited</strong> .</p>
+<p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in <a href="../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types/#availability-of-apis-api-health-monitoring">Availability of APIs (health monitoring)</a> , the API status changes to <strong>Limited</strong> .</p>
 !!! note
 <p>For more information on how to view the generated alerts, see <a href="_Viewing_Alerts_">Viewing Alerts</a> .</p>
 
