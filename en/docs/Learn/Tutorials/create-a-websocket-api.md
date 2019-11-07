@@ -20,7 +20,7 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
     </html>
 
 2.  Go to **CREATE API** and Click **Design a New Websocket API**.
-    ![](../../../../assets/img/Learn/create-websocket-api.jpg)
+    ![](../../assets/img/Learn/create-websocket-api.jpg)
 
 3.  Provide the information in the table below and click **CREATE** or **CREATE & PUBLISH**.
 
@@ -32,7 +32,7 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
     | Endpoint| ws://echo.websocket.org:80|
     | Business Paln | Gold,Silver|
     
-    ![](../../../../assets/img/Learn/create-web-socket-api.jpg)
+    ![](../../assets/img/Learn/create-web-socket-api.jpg)
 
     <html>
      <div class="admonition note">
@@ -42,10 +42,10 @@ In this tutorial, you create and publish an API with a WebSocket backend and the
      </html>
 
 5.  When click **CREATE** or **CREATE & PUBLISH**, page will be redirected to the overview page of the created WebSocket API.
-    ![](../../../../assets/img/Learn/overview-websocket-api.jpg)
+    ![](../../assets/img/Learn/overview-websocket-api.jpg)
 
 6.  Navigate to the Endpoint page, verfiy the endpoints details and click following to add endpoint configurations if needed.
-    ![](../../../../assets/img/Learn/endpoint-view-of-websocket-api.jpg)
+    ![](../../assets/img/Learn/endpoint-view-of-websocket-api.jpg)
 
 Now, the WebSocket API created and configured successfully. Navigate to **Lifecycle** page or **Overview page** and Click **PUBLISH**.
    You have now published the WebSocket API to the API developer portal.
@@ -55,11 +55,11 @@ Now, the WebSocket API created and configured successfully. Navigate to **Lifecy
 1. Sign in to the **DEVELOPER PORTAL** providing username and password. `https://<hostname>:9443/devportal` e.g: `https://localhost:9443/devportal`
 
 2. Click **KEY GENERATION WIZARD**.
-     ![](../../../../assets/img/Learn/websocket-api-credential-page.jpg)
+     ![](../../assets/img/Learn/websocket-api-credential-page.jpg)
 
 3. Go through the each step in order to generate accesstoken.
 
-     ![](../../../../assets/img/Learn/websocket-api-key-generation-wizard.jpg)
+     ![](../../assets/img/Learn/websocket-api-key-generation-wizard.jpg)
 
 3. Copy the generated token and use it as authorization token to invoke the WebSocket API.
     1. Install wscat client. (npm install -g wscat)
