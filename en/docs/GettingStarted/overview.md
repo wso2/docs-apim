@@ -25,10 +25,6 @@ The key features of the product are listed below.
 -  WSO2 Platform Multi-Tenancy Support
 
 
-## Competitive Advantage
-
-  <TO-DO>
-
 ## Basic Architecture and Key Components
 
 The WSO2 API Manager consists of 6 main components, the [API Publisher,](#api-publisher) the [API developer Portal,](#developer-portal) [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://docs.wso2.com/display/MG300/API+Microgateway) as well ), [Key Manager,](#key-manager) [Traffic Manager](#traffic-manager) and the [API Analytics](#analytics). A component is made up of one or more [OSGi](http://www.osgi.org/Technology/Home) bundles. A bundle is the modularization unit in OSGi, similar to a JAR file in Java.
