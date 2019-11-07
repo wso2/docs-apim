@@ -1,70 +1,137 @@
-### How to create an API Product
+# Create an API Product
 
-1. Sign in to the WSO2 API Publisher.
-`https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). 
+Let's create an API Product named customer leasing that includes resources from the Customer Info API & Leasing API, as discussed in the [previous example](../../../../Learn/DesignAPI/CreateAPIProduct/api-product-overview/#how-it-works).
 
-2. Lets first create two APIs(Customer Info API & Leasing API) from the example we discussed previously, by importing 
-the attached Swagger definition files [customer-info-api.yaml](../../../assets/attachments/Learn/DesignAPI/CreateAPIProduct/customer-info-api.yaml) 
-and [leasing-api.yaml](../../../assets/attachments/Learn/DesignAPI/CreateAPIProduct/leasing-api.yaml). 
+1. Sign in to the Publisher Portal.
 
-!!! note
-    Ensure that you provide an endpoint for each API after it has been imported. The API Product will reuse the
-    endpoint specified at the API level.
+     `https://<hostname>:9443/publisher` 
+
+     (e.g., `https://localhost:9443/publisher`). 
+
+2. Create the following two APIs by importing 
+the attached OpenAPI definition (a.k.a Swagger definition) files.
+     - Customer Info API - [customer-info-api.yaml](../../../assets/attachments/Learn/DesignAPI/CreateAPIProduct/customer-info-api.yaml) 
+
+     - Leasing API - [leasing-api.yaml](../../../assets/attachments/Learn/DesignAPI/CreateAPIProduct/leasing-api.yaml)
+
+     <html>
+     <div class="admonition note">
+     <p class="admonition-title">Note</p>
+     <ul>
+     <li><p>Ensure that you provide an endpoint for each API after it is imported. The API Product will reuse the endpoint specified at the API-level.</p></li>
+     
+     <li>It is not necessary to publish an API in order to use it to create an API Product.
+     </li></ul>
+     </div> 
+     </html>
         
-!!! note
-    It is not necessary to publish an API in order for it to be used to create an API Product
-        
-3. After the APIs have been created, their respective resources will be as follows,
+     After the APIs are created, the respective resources for each of the APIs will appear as follows:
 
-    - customer-info API
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/customer-info-api.png)
+     - Customer info API
+         
+         [![Customer info API](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/customer-info-api.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/customer-info-api.png)
       
-    - leasing API
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/leasing-api.png)
+     - Leasing API
+         
+         [![Leasing API](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/leasing-api.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/leasing-api.png)
 
-!!! note
-    If you have not already logged into the WSO2 API Publisher with a user who has **publisher** permissions(such
-    as 'admin'), you need to logout and login as a user who has those permissions. The following steps required to
-    create and API Product can only be performed by a user with **publisher** permissions.
+     <html>
+     <div class="admonition note">
+     <p class="admonition-title">Note</p>
+     
+     <ul>
+      <li><p>Only users with <b>publisher</b> permission are allowed to create an API Product.
+     </p></li>
 
-4. Click on the 'API Products' link in the WSO2 API Publisher and click on the **CREATE AN API PRODUCT** button as 
-shown below
+     <li><p>
+     If you have not already signed in to the Publisher Portal as a user who has <b>publisher</b> permissions (e.g., <code>admin</code>), you need to sign out and sign in with this permission in order to be able to carry out the following instructions. </p></li>
+     
+    </ul>
+     </div> 
+     </html>
 
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/create-api-product.png)
+3. Click **API Products**, and then click **CREATE AN API PRODUCT**.
+
+    [![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/create-api-product.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/create-api-product.png)
+
+    The **Create an API Product** page appears.
     
-5. You will be redirected to the 'Create an API Product' windows' 'Define API Product' tab where you will need to fill
-in the API Product name, context and business plans as shown below.
-
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/define-api-product.png)
+4. Enter the API Product details.
     
-6.  Click on the **NEXT** button to move to the 'Add Resources' page as shown below. 
+     <html>
+     <table>
+     <tr>
+     <td>
+     Name
+     </td>
+     <td>
+     customer-leasing
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Context
+     </td>
+     <td>
+     customer-leasing
+     </td>
+     </tr>
+     <tr>
+     <td>
+     Business plan(s)
+     </td>
+     <td>
+     Bronze
+     </td>
+     </tr>
+     </table>
+     </html>
 
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/add-resources.png)
+     [![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/define-api-product.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/define-api-product.png)
     
-    The left most pane will show the available list of APIs. The central pane lists the available resources of a given API
-selected in the left pane. You can select a resource in the central pane and add it to the right pane, which will show 
-the resources that will be added to the API Product.
+5.  Click **NEXT**.
 
-7. Select the 'customer-info' API in the left pane and then select the 'GET /customers' and 
-'GET /customers/{customerId}' resources in the central pane and add them to the right pane, as shown below.
+     The Add Resources page appears. 
 
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/select-customer-info-resources.png)
-
-8. Select the 'leasing' API in the left pane and then select the 'GET /assets/{assetId}' and 'POST /assets' resources
-in the central pane and add them to the right pane, as shown below.
-
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/select-leasing-resources.png)
+     ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/add-resources.png)
     
-9. Click on the **PUBLISH** button to create and publish the API Product. The API Product can now be seen in the 
-Publisher as shown below.
+     - The leftmost pane shows the available list of APIs. 
+     - The central pane lists the available resources of a given API, which is selected in the left pane. 
+     - You can select a resource in the central pane and add it to the right pane, which shows the resources that will be added to the API Product.
 
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-publisher-details.png)
+6. Add resources from the `customer-info` API.
 
-10. The API Product can now be seen in the Developer Portal as shown below. Login to the Developer Portal to subscribe
-and consume the API Product in the same way that you would an API.
-      
-    ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-portal-listing.png)
+     1. Click the `customer-info` API in the left pane.
+     2. Select the `GET /customers` and `GET /customers/{customerId}` resources in the central pane.
+     3. Click **Add Selected** to add them to the right pane so that it can be used for the API Product.
+
+     [![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/select-customer-info-resources.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/select-customer-info-resources.png)
+
+7. Add resources from the `leasing` API.
+     1. Click the `leasing` API in the left pane.
+     2. Select the `GET /assets/{assetId}` and `POST /assets` resources in the central pane.
+     3. Click **Add Selected** to add them to the right pane so that it can be used for the API Product.
+
+     [![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/select-leasing-resources.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/select-leasing-resources.png)
     
-    For more information on how to subscribe to an API refer to
-[Subscribe to an API](../../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api/).
-[](edit_uri/)
+8. Click **PUBLISH** to create and publish the API Product. 
+
+     The API Product will appear in the 
+Publisher Portal, as shown below.
+
+     [![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-publisher-details.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-publisher-details.png)
+
+     The API Product will also appear in the Developer Portal, as shown below. 
+
+     [![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-portal-listing.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-portal-listing.png)
+
+9. Sign in to the Developer Portal to subscribe
+and consume the API Product in the same way that you would do so for an API. 
+     
+     For more information on how to subscribe to an API, see [Subscribe to an API](../../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api/).
+
+     `https://<hostname>:9443/devportal` 
+
+     (e.g., `https://localhost:9443/devportal`). 
+    
+     
