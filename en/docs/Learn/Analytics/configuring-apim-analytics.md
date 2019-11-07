@@ -164,27 +164,26 @@ e.g., Two receiver groups with two load balanced receivers in each can be specif
 <td>A valid administrator username</td>
 <td><div class="content-wrapper">
 <p>The administrator user name to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
+<p>If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. 
+<br/>e.g., If the username of the API-M Analytics admin user is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com@carbon.super</code> once you have enabled email user.</li>
+</p>
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
-<p><ul>
-   <li>If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. 
-   e.g., If the username of the API-M Analytics admin user is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com@carbon.super</code> once you have enabled email user.</li>
-   <li>If the username and password of the API-M Analytics node is same as that of API-M node, you can uncomment 
+<p>If the username and password of the API-M Analytics node is same as that of API-M node, you can uncomment 
    <code>username = "$ref{super_admin.username}"</code> and <code>password = "$ref{super_admin.password}"</code> under 
-   [apim.analytics] and the default value <code>$ref{super_admin.username}</code> and <code>$ref{super_admin.password}</code> 
+   [apim.analytics].
+   <br/>
+   <br/>The default value <code>$ref{super_admin.username}</code> and <code>$ref{super_admin.password}</code> 
    retrieve the admin user and password respectively from the current API-M node and set those for <code>receiver_username</code> 
    and <code>receiver_password</code>. 
-   </li>
-   </ul>
 </div>
 </html>
-<html><ul class="admonition warning">
+<html><div class="admonition warning">
 <p class="admonition-title">username and password parameters</p>
-<p>
+<ul>
 Please note that if the <code>username</code> and <code>password</code> are uncommented, then those values will be assigned to all the usernames and passwords that are under the [apim.analytics] section.
 <li>For example if <code>store_api_username</code> is not defined, then it takes the value of <code>username</code> when <code>username</code> is uncommented.</li>
 </ul>
-</p>
 </div>
 </html>
 </div></td>
@@ -194,12 +193,6 @@ Please note that if the <code>username</code> and <code>password</code> are unco
 <td>The password of the username specified.</td>
 <td><div class="content-wrapper">
 <p>The administrator password to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
-<html><div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>It is required to change the values <code>username</code> and <code>password</code> parameters if the user of WSO2 API-M is different to the user of WSO2 API-M Analytics. 
-The default value <code>$ref{super_admin.password}</code> retrieves the admin user's password of the current API-M node as the <code>password</code>.</p>
-</div>
-</html>
 </div></td>
 </tr>
 <tr class="even">
