@@ -620,8 +620,23 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
 
+5.  When the usage publishing API is invoked, it publishes all the data that is between the range of current time
+    and the last time the usage is successfully published. But when you invoke the API for the first
+    time there will be no data about the last published time. So you can configure the time range to reduce 
+    from the current time to derive the last publish time. This configuration is provided in days and the 
+    default value is one day.
+   
+    ``` java tab="Format"
+    [apim.monetization]
+    publish_duration = "<time-period in days>" 
+    ```
 
-5.  Configure the Tenant Admin on WSO2 API Manager.
+    ``` java tab="Example"
+    [apim.monetization]
+    publish_duration = "3" 
+    ```
+
+6.  Configure the Tenant Admin on WSO2 API Manager.
     1.  Start the WSO2 API Manager server.
 
     2.  Sign in to the WSO2 API-M Management Console.
@@ -654,7 +669,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
-6.  Configure the workflows.  
+7.  Configure the workflows.  
 
      You need to do this to ensure that the correct workflows are engaged when a subscription is added or removed.
 
