@@ -49,10 +49,10 @@ nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
     - Get Started: 
         - Overview:  GettingStarted/overview.md
-        - About this Release: GettingStarted/about-this-release.md
         - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
-    - Learn: 
+        - About this Release: GettingStarted/about-this-release.md
+    - Learn:
         - Design APIs:
             - Create APIs:
                   - Create a new API:
