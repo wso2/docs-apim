@@ -392,68 +392,55 @@ nav:
                       - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
                       - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
             - Multitenancy:
-                  - admin_Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/admin-introduction-to-multitenancy.md
-                  - admin_Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/admin-configuring-the-tenant-loading-policy.md
-                  - admin_Adding New Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/admin-adding-new-tenants.md
+                  - Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy.md
+                  - Managing Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/adding-new-tenants.md
+                  - Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/configuring-the-tenant-loading-policy.md
             - Monitoring:
+                - Monitoring Logs:
+                     - Setting Up Logging: Administer/ProductAdministration/Monitoring/Logging/setting-up-logging.md
+                     - Http Access Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
+                     - Working with Audit Logs: Administer/ProductAdministration/Monitoring/Logging/working-with-audit-logs.md
                 - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
                 - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
                 - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md
                 - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
                 - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
                 - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
-            - Logging:
-                - Setting Up Logging: Administer/ProductAdministration/Logging/setting-up-logging.md
-                - Http Access Logs: Administer/ProductAdministration/Logging/monitoring-http-access-logs.md
-                - Working with Audit Logs: Administer/ProductAdministration/Logging/working-with-audit-logs.md
-            - admin_Adding a Custom Proxy Path: Administer/ProductAdministration/admin-adding-a-custom-proxy-path.md
             - Common Runtime and Configuration Artifacts: Administer/ProductAdministration/common-runtime-and-configuration-artifacts.md
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
-            - JMX Monitoring: Administer/jmx-monitoring.md
-            - Customizing the Management Console: Administer/ProductAdministration/Customizations/customizing-the-management-console.md
         - Product Configurations:
-            - Configuring User Stores:
-                - Configuring User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores.md
-                - Realm Configuration: Administer/ProductConfigurations/ConfiguringUserStores/realm-configuration.md
-                - Configuring Primary User Stores: Administer/ProductConfigurations/ConfiguringUserStores/configuring-primary-user-stores.md
-                - Changing the RDBMS: Administer/ProductConfigurations/ConfiguringUserStores/changing-the-rdbms.md
-            - Configuring Transports:
-                - Changing the Default Transport: Administer/ProductConfigurations/ConfiguringTransports/changing-the-default-transport.md
+            - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
             - Default Product Ports: Administer/ProductConfigurations/default-product-ports.md
             - Configuring Caching: Administer/ProductConfigurations/configuring-caching.md
             - Changing the Hostname: Administer/ProductConfigurations/changing-the-hostname.md
-            - Configuring Keystores in WSO2 API Manager: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
-            - Adding Links to Navigate Between the Store and Publisher: Administer/ProductConfigurations/adding-links-to-navigate-between-the-store-and-publisher.md
-            - Adding Internationalization and Localization: Administer/ProductConfigurations/adding-internationalization-and-localization.md
-            -  Configuring Multiple Tenants:
-                - Configuring Multiple Tenants: Administer/ProductConfigurations/configuring-multiple-tenants.md
-                - Managing Tenants: Administer/ProductConfigurations/managing-tenants.md
+            - Configuring Keystores: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
+            - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
         - Product Security:
             - General:
                 -  Logins and Passwords:    
                     - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
-                    - admin_Securing Passwords in Configuration Files:
-                        - admin_Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
-                        - admin_Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
-                        - admin_Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
+                    - Securing Passwords in Configuration Files:
+                        - Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
+                        - Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
+                        - Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
                     - Working with Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
-                - admin_Using Asymmetric Encryption:
-                    - admin_Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
-                    - admin_Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
-                    - admin_Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
-                    - admin_Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
-                - admin_Using Symmetric Encryption:
-                    - admin_Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
-                    - admin_Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
-                    - admin_Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
-                    - admin_Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
-                    - admin_Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
-                    - admin_Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
+                - Using Asymmetric Encryption:
+                    - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
+                    - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
+                    - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
+                    - Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
+                - Using Symmetric Encryption:
+                    - Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
+                    - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
+                    - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
+                    - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
+                    - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
+                    - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
-                - admin_Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
+                - Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
-            - admin_Supported Cipher Suites: ''
+            - Supported Cipher Suites: ''
             - API Designer Portal: 
                 - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Application Developer Portal:
