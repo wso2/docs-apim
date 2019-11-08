@@ -198,12 +198,12 @@ nav:
         - API Microgateway: ''
         - API Security:
             - Authentication:
-            #    - API Authentication : Learn/APISecurity/api-authentication.md
+                - API Authentication : Learn/APISecurity/api-authentication.md
                 - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
                 - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
                 - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
-                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
                 - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
+                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
             - Authorization:
                 - API Authorization: Learn/APISecurity/api-authorization.md
                 - Role-Basec Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
@@ -213,9 +213,8 @@ nav:
             - OAuth2 Deep Dive:
                 - Token types: Learn/APISecurity/OAuth2DeepDive/token-types.md
                 - OAuth2 Scopes:
-                    - Fine Grained Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                     - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
-                    - Scope Management with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-management-with-oauth-scopes.md
                 - Grant Types:
                     - Password Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant.md
                     - Client Credentials Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant.md
