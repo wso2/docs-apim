@@ -206,3 +206,135 @@ This widget displays the number of developers who signed up to the developer por
 </body>
 </html>
 
+#### Usage Summary
+
+##### Overall API Usage
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-overall-api-usage.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-overall-api-usage.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### Top API Users
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-top-api-users.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-top-api-users.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### API Version Usage Summary
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-version-usage-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-version-usage-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### API Resource Usage Summary
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-resource-usage-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-resource-usage-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### API Backend Usage Summary
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-backend-usage-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-backend-usage-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### API Last Access Summary
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-last-access-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-last-access-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Devices
+
+##### Top User Agents
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-devices-top-user-agents.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-devices-top-user-agents.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### Top Platforms
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-devices-top-platforms.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-devices-top-platforms.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### API Proxy Performance
+
+##### API Latency Time
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-1.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-1.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+<img src="../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-2.png" 
+      onclick="window.open('../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-2.png', '_self');" 
+      alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Faults
+
+##### Top Faulty APIs
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-fault-top-faulty-apis.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-fault-top-faulty-apis.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### Top Throttled Out APIs
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-fault-top-throttled-out-apis.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-fault-top-throttled-out-apis.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Geo Map
+
+##### Geo Location Based Invocations
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-geo-map-geo-based-invocation.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-geo-map-geo-based-invocation.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
