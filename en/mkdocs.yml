@@ -321,11 +321,13 @@ nav:
         - Installation Guide:
             - Installation Prerequisites: SetupAndInstall/InstallationGuide/installation-prerequisites.md
             - Installing the Product:
-                - Installing on Linux or OS X: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-linux-or-os-x.md
-                - Installing on Solaris: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-solaris.md
-                - Installing on Windows: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-windows.md
-                - Installing as a Linux Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-as-a-linux-service.md
-                - Installing as a Windows Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-as-a-windows-service.md
+                - Installing via the Installer: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-via-the-installer.md
+                - Installing the Binary:
+                    - Installing on Linux or OS X: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x.md
+                    - Installing on Solaris: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-solaris.md
+                    - Installing on Windows: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-windows.md
+                    - Installing as a Linux Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service.md
+                    - Installing as a Windows Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service.md
             - Running the Product: SetupAndInstall/InstallationGuide/running-the-product.md
             - Basic Health Checks: SetupAndInstall/InstallationGuide/basic-health-checks.md
         - Deploying WSO2 API Manager:
@@ -522,4 +524,4 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-  base_path: https://apim.docs.wso2.com/en/next/
+  base_path: https://apim.docs.wso2.com/en/latest

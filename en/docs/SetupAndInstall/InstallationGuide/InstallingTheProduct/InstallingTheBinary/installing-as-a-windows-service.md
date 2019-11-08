@@ -1,18 +1,10 @@
 # Installing as a Windows Service
 
-WSO2 Carbon and any Carbon-based product can be run as a Windows service as described in the following sections:
-
--   [Prerequisites](#InstallingasaWindowsService-Prerequisites)
--   [Setting up the YAJSW wrapper configuration file](#InstallingasaWindowsService-SettinguptheYAJSWwrapperconfigurationfile)
--   [Setting up CARBON\_HOME](#InstallingasaWindowsService-SettingupCARBON_HOME)
--   -   [Running the product in console mode](#InstallingasaWindowsService-Runningtheproductinconsolemode)
--   [Working with the WSO2CARBON service](#InstallingasaWindowsService-WorkingwiththeWSO2CARBONservice)
-
 !!! note
-**Before you begin:**
+    **Before you begin:**
 
--   See [our compatibility matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) to find out if this version of the product is fully tested on your OS.
--   See the [known incompatibilities](https://docs.wso2.com/display/compatibility/Known+Incompatibilities) section to find out if this version of the product has issues running on your OS due to the JDK version.
+    -   See [our compatibility matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) to find out if this version of the product is fully tested on your OS.
+    -   See the [known incompatibilities](https://docs.wso2.com/display/compatibility/Known+Incompatibilities) section to find out if this version of the product has issues running on your OS due to the JDK version.
 
 
 ### Prerequisites
@@ -25,16 +17,18 @@ WSO2 Carbon and any Carbon-based product can be run as a Windows service as desc
 The configuration file used for wrapping Java Applications by YAJSW is `wrapper.conf` , which is located in the `<YAJSW_HOME>/conf/` directory and in the `<PRODUCT_HOME>/bin/yajsw/` directory of many WSO2 products. Following is the minimal `wrapper.conf` configuration for running a WSO2 product as a Windows service. Open your `wrapper.conf` file, set its properties as follows, and save it in `<YAJSW_HOME>/conf/` directory.
 
 !!! info
-If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation) .
+    
+    If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation).
 
 !!! note
-Manual Configurations
+    
+    Manual Configurations
 
-Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
+    Add the following class path to the `wrapper.conf` file manually to avoid errors in the WSO2 API Manager Management Console:
 
-``` bash
+    ``` bash
     wrapper.java.classpath.3 = ${carbon_home}\\repository\\components\\plugins\\commons-lang_2.6.0.wso2v1.jar 
-```
+    ```
 
 
 **Minimal wrapper.conf configuration**
@@ -152,7 +146,7 @@ Add the following class path to the `wrapper.conf` file manually to avoid errors
 
 ### Setting up CARBON\_HOME
 
-Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location which is wso2am-2.1.0 here.
+Extract WSO2 API Manager that you want to run as a Windows service, and then set the Windows environment variable `CARBON_HOME` to the extracted product directory location which is for example wso2am-2.1.0 here.
 
 ### Running the product in console mode
 
@@ -161,20 +155,20 @@ You will now verify that YAJSW is configured correctly for running the WSO2 API 
 1.  Open a Windows command prompt and go to the `<YAJSW_HOME>/bat/` directory. For example:
 
     ``` java
-            cd C:\Documents and Settings\yajsw_home\bat
+    cd C:\Documents and Settings\yajsw_home\bat
     ```
 
 2.  Start the wrapper in console mode using the following command:
 
     ``` java
-            runConsole.bat
+    runConsole.bat
     ```
 
     For example:
 
     ![]({{base_path}}/assets/attachments/28717183/29364287.png)
 
-If the configurations are set properly for YAJSW, you will see console output similar to the following and can now access the WSO2 management console from your web browser via <https://localhost:9443/carbon> .
+If the configurations are set properly for YAJSW, you will see console output similar to the following and can now access the WSO2 management console from your web browser via <https://localhost:9443/carbon>.
 
 ![]({{base_path}}/assets/attachments/28717183/29364286.png)
 
@@ -183,7 +177,7 @@ If the configurations are set properly for YAJSW, you will see console output si
 To install the Carbon-based productWSO2 API Manager as a Windows service, execute the following command in the `<YAJSW_HOME>/bat/` directory:
 
 ``` java
-    installService.bat
+installService.bat
 ```
 
 The console will display a message confirming that the WSO2CARBON service was installed.
@@ -193,7 +187,7 @@ The console will display a message confirming that the WSO2CARBON service was 
 To start the service, execute the following command in the same console window:
 
 ``` java
-    startService.bat
+startService.bat
 ```
 
 The console will display a message confirming that the WSO2CARBON service was started.
@@ -203,7 +197,7 @@ The console will display a message confirming that the WSO2CARBON service was 
 To stop the service, execute the following command in the same console window:
 
 ``` java
-    stopService.bat
+stopService.bat
 ```
 
 The console will display a message confirming that the WSO2CARBON service has stopped.
@@ -213,7 +207,7 @@ The console will display a message confirming that the WSO2CARBON service has 
 To uninstall the service, execute the following command in the same console window:
 
 ``` java
-    uninstallService.bat
+uninstallService.bat
 ```
 
 The console will display a message confirming that the WSO2CARBON service was removed.
