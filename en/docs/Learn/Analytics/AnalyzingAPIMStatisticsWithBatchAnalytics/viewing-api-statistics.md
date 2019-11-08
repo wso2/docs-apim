@@ -89,7 +89,12 @@ This widget displays count of the unique subscribers logged in to the developer 
 
 ##### Overal API Stats
 
-This widget has two sections where one section displays a percentage of api availability and the other section displays the total number of stars received (ratings) by each api for that particualr tenant.
+This widget has two sections.
+
++ Api Availability - Displays a percentage of api availability 
++ Top Rated Apis - Displays the total number of stars received (ratings) by each api 
+ 
+ for that particular tenant.
 
 !!! Note
       In order to view statistics of **Api Availability** widget, it is required to enable alerts as described in [Configuring Alerts](../../ManagingAlertsWithRealTimeAnalytics/configuring-alerts).
@@ -98,3 +103,106 @@ This widget has two sections where one section displays a percentage of api avai
   
   ![](../../../assets/img/Learn/publisher-overview-overall-api-stats.png)
   
+Along with the total number of stars received for each api, Top Rated Apis section of the widget displays the api creator of each api as well. 
+By clicking on the filter arrow
+<html>
+<body>
+<img src="../../../../assets/img/Learn/analytics-filterby-arrow.png" width="20"/>
+</body>
+</html>
+,you can search by **Api name** and **Ratings**.
+
+  ![](../../../assets/img/Learn/publisher-overview-overall-api-stats-ratings.png)
+
+##### Top API Creators
+
+As the name depicts this widget displays the top api creators and the percerntage of apis that each of them have created.
+You can choose the limit of api creators that you want to see by giving the number under the limit field.
+   
+   ![](../../../assets/img/Learn/publisher-overview-top-api-creators-1.png)
+   
+You also get a list view of api creators along with the number of apis created by each api creator. 
+This list can be searched either via Api name or Api count.
+
+   ![](../../../assets/img/Learn/publisher-overview-top-api-creators-2.png)
+
+##### Top App Creators
+
+As same as Top Api Creators widget, Top App Creators widget displays a percentage of apps created by each app creator and also a list of app creators along with the number of apps they created with the filtering capabilities.
+
+   ![](../../../assets/img/Learn/publisher-overview-top-app-creators-1.png)
+  
+   ![](../../../assets/img/Learn/publisher-overview-top-app-creators-2.png)
+  
+##### Top Subcriptions per API Provider
+
+This widget displays the percentage of subscription count against each api provider. It also has a list view with the subscription count with the filtering capability based on the provider name and count.
+
+   ![](../../../assets/img/Learn/publisher-overview-top-subscription-per-provider-1.png)
+      
+   ![](../../../assets/img/Learn/publisher-overview-top-subscription-per-provider-2.png)
+   
+#### API and Application Statistics
+
+Under this page you can choose to view APIs/Apps based on different filter criteria.
+You can also select the time period and granularities such as minute, hour,day for which you wish to view the statistics. 
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-date-time-picker.png" width="500"/>
+</body>
+</html>
+
+##### APIs Created Over Time
+
+This widget displays the number of apis published over a given time period.
+You can filter based on the api created by you or apis created by all.
+It also has a list view along with the filtering capability based on Api Name.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-api-and-app-api-created-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-api-and-app-api-created-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### Apps Created Over Time
+
+This widget displays number of applications created over a given period of time. Statistics can be filtered based on api creator, app creator and subscribed api.
+This also has a list view with app name and created time which can be filtered based on the app name.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-api-and-app-app-created-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-api-and-app-app-created-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Developer Statistics
+
+##### Subscriptions Over Time
+
+This widget displays the number of subscriptions created for an API over a given period.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-dev-stats-subscription-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-dev-stats-subscription-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+##### Developer Signups Over Time
+
+This widget displays the number of developers who signed up to the developer portal over time. 
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-dev-stats-developer-signups-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-dev-stats-developer-signups-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
