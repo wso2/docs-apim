@@ -25,60 +25,16 @@ For more information, see [Configuring the Proxy Server and the Load Balancer](.
 
 These nodes refer to the management nodes that specialize in the management of the setup. Only management nodes are authorized to add new artifacts into the system or make configuration changes. Management nodes are usually behind an internal firewall and are exposed to clients running within the organization only. This section involves setting up the Gateway node and enabling it to work with the other components in the distributed setup.
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring the Gateway Manager.
+??? Info "Click here for information on configuring the Gateway Manager"
 
-1.  Configure the `deployment.toml` file.
-    1.  Open `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/deployment.toml` file on the management node and add the cluster hostname.
-        ``` toml
-            [server]
-            hostname = "mgt.am.wso2.com"
-            ...
-        ```
-
-2.  Specify the following incoming connection configurations 
-
-    ``` 
-        [transport.http]
-        properties.port = 9763
-        properties.proxyPort = 80
-        
-        [transport.https]
-        properties.port = 9443
-        properties.proxyPort = 443
-    ```
-
-    The TCP `port` number is the value that this `Connector` uses to create a server socket and await incoming connections. The operating system will allow only one server application to listen to a particular port number on a particular IP address.
-
-3.  Map the hostnames to IPs.
-    Open the server's `/etc/hosts` file and add the following.
-
-    ``` plain
-            <GATEWAY-WORKER-IP> am.wso2.com
-    ```
-
-    **Example Format**
-
-    ``` java
-            xxx.xxx.xxx.xx4 am.wso2.com
-    ```
-
-    Once you replicate these configurations for all the manager nodes, your Gateway manager is configured.
-
-### Step 3 - Configure the Gateway Worker
-
-Worker nodes specialize in serving requests to deployment artifacts and reading them. They can be exposed to external clients.
-
-![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring the Gateway Worker.
-
-1.  Configure the `carbon.xml` file.
-    1.  Open `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/deployment.toml` file on the management node and add the cluster hostname.
-        ``` toml
-            [server]
-            hostname = "am.wso2.com"
-            ...
-        ```
-
-2.  Specify the following incoming connection configurations 
+    1.  Configure the `deployment.toml` file.
+        1.  Open `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/deployment.toml` file on the management node and add the cluster hostname.
+            ``` toml
+                [server]
+                hostname = "mgt.am.wso2.com"
+            ```
+    
+    2.  Specify the following incoming connection configurations 
     
         ``` 
             [transport.http]
@@ -89,16 +45,58 @@ Worker nodes specialize in serving requests to deployment artifacts and reading 
             properties.port = 9443
             properties.proxyPort = 443
         ```
+    
+        The TCP `port` number is the value that this `Connector` uses to create a server socket and await incoming connections. The operating system will allow only one server application to listen to a particular port number on a particular IP address.
+    
+    3.  Map the hostnames to IPs.
+        Open the server's `/etc/hosts` file and add the following.
+    
+        ``` plain
+            <GATEWAY-WORKER-IP> am.wso2.com
+        ```
+    
+        **Example Format**
+    
+        ``` java
+            xxx.xxx.xxx.xx4 am.wso2.com
+        ```
+    
+        Once you replicate these configurations for all the manager nodes, your Gateway manager is configured.
 
-3.  Map the hostnames to IPs.
-    Open the server's `/etc/hosts` file and add the following in order to map the hostnames with the specified real IPs.
+### Step 3 - Configure the Gateway Worker
 
-    ``` plain
+Worker nodes specialize in serving requests to deployment artifacts and reading them. They can be exposed to external clients.
+
+??? Info "Click here for information on configuring the Gateway Worker"
+
+    1.  Configure the `carbon.xml` file.
+        1.  Open `<API-M_GATEWAY_MANAGER_HOME>/repository/conf/deployment.toml` file on the management node and add the cluster hostname.
+            ``` toml
+                [server]
+                hostname = "am.wso2.com"
+            ```
+    
+    2.  Specify the following incoming connection configurations 
+        
+        ``` toml
+            [transport.http]
+            properties.port = 9763
+            properties.proxyPort = 80
+            
+            [transport.https]
+            properties.port = 9443
+            properties.proxyPort = 443
+        ```
+    
+    3.  Map the hostnames to IPs.
+        Open the server's `/etc/hosts` file and add the following in order to map the hostnames with the specified real IPs.
+    
+        ``` plain
             <GATEWAY-MANAGER-IP> mgt.am.wso2.com
-    ```
-
-4.  Configure rsync. 
-    For information on configuring rsync, see [Configuring rsync for Deployment Synchronization](../../configuring-rsync-for-deployment-synchronization/).
+        ```
+    
+    4.  Configure rsync. 
+        For information on configuring rsync, see [Configuring rsync for Deployment Synchronization](../../configuring-rsync-for-deployment-synchronization/).
 
 ### Step 4 - Optionally configure Hazelcast
 
