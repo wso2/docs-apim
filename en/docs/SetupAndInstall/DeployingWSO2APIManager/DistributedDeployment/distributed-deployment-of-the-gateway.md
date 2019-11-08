@@ -29,35 +29,26 @@ When using the shared file system, all nodes have the manager worker capability.
 
 ??? note "Click here for information on configuring the Gateway"
 
-    1.  Configure the `carbon.xml` file.
-        The following configurations are done in the `<API-M_GATEWAY_HOME>/repository/conf/carbon.xml` file.
-        1.  Open `<              API-M_              GATEWAY_HOME>/repository/conf/carbon.xml` .
+    1.  Configure the `deployment.toml` file.
+        1.  Open `<API-M_GATEWAY_HOME>/repository/conf/deployment.toml`.
         2.  Locate the `<HostName>` tag and add the cluster hostname. For an example, if the hostname is `gw.am.wso2.com` :
     
-            ``` java
-                    <HostName>gw.am.wso2.com</HostName>
+            ``` toml
+                [server]
+                hostname = "gw.am.wso2.com"
+
             ```
     
-        3.  Locate the `<MgtHostName>` tag and uncomment it. Make sure that the management hostname is defined as follows:
+    2.  Specify the following incoming connection configurations
     
-            ``` java
-                        <MgtHostName>gw.am.wso2.com</MgtHostName>
-            ```
-    
-    2.  Configure the `catalina-server.xml` file.
-        Specify the following configurations in the `catalina-server.xml` file, which is located in the `<             API-M_             GATEWAY_HOME>/repository/conf/tomcat` directory.
-    
-        ``` html/xml
-                <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
-                                port="9763"
-                                proxyPort="80"
-                --------
-                />
-                <Connector  protocol="org.apache.coyote.http11.Http11NioProtocol"
-                                port="9443"
-                                proxyPort="443"
-                --------
-                />
+        ``` toml
+            [transport.http]
+            properties.port = 9763
+            properties.proxyPort = 80
+            
+            [transport.https]
+            properties.port = 9443
+            properties.proxyPort = 443
         ```
     
         The TCP `port` number is the value that this `Connector` uses to create a server socket and waits for incoming connections. In your operating system, only one server application can listen to a particular port number on a particular IP address.
@@ -75,8 +66,8 @@ When using the shared file system, all nodes have the manager worker capability.
                 xxx.xxx.xxx.xx4 gw.am.wso2.com
         ```
     
-            !!! note
-        **Replicate the configurations** in all the other Gateway nodes.
+        !!! note
+            **Replicate the configurations** in all the other Gateway nodes.
 
 
     4.  Mount the directory required for the shared file system.
