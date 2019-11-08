@@ -34,48 +34,35 @@ Follow the instructions below to deploy WSO2 API-M with Hazelcast clustering:
         ``` java
             [clustering]
             membership_scheme = "wka"
-            ...
                     
         ```
 
-    2.  Specify the name of the cluster this node will join:
+    2.  Specify the name of the cluster this node will join by appending to `[clustering]` category
 
         ``` toml
-           [clustering]
-           ...
            domain = "wso2.am.domain"
-           ...
         ```
 
-    3.  Specify the host used to communicate cluster messages. This is the IP of the Gateway manager node.
+    3.  Specify the host used to communicate cluster messages by appending to `[clustering]` category. This is the IP of the Gateway manager node.
 
         ``` toml
-            [clustering]
-            ...
             local_member_host = "xxx.xxx.xxx.xx3"
-            ...        
         ```
 
-    4.  Specify the port used to communicate cluster messages:
+    4.  Specify the port used to communicate cluster messages by appending to `[clustering]` category:
 
         ``` toml
-            [clustering]
-            ...
             local_member_port = 4500
-            ...
         ```
 
         !!! info
             This port number will not be affected by the port offset in `deployment.toml`. If this port number is already assigned to another server, the clustering framework will automatically increment this port number. However, if two servers are running on the same machine, you must ensure that a unique port is set for each server.
 
   
-    6.  Change the members listed in the `<members>` element. This defines the WKA members.
+    6.  Change the members listed in the `<members>` element by appending to `[clustering]` category. This defines the WKA members.
 
         ``` toml
-            [clustering]
-            ...
             members = ["127.0.0.1:4500", "127.0.0.1:4501"]
-            ...
         ```
 
         Here we configure the manager node and worker node as the well-known members.
@@ -96,7 +83,7 @@ Follow the instructions below to deploy WSO2 API-M with Hazelcast clustering:
             membership_scheme = "wka"
             domain = "wso2.am.domain"
             local_member_host = "127.0.0.1"
-            local_member_port = 4500
+            local_member_port = 4501
             members = ["127.0.0.1:4500", "127.0.0.1:4501"]
         ```
      
@@ -109,13 +96,10 @@ You can configure the hazelcast properties for the product nodes by following th
 1.  Add the follwing configuration to deployment.toml under the `[clustering]` category
 
     ``` toml
-        [clustering]
-        ...
         #Disabling the hazelcast shutdown hook
         shutdown_hook_enable = false
         #Setting the hazelcast logging type to log4j
         logging_type = "log4j"
-        ...
     ```
 
     The above configurations are explained below.
