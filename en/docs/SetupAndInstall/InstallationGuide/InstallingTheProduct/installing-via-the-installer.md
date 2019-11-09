@@ -65,7 +65,7 @@ Instructions
 Open a terminal and run the following command as the root user:
 
 <code>
-sudo bash /Library/WSO2/APIManager/2.6.0/uninstall.sh
+sudo bash /Library/WSO2/APIManager/3.0.0/uninstall.sh
 </code>
 </td>
 </tr>
@@ -78,7 +78,7 @@ sudo bash /Library/WSO2/APIManager/2.6.0/uninstall.sh
 Open a terminal and run the following command:
 
 
-<code>sudo apt-get purge wso2am-2.6.0
+<code>sudo apt-get purge wso2am-3.0.0
 </code>
 </td>
  </tr>
@@ -87,7 +87,7 @@ Open a terminal and run the following command:
 
 Open a terminal and run the following command:
 
-<code>sudo yum remove wso2am-2.6.0-x86_64
+<code>sudo yum remove wso2am-3.0.0-x86_64
 </code>
 </td>
  <tr>
