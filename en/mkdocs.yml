@@ -197,6 +197,8 @@ nav:
                 -  API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
         - API Microgateway: ''
         - API Security:
+            - API Security Audit:
+                - Configure Audit feature: Learn/APISecurity/APISecurityAudit/configuring-api-security-audit.md
             - Authentication:
             #    - API Authentication : Learn/APISecurity/api-authentication.md
                 - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
