@@ -581,7 +581,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
       description = "connected account of the publisher"
       ```
            
-      The name property has to be identical to `connectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
+      The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
  
     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.   
 
