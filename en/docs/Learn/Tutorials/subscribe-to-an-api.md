@@ -20,7 +20,7 @@ The examples here use the `PhoneVerification` REST API, which is created in the
   In the API overview page, You will have two methods to subscribe an API to an application.You can subscribe to current API choosing an existing application or you can follow a wizard to start from the scratch.In the API Manager 3.0.0, We have introduced a __KEY GENERATION WIZARD__ to guide you through the process of creating and configure application, generate application keys and access token, and finally navigate to try out page.
 
 !!! tip
-    In a [multi-tenanted](https://docs.wso2.com/display/AM210/Configuring+Multiple+Tenants) WSO2 API Manager setup, you can access any tenant's store using the URL `http://<hostname>:<port>/store?tenant=<tenant_name>` .
+    In a [multi-tenanted](https://docs.wso2.com/display/AM210/Configuring+Multiple+Tenants) WSO2 API Manager setup, you can access any tenant's Developer Portal using the URL `http://<hostname>:<port>/devportal?tenant=<tenant_name>` .
 
 2\.  We will try the __KEY GENERATION WIZARD__ in this tutorial\.Click on the __KEY GENERATION WIZARD__ button to start the key generation wizard.
 
@@ -53,7 +53,7 @@ The examples here use the `PhoneVerification` REST API, which is created in the
     Access tokens can be generated for specific scopes. A scope acts as a limiting factor on what API resources can be accessed using a token. To generate an access token corresponding to a scope, use the drop down menu under **Scopes** and select the required scope parameter.
 
 !!! note
-    If you are using WSO2 Identity Server 5.9.0 as the Key Manager for your API Manager deployment, Clicking __NEXT__ will result in the creation of a [Service Provider](https://docs.wso2.com/display/IS590/Configuring+a+Service+Provider) in the Identity Server.
+    If you are using WSO2 Identity Server 5.9.0 as the Key Manager for your API Manager deployment, Clicking __NEXT__ will result in the creation of a [Service Provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-a-service-provider/) in the Identity Server.
 
     Click __NEXT__ to generate an access token
 
@@ -116,7 +116,7 @@ The examples here use the `PhoneVerification` REST API, which is created in the
 In the above example, the placeholders mentioned in the cURL command format are replaced as follows:
 
 -   **&lt;access token&gt;** : Give the test token generated in step 8.
--   **&lt;API URL&gt;** : Click the respective API, in this case, PhoneVerification - 1.0.0. When the API's **Overview** tab appears in the API Store, copy the production URL and append the required query params to it.
+-   **&lt;API URL&gt;** : Click the respective API, in this case, PhoneVerification - 1.0.0. When the API's **Overview** tab appears in the API Developer Portal, copy the production URL and append the required query params to it.
     For example, <https://localhost:8243/phoneverify/1.0.0/CheckPhoneNumber?PhoneNumber=18006785432&LicenseKey=0>
 
 The above example is made up as follows:
