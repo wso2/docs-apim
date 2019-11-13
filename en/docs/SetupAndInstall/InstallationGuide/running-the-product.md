@@ -89,7 +89,7 @@ Once the server has started, you can run the Management Console by typing its UR
 
 The URL appears next to `Mgt Console URL` in the start script log that is displayed in the command window. For example:
 
-![](../../../assets/img/setup-and-install/running-product-mgt-console-url.png)
+![](../../assets/img/setup-and-install/running-product-mgt-console-url.png)
 
 The URL should be in the following format: `https://<Server Host>:9443/carbon`
 
@@ -152,7 +152,7 @@ Once the server has started, you can run the API Publisher by typing its URL in 
 
 The URL appears next to `API Publisher Default Context` in the start script log that is displayed in the command window. For example:
 
-![](../../../assets/img/setup-and-install/running-product-publisher-url.png)
+![](../../assets/img/setup-and-install/running-product-publisher-url.png)
 
 The URL should be in the following format: `https://<Server Host>:9443/publisher        `
 
@@ -182,7 +182,7 @@ Once the server has started, you can run the Developer Portal by typing its URL 
 
 The URL appears next to `Developer Portal Default Context` in the start script log that is displayed in the command window. For example:
 
-![](../../../assets/img/setup-and-install/running-product-dev-portal-url.png)
+![](../../assets/img/setup-and-install/running-product-dev-portal-url.png)
 
 The URL should be in the following format: `https://<Server Host>:9443/devportal        `
 

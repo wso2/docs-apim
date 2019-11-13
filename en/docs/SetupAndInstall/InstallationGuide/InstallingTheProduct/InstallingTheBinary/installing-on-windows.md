@@ -45,7 +45,7 @@ You set up `JAVA_HOME` using the System Properties, as described below. Alternat
 
 2.  In the System Properties window, click the **Advanced** tab, and then click **Environment Variables**.
 
-    ![](../../../../../assets/attachments/26838941/27042150.png)
+    ![](../../../../assets/attachments/26838941/27042150.png)
 
 3.  Click **New** under **System variables** (for all users) or under **User variables** (just for the user who is currently logged in).
 
