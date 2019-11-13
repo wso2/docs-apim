@@ -64,14 +64,14 @@ Databases
      <div class="admonition note">
      <p class="admonition-title">Note</p>
      <p>
-     To use a different JDK,  point the <b>JAVA_HOME</b> environment variable to the new JDK. Make sure your JDK version is <a href="https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs">compatible with the WSO2 product</a>.</p>
+     To use a different JDK,  point the <b>JAVA_HOME</b> environment variable to the new JDK. Make sure your JDK version is <a href="../../../SetupAndInstall/ProductCompatibility/#tested-operating-systems-and-jdks">compatible with the WSO2 product</a>.</p>
      </div> 
      
 
     
 </li>
 <li>
-<p>If you are using the product's binary distribution to install the product (instead of the product installer), install JDK. Make sure your JDK version is  <a href="https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs">compatible with the WSO2 product</a>.</p>
+<p>If you are using the product's binary distribution to install the product (instead of the product installer), install JDK. Make sure your JDK version is  <a href="../../../SetupAndInstall/ProductCompatibility/#tested-operating-systems-and-jdks">compatible with the WSO2 product</a>.</p>
 </li>
 <li><p>All WSO2 Carbon-based products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. For most enterprise production environments, however, we recommend you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see <a href="../../../SetupAndInstall/SettingUpDatabases/overview/">Working with Databases</a>. Additionally, we do not recommend the H2 database as a user store.</p>
 </li>
@@ -80,7 +80,7 @@ It is <b>not recommended to use Apache DS</b> in a production environment due 
 <li><p>On a production deployment, it is recommended that WSO2 products are installed on latest releases of RedHat Enterprise Linux or Ubuntu Server LTS.</p></li>
 <li>
 <p>For environments that WSO2 products are tested with, see 
-<a href="https://docs.wso2.com/display/compatibility/Compatibility+of+WSO2+Products">Compatibility of WSO2 Products</a>.</p></li>
+<a href="../../../SetupAndInstall/ProductCompatibility/#tested-wso2-products">Compatibility of WSO2 Products</a>.</p></li>
 <li><p>
 If you have difficulty in setting up any WSO2 product in a specific platform or database, please <a href="http://wso2.com/support/">contact us</a>.</p>
 </li>
