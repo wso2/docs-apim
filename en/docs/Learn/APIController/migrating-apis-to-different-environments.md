@@ -216,7 +216,7 @@ You can use the API archive exported from the previous section and import it to 
                   config:
                     retryTimeOut: <no_of_retries_before_suspension>
                     retryDelay: <retry_delay_in_ms>
-                    factory: <suspension_factor>
+                    factor: <suspension_factor>
                 sandbox:
                   url: <sandbox_endpoint_url>
                   config:
