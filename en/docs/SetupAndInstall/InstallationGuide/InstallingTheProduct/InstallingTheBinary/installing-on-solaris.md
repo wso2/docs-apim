@@ -38,7 +38,7 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 
     The file should now look like this:
 
-    ![](../../../../../assets/attachments/103334399/103334401.png)
+    ![](../../../../assets/attachments/103334399/103334401.png)
 
 3.  Save the file.
 

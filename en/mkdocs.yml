@@ -372,7 +372,6 @@ nav:
         - Performance Tuning:
               - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
               - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
-              - Performance Tuning and Testing Results: SetupAndInstall/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md
         - Upgrading WSO2 API Manager:
               - Upgrading from the Previous Release: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
               - Upgrading from the Previous Release when WSO2 IS is the Key Manager: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
