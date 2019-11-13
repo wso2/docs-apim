@@ -4,7 +4,7 @@
 
     **Before you begin:**
 
-    - See [our compatibility matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) to check the compatible JDK versions. 
+    - See [our compatibility matrix]({{base_path}}/SetupAndInstall/ProductCompatibility) to check the compatible JDK versions. 
     - Set up the `JAVA_HOME` environment variable.
 
 #### Setting up CARBON\_HOME
