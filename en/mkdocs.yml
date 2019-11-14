@@ -263,6 +263,7 @@ nav:
             - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md
             - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
+            - Managing Analytics Dashboard Permissions: Learn/Analytics/managing-dashboard-permissions.md
             - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
             - Alerts for APIs: 
                 - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md

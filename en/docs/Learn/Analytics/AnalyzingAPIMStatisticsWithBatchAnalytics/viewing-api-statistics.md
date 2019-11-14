@@ -62,7 +62,7 @@ Please refer below sub sections for more details about each dashboard.
 
 !!! info
       Unlike the previous releases of API-M Analytics dashboards, Publisher statistics dashboard can be viewed by any user having Analytics role, Creator role or Publisher role.
-      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions]() page.
+      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions](../../../../Learn/Analytics/managing-dashboard-permissions/) page.
       
  API Publisher dashboard has 8 main pages namely **Overview**, **API and Application Statistics**, **Developer Statistics**, **Usage Summary**, **Devices**, **API Proxy Performance**, **Faults**, and **Geo Map**.
  
@@ -379,7 +379,7 @@ Therefore, at a given time, some statistics generated within the last 24 hours m
 
 !!! info
       Similar to the Publisher statistics dashboard, Developer Portal statistics dashboard can be viewed by any user having Analytics role or subscriber role. 
-      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions]() page.
+      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions](../../../../Learn/Analytics/managing-dashboard-permissions/) page.
 
 
 Log into the analytics-dashboard application and access developer portal statistics ( ex: [https://localhost:9643/analytics-dashboard/dashboards/apimdevportal](https://localhost:9643/analytics-dashboard/dashboards/apimdevportal) ) dashboard from there.
