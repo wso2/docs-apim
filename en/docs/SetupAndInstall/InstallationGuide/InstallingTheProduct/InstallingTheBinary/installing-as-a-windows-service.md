@@ -17,7 +17,7 @@ The configuration file used for wrapping Java Applications by YAJSW is `wrapper.
 
 !!! info
     
-    If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault](https://docs.wso2.com/display/Carbon420/Carbon+Secure+Vault+Implementation).
+    If you want to set additional properties from an external registry at runtime, store sensitive information like usernames and passwords for connecting to the registry in a properties file and secure it with [secure vault](../../../../../Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation).
 
 !!! note
     

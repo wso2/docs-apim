@@ -11,7 +11,7 @@ Follow the instructions below to install API Manager on Linux or Mac OS X.
 ### Installing the required applications
 
 1.  Log in to the command line (Terminal on Mac).
-2.  Ensure that your system meets the [Installation Prerequisites](_Installation_Prerequisites_). Java Development Kit (JDK) is essential to run the product.
+2.  Ensure that your system meets the [Installation Prerequisites]({{base_path}}/SetupAndInstall/InstallationGuide/installation-prerequisites). Java Development Kit (JDK) is essential to run the product.
 
 ### Installing the API Manager
 
@@ -31,12 +31,12 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 2.  Assuming you have JDK 1.7.0\_80 in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk1.7.0_80` with the actual directory where the JDK is installed.
 
     ``` java
-        On Linux:
-        export JAVA_HOME=/usr/java/jdk1.7.0_80
-        export PATH=${JAVA_HOME}/bin:${PATH}
+    On Linux:
+    export JAVA_HOME=/usr/java/jdk1.7.0_80
+    export PATH=${JAVA_HOME}/bin:${PATH}
          
-        On OS X:
-        export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
+    On OS X:
+    export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.7.0.jdk/Contents/Home
     ```
 
 3.  Save the file.
@@ -51,11 +51,11 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 5.  The system returns the JDK installation path.
 
 ``` java
-    On Linux:
-    echo $JAVA_HOME
+On Linux:
+echo $JAVA_HOME
      
-    On OS X:
-    which java
+On OS X:
+which java
 If the above command gives you a path like /usr/bin/java, then it is a symbolic link to the real location. To get the real location, run the following:
 ls -l `which java`
 ```

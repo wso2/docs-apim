@@ -31,8 +31,8 @@ You must set your `JAVA_HOME` environment variable to point to the directory whe
 2.  Assuming you have JDK 1.7.0\_80 in your system, add the following two lines at the bottom of the file, replacing `/usr/java/jdk1.7.0_80` with the actual directory where the JDK is installed.
 
     ``` java
-        export JAVA_HOME=/usr/java/jdk1.7.0_80
-        export PATH=${JAVA_HOME}/bin:${PATH}
+    export JAVA_HOME=/usr/java/jdk1.7.0_80
+    export PATH=${JAVA_HOME}/bin:${PATH}
     ```
 
     The file should now look like this:
