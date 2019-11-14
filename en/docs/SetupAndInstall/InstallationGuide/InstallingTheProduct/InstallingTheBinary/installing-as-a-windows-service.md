@@ -3,8 +3,7 @@
 !!! note
     **Before you begin:**
 
-    -   See [our compatibility matrix](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) to find out if this version of the product is fully tested on your OS.
-    -   See the [known incompatibilities](https://docs.wso2.com/display/compatibility/Known+Incompatibilities) section to find out if this version of the product has issues running on your OS due to the JDK version.
+    -   See [our compatibility matrix]({{base_path}}/SetupAndInstall/ProductCompatibility) to find out if this version of the product is fully tested on your OS.
 
 
 ### Prerequisites

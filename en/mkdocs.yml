@@ -375,6 +375,7 @@ nav:
                 - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
                 - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
                 - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
+        - Product Compatibility: SetupAndInstall/ProductCompatibility.md
         - Performance Tuning:
               - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
               - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
