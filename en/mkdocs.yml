@@ -164,7 +164,13 @@ nav:
                     - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-rating.md
                     - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-home-page.md
                     - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-tag-cloud.md
+                    - Enable or disable footer: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-footer.md
+                    - Enable or disable banner: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-banner.md
+                    - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-left-menu.md
+                    - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-info-section.md
+                    - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-the-logo-and-header.md
                     - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md   
+                    - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/advanced-customization.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
