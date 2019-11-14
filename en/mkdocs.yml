@@ -211,8 +211,7 @@ nav:
                 - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
             - Authorization:
-                - API Authorization: Learn/APISecurity/api-authorization.md
-                - Role-Basec Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:
                 - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md            
