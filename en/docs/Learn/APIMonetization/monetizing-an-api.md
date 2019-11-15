@@ -98,7 +98,7 @@ Let's use the
 
     7. Tenant Admin has to execute the above cURL command after replacing the placeholder (`YOUR_SECRET_KEY`) with his/her own client secret. 
     
-        This will connect the accounts. The connected account ID (Connect ID) for the API Publisher's account appears. The Tenant Admin will have to share the connected account ID (Connect ID) with the publisher again , which the publisher should provide when enabling monetization for the API. The tenant admin will use the connected account ID via his platform account to make transactions on behalf of the connected account (API Publisher's account).
+        This will connect the accounts. The connected account ID (Connect ID) for the API Publisher's account appears. The Tenant Admin will use the connected account ID via the connected platform account to make transactions on behalf of the connected account (API Publisher's account).
 
 #### (B.) - Configure WSO2 API-M Analytics
 
@@ -176,7 +176,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     2. Build the implementation of the respective monetization interface and add the JAR into the `<API-M_HOME>/repository/components/lib` directory.
         
-        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.0.0.jar](../../assets/attachments/learn/monetization/org.wso2.apim.monetization.impl-1.0.0.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
+        In this example scenario, you need to add the [org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar](../../assets/attachments/learn/org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar) JAR into the latter mentioned `lib` folder. Note that this JAR has been derived by building the [wso2-am-stripe-plugin repository](https://github.com/wso2-extensions/wso2-am-stripe-plugin). 
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
@@ -217,7 +217,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     3.  Navigate to the `<API-M_HOME>/dbscripts/apimgt/` directory and execute the database script that corresponds to the database management system that you are working on.
          
-         As a MySQL database is used for this example scenario, execute the `mysql.sql` script.
+         As a MySQL database is used for this example scenario, execute the `mysql5.7.sql` script.
          
     4.  Execute one of the following database scripts in the `WSO2AM_DB` database, based on the RDBMS that you are using.
          
@@ -565,7 +565,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         ``` java
         [[apim.monetization.additional_attributes]]
-        name = "ConnectedAccountKey"
+        name = "connectedAccountKey"
         display_name = "ConnectedAccountKey"
         required = "true"
         description = “connected account of the publisher”
@@ -592,11 +592,11 @@ When working with API Monetization that involves dynamic business plans (usage-b
        </div> 
       </html>
 
-     1.  Navigate to the `<API-M_HOME>/repository/resources/conf/default.json` file.
+     1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
          <a name="apim-monetization-granularity"></a>
 
-     2.  Edit the following configuration in the JSON file. 
+     2.  Add the following configuration in the TOML file. 
 
         ``` java tab="Format"
         "apim.monetization.granularity": "<time-period>" 
@@ -742,14 +742,6 @@ Stripe UI.
 
 Specific Stripe billing plans correspond to specific WSO2 API Manager business plans. Therefore, when an App developer subscribes to an API via the API Developer Portal, Stripe will use the information in their business plan to create a corresponding subscription for the App developer in Stripe.  
 
-<html>
-    <div class="admonition note">
-        <p class="admonition-title">Note</p>
-        <p>The customers are created in Stripe with sample payment(card) details. The real card details should be updated in order to process real payments. Once the real card details are updated for the relevant customer created for a particular subscriber in the platform account, it will be copied when shared customers are created in the connected accounts for the same subscriber there after. So its important that you collect and edit the correct payment details in both platform and connected account for a subscriber when he subscribes for the first time.</p>
-        <p>Please refer the [document](https://stripe.com/docs/payments/cards/collecting) to find out how to collect the card details safely in Stripe.</p>
-    </div> 
-</html>
-
 ### Step 4 - Send usage data to the billing engine
 
 You can use the admin REST API, which is available in WSO2 API Manager, to publish the summarized data to Stripe. After this API call takes place, it pushes the usage data to Stripe. After Stripe gets the usage data, it checks for the subscriptions that have completed their billing cycle and charges the customer based on their API usage.
@@ -795,21 +787,6 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
     After making an admin API call the bill gets generated in the Stripe connected account.
 
     ![Pricing](../../assets/img/Learn/pricing.png) The charging process takes place at the end of the billing cycle. As this example scenario uses a usage-based business plan, the payment that the subscribers make for their bills are sent to the API Publisher via the billing engine.
-
-4.  Monitor the status of the last usage publishing job.
-
-    When you call the Admin API to publish usage data, a separate job in a separate thread is created to publish usage data to the billing engine. The status of the above job can be monitored as follows.
-  
-    ``` java
-    curl -k -H "Authorization: Bearer <monetization-usage-publish-token>" -X GET -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v0.15/monetization/publish-usage/status
-    ```
-    -   `<monetization-usage-publish-token>` - The same token that you got with the monetization usage scope in previous steps.
-
-    The sample response will be as follows
-
-    ``` java
-    {"state": "COMPLETED", "status": "SUCCESSFUL", "startedTime": "1571748288000", "lastPublsihedTime": "1571661888000"}
-    ```
 
 ### Step 5 - Monitor usage of a monetized API
 
