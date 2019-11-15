@@ -565,7 +565,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         ``` java
         [[apim.monetization.additional_attributes]]
-        name = "ConnectedAccountKey"
+        name = "connectedAccountKey"
         display_name = "ConnectedAccountKey"
         required = "true"
         description = “connected account of the publisher”
@@ -592,11 +592,11 @@ When working with API Monetization that involves dynamic business plans (usage-b
        </div> 
       </html>
 
-     1.  Navigate to the `<API-M_HOME>/repository/resources/conf/default.json` file.
+     1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
          <a name="apim-monetization-granularity"></a>
 
-     2.  Edit the following configuration in the JSON file. 
+     2.  Add the following configuration in the TOML file. 
 
         ``` java tab="Format"
         "apim.monetization.granularity": "<time-period>" 
