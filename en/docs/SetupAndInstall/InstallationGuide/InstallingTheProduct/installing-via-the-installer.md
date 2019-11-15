@@ -5,7 +5,7 @@ The following sections explain as to how to to use the WSO2 API Manager installe
 
 ## Download and install the product
 
-If the [installation prerequisites](../../../../SetupAndInstall/InstallationGuide/installation-prerequisites) are satisfied, follow the steps below:
+If the [installation prerequisites]({{base_path}}/SetupAndInstall/InstallationGuide/installation-prerequisites) are satisfied, follow the steps below:
 
 1.  Go to the WSO2 API Manager [product page](https://wso2.com/api-management/) and download the WSO2 API Manager Installer.
 
