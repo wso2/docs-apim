@@ -268,6 +268,15 @@ This tutorial will explain the steps to design, publish and invoke a GraphQL API
 
          ![Try out the post operation](../../../assets/img/Learn/post-try-out-starwars.png)
 
+
+        <html>
+        <div class="admonition note">
+        <p class="admonition-title">Note</p>
+        <p>If you are going to invoke QUERY Operation, payload should be started with either with 'query' keyword or '' </p>
+         <p>If you are going to invoke MUTATION Operation, payload should be started starting with 'mutation' keyword.</p>
+        </div> 
+        </html>
+
     6. Click **Execute**.
 
         ![Try out the post operation](../../../assets/img/Learn/post-response-starwars.png)

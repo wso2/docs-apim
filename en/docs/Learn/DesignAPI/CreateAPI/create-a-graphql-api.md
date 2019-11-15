@@ -231,4 +231,3 @@ Rate limiting is set to unlimited, and thereby disabled by default.
 - **Rate limiting for multiple operations**
 
     WSO2 API Manager checks all the operation related rate limiting policies when determining the overall rate limit. When the requests exceed the minimum rate limit, which corresponds to the operations in the query, they will be throttled out.
-   
