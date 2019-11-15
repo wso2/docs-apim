@@ -166,7 +166,7 @@ The Security category showcases:
 
 3.  Overall severity of security issues
 
-4.  A table of the issues along with their specific severity levels, descriptions and the impact it has on the overall score for the Security category.
+4.  A table of the issues along with their specific severity levels, descriptions and the impact each issue has on the overall score for the Security category.
 
 #### Data Validation
 
@@ -178,4 +178,4 @@ The Data Validation category showcases:
 
 3.  Overall severity of data validation issues
 
-4.  A table of the issues along with their specific severity levels, descriptions and the impact it has on the overall score for the Data Validation category.
+4.  A table of the issues along with their specific severity levels, descriptions and the impact each issue has on the overall score for the Data Validation category.
