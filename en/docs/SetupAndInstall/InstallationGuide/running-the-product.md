@@ -3,16 +3,8 @@
 To run WSO2 products, you start the product server at the command line. You can then run the Management Console to configure and manage the product.
 
 !!! info
+
     The Management Console uses the default HTTP-NIO transport, which is configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file. ( `<PRODUCT_HOME>` is the directory where you installed the WSO2 product you want to run.) In order to access the Management Console, you must configure the HTTP-NIO transport properly in this file. For more information on the HTTP-NIO transport, see the related topics section at the bottom of this page.
-
-The following sections describe how to run the product.
-
--   [Starting the server](#starting-the-server)
--   [Accessing the Management Console](#accessing-the-management-console)
--   [Accessing the API Publisher](#accessing-the-api-publisher)
--   [Accessing the Developer Portal](#accessing-the-developer-portal)
--   [Stopping the server](#stopping-the-server)
--   [Restricting access to the Management Console and web applications](#restricting-access-to-the-management-console-and-web-applications)
 
 ### Starting the server
 
@@ -53,6 +45,7 @@ To start the server, run `<PRODUCT_HOME>\bin\wso2server.bat` (on Windows) or `<P
 To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command prompt as described below.
 
 !!! note
+
     Following instructions are tested on an Oracle Solaris 10 8/11 x86 environment.
 
 1.  Click **Launch &gt;Run Applications,** type `dtterm` at the prompt, and then press **Enter** to open a command prompt.
@@ -61,6 +54,7 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
 4.  The operation log appears in the command window. When the product server has started successfully, the log displays the message "WSO2 Carbon started in 'n' seconds".
 
 !!! info
+
     If you are starting the product in service/nohup mode in Solaris, do the following:
 
     1.  Update the `<PRODUCT_HOME>/bin/wso2server.sh` file as follows:
@@ -70,6 +64,7 @@ To start the server, run `<PRODUCT_HOME>/bin/wso2server.sh` from the command pro
             **
 
             !!! tip
+
                 The only change is replacing `sh` with `bash` . This is required only for Solaris.
 
 
@@ -94,7 +89,7 @@ Once the server has started, you can run the Management Console by typing its UR
 
 The URL appears next to `Mgt Console URL` in the start script log that is displayed in the command window. For example:
 
-![](../../../assets/img/setup-and-install/running-product-mgt-console-url.png)
+![](../../assets/img/setup-and-install/running-product-mgt-console-url.png)
 
 The URL should be in the following format: `https://<Server Host>:9443/carbon`
 
@@ -117,6 +112,7 @@ You can use this URL to access the Management Console on this computer from any 
 At the sign-in screen, you can sign in to the Management Console using **admin** as both the username and password.
 
 !!! info
+
     When the Management Console sign-in page appears, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
 
     The Management Console is based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access the Management Console, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
@@ -137,6 +133,7 @@ session_timeout = "30m"
 ```
 
 !!! tip
+
     In products like WSO2 API Manager where web applications such as API Publisher/Developer Portal exist, you can configure a session timeout for those web apps by changing the `<APIM-M_HOME>/repository/conf/deployment.toml` file by adding the configurations as follows:
 
     ``` java
@@ -155,7 +152,7 @@ Once the server has started, you can run the API Publisher by typing its URL in 
 
 The URL appears next to `API Publisher Default Context` in the start script log that is displayed in the command window. For example:
 
-![](../../../assets/img/setup-and-install/running-product-publisher-url.png)
+![](../../assets/img/setup-and-install/running-product-publisher-url.png)
 
 The URL should be in the following format: `https://<Server Host>:9443/publisher        `
 
@@ -166,6 +163,7 @@ You can use this URL to access the API Publisher on this computer from any other
 At the sign-in screen, you can sign in to the API Publisher using **admin** as both the username and password.
 
 !!! info
+
     When the API Publisher sign-in page appears, the web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
 
     The API Publisher is based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access the API Publisher, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
@@ -184,7 +182,7 @@ Once the server has started, you can run the Developer Portal by typing its URL 
 
 The URL appears next to `Developer Portal Default Context` in the start script log that is displayed in the command window. For example:
 
-![](../../../assets/img/setup-and-install/running-product-dev-portal-url.png)
+![](../../assets/img/setup-and-install/running-product-dev-portal-url.png)
 
 The URL should be in the following format: `https://<Server Host>:9443/devportal        `
 
@@ -194,6 +192,7 @@ You can use this URL to access the Developer Portal on this computer from any ot
 At the Developer Portal home page, you can click sign in link at top right corner to sign-in to the API Publisher using **admin** as both the username and password.
 
 !!! info
+
     When the Developer Portal home page appears, the Web browser typically displays an "insecure connection" message, which requires your confirmation before you can continue.
 
     The Developer Portal is based on the HTTPS protocol, which is a combination of HTTP and SSL protocols. This protocol is generally used to encrypt the traffic from the client to server for security reasons. The certificate it works with is used for encryption only, and does not prove the server identity. Therefore, when you try to access the Developer Portal, a warning of untrusted connection is usually displayed. To continue working with this certificate, some steps should be taken to "accept" the certificate before access to the site is permitted. If you are using the Mozilla Firefox browser, this usually occurs only on the first access to the server, after which the certificate is stored in the browser database and marked as trusted. With other browsers, the insecure connection warning might be displayed every time you access the server.
@@ -237,10 +236,11 @@ You can restrict access to the management console of your product by binding the
     <filter> <filter-name>Remote Address Filter</filter-name> <filter-class>org.apache.catalina.filters.RemoteAddrFilter</filter-class> <init-param> <param-name>allow</param-name> <param-value>127.0.01</param-value> </init-param> </filter> <filter-mapping> <filter-name>Remote Address Filter</filter-name> <url-pattern>/carbon/admin/login.jsp</url-pattern> </filter-mapping>
     ```
 !!! info
+
     Any configurations (including valves defined in the <PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml file) apply to all web applications and are available globally across the server, regardless of the host or cluster. For more information on using remote host filters, see the [Apache Tomcat documentation](http://tomcat.apache.org/tomcat-7.0-doc/config/valve.html#Remote_Host_Filter).
 
 **Related Topics**
 
--   [Installing as a Windows Service](InstallingTheProduct/installing-as-a-windows-service.md)
--   [Installing as a Linux Service](InstallingTheProduct/installing-as-a-linux-service.md)
+-   [Installing as a Windows Service](../../../SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service/)
+-   [Installing as a Linux Service](../../../SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service/)
 

@@ -164,7 +164,13 @@ nav:
                     - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-rating.md
                     - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-home-page.md
                     - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-tag-cloud.md
+                    - Enable or disable footer: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-footer.md
+                    - Enable or disable banner: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-banner.md
+                    - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-left-menu.md
+                    - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-info-section.md
+                    - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-the-logo-and-header.md
                     - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md   
+                    - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/advanced-customization.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
@@ -200,24 +206,22 @@ nav:
             - API Security Audit:
                 - Configure Audit feature: Learn/APISecurity/APISecurityAudit/configuring-api-security-audit.md
             - Authentication:
-            #    - API Authentication : Learn/APISecurity/api-authentication.md
+                - API Authentication : Learn/APISecurity/api-authentication.md
                 - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
                 - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
                 - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
-                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
                 - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
+                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
             - Authorization:
-                - API Authorization: Learn/APISecurity/api-authorization.md
-                - Role-Basec Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:
                 - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md            
             - OAuth2 Deep Dive:
                 - Token types: Learn/APISecurity/OAuth2DeepDive/token-types.md
                 - OAuth2 Scopes:
-                    - Fine Grained Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                     - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
-                    - Scope Management with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-management-with-oauth-scopes.md
                 - Grant Types:
                     - Password Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant.md
                     - Client Credentials Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant.md
@@ -261,6 +265,7 @@ nav:
             - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md
             - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md 
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
+            - Managing Analytics Dashboard Permissions: Learn/Analytics/managing-dashboard-permissions.md
             - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
             - Alerts for APIs: 
                 - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
@@ -323,11 +328,13 @@ nav:
         - Installation Guide:
             - Installation Prerequisites: SetupAndInstall/InstallationGuide/installation-prerequisites.md
             - Installing the Product:
-                - Installing on Linux or OS X: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-linux-or-os-x.md
-                - Installing on Solaris: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-solaris.md
-                - Installing on Windows: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-windows.md
-                - Installing as a Linux Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-as-a-linux-service.md
-                - Installing as a Windows Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-as-a-windows-service.md
+                - Installing via the Installer: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-via-the-installer.md
+                - Installing the Binary:
+                    - Installing on Linux or OS X: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x.md
+                    - Installing on Solaris: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-solaris.md
+                    - Installing on Windows: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-windows.md
+                    - Installing as a Linux Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service.md
+                    - Installing as a Windows Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service.md
             - Running the Product: SetupAndInstall/InstallationGuide/running-the-product.md
             - Basic Health Checks: SetupAndInstall/InstallationGuide/basic-health-checks.md
         - Deploying WSO2 API Manager:
@@ -339,8 +346,10 @@ nav:
             - Distributed Deployment:
                 - Distributed Deployment Overview: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                 - Deploying WSO2 API-M in a Distributed Setup: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - Configure WSO2 API-M Gateways in a Distributed Deployment: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
-                - Configuring the Gateway in a Distributed Environment with rsync: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
+                - WSO2 API-M Gateways in a Distributed Deployment:
+                    - Configure WSO2 API-M Gateways in a Distributed Deployment: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
+                    - Configuring the Gateway in a Distributed Environment with rsync: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
+                    - Working with Hazelcast Clustering: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
                 - Configure a Thrid Party Key Manager: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
                 - Product Profiles: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
                 - WSO2 Identity Server as Key Manager: 
@@ -368,10 +377,10 @@ nav:
                 - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
                 - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
                 - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
+        - Product Compatibility: SetupAndInstall/ProductCompatibility.md
         - Performance Tuning:
               - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
               - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
-              - Performance Tuning and Testing Results: SetupAndInstall/PerfromanceTuningAndTestResults/performance-tuning-and-testing-results.md
         - Upgrading WSO2 API Manager:
               - Upgrading from the Previous Release: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
               - Upgrading from the Previous Release when WSO2 IS is the Key Manager: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
@@ -523,4 +532,4 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-  base_path: https://apim.docs.wso2.com/en/next/
+  base_path: https://apim.docs.wso2.com/en/latest

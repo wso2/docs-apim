@@ -4,26 +4,23 @@
 
 #### NodeJS and NPM
 
- NodeJS is the platform needed for the ReactJS development. 
+NodeJS is the platform needed for the ReactJS development. 
 
-The devportal user interface can be customized simply without touching the React codebase or CSS for most common cases. But for advanced use cases, it's required to modify the react code base. The API Manager distribution does not ship the React code base with it. You need to download it separately from the following URL. Note that, 349 is the tag number related to 3.0 release.
+The devportal user interface can be customized simply without touching the React codebase or CSS for most common cases. But for advanced use cases, it's required to modify the react code base. The API Manager distribution does not ship the React code base with it. You need to download it separately from the following URL. Note that, 349 is the tag number related to 3.0 release.[https://github.com/wso2/carbon-apimgt/releases/tag/v6.5.349](https://github.com/wso2/carbon-apimgt/releases/tag/v6.5.349)
 
+1. Extract the source code.
 
- https://github.com/wso2/carbon-apimgt/releases/tag/v6.5.349
+2. Copy and replace <API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/ folder from ‎⁨carbon-apimgt⁩/features⁩/apimgt⁩/org.wso2.carbon.apimgt.store.feature⁩/src⁩/main⁩/resources⁩/devportal/.
 
- 1. Extract the source code.
+3. Navigate to <API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/  in a terminal and run the following command.
 
- 2. Copy and replace <API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/ folder from ‎⁨carbon-apimgt⁩/features⁩/apimgt⁩/org.wso2.carbon.apimgt.store.feature⁩/src⁩/main⁩/resources⁩/devportal/.
-
- 3. Navigate to <API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/  in a terminal and run 
-
-```
+```js
 npm ci
 ```
- 4. Run the following to start the npm build. Note that it will continuously watch for any changes and rebuild the project.  
- ```
- npm run build:dev
- ```
+4. Run the following to start the npm build. Note that it will continuously watch for any changes and rebuild the project.  
+```
+npm run build:dev
+```
 5. If you are planning to completely rewrite the UI, then it's OK to start making changes for devportal/source/. But if you want to override a certain React Component / File from source/src/ folder, you need to do it in devportal/override/src folder. You do not have to copy the entire directory, only copy the desired file/files.
 
 #### Example
