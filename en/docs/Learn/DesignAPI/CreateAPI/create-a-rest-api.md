@@ -28,7 +28,7 @@ Follow the instructions below to create a REST API using the basic flow.
      <html>
      <div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p>The <b>CREATE & PUBLISH</b> option will appear only if the optional fields <b>Endpoint</b> and <b>Business plan(s)</b> are provided by a user who has <code>publisher</code> permission.</p>
+     <p>The <b>CREATE & PUBLISH</b> option will only appear when a user who has <code>publisher</code> permission adds the details for the <b>Endpoint</b> and <b>Business plan(s)</b>, which are optional fields.</p>
      </div>
      </html>
      
@@ -61,13 +61,13 @@ Follow the instructions below to create a REST API using the basic flow.
          <html>
          <div class="admonition info">
          <p class="admonition-title">Info</p>
-         <p>Tags can be used to filter out APIs matching certain search criteria. It is recommended that you add tags that explain the functionality and purpose of the API as subscribers can search for APIs based on the tags.</p>
+         <p>Tags can be used to filter out APIs matching specific search criteria. It is a good practice to add tags that explain the functionality and purpose of the API so that subscribers can search for APIs based on the tags.</p>
          </div>
          </html>
 
      3. Optionally, select **Yes** as the **Make this the Default Version** option.
    
-         When the API is marked as the default version -
+         When an API is the default version -
 
          -  The API will be available in the Gateway without a version specified in the production and sandbox URLs.  
          -  You to create a new version of this API and set it as the default version. Thereafter, the same resources can be invoked in the client applications without changing the API gateway URL. 
@@ -97,11 +97,11 @@ Follow the instructions below to create a REST API using the basic flow.
 
       2. Modify the resources as follows and click **SAVE** to update the resources.
 
-          1. Click delete icon, as shown below, to remove all the existing resources.
+          1. Click delete, as shown below, to remove all the existing resources.
 
               [![Delete all existing resources]({{base_path}}/assets/img/Learn/delete-all-existing-resources.jpg)]({{base_path}}/assets/img/Learn/delete-all-existing-resources.jpg)
 
-          2. Click **(+)** to add a new resouce.
+          2. Click **(+)** to add a new resource.
          
              [![Add new resource]({{base_path}}/assets/img/Learn/add-new-resource.jpg)]({{base_path}}/assets/img/Learn/add-new-resource.jpg)
       
@@ -111,7 +111,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
 3. Expand the created **GET** operation to add **Summary and Description** and **Operation governance**.
 
-     Also, resource **Parameters** can be added using **Parameters** section.
+     In addition, you can add the resource **Parameters** using the **Parameters** section.
 
       [![]({{base_path}}/assets/img/Learn/adding-params-to-resources.jpg)]({{base_path}}/assets/img/Learn/adding-params-to-resources.jpg)
 
@@ -121,7 +121,7 @@ Follow the instructions below to create a REST API using the basic flow.
      | Parameter Type                          | Description                                                                                                                                                                                     |
      |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
      | `query`| Contains the fields added as part of the invocation URL that contains the data to be used to call the backend service.                                                                             |
-     | `header`| Contains the case-sensitive names followed by a colon (:) and then by its value that carries additional information with the request which defines the operating parameters of the transaction. |
+     | `header`| Contains the case-sensitive names followed by a colon (:) and then by its value that carries additional information with the request, which defines the operating parameters of the transaction. |
      | `cookie` | Operations can also pass parameters in the Cookie header, as `Cookie: name=value`. Multiple cookie parameters are sent in the same header, separated by a semicolon and space.                                                                                            |
      | `body`| An arbitrary amount of data of any type is sent with a POST message.                                                                                                                                |
 
