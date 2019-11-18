@@ -71,7 +71,7 @@ The parameters required to invoke the following API are as follows:
 -   `token_type_hint` = This parameter is optional. If you do not specify this parameter, then WSO2 Identity Server (WSO2 IS) will search in both key spaces (access and refresh) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then WSO2 IS only searches in the respective token key space, hence the token revokation process is much faster.
 
     ``` tab="Format"
-        curl -k -v -d "token=<REFRESH_TOKEN_TO_BE_REVOKED>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:8243/revoke
+        curl -k -v -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>&token_type_hint=<access_token_or_refresh_token>" -H "Authorization: Basic <base64 encoded (clientId:clientSecret)>" -H Content-Type: application/x-www-form-urlencoded https://localhost:8243/revoke
     ```
     
     ``` tab="Example"
@@ -87,6 +87,6 @@ The parameters required to invoke the following API are as follows:
     If you obtained an access token with the Implicit grant type, you do not have to provide the client secret to revoke it. The sample cURL command to revoke an access token with Implicit grant is given below.
     
     ``` java
-        curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "token=<REFRESH_TOKEN_TO_BE_REVOKED>&token_type_hint=access_token&client_id=<CLIENT_ID>" http://localhost:8243/revoke
+        curl -X POST -H "Content-Type: application/x-www-form-urlencoded;charset=UTF-8" -d "token=<ACCESS_TOKEN_TO_BE_REVOKED>&token_type_hint=access_token&client_id=<CLIENT_ID>" http://localhost:8243/revoke
     ```
     
