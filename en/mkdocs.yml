@@ -286,7 +286,7 @@ nav:
             - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
             - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
             - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
-            - Expose a Graphql API as a managed API: Learn/Tutorials/create-a-graphql-api.md
+            - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
             - Create and Publish WebSocket API: Learn/Tutorials/create-a-websocket-api.md
         - Extensions:
@@ -529,4 +529,5 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-  base_path: https://apim.docs.wso2.com/en/latest
+  #base_path: https://apim.docs.wso2.com/en/latest
+  base_path: http://localhost:8000
