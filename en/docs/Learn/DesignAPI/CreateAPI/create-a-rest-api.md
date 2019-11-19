@@ -4,13 +4,12 @@
 
 Follow the instructions below to create a REST API using the basic flow.
 
-1. Sign in to the WSO2 API Publisher with your username and password.
+1. Sign in to the WSO2 API Publisher.
 
     `https://<hostname>:9443/publisher` 
-    
-    Example:
+   
+    Example: `https://localhost:9443/publisher`
 
-    `https://localhost:9443/publisher`
     <html><div class="admonition note">
       <p class="admonition-title">Note</p>
       <p>The <b>CREATE</b> button will only appear for a user who has the <code>creator</code> role permission.</p>
