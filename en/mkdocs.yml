@@ -379,8 +379,24 @@ nav:
               - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
               - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
         - Upgrading WSO2 API Manager:
-              - Upgrading from the Previous Release: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
-              - Upgrading from the Previous Release when WSO2 IS is the Key Manager: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
+              - Upgrading Process: SetupAndInstall/UpgradingWSO2APIManager/upgrading-process.md
+              - Before you Begin: SetupAndInstall/UpgradingWSO2APIManager/before-you-begin.md
+              - Upgrading from 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-260-to-300.md
+              - Upgrading from 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-250-to-300.md
+              - Upgrading from 2.2.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-220-to-300.md
+              - Upgrading from 2.1.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-210-to-300.md
+              - Upgrading from 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-200-to-300.md
+              - Upgrading from 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-1100-to-300.md
+              - Upgrading from 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-191-to-300.md
+
+        - Upgrading WSO2 IS as KM:
+              - Upgrading from 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-570-to-590.md
+              - Upgrading from 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-560-to-590.md
+              - Upgrading from 2.2.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-550-to-590.md
+              - Upgrading from 2.1.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-530-to-590.md
+              - Upgrading from 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-520-to-590.md
+              - Upgrading from 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-510-to-590.md
+              - Upgrading from 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-500-to-590.md
     - Administer:
         - Product Administration:
             - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
