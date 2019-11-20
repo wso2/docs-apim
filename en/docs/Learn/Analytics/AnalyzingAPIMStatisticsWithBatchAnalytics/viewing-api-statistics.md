@@ -1,220 +1,500 @@
 # Viewing API Statistics
 
-API statistics are provided in both the API Publisher and the API Store. For instructions on how to set up Analytics, see [Configuring APIM Analytics](_Configuring_APIM_Analytics_) . Once Analytics is set up, follow the instructions below to view statistics through the API Publisher and API Store.
+API statistics are provided for both the API Publisher and the Developer Portal. 
 
-First, [invoke a few APIs](https://docs.wso2.com/display/AM260/Quick+Start+Guide#QuickStartGuide-InvokingtheAPI) to generate traffic and see the statistics.
+From API-M Analytics 3.0.0 release onwards, Publisher and Developer Portal statistics are moved out from the Publisher and Developer portal apps.
+And those can be viewed using the **dashboard** runtime of the API-M Analytics server.
+
+For instructions on how to set up Analytics, see [Configuring APIM Analytics](../configuring-apim-analytics.md) . 
+Once Analytics is set up, follow the instructions below to view statistics relevant to API Publisher and Developer Portal.
+
+First, [invoke a few APIs](../../../ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/) to generate traffic and see the statistics.
 
 !!! note
-The following gadgets on the API Manager statistical dashboards, display real runtime statistics even when Analytics is not set up (as described in [Configuring APIM Analytics](_Configuring_APIM_Analytics_) ).
+      The following widgets on the API Manager statistical dashboards, display real runtime statistics even when Analytics is not set up (as described in [Configuring APIM Analytics](_Configuring_APIM_Analytics_) ).
+      
+      **Publisher Dashboard**
+      
+      + Overview Page
+        + Total Api Count
+        + Total App Count
+        + Total Subscriptions
+        + Total Signups
+        + Top Api Creators
+        + Top App Creators
+        + Top Subscriptions per API Provider
+      + API and Application Statistics Page
+        + Apis Created Over Time
+        + Apps Created Over Time
+      + Developer Statistics Page
+        + Subscriptions Over Time
+        + Developer Signups Over Time
+      + Faults Page
+        + Top Faulty Apis
+        + Top Throttled Apis
+      
+      **Developer Portal Dashboard**
+      
+      + Registered Application Users
 
--   Published APIs Over Time
--   Applications Created Over Time
--   Developer Signups Over Time
--   Subscriptions Created Over Time
--   API subscriptions
-
-The other gadgets you see on the API Manager statistical dashboards without setting up Analytics, are just samples and are not based on real runtime statistics of your server.
 
 !!! warning
-Please note that our data summarization logic summarizes the data on a **per day** basis.
+      Please note that our data summarization logic summarizes the data on a **per day** basis.
 
 
 The sections below explain how to access the statistical dashboards:
 
--   [API Publisher statistics](#ViewingAPIStatistics-APIPublisherstatistics)
--   [API Store statistics](#ViewingAPIStatistics-APIStorestatistics)
--   [Admin Portal Statistics](#ViewingAPIStatistics-AdminPortalStatistics)
++ Log in to the Analytics Dashboard by accessing `<Protocol>://<Host>:<Port>/analytics-dashboard` (ex: [https://localhost:9643/analytics-dashboard](https://localhost:9643/analytics-dashboard)). 
++ After login in, you will see the **APIM Publisher** and the **APIM Developer Portal** dashboards listed.
+  
+       ![](../../../assets/img/Learn/analytics-dashboard-listing.png)
 
-### API Publisher statistics
++ Click on the card of any desired dashboard to view that particular dashboard.
++ Admin Portal Statistics can be viewed from the admin app.
+    
+Please refer below sub sections for more details about each dashboard.
+    
+-   [**API Publisher statistics**](#api-publisher-statistics)
+-   [**Developer Portal statistics**](#developer-portal-statistics)
+-   [**Admin Portal Statistics**](#admin-portal-statistics)
+
+## API Publisher statistics
 
 !!! info
-The gadgets that display publisher statistics can only be viewed via users that have permission to create APIs. For more information, see [Managing Users and Roles](https://docs.wso2.com/display/AM260/Managing+Users+and+Roles) .
+      Unlike the previous releases of API-M Analytics dashboards, Publisher statistics dashboard can be viewed by any user having Analytics role, Creator role or Publisher role.
+      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions](../../../../Learn/Analytics/managing-dashboard-permissions/) page.
+      
+ API Publisher dashboard has 8 main pages namely **Overview**, **API and Application Statistics**, **Developer Statistics**, **Usage Summary**, **Devices**, **API Proxy Performance**, **Faults**, and **Geo Map**.
+ 
+### Overview 
+#### Total API Count
+This widget displays the total number of apis created and the number of apis created within the last week by the publishers of logged in user's tenant.
+
+  ![](../../../assets/img/Learn/publisher-overview-total-api-count.png)
+
+#### Total App Count
+This widget displays the total number of applications created and the number of applications created within the last week by the subscribers of the logged in user's tenant.
+
+ ![](../../../assets/img/Learn/publisher-overview-total-app-count.png)
+
+#### Total Subscriptions
+This widget displays the total api subscriptions by the subscribers of the logged in user's tenant and its last weeks statistics of the same factor.
+
+ ![](../../../assets/img/Learn/publisher-overview-total-subscriptions.png)
+ 
+#### Total Signups
+This widget displays count of the unique subscribers logged in to the developer portal app and its last week statistics of the same factor.
+
+ ![](../../../assets/img/Learn/publisher-overview-total-signups.png)
+
+#### Overal API Stats
+
+This widget has two sections.
+
++ Api Availability - Displays a percentage of api availability 
++ Top Rated Apis - Displays the total number of stars received (ratings) by each api 
+ 
+ for that particular tenant.
+
+!!! Note
+      In order to view statistics of **Api Availability** widget, it is required to enable alerts as described in [Configuring Alerts](../../ManagingAlertsWithRealTimeAnalytics/configuring-alerts).
+      
+  The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)](../../ManagingAlertsWithRealTimeAnalytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
+  
+  ![](../../../assets/img/Learn/publisher-overview-overall-api-stats.png)
+  
+Along with the total number of stars received for each api, Top Rated Apis section of the widget displays the api creator of each api as well. 
+By clicking on the filter arrow
+<html>
+<body>
+<img src="../../../../assets/img/Learn/analytics-filterby-arrow.png" width="20"/>
+</body>
+</html>
+,you can search by **Api name** and **Ratings**.
+
+  ![](../../../assets/img/Learn/publisher-overview-overall-api-stats-ratings.png)
+
+#### Top API Creators
+
+As the name depicts this widget displays the top api creators and the percerntage of apis that each of them have created.
+You can choose the limit of api creators that you want to see by giving the number under the limit field.
+   
+   ![](../../../assets/img/Learn/publisher-overview-top-api-creators-1.png)
+   
+You also get a list view of api creators along with the number of apis created by each api creator. 
+This list can be searched either via Api name or Api count.
+
+   ![](../../../assets/img/Learn/publisher-overview-top-api-creators-2.png)
+
+#### Top App Creators
+
+As same as Top Api Creators widget, Top App Creators widget displays a percentage of apps created by each app creator and also a list of app creators along with the number of apps they created with the filtering capabilities.
+
+   ![](../../../assets/img/Learn/publisher-overview-top-app-creators-1.png)
+  
+   ![](../../../assets/img/Learn/publisher-overview-top-app-creators-2.png)
+  
+#### Top Subcriptions per API Provider
+
+This widget displays the percentage of subscription count against each api provider. It also has a list view with the subscription count with the filtering capability based on the provider name and count.
+
+   ![](../../../assets/img/Learn/publisher-overview-top-subscription-per-provider-1.png)
+      
+   ![](../../../assets/img/Learn/publisher-overview-top-subscription-per-provider-2.png)
+   
+### API and Application Statistics
+
+Under this page you can choose to view APIs/Apps based on different filter criteria.
+You can also select the time period and granularities such as minute, hour,day for which you wish to view the statistics. 
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-date-time-picker.png" width="500"/>
+</body>
+</html>
+
+#### APIs Created Over Time
+
+This widget displays the number of apis published over a given time period.
+You can filter based on the api created by you or apis created by all.
+It also has a list view along with the filtering capability based on Api Name.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-api-and-app-api-created-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-api-and-app-api-created-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Apps Created Over Time
+
+This widget displays number of applications created over a given period of time. Statistics can be filtered based on api creator, app creator and subscribed api.
+This also has a list view with app name and created time which can be filtered based on the app name.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-api-and-app-app-created-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-api-and-app-app-created-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+### Developer Statistics
+
+#### Subscriptions Over Time
+
+This widget displays the number of subscriptions created for an API over a given period.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-dev-stats-subscription-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-dev-stats-subscription-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Developer Signups Over Time
+
+This widget displays the number of developers who signed up to the developer portal over time. 
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-dev-stats-developer-signups-over-time.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-dev-stats-developer-signups-over-time.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+### Usage Summary
+
+#### Overall API Usage
+
+This widget displays the number of subscriptions of each API with a graphical view of number of api invocations. 
+It also has a list view of total number of api invocations across all versions.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-overall-api-usage.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-overall-api-usage.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### API Version Usage Summary
+
+This widget displays the api invocation counts for each of the APIs grouped by each API version.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-version-usage-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-version-usage-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Top API Users
+
+This widget lists the users who has done the most number of api invocations. 
+It also has several filters to search based on the creator of the api ( either All or Me ), Api Name and Api Version.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-top-api-users.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-top-api-users.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### API Resource Usage Summary
+
+This widget displays the number of api invocations made by resources for an API in a list view.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-resource-usage-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-resource-usage-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### API Backend Usage Summary
+
+This widget displays the number of total api invocations aggregated based on Api Name, Api Version, Api Creator, Api Context  and Api Backend endpoint.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-backend-usage-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-backend-usage-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### API Last Access Summary
+
+This widget is a list view of the last access times of an API, according to the version and the accessed subscriber.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-usage-summary-api-last-access-summary.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-usage-summary-api-last-access-summary.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+### Devices
+
+#### Top User Agents
+
+This widget displays the percentage of api invocations using each browser. And the results can be filtered based on Api Creator ( either All or Me), Api Name and Api version.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-devices-top-user-agents.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-devices-top-user-agents.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Top Platforms
+
+This widget displays the percentage of api invocations done using different operating systems.
+Results of this widget also can be filtered based on Api Creator ( either All or Me), Api Name and Api version.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-devices-top-platforms.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-devices-top-platforms.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+### API Proxy Performance
+
+#### API Latency Time
+
+This widget displays the execution time of the APIs represented as a combination of throttling, In mediation, Out mediation, backend response time, and authentication time.
+It also displays a comparison view of the latencies.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-1.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-1.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+<img src="../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-2.png" 
+      onclick="window.open('../../../../assets/img/Learn/publisher-api-proxy-performance-api-latency-time-2.png', '_self');" 
+      alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+### Faults
+
+#### Top Faulty APIs
+
+A successful invocation is when an API receives the expected response. 
+In Analytics, if a runtime exception that is related to the backend communication occurs, it is considered as a faulty invocation. 
+However, authentication related issues are not considered as faulty invocations. 
+A percentage of faulty invocations for each api is displayed in this widget and it also has a list view which displays the total number of faulty invocations for each api.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-fault-top-faulty-apis.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-fault-top-faulty-apis.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+#### Top Throttled Out APIs
+
+This widget displays a percentage of throttled out request counts for each api as well as a list view with throttled out request count.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-fault-top-throttled-out-apis.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-fault-top-throttled-out-apis.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+
+### Geo Map
+
+#### Geo Location Based Invocations
+
+Geolocation based statistics are used to carryout detailed monitoring of geographic locations. 
+You need to pass an x-forwarded-for header with the relevant IP in the API request in order to generate Geolocation based statistics. 
+For more information, see [Using Geolocation Based Statistics](../../../../Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics/). 
+
+The data script that updates statistics related to geo locations is executed once a day. 
+Therefore, at a given time, some statistics generated within the last 24 hours may not be displayed in this widget.
+
+<html>
+<body>
+<img src="../../../../assets/img/Learn/publisher-geo-map-geo-based-invocation.png" 
+     onclick="window.open('../../../../assets/img/Learn/publisher-geo-map-geo-based-invocation.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+ 
+## Developer Portal Statistics
+
+!!! info
+      Similar to the Publisher statistics dashboard, Developer Portal statistics dashboard can be viewed by any user having Analytics role or subscriber role. 
+      And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions](../../../../Learn/Analytics/managing-dashboard-permissions/) page.
 
 
-Log in to the API Publisher. Anyone who can create and/or publish APIs can view the API-level usage and subscription statistics by clicking on a selected API and referring to its **Versions** and **Users** tabs.
+Log into the analytics-dashboard application and access developer portal statistics ( ex: [https://localhost:9643/analytics-dashboard/dashboards/apimdevportal](https://localhost:9643/analytics-dashboard/dashboards/apimdevportal) ) dashboard from there.
 
-![]({{base_path}}/assets/attachments/103335072/103335085.png)
-![]({{base_path}}/assets/attachments/103335072/103335086.png)
-Given below are the statistical dashboards that are available from the **Analytics** menu.
+#### Faulty Invocation per Application
 
-![]({{base_path}}/assets/attachments/103335072/103335079.png)![]({{base_path}}/assets/attachments/103335072/103335080.png)
-In each of the dashboards, you can choose to view all APIs or if you are an API creator, only the APIs that you have created. You can also select the time period for which you wish to view the statistics.
-![]({{base_path}}/assets/attachments/103335072/103335092.png)
+In a faulty API invocation, the message is mediated though the fault sequence. 
+By default, the API Manager considers an API invocation to be faulty when the backend service is unavailable or if a runtime exception occurs that is related to the backend communication.
+The total number of invocations made by each application that are faulty are represented in these statistics.
 
-Several examples of usage and performance statistics are given below:
+<html>
+<body>
+<img src="../../../../assets/img/Learn/devportal-faulty-invocations-per-application.png" 
+     onclick="window.open('../../../../assets/img/Learn/devportal-faulty-invocations-per-application.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
 
--   [Created APIs Over Time](#ViewingAPIStatistics-CreatedAPIsOverTime)
--   [API Usage](#ViewingAPIStatistics-APIUsage)
--   [API Last Access Times](#ViewingAPIStatistics-APILastAccessTimes)
--   [Usage by Resource Path](#ViewingAPIStatistics-UsagebyResourcePath)
--   [Usage by Destination](#ViewingAPIStatistics-UsagebyDestination)
--   [API Usage Comparison](#ViewingAPIStatistics-APIUsageComparison)
--   [API Throttled Requests](#ViewingAPIStatistics-APIThrottledRequests)
--   [Faulty Invocations](#ViewingAPIStatistics-FaultyInvocations)
--   [API Latency Time](#ViewingAPIStatistics-APILatencyTime)
--   [API Usage Across Geo Locations](#ViewingAPIStatistics-APIUsageAcrossGeoLocations)
--   [API Usage Across User Agent](#ViewingAPIStatistics-APIUsageAcrossUserAgent)
--   [App Throttled Requests](#ViewingAPIStatistics-AppThrottledRequests)
--   [Applications Created Over Time](#ViewingAPIStatistics-ApplicationsCreatedOverTime)
--   [API Subscriptions](#ViewingAPIStatistics-APISubscriptions)
--   [Developer Signups Over Time](#ViewingAPIStatistics-DeveloperSignupsOverTime)
--   [Subscriptions Created Over Time](#ViewingAPIStatistics-SubscriptionsCreatedOverTime)
--   [API Usage per Application](#ViewingAPIStatistics-APIUsageperApplication)
--   [Top Users per Application](#ViewingAPIStatistics-TopUsersperApplication)
--   [Resource Usage per Application](#ViewingAPIStatistics-ResourceUsageperApplication)
--   [Faulty Invocations per Application](#ViewingAPIStatistics-FaultyInvocationsperApplication)
--   [Availability of APIs](#ViewingAPIStatistics-AvailabilityOfAPIsAvailabilityofAPIs)
+#### Top Application Users
 
-##### Created APIs Over Time
+This widget displays the users who made the largest number of API calls per application. 
+You also can limit the number of users that needs to be listed by changing the limit filter in the UI.
 
-The number of APIs published over a given time period.
-![]({{base_path}}/assets/attachments/103335072/103335084.png)
-##### API Usage
+<html>
+<body>
+<img src="../../../../assets/img/Learn/devportal-top-application-users.png" 
+     onclick="window.open('../../../../assets/img/Learn/devportal-top-application-users.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
+     
+#### Registered Application Users
 
-The number of subscriptions of each API with a grahical view of the count.
-![]({{base_path}}/assets/attachments/103335072/103335106.png)
-##### API Last Access Times
+The statistics for this widget takes the number of users shared across each application in to consideration. 
 
-A tabular representation of the last access times of an API, according to the version and the accessed subscriber.
-![]({{base_path}}/assets/attachments/103335072/103335104.png)
-##### Usage by Resource Path
+To enable application sharing among users within the same organization, see [Sharing Applications](../../../../Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications/).
+Only users who have generated access tokens using the [password grant type](../../../../Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant/) are considered in these statistics.
 
-The number of invocations made by resources for an API, represented in a tabular view.
-![]({{base_path}}/assets/attachments/103335072/103335089.png)
-##### Usage by Destination
+<html>
+<body>
+<img src="../../../../assets/img/Learn/devportal-registered-application-users.png" 
+     onclick="window.open('../../../../assets/img/Learn/devportal-registered-application-users.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
 
-The number of times an API was accessed based on the destination, represented in a tabular view.
-![]({{base_path}}/assets/attachments/103335072/103335103.png)
-##### API Usage Comparison
+#### Resource Usage of Application
 
-The number of invocations made for an API represented as a combination of all resources and all versions of the API.
-![]({{base_path}}/assets/attachments/103335072/103335102.png)
-##### API Throttled Requests
+This widget displays the usage of resources of the APIs by each application.
 
-The total count of the successful request count and throttled request count towards an API over time.
-![]({{base_path}}/assets/attachments/103335072/103335074.png)
-##### Faulty Invocations
+<html>
+<body>
+<img src="../../../../assets/img/Learn/devportal-resource-usage-of-application.png" 
+     onclick="window.open('../../../../assets/img/Learn/devportal-resource-usage-of-application.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
 
-A successful invocation is when an API receives the expected response. If it results in any kind of error response, that invocation is considered a faulty invocation. The total number of invocations of an API represented as a combination of successful and faulty invocations is denoted in the faulty invocations graph.
-![]({{base_path}}/assets/attachments/103335072/103335073.png)
-##### API Latency Time
+#### Api Usage of Application
 
-The execution time of the APIs represented as a combination of throttling, In mediation, Out mediation, backend response time, and authentication time.
+This widget displays the number of invocations made for each API by each application.
 
-You can also see a comparison view of the latencies.
+<html>
+<body>
+<img src="../../../../assets/img/Learn/devportal-api-usage-of-application.png" 
+     onclick="window.open('../../../../assets/img/Learn/devportal-api-usage-of-application.png', '_self');" 
+     alt="failover" width="70%" height="70%"/>
+</body>
+</html>
 
-![]({{base_path}}/assets/attachments/103335072/103335101.png)
-##### API Usage Across Geo Locations
+## Admin Portal Statistics
 
-The data script that updates statistics related to geo locations is executed once a day. Therefore, at a given time, some of the statistics generated within the last 24 hours may not be displayed in this gadget.
-![]({{base_path}}/assets/attachments/103335072/103335077.png)
+Log in to the Admin Portal ( `https://localhost:9443/admin` ). 
+API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY** .
 
-##### API Usage Across User Agent
-
-The proportional distribution of the usage (invocation) of each API differentiated by the user agent HTTP header received in requests towards the API.
-![]({{base_path}}/assets/attachments/103335072/103335099.png)
-##### App Throttled Requests
-
-The successful request count and throttled request count of each API invoked by each application.
-![]({{base_path}}/assets/attachments/103335072/103335098.png)
-##### Applications Created Over Time
-
-The number of applications created over a given time period.
-![]({{base_path}}/assets/attachments/103335072/103335097.png)
-##### API Subscriptions
-
-The subscriptions created for each of the APIs as a distribution of API versions.
-![]({{base_path}}/assets/attachments/103335072/103335096.png)
-##### Developer Signups Over Time
-
-The number of developers who signed up to the API Store over time.
-![]({{base_path}}/assets/attachments/103335072/103335095.png)
-##### Subscriptions Created Over Time
-
-The number of subscriptions created for an API over a given period.
-
-First, select the API for which you wish to view subscriptions.
-
-![]({{base_path}}/assets/attachments/103335072/103335083.png)
-![]({{base_path}}/assets/attachments/103335072/103335093.png)
-### API Store statistics
-
-Log in to the API Store. You can [self-subscribe](https://docs.wso2.com/display/AM260/Customizing+the+API+Store#CustomizingtheAPIStore-Enablingordisablingselfsignup) to the store. Next, click the **Statistics** menu.
-
-![]({{base_path}}/assets/attachments/103335072/103335078.png)
-Given below are the statistical dashboards that are available:
-
--   **APIUsage** : The usage of the API per application.
--   **Top Users** : Users who make the most API invocations per application and the number of registered users per application.
--   **Resource Usage** : The usage of an API and from which resource path per application.
--   **Faulty Invocations** : The number of faulty API invocations per application.
-    In a faulty API invocation, the message is mediated though the `fault` sequence. By default, the API Manager considers an API invocation to be faulty when the backend service is unavailable.
-
-Several examples of usage and performance statistics are given below:
-
-##### API Usage per Application
-
-The number of invocations made for each API by each application.
-![]({{base_path}}/assets/attachments/103335072/103335114.png)
-##### Top Users per Application
-
-The users who made the largest number of API calls per application.
-![]({{base_path}}/assets/attachments/103335072/103335088.png)
-!!! note
-The statistics for the registered users for applications takes the number of users shared across each application in to consideration. To enable application sharing among users within the same organization, see [Sharing Applications](https://docs.wso2.com/display/AM260/Sharing+Applications) .
-
-Only users who have generated access tokens using the [password grant](https://docs.wso2.com/display/AM260/Password+Grant) type are considered in these statistics.
-
-
-##### Resource Usage per Application
-
-The usage of resources of the APIs by each application.
-![]({{base_path}}/assets/attachments/103335072/103335112.png)
-##### Faulty Invocations per Application
-
-The total number of invocations made by each application that are unsuccessful (faulty).
-
-![]({{base_path}}/assets/attachments/103335072/103335111.png)
-### Admin Portal Statistics
-
-Log in to the Admin Portal ( `https://localhost:9443/admin` ). API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY** .
-
-##### Availability of APIs
+#### Availability of APIs
 
 The status of the APIs (all API versions) represented in a tabular view.
 
-![]({{base_path}}/assets/attachments/103335072/103335076.png)
+<html>
+<body>
+<img src="../../../../assets/img/Learn/admin-portal-apiAvailability.png" 
+     onclick="window.open('../../../../assets/img/Learn/admin-portal-apiAvailability.png', '_self');" 
+     alt="failover" width="100%" height="100%"/>
+</body>
+</html>
+
+<html>
 <table>
+<thead></thead>
 <tbody>
 <tr class="odd">
 <td>Status</td>
 <td><div class="content-wrapper">
 <p>This indicates the status of the API. There are two possible values; <strong>Available</strong> and <strong>Limited</strong> .</p>
 <p><strong>Available</strong> - This status indicates that the API has traffic with normal successful invocations. By default, if an API receives successful invocations for at least one out of five invocations within 30000 milliseconds, the status of the API becomes <strong>Available</strong> .</p>
-!!! note
-<p>Note that only the APIs that have traffic are represented in this tabular representation.</p>
 
-<p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in <a href="Alert-Types_103335140.html#AlertTypes-AvailabilityofAPIs(healthmonitoring)">Availability of APIs (health monitoring)</a> , the API status changes to <strong>Limited</strong> .</p>
-!!! note
-<p>For more information on how to view the generated alerts, see <a href="_Viewing_Alerts_">Viewing Alerts</a> .</p>
+<html><div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>Note that only the APIs that have traffic are represented in this tabular representation.</p>
+</div>
+</html>
+
+<html><p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in [Availability of APIs (health monitoring)](../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types/#availability-of-apis-api-health-monitoring), the API status changes to <strong>Limited</strong> .</p></html>
+
+<html><div class="admonition info">
+<p class="admonition-title">Note</p>
+<p>For more information on how to view the generated alerts, see [Viewing Alerts](../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts/)</p>
+</div>
+</html>
 
 </div></td>
 </tr>
 </tbody>
 </table>
+</html>
 
-The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)](Alert-Types_103335140.html#AlertTypes-AvailabilityofAPIs(healthmonitoring)) alert type. You can edit the default configurations of the numbers set as parameters to cumstomize generating alerts by navigating to **SETTINGS &gt; ANALYTICS** and by going to the **Edit** view of **HealthAvailabilityPerMinAlert** as shown below.
-
-![]({{base_path}}/assets/attachments/103335072/103335075.png)
-
-The parameter configurations of this alert type are given below.
-
-|                                             |                                                                                                                                                                                                                                                               |
-|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Number of continuous responses              | Considering the aspect of generating the alerts, number of responses that should fail to pass the lower percentile. The default value is 5 responses.                                                                                                         |
-| Number of continuous response time failures | The number of minutes that responses should fail to pass the lower percentile for the alert to be generated. The default value is 5 minutes.                                                                                                                  |
-| Time interval                               | The time duration taken to recheck and change the availability of an API. The availability of the API is rechecked after this time interval and the new status is retrieved if the behaviour changes. The default value is 300 seconds (300000 milliseconds). |
-| Cache time-out                              | The cache time-out value in seconds.                                                                                                                                                                                                                          |
-| Severity level                              | The severity level of the alert, which you can specify as 1, 2 or 3 where 1 is severe, 2 is moderate and 3 is mild.                                                                                                                                           |
-
-
+The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)](../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types/#availability-of-apis-api-health-monitoring) alert type.

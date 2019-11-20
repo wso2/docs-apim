@@ -30,7 +30,7 @@ Once these steps are done we will take a look at how we can create an API using 
 
 4. We are about to create an API for a Hello World REST service. Let's quickly create a mock REST service for Hello World using `https://www.mocky.io/`. Visit this website on a new tab on your browser. You should see a URL being displayed on the top of the web page which looks like below
 
-    `https://www.mocky.io/v2/5185415ba171ea3a00704eed`
+    `http://www.mocky.io/v2/5185415ba171ea3a00704eed`
 
     Copy this URL and use a new browser tab to navigate to it. You should see a JSON message saying `{"hello": "world"}` We are going to create an OAuth2.0 protected REST API for this service on API Manager.
 
