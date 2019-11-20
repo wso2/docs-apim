@@ -12,33 +12,33 @@ This is why WSO2 API-M has partnered up with 42Crunch to bring the ability to au
 
 2.  Create a new API Token from the **Settings** Menu as shown below.
 
-    ![](../../../assets/img/Learn/api-token-settings-menu.png)
+    ![]({{base_path}}/assets/img/Learn/api-token-settings-menu.png)
 
 3.  Click on the **API Tokens** tab and select **Create New Token**
 
-    ![](../../../assets/img/Learn/api-token-create-button.png)
+    ![]({{base_path}}/assets/img/Learn/api-token-create-button.png)
 
 4.  A dialog box will be shown where you need to enter the name of the Token and select appropriate access rights. For the audit feature to work, only the **API Contract Security Audit** permission is required.
 
-    ![](../../../assets/img/Learn/api-token-dialog-box.png)
+    ![]({{base_path}}/assets/img/Learn/api-token-dialog-box.png)
 
 5.  Clicking on the **Generate Token** will lead to another dialog box showing the generated API Token.
 
     !!! note 
         The generated API Token will only be shown once, so make sure to copy it and save it in a safe place for reference.
 
-    ![](../../../assets/img/Learn/api-token-copy-generated.png)
+    ![]({{base_path}}/assets/img/Learn/api-token-copy-generated.png)
 
 6.  Now create a new Collection by clicking any one of the highlighted areas below.
 
     !!! note
         A Collection in this context is a folder hosted on 42Crunch for all the APIs that are audited
 
-    ![](../../../assets/img/Learn/collection-create-new.png)
+    ![]({{base_path}}/assets/img/Learn/collection-create-new.png)
 
 7.  Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference, just like the API Token.
 
-    ![](../../../assets/img/Learn/collection-copy-id.png)
+    ![]({{base_path}}/assets/img/Learn/collection-copy-id.png)
 
 ### Configure WSO2 API-M with the retrieved properties
 
@@ -100,7 +100,7 @@ If the properties are to be available to a specific tenant only, then do the fol
         }
     ```
 
-    ![](../../../assets/img/Learn/tenant-conf-properties.png)
+    ![]({{base_path}}/assets/img/Learn/tenant-conf-properties.png)
 
     !!! note
         If you want the security audit properties set for a particular tenant to override the security audit properties available globally in the `<API-M_HOME>/repository/conf/deployment.toml` file, then the **overrideGlobal** property should be set to **true**.
@@ -112,11 +112,11 @@ If the properties are to be available to a specific tenant only, then do the fol
 
 Once the feature is enabled, you will be able to see the **Audit API** button in the **API Publisher** under the **API Definitions** tab.
 
-![](../../../assets/img/Learn/audit-api-button.png)
+![]({{base_path}}/assets/img/Learn/audit-api-button.png)
 
 The following is a sample Audit Report
 
-![](../../../assets/img/Learn/sample-audit-report.png)
+![]({{base_path}}/assets/img/Learn/sample-audit-report.png)
 
 There are 4 sections to the Audit Report:
 
