@@ -1,16 +1,16 @@
 # Change the Default Mediation Flow of API Requests
 
 !!! note
-This tutorial uses the WSO2 API Manager Tooling Plug-in .
+This tutorial uses the WSO2 API Manager Tooling Plug-in.
 
 
-The API Gateway has a [default mediation flow](_Adding_Mediation_Extensions_) for the API invocation requests that it receives. You can extend this default mediation flow to do additional custom mediation for the messages in the API Gateway. An extension is provided as a [synapse mediation sequence](https://docs.wso2.com/display/EI630/Mediation+Sequences) . You design all sequences using a tool such as the WSO2 API Manager Tooling Plug-in and then store the sequence in the Gateway's registry.
+The API Gateway has a [default mediation flow](../../../Learn/Extensions/adding-mediation-extensions.md) for the API invocation requests that it receives. You can extend this default mediation flow to do additional custom mediation for the messages in the API Gateway. An extension is provided as a [synapse mediation sequence](https://docs.wso2.com/display/EI650/Mediation+Sequences). You design all sequences using a tool such as the WSO2 API Manager Tooling Plug-in and then store the sequence in the Gateway's registry.
 
 Let's see how to create a custom sequence using the WSO2 API Manager Tooling Plug-in and then deploy and use it in your APIs.
 
 1.  Sign in to the API Publisher.
 
-2.  Click **Add** to  create an API with the following information and then click **Next: Implement &gt;** .
+2.  Click **CREATE API** and then **Design a new REST API** to create an API with the following information.
 
     <table>
     <thead>
@@ -51,69 +51,52 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     <td>Request types</td>
     <td><p>GET method to return the current weather conditions of a zip code that belongs to a particular country</p></td>
     </tr>
+    <tr class="even">
+    <td>Business Plan</td>
+    <td></td>
+    <td>Gold</td>
+    </tr>
     </tbody>
     </table>
 
-    ![]({{base_path}}/assets/attachments/103332556/103332553.png)
+    ![](../../../assets/img/Learn/yahooweatherapi.png)
 
-3.  The `Implement` tab opens. Select **Managed API** , provide the information given in the table below and click **Manage** .
-
+3.  Go to **Endpoints** tab and. add below endpoint details and Click **Save**.
     | Field               | Sample value                                                                                                                                                                                                                                                                                                                                                                                                                                     |
     |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Endpoint type       | HTTP/REST endpoint                                                                                                                                                                                                                                                                                                                                                                                                                               |
-    | Production endpoint | You can find the Yahoo weather API's endpoint from <https://developer.yahoo.com/weather/> . Copy the part before the '?' sign to get this URL: [https://query.yahooapis.com/v1/public/yql](https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys) 
-                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-      To verify the URL, click the **Test** button next to it.                                                                                                                                                                                                                                                                                                                                                                                          |
-    | Sandbox endpoint    | [https://query.yahooapis.com/v1/public/yql](https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys) To verify the URL, click the **Test** button next to it.                                                                                       |
+    | Production endpoint | You can find the Yahoo weather API's endpoint from <https://developer.yahoo.com/weather/>. Copy the part before the '?' sign to get this URL: [https://query.yahooapis.com/v1/public/yql](https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys) 
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+    | Sandbox endpoint    | [https://query.yahooapis.com/v1/public/yql](https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22nome%2C%20ak%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys)                                             |
 
-    ![]({{base_path}}/assets/attachments/103332556/103332552.png)
+    ![](../../../assets/img/Learn/weatherapi-endpoint.png)
 
-4.  Click **Next: Manage &gt;** to go to the `Manage` tab, provide the following information and click **Save & Publish** once you are done.
-
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Field</th>
-    <th>Sample value</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td>Tier Availability</td>
-    <td>Gold</td>
-    </tr>
-    <tr class="even">
-    <td>Keep the default values for the other attributes</td>
-    <td><br />
-    </td>
-    </tr>
-    </tbody>
-    </table>
-
-    ![]({{base_path}}/assets/attachments/103332556/103332551.png)
+4. Go to **Lifecycle** tab and **Publish** the API.
+    ![](../../../assets/img/Learn/lifecycle-publish.png)
 
 5.  Download and install the WSO2 API Manager Tooling Plug-in by following one of the three possible methods described in Installing the API Manager Tooling Plug-In if you have not done so already. Start Eclipse by double clicking on the Eclipse application, which is  inside the downloaded folder.
 
 6.  Navigate to the **Window** menu, click **Perspective** , **Open Perspective,** and **Other** to open the Eclipse perspective selection window.
+    ![](../../../assets/img/Learn/eclipse-open-perspective.png)
 7.  On the dialog box that appears, click **WSO2 API Manager** and click **OK** .
-    ![]({{base_path}}/assets/attachments/103332556/103332544.png)
+    ![](../../../assets/img/Learn/eclipse-open-apim.png)
 8.  On the APIM perspective, click the **Login** icon as shown below.
-    ![]({{base_path}}/assets/attachments/103332556/103332531.png)
+    ![](../../../assets/img/Learn/eclipse-login.png)
 9.  On the dialog box that appears, enter the URL, username, and password of the Publisher server.
-    ![]({{base_path}}/assets/attachments/103332556/103332526.png)
+    ![](../../../assets/img/Learn/eclipse-add-registry.png)
 10. On the tree view that appears, expand the folder structure of the existing API.
 11. Right-click on the `in` sequence folder and click **Create** to create a new `in` sequence.
-    ![]({{base_path}}/assets/attachments/103332556/103332527.png) This is because you want the custom sequence to be invoked in the `In` direction or the request path. If you want it to be involved in the `Out` or `Fault` paths, select the respective folder under `customsequences` .
+    ![](../../../assets/img/Learn/eclipse-create-in-seq.png) This is because you want the custom sequence to be invoked in the `In` direction or the request path. If you want it to be involved in the `Out` or `Fault` paths, select the respective folder under `customsequences`.
 
         !!! tip
-    **Tip** : If you prefer not to use the registry to upload the sequence or want to engage a sequence to all APIs in WSO2 API-M at once, you can do so by saving the mediation sequence XML file in the file system. See [Adding Mediation Extensions](_Adding_Mediation_Extensions_) for details.
+    **Tip** : If you prefer not to use the registry to upload the sequence or want to engage a sequence to all APIs in WSO2 API-M at once, you can do so by saving the mediation sequence XML file in the file system. See [Adding Mediation Extensions](../../../Learn/Extensions/adding-mediation-extensions.md) for details.
 
 
 12. Name the sequence `YahooWeatherSequence` .
-13. Your sequence now appears on the Developer Studio console. From under the **Mediators** section, drag and drop a [**Property** mediator](https://docs.wso2.com/display/EI630/Property+Mediator) to your sequence and give the following values to the property mediator.
+13. Your sequence now appears on the Developer Studio console. From under the **Mediators** section, drag and drop a [**Property** mediator](https://docs.wso2.com/display/EI650/Property+Mediator) to your sequence and give the following values to the property mediator.
 
         !!! note
-    The **Property Mediator** has no direct impact on the message, but rather on the message context flowing through Synapse. You can retrieve the properties set on a message later through the [Synapse XPath Variables](https://docs.wso2.com/display/EI630/Accessing+Properties+with+XPath#AccessingPropertieswithXPath-SynapseXPathVariables) or the `get-property()` extension function. In this sequence, we are using two property mediators and set a Synapse XPath variable and a `get-property()` function to the two mediators respectively to retrieve the properties set to the message context during the execution.
+    The **Property Mediator** has no direct impact on the message, but rather on the message context flowing through Synapse. You can retrieve the properties set on a message later through the [Synapse XPath Variables](https://docs.wso2.com/display/EI650/Accessing+Properties+with+XPath#AccessingPropertieswithXPath-SynapseXPathVariables) or the `get-property()` extension function. In this sequence, we are using two property mediators and set a Synapse XPath variable and a `get-property()` function to the two mediators respectively to retrieve the properties set to the message context during the execution.
 
 
     <table>
@@ -157,7 +140,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![]({{base_path}}/assets/attachments/103332556/103332533.png)
+    ![](../../../assets/img/Learn/eclipse-property-mediator-copy.png)
 
 14. Similarly, add another property mediator with the following values. This is an HTTP transport property that appends its value to the address endpoint URL. Once you are done, save the sequence.
 
@@ -191,7 +174,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![]({{base_path}}/assets/attachments/103332556/103332532.png)
+    ![](../../../assets/img/Learn/eclipse-property-name.png)
 
 15. Navigate to the **File** menu, and click **Save** to save the sequence.
 16. Right-click on the sequence and click **Commit File** to push the changes to the Publisher server.
@@ -200,25 +183,25 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     Alternatively, you can create a CAR file including the sequences and can deploy it in API Manager. For more information, see [Deploying Composite Applications in the Server](https://docs.wso2.com/display/ADMIN44x/Deploying+Composite+Applications+in+the+Server) , which is in the WSO2 Administration Guide.
 
 
-17. Sign in to the API Publisher again, select the API that you created earlier, and click the **Edit** link right next to its name to go to the edit wizard.
-    ![]({{base_path}}/assets/attachments/103332556/103332530.png)
-18. Navigate to the API's **Implement** tab, select the **Enable Message Mediation** check box and select the sequence that you created for the In flow. Next, click **Manage** and **Save & Publish** the API again.
+17. Sign in to the API Publisher again, select the API that you created earlier.
+    ![](../../../assets/img/Learn/weatherapi-overview.png)
+18. Go to the API's **Runtime Configurations** tab, enable the **Message Mediation** switch and enable **Custom Policies**. Now you can upload the sequence that you created for the In flow. Next, click **Save** to engage the sequence to the API.
 
         !!! tip
     **Tip** : It might take a few minutes for the sequence to be uploaded into the API Publisher. If it isn't there, please check again later.
 
 
-    ![]({{base_path}}/assets/attachments/103332556/103332550.png)
+    ![](../../../assets/img/Learn/upload-in-seq.png)
 
         !!! note
-    When selecting a mediator, make sure that it is a non-blocking mediator as blocking mediators are not supported in API Gateway custom mediations. For more details, see [Adding Mediation Extensions](_Adding_Mediation_Extensions_) .
+    When selecting a mediator, make sure that it is a non-blocking mediator as blocking mediators are not supported in API Gateway custom mediations. For more details, see [Adding Mediation Extensions](/Users/isharacooray/Documents/apim/public/docs-apim/en/docs/Learn/Extensions/adding-mediation-extensions.md).
 
 
 19. Sign in to the API Store, subscribe to the API that you just published, and generate the access tokens in order to invoke the API.
-    ![]({{base_path}}/assets/attachments/103332556/103332529.png)
-20. Click the **API Console** tab of the API.
-    It opens the integrated API Console using which you can invoke the API.
-    ![]({{base_path}}/assets/attachments/103332556/103332528.png)
+    ![](../../../assets/img/Learn/subscribe-weatherapi.png)
+20. Click the **Try Out** tab of the API.
+    It opens the integrated API Console using which you can invoke the API. Click on the GET '/current/{country}/{zipcode}' resource and click on **Try it out**
+    ![](../../../assets/img/Learn/tryout-weatherapi.png)
 21. Give the following values for the parameters and invoke the API. You can also give any other value of your choice.
 
     <table>
@@ -238,7 +221,7 @@ Let's see how to create a custom sequence using the WSO2 API Manager Tooling Pl
     </tbody>
     </table>
 
-    ![]({{base_path}}/assets/attachments/103332556/103332549.png)
+    ![](../../../assets/img/Learn/apiconsole-with-parameters.png)
     Note the response that you get as a JSON object from Yahoo.
 
     ``` java
