@@ -49,7 +49,7 @@ If you wish to view reports, statistics, and graphs related to the APIs deployed
 
 ### Step 6 - Configure the connections among the components and start the servers
 
-You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. It is recommended to start the components in the following order: Key Manager, Traffic Manager, Publisher, Developer Portaland Gateway.
+You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. It is recommended to start the components in the following order: Key Manager, Traffic Manager, Publisher, Developer Portal and Gateway.
 
 !!! note
     In a clustered environment, you use session affinity ( sticky sessions ) to ensure that requests from the same client always get routed to the same server.
@@ -120,7 +120,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
 
 !!! note
-    It is not recommended to share the Solr directory between the Developer Portaland Publisher servers. You need to have separate Solr directories for each of the latter mentioned servers so that they will perform Solr indexing separately.
+    It is not recommended to share the Solr directory between the Developer Portal and Publisher servers. You need to have separate Solr directories for each of the latter mentioned servers so that they will perform Solr indexing separately.
 !!! warning
     If you get an error similar to the following in both or one of the nodes, check whether you have shared the Solr directory.
     ``` java
@@ -381,10 +381,10 @@ This section involves setting up the API Publisher node and enabling it to work 
                 https_endpoint = "https://[API-Gateway-Manager-Host]:${https.nio.port}"
             ```
 
-    3.  Configure the Developer PortalURL to appear in the Publisher UI.
+    3.  Configure the Developer Portal URL to appear in the Publisher UI.
 
-        -   [**Single Dev Portal**](#single-DevPortal-Publisher)
-        -   [**Developer Portalwith HA**](#HA-DevPortal-Publisher)
+        -   [**Single Developer Portal**](#single-DevPortal-Publisher)
+        -   [**Developer Portal with HA**](#HA-DevPortal-Publisher)
 
         Configure the **Publisher with a single API Dev portal** as follows:
 
@@ -488,16 +488,16 @@ This section involves setting up the API Publisher node and enabling it to work 
     ```
 #### Step 6.4 - Configure and start the Dev Portal
 
-This section involves setting up the Developer Portalnode and enabling it to work with the other components in the distributed deployment .
+This section involves setting up the Developer Portal node and enabling it to work with the other components in the distributed deployment .
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Developer Portalnode and make the following changes.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Developer Portal node and make the following changes.
 
-    1.  Configure the **Developer Portalwith the Key Manager.**
+    1.  Configure the **Developer Portal with the Key Manager.**
 
         -   [**Single Key Manager**](#single-Key-Manager-devPortal)
         -   [**Key Manager with HA**](#HA-Key-Manager-devPortal)
 
-        Configure the **Developer Portalwith a single Key Manager** as follows:
+        Configure the **Developer Portal with a single Key Manager** as follows:
 
         1.  Configure the API key validator.
 
@@ -508,7 +508,7 @@ This section involves setting up the Developer Portalnode and enabling it to wor
                 password = "$ref{super_admin.password}"
             ```
 
-        Configure the **Developer Portalwith multiple Key Managers** that are fronted by a load balancer as follows:
+        Configure the **Developer Portal with multiple Key Managers** that are fronted by a load balancer as follows:
 
         1.  Configure the API key validator.
 
@@ -519,7 +519,7 @@ This section involves setting up the Developer Portalnode and enabling it to wor
                 password = "$ref{super_admin.password}"
             ```
 
-    3.  Configure the **Developer Portalwith** the **Gateway** .
+    3.  Configure the **Developer Portal with** the **Gateway** .
 
         -   If you are using a single Gateway node, configure the **Dev Portal** with the **Gateway** as follows:
 
@@ -541,7 +541,7 @@ This section involves setting up the Developer Portalnode and enabling it to wor
 
         -   If you are using **multiple Gateway nodes** , configure the **Dev Portal** with the **Gateway nodes** as follows:
 
-            Configure the **Developer Portalwhen working with multiple Gateways** that are fronted by a load balancer as follows:
+            Configure the **Developer Portal when working with multiple Gateways** that are fronted by a load balancer as follows:
 
             ``` toml
                 [[apim.gateway.environment]]
@@ -584,9 +584,9 @@ This section involves setting up the Developer Portalnode and enabling it to wor
     !!! warning
         This is **ONLY applicable** if you need to configure **HA for the Dev Portal.**
 
-    Make a copy of the active instance configured above and use this copy as the second Developer Portalactive instance.
+    Make a copy of the active instance configured above and use this copy as the second Developer Portal active instance.
 
-4.  Start the Developer Portalnode(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](../../../InstallationGuide/running-the-product/) .
+4.  Start the Developer Portal node(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](../../../InstallationGuide/running-the-product/) .
 
     ??? info "Click here to view sample configuration for the dev portal"
         ``` toml
