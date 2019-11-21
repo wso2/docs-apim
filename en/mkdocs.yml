@@ -59,7 +59,7 @@ nav:
                         - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
                         - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
                         - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
-                        - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
+                        - Create a WebSockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
                         - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
                         - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
                   - Adding Custom Properties to APIs: Learn/DesignAPI/CreateAPI/adding-custom-properties-to-apis.md
@@ -288,7 +288,7 @@ nav:
             - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
             - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
-            - Create and Publish WebSocket API: Learn/Tutorials/create-a-websocket-api.md
+            - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
