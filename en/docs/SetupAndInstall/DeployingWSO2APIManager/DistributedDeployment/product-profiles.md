@@ -86,7 +86,7 @@ You can start an API Manager profile in the following methods, based on your req
 -   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
 
 !!! info
-It is recommended to start the components in the following order: Key Manager, Publisher, Dev Portal, Traffic Manager, and Gateway.
+It is recommended to start the components in the following order: Key Manager, Publisher, Developer Portal, Traffic Manager, and Gateway.
 
 
 #### Method 1- Optimizing before starting the server
