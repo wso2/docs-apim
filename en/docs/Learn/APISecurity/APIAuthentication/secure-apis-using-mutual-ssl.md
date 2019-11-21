@@ -17,10 +17,7 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
 4.  Click **Upload Certificate** to upload a new client certificate.
     
     !!! note
-        This feature currently supports only the following formats for keystores and certificates.
-
-        -   Keystore : `.jks            `
-        -   Certificate : `.crt            `
+        This feature currently supports only the `.crt` format for certificates.
 
         If you need to use a certificate in any other format, you can convert it using a standard tool before uploading.
 
