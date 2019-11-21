@@ -38,7 +38,7 @@ The **WSO2 API Manager 3.0.0** is the **latest** **WSO2 API Manager release*
 
     The bot detection capability in WSO2 API Manager detects context scanning and internal service scanning. It notifies admin users via email about such threats and potentially problematic API calls, which are carried out by bots and attackers. 
 
-- **API Product**
+- **[API Product](../../Learn/DesignAPI/CreateAPIProduct/api-product-overview/)**
 
     API Product allows users to integrate several APIs and expose them as a single product. Thereby helping to package different services in different ways and exposing them as separate products.
 

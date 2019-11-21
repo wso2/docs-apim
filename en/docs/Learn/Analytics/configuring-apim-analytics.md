@@ -27,6 +27,16 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
     ![](../../assets/img/Learn/analytics-download-page.png)
     
+    
+       <html><div class="admonition warning">
+       <p class="admonition-title">Note</p>
+       <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
+                        Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
+                        </p>
+                        ![](../../assets/img/Learn/analytics-quick-setup.png)
+       </div>
+       </html>
+                  
 3.  To enable Analytics, open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the analytics enabling section as shown below. Save this change.
 
     ``` toml

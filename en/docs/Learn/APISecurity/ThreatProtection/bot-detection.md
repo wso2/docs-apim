@@ -8,6 +8,13 @@ If hackers (e.g., bot attackers) tries to invoke open service APIs, WSO2 API Man
 INFO BotDetectionMediator MessageId : urn:uuid:535437f1-a178-4722-a232-164e4a7e0207 | Request Method : POST | Message Body : <soapenv:Body xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><jsonObject/></soapenv:Body> | client Ip : 127.0.0.1 | Headers set : [Accept=*/*, activityid=4b932127-d07e-43c3-bee2-4f5344074185, Content-Length=2, Content-Type=application/json, Host=localhost:8243, User-Agent=curl/7.58.0]  
 ```
 
+ <html>
+  <div class="admonition info">
+  <p class="admonition-title">Info</p>
+  <p>You can view the above logs without configuring API Manager Analytics</p>
+  </div> 
+  </html>
+
 If you enable WSO2 API Manager Analytics with WSO2 API Manager, you can enable email notifications for all unauthorized API calls that you receive and also view the bot detection data easily via the Admin Portal.
 
 
@@ -17,7 +24,6 @@ If you enable WSO2 API Manager Analytics with WSO2 API Manager, you can enable e
   <p>If you wish to work with a third-party monitoring tool, then you can use the  details in the <code><API-M_HOME>/repository/logs/wso2-BotDetectedData.log</code> trace log and build an alert mechanism to receive alerts. </p>
   </div> 
   </html>
-
 
 ## Enabling email notifications for bot detection
 
@@ -32,10 +38,10 @@ Follow the instructions below to enable email notifications for bot detection:
      Modify the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file as follows. 
 
      ```
-     - name: WSO2AM_DB
+     - name: AM_DB
         description: "The datasource used for APIM MGW analytics data."
         jndiConfig:
-          name: jdbc/WSO2AM_DB
+          name: jdbc/AM_DB
         definition:
           type: RDBMS
           configuration:
@@ -50,7 +56,36 @@ Follow the instructions below to enable email notifications for bot detection:
             isAutoCommit: false
      ```
 
-3. Start the WSO2 API Manager Analytcs server.
+3. [Enable Alerts](../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts/#enable-alerts).
+
+4. Follow the instructions below to configure an email address to send email alerts to subscribers.
+
+    - Open the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
+    - Navigate to the `extensions` configuration under `siddhi` configurations.
+    - Add a new extension to configure the sender email address. The sample code is shown below.
+
+      ``` java
+          siddhi:
+            extensions:
+          ...
+              -
+                extension:
+                  name: email
+                  namespace: sink
+                  properties:
+                    username: alex@gmail.com
+                    address: alex@gmail.com
+                    password: password 
+          ...
+      ```
+
+    !!! warning
+          Note that you might have to bypass a security warning to configure this with a private email address.
+
+
+      - Go to the `<API-M_ANALYTICS_HOME>/resources/apim-analytics/` directory. Copy the `APIM_ALERT_BOT_DETECTION_EMAIL.siddhi` file and paste it in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
+
+5. Start the WSO2 API Manager Analytcs server.
    
      Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
 
@@ -58,7 +93,7 @@ Follow the instructions below to enable email notifications for bot detection:
     - On Linux/Mac OS:  `sh worker.sh`
     
 
-4. Start the WSO2 API Manager server.
+6. Start the WSO2 API Manager server.
   
     Navigate to the  `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
 
@@ -66,17 +101,17 @@ Follow the instructions below to enable email notifications for bot detection:
     - On Linux/Mac OS:  `sh wso2server.sh`
     
 
-5. Sign in to the Admin Portal.
+7. Sign in to the API Manager Admin Portal.
 
      `https://<IP_Address>:9443/admin`
 
-6. Click **BOT DETECTION**.
+8. Click **BOT DETECTION**.
 
-7. Click **CONFIGURE EMAILS**.
+9. Click **CONFIGURE EMAILS**.
   
     ![Add email recipients](../../../assets/img/Learn/bot-email-notification.png)
 
-8. Add the recipient's email address and click **Add**.
+10. Add the recipient's email address and click **Add**.
 
     If a hacker (e.g., bot attacker) tries to invoke an open service API, WSO2 API Manager will send emails to the email alert recipients. The following is a sample email notification.
 
@@ -89,7 +124,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
   <html>
   <div class="admonition note">
   <p class="admonition-title">Note</p>
-  <p>Skip steps 1, 2, 3, 4, and 5 if you have already enabled API Manager Analytics, configured the AM_DB database, started the WSO2 API Analytics and WSO2 API Manager servers, and signed in to the Admin Portal.</p>
+  <p>Skip steps 1 to 7 if you have already enabled API Manager Analytics, configured the AM_DB database, configured Alerts, started the WSO2 API Manager Analytics and WSO2 API Manager servers, and signed in to the Admin Portal.</p>
   </div> 
   </html>
 
@@ -100,10 +135,10 @@ Follow the instructions below to view the bot detection data for the unauthorize
 2. Share your API-M database (`AM_DB`) by modifying the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file as follows. 
 
      ```
-     - name: WSO2AM_DB
+     - name: AM_DB
         description: "The datasource used for APIM MGW analytics data."
         jndiConfig:
-          name: jdbc/WSO2AM_DB
+          name: jdbc/AM_DB
         definition:
           type: RDBMS
           configuration:
@@ -118,26 +153,56 @@ Follow the instructions below to view the bot detection data for the unauthorize
             isAutoCommit: false
      ```
 
-3. Start the WSO2 API Manager Analytcs server.
+3. [Enable Alerts](../../../../Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts/#enable-alerts).
+
+4. Follow the instructions below to configure an email address to send email alerts to subscribers.
+
+    - Open the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
+    - Navigate to the `extensions` configuration under `siddhi` configurations.
+    - Add a new extension to configure the sender email address. The sample code is shown below.
+
+      ``` java
+          siddhi:
+            extensions:
+          ...
+              -
+                extension:
+                  name: email
+                  namespace: sink
+                  properties:
+                    username: alex@gmail.com
+                    address: alex@gmail.com
+                    password: password 
+          ...
+      ```
+
+    !!! warning
+          Note that you might have to bypass a security warning to configure this with a private email address.
+
+
+      - Go to the `<API-M_ANALYTICS_HOME>/resources/apim-analytics/` directory. Copy the `APIM_ALERT_BOT_DETECTION_EMAIL.siddhi` file and paste it in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory.
+
+5. Start the WSO2 API Manager Analytcs server.
    
      Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
 
     - On Windows:  `worker.bat --run`
     - On Linux/Mac OS:  `sh worker.sh`
+    
 
-
-4. Start the WSO2 API Manager server.
+6. Start the WSO2 API Manager server.
   
-    Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    Navigate to the  `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
 
     - On Windows:  `wso2server.bat --run`
     - On Linux/Mac OS:  `sh wso2server.sh`
+    
 
-5. Sign in to the Admin Portal.
+7. Sign in to the API Manager Admin Portal.
 
-     `https://<IP_Address>:9443/admin/`
+     `https://<IP_Address>:9443/admin`
 
-6. Click **BOT DETECTION DATA**.
+8. Click **BOT DETECTION DATA**.
 
      ![Bot detection data details for unauthorized API calls](../../../assets/img/Learn/bot-data.png)
 

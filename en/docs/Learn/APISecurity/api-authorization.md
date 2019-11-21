@@ -1,4 +1,0 @@
-## API Authorization
-
-## Scopes
-## XACML
