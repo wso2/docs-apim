@@ -37,16 +37,16 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
     
 6.  **Save** the API
     
-### Invoke an API secured with Mutual SSL from the Developer Portal
+### Invoke an API secured with Mutual SSL from Postman
 
-!!! note
-    Before you begin...
-
-    Add the relevant certificate to your browser according to your private certificate.
-
-1.  [Invoke an API using the Integrated API Console](/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/) .
-2.  When you click **Execute** the browser will send a prompt similar to the one shown below. Select the corresponding certificate for the API.
-    ![]({{base_path}}/assets/attachments/103334944/103334940.png)
+1.  Import the certificte and private key to Postman. Navigate to certificates tab in Postman settings.
+    
+    ![](../../../assets/img/Learn/add-certificate-to-postman.png)
+    
+    Add the certificate and private key.
+    ![](../../../assets/img/Learn/provide-crt-and-private-key.png)
+    
+2.  Invoke the API from Postman.
 
 #### Limitations
 
