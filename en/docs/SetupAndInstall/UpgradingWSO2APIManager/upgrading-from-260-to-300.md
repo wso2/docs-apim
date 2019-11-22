@@ -42,7 +42,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
     !!! warning
         If the above configurations are already set as `false` you should not run the below scripts.
     
-    When the above configurations are turned off, we need to remove the versioning detatils from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in.
+    When the above configurations are turned off, we need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in.
     
     ??? info "DB Scripts"
         ```tab="H2"
