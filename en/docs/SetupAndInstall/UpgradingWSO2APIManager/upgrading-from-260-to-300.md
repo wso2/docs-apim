@@ -9,7 +9,7 @@ The following information describes how to upgrade your API Manager server **fro
 
     This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
 
-    -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Getting+Started+with+WUM).
+    -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.6.0 to 3.0.0**.
 
@@ -25,7 +25,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
     highly **NOTE RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Turning off registry versioning in your current IS and running the scripts"
+!!! info "Turning off registry versioning in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Set the `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings`
     false.
@@ -285,12 +285,11 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
         ```
     
 !!! warning "Not recommended"
-    If you decide to proceed with registry resource versioning enabled, Add the following configuration to the `deployment.toml` file of new WSO2 API Manager. 
-    `<NEW_API-M_HOME>/repository/conf/deployment.toml`
+    If you decide to proceed with registry resource versioning enabled, Add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
     
     ```
     [registory.static_configuration]
-    enable=false
+    enable=true
     ```
     
     !!! note "NOTE"
