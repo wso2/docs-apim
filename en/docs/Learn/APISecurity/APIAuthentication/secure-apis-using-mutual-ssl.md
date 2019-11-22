@@ -12,7 +12,7 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
 1.  [Create an API](/Learn/DesignAPI/CreateAPI/create-a-rest-api) .
 2.  Navigate to the **Runtime Configurations** tab.
 3.  Select **Mutual SSL**.
-    ![](../../../assets/img/Learn/enable-mutual-ssl.png)
+    ![]({{base_path}}/assets/img/Learn/enable-mutual-ssl.png)
 
 4.  Click **Upload Certificate** to upload a new client certificate.
     
@@ -33,18 +33,18 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
 
 
 5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload** .
-    ![](../../../assets/img/Learn/upload-certificate.png)
+    ![]({{base_path}}/assets/img/Learn/upload-certificate.png)
     
 6.  **Save** the API
     
-### Invoke an API secured with Mutual SSL from Postman
+### Invoke an API secured with Mutual SSL using Postman
 
 1.  Import the certificte and private key to Postman. Navigate to certificates tab in Postman settings.
     
-    ![](../../../assets/img/Learn/add-certificate-to-postman.png)
+    ![]({{base_path}}/assets/img/Learn/add-certificate-to-postman.png)
     
     Add the certificate and private key.
-    ![](../../../assets/img/Learn/provide-crt-and-private-key.png)
+    ![]({{base_path}}/assets/img/Learn/provide-crt-and-private-key.png)
     
 2.  Invoke the API from Postman.
 
