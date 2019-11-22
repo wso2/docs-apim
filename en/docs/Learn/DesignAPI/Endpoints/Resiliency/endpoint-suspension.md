@@ -1,6 +1,6 @@
 # Endpoint Suspension
 
-In API Manager by default, gateway suspends API for 30 seconds when it cannot reach the endpoint. If another request comes to your API within that 30 seconds, it won't be sent to the backend. You might have seen the following response when the endpoint is suspended.
+In API Manager, by default, the gateway suspends an API for 30 seconds when it cannot reach the endpoint. If another request is made to your API within those 30 seconds, it will not be sent to the backend. The following response appears when the endpoint is suspended.
 
 ``` java
     <am:fault xmlns:am="http://wso2.org/apimanager">
@@ -10,5 +10,13 @@ In API Manager by default, gateway suspends API for 30 seconds when it cannot re
     <am:description>Currently , Address endpoint : [ Name : somename-AT-sometenant--test_me_APIproductionEndpoint_0 ] [ State : SUSPENDED ]</am:description>
     </am:fault>
 ```
-For more information about [endpoint timeout configuration.](endpoint-timeouts.md)
-You can also [prevent the API suspension](prevent-api-suspension.md) as well.
+
+ <div class="admonition note">
+ <p class="admonition-title">What's Next?</p>
+
+ <p>For more information on endpoint timeout configurations, see -
+ <ul><li><a href="{{base_path}}/Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts">Endpoint Timeouts</a>
+ </li>
+<li><a href="{{base_path}}/Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension">Prevent API Suspension</a></li></ul></p>
+ </div>
+
