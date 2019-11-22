@@ -387,7 +387,7 @@ nav:
               - 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-200-to-300.md
               - 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-1100-to-300.md
               - 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-191-to-300.md
-
+              - Upgrading to Log4j2: SetupAndInstall/UpgradingWSO2APIManager/upgrading-to-log4j2.md
         - Upgrading WSO2 IS as KM:
               - 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-570-to-590.md
               - 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-560-to-590.md
@@ -430,6 +430,7 @@ nav:
                 - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
                 - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
+            - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
         - Product Configurations:
             - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
             - Default Product Ports: Administer/ProductConfigurations/default-product-ports.md
