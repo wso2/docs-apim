@@ -16,7 +16,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration
 
-If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, we have disabled versioning by default in API Manager 3.0.0.
+If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.0.0.
 
 Therefore, when migrating to API Manager 3.0.0, it is **required** to turn off the registry versioning in your
 current API Manager 2.6.0 version and run the below scripts against **the database that is used by the registry**.
@@ -42,7 +42,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
     !!! warning
         If the above configurations are already set as `false` you should not run the below scripts.
     
-    When the above configurations are turned off, we need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in.
+    When the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in.
     
     ??? info "DB Scripts"
         ```tab="H2"
@@ -314,9 +314,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
 1.  Back up all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
 
-    -   The Synapse configurations of the super tenant are in the `<CURRENT_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory.
+    -   The Synapse configurations of the super tenant are in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory.
 
-    -   The Synapse configurations of tenants are in the `<CURRENT_APIM_HOME>/repository/tenants` directory.
+    -   The Synapse configurations of tenants are in the `<OLD_API-M_HOME>/repository/tenants` directory.
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the API Gateway node.
 
@@ -385,13 +385,20 @@ Follow the instructions below to move all the existing API Manager configuration
 5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
     !!! info
-        In API-M 3.0.0, you do not need to configure the registry configurations as you did in the `<CURRENT_API-M_HOME>/repository/conf/registry.xml` file and the user database configurations as you did in in the `<CURRENT_API-M_HOME>/repository/conf/user-mgt.xml` file, as those configurations have been handled internally.
+        In API-M 3.0.0, you do not need to configure the registry configurations as you did in the `<OLD_API-M_HOME>/repository/conf/registry.xml` file and the user database configurations as you did in in the `<OLD_API-M_HOME>/repository/conf/user-mgt.xml` file, as those configurations have been handled internally.
 
 6.  Move all your Synapse configurations to API-M 3.0.0 pack.
     -   Move your Synapse super tenant configurations.
-        Copy the contents in the `<CURRENT_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/deployment/server/synapse-configs/default` directory with the copied contents.
+        Copy the contents in the `<OLD_API-M_HOME>/repository/deployment/server/synapse-configs/default` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/deployment/server/synapse-configs/default` directory with the copied contents.
     -   Move all your tenant Synapse configurations.
-        Copy the contents in the `<CURRENT_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/tenants` directory with the copied contents.
+        Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/tenants` directory with the copied contents.
+
+    !!! warning
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.0.0 version.
+
+        -   _RevokeAPI_.xml
+        -   _cors_request_handler_.xml
+        -   main.xml
 
 7. If you manually added any custom OSGI bundles to the `<API-M_2.6.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
 
@@ -403,7 +410,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to see how to add a log appender or a logger to the log4j2.properties file.
 
     !!! note
-        Log4j2 has hot deployment support, and we have removed **Managing Logs** section from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
+        Log4j2 has hot deployment support, and **Managing Logs** section has been removed from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
 
 #### Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics
 
@@ -415,7 +422,7 @@ Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.0.0
 ##### Step 1.2.1 - Configure WSO2 API-M Analytics 3.0.0
 
 !!! note
-    -   In API-M 2.6.0, when working with API-M Analytics, we used only the worker profile by default and dashboard profile is used only when there are custom dashboards.
+    -   In API-M 2.6.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
     -   Now with API-M 3.0.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
 
@@ -524,9 +531,12 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
 3. Restart the WSO2 API-M Server.
 
-    ``` java
-    cd <API-M_3.0.0_HOME>/bin
+    ```tab="Linux / Mac OS"
     sh wso2server.sh
+    ```
+
+    ```tab="Windows"
+    wso2server.bat
     ```
 
 4.  After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via **https://<dashboard-server-host-name>:9643/analytics-dashboard** link.
@@ -1642,7 +1652,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
             NOTIFICATION_METHOD VARCHAR(255),
             SUBSCRIBER_ADDRESS VARCHAR(255) NOT NULL,
             PRIMARY KEY(UUID, SUBSCRIBER_ADDRESS)
-        ) ;
+        );
 
         ALTER TABLE AM_EXTERNAL_STORES
         ADD LAST_UPDATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
@@ -1756,31 +1766,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         );
         ```
 
-4.  Re-index the artifacts in the registry.
-
-    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
-
-        !!! note
-            Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
-
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
-
-    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
-        
-        ```
-        [indexing]
-        re_indexing= 1
-        ```
-        !!! info 
-            If you use a clustered/distributed API Manager setup, change the file in the API Publisher node. For example, change the /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime registry path to /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1
-
-    4.  If the `<API-M_3.0.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
-
-    5.  Start the WSO2 API-M server.
-
-    6.  Stop the WSO2 API-M server and remove the tenantloader-1.0.jar from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
-
-5.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
+4.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
 
     !!! note
         As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
@@ -1905,6 +1891,30 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         wso2server.bat
         ```
 
+5.  Re-index the artifacts in the registry.
+
+    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
+
+        !!! note
+            Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
+
+    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+
+    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
+        
+        ```
+        [indexing]
+        re_indexing= 1
+        ```
+        !!! info 
+            If you use a clustered/distributed API Manager setup, change the file in the API Publisher node. For example, change the /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime registry path to /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1
+
+    4.  If the `<API-M_3.0.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
+
+    5.  Start the WSO2 API-M server.
+
+    6.  Stop the WSO2 API-M server and remove the tenantloader-1.0.jar from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
@@ -1912,6 +1922,6 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     If you are using an SVN based deployment synchronizer, start with a clean SVN repository and point the new deployment nodes to the new SVN repository. In addition, you need to remove any existing `.svn` directories in the new deployment's `<API-M_3.0.0_HOME>/repository/deployment/server/synapse-configs/default` directory and the `<API-M_3.0.0_HOME>/repository/tenants/<tenant-id>/synapse-configs/default` directory before starting the servers. For more details, see [Configuring Deployment Synchronization](https://docs.wso2.com/display/CLUSTER44x/Configuring+SVN-Based+Deployment+Synchronizer).
 
 !!! note
-    If you are using a migrated API and wants to consume it via a JWT type application (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT type doesn't work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.
