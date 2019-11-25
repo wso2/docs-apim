@@ -17,7 +17,7 @@ Follow the instructions below to deploy WSO2 API Manager (WSO2 API-M) in a distr
     The following steps describe how to download, install, and configure WSO2 API Manager, with five instances.
     
     1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) in each of the five servers in the cluster for distributed deployment.
-    2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories respectively as Key Manager, Gateway, Publisher, Store, and Traffic Manager.
+    2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories respectively as Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager.
         These five directories are located in a server of their own and are used for each component of WSO2 API-M. Each of these unzipped directories are referred to as `<API-M_HOME>` or `<PRODUCT_HOME>` in this document.
     
     3.  In each of the five servers, replace the default certificates (where `CN=localhost` ) with new certificates generated with proper common name (CN) values.
@@ -37,7 +37,7 @@ Ensure that you have taken into account the respective security hardening factor
 
 ### Step 4 - Create and import SSL certificates
 
-Create a SSL certificate for each of the WSO2 API-M nodes (e.g., Publisher, Store, Key Manager, Gateway, and Traffic Manager ) and import them to the keyStore and the trustStore. For more information, see [Creating SSL Certificates](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) in the Administration Guide.
+Create a SSL certificate for each of the WSO2 API-M nodes (e.g., Publisher, Developer Portal, Key Manager, Gateway, and Traffic Manager ) and import them to the keyStore and the trustStore. For more information, see [Creating SSL Certificates](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) in the Administration Guide.
 
 !!! note
     When maintaining high availability (HA) i n the WSO2 API-M distributed set up , you need to create and import a SSL certificate for each of the WSO2 API-M HA nodes.
@@ -45,16 +45,16 @@ Create a SSL certificate for each of the WSO2 API-M nodes (e.g., Publisher, Stor
 
 ### Step 5 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the Store, you need to configure API-M Analytics. Follow the [standard setup](../../../../Learn/Analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup](../../../../Learn/Analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
+If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure API-M Analytics. Follow the [standard setup](../../../../Learn/Analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup](../../../../Learn/Analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
 
 ### Step 6 - Configure the connections among the components and start the servers
 
-You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. It is recommended to start the components in the following order: Key Manager, Traffic Manager, Publisher, Store and Gateway.
+You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. It is recommended to start the components in the following order: Key Manager, Traffic Manager, Publisher, Developer Portal and Gateway.
 
 !!! note
     In a clustered environment, you use session affinity ( sticky sessions ) to ensure that requests from the same client always get routed to the same server.
     
-    It is **mandatory** to set up Session Affinity in the load balancers that front the **Publisher** and **Store** clusters, and it is **optional** in the load balancer (if any) that fronts a **Key Manager** cluster or **Gateway** Cluster. However, you need to enable Session Affinity if you are working with multiple Gateway Managers in a Gateway High Availability (HA) deployment.
+    It is **mandatory** to set up Session Affinity in the load balancers that front the **Publisher** and **Developer Portal** clusters, and it is **optional** in the load balancer (if any) that fronts a **Key Manager** cluster or **Gateway** Cluster. However, you need to enable Session Affinity if you are working with multiple Gateway Managers in a Gateway High Availability (HA) deployment.
 
     However, authentication via session ID fails when session affinity is disabled in the load balancer.
 
@@ -64,7 +64,7 @@ You will now configure the inter-component relationships of the distributed setu
 -   [Step 6.1 - Configure the common configurations](#step-61-configure-the-common-configurations)
 -   [Step 6.2 - Configure and start the Key Manager](#step-62-configure-and-start-the-key-manager)
 -   [Step 6.3 - Configure and start the API Publisher](#step-63-configure-and-start-the-api-publisher)
--   [Step 6.4 - Configure and start the API Store](#step-64-configure-and-start-the-api-store)
+-   [Step 6.4 - Configure and start the Developer Portal](#step-64-configure-and-start-the-dev-portal)
 -   [Step 6.5 - Configure and start the Traffic Manager](#step-65-configure-and-start-the-traffic-manager)
 -   [Step 6.6 - Configure and start the Gateway](#step-66-configure-and-start-the-gateway)
 
@@ -78,7 +78,7 @@ The common configurations can be done automatically when starting up the server.
 **Example**
 
 ``` java
-    sh <PRODUCT_HOME>/bin/wso2server.sh -Dprofile=api-store
+    sh <PRODUCT_HOME>/bin/wso2server.sh -Dprofile=api-devportal
 ```
 
 For more information on using multi-profile support, see [Product Profiles](../product-profiles) .
@@ -120,7 +120,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
 
 !!! note
-    It is not recommended to share the Solr directory between the Store and Publisher servers. You need to have separate Solr directories for each of the latter mentioned servers so that they will perform Solr indexing separately.
+    It is not recommended to share the Solr directory between the Developer Portal and Publisher servers. You need to have separate Solr directories for each of the latter mentioned servers so that they will perform Solr indexing separately.
 !!! warning
     If you get an error similar to the following in both or one of the nodes, check whether you have shared the Solr directory.
     ``` java
@@ -381,12 +381,12 @@ This section involves setting up the API Publisher node and enabling it to work 
                 https_endpoint = "https://[API-Gateway-Manager-Host]:${https.nio.port}"
             ```
 
-    3.  Configure the Dev portal URL to appear in the Publisher UI.
+    3.  Configure the Developer Portal URL to appear in the Publisher UI.
 
-        -   [**Single Store**](#single-Store-Publisher)
-        -   [**Store with HA**](#HA-Store-Publisher)
+        -   [**Single Developer Portal**](#single-DevPortal-Publisher)
+        -   [**Developer Portal with HA**](#HA-DevPortal-Publisher)
 
-        Configure the **Publisher with a single API Dev portal** as follows:
+        Configure the **Publisher with a single API Developer Portal** as follows:
 
         **Example**
 
@@ -395,7 +395,7 @@ This section involves setting up the API Publisher node and enabling it to work 
             url = "https://[devportal-hostname]:${mgt.transport.https.port}/devportal"
         ```
 
-        Configure the **Publisher with multiple API Dev portals** that are fronted by a load balancer as follows:
+        Configure the **Publisher with multiple API Developer Portals** that are fronted by a load balancer as follows:
 
         **Example**
 
@@ -486,18 +486,18 @@ This section involves setting up the API Publisher node and enabling it to work 
     url = "https://store.wso2.com:9445/devportal"
 
     ```
-#### Step 6.4 - Configure and start the API Store
+#### Step 6.4 - Configure and start the Developer Portal
 
-This section involves setting up the API Store node and enabling it to work with the other components in the distributed deployment .
+This section involves setting up the Developer Portal node and enabling it to work with the other components in the distributed deployment .
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the API Store node and make the following changes.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Developer Portal node and make the following changes.
 
-    1.  Configure the **API Store with the Key Manager.**
+    1.  Configure the **Developer Portal with the Key Manager.**
 
-        -   [**Single Key Manager**](#single-Key-Manager-Store)
-        -   [**Key Manager with HA**](#HA-Key-Manager-Store)
+        -   [**Single Key Manager**](#single-Key-Manager-devPortal)
+        -   [**Key Manager with HA**](#HA-Key-Manager-devPortal)
 
-        Configure the **API Store with a single Key Manager** as follows:
+        Configure the **Developer Portal with a single Key Manager** as follows:
 
         1.  Configure the API key validator.
 
@@ -508,7 +508,7 @@ This section involves setting up the API Store node and enabling it to work with
                 password = "$ref{super_admin.password}"
             ```
 
-        Configure the **Store with multiple Key Managers** that are fronted by a load balancer as follows:
+        Configure the **Developer Portal with multiple Key Managers** that are fronted by a load balancer as follows:
 
         1.  Configure the API key validator.
 
@@ -519,9 +519,9 @@ This section involves setting up the API Store node and enabling it to work with
                 password = "$ref{super_admin.password}"
             ```
 
-    3.  Configure the **Store with** the **Gateway** .
+    3.  Configure the **Developer Portal with** the **Gateway** .
 
-        -   If you are using a single Gateway node, configure the **Store** with the **Gateway** as follows:
+        -   If you are using a single Gateway node, configure the **Developer Portal** with the **Gateway** as follows:
 
             ``` toml
                 [[apim.gateway.environment]]
@@ -539,9 +539,9 @@ This section involves setting up the API Store node and enabling it to work with
                 https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
             ```
 
-        -   If you are using **multiple Gateway nodes** , configure the **Store** with the **Gateway nodes** as follows:
+        -   If you are using **multiple Gateway nodes** , configure the **Developer Portal** with the **Gateway nodes** as follows:
 
-            Configure the **Store when working with multiple Gateways** that are fronted by a load balancer as follows:
+            Configure the **Developer Portal when working with multiple Gateways** that are fronted by a load balancer as follows:
 
             ``` toml
                 [[apim.gateway.environment]]
@@ -579,16 +579,16 @@ This section involves setting up the API Store node and enabling it to work with
             revoke_endpoint = "https://[API-Gateway-LB-Host-or-IP]:${https.nio.port}/revoke"
         ```
 
-3.  Optionally, configure High Availability (HA) for the Store.
+3.  Optionally, configure High Availability (HA) for the Developer Portal.
 
     !!! warning
-        This is **ONLY applicable** if you need to configure **HA for the Store.**
+        This is **ONLY applicable** if you need to configure **HA for the Developer Portal.**
 
-    Make a copy of the active instance configured above and use this copy as the second API Store active instance.
+    Make a copy of the active instance configured above and use this copy as the second Developer Portal active instance.
 
-4.  Start the API Store node(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](../../../InstallationGuide/running-the-product/) .
+4.  Start the Developer Portal node(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](../../../InstallationGuide/running-the-product/) .
 
-    ??? info "Click here to view sample configuration for the dev portal"
+    ??? info "Click here to view sample configuration for the Developer Portal"
         ``` toml
         [server]
         hostname = "store.wso2.com"
@@ -746,7 +746,7 @@ This section involves setting up the Gateway node and enabling it to work with t
     Based on the above configuration, the API Gateway publishes events to both the Traffic Managers.
 
     !!! info
-        By default, WSO2 API Manager is shipped with a keystore ( `wso2carbon.jks` ) and a trust store ( `client-truststore.jks` ). For more information on how to create a new key store and a trust store with a private key and a self-signed certificate, see Configuring Keystore and Truststore and also see the [Administration guide](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products) for r ecommendations on setting up keystores in WSO2 products.
+        By default, WSO2 API Manager is shipped with a keystore ( `wso2carbon.jks` ) and a trust store ( `client-truststore.jks` ). For more information on how to create a new key store and a trust store with a private key and a self-signed certificate, see Configuring Keystore and Truststore and also see the [Administration guide](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products) for recommendations on setting up keystores in WSO2 products.
 
 
 5.  Start the WSO2 API-M Gateway node by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](../../../InstallationGuide/running-the-product/) .

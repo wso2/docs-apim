@@ -3,7 +3,7 @@
 When a WSO2 product starts, it starts all components, features and related artifacts bundled with it. Multi-profile support allows you to run the product on a selected profile so that only the features specific to that profile along with common features start up with the server.
 
 !!! tip
-Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `api-store` for example, you can still access the API Publisher web application.
+Starting a product on a preferred profile only blocks/allows the relevant OSGI bundles. As a result, even if you start the server on a profile such as the `api-devportal` for example, you can still access the API Publisher web application.
 
 !!! info
 OSGI Bundle
@@ -67,10 +67,10 @@ The following are the different profiles available in WSO2 API Manager.
 </div></td>
 </tr>
 <tr class="odd">
-<td>Developer Portal (API Store)</td>
-<td><pre><code>-Dprofile=api-store</code></pre></td>
+<td>Developer Portal</td>
+<td><pre><code>-Dprofile=api-devportal</code></pre></td>
 <td><div class="content-wrapper">
-<p>Only starts the front end/backend features relevant to the Developer Portal (API Store).</p>
+<p>Only starts the front end/backend features relevant to the Developer Portal.</p>
 <p><br />
 </p>
 </div></td>
@@ -86,7 +86,7 @@ You can start an API Manager profile in the following methods, based on your req
 -   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
 
 !!! info
-It is recommended to start the components in the following order: Key Manager, Publisher, Store, Traffic Manager, and Gateway.
+It is recommended to start the components in the following order: Key Manager, Publisher, Developer Portal, Traffic Manager, and Gateway.
 
 
 #### Method 1- Optimizing before starting the server
