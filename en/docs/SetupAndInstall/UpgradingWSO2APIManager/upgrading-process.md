@@ -6,6 +6,9 @@ Go through the guidelines given below before attempting to upgrade the productio
 !!! note
     To upgrade **from a version older than 1.8.0** , follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
 
+!!! info
+    For more information about this release, see [About this Release](../../GettingStarted/about-this-release.md).
+
 1.  If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
 your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
@@ -36,10 +39,7 @@ version.
 4.  List down the functional and nonfunctional use cases in your deployment and create test cases for them. 
 **NOTE:** This step is crucial to verify that the migrated environment works as expected.     
 
-6.  Identify the configuration migrations required for the new setup. Refer [Configuration Catalog](../../Reference/ConfigCatalog.md) for more information.
-
-    !!! note
-        For more information about this release, see [About this Release](../../GettingStarted/about-this-release.md).
+5.  Identify the configuration migrations required for the new setup. Refer [Configuration Catalog](../../Reference/ConfigCatalog.md) for more information regarding the new config modal introduced.
         
 6.  Prepare a test setup of the upgrading version with customizations and necessary config changes, and 
 test your functional and nonfunctional requirements.
