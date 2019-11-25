@@ -1918,9 +1918,6 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
-!!! tip
-    If you are using an SVN based deployment synchronizer, start with a clean SVN repository and point the new deployment nodes to the new SVN repository. In addition, you need to remove any existing `.svn` directories in the new deployment's `<API-M_3.0.0_HOME>/repository/deployment/server/synapse-configs/default` directory and the `<API-M_3.0.0_HOME>/repository/tenants/<tenant-id>/synapse-configs/default` directory before starting the servers. For more details, see [Configuring Deployment Synchronization](https://docs.wso2.com/display/CLUSTER44x/Configuring+SVN-Based+Deployment+Synchronizer).
-
 !!! note
     If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
 
