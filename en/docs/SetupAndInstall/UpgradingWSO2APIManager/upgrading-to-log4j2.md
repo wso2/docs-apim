@@ -49,7 +49,7 @@ Refer to the following steps for upgrading to log4j2.
      appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
      appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
      appender.CARBON_LOGFILE.layout.type = PatternLayout
-     appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] %5p { %c} - %m%ex%n
+     appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
      appender.CARBON_LOGFILE.policies.type = Policies
      appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
      appender.CARBON_LOGFILE.policies.time.interval = 1
