@@ -71,7 +71,7 @@ nav:
                         - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
                         - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
                         - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
-                        - Create a Websockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
+                        - Create a WebSockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
                         - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
                         - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
                   - Adding Custom Properties to APIs: Learn/DesignAPI/CreateAPI/adding-custom-properties-to-apis.md
@@ -384,7 +384,7 @@ nav:
             - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
             - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
-            - Create and Publish WebSocket API: Learn/Tutorials/create-a-websocket-api.md
+            - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
@@ -479,8 +479,23 @@ nav:
               - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
               - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
         - Upgrading WSO2 API Manager:
-              - Upgrading from the Previous Release: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release.md
-              - Upgrading from the Previous Release when WSO2 IS is the Key Manager: SetupAndInstall/UpgradingFromAPreviousRelease/upgrading-from-the-previous-release-when-wso2-is-is-the-key-manager.md
+              - Upgrading Process: SetupAndInstall/UpgradingWSO2APIManager/upgrading-process.md
+              - 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-260-to-300.md
+              - 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-250-to-300.md
+              - 2.2.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-220-to-300.md
+              - 2.1.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-210-to-300.md
+              - 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-200-to-300.md
+              - 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-1100-to-300.md
+              - 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-191-to-300.md
+
+        - Upgrading WSO2 IS as KM:
+              - 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-570-to-590.md
+              - 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-560-to-590.md
+              - 2.2.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-550-to-590.md
+              - 2.1.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-530-to-590.md
+              - 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-520-to-590.md
+              - 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-510-to-590.md
+              - 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-500-to-590.md
     - Administer:
         - Product Administration:
             - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
@@ -788,5 +803,5 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-  #base_path: https://apim.docs.wso2.com/en/latest
-  base_path: http://localhost:8000
+  base_path: https://apim.docs.wso2.com/en/latest
+  #base_path: http://localhost:8000

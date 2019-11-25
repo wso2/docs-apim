@@ -181,9 +181,11 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
 
                  [![Scope list]({{base_path}}/assets/img/Learn/scope-list.png)]({{base_path}}/assets/img/Learn/scope-list.png)
 
+Now, you have created and configured the GraphQL API successfully. 
+
 ### Step 2 - Publish the GraphQL API
 
-Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API.
+Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
 
 [![Publish GraphQL API]({{base_path}}/assets/img/Learn/publish-graphql-api.png)]({{base_path}}/assets/img/Learn/publish-graphql-api.png)
 
@@ -193,7 +195,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
    
      `https://<hostname>:9443/devportal` 
    
-      e.g: `https://localhost:9443/devportal`
+      Example: `https://localhost:9443/devportal`
 
      [![Developer Portal]({{base_path}}/assets/img/Learn/starwars-in-dev-portal.png)]({{base_path}}/assets/img/Learn/starwars-in-dev-portal.png)
     
@@ -220,25 +222,25 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
     1. Click **KEY GENERATION WIZARD**.
     
-         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (allFilms, allPlanets) that you assigned to the operations.
+       This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (`allFilms`, `allPlanets`) that you assigned to the operations.
 
-         <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p> 
-         The application that the API subscribes to can be a JWT or an OAuth based application.
-         </p>
-         </div>
+       <div class="admonition note">
+       <p class="admonition-title">Note</p>
+       <p> 
+       You can use any application (e.g., JWT or OAuth) to subscribe to the API.
+       </p>
+       </div>
 
-         [![Key generation wizard]({{base_path}}/assets/img/Learn/starwars-scopes-gen-access-token.png)]({{base_path}}/assets/img/Learn/starwars-scopes-gen-access-token.png)
+       [![Key generation wizard]({{base_path}}/assets/img/Learn/starwars-scopes-gen-access-token.png)]({{base_path}}/assets/img/Learn/starwars-scopes-gen-access-token.png)
 
     2. Copy the authorization token that appears.
 
-         [![Copy the authorization token]({{base_path}}/assets/img/Learn/copy-access-token-starwars.png)]({{base_path}}/assets/img/Learn/copy-access-token-starwars.png)
+       [![Copy the authorization token]({{base_path}}/assets/img/Learn/copy-access-token-starwars.png)]({{base_path}}/assets/img/Learn/copy-access-token-starwars.png)
 
 6. Try out the operations.
     1. Click **TEST** to navigate to the developer console.
 
-        [![Authorization token]({{base_path}}/assets/img/Learn/authorization-token.png)]({{base_path}}/assets/img/Learn/authorization-token.png)
+       [![Authorization token]({{base_path}}/assets/img/Learn/authorization-token.png)]({{base_path}}/assets/img/Learn/authorization-token.png)
 
     2. Select whether to invoke the API using HTTP or HTTPS from **Servers**.
 
@@ -247,6 +249,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
     4. Click **POST**.
     
     5. Click **Try it out** and enter the following sample payload as the StarWarsAPI POST request.
+    
          ```
          {
          "query": "{ allFilms{title  episodeId}  allPlanets {films { species {skinColor} } }}"
