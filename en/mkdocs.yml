@@ -205,7 +205,7 @@ nav:
             - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md
         - API Security:
             - Authentication:
-                - API Authentication : Learn/APISecurity/api-authentication.md
+                - Overview : Learn/APISecurity/api-authentication.md
                 - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
                 - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
                 - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
