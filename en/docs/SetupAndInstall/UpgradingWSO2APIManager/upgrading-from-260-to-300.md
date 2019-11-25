@@ -539,7 +539,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     wso2server.bat
     ```
 
-4.  After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via **https://<dashboard-server-host-name>:9643/analytics-dashboard** link.
+4.  After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
 
     !!! warning
         Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
@@ -1849,6 +1849,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         currentVersion: "5.7.0"
         migrateVersion: "5.9.0"
         ```
+
         !!! note
             Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above.
 
@@ -1906,6 +1907,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         [indexing]
         re_indexing= 1
         ```
+
         !!! info 
             If you use a clustered/distributed API Manager setup, change the file in the API Publisher node. For example, change the /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime registry path to /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1
 
