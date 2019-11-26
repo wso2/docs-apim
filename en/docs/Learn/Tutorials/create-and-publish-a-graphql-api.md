@@ -15,7 +15,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
    
     Example: `https://localhost:9443/publisher`
 
-    Use your username and password to sign in.
+    Let's use `admin` as your username and password to sign in.
 
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
