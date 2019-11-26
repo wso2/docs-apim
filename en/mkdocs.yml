@@ -201,7 +201,8 @@ nav:
             - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
             - Advanced Topics:
                 -  API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
-        - API Microgateway: ''
+        - API Microgateway:
+            - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md    
         - API Security:
             - Authentication:
                 - API Authentication : Learn/APISecurity/api-authentication.md
