@@ -1768,6 +1768,17 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
 4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
 
+    !!! note "If you have enabled Secure Vault"
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
+
+        ```tab="Linux"
+        ./ciphertool.sh -Dconfigure
+        ```
+
+        ```tab="Windows"
+        ./ciphertool.bat -Dconfigure
+        ```
+
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
 
     !!! note
