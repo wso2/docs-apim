@@ -1766,7 +1766,9 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         );
         ```
 
-4.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
+4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
+
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
 
     !!! note
         As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
@@ -1855,9 +1857,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     4.  Copy the `org.wso2.carbon.is.migration-1.0.23.jar` from the extracted folder to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
-    5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
-
-    6.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
+    5.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
 
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
@@ -1870,7 +1870,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         !!! note
             Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-    7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+    6.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
         -   Remove the `org.wso2.carbon.is.migration-1.0.23.jar` file, which is in the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
@@ -1882,7 +1882,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
             -Dmigrate -Dcomponent=identity
             ```
 
-    8.  Restart the WSO2 API-M server.
+    7.  Restart the WSO2 API-M server.
 
         ```tab="Linux / Mac OS"
         sh wso2server.sh
@@ -1892,7 +1892,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         wso2server.bat
         ```
 
-5.  Re-index the artifacts in the registry.
+6.  Re-index the artifacts in the registry.
 
     1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -1916,6 +1916,8 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     5.  Start the WSO2 API-M server.
 
     6.  Stop the WSO2 API-M server and remove the tenantloader-1.0.jar from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+
+    7.  Restart the WSO2 API-M server.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
