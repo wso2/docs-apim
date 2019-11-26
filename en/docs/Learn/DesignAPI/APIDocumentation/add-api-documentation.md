@@ -14,7 +14,7 @@ Follow the steps below to learn how to add a documentation to an API.
 1.  Sign in to the WSO2 API Publisher.
 `https://<hostname>:9443/publisher`
 2.  Click the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add documentation.
-    ![](../../../assets/img/Learn/add-docs-select-api.png)
+    ![](../../../assets/img/Learn/select-api.png)
 3.  **Add in-line documentation.**
 
     1.  Select the **Documents** tab of the API and click **Add New Document** .
