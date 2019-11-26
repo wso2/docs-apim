@@ -65,7 +65,7 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
 3.  Click on the API to edit its configurations.
 
-    ![Edit the API]({{base_path}}/assets/img/Learn/select-api.png)
+    [![Edit the API]({{base_path}}/assets/img/Learn/select-api.png)]({{base_path}}/assets/img/Learn/select-api.png)
 
 4.  Click **Environments**.
 
