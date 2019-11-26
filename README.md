@@ -24,7 +24,7 @@ If pip is not already installed on your machine, download get-pip.py to install 
 `$ python get-pip.py`
 
 3. Install pip packages
-`$ cd documents/docs-is/en`
+`$ cd docs-apim/en`
 `pip install -r requirements.txt`
 
 4. Run mkdocs 
