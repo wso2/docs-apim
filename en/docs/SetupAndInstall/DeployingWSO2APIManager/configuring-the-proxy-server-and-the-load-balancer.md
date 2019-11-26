@@ -2,9 +2,9 @@
 
 A load balancer or reverse proxy is required to map external traffic with ports and URLs that WSO2 API Manager (WSO2 API-M) uses internally. Follow the instructions below to configure load balancing together with reverse proxying.
 
--   [Step 1 - Create a SSL certificate for the load balancer](#ConfiguringtheProxyServerandtheLoadBalancer-Step1-CreateaSSLcertificatefortheloadbalancer)
--   [Step 2 - Configure the load balancer/reverse proxy server](#ConfiguringtheProxyServerandtheLoadBalancer-Step2-Configuretheloadbalancer/reverseproxyserver)
--   [Step 3 - Configure the reverse proxy settings in the product](#ConfiguringtheProxyServerandtheLoadBalancer-Step3-Configurethereverseproxysettingsintheproduct)
+-   [Step 1 - Create a SSL certificate for the load balancer](#step-1-create-a-ssl-certificate-for-the-load-balancer)
+-   [Step 2 - Configure the load balancer/reverse proxy server](#step-2-configure-the-load-balancerreverse-proxy-server)
+-   [Step 3 - Configure the reverse proxy settings in the product](#step-3-configure-the-reverse-proxy-settings-in-the-product)
 
 ### Step 1 - Create a SSL certificate for the load balancer
 

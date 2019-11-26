@@ -8,7 +8,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 !!! note
     -   You can use the following steps in either one of the following situations:
         -   You are currently using a WSO2 IS 5.7.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
-        -   You are currently using a pre-packaged WSO2 Identity Server 5.6.0 distribution.
+        -   You are currently using a pre-packaged WSO2 Identity Server 5.7.0 distribution.
 
     -   If you wish to upgrade your APIM environment from **API-M 2.6.0 to 3.0.0** , which is using the **internal** WSO2 Identity Server ( **WSO2 IS** ) **capabilities** , follow the instructions in [Upgrading API-M from 2.6.0 to 3.0.0](../UpgradingWSO2APIManager/upgrading-from-260-to-300.md).
 
