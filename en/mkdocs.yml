@@ -202,7 +202,7 @@ nav:
             - Advanced Topics:
                 -  API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
         - API Microgateway:
-            - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md    
+            - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md
         - API Security:
             - Authentication:
                 - API Authentication : Learn/APISecurity/api-authentication.md
