@@ -1,6 +1,6 @@
 # docs-apim
 
-#Installing 
+## Installing 
 
 1. Install Python 2. 
 If you are using MacOS, you probably already have a version of Python installed on your machine. You can verify this by running the following command.
@@ -29,3 +29,6 @@ If pip is not already installed on your machine, download get-pip.py to install 
 
 4. Run mkdocs 
 `$ mkdocs serve --dirtyreload`
+  
+  Open the following URL on a new browser window to view the sample site. 
+http://127.0.0.1:8000/get-started/overview/
