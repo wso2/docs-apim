@@ -1,4 +1,4 @@
-API authentication is the mechanism of protecting API access from unidentified or anonymous access and it ensures that the API is protected and accessible only by the consumers who prove an identity and whose identities are found within the API Management Platform. 
+API authentication is a mechanism of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who prove an identity and whose identities are found within the API Management Platform. 
 
 WSO2 API offers following authentication mechanisms to secure your API from unauthenticated access.
 
