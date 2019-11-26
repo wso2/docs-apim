@@ -546,4 +546,3 @@ extra:
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
   base_path: https://apim.docs.wso2.com/en/latest
-  #base_path: http://localhost:8000
