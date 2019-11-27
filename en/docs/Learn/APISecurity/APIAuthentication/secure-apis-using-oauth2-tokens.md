@@ -8,16 +8,15 @@ defines four different grant types for obtaining access tokens depending on the 
 
 ## OAuth 2.0 Access Token Types
 
-OAuth 2.0 access tokens come in two different flavors - JWT (Self Contained) Access Tokens and Opaque (Reference) Access Tokens. 
+OAuth 2.0 access tokens come in two different flavors
+
+   - [JWT Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/jwt-tokens)
+    
+   - [Opaque Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/opaque-tokens)
+   
 The token type is bound to the application and the consumer has to specify the supported token type at application creation time. Once the token type is specified, all the access tokens issues under that particular application will be in the specified access token type. 
 
 For example, the **DefaultApplication** available for consumers in Dev Portal is in JWT token type, hence all the access tokens issued under the **DefaultApplication** are JWT tokens.
-
-Following sections provide you an illustrated guide on how to secure your APIs using both JWT and Opaque access tokens.
-
-- [Secure APIs using OAuth2 JWT Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/AccessTokenTypes/secure-apis-using-jwt-tokens)
-
-- [Secure APIs using OAuth2 Opaque Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/AccessTokenTypes/secure-apis-using-opaque-tokens)
 
 ## Authentication via Access Tokens
 
