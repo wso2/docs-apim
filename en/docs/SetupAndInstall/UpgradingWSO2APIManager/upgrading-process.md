@@ -4,7 +4,7 @@ This section contains the complete upgrading process related to the WSO2 API Man
 Go through the guidelines given below before attempting to upgrade the production environment.
 
 !!! note
-    To upgrade **from a version older than 1.8.0** , follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
+    To upgrade **from a version older than 1.9.1** , follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
 
 !!! info
     For more information about this release, see [About this Release](../../GettingStarted/about-this-release.md).

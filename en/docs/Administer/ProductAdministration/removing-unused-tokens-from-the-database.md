@@ -1,7 +1,7 @@
 # Removing Unused Tokens from the Database
 
 !!! note
-    From 2.6.0 onwards, WSO2 API Manager is configured by default to trigger token clean up during token generation, token refreshing and token revocation. Therefore, when the state of the token (`TOKEN_STATE`) is changed during any of the latter mentioned processes for tokens that were in the `ACTIVE` state before, by default, such tokens will be removed from the IDN_OAUTH2_ACCESS_TOKEN table and stored in an audit table. Thus you do need to manually cleanup the unused tokens as guided below from API-M 2.6.0 onwards.
+    From 2.6.0 onwards, WSO2 API Manager is configured by default to trigger token clean up during token generation, token refreshing and token revocation. Therefore, when the state of the token (`TOKEN_STATE`) is changed during any of the latter mentioned processes for tokens that were in the `ACTIVE` state before, by default, such tokens will be removed from the IDN_OAUTH2_ACCESS_TOKEN table and stored in an audit table. Thus you don't need to manually cleanup the unused tokens as guided below from API-M 2.6.0 onwards.
 
 As you use WSO2 API Manager, the number of revoked, inactive and expired tokens accumulate in the IDN\_OAUTH2\_ACCESS\_TOKEN table. These tokens are kept in the database for logging and audit purposes, but they can have a negative impact on the server's performance over time. Therefore, it is recommended to clean them.
 
