@@ -1631,7 +1631,7 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         ```
 
-4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
+4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
         If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
