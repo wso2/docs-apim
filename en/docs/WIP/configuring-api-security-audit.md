@@ -1,6 +1,6 @@
 ## Securing APIs by auditing API Definitions
 
-API Security has been a rising concern in recent times, with raw, sensitive data laying behind just a single API call waiting to be consumed. Therefore it is important that APIs conform to the OpenAPI Specification (OAS) and minimizes the number of loopholes for cyberattacks to pass through.
+API Security has been a rising concern in recent times, with raw, sensitive data lying behind just a single API call waiting to be consumed. Therefore it is important that APIs conform to the OpenAPI Specification (OAS) and minimizes the number of loopholes for cyberattacks to pass through.
 
 This is why WSO2 API-M has partnered up with 42Crunch to bring the ability to audit APIs for identifying and guiding how to fix potential vulnerabilities.
 
