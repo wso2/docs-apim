@@ -1,6 +1,6 @@
 # Grouping APIs with Microgateway Labels
 
-If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/) distribution for a group of APIs. Therefore, if you need to group APIs, you need to create a label and attach the label to the specific APIs that need to be apart of the group.
+If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/) distribution for a group of APIs. Therefore, if you need to group APIs in order to import it later into the WSO2 Microgateway, you need to create a Microgateway label and add the label to the respective APIs that belong to the group.
 
 <html>
 <div class="admonition note">
@@ -50,7 +50,7 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Repeat this step multiple times if you wish to add multiple APIs to the API group.</p>
+<p>Repeat this step if you wish to add multiple APIs to the API group.</p>
 </div> 
 </html>
 
@@ -79,14 +79,14 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
 ## Step 3 - View the Microgateway labels
 
-1.  Sign in to the Developer Portal using `admin` as the username and password.
+Sign in to the Developer Portal using `admin` as the username and password.
 
-     `https://<hostname>:9443/devportal` 
+`https://<hostname>:9443/devportal` 
    
-     Example: `https://localhost:9443/devportal`
+Example: `https://localhost:9443/devportal`
 
-2.  The attached Microgateways appear in the **Overview** tab of the API.
+The attached Microgateways appear in the **Overview** tab of the API.
 
-    [![Microgateway label in the Developer Portal]({{base_path}}/assets/img/Learn/Microgateway-label-devportal.png)]({{base_path}}/assets/img/Learn/Microgateway-label-devportal.png)
+[![Microgateway label in the Developer Portal]({{base_path}}/assets/img/Learn/Microgateway-label-devportal.png)]({{base_path}}/assets/img/Learn/Microgateway-label-devportal.png)
 
 
