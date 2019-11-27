@@ -1,6 +1,6 @@
 ## Securing APIs by auditing API Definitions
 
-API Security has been a rising concern in recent times, with more and more raw data, probably sensitive, laying behind just a single API call waiting to be consumed. Therefore it is important that APIs conforms to the OpenAPI Specification (OAS) and minimizes the amount of loopholes for cyberattacks to pass through.
+API Security has been a rising concern in recent times, with raw, sensitive data laying behind just a single API call waiting to be consumed. Therefore it is important that APIs conform to the OpenAPI Specification (OAS) and minimizes the number of loopholes for cyberattacks to pass through.
 
 This is why WSO2 API-M has partnered up with 42Crunch to bring the ability to audit APIs for identifying and guiding how to fix potential vulnerabilities.
 
@@ -143,7 +143,7 @@ This category presents any issues that exist due to the API Definition not adher
 
 1.  **Structural Errors**
 
-    Occurs when specific sections that the OpenAPI format requires in the API Definition are not present.
+    This occurs when specific sections that the OpenAPI format requires in the API Definition are not present.
 
 2.  **Semantic Errors**
 
