@@ -529,21 +529,6 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     ```
 
-3. Restart the WSO2 API-M Server.
-
-    ```tab="Linux / Mac OS"
-    sh wso2server.sh
-    ```
-
-    ```tab="Windows"
-    wso2server.bat
-    ```
-
-4.  After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
-
-    !!! warning
-        Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
-
 ### Step 2 - Upgrade API Manager to 3.0.0
 
 1.  Stop all WSO2 API Manager server instances that are running.
@@ -1893,16 +1878,6 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
             -Dmigrate -Dcomponent=identity
             ```
 
-    7.  Restart the WSO2 API-M server.
-
-        ```tab="Linux / Mac OS"
-        sh wso2server.sh
-        ```
-
-        ```tab="Windows"
-        wso2server.bat
-        ```
-
 6.  Re-index the artifacts in the registry.
 
     1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
@@ -1926,9 +1901,23 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     5.  Start the WSO2 API-M server.
 
-    6.  Stop the WSO2 API-M server and remove the tenantloader-1.0.jar from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
-    7.  Restart the WSO2 API-M server.
+7.  Restart the WSO2 API-M server.
+
+    ```tab="Linux / Mac OS"
+    sh wso2server.sh
+    ```
+
+    ```tab="Windows"
+    wso2server.bat
+    ```
+
+    !!! note "If you have enabled Analytics"
+        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
+
+        !!! warning
+            Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
