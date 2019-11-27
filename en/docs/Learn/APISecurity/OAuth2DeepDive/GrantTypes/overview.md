@@ -1,7 +1,9 @@
 #OAuth2 Grant Types
 
 
-In OAuth2, the term **Grant Type** refers to the way for a client application to acquire an access token depending on the type of the resource owner, type of the application and the trust relationship between the authorization server and the resource owner etc. WSO2 API Manager supports following grant types including the basic grant types offered by OAuth2 framework. 
+In OAuth2, the term **Grant Type** refers to the way for a client application to acquire an access token depending on the type of the resource owner, type of the application and the trust relationship between the authorization server and the resource owner. 
+
+WSO2 API Manager supports following grant types including the basic grant types offered by OAuth2 framework. 
 
 - [Password Grant]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant)
 - [Client Credentials Grant]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant)
