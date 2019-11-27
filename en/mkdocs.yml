@@ -205,14 +205,16 @@ nav:
             - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md
         - API Security:
             - Authentication:
-                - Overview : Learn/APISecurity/APIAuthentication/api-authentication.md
-                - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
-                - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
+                - Overview: Learn/APISecurity/APIAuthentication/api-authentication.md
+                - Secure APIs using OAuth2 Access Tokens:
+                    - Secure APIs using OAuth2 Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
+                    - JWT Access Tokens: Learn/APISecurity/APIAuthentication/AccessTokenTypes/secure-apis-using-jwt-tokens.md
+                    - Opaque Access Tokens: Learn/APISecurity/APIAuthentication/AccessTokenTypes/secure-apis-using-opaque-tokens.md
                 - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
                 - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
                 - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
             - Authorization:
-                - Overview : Learn/APISecurity/Authorization/api-authorization.md
+                - Overview: Learn/APISecurity/Authorization/api-authorization.md
                 - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:

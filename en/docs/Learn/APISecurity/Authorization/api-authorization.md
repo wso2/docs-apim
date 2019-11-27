@@ -3,4 +3,5 @@ Nowadays, most of the enterprise applications are built with a collection of RES
  WSO2 API Manager offers following fine grained API access control mechanism to restrict the API access to desired user groups only.
 
 [Fine Grained Access Control Using Scopes]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes)
-[Fine Grained Access Control Using XACML]({{base_path}}/Learn/APISecurity/OAuth2/OAuth2Scopes/role-based-access-control-using-xacml)
+
+[Fine Grained Access Control Using XACML]({{base_path}}/Learn/APISecurity/Authorization/role-based-access-control-using-xacml/)
