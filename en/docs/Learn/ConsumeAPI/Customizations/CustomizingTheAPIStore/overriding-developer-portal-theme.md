@@ -18,7 +18,7 @@ Changes done in the defaultTheme.js will be reflected directly in the devportal.
 
 **If you do not have access to the file system** , you can upload the theme through the Admin Portal as shown below:
 
-1.  Download the sample theme here [testTheme.zip](../../../../../../assets/attachments/Learn/testTheme.zip) This sample theme is changing the default listing from 'grid' to 'list'.
+1.  Download the sample theme here [testTheme.zip](../../../../../assets/attachments/Learn/testTheme.zip) This sample theme is changing the default listing from 'grid' to 'list'.
 2.  testTheme.zip contains a single json file ( defaultTheme.json ). You can make the changes required to this json file and archive it back. The name of the archive doesn't matter but the name of the json file ( defaultTheme.json ) does.
 3.  Sign in to the WSO2 Admin Portal ( `https://<server-host>:9443/admin` ) with your tenant username (format `<username>@<domain>.com kim@testorg.com` ) and password.
 4.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file. ![../../../../assets/attachments/103334757/103334761.png](../../../../assets/attachments/103334757/103334761.png)
