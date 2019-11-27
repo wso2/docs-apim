@@ -2,9 +2,8 @@
 
 APIs published on WSO2 API Gateway can be secured by OAuth 2.0, which is the de facto standard for access delegation in REST API world. Any client application invoking a OAuth2 secured API needs to have a valid subscription to that particular API and present a valid OAuth2.0 Access Token when invoking it. Please refer [Subscribe to an API](../../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api/) for more information on how to subscribe an application to an API and generate credentials for it.
 
-Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain an access tokens to invoke APIs which are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the trust relationship with the application. Please see [OAuth2 Grant Types](../../../../Learn/APISecurity/OAuth2/GrantTypes/password-grant) to understand the OAuth2 grant types.
-
-defines four different grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the level of trust that you have with the application
+Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain an access tokens to invoke APIs which are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the trust relationship with the application. Please see [OAuth2 Grant Types]
+({{base_path}}/Learn/APISecurity/OAuth2DeepDive/GrantTypes/overview/) to understand more about the OAuth2 grant types.
 
 ## OAuth 2.0 Access Token Types
 
