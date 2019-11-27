@@ -1650,19 +1650,9 @@ Follow the instructions below to move all the existing API Manager configuration
         As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
 
     ??? note "If you are using DB2"
-        Move indexes to the the
-        TS32K Tablespace. The index tablespace in the 
-        `           IDN_OAUTH2_ACCESS_TOKEN          `  and 
-        `           IDN_OAUTH2_AUTHORIZATION_CODE          ` tables need
-        to be moved to the existing TS32K tablespace in order to support
-        newly added table indexes.
+        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN`  and  `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
 
-        SQLADM or DBADM authority is required in order to invoke
-        the `           ADMIN_MOVE_TABLE          ` stored procedure. You
-        must also have the appropriate object creation authorities,
-        including authorities to issue the SELECT statement on the source
-        table and to issue the INSERT statement on the target table.
-        
+        SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table.    
 
         ??? info "Click here to see the stored procedure" 
             ``` java
@@ -1697,15 +1687,8 @@ Follow the instructions below to move all the existing API Manager configuration
             <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
             ```
 
-        If you recieve an error due to missing
-        `               SYSTOOLSPACE              ` or
-        `               SYSTOOLSTMPSPACE              ` tablespaces, create
-        those tablespaces manually using the following script prior to
-        executing the stored procedure given above. For more information,
-        see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
-        spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html)
-        in the IBM documentation.           
-
+        If you recieve an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
+        spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html) in the IBM documentation.          
         ``` java
         CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
         MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
@@ -1745,6 +1728,24 @@ Follow the instructions below to move all the existing API Manager configuration
 
         !!! note
             Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+
+        !!! warning "Troubleshooting"
+            When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
+
+            Sample exception stack trace is given below.
+            ```
+            ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
+            ```
+
+            1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
+                ```
+                [indexing]
+                frequency= 10
+                ```
+
+            2.  Re-run the command above.
+
+            **Make sure to revert the change done in Step 1 , after the migration is complete.**
 
     6.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
