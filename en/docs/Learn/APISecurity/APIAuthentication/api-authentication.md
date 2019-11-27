@@ -2,9 +2,11 @@ API authentication is a mechanism of protecting API access from unidentified or 
 
 WSO2 API offers following authentication mechanisms to secure your API from unauthenticated access.
 
-[Securing APIs using OAuth2 Opaque Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens)
+[Securing APIs using OAuth2 Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens)
 
-[Secure APIs Using JWT Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens)
+   - [JWT Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/AccessTokenTypes/secure-apis-using-jwt-tokens)
+    
+   - [Opaque Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/AccessTokenTypes/secure-apis-using-opaque-tokens)
 
 [Secure APIs Using API Keys]({{base_path}}/Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys)
 
