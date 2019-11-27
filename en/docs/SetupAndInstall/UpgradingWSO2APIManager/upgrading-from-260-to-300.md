@@ -413,7 +413,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 1.  Stop all WSO2 API Manager server instances that are running.
 
-2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-11-migrate-the-api-manager-configurations) of the previous section.
+2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-1-migrate-the-api-manager-configurations) of the previous section.
 
 3.  Upgrade the WSO2 API Manager database from version 2.6.0 to version 3.0.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
