@@ -23,7 +23,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
 
 !!! note "NOTE"
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
-    highly **NOTE RECOMMENDED** and these configurations should only be changed once.
+    highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Turning off registry versioning in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
@@ -288,7 +288,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
     If you decide to proceed with registry resource versioning enabled, Add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
     
     ```
-    [registory.static_configuration]
+    [registry.static_configuration]
     enable=true
     ```
     
@@ -401,7 +401,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 8. If you manually added any JAR files to the `<API-M_2.6.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
 
-9. WSO2 API Manager 3.0.0 has been switched from log4j to log4j2. You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
+9. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to see how to add a log appender or a logger to the log4j2.properties file.
@@ -413,7 +413,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 1.  Stop all WSO2 API Manager server instances that are running.
 
-2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-11-migrate-the-api-manager-configurations) of the previous section.
+2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-1-migrate-the-api-manager-configurations) of the previous section.
 
 3.  Upgrade the WSO2 API Manager database from version 2.6.0 to version 3.0.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
@@ -1631,7 +1631,7 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         ```
 
-4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
+4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
         If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
@@ -1650,7 +1650,7 @@ Follow the instructions below to move all the existing API Manager configuration
         As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
 
     ??? note "If you are using DB2"
-        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN`  and  `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
+        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
 
         SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table.    
 
