@@ -47,8 +47,8 @@ theme:
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
-    - Get Started: 
-        - Overview:  GettingStarted/overview.md
+    - Get Started:
+        - Overview: GettingStarted/overview.md
         - Key Concepts: GettingStarted/key-concepts.md
         - Quick Start Guide: GettingStarted/quick-start-guide.md
         - About this Release: GettingStarted/about-this-release.md
@@ -96,7 +96,7 @@ nav:
                 - Backward Compatibility: Learn/DesignAPI/APIVersioning/backward-compatibility.md
                 - Enabling Notifications: Learn/DesignAPI/APIVersioning/enabling-notifications.md
             - API Documentation:
-                - Add API Documentation:  Learn/DesignAPI/APIDocumentation/add-api-documentation.md
+                - Add API Documentation: Learn/DesignAPI/APIDocumentation/add-api-documentation.md
                 - Search Documentation:
                     - Add New Search Keyword: Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword.md
             - Advanced Topics:
@@ -107,7 +107,7 @@ nav:
                 - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md 
         - Consume APIs:
             - Discover APIs:
-                - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md    
+                - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md
             - Manage Applications:
                 - Create Application: Learn/ConsumeAPI/ManageApplication/create-application.md
                 - Generate Keys:
@@ -134,7 +134,7 @@ nav:
                         - Changing the Owner of an Application: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/changing-the-owner-of-an-application.md
                         - Adding an Application Creation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-creation-workflow.md
                         - Adding an Application Key Generation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-key-generation-workflow.md
-            - Manage Subscriptions: 
+            - Manage Subscriptions:
                 - Subscribe to an API: Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md
                 - Advanced Topics:
                         - Adding an API Subscription Workflow: Learn/ConsumeAPI/ManageSubscription/AdvancedTopics/adding-an-api-subscription-workflow.md
@@ -168,21 +168,21 @@ nav:
                     - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-left-menu.md
                     - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-info-section.md
                     - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-the-logo-and-header.md
-                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md   
+                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md
                     - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/advanced-customization.md
                 - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
                 - Customizing Login Pages for Developer Portal and Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-            - Generating SDKs:  
-                - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md     
+            - Generating SDKs:
+                - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md
         - API Gateway:
             -  Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
             - Message Mediation:
                 - Change the Default Mediation Flow of API Requests: Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests.md
                 - Convert a JSON Message to SOAP and SOAP to JSON: Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json.md
-                - Remove Specific Request Headers From Response:  Learn/APIGateway/MessageMediation/remove-specific-request-headers-from-response.md
+                - Remove Specific Request Headers From Response: Learn/APIGateway/MessageMediation/remove-specific-request-headers-from-response.md
                 - Pass a Custom Authorization Token to the Backend: Learn/APIGateway/MessageMediation/pass-a-custom-authorization-token-to-the-backend.md
                 - URL Mapping: Learn/APIGateway/MessageMediation/map-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
                 - Disable Message Chunking: Learn/APIGateway/MessageMediation/disable-message-chunking.md
@@ -199,7 +199,7 @@ nav:
             - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
             - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
             - Advanced Topics:
-                -  API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
+                - API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
         - API Microgateway:
             - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md
         - API Security:
@@ -214,11 +214,11 @@ nav:
                 - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:
-                - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md            
+                - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md
             - OAuth2 Deep Dive:
                 - Token types:
-                      - JWT Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/jwt-tokens.md
-                      - Opaque Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/opaque-tokens.md
+                    - JWT Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/jwt-tokens.md
+                    - Opaque Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/opaque-tokens.md
                 - OAuth2 Scopes:
                     - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                     - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
@@ -246,7 +246,7 @@ nav:
                 - Gateway Threat Protectors: Learn/APISecurity/ThreatProtection/GatewayThreatProtectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md 
+                - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
             - OpenID Connect:
                 - Obtaining User Profile Information with OpenID Connect: Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect.md
         - Rate Limiting:
@@ -258,7 +258,7 @@ nav:
             - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
             - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
             - Advanced Topics:
-                - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md 
+                - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md
         - API Monetization:
             - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
         - Analytics:
@@ -271,11 +271,11 @@ nav:
                 - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
                 - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
                 - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
-                - Viewing Alerts:  Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts.md
+                - Viewing Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts.md
             - Using Geolocation Based Statistics:
                 - Configuring Geolocation Based Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics.md
                 - Writing a Custom Geolocation Provider: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/writing-a-custom-geolocation-provider.md
-                - Updating Geo Location Data Set: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set.md           
+                - Updating Geo Location Data Set: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set.md
             - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
@@ -341,7 +341,7 @@ nav:
             - Deployment Patterns: InstallAndSetup/DeployingWSO2APIManager/deployment-patterns.md
             - All-In-One Deployment:
                 - All-in-One Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview.md
-                - Configuring a Single Node: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md 
+                - Configuring a Single Node: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md
                 - Configuring an Active-Active Deployment: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment.md
             - Distributed Deployment:
                 - Distributed Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
@@ -444,7 +444,7 @@ nav:
             - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
         - Product Security:
             - General:
-                -  Logins and Passwords:    
+                - Logins and Passwords:
                     - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
                     - Securing Passwords in Configuration Files:
                         - Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
@@ -463,7 +463,7 @@ nav:
                     - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
                     - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
                     - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
-                - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
+                - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                 - Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
             - Supported Cipher Suites: ''
