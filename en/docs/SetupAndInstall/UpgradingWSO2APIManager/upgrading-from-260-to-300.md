@@ -298,14 +298,12 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
 !!! note
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0](../UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-570-to-590.md).
 
--   [Step 1 - Migrate the configurations](#step-1-migrate-the-configurations)
-    -   [Step 1.1 - Migrate the API Manager configurations](#step-11-migrate-the-api-manager-configurations)
-    -   [Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-12-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
+-   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.0.0](#step-2-upgrade-api-manager-to-300)
+-   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
+-   [Step 4 - Restart the WSO2 API-M 3.0.0 server](#step-4-restart-the-wso2-api-m-300-server)
 
-### Step 1 - Migrate the configurations
-
-#### Step 1.1 - Migrate the API Manager configurations
+### Step 1 - Migrate the API Manager configurations
 
 !!! warning
     Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog](../../Reference/ConfigCatalog.md).
@@ -367,7 +365,6 @@ Follow the instructions below to move all the existing API Manager configuration
         url = "jdbc:mysql://localhost:3306/config_db"
         username = "username"
         password = "password"
-
         ```
 
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the WSO2UM_DB.
@@ -411,138 +408,6 @@ Follow the instructions below to move all the existing API Manager configuration
 
     !!! note
         Log4j2 has hot deployment support, and **Managing Logs** section has been removed from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
-
-#### Step 1.2 - Optionally, migrate the configurations for WSO2 API-M Analytics
-
-!!! warning
-    This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
-
-Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.0.0
-
-##### Step 1.2.1 - Configure WSO2 API-M Analytics 3.0.0
-
-!!! note
-    -   In API-M 2.6.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
-    -   Now with API-M 3.0.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
-    -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
-
-Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
-
-1.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
-
-    ``` java
-    #Data source for APIM Analytics
-    - name: APIM_ANALYTICS_DB
-        description: Datasource used for APIM Analytics
-        jndiConfig:
-        name: jdbc/APIM_ANALYTICS_DB
-        definition:
-        type: RDBMS
-        configuration:
-            jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
-            username: root
-            password: root
-            driverClassName: com.mysql.jdbc.Driver
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
-
-    #Main datasource used in API Manager
-    - name: AM_DB
-        description: Main datasource used by API Manager
-        jndiConfig:
-        name: jdbc/AM_DB
-        definition:
-        type: RDBMS
-        configuration:
-            jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
-            username: root
-            password: root
-            driverClassName: com.mysql.jdbc.Driver
-            maxPoolSize: 10
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
-    ```
-
-2.  Configure the following datasource in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
-
-    ``` java
-    #Data source for APIM Analytics
-    - name: APIM_ANALYTICS_DB
-      description: "The datasource used for APIM statistics aggregated data."
-      jndiConfig:
-        name: jdbc/APIM_ANALYTICS_DB
-      definition:
-        type: RDBMS
-        configuration:
-          jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
-          username: root
-          password: root
-          driverClassName: com.mysql.jdbc.Driver
-          maxPoolSize: 50
-          idleTimeout: 60000
-          connectionTestQuery: SELECT 1
-          validationTimeout: 30000
-          isAutoCommit: false
-    ```
-
-3.  Start the Worker and Dashboard profiles as below.
-
-    ```
-    cd <API-M_ANALYTICS_3.0.0_HOME>/bin
-    sh worker.sh
-
-    cd <API-M_ANALYTICS_3.0.0_HOME>/bin
-    sh dashboard.sh
-    ```
-
-!!! note
-    If you have developed any custom dashboards in API-M 2.6.0 Analytics using Stream Processor, you will be able to use the same in API-M Anaytics 3.0.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
-
-##### Step 1.2.2 - Configure WSO2 API-M 3.0.0 for Analytics
-
-Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
-
-1.  Configure the following datasources in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
-
-    The following is an example of how the configurations should be defined when using MySQL.
-
-    This datasource points to the **previous API-M version's WSO2AM_DB datasource.**
-
-    ``` java
-    [database.apim_db]
-    type = "mysql"
-    url = "jdbc:mysql://localhost:3306/am_db"
-    username = "username"
-    password = "password"
-    ```
-
-2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
-
-    ``` java
-    [apim.analytics]
-    enable = true
-
-    ```
-
-3. Restart the WSO2 API-M Server.
-
-    ```tab="Linux / Mac OS"
-    sh wso2server.sh
-    ```
-
-    ```tab="Windows"
-    wso2server.bat
-    ```
-
-4.  After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
-
-    !!! warning
-        Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
 ### Step 2 - Upgrade API Manager to 3.0.0
 
@@ -1766,25 +1631,28 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         );
         ```
 
-4.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
+4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
+
+    !!! note "If you have enabled Secure Vault"
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
+
+        ```tab="Linux"
+        ./ciphertool.sh -Dconfigure
+        ```
+
+        ```tab="Windows"
+        ./ciphertool.bat -Dconfigure
+        ```
+
+5.  Upgrade the Identity component in WSO2 API Manager from version 5.7.0 to 5.9.0.
 
     !!! note
         As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
 
     ??? note "If you are using DB2"
-        Move indexes to the the
-        TS32K Tablespace. The index tablespace in the 
-        `           IDN_OAUTH2_ACCESS_TOKEN          `  and 
-        `           IDN_OAUTH2_AUTHORIZATION_CODE          ` tables need
-        to be moved to the existing TS32K tablespace in order to support
-        newly added table indexes.
+        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN`  and  `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
 
-        SQLADM or DBADM authority is required in order to invoke
-        the `           ADMIN_MOVE_TABLE          ` stored procedure. You
-        must also have the appropriate object creation authorities,
-        including authorities to issue the SELECT statement on the source
-        table and to issue the INSERT statement on the target table.
-        
+        SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table.    
 
         ??? info "Click here to see the stored procedure" 
             ``` java
@@ -1819,15 +1687,8 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
             <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
             ```
 
-        If you recieve an error due to missing
-        `               SYSTOOLSPACE              ` or
-        `               SYSTOOLSTMPSPACE              ` tablespaces, create
-        those tablespaces manually using the following script prior to
-        executing the stored procedure given above. For more information,
-        see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
-        spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html)
-        in the IBM documentation.           
-
+        If you recieve an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
+        spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html) in the IBM documentation.          
         ``` java
         CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
         MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
@@ -1855,9 +1716,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     4.  Copy the `org.wso2.carbon.is.migration-1.0.23.jar` from the extracted folder to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
-    5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
-
-    6.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
+    5.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
 
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
@@ -1870,7 +1729,25 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         !!! note
             Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
 
-    7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
+        !!! warning "Troubleshooting"
+            When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
+
+            Sample exception stack trace is given below.
+            ```
+            ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
+            ```
+
+            1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
+                ```
+                [indexing]
+                frequency= 10
+                ```
+
+            2.  Re-run the command above.
+
+            **Make sure to revert the change done in Step 1 , after the migration is complete.**
+
+    6.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
         -   Remove the `org.wso2.carbon.is.migration-1.0.23.jar` file, which is in the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
@@ -1882,17 +1759,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
             -Dmigrate -Dcomponent=identity
             ```
 
-    8.  Restart the WSO2 API-M server.
-
-        ```tab="Linux / Mac OS"
-        sh wso2server.sh
-        ```
-
-        ```tab="Windows"
-        wso2server.bat
-        ```
-
-5.  Re-index the artifacts in the registry.
+6.  Re-index the artifacts in the registry.
 
     1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
 
@@ -1915,7 +1782,141 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     5.  Start the WSO2 API-M server.
 
-    6.  Stop the WSO2 API-M server and remove the tenantloader-1.0.jar from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+
+### Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics
+
+!!! warning
+    This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
+
+Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.0.0
+
+#### Step 3.1 - Configure WSO2 API-M Analytics 3.0.0
+
+!!! note
+    -   In API-M 2.6.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
+    -   Now with API-M 3.0.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
+    -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
+
+Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
+
+1.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
+
+    ``` java
+    #Data source for APIM Analytics
+    - name: APIM_ANALYTICS_DB
+        description: Datasource used for APIM Analytics
+        jndiConfig:
+        name: jdbc/APIM_ANALYTICS_DB
+        definition:
+        type: RDBMS
+        configuration:
+            jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
+            username: root
+            password: root
+            driverClassName: com.mysql.jdbc.Driver
+            maxPoolSize: 50
+            idleTimeout: 60000
+            connectionTestQuery: SELECT 1
+            validationTimeout: 30000
+            isAutoCommit: false
+
+    #Main datasource used in API Manager
+    - name: AM_DB
+        description: Main datasource used by API Manager
+        jndiConfig:
+        name: jdbc/AM_DB
+        definition:
+        type: RDBMS
+        configuration:
+            jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
+            username: root
+            password: root
+            driverClassName: com.mysql.jdbc.Driver
+            maxPoolSize: 10
+            idleTimeout: 60000
+            connectionTestQuery: SELECT 1
+            validationTimeout: 30000
+            isAutoCommit: false
+    ```
+
+2.  Configure the following datasource in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
+
+    ``` java
+    #Data source for APIM Analytics
+    - name: APIM_ANALYTICS_DB
+      description: "The datasource used for APIM statistics aggregated data."
+      jndiConfig:
+        name: jdbc/APIM_ANALYTICS_DB
+      definition:
+        type: RDBMS
+        configuration:
+          jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
+          username: root
+          password: root
+          driverClassName: com.mysql.jdbc.Driver
+          maxPoolSize: 50
+          idleTimeout: 60000
+          connectionTestQuery: SELECT 1
+          validationTimeout: 30000
+          isAutoCommit: false
+    ```
+
+3.  Start the Worker and Dashboard profiles as below.
+
+    ```
+    cd <API-M_ANALYTICS_3.0.0_HOME>/bin
+    sh worker.sh
+
+    cd <API-M_ANALYTICS_3.0.0_HOME>/bin
+    sh dashboard.sh
+    ```
+
+!!! note
+    If you have developed any custom dashboards in API-M 2.6.0 Analytics using Stream Processor, you will be able to use the same in API-M Anaytics 3.0.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
+
+#### Step 3.2 - Configure WSO2 API-M 3.0.0 for Analytics
+
+Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
+
+1.  Configure the following datasources in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
+
+    The following is an example of how the configurations should be defined when using MySQL.
+
+    This datasource points to the **previous API-M version's WSO2AM_DB datasource.**
+
+    ``` java
+    [database.apim_db]
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/am_db"
+    username = "username"
+    password = "password"
+    ```
+
+2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
+
+    ``` java
+    [apim.analytics]
+    enable = true
+    ```
+
+### Step 4 - Restart the WSO2 API-M 3.0.0 server
+
+1.  Restart the WSO2 API-M server.
+
+    ```tab="Linux / Mac OS"
+    sh wso2server.sh
+    ```
+
+    ```tab="Windows"
+    wso2server.bat
+    ```
+
+    !!! note "If you have enabled Analytics"
+        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
+
+        !!! warning
+            Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.

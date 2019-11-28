@@ -1,78 +1,92 @@
-# Grouping APIs with Labels
+# Grouping APIs with Microgateway Labels
 
-It is possible to create a Microgateway distribution for a group of APIs. In order to group APIs, a label needs to be created and attached to the APIs that need to be in a single group.
+If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/) distribution for a group of APIs. Therefore, if you need to group APIs in order to import it later into the WSO2 Microgateway, you need to create a Microgateway label and add the label to the respective APIs that belong to the group.
 
--   [Creating and attaching a Microgateway to an API](#GroupingAPIswithLabels-CreatingandattachingaMicrogatewaytoanAPI)
--   [Generating a Microgateway distribution for a label](#GroupingAPIswithLabels-GeneratingaMicrogatewaydistributionforalabel)
--   [Viewing Microgateway labels in the API Store](#GroupingAPIswithLabels-ViewingMicrogatewaylabelsintheAPIStore)
+<html>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more information on WSO2 API Microgateway, see <a href="https://docs.wso2.com/display/MG300/API+Microgateway+Documentation">API Microgateway Documentation</a>.</p>
+</div> 
+</html>
 
-#### Creating and attaching a Microgateway to an API
+## Step 1 - Create a Microgateway label
 
-1.  Log in to the Admin portal ( `https://<hostname>:9443/admin` ). Use `admin` as the username and password.
+1.  Sign in to the Admin Portal.
+     
+     `https://<hostname>:9443/admin` 
+   
+     Example: `https://localhost:9443/admin`
 
-2.  To add a new Microgateway label, click **LABELS** under **MICROGATEWAY** , and then click **ADD MICROGATEWAY** .
-    ![]({{base_path}}/assets/attachments/103333763/103333764.png)
-3.  Create a new label (e.g. MARKETING\_STORE), add a host (e.g. `https://localhost:9095` ) and click **Save.**
+     Let's use `admin` as your username and password to sign in.
 
-    ![]({{base_path}}/assets/attachments/103333763/103333765.png)
+2.  Add a new Microgateway label.
 
-4.  Navigate to the API Publisher ( `https://<hostname>:9443/publisher` ). Sign in using `admin` as the username and password.
-5.  Deploy the sample Pizzashack API by clicking **Deploy Sample API** if you have not already done.
-6.  Choose to edit the created Pizzashack API.
+     Click **LABELS** under **MICROGATEWAY**, and then click **ADD MICROGATEWAY**.
 
-    ![]({{base_path}}/assets/attachments/103333763/103333766.png)
+     [![Menu to add Microgateway label]({{base_path}}/assets/img/Learn/add-microgateway-label-menu.png)]({{base_path}}/assets/img/Learn/add-microgateway-label-menu.png)
 
-7.  Navigate to the **Manage** section and click **Gateway Environments** .
+3.  Create a new label, add a host, and click **Save.**
 
-8.  Select the newly created label to attach it to the Pizzashack API.
-    ![]({{base_path}}/assets/attachments/103333763/103333767.png)
-9.  Click **Save & Publish** .
-10. Similarly, you can select MARKETING\_STORE label for few other Published APIs.
+     <table>
+     <tr>
+     <td>Label
+     </td>
+      <td>
+     MARKETING_STORE
+     </td>
+     </tr>
+     <tr>
+     <td>Host
+     </td>
+     <td><code>https://localhost:9095</code>
+     </td>
+     </tr>
+     </table>
 
-#### Generating a Microgateway distribution for a label
+     [![Add a Microgateway label]({{base_path}}/assets/img/Learn/add-microgateway-label.png)]({{base_path}}/assets/img/Learn/add-microgateway-label.png)
 
-1.  Run the initial setup command for the MARKETING\_STORE label after navigating to a preferred workspace folder.
+## Step 2 - Assign the Microgateway label to an API
 
-    ``` java
-        micro-gw setup <project name> -l <label name> 
-    ```
+<html>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Repeat this step if you wish to add multiple APIs to the API group.</p>
+</div> 
+</html>
 
-    Here is a sample:
+1.  Sign in to the API Publisher using `admin` as the username and password.
 
-    ``` java
-            micro-gw setup marketing_project -l MARKETING_STORE 
-    ```
+     `https://<hostname>:9443/publisher` 
+   
+     Example: `https://localhost:9443/publisher`
 
-2.  Build the microgateway distribution for the project using the following command:
+2.  Create a new API or skip this step if you wish to use an existing API.
+     Let's deploy the sample Pizzashack API by clicking **Deploy Sample API** (If you have not done so already).
 
-    ``` java
-            micro-gw build marketing_project
-    ```
+3.  Click on the API to edit its configurations.
 
-    Once the above command is executed, the generated source files are built and a Microgateway distribution is created under the **target** folder.
+    [![Edit the API]({{base_path}}/assets/img/Learn/select-api.png)]({{base_path}}/assets/img/Learn/select-api.png)
 
-3.  Next, unzip the `micro-gw-marketing-project.zip` and run the `gateway` shell script inside the **bin** folder of the extracted zip using the following command:
+4.  Click **Environments**.
 
-    ``` java
-            bash gateway 
-    ```
+5.  Select the newly created Microgateway label.
 
-    The Microgateway starts for the APIs grouped with `MARKETING_STORE` label you just created.
+    [![Microgateway label in the Publisher]({{base_path}}/assets/img/Learn/Microgateway-label-publisher.png)]({{base_path}}/assets/img/Learn/Microgateway-label-publisher.png)
 
-    ``` java
-            micro-gw-marketing-project/bin$ bash gateway
-    ballerina: HTTP access log enabled
-    ballerina: initiating service(s) in '/home/user/workspace/marketing-project/target/micro-gw-marketing-project/exec/marketing-project.balx'
-    2018-06-29 21:16:44,142 INFO  [wso2/gateway:0.0.0] - Subscribing writing method to event stream 
-    ballerina: started HTTPS/WSS endpoint 0.0.0.0:9096
-    ballerina: started HTTPS/WSS endpoint 0.0.0.0:9095
-    ballerina: started HTTP/WS endpoint 0.0.0.0:9090
-    ```
-#### Viewing Microgateway labels in the API Store
+6.  Click **Save** to attach it to the Pizzashack API.
 
-1.  Log in to the API Store ( `https://<hostname>:9443/store` ). Use `admin` as the username and password.
-2.  Any attached Microgateways are shown in the **Overview** tab of the API.
+7. Similarly, you can assign the `MARKETING_STORE` Microgateway label for other APIs as well.
 
-    ![]({{base_path}}/assets/attachments/103333763/103333768.png)
+## Step 3 - View the Microgateway labels
+
+Sign in to the Developer Portal using `admin` as the username and password.
+
+`https://<hostname>:9443/devportal` 
+   
+Example: `https://localhost:9443/devportal`
+
+The attached Microgateways appear in the **Overview** tab of the API.
+
+[![Microgateway label in the Developer Portal]({{base_path}}/assets/img/Learn/Microgateway-label-devportal.png)]({{base_path}}/assets/img/Learn/Microgateway-label-devportal.png)
 
 
