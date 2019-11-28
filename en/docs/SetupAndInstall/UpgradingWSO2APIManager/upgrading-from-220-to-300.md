@@ -318,7 +318,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   The Synapse configurations of tenants are in the `<OLD_API-M_HOME>/repository/tenants` directory.
 
-    -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the API Gateway node.
+    -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
 2.  Download API Manager 3.0.0 from <https://wso2.com/api-management/>.
 
@@ -400,11 +400,19 @@ Follow the instructions below to move all the existing API Manager configuration
         -   _cors_request_handler_.xml
         -   main.xml
 
-7. If you manually added any custom OSGI bundles to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
+    !!! attention 
+        If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
 
-8. If you manually added any JAR files to the `<API-M_3.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
+7.  Move all your Execution plans from `<API-M_2.6.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.0.0_HOME>/repository/deployment/server/executionplans` directory.
 
-9. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
+    !!! note
+        If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
+
+8.  If you manually added any custom OSGI bundles to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
+
+9.  If you manually added any JAR files to the `<API-M_3.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
+
+10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to see how to add a log appender or a logger to the log4j2.properties file.
@@ -1580,6 +1588,12 @@ Follow the instructions below to move all the existing API Manager configuration
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
     2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+
+        !!! attantion
+            If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
+
+        !!! note
+            You need to do this step, if you have **multiple tenants** only.
 
     3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
         
