@@ -149,7 +149,7 @@ nav:
                         - Invoke an API using the Integrated API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console.md
                         - Include Additional Headers in the API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/include-additional-headers-in-the-api-console.md
                         - Invoke an API using a SOAP Client: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client.md
-                        - Test an API using a Ready! API: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api.md  
+                        - Test an API using a Ready! API: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api.md
             - Collaborations:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
@@ -267,7 +267,7 @@ nav:
             - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
             - Managing Analytics Dashboard Permissions: Learn/Analytics/managing-dashboard-permissions.md
             - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
-            - Alerts for APIs: 
+            - Alerts for APIs:
                 - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
                 - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
                 - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
