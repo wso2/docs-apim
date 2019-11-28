@@ -23,7 +23,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
 
 !!! note "NOTE"
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
-    highly **NOTE RECOMMENDED** and these configurations should only be changed once.
+    highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
 !!! info "Turning off registry versioning in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
@@ -288,7 +288,7 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
     If you decide to proceed with registry resource versioning enabled, Add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
     
     ```
-    [registory.static_configuration]
+    [registry.static_configuration]
     enable=true
     ```
     
@@ -401,7 +401,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 8. If you manually added any JAR files to the `<API-M_2.6.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
 
-9. WSO2 API Manager 3.0.0 has been switched from log4j to log4j2. You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
+9. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to see how to add a log appender or a logger to the log4j2.properties file.
