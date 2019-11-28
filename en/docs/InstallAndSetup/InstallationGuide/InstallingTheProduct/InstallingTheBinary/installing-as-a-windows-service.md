@@ -3,7 +3,7 @@
 !!! note
     **Before you begin:**
 
-    -   See [our compatibility matrix]({{base_path}}/SetupAndInstall/ProductCompatibility) to find out if this version of the product is fully tested on your OS.
+    -   See [our compatibility matrix]({{base_path}}/InstallAndSetup/ProductCompatibility) to find out if this version of the product is fully tested on your OS.
 
 
 ### Prerequisites
