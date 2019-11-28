@@ -3,13 +3,13 @@
 The following information describes how to upgrade your API Manager server **from APIM 2.5.0 to 3.0.0** .
 
 !!! note
-    To upgrade **from a version older than 1.8.0** , follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
+    Before you follow this section, see [Upgrading Process](../UpgradingWSO2APIManager/upgrading-process.md) for more information.
 
 !!! attention "Before you Begin"
 
     1. This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
 
-        -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Getting+Started+with+WUM).
+        -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
     2. Before starting the upgrade, run the [token and session cleanup scripts](../../Administer/ProductAdministration/removing-unused-tokens-from-the-database.md) in the databases of the environment, if you are not doing regular cleanups.
 
@@ -26,16 +26,6 @@ current API Manager 2.5.0 version and run the below scripts against **the regist
 !!! note
     Alternatively, it is possible to turn on registry versioning in API Manager 3.0.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
-
-    If you decide to proceed with registry resource versioning enabled, add the following configuration to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file. 
-    
-    ```
-    [registory.static_configuration]
-    enable=true
-    ```
-    
-    !!! warning
-        Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 !!! info "Turning off registry versioning in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
@@ -295,6 +285,16 @@ current API Manager 2.5.0 version and run the below scripts against **the regist
         
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
         ```
+!!! warning "Not Recommeded"
+    If you decided to proceed with registry resource versioning enabled, add the following configuration to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file. 
+    
+    ```
+    [registry.static_configuration]
+    enable=true
+    ```
+    
+    !!! note
+        Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 !!! note
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0](../UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-560-to-590.md).
@@ -1281,20 +1281,7 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         ```
 
-4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
-
-    !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
-
-        ```tab="Linux"
-        ./ciphertool.sh -Dconfigure
-        ```
-
-        ```tab="Windows"
-        ./ciphertool.bat -Dconfigure
-        ```
-
-5.  Upgrade the Identity component in WSO2 API Manager from version 5.6.0 to 5.9.0.
+4.  Upgrade the Identity component in WSO2 API Manager from version 5.6.0 to 5.9.0.
 
     !!! note
         As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
@@ -1368,6 +1355,17 @@ Follow the instructions below to move all the existing API Manager configuration
     4.  Copy the `org.wso2.carbon.is.migration-1.0.23.jar` from the extracted folder to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
     5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
+
+        !!! note "If you have enabled Secure Vault"
+            If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
+
+            ```tab="Linux"
+            ./ciphertool.sh -Dconfigure
+            ```
+
+            ```tab="Windows"
+            ./ciphertool.bat -Dconfigure
+            ```
 
     6.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
 
@@ -1445,7 +1443,7 @@ Follow the instructions below to move all the existing API Manager configuration
 !!! warning
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
-Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 2.6.0
+Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
 
 #### Step 3.1 - Configure WSO2 API-M Analytics 3.0.0
 
@@ -1651,9 +1649,9 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         In such scenarios, you will face a migration data loss due to API or Application deletion.
 
 
-7.  Stop the WSO2 API-M server and remove the migration JAR copied under Step 3.2 - (3.).
+7.  Stop the WSO2 API-M server and remove the migration JAR copied under **Step 3.2 - 3**.
 
-8.  Remove both the old and new `STAT_DB` datasources from the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file, which you defined in Step 3.2 - (1.).
+8.  Remove both the old and new `STAT_DB` datasources from the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file, which you defined in **Step 3.2 - 1**.
 
 9.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
 
