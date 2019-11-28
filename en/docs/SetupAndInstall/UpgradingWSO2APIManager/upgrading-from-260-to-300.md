@@ -1814,7 +1814,9 @@ Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.0.0
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
+1.  Download WSO2 API Manager Analytics 3.0.0 from [here](http://wso2.com/api-management/).
+
+2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
 
     ``` java
     #Data source for APIM Analytics
@@ -1854,7 +1856,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
             isAutoCommit: false
     ```
 
-2.  Configure the following datasource in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
+3.  Configure the following datasource in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
 
     ``` java
     #Data source for APIM Analytics
@@ -1876,7 +1878,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
           isAutoCommit: false
     ```
 
-3.  Start the Worker and Dashboard profiles as below.
+4.  Start the Worker and Dashboard profiles as below.
 
     ```
     cd <API-M_ANALYTICS_3.0.0_HOME>/bin
