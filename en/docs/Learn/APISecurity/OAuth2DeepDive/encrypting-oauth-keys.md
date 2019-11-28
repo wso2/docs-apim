@@ -1,6 +1,6 @@
-# Encrypting OAuth Keys
+# Encrypting OAuth2 Tokens 
 
-WSO2 API Manager allows you to encrypt any sensitive OAuth2.0 keys that are created. The API Manager encrypts access tokens, client secrets and authorization codes (this can be extended to any other OAuth2.0 keys if needed) using the primary keystore. The result is encoded in Base64 and stored in the database. The RSA algorithm is used by default and the key strength (1024, 2048, etc) is based on the private key strength of the primary keystore. If SymmetricEncryption is enabled, the API Manager uses the AES algorithm by default, or the algorithm specified for the `SymmetricEncryption.Algorithm` in the `carbon.xml` file.
+WSO2 API Manager facilitates OAuth2 token encryption in order to protect OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes (this can be extended to any other OAuth2.0 keys if needed) using the primary keystore. The result is encoded in Base64 and stored in the database. 
 
 !!! info
         **Symmetric Encryption** is a form of encryption where the same key is used to encrypt and decrypt the message along with a mathematical algorithm. As long as both sender and recipient know the secret key, they can encrypt and decrypt all messages that use this key.
@@ -8,19 +8,28 @@ WSO2 API Manager allows you to encrypt any sensitive OAuth2.0 keys that are crea
 !!! warning
         It is recommended to switch this configuration on/off **before any keys have been generated in your system** . Once token encryption is switched on, the system encrypts all sensitive OAuth2.0 data such as Access Tokens, Consumer Secrets, etc. When reading that information, the system assumes that they are in the encrypted format and attempts to decrypt them. Therefore, switching this configuration on **after** any keys are created would break the system, unless the data is converted back into plain text.
 
+Please follow below steps to enable OAuth token encryption. 
 
-In order to encrypt the OAuth keys, change the following configurations.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add following config.   
 
-1.  In the `<APIM_HOME>/repository/conf/deployment.toml` file, add following configurations:
+    ``` 
+    [apim.oauth_config]
+    enable_token_encryption = true
     ```
-        [apim.oauth_config]
-        enable_token_encryption = true
-    ```
-    ```
-        [oauth]
-        extensions.token_persistence_processor = "org.wso2.carbon.identity.oauth.tokenprocessor.EncryptionDecryptionPersistenceProcessor"
-    ```
-3.  Restart the server(s) after the above configuration changes are performed.
+
+    !!! Note
+        By default, WSO2 API Manager uses `RSA/ECB/OAEPwithSHA1andMGF1Padding` algorithm for token encryption. If you want to change the algorithm, please add following config to deployment.toml, specifying the preferred algorithm.
+    
+        ```
+        [system.parameter]
+        "org.wso2.CipherTransformation": "<Algorithm>"
+        ```
+    
+2.  Restart the server. 
+3.  Please follow the steps given in [Generate Application Keys]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys) to create a new application, generate application consumer key secrets and obtain an access token
+
+ Once the token encryption is enabled, all the OAuth2 access tokens, refresh tokens, consumer secrets, and authorization codes will be encrypted in the database.
+
 
 !!! tip
 

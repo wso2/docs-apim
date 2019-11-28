@@ -5,7 +5,7 @@ WSO2 API Manager allows you to enable OAuth2 token hashing to protect OAuth2 acc
 
 Follow the instructions below to set up OAuth token hashing.
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment enable_token_hashing following config and enable token hashing by setting the.   
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add following config.   
 
     ``` 
     [apim.oauth_config]
