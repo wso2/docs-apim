@@ -343,7 +343,6 @@ Follow the instructions below to move all the existing API Manager configuration
     url = "jdbc:mysql://localhost:3306/reg_db"
     username = "username"
     password = "password"
-
     ```
 
     Optionally add a new entry as below to the `deployment.toml` if you have configured a seperate user management database in the previous API-M version.
@@ -1931,6 +1930,8 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
         !!! warning
             Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
+
+This concludes the upgrade process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
