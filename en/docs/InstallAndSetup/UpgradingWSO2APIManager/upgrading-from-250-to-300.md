@@ -1516,7 +1516,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
         ```
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
-        
+
 4.  Start the worker and dashboard profiles using following commands.
 
     ```tab="Worker"
@@ -1581,7 +1581,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         pool_options.defaultAutoCommit = false
         ```
 
-2.  Download and copy the **org.wso2.carbon.apimgt.migrate.client-2.6.x-4.jar** to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar](../../assets/attachments/SetupAndInstall/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
