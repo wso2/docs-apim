@@ -317,7 +317,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   The Synapse configurations of tenants are in the `<OLD_API-M_HOME>/repository/tenants` directory.
 
-    -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the API Gateway node.
+    -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
 2.  Download API Manager 3.0.0 from <https://wso2.com/api-management/>.
 
@@ -329,7 +329,6 @@ Follow the instructions below to move all the existing API Manager configuration
 
     !!! note
         In API-M 3.0.0, a combined **SHARED_DB** has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the older version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
-
 
     **SHARED_DB** should be pointed to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
 
@@ -345,9 +344,7 @@ Follow the instructions below to move all the existing API Manager configuration
     url = "jdbc:mysql://localhost:3306/reg_db"
     username = "username"
     password = "password"
-
     ```
-
     Optionally add a new entry as below to the `deployment.toml` if you have configured a seperate user management database in the previous API-M version.
 
     ```
@@ -367,9 +364,8 @@ Follow the instructions below to move all the existing API Manager configuration
         url = "jdbc:mysql://localhost:3306/config_db"
         username = "username"
         password = "password"
-
         ```
-        
+
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the **WSO2UM_DB**.
 
     ```
@@ -401,11 +397,19 @@ Follow the instructions below to move all the existing API Manager configuration
         -   \_cors_request_handler_.xml
         -   main.xml
 
-7. If you manually added any custom OSGI bundles to the `<API-M_2.5.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
+    !!! attention          
+        If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
 
-8. If you manually added any JAR files to the `<API-M_2.5.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
+7. Move all your Execution plans from <API-M_2.5.0_HOME>/repository/deployment/server/executionplans directory to <API-M_3.0.0_HOME>/repository/deployment/server/executionplans directory.
 
-9. Log4j version has been upgraded to log4j2 in API Manager 3.0.0. You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j configurations.
+    !!! note
+        If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
+
+8. If you manually added any custom OSGI bundles to the `<API-M_2.5.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
+
+9. If you manually added any JAR files to the `<API-M_2.5.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
+
+10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j configurations.
 
     !!! warning
         Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to see how to add a log appender or a logger to the log4j2.properties file.
@@ -417,7 +421,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 1.  Stop all WSO2 API Manager server instances that are running.
 
-2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-11-migrate-the-api-manager-configurations) of the previous section.
+2.  Make sure you backed up all the databases and Synapse configurations as instructed in [step 1](#step-1-migrate-the-api-manager-configurations) of the previous section.
 
 3.   Upgrade the WSO2 API Manager database from version 2.5.0 to version 3.0.0 by executing the relevant database script, provided below, on the `WSO2AM_DB` database.
 
@@ -1419,6 +1423,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
     2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
+        !!! attention
+            If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
+
+        !!! note
+            You need to do this step, if you have **multiple tenants** only.
+
     3. Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
@@ -1434,9 +1444,6 @@ Follow the instructions below to move all the existing API Manager configuration
     5.  Start the WSO2 API-M server.
 
     6.  Stop the WSO2 API-M server and remove the tenantloader-1.0.jar from the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
-
-    !!! tip
-        The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 ### Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics
 
@@ -1467,7 +1474,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
         definition:
         type: RDBMS
         configuration:
-            jdbcUrl: 'jdbc:mysql://localhost:3306/spDatabase'
+            jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
             username: username
             password: password
             driverClassName: com.mysql.jdbc.Driver
@@ -1500,8 +1507,16 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
             isAutoCommit: false
     ```
 
-3.  Copy the relevant JDBC driver to the `<APIM_ANALYTICS_3.0.0_HOME>/lib` folder.
+3.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.0.0_HOME>/lib` folder.
 
+    !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
+        1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
+        2. Go to the <API-M_ANALYTICS_HOME>/bin directory. Run the command given below, to generate the converted file in the <API-M_ANALYTICS_HOME>/lib directory.
+
+        ```
+        ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
+        ```
+        
 4.  Start the worker and dashboard profiles using following commands.
 
     ```tab="Worker"
@@ -1566,20 +1581,18 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         pool_options.defaultAutoCommit = false
         ```
 
-2.  Download and extract the [WSO2 API Manager migration client](https://docs.wso2.com/download/attachments/28718536/wso2-api-migration-client.zip?api=v2) and carry out the following steps to upgrade to WSO2 API Manager Analytics 3.0.0.
+2.  Download and copy the **org.wso2.carbon.apimgt.migrate.client-2.6.x-4.jar** to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
-3.  Copy the **org.wso2.carbon.apimgt.migrate.client-2.6.x-4.jar** to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+3.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
-4.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
-
-5.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
+4.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
     [apim.analytics]
     enable = false
     ```
 
-6.  After setting the above configurations in place, start up the WSO2 API-M 3.0.0 server with the following commands.
+5.  After setting the above configurations in place, start up the WSO2 API-M 3.0.0 server with the following commands.
 
     ``` tab="Linux / Mac OS"
     sh wso2server.sh -DmigrateStats=true
@@ -1623,7 +1636,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     !!! info
         If the default 3 datasource names/name, which you specified above, changed from the details that you specified in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file. Use the following command to pass the values to the migration client.
 
-        ??? info "Click here to see a code snippet of the definition of the datasource name..."
+        ??? info "Click here to see a code snippet of the definition of the datasource name"
 
             ``` java
             <jndiConfig>
@@ -1649,18 +1662,19 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         In such scenarios, you will face a migration data loss due to API or Application deletion.
 
 
-7.  Stop the WSO2 API-M server and remove the migration JAR copied under **Step 3.2 - 3**.
+6.  Stop the WSO2 API-M server and remove the migration JAR copied under **Step 3.2 - 3**.
 
-8.  Remove both the old and new `STAT_DB` datasources from the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file, which you defined in **Step 3.2 - 1**.
+7.  Remove both the old and new `STAT_DB` datasources from the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file, which you defined in **Step 3.2 - 1**.
 
-9.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
+8.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
     [apim.analytics]
     enable = true
     ```
+### Step 4 - Restart the WSO2 API-M 3.0.0 server
 
-10. Restart the WSO2 API-M Server.
+1. Restart the WSO2 API-M Server.
 
     ``` tab="Linux / Mac OS"
     sh wso2server.sh
@@ -1671,6 +1685,9 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     ```
 
 This concludes the upgrade process.
+
+!!! tip
+        The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
     If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
