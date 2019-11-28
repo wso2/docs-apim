@@ -2,9 +2,9 @@
 
 #### Before you begin....
 
-!!! attention
-        1.  Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11.\* or 1.8.\* and set the `JAVA_HOME` environment variable. Refer [Setup and Install]({{base_path}}/SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-on-linux-or-os-x/) documentation to set `JAVA_HOME` environment variable for different operating systems
-        2.  [Download the latest version of WSO2 API Manager](https://wso2.com/api-management/install/) .
+!!! Attention
+        1.  Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11.\* or 1.8.\* and set the `JAVA_HOME` environment variable. Refer [Setup and Install]({{base_path}}/InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x/) documentation to set `JAVA_HOME` environment variable for different operating systems
+        2.  [Download the latest version of WSO2 API Manager](https://wso2.com/api-management/) .
         3.  Start WSO2 API Manager by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command `wso2server.bat` (for Windows) or `wso2server.sh` (for Linux.)
 
 #### What's in store?

@@ -138,7 +138,7 @@ If you wish to view reports, statistics, and graphs related to the APIs deployed
 
     If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used as the Key Manager in high availability mode while the rest of the WSO2 API-M components are all in one node, configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager) before starting the API-M servers.
 
-Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server](https://apim.docs.wso2.com/en/latest/SetupAndInstall/InstallationGuide/running-the-product/#starting-the-server).
+Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server](https://apim.docs.wso2.com/en/latest/InstallAndSetup/InstallationGuide/running-the-product/#starting-the-server).
 
 ```tab="Linux/Mac OS"
 cd <API-M_HOME>/bin/

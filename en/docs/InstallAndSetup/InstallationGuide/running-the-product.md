@@ -241,6 +241,6 @@ You can restrict access to the management console of your product by binding the
 
 **Related Topics**
 
--   [Installing as a Windows Service]({{base_path}}/SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service/)
--   [Installing as a Linux Service]({{base_path}}/SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service/)
+-   [Installing as a Windows Service]({{base_path}}/InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service/)
+-   [Installing as a Linux Service]({{base_path}}/InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service/)
 
