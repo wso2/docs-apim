@@ -440,7 +440,7 @@ Follow the instructions below to move all the existing API Manager configuration
         connect to <WSO2AM_DB>
         ```
 
-        3.  Register the [UUIDUDF.jar](../../assets/attachments/SetupAndInstall/UUIDUDF.jar) file with the database.
+        3.  Register the [UUIDUDF.jar](../../assets/attachments/InstallAndSetup/UUIDUDF.jar) file with the database.
         ```
         call sqlj.install_jar('file:.\UUIDUDF.jar', 'UUIDUDFJAR')
         ```
@@ -1707,7 +1707,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXTENTSIZE 4;
         ```
 
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/SetupAndInstall/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
@@ -1769,12 +1769,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
+    1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/InstallAndSetup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attantion
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.

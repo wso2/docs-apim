@@ -24,7 +24,7 @@ In order to encrypt the OAuth keys, change the following configurations.
 
 !!! tip
 
-    -   If you use a [Distributed API Manager setup](../../../../SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m) , the changes must be made on both the API Store and Key Manager nodes.
-    -   If you use WSO2 Identity Server [(WSO2 IS) as the Key Manager setup](../../../../SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/) , you need to make changes in both WSO2 IS and WSO2 API Manager.
+    -   If you use a [Distributed API Manager setup](../../../../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m) , the changes must be made on both the API Store and Key Manager nodes.
+    -   If you use WSO2 Identity Server [(WSO2 IS) as the Key Manager setup](../../../../InstallAndSetup/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/) , you need to make changes in both WSO2 IS and WSO2 API Manager.
 
 

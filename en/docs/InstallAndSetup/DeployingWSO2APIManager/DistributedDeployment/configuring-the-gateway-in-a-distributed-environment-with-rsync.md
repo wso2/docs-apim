@@ -36,7 +36,7 @@ These nodes refer to the management nodes that specialize in the management of t
     
     2.  Specify the following incoming connection configurations 
     
-        ``` 
+        ```
             [transport.http]
             properties.port = 9763
             properties.proxyPort = 80
@@ -76,7 +76,7 @@ Worker nodes specialize in serving requests to deployment artifacts and reading 
                 hostname = "am.wso2.com"
             ```
     
-    2.  Specify the following incoming connection configurations 
+    2.  Specify the following incoming connection configurations
         
         ``` toml
             [transport.http]

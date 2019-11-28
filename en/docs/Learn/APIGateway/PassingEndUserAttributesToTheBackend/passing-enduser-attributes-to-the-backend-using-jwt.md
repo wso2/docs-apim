@@ -48,7 +48,7 @@ Let's see how to enable and pass information in the JWT or completely alter the 
 Before passing enduser attributes, you enable and configure the JWT implementation in the `<API-M_HOME>/repository/conf/deployment.toml` file. The relevant elements are described below. If you do not configure these elements, they take their default values.
 
 !!! note
-    Enable JWT in all Gateway and Key Manager nodes. For more information on setting up a distributed deployment of API Manager, see [Distributed Deployment of API Manager](../../../../SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-api-manager/) .
+    Enable JWT in all Gateway and Key Manager nodes. For more information on setting up a distributed deployment of API Manager, see [Distributed Deployment of API Manager](../../../../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-api-manager/) .
 
 
 <table>
