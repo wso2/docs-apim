@@ -1,11 +1,13 @@
 # Quick Start Guide
 
-## Before you begin....
+## Before you begin...
 
-!!! Attention
-    1. Install [Oracle Java SE Development Kit (JDK)](http://java.sun.com/javase/downloads/index.jsp) version 11.\* or 1.8.\* and set the `JAVA_HOME` environment variable. For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x/).
-    2. [Download the latest version of WSO2 API Manager](https://wso2.com/api-management/).
-    3. Start WSO2 API Manager by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command `wso2server.bat --run` (for Windows) or `sh wso2server.sh` (for Linux.)
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>   <ol><li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 11.\* or 1.8.\* and set the <code>JAVA_HOME</code> environment variable. For more information on setting the <code>JAVA_HOME</code> environment variable for different operating systems, see <a href="{{base_path}}/InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x/">Setup and Install</a>.</li>
+<li><a href="https://wso2.com/api-management/">Download the latest version of WSO2 API Manager</a>.</li>
+<li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
+</div>
 
 This guide walks you through the following 3 scenarios.
 
@@ -17,49 +19,33 @@ Finally, this guide takes a look at how you can create an API using the API cont
 
  Let's get started...
 
-### Working with the WSO2 API Manager UIs
+## Working with the WSO2 API Manager UIs
 
-#### Step 1 - Create and publish an API
+### Step 1 - Create and publish an API
 
 Follow the instructions below to create a publish an API via the API Publisher Portal.
 
 1. Navigate to the API Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
                                                  
-    [![]({{base_path}}/assets/img/get_started/api_publisher_home.png)]({{base_path}}/assets/img/get_started/api_publisher_home.png)
+    [![API Publisher home page]({{base_path}}/assets/img/get_started/api_publisher_home.png)]({{base_path}}/assets/img/get_started/api_publisher_home.png)
 
 2. Create an API.
 
-     Use either one of the following options to create an API.
-
-     - To __avoid creating an API from scratch__ -
-
-         1. Click **DEPLOY SAMPLE API**.
-
-             This publishes a pre-created sample API with an accessible endpoint.  
-
-            !!! Note
-         
-                This option is only available as long as there are no APIs created in the system.
-    
-         2. Skip the following steps and move to [Step 2 - Subscribe to the API]({{base_path}}/GettingStarted/quick-start-guide/#Step+2+-+Subscribe+to+the+API). 
-
-     - To __create an API from scratch__ - 
-         
-         Let's use a mock REST service for this purpose.
+     Let's use a mock REST service to create the API from scratch.
  
-         1. Navigate to [https://www.mocky.io/](https://www.mocky.io/) on your web browser. 
+     1. Navigate to [https://www.mocky.io/](https://www.mocky.io/) on your web browser. 
              
-             A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the service URL (`https://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service.
+         A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the service URL (`https://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service.
 
-             [![]({{base_path}}/assets/img/get_started/Mocky_io.png)]({{base_path}}/assets/img/get_started/Mocky_io.png)
+        [![]({{base_path}}/assets/img/get_started/Mocky_io.png)]({{base_path}}/assets/img/get_started/Mocky_io.png)
          
-         2. Optionally, to test this service, copy the service URL [https://www.mocky.io/v2/5185415ba171ea3a00704eed](https://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
+     2. Optionally, to test this service, copy the service URL [https://www.mocky.io/v2/5185415ba171ea3a00704eed](https://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
-             `{"hello": "world"}`
+         `{"hello": "world"}`
     
 4. Click **Create New API** and then click **Design a new REST API**.
    
-    [![]({{base_path}}/assets/img/get_started/design_new_rest_api.png)]({{base_path}}/assets/img/get_started/design_new_rest_api.png)
+    [![Design a new REST API]({{base_path}}/assets/img/get_started/design_new_rest_api.png)]({{base_path}}/assets/img/get_started/design_new_rest_api.png)
 
 
 5. Enter the API details.
@@ -91,8 +77,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
      <td><code>http://www.mocky.io/v2/5185415ba171ea3a00704eed</code>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the <code>mocky.io</code> certificate  
-        into WSO2 API Manager</p>
+      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the <code>mocky.io</code> certificate into WSO2 API Manager</p>
       </div> 
      </td>
      </tr>
@@ -104,13 +89,15 @@ Follow the instructions below to create a publish an API via the API Publisher P
      </tr>
      </table>
      
-     ![[]({{base_path}}/assets/img/get_started/api_create.png)]({{base_path}}/assets/img/get_started/api_create.png)
+     ![[Create an API]({{base_path}}/assets/img/get_started/api_create.png)]({{base_path}}/assets/img/get_started/api_create.png)
         
 6. Click **Create & Publish**. 
 
      This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth2.0 secured REST API that is ready to be consumed.
 
-#### Step 2 - Subscribe to the API
+<a name="subscribe"></a>
+
+### Step 2 - Subscribe to the API
 
 Follow the instructions below to subscribe to the API and generate the keys via the Developer Portal.
 
@@ -120,13 +107,13 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
      The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
-     [![]({{base_path}}/assets/img/get_started/dev_portal_landing_page.png)]({{base_path}}/assets/img/get_started/dev_portal_landing_page.png)
+     [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev_portal_landing_page.png)]({{base_path}}/assets/img/get_started/dev_portal_landing_page.png)
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
 3. Click on the API thumbnail to view the overview of the API. 
 
-     [![]({{base_path}}/assets/img/get_started/api_overview.png)]({{base_path}}/assets/img/get_started/api_overview.png)
+     [![API overview]({{base_path}}/assets/img/get_started/api_overview.png)]({{base_path}}/assets/img/get_started/api_overview.png)
  
 4. Register an OAuth2.0 application.
 
@@ -134,7 +121,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
          This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.  
 
-         [![]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
+         [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
 
 
     2.  Create the OAuth2.0 application.
@@ -191,8 +178,10 @@ Follow the instructions below to subscribe to the API and generate the keys via 
      7.  Click **Finish**.
 
  **Voila!!!** You can now test the 'HelloWorld' API with the OAuth2.0 token that you just generated. 
- 
-#### Step 3 - Invoke the API
+
+<a name="invoke"></a>
+
+### Step 3 - Invoke the API
 
 Follow the instructions below to invoke the previously created API with the generated keys.
 
@@ -206,7 +195,11 @@ Follow the instructions below to invoke the previously created API with the gene
 
 3. __If this is the first time you are using the API test console__ from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL. 
 
-     This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers. Note that this certificate is replaced when deploying the system in production.
+     This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers. 
+    
+    !!! note
+
+        This certificate that is used by the API Gateway is replaced when deploying the system in production.
 
 4. Click on the `GET` resource of the API to expand the resource. 
 
@@ -220,11 +213,11 @@ Follow the instructions below to invoke the previously created API with the gene
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.  
 
-### Working with the command line tool - API Controller (apictl)  
+## Working with the command line tool - API Controller (apictl)  
 
 Let's look at how you can use the CI/CD command line tool for APIs (API Controller) to develop and deploy an API on WSO2 API Manager.   
 
-#### Step 1 - Download and setup the API Controller
+### Step 1 - Download and setup the API Controller
 
 1. Download the latest version of the API Controller based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/). 
 
@@ -257,7 +250,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      
      `Successfully added environment 'dev'`
 
-#### Step 2 - Create an API
+### Step 2 - Create an API
        
 1. Initialize an API project by providing a name for the project. 
 
@@ -267,46 +260,62 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
        ./apictl init PetstoreAPI --oas https://petstore.swagger.io/v2/swagger.json
        ``` 
     
-     Use the following command to view the various options related to initializing a project. 
+    !!! note
 
-       ```bash
-       ./apictl init --help
-       ```
+        Use the following command to view the various options related to initializing a project. 
 
-2. Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). Navigate to `Meta-information` 
-   directory. Open the `api.yaml` file. 
-   
-     Alternatively, You can use a text editor to open this file as well.
+        ```bash
+        ./apictl init --help
+        ```
+
+2. Open the `api.yaml` file. 
+
+     Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). Navigate to the `Meta-information` directory and open the `api.yaml` file.
+
+    !!! tip
+
+        Alternatively, You can use a text editor to open this file as well.
    
      Change the values of the attributes `status` and `productionUrl` as shown below and save the file. 
        
      `status: PUBLISHED`  
      `productionUrl: http://petstore.swagger.io/v2`  
            
-    !!! Info
+    !!! Note
 
         - Changing the default lifecycle status of the API from `CREATED` to `PUBLISHED`, will deploy    
         the API directly to the Developer Portal and API Gateway, when you push this API to WSO2 API Manager in 
         the following step. 
         - If you want to push this API to the Publisher Portal only, the status should be `CREATED`.    
 
-#### Step 3 - Publish the API
+### Step 3 - Publish the API
 
-1. Navigate back to the `apictl` directory. Execute the command below to push the API to WSO2 API Manager. 
+1. Push the API to WSO2 API Manager. 
+
+     Navigate back to the `apictl` directory and execute the following command: 
 
     !!! Info
+
         If this is the first time you are using the API Controller you will be prompted to enter your account credentials on API Manager. You can enter your credentials as **`admin/admin`**. 
 
-       ```bash
-       ./apictl import-api --file ./PetstoreAPI --environment dev -k 
-       ```
+     ``` bash
+     ./apictl import-api --file ./PetstoreAPI --environment dev -k 
+     ```
 
      You should now see your API deployed successfully on WSO2 API Manager. 
 
-2. You can browse the Developer Portal or the Publisher Portal to view the API details. 
+2. Browse the Developer Portal or the Publisher Portal to view the API details. 
+
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>You can consume the API as explained in the following sections.</p>
+
+    <ul>
+    <li>
+    <a href="#subscribe">Subscribe to the API via the Developer Portal and generate keys</a> </li>
+    <li>
+    <a href="#invoke">Invoke the API with the generated keys</a> </li>
+    </ul>
+    </div> 
      
-     You can consume the API as explained in the following sections.
-
-     - [Subscribe to the API through the Developer Portal and generate keys](#subscribe-to-the-api-through-the-developer-portal-and-generate-keys) 
-
-     - [Invoke the API with the generated keys](#invoke-the-api-with-the-generated-keys)  
+ 
