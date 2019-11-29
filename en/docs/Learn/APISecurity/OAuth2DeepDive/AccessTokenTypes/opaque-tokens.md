@@ -1,8 +1,8 @@
-# Secure APIs using OAuth2 Opaque Access Tokens
+# Secure APIs using OAuth2 Opaque(Reference) Access Tokens
 
-An opaque token is a random and a unique string of characters which has been issued by the token service as an identifier to be used for API authentication purposes. These tokens does not carry any information related to user, hence it is required to open a back channel to the token validation service to validate it and retrieve token information.
+An opaque or a reference token is a random and a unique string of characters which has been issued by the token service as an identifier to be used for API authentication purposes. These tokens does not carry any information related to user, hence it is required to open a back channel to the token validation service to validate it and retrieve token information.
 
-## Using OAuth2 Opaque Tokens
+## Using OAuth2 Opaque(Reference) Tokens
 
 Follow the instructions below to work with OAuth2 Opaque Authentication in WSO2 API Manager.
 
@@ -37,7 +37,7 @@ Sign in to the Developer Portal.
 
      <a href="../../../../../assets/img/Learn/create-oauth-application.png" ><img src="../../../../../assets/img/Learn/create-oauth-application.png" alt="Add oauth application" title="Add oauth application" width="70%" /></a>
 
-### Step 3 - Generate a OAuth2 Opaque token
+### Step 3 - Generate a OAuth2 Reference token
 
 1. Click **APIs** and click on the PizzaShackAPI.
 

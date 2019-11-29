@@ -1,4 +1,4 @@
-# Secure APIs using JWT Access Tokens
+# Secure APIs using JWT(Self Contained) Access Tokens
 
 JSON Web Token (JWT) is an open standard of transmitting information securely between two parties. As the tokens are digitally signed, the information is secured. The authentication and authorization process uses JWT tokens. It is ideal to use JWT tokens as API credentials because JWT tokens can carry claims (data) that are used in order to authenticate and authorize requests.
 
