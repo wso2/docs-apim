@@ -22,7 +22,7 @@ Please follow below steps to enable OAuth token encryption.
     
         ```
         [system.parameter]
-        "org.wso2.CipherTransformation": "<Algorithm>"
+        "org.wso2.CipherTransformation" = "<Algorithm>"
         ```
     
 2.  Restart the server. 
