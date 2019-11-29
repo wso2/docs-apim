@@ -45,11 +45,11 @@ Please refer [Customizing Authorization Header](#customizing-the-authorization-h
 
 If the value of the authorization header needs to be changed due to organizational policies, legacy APIs, or for any other reason, it can be done at three levels in WSO2 API Manager (WSO2 API-M) as described below.
 
--   [Server wide customization](#server-wide-customization)
--   [Tenant wide customization](#tenant-wide-customization)
--   [Per API customization](#per-api-customization)
+-   [Customize across all Tenants](#customize-across-all-tenants)
+-   [Customize per Tenant](#customize-per-tenant)
+-   [Customize per API](#customize-per-api)
 
-### Server wide customization
+### Customize across all Tenants
 
 Follow the instructions below to change the value of the authorization header at the server level configurations:
 
@@ -79,7 +79,7 @@ Follow the instructions below to change the value of the authorization header 
 
 3.  If you have already published APIs, Sign in to the WSO2 API Publisher ( `https://<hostname>:9443/publisher` ) and republish those APIs.
 
-### Tenant wide customization
+### Customize per Tenant
 
 Each tenant can define their own name for the authorization header by following the instructions below:
 
@@ -202,7 +202,7 @@ Each tenant can define their own name for the authorization header by following 
 
 6.  If you have already published APIs, [sign in to the API Publisher](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheAPIPublisher) using your tenant credentials and republish those APIs.
 
-### Per API customization
+### Customize per API
 
 The API Publisher application allows an API Developer or Product Manager to specify the name of the authorization header when creating or modifying an API.
 
