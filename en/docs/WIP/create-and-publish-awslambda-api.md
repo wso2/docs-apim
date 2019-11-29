@@ -21,7 +21,7 @@ Follow the instructions in this tutorial to design and publish an AWS Lambda API
 
 2. Click **CREATE API** and then click **Design a New REST API**.
 
-    [![Create a new REST API]({{base_path}}/assets/img/Learn/create-a-rest-api.jpg)]({{base_path}}/assets/img/Learn/create-a-rest-api.jpg)
+    [![Create a new REST API]({{base_path}}/assets/img/Learn/create-api-design-rest-api-link.png)]({{base_path}}/assets/img/Learn/create-a-rest-api.jpg)
 
 3. Enter API details and click **CREATE**.  
 

@@ -289,6 +289,7 @@ nav:
             - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
             - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
+            - Create and Publish an AWS Lambda API: WIP/create-and-publish-awslambda-api.md
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
