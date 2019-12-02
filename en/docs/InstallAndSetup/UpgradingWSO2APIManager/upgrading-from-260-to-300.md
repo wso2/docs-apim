@@ -424,29 +424,6 @@ Follow the instructions below to move all the existing API Manager configuration
 
 3.  Upgrade the WSO2 API Manager database from version 2.6.0 to version 3.0.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
-    !!! note
-        If you are using DB2 database, follow the follwoing steps before executing the database script.
-
-        DB2 doesn't have an inbuilt function to generate a UUID. Insert the jar file which does the UUID generation logic as guided below.
-
-        1.  Time to fire up DB2
-        ```
-        db2 -t
-        ```
-
-        2.  Connect to the database
-        ```
-        connect to <WSO2AM_DB>
-        ```
-
-        3.  Register the [UUIDUDF.jar](../../assets/attachments/InstallAndSetup/UUIDUDF.jar) file with the database.
-        ```
-        call sqlj.install_jar('file:.\UUIDUDF.jar', 'UUIDUDFJAR')
-        ```
-
-        You may want to move the JAR file to a safe place and adjust the path above accordingly.
-        In a multi-member environment, make sure the file is accessible from all members.
-
     ??? info "DB Scripts"
         ```tab="H2"
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
@@ -455,18 +432,20 @@ Follow the instructions below to move all the existing API Manager configuration
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
             CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         );
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
-        TENANT_ID INT(11) NOT NULL,
-        ALIAS VARCHAR(45) NOT NULL,
-        API_ID INTEGER NOT NULL,
-        CERTIFICATE BLOB NOT NULL,
-        REMOVED BOOLEAN NOT NULL DEFAULT 0,
-        TIER_NAME VARCHAR (512),
-        FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-        PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
+            TENANT_ID INT(11) NOT NULL,
+            ALIAS VARCHAR(45) NOT NULL,
+            API_ID INTEGER NOT NULL,
+            CERTIFICATE BLOB NOT NULL,
+            REMOVED BOOLEAN NOT NULL DEFAULT 0,
+            TIER_NAME VARCHAR (512),
+            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+            PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
         );
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION
@@ -479,12 +458,12 @@ Follow the instructions below to move all the existing API Manager configuration
         );
 
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE_PUBLISHER (
-        ID VARCHAR(100) NOT NULL,
-        STATE VARCHAR(50) NOT NULL,
-        STATUS VARCHAR(50) NOT NULL,
-        STARTED_TIME VARCHAR(50) NOT NULL,
-        PUBLISHED_TIME VARCHAR(50) NOT NULL,
-        PRIMARY KEY (ID)
+            ID VARCHAR(100) NOT NULL,
+            STATE VARCHAR(50) NOT NULL,
+            STATUS VARCHAR(50) NOT NULL,
+            STARTED_TIME VARCHAR(50) NOT NULL,
+            PUBLISHED_TIME VARCHAR(50) NOT NULL,
+            PRIMARY KEY (ID)
         );
 
         ALTER TABLE AM_API_COMMENTS
@@ -505,42 +484,38 @@ Follow the instructions below to move all the existing API Manager configuration
         ADD LAST_UPDATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6);
 
         CREATE TABLE IF NOT EXISTS AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+            API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         );
 
         ALTER TABLE AM_API
             ADD API_TYPE VARCHAR(10) NULL DEFAULT NULL;
 
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT RANDOM_UUID());
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT RANDOM_UUID());
-
         CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP BIGINT NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (UUID)
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP BIGINT NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (UUID)
         );
 
         -- UMA tables --
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE (
-        ID INTEGER AUTO_INCREMENT NOT NULL,
-        RESOURCE_ID VARCHAR(255),
-        RESOURCE_NAME VARCHAR(255),
-        TIME_CREATED TIMESTAMP NOT NULL,
-        RESOURCE_OWNER_NAME VARCHAR(255),
-        CLIENT_ID VARCHAR(255),
-        TENANT_ID INTEGER DEFAULT -1234,
-        USER_DOMAIN VARCHAR(50),
-        PRIMARY KEY (ID)
+            ID INTEGER AUTO_INCREMENT NOT NULL,
+            RESOURCE_ID VARCHAR(255),
+            RESOURCE_NAME VARCHAR(255),
+            TIME_CREATED TIMESTAMP NOT NULL,
+            RESOURCE_OWNER_NAME VARCHAR(255),
+            CLIENT_ID VARCHAR(255),
+            TENANT_ID INTEGER DEFAULT -1234,
+            USER_DOMAIN VARCHAR(50),
+            PRIMARY KEY (ID)
         );
 
         CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
@@ -548,62 +523,64 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
-        ID INTEGER AUTO_INCREMENT NOT NULL,
-        RESOURCE_IDENTITY INTEGER NOT NULL,
-        PROPERTY_KEY VARCHAR(40),
-        PROPERTY_VALUE VARCHAR(255),
-        PRIMARY KEY (ID),
-        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+            ID INTEGER AUTO_INCREMENT NOT NULL,
+            RESOURCE_IDENTITY INTEGER NOT NULL,
+            PROPERTY_KEY VARCHAR(40),
+            PROPERTY_VALUE VARCHAR(255),
+            PRIMARY KEY (ID),
+            FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_SCOPE (
-        ID INTEGER AUTO_INCREMENT NOT NULL,
-        RESOURCE_IDENTITY INTEGER NOT NULL,
-        SCOPE_NAME VARCHAR(255),
-        PRIMARY KEY (ID),
-        FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+            ID INTEGER AUTO_INCREMENT NOT NULL,
+            RESOURCE_IDENTITY INTEGER NOT NULL,
+            SCOPE_NAME VARCHAR(255),
+            PRIMARY KEY (ID),
+            FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
         CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
-        ID INTEGER AUTO_INCREMENT NOT NULL,
-        PT VARCHAR(255) NOT NULL,
-        TIME_CREATED TIMESTAMP NOT NULL,
-        EXPIRY_TIME TIMESTAMP NOT NULL,
-        TICKET_STATE VARCHAR(25) DEFAULT 'ACTIVE',
-        TENANT_ID INTEGER DEFAULT -1234,
-        PRIMARY KEY (ID)
+            ID INTEGER AUTO_INCREMENT NOT NULL,
+            PT VARCHAR(255) NOT NULL,
+            TIME_CREATED TIMESTAMP NOT NULL,
+            EXPIRY_TIME TIMESTAMP NOT NULL,
+            TICKET_STATE VARCHAR(25) DEFAULT 'ACTIVE',
+            TENANT_ID INTEGER DEFAULT -1234,
+            PRIMARY KEY (ID)
         );
 
         CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
-        ID INTEGER AUTO_INCREMENT NOT NULL,
-        PT_RESOURCE_ID INTEGER NOT NULL,
-        PT_ID INTEGER NOT NULL,
-        PRIMARY KEY (ID),
-        FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
-        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
+            ID INTEGER AUTO_INCREMENT NOT NULL,
+            PT_RESOURCE_ID INTEGER NOT NULL,
+            PT_ID INTEGER NOT NULL,
+            PRIMARY KEY (ID),
+            FOREIGN KEY (PT_ID) REFERENCES IDN_UMA_PERMISSION_TICKET (ID) ON DELETE CASCADE,
+            FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE_SCOPE (
-        ID INTEGER AUTO_INCREMENT NOT NULL,
-        PT_RESOURCE_ID INTEGER NOT NULL,
-        PT_SCOPE_ID    INTEGER NOT NULL,
-        PRIMARY KEY (ID),
-        FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
-        FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
+            ID INTEGER AUTO_INCREMENT NOT NULL,
+            PT_RESOURCE_ID INTEGER NOT NULL,
+            PT_SCOPE_ID    INTEGER NOT NULL,
+            PRIMARY KEY (ID),
+            FOREIGN KEY (PT_RESOURCE_ID) REFERENCES IDN_UMA_PT_RESOURCE (ID) ON DELETE CASCADE,
+            FOREIGN KEY (PT_SCOPE_ID) REFERENCES IDN_UMA_RESOURCE_SCOPE (ID) ON DELETE CASCADE
         );           
         ```
     
         ```tab="DB2"
         CREATE TABLE AM_SYSTEM_APPS (
-            ID INTEGER NOT NULL,
+            ID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
             NAME VARCHAR(50) NOT NULL,
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
-            CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            CREATED_TIME TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         )
         /
@@ -681,23 +658,6 @@ Follow the instructions below to move all the existing API Manager configuration
         FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
         PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         )
-        /
-
-        -- Start of Data Migration Scripts --
-        -- DB2 doesn't have an inbuilt function to generate a UUID. --
-        -- Make sure you have registered the jar file which does the logic as guided in the doc. --
-
-        CREATE OR REPLACE FUNCTION RANDOMUUID()
-        RETURNS VARCHAR(36)
-        LANGUAGE JAVA
-        PARAMETER STYLE JAVA
-        NOT DETERMINISTIC NO EXTERNAL ACTION NO SQL
-        EXTERNAL NAME 'UUIDUDFJAR:UUIDUDF.randomUUID' ;
-        /
-
-        UPDATE AM_API_RATINGS SET RATING_ID=(RANDOMUUID())
-        /
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(RANDOMUUID())
         /
 
         CREATE TABLE AM_REVOKED_JWT (
@@ -867,12 +827,15 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         ```tab="MSSQL"
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_SYSTEM_APPS') AND TYPE IN (N'U'))
         CREATE TABLE AM_SYSTEM_APPS (
             ID INTEGER IDENTITY,
             NAME VARCHAR(50) NOT NULL,
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
             CREATED_TIME DATETIME2(6) DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         );
 
@@ -954,10 +917,6 @@ Follow the instructions below to move all the existing API Manager configuration
         FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
         PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         );
-
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT NEWID());
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT NEWID());
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_REVOKED_JWT]') AND TYPE IN (N'U'))
         CREATE TABLE AM_REVOKED_JWT (
@@ -1045,13 +1004,15 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ```tab="MySQL"
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
-            ID int(11) NOT NULL AUTO_INCREMENT,
+            ID INTEGER AUTO_INCREMENT,
             NAME VARCHAR(50) NOT NULL,
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
-            CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+            CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
-        );
+        ) ENGINE=InnoDB;
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
         TENANT_ID INT(11) NOT NULL,
@@ -1108,10 +1069,6 @@ Follow the instructions below to move all the existing API Manager configuration
         FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
         PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         )ENGINE INNODB;
-
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT UUID());
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT UUID());
 
         CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
         UUID VARCHAR(255) NOT NULL,
@@ -1192,11 +1149,13 @@ Follow the instructions below to move all the existing API Manager configuration
     
         ```tab="Oracle"
         CREATE TABLE AM_SYSTEM_APPS (
-            ID INTEGER NOT NULL,
-            NAME VARCHAR (50) NOT NULL,
-            CONSUMER_KEY VARCHAR (512) NOT NULL,
-            CONSUMER_SECRET VARCHAR (512) NOT NULL,
+            ID INTEGER,
+            NAME VARCHAR2(50) NOT NULL,
+            CONSUMER_KEY VARCHAR2(512) NOT NULL,
+            CONSUMER_SECRET VARCHAR2(512) NOT NULL,
             CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         )
         /
@@ -1298,11 +1257,6 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT REGEXP_REPLACE(SYS_GUID(), '(.{8})(.{4})(.{4})(.{4})(.{12})', '\1-\2-\3-\4-\5') MSSQL_GUID  FROM DUAL)
-        /
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT REGEXP_REPLACE(SYS_GUID(), '(.{8})(.{4})(.{4})(.{4})(.{12})', '\1-\2-\3-\4-\5') MSSQL_GUID  FROM DUAL)
-        /
         CREATE TABLE AM_REVOKED_JWT (
         UUID VARCHAR(255) NOT NULL,
         SIGNATURE VARCHAR(2048) NOT NULL,
@@ -1470,14 +1424,17 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
         
         ```tab="PostgreSQL"
-        CREATE SEQUENCE AM_SYSTEM_APP_SEQUENCE START WITH 1 INCREMENT BY 1 ;
+        DROP TABLE IF EXISTS AM_SYSTEM_APPS;
+        CREATE SEQUENCE AM_API_SYSTEM_APPS_SEQUENCE START WITH 1 INCREMENT BY 1;
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
-                    ID INTEGER DEFAULT nextval('am_system_app_sequence'),
-                    NAME VARCHAR(50) NOT NULL,
-                    CONSUMER_KEY VARCHAR(512) NOT NULL,
-                    CONSUMER_SECRET VARCHAR(512) NOT NULL,
-                    CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
-                    PRIMARY KEY (ID)
+            ID INTEGER NOT NULL DEFAULT NEXTVAL('AM_API_SYSTEM_APPS_SEQUENCE'),
+            NAME VARCHAR(50) NOT NULL,
+            CONSUMER_KEY VARCHAR(512) NOT NULL,
+            CONSUMER_SECRET VARCHAR(512) NOT NULL,
+            CREATED_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
+            PRIMARY KEY (ID)
         );
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
