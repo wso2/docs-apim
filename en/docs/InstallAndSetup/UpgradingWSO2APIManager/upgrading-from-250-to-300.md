@@ -1513,17 +1513,17 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
             isAutoCommit: false
     ```
 
-3.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.0.0_HOME>/lib` folder.
+4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.0.0_HOME>/lib` folder.
 
     !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
         1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
-        2. Go to the <API-M_ANALYTICS_HOME>/bin directory. Run the command given below, to generate the converted file in the <API-M_ANALYTICS_HOME>/lib directory.
+        2. Go to the `<API-M_ANALYTICS_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_ANALYTICS_HOME>/lib` directory.
 
         ```
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
 
-4.  Start the worker and dashboard profiles using following commands.
+5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.0.0_HOME>/bin` location.
 
     ```tab="Worker"
     sh worker.sh

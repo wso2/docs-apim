@@ -1877,13 +1877,23 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
           isAutoCommit: false
     ```
 
-4.  Start the Worker and Dashboard profiles as below.
+4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.0.0_HOME>/lib` folder.
 
-    ```
-    cd <API-M_ANALYTICS_3.0.0_HOME>/bin
+    !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
+        1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
+        2. Go to the `<API-M_ANALYTICS_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_ANALYTICS_HOME>/lib` directory.
+
+        ```
+        ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
+        ```
+
+5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.0.0_HOME>/bin` location.
+    
+    ```tab="Worker"
     sh worker.sh
+    ```
 
-    cd <API-M_ANALYTICS_3.0.0_HOME>/bin
+    ```tab="Dashboard"
     sh dashboard.sh
     ```
 
