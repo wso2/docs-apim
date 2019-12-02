@@ -18,4 +18,4 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.1.0 to 3
     [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.3.0 to 5.9.0](https://is.docs.wso2.com/en/5.9.0/setup/migrating-to-590/) as described in the WSO2 Identity Server 5.9.0 documentation.
 
 2.  Migrate WSO2 API-M from 2.1.0 to 3.0.0.
-    Follow the instructions mentioned in [Upgrading API-M from 2.1.0 to 3.0.0](../UpgradingWSO2APIManager/upgrading-from-210-to-300.md), but **skip the step 2 - (5)**, which explains how to migrate the WSO2 API-M Identity components.
+    Follow the instructions mentioned in [Upgrading API-M from 2.1.0 to 3.0.0](../UpgradingWSO2APIManager/upgrading-from-210-to-300.md), but **skip the step 2 - (6)**, which explains how to migrate the WSO2 API-M Identity components.
