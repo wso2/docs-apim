@@ -499,29 +499,6 @@ Follow the instructions below to move all the existing API Manager configuration
 
 4.  Upgrade the WSO2 API Manager database from version 2.2.0 to version 3.0.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
-    !!! note
-        If you are using DB2 database, follow the follwoing steps before executing the database script.
-
-        DB2 doesn't have an inbuilt function to generate a UUID. Insert the jar file which does the UUID generation logic as guided below.
-
-        1.  Time to fire up DB2
-        ```
-        db2 -t
-        ```
-
-        2.  Connect to the database
-        ```
-        connect to <WSO2AM_DB>
-        ```
-
-        3.  Register the [UUIDUDF.jar](../../assets/attachments/SetupAndInstall/UUIDUDF.jar) file with the database.
-        ```
-        call sqlj.install_jar('file:.\UUIDUDF.jar', 'UUIDUDFJAR')
-        ```
-
-        You may want to move the JAR file to a safe place and adjust the path above accordingly.
-        In a multi-member environment, make sure the file is accessible from all members.
-
     ??? info "DB Scripts"
         ```tab="H2"
         ALTER TABLE AM_APPLICATION ADD TOKEN_TYPE VARCHAR(10);
@@ -529,10 +506,10 @@ Follow the instructions below to move all the existing API Manager configuration
         DELETE FROM AM_ALERT_TYPES_VALUES WHERE ALERT_TYPE_ID = (SELECT ALERT_TYPE_ID FROM AM_ALERT_TYPES WHERE ALERT_TYPE_NAME = 'AbnormalRefreshAlert' AND STAKE_HOLDER = 'subscriber');
         DROP TABLE IF EXISTS AM_ALERT_TYPES;
         CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES (
-                    ALERT_TYPE_ID INTEGER AUTO_INCREMENT,
-                    ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
+                ALERT_TYPE_ID INTEGER AUTO_INCREMENT,
+                ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
                 STAKE_HOLDER VARCHAR(100) NOT NULL,
-                    PRIMARY KEY (ALERT_TYPE_ID)
+                PRIMARY KEY (ALERT_TYPE_ID)
         );
 
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalResponseTime', 'publisher');
@@ -573,18 +550,20 @@ Follow the instructions below to move all the existing API Manager configuration
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
             CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         );
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
-        TENANT_ID INT(11) NOT NULL,
-        ALIAS VARCHAR(45) NOT NULL,
-        API_ID INTEGER NOT NULL,
-        CERTIFICATE BLOB NOT NULL,
-        REMOVED BOOLEAN NOT NULL DEFAULT 0,
-        TIER_NAME VARCHAR (512),
-        FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-        PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
+            TENANT_ID INT(11) NOT NULL,
+            ALIAS VARCHAR(45) NOT NULL,
+            API_ID INTEGER NOT NULL,
+            CERTIFICATE BLOB NOT NULL,
+            REMOVED BOOLEAN NOT NULL DEFAULT 0,
+            TIER_NAME VARCHAR (512),
+            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+            PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
         );
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION
@@ -597,12 +576,12 @@ Follow the instructions below to move all the existing API Manager configuration
         );
 
         CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE_PUBLISHER (
-        ID VARCHAR(100) NOT NULL,
-        STATE VARCHAR(50) NOT NULL,
-        STATUS VARCHAR(50) NOT NULL,
-        STARTED_TIME VARCHAR(50) NOT NULL,
-        PUBLISHED_TIME VARCHAR(50) NOT NULL,
-        PRIMARY KEY (ID)
+            ID VARCHAR(100) NOT NULL,
+            STATE VARCHAR(50) NOT NULL,
+            STATUS VARCHAR(50) NOT NULL,
+            STARTED_TIME VARCHAR(50) NOT NULL,
+            PUBLISHED_TIME VARCHAR(50) NOT NULL,
+            PRIMARY KEY (ID)
         );
 
         ALTER TABLE AM_API_COMMENTS
@@ -623,30 +602,26 @@ Follow the instructions below to move all the existing API Manager configuration
         ADD LAST_UPDATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6);
 
         CREATE TABLE IF NOT EXISTS AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+            API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         );
 
         ALTER TABLE AM_API
             ADD API_TYPE VARCHAR(10) NULL DEFAULT NULL;
 
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT RANDOM_UUID());
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT RANDOM_UUID());
-
         CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP BIGINT NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (UUID)
-        );          
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP BIGINT NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (UUID)
+        );
         ```
     
         ```tab="DB2"
@@ -659,10 +634,10 @@ Follow the instructions below to move all the existing API Manager configuration
         DROP TABLE AM_ALERT_TYPES
         /
         CREATE TABLE AM_ALERT_TYPES (
-                    ALERT_TYPE_ID INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-                    ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
+                ALERT_TYPE_ID INT GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+                ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
                 STAKE_HOLDER VARCHAR(100) NOT NULL,           
-                    PRIMARY KEY (ALERT_TYPE_ID)
+                PRIMARY KEY (ALERT_TYPE_ID)
         )
         /
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalResponseTime', 'publisher')
@@ -705,11 +680,13 @@ Follow the instructions below to move all the existing API Manager configuration
         )/
         
         CREATE TABLE AM_SYSTEM_APPS (
-            ID INTEGER NOT NULL,
+            ID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
             NAME VARCHAR(50) NOT NULL,
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
-            CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            CREATED_TIME TIMESTAMP(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         )
         /
@@ -789,23 +766,6 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-        -- Start of Data Migration Scripts --
-        -- DB2 doesn't have an inbuilt function to generate a UUID. --
-        -- Make sure you have registered the jar file which does the logic as guided in the doc. --
-
-        CREATE OR REPLACE FUNCTION RANDOMUUID()
-        RETURNS VARCHAR(36)
-        LANGUAGE JAVA
-        PARAMETER STYLE JAVA
-        NOT DETERMINISTIC NO EXTERNAL ACTION NO SQL
-        EXTERNAL NAME 'UUIDUDFJAR:UUIDUDF.randomUUID' ;
-        /
-
-        UPDATE AM_API_RATINGS SET RATING_ID=(RANDOMUUID())
-        /
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(RANDOMUUID())
-        /
-
         CREATE TABLE AM_REVOKED_JWT (
         UUID VARCHAR(255) NOT NULL,
         SIGNATURE VARCHAR(2048) NOT NULL,
@@ -824,11 +784,12 @@ Follow the instructions below to move all the existing API Manager configuration
         DELETE FROM AM_ALERT_TYPES_VALUES WHERE ALERT_TYPE_ID = (SELECT ALERT_TYPE_ID FROM AM_ALERT_TYPES WHERE ALERT_TYPE_NAME = 'AbnormalRefreshAlert' AND STAKE_HOLDER = 'subscriber');
         DROP TABLE IF EXISTS AM_ALERT_TYPES;
         CREATE TABLE  AM_ALERT_TYPES (
-                    ALERT_TYPE_ID INTEGER NOT NULL IDENTITY,
-                    ALERT_TYPE_NAME VARCHAR(255) NOT NULL,
+                ALERT_TYPE_ID INTEGER NOT NULL IDENTITY,
+                ALERT_TYPE_NAME VARCHAR(255) NOT NULL,
                 STAKE_HOLDER VARCHAR(10) NOT NULL,
-                    PRIMARY KEY (ALERT_TYPE_ID)
+                PRIMARY KEY (ALERT_TYPE_ID)
         );
+
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalResponseTime', 'publisher');
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalBackendTime', 'publisher');
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalRequestsPerMin', 'subscriber');
@@ -865,12 +826,15 @@ Follow the instructions below to move all the existing API Manager configuration
         FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
         );
 
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_SYSTEM_APPS') AND TYPE IN (N'U'))
         CREATE TABLE AM_SYSTEM_APPS (
             ID INTEGER IDENTITY,
             NAME VARCHAR(50) NOT NULL,
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
             CREATED_TIME DATETIME2(6) DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         );
 
@@ -953,10 +917,6 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         );
 
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT NEWID());
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT NEWID());
-
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_REVOKED_JWT]') AND TYPE IN (N'U'))
         CREATE TABLE AM_REVOKED_JWT (
         UUID VARCHAR(255) NOT NULL,
@@ -978,10 +938,10 @@ Follow the instructions below to move all the existing API Manager configuration
         DROP TABLE IF EXISTS AM_ALERT_TYPES;
 
         CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES (
-                    ALERT_TYPE_ID INTEGER AUTO_INCREMENT,
-                    ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
+                ALERT_TYPE_ID INTEGER AUTO_INCREMENT,
+                ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
                 STAKE_HOLDER VARCHAR(100) NOT NULL,
-                    PRIMARY KEY (ALERT_TYPE_ID)
+                PRIMARY KEY (ALERT_TYPE_ID)
         )ENGINE = INNODB;
 
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalResponseTime', 'publisher');
@@ -1018,23 +978,25 @@ Follow the instructions below to move all the existing API Manager configuration
         ) ENGINE=InnoDB;
 
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
-            ID int(11) NOT NULL AUTO_INCREMENT,
+            ID INTEGER AUTO_INCREMENT,
             NAME VARCHAR(50) NOT NULL,
             CONSUMER_KEY VARCHAR(512) NOT NULL,
             CONSUMER_SECRET VARCHAR(512) NOT NULL,
-            CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
+            CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
-        );
+        ) ENGINE=InnoDB;
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
-        TENANT_ID INT(11) NOT NULL,
-        ALIAS VARCHAR(45) NOT NULL,
-        API_ID INTEGER NOT NULL,
-        CERTIFICATE BLOB NOT NULL,
-        REMOVED BOOLEAN NOT NULL DEFAULT 0,
-        TIER_NAME VARCHAR (512),
-        FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-        PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
+            TENANT_ID INT(11) NOT NULL,
+            ALIAS VARCHAR(45) NOT NULL,
+            API_ID INTEGER NOT NULL,
+            CERTIFICATE BLOB NOT NULL,
+            REMOVED BOOLEAN NOT NULL DEFAULT 0,
+            TIER_NAME VARCHAR (512),
+            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+            PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
         );
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION 
@@ -1082,10 +1044,6 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         )ENGINE INNODB;
 
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT UUID());
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT UUID());
-
         CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
         UUID VARCHAR(255) NOT NULL,
         SIGNATURE VARCHAR(2048) NOT NULL,
@@ -1109,10 +1067,10 @@ Follow the instructions below to move all the existing API Manager configuration
         DROP SEQUENCE AM_ALERT_TYPES_SEQ;
         /
         CREATE TABLE  AM_ALERT_TYPES (
-                    ALERT_TYPE_ID INTEGER,
-                    ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
+                ALERT_TYPE_ID INTEGER,
+                ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
                 STAKE_HOLDER VARCHAR(100) NOT NULL,
-                    PRIMARY KEY (ALERT_TYPE_ID))
+                PRIMARY KEY (ALERT_TYPE_ID))
         /
         CREATE SEQUENCE AM_ALERT_TYPES_SEQ START WITH 1 INCREMENT BY 1 NOCACHE
         /
@@ -1139,6 +1097,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('ApiHealthMonitor', 'publisher')
         /
+
         CREATE TABLE AM_LABELS (
         LABEL_ID VARCHAR2(50),
         NAME VARCHAR2(255) NOT NULL,
@@ -1148,6 +1107,7 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY (LABEL_ID)
         )
         /
+
         CREATE TABLE AM_LABEL_URLS (
         LABEL_ID VARCHAR2(50),
         ACCESS_URL VARCHAR2(255),
@@ -1155,6 +1115,7 @@ Follow the instructions below to move all the existing API Manager configuration
         FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON DELETE CASCADE
         )
         /
+
         CREATE TABLE AM_APPLICATION_ATTRIBUTES (
         APPLICATION_ID INTEGER,
         NAME VARCHAR2(255),
@@ -1166,11 +1127,13 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         CREATE TABLE AM_SYSTEM_APPS (
-            ID INTEGER NOT NULL,
-            NAME VARCHAR (50) NOT NULL,
-            CONSUMER_KEY VARCHAR (512) NOT NULL,
-            CONSUMER_SECRET VARCHAR (512) NOT NULL,
+            ID INTEGER,
+            NAME VARCHAR2(50) NOT NULL,
+            CONSUMER_KEY VARCHAR2(512) NOT NULL,
+            CONSUMER_SECRET VARCHAR2(512) NOT NULL,
             CREATED_TIME TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
             PRIMARY KEY (ID)
         )
         /
@@ -1272,11 +1235,6 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        -- Start of Data Migration Scripts --
-        UPDATE AM_API_RATINGS SET RATING_ID=(SELECT REGEXP_REPLACE(SYS_GUID(), '(.{8})(.{4})(.{4})(.{4})(.{12})', '\1-\2-\3-\4-\5') MSSQL_GUID  FROM DUAL)
-        /
-        UPDATE AM_API_COMMENTS SET COMMENT_ID=(SELECT REGEXP_REPLACE(SYS_GUID(), '(.{8})(.{4})(.{4})(.{4})(.{12})', '\1-\2-\3-\4-\5') MSSQL_GUID  FROM DUAL)
-        /
         CREATE TABLE AM_REVOKED_JWT (
         UUID VARCHAR(255) NOT NULL,
         SIGNATURE VARCHAR(2048) NOT NULL,
@@ -1298,10 +1256,10 @@ Follow the instructions below to move all the existing API Manager configuration
         DROP SEQUENCE IF EXISTS  AM_ALERT_TYPES_SEQ;
         CREATE SEQUENCE AM_ALERT_TYPES_SEQ START WITH 1 INCREMENT BY 1;
         CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES (
-                    ALERT_TYPE_ID INTEGER DEFAULT NEXTVAL('am_alert_types_seq'),
-                    ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
+                ALERT_TYPE_ID INTEGER DEFAULT NEXTVAL('am_alert_types_seq'),
+                ALERT_TYPE_NAME VARCHAR(255) NOT NULL ,
                 STAKE_HOLDER VARCHAR(100) NOT NULL,           
-                    PRIMARY KEY (ALERT_TYPE_ID)
+                PRIMARY KEY (ALERT_TYPE_ID)
         );
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalResponseTime', 'publisher');
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('AbnormalBackendTime', 'publisher');
@@ -1366,14 +1324,17 @@ Follow the instructions below to move all the existing API Manager configuration
             ALTER COLUMN DATE_COMMENTED TYPE TIMESTAMP,
             ALTER COLUMN DATE_COMMENTED SET NOT NULL;
 
-        CREATE SEQUENCE AM_SYSTEM_APP_SEQUENCE START WITH 1 INCREMENT BY 1 ;
+        DROP TABLE IF EXISTS AM_SYSTEM_APPS;
+        CREATE SEQUENCE AM_API_SYSTEM_APPS_SEQUENCE START WITH 1 INCREMENT BY 1;
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
-                    ID INTEGER DEFAULT nextval('am_system_app_sequence'),
-                    NAME VARCHAR(50) NOT NULL,
-                    CONSUMER_KEY VARCHAR(512) NOT NULL,
-                    CONSUMER_SECRET VARCHAR(512) NOT NULL,
-                    CREATED_TIME TIMESTAMP(6) DEFAULT CURRENT_TIMESTAMP(6),
-                    PRIMARY KEY (ID)
+            ID INTEGER NOT NULL DEFAULT NEXTVAL('AM_API_SYSTEM_APPS_SEQUENCE'),
+            NAME VARCHAR(50) NOT NULL,
+            CONSUMER_KEY VARCHAR(512) NOT NULL,
+            CONSUMER_SECRET VARCHAR(512) NOT NULL,
+            CREATED_TIME TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE (NAME),
+            UNIQUE (CONSUMER_KEY),
+            PRIMARY KEY (ID)
         );
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
@@ -1615,7 +1576,7 @@ Follow the instructions below to move all the existing API Manager configuration
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
 !!! info
-    As you are upgrading from WSO2 API-M Analytics 2.2.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.0.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.0.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](https://apim.docs.wso2.com/en/latest/SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
+    As you are upgrading from WSO2 API-M Analytics 2.2.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.0.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.0.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](https://apim.docs.wso2.com/en/latest/InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
 
 ### Step 4 - Restart the WSO2 API-M 3.0.0 server
 
