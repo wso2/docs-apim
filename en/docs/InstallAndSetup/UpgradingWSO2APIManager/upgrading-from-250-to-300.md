@@ -399,7 +399,7 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! attention          
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
 
-7. Move all your Execution plans from <API-M_2.5.0_HOME>/repository/deployment/server/executionplans directory to <API-M_3.0.0_HOME>/repository/deployment/server/executionplans directory.
+7. Move all your Execution plans from `<API-M_2.5.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.0.0_HOME>/repository/deployment/server/executionplans` directory.
 
     !!! note
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
