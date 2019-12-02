@@ -6,7 +6,7 @@ Basic health checks can be performed on an API Manager node by connecting to re
 |---------------------|------------------------------------------|
 | Gateway Manager     | 9763 (HTTP), 9443 (HTTPS)                |
 | Gateway Worker      | 8280 (HTTP), 8243 (HTTPS)                |
-| API Store           | 9673 (HTTP), 9443 (HTTPS)                |
+| API Dev Portal      | 9673 (HTTP), 9443 (HTTPS)                |
 | API Publisher       | 9673 (HTTP), 9443 (HTTPS)                |
 | Traffic Manager     | 5672 (TCP), 7611 (TCP), 7711 (TCP)       |
 | Key Manager         | 9673 (HTTP), 9443 (HTTPS)                |
