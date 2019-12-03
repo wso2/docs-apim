@@ -22,28 +22,28 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </div>
      </html>
 
-     This example uses the WSDL `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
-        ![](../../../assets/img/Learn/generate-rest-api-from-soap-backend.jpg)
+     This example uses the WSDL `https://ws.cdyne.com/ip2geo/ip2geo.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
+        ![](../../../assets/img/Learn/create-soap-api-using-wsdl.jpg)
 
 3.  Click **NEXT** button to proceed to the next phase and Provide the information in the table below and click **CREATE** button.
 
     | Field   | Sample value       |
     |---------|--------------------|
-    | Name    | PhoneVerification  |
-    | Context | /phoneverify       |
-    | Version | 1.0                |
-    | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
+    | Name    | Ip2geoAPI  |
+    | Context | /ip2geo      |
+    | Version | 1.0.0        |
+    | Endpoint| https://ws.cdyne.com/ip2geo/ip2geo.asmx|
     | Business Plans| Unlimited|
 
-    ![](../../../assets/img/Learn/create-soap-api-form.jpg)
+    ![](../../../assets/img/Learn/create-form-for-soap-api.jpg)
 
 4.  The created API appears in the publisher as follows.
     ![](../../../assets/img/Learn/created-soap-api.jpg)
-  
+      
     <html><div class="admonition note"><p class="admonition-title">Note</p>
             <p>
             If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
-    [OAuthscopes](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/)
+[OAuthscopes](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/)
             </p>
         </div></html>   
 

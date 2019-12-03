@@ -24,8 +24,8 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
      </div>
      </html>
 
-     This example uses the WSDL `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
-        ![](../../../assets/img/Learn/generate-rest-api-from-soap-backend.jpg)
+     This example uses the WSDL `https://ws.cdyne.com/ip2geo/ip2geo.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
+       ![](../../../assets/img/Learn/create-soap-api-using-wsdl.jpg)
 
 3.  Click **NEXT** button to proceed to the next phase and Provide the information in the table below and click **CREATE** button.
 
@@ -34,10 +34,10 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     | Name    | PhoneVerification  |
     | Context | /phoneverify       |
     | Version | 1.0                |
-    | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
+    | Endpoint| https://ws.cdyne.com/ip2geo/ip2geo.asmx|
     | Business Plans| Unlimited|
 
-    ![](../../../assets/img/Learn/create-soap-api-form.jpg)
+    ![](../../../assets/img/Learn/create-form-for-soap-api.jpg)
 
 4.  The created API appears in the publisher as follows.
     ![](../../../assets/img/Learn/created-soap-api.jpg)
@@ -82,6 +82,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 6. Navigate to **TryOut** tab and paste the token at Access token input field.
     ![](../../../assets/img/Learn/soap-tryout.jpg)
+    
 
 7. Expand the POST method and click **Try it out** . Enter the following, and click       **Execute** to invoke the API.
       <html>
@@ -90,18 +91,15 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
       <td>SOAP Request</td>
        <td>
        <pre>
-         &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:quer="http://ws.cdyne.com/PhoneVerify/query"&gt;
-            &lt;soapenv:Header/&gt;
-            &lt;soapenv:Body"&gt;
-                &lt;quer:CheckPhoneNumber&gt;
-                  <!--Optional:-->
-                  &lt;quer:PhoneNumber&gt;18006785432
-                   &lt;/quer:PhoneNumber&gt;
-                  <!--Optional:-->
-                   &lt;quer:LicenseKey>0&lt;/quer:LicenseKey&gt;
-                &lt;/quer:CheckPhoneNumber&gt;
-            &lt;/soapenv:Body&gt;
-          &lt;/soapenv:Envelope&gt;
+       <?xml version="1.0" encoding="utf-8"?>
+ &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+  &lt;soap:Body&gt;
+    &lt;ResolveIP xmlns="http://ws.cdyne.com/"&gt;
+      &lt;ipAddress&gt;string&lt;/ipAddress&gt;
+      &lt;licenseKey&gt;string&lt;/licenseKey&gt;
+    &lt;/ResolveIP&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;
       </pre>
       </td>
       </tr>
@@ -110,16 +108,18 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
       </td>
       <td>
       <pre>
-      http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber
+ "http://ws.cdyne.com/ResolveIP"
       </pre>
       </td>
       </tr>
       </table>
       </html>
-
-    ![](../../../assets/img/Learn/soap-response.png)
+     [![](../../../assets/img/Learn/soap-request&soap-action.jpg)](../../../assets/img/Learn/soap-request&soap-action.jpg)
 
 8.  Note the API response that appears on the console.
+     [![](../../../assets/img/Learn/soap-response.png)](../../../assets/img/Learn/soap-response.png)
+
+
     <html><div class="admonition note">
      <p class="admonition-title">Note</p>
      <p>You can also invoke this API using a third-party tool such as SOAP UI. For more information on how to invoke an API using a SOAP client, 
