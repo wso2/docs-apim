@@ -6,7 +6,6 @@ The following information describes how to upgrade your API Manager server **fro
     Before you follow this section, see [Upgrading Process](../UpgradingWSO2APIManager/upgrading-process.md) for more information.
 
 !!! attention "Before you Begin"
-
     1. This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
 
         -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
@@ -400,7 +399,7 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! attention          
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
 
-7. Move all your Execution plans from <API-M_2.5.0_HOME>/repository/deployment/server/executionplans directory to <API-M_3.0.0_HOME>/repository/deployment/server/executionplans directory.
+7. Move all your Execution plans from `<API-M_2.5.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.0.0_HOME>/repository/deployment/server/executionplans` directory.
 
     !!! note
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
