@@ -1,110 +1,229 @@
 # Overview
-This document describes the API Product feature and how it can be used in WSO2 API Manager.
 
-## **What is an API Product** ?
+An API Product is a packaging mechanism that you can use when you need to bundle a preferred set of resources from multiple APIs and expose it as a separate API interface, which can be consumed by subscribers. API Products give Publishers the ability to repackage their existing APIs in various combinations to provide a tailor-made experience for their subscribers.
 
-An API Product is packaging mechanism that can be used to bundle a given set of resources from multiple APIs and expose 
-it as a separate API interface, which can be consumed by subscribers. This enables publishers to repackage their existing 
-API offerings in various combinations, to provide a tailor made experience for their subscribers.
+WSO2 API Manager allows Publishers to create API Products via the Publisher Portal. Subscribers will see the API Product via the Developer Portal as a separate entity, which is independent of the APIs with which it shares its resources. From a subscriber's perspective, the API Product will look and function in the same way as any of the standard APIs on the Developer Portal.
 
-Lets take a look at the below example to understand how this works
+## How it works
 
-   ![](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)
+Let's use the following  example to understand how API Products work in WSO2 API Manager.
+
+**Example**
+
+   [![Example for API Product](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)
   
-A financial institution has the following three APIs,
+A financial institution has the following three APIs.
 
-- Customer Info API
+- **Customer Info API**
 
-    Used to access and update the financial information of customers. The API consists of the following resources,
-
-      | Resources                    |  Description                                        |                                        
-      |------------------------------|-----------------------------------------------------|
-      **GET  /customers**                    | Get list of all existing customers 
-      **GET  /customers/{customerId}**       | Get details of specific customer with {customerId} 
-      **POST  /customers**                   | Add a new customer 
-      **PUT  /customers/{customerId}**       | Update a specific customer with {customerId} 
-      **DELETE  /customers/{customerId}**    | Delete a specific customer with {customerId} 
+    This API is used to access and update the financial information of the customers. The API consists of the following resources.
+      <html>
+      <table>
+      <thead>
+      <tr>
+      <th>Resources</th>
+      <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td><strong>GET /customers</strong></td>
+      <td>Get the list of all the existing customers.</td>
+      </tr>
+      <tr>
+      <td><strong>GET /customers/{customerId}</strong></td>
+      <td>Get details of a specific customer based on the customer ID.</td>
+      </tr>
+      <tr>
+      <td><strong>POST /customers</strong></td>
+      <td>Add a new customer.</td>
+      </tr>
+      <tr>
+      <td><strong>PUT /customers/{customerId}</strong></td>
+      <td>Update details of a specific customer based on his/her customer ID.</td>
+      </tr>
+      <tr>
+      <td><strong>DELETE /customers/{customerId}</strong></td>
+      <td>Delete a specific customer based on his/her customer ID.</td>
+      </tr>
+      </tbody>
+      </table>
+      </html>
   
-- Leasing API
+- **Leasing API**
 
     Used to access and update the information regarding the leases of the institution. The API consists of the following 
-    resources,
+    resources.
     
-      | Resources                    |  Description                                        |
-      |------------------------------|-----------------------------------------------------| 
-      **GET /assets**                   | Get list of all existing assets that can be leased
-      **GET /assets/{assetId}**         | Get details of specific asset with {assetId} 
-      **POST /assets**                  | Add a new asset
-      **PUT /assets/{assetId}**         |Update a specific asset with {assetId}
-      **DELETE /assets/{assetId}**      | Delete a specific asset with {assetId}
+    <html>
+    <table>
+    <thead>
+    <tr>
+    <th>Resources</th>
+    <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>GET /assets</strong></td>
+    <td>Get the list of all existing assets that can be leased.</td>
+    </tr>
+    <tr>
+    <td><strong>GET /assets/{assetId}</strong></td>
+    <td>Get details of a specific asset based on an asset ID.</td>
+    </tr>
+    <tr>
+    <td><strong>POST /assets</strong></td>
+    <td>Add a new asset.</td>
+    </tr>
+    <tr>
+    <td><strong>PUT /assets/{assetId}</strong></td>
+    <td>Update a specific asset based on an asset ID.</td>
+    </tr>
+    <tr>
+    <td><strong>DELETE /assets/{assetId}</strong></td>
+    <td>Delete a specific asset based on an asset ID.</td>
+    </tr>
+    </tbody>
+    </table>
+    </html>
       
-- Credit API
+- **Credit API**
     
-    Used to access and update the credit information of a given customer. The API consists of the following resources,      
+    Used to access and update the credit information with regard to a specific customer. The API consists of the following resources.      
+     
+     <html>
+     <table>
+      <thead>
+      <tr>
+      <th>Resources</th>
+      <th>Description</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td><strong>GET /accounts/{customerId}</strong></td>
+      <td>Get the list of credit accounts for a customer based on his/her customer ID.</td>
+      </tr>
+      <tr>
+      <td><strong>GET /accounts/{accountId}</strong></td>
+      <td>Get details of a specific credit account based on an account ID.</td>
+      </tr>
+      <tr>
+      <td><strong>POST /accounts/{customerId}</strong></td>
+      <td>Add a new credit account for a customer based on a customer ID.</td>
+      </tr>
+      <tr>
+      <td><strong>PUT /accounts/{accountId}</strong></td>
+      <td>Update a specific credit account based on an account ID.</code></td>
+      </tr>
+      <tr>
+      <td><strong>DELETE /accounts/{accountId}</strong></td>
+      <td>Delete a specific credit account based on an account ID.</td>
+      </tr>
+      </tbody>
+      </table>
+      </html>
+      
+      
+The resources of the above mentioned existing APIs can be reused and exposed via API Products as shown below.
+
+- **Leasing API Product**
     
-     | Resources                    |  Description                                        |
-     |------------------------------|-----------------------------------------------------|
-      **GET /accounts/{customerId}**    | Get list of credit accounts for a customer with {customerId}
-      **GET /accounts/{accountId}**     | Get details of specific credit account with {accountId}
-      **POST /accounts/{customerId}**   | Add a new credit account for a customer with {customerId}
-      **PUT /accounts/{accountId}**     | Update a specific credit account with {accountId}
-      **DELETE /accounts/{accountId}**  | Delete a specific credit account with {accountId}
+    <html>
+    <table>
+    <thead>
+    <tr>
+    <th>Resources</th>
+    <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>GET /assets</strong></td>
+    <td>Get the list of all the existing assets that can be leased.</td>
+    </tr>
+    <tr>
+    <td><strong>GET /assets/{assetId}</strong></td>
+    <td>Get details of a specific asset based on the asset ID.</td>
+    </tr>
+    <tr>
+    <td><strong>POST /assets</strong></td>
+    <td>Add a new asset.</td>
+    </tr>
+    <tr>
+    <td><strong>PUT /assets/{assetId}</strong></td>
+    <td>Update a specific asset based on the asset ID.</td>
+    </tr>
+    <tr>
+    <td><strong>DELETE /assets/{assetId}</strong></td>
+    <td>Delete a specific asset based on an asset ID.</td>
+    </tr>
+    </tbody>
+    </table>
+    </html>
       
+- **Credit API Product**
+
+    <html>
+    <table>
+    <thead>
+    <tr>
+    <th>Resources</th>
+    <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><strong>GET /accounts/{customerId}</strong></td>
+    <td>Get the list of credit accounts for a customer based on his/her customer ID.</td>
+    </tr>
+    <tr>
+    <td><strong>GET /accounts/{accountId}</strong></td>
+    <td>Get details of a specific credit account based on the account ID.</td>
+    </tr>
+    <tr>
+    <td><strong>POST /accounts/{customerId}</strong></td>
+    <td>Add a new credit account for a customer based on a customer ID.</td>
+    </tr>
+    <tr>
+    <td><strong>PUT /accounts/{accountId}</strong></td>
+    <td>Update a specific credit account based on the an Account ID.</code></td>
+    </tr>
+    <tr>
+    <td><strong>DELETE /accounts/{accountId}</strong></td>
+    <td>Delete a specific credit account based on an account ID.</td>
+    </tr>
+    </tbody>
+    </table>
+    </html>
       
-The resources of these existing APIs can be reused and exposed via API Products as shown below,
+In this example, a subset of the resources from different APIs have been combined to provide a customized hybrid offering that can appeal to different subscribers. This also ensures that only specific resources are exposed via the API Product.
 
-- Leasing API Product
-    
-    | Resources                    |  Parent API                                        |
-    |------------------------------|-----------------------------------------------------|
-      **GET /customers**               | Customer Info API              
-      **GET /customers/{customerId}**  | Customer Info API
-      **GET /assets/{assetId}**        | Leasing API
-      **POST /assets**                 | Leasing API
-      
-- Credit API Product
+## More information
 
-    | Resources                    |  Parent API                                        |
-    |------------------------------|-----------------------------------------------------|
-      **GET /customers**              |  Customer Info API              
-      **GET /customers/{customerId}**  | Customer Info API
-      **GET /accounts/{accountId}**    | Credit API
-      **POST /accounts/{customerId}**   |Credit API
-      
-A subset of the resources from different APIs have been combined to provide customized hybrid offerings that can appeal 
-to different subscribers. This also ensures that only specific resources are exposed via the API Product.
+Whenever a specific resource of an API is added to an API Product in WSO2 API Manager, the following attributes of the API resource are reused:
 
-## **How API Products work under the hood**
-
-When a given resource of an API is added to an API Product, the following attributes of the API resource are reused,
-
-- OAuth Scope
+- OAuth scope
 - Authentication scheme
 - Throttling policy
 
-!!! info
-    In essence, an API Product will share the resource(s) of an existing API.
+ <html>
+ <div class="admonition info">
+ <p class="admonition-title">Info</p>
+ <p> An API Product will share the resource(s) of an existing API.</p>
+ </div> 
+ </html>
+
+When creating an API Product via the Publisher Portal, the Publisher can define a separate set of subscription-level throttling policies that are different from the subscription-level throttling policies that exist at the API-level.
+
+An API Product will share the resource(s) of an existing API. As a result, the same backend endpoint that is defined by the respective resource's API is reused by the API Product. As the API Product may contain resources from multiple APIs, an API Product may route to multiple backend endpoints.
+
+ <html>
+ <div class="admonition note">
+ <p class="admonition-title">Note</p>
+ <p> API Products cannot define their own backend endpoints, apart from reusing the existing endpoints belonging to its API resources respective parent API.</p>
+ </div> 
+ </html>
     
-
-The Publisher is able to define a separate set of subscription level throttling policies which are different from the
-ones that exist at the API level.
-
-The same backend endpoint that is defined by the resources respective API will be reused by the API Product.
-Due to the fact that the API Product may contain resources from multiple APIs, an API Product may route to multiple
-backend endpoints.
-
-!!! note
-    API Products cannot define their own backend endpoints, apart from reusing the existing endpoints belonging to its 
-    API resources respective parent API.
-    
-Once an API Product is created it will be published to the API Gateway as an independent Synapse api artifact.
-
-On the Developer Portal, an API Product can be viewed as a separate entity, independent of the APIs with which it 
-shares its resources.
-
-From the perspective of a subscriber on the Developer Portal, the API Product will look and function in the same way
-as a standard API.
-
-
-
-
+After an API Product is created, it is published to the API Gateway as an independent Synapse API artifact.

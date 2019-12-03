@@ -28,7 +28,7 @@ Although the way in which you add a Tag and API group appears to be similar ther
 
     [ ![](../../../../../assets/img/Learn/categorizing-and-grouping-apis-group-list-view.png) ](../../../../../assets/img/Learn/categorizing-and-grouping-apis-group-list-view.png)
 
-    ## API Group options
+    ## API grouping configuration options
 
     Following JSON defines the look and feel and behavior of the tagWise filtering.
 

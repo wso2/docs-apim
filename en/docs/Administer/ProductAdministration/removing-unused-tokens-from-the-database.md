@@ -1,5 +1,8 @@
 # Removing Unused Tokens from the Database
 
+!!! note
+    From 2.6.0 onwards, WSO2 API Manager is configured by default to trigger token clean up during token generation, token refreshing and token revocation. Therefore, when the state of the token (`TOKEN_STATE`) is changed during any of the latter mentioned processes for tokens that were in the `ACTIVE` state before, by default, such tokens will be removed from the IDN_OAUTH2_ACCESS_TOKEN table and stored in an audit table. Thus you don't need to manually cleanup the unused tokens as guided below from API-M 2.6.0 onwards.
+
 As you use WSO2 API Manager, the number of revoked, inactive and expired tokens accumulate in the IDN\_OAUTH2\_ACCESS\_TOKEN table. These tokens are kept in the database for logging and audit purposes, but they can have a negative impact on the server's performance over time. Therefore, it is recommended to clean them.
 
 The following methods can be used for token cleanup:
@@ -21,9 +24,9 @@ WSO2 API Manager triggers token cleanup during the following instances.
 To enable or disable token cleanup, open the `<API-M_HOME>/repository/conf/deployment.toml` file and do the following changes.(add the configuration if not exists in the deployment.toml file)
 
 ``` toml
-    [oauth.token_cleanup]
-    enable = true
-    retain_access_tokens_for_auditing = true
+[oauth.token_cleanup]
+enable = true
+retain_access_tokens_for_auditing = true
 ```
 
 <table>
@@ -61,7 +64,6 @@ Alternatively, you can also use the stored procedures provided below, to run a t
 !!! tip
     We recommend you to test the database dump before the cleanup task as the cleanup can take some time.
 
-
 3.  Depending on your database, select the appropriate token cleanup script from [here](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures) and run it on the database dump. This takes a backup of the necessary tables, turns off SQL updates and cleans the database of unused tokens.
 
 4.  Once the cleanup is over, start the API Manager pointing to the cleaned-up database dump and test thoroughly for any issues.
@@ -72,35 +74,35 @@ Alternatively, you can also use the stored procedures provided below, to run a t
     
 ####Schedule task for MySQL
 ``` sql
-    USE 'WSO2AM_DB';
-    DROP EVENT IF EXISTS 'cleanup_tokens_event';
-    CREATE EVENT 'cleanup_tokens_event'
-        ON SCHEDULE
-            EVERY 1 WEEK STARTS '2018-01-01 00:00.00'
-        DO
-            CALL 'WSO2AM_DB'.'cleanup_tokens'();
-    -- 'Turn on the event_scheduler'
-    SET GLOBAL event_scheduler = ON;
+USE 'WSO2AM_DB';
+DROP EVENT IF EXISTS 'cleanup_tokens_event';
+CREATE EVENT 'cleanup_tokens_event'
+    ON SCHEDULE
+        EVERY 1 WEEK STARTS '2018-01-01 00:00.00'
+    DO
+        CALL 'WSO2AM_DB'.'cleanup_tokens'();
+-- 'Turn on the event_scheduler'
+SET GLOBAL event_scheduler = ON;
 
 ```
 ####Schedule task for SQL Server
 
 ``` sql
-    USE WSO2AM_DB ;  
-    GO  
-    -- Creates a schedule named CleanupTask.   
-    -- Jobs that use this schedule execute every day when the time on the server is 01:00.   
-    EXEC sp_add_schedule  
-        @schedule_name = N'CleanupTask' ,  
-        @freq_type = 4,  
-        @freq_interval = 1,  
-        @active_start_time = 010000 ;  
-    GO  
-    -- attaches the schedule to the job BackupDatabase  
-    EXEC sp_attach_schedule  
-        @job_name = N'BackupDatabase',  
-        @schedule_name = N'CleanupTask' ;  
-    GO
+USE WSO2AM_DB ;  
+GO  
+-- Creates a schedule named CleanupTask.   
+-- Jobs that use this schedule execute every day when the time on the server is 01:00.   
+EXEC sp_add_schedule  
+    @schedule_name = N'CleanupTask' ,  
+    @freq_type = 4,  
+    @freq_interval = 1,  
+    @active_start_time = 010000 ;  
+GO  
+-- attaches the schedule to the job BackupDatabase  
+EXEC sp_attach_schedule  
+    @job_name = N'BackupDatabase',  
+    @schedule_name = N'CleanupTask' ;  
+GO
 ```
 
 Replace `WSO2AM_DB` with the name of your API Manager database in the above script.

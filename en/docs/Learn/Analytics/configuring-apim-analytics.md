@@ -17,7 +17,7 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide](../../SetupAndInstall/InstallationGuide/installation-prerequisites.md) .
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide](../../InstallAndSetup/InstallationGuide/installation-prerequisites.md) .
     
     ![](../../assets/img/Learn/apim-download-page.png)
     
@@ -27,6 +27,16 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
     ![](../../assets/img/Learn/analytics-download-page.png)
     
+    
+       <html><div class="admonition warning">
+       <p class="admonition-title">Note</p>
+       <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
+                        Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
+                        </p>
+                        ![](../../assets/img/Learn/analytics-quick-setup.png)
+       </div>
+       </html>
+                  
 3.  To enable Analytics, open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the analytics enabling section as shown below. Save this change.
 
     ``` toml
@@ -46,7 +56,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 5.  Start the API Manager server.
     <br/>Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `wso2server.bat --run`
-    -   On Linux/Mac OS: `sh wso2server.sh 
+    -   On Linux/Mac OS: `sh wso2server.sh` 
     
         !!! info
                   If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
@@ -55,8 +65,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
                     
 6.  Start the Dashboard profile of the Analytics Server.
     <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `dashboard.bat --run  
-    -   On Linux/Mac OS: `sh dashboard.sh    
+    -   On Windows: `dashboard.bat --run`  
+    -   On Linux/Mac OS: `sh dashboard.sh`    
     
     
 
@@ -72,12 +82,13 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 2 - Download and install WSO2 API-M Analytics](#step-2-download-and-install-wso2-api-m-analytics)
 -   [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3-configure-wso2-api-manager-to-publish-statistics)
 -   [Step 4 - Configure databases](#step-4-configure-databases)
--   [Step 5 - Configure keystores](#step-5-configure-keystores)
+-   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-cleint)
+-   [Step 6 - Configure keystores](#step-6-configure-keystores)
 
 #### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- <br/>For more information on installing WSO2 API-M, see the [Installation Guide](../../SetupAndInstall/InstallationGuide/installation-prerequisites.md) .
+ <br/>For more information on installing WSO2 API-M, see the [Installation Guide](../../InstallAndSetup/InstallationGuide/installation-prerequisites.md) .
     
  ![](../../assets/img/Learn/apim-download-page.png)
     
@@ -144,15 +155,18 @@ However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Streaming
 An event can also be published to multiple receiver groups, where each group has one or more receivers. 
 For each receiver groups we need to repeat the above section, whereas receivers are delimited by commas.
 <p>
-e.g., Two receiver groups with two receivers each can be specified as follows.
+e.g., Two receiver groups with two load balanced receivers in each can be specified as follows.
 <br />
 <code>
 <br/>[[apim.analytics.url_group]]
-<br/>analytics_url =["tcp://localhost:7612,tcp://localhost:7613"]
+<br/>analytics_url =["tcp://localhost:7612","tcp://localhost:7613"]
+<br/>type = "loadbalance"
 <br/>
 <br />[[apim.analytics.url_group]]
-<br />analytics_url =["tcp://localhost:7712,tcp://localhost:7713"]
+<br />analytics_url =["tcp://localhost:7712","tcp://localhost:7713"]
+<br/>type = "loadbalance"
 </code>
+<br/>If the type is not specified it defaults to the fail over.
 </p>
 </td>
 </tr>
@@ -161,14 +175,26 @@ e.g., Two receiver groups with two receivers each can be specified as follows.
 <td>A valid administrator username</td>
 <td><div class="content-wrapper">
 <p>The administrator user name to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
+<p>If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. 
+<br/>e.g., If the username of the API-M Analytics admin user is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com@carbon.super</code> once you have enabled email user.</li>
+</p>
 <html><div class="admonition info">
-<p class="admonition-title">Info</p>
-<p><ul>
-   <li>If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. 
-   e.g., If the username of the API-M Analytics admin use is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com @carbon.super</code> once you have enabled email user.</li>
-   <li>It is required to change the values <code>receiver_username</code> and <code>receiver_password</code> parameters if the user of WSO2 API-M is different to the user of WSO2 WSO2 API-M Analytics. 
-   The default value <code>${admin.username}</code> retrieves the admin user of the current API-M node as the <code>receiver_username</code>.</li>
-   </ul></p>
+<p class="admonition-title">Note</p>
+<p>If the username and password of the API-M Analytics node is same as that of API-M node, you can uncomment 
+   <code>username = "$ref{super_admin.username}"</code> and <code>password = "$ref{super_admin.password}"</code> under 
+   [apim.analytics].
+   <br/>
+   <br/>The default value <code>$ref{super_admin.username}</code> and <code>$ref{super_admin.password}</code> 
+   retrieve the admin user and password respectively from the current API-M node and set those for <code>receiver_username</code> 
+   and <code>receiver_password</code>. 
+</div>
+</html>
+<html><div class="admonition warning">
+<p class="admonition-title">username and password parameters</p>
+<ul>
+Please note that if the <code>username</code> and <code>password</code> are uncommented, then those values will be assigned to all the usernames and passwords that are under the [apim.analytics] section.
+<li>For example if <code>store_api_username</code> is not defined, then it takes the value of <code>username</code> when <code>username</code> is uncommented.</li>
+</ul>
 </div>
 </html>
 </div></td>
@@ -178,12 +204,6 @@ e.g., Two receiver groups with two receivers each can be specified as follows.
 <td>The password of the username specified.</td>
 <td><div class="content-wrapper">
 <p>The administrator password to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
-<html><div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>It is required to change the values <code>receiver_username</code> and <code>receiver_password</code> parameters if the user of WSO2 API-M is different to the user of WSO2 API-M Analytics. 
-The default value <code>${admin.password}</code> retrieves the admin user's password of the current API-M node as the <code>receiver_password</code>.</p>
-</div>
-</html>
 </div></td>
 </tr>
 <tr class="even">
@@ -213,27 +233,27 @@ Configuring databases allow you to persist data relating to APIs, process them a
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.
     1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
-    2. Edit the `WSO2_DASHBOARD_DB, APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
+    2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
        <br/>A sample for MySQL is shown below.
        
          ``` java
-           - name: WSO2_DASHBOARD_DB
-              description: The datasource used for dashboard feature
-              jndiConfig:
-                name: jdbc/DASHBOARD_DB
-                useJndiReference: true
-              definition:
-                type: RDBMS
-                configuration:
-                  jdbcUrl: 'jdbc:mysql://localhost:3306/dashboard_db'
-                  username: root
-                  password: 123
-                  driverClassName: com.mysql.jdbc.Driver
-                  maxPoolSize: 50
-                  idleTimeout: 60000
-                  connectionTestQuery: SELECT 1
-                  validationTimeout: 30000
-                  isAutoCommit: false
+           - name: AM_DB
+               description: Main datasource used by API Manager
+               jndiConfig:
+                 name: jdbc/AM_DB
+               definition:
+                 type: RDBMS
+                 configuration:
+                   jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
+                   username: wso2carbon
+                   password: wso2carbon
+                   driverClassName: com.mysql.jdbc.Driver
+                   maxPoolSize: 10
+                   idleTimeout: 60000
+                   connectionTestQuery: SELECT 1
+                   validationTimeout: 30000
+                   isAutoCommit: false
+
          ```
     
 3.  Configure the worker profile. 
@@ -351,9 +371,10 @@ Configuring databases allow you to persist data relating to APIs, process them a
        
 4.  Point the following data sources to external databases. 
        None of the following databases need DB scripts. The tables will be automatically created.
-      1. BUSINESS_RULES_DB (dashboard)
-      2. WSO2_PERMISSIONS_DB (worker + dashboard)
-      3. GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
+      1. WSO2_DASHBOARD_DB (dashboard profile)
+      2. BUSINESS_RULES_DB (dashboard profile)
+      3. WSO2_PERMISSIONS_DB (worker + dashboard)
+      4. GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
 5.  Start the WSO2 API-M Analytics server.
 
 !!! Info
@@ -366,8 +387,63 @@ Configuring databases allow you to persist data relating to APIs, process them a
       ``` java
           ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
       ```
-      
-#### Step 5 - Configure keystores
+
+#### Step 5 - Configure APIM IdP Cleint
+
+APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
+
+Furthermore, APIM IdP client functionality can be controlled via the properties defined in the <APIM_ANALYTICS_HOME>/conf/dashboard/deployment.yaml file under the auth.configs namespace as shown below.
+
+```
+auth.configs:
+  type: apim
+  ssoEnabled: true
+  properties:
+    adminScope: apim_analytics:admin_carbon.super
+    allScopes: apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe
+    adminServiceBaseUrl: https://localhost:9443
+    adminUsername: admin
+    adminPassword: admin
+    kmDcrUrl: https://localhost:9443/client-registration/v0.15/register
+    kmTokenUrlForRedirection: https://localhost:9443/oauth2
+    kmTokenUrl: https://localhost:9443/oauth2
+    kmUsername: admin
+    kmPassword: admin
+    portalAppContext: analytics-dashboard
+    businessRulesAppContext : business-rules
+    cacheTimeout: 900
+    baseUrl: https://localhost:9643
+    grantType: authorization_code
+    publisherUrl: https://localhost:9443
+    #storeUrl: https://localhost:9443
+    externalLogoutUrl: https://localhost:9443/oidc/logout
+```
+#####Details of the properties in APIM IdP Client
+
+
+|**Property**                                           |**Default Value**                    |**Description**                 |
+|-------------------------------------------------------|-------------------------------------|--------------------------------|
+| `adminScope`| apim_analytics:admin_carbon.super | Admin scope which is used for permissions in dashboards.|
+| `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
+| `adminServiceBaseUrl`| https://localhost:9443 | Url which the WSO2 admin services are running.(API Manager node URL)|
+| `adminUsername`| admin | The username for the admin services.|
+| `adminPassword`| admin | The password for the admin services.|
+| `kmDcrUrl`| https://localhost:9443/client-registration/v0.15/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP.|
+| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirections.|
+| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP.|
+| `kmUsername`| admin | The username for the key manager in the IdP.|
+| `kmPassword`| admin | The password for the key manager in the IdP.|
+| `portalAppContext`| analytics-dashboard | The application context of the Analytics Dashboard application.|
+| `businessRulesAppContext`| business-rules| The application context of the Business Rules application.|
+| `cacheTimeout`| 900 | The cache timeout for the validity period of the token in seconds.|
+| `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token.|
+| `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
+| `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
+| `storeUrl`| https://localhost:9443 | Url which the API Manager store is running. Add this config if the Store and Publihser are running in two seperate nodes.|
+| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
+
+
+#### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 

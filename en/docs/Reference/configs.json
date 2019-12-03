@@ -66,7 +66,7 @@
             "title": "Enabling the H2 database console",
             "options": [
                 {
-                    "name": "databaseconfiguration",
+                    "name": "database_configuration",
                     "required": false,
                     "description": "Configurations required to enable browsing the H2 database from a web browser.",
                     "params": [

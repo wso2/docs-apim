@@ -52,7 +52,7 @@ Let's see how to convert message types using custom sequences. In this tutorial,
     Next, let's write a sequence to convert the JSON payload to a SOAP request. We do this because the backend accepts SOAP requests.
 
 5.  Navigate to the **Endpoints** section and change the endpoint of the API to <http://ws.cdyne.com/phoneverify/phoneverify.asmx?WSDL>.
-    ![](../../../assets/img/Learn/edit-endpoint.png)
+    [![](../../../assets/img/Learn/edit-endpoint.png)](../../../assets/img/Learn/edit-endpoint.png)
 
 6. Click **Save** to save the Endpoint details of the API.
 
@@ -64,7 +64,7 @@ Let's see how to convert message types using custom sequences. In this tutorial,
     ![](../../../assets/img/Learn/eclipse-open-apim.png)
 10.  On the API-M perspective, click the **Login** icon as shown below.
 
-    ![](../../../assets/img/Learn/eclipse-login.png)
+    [![](../../../assets/img/Learn/eclipse-login.png)](../../../assets/img/Learn/eclipse-login.png)
 
 11. On the dialog box that appears, enter the URL, username, and password of the Publisher server.
 
@@ -73,9 +73,9 @@ Let's see how to convert message types using custom sequences. In this tutorial,
 12. On the tree view that appears, expand the folder structure of the existing API.
 
 13. Right-click on the **In** sequence folder and click **Create** to create a new [**In** sequence](https://docs.wso2.com/display/AM250/Key+Concepts#KeyConcepts-Sequences) .
-    ![](../../../assets/img/Learn/eclipse-create-in-seq.png)
+    [![](../../../assets/img/Learn/eclipse-create-in-seq.png)](../../../assets/img/Learn/eclipse-create-in-seq.png)
 14. Name the sequence `JSONtoSOAP`.
-    ![](../../../assets/img/Learn/eclipse-name-resource.png)
+    [![](../../../assets/img/Learn/eclipse-name-resource.png)](../../../assets/img/Learn/eclipse-name-resource.png)
 15. Your sequence now appears on the APIM perspective. From under the **Mediators** section, drag and drop a **PayloadFactory** mediator to your sequence and give the following values to the mediator.
 
         !!! tip
@@ -85,7 +85,7 @@ Let's see how to convert message types using custom sequences. In this tutorial,
 
     For details on how you got this configuration, see [PayloadFactory Mediator](https://docs.wso2.com/display/EI650/PayloadFactory+Mediator) in the WSO2 EI documentation.
 
- ![](../../../assets/img/Learn/eclipse-payload-factory.png)
+ [![](../../../assets/img/Learn/eclipse-payload-factory.png)](../../../assets/img/Learn/eclipse-payload-factory.png)
 
     |         |                                                                                                                                                                             |
     |---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -130,7 +130,7 @@ Let's see how to convert message types using custom sequences. In this tutorial,
       </table>                                                                                                                                                                     |
 
 16. Similarly, add a **Property** mediator to the same sequence and give the following values to the property mediator. This mediator changes the payload type of the outgoing message to soap+xml. More information about the Property mediator can be found [here](https://docs.wso2.com/display/ESB500/Property+Mediator).
-    ![](../../../assets/img/Learn/eclipse-property-mediator.png)
+    [![](../../../assets/img/Learn/eclipse-property-mediator.png)](../../../assets/img/Learn/eclipse-property-mediator.png)
 
     |                |                      |
     |----------------|----------------------|
@@ -145,7 +145,7 @@ Let's see how to convert message types using custom sequences. In this tutorial,
     ![](../../../assets/img/Learn/eclipse-outseq-create.png)
 
 19. Name the sequence `SOAPtoJSON` .
-    ![](../../../assets/attachments/Learn/eclipse-create-seq.png)
+    [![](../../../assets/img/Learn/eclipse-create-seq.png)](../../../assets/img/Learn/eclipse-create-seq.png)
 20. Add a **Log** mediator to the sequence and give the following values. Note that the property value provided is a string literal.
 
         !!! info
@@ -175,7 +175,7 @@ Let's see how to convert message types using custom sequences. In this tutorial,
     </tbody>
     </table>
 
-    ![](../../../assets/img/Learn/eclipse-log-mediator-config.png)
+    [![](../../../assets/img/Learn/eclipse-log-mediator-config.png)](../../../assets/img/Learn/eclipse-log-mediator-config.png)
 
 21. Similarly, add a **PayLoadFactory** mediator with the following values. This mediator in the out sequence is used to transform the SOAP message content returned from the backend into JSON.
 
@@ -217,15 +217,15 @@ Let's see how to convert message types using custom sequences. In this tutorial,
     | Value String Capturing Group | 0                |
     | Property Scope               | axis2            |
 
-    ![](../../../assets/img/Learn/eclipse-soap-to-json.png)
+    [![](../../../assets/img/Learn/eclipse-soap-to-json.png)](../../../assets/img/Learn/eclipse-soap-to-json.png)
 
 23. Save the sequence, which is in XML format (e.g., `SOAPtoJSON.xml` ). This will be the **Out** sequence for your API.
 
 24. Click the **Push all changes to the server** icon shown below to commit your changes to the Publisher server.
-    ![](../../../assets/img/Learn/eclipse-push-all-changes.png.png)
+    [![](../../../assets/img/Learn/eclipse-push-all-changes.png)](../../../assets/img/Learn/eclipse-push-all-changes.png)
 
 25. Log back into the API Publisher, select PhoneVerification API and click the **Runtime Configurations** menu link associated with the API and navigate to the **Mediation Policies** section. Click the **Edit** icon and engage the **In** and **Out** mediation policies that you created earlier from the respective sections.
-    ![](../../../assets/img/Learn/engage-created-mediation-policies.png)
+    [![](../../../assets/img/Learn/engage-created-mediation-policies.png)](../../../assets/img/Learn/engage-created-mediation-policies.png)
 
         !!! info
     JSONtoSOAP **in sequence** will serve the purpose of transforming the JSON payload to SOAP before sending it to the SOAP backend. SOAPtoJSON **out sequence** will transform the SOAP message returned from the backend to JSON.
@@ -234,14 +234,14 @@ Let's see how to convert message types using custom sequences. In this tutorial,
 26. **Save** the API.
     You have created an API, a resource to access the SOAP backend and engaged sequences to the request and response paths to convert the message format from JSON to SOAP and back to JSON. Let's subscribe to the API and invoke it.
 27. Log in to the API Devportal and [Subscribe to the API](../../../Learn/Tutorials/subscribe-to-an-api/) and create an access token if you have not done so already.
-    ![](../../../assets/img/Learn/subscribe.png)
+    [![](../../../assets/img/Learn/subscribe.png)](../../../assets/img/Learn/subscribe.png)
 
 28. Select the PhoneVerification API, Go to the **Try Out** menu and expand the POST method.
 
 29. Click on the **Try It Out** and give the payload in the `body` parameter in JSON format and click **Execute**. Here's a sample JSON payload: {"request":{"PhoneNumber":"18006785432","LicenseKey":"0"}}
-    ![](../../../assets/img/Learn/try-it.png)
+    [![](../../../assets/img/Learn/try-it.png)](../../../assets/img/Learn/try-it.png)
 
 30. Note that you get a JSON response to the JSON request whereas the backend accepts SOAP messages. The request and response are converted by the sequences that you engaged in.
-    ![](../../../assets/img/Learn/json-response.png)
+    [![](../../../assets/img/Learn/json-response.png)](../../../assets/img/Learn/json-response.png)
 
 In this tutorial, you converted a message from JSON to SOAP and back to JSON using **In** and **Out** sequences.
