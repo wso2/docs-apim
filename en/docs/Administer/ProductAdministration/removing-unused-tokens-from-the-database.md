@@ -19,7 +19,7 @@ WSO2 API Manager triggers token cleanup during the following instances.
 -   Token revocation
 
 !!! note
-    This cleanup procedure is enabled by default. In this scenario **Inactive**, **Revoked**, **Expired** token will be cleaned. If you disabled this procedure and after some time you want to enable this cleanup procedure it is better to clean the access token table using [script](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures) provided in latter part of the document and enable the feature.
+    This cleanup procedure is enabled by default. In this scenario **Inactive**, **Revoked**, **Expired** tokens will be cleaned. If you disabled this procedure and after some time you want to enable this cleanup procedure it is better to clean the access token table using [script](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures) provided and enable the feature.
 
 To enable or disable token cleanup, open the `<API-M_HOME>/repository/conf/deployment.toml` file and do the following changes.(add the configuration if not exists in the deployment.toml file)
 

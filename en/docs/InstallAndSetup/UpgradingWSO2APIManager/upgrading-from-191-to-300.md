@@ -17,6 +17,9 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from API
 !!! note
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0](../UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-500-to-590.md).
 
+-   [Step 1 - Upgrade WSO2 API Manager to 2.0.0](#step-1-upgrade-wso2-api-manager-to-200)
+-   [Step 2 - Upgrade WSO2 API Manager to 3.0.0](#step-2-upgrade-wso2-api-manager-to-300)
+
 ### Step 1 - Upgrade WSO2 API Manager to 2.0.0
 
 !!! note
