@@ -351,9 +351,7 @@ nav:
                     - Working with Hazelcast Clustering: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
                 - Configure a Thrid Party Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
                 - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
-                - WSO2 Identity Server as Key Manager: 
-                    - Configuring WSO2 Identity Server as a Key Manager: InstallAndSetup/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md
-                    - Configuring the Databases for IS as the Key Manager: InstallAndSetup/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager.md
+                - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/configuring-wso2-identity-server-as-a-key-manager.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring rsync for Deployment Synchronization: InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
