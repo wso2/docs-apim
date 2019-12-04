@@ -95,13 +95,20 @@ Now, you have created a new REST API successfully.
 
           [![Add a new resource]({{base_path}}/assets/img/Learn/Tutorials/resource-add-post-test.png)]({{base_path}}/assets/img/Learn/Tutorials/resource-add-post-test.png)
 
-3. Select or type ARN of the resource.
+3. Under AWS Lambda Settings select or type Amazon Resource Name (ARN) for the resource.
 
     You can select already created AWS Lambda functions listed in Autocomplete box.
 
     [![Select or type ARN]({{base_path}}/assets/img/Learn/Tutorials/resource-add-amazon-resource-name.png)]({{base_path}}/assets/img/Learn/Tutorials/resource-add-amazon-resource-name.png)
 
-4. Click **Save**.
+4. Optional - Default AWS SDK Client Execution Timeout is 50 seconds. You can can change it by **Set Timeout** option. 
+
+    - Min Timeout - 1 second
+    - Max Timeout - 15 minutes
+
+    [![Set Timeout]({{base_path}}/assets/img/Learn/Tutorials/resource-set-amazon-resource-timeout.png)]({{base_path}}/assets/img/Learn/Tutorials/resource-set-amazon-resource-timeout.png)
+
+5. Click **Save**.
 
     [![Save resources]({{base_path}}/assets/img/Learn/Tutorials/resource-save.png)]({{base_path}}/assets/img/Learn/Tutorials/resource-save.png)
 
