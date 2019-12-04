@@ -39,8 +39,7 @@ In this setup, API traffic is served by one all-in-one instance of WSO2 API Mana
 For more information on manually configuring the production servers from scratch, see \_Configuring a Single Node .
 
 
-### 
-Active/active deployment
+### Active/active deployment
 
 In this setup, API traffic is served by two single node (all-in-one) instances of WSO2 API Manager.
 
