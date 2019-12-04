@@ -52,3 +52,24 @@ The following is a list of other WSO2 products that is tested with WSO2 API Mana
 
 - WSO2 Enterprise Integrator 6.5.0
 - WSO2 Identity Server 5.9.0
+
+## Compatible WSO2 Identity Server as the Key Managers
+
+<table>
+<thead>
+<tr class="header" >
+<th>WSO2 API-M</th>
+<th>WSO2 IS-KM</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td>API-M 3.0.0 GA</td>
+<td>GA or WUM update for WSO2 IS-KM-5.9.0</td>
+</tr>
+<tr class="even">
+<td>API-M-3.0.0 WUM update</td>
+<td>GA or WUM update for WSO2 IS-KM-5.9.0</td>
+</tr>
+</tbody>
+</table>

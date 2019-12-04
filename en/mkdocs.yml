@@ -360,8 +360,8 @@ nav:
             - Minimum High Availability Deployment for WSO2 APIM Analytics: InstallAndSetup/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
             - Configuring the keyStore and client trustStore for a Selected Pattern: InstallAndSetup/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
             - Deployment Guidelines:
-                - Production Deployment Guidelines: InstallAndSetup/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: InstallAndSetup/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
+                - Production Deployment Guidelines: InstallAndSetup/DeployingWSO2APIManager/production-deployment-guidelines.md
+                - Security Guidelines for Production Deployment: InstallAndSetup/DeployingWSO2APIManager/security-guidelines-for-production-deployment.md
         - Setting up Databases:
             - Overview: InstallAndSetup/SettingUpDatabases/overview.md
             - Changing Default Databases:
@@ -446,24 +446,24 @@ nav:
                 - Logins and Passwords:
                     - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
                     - Securing Passwords in Configuration Files:
-                        - Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
-                        - Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
-                        - Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
+                        - Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/encrypting-passwords-with-cipher-tool.md
+                        - Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/resolving-encrypted-passwords.md
+                        - Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/carbon-secure-vault-implementation.md
                     - Working with Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
                 - Using Asymmetric Encryption:
-                    - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
-                    - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
-                    - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
-                    - Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
+                    - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores.md
+                    - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/renewing-a-ca-signed-certificate-in-a-keystore.md
+                    - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/configuring-keystores-in-wso2-products.md
+                    - Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/managing-keystores-with-the-ui.md
                 - Using Symmetric Encryption:
-                    - Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
-                    - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
-                    - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
-                    - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
-                    - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
-                    - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
+                    - Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/using-symmetric-encryption.md
+                    - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/mitigating-cross-site-request-forgery-attacks.md
+                    - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/mitigating-cross-site-scripting-attacks.md
+                    - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/enabling-hostname-verification.md
+                    - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/configuring-tls-termination.md
+                    - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/enabling-java-security-manager.md
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
-                - Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
+                - Configuring Transport Level Security: Administer/ProductSecurity/General/configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
             - Supported Cipher Suites: ''
             - API Designer Portal: 
@@ -479,8 +479,8 @@ nav:
             - Changing the Default Ports with Offset: Reference/Guides/changing-the-default-ports-with-offset.md
             - Message Flow in the API Manager Gateway: Reference/Guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Database Upgrade Guide: Reference/Guides/admin-database-upgrade-guide.md
-            - admin_Directory Structure of WSO2 Products: Reference/Guides/admin-directory-structure-of-wso2-products.md
+            - admin_Database Upgrade Guide: Reference/Guides/database-upgrade-guide.md
+            - admin_Directory Structure of WSO2 Products: Reference/Guides/directory-structure-of-wso2-products.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: Reference/samples/APIDevelopmentSample/managing-apis-sample.md
@@ -496,7 +496,7 @@ nav:
         - Other: Reference/other.md
     - Troubleshooting:
         - Error Handling: Troubleshooting/error-handling.md
-        - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
+        - Troubleshooting in Production Environments: Troubleshooting/troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
         - Working with Observability: Troubleshooting/working-with-observability.md
 # Extensions
