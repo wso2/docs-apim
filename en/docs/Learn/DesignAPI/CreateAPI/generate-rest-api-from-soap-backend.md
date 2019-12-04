@@ -42,62 +42,48 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
     ![](../../../assets/img/Learn/create-soap-api-form.jpg)
 
-4.  Navigate to the **API Definition** tab and click on **Edit** to modify the open API Definition of the API.
-    ![]({{base_path}}/assets/attachments/103328795/103328787.png)
-    
-5.  Click **Apply Changes** to save your API.
-    ![]({{base_path}}/assets/attachments/103328795/103328788.png)
-6.  The generated API definitions are added to the API as shown below.
-    ![]({{base_path}}/assets/attachments/103328795/103328791.png)
+4.  The created API appears in the publisher as follows.
+    ![](../../../assets/img/Learn/generate-rest-api-from-soap-backend-overview.jpg)
 
-        !!! note
-    The definition properties are mapped with a Swagger vendor-specific field `x-xpath` , which is used to map the SOAP binding operation parameters with the REST parameters. If a parameter does not have this field it is not mapped with a backend operation. To ensure the mapping functions smoothly, do not make any changes to the properties.
+5.  Navigate to the **API Definition** tab and click on **Edit** to modify the open API Definition of the API.
+    ![](../../../assets/img/Learn/api-definition-of-generated-rest-api-from-soap-backend.jpg)
 
+6.  The generated API resources are added to the API as shown below.
+    ![](../../../assets/img/Learn/generated-resources-of-soap-backend.jpg)
 
 7.  Click on a resource to view the In and Out sequences of the API.
-    ![]({{base_path}}/assets/attachments/103328795/103328790.png)
-8.  The following sample shows the generated API In-sequence for a GET method with query parameters.
+    [![](../../../assets/img/Learn/in-out-sequences-of-generated-rest-api.jpg)](../../../assets/img/Learn/in-out-sequences-of-generated-rest-api.jpg)
+
+8.  The following sample shows the generated API In-sequence for a POST method.
 
     ``` java
-        GET https://<host_name>:8243/weather/1.0.0/weather?CityName=xxxxx&CountryName=xxxxx
-    ```
+           <header description="SOAPAction" name="SOAPAction" scope="transport" value="http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber"/>
+            <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+            <property expression="json-eval($.CheckPhoneNumber.LicenseKey)" name="req.var.CheckPhoneNumber.LicenseKey"/>
+            <property expression="json-eval($.CheckPhoneNumber.PhoneNumber)" name="req.var.CheckPhoneNumber.PhoneNumber"/>
 
-    ``` java
-            <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
-                     <header name="SOAPAction"
-                             scope="transport"
-                             value="http://www.webserviceX.NET/GetWeather"
-                             description="SOAPAction"/>
-                     <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
-                     <property name="req.var.CityName" expression="$url:CityName"/>
-                     <property name="req.var.CountryName" expression="$url:CountryName"/>
-                     <payloadFactory media-type="xml" description="transform">
-                        <format>
-                           <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-                                             xmlns:web="http://www.webserviceX.NET">
-                              <soapenv:Header/>
-                              <soapenv:Body>
-                                 <web:GetWeather>
-                                    <web:CityName>$1</web:CityName>
-                                    <web:CountryName>$2</web:CountryName>
-                                 </web:GetWeather>
-                              </soapenv:Body>
-                           </soapenv:Envelope>
-                        </format>
-                        <args>
-                           <arg evaluator="xml" expression="get-property('req.var.CityName')"/>
-                           <arg evaluator="xml" expression="get-property('req.var.CountryName')"/>
-                        </args>
-                     </payloadFactory>
-                     <property name="messageType"
-                               value="application/soap+xml"
-                               scope="axis2"
-                               type="STRING"
-                               description="messageProperty"/>
+
+            <payloadFactory description="transform" media-type="xml">
+            <format>
+            <soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://ws.cdyne.com/PhoneVerify/query">
+            <soapenv:Header/>
+            <soapenv:Body>
+               <web:CheckPhoneNumber xmlns:web="http://ws.cdyne.com/PhoneVerify/query">
+            <web:LicenseKey>$1</web:LicenseKey>
+            <web:PhoneNumber>$2</web:PhoneNumber>
+            </web:CheckPhoneNumber>
+
+            </soapenv:Body>
+            </soapenv:Envelope>
+            </format>
+            <args>
+               <arg evaluator="xml" expression="get-property('req.var.CheckPhoneNumber.LicenseKey')"/>
+            <arg evaluator="xml" expression="get-property('req.var.CheckPhoneNumber.PhoneNumber')"/>
+
+            </args>
+            </payloadFactory>
+            <property description="messageProperty" name="messageType" scope="axis2" type="STRING" value="application/soap+xml"/>
     ```
 
     The incoming JSON message parameters are stored using properties. The SOAP payload needed for the backend is generated using a payload factory mediator.
-
-9.  Enter the SOAP endpoint URL. The endpoint type should be the **HTTP/SOAP Endpoint** as shown below.
-    ![]({{base_path}}/assets/attachments/103328795/103328789.png)
 
