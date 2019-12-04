@@ -1,16 +1,16 @@
 ## Securing APIs by auditing API Definitions
 
-API Security has been a rising concern in recent times, with raw, sensitive data lying behind just a single API call waiting to be consumed. Therefore it is important that APIs conform to the OpenAPI Specification (OAS) and minimizes the number of loopholes for cyberattacks to pass through.
+API Security has become an important concern in recent times as organizations are more cautious about exposing raw, sensitive data via APIs. Therefore it is important that APIs adhere to the OpenAPI Specification (OAS) to ensure API security.
 
-This is why WSO2 API-M has partnered up with 42Crunch to bring the ability to audit APIs for identifying and guiding how to fix potential vulnerabilities.
+WSO2 API-M has partnered with 42Crunch, the only enterprise API security platform, to bring in the ability to conduct a security audit on the Open API Specification definition and to obtain an audit report.
 
-## How to enable the Audit API feature
+## Enable the Audit API feature
 
-### Retrieve API Token and Collection ID
+### Obtain API Token and Collection ID from 42Crunch
 
 1.  Navigate to the [42crunch platform](https://platform.42crunch.com) and register or sign in.
 
-2.  Create a new API Token from the **Settings** Menu as shown below.
+2.  Click on **Settings** on the user menu.
 
     ![]({{base_path}}/assets/img/Learn/api-token-settings-menu.png)
 
@@ -18,35 +18,35 @@ This is why WSO2 API-M has partnered up with 42Crunch to bring the ability to au
 
     ![]({{base_path}}/assets/img/Learn/api-token-create-button.png)
 
-4.  A dialog box will be shown where you need to enter the name of the Token and select appropriate access rights. For the audit feature to work, only the **API Contract Security Audit** permission is required.
+4.  Enter a name for the token and select **API Contract Security Audit** under token access right. For the audit feature to work, only the **API Contract Security Audit** permission is required.
 
     ![]({{base_path}}/assets/img/Learn/api-token-dialog-box.png)
 
-5.  Clicking on the **Generate Token** will lead to another dialog box showing the generated API Token.
+5.  Click on the **Generate Token**.
 
     !!! note 
-        The generated API Token will only be shown once, so make sure to copy it and save it in a safe place for reference.
+        The generated API Token can be viewed only once. Make sure to copy it and save it in a safe place for reference.
 
     ![]({{base_path}}/assets/img/Learn/api-token-copy-generated.png)
 
-6.  Now create a new Collection by clicking any one of the highlighted areas below.
+6.  Create a collection by clicking on **API Collections** from the left navigation bar or by clicking on **+ New Collection** at the bottom of the left navigation.
 
     !!! note
-        A Collection in this context is a folder hosted on 42Crunch for all the APIs that are audited
+        A Collection in this context is a folder hosted on 42Crunch containing all the APIs that are to be audited.
 
     ![]({{base_path}}/assets/img/Learn/collection-create-new.png)
 
-7.  Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference, just like the API Token.
+7.  Copy the Collection ID from the URL of the browser as highlighted below and save it in a safe place for reference.
 
     ![]({{base_path}}/assets/img/Learn/collection-copy-id.png)
 
 ### Configure WSO2 API-M with the retrieved properties
 
-The retrieved API Token and the Collection ID properties have to be placed inside the configuration files inside WSO2 API-M. There are two ways to do so.
+The API Token and Collection ID properties have to be placed inside the configuration files inside WSO2 API-M. There are two ways to do so.
 
-#### Enabling the feature server-wide 
+#### Enabling the feature for all tenants
 
-If these properties are to be accessible to all tenants, navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file and make the following changes:
+Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file. Add the following configuration to the file and save the changes.
 
 ``` bash tab="Format"
     [security_audit]
@@ -57,32 +57,30 @@ If these properties are to be accessible to all tenants, navigate to the `<API-M
 
 ``` bash tab="Example"
     [security_audit]
-    api_token="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-    collection_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    api_token="c21404ea-p13x-1swq-013a-pur90605uiwl"
+    collection_id="a5213vyo-6tre-560u-p04h-p0inb98i0gt1"
     global=true
 ```
 
 !!! tip
-    If you want to prevent the properties being used by any other tenants other than the super tenant, then set the **global** property to **false**.
+    Set **global** property to **false** to disable the feature for all other tenants except the super tenant.
 
-#### Enabling the feature tenant-wise
+#### Enabling the feature for a single tenant
 
-If the properties are to be available to a specific tenant only, then do the following:
+!!! tip
+    For more information on creating a tenant, see [Managing Tenants](https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants).
 
-1.  Sign in to the WSO2 API Management Console with your tenant credentials at `https://<server-host>:9443/carbon`.
+1.  Navigate to [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign In with your tenant credentials.
 
-    !!! tip
-        For more information on creating a tenant, see [Managing Tenants](https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants).
-
-2.  Click the **Main** tab, and then **Browse**, which is under **Resources** as shown below.
+2.  Go to Main > Resources. Click on **Browse**.
 
     ![]({{base_path}}/assets/attachments/103334899/103334897.png)
 
-3.  Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
+3.  Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the tenant-conf.json file stored in the WSO2 Registry.
 
-4.  Click **Edit as text** to be able to edit the JSON file.
+4.  Click **Edit as text** to edit the JSON file.
 
-5.  Add the following configuration with the customized Security Audit properties to the JSON file and save it.
+5.  Add the following configuration to the JSON file and save it.
 
     ``` bash tab="Format"
         SecurityAuditConfig: {
@@ -94,8 +92,8 @@ If the properties are to be available to a specific tenant only, then do the fol
 
     ``` bash tab="Example"
         SecurityAuditConfig: {
-            "apiToken": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            "collectionId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "apiToken": "c21404ea-p13x-1swq-013a-pur90605uiwl",
+            "collectionId": "a5213vyo-6tre-560u-p04h-p0inb98i0gt1",
             "overrideGlobal": true
         }
     ```
@@ -103,18 +101,20 @@ If the properties are to be available to a specific tenant only, then do the fol
     ![]({{base_path}}/assets/img/Learn/tenant-conf-properties.png)
 
     !!! note
-        If you want the security audit properties set for a particular tenant to override the security audit properties available globally in the `<API-M_HOME>/repository/conf/deployment.toml` file, then the **overrideGlobal** property should be set to **true**.
-
-    !!! info
-        Setting both the **overrideGlobal** and **global** properties to false will disable the API Security Audit feature even if you have supplied the API Token and Collection ID.
+        The **overrideGlobal** property's value, when set, will override the **global** property's value (under the [security_audit] section in the `<API-M_HOME>/repository/conf/deployment.toml`).  
+        **Important** : If both the **overrideGlobal** and **global** properties are set to **false** the API Security Audit feature will be disabled (even if the API Token and Collection ID is given).
 
 ### Auditing an API
 
-Once the feature is enabled, you will be able to see the **Audit API** button in the **API Publisher** under the **API Definitions** tab.
+1.  Open the API Publisher
 
-![]({{base_path}}/assets/img/Learn/audit-api-button.png)
+2.  Click on the API that needs to be audited.
 
-The following is a sample Audit Report
+3.  Go to **API Definitions**. If the feature is enabled, you will be able to see the **Audit API** button.
+
+    ![]({{base_path}}/assets/img/Learn/audit-api-button.png)
+
+4.  Click on the **Audit API** button. At the end of the audit, an audit report is displayed.
 
 ![]({{base_path}}/assets/img/Learn/sample-audit-report.png)
 
@@ -129,25 +129,25 @@ There are 4 sections to the Audit Report:
 
 This section provides: 
 
-1.  The overall score, out of 100, given to the API Definition.
+1.  Overall score, out of 100, given to the API Definition.
 2.  The total number of errors.
-3.  The overall severity of vulnerabilities present in the API Definition.
+3.  Overall severity of vulnerabilities present in the API Definition.
 4.  Scores given to the Security and Data Validation sections.
 
 !!! info
-    OpenAPI Format requirements section is not taken into account when calculating the score for the Audit Report.
+    OpenAPI Format Requirements are not taken into account whn calculating the score for the Audit Report.
 
 #### OpenAPI Format Requirements
 
-This category presents any issues that exist due to the API Definition not adhering to the OpenAPI Specification requirements and is divided into 3 categories.
+This category presents any issues that exist due to the API Definition not adhering to the OpenAPI Specification. This is divided into 3 categories.
 
 1.  **Structural Errors**
 
-    This occurs when specific sections that the OpenAPI format requires in the API Definition are not present.
+    These errors occur when the API's structure does not comply with the Open API format.
 
 2.  **Semantic Errors**
 
-    Even when API Definitions that are structurally correct, there can be issues with the semantics of the fields. For example, the API Definition could include invalid email and URL formats or inconsistent property formats across the Definition.
+    OpenAPI contracts that are structurally correct may have issues with the semantics of the fields in them. For example, the API could include invalid email and URL formats, or inconsistent property formats across the API definition.
 
 3.  **Best Practices Issues**
 
@@ -158,7 +158,7 @@ This category presents any issues that exist due to the API Definition not adher
 
 #### Security
 
-The Security category showcases:
+This category presents security issues identified by checking the API against security best practices.
 
 1.  Number of Issues
 
