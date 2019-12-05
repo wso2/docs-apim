@@ -284,6 +284,7 @@ current API Manager 2.5.0 version and run the below scripts against **the regist
         
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
         ```
+
 !!! warning "Not Recommeded"
     If you decided to proceed with registry resource versioning enabled, add the following configuration to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file. 
     
@@ -363,6 +364,19 @@ Follow the instructions below to move all the existing API Manager configuration
         url = "jdbc:mysql://localhost:3306/config_db"
         username = "username"
         password = "password"
+        ```
+    
+    !!! attention "If you are using another DB type"
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+
+        ```
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
+        username = "username"
+        password = "password"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
         ```
 
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the **WSO2UM_DB**.
@@ -730,25 +744,25 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(ID)
         );
 
-        DECLARE @con as VARCHAR(8000);
-        SET @con = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_COMMENTS') AND type='PK');
+        DECLARE @con_com as VARCHAR(8000);
+        SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_COMMENTS') AND type='PK');
         EXEC('ALTER TABLE AM_API_COMMENTS
-        drop CONSTRAINT ' + @con);
+        drop CONSTRAINT ' + @con_com);
         ALTER TABLE AM_API_COMMENTS
         DROP COLUMN COMMENT_ID;
         ALTER TABLE AM_API_COMMENTS
-        ADD COMMENT_ID VARCHAR(255) NOT NULL;
+        ADD COMMENT_ID VARCHAR(255) NOT NULL DEFAULT NEWID();
         ALTER TABLE AM_API_COMMENTS
         ADD PRIMARY KEY (COMMENT_ID);
 
-        DECLARE @con as VARCHAR(8000);
-        SET @con = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_RATINGS') AND type='PK');
+        DECLARE @con_rat as VARCHAR(8000);
+        SET @con_rat = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_RATINGS') AND type='PK');
         EXEC('ALTER TABLE AM_API_RATINGS
-        drop CONSTRAINT ' + @con);
+        drop CONSTRAINT ' + @con_rat);
         ALTER TABLE AM_API_RATINGS
         DROP COLUMN RATING_ID;
         ALTER TABLE AM_API_RATINGS
-        ADD RATING_ID VARCHAR(255) NOT NULL;
+        ADD RATING_ID VARCHAR(255) NOT NULL DEFAULT NEWID();
         ALTER TABLE AM_API_RATINGS
         ADD PRIMARY KEY (RATING_ID);
 
@@ -1302,7 +1316,7 @@ Follow the instructions below to move all the existing API Manager configuration
         MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
         EXTENTSIZE 4;
         ```
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/SetupAndInstall/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
@@ -1364,12 +1378,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the configured `SHARED_DB` database.
+    1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the configured `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/InstallAndSetup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
@@ -1407,9 +1421,12 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
     -   In API-M 3.0.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
 
-1.  Download WSO2 API Manager Analytics 3.0.0 from [here](http://wso2.com/api-management/).
+1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.0.0](http://wso2.com/api-management/).
 
-2.  Create a new database for the new statistics database and configure it in the `<APIM_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` and `<API-M_ANALYTICS_3.0.0_HOME>/conf/worker/deployment.yaml` as follows:
+    !!! note
+        It is **mandatory** to use a WUM updated WSO2 API Manager Analytics 3.0.0 pack when migrating the configurations for WSO2 API-M Analytics.
+
+2.  Create a **new** database for the new statistics database and configure it in the `<APIM_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` and `<API-M_ANALYTICS_3.0.0_HOME>/conf/worker/deployment.yaml` as follows:
 
     In this example shows to configure MySQL database configurations.
 
@@ -1482,12 +1499,11 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 1.  Configure following statistics related datasources for WSO2 API Manager Analytics in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
 
     !!! warning
-        The following 3 datasources should be configured in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file **only until the stats migration is complete** . After the statistics migration is completed remove the `APIM_ANALYTICS_DB` datasource configuration, which was added for the new statistics database, from the latter mentioned file.
-
+        The following 3 datasources should be configured in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file **only until the stats migration is complete**. After the statistics migration is completed remove the `WSO2AM_STATS_DB` and `APIM_ANALYTICS_DB` datasource configurations, which were added for the old and new statistics databases, from the latter mentioned file.
 
     The following in an example of how the configurations should be defined when using MySQL.
 
-    -   The first datasource points to the **previous API-M version's AM\_DB datasource.**
+    -   The first datasource points to the **previous API-M version's AM_DB datasource.**
 
         ``` java
         [database.apim_db]
@@ -1497,20 +1513,16 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         password = "password"
         ```
 
-    -   The second datasource points to the **WSO2 Data Analytics (WSO2 DAS) based previous datasource WSO2AM\_STATS\_DB for statistics** .
+    -   The second datasource points to the **WSO2 Data Analytics (WSO2 DAS) based previous datasource WSO2AM_STATS_DB for statistics** .
 
         ``` java
         [[datasource]]
         id = "WSO2AM_STATS_DB"
-        url = "jdbc:oracle:thin:@localhost:1521/wso2carbon"
-        username = "mig_stats"
-        password = "wso2carbon"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.maxActive = 50
-        pool_options.maxWait = 60000
-        pool_options.validationInterval = 30000
-        pool_options.defaultAutoCommit = false
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/stats_db"
+        username = "username"
+        password = "password"
+        pool_options.defaultAutoCommit = true
         ```
 
     -   The third datasource points to the **WSO2 Stream Processor (WSO2 SP) based new datasource APIM\_ANALYTICS\_DB for statistics.**
@@ -1518,18 +1530,30 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         ``` java
         [[datasource]]
         id = "APIM_ANALYTICS_DB"
-        url = "jdbc:oracle:thin:@localhost:1521/wso2carbon"
-        username = "analyticsDB"
-        password = "wso2carbon"
-        driver = "oracle.jdbc.driver.OracleDriver"
-        validationQuery = "SELECT 1 FROM DUAL"
-        pool_options.maxActive = 50
-        pool_options.maxWait = 60000
-        pool_options.validationInterval = 30000
-        pool_options.defaultAutoCommit = false
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/analytics_db"
+        username = "username"
+        password = "password"
+        pool_options.defaultAutoCommit = true
         ```
 
-2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar](../../assets/attachments/SetupAndInstall/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+    !!! note
+        When performing Analytics migration in WSO2 API-M Analytics 3.0.0, you need to set the **defaultAutoCommit** value to **true** in the `APIM_ANALYTICS_DB` and `WSO2AM_STATS_DB` datasource configurations.
+
+    ??? attention "If you are using another DB type"
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+
+        ```
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
+        username = "username"
+        password = "password"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
+
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
@@ -1578,7 +1602,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
 
         ``` java
-            sh wso2server.sh -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp
+        sh wso2server.sh -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp
         ```
 
     !!! info
@@ -1612,7 +1636,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
 6.  Stop the WSO2 API-M server and remove the migration JAR copied under **Step 3.2 - 3**.
 
-7.  Remove both the old and new `STAT_DB` datasources from the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file, which you defined in **Step 3.2 - 1**.
+7.  Remove both the old and new `WSO2AM_STATS_DB` and `APIM_ANALYTICS_DB` datasources from the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file, which you defined in **Step 3.2 - 1**.
 
 8.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
 
@@ -1620,17 +1644,24 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     [apim.analytics]
     enable = true
     ```
+
 ### Step 4 - Restart the WSO2 API-M 3.0.0 server
 
-1. Restart the WSO2 API-M Server.
+1.  Restart the WSO2 API-M server.
 
-    ``` tab="Linux / Mac OS"
+    ```tab="Linux / Mac OS"
     sh wso2server.sh
     ```
 
-    ``` tab="Windows"
+    ```tab="Windows"
     wso2server.bat
     ```
+
+    !!! note "If you have enabled Analytics"
+        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.0.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
+
+        !!! warning
+            Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
 This concludes the upgrade process.
 

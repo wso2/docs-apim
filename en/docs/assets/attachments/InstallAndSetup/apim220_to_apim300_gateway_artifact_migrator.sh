@@ -4,7 +4,7 @@ set -e
 location=$1
 
 if [[ -z $location ]]; then
-  echo 'Usage: ./apim220_to_apim260_gateway_artifact_migrator.sh <location of gateway artifacts>'
+  echo 'Usage: ./apim220_to_apim300_gateway_artifact_migrator.sh <location of gateway artifacts>'
   exit 1
 fi
 

@@ -365,6 +365,19 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         ```
 
+    !!! attention "If you are using another DB type"
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+
+        ```
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
+        username = "username"
+        password = "password"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
+
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the WSO2UM_DB.
 
     ```
@@ -869,25 +882,25 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(ID)
         );
 
-        DECLARE @con as VARCHAR(8000);
-        SET @con = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_COMMENTS') AND type='PK');
+        DECLARE @con_com as VARCHAR(8000);
+        SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_COMMENTS') AND type='PK');
         EXEC('ALTER TABLE AM_API_COMMENTS
-        drop CONSTRAINT ' + @con);
+        drop CONSTRAINT ' + @con_com);
         ALTER TABLE AM_API_COMMENTS
         DROP COLUMN COMMENT_ID;
         ALTER TABLE AM_API_COMMENTS
-        ADD COMMENT_ID VARCHAR(255) NOT NULL;
+        ADD COMMENT_ID VARCHAR(255) NOT NULL DEFAULT NEWID();
         ALTER TABLE AM_API_COMMENTS
         ADD PRIMARY KEY (COMMENT_ID);
 
-        DECLARE @con as VARCHAR(8000);
-        SET @con = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_RATINGS') AND type='PK');
+        DECLARE @con_rat as VARCHAR(8000);
+        SET @con_rat = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_RATINGS') AND type='PK');
         EXEC('ALTER TABLE AM_API_RATINGS
-        drop CONSTRAINT ' + @con);
+        drop CONSTRAINT ' + @con_rat);
         ALTER TABLE AM_API_RATINGS
         DROP COLUMN RATING_ID;
         ALTER TABLE AM_API_RATINGS
-        ADD RATING_ID VARCHAR(255) NOT NULL;
+        ADD RATING_ID VARCHAR(255) NOT NULL DEFAULT NEWID();
         ALTER TABLE AM_API_RATINGS
         ADD PRIMARY KEY (RATING_ID);
 
@@ -1769,7 +1782,10 @@ Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.0.0
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Download WSO2 API Manager Analytics 3.0.0 from [here](http://wso2.com/api-management/).
+1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.0.0](http://wso2.com/api-management/).
+
+    !!! note
+        It is **mandatory** to use a WUM updated WSO2 API Manager Analytics 3.0.0 pack when migrating the configurations for WSO2 API-M Analytics.
 
 2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.0.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
 

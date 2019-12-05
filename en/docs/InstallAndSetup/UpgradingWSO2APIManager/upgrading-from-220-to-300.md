@@ -367,6 +367,19 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         ```
 
+    !!! attention "If you are using another DB type"
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+
+        ```
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
+        username = "username"
+        password = "password"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
+
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the WSO2UM_DB.
 
     ```
@@ -426,24 +439,30 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim220_to_apim300_gateway_artifact_migrator.sh](../../assets/attachments/SetupAndInstall/apim220_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0. 
+        Run the [apim220_to_apim300_gateway_artifact_migrator.sh](../../assets/attachments/InstallAndSetup/apim220_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0. 
         ```
         ./apim220_to_apim300_gateway_artifact_migrator.sh <API-definitions-path>
         ```
+        
+        !!! note
+            If you are getting a "Permission Denied" message when you execute the above command, grant the permission as follows.
+            ```
+            chmod 777 apim220_to_apim300_gateway_artifact_migrator.sh
+            ```
 
         `<API-definition-path>` - This is the location where the WSO2 API-M 3.0.0 API definitions, which were copied from the API-M 2.2.0 deployment, reside.
 
-        The API definition paths <API-definition-path> are as follows:
+        The API definition paths `<API-definition-path>` are as follows:
 
         -   Super Tenant - `<API-M_3.0.0_HOME>/repository/deployment/server/synapse-configs/default`
 
         -   Tenant - `<API-M_3.0.0_HOME>/repository/tenants`
 
-        Where, `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`.
+        Where, `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0` which is the **full path** to the particular location.
 
     ??? note "Windows"
         !!! note "Windows - Super Tenant"
-            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator.ps1](../../assets/attachments/SetupAndInstall/apim220_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
+            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator.ps1](../../assets/attachments/InstallAndSetup/apim220_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -460,10 +479,10 @@ Follow the instructions below to move all the existing API Manager configuration
 
             -   Super Tenant - `<API-M_3.0.0_HOME>/repository/deployment/server/synapse-configs/default`
 
-            Where `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`.
+            Where `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`, which is the **full path** to the particular location.
 
         !!! note "Windows - Tenants"
-            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/SetupAndInstall/apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
+            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/InstallAndSetup/apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -480,7 +499,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
             -   Tenant - `<API-M_3.0.0_HOME>/repository/tenants`
 
-            Where `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`.
+            Where `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`, which is the **full path** to the particular location.
 
         !!! warning
             It may take a considerable amount of time, which is proportionate to the amount of artifacts, to complete the migration process.
@@ -868,25 +887,25 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(ID)
         );
 
-        DECLARE @con as VARCHAR(8000);
-        SET @con = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_COMMENTS') AND type='PK');
+        DECLARE @con_com as VARCHAR(8000);
+        SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_COMMENTS') AND type='PK');
         EXEC('ALTER TABLE AM_API_COMMENTS
-        drop CONSTRAINT ' + @con);
+        drop CONSTRAINT ' + @con_com);
         ALTER TABLE AM_API_COMMENTS
         DROP COLUMN COMMENT_ID;
         ALTER TABLE AM_API_COMMENTS
-        ADD COMMENT_ID VARCHAR(255) NOT NULL;
+        ADD COMMENT_ID VARCHAR(255) NOT NULL DEFAULT NEWID();
         ALTER TABLE AM_API_COMMENTS
         ADD PRIMARY KEY (COMMENT_ID);
 
-        DECLARE @con as VARCHAR(8000);
-        SET @con = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_RATINGS') AND type='PK');
+        DECLARE @con_rat as VARCHAR(8000);
+        SET @con_rat = (SELECT name from sys.objects where parent_object_id=object_id('AM_API_RATINGS') AND type='PK');
         EXEC('ALTER TABLE AM_API_RATINGS
-        drop CONSTRAINT ' + @con);
+        drop CONSTRAINT ' + @con_rat);
         ALTER TABLE AM_API_RATINGS
         DROP COLUMN RATING_ID;
         ALTER TABLE AM_API_RATINGS
-        ADD RATING_ID VARCHAR(255) NOT NULL;
+        ADD RATING_ID VARCHAR(255) NOT NULL DEFAULT NEWID();
         ALTER TABLE AM_API_RATINGS
         ADD PRIMARY KEY (RATING_ID);
 
@@ -1478,7 +1497,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXTENTSIZE 4;
         ```
 
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/SetupAndInstall/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
@@ -1540,12 +1559,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
 7.  Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
+    1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/InstallAndSetup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attantion
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
