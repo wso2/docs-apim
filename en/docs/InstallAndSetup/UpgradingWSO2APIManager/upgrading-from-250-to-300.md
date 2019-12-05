@@ -1316,7 +1316,7 @@ Follow the instructions below to move all the existing API Manager configuration
         MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
         EXTENTSIZE 4;
         ```
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/SetupAndInstall/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
@@ -1378,12 +1378,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the configured `SHARED_DB` database.
+    1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the configured `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/InstallAndSetup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
@@ -1553,7 +1553,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         validationQuery = "SELECT 1"
         ```
 
-2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar](../../assets/attachments/SetupAndInstall/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 

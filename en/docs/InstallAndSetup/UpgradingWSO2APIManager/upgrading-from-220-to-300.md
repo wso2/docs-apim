@@ -439,7 +439,7 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim220_to_apim300_gateway_artifact_migrator.sh](../../assets/attachments/SetupAndInstall/apim220_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0. 
+        Run the [apim220_to_apim300_gateway_artifact_migrator.sh](../../assets/attachments/InstallAndSetup/apim220_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0. 
         ```
         ./apim220_to_apim300_gateway_artifact_migrator.sh <API-definitions-path>
         ```
@@ -462,7 +462,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     ??? note "Windows"
         !!! note "Windows - Super Tenant"
-            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator.ps1](../../assets/attachments/SetupAndInstall/apim220_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
+            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator.ps1](../../assets/attachments/InstallAndSetup/apim220_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -482,7 +482,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Where `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`, which is the **full path** to the particular location.
 
         !!! note "Windows - Tenants"
-            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/SetupAndInstall/apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
+            Run the PowerShell script [apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/InstallAndSetup/apim220_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.2.0 to 3.0.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -1497,7 +1497,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXTENTSIZE 4;
         ```
 
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/SetupAndInstall/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
@@ -1559,12 +1559,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
 7.  Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/SetupAndInstall/reg-index.sql) script against the `SHARED_DB` database.
+    1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/SetupAndInstall/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/InstallAndSetup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attantion
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
