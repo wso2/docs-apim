@@ -236,10 +236,9 @@ nav:
                 - Token Revocation: Learn/APISecurity/OAuth2DeepDive/token-revocation.md
                 - Token Expiration: Learn/APISecurity/OAuth2DeepDive/token-expiration.md
                 - Token Persistence: Learn/APISecurity/OAuth2DeepDive/token-persistence.md
-                - Encrypting OAuth Keys: Learn/APISecurity/OAuth2DeepDive/encrypting-oauth-keys.md
+                - Encrypting OAuth2 Tokens: Learn/APISecurity/OAuth2DeepDive/encrypting-oauth2-tokens.md
                 - Hashing OAuth Keys: Learn/APISecurity/OAuth2DeepDive/hashing-oauth-keys.md
                 - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2DeepDive/provisioning-out-of-band-oauth-clients.md
-                - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2DeepDive/saving-access-tokens-in-separate-tables.md
                 - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2DeepDive/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
