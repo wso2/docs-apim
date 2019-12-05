@@ -15,7 +15,7 @@ If an attacker uses random tokens to send API requests, API Manager will try to 
 ![]({{base_path}}/assets/attachments/103334788/103334789.png)
 #### **WSO2 IS Extension - OAuth Token Generator Extension**
 
-Engage the HMAC OAuth handler in order to do the Keyed-Hash Message Authentication Code (HMAC) validation by adding following config inti  &lt;APIM_HOME&gt;/repository/conf/deployment.toml
+Add the following configuration to the `<APIM_HOME>/repository/conf/deployment.toml` in order to enable Keyed-Hash Message Authentication Code (HMAC) validation via the HMAC OAuth handler.
 
 
 ```
@@ -24,7 +24,7 @@ token_generator="com.sample.lahiru.wso2.hmac.oauth"
 ```
 
 !!! info
-    More information on developing OAuth token generator extensions [here](https://is.docs.wso2.com/en/5.9.0/learn/extension-points-for-oauth/#oauth-token-generator) . Code for this particular solution can be found in [oauth-hmac-extension](https://github.com/lahirus/oauth-hmac-extension/blob/master/src/main/java/com/sample/lahiru/wso2/hmac/oauth/OAuthHMACTokenIssuer.java) GitHub repository .
+    More information on developing OAuth token generator extensions can be found [here](https://is.docs.wso2.com/en/5.9.0/learn/extension-points-for-oauth/#oauth-token-generator) . Code for this particular solution can be found in [oauth-hmac-extension](https://github.com/lahirus/oauth-hmac-extension/blob/master/src/main/java/com/sample/lahiru/wso2/hmac/oauth/OAuthHMACTokenIssuer.java) GitHub repository .
 
 
 This extension is responsible for enhancing the OAuth token with HMAC(Hash-based Message Authentication Code), so that above mentioned attacks will be less effective. Following two parts will be added to the token in addition to the default token created in WSO2 IS.

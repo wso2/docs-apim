@@ -37,7 +37,7 @@ Sign in to the Developer Portal.
 
      <a href="../../../../../assets/img/Learn/create-oauth-application.png" ><img src="../../../../../assets/img/Learn/create-oauth-application.png" alt="Add oauth application" title="Add oauth application" width="70%" /></a>
 
-### Step 3 - Generate a OAuth2 Reference token
+### Step 3 - Generate a OAuth2 Opaque(Reference) token
 
 1. Click **APIs** and click on the PizzaShackAPI.
 
