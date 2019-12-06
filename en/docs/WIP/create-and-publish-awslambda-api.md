@@ -10,15 +10,14 @@ For more information on AWS Lambda, see [What is AWS Lambda?](https://docs.aws.a
 
     [![Create a new REST API]({{base_path}}/assets/img/Learn/create-api-design-rest-api-link.png)]({{base_path}}/assets/img/Learn/create-a-rest-api.jpg)
 
-    !!!note
-         For more information on API details to add, please refer [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api)
-
 3. Enter API details and click **CREATE**.  
 
     [![Create a test API]({{base_path}}/assets/img/Learn/create-test-api.png)]({{base_path}}/assets/img/Learn/create-test-api.png)
 
     !!!note
-         You don't need to enter the Endpoint at this moment.
+         **You don't need to enter the Endpoint at this moment.**
+         For more information on API details to add, please refer [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api)
+
 
 Now, you have created a new REST API successfully. 
 
