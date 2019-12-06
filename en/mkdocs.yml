@@ -351,7 +351,7 @@ nav:
                     - Working with Hazelcast Clustering: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
                 - Configure a Thrid Party Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
                 - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
-                - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/configuring-wso2-identity-server-as-a-key-manager.md
+                - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring rsync for Deployment Synchronization: InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
@@ -404,16 +404,16 @@ nav:
                 - Managing User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles.md
                 - Managing Users: Administer/ProductAdministration/ManagingUsersAndRoles/managing-users.md
                 - Managing Role Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/managing-permissions.md
-                - Managing User Stores:
-                      - Introduction to User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores.md
-                      - Configuring Primary User Stores:
-                            - Configuring Primary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-the-primary-user-store.md
-                            - Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md
-                            - Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md
-                            - Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-only-ldap-user-store.md
-                            - Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-active-directory-user-store.md
-                      - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
-                      - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
+            - Managing User Stores:
+                - Introduction to User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores.md
+                - Configuring Primary User Stores:
+                    - Configuring Primary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-the-primary-user-store.md
+                    - Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md
+                    - Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md
+                    - Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-only-ldap-user-store.md
+                    - Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-active-directory-user-store.md
+                - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
+                - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
             - Multitenancy:
                   - Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy.md
                   - Managing Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/managing-tenants.md
