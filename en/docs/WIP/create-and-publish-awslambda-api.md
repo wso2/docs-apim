@@ -1,13 +1,6 @@
 # Create and Publish an AWS Lambda API
 
-Follow the instructions in this tutorial to design and publish an AWS Lambda API.
-
-<html>
-   <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>For more information on AWS Lambda, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda?</a></p>
-   </div> 
-</html>
+For more information on AWS Lambda, see [What is AWS Lambda?](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html).
 
 ### Step 1 - Design a REST API
 
@@ -17,7 +10,7 @@ Follow the instructions in this tutorial to design and publish an AWS Lambda API
    
     Example: `https://localhost:9443/publisher`
 
-    Use your username and password to sign in.
+    Enter username and password to sign in.
 
 2. Click **CREATE API** and then click **Design a New REST API**.
 
