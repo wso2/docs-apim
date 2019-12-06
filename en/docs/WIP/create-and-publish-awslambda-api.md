@@ -72,8 +72,8 @@ Now, you have created a new REST API successfully.
    </div> 
 </html>
 
-1. Goto **Resources**.
-2. Configure resources.
+1. In left menu bar click **Resources** to navigate to Resources page.
+2. Follow steps below to configure resources.
 
     By default, the API will have five resources with `/*` as the URL pattern.
 
@@ -101,13 +101,13 @@ Now, you have created a new REST API successfully.
 
     [![Set Timeout]({{base_path}}/assets/img/Learn/Tutorials/resource-set-amazon-resource-timeout.png)]({{base_path}}/assets/img/Learn/Tutorials/resource-set-amazon-resource-timeout.png)
 
-5. Click **Save**.
+5. Click **SAVE**.
 
     [![Save resources]({{base_path}}/assets/img/Learn/Tutorials/resource-save.png)]({{base_path}}/assets/img/Learn/Tutorials/resource-save.png)
 
 ### Step 4 - Publish the AWS Lambda API
 
-1. Click **LIFECYCLE** to navigate to the API lifecycle.
+1. In left menu bar click **Lifecycle** to navigate to the API lifecycle.
 2. Click **PUBLISH** to publish the API to the API Developer Portal.
 
 [![Publish test API]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)
