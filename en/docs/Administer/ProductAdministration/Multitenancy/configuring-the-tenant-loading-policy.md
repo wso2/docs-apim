@@ -17,19 +17,12 @@ First, read the following descriptions to understand how Lazy loading and Eager 
 Now, see the instructions given below to configure the required tenant loading policy for your system.
 
 -   [Configuring Lazy Loading](#configuring-lazy-loading)
-    -   [Enabling lazy loading of artifacts (web applications and axis2 services)](#enabling-lazy-loading-of-artifacts-web-applications-and-axis2-services)
     -   [Configuring the tenant unloading time (for Lazy Loading)](#configuring-the-tenant-unloading-time-for-lazy-loading)
 -   [Configuring Eager Loading](#configuring-eager-loading)
 
 ### Configuring Lazy Loading
 
 As explained above, Lazy Loading (for tenants) is enabled as the loading policy in WSO2 products, by default. 
-
-#### Enabling lazy loading of artifacts (web applications and axis2 services)
-
-If you have lazy loading enabled, and if you have web applications and axis2 services deployed as artifacts in your tenants, you need to separately enable lazy loading for artifacts. This will ensure that these artifacts are first loaded in ghost form. The actual artifacts are deployed only when the artifact is requested.
-
-(#configuring-the-tenant-unloading-time-for-lazy-loading) ), it will be unloaded from memory.
 
 #### Configuring the tenant unloading time (for Lazy Loading)
 
