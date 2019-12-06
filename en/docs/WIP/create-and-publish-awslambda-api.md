@@ -86,6 +86,6 @@ Now, you have created a new REST API successfully.
 1. In the left menu bar click **Lifecycle** to navigate to the API lifecycle.
 2. Click **PUBLISH** to publish the API to the API Developer Portal.
 
-[![Publish test API]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)
+    [![Publish test API]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)
 
 You have successfully published the AWS Lambda API.
