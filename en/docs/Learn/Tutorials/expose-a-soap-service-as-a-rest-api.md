@@ -41,11 +41,32 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 4.  The created API appears in the publisher as follows.
     ![](../../assets/img/Learn/created-soap-api.jpg)
+
+5.  API definiton of the Created schema has been displayed at **API Definiton** tab.
+     [![](../../assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)](../../assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
-            <p>
+    <p>Check the following definition is added under the POST method in API Definition.If not click **Edit** and add it.</p>
+           
+        consumes: 
+            - "text/xml"
+        parameters: 
+            - 
+            in: "body"
+            name: "SOAP Request"
+            description: "SOAP request."
+            required: true
+            schema: 
+            type: "string"
+            - 
+            in: "header"
+            name: "SOAPAction"
+            description: "SOAPAction header for soap 1.1"
+            required: false
+            type: "string"
+    <p>
             If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
-    [OAuthscopes](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/)
+    [OAuthscopes](../../../../Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/)
             </p>
         </div></html>   
 
@@ -90,18 +111,15 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
       <td>SOAP Request</td>
        <td>
        <pre>
-         &lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:quer="http://ws.cdyne.com/PhoneVerify/query"&gt;
-            &lt;soapenv:Header/&gt;
-            &lt;soapenv:Body"&gt;
-                &lt;quer:CheckPhoneNumber&gt;
-                  <!--Optional:-->
-                  &lt;quer:PhoneNumber&gt;18006785432
-                   &lt;/quer:PhoneNumber&gt;
-                  <!--Optional:-->
-                   &lt;quer:LicenseKey>0&lt;/quer:LicenseKey&gt;
-                &lt;/quer:CheckPhoneNumber&gt;
-            &lt;/soapenv:Body&gt;
-          &lt;/soapenv:Envelope&gt;
+         <?xml version="1.0" encoding="utf-8"?>
+                &lt;soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"&gt;
+                &lt;soap:Body&gt;
+                    &lt;CheckPhoneNumber xmlns="http://ws.cdyne.com/PhoneVerify/query"&gt;
+                    &lt;PhoneNumber&gt;18006785432&lt;/PhoneNumber&gt;
+                    &lt;LicenseKey&gt;18006785432&lt;/LicenseKey&gt;
+                    &lt;/CheckPhoneNumber&gt;
+                &lt;/soap:Body&gt;
+            &lt;/soap:Envelope&gt;
       </pre>
       </td>
       </tr>
@@ -123,7 +141,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     <html><div class="admonition note">
      <p class="admonition-title">Note</p>
      <p>You can also invoke this API using a third-party tool such as SOAP UI. For more information on how to invoke an API using a SOAP client, 
-     see [Invoke an API using a SOAP Client](_Invoke_an_API_using_a_SOAP_Client_) .</p>
+     see [Invoke an API using a SOAP Client](../../../../Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client/) .</p>
      </div>
      </html>
 
