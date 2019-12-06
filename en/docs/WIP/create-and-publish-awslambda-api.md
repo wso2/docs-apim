@@ -4,17 +4,14 @@ For more information on AWS Lambda, see [What is AWS Lambda?](https://docs.aws.a
 
 ### Step 1 - Design a REST API
 
-1. Sign in to the API Publisher Portal.
-   
-    `https://<hostname>:9443/publisher` 
-   
-    Example: `https://localhost:9443/publisher`
-
-    Enter username and password to sign in.
+1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher` and login with username and password.
 
 2. Click **CREATE API** and then click **Design a New REST API**.
 
     [![Create a new REST API]({{base_path}}/assets/img/Learn/create-api-design-rest-api-link.png)]({{base_path}}/assets/img/Learn/create-a-rest-api.jpg)
+
+    !!!note
+         For more information on API details to add, please refer [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api)
 
 3. Enter API details and click **CREATE**.  
 
