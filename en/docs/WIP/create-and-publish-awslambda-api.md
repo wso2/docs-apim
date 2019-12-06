@@ -20,18 +20,14 @@ For more information on AWS Lambda, see [What is AWS Lambda?](https://docs.aws.a
 
     [![Create a test API]({{base_path}}/assets/img/Learn/create-test-api.png)]({{base_path}}/assets/img/Learn/create-test-api.png)
 
-    <html>
-      <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p>You don't need to enter the Endpoint at this moment.</p>
-      </div> 
-    </html>
+    !!!note
+         You don't need to enter the Endpoint at this moment.
 
 Now, you have created a new REST API successfully. 
 
 ### Step 2 - Add AWS Lambda endpoint
 
-1. Goto **Endpoints**
+1. In the left menu bar click **Endpoints** to navigate to Endpoints page.
 2. Add **AWS Lambda** endpoint type
 
     [![Select AWS Lambda endpoint]({{base_path}}/assets/img/Learn/Tutorials/endpoint-select-awslambda-endpoint.png)]({{base_path}}/assets/img/Learn/Tutorials/endpoint-select-awslambda-endpoint.png)
@@ -40,39 +36,23 @@ Now, you have created a new REST API successfully.
 
     AWS SDK needs AWS credentials to invoke AWS Lambda functions. Access Method defines how you provide those AWS credentials. You can provide AWS credentials manually by selecting **Using stored AWS credentials** method. But if WSO2 API Manager is running on an Amazon EC2 instance, you can select **Using IAM role-supplied temporary AWS credentials** method.
 
-    <html>
-      <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p>To use IAM role-supplied temporary AWS credentials method, you should attach an IAM role to grant permissions to applications running on Amazon EC2 instance.</p>
-         <p>For more information on attaching IAM role to EC2, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html">Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances</a>.</p>
-      </div> 
-    </html>
+    !!!note
+         To use IAM role-supplied temporary AWS credentials method, you should attach an IAM role to grant permissions to applications running on Amazon EC2 instance.
+         For more information on attaching IAM role to EC2, see [Using an IAM Role to Grant Permissions to Applications Running on Amazon EC2 Instances](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2.html)
 
 4. Click **Save**
 
     [![Save AWS Lambda endpoint]({{base_path}}/assets/img/Learn/Tutorials/endpoint-awslambda-save.png)]({{base_path}}/assets/img/Learn/Tutorials/endpoint-awslambda-save.png)
 
-    <html>
-      <div class="admonition note">
-         <p class="admonition-title">Note</p>
-         <p>You'll get an error message if you have not set the Access Method properly.</p>
-      </div> 
-    </html>
+    !!!note
+         You'll get an error message if you have not set the Access Method properly.
 
 ### Step 3 - Map Function-ARNs to Resources
 
-<html>
-   <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>
-         For more information on ARNs, see 
-         <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>
-         .
-      </p>
-   </div> 
-</html>
+    !!!note
+         For more information on ARNs, see [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 
-1. In left menu bar click **Resources** to navigate to Resources page.
+1. In the left menu bar click **Resources** to navigate to Resources page.
 2. Follow steps below to configure resources.
 
     By default, the API will have five resources with `/*` as the URL pattern.
@@ -107,7 +87,7 @@ Now, you have created a new REST API successfully.
 
 ### Step 4 - Publish the AWS Lambda API
 
-1. In left menu bar click **Lifecycle** to navigate to the API lifecycle.
+1. In the left menu bar click **Lifecycle** to navigate to the API lifecycle.
 2. Click **PUBLISH** to publish the API to the API Developer Portal.
 
 [![Publish test API]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)]({{base_path}}/assets/img/Learn/Tutorials/lifecycle-publish-test-api.png)
