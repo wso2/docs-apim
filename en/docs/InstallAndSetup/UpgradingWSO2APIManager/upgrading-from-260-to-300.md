@@ -404,9 +404,9 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.0.0 version.
 
-        -   _RevokeAPI_.xml
-        -   _cors_request_handler_.xml
-        -   main.xml
+        -   /api/_RevokeAPI_.xml
+        -   /sequences/_cors_request_handler_.xml
+        -   /sequences/main.xml
 
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
