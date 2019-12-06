@@ -7,7 +7,7 @@ The documentation types supported in the API Publisher are as follows:
 -   **In-line**: Hosts documentation (How-tos, Samples, SDK, forums etc.) in WSO2 API Publisher itself and allows it to be edited directly from the UI.
 -   **URL**: Links of public or support forums or file references (URLs) of an external configuration management system.
 -   **File**: Allows to upload the documentation directly to the server.
--   **Markdown**: Allows to add markdown (md) docs via a a Markdown editor.
+-   **Markdown**: Allows to add markdown (md) docs via a Markdown editor.
 
 Follow the steps below to learn how to add a documentation to an API.
 
