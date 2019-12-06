@@ -77,7 +77,7 @@ This section explains how to attach a custom workflow to the user signup operati
         <wsa:Address>http://localhost:9765/services/UserApprovalService</wsa:Address>
         ```
 
-5.  [Start the EI server](https://docs.wso2.com/display/EI650/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
+5.  [Start the EI server](https://docs.wso2.com/display/EI650/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server-Host>:9443+<port-offset>/carbon` ).
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
@@ -150,7 +150,7 @@ This section explains how to attach a custom workflow to the user signup operati
         <wsa:Address>http://localhost:9765/services/UserApprovalService</wsa:Address>
         ```
 
-5.  [Start the BPS server](https://docs.wso2.com/display/AM260/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
+5.  [Start the BPS server](https://docs.wso2.com/display/AM260/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server-Host>:9443+<port-offset>/carbon` ).
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
@@ -176,13 +176,13 @@ This section explains how to attach a custom workflow to the user signup operati
 
     Paths to the directory containing the client-truststore of each product are :
 
-        1. API-M - <API-M_HOME>/repository/resources/security
-        2. EI - <EI_HOME>/wso2/business-process/repository/resources/security
-        3. BPS - <BPS_HOME>/repository/resources/security
+        1. API-M - '<API-M_HOME>/repository/resources/security'
+        2. EI - '<EI_HOME>/wso2/business-process/repository/resources/security'
+        3. BPS - '<BPS_HOME>/repository/resources/security'
 
 #### Engaging the WS Workflow Executor in the API Manager
 
-1.  Log in to APIM management console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources**.
+1.  Log in to APIM management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
 
     ![Browse resources](../../../assets/img/Learn/browse-resources.png)
 
@@ -204,11 +204,18 @@ This section explains how to attach a custom workflow to the user signup operati
         All workflow process services of the EI/BPS run on port 9765 because you changed its default port (9763) with an offset of 2.
 
 3.  Go to the Developer Portal Web interface of API Manager and sign up / register as a new user.
+<html>
+    <body>
+        <div>
+            <img src="../../../../assets/img/Learn/register-now.png" alt="Register now option" width="600"/>
+        </div>
+    </body>
+</html>
     It invokes the signup process and creates a Human Task instance that holds the execution of the BPEL until some action is performed on it.
 
 4.  Note the message that appears if the BPEL is invoked correctly, saying that the request is successfully submitted.
 
-5.  Log in to the Admin Portal ( `https://:9443/admin` ) of API Manager and approve the user signup task. It resumes the BPEL process and completes the signup process.
+5.  Log in to the Admin Portal ( `https://<Server-Host>:9443/admin` ) of API Manager and approve the user signup task listed under **Tasks** > **User Creation**. It resumes the BPEL process and completes the signup process.
 
 6.  Go back to the Developer Portal and see that the user is now registered.
 
