@@ -27,10 +27,10 @@ You can add a new tenant in the management console and then view it by following
 
 When you create multiple tenants in an API Manager deployment, the API Developer Portals of each tenant are displayed in a muti-tenanted view for all users to browse and permitted users to subscribe to as shown below:
 
-1.  Access the API Store URL (by default, `https://localhost:9443/devportal` ) using a Web browser. You see the storefronts of all the registered tenant domains listed there. For example,
+1.  Access the API Developer Portal URL (by default, `https://localhost:9443/devportal` ) using a Web browser. You see the storefronts of all the registered tenant domains listed there. For example,
     [![](../../../../assets/img/Administer/tenant-developer-portals.png)](../../../../assets/img/Administer/tenant-developer-portals.png)
     
-     This is called the public store. Each icon here is linked to the API Store of a registered tenant, including the super tenant, which is `carbon.super` . That is, the super tenant is also considered a tenant.
+     This is called the public Developer Portal. Each icon here is linked to the API Developer Portal of a registered tenant, including the super tenant, which is `carbon.super` . That is, the super tenant is also considered a tenant.
 
 2.  Click the domain associated with a given Developer Portal to open it.
 
@@ -40,7 +40,7 @@ When you create multiple tenants in an API Manager deployment, the API Developer
 
     -   Click the **Go To Public Dev Portal** option available in the Navigation bar, go to the `domain1.com` Developer Portal, log in to it and subscribe to its APIs.
     [![](../../../../assets/img/Administer/tenant-naviagtion-bar.png)](../../../../assets/img/Administer/tenant-naviagtion-bar.png)
-    -   You can also browse the other tenant stores listed in the public store. But, within other tenant stores, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions](../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md) .
+    -   You can also browse the other tenant Developer Portals listed in the public Developer Portal. But, within other tenant Developer Portals, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions](../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md) .
 
     !!! info
         Deleting tenant which is not available in the Management Console UI, can be done through the `RemoteTenantManager` Admin Service. You can invoke these operations using a SOAP client like SOAP UI. Follow the steps below to do the onfigurations using SOAP UI.
