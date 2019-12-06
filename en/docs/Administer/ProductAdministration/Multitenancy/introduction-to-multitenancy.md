@@ -1,26 +1,25 @@
-# admin\_Introduction to Multitenancy
+# Introduction to Multitenancy
 
 The goal of multitenancy is to maximize resource sharing by allowing multiple users (tenants) to log in and use a single server/cluster at the same time, in a tenant-isolated manner. That is, each user is given the experience of using his/her own server, rather than a shared environment. Multitenancy ensures optimal performance of the system's resources such as memory and hardware and also secures each tenant's personal data.
 
 You can register tenant domains using the Management Console of WSO2 products.
 
 !!! info
-When multitenancy is enabled and a tenant becomes inactive for a long period of time, the tenant is unloaded from the server's memory. By default, the time period is 30 minutes. After that, the tenant has to log in again before sending requests to the server.
+    When multitenancy is enabled and a tenant becomes inactive for a long period of time, the tenant is unloaded from the server's memory. By default, the time period is 30 minutes. After that, the tenant has to log in again before sending requests to the server.
 
-You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./wso2server.sh` file for Linux and `wso2server.bat` for Windows) as shown below:
+    You change the default time period allowed for tenant inactiveness by adding `-Dtenant.idle.time=<time_in_minutes>` java property to the product's startup script ( `./wso2server.sh` file for Linux and `wso2server.bat` for Windows) as shown below:
 
-``` java
-    JAVA_OPTS \
+    ``` java
+        JAVA_OPTS \
         -Dtenant.idle.time=30 \
-```
+    ```
 
-
--   [Architecture](#admin_IntroductiontoMultitenancy-Architecture)
--   [Resource sharing](#admin_IntroductiontoMultitenancy-Resourcesharing)
--   [Tenant loading policy](#admin_IntroductiontoMultitenancy-Tenantloadingpolicy)
--   [Restrictions](#admin_IntroductiontoMultitenancy-Restrictions)
--   [Request dispatching](#admin_IntroductiontoMultitenancy-Requestdispatching)
--   [Scaling](#admin_IntroductiontoMultitenancy-Scaling)
+-   [Architecture](#architecture)
+-   [Resource sharing](#resource-sharing)
+-   [Tenant loading policy](#tenant-loading-policy)
+-   [Restrictions](#restrictions)
+-   [Request dispatching](#request-dispatching)
+-   [Scaling](#scaling)
 
 ### Architecture
 
@@ -33,13 +32,13 @@ The multi-tenant architecture of WSO2 products allows you to deploy Web applica
 
 A tenant is an isolated domain. The users within this domain can manage their own data and perform their own transactions without being affected by actions carried out in other domains.
 
-These domains are allocated server space from the complete server space of a WSO2 product instance which is referred to as the *super tenant* ..
+These domains are allocated server space from the complete server space of a WSO2 product instance which is referred to as the *super tenant*.
 
 The super tenant as well as each individual tenant has its own configuration and context module.
 
 Each tenant has its own security domain. A domain has a set of users, and permissions for those users to access resources. Thus, a tenant is restricted by the users and permissions of the domain assigned to it. The artifact repositories of the tenants are separated from each other.
 
-![]({{base_path}}/assets/attachments/45960071/46211144.png)
+ [![](../../../../assets/img/Administer/multitenant-architecture.png)](../../../../assets/img/Administer/multitenant-architecture.png)
 
 An individual tenant can carry out the following activities within the boundaries of its own configuration and context module:
 
