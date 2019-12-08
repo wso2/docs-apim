@@ -1,57 +1,61 @@
 # Adding an API State Change Workflow
 
-This section explains how to add a custom workflow to control the API state changes in the API Manager. First see [Workflow Extensions](https://docs.wso2.com/display/AM220/Managing+Workflow+Extensions) for more information on different types of workflow executors. For more details on API states see [API Lifecycle](https://docs.wso2.com/display/AM220/Key+Concepts#KeyConcepts-APIlifecycle) .
+This section explains how to add a custom workflow to control the API state changes in the API Manager. First see [Workflow Extensions](../../../../Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine) for more information on different types of workflow executors. For more details on API states see [API Lifecycle](../../../../GettingStarted/key-concepts#api-lifecycle) .
 
--   [**Using WSO2 EI**](#UsingEI)
--   [**Using WSO2 BPS**](#UsingBPS)
+!!! Note
 
-#### Configuring the Business Process Server
+    You will only need to configure either  **WSO2 EI** or **WSO2 BPS**. The WSO2 API Manager configuration will be common for both.
+
+##Configuring WSO2 EI
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration) .
-2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM220/Changing+the+Default+Ports+with+Offset) .
+2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../Reference/Guides/changing-the-default-ports-with-offset) .
+2.  Set an offset of 2 to the default BPS port in `<EI_HOME>/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../GettingStarted/key-concepts/).
 
     ``` xml
         <Offset>2</Offset>
     ```
 
-        !!! tip
-    **Tip** : If you change the EI port **offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
+    !!! tip
+        **Tip** : If you change the EI port **offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the new port (9763 + port offset).
+        -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the new port (9763 + port offset).
 
 
 3.  Start the EI server and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
 
-        !!! warning
-    If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+    !!! warning
+        If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
 
-    ``` java
-        WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
-    ```
+        ``` java
+            WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
+        ```
 
-    To avoid this issue open `<EI_HOME>/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
+        To avoid this issue open `<EI_HOME>/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the EI.
 
 
-4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to EI. ![]({{base_path}}/assets/attachments/103334737/103334744.png)
-#### Configuring the Business Process Server
+4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to EI. 
+![](../../../assets/img/Learn/learn-state-change-workflow-add-bpmn.png)
+
+##Configuring WSO2 BPS
 
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/) .
-2.  Set an offset of 2 to the default BPS port in `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](https://docs.wso2.com/display/AM220/Changing+the+Default+Ports+with+Offset) .
+2.  Set an offset of 2 to the default BPS port in `<BPS_HOME>/repository/conf/carbon.xml` file. This prevents port conflicts that occur when you start more than one WSO2 product on the same server. Also see [Changing the Default Ports with Offset](../../../../Reference/Guides/changing-the-default-ports-with-offset) .
 
     ``` xml
         <Offset>2</Offset>
     ```
 
-        !!! tip
-    **Tip** : If you change the BPS port **offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
+    !!! tip
+        **Tip** : If you change the BPS port **offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the new port (9763 + port offset).
+        -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the new port (9763 + port offset).
 
 
 3.  Start the BPS server and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
 
-        !!! warning
-    If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+    !!! warning
+        If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
 
     ``` java
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
@@ -60,21 +64,37 @@ This section explains how to add a custom workflow to control the API state chan
     To avoid this issue open `<BPS_HOME>/repository/conf/tomcat/catalina-server.xml` and change the compression="on" to compression="off" in Connector configuration and restart the BPS.
 
 
-4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to BPS. ![]({{base_path}}/assets/attachments/103334737/103334744.png)
-#### Configuring the API Manager
+4.  Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to BPS. 
+![](../../../assets/img/Learn/learn-state-change-workflow-add-bpmn.png)
 
-1.  Open `<APIM_HOME>/repository/conf/api-manager.xm` l and set in `<Enabled>` to `true` in the `<WorkflowConfigurations>` section.
-2.  Change the `<ServerUrl>` if you have configured the BPS/EI to run on a different port offset.
+## Configuring the API Manager
 
-#### Engaging the WS Workflow Executor in the API Manager
+1.  Open `<APIM_HOME>/repository/conf/deployment.toml`  and uncomment all the configuration found in set in `[apim.workflow]` section and set `enable` to `true`.
+```
+[apim.workflow]
+enable = true
+service_url = "https://localhost:9445/bpmn"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+callback_endpoint = "https://localhost:${mgt.transport.https.port}/api/am/admin/v0.15/workflows/update-workflow-status"
+oken_endpoint = "https://localhost:${https.nio.port}/token"
+client_registration_endpoint = "https://localhost:${mgt.transport.https.port}/client-registration/v0.15/register"
+client_registration_username = "$ref{super_admin.username}"
+client_registration_password = "$ref{super_admin.password}"
+```
+2.  Change the `service_url` if you have configured the BPS/EI to run on a different port offset.
+
+### Engaging the WS Workflow Executor in the API Manager
 
 First, enable the API state change workflow.
 
 1.  Log in to the APIM management console ( `https://<Server Host>:9443/carbon` ) and select Browse under Resources.
-    ![]({{base_path}}/assets/attachments/103334737/103334743.png)
+
+    ![](../../../assets/img/Learn/learn-state-change-workflow-browse.png)
+
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor.
 
-    ``` html/xml
+    ```
         <WorkFlowExtensions>
             ....
             <!-- Publisher related workflows -->
@@ -87,48 +107,54 @@ First, enable the API state change workflow.
         </WorkFlowExtensions>
     ```
 
-    You have now engaged the API WS Workflow. The default configuration is set for **Created to Publish** and **Published to Block** state changes. See [Advanced Configurations](#AddinganAPIStateChangeWorkflow-AdvancedConfigurations) for information on configuring more state changes.
+    You have now engaged the API WS Workflow. The default configuration is set for **Created to Publish** and **Published to Block** state changes. See **Advanced Configurations** for information on configuring more state changes.
 
+3.  Log in to the API Publisher ( `https://<Server Host>:9443/publisher` ) and publish an API. See [Create and Publish an API](../../../Tutorials/create-and-publish-an-api) . A message related to the publish workflow will be displayed because the workflow is enabled for **Created to Publish** state change. ![]({    ![](../../../assets/img/Learn/learn-state-change-workflow-pending.png)
 
-3.  Log in to the API Publisher ( `https://<Server Host>:9443/publisher` ) and publish an API. See [Create and Publish an API](https://docs.wso2.com/display/AM220/Create+and+Publish+an+API) . A message related to the publish workflow will be displayed because the workflow is enabled for **Created to Publish** state change. ![]({{base_path}}/assets/attachments/103334737/103334742.png)
-        !!! info
-    Note that the **Save & Publish** button will be disabled until the workflow task is completed or deleted. ![]({{base_path}}/assets/attachments/103334737/103334741.png)
+    !!! info
+        Note that the **publish** button will be disabled in the overview page until the workflow task is completed or deleted. 
+        ![](../../../assets/img/Learn/learn-state-change-workflow-publish-pending.png)
 
 4.  You can revoke the state change by clicking **Delete Task** in the **Lifecycle** tab.
-    ![]({{base_path}}/assets/attachments/103334737/103334740.png)
-5.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) and click API State Change to see the list of tasks awaiting approval. ![]({{base_path}}/assets/attachments/103334737/103334739.png)    Click **Assign to Me** to approve the task **.** Select Approve and click **Complete** to resume and complete the API state change. **![]({{base_path}}/assets/attachments/103334737/103334738.png)
--   [**Using WSO2 EI**](#f966f632f4284a7aa63bcef263c516f3)
--   [**Using WSO2 BPS**](#3c84109f04d94b2eaa9c687036e56d28)
+    ![](../../../assets/img/Learn/learn-state-change-workflow-delete-task.png)
 
-#### Configuring the BPS for tenants
+5.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) and click API State Change to see the list of tasks awaiting approval. 
+    ![](../../../assets/img/Learn/learn-state-change-workflow-admin-assign.png)
+    Click **Assign to Me** to approve the task **.** Select Approve and click **Complete** to resume and complete the API state change. 
+    ![](../../../assets/img/Learn/learn-state-change-workflow-admin-approve.png)
+
+
+## Configuring the BPS for tenants
+
+### Using the EI
 
 1.  Log in to the EI with the credentials of the tenant. Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to EI.
 2.  Copy the `<EI_HOME>/wso2/business-process/repository/deployment/server/webapps/bpmn.war` web app to `<EI_HOME>/wso2/business-process/repository/tenants/<tenant_id>/webapps` .
-3.  To engage the WS Workflow Executor, log in to the admin console using the credentials of the tenant and repeat step 2 from [Engaging the WS Workflow Executor in the API Manager](#AddinganAPIStateChangeWorkflow-EngagingtheWSWorkflowExecutorintheAPIManager) .
+3.  To engage the WS Workflow Executor, log in to the admin console using the credentials of the tenant and repeat step 2 from **Engaging the WS Workflow Executor in the API Manager** .
 
-#### Configuring the BPS for tenants
+### Using the BPS
 
 1.  Log in to the BPS with the credentials of the tenant. Select **Processes &gt; Add &gt; BPMN** and upload the `<APIM_HOME>/business-processes/api-state-change/APIStateChangeApprovalProcess.bar` file to BPS.
 2.  Copy the `<BPS_HOME>/repository/deployment/server/webapps/bpmn.war` web app to `<BPS_HOME>/repository/tenants/<tenant_id>/webapps` .
-3.  To engage the WS Workflow Executor, log in to the admin console using the credentials of the tenant and repeat step 2 from [Engaging the WS Workflow Executor in the API Manager](#AddinganAPIStateChangeWorkflow-EngagingtheWSWorkflowExecutorintheAPIManager) .
+3.  To engage the WS Workflow Executor, log in to the admin console using the credentials of the tenant and repeat step 2 from **Engaging the WS Workflow Executor in the API Manager**
 
 ### Advanced Configurations
 
-Given below are the configurations that can be changed by editing `<APIM_HOME>/repository/conf/api-manager.xml        `
+Given below are the configurations that can be changed by editing `<APIM_HOME>/repository/conf/deployment.toml`
 
-``` html/xml
-    <WorkflowConfigurations>
-        <Enabled>true</Enabled>
-         <ServerUrl>https://localhost:9445/bpmn</ServerUrl>         
-         <ServerUser>${admin.username}</ServerUser>
-         <ServerPassword>${admin.password}</ServerPassword>   
-    <WorkflowCallbackAPI>https://localhost:${mgt.transport.https.port}/api/am/publisher/v0.10/workflows/update-workflow-status</WorkflowCallbackAPI>
-        <TokenEndPoint>https://localhost:${https.nio.port}/token</TokenEndPoint>    
-    <DCREndPoint>https://localhost:${mgt.transport.https.port}/client-registration/v0.10/register</DCREndPoint>
-        <DCREndPointUser>${admin.username}</DCREndPointUser>
-        <DCREndPointPassword>${admin.password}</DCREndPointPassword>
-    </WorkflowConfigurations>
 ```
+[apim.workflow]
+enable = true
+service_url = "https://localhost:9445/bpmn"
+username = "$ref{super_admin.username}"
+password = "$ref{super_admin.password}"
+callback_endpoint = "https://localhost:${mgt.transport.https.port}/api/am/admin/v0.15/workflows/update-workflow-status"
+oken_endpoint = "https://localhost:${https.nio.port}/token"
+client_registration_endpoint = "https://localhost:${mgt.transport.https.port}/client-registration/v0.15/register"
+client_registration_username = "$ref{super_admin.username}"
+client_registration_password = "$ref{super_admin.password}"
+```
+
 
 The elements of the above configuration are explained below.
 
@@ -145,25 +171,25 @@ The elements of the above configuration are explained below.
 | `DCREndPointPassword` | Endpoint password.                                                                                                                                        |
 
 !!! note
-Setting a DCREndPointUser
-Create a user with exclusive **apim:apiworkflow** scope permissions when setting a `DCREndPointUser.` Please avoid using super admin credentials. If super admin credentioals are used, the created OAuth application will have all the permissions related to scopes in the other REST APIs. Follow the steps below to create a user with **apim:apiworkflow** scope permissions:
+    Setting a DCREndPointUser
+    Create a user with exclusive **apim:apiworkflow** scope permissions when setting a `DCREndPointUser.` Please avoid using super admin credentials. If super admin credentioals are used, the created OAuth application will have all the permissions related to scopes in the other REST APIs. Follow the steps below to create a user with **apim:apiworkflow** scope permissions:
 
-1.  Log in to  APIM management console ( `https://<Server Host>:9443/carbon` ) and create a role named `workflowCallbackRole` . Set create and publisher or subscriber permissions to this role.
-2.  Go to **Resources** and click **Browse** . Go to `/_system/config/apimgt/applicationdata/tenant-conf.json` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
+    1.  Log in to  APIM management console ( `https://<Server Host>:9443/carbon` ) and create a role named `workflowCallbackRole` . Set create and publisher or subscriber permissions to this role.
+    2.  Go to **Resources** and click **Browse** . Go to `/_system/config/apimgt/applicationdata/tenant-conf.json` and update the role related to ‘apim:api\_workflow’ scope with the newly created role.
 
-    ``` java
-        ...
-              {
-                "Name": "apim:api_workflow",
-                "Roles": "workflowCallbackRole"
-              }
-        ...
-    ```
+        ``` java
+            ...
+                {
+                    "Name": "apim:api_workflow",
+                    "Roles": "workflowCallbackRole"
+                }
+            ...
+        ```
 
-3.  Assign this role to a user.
-4.  Update &lt;DCREndPointUser&gt; and &lt;DCREndPointPassword&gt; with this user's credentials.
+    3.  Assign this role to a user.
+    4.  Update &lt;DCREndPointUser&gt; and &lt;DCREndPointPassword&gt; with this user's credentials.
 
-For more details on how to create users and roles see [managing users and roles](https://docs.wso2.com/display/AM220/Managing+Users+and+Roles) .
+    For more details on how to create users and roles see [managing users and roles](./../../../../Administer/ProductAdministration/ManagingUsersAndRoles/admin-managing-users-roles-and-permissions) .
 
 
 The configurations that can be changed by editing the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` are given below.

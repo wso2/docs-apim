@@ -1,14 +1,14 @@
 # Adding Mediation Extensions
 
 !!! note
-This tutorial uses the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In) .
+This tutorial uses the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In).
 
 
-The API Gateway has a default mediation flow, which you can extend by adding custom mediation sequences. In API Manager t here are 3 [default sequences](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Sequences) engaged as `in` , `out` and `fault` . You create a custom mediation sequence either manually or using a tool such as the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In) , and then engage it per API or globally to all APIs of a specific tenant. With custom mediation sequences you can modify the default mediation flow for different usabilities according to your requirement. Log the mediation flow, execute operations on Message context properties, to customize, format the requests and responses are some of them.
+The API Gateway has a default mediation flow, which you can extend by adding custom mediation sequences. In API Manager there are 3 [default sequences](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Sequences) engaged as `in` , `out` and `fault` . You create a custom mediation sequence either manually or using a tool such as the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In), and then engage it per API or globally to all APIs of a specific tenant. With custom mediation sequences you can modify the default mediation flow for different usabilities according to your requirement. Log the mediation flow, execute operations on Message context properties, customize, format the requests and responses are some of them.
 
--   [Default mediation flow](#AddingMediationExtensions-Defaultmediationflow)
--   [Creating per-API extensions](#AddingMediationExtensions-Creatingper-APIextensions)
--   [Creating global extensions](#AddingMediationExtensions-Creatingglobalextensions)
+-   [Default mediation flow][]
+-   [Creating per-API extensions][]
+-   [Creating global extensions][]
 
 !!! note
 -   The following **mediators are not usable within custom sequences** because they are not supported by the API Gateway.
@@ -32,12 +32,12 @@ You cannot dynamically construct the back-end endpoint of an API using the addre
     </sequence>
 ```
 
-In this example, you have constructed the `service_ep` property dynamically and assigned the value of this property to the **To** header. The default endpoint sends the message to the address specified in the **To** header, in this case, `http://jsonplaceholder.typicode.com/posts/` . For more details about working with dynamc endpoints, see [Dynamic Endpoints](https://docs.wso2.com/display/AM260/Working+with+Endpoints#WorkingwithEndpoints-dynamicendpoints) .
+In this example, you have constructed the `service_ep` property dynamically and assigned the value of this property to the **To** header. The default endpoint sends the message to the address specified in the **To** header, in this case, `http://jsonplaceholder.typicode.com/posts/`. For more details about working with dynamic endpoints, see [Dynamic Endpoints](https://docs.wso2.com/display/AM260/Working+with+Endpoints#WorkingwithEndpoints-dynamicendpoints).
 
 !!! note
 Adding a non-blocking send operation
 
-In this example, the Send mediator in a proxy service using the [VFS transport](https://docs.wso2.com/display/ESB500/VFS+Transport) is transferring a file to a VFS endpoint. VFS is a non-blocking transport by default, which means a new thread is spawned for each outgoing message. The [Property mediator](https://docs.wso2.com/display/ESB500/Property+Mediator) added before the Send mediator removes the [ClientAPINonBlocking](https://docs.wso2.com/display/ESB500/Generic+Properties#GenericProperties-Blocking) property from the message to perform the mediation in a single thread. This is required when the file being transferred is large and you want to avoid out-of-memory failures.
+In this example, the Send mediator in a proxy service using the [VFS transport](https://docs.wso2.com/display/EI650/VFS+Transport) is transferring a file to a VFS endpoint. VFS is a non-blocking transport by default, which means a new thread is spawned for each outgoing message. The [Property mediator](https://docs.wso2.com/display/EI650/Property+Mediator) added before the Send mediator removes the [ClientAPINonBlocking](https://docs.wso2.com/display/EI650/Generic+Properties#GenericProperties-Blocking) property from the message to perform the mediation in a single thread. This is required when the file being transferred is large and you want to avoid out-of-memory failures.
 
 ``` xml
     <inSequence>
@@ -63,20 +63,33 @@ In this example, the Send mediator in a proxy service using the [VFS transport](
 
 #### Create and upload using the WSO2 API Manager Tooling Plug-in
 
-**The recommended way** to engage a mediation extension sequence per API is to create a custom sequence using the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In) , upload it via its APIM Perspective and then engage it using the API Publisher. The following tutorial demonstrates how to do this: [Change the Default Mediation Flow of API Requests](https://docs.wso2.com/display/AM260/Change+the+Default+Mediation+Flow+of+API+Requests) .
+**The recommended way** to engage a mediation extension sequence per API is to create a custom sequence using the [WSO2 API Manager Tooling Plug-in](https://docs.wso2.com/display/AM260/Installing+the+API+Manager+Tooling+Plug-In), upload it via its APIM Perspective and then engage it using the API Publisher. The following tutorial demonstrates how to do this: [Change the Default Mediation Flow of API Requests](../../../Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests/).
 
 #### Create and upload manually in the API Publisher
 
-You can also create a mediation sequence manually and upload it from the API Publisher itself. For instance, you can copy the above default mediation flow content into an XML file. In the **Implement** tab of the API, select the **Enable Message Mediation** check box and click the **Upload In Flow** or **UploadOut Flow** field (for the example above, it needs to be uploaded to the `In` flow). Once the file is uploaded, save and publish the API. When you invoke the API, the request is sent to the endpoint referred to in the **To** header.
+You can also create a mediation sequence manually and upload it from the API Publisher itself. For instance, you can copy the above default mediation flow content into an XML file. 
+From the **Left Menu** Goto **Runtime Configurations** and select **Edit** option in the **Message Mediation** section. You can do this for Request, Response and/or Fault message flows.
 
-![]({{base_path}}/assets/attachments/103334749/103334751.png)
+![](../../assets/imgLearn/edit-mediation.png)
+
+In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation XML file.
+Once the file is uploaded, save the API. When you invoke the API, the request is sent to the endpoint referred to in the **To** header.
+
+![](../../assets/imgLearn/upload-mediation.png)
 #### **Editing a mediation policy**
 
 If you want to edit an already uploaded mediation policy,
 
-1.  Select the mediation policy from the drop down list.
-2.  Click the download icon next to it, as shown below:
-    ![]({{base_path}}/assets/attachments/103334749/103334750.png)3.  Edit the downloaded mediation XML file and re-upload it.
+1.  Click the download icon next to it, as shown below:
+    ![](../../assets/img/Learn/download-and-edit-mediation.png)
+    
+2.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
+
+#### Deselect an already selected a mediation policy
+
+If you want to dis-engage any mediation policy that is already engaged in Request/ Response/ Fault flow you can go to the Edit option as above and select **None** as the mediation policy and save the API.
+
+![](../../assets/img/Learn/none-mediation.png)
 
 #### Create manually and save in the file system
 
@@ -85,7 +98,7 @@ Alternatively, you can name the mediation XML file in the pattern `<API_NAME>:v<
 -   In the **single-tenant mode** , save the XML file in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 -   In the **multi-tenant mode** , save the XML file in the tenant's synapse sequence folder. For example, if tenant id is 1, then save it in `<API_Gateway>/repository/tenants/1/synapse-configs/default/sequences` folder.
 
-In the naming pattern, the `<DIRECTION>` can be `In` or `Out` . When it is `In` , the extension is triggered on the in-flow (request path) and when it is `Out` , the extension is triggered on the out-flow (response path). To change the default fault sequence, you can either modify the default sequence or write a custom fault sequence and engage it to APIs through the API Publisher.
+In the naming pattern, the `<DIRECTION>` can be `In` or `Out`. When it is `In` , the extension is triggered on the in-flow (request path) and when it is `Out` , the extension is triggered on the out-flow (response path). To change the default fault sequence, you can either modify the default fault sequence or write a custom fault sequence and engage it to APIs through the API Publisher.
 
 An example synapse configuration of a per-API extension sequence created for the API `admin--TwitterSearch` version 1.0.0 is given below.
 
@@ -115,16 +128,16 @@ An example synapse configuration of a global extension sequence is given below:
     </sequence>
 ```
 
-This custom sequence assigns the value of your basic authentication to Authorization header.
+This custom sequence assigns the value of your basic authentication to the Authorization header.
 
 You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it in the `<API_Gateway>/repository/deployment/server/synapse-configs/default/sequences` directory.
 
-When you invoke your REST API via a REST Client, configure that client to have a custom header (Authentication) for your basic authentication credential and configure the **Authorization** header to contain the bearer token for the API. When you  send the Authentication and Authorization headers, the Gateway drops the Authorization header, converts the Authentication to Authorization headers and sends to the backend.
+When you invoke your REST API via a REST Client, configure that client to have a custom header (Authentication) for your basic authentication credential and configure the **Authorization** header to contain the bearer token for the API. When you send the Authentication and Authorization headers, the Gateway drops the Authorization header, converts the Authentication to Authorization headers and sends it to the backend.
 
 !!! info
-[Class Mediator](https://docs.wso2.com/display/ESB500/Class+Mediator) is one specific example of mediation extension. When creating a class mediator, we are allowed to write a Java class which extends the org.apache.synapse.mediators.AbstractMediator class .
+[Class Mediator](https://docs.wso2.com/display/ESB500/Class+Mediator) is one specific example of a mediation extension. When creating a class mediator, we are allowed to write a Java class that extends the org.apache.synapse.mediators.AbstractMediator class.
 
-This class implements the mediate() function which access the message context and provide the facility to customize the mediation flow of the API. Through that we can read properties of the message context into variables and perform operations.
+This class implements the mediate() function which accesses the message context and provides the facility to customize the mediation flow of the API. Through that, we can read properties of the message context into variables and perform operations.
 
 ``` java
         package samples.mediators; 
@@ -179,7 +192,7 @@ This class implements the mediate() function which access the message context an
 ```
 Then we can export this class as a jar file and add as a library to &lt;API-M\_HOME&gt;/repository/components/lib directory.
 
-By refering this class with the fully qualified class name in a class mediator in the API as below, we can execute it in the insequence or outsequence of the API globally or per API as described above.
+By referring this class with the fully qualified class name in a class mediator in the API as below, we can execute it in the insequence or outsequence of the API globally or per API as described above.
 
 ``` java
     <class name="samples.mediators.SimpleClassMediator">                
@@ -188,13 +201,13 @@ By refering this class with the fully qualified class name in a class mediator i
     </class>
 ```
 
-If any properties are specified in the java class of the class mediator, the corresponding setter methods are invoked once on the class during initialization.
+If any properties are specified in the java class of the class mediator, the corresponding setter methods are invoked once in the class during initialization.
 
 !!! note
-You can use the Class mediator for user-specific, custom developments only when there is no built-in mediator that already provides the required functionality, because maintaining custom classes incurs a high overhead. Therefore, avoid using them unless the scenario is frequently re-used and very user-specific.
+You can use the Class mediator for user-specific, custom developments only when there is no built-in mediator that already provides the required functionality because maintaining custom classes incurs a high overhead. Therefore, avoid using them unless the scenario is frequently re-used and very user-specific.
 
 !!! warning
-Your class mediator might not be picked up and updated, if you use an existing package when creating it.
+Your class mediator might not be picked up and updated if you use an existing package when creating it.
 
 
 

@@ -1,6 +1,5 @@
 # Create a GraphQL API
 
-WSO2 API Manager supports the management of Graphql APIs.
 GraphQL, which has been developed by Facebook, is a data query language for APIs. When using GraphQL, users can explicitly specify as to what data they need from an API. GraphQL APIs are an alternative to REST-based APIs. 
 
 You can use a Schema Definition Language (SDL) schema to design a GraphQL API in WSO2 API Manager (WSO2 API-M) similar to creating SOAP APIs using WSDLs and developing REST APIs using OpenAPI Specifications (a.k.a. Swagger Definitions).
@@ -22,95 +21,87 @@ Follow the instructions below to design a GraphQL API
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
      <html>
-     <head>
-     </head>
-     <body>
-     <img src="../../../../assets/img/Learn/create-graphQL-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600" />
-     </body>
+     <img src="{{base_path}}/assets/img/Learn/create-graphQL-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600"/>
      </html>
 
 
 3. Import the schema and click **Next**.  
 
-     ![Import a graphQL schema by adding a file](../../../assets/img/Learn/import-graphQL-schema.png)
+     [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/Learn/import-graphQL-schema.png)]({{base_path}}/assets/img/Learn/import-graphQL-schema.png)
 
-     Let's use the [StarWarsAPI schema definition](../../../assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
+     Let's use the [StarWarsAPI schema definition]({{base_path}}/assets/attachments/Learn/schema_graphql.graphql) to create the schema file. 
    
-      <html>
+
       <div class="admonition note">
       <p class="admonition-title">Note</p>
       <ul><li>
-      <p>You need to define the SDL Schema based on the [GraphQL schema design best practices](https://leapgraph.com/graphql-schema-design-best-practices).</p></li>
+      <p>You need to define the SDL Schema based on the <a href="https://leapgraph.com/graphql-schema-design-best-practices>GraphQL schema design best practices</a>.</p></li>
       <li>The file extension can be either `.graphql` or `.txt`. </li><li> The file name can be any name, which is based on your preference.</li></ul>
-      </div> 
-      </html>
+      </div>
 
 
-      ![Import a graphQL schema by adding a file](../../../assets/img/Learn/import-graphQL-schema-via-file.png)
+      [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/Learn/import-graphQL-schema-via-file.png)]({{base_path}}/assets/img/Learn/import-graphQL-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**. 
     
     Let's create an API named "StarWarsAPI" using the following sample data.
-      <html>
-         <table>
-            <thead>
-            <tr class="header">
-            <th><div>
-            <div>
-            Protocol State
-            </div>
-            </div></th>
-            <th><div>
-            <div>
-            Description
-            </div>
-            </div></th>
-            </tr>
-            </thead>
-            <td >
-               <p>Name</p>
-            </td>
-            <td>
-               <p>StarWarsAPI</p>
-            </td>
-            </tr>
-            <tr>
-            <td>
-               <p>Context</p>
-            </td>
-            <td>
-               <p>	
-               /swapi</p>
-            </td>
-            </tr>
-            <tr>
-            <td>
-               <p>Version</p>
-            </td>
-            <td>
-               <p>1.0.0</p>
-            </td>
-            </tr>
-            <tr>
-            <td>
-               <p>Endpoint</p>
-            </td>
-            <td>
-               <a href="https://api.graph.cool/simple/v1/swapi" target="_blank">https://api.graph.cool/simple/v1/swapi</a>
-            </td>
-            </tr>
-            <tr>
-            <td >
-               <p>Business Plans</p>
-            </td>
-            <td>
-               <p>Unlimited</p>
-            </td>
-            </tr>
-         </table>
-      </html>
-
-      ![Add GraphQL API details](../../../assets/img/Learn/add-graphql-API-details.png)
+      
+    <table>
+    <thead>
+    <tr>
+    <th>
+    <div>
+    Protocol State
+    </div>
+    </th>
+    <th>
+    <div>
+    Description
+    </div></th>
+    </tr>
+    </thead>
+    <td>
+    <p>Name</p>
+    </td>
+    <td>
+    <p>StarWarsAPI</p>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <p>Context</p>
+    </td>
+    <td>
+    <p>/swapi</p>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <p>Version</p>
+    </td>
+    <td>
+    <p>1.0.0</p>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <p>Endpoint</p>
+    </td>
+    <td>
+    <a href="https://api.graph.cool/simple/v1/swapi" target="_blank">https://api.graph.cool/simple/v1/swapi</a>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <p>Business Plans</p>
+    </td>
+    <td>
+    <p>Unlimited</p>
+    </td>
+    </tr>
+    </table>
+      
+    [![Add GraphQL API details]({{base_path}}/assets/img/Learn/add-graphql-API-details.png)]({{base_path}}/assets/img/Learn/add-graphql-API-details.png)
 
 5. Optionally, modify the existing GraphQL schema definition.
 
@@ -118,9 +109,9 @@ Follow the instructions below to design a GraphQL API
 
     2. Click **DOWNLOAD DEFINITION**.
 
-         The existing GraphQL API schema gets downloaded.
+       The existing GraphQL API schema gets downloaded.
 
-         ![Add schema definition](../../../assets/img/Learn/download-schema-definition.png)   
+       [![Add schema definition]({{base_path}}/assets/img/Learn/download-schema-definition.png)]({{base_path}}/assets/img/Learn/download-schema-definition.png)   
 
     3. Update the schema definition as required.
 
@@ -132,7 +123,8 @@ Follow the instructions below to design a GraphQL API
 
     1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
 
-         ![GraphQL API operations](../../../assets/img/Learn/operations.png) 
+       
+       [![GraphQL API operations]({{base_path}}/assets/img/Learn/operations.png)]({{base_path}}/assets/img/Learn/operations.png)
      
     2. Update the operations as required.
          
@@ -144,32 +136,27 @@ Follow the instructions below to design a GraphQL API
 
             1. Click **Scopes** > **ADD NEW SCOPE**.
 
-                  ![Add a scope page](../../../assets/img/Learn/add-scope.png)
+                [![Add a scope page]({{base_path}}/assets/img/Learn/add-scope.png)]({{base_path}}/assets/img/Learn/add-scope.png)
 
             2. Enter the required details.
 
-                  <html>
-                  <head>
-                  </head>
-                  <body>
-                  <div class="admonition note">
-                  <p class="admonition-title">Note</p>
-                  <p> 
-                  The role that you enter should be a valid role that already exists in WSO2 API Manager. Make sure to assign the role to the user.
-                  </p>
-                  </div>
+                <div class="admonition note">
+                <p class="admonition-title">Note</p>
+                <p> 
+                The role that you enter should be a valid role that already exists in WSO2 API Manager. Make sure to assign the role to the user.
+                </p>
+                </div>
                   
-                  Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Adding Users](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/adding-users/) and [Adding User Roles](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles/).
-                  </body>
-                  </html>
+                Create a role named `FilmSubscriber` and assign it to the `admin` user for this example scenario. For more information, see [Adding Users]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/adding-users) and [Adding User Roles]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/adding-user-roles).
+               
 
-                  ![Create a scope](../../../assets/img/Learn/create-scope.png)
+                [![Create a scope]({{base_path}}/assets/img/Learn/create-scope.png)]({{base_path}}/assets/img/Learn/create-scope.png)
 
             3. Press `Enter` to add each scope. 
 
             4. Click **SAVE**.
 
-                 ![List of added scopes](../../../assets/img/Learn/starwars-scope-list.png) 
+                [![List of added scopes]({{base_path}}/assets/img/Learn/starwars-scope-list.png)]({{base_path}}/assets/img/Learn/starwars-scope-list.png) 
 
          2. Define the operation level configurations.
 
@@ -177,7 +164,7 @@ Follow the instructions below to design a GraphQL API
             
             2. Click **Operation Level** to apply rate limiting for operations.
 
-                 ![Update GraphQL API operations](../../../assets/img/Learn/update-operations.png) 
+                [![Update GraphQL API operations]({{base_path}}/assets/img/Learn/update-operations.png)]({{base_path}}/assets/img/Learn/update-operations.png) 
 
             3. Select a throttling policy, scope, and enable or disable security for each of the operations.
 
@@ -189,11 +176,9 @@ Follow the instructions below to design a GraphQL API
 
                  If you check the list of scopes, it should appear as follows:
 
-                 ![Scope list](../../../assets/img/Learn/scope-list.png)
+                 [![Scope list]({{base_path}}/assets/img/Learn/scope-list.png)]({{base_path}}/assets/img/Learn/scope-list.png)
 
-Now, a Graphql API has been created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-ap)  to get details of publishing API.
-
-Refer [Tutorial on create and publish a Graphql API](../../../../Learn/Tutorials/create-a-graphql-api/) to learn more about Graphql APIs.
+Now, you have successfully created and configured a GraphQL API. Next, let's [Publish your API]({{base_path}}/Learn/DesignAPI/PublishAPI/publish-an-api).
 
 ### GraphQL operations
 
@@ -232,3 +217,9 @@ Rate limiting is set to unlimited, and thereby disabled by default.
 
     WSO2 API Manager checks all the operation related rate limiting policies when determining the overall rate limit. When the requests exceed the minimum rate limit, which corresponds to the operations in the query, they will be throttled out.
    
+
+<div class="admonition note">
+<p class="admonition-title">What's Next?</p>
+
+<p>Learn more by trying out the tutorial on <a href="{{base_path}}/Learn/Tutorials/create-a-graphql-api.md">Creating and Publishing a GrapQL API</a>.</p>
+</div> 

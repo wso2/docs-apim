@@ -1,92 +1,105 @@
 # Endpoint Timeouts
 
-WSO2 API Manager provides controlling the production and sandbox endpoints with the Advanced Endpoint Configuration.
+WSO2 API Manager allows you to control the production and sandbox endpoints using the Advanced Endpoint Configurations.
 
-To configure your endpoints with this feature, go to the edit view of the API, navigate to the **Implement** tab and click the cogwheel icon next to the endpoint you want to configure.
+Configure the Advanced Endpoint Configurations as follows:
 
-The Advanced Endpoint Configuration dialog box appears as below.
+1. Sign in to the API Publisher Portal.
+   
+    `https://<hostname>:9443/publisher` 
+   
+    Example: `https://localhost:9443/publisher`
 
-Following are the configurations that we can do with the Advanced Endpoint Configurations. You can do advanced configurations for both production and sandbox endpoints.
+    Use your username and password to sign in.
 
+2. Click on an API in the API Publisher Portal listing page.
+
+3. Click **Endpoint**.
+     
+4. Click on the cogwheel, which is inline with the endpoint that you need to configure, and update the endpoint related configurations as required. 
+ 
+     [![Advanced endpoint configuration menu]({{base_path}}/assets/img/Learn/advance-ep-config-cogwheel.png)]({{base_path}}/assets/img/Learn/advance-ep-config-cogwheel.png)
+
+     The Advanced Endpoint Configurations page appears.
+
+     [![Advanced endpoint configurations]({{base_path}}/assets/img/Learn/advance-config-dialog.png)]({{base_path}}/assets/img/Learn/advance-config-dialog.png)
+
+The following are Advanced Endpoint Configurations that you can configure for both the production and sandbox endpoints.
 <table>
-<tbody>
-<tr class="odd">
-<td>Endpoint Suspend State</td>
-<td><div class="content-wrapper">
-<p>If you want to configure the suspension of an endpoint specifying error codes, maximum suspension time, suspension factors etc., you can use the endpoint suspension state in the Advanced Endpoint Configuration.</p>
-<p><strong>Error Codes:</strong> Error codes in the drop down list which need to make the endpoint suspension. If the selected error codes are received from the endpoint, the endpoint will be suspended. Specify the <a href="https://docs.wso2.com/display/SHAN/Error+Handling">transport error codes</a> where the endpoint suspension should be triggered. You can select single or error codes here.</p>
-<p><strong>Initial duration:</strong> The time duration for which the endpoint will be suspended, when one or more suspend error codes are received from it for the first time.</p>
-!!! note
-<p>When creating (or updating) Failover endpoints through the Publisher UI (in the <strong>Implement</strong> tab), you need to go into this configuration box of each endpoint and specify a set of Error Codes for the endpoint to fail over on and take off the Initial Duration by setting its value to -1.</p>
-
-<p><strong>Max duration:</strong> The maximum time duration for which the endpoint is suspended when suspend error codes are received from it.</p>
-<p><strong>Factor:</strong> The duration to suspend can vary from the first time suspension to the subsequent time. The factor value decides the suspense duration variance between subsequent suspensions.</p>
-</div></td>
-</tr>
-<tr class="even">
-<td>Endpoint Timeout state</td>
-<td><p>Configurations of retry, error codes and delays in terms of endpoint timeout can be configured with the endpoint timeout state in the Advanced Endpoint Configuration.</p>
-<p><strong>Error Codes:</strong> A list of error codes. If these error codes are received from the endpoint, the request will be subjected to a timeout.</p>
-<p><strong>Retries Before Suspension:</strong> The number of re-tries in case of a timeout, caused by the above listed error codes.</p>
-<p><strong>Retry Delay:</strong> The delay between retries in milliseconds.</p></td>
-</tr>
-<tr class="odd">
-<td>Connection Timeout</td>
-<td><div class="content-wrapper">
-<p>Duration and the response actions after a connection timeout can be configured here in the Advanced Endpoint Configuration.</p>
-<p><strong>Action:</strong> Response action to be performed after connection timeout. You can select from <strong>Never Timeout</strong> , <strong>Discard Message</strong> , and <strong>Execute Fault Sequence</strong> . The default value is <strong>Execute Fault Sequence</strong> .</p>
-<p><strong>Duration:</strong> The time duration of connection timeout in milliseconds.</p>
-!!! note
-<p>if you want to change the endpoint connection timeout duration globally affecting all APIs, do the following.</p>
-<ol>
-<li><p>Open the <code>                                   &lt;APIM_HOME&gt;/repository/conf/synapse.properties                 </code> file. Change the value of the timeout as given below.</p>
-<div>
-<p><br />
-</p>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><div class="container" title="Hint: double-click to select code">
-<div class="line number1 index0 alt2">
-<code class="java plain">                        synapse.global_timeout_interval=                       </code> <code class="java value">                        30000                       </code>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div></li>
-<li><p>Open the <code>                 &lt;ESB_HOME&gt;/repository/conf/passthru-http.properties                </code> file and change the socket timeout value.</p>
-<div>
-<p><br />
-</p>
-<div class="table-wrap">
-<table>
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td><div class="container" title="Hint: double-click to select code">
-<div class="line number1 index0 alt2">
-<code class="java plain">                        http.socket.timeout=                       </code> <code class="java value">                        30000                       </code>
-</div>
-</div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div></li>
-</ol>
-<p>Note that the <strong>socket timeout value</strong> should be greater than both the synapse global timeout and any endpoint timeouts given for your API.</p>
-
-</div></td>
-</tr>
-</tbody>
+    <tbody>
+        <tr class="odd">
+            <td>Endpoint Suspend State</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>If you want to configure the suspension of an endpoint, you can use the **Endpoint Suspension State** section to define the error codes, maximum suspension time, and suspension factors.</p>
+                    <ul><li>
+                    <p><strong>Error Codes:</strong>The error codes that are associated with suspended endpoints. If the backend endpoint receives the selected error codes, the endpoint will be marked as
+                    suspended. Specify the [transport error codes]({{base_path}}/Troubleshooting/error-handling) to define when the endpoint suspension should be triggered. You can select a single error code or multiple error codes.</p>
+                    </li><li>
+                    <p><strong>Initial duration:</strong> The time duration for which the endpoint will be suspended, when one or more suspend error codes are received from the endpoint for the first time.</p>
+                        <div class="admonition note">
+                              <p class="admonition-title">Note</p>
+                              <p>When creating (or updating) failover endpoints via the Publisher Portal, you need to specify a set of Error Codes for the endpoint to fail over on and also remove the **Initial Duration** by setting its value to -1.</p>
+                        </div> 
+                    </li><li><p><strong>Max duration:</strong> The maximum time duration for which the endpoint will be suspended.</p>
+                    </li><li>
+                    <p><strong>Factor:</strong> The duration to suspend can vary from the first time suspension to suspension on subsequent occasions. This factor value defines the suspense duration variance between subsequent suspensions.</p>
+                    </li></ul>
+                </div>
+            </td>
+        </tr>
+        <tr class="even">
+            <td>Endpoint Timeout state</td>
+            <td><p>You can define configurations related to retries, error codes, and delays in terms of endpoint timeouts in the **Endpoint Timeout State** section.</p>
+            <ul><li>
+            <p><strong>Error Codes:</strong> You can select a single error code or multiple error codes that you need to associate with endpoint timeouts. If these error codes are received from the endpoint, the request will be subjected to a timeout.</p></li><li>
+            <p><strong>Retries Before Suspension:</strong> The number of re-tries that are performed by the Gateway when any of the selected error codes are received, before the endpoint timeout takes place.</p></li><li>
+            <p><strong>Retry Delay:</strong> The delay between retries in milliseconds.</p></li></ul></td>
+        </tr>
+        <tr class="odd">
+            <td>Connection Timeout</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>Duration and the response actions after a connection timeout can be configured here in the Advanced Endpoint Configuration.</p>
+                    <ul><li><p><strong>Action:</strong> Response action to be performed after connection timeout.
+                    You can select from one of the following options.
+                        <ul>
+                            <li><strong>Discard Message</strong></li>
+                            <li><strong>Execute Fault Sequence</strong></li>
+                        </ul>
+                    The default value is <strong>Execute Fault Sequence</strong>.
+                    </p></li><li>
+                    <p><strong>Duration:</strong> The time duration of connection timeout in milliseconds.</p>
+                    <div class="admonition note">
+                        <p class="admonition-title">Note</p>
+                        <p>If you want to change the endpoint connection timeout duration globally to affect all the APIs, carryout the following instructions.</p>
+                        <ol>
+                            <li>
+                            Open the <code>&lt;APIM_HOME&gt;/repository/conf/deployment.toml</code> file and add or change the value of the timeout as follows:
+                             <code>
+                             ```
+                             [synapse_properties]
+                             'synapse.global_timeout_interval'=3000
+                             ```
+                             </code>
+                            </li>
+                            <li>
+                            Open the <code>&lt;APIM_HOME&gt;/repository/conf/deployment.toml</code> file and add or change the socket timeout value as follows:
+                            <code>
+                             ```
+                             [passthru_http]
+                             'http.socket.timeout'=3000
+                             ```
+                            </code>
+                            </li>
+                        </ol>
+                        <p>Note that the <strong>socket timeout value</strong> should be greater than both the Synapse global timeout and any endpoint timeouts given for your API.</p>
+                    </div>
+                </div>
+                </li></ul>
+            </td>
+        </tr>
+    </tbody>
 </table>
 
-For more information about endpoints and how to add, edit or delete them, see the [WSO2 ESB documentation](https://docs.wso2.com/display/EI611/Working+with+Endpoints) .
+For more information on endpoints and how to add, edit, or delete them, go to the [WSO2 Enterprise Integrator (EI) documentation](https://docs.wso2.com/display/EI650/Working+with+Endpoints).

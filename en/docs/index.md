@@ -2,8 +2,8 @@
 template: templates/single-column.html
 ---
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div style="max-height:360px">
-   <div class="md-main md-content" style="float:left; width: 35%;  text-align:justify; max-height:100%; ">
+<div>
+   <div class="md-main md-content leftContent">
     <p> From creating and publishing an API, to securing, rate limiting & viewing analytics of APIs, the WSO2 API Manager addresses all aspects of API Management. 
         
 
@@ -12,8 +12,8 @@ The WSO2 API Manager is a high performant, <b>100% open source </b> API Manageme
 Get a head start with our 5-minute quick start or dive straight into our learning material to discover the full potential of the product.
 </p> 
    </div>
-   <div class="md-main md-content " style="float:centre; width: 60%; text-align:left;  flex-shrink: 0;min-width: 35%; max-height: 100%; max-width:100%; margin-left:10px;">
-    <img src="assets/attachments/wso2-apim-overview.png" width="100%"  height="360px"/>
+   <div class="md-main md-content rightImage">
+   [ ![](assets/attachments/wso2-apim-overview.png) ](assets/attachments/wso2-apim-overview.png)
 </a>
    </div>
 </div>
@@ -31,7 +31,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       		</div>
 		</div>
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIPublish/create-and-Publish-an-API';">
+      <div class="card" onclick="location.href='Learn/DesignAPI/PublishAPI/publish-an-api';">
             <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">create</i></div>
              <div class="card-content">
@@ -51,7 +51,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 </div>
       <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIGateway/overview-of-the-api-gateway';">
+      <div class="card" onclick="location.href='Learn/APIGateway/api-gateways-with-dedicated-backends';">
             <div class="line"></div> 
             <div class="card-icon"><i class="material-icons md-36">input</i></div>
 <div class="card-content">
@@ -76,7 +76,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
                 <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices.</p>
             </div>
       </div>
-      <div class="card" onclick="location.href='Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens';">
+      <div class="card" onclick="location.href='Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens';">
 	    <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">security</i></div>
             <div class="card-content">
@@ -94,7 +94,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       </div>
         <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/Analytics/overview-of-api-analytics';">
+      <div class="card" onclick="location.href='Learn/Analytics/configuring-apim-analytics';">
 	    <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">show_chart</i></div>
             <div class="card-content">

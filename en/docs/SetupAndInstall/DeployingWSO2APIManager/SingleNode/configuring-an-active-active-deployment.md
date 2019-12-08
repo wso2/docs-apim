@@ -2,20 +2,20 @@
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each have all the components of the API-M together in one instance (all-in-one instance).
 
-The page: **\_Deploying API Manager using Single Node Instances** was not found. Please check/update the page name used in the 'multiexcerpt-include macro.
+![](../../../assets/img/setup-and-install/active-active-deployment.png)
 
-Follow the instructions below to configure and deploy API-M by using an Active-Active deployment :
+Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 
--   [Step 1 - Create a SSL certificate](#ConfiguringanActive-ActiveDeployment-step1Step1-CreateaSSLcertificate)
--   [Step 2 - Configure the load balancer](#ConfiguringanActive-ActiveDeployment-Step2-Configuretheloadbalancer)
--   [Step 3 - Configure the databases](#ConfiguringanActive-ActiveDeployment-Step3-Configurethedatabases)
--   [Step 4 - Configure the Publisher with the Gateway](#ConfiguringanActive-ActiveDeployment-Step4-ConfigurethePublisherwiththeGateway)
--   [Step 5 - Configure the content synchronization mechanism](#ConfiguringanActive-ActiveDeployment-Step5-ConfigurethecontentsynchronizationmechanismStep5)
--   [Step 6 - Configure Throttling](#ConfiguringanActive-ActiveDeployment-Step6-ConfigureThrottling)
--   [Step 7 - Configure the second WSO2 API-M node](#ConfiguringanActive-ActiveDeployment-Step7-ConfigurethesecondWSO2API-Mnode)
--   [Step 8 - Configure your deployment with production hardening](#ConfiguringanActive-ActiveDeployment-Step8-Configureyourdeploymentwithproductionhardening)
--   [Step 9 - Configure Analytics](#ConfiguringanActive-ActiveDeployment-Step9-ConfigureAnalytics)
--   [Step 10 - Start the WSO2 API-M servers](#ConfiguringanActive-ActiveDeployment-Step10-StarttheWSO2API-Mservers)
+-   [Step 1 - Create a SSL certificate](#step-1-create-a-ssl-certificate)
+-   [Step 2 - Configure the load balancer](#step-2-configure-the-load-balancer)
+-   [Step 3 - Configure the databases](#step-3-configure-the-databases)
+-   [Step 4 - Configure the Publisher with the Gateway](#step-4-configure-the-publisher-with-the-gateway)
+-   [Step 5 - Configure the content synchronization mechanism](#step-5-configure-the-content-synchronization-mechanism)
+-   [Step 6 - Configure Throttling](#step-6-configure-throttling)
+-   [Step 7 - Configure the second WSO2 API-M node](#step-7-configure-the-second-wso2-api-m-node)
+-   [Step 8 - Configure your deployment with production hardening](#step-8-configure-your-deployment-with-production-hardening)
+-   [Step 9 - Configure Analytics](#step-9-configure-analytics)
+-   [Step 10 - Start the WSO2 API-M servers](#step-10-start-the-wso2-api-m-servers)
 
 ### Step 1 - Create a SSL certificate
 
@@ -23,96 +23,94 @@ Create a SSL certificate on the first WSO2 API-M all-in-one active node. For mor
 
 ### Step 2 - Configure the load balancer
 
-For information on configuring the load balancer, see \_Configuring the Proxy Server and the Load Balancer .
+For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer](../configuring-the-proxy-server-and-the-load-balancer.md).
 
 ### Step 3 - Configure the databases
 
-For information on configuring the databases, see \_Installing and Configuring the Databases .
+For information on configuring the databases, see [Installing and Configuring the Databases](../../SettingUpDatabases/overview.md).
 
 ### Step 4 - Configure the Publisher with the Gateway
 
 !!! note
-This step is required **only** if you are using rsync to share files.
+    This step is required **only** if you are using rsync to share files.
 
-!!! info
-When you use rsync the file synchronization will happen in only one direction. Therefore, use the following configuration to enable synchronization in both directions between two nodes.
+    !!! info
+        When you use rsync the file synchronization will happen in only one direction. Therefore, use the following configuration to enable synchronization in both directions between two nodes.
 
+    For more details, see the [next step](#step-5-configure-the-content-synchronization-mechanism).
 
-For more details, see the [next step](#ConfiguringanActive-ActiveDeployment-Step5) .
+Configure the API Publisher in both nodes to be able to publish to the API-M Gateway of one of the nodes. Do this by pointing the `service_url` to the same Gateway node.
 
-
-Configure the API Publisher in both nodes to be able to publish to the API-M Gateway of one of the nodes. Do this by pointing the `<ServerURL>` to the same Gateway node.
-
-You need to configure this in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+You need to configure this in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ``` java
-    <APIGateway>
-        <ServerURL>https://localhost:${mgt.transport.https.port}${carbon.context}services/</ServerURL>
-    </APIGateway>
+[[apim.gateway.environment]]
+...
+service_url = "https://localhost:${mgt.transport.https.port}/services/"
+...
 ```
 
-### 
-Step 5 - Configure the content synchronization mechanism
+### Step 5 - Configure the content synchronization mechanism
 
 Configure a shared file system as the content synchronization mechanism. You can use a common shared file system such as Network File System (NFS) or any other shared file system that is available. You need to mount the `<API-M_HOME>/repository/deployment/server` directory of the two nodes to the shared file system, in order to share all APIs and throttling policies between all the nodes.
 
 !!! info
-Shared file system is the first preference that WSO2 recommends to synchronize the artifacts among the nodes, because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the vulnerability of a single point of failure that is present when using remote synchronization (rsync). However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For information on setting up a rsync based deployment synchronization, see \_Configuring rsync for Deployment Synchronization .
+    Shared file system is the first preference that WSO2 recommends to synchronize the artifacts among the nodes, because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the vulnerability of a single point of failure that is present when using remote synchronization (rsync). However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For information on setting up a rsync based deployment synchronization, see [Configuring rsync for Deployment Synchronization](../configuring-rsync-for-deployment-synchronization.md).
 
-#### Using Rsync for deployment synchronization
+    #### Using Rsync for deployment synchronization
 
-If you are using rsync, the API artifacts will be synchronized to one direction. As explained in \_Configuring rsync for Deployment Synchronization section, the synchronization will happen from manager to worker. Hence, The API artifact should be created on one node only, which acts like a manager node for artifact synchronization purpose. Please follow the steps below to configure this:
-Assuming node-1 is the manager node for artifact synchronization,
+    If you are using rsync, the API artifacts will be synchronized to one direction. As explained in [Configuring rsync for Deployment Synchronization](../configuring-rsync-for-deployment-synchronization.md) section, the synchronization will happen from manager to worker. Hence, The API artifact should be created on one node only, which acts like a manager node for artifact synchronization purpose. Please follow the steps below to configure this:
+    Assuming node-1 is the manager node for artifact synchronization,
 
-1.  Open `<API-M_HOME>/repository/conf/api-manager.xml` file in node-1.
-2.  Configure Gateway Server URL to point to its own (localhost):
+    1.  Open `<API-M_HOME>/repository/conf/deployment.toml` file in node-1.
+    2.  Configure Gateway Service URL to point to its own (localhost):
 
-    ``` java
-        <APIGateway>
-            <ServerURL>https://localhost:${mgt.transport.https.port}${carbon.context}services/</ServerURL>
-        </APIGateway>
-    ```
+        ``` java
+        [[apim.gateway.environment]]
+        ...
+        service_url = "https://localhost:${mgt.transport.https.port}/services/"
+        ...
+        ```
 
-3.  Open `<API-M_HOME>/repository/conf/api-manager.xml` file in node-2.
-4.  Configure Gateway Server URL to point to the node-1:
+    3.  Open `<API-M_HOME>/repository/conf/deployment.toml` file in node-2.
+    4.  Configure Gateway Service URL to point to the node-1:
 
-    ``` java
-            <APIGateway>
-                <ServerURL>https://<node1-hostname>:<node-1-mgt-transport-port>/services/</ServerURL>
-            </APIGateway>
-    ```
-
-    Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
-
+        ``` java
+        [[apim.gateway.environment]]
+        ...
+        service_url = "https://<node1-hostname>:<node-1-mgt-transport-port>/services/"
+        ...
+        ```
+        Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
 
 ### Step 6 - Configure Throttling
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for information on configuring Throttling.
-
-1.  Configure the data publisher in the `<DataPublisher>` section which comes under the `<ThrottlingConfigurations>` section in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+    
     You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and process the data to come up with the Throttling decisions.
 
-    -   [**Format**](#53cf34bc662d4c73926c25ba40effaf4)
-    -   [**Example**](#9421b17e6719406ebb30ccc667049b27)
+    ``` tab="Format"
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+    traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+    type = "loadbalance"
 
-    ``` java
-        <DataPublisher>
-                <Enabled>true</Enabled>
-                <Type>Binary</Type>
-        <ReceiverUrlGroup>{tcp://<node1-hostname>:<node1-port>},{tcp://<node2-hostname>:<node2-port>} </ReceiverUrlGroup>
-        <AuthUrlGroup>{ssl://<node1-hostname>:<node1-port>},{ssl://<node2-hostname>:<node2-port>}</AuthUrlGroup>
-        ………………….
-           </DataPublisher>
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+    traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+    type = "loadbalance"
     ```
 
-    ``` java
-            <DataPublisher>
-                    <Enabled>true</Enabled>
-                    <Type>Binary</Type>
-            <ReceiverUrlGroup>{tcp://127.0.0.1:9612},{tcp://127.0.0.1:9613} </ReceiverUrlGroup>
-            <AuthUrlGroup>{ssl://127.0.0.1:9712},{ssl://127.0.0.1:9713}</AuthUrlGroup>
-            ………………….
-               </DataPublisher>
+    ``` tab="Example"
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+    traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+    type = "loadbalance"
+
+    [[apim.throttling.url_group]]
+    traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+    traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+    type = "loadbalance"
     ```
 
 2.  Save your changes.
@@ -122,25 +120,32 @@ Assuming node-1 is the manager node for artifact synchronization,
 Make a copy of the active instance configured above and use this copy as the second active instance.
 
 !!! info
-When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 in [step 1](#ConfiguringanActive-ActiveDeployment-step1) .
+    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 in [step 1](#step-1-create-a-ssl-certificate).
 
 
 ### Step 8 - Configure your deployment with production hardening
 
-The page: **\_Configuring a Single Node** was not found. Please check/update the page name used in the 'multiexcerpt-include macro.
+Ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security etc.) before deploying WSO2 API-M. For more information, see the [Production Deployment Guidelines](https://docs.wso2.com/display/ADMIN44x/Production+Deployment+Guidelines#ProductionDeploymentGuidelines) in the Administration Guide.
 
 ### Step 9 - Configure Analytics
 
-The page: **\_Configuring a Single Node** was not found. Please check/update the page name used in the 'multiexcerpt-include macro.
+If you wish to view reports, statistics, and graphs related to the APIs deployed in the Developer Portal, you need to configure API-M Analytics. Follow the [standard setup](https://apim.docs.wso2.com/en/latest/Learn/Analytics/configuring-apim-analytics/#standard-setup) to configure API-M Analytics in a production setup, and follow the [quick setup](https://apim.docs.wso2.com/en/latest/Learn/Analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup.
 
 ### Step 10 - Start the WSO2 API-M servers
 
 !!! note
-Before you start the servers
+    Before you start the servers;
 
-If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used as the Key Manager in high availability mode while the rest of the WSO2 API-M components are all in one node , configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager ) before starting the API-M servers .
+    If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used as the Key Manager in high availability mode while the rest of the WSO2 API-M components are all in one node, configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager) before starting the API-M servers.
 
+Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server](https://apim.docs.wso2.com/en/latest/SetupAndInstall/InstallationGuide/running-the-product/#starting-the-server).
 
-Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server](https://docs.wso2.com/display/AM260/Running+the+Product#RunningtheProduct-Startingtheserver) .
+```tab="Linux/Mac OS"
+cd <API-M_HOME>/bin/
+sh wso2server.sh
+```
 
-The page: **\_Configuring a Single Node** was not found. Please check/update the page name used in the 'multiexcerpt-include macro.
+```tab="Windows"
+cd <API-M_HOME>\bin\
+wso2server.bat --run 
+```

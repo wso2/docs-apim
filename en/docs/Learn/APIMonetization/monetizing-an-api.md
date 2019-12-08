@@ -180,14 +180,16 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
     3.  Define the monetization implementation in WSO2 API Manager.
      
-        Decompile the `org.wso2.apim.monetization.impl-1.0-SNAPSHOT.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/resources/conf/default.json` file as follows:
+        Decompile the `org.wso2.apim.monetization.impl-1.0.0.jar` JAR and add the name of the package in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
 
         ``` json tab="Format"
-        "apim.monetization.monetization_impl": "<monetization-implementation>"
+        [apim.monetization]
+        monetization_impl = "<monetization-implementation>"
         ```
 
         ``` json tab="Example"
-        "apim.monetization.monetization_impl": "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
+        [apim.monetization]
+        monetization_impl = "org.wso2.apim.monetization.impl.StripeMonetizationImpl"
         ```
 
 2.  Configure the database.
@@ -562,16 +564,24 @@ When working with API Monetization that involves dynamic business plans (usage-b
 3. Configure the additional monetization properties that are specific to the billing engine in WSO2 API Manager.    
 
       Add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
-        ``` java
-        [[apim.monetization.additional_attributes]]
-        name = "ConnectedAccountKey"
-        display_name = "ConnectedAccountKey"
-        required = "true"
-        description = “connected account of the publisher”
-        ```
-        
-        The name property has to be identical to `connectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
+      
+      ``` java tab="Format"
+      [[apim.monetization.additional_attributes]]
+      name = "<Name of the attribute>"
+      display_name = "<Displayed name of the Attribute>"
+      required = "<mandatory or not>"
+      description = "<Description about the attribute>"
+      ```
+  
+      ``` java tab="Example"
+      [[apim.monetization.additional_attributes]]
+      name = "ConnectedAccountKey"
+      display_name = "ConnectedAccountKey"
+      required = "true"
+      description = "connected account of the publisher"
+      ```
+           
+      The name property has to be identical to `ConnectedAccountKey`, which is defined in the [wso2-am-stripe-plugin](https://github.com/wso2-extensions/wso2-am-stripe-plugin/blob/master/src/main/java/org.wso2.apim.monetization/impl/StripeMonetizationImpl.java). However, you can add perferred values for the other properties.
  
     After saving these configurations, these additional properties appear in the **Monetization** page under the **Monetization properties** section in the API Publisher Portal.   
 
@@ -592,24 +602,41 @@ When working with API Monetization that involves dynamic business plans (usage-b
        </div> 
       </html>
 
-     1.  Navigate to the `<API-M_HOME>/repository/resources/conf/default.json` file.
+     1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
          <a name="apim-monetization-granularity"></a>
 
-     2.  Edit the following configuration in the JSON file. 
+     2.  Add the following configuration in the TOML file. 
 
         ``` java tab="Format"
-        "apim.monetization.granularity": "<time-period>" 
+        [apim.monetization]
+        granularity = "<time-period>" 
         ```
 
         ``` java tab="Example"
-        "apim.monetization.granularity": "seconds" 
+        [apim.monetization]
+        granularity = "seconds" 
         ```
 
         - `<time-period>` - This is the timeframe that is used for the granularity of the API usage data. You can use any of the following values for this parameter based on your requirement - `seconds`, `minutes`, `days`, `months`, `years` 
 
+5.  When the usage publishing API is invoked, it publishes all the data that is between the range of current time
+    and the last time the usage is successfully published. But when you invoke the API for the first
+    time there will be no data about the last published time. So you can configure the time range to reduce 
+    from the current time to derive the last publish time. This configuration is provided in days and the 
+    default value is one day.
+   
+    ``` java tab="Format"
+    [apim.monetization]
+    publish_duration = "<time-period in days>" 
+    ```
 
-5.  Configure the Tenant Admin on WSO2 API Manager.
+    ``` java tab="Example"
+    [apim.monetization]
+    publish_duration = "3" 
+    ```
+
+6.  Configure the Tenant Admin on WSO2 API Manager.
     1.  Start the WSO2 API Manager server.
 
     2.  Sign in to the WSO2 API-M Management Console.
@@ -642,7 +669,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
-6.  Configure the workflows.  
+7.  Configure the workflows.  
 
      You need to do this to ensure that the correct workflows are engaged when a subscription is added or removed.
 

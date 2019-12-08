@@ -1,8 +1,8 @@
 # Block Subscription to an API
 
-An API publisher **blocks subscription** to an API as a way of disabling access to it and managing its usage and monetization. A subscription blocking can be temporary or permanent. There is an unblocking facility to allow API invocations back.
+An API publisher **blocks subscription** to an API is a way of disabling access to it and managing its usage and monetization. A subscription blocking can be temporary or permanent. There is an unblocking facility to allow API invocations back.
 
-You block APIs by subscriptions. That is, a given user is blocked access to a given API that s/he has subscribed to using a given application. If a user is subscribed to two APIs using the same application and you block access to only one of the APIs, s/he can still continue to invoke the other APIs that s/he subscribed to using the same application. Also, s/he can continue to access the same API subscribed to using different applications.
+You can block APIs by subscriptions. That is, a given user is blocked access to a given API that the user has subscribed to using a given application. If a user is subscribed to two an APIs using the same application and you block access to only one of the APIs, the user can still continue to invoke the other APIs that s/he subscribed to using the same application. Also, the user can continue to access the same API subscribed to using different applications.
 
 !!! info
     API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request blacklisting](../../../../Learn/RateLimiting/managing-throttling/).
@@ -16,7 +16,7 @@ Blocking can be done at two levels:
   <html>
   <div class="admonition warning">
   <p class="admonition-title">Warning</p>
-  <p>When <a href="../../../../GettingStarted/overview/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
+  <p>When <a href="../../../../GettingStarted/overview/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
   </div> 
   
   <div class="admonition note">
@@ -33,113 +33,103 @@ Blocking can be done at two levels:
 1.  Create two APIs.
      1.  Sign in to the WSO2 API Publisher.
 
-     2.  Create two APIs by the names `TestAPI1` and `TestAPI2` and publish them to the WSO2 API Store.
+     2.  Create two APIs and publish them to the WSO2 API Developer Portal.
 
-         For more information, see [Create and Publish an API](../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/).
-
-         ![]({{base_path}}/assets/attachments/103332508/103332500.png)
+         <html>
+         <div class="admonition tip"> 
+         <p class="admonition-title">Tip</p>
+         <p>For more information, see [Create and Publish an API](../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/).</p>
+         </div>
+         </html>
+         
+         <html>
+         <body>
+         <img src="../../../../assets/img/Learn/two-apis-for-block-subscription.png" onclick="window.open('../../../../assets/img/Learn/two-apis-for-block-subscription.png', '_self');" alt="two-apis-for-block-subscription" width="100%" height="100%">
+         </body>
+         </html>
 
 2.  Subscribe to both the APIs.
-     1.  Sign in to the WSO2 API Store and click **APIS**.
+     1.  Sign in to the WSO2 API Developer Portal and click **APIs**.
 
          Note that the two APIs are visible in the APIs page.
 
      2.  Subscribe to both APIs using the same application.
 
          You can use the default application or create your own.
-
-         ![]({{base_path}}/assets/attachments/103332508/103332495.png)
-
-     3.  Click the **View Subscriptions** button when prompted.
+         <html>
+         <body>
+         <img src="../../../../assets/img/Learn/same-application-for-two-apis.png" onclick="window.open('../../../../assets/img/Learn/same-application-for-two-apis.png', '_self');" alt="same-application-for-two-apis" width="100%" height="100%">
+         </body>
+         </html>
          
-         The **Subscriptions** tab opens.
-
-     4.  Click the **Production Keys** tab and click **Generate Keys** to create an application access token.
+         You can see the Apis you have subscribed as follows and the **Status** as **unblocked**.
+         <html>
+         <body>
+         <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis.png', '_self');" alt="same-application-subscribed-for-two-apis" width="100%" height="100%">
+         </body>
+         </html>
         
-         If you have already generated an access token before, click **Re-generate** to renew the token.
+     3.  Generate keys and obtain an access token for application.
        
-         ![]({{base_path}}/assets/attachments/103332508/103332496.png)
-
 3.  Invoke both APIs using the access token you received in the previous step.
 
      -   [**Format**](#Format)
      -   [**Example**](#Example)
      -   [**Response**](#Response)
+     
+      <html>
+      <div class="admonition tip"> 
+      <p class="admonition-title">Tip</p>
+      <p>For more information , see  [Consume an API](../../../../Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/)..</p>
+      </div>
+      </html>
 
-     The following is the [cURL](http://curl.haxx.se/download.html) command format.
+      <html>
+      <body> 
+      <img src="../../../../assets/img/Learn/same-application-for-two-apis-response.png" onclick="window.open('../../../../assets/img/Learn/same-application-for-two-apis-response.png', '_self');" alt="same-application-for-two-apis-response" width="100%" height="100%">
+      </body>
+      </html>
 
-     **Command**
-
-     ``` java
-        curl -k -H "Authorization: Bearer <access_token>" '<API_URL>'
-     ```
-
+     The following is the [cURL](http://curl.haxx.se/download.html) command format for phoneverify2 API.
+     
      **Command**
  
      ``` java
-     curl -k -H "Authorization :Bearer 5fe40a53-2db6-3693-a9a9-bfccaaa5707d" 'https://localhost:8243/TestAPI1/1.0.0/CheckPhoneNumber?PhoneNumber=18006785432&LicenseKey=0'
+     curl -X POST "https://localhost:8243/phoneverify2/1.0/checkPhoneNumber" -H "accept: application/json" -H "Content-Type: application/json" -H "Authorization: Bearer 1b4cde76-3951-32bb-9ace-f530bc478490" -d "{ \"CheckPhoneNumber\": { \"PhoneNumber\": \"18006785432\", \"LicenseKey\": \"0\" }}"
      ```
 
-     The placeholders mentioned in the format cURL command are replaced as follows:
-
-     - `<access_token>` : Give the token generated in [step 2 (d)](#BlockSubscriptiontoanAPI-step2.d).
-
-     - `<API_URL>` : Go to the API's **Overview** tab in the API Store and copy the production URL and append the payload to it.
-
-     ```
-     <?xml version="1.0" encoding="utf-8"?>
-     <PhoneReturn xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ws.cdyne.com/PhoneVerify/query">
-     <Company>Toll Free</Company>
-     <Valid>true</Valid>
-     <Use>Assigned to a code holder for normal use.</Use>
-     <State>TF</State>
-     <RC />
-     <OCN />
-     <OriginalNumber>18006785432</OriginalNumber>
-     <CleanNumber>8006785432</CleanNumber>
-     <SwitchName />
-     <SwitchType />
-     <Country>United States</Country>
-     <CLLI />
-     <PrefixType>Landline</PrefixType>
-     <LATA />
-     <sms>Landline</sms>
-     <Email />
-     <AssignDate>Unknown</AssignDate>
-     <TelecomCity />
-     <TelecomCounty />
-     <TelecomState>TF</TelecomState>
-     <TelecomZip />
-     <TimeZone />
-     <Lat />
-     <Long />
-     <Wireless>false</Wireless>
-     <LRN />
-     ```
-
+     You can invoke the **PhoneVerification** API with the same token.
      You have subscribed to two APIs and invoked them successfully. Let's block one subscription and see the outcome.
 
 4.  Block an API.
 
-     1.  Sign back in to the API Publisher.
+     1.  Login in to the API Publisher.
 
      2.  Click **API** and click on the API that you need to block.
 
-         In this case, click on the `TestAPI1` API.
+         In this case, click on the `PhoneVerify2` API.
 
      3.  Click **Subscriptions** to navigate to the managed subscription section.
 
-         ![]({{base_path}}/assets/attachments/103332508/103332497.png)
-
-     4. Click **Block**.
+     4. Click **Block All**.
+        <html>
+        <body>
+        <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png', '_self');" alt="same-application-subscribed-for-two-apis-and-blocked" width="100%" height="100%">
+       </body>
+       </html>
         
-         Note that the **Block** link immediately turns to **Unblock** , allowing you to activate the subscription back at any time.
+       <html>
+       <div class="admonition tip"> 
+       <p class="admonition-title">Tip</p>
+       <p>You can block production only instead of block all. Also you can unblock the subscription which are you have blocked.</p>
+       </div>
+       </html>
 
 5.  Invoke the APIs to test the blocked API.
 
-    1. Sign back in to the API Store.
+    1. Login in to the API Store.
 
-    2. Invoke the two APIs ( `TestAPI1` and `TestAPI2` ) again as mentioned in [step 3](#BlockSubscriptiontoanAPI-step3).
+    2. Invoke the two APIs ( `PhoneVerify2` and `PhoneVerification` ) again.
 
          <html>
          <div class="admonition tip">
@@ -148,7 +138,7 @@ Blocking can be done at two levels:
          </div>
          </html>
 
-         Note that you can invoke `TestAPI2` again, but when you invoke `TestAPI1` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
+         Note that you can invoke `PhoneVerification` again, but when you invoke `PhoneVerify2` , it gives a message that the requested API is temporarily blocked. Neither the API publisher nor any subscriber can invoke the API until the block is removed.
 
          <html>
          <div class="admonition warning">
@@ -158,7 +148,7 @@ Blocking can be done at two levels:
          </html>
 
 
-        **Response when invoking TestAPI1**
+        **Response when invoking PhoneVerify2**
 
         ``` java
         <ams:fault xmlns:ams="http://wso2.org/apimanager/security">
@@ -167,10 +157,19 @@ Blocking can be done at two levels:
             <ams:description>Access failure for API: /TestAPI1/1.0.0, version: 1.0.0 status: (900907) - The requested API is temporarily blocked</ams:description>
         </ams:fault>
         ```
+        <html>
+        <body>
+        <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png', '_self');" alt="same-application-subscribed-for-two-apis-and-blocked-response" width="100%" height="100%">
+        </body>
+        </html>
+        
+     If you click **Applications** in the API Developer portal, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
 
-     If you click **Applications** in the API Store, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
-
-     ![]({{base_path}}/assets/attachments/103332508/103332498.png)
+     <html>
+     <body>
+     <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png', '_self');" alt="same-application-subscribed-for-two-apis-and-combined-subscription" width="100%" height="100%">
+     </body>
+     </html>
 
 6.  Unblock the API.
 
@@ -178,13 +177,13 @@ Blocking can be done at two levels:
 
      2.  Click on the respective API
 
-         In this case click `TestAPI1 1.0.0`.
+         In this case, click `PhoneVerify2`.
 
      3.  Click **Subscriptions** and click **Unblock** corresponding to the respective subscription.
 
          Make sure to click on the subscription that corresponds to the correct Application.
 
-         If you invoke `TestAPI1` again, you will notice that you can invoke the API as usual.
+         If you invoke `PhoneVerify2` again, you will notice that you can invoke the API as usual.
 
          <html>
          <div class="admonition warning">
