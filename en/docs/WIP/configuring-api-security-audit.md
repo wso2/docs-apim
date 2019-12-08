@@ -158,24 +158,32 @@ This category presents any issues that exist due to the API Definition not adher
 
 #### Security
 
-This category presents security issues identified by checking the API against security best practices.
-
-1.  Number of Issues
-
-2.  Overall Score
-
-3.  Overall severity of security issues
-
-4.  A table of the issues along with their specific severity levels, descriptions and the impact each issue has on the overall score for the Security category.
+This category presents security issues identified by checking the API against security best practices such as Authentication, Authorization and Transport.
 
 #### Data Validation
 
-The Data Validation category showcases:
+This category presents issues that arise due to inadequate validation of input and output in an API Definition such as flaws in parameters, response headers, response definition and schemas.
 
-1.  Number of Issues
+### Breakdown of Severity Levels
 
-2.  Overall Score
+The **severity** level of an issue allows distinguishing between the most and least dangerous issues easier and is separated into 5 different levels:
 
-3.  Overall severity of data validation issues
+1.  **INFO**
 
-4.  A table of the issues along with their specific severity levels, descriptions and the impact each issue has on the overall score for the Data Validation category.
+    The lowest severity level. Represents a threat that potentially is unlikely to cause damage should it be executed.
+
+2.  **LOW**
+
+    Represents a threat that could potentially cause damage but is lower priority.
+
+3.  **MEDIUM**
+
+    Reminiscent of a threat that needs attending to and could have moderately damaging effects should it be executed.
+
+4.  **HIGH**
+
+    Represents a threat that could potentially cause great damage if executed and needs to be attended to and fixed before the former levels.
+
+5.  **CRITICAL**
+    
+    The highest severity level. Represents a threat that could have devastating and wide-spread consquences if executed. These threats should be fixed immediately.
