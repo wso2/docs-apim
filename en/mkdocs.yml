@@ -400,7 +400,7 @@ nav:
         - Product Administration:
             - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
             - Managing Users and Roles:
-                - Introduction to Users Management: Administer/ProductAdministration/ManagingUsersAndRoles/introduction-to-user-management.md
+                - Introduction to User Management: Administer/ProductAdministration/ManagingUsersAndRoles/introduction-to-user-management.md
                 - Managing User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles.md
                 - Managing Users: Administer/ProductAdministration/ManagingUsersAndRoles/managing-users.md
                 - Managing Role Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/managing-permissions.md
