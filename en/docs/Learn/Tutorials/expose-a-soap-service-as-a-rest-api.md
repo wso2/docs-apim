@@ -46,24 +46,6 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
      [![](../../assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)](../../assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
-    <p>Check the following definition is added under the POST method in API Definition.If not click **Edit** and add it.</p>
-           
-        consumes: 
-            - "text/xml"
-        parameters: 
-            - 
-            in: "body"
-            name: "SOAP Request"
-            description: "SOAP request."
-            required: true
-            schema: 
-            type: "string"
-            - 
-            in: "header"
-            name: "SOAPAction"
-            description: "SOAPAction header for soap 1.1"
-            required: false
-            type: "string"
     <p>
             If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
     [OAuthscopes](../../../../Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/)
