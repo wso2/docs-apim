@@ -214,7 +214,7 @@ nav:
                 - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:
-                - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md
+                - JSON Schema Validator: Learn/APISecurity/APIRequestResponseSchemaValidation/json-schema-validator.md
             - OAuth2 Deep Dive:
                 - Token types:
                     - JWT Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/jwt-tokens.md
@@ -416,7 +416,7 @@ nav:
                 - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
             - Multitenancy:
                   - Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy.md
-                  - Managing Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/managing-tenants.md
+                  - Managing Tenants: Administer/ProductAdministration/Multitenancy/managing-tenants.md
                   - Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/configuring-the-tenant-loading-policy.md
             - Monitoring:
                 - Monitoring Logs:
@@ -494,7 +494,7 @@ nav:
         - Other: Reference/other.md
     - Troubleshooting:
         - Error Handling: Troubleshooting/error-handling.md
-        - Troubleshooting in Production Environments: Troubleshooting/troubleshooting-in-production-environments.md
+        - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
         - Working with Observability: Troubleshooting/working-with-observability.md
 # Extensions
