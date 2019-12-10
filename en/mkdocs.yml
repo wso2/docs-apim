@@ -446,6 +446,7 @@ nav:
                     - Securing Passwords:
                         - Encrypting Passwords in Configuration files: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
                         - Customizing Secure Vault: Administer/ProductSecurity/General/LoginsAndPasswords/carbon-secure-vault-implementation.md
+                        - Set Passwords using Environment Variables/System Properties: Administer/ProductSecurity/General/LoginsAndPasswords/set-passwords-using-vars-and-sys-props.md
                 - Using Asymmetric Encryption:
                     - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores.md
                     - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/renewing-a-ca-signed-certificate-in-a-keystore.md

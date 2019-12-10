@@ -13,28 +13,28 @@ In this example, we use a standalone API Manager instance and do this via the WS
 
 1.  Sign in to the WSO2 APIM Management Console (`https://<Server Host>:9443/carbon`) and click **Add** under **Service Providers** .
 
-     <a href="../../../../../assets/img/Learn/add-service-provider-menu.png" ><img src="../../../../../assets/img/Learn/add-service-provider-menu.png" alt="Add Service Provider Menu" 
+     <a href="../../../../assets/img/Learn/add-service-provider-menu.png" ><img src="../../../../assets/img/Learn/add-service-provider-menu.png" alt="Add Service Provider Menu" 
           title="Add Service Provider Menu" width="20%" /></a>
 
 2.  Enter the name of the service provider and click **Register** .
 
-     <a href="../../../../../assets/img/Learn/create-external-sp.png" ><img src="../../../../../assets/img/Learn/create-external-sp.png" alt="Add Service Provider" 
+     <a href="../../../../assets/img/Learn/create-external-sp.png" ><img src="../../../../assets/img/Learn/create-external-sp.png" alt="Add Service Provider" 
           title="Add Service Provider" width="60%" /></a>
              
 3.  Click **Configure** under **Inbound Authentication Configuration &gt; OAuth/OpenId Connect Configuration** to add a new OAuth2 client.
 
-     <a href="../../../../../assets/img/Learn/add-oauth-app.png" ><img src="../../../../../assets/img/Learn/add-oauth-app.png" alt="Add Oauth app" 
+     <a href="../../../../assets/img/Learn/add-oauth-app.png" ><img src="../../../../assets/img/Learn/add-oauth-app.png" alt="Add Oauth app" 
           title="Add Oauth app" width="60%" /></a>
           
 4.  Provide a callback URL and click **Add** .
     If you do not have a callback URL, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
     
-     <a href="../../../../../assets/img/Learn/register-oauth-app.png" ><img src="../../../../../assets/img/Learn/register-oauth-app.png" alt="Register Oauth app" 
+     <a href="../../../../assets/img/Learn/register-oauth-app.png" ><img src="../../../../assets/img/Learn/register-oauth-app.png" alt="Register Oauth app" 
           title="Register Oauth app" width="50%" /></a>  
     
     Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
    
-     <a href="../../../../../assets/img/Learn/external-oauthapp-credentials.png" ><img src="../../../../../assets/img/Learn/external-oauthapp-credentials.png" alt="Oauth app credentials" 
+     <a href="../../../../assets/img/Learn/external-oauthapp-credentials.png" ><img src="../../../../assets/img/Learn/external-oauthapp-credentials.png" alt="Oauth app credentials" 
           title="Oauth app credentials" width="50%" /></a> 
     
 ## Provisioning an out-of-band OAuth2 client in API Manager
@@ -61,7 +61,7 @@ In this example, we use a standalone API Manager instance and do this via the WS
     
 6.  Click on the respective application to view the credential details.
     
-     <a href="../../../../../assets/img/Learn/application-select.png" ><img src="../../../../../assets/img/Learn/application-select.png" alt="App listing" 
+     <a href="../../../../assets/img/Learn/application-select.png" ><img src="../../../../assets/img/Learn/application-select.png" alt="App listing" 
           title="App listing" width="50%" /></a>     
     
 7.  Click on **Production Keys** section to provision an out-of-band OAuth2 client for production environment. You should now see a ** Provide Existing OAuth Keys ** section below the Production Key and Secret section.
@@ -69,12 +69,12 @@ In this example, we use a standalone API Manager instance and do this via the WS
     !!! Note
         Out-of-band OAuth2 client can be provisioned either for production or sandbox environment. If you wish to generate keys for your sandbox, you can follow the same steps in **Sandbox Keys** tab.
 
-     <a href="../../../../../assets/img/Learn/provide-keys-section.png" ><img src="../../../../../assets/img/Learn/provide-keys-section.png" alt="Provide Keys" 
+     <a href="../../../../assets/img/Learn/provide-keys-section.png" ><img src="../../../../assets/img/Learn/provide-keys-section.png" alt="Provide Keys" 
           title="Provide Keys" width="50%" /></a>
 
 8.  Paste the consumer key and consumer secret pair, which you received in Step 4 in [Creating an external OAuth client](#creating-an-external-oauth-client) , and click **Provide** button.
 
-     <a href="../../../../../assets/img/Learn/update-keys.png" ><img src="../../../../../assets/img/Learn/update-keys.png" alt="update-keys" 
+     <a href="../../../../assets/img/Learn/update-keys.png" ><img src="../../../../assets/img/Learn/update-keys.png" alt="update-keys" 
           title="update-keys" width="50%" /></a>
 
     Now you have successfully mapped an out-of-band OAuth client for the application. Then you can [subscribing to an API]({{base_path}}/Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api/) via this application, [obtain an access token]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens/) for it and [invoke the API]({{base_path}}/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/).

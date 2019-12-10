@@ -60,6 +60,9 @@ The instructions below explain how plain text passwords in configuration files c
        password = "$secret{truststrore_password}"   
        ``` 
        
+    !!!Note
+        You can also replace your passwords by referring values passed by environment variables and system properties. See the instructions on [Set Passwords using Environment Variables/System Properties]({{base_path}}/Administer/ProductSecurity/General/LoginsAndPasswords/set-passwords-using-vars-and-sys-props)
+       
 4.  Open a terminal, navigate to the `<APIM_HOME>/bin` directory, and execute the following command to encrypt the passwords (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
 
     * On Linux: `./ciphertool.sh -Dconfigure`
