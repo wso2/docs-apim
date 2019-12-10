@@ -443,11 +443,9 @@ nav:
             - General:
                 - Logins and Passwords:
                     - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
-                    - Securing Passwords in Configuration Files:
-                        - Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/encrypting-passwords-with-cipher-tool.md
-                        - Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/resolving-encrypted-passwords.md
-                        - Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/carbon-secure-vault-implementation.md
-                    - Working with Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
+                    - Securing Passwords:
+                        - Encrypting Passwords in Configuration files: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
+                        - Customizing Secure Vault: Administer/ProductSecurity/General/LoginsAndPasswords/carbon-secure-vault-implementation.md
                 - Using Asymmetric Encryption:
                     - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores.md
                     - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/renewing-a-ca-signed-certificate-in-a-keystore.md
