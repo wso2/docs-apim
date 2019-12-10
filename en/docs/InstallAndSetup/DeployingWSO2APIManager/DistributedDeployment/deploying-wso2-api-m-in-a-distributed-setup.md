@@ -119,6 +119,19 @@ This section involves setting up the Key Manager node and enabling it to work wi
 4.  Start the WSO2 API-M Key Manager node(s) by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server](../../../InstallationGuide/running-the-product/) .
 
 
+    -   [**Linux/Mac OS**](#Linux-Mac)
+    
+        ``` java
+        cd <API-M_HOME>/bin/
+        sh wso2server.sh -Dprofile=traffic-manager
+        ```
+       
+    -   [**Windows**](#windows)
+        ``` java
+        cd <API-M_HOME>\bin\
+        wso2server.bat --run -Dprofile=traffic-manager
+        ```
+
 !!! note
     It is not recommended to share the Solr directory between the Developer Portal and Publisher servers. You need to have separate Solr directories for each of the latter mentioned servers so that they will perform Solr indexing separately.
 !!! warning
