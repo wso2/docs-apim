@@ -37,7 +37,7 @@ This section explains how to attach a custom workflow to the user signup operati
     !!! tip
         If you **change the EI port offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following :
 
-        -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the  new port (9763 + port offset).
+        -   Search and replace the value 9765 in all the files (.epr) inside `<API-M_HOME>/business-processes` folder with the  new port (9763 + port offset).
 
         !!! note
             **Note:** Make sure that the port offset is updated in the following files as well. Note that the zipped files should be unzipped for you to be able to see the files
@@ -111,7 +111,7 @@ This section explains how to attach a custom workflow to the user signup operati
 !!! tip
     If you **change the BPS port offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the  new port (9763 + port offset).
+    -   Search and replace the value 9765 in all the files (.epr) inside `<API-M_HOME>/business-processes` folder with the  new port (9763 + port offset).
 
     !!! note
         **Note:** Make sure that the port offset is updated in the following files as well. Note that the zipped files should be unzipped for you to be able to see the files
@@ -182,7 +182,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 #### Engaging the WS Workflow Executor in the API Manager
 
-1.  Log in to APIM management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
+1.  Log in to API-M management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
 
     ![Browse resources](../../../assets/img/Learn/browse-resources.png)
 
@@ -215,9 +215,11 @@ This section explains how to attach a custom workflow to the user signup operati
 
 4.  Note the message that appears if the BPEL is invoked correctly, saying that the request is successfully submitted.
 
-5.  Log in to the Admin Portal ( `https://<Server-Host>:9443/admin` ) of API Manager and approve the user signup task listed under **Tasks** > **User Creation**. It resumes the BPEL process and completes the signup process.
+5.  Log in to the [Admin Portal](`https://localhost:9443/admin`) (`https://<Server-Host>:9443/admin`) of API Manager giving the admin username and password.
 
-6.  Go back to the Developer Portal and see that the user is now registered.
+6.  Navigate to **Tasks** > **User Creation** and approve the user signup task listed. This will resume the BPEL process and complete the signup process.
+
+7.  Go back to the Developer Portal and see that the user is now registered.
 
 Whenever a user tries to sign up to the Developer Portal, a request of the following format is sent to the workflow endpoint:
 
