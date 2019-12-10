@@ -5,7 +5,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="{{base_path}}/Learn/DesignAPI/CreateAPI/create-a-websocket-api">Create a GraphQL API</a>.</p>
+<p>For more information on WebSocket APIs, see <a href="{{base_path}}/Learn/DesignAPI/CreateAPI/create-a-websocket-api">Create a WebSocket API</a>.</p>
 </div> 
 </html>
 
@@ -110,7 +110,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
    
       Example: `https://localhost:9443/devportal`
 
-2. Click on the GraphQL API.
+2. Click on the WebSocket API.
    
      The API overview appears.
 
