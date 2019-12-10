@@ -61,7 +61,7 @@ In this example, we use a standalone API Manager instance and do this via the WS
     
 6.  Click on the respective application to view the credential details.
     
-     <a href="../../../../../assets/img/Learn/application-select.png" ><img src="../../../../../assets/img/Learn/application-select.png" alt="App listing" 
+     <a href="../../../assets/img/Learn/application-select.png" ><img src="../../../../../assets/img/Learn/application-select.png" alt="App listing" 
           title="App listing" width="50%" /></a>     
     
 7.  Click on **Production Keys** section to provision an out-of-band OAuth2 client for production environment. You should now see a ** Provide Existing OAuth Keys ** section below the Production Key and Secret section.
