@@ -368,9 +368,9 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
-        ```
+        ```tab="MSSQL"
         [database.apim_db]
         type = "mssql"
         url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
@@ -378,6 +378,36 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         validationQuery = "SELECT 1"
+        ```
+
+        ```tab="PostgreSQL"
+        [database.apim_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        ```
+
+        ```tab="Oracle"
+        [database.apim_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```
+
+        ```tab="DB2"
+        [database.apim_db]
+        type = "db2"
+        url = "jdbc:db2://localhost:50000/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
     !!! note
