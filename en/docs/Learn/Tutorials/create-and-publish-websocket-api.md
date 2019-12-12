@@ -156,4 +156,4 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
       </div> 
       </html>
 
-You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing and tested your API with the access token.
+You have successfully created and published your first WebSocket API, subscribed to it, obtained an access token for testing, and tested your API with the access token.
