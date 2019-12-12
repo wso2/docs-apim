@@ -386,7 +386,7 @@ Follow the instructions below to move all the existing API Manager configuration
         username = "username"
         password = "password"
         driver = "org.postgresql.Driver"
-        validationQuery = "SELECT 1"
+        validationQuery = "SELECT 1; COMMIT"
         ```
 
         ```tab="Oracle"
@@ -408,6 +408,9 @@ Follow the instructions below to move all the existing API Manager configuration
         driver = "com.ibm.db2.jcc.DB2Driver"
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
+
+    !!! note
+        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.5.0 version to API-M 3.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.0.0 version.
 
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the **WSO2UM_DB**.
 
