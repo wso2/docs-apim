@@ -32,17 +32,17 @@ copyright: WSO2 API Manager - Documentation
 # Configuration
 theme:
   name: material
+  custom_dir: theme/material
   palette:
     primary: deep-orange
     accent: deep-orange
-  custom_dir: theme/material
   logo: images/logo.svg
   favicon: images/favicon.png
   highlightjs: true
   feature:
     tabs: true
-  language: 'en'
-  
+  language: en
+
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: 'index.md'
