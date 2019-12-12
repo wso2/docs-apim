@@ -437,7 +437,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/tenants` directory with the copied contents.
 
     !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.0.0 version.
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modification in API-M 3.0.0 version.
 
         -   /api/_RevokeAPI_.xml
         -   /sequences/_cors_request_handler_.xml
