@@ -37,7 +37,7 @@ This section explains how to attach a custom workflow to the user signup operati
     !!! tip
         If you **change the EI port offset to a value other than 2 or run the API Manager and EI on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following :
 
-        -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the  new port (9763 + port offset).
+        -   Search and replace the value 9765 in all the files (.epr) inside `<API-M_HOME>/business-processes` folder with the  new port (9763 + port offset).
 
         !!! note
             **Note:** Make sure that the port offset is updated in the following files as well. Note that the zipped files should be unzipped for you to be able to see the files
@@ -77,7 +77,7 @@ This section explains how to attach a custom workflow to the user signup operati
         <wsa:Address>http://localhost:9765/services/UserApprovalService</wsa:Address>
         ```
 
-5.  [Start the EI server](https://docs.wso2.com/display/EI650/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
+5.  [Start the EI server](https://docs.wso2.com/display/EI650/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server-Host>:9443+<port-offset>/carbon` ).
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
@@ -111,7 +111,7 @@ This section explains how to attach a custom workflow to the user signup operati
 !!! tip
     If you **change the BPS port offset to a value other than 2 or run the API Manager and BPS on different machines** (therefore, want to set the `hostname` to a different value than `localhost` ), you do the following:
 
-    -   Search and replace the value 9765 in all the files (.epr) inside `<APIM_HOME>/business-processes` folder with the  new port (9763 + port offset).
+    -   Search and replace the value 9765 in all the files (.epr) inside `<API-M_HOME>/business-processes` folder with the  new port (9763 + port offset).
 
     !!! note
         **Note:** Make sure that the port offset is updated in the following files as well. Note that the zipped files should be unzipped for you to be able to see the files
@@ -150,7 +150,7 @@ This section explains how to attach a custom workflow to the user signup operati
         <wsa:Address>http://localhost:9765/services/UserApprovalService</wsa:Address>
         ```
 
-5.  [Start the BPS server](https://docs.wso2.com/display/AM260/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
+5.  [Start the BPS server](https://docs.wso2.com/display/AM260/Running+the+Product#RunningtheProduct-Startingtheserver) and log in to its management console ( `https://<Server-Host>:9443+<port-offset>/carbon` ).
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
@@ -176,13 +176,13 @@ This section explains how to attach a custom workflow to the user signup operati
 
     Paths to the directory containing the client-truststore of each product are :
 
-        1. API-M - <API-M_HOME>/repository/resources/security
-        2. EI - <EI_HOME>/wso2/business-process/repository/resources/security
-        3. BPS - <BPS_HOME>/repository/resources/security
+        1. API-M - '<API-M_HOME>/repository/resources/security'
+        2. EI - '<EI_HOME>/wso2/business-process/repository/resources/security'
+        3. BPS - '<BPS_HOME>/repository/resources/security'
 
 #### Engaging the WS Workflow Executor in the API Manager
 
-1.  Log in to APIM management console ( `https://<Server Host>:9443/carbon` ) and select **Browse** under **Resources**.
+1.  Log in to API-M management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
 
     ![Browse resources](../../../assets/img/Learn/browse-resources.png)
 
@@ -204,13 +204,22 @@ This section explains how to attach a custom workflow to the user signup operati
         All workflow process services of the EI/BPS run on port 9765 because you changed its default port (9763) with an offset of 2.
 
 3.  Go to the Developer Portal Web interface of API Manager and sign up / register as a new user.
+<html>
+    <body>
+        <div>
+            <img src="../../../../assets/img/Learn/register-now.png" alt="Register now option" width="600"/>
+        </div>
+    </body>
+</html>
     It invokes the signup process and creates a Human Task instance that holds the execution of the BPEL until some action is performed on it.
 
 4.  Note the message that appears if the BPEL is invoked correctly, saying that the request is successfully submitted.
 
-5.  Log in to the Admin Portal ( `https://:9443/admin` ) of API Manager and approve the user signup task. It resumes the BPEL process and completes the signup process.
+5.  Log in to the [Admin Portal](`https://localhost:9443/admin`) (`https://<Server-Host>:9443/admin`) of API Manager giving the admin username and password.
 
-6.  Go back to the Developer Portal and see that the user is now registered.
+6.  Navigate to **Tasks** > **User Creation** and approve the user signup task listed. This will resume the BPEL process and complete the signup process.
+
+7.  Go back to the Developer Portal and see that the user is now registered.
 
 Whenever a user tries to sign up to the Developer Portal, a request of the following format is sent to the workflow endpoint:
 
