@@ -60,7 +60,7 @@ Let's get started.
     | Value Expression  | get-property('Custom') |
     | Property Scope    | transport              |
 
-    [![](../../../assets/img/Learn/eclipse-token-exchange-property-2.png)](../../../assets/img/Learn/eclipse-token-exchange-property-2.png)
+    [![](../../../assets/img/Learn/eclipse-token-exchange-property.png)](../../../assets/img/Learn/eclipse-token-exchange-property.png)
 
 11. Add a third **Property** mediator to your sequence and give the following values to the mediator. This property mediator is used to remove the **Custom** property from the transport level.
 
@@ -71,7 +71,7 @@ Let's get started.
     | Property Action   | remove       |
     | Property Scope    | transport    |
 
-    [![](../../../assets/img/Learn/eclipse-token-exchange-property-3.png)](../../../assets/img/Learn/eclipse-token-exchange-property-3.png)
+    [![](../../../assets/img/Learn/eclipse-token-exchange-property.png)](../../../assets/img/Learn/eclipse-token-exchange-property.png)
 
 12. Save the sequence.
 

@@ -40,28 +40,27 @@ For information on configuring the databases, see \_Installing and Configuring t
 ### Step 4 - Configure hostnames that are used to expose APIs
 
 !!! note
-This step is only required if you are using a hostname to expose APIs.
+    This step is only required if you are using a hostname to expose APIs.
 
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Click here for more information.
+??? info "Click here for more information."
+    Add this hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file. Update the endpoints with your chosen hostname as shown below. In this case we are using `localhost` as the hostname:
 
-Add this hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file. Update the endpoints with your chosen hostname as shown below. In this case we are using `localhost` as the hostname:
-
-``` java
-    [[apim.gateway.environment]]
-    name = "Production and Sandbox"
-    type = "hybrid"
-    display_in_api_console = true
-    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    show_as_token_endpoint_url = true
-    service_url = "https://localhost:${mgt.transport.https.port}/services/"
-    username= "${admin.username}"
-    password= "${admin.password}"
-    ws_endpoint = "ws://localhost:9099"
-    wss_endpoint = "wss://localhost:8099"
-    http_endpoint = "http://localhost:${http.nio.port}"
-    https_endpoint = "https://localhost:${https.nio.port}"
-```
+    ``` java
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        type = "hybrid"
+        display_in_api_console = true
+        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+        show_as_token_endpoint_url = true
+        service_url = "https://localhost:${mgt.transport.https.port}/services/"
+        username= "${admin.username}"
+        password= "${admin.password}"
+        ws_endpoint = "ws://localhost:9099"
+        wss_endpoint = "wss://localhost:8099"
+        http_endpoint = "http://localhost:${http.nio.port}"
+        https_endpoint = "https://localhost:${https.nio.port}"
+    ```
 
 ### Step 5 - Configure your deployment with production hardening
 

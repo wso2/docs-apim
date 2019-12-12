@@ -50,7 +50,7 @@ Please refer to the [WSO2 IS documentation](https://is.docs.wso2.com/en/5.9.0/le
 !!! tip
     We use the Client Credentials grant type to generate access tokens for an application through the API Developer Portal. Therefore, you should enable this grant type to the application. To do that, go to the API Developer Portal, click the application name from under the **APPLICATIONS** tab, click the **Production Keys** tab, and select the **Client Credentials** check box under **Grant Types** in **Key Configurations**.
 
-    ![](../../../../../assets/img/Learn/client-credentials.png)
+    ![](../../../../assets/img/Learn/client-credentials.png)
 
 !!! info
     **Setting a custom validity time for access tokens**

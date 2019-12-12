@@ -1,7 +1,7 @@
 # Minimum High Availability Deployment for WSO2 APIM Analytics
 
 !!! warning
-Took the page offline as the content is out dated. New content needs to be got from [Minimum High Availability Deployment](https://docs.wso2.com/display/SP430/Minimum+High+Availability+Deployment) SP430
+    Took the page offline as the content is out dated. New content needs to be got from [Minimum High Availability Deployment](https://docs.wso2.com/display/SP430/Minimum+High+Availability+Deployment) SP430
 
 
 This section explains how to configure WSO2 API Manager Analytics in a distributed setup. You can configure alerts to monitor these APIs and detect unusual activity, manage locations via geo location statistics and to carry out detailed analysis of logs relating to the APIs. WSO2 APIM Analytics is powered by WSO2 DAS. The following diagram indicates the minimum deployment pattern used for high availability.
@@ -66,32 +66,32 @@ Before you configure a minimum high availability API-M Analytics cluster, the fo
     7.  Execute the following script for the two databases you created in the previous step.
 `mysql> source <APIM Analytics_HOME>/dbscripts/mysql.sql;                         `
 
-                !!! note
-        From WSO2 Carbon Kernel 4.4.6 onwards there are two MySQL DB scripts available in the product distribution. Click [here](https://docs.wso2.com/display/AM200/FAQ#FAQ-WhichMySQLdatabasescriptshouldIuse?) to identify as to which version of the MySQL script to use.
+        !!! note
+            From WSO2 Carbon Kernel 4.4.6 onwards there are two MySQL DB scripts available in the product distribution. Click [here](https://docs.wso2.com/display/AM200/FAQ#FAQ-WhichMySQLdatabasescriptshouldIuse?) to identify as to which version of the MySQL script to use.
 
 
-        ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to view the commands for performing steps f and g
+        ??? info "Click here to view the commands for performing steps f and g"
 
-        ``` java
-                mysql> create database userdb;
-                mysql> use userdb;
-                mysql> source <APIM Analytics_HOME>/dbscripts/mysql.sql;
-                mysql> grant all on userdb.* TO username@localhost identified by "password";
-                 
-                 
-                mysql> create database regdb;
-                mysql> use regdb;
-                mysql> source <APIM Analytics_HOME>/dbscripts/mysql.sql;
-                mysql> grant all on regdb.* TO username@localhost identified by "password";
-        ```
+            ``` java
+                    mysql> create database userdb;
+                    mysql> use userdb;
+                    mysql> source <APIM Analytics_HOME>/dbscripts/mysql.sql;
+                    mysql> grant all on userdb.* TO username@localhost identified by "password";
+                     
+                     
+                    mysql> create database regdb;
+                    mysql> use regdb;
+                    mysql> source <APIM Analytics_HOME>/dbscripts/mysql.sql;
+                    mysql> grant all on regdb.* TO username@localhost identified by "password";
+            ```
 
     8.  Create the following databases in MySQL.
 
         -`WSO2_ANALYTICS_EVENT_STORE_DB             `
         -`WSO2_ANALYTICS_PROCESSED_DATA_STORE_DB             `
 
-                !!! info
-        It is recommended to create the databases with the same names given above because they are the default JNDI names that are included in the `<APIM Analytics_HOME>/repository/conf/analytics/analytics-conf.xml` file as shown in the extract below. If you change the name, the `analytics-conf.xml` file should be updated with the changed name.
+        !!! info
+            It is recommended to create the databases with the same names given above because they are the default JNDI names that are included in the `<APIM Analytics_HOME>/repository/conf/analytics/analytics-conf.xml` file as shown in the extract below. If you change the name, the `analytics-conf.xml` file should be updated with the changed name.
 
         ``` xml
                 <analytics-record-store name="EVENT_STORE">
@@ -263,8 +263,8 @@ When configuring the minimum high availability cluster following setups should b
                 </mount>
         ```
 
-                !!! note
-        Do not replace the following configuration when adding in the mounting configurations. The registry mounting configurations mentioned in the above steps should be added in addition to the following.
+        !!! note
+            Do not replace the following configuration when adding in the mounting configurations. The registry mounting configurations mentioned in the above steps should be added in addition to the following.
 
         ``` xml
                 <dbConfig name="wso2registry">
@@ -307,137 +307,137 @@ When configuring the minimum high availability cluster following setups should b
                     <parameter name="localMemberHost">[Server_IP_Address]</parameter>
         ```
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to view the complete clustering section of the axis2.xml file. with the changes mentioned above.
+    ??? info "Click here to view the complete clustering section of the axis2.xml file. with the changes mentioned above."
 
-    ``` xml
-                <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
-                            enable="true">
-            <!--
-               This parameter indicates whether the cluster has to be automatically initalized
-               when the AxisConfiguration is built. If set to "true" the initialization will not be
-               done at that stage, and some other party will have to explictly initialize the cluster.
-            -->
-            <parameter name="AvoidInitiation">true</parameter>
-
-            <!--
-               The membership scheme used in this setup. The only values supported at the moment are
-               "multicast" and "wka"
-
-               1. multicast - membership is automatically discovered using multicasting
-               2. wka - Well-Known Address based multicasting. Membership is discovered with the help
-                        of one or more nodes running at a Well-Known Address. New members joining a
-                        cluster will first connect to a well-known node, register with the well-known node
-                        and get the membership list from it. When new members join, one of the well-known
-                        nodes will notify the others in the group. When a member leaves the cluster or
-                        is deemed to have left the cluster, it will be detected by the Group Membership
-                        Service (GMS) using a TCP ping mechanism.
-            -->
-            
-            <parameter name="membershipScheme">wka</parameter>
-
-            <!--<parameter name="licenseKey">xxx</parameter>-->
-            <!--<parameter name="mgtCenterURL">http://localhost:8081/mancenter/</parameter>-->
-
-            <!--
-             The clustering domain/group. Nodes in the same group will belong to the same multicast
-             domain. There will not be interference between nodes in different groups.
-            -->
-            <parameter name="domain">wso2.carbon.domain</parameter>
-
-            <!-- The multicast address to be used -->
-            <!--<parameter name="mcastAddress">228.0.0.4</parameter>-->
-
-            <!-- The multicast port to be used -->
-            <parameter name="mcastPort">45564</parameter>
-
-            <parameter name="mcastTTL">100</parameter>
-
-            <parameter name="mcastTimeout">60</parameter>
-
-            <!--
-               The IP address of the network interface to which the multicasting has to be bound to.
-               Multicasting would be done using this interface.
-            -->
-            <!--
-                <parameter name="mcastBindAddress">10.100.5.109</parameter>
-            -->
-            <!-- The host name or IP address of this member -->
-
-            <parameter name="localMemberHost">[node IP]</parameter>
-
-            <!--
-                The bind adress of this member. The difference between localMemberHost & localMemberBindAddress
-                is that localMemberHost is the one that is advertised by this member, while localMemberBindAddress
-                is the address to which this member is bound to.
-            -->
-            <!--
-            <parameter name="localMemberBindAddress">[node IP]</parameter>
-            -->
-
-            <!--
-            The TCP port used by this member. This is the port through which other nodes will
-            contact this member
-             -->
-            <parameter name="localMemberPort">[node port]</parameter>
-
-            <!--
-                The bind port of this member. The difference between localMemberPort & localMemberBindPort
-                is that localMemberPort is the one that is advertised by this member, while localMemberBindPort
-                is the port to which this member is bound to.
-            -->
-            <!--
-            <parameter name="localMemberBindPort">4001</parameter>
-            -->
-
-            <!--
-            Properties specific to this member
-            -->
-            <parameter name="properties">
-                <property name="backendServerURL" value="https://${hostName}:${httpsPort}/services/"/>
-                <property name="mgtConsoleURL" value="https://${hostName}:${httpsPort}/"/>
-                <property name="subDomain" value="worker"/>
-            </parameter>
-
-            <!--
-            Uncomment the following section to load custom Hazelcast data serializers.
-            -->
-            <!--
-            <parameter name="hazelcastSerializers">
-                <serializer typeClass="java.util.TreeSet">org.wso2.carbon.hazelcast.serializer.TreeSetSerializer
-                </serializer>
-                <serializer typeClass="java.util.Map">org.wso2.carbon.hazelcast.serializer.MapSerializer</serializer>
-            </parameter>
-            -->
-
-            <!--
-               The list of static or well-known members. These entries will only be valid if the
-               "membershipScheme" above is set to "wka"
-            -->
-            <members>
-                <member>
-                    <hostName>[node1 IP]</hostName>
-                    <port>[node1 port]</port>
-                </member>
-                <member>
-                    <hostName>[node2 IP]</hostName>
-                    <port>[node2 port]</port>
-                </member>
-            </members>
-
-            <!--
-            Enable the groupManagement entry if you need to run this node as a cluster manager.
-            Multiple application domains with different GroupManagementAgent implementations
-            can be defined in this section.
-            -->
-            <groupManagement enable="false">
-                <applicationDomain name="wso2.as.domain"
-                                   description="AS group"
-                                   agent="org.wso2.carbon.core.clustering.hazelcast.HazelcastGroupManagementAgent"
-                                   subDomain="worker"
-                                   port="2222"/>
-            </groupManagement>
-        </clustering>
-    ```
+        ``` xml
+                    <clustering class="org.wso2.carbon.core.clustering.hazelcast.HazelcastClusteringAgent"
+                                enable="true">
+                <!--
+                   This parameter indicates whether the cluster has to be automatically initalized
+                   when the AxisConfiguration is built. If set to "true" the initialization will not be
+                   done at that stage, and some other party will have to explictly initialize the cluster.
+                -->
+                <parameter name="AvoidInitiation">true</parameter>
+    
+                <!--
+                   The membership scheme used in this setup. The only values supported at the moment are
+                   "multicast" and "wka"
+    
+                   1. multicast - membership is automatically discovered using multicasting
+                   2. wka - Well-Known Address based multicasting. Membership is discovered with the help
+                            of one or more nodes running at a Well-Known Address. New members joining a
+                            cluster will first connect to a well-known node, register with the well-known node
+                            and get the membership list from it. When new members join, one of the well-known
+                            nodes will notify the others in the group. When a member leaves the cluster or
+                            is deemed to have left the cluster, it will be detected by the Group Membership
+                            Service (GMS) using a TCP ping mechanism.
+                -->
+                
+                <parameter name="membershipScheme">wka</parameter>
+    
+                <!--<parameter name="licenseKey">xxx</parameter>-->
+                <!--<parameter name="mgtCenterURL">http://localhost:8081/mancenter/</parameter>-->
+    
+                <!--
+                 The clustering domain/group. Nodes in the same group will belong to the same multicast
+                 domain. There will not be interference between nodes in different groups.
+                -->
+                <parameter name="domain">wso2.carbon.domain</parameter>
+    
+                <!-- The multicast address to be used -->
+                <!--<parameter name="mcastAddress">228.0.0.4</parameter>-->
+    
+                <!-- The multicast port to be used -->
+                <parameter name="mcastPort">45564</parameter>
+    
+                <parameter name="mcastTTL">100</parameter>
+    
+                <parameter name="mcastTimeout">60</parameter>
+    
+                <!--
+                   The IP address of the network interface to which the multicasting has to be bound to.
+                   Multicasting would be done using this interface.
+                -->
+                <!--
+                    <parameter name="mcastBindAddress">10.100.5.109</parameter>
+                -->
+                <!-- The host name or IP address of this member -->
+    
+                <parameter name="localMemberHost">[node IP]</parameter>
+    
+                <!--
+                    The bind adress of this member. The difference between localMemberHost & localMemberBindAddress
+                    is that localMemberHost is the one that is advertised by this member, while localMemberBindAddress
+                    is the address to which this member is bound to.
+                -->
+                <!--
+                <parameter name="localMemberBindAddress">[node IP]</parameter>
+                -->
+    
+                <!--
+                The TCP port used by this member. This is the port through which other nodes will
+                contact this member
+                 -->
+                <parameter name="localMemberPort">[node port]</parameter>
+    
+                <!--
+                    The bind port of this member. The difference between localMemberPort & localMemberBindPort
+                    is that localMemberPort is the one that is advertised by this member, while localMemberBindPort
+                    is the port to which this member is bound to.
+                -->
+                <!--
+                <parameter name="localMemberBindPort">4001</parameter>
+                -->
+    
+                <!--
+                Properties specific to this member
+                -->
+                <parameter name="properties">
+                    <property name="backendServerURL" value="https://${hostName}:${httpsPort}/services/"/>
+                    <property name="mgtConsoleURL" value="https://${hostName}:${httpsPort}/"/>
+                    <property name="subDomain" value="worker"/>
+                </parameter>
+    
+                <!--
+                Uncomment the following section to load custom Hazelcast data serializers.
+                -->
+                <!--
+                <parameter name="hazelcastSerializers">
+                    <serializer typeClass="java.util.TreeSet">org.wso2.carbon.hazelcast.serializer.TreeSetSerializer
+                    </serializer>
+                    <serializer typeClass="java.util.Map">org.wso2.carbon.hazelcast.serializer.MapSerializer</serializer>
+                </parameter>
+                -->
+    
+                <!--
+                   The list of static or well-known members. These entries will only be valid if the
+                   "membershipScheme" above is set to "wka"
+                -->
+                <members>
+                    <member>
+                        <hostName>[node1 IP]</hostName>
+                        <port>[node1 port]</port>
+                    </member>
+                    <member>
+                        <hostName>[node2 IP]</hostName>
+                        <port>[node2 port]</port>
+                    </member>
+                </members>
+    
+                <!--
+                Enable the groupManagement entry if you need to run this node as a cluster manager.
+                Multiple application domains with different GroupManagementAgent implementations
+                can be defined in this section.
+                -->
+                <groupManagement enable="false">
+                    <applicationDomain name="wso2.as.domain"
+                                       description="AS group"
+                                       agent="org.wso2.carbon.core.clustering.hazelcast.HazelcastGroupManagementAgent"
+                                       subDomain="worker"
+                                       port="2222"/>
+                </groupManagement>
+            </clustering>
+        ```
 3.  Configure the `<APIM Analytics_HOME>/repository/conf/event-processor.xml` file as follows to cluster API-M Analytics in the Receiver.
 
     1.  Enable the `HA` mode by setting the following property.
@@ -454,8 +454,8 @@ When configuring the minimum high availability cluster following setups should b
 
     3.  For each node, enter the respective server IP address under the `HA mode` Config section as shown in the example below.
 
-                !!! info
-        When you enable the HA mode for WSO2 API-M Analytics, the following are enabled by default:
+        !!! info
+            When you enable the HA mode for WSO2 API-M Analytics, the following are enabled by default.
 
         -   **State persistence:** If there is no real time use case that requires any state information after starting the cluster, you should disable event persistence by setting the `persistence` attribute to `false` in the `<APIM Analytics_HOME>/repository/conf/event-processor.xml` file as shown below.
 
@@ -486,150 +486,150 @@ When configuring the minimum high availability cluster following setups should b
                             <hostName>[Server_IP_Address]</hostName>
         ```
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to view the complete event-processor.xml file with the changes mentioned above.
+    ??? info "Click here to view the complete event-processor.xml file with the changes mentioned above."
 
-    ``` xml
-            <eventProcessorConfiguration>
-                <mode name="SingleNode" enable="false">
-                    <persistence enable="false">
-                        <persistenceIntervalInMinutes>15</persistenceIntervalInMinutes>
-                        <persisterSchedulerPoolSize>10</persisterSchedulerPoolSize>
-                        <persister class="org.wso2.carbon.event.processor.core.internal.persistence.FileSystemPersistenceStore">
-                            <property key="persistenceLocation">cep_persistence</property>
-                        </persister>
-                    </persistence>
-                </mode>
-        <!-- HA Mode Config -->
-        <mode name="HA" enable="true">
-            <nodeType>
-                <worker enable="true"/>
-                <presenter enable="false"/>
-            </nodeType>
-            <checkMemberUpdateInterval>10000</checkMemberUpdateInterval>
-            <eventSync>
-                <hostName>172.18.1.217</hostName>
-                <port>11224</port>
-                <reconnectionInterval>20000</reconnectionInterval>
-                <serverThreads>20000</serverThreads>
-                <!--Size of TCP event publishing client's send buffer in bytes-->
-                <publisherTcpSendBufferSize>5242880</publisherTcpSendBufferSize>
-                <!--Character encoding of TCP event publishing client-->
-                <publisherCharSet>UTF-8</publisherCharSet>
-                <publisherBufferSize>1024</publisherBufferSize>
-                <publisherConnectionStatusCheckInterval>30000</publisherConnectionStatusCheckInterval>
-                <!--Number of events that could be queued at receiver before they are synced between CEP/DAS nodes-->
-                <receiverQueueSize>1000000</receiverQueueSize>
-                <!--Max total size of events that could be queued at receiver before they are synced between CEP/DAS nodes-->
-                <receiverQueueMaxSizeMb>10</receiverQueueMaxSizeMb>
-                <!--Number of events that could be queued at publisher to sync output between CEP/DAS nodes-->
-                <publisherQueueSize>1000000</publisherQueueSize>
-                <!--Max total size of events that could be queued at publisher to sync output between CEP/DAS nodes-->
-                <publisherQueueMaxSizeMb>10</publisherQueueMaxSizeMb>
-            </eventSync>
-            <management>
-                <hostName>172.18.1.217</hostName>
-                <port>10005</port>
-                <tryStateChangeInterval>15000</tryStateChangeInterval>
-                <stateSyncRetryInterval>10000</stateSyncRetryInterval>
-            </management>
-            <presentation>
-                <hostName>0.0.0.0</hostName>
-                <port>11000</port>
-                <!--Size of TCP event publishing client's send buffer in bytes-->
-                <publisherTcpSendBufferSize>5242880</publisherTcpSendBufferSize>
-                <!--Character encoding of TCP event publishing client-->
-                <publisherCharSet>UTF-8</publisherCharSet>
-                <publisherBufferSize>1024</publisherBufferSize>
-                <publisherConnectionStatusCheckInterval>30000</publisherConnectionStatusCheckInterval>
-            </presentation>
-        </mode>
-
-        <!-- Distributed Mode Config -->
-        <mode name="Distributed" enable="false">
-            <nodeType>
-                <worker enable="true"/>
-                <manager enable="true">
-                    <hostName>0.0.0.0</hostName>
-                    <port>8904</port>
-                </manager>
-                <presenter enable="false">
+        ``` xml
+                <eventProcessorConfiguration>
+                    <mode name="SingleNode" enable="false">
+                        <persistence enable="false">
+                            <persistenceIntervalInMinutes>15</persistenceIntervalInMinutes>
+                            <persisterSchedulerPoolSize>10</persisterSchedulerPoolSize>
+                            <persister class="org.wso2.carbon.event.processor.core.internal.persistence.FileSystemPersistenceStore">
+                                <property key="persistenceLocation">cep_persistence</property>
+                            </persister>
+                        </persistence>
+                    </mode>
+            <!-- HA Mode Config -->
+            <mode name="HA" enable="true">
+                <nodeType>
+                    <worker enable="true"/>
+                    <presenter enable="false"/>
+                </nodeType>
+                <checkMemberUpdateInterval>10000</checkMemberUpdateInterval>
+                <eventSync>
+                    <hostName>172.18.1.217</hostName>
+                    <port>11224</port>
+                    <reconnectionInterval>20000</reconnectionInterval>
+                    <serverThreads>20000</serverThreads>
+                    <!--Size of TCP event publishing client's send buffer in bytes-->
+                    <publisherTcpSendBufferSize>5242880</publisherTcpSendBufferSize>
+                    <!--Character encoding of TCP event publishing client-->
+                    <publisherCharSet>UTF-8</publisherCharSet>
+                    <publisherBufferSize>1024</publisherBufferSize>
+                    <publisherConnectionStatusCheckInterval>30000</publisherConnectionStatusCheckInterval>
+                    <!--Number of events that could be queued at receiver before they are synced between CEP/DAS nodes-->
+                    <receiverQueueSize>1000000</receiverQueueSize>
+                    <!--Max total size of events that could be queued at receiver before they are synced between CEP/DAS nodes-->
+                    <receiverQueueMaxSizeMb>10</receiverQueueMaxSizeMb>
+                    <!--Number of events that could be queued at publisher to sync output between CEP/DAS nodes-->
+                    <publisherQueueSize>1000000</publisherQueueSize>
+                    <!--Max total size of events that could be queued at publisher to sync output between CEP/DAS nodes-->
+                    <publisherQueueMaxSizeMb>10</publisherQueueMaxSizeMb>
+                </eventSync>
+                <management>
+                    <hostName>172.18.1.217</hostName>
+                    <port>10005</port>
+                    <tryStateChangeInterval>15000</tryStateChangeInterval>
+                    <stateSyncRetryInterval>10000</stateSyncRetryInterval>
+                </management>
+                <presentation>
                     <hostName>0.0.0.0</hostName>
                     <port>11000</port>
-                </presenter>
-            </nodeType>
-            <management>
-                <managers>
-                    <manager>
-                        <hostName>localhost</hostName>
+                    <!--Size of TCP event publishing client's send buffer in bytes-->
+                    <publisherTcpSendBufferSize>5242880</publisherTcpSendBufferSize>
+                    <!--Character encoding of TCP event publishing client-->
+                    <publisherCharSet>UTF-8</publisherCharSet>
+                    <publisherBufferSize>1024</publisherBufferSize>
+                    <publisherConnectionStatusCheckInterval>30000</publisherConnectionStatusCheckInterval>
+                </presentation>
+            </mode>
+    
+            <!-- Distributed Mode Config -->
+            <mode name="Distributed" enable="false">
+                <nodeType>
+                    <worker enable="true"/>
+                    <manager enable="true">
+                        <hostName>0.0.0.0</hostName>
                         <port>8904</port>
                     </manager>
-                    <manager>
-                        <hostName>localhost</hostName>
-                        <port>8905</port>
-                    </manager>
-                </managers>
-                <!--Connection re-try interval to connect to Storm Manager service in case of a connection failure-->
-                <reconnectionInterval>20000</reconnectionInterval>
-                <!--Heart beat interval (in ms) for event listeners in "Storm Receivers" and "CEP Publishers" to acknowledge their
-                availability for receiving events"-->
-                <heartbeatInterval>5000</heartbeatInterval>
-                <!--Storm topology re-submit interval in case of a topology submission failure-->
-                <topologyResubmitInterval>10000</topologyResubmitInterval>
-            </management>
-            <transport>
-                <!--Port range to be used for events listener servers in "Storm Receiver Spouts" and "CEP Publishers"-->
-                <portRange>
-                    <min>15000</min>
-                    <max>15100</max>
-                </portRange>
-                <!--Connection re-try interval (in ms) for connection failures between "CEP Receiver" to "Storm Receiver" connections
-                and "Storm Publisher" to "CEP Publisher" connections-->
-                <reconnectionInterval>20000</reconnectionInterval>
-                <!--Size of the output queue of each "CEP Receiver" which stores events to be published into "Storm Receivers" .
-                This must be a power of two-->
-                <cepReceiverOutputQueueSize>8192</cepReceiverOutputQueueSize>
-                <!--Size of the output queue of each "Storm Publisher" which stores events to be published into "CEP Publisher" .
-                This must be a power of two-->
-                <stormPublisherOutputQueueSize>8192</stormPublisherOutputQueueSize>
-                <!--Size of TCP event publishing client's send buffer in bytes-->
-                <tcpEventPublisherSendBufferSize>5242880</tcpEventPublisherSendBufferSize>
-                <!--Character encoding of TCP event publishing client-->
-                <tcpEventPublisherCharSet>UTF-8</tcpEventPublisherCharSet>
-                <!--Size of the event queue in each storm spout which stores events to be processed by storm bolts -->
-                <stormSpoutBufferSize>10000</stormSpoutBufferSize>
-                <connectionStatusCheckInterval>20000</connectionStatusCheckInterval>
-            </transport>
-            <presentation>
-                <presentationOutputQueueSize>1024</presentationOutputQueueSize>
-                <!--Size of TCP event publishing client's send buffer in bytes-->
-                <tcpEventPublisherSendBufferSize>5242880</tcpEventPublisherSendBufferSize>
-                <!--Character encoding of TCP event publishing client-->
-                <tcpEventPublisherCharSet>UTF-8</tcpEventPublisherCharSet>
-                <connectionStatusCheckInterval>20000</connectionStatusCheckInterval>
-            </presentation>
-            <statusMonitor>
-                <lockTimeout>60000</lockTimeout>
-                <updateRate>60000</updateRate>
-            </statusMonitor>
-            <stormJar>org.wso2.cep.storm.dependencies.jar</stormJar>
-            <distributedUIUrl></distributedUIUrl>
-            <memberUpdateCheckInterval>20000</memberUpdateCheckInterval>
-        </mode>
-    </eventProcessorConfiguration>
-    ```
+                    <presenter enable="false">
+                        <hostName>0.0.0.0</hostName>
+                        <port>11000</port>
+                    </presenter>
+                </nodeType>
+                <management>
+                    <managers>
+                        <manager>
+                            <hostName>localhost</hostName>
+                            <port>8904</port>
+                        </manager>
+                        <manager>
+                            <hostName>localhost</hostName>
+                            <port>8905</port>
+                        </manager>
+                    </managers>
+                    <!--Connection re-try interval to connect to Storm Manager service in case of a connection failure-->
+                    <reconnectionInterval>20000</reconnectionInterval>
+                    <!--Heart beat interval (in ms) for event listeners in "Storm Receivers" and "CEP Publishers" to acknowledge their
+                    availability for receiving events"-->
+                    <heartbeatInterval>5000</heartbeatInterval>
+                    <!--Storm topology re-submit interval in case of a topology submission failure-->
+                    <topologyResubmitInterval>10000</topologyResubmitInterval>
+                </management>
+                <transport>
+                    <!--Port range to be used for events listener servers in "Storm Receiver Spouts" and "CEP Publishers"-->
+                    <portRange>
+                        <min>15000</min>
+                        <max>15100</max>
+                    </portRange>
+                    <!--Connection re-try interval (in ms) for connection failures between "CEP Receiver" to "Storm Receiver" connections
+                    and "Storm Publisher" to "CEP Publisher" connections-->
+                    <reconnectionInterval>20000</reconnectionInterval>
+                    <!--Size of the output queue of each "CEP Receiver" which stores events to be published into "Storm Receivers" .
+                    This must be a power of two-->
+                    <cepReceiverOutputQueueSize>8192</cepReceiverOutputQueueSize>
+                    <!--Size of the output queue of each "Storm Publisher" which stores events to be published into "CEP Publisher" .
+                    This must be a power of two-->
+                    <stormPublisherOutputQueueSize>8192</stormPublisherOutputQueueSize>
+                    <!--Size of TCP event publishing client's send buffer in bytes-->
+                    <tcpEventPublisherSendBufferSize>5242880</tcpEventPublisherSendBufferSize>
+                    <!--Character encoding of TCP event publishing client-->
+                    <tcpEventPublisherCharSet>UTF-8</tcpEventPublisherCharSet>
+                    <!--Size of the event queue in each storm spout which stores events to be processed by storm bolts -->
+                    <stormSpoutBufferSize>10000</stormSpoutBufferSize>
+                    <connectionStatusCheckInterval>20000</connectionStatusCheckInterval>
+                </transport>
+                <presentation>
+                    <presentationOutputQueueSize>1024</presentationOutputQueueSize>
+                    <!--Size of TCP event publishing client's send buffer in bytes-->
+                    <tcpEventPublisherSendBufferSize>5242880</tcpEventPublisherSendBufferSize>
+                    <!--Character encoding of TCP event publishing client-->
+                    <tcpEventPublisherCharSet>UTF-8</tcpEventPublisherCharSet>
+                    <connectionStatusCheckInterval>20000</connectionStatusCheckInterval>
+                </presentation>
+                <statusMonitor>
+                    <lockTimeout>60000</lockTimeout>
+                    <updateRate>60000</updateRate>
+                </statusMonitor>
+                <stormJar>org.wso2.cep.storm.dependencies.jar</stormJar>
+                <distributedUIUrl></distributedUIUrl>
+                <memberUpdateCheckInterval>20000</memberUpdateCheckInterval>
+            </mode>
+        </eventProcessorConfiguration>
+        ```
         !!! info
     The following node types are configured for the HA deployment mode in the `<APIM Analytics_HOME>/repository/conf/event-processor.xml` file.
 
     -   **`eventSync             `** : Both the active and the passive nodes in this setup are event synchronizing nodes as explained in the introduction. Therefore, each node should have the host and the port on which it is operating specified under the `<eventSync>` element .
 
-                !!! info
-        Note that the `eventSync` port is not automatically updated to the port in which each node operates via port offset.
+        !!! info
+            Note that the `eventSync` port is not automatically updated to the port in which each node operates via port offset.
 
 
     -   **`management             `** : In this setup, both the nodes carry out the same tasks, and therefore, both nodes are considered manager nodes. Therefore, each node should have the host and the port on which it is operating specified under the `<management>` element.
 
-                !!! info
-        Note that the `management` port is not automatically updated to the port in which each node operates via port offset.
+        !!! info
+            Note that the `management` port is not automatically updated to the port in which each node operates via port offset.
 
 
     -   **`presentation            `** : You can optionally specify only one of the two nodes in this setup as the presenter node. The dashboards in which processed information is displayed are configured only in the presenter node. Each node should have the host and the port on which the assigned presenter node is operating specified under the `<presentation>` element. The host and the port as well as the other configurations under the `<presentation>` element are effective only when the `presenter enable="false` property is set under the `<!-- HA Mode Config -->` section.
@@ -725,29 +725,29 @@ Following are some exceptions you may view in the start up log when you start th
 
 -   When you start the passive node of the HA cluster, the following errors are displayed.
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to view the errors
+    ??? info "Click here to view the errors"
 
-    ``` text
-        ERROR {org.wso2.carbon.event.processor.manager.core.internal.HAManager} -  CEP HA State syncing failed, No execution plans exist for tenant  -1234
-        org.wso2.carbon.event.processor.manager.core.exception.EventManagementException: No execution plans exist for tenant  -1234
-            at org.wso2.carbon.event.processor.core.internal.CarbonEventProcessorManagementService.restoreState(CarbonEventProcessorManagementService.java:83)
-            at org.wso2.carbon.event.processor.manager.core.internal.HAManager.syncState(HAManager.java:336)
-            at org.wso2.carbon.event.processor.manager.core.internal.HAManager.access$100(HAManager.java:49)
-            at org.wso2.carbon.event.processor.manager.core.internal.HAManager$2.run(HAManager.java:276)
-            at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
-            at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-            at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
-            at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
-            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
-            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
-            at java.lang.Thread.run(Thread.java:745)
-    ```
+        ``` text
+            ERROR {org.wso2.carbon.event.processor.manager.core.internal.HAManager} -  CEP HA State syncing failed, No execution plans exist for tenant  -1234
+            org.wso2.carbon.event.processor.manager.core.exception.EventManagementException: No execution plans exist for tenant  -1234
+                at org.wso2.carbon.event.processor.core.internal.CarbonEventProcessorManagementService.restoreState(CarbonEventProcessorManagementService.java:83)
+                at org.wso2.carbon.event.processor.manager.core.internal.HAManager.syncState(HAManager.java:336)
+                at org.wso2.carbon.event.processor.manager.core.internal.HAManager.access$100(HAManager.java:49)
+                at org.wso2.carbon.event.processor.manager.core.internal.HAManager$2.run(HAManager.java:276)
+                at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+                at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+                at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+                at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+                at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+                at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+                at java.lang.Thread.run(Thread.java:745)
+        ```
 
     This is because the artifacts are yet to be deployed in the passive node even though it has received the sync message from the active node. This error is no longer displayed once the start up for the passive node is complete.
 
 -   When the Apache Spark Cluster is not properly instantiated, the following errors are displayed.
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to view the errors
+    ??? info "Click here to view the errors"
 
     ``` text
             [2016-09-13 13:59:34,000]  INFO {org.wso2.carbon.event.processor.manager.core.internal.CarbonEventManagementService} -  Starting polling event receivers

@@ -87,7 +87,7 @@ Each tenant can define their own name for the authorization header by following 
     The tenant wide authorization header customizations take precedence over the server wide authorization header customizations .
 
 
-1.  Sign in to the [WSO2 API Manager Management Console](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheManagementConsole) with your tenant credentials.
+1.  Sign in to the [WSO2 API Manager Management Console](../../../InstallAndSetup/InstallationGuide/running-the-product.md#accessing-the-management-console) with your tenant credentials.
 `https://<server-host>:9443/carbon`
 
 !!! tip
@@ -200,7 +200,7 @@ Each tenant can define their own name for the authorization header by following 
             }
 ```
 
-6.  If you have already published APIs, [sign in to the API Publisher](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheAPIPublisher) using your tenant credentials and republish those APIs.
+6.  If you have already published APIs, [sign in to the API Publisher](../../../InstallAndSetup/InstallationGuide/running-the-product.md#accessing-the-api-publisher) using your tenant credentials and republish those APIs.
 
 ### Customize per API
 
@@ -212,7 +212,7 @@ The customized authorization header defined per API takes precedence over the 
 
 Follow the instructions below to add a customized authorization header for an API:
 
-1.  [Sign in to the Publisher](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheAPIPublisher) .
+1.  [Sign in to the Publisher](../../../InstallAndSetup/InstallationGuide/running-the-product.md#accessing-the-api-publisher) .
 `https://<server-host>:9443/publisher         `
 2.  When [creating](_Create_and_Publish_an_API_) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 

@@ -41,60 +41,59 @@ The audit logs are printed in the `<API-M_HOME>/repository/logs/audit.log` file,
 
 After invoking and creating the APIs the audit logs will be similar to the following sample.
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Expand to see the sample audit log...
-
-``` java
-    [2017-12-22 11:48:03,227]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:03,226+0530]
-    [2017-12-22 11:48:03,341]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:03,339+0530]
-    [2017-12-22 11:48:09,390]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:09,389+0530]
-    [2017-12-22 11:48:09,398]  INFO -  Initiator : admin@carbon.super | Action : Add User | Target : tom | Data : { Roles :Internal/subscriber, } | Result : Success
-    [2017-12-22 11:48:09,437]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:09,436+0530]
-    [2017-12-22 11:48:09,458]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:09,457+0530]
-    [2017-12-22 11:48:10,396]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:10,395+0530]
-    [2017-12-22 11:48:10,819] Chris@finance.abc.com [1] [AM] INFO -  Initiator : Chris | Action : create | Target : 0 | Data : { Chris_Integration_Test_App } | Result : Success
-    [2017-12-22 11:48:10,941] Chris@finance.abc.com [1] [AM] INFO -  Initiator : Chris | Action : update | Target : 1 | Data : { Chris_Integration_Test_App } | Result : Success
-    [2017-12-22 11:48:11,132]  INFO -  Initiator : admin | Action : create | Target : 0 | Data : { admin_Integration_Test_App } | Result : Success
-    [2017-12-22 11:48:11,138]  INFO -  Initiator : admin | Action : update | Target : 2 | Data : { admin_Integration_Test_App } | Result : Success
-    [2017-12-22 11:48:12,437]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,436+0530]
-    [2017-12-22 11:48:12,709]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,709+0530]
-    [2017-12-22 11:48:12,813]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,813+0530]
-    [2017-12-22 11:48:12,880]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,879+0530]
-    [2017-12-22 11:48:12,909]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,909+0530]
-    [2017-12-22 11:48:13,116]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,116+0530]
-    [2017-12-22 11:48:13,207]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,207+0530]
-    [2017-12-22 11:48:13,234]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,234+0530]
-    [2017-12-22 11:48:13,293]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,293+0530]
-    [2017-12-22 11:48:13,342]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,341+0530]
-    [2017-12-22 11:48:13,425]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,425+0530]
-    [2017-12-22 11:48:13,484]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,484+0530]
-    [2017-12-22 11:48:13,503] ERROR -  Illegal access attempt at [2017-12-22 11:48:13,0502] from IP address 127.0.0.1 while trying to authenticate access to service EventProcessorAdminService
-    [2017-12-22 11:48:13,509]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,509+0530]
-    [2017-12-22 11:48:13,594]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,593+0530]
-    [2017-12-22 11:48:14,449] Chris@finance.abc.com@finance.abc.com [1] [AM] INFO -  {"performedBy":"Chris","action":"created","typ":"API","info":"{\"provider\":\"Chris-AT-finance.abc.com\",\"name\":\"Salary_details_API\",\"context\":\"\\\/t\\\/finance.abc.com\\\/salaries\\\/1.0.0\",\"version\":\"1.0.0\"}"}
-    [2017-12-22 11:48:14,911]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:14,910+0530]
-    [2017-12-22 11:48:15,003]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,003+0530]
-    [2017-12-22 11:48:15,175]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,175+0530]
-    [2017-12-22 11:48:15,629]  INFO -  {"performedBy":"admin","action":"created","typ":"API","info":"{\"provider\":\"admin\",\"name\":\"Mobile_stock_API\",\"context\":\"\\\/stocks\\\/1.0.0\",\"version\":\"1.0.0\"}"}
-    [2017-12-22 11:48:15,689]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,689+0530]
-    [2017-12-22 11:48:15,722]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,722+0530]
-    [2017-12-22 11:48:15,808]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,808+0530]
-    [2017-12-22 11:48:18,412]  INFO -  {"performedBy":"admin","action":"created","typ":"Application","info":"{\"tier\":\"Unlimited\",\"name\":\"Application_one\",\"callbackURL\":null}"}
-    [2017-12-22 11:48:18,507]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:18,507+0530]
-    [2017-12-22 11:48:18,512]  INFO -  Initiator : admin | Action : create | Target : 0 | Data : { admin_Application_one_PRODUCTION } | Result : Success
-    [2017-12-22 11:48:18,514]  INFO -  Initiator : admin | Action : update | Target : 3 | Data : { admin_Application_one_PRODUCTION } | Result : Success
-    [2017-12-22 11:48:18,520]  INFO -  Initiator : admin | Action : update | Target : 3 | Data : { admin_Application_one_PRODUCTION } | Result : Success
-    [2017-12-22 11:48:18,671]  INFO -  {"performedBy":"admin","action":"updated","typ":"Application","info":"{\"Generated keys for application\":\"Application_one\"}"}
-    [2017-12-22 11:48:18,720]  INFO -  {"performedBy":"admin","action":"created","typ":"Subscription","info":"{\"application_name\":\"Application_one\",\"tier\":\"Unlimited\",\"provider\":\"admin\",\"api_name\":\"Mobile_stock_API\",\"application_id\":2}"}
-    [2017-12-22 11:48:18,732]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:18,732+0530]
-    [2017-12-22 11:48:18,884]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:18,884+0530] from IP address
-    [2017-12-22 11:48:19,823]  INFO -  {"performedBy":"admin","action":"created","typ":"Application","info":"{\"tier\":\"Unlimited\",\"name\":\"Application_two\",\"callbackURL\":null}"}
-    [2017-12-22 11:48:19,848]  INFO -  Initiator : admin | Action : create | Target : 0 | Data : { admin_Application_two_PRODUCTION } | Result : Success
-    [2017-12-22 11:48:19,851]  INFO -  Initiator : admin | Action : update | Target : 4 | Data : { admin_Application_two_PRODUCTION } | Result : Success
-    [2017-12-22 11:48:19,854]  INFO -  Initiator : admin | Action : update | Target : 4 | Data : { admin_Application_two_PRODUCTION } | Result : Success
-    [2017-12-22 11:48:19,888]  INFO -  {"performedBy":"admin","action":"updated","typ":"Application","info":"{\"Generated keys for application\":\"Application_two\"}"}
-    [2017-12-22 11:48:19,904]  INFO -  {"performedBy":"admin","action":"created","typ":"Subscription","info":"{\"application_name\":\"Application_two\",\"tier\":\"Unlimited\",\"provider\":\"admin\",\"api_name\":\"Mobile_stock_API\",\"application_id\":3}"}
-    [2017-12-22 11:48:19,908]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:19,908+0530]
-```
+??? info "Expand to see the sample audit log..."
+    ``` java
+        [2017-12-22 11:48:03,227]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:03,226+0530]
+        [2017-12-22 11:48:03,341]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:03,339+0530]
+        [2017-12-22 11:48:09,390]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:09,389+0530]
+        [2017-12-22 11:48:09,398]  INFO -  Initiator : admin@carbon.super | Action : Add User | Target : tom | Data : { Roles :Internal/subscriber, } | Result : Success
+        [2017-12-22 11:48:09,437]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:09,436+0530]
+        [2017-12-22 11:48:09,458]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:09,457+0530]
+        [2017-12-22 11:48:10,396]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:10,395+0530]
+        [2017-12-22 11:48:10,819] Chris@finance.abc.com [1] [AM] INFO -  Initiator : Chris | Action : create | Target : 0 | Data : { Chris_Integration_Test_App } | Result : Success
+        [2017-12-22 11:48:10,941] Chris@finance.abc.com [1] [AM] INFO -  Initiator : Chris | Action : update | Target : 1 | Data : { Chris_Integration_Test_App } | Result : Success
+        [2017-12-22 11:48:11,132]  INFO -  Initiator : admin | Action : create | Target : 0 | Data : { admin_Integration_Test_App } | Result : Success
+        [2017-12-22 11:48:11,138]  INFO -  Initiator : admin | Action : update | Target : 2 | Data : { admin_Integration_Test_App } | Result : Success
+        [2017-12-22 11:48:12,437]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,436+0530]
+        [2017-12-22 11:48:12,709]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,709+0530]
+        [2017-12-22 11:48:12,813]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,813+0530]
+        [2017-12-22 11:48:12,880]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,879+0530]
+        [2017-12-22 11:48:12,909]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:12,909+0530]
+        [2017-12-22 11:48:13,116]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,116+0530]
+        [2017-12-22 11:48:13,207]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,207+0530]
+        [2017-12-22 11:48:13,234]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,234+0530]
+        [2017-12-22 11:48:13,293]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,293+0530]
+        [2017-12-22 11:48:13,342]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,341+0530]
+        [2017-12-22 11:48:13,425]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,425+0530]
+        [2017-12-22 11:48:13,484]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,484+0530]
+        [2017-12-22 11:48:13,503] ERROR -  Illegal access attempt at [2017-12-22 11:48:13,0502] from IP address 127.0.0.1 while trying to authenticate access to service EventProcessorAdminService
+        [2017-12-22 11:48:13,509]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,509+0530]
+        [2017-12-22 11:48:13,594]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:13,593+0530]
+        [2017-12-22 11:48:14,449] Chris@finance.abc.com@finance.abc.com [1] [AM] INFO -  {"performedBy":"Chris","action":"created","typ":"API","info":"{\"provider\":\"Chris-AT-finance.abc.com\",\"name\":\"Salary_details_API\",\"context\":\"\\\/t\\\/finance.abc.com\\\/salaries\\\/1.0.0\",\"version\":\"1.0.0\"}"}
+        [2017-12-22 11:48:14,911]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:14,910+0530]
+        [2017-12-22 11:48:15,003]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,003+0530]
+        [2017-12-22 11:48:15,175]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,175+0530]
+        [2017-12-22 11:48:15,629]  INFO -  {"performedBy":"admin","action":"created","typ":"API","info":"{\"provider\":\"admin\",\"name\":\"Mobile_stock_API\",\"context\":\"\\\/stocks\\\/1.0.0\",\"version\":\"1.0.0\"}"}
+        [2017-12-22 11:48:15,689]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,689+0530]
+        [2017-12-22 11:48:15,722]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,722+0530]
+        [2017-12-22 11:48:15,808]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:15,808+0530]
+        [2017-12-22 11:48:18,412]  INFO -  {"performedBy":"admin","action":"created","typ":"Application","info":"{\"tier\":\"Unlimited\",\"name\":\"Application_one\",\"callbackURL\":null}"}
+        [2017-12-22 11:48:18,507]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:18,507+0530]
+        [2017-12-22 11:48:18,512]  INFO -  Initiator : admin | Action : create | Target : 0 | Data : { admin_Application_one_PRODUCTION } | Result : Success
+        [2017-12-22 11:48:18,514]  INFO -  Initiator : admin | Action : update | Target : 3 | Data : { admin_Application_one_PRODUCTION } | Result : Success
+        [2017-12-22 11:48:18,520]  INFO -  Initiator : admin | Action : update | Target : 3 | Data : { admin_Application_one_PRODUCTION } | Result : Success
+        [2017-12-22 11:48:18,671]  INFO -  {"performedBy":"admin","action":"updated","typ":"Application","info":"{\"Generated keys for application\":\"Application_one\"}"}
+        [2017-12-22 11:48:18,720]  INFO -  {"performedBy":"admin","action":"created","typ":"Subscription","info":"{\"application_name\":\"Application_one\",\"tier\":\"Unlimited\",\"provider\":\"admin\",\"api_name\":\"Mobile_stock_API\",\"application_id\":2}"}
+        [2017-12-22 11:48:18,732]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:18,732+0530]
+        [2017-12-22 11:48:18,884]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:18,884+0530] from IP address
+        [2017-12-22 11:48:19,823]  INFO -  {"performedBy":"admin","action":"created","typ":"Application","info":"{\"tier\":\"Unlimited\",\"name\":\"Application_two\",\"callbackURL\":null}"}
+        [2017-12-22 11:48:19,848]  INFO -  Initiator : admin | Action : create | Target : 0 | Data : { admin_Application_two_PRODUCTION } | Result : Success
+        [2017-12-22 11:48:19,851]  INFO -  Initiator : admin | Action : update | Target : 4 | Data : { admin_Application_two_PRODUCTION } | Result : Success
+        [2017-12-22 11:48:19,854]  INFO -  Initiator : admin | Action : update | Target : 4 | Data : { admin_Application_two_PRODUCTION } | Result : Success
+        [2017-12-22 11:48:19,888]  INFO -  {"performedBy":"admin","action":"updated","typ":"Application","info":"{\"Generated keys for application\":\"Application_two\"}"}
+        [2017-12-22 11:48:19,904]  INFO -  {"performedBy":"admin","action":"created","typ":"Subscription","info":"{\"application_name\":\"Application_two\",\"tier\":\"Unlimited\",\"provider\":\"admin\",\"api_name\":\"Mobile_stock_API\",\"application_id\":3}"}
+        [2017-12-22 11:48:19,908]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-12-22 11:48:19,908+0530]
+    ```
 
 When analysing the audit logs
 

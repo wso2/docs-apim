@@ -463,8 +463,7 @@ nav:
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                 - Configuring Transport Level Security: Administer/ProductSecurity/General/configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
-            - Supported Cipher Suites: ''
-            - API Designer Portal: 
+            - API Designer Portal:
                 - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Application Developer Portal:
                 - Whitelisting Hostnames for API Store: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md

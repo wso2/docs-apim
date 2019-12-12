@@ -140,39 +140,39 @@ Create an optimized distribution for a particular API-M profile.
             sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher
     ```
 
-    ![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to see the sample output when you start the Publisher profile
+    ??? info "Click here to see the sample output when you start the Publisher profile."
 
-    ``` java
-            Starting to optimize API Manager for the API Publisher profile
-            [2018-06-19 17:36:08:045] INFO - Disabled the <DataPublisher> from api-manager.xml file
-            [2018-06-19 17:36:08:055] INFO - Disabled the <JMSConnectionDetails> from api-manager.xml file
-            [2018-06-19 17:36:08:066] INFO - Disabled the <transportSender name="ws" class="org.wso2.carbon.websocket.transport.WebsocketTransportSender"> from axis2.xml file
-            [2018-06-19 17:36:08:072] INFO - Disabled the <transportSender name="wss" class="org.wso2.carbon.websocket.transport.WebsocketTransportSender"> from axis2.xml file
-            [2018-06-19 17:36:08:074] INFO - Removed the WebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
-            [2018-06-19 17:36:08:076] INFO - Removed the SecureWebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
-            [2018-06-19 17:36:08:082] INFO - Removed the authenticationendpoint.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:085] INFO - Removed the api#am#admin#v0.13.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:087] INFO - Removed the throttle#data#v1.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:090] INFO - Removed the oauth2.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:093] INFO - Removed the am#sample#pizzashack#v1.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:097] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:099] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:102] INFO - Removed the api#am#store#v0.13.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:105] INFO - Removed the client-registration#v0.13.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:131] INFO - Removed store directory from ../repository/deployment/server/jaggeryapps
-            Finished the optimizations
-            Starting the server...
-    ```
+        ``` java
+                Starting to optimize API Manager for the API Publisher profile
+                [2018-06-19 17:36:08:045] INFO - Disabled the <DataPublisher> from api-manager.xml file
+                [2018-06-19 17:36:08:055] INFO - Disabled the <JMSConnectionDetails> from api-manager.xml file
+                [2018-06-19 17:36:08:066] INFO - Disabled the <transportSender name="ws" class="org.wso2.carbon.websocket.transport.WebsocketTransportSender"> from axis2.xml file
+                [2018-06-19 17:36:08:072] INFO - Disabled the <transportSender name="wss" class="org.wso2.carbon.websocket.transport.WebsocketTransportSender"> from axis2.xml file
+                [2018-06-19 17:36:08:074] INFO - Removed the WebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
+                [2018-06-19 17:36:08:076] INFO - Removed the SecureWebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
+                [2018-06-19 17:36:08:082] INFO - Removed the authenticationendpoint.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:085] INFO - Removed the api#am#admin#v0.13.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:087] INFO - Removed the throttle#data#v1.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:090] INFO - Removed the oauth2.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:093] INFO - Removed the am#sample#pizzashack#v1.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:097] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:099] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:102] INFO - Removed the api#am#store#v0.13.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:105] INFO - Removed the client-registration#v0.13.war file from ../repository/deployment/server/webapps
+                [2018-06-19 17:36:08:131] INFO - Removed store directory from ../repository/deployment/server/jaggeryapps
+                Finished the optimizations
+                Starting the server...
+        ```
 
 !!! note
-Note that registry indexing for the Traffic Manager and Gateway worker profiles are disabled when you run the profile optimization. To enable registry indexing, open the `<PRODUCT_HOME>/repository/conf/registry.xml` file. Set the value of the `<startIndexing>` parameter in the `<indexingConfiguration>` section to true as shown below.
+    Note that registry indexing for the Traffic Manager and Gateway worker profiles are disabled when you run the profile optimization. To enable registry indexing, open the `<PRODUCT_HOME>/repository/conf/registry.xml` file. Set the value of the `<startIndexing>` parameter in the `<indexingConfiguration>` section to true as shown below.
 
-``` java
-    <indexingConfiguration>
-    <startIndexing>true</startIndexing>
-    . . .
-    </indexingConfiguration>
-```
+    ``` java
+        <indexingConfiguration>
+        <startIndexing>true</startIndexing>
+        . . .
+        </indexingConfiguration>
+    ```
 
 
 ### How multi-profiling works

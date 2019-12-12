@@ -38,7 +38,7 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager fe
 
     -   **Alias** : Give the name of the alias if the Identity Provider identifies this token endpoint by an alias (e.g., `https://localhost:9443/oauth2/token                        ).` For more information, see [Adding a new identity provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-an-identity-provider/).
 
-        [![](../../../../../assets/img/Learn/add-identity-provider.png)](../../../../../assets/img/Learn/add-identity-provider.png)
+    [![](../../../../assets/img/Learn/add-identity-provider.png)](../../../../assets/img/Learn/add-identity-provider.png)
 
 4.  Navigate to the **Main** menu to access the **Identity** menu. Click **Add** under **Service Providers**.
 
