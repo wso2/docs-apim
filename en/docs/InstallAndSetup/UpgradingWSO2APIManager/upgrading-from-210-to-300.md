@@ -447,14 +447,14 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
 
-7.  Move all your Execution plans from `<API-M_2.6.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.0.0_HOME>/repository/deployment/server/executionplans` directory.
+7.  Move all your Execution plans from `<API-M_2.1.0_HOME>/repository/deployment/server/executionplans` directory to `<API-M_3.0.0_HOME>/repository/deployment/server/executionplans` directory.
 
     !!! note
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Traffic Manager** node.
 
-8.  If you manually added any custom OSGI bundles to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
+8.  If you manually added any custom OSGI bundles to the `<API-M_2.1.0_HOME>/repository/components/dropins` directory, copy those to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory. 
 
-9.  If you manually added any JAR files to the `<API-M_3.0.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
+9.  If you manually added any JAR files to the `<API-M_2.1.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
 
 10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../UpgradingWSO2APIManager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
 
