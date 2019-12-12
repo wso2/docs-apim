@@ -12,7 +12,20 @@ Throughout this documentation, we use the following roles that are typically use
 Follow the instructions below to create the `creator` , `publisher` and `subscriber` roles in the API Manager for example.
 
 !!! info
-        Creator, Publisher and Subscriber roles are available by default in API Manager.
+        By default, all WSO2 products have the following roles configured: 
+
+        -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the Internal/everyone roles.
+        -   **Internal/everyone** - Every new user is assigned to this role by default. It does not include any permissions.
+        -   **Internal/system** - This is a default role which does not include any permissions.
+        -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
+
+        In addition to the above, the following roles exist by default.
+
+        1.  Internal/creator
+        2.  Internal/publisher
+        3.  Internal/subscriber
+
+        Note that there may be more roles configured by default depending on the type of features installed in your product.
 
 ### Create user roles
 
@@ -89,14 +102,56 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 6.  Click **Finish** once you are done adding permissions.
 
-!!! info
-        When a user creates an application and generates application keys, a role is created automatically in the following format.
+    !!! warning
 
-``` java
-"Application/<username>_<applicationName>_PRODUCTION"
+            In WSO2 API Manager 3.0.0, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
+
+            By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
+
+7. Navigate to **Resources** > **Browse** in the main menu and access the file `/_system/config/apimgt/applicationdata/tenant-conf.json`.
+
+8. Click on **Edit as text**. 
+
+    ![Edit the Tenant conf file](../../../assets/img/Administer/add-roles-to-tenant-conf.png)
+
+9. Add the new role created above(`creator`) under **Roles** of all scopes that it should be assigned to as follows. 
+
+    **For example**, if the new role has API Creator permission, add it under every scope that has `Internal/creator` role specified.
+
+    If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, add the new role under `apim:api_create` scope.
+
+``` json
+    "RESTAPIScopes": {
+    "Scope": [
+    {
+        "Name": "apim:api_publish",
+        "Roles": "admin,Internal/publisher"
+    },
+    {
+        "Name": "apim:api_create",
+        "Roles": "admin,Internal/creator,creator"
+    },
+    {
+        "Name": "apim:api_view",
+        "Roles": "admin,Internal/publisher,Internal/creator,creator"
+    },
+    ...
+    ]
+}
 ```
 
-These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
+!!! info
+    **Application Roles**
+    
+    When a user creates an application and generates application keys, a role is created automatically in the following format.
+
+    ``` java
+    "Application/<username>_<applicationName>_PRODUCTION"
+    ```
+
+    This is a special case of internal role that is created for a particular service provider application. Only users who are assigned the application role permission can manage the corresponding service provider application.
+
+    These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
 #### Editing or deleting a role
 
