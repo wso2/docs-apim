@@ -387,7 +387,7 @@ Follow the instructions below to move all the existing API Manager configuration
         username = "username"
         password = "password"
         driver = "org.postgresql.Driver"
-        validationQuery = "SELECT 1"
+        validationQuery = "SELECT 1; COMMIT"
         ```
 
         ```tab="Oracle"
@@ -1849,7 +1849,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     2.  Add the [tenantloader-1.0.jar](../../assets/attachments/InstallAndSetup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
-        !!! attantion
+        !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
 
         !!! note
