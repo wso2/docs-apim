@@ -368,9 +368,9 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
-        ```
+        ```tab="MSSQL"
         [database.apim_db]
         type = "mssql"
         url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
@@ -378,6 +378,36 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         validationQuery = "SELECT 1"
+        ```
+
+        ```tab="PostgreSQL"
+        [database.apim_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        ```
+
+        ```tab="Oracle"
+        [database.apim_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```
+
+        ```tab="DB2"
+        [database.apim_db]
+        type = "db2"
+        url = "jdbc:db2://localhost:50000/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the WSO2UM_DB.
@@ -406,9 +436,9 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.0.0 version.
 
-        -   _RevokeAPI_.xml
-        -   _cors_request_handler_.xml
-        -   main.xml
+        -   /api/_RevokeAPI_.xml
+        -   /sequences/_cors_request_handler_.xml
+        -   /sequences/main.xml
 
     !!! attention 
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
@@ -537,29 +567,30 @@ Follow the instructions below to move all the existing API Manager configuration
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('UnusualIPAccess', 'subscriber');
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('FrequentTierLimitHitting', 'subscriber');
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('ApiHealthMonitor', 'publisher');
+
         CREATE TABLE IF NOT EXISTS AM_APPLICATION_ATTRIBUTES (
-        APPLICATION_ID int(11) NOT NULL,
-        NAME varchar(255) NOT NULL,
-        VALUE varchar(1024) NOT NULL,
-        TENANT_ID int(11) NOT NULL,
-        PRIMARY KEY (APPLICATION_ID,NAME),
-        FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
+            APPLICATION_ID int(11) NOT NULL,
+            NAME varchar(255) NOT NULL,
+            VALUE varchar(1024) NOT NULL,
+            TENANT_ID int(11) NOT NULL,
+            PRIMARY KEY (APPLICATION_ID,NAME),
+            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
         );
 
         CREATE TABLE IF NOT EXISTS AM_LABELS (
-        LABEL_ID VARCHAR(50),
-        NAME VARCHAR(255),
-        DESCRIPTION VARCHAR(1024),
-        TENANT_DOMAIN VARCHAR(255),
-        UNIQUE (NAME,TENANT_DOMAIN),
-        PRIMARY KEY (LABEL_ID)
+            LABEL_ID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_DOMAIN VARCHAR(255),
+            UNIQUE (NAME,TENANT_DOMAIN),
+            PRIMARY KEY (LABEL_ID)
         );
 
         CREATE TABLE IF NOT EXISTS AM_LABEL_URLS (
-        LABEL_ID VARCHAR(50),
-        ACCESS_URL VARCHAR(255),
-        PRIMARY KEY (LABEL_ID,ACCESS_URL),
-        FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
+            LABEL_ID VARCHAR(50),
+            ACCESS_URL VARCHAR(255),
+            PRIMARY KEY (LABEL_ID,ACCESS_URL),
+            FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
         );
 
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
@@ -672,29 +703,30 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('ApiHealthMonitor', 'publisher')
         /
+
         CREATE TABLE AM_LABELS (
-        LABEL_ID VARCHAR(50) NOT NULL,
-        NAME VARCHAR(255) NOT NULL,
-        DESCRIPTION VARCHAR(1024),
-        TENANT_DOMAIN VARCHAR(255) NOT NULL,
-        UNIQUE (NAME,TENANT_DOMAIN),
-        PRIMARY KEY (LABEL_ID)
+            LABEL_ID VARCHAR(50) NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(1024),
+            TENANT_DOMAIN VARCHAR(255) NOT NULL,
+            UNIQUE (NAME,TENANT_DOMAIN),
+            PRIMARY KEY (LABEL_ID)
         )/
 
         CREATE TABLE AM_LABEL_URLS (
-        LABEL_ID VARCHAR(50) NOT NULL,
-        ACCESS_URL VARCHAR(255) NOT NULL,
-        PRIMARY KEY (LABEL_ID,ACCESS_URL),
-        FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON DELETE CASCADE
+            LABEL_ID VARCHAR(50) NOT NULL,
+            ACCESS_URL VARCHAR(255) NOT NULL,
+            PRIMARY KEY (LABEL_ID,ACCESS_URL),
+            FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON DELETE CASCADE
         )/
 
         CREATE TABLE AM_APPLICATION_ATTRIBUTES (
-        APPLICATION_ID INTEGER NOT NULL,
-        NAME VARCHAR(255) NOT NULL,
-        VALUE VARCHAR(1024) NOT NULL,
-        TENANT_ID INTEGER NOT NULL,
-        PRIMARY KEY (APPLICATION_ID,NAME),
-        FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE
+            APPLICATION_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            VALUE VARCHAR(1024) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (APPLICATION_ID,NAME),
+            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE
         )/
         
         CREATE TABLE AM_SYSTEM_APPS (
@@ -738,6 +770,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ADD PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL 
         ADD CURRENCY VARCHAR(15) DEFAULT NULL
         /
+
         CREATE TABLE AM_MONETIZATION_USAGE_PUBLISHER (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
@@ -745,7 +778,8 @@ Follow the instructions below to move all the existing API Manager configuration
             STARTED_TIME VARCHAR(50) NOT NULL,
             PUBLISHED_TIME VARCHAR(50) NOT NULL,
             PRIMARY KEY(ID)
-        )/
+        )
+        /
 
         ALTER TABLE AM_API_COMMENTS
             ALTER COLUMN COMMENT_ID
@@ -775,23 +809,23 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         CREATE TABLE AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+            API_PRODUCT_MAPPING_ID INTEGER GENERATED ALWAYS AS IDENTITY (START WITH 1 INCREMENT BY 1),
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         )
         /
 
         CREATE TABLE AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP BIGINT NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (UUID)
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP BIGINT NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (UUID)
         )
         /
         ```
@@ -818,30 +852,30 @@ Follow the instructions below to move all the existing API Manager configuration
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_APPLICATION_ATTRIBUTES]') AND TYPE IN (N'U'))
         CREATE TABLE AM_APPLICATION_ATTRIBUTES (
-        APPLICATION_ID INTEGER NOT NULL,
-        NAME VARCHAR(255) NOT NULL,
-        VALUE VARCHAR(1024) NOT NULL,
-        TENANT_ID INTEGER NOT NULL,
-        PRIMARY KEY (APPLICATION_ID,NAME),
-        FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
+            APPLICATION_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            VALUE VARCHAR(1024) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (APPLICATION_ID,NAME),
+            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
         );
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_LABELS]') AND TYPE IN (N'U'))
         CREATE TABLE AM_LABELS (
-        LABEL_ID VARCHAR(50),
-        NAME VARCHAR(255),
-        DESCRIPTION VARCHAR(1024),
-        TENANT_DOMAIN VARCHAR(255),
-        UNIQUE (NAME,TENANT_DOMAIN),
-        PRIMARY KEY (LABEL_ID)
+            LABEL_ID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_DOMAIN VARCHAR(255),
+            UNIQUE (NAME,TENANT_DOMAIN),
+            PRIMARY KEY (LABEL_ID)
         );
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_LABEL_URLS]') AND TYPE IN (N'U'))
         CREATE TABLE AM_LABEL_URLS (
-        LABEL_ID VARCHAR(50),
-        ACCESS_URL VARCHAR(255),
-        PRIMARY KEY (LABEL_ID,ACCESS_URL),
-        FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
+            LABEL_ID VARCHAR(50),
+            ACCESS_URL VARCHAR(255),
+            PRIMARY KEY (LABEL_ID,ACCESS_URL),
+            FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
         );
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_SYSTEM_APPS') AND TYPE IN (N'U'))
@@ -927,23 +961,23 @@ Follow the instructions below to move all the existing API Manager configuration
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_PRODUCT_MAPPING]') AND TYPE IN (N'U'))
 
         CREATE TABLE AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER IDENTITY(1,1),
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+            API_PRODUCT_MAPPING_ID INTEGER IDENTITY(1,1),
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         );
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_REVOKED_JWT]') AND TYPE IN (N'U'))
         CREATE TABLE AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP BIGINT NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED DATETIME DEFAULT GETDATE(),
-        PRIMARY KEY (UUID)
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP BIGINT NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED DATETIME DEFAULT GETDATE(),
+            PRIMARY KEY (UUID)
         );
         ```
 
@@ -971,28 +1005,28 @@ Follow the instructions below to move all the existing API Manager configuration
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('ApiHealthMonitor', 'publisher');
 
         CREATE TABLE IF NOT EXISTS AM_LABELS (
-        LABEL_ID VARCHAR(50),
-        NAME VARCHAR(255),
-        DESCRIPTION VARCHAR(1024),
-        TENANT_DOMAIN VARCHAR(255),
-        UNIQUE (NAME,TENANT_DOMAIN),
-        PRIMARY KEY (LABEL_ID)
+            LABEL_ID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_DOMAIN VARCHAR(255),
+            UNIQUE (NAME,TENANT_DOMAIN),
+            PRIMARY KEY (LABEL_ID)
         ) ENGINE=InnoDB;
 
         CREATE TABLE IF NOT EXISTS AM_LABEL_URLS (
-        LABEL_ID VARCHAR(50),
-        ACCESS_URL VARCHAR(255),
-        PRIMARY KEY (LABEL_ID,ACCESS_URL),
-        FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
+            LABEL_ID VARCHAR(50),
+            ACCESS_URL VARCHAR(255),
+            PRIMARY KEY (LABEL_ID,ACCESS_URL),
+            FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
         ) ENGINE=InnoDB;
 
         CREATE TABLE IF NOT EXISTS AM_APPLICATION_ATTRIBUTES (
-        APPLICATION_ID int(11) NOT NULL,
-        NAME varchar(255) NOT NULL,
-        VALUE varchar(1024) NOT NULL,
-        TENANT_ID int(11) NOT NULL,
-        PRIMARY KEY (APPLICATION_ID,NAME),
-        FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
+            APPLICATION_ID int(11) NOT NULL,
+            NAME varchar(255) NOT NULL,
+            VALUE varchar(1024) NOT NULL,
+            TENANT_ID int(11) NOT NULL,
+            PRIMARY KEY (APPLICATION_ID,NAME),
+            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
         ) ENGINE=InnoDB;
 
         CREATE TABLE IF NOT EXISTS AM_SYSTEM_APPS (
@@ -1054,22 +1088,22 @@ Follow the instructions below to move all the existing API Manager configuration
         ADD API_TYPE VARCHAR(10) NULL DEFAULT NULL;
 
         CREATE TABLE IF NOT EXISTS AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
-        )ENGINE INNODB;
+            API_PRODUCT_MAPPING_ID INTEGER AUTO_INCREMENT,
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+        ) ENGINE INNODB;
 
         CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP BIGINT NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (UUID)
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP BIGINT NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (UUID)
         ) ENGINE=InnoDB;
         ```
     
@@ -1117,30 +1151,30 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         CREATE TABLE AM_LABELS (
-        LABEL_ID VARCHAR2(50),
-        NAME VARCHAR2(255) NOT NULL,
-        DESCRIPTION VARCHAR2(1024),
-        TENANT_DOMAIN VARCHAR2(255),
-        UNIQUE (NAME,TENANT_DOMAIN),
-        PRIMARY KEY (LABEL_ID)
+            LABEL_ID VARCHAR2(50),
+            NAME VARCHAR2(255) NOT NULL,
+            DESCRIPTION VARCHAR2(1024),
+            TENANT_DOMAIN VARCHAR2(255),
+            UNIQUE (NAME,TENANT_DOMAIN),
+            PRIMARY KEY (LABEL_ID)
         )
         /
 
         CREATE TABLE AM_LABEL_URLS (
-        LABEL_ID VARCHAR2(50),
-        ACCESS_URL VARCHAR2(255),
-        PRIMARY KEY (LABEL_ID,ACCESS_URL),
-        FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON DELETE CASCADE
+            LABEL_ID VARCHAR2(50),
+            ACCESS_URL VARCHAR2(255),
+            PRIMARY KEY (LABEL_ID,ACCESS_URL),
+            FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON DELETE CASCADE
         )
         /
 
         CREATE TABLE AM_APPLICATION_ATTRIBUTES (
-        APPLICATION_ID INTEGER,
-        NAME VARCHAR2(255),
-        VALUE VARCHAR2(1024),
-        TENANT_ID INTEGER,
-        PRIMARY KEY (APPLICATION_ID,NAME),
-        FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE
+            APPLICATION_ID INTEGER,
+            NAME VARCHAR2(255),
+            VALUE VARCHAR2(1024),
+            TENANT_ID INTEGER,
+            PRIMARY KEY (APPLICATION_ID,NAME),
+            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE
         )
         /
 
@@ -1169,23 +1203,23 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         CREATE TABLE AM_API_CLIENT_CERTIFICATE (
-        TENANT_ID INTEGER NOT NULL,
-        ALIAS VARCHAR2(45) NOT NULL,
-        API_ID INTEGER NOT NULL,
-        CERTIFICATE BLOB NOT NULL,
-        REMOVED INTEGER DEFAULT 0 NOT NULL,
-        TIER_NAME VARCHAR2 (512),
-        FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE,
-        PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
+            TENANT_ID INTEGER NOT NULL,
+            ALIAS VARCHAR2(45) NOT NULL,
+            API_ID INTEGER NOT NULL,
+            CERTIFICATE BLOB NOT NULL,
+            REMOVED INTEGER DEFAULT 0 NOT NULL,
+            TIER_NAME VARCHAR2 (512),
+            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE,
+            PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
         )
         /
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD (
-        MONETIZATION_PLAN VARCHAR(25) DEFAULT NULL NULL, 
-        FIXED_RATE VARCHAR(15) DEFAULT NULL NULL, 
-        BILLING_CYCLE VARCHAR(15) DEFAULT NULL NULL, 
-        PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL NULL, 
-        CURRENCY VARCHAR(15) DEFAULT NULL NULL
+            MONETIZATION_PLAN VARCHAR(25) DEFAULT NULL NULL, 
+            FIXED_RATE VARCHAR(15) DEFAULT NULL NULL, 
+            BILLING_CYCLE VARCHAR(15) DEFAULT NULL NULL, 
+            PRICE_PER_REQUEST VARCHAR(15) DEFAULT NULL NULL, 
+            CURRENCY VARCHAR(15) DEFAULT NULL NULL
         )
         /
 
@@ -1231,12 +1265,12 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         CREATE TABLE AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER,
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+            API_PRODUCT_MAPPING_ID INTEGER,
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         )
         /
 
@@ -1254,13 +1288,13 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         CREATE TABLE AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP NUMBER(19) NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (UUID)
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP NUMBER(19) NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (UUID)
         )
         /
         ```
@@ -1289,30 +1323,30 @@ Follow the instructions below to move all the existing API Manager configuration
 
         DROP TABLE IF EXISTS AM_APPLICATION_ATTRIBUTES;
         CREATE TABLE IF NOT EXISTS AM_APPLICATION_ATTRIBUTES (
-        APPLICATION_ID INTEGER NOT NULL,
-        NAME VARCHAR(255) NOT NULL,
-        VALUE VARCHAR(1024) NOT NULL,
-        TENANT_ID INTEGER NOT NULL,
-        PRIMARY KEY (APPLICATION_ID,NAME),
-        FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
+            APPLICATION_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            VALUE VARCHAR(1024) NOT NULL,
+            TENANT_ID INTEGER NOT NULL,
+            PRIMARY KEY (APPLICATION_ID,NAME),
+            FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
         );
 
         DROP TABLE IF EXISTS AM_LABELS;
         CREATE TABLE IF NOT EXISTS AM_LABELS (
-        LABEL_ID VARCHAR(50),
-        NAME VARCHAR(255),
-        DESCRIPTION VARCHAR(1024),
-        TENANT_DOMAIN VARCHAR(255),
-        UNIQUE (NAME,TENANT_DOMAIN),
-        PRIMARY KEY (LABEL_ID)
+            LABEL_ID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_DOMAIN VARCHAR(255),
+            UNIQUE (NAME,TENANT_DOMAIN),
+            PRIMARY KEY (LABEL_ID)
         );
 
         DROP TABLE IF EXISTS AM_LABEL_URLS;
         CREATE TABLE IF NOT EXISTS AM_LABEL_URLS (
-        LABEL_ID VARCHAR(50),
-        ACCESS_URL VARCHAR(255),
-        PRIMARY KEY (LABEL_ID,ACCESS_URL),
-        FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
+            LABEL_ID VARCHAR(50),
+            ACCESS_URL VARCHAR(255),
+            PRIMARY KEY (LABEL_ID,ACCESS_URL),
+            FOREIGN KEY (LABEL_ID) REFERENCES AM_LABELS(LABEL_ID) ON UPDATE CASCADE ON DELETE CASCADE
         );
 
         ALTER TABLE AM_SUBSCRIBER
@@ -1356,14 +1390,14 @@ Follow the instructions below to move all the existing API Manager configuration
         );
 
         CREATE TABLE IF NOT EXISTS AM_API_CLIENT_CERTIFICATE (
-        TENANT_ID INTEGER NOT NULL,
-        ALIAS VARCHAR(45) NOT NULL,
-        API_ID INTEGER NOT NULL,
-        CERTIFICATE BYTEA NOT NULL,
-        REMOVED BOOLEAN NOT NULL DEFAULT 0,
-        TIER_NAME VARCHAR (512),
-        FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-        PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
+            TENANT_ID INTEGER NOT NULL,
+            ALIAS VARCHAR(45) NOT NULL,
+            API_ID INTEGER NOT NULL,
+            CERTIFICATE BYTEA NOT NULL,
+            REMOVED BOOLEAN NOT NULL DEFAULT 0,
+            TIER_NAME VARCHAR (512),
+            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
+            PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
         );
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
@@ -1409,30 +1443,30 @@ Follow the instructions below to move all the existing API Manager configuration
 
         CREATE SEQUENCE AM_API_PRODUCT_MAPPING_SEQUENCE START WITH 1 INCREMENT BY 1;
         CREATE TABLE IF NOT EXISTS AM_API_PRODUCT_MAPPING (
-        API_PRODUCT_MAPPING_ID INTEGER DEFAULT nextval('am_api_product_mapping_sequence'),
-        API_ID INTEGER,
-        URL_MAPPING_ID INTEGER,
-        FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
-        FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
-        PRIMARY KEY(API_PRODUCT_MAPPING_ID)
+            API_PRODUCT_MAPPING_ID INTEGER DEFAULT nextval('am_api_product_mapping_sequence'),
+            API_ID INTEGER,
+            URL_MAPPING_ID INTEGER,
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID) ON DELETE CASCADE,
+            FOREIGN KEY (URL_MAPPING_ID) REFERENCES AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
+            PRIMARY KEY(API_PRODUCT_MAPPING_ID)
         );
 
         DROP TABLE IF EXISTS AM_REVOKED_JWT;
         CREATE TABLE IF NOT EXISTS AM_REVOKED_JWT (
-        UUID VARCHAR(255) NOT NULL,
-        SIGNATURE VARCHAR(2048) NOT NULL,
-        EXPIRY_TIMESTAMP BIGINT NOT NULL,
-        TENANT_ID INTEGER DEFAULT -1,
-        TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
-        TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        PRIMARY KEY (UUID)
+            UUID VARCHAR(255) NOT NULL,
+            SIGNATURE VARCHAR(2048) NOT NULL,
+            EXPIRY_TIMESTAMP BIGINT NOT NULL,
+            TENANT_ID INTEGER DEFAULT -1,
+            TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
+            TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            PRIMARY KEY (UUID)
         );
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
