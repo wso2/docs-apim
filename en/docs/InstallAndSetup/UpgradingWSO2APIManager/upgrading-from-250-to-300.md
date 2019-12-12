@@ -367,9 +367,9 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
     
     !!! attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters additionally as given below.
 
-        ```
+        ```tab="MSSQL"
         [database.apim_db]
         type = "mssql"
         url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
@@ -377,6 +377,36 @@ Follow the instructions below to move all the existing API Manager configuration
         password = "password"
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         validationQuery = "SELECT 1"
+        ```
+
+        ```tab="PostgreSQL"
+        [database.apim_db]
+        type = "postgre"
+        url = "jdbc:postgresql://localhost:5432/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "org.postgresql.Driver"
+        validationQuery = "SELECT 1"
+        ```
+
+        ```tab="Oracle"
+        [database.apim_db]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```
+
+        ```tab="DB2"
+        [database.apim_db]
+        type = "db2"
+        url = "jdbc:db2://localhost:50000/mig_am_db"
+        username = "username"
+        password = "password"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
 4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the **WSO2UM_DB**.
@@ -406,9 +436,9 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! warning
         When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.0.0 version.
 
-        -   \_RevokeAPI_.xml
-        -   \_cors_request_handler_.xml
-        -   main.xml
+        -   /api/_RevokeAPI_.xml
+        -   /sequences/_cors_request_handler_.xml
+        -   /sequences/main.xml
 
     !!! attention          
         If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Gateway** node.
@@ -1250,7 +1280,7 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
