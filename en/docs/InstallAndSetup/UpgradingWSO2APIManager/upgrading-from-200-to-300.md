@@ -12,7 +12,7 @@ The following information describes how to upgrade your API Manager server **fro
 
     2.  Before starting the upgrade, run the [token and session cleanup scripts](../../Administer/ProductAdministration/removing-unused-tokens-from-the-database.md) in the databases of the environment, if you are not doing regular cleanups.
 
-Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.0.0 to 2.6.0**.
+Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.0.0 to 3.0.0**.
 
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration
@@ -544,7 +544,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         **Why do I get the following error - `apim200_to_apim300_gateway_artifact_migrator.ps1`/`apim200_to_apim300_gateway_artifact_migrator_for_tenants.ps1` cannot be loaded because the execution of scripts is disabled on this system?**
 
-        When running the `apim200_to_apim260_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system.
+        When running the `apim200_to_apim300_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system.
         
         To overcome this issue and allow the execution of such scripts, run the following command in the terminal as the **Administrator**.
 
@@ -571,8 +571,8 @@ Follow the instructions below to move all the existing API Manager configuration
 
         CREATE TABLE IF NOT EXISTS AM_ALERT_TYPES (
             ALERT_TYPE_ID INTEGER AUTO_INCREMENT,
-            ALERT_TYPE_NAME VARCHAR(256) NOT NULL ,
-	        STAKE_HOLDER VARCHAR(100) NOT NULL,
+            ALERT_TYPE_NAME VARCHAR(256) NOT NULL,
+            STAKE_HOLDER VARCHAR(100) NOT NULL,
             PRIMARY KEY (ALERT_TYPE_ID)
         );
 
