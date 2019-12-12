@@ -319,7 +319,6 @@ nav:
             - WSO2 Admin Portal: Develop/ProductAPIs/admin-v1.md
         - Admin Services: Develop/wso2-admin-services.md
         - Using the Registry REST API: Develop/using-the-registry-rest-api.md
-        - Working with Audit Logs: Develop/working-with-audit-logs.md
         - Working with the Source Code: Develop/working-with-the-source-code.md
         - Java Documentation: Develop/java-documentation.md
     - Install and Setup:
@@ -420,8 +419,8 @@ nav:
             - Monitoring:
                 - Monitoring Logs:
                      - Setting Up Logging: Administer/ProductAdministration/Monitoring/Logging/setting-up-logging.md
-                     - Http Access Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
-                     - Working with Audit Logs: Administer/ProductAdministration/Monitoring/Logging/working-with-audit-logs.md
+                     - Monitoring HTTP Access Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
+                     - Monitoring Audit Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-audit-logs.md
                 - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
                 - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
                 - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md

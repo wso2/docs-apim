@@ -69,7 +69,7 @@ Refer to the following steps for upgrading to log4j2.
 
      ```
      logger.<Logger_Name>.name = <Component_name>
-     logger.<Logger_Name>.type = INFO
+     logger.<Logger_Name>.level = INFO
      ```
     
      Then add the <Logger_Name> to the loggers list by comma-separate.
