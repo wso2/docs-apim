@@ -326,4 +326,4 @@ To create the database tables, connect to the database that you created earlier 
 3.  Restart the server.
 
 !!! note
-    To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores](../../../Administer/ProductConfigurations/ConfiguringUserStores/configuring-user-stores.md).
+    To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores](../../../Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md).

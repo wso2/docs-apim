@@ -21,7 +21,7 @@ The performance of WSO2 API Manager was measured using the following APIs, which
 Tests were done using 100, 200, 300, 1000, and 2000 concurrent users. Concurrent Users mean that there are multiple users accessing the API Gateway at the same time. Different Message Sizes (Payload) were used for the tests with different back-end service delays. The message sizes used are 50B, 1KiB, 10KiB, and 100KiB. The back-end delays were 0ms, 30ms, 500ms, and 1s.
 
 !!! note
-The back-end delay will also be referred as “Sleep Time” in this document.
+    The back-end delay will also be referred as “Sleep Time” in this document.
 
 
 Two key performance metrics were used to measure the performance of each test.
@@ -71,7 +71,7 @@ Key observations:
 -   For higher concurrent users, 99th percentile of Mediation API response times goes beyond 1 second, which means that 1% of the API invocations took 1 second to 1.4 seconds.
 
 !!! info
-1000 to 2000 concurrent users mean a lot and it is not very common. To support more concurrent users with acceptable response times, it is recommended to scale horizontally or vertically. When scaling horizontally, two or more Gateway nodes need to be used with a load balancer. To measure the performance after scaling, another load test must be carried out.
+    1000 to 2000 concurrent users mean a lot and it is not very common. To support more concurrent users with acceptable response times, it is recommended to scale horizontally or vertically. When scaling horizontally, two or more Gateway nodes need to be used with a load balancer. To measure the performance after scaling, another load test must be carried out.
 
 
 In order to see the memory usage, the Garbage Collection (GC) logs in the API Manager was enabled and the GC log for each performance test was analyzed using the [GCViewer](https://github.com/chewiebug/GCViewer) .
@@ -117,30 +117,31 @@ The following are the EC2 instances that the API-M 2.6.0 performance tests were 
 | Microgateway            | c3.large          | 4    | 7.5       |
 | Netty HTTP Backend      | c3.xlarge         | 4    | 7.5       |
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} Click here to see the current generation EC2 instances that are similar to the above mentioned previous generation EC2 instances
+??? info "Click here to see the current generation EC2 instances that are similar to the above mentioned previous generation EC2 instances."
 
-!!! warning
-As the latter mentioned EC2 instances are now categorised as the “previous generation EC2 instance types" by AWS, the following are the “current generation EC2 instances" that are similar to the above mentioned EC2 instances. However, note that WSO2 API-M 2.6.0 has not been tested on the following EC2 instances.
-**Synapse Gateway**
-
-| Name                       | EC2 Instance Type | vCPU | Mem (GiB) |
-|----------------------------|-------------------|------|-----------|
-| Apache JMeter Client       | c5.large          | 2    | 4         |
-| Apache JMeter Server 01    | c5.xlarge         | 4    | 8         |
-| Apache JMeter Server 02    | c5.xlarge         | 4    | 8         |
-| WSO2 API Manager (Synapse) | c5.xlarge         | 4    | 8         |
-| Netty HTTP Backend         | c5.xlarge         | 4    | 8         |
-| MySQL                      | db.m5.large (RDS) | 4    | 8         |
-
-**Ballerina Gateway**
-
-| Name                    | EC2 Instance Type | vCPU | Mem (GiB) |
-|-------------------------|-------------------|------|-----------|
-| Apache JMeter Client    | c5.large          | 2    | 4         |
-| Apache JMeter Server 01 | c5.xlarge         | 4    | 8         |
-| Apache JMeter Server 02 | c5.xlarge         | 4    | 8         |
-| Microgateway            | c5.large          | 4    | 8         |
-| Netty HTTP Backend      | c5.xlarge         | 2    | 8         |
+    !!! warning
+        As the latter mentioned EC2 instances are now categorised as the “previous generation EC2 instance types" by AWS, the following are the “current generation EC2 instances" that are similar to the above mentioned EC2 instances. However, note that WSO2 API-M 2.6.0 has not been tested on the following EC2 instances.
+    
+    **Synapse Gateway**
+    
+    | Name                       | EC2 Instance Type | vCPU | Mem (GiB) |
+    |----------------------------|-------------------|------|-----------|
+    | Apache JMeter Client       | c5.large          | 2    | 4         |
+    | Apache JMeter Server 01    | c5.xlarge         | 4    | 8         |
+    | Apache JMeter Server 02    | c5.xlarge         | 4    | 8         |
+    | WSO2 API Manager (Synapse) | c5.xlarge         | 4    | 8         |
+    | Netty HTTP Backend         | c5.xlarge         | 4    | 8         |
+    | MySQL                      | db.m5.large (RDS) | 4    | 8         |
+    
+    **Ballerina Gateway**
+    
+    | Name                    | EC2 Instance Type | vCPU | Mem (GiB) |
+    |-------------------------|-------------------|------|-----------|
+    | Apache JMeter Client    | c5.large          | 2    | 4         |
+    | Apache JMeter Server 01 | c5.xlarge         | 4    | 8         |
+    | Apache JMeter Server 02 | c5.xlarge         | 4    | 8         |
+    | Microgateway            | c5.large          | 4    | 8         |
+    | Netty HTTP Backend      | c5.xlarge         | 2    | 8         |
 
 See the following links for more details on Amazon Instance Types
 
@@ -228,7 +229,7 @@ The following are the GC flags used:
 `-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:"$CARBON_HOME/repository/logs/gc.log        `
 
 !!! info
-The process memory was not considered as Java is working on an already reserved heap area.
+    The process memory was not considered as Java is working on an already reserved heap area.
 
 
 ## Performance Test Scripts

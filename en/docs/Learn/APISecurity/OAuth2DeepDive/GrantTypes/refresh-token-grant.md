@@ -103,7 +103,7 @@ The parameters required to invoke the following API are as follows:
 
 - The token to be revoked.
 
-- `base64Encode(clientId:clientSecret)` - Use a [base64 encoder](e.g., <https://www.base64encode.org) to encode your client ID and client secret in the format: `<clientId>:<clientSecret>`.
+- `base64Encode(clientId:clientSecret)` - Use a [base64 encoder](https://www.base64encode.org) to encode your client ID and client secret in the format: `<clientId>:<clientSecret>`.
 
 - `token_type_hint -` This parameter is **optional**. If you do not specify this parameter, then WSO2 API Manager will search in both key spaces (access token and refresh token) and if it finds a matching token then it will be revoked. Therefore, if this parameter it not specified the token revokation process takes longer. However, if you specify this parameter then it will only searches in the respective token key space, hence the token revokation process is much faster.
 

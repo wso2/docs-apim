@@ -45,7 +45,7 @@ The diagram above shows the common lifecycle activities of an API developer/man
 
 ![]({{base_path}}/assets/attachments/103327648/126556772.png)
 
-The Developer Portal is a state-of-the-art web interface that allows API publishers to host and advertise their APIs while allowing API consumers to [self register](../Learn/ConsumeAPI/Customizations/customizing-the-api-store.md) , discover, evaluate, subscribe to and consume APIs.
+The Developer Portal is a state-of-the-art web interface that allows API publishers to host and advertise their APIs while allowing API consumers to [self register](../Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants.md) , discover, evaluate, subscribe to and consume APIs.
 
 The diagram above shows common API consumer lifecycle activities:
 

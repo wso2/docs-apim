@@ -2,7 +2,7 @@
 
 The API details info section can be customized to match with your design needs.
 
- ![../../../../../assets/img/Learn/styling-api-details-info-section1.png](../../../../../assets/img/Learn/styling-api-details-info-section1.png) 
+ ![styling api details info section](../../../../assets/img/Learn/styling-api-details-info-section1.png) 
 
 You can change themes.light.custom.infoBar attributes to change the api detials info section styling. Note these changes will effect the same way to application details info section.
 
@@ -46,7 +46,7 @@ infoBar: {
 }
 ```
 
- ![../../../../../assets/img/Learn/styling-api-details-info-section2.png](../../../../../assets/img/Learn/styling-api-details-info-section2.png)
+ ![styling api details info section](../../../../assets/img/Learn/styling-api-details-info-section2.png)
 
 
 | Option | type | Description |

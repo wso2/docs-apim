@@ -102,7 +102,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
                 <code>https://localhost:9443/samlsso?tenantDomain=&lt;tenantDomain&gt;</code>
 
 
-    [![](../../../../../assets/img/Learn/add-identity-provider-with-saml-config.png)](../../../../../assets/img/Learn/add-identity-provider-with-saml-config.png)
+    [![](../../../../assets/img/Learn/add-identity-provider-with-saml-config.png)](../../../../assets/img/Learn/add-identity-provider-with-saml-config.png)
 
     Next, let's  register a service provider.
 

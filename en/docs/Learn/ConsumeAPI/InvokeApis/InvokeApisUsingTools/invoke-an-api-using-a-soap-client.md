@@ -3,11 +3,11 @@
 You can use any SOAP client to **invoke an API** . We use the SOAP UI in this example.
 
 !!! note
-See the following topics for a description of the concepts that you need to know when invoking an API:
+    See the following topics for a description of the concepts that you need to know when invoking an API:
 
--   [Applications](Key-Concepts_103328852.html#KeyConcepts-Applications)
--   [Throttling](Key-Concepts_103328852.html#KeyConcepts-Throttling)
--   [Access tokens](Key-Concepts_103328852.html#KeyConcepts-Accesstokens)
+-   [Applications](../../../../GettingStarted/key-concepts.md#application)
+-   [Rate Limits](../../../../GettingStarted/key-concepts.md#rate-limits)
+-   [Access tokens](../../../../GettingStarted/key-concepts.md#access-token)
 
 
 The examples here use the `PhoneVerification` API, which is created in section [Create and Publish an API](_Create_and_Publish_an_API_) .

@@ -69,7 +69,7 @@ The following section describes the flow involved in exchanging a Kerberos ticke
 Follow the instructions below to configure Kerberos Grant with WSO2 API Manager:
 
 !!! note
-    Download the kerberos_grant_1.0.0.jar from [here](../../../../../assets/attachments/learn/kerberos-grant-1.0.0.jar). Copy it to the <API-M_HOME>/repository/components/lib folder.
+    Download the kerberos_grant_1.0.0.jar from [here](../../../../assets/attachments/Learn/kerberos-grant-1.0.0.jar). Copy it to the <API-M_HOME>/repository/components/lib folder.
 
 
 1.  To configure `Kerberos` as supported grant type, add following configuration in the `<API-M_HOME>/repository/conf/deployemnt.toml` file.
@@ -98,9 +98,8 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
 3.  Copy the following JARs into the `<API-M_HOME>/repository/components/dropins` directory.
 
-    - [org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar](../../../../../assets/attachments/learn/org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar)                       
-    - [org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar](../../../../../assets/attachments/learn/org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar)
-
+    - [org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar](../../../../assets/attachments/Learn/org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar)                       
+    - [org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar](../../../../assets/attachments/Learn/org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar)
 4.  Configure OAuth2 for your client application with the Kerberos grant type.
 
     1.  Start the WSO2 API-M server by navigating to the `<API-M_HOME>/bin` directory in your console and running one of the following scripts based on your OS.
@@ -150,7 +149,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
         -   **Server Principal Password** : &lt;password&gt;
 
-        [![](../../../../../assets/img/Learn/kerberos-grant-idp.png)](../../../../../assets/img/Learn/kerberos-grant-idp.png)
+        [![](../../../../assets/img/Learn/kerberos-grant-idp.png)](../../../../assets/img/Learn/kerberos-grant-idp.png)
 
     5.  Generate the kerberos token.
 
