@@ -1,5 +1,8 @@
 # Configuring Identity Server as IDP for SSO
 
+!!! info
+    The **Single Sign-On with openID Connect** feature is enabled by default in the API Manager.  
+    
 The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented according to the SAML 2.0 browser-based SSO support that is facilitated by WSO2 Identity Server (WSO2 IS). This feature is available in any WSO2 IS version from 4.1.0 onwards. We use **WSO2 IS 5.9.0** in this guide. WSO2 Identity Server acts as an identity service provider of systems enabled with single sign-on, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or API Publisher in a single authentication attempt.
 
 The topics below explain the configurations.
@@ -14,7 +17,7 @@ The topics below explain the configurations.
 
 ## Sharing the user store
 
-Initially, configure your user store(s), if you have not done so already, by following the instructions in [Configuring User Stores](../../../../Administer/ProductAdministration/ManagingUsersAndRoles/admin-introduction-to-user-management/) . Thereafter, point both WSO2 IS and WSO2 API Manager to your user stores(s) using the instructions given below. You do this to make sure that a user who tries to log in to the Developer Portal or the Publisher is authorized. When a user tries to log in to either of the applications, s/he is redirected to the configured identity provider (WSO2 IS in this case) where s/he provides the login credentials to be authenticated. In addition to this, the user should also be authorized by the system as some user roles do not have permission to perform certain actions. For the purpose of authorization, the IS and API Manager needs to have a shared user store and user management database (by default, this is the H2 database in the `<API-M_HOME>/repository/conf/user-mgt.xml` file) where the user's role and permissions are stored.
+Initially, configure your user store(s), if you have not done so already, by following the instructions in [Configuring User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores/) . Thereafter, point both WSO2 IS and WSO2 API Manager to your user stores(s) using the instructions given below. You do this to make sure that a user who tries to log in to the Developer Portal or the Publisher is authorized. When a user tries to log in to either of the applications, s/he is redirected to the configured identity provider (WSO2 IS in this case) where s/he provides the login credentials to be authenticated. In addition to this, the user should also be authorized by the system as some user roles do not have permission to perform certain actions. For the purpose of authorization, the IS and API Manager needs to have a shared user store and user management database (by default, this is the H2 database in the `<API-M_HOME>/repository/conf/user-mgt.xml` file) where the user's role and permissions are stored.
 
 For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity Server and WSO2 API Manager as follows:
 
@@ -27,7 +30,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 3.  Create a MySQL database (e.g., 410\_um\_db) and run the `<API-M_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
 
-4.  Open the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` and `<API-M_HOME>/repository/conf/user-mgt.xml` file and check the datasource configuration for the database that you use for the shared user store and user management information. Go to `<API-M_HOME>/repository/conf/datasources/deployment.toml` file and add configurations. For example, you can share a single user store as follows. If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.
+4.  Open the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` and `<API-M_HOME>/repository/conf/user-mgt.xml` file and check the datasource configuration for the database that you use for the shared user store and user management information. Go to `<API-M_HOME>/repository/conf/deployment.toml` file and add configurations. For example, you can share a single user store as follows. If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.
   
     **Example**
 
@@ -35,8 +38,8 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
        [database.shared_db]
        type = "mysql"
        url = "jdbc:mysql://localhost:3306/410_um_db"
-       username = wso2carbon
-       password = wso2carbon   
+       username = "wso2carbon"
+       password = "wso2carbon"   
     ```
 
     !!! note
@@ -47,7 +50,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 5.  Add the same datasource configuration above to `<IS_HOME>/repository/conf/deployment.toml` file.
 
-7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default. To change this to database user store, add the following to the `<IS_HOME>/repository/conf/datasources/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.9.0/learn/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead.
+7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default. To change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/next/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead.
   
     ``` toml
        [user_store]
@@ -81,7 +84,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
         The port offset feature allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM). The port offset defines the number by which all ports defined in the runtime, such as the HTTP/S ports, will be offset. For example, if the HTTPS port is defined as 9443 and the port offset is 1, the effective HTTPS port will be 9444.
 
 
-2.  Sign in to the WSO2 API Management Console UI ( e.g. `https://localhost:9443/carbon)`.
+2.  Sign in to the WSO2 IS Management Console UI ( e.g. `https://localhost:9444/carbon)`. 
 
     !!! tip
         If you use sign-in pages that are hosted externally to sign in to the Identity Server, give the absolute URLs of those login pages in the `authenticators.xml` and `application-authenticators.xml` files in the `<IS_HOME>/repository/conf/identity` directory.
@@ -138,7 +141,7 @@ Similarly, add Identity Server as an identity provider configurations in `https:
        ./wso2server.sh
    ```
  
-2.  Sign in to the WSO2 IS Management Console UI ( e.g. `https://localhost:9443/carbon)`.
+2.  Sign in to the WSO2 API Management Console UI ( e.g. `https://localhost:9443/carbon)`.
 
 3.  Select **Add** under the **Identity Providers** menu.
 
@@ -190,7 +193,7 @@ Similarly, add Identity Server as an identity provider configurations in `https:
     Even with SSO enabled, if the user doesn't have sufficient privileges to access API Publisher/Developer Portal or any other application, s/he will not be authorized to access them.
 
 !!! info
-    To learn more about Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.9.0/learn/configuring-saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
+    To learn more about Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.9.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
 
 
 
