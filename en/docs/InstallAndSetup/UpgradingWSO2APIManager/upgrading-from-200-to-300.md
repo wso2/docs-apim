@@ -282,6 +282,7 @@ current API Manager 2.0.0 version and run the below scripts against **the databa
         
         UPDATE REG_RESOURCE_RATING SET REG_RESOURCE_NAME=(SELECT REG_NAME FROM REG_RESOURCE WHERE REG_RESOURCE.REG_VERSION=REG_RESOURCE_RATING.REG_VERSION);
         ```
+
 !!! warning "Not recommended"
     If you decide to proceed with registry resource versioning enabled, add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
     
@@ -441,7 +442,7 @@ Follow the instructions below to move all the existing API Manager configuration
         -   /api/\_RevokeAPI_.xml
         -   /sequences/\_cors_request_handler_.xml
         -   /sequences/main.xml
-        -   /sequences/_throttle_out_handler_.xml
+        -   /sequences/\_throttle_out_handler_.xml
         -   /sequences/fault.xml
         -   /proxy-services/WorkflowCallbackService.xml
 
@@ -1729,10 +1730,10 @@ Follow the instructions below to move all the existing API Manager configuration
             ALIAS VARCHAR(45) NOT NULL,
             API_ID INTEGER NOT NULL,
             CERTIFICATE BYTEA NOT NULL,
-            REMOVED BOOLEAN NOT NULL DEFAULT 0,
-            TIER_NAME VARCHAR (512),
-            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE ON UPDATE CASCADE,
-            PRIMARY KEY (ALIAS,TENANT_ID, REMOVED)
+            REMOVED BOOLEAN NOT NULL DEFAULT '0',
+            TIER_NAME VARCHAR(512),
+            FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE,
+            PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
         );
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD MONETIZATION_PLAN VARCHAR(25) NULL DEFAULT NULL,
