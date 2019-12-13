@@ -21,23 +21,9 @@ Follow the steps below to create users and assign them to roles via the Manageme
     !!! tip
             The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores/).
 
-4.  Select the roles you want to assign to the user. In this example, we assign the `creator` role defined in the [previous section](managing-user-roles.md).
+4.  Select the roles you want to assign to the user. In this example, we assign the `creator` role defined in the [previous section](managing-user-roles.md). For details on adding roles, see [Create user roles.]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles/#create-user-roles)
 
     ![Add roles to user]({{base_path}}/assets/img/Administer/add-roles-to-user.png)
-
-    !!! info
-        By default, all WSO2 products have the following roles configured: 
-
-        -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the Internal/everyone roles.
-        -   **Internal/everyone** - This is a conceptual role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions.
-        -   **Internal/system** - This is another conceptual role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
-        -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
-
-        In addition to the above, the following roles exist by default.
-
-        1.  Internal/creator
-        2.  Internal/publisher
-        3.  Internal/subscriber
 
 5.  Click **Finish** to complete.
     The new user appears in the **Users** list. You can change the user's password, assign it different roles or delete it.
