@@ -418,7 +418,7 @@ nav:
                   - Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/configuring-the-tenant-loading-policy.md
             - Monitoring:
                 - Monitoring Logs:
-                     - Monitoring logs in API Manager: Administer/ProductAdministration/Monitoring/Logging/setting-up-logging.md
+                     - Setting up logging: Administer/ProductAdministration/Monitoring/Logging/setting-up-logging.md
                      - Monitoring HTTP access logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
                      - Monitoring audit Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-audit-logs.md
                      - Managing log growth: Administer/ProductAdministration/Monitoring/Logging/managing-log-growth.md

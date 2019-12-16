@@ -77,5 +77,5 @@ Log growth in [Carbon logs]({base_path}/Administer/ProductAdministration/Monitor
     You can change it as per your requirement by changing its value.
 
     ``` toml
-    appender.CARBON_LOGFILE.strategy.max   
+    appender.AUDIT_LOGFILE.strategy.max   
     ```

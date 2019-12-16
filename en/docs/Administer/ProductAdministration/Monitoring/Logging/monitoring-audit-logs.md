@@ -27,6 +27,8 @@ Audit logs are enabled by default in WSO2 API Manager (WSO2 API-M) via the follo
     appender.AUDIT_LOGFILE.filter.threshold.level = INFO
     ```
 
+   The log growth of audit logs can be managed by the configurations discussed in [Managing log growth]({base_path}/Administer/ProductAdministration/Monitoring/Logging/managing-log-growth) guide.
+   
 ## Audit log actions
 
 In WSO2 API-M, audit logs can be enabled for the following user actions in the Publisher and Store.
