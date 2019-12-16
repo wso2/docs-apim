@@ -1,4 +1,4 @@
-# Monitoring logs in API Manager
+# Setting up logging in API Manager
 
 Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.
 
@@ -37,6 +37,8 @@ Following is the default configuration for carbon logs and the default values ca
      DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
      ```
    
+   The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({base_path}/Administer/ProductAdministration/Monitoring/Logging/managing-log-growth) guide.
+   
 ###Enable Logs for a Component
 
 Please follow below steps to enable logs for a given service component available in WSO2 API Manager.
@@ -53,6 +55,7 @@ Please follow below steps to enable logs for a given service component available
     logger.org-wso2-carbon-user-core.name = org.wso2.carbon.user.core
     logger.org-wso2-carbon-user-core.level = DEBUG
     ```
+
 3.  Append the newly added logger name to `loggers` configuration which is a comma separated list of all active loggers.
 
     ``` tab="Format"
@@ -62,6 +65,7 @@ Please follow below steps to enable logs for a given service component available
     ``` tab="Example"
     loggers = org-wso2-carbon-user-core, trace-messages, org-apache-coyote,com-hazelcast
     ```
+
 ###Setting the Log levels
 
 The log level can be set specifically for each appender in the `log4j2.properties` file by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
