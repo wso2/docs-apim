@@ -32,9 +32,10 @@ The capability to publish to external Developer Portals is not configured by def
             In a **multi-tenant environment** , you must sign in using the tenant's credentials.
 
 
-5.  Click **Main&gt; Resources &gt; Browse** .
+5.  Click **Main&gt; Resources &gt; Browse**. The Registry opens.
+    
     ![Menu option to navigate to the Browse option]({{base_path}}/assets/attachments/103332470/103332465.png)
-    The Registry opens.
+
 
 6.  Go to the `/_system/governance/apimgt/externalstores/external-api-stores.xml` resource.
     ![Navigating to the external-api-stores.xml file]({{base_path}}/assets/attachments/103332470/103332464.png)
