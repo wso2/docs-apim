@@ -14,17 +14,17 @@ Please follow below steps to fix the login failure due to callback URL mismatch.
 1.  Login to management console(`https://<hostname>:9443/carbon`).
 2.  Navigate to service providers list.
 
-    <a href="../../../assets/img/Troubleshooting/service-providers.png" ><img src="../../assets/img/Troubleshooting/service-providers.png" alt="SP list" 
+    <a href="../../../assets/img/Troubleshooting/service-providers.png" ><img src="../../../assets/img/Troubleshooting/service-providers.png" alt="SP list" 
           title="SP list" width="20%" /></a> 
 
 3.  Click on the **Edit** button of API Publisher service provider
 
-    <a href="../../../assets/img/Troubleshooting/service-providers-list.png" ><img src="../../assets/img/Troubleshooting/service-providers-list.png" alt="SP list" 
+    <a href="../../../assets/img/Troubleshooting/service-providers-list.png" ><img src="../../../assets/img/Troubleshooting/service-providers-list.png" alt="SP list" 
           title="SP list" width="60%" /></a> 
 
 4.  Navigate to  **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click on OAuth application edit button.
 
-    <a href="../../../assets/img/Troubleshooting/oauth-app-select.png" ><img src="../../assets/img/Troubleshooting/oauth-app-select.png" alt="OAuth app edit" 
+    <a href="../../../assets/img/Troubleshooting/oauth-app-select.png" ><img src="../../../assets/img/Troubleshooting/oauth-app-select.png" alt="OAuth app edit" 
           title="OAuth app edit" width="60%" /></a>    
           
 5.  See the **Callback Url** regex value configured under Application Settings. You will observe that the callback URL value is having a different hostname(`localhost` or previous hostname which was configured before the hostname change). 
