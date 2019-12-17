@@ -353,6 +353,7 @@ nav:
             - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring rsync for Deployment Synchronization: InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
+            - Changing the Hostname: InstallAndSetup/DeployingWSO2APIManager/changing-the-hostname.md
             - Minimum High Availability Deployment for WSO2 APIM Analytics: InstallAndSetup/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
             - Configuring the keyStore and client trustStore for a Selected Pattern: InstallAndSetup/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
             - Deployment Guidelines:
@@ -434,7 +435,6 @@ nav:
             - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
             - Default Product Ports: Administer/ProductConfigurations/default-product-ports.md
             - Configuring Caching: Administer/ProductConfigurations/configuring-caching.md
-            - Changing the Hostname: Administer/ProductConfigurations/changing-the-hostname.md
             - Configuring Keystores: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
             - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
