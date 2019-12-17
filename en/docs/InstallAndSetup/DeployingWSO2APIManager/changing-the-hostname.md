@@ -2,7 +2,7 @@
 
 By default, WSO2 products identify the hostname of the current machine through the Java API. However, this value sometimes yields erroneous results on some environments. Therefore, users are recommended to configure the hostname. The following procedure explains how to change the hostname and management hostname of WSO2 API Manager (WSO2 API-M) as required for your production environment.
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and set the `hostname` atrribute under server configurations as shown below.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and set the `hostname` attribute under server configurations as shown below.
 
     ``` format tab="Format"
     [server]
