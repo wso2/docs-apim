@@ -494,6 +494,7 @@ nav:
         - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
         - Working with Observability: Troubleshooting/working-with-observability.md
+        - Troubleshooting 'Registered callback does not match with the provided url' error: Troubleshooting/troubleshooting-invalid-callback-error.md
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
