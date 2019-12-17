@@ -17,7 +17,11 @@ The topics below explain the configurations.
 
 ## Sharing the user store
 
-Initially, configure your user store(s), if you have not done so already, by following the instructions in [Configuring User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores/) . Thereafter, point both WSO2 IS and WSO2 API Manager to your user stores(s) using the instructions given below. You do this to make sure that a user who tries to log in to the Developer Portal or the Publisher is authorized. When a user tries to log in to either of the applications, s/he is redirected to the configured identity provider (WSO2 IS in this case) where s/he provides the login credentials to be authenticated. In addition to this, the user should also be authorized by the system as some user roles do not have permission to perform certain actions. For the purpose of authorization, the IS and API Manager needs to have a shared user store and user management database (by default, this is the H2 database in the `<API-M_HOME>/repository/conf/user-mgt.xml` file) where the user's role and permissions are stored.
+1. Initially, configure your user store(s) (if you have not done so already), by following the instructions in [Configuring User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores/) . 
+2. Thereafter, point both WSO2 IS and WSO2 API Manager to your user stores(s) using the instructions given below. 
+This is required to make sure that a user who tries to log in to the Developer Portal or the Publisher is authorized. When a user tries to log in to either of the applications, s/he is redirected to the configured identity provider (WSO2 IS in this case) where s/he provides the login credentials to be authenticated. 
+In addition to this, the user should also be authorized by the system to enable [Role-based Permissions]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/managing-permissions/). 
+Hence, for the purpose of authorization, the IS and API Manager needs to have a shared user store and user management database (by default, this is the H2 database in the `<API-M_HOME>/repository/conf/user-mgt.xml` file) where the user's role and permissions are stored.
 
 For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity Server and WSO2 API Manager as follows:
 
@@ -50,7 +54,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 5.  Add the same datasource configuration above to `<IS_HOME>/repository/conf/deployment.toml` file.
 
-7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default. To change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/next/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead.
+7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default. To change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.9.0/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead.
   
     ``` toml
        [user_store]
