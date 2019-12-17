@@ -11,7 +11,7 @@ The following sections describe how to set up a MySQL database to replace the de
 
 -   [Setting up the database and users](#setting-up-the-database-and-users)
 -   [Setting up the drivers](#setting-up-the-drivers)
--   [Executing db scripts on MySQL database](#executing-db-scripts-on-mysql-database)
+-   [Executing db scripts to create tables on MySQL database](#executing-db-scripts-to-create-tables-on-mysql-database)
 
 ### Setting up the database and users
 
@@ -58,12 +58,18 @@ Follow the steps below to set up a MySQL database:
     ```
 
     !!! info
-        If you are using MySQL version - 8.0.x, it is important to specify the character set as latin1 when creating databases. Failure to do this may result in an error
-        It is related to the UTF-8 encoding. MySQL version 8.0.x defaults to character set UTF-8 to be friendlier to international users which uses 4 bytes per character. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The database creation command should be as follows:
-
+        About using MySQL in different operating systems
+    
+        For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look.
+    
         ``` java
         mysql> create database <DATABASE_NAME> character set latin1;
-        ```
+
+    !!! note
+        If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html) . The default database collation, which is `latin1_swedish_ci` , is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information, because when deleting the API, it keeps the Registry collection left behind.
+    
+        This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
+    
 
 8.  Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
 
@@ -109,38 +115,22 @@ Follow the steps below to set up a MySQL database:
     2.  Download the connector JAR that is compatible with your current MySQL version.
     3.  Copy the JAR file **only to** `<API-M_HOME>/repository/components/lib` location. Files will be copied automatically to the dropins folder during the server startup.
 
-### Executing db scripts on MySQL database
+### Executing db scripts to create tables on MySQL database
 
-To run the database script against the database you created, login to the MySQL client and point to the corresponding database.
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
 
-``` java
-use shareddb;
-```
-
-Execute the mysql.sql database script against the pointed database using following command.
-
-``` java
-mysql> source <path to the script>\mysql.sql;
-```
-!!! info
-    About using MySQL in different operating systems
-
-    For users of Microsoft Windows, when creating the database in MySQL, it is important to specify the character set as latin1. Failure to do this may result in an error (error code: 1709) when starting your cluster. This error occurs in certain versions of MySQL (5.6.x) and is related to the UTF-8 encoding. MySQL originally used the latin1 character set by default, which stored characters in a 2-byte sequence. However, in recent versions, MySQL defaults to UTF-8 to be friendlier to international users. Hence, you must use latin1 as the character set as indicated below in the database creation commands to avoid this problem. Note that this may result in issues with non-latin characters (like Hebrew, Japanese, etc.). The following is how your database creation command should look.
-
-    ``` java
-    mysql> create database <DATABASE_NAME> character set latin1;
+    ```sh
+    mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
-    For users of other operating systems, the standard database creation commands are sufficient. For these operating systems, the following is how your database creation command should look.
+2.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
 
-    ``` java
-    mysql> create database <DATABASE_NAME>;
+    ```sh
+    mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
     ```
 
 !!! note
-    If you are using MySQL to configure your datasources, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html) . The default database collation, which is `latin1_swedish_ci` , is case insensitive. However, you need to maintain case sensivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information, because when deleting the API, it keeps the Registry collection left behind.
-
-    This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
+    `<API-M_HOME>/dbscripts/mb-store/mysql.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
 
 !!! note
     Additional notes
@@ -149,37 +139,12 @@ mysql> source <path to the script>\mysql.sql;
     -   To access the databases from remote instances, its required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
 
 ```tab="Format"
-mysql> create database apimgtdb;
-mysql> use apimgtdb;
-mysql> source <API-M_HOME>/dbscripts/apimgt/mysql.sql;
-mysql> grant all on apimgtdb.* TO '<username>'@'%' identified by '<password>';
-    
-mysql> create database shareddb;
-mysql> use shareddb;
-mysql> source <API-M_HOME>/dbscripts/mysql.sql;
-mysql> grant all on shareddb.* TO '<username>'@'%' identified by '<password>';
-     
-mysql> create database mbstoredb;
-mysql> use mbstoredb;
-mysql> source <API-M_HOME>/dbscripts/mb-store/mysql-mb.sql;
-mysql> grant all on mbstoredb.* TO '<username>'@'%' identified by '<password>';
+mysql> grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
 ```
 
 ``` tab="Example"
-mysql> create database apimgtdb;
-mysql> use apimgtdb;
-mysql> source <API-M_HOME>/dbscripts/apimgt/mysql.sql;
-mysql> grant all on apimgtdb.* TO 'wso2user'@'%' identified by 'wso2123';
-
-mysql> create database shareddb;
-mysql> use shareddb;
-mysql> source <API-M_HOME>/dbscripts/mysql.sql;
-mysql> grant all on shareddb.* TO 'wso2user'@'%' identified by 'wso2123';
-
-mysql> create database mbstoredb;
-mysql> use mbstoredb;
-mysql> source <API-M_HOME>/dbscripts/mb-store/mysql-mb.sql;
-mysql> grant all on mbstoredb.* TO 'wso2user'@'%' identified by 'wso2123';
+mysql> grant all on shared_db.* TO 'wso2user'@'%' identified by 'wso2123';
+mysql> grant all on apim_db.* TO 'wso2user'@'%' identified by 'wso2123';
 ```
 
 !!! note
@@ -188,7 +153,6 @@ mysql> grant all on mbstoredb.* TO 'wso2user'@'%' identified by 'wso2123';
 ## Changing to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
--   [Creating database tables](#creating-database-tables)
 
 ### Creating the datasource connection to MySQL
 
@@ -241,52 +205,6 @@ Follow the steps below to change the type of the default datasources.
         driver="com.mysql.cj.jdbc.Driver"
         ```
 
-    After adding these configurations, you could see that master-datasource.xml which located in <API-M_HOME>/repository/conf/datasource will be updated as follows after server startup:
-
-    ``` xml
-    <datasource>
-        <name>WSO2_SHARED_DB</name>
-        <description>The datasource used for registry and user manager</description>
-        <jndiConfig>
-            <name>jdbc/SHARED_DB</name>
-        </jndiConfig>
-        <definition type="RDBMS">
-            <configuration>
-                <url>jdbc:mysql://localhost:3306/<DATABASE_NAME></url>
-                <username>regadmin</username>
-                <password>regadmin</password>
-                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
-                <testOnBorrow>true</testOnBorrow>
-                <maxWait>60000</maxWait>
-                <defaultAutoCommit>true</defaultAutoCommit>
-                <validationInterval>30000</validationInterval>
-                <maxActive>50</maxActive>
-            </configuration>
-        </definition>
-    </datasource>
-
-    <datasource>
-        <name>WSO2AM_DB</name>
-        <description>The datasource used for API Manager database</description>
-        <jndiConfig>
-            <name>jdbc/WSO2AM_DB</name>
-        </jndiConfig>
-        <definition type="RDBMS">
-            <configuration>
-                <url>jdbc:mysql://localhost:3306/<DATABASE_NAME></url>
-                <username>apimadmin</username>
-                <password>apimadmin</password>
-                <driverClassName>com.mysql.cj.jdbc.Driver</driverClassName>
-                <testOnBorrow>true</testOnBorrow>
-                <maxWait>60000</maxWait>
-                <defaultAutoCommit>true</defaultAutoCommit>
-                <validationInterval>30000</validationInterval>
-                <maxActive>50</maxActive>
-            </configuration>
-            </definition>
-    </datasource>       
-    ```
-
 3.  You can update the configuration elements given below for your database connection.
 
     | Element                | Description                                                                                                                                                                                                                                                                                                                                  |
@@ -299,31 +217,43 @@ Follow the steps below to change the type of the default datasources.
     | **validationInterval** | The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.                                                                                      |
     | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
     | **commitOnReturn**     | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false.|
-    | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
+    | **rollbackOnReturn**   | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
+
+    Sample configuration is shown below:
+    
+    ``` tab="Format"
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
+    username = "regadmin"
+    password = "regadmin"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
+    ```
+
+    ``` tab="Example"
+    [database.shared_db]
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/shared_db"
+    username = "regadmin"
+    password = "regadmin"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
+
+    [database.apim_db]
+    type = "mysql"
+    url = "jdbc:mysql://localhost:3306/apim_db"
+    username = "apimadmin"
+    password = "apimadmin"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
+    ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-### Creating database tables
-
-To create the database tables, connect to the database that you created earlier and run the relevant scripts.
-
-1.  To create tables in the registry and user manager database ( `WSO2_SHARED_DB` ), execute the relevant script as shown below.
-
-    ``` powershell
-    mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
-    ```
-
-2.  To create tables in the apim database ( `WSO2AM_DB` ), execute the relevant script as shown below.
-
-    ``` powershell
-    mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
-    ```
+4.  Restart the server.
 
     !!! note
-        `<API-M_HOME>/dbscripts/mb-store/mysql.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
-
-3.  Restart the server.
-
-!!! note
-    To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores](../../../Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
