@@ -37,7 +37,7 @@ Following is the default configuration for carbon logs and the default values ca
      DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
      ```
    
-   The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({base_path}/Administer/ProductAdministration/Monitoring/Logging/managing-log-growth) guide.
+   The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/Administer/ProductAdministration/Monitoring/Logging/managing-log-growth) guide.
    
 ###Enable Logs for a Component
 

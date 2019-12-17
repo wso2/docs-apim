@@ -19,3 +19,7 @@ By default, WSO2 products identify the hostname of the current machine through t
 2.  Generate a key store, export the public certificate from the keystore, and import that certificate to the `client­-truststore.jks` file.
     For more information, see [Creating New Keystores](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) in the WSO2 Administration guide.
 
+3.  Restart the server.
+
+    !!!warning
+        Please refer [Troubleshooting 'Registered callback does not match with the provided url' error]({{base_path}}/Troubleshooting/troubleshooting-invalid-callback-error) if you have encountered login failures to API Publisher and API Dev Portal giving `Registered callback does not match with the provided url` error, after the hostname change.

@@ -11,7 +11,7 @@ By default wso2 supports rollover based on a time period. This interval is by de
 
 #### Managing the growth of Carbon logs
 
-Log growth in [Carbon logs]({base_path}/Administer/ProductAdministration/Monitoring/Logging/setting-up-logging/#configuring-carbon-logs) can be managed by following configurations in `<APIM_HOME>/repository/conf/log4j2.properties` file.
+Log growth in [Carbon logs]({{base_path}}/Administer/ProductAdministration/Monitoring/Logging/setting-up-logging/#configuring-carbon-logs) can be managed by following configurations in `<APIM_HOME>/repository/conf/log4j2.properties` file.
 
 
 -   Rollover based on a time period can be configured by changing `appender.CARBON_LOGFILE.policies.time.interval` value in days(Default value is 1 day).
