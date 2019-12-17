@@ -22,22 +22,35 @@ Log growth in [Carbon logs]({base_path}/Administer/ProductAdministration/Monitor
     
 -   Rollover based on log file size can be configured by following steps.
 
-    1.  Remove following configuration from log4j2.properties file.
+    1.  Disable time based triggering policy configuration for CARBON_LOGFILE logger in log4j2.properties file.
         
            ``` toml
-           appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-           appender.CARBON_LOGFILE.policies.time.interval = 1
+           appender.CARBON_LOGFILE.policies.time.modulate = false
            ```
        
-    2.  Add following configuration to log4j2.properties file.
+    2.  Add following configuration to log4j2.properties file, in order to enable size based triggering policy.
 
            ``` toml
-           appender.CARBON_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-           appender.CARBON_LOGFILE.policies.size.size=10MB
+           appender.CARBON_LOGFILE.policies.size.modulate = true
            ```
-       
-           If the size of the log file is exceeding the value defined in the `appender.CARBON_LOGFILE.policies.size.size` property, the content is copied to a backup file and the logs are continued to be added to a new empty log file.     
-  
+           
+    3.  By default, the size limit of the log file is 10MB. You can change the default value using following configuration.
+    
+        ```toml
+        appender.CARBON_LOGFILE.policies.size.size=<file_size_limit>
+        ```
+            
+        If the size of the log file is exceeding the value defined in the `appender.CARBON_LOGFILE.policies.size.size` property, the content is copied to a backup file and the logs are continued to be added to a new empty log file.  
+         
+    4.  Append timestamp(HH-mm-ss) to file pattern `appender.CARBON_LOGFILE.filePattern`. 
+    
+        !!!Note
+            When file size based log rollover has been enabled, the timestamp should be appended to file pattern in order to differentiate the backup file names by time stamp. Unless, the current backup file will be replaced by the next backup which is created on the same day, since both file  will be having the same name(ie: wso2carbon-12-16-2019.log).
+            
+     
+        ```toml
+        appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy HH-mm-ss}.log
+        ```   
 
 -   The following property under `CARBON_LOGFILE` appender is used to limit the number of backup files.
     You can change it as per your requirement by changing its value.
@@ -56,23 +69,36 @@ Log growth in [Carbon logs]({base_path}/Administer/ProductAdministration/Monitor
     
 -   Rollover based on log file size can be configured by following steps.
 
-    1.  Remove following configuration from log4j2.properties file.
+    1.  Disable time based triggering policy configuration for AUDIT_LOGFILE logger in log4j2.properties file.
         
            ``` toml
-           appender.AUDIT_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-           appender.AUDIT_LOGFILE.policies.time.interval = 1
+           appender.AUDIT_LOGFILE.policies.time.modulate = false
            ```
        
-    2.  Add following configuration to log4j2.properties file.
+    2.  Add following configuration to log4j2.properties file, in order to enable size based triggering policy.
 
            ``` toml
-           appender.AUDIT_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-           appender.AUDIT_LOGFILE.policies.size.size=10MB
+           appender.AUDIT_LOGFILE.policies.size.modulate = true
            ```
-       
-           If the size of the log file is exceeding the value defined in the `appender.AUDIT_LOGFILE.policies.size.size` property, the content is copied to a backup file and the logs are continued to be added to a new empty log file.     
-  
-
+           
+    3.  By default, the size limit of the log file is 10MB. You can change the default value using following configuration.
+    
+        ```toml
+        appender.AUDIT_LOGFILE.policies.size.size=<file_size_limit>
+        ```
+            
+        If the size of the log file is exceeding the value defined in the `appender.CARBON_LOGFILE.policies.size.size` property, the content is copied to a backup file and the logs are continued to be added to a new empty log file.  
+         
+    4.  Append timestamp(HH-mm-ss) to file pattern `appender.AUDIT_LOGFILE.filePattern`. 
+    
+        !!!Note
+            When file size based log rollover has been enabled, the timestamp should be appended to file pattern in order to differentiate the backup file names by time stamp. Unless, the current backup file will be replaced by the next backup which is created on the same day, since both file names are same(ie: audit-12-16-2019.log).
+            
+     
+        ```toml
+        appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy HH-mm-ss}.log
+        ```
+        
 -   The following property under `AUDIT_LOGFILE` appender is used to limit the number of audit log backup files.
     You can change it as per your requirement by changing its value.
 
