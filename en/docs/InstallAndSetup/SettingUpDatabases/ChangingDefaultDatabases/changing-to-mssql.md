@@ -137,54 +137,6 @@ Follow the steps below to change the type of the default datasource.
     !!! warning
         Set <strong><code>SendStringParametersAsUnicode</code></strong> to 'false' in order to overcome a limitation in the Microsoft SQL client driver. Without this parameter, the database driver will erroneously convert <code>VARCHAR</code> data into <code>NVARCHAR</code> and lower the database's performance.
 
-    After adding these configurations, you could see that `master-datasource.xml` which located in `<API-M_HOME>/repository/conf/datasource` will be updated as follows after server startup:
-
-    ``` xml
-    <datasource>
-        <name>WSO2_SHARED_DB</name>
-        <description>The datasource used for registry and user manager</description>
-        <jndiConfig>
-            <name>jdbc/SHARED_DB</name>
-        </jndiConfig>
-        <definition type="RDBMS">
-            <configuration>
-                <url>jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false</url>
-                <username>regadmin</username>
-                <password>regadmin</password>
-                <driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverClassName>
-                <validationQuery>SELECT 1</validationQuery>
-                <testOnBorrow>true</testOnBorrow>
-                <maxWait>60000</maxWait>
-                <defaultAutoCommit>true</defaultAutoCommit>
-                <validationInterval>30000</validationInterval>
-                <maxActive>50</maxActive>
-            </configuration>
-        </definition>
-    </datasource>
-
-    <datasource>
-        <name>WSO2AM_DB</name>
-        <description>The datasource used for API Manager database</description>
-        <jndiConfig>
-            <name>jdbc/WSO2AM_DB</name>
-        </jndiConfig>
-        <definition type="RDBMS">
-            <configuration>
-                <url>jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false</url>
-                <username>apimadmin</username>
-                <password>apimadmin</password>
-                <driverClassName>com.microsoft.sqlserver.jdbc.SQLServerDriver</driverClassName>
-                <validationQuery>SELECT 1</validationQuery>
-                <testOnBorrow>true</testOnBorrow>
-                <maxWait>60000</maxWait>
-                <defaultAutoCommit>true</defaultAutoCommit>
-                <validationInterval>30000</validationInterval>
-                <maxActive>50</maxActive>
-            </configuration>
-            </definition>
-    </datasource>
-    ```
-
 1.  You can update the configuration elements given below for your database connection.
 
     | Element                | Description                                                                                                                                                                                                                                                                                                                                  |
@@ -197,6 +149,43 @@ Follow the steps below to change the type of the default datasource.
     | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
     | **commitOnReturn**     | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false.|
     | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
+
+    Sample configuration is shown below:
+    
+    ``` tab="Format"
+    type = "mssql"
+    url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    validationQuery = "SELECT 1"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
+    ```
+    
+    ``` tab="Example"
+    [database.shared_db]
+    type = "mssql"
+    url = "jdbc:sqlserver://localhost:1433;databaseName=shared_db;SendStringParametersAsUnicode=false"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    validationQuery = "SELECT 1"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
+    
+    [database.apim_db]
+    type = "mssql"
+    url = "jdbc:sqlserver://localhost:1433;databaseName=apim_db;SendStringParametersAsUnicode=false"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    validationQuery = "SELECT 1"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
+    ```
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
