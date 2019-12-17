@@ -22,6 +22,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
 1.  Enable **TCP/IP** and disable **Named Pipes** from protocols of your Microsoft SQL server.
 1.  Double click **TCP/IP** to open the TCP/IP properties window and set **Listen All** to `Yes` on the **Protocol** tab.
 1.  On the **IP Address** tab, disable **TCP Dynamic Ports** by leaving it blank and give a valid TCP port, so that Microsoft SQL server will listen on that port.
+
     !!! info
         The best practice is to use port 1433, because you can use it in order processing services.
 
