@@ -335,27 +335,29 @@ nav:
             - Running the Product: InstallAndSetup/InstallationGuide/running-the-product.md
             - Basic Health Checks: InstallAndSetup/InstallationGuide/basic-health-checks.md
         - Deploying WSO2 API Manager:
-            - Deployment Patterns: InstallAndSetup/DeployingWSO2APIManager/deployment-patterns.md
-            - All-In-One Deployment:
-                - All-in-One Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview.md
-                - Configuring a Single Node: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md
-                - Configuring an Active-Active Deployment: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment.md
-            - Distributed Deployment:
-                - Distributed Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                - Deploying WSO2 API-M in a Distributed Setup: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - WSO2 API-M Gateways in a Distributed Deployment:
-                    - Configure WSO2 API-M Gateways in a Distributed Deployment: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
-                    - Configuring the Gateway in a Distributed Environment with rsync: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
-                    - Working with Hazelcast Clustering: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
-                - Configure a Thrid Party Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
-                - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
-                - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md
-            - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+            - Deployment Patterns:
+                - Deployment Patterns Overview: InstallAndSetup/DeployingWSO2APIManager/deployment-patterns.md
+                - All-In-One Deployment:
+                    - All-in-One Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview.md
+                    - Configuring a Single Node: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md
+                    - Configuring an Active-Active Deployment: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment.md
+                - Distributed Deployment:
+                    - Distributed Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                    - Deploying WSO2 API-M in a Distributed Setup: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                    - WSO2 API-M Gateways in a Distributed Deployment:
+                        - Configure WSO2 API-M Gateways in a Distributed Deployment: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
+                        - Configuring the Gateway in a Distributed Environment with rsync: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
+                        - Working with Hazelcast Clustering: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
+                    - Configure a Thrid Party Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
+                    - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
+                    - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md
             - Configuring rsync for Deployment Synchronization: InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
-            - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
             - Changing the Hostname: InstallAndSetup/DeployingWSO2APIManager/changing-the-hostname.md
-            - Minimum High Availability Deployment for WSO2 APIM Analytics: InstallAndSetup/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
+            - Changing the Default Ports with Offset: InstallAndSetup/DeployingWSO2APIManager/changing-the-default-ports-with-offset.md
             - Configuring the keyStore and client trustStore for a Selected Pattern: InstallAndSetup/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
+            - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
+            - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+            - Minimum High Availability Deployment for WSO2 APIM Analytics: InstallAndSetup/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
             - Deployment Guidelines:
                 - Production Deployment Guidelines: InstallAndSetup/DeployingWSO2APIManager/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: InstallAndSetup/DeployingWSO2APIManager/security-guidelines-for-production-deployment.md
@@ -423,12 +425,12 @@ nav:
                      - Monitoring HTTP access logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
                      - Monitoring audit Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-audit-logs.md
                      - Managing log growth: Administer/ProductAdministration/Monitoring/Logging/managing-log-growth.md
+                - Working with Observability: Administer/ProductAdministration/Monitoring/working-with-observability.md
                 - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
                 - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
                 - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md
                 - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
                 - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
-                - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
             - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
         - Product Configurations:
@@ -439,42 +441,37 @@ nav:
             - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
         - Product Security:
-            - General:
-                - Logins and Passwords:
-                    - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
-                    - Securing Passwords:
-                        - Encrypting Passwords in Configuration files: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
-                        - Customizing Secure Vault: Administer/ProductSecurity/General/LoginsAndPasswords/carbon-secure-vault-implementation.md
-                        - Set Passwords using Environment Variables/System Properties: Administer/ProductSecurity/General/LoginsAndPasswords/set-passwords-using-vars-and-sys-props.md
-                - Using Asymmetric Encryption:
-                    - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores.md
-                    - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/renewing-a-ca-signed-certificate-in-a-keystore.md
-                    - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/configuring-keystores-in-wso2-products.md
-                    - Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/managing-keystores-with-the-ui.md
-                - Using Symmetric Encryption:
-                    - Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/using-symmetric-encryption.md
-                    - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/mitigating-cross-site-request-forgery-attacks.md
-                    - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/mitigating-cross-site-scripting-attacks.md
-                    - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/enabling-hostname-verification.md
-                    - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/configuring-tls-termination.md
-                    - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/enabling-java-security-manager.md
-                - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
-                - Configuring Transport Level Security: Administer/ProductSecurity/General/configuring-transport-level-security.md
-                - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
-            - API Designer Portal:
-                - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-            - Application Developer Portal:
-                - Whitelisting Hostnames for API Store: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
-                - Identity Management for the API Store: Administer/ProductSecurity/identity-management-for-the-api-store.md
+            - Logins and Passwords:
+                - Maintaining Logins and Passwords: Administer/ProductSecurity/LoginsAndPasswords/maintaining-logins-and-passwords.md
+                - Securing Passwords:
+                    - Encrypting Passwords in Configuration files: Administer/ProductSecurity/LoginsAndPasswords/working-with-encrypted-passwords.md
+                    - Customizing Secure Vault: Administer/ProductSecurity/LoginsAndPasswords/carbon-secure-vault-implementation.md
+                    - Set Passwords using Environment Variables/System Properties: Administer/ProductSecurity/LoginsAndPasswords/set-passwords-using-vars-and-sys-props.md
+            - Using Asymmetric Encryption:
+                - Creating New Keystores: Administer/ProductSecurity/UsingAsymmetricEncryption/creating-new-keystores.md
+                - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/UsingAsymmetricEncryption/renewing-a-ca-signed-certificate-in-a-keystore.md
+                - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/UsingAsymmetricEncryption/configuring-keystores-in-wso2-products.md
+                - Managing Keystores with the UI: Administer/ProductSecurity/UsingAsymmetricEncryption/managing-keystores-with-the-ui.md
+            - Using Symmetric Encryption:
+                - Using Symmetric Encryption: Administer/ProductSecurity/UsingSymmetricEncryption/using-symmetric-encryption.md
+                - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/UsingSymmetricEncryption/mitigating-cross-site-request-forgery-attacks.md
+                - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/UsingSymmetricEncryption/mitigating-cross-site-scripting-attacks.md
+            - Enabling HostName Verification: Administer/ProductSecurity/enabling-hostname-verification.md
+            - Configuring TLS Termination: Administer/ProductSecurity/configuring-tls-termination.md
+            - Enabling Java Security Manager: Administer/ProductSecurity/enabling-java-security-manager.md
+            - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
+            - Configuring Transport Level Security: Administer/ProductSecurity/configuring-transport-level-security.md
+            - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/mutual-ssl-between-api-gateway-and-backend.md
+            - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+            - Whitelisting Hostnames for API Dev Portal: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
+            - Identity Management for the API Dev Portal: Administer/ProductSecurity/identity-management-for-the-api-store.md
     - Reference:
         - Configuration Catalog: Reference/ConfigCatalog.md
         - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
         - FAQ: Reference/faq.md
         - Guides:
-            - Changing the Default Ports with Offset: Reference/Guides/changing-the-default-ports-with-offset.md
             - Message Flow in the API Manager Gateway: Reference/Guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Database Upgrade Guide: Reference/Guides/database-upgrade-guide.md
             - admin_Directory Structure of WSO2 Products: Reference/Guides/directory-structure-of-wso2-products.md
         - Samples:
             - API Development Sample:
@@ -493,7 +490,6 @@ nav:
         - Error Handling: Troubleshooting/error-handling.md
         - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
         - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
-        - Working with Observability: Troubleshooting/working-with-observability.md
         - Troubleshooting 'Registered callback does not match with the provided url' error: Troubleshooting/troubleshooting-invalid-callback-error.md
 # Extensions
 markdown_extensions:

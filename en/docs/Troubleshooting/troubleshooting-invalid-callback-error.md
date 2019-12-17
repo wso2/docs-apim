@@ -4,7 +4,7 @@ The **Registered callback does not match with the provided url** error can be en
 
 For example, let's assume that you have started a fresh APIM server and accessed the API Publisher and Dev Portal apps via localhost. If you have [changed the hostname]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/changing-the-hostname/) of the server from `localhost` to `apim.wso2.com`, the next login attempt to API Publisher or Devportal will be failed giving this error.
 
-<a href="../../../assets/img/Troubleshooting/invalid-callback-url-error.png" ><img src="../../assets/img/Troubleshooting/invalid-callback-url-error.png" alt="Invalid callback url error" 
+<a href="../../assets/img/Troubleshooting/invalid-callback-url-error.png" ><img src="../../assets/img/Troubleshooting/invalid-callback-url-error.png" alt="Invalid callback url error" 
           title="Invalid callback url error" width="50%" /></a> 
           
 This error has been occurred due to the mismatch of the API Publisher or API Dev portal access URLs((`https://<hostname>:9443/publisher` and `https://<hostname>:9443/devportal`)  and callback URLs which are configured in API Publisher and API Devportal Service Providers.
@@ -14,17 +14,17 @@ Please follow below steps to fix the login failure due to callback URL mismatch.
 1.  Login to management console(`https://<hostname>:9443/carbon`).
 2.  Navigate to service providers list.
 
-    <a href="../../../assets/img/Troubleshooting/service-providers.png" ><img src="../../../assets/img/Troubleshooting/service-providers.png" alt="SP list" 
+    <a href="../../assets/img/Troubleshooting/service-providers.png" ><img src="../../assets/img/Troubleshooting/service-providers.png" alt="SP list" 
           title="SP list" width="20%" /></a> 
 
 3.  Click on the **Edit** button of API Publisher service provider
 
-    <a href="../../../assets/img/Troubleshooting/service-providers-list.png" ><img src="../../../assets/img/Troubleshooting/service-providers-list.png" alt="SP list" 
+    <a href="../../assets/img/Troubleshooting/service-providers-list.png" ><img src="../../assets/img/Troubleshooting/service-providers-list.png" alt="SP list" 
           title="SP list" width="60%" /></a> 
 
 4.  Navigate to  **Inbound Authentication Configuration > OAuth/OpenID Connect Configuration** and click on OAuth application edit button.
 
-    <a href="../../../assets/img/Troubleshooting/oauth-app-select.png" ><img src="../../../assets/img/Troubleshooting/oauth-app-select.png" alt="OAuth app edit" 
+    <a href="../../assets/img/Troubleshooting/oauth-app-select.png" ><img src="../../assets/img/Troubleshooting/oauth-app-select.png" alt="OAuth app edit" 
           title="OAuth app edit" width="60%" /></a>    
           
 5.  See the **Callback Url** regex value configured under Application Settings. You will observe that the callback URL value is having a different hostname(`localhost` or previous hostname which was configured before the hostname change). 
