@@ -73,14 +73,14 @@ Before you begin
 -   The `class` attribute for a read-only LDAP/Active Directory is `org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager`.
     ```
     [user_store]
-    class="org.wso2.carbon.user.core.ldap.RReadOnlyLDAPUserStoreManager"
+    class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
     type = "database"
     ```
 
 !!! note
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
     
-Given below is a sample for the L DAP/AD user store configuration in read-only mode. You can change the values to match your LDAP/AD in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Properties of User Stores](https://is.docs.wso2.com/en/5.9.0/setup/configuring-a-read-only-ldap-user-store/#properties-used-in-read-only-ldap-user-store-manager).
+Given below is a sample for the LDAP/AD user store configuration in read-only mode. You can change the values to match your LDAP/AD in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Properties of User Stores](#ConfiguringaRead-OnlyLDAPUserStore-Properties used in Read-only LDAP user store manager).
 The configuration for the external read-only user store in the user-mgt.xml file looks as follows for the above configurations:
 
     <UserManager>
@@ -259,7 +259,7 @@ For information information about the system administrator user, see [Configurin
 
 Start your server and try to log in as the admin user you specified. The password is the admin user's password in the LDAP server.
 
-### [Properties used in Read-write LDAP user store manager](#ConfiguringaRead-OnlyLDAPUserStore-Properties used in Read-write LDAP user store manager)
+### [Properties used in Read-only LDAP user store manager](#ConfiguringaRead-OnlyLDAPUserStore-Properties used in Read-only LDAP user store manager)
 
 The following are the minimum configurations that are needed to be provided to configure the Read-only LDAP user store manager.
 
