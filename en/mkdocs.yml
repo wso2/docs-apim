@@ -474,8 +474,8 @@ nav:
             - Changing the Default Ports with Offset: Reference/Guides/changing-the-default-ports-with-offset.md
             - Message Flow in the API Manager Gateway: Reference/Guides/message-flow-in-the-api-manager-gateway.md
             - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Database Upgrade Guide: Reference/Guides/database-upgrade-guide.md
-            - admin_Directory Structure of WSO2 Products: Reference/Guides/directory-structure-of-wso2-products.md
+            - Database Upgrade Guide: Reference/Guides/database-upgrade-guide.md
+            - Directory Structure of WSO2 Products: Reference/Guides/directory-structure-of-wso2-products.md
         - Samples:
             - API Development Sample:
                 - Managing APIs Sample: Reference/samples/APIDevelopmentSample/managing-apis-sample.md
