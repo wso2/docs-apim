@@ -20,9 +20,7 @@ Follow the steps below to set up a MySQL database:
 !!! note
     Note that we recommend to use Fail Over configuration over Load Balanced configuration with the MySQL clusters.
 
-1.  Download and install [MySQL Server](http://dev.mysql.com/downloads/) in your computer.
-
-2.  Define the hostname for configuring permissions for the new database by opening the `/etc/hosts` file and adding the following:
+1.  Define the hostname for configuring permissions for the new database by opening the `/etc/hosts` file and adding the following:
 
     !!! warning
         Do this step only if your database is not on your local machine and on a separate server.
@@ -31,27 +29,22 @@ Follow the steps below to set up a MySQL database:
     <MYSQL-DB-SERVER-IP> carbondb.mysql-wso2.com
     ```
 
-3.  Start the MySQL service.
+1.  Start the MySQL service.
 
-4.  Install mysql-client in each of the API-M servers in which WSO2 API-M is deployed. You need to do this in order to check if the servers can access the MySQL database.
+1.  Install a mysql-client in each of the API-M servers in which WSO2 API-M is deployed.
 
-    ``` java
-    sudo apt install mysql-client
-    mysql -h <mysqldb_host_ip> -u username -p
-    ```
-
-5.  Enter the following command in a command prompt, where `username` is the username that you will use to access the databases.
+1.  Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `MYSQL_HOST_IP` is the IP of the host.
 
     !!! tip
         User should have the database creation privileges.
 
     ``` java
-    mysql -u username -p
+    mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
     ```
 
-6.  When prompted, specify the password that will be used to access the databases with the username you specified.
+1.  When prompted, specify the password that will be used to access the databases with the username you specified.
 
-7.  In the MySQL command prompt, create the database using the following command:
+1.  In the MySQL command prompt, create the database using the following command:
 
     ``` java
     mysql> create database <DATABASE_NAME>;
@@ -70,7 +63,7 @@ Follow the steps below to set up a MySQL database:
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
     
 
-8.  Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
+1.  Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
 
     ``` java
     GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
@@ -87,13 +80,13 @@ Follow the steps below to set up a MySQL database:
         GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
         ```
 
-9.  Once you have finalized the permissions, reload all the privileges by executing the following command:
+1.  Once you have finalized the permissions, reload all the privileges by executing the following command:
 
     ``` java
     FLUSH PRIVILEGES;
     ```
 
-10.  Log out from the MySQL command prompt by executing the following command:
+1.  Log out from the MySQL command prompt by executing the following command:
 
     ``` java
     quit;
