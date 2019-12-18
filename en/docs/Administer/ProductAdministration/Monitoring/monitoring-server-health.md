@@ -1,4 +1,4 @@
-# admin\_Monitoring Server Health
+# Monitoring Server Health
 
 !!! warning
 This document is work in progress!
@@ -6,11 +6,11 @@ This document is work in progress!
 
 The Carbon Health Check API can be used to check the health of a Carbon server. The sections below guide you through using this API.
 
--   [Deploying the API](#admin_MonitoringServerHealth-DeployingtheAPI)
--   [Configuring the API](#admin_MonitoringServerHealth-ConfiguringtheAPI)
--   [Invoking the API](#admin_MonitoringServerHealth-InvokingtheAPI)
--   [Error responses](#admin_MonitoringServerHealth-Errorresponses)
--   [Adding new health checkers](#admin_MonitoringServerHealth-Addingnewhealthcheckers)
+-   [Deploying the API](#MonitoringServerHealth-DeployingtheAPI)
+-   [Configuring the API](#MonitoringServerHealth-ConfiguringtheAPI)
+-   [Invoking the API](#MonitoringServerHealth-InvokingtheAPI)
+-   [Error responses](#MonitoringServerHealth-Errorresponses)
+-   [Adding new health checkers](#MonitoringServerHealth-Addingnewhealthcheckers)
 
 !!! note
 **Note:** This API is only supported for WSO2 Carbon products that are running on Java 8 or a later version.
@@ -27,7 +27,7 @@ There are three health checkers available by default:
 !!! warning
 This API is supported by default from WSO2 Identity Server 5.7.0 onwards. It is available by default for WSO2 IS versions 5.5.0 and 5.6.0 only as a WUM update. For more information on how to update using WUM, see [Getting WSO2 Updates](https://docs.wso2.com/display/ADMIN44x/Getting+WSO2+Updates) documentation.
 
-**If you are using a WSO2 product version that supports this feature by default (either in a fresh pack or via a WUM update), skip the instructions in this section and proceed **to the [configuring the API](#admin_MonitoringServerHealth-ConfiguringtheAPI) section.**
+**If you are using a WSO2 product version that supports this feature by default (either in a fresh pack or via a WUM update), skip the instructions in this section and proceed **to the [configuring the API](#MonitoringServerHealth-ConfiguringtheAPI) section.**
 
 
 

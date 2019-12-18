@@ -1,4 +1,4 @@
-# admin\_Configuring the Primary User Store
+# Configuring the Primary User Store
 
 User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `user-mgt.xml` file found in the `<PRODUCT_HOME>/repository/conf/` directory. This documentation explains the process of setting up a primary user store for your system.
 
@@ -43,8 +43,8 @@ Instead of using the embedded database, you can set up a separate repository and
 
 The `user-mgt.xml` file already has sample configurations for all of the above user stores. To enable the required user store configuration, you must uncomment them in the code and comment out the ones that you do not need as explained in the following topics.
 
--   [admin\_Configuring a JDBC User Store](_admin_Configuring_a_JDBC_User_Store_)
--   [admin\_Configuring a Read-Only LDAP User Store](_admin_Configuring_a_Read-Only_LDAP_User_Store_)
--   [admin\_Configuring a Read-Write Active Directory User Store](_admin_Configuring_a_Read-Write_Active_Directory_User_Store_)
--   [admin\_Configuring a Read-Write LDAP User Store](_admin_Configuring_a_Read-Write_LDAP_User_Store_)
+-   [Configuring a JDBC User Store](Configuring_a_JDBC_User_Store_)
+-   [Configuring a Read-Only LDAP User Store](Configuring_a_Read-Only_LDAP_User_Store_)
+-   [Configuring a Read-Write Active Directory User Store](Configuring_a_Read-Write_Active_Directory_User_Store_)
+-   [Configuring a Read-Write LDAP User Store](Configuring_a_Read-Write_LDAP_User_Store_)
 

@@ -12,9 +12,9 @@ User management functionality is provided by default in all WSO2 Carbon-based pr
 
 Follow the given steps to configure a read-write LDAP as the primary user store:
 
--   [Step 1: Setting up the read-write LDAP user store manager](#admin_ConfiguringaRead-WriteLDAPUserStore-Step1:Settinguptheread-writeLDAPuserstoremanager)
--   [Step 2: Updating the system administrator](#admin_ConfiguringaRead-WriteLDAPUserStore-Step2:Updatingthesystemadministrator)
--   [Step 3: Starting the server](#admin_ConfiguringaRead-WriteLDAPUserStore-Step3:Startingtheserver)
+-   [Step 1: Setting up the read-write LDAP user store manager](#ConfiguringaRead-WriteLDAPUserStore-Step1:Settinguptheread-writeLDAPuserstoremanager)
+-   [Step 2: Updating the system administrator](#ConfiguringaRead-WriteLDAPUserStore-Step2:Updatingthesystemadministrator)
+-   [Step 3: Starting the server](#ConfiguringaRead-WriteLDAPUserStore-Step3:Startingtheserver)
 
 ### Step 1: Setting up the read-write LDAP user store manager
 

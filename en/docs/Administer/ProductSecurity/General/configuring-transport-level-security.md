@@ -1,12 +1,12 @@
-# admin\_Configuring Transport Level Security
+# Configuring Transport Level Security
 
 Given below are the various transport-level security configurations that are required for WSO2 products. See the following topics for instructions.
 
--   [Enabling TLS and disabling SSL support](#admin_ConfiguringTransportLevelSecurity-EnablingTLSanddisablingSSLsupport)
--   [Enabling SSL protocols and ciphers in ThriftAuthenticationService](#admin_ConfiguringTransportLevelSecurity-EnablingSSLprotocolsandciphersinThriftAuthenticationService)
--   [Enabling TLSv1.1/TLSv1.2 for products with JDK 1.7](#admin_ConfiguringTransportLevelSecurity-EnablingTLSv1.1/TLSv1.2forproductswithJDK1.7)
--   [Disabling weak ciphers](#admin_ConfiguringTransportLevelSecurity-disablingweakciphersDisablingweakciphers)
--   [Changing the server name in HTTP response headers](#admin_ConfiguringTransportLevelSecurity-ChangingtheservernameinHTTPresponseheaders)
+-   [Enabling TLS and disabling SSL support](#ConfiguringTransportLevelSecurity-EnablingTLSanddisablingSSLsupport)
+-   [Enabling SSL protocols and ciphers in ThriftAuthenticationService](#ConfiguringTransportLevelSecurity-EnablingSSLprotocolsandciphersinThriftAuthenticationService)
+-   [Enabling TLSv1.1/TLSv1.2 for products with JDK 1.7](#ConfiguringTransportLevelSecurity-EnablingTLSv1.1/TLSv1.2forproductswithJDK1.7)
+-   [Disabling weak ciphers](#ConfiguringTransportLevelSecurity-disablingweakciphersDisablingweakciphers)
+-   [Changing the server name in HTTP response headers](#ConfiguringTransportLevelSecurity-ChangingtheservernameinHTTPresponseheaders)
 
 ### Enabling TLS and disabling SSL support
 

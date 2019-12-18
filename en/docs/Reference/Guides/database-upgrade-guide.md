@@ -1,4 +1,4 @@
-# admin\_Database Upgrade Guide
+# Database Upgrade Guide
 
 This page takes you through the general steps for upgrading product versions based on Carbon 4.4.6 to Carbon 4.4.7.
 

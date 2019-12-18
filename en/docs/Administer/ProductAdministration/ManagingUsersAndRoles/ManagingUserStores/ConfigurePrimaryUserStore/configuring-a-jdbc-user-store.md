@@ -1,4 +1,4 @@
-# admin\_Configuring a JDBC User Store
+# Configuring a JDBC User Store
 
 User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the user-mgt.xml file found in the &lt;PRODUCT\_HOME&gt;/repository/conf/ directory. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure an RDBMS (JDBC) as the primary user store for the WSO2 server.
 
@@ -15,10 +15,10 @@ When you configure a JDBC user store as the primary user store, you can either u
 
 Therefore, before you begin, ensure that the RDBMS that you want to use as the JDBC user store is correctly set up for your system. Then, follow the steps given below to configure a JDBC user store as the primary user store in your product.
 
--   [Step 1: Configuring the JDBC user store manager](#admin_ConfiguringaJDBCUserStore-Step1:ConfiguringtheJDBCuserstoremanager)
--   [Step 2: Updating the system administrator](#admin_ConfiguringaJDBCUserStore-Step_2_updating_the_system_administratorStep2:Updatingthesystemadministrator)
--   [Step 3: Updating the datasources](#admin_ConfiguringaJDBCUserStore-Step_3_Updating_the_datasourcesStep3:Updatingthedatasources)
--   [Step 4: Starting the server](#admin_ConfiguringaJDBCUserStore-Step4:Startingtheserver)
+-   [Step 1: Configuring the JDBC user store manager](#ConfiguringaJDBCUserStore-Step1:ConfiguringtheJDBCuserstoremanager)
+-   [Step 2: Updating the system administrator](#ConfiguringaJDBCUserStore-Step_2_updating_the_system_administratorStep2:Updatingthesystemadministrator)
+-   [Step 3: Updating the datasources](#ConfiguringaJDBCUserStore-Step_3_Updating_the_datasourcesStep3:Updatingthedatasources)
+-   [Step 4: Starting the server](#ConfiguringaJDBCUserStore-Step4:Startingtheserver)
 
 ### Step 1: Configuring the JDBC user store manager
 

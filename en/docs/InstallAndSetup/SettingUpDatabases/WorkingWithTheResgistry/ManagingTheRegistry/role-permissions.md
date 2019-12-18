@@ -1,4 +1,4 @@
-# admin\_Role Permissions
+# Role Permissions
 
 When you select a collection in the registry, the **Permissions** panel opens with the defined role permissions available. It allows you to specify which role has access to perform which operations on a registry resource or a collection.
 

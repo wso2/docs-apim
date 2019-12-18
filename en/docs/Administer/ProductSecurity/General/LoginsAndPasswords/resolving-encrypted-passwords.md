@@ -1,11 +1,11 @@
-# admin\_Resolving Encrypted Passwords
+# Resolving Encrypted Passwords
 
 If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's primary keystore will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the Secret Manager in the Secret Repository. Therefore, the Secret Callback handler is used to resolve these passwords. Read about the [Secure Vault implementation](https://docs.wso2.com/display/ADMIN44x/Securing+Passwords+in+Configuration+Files) in WSO2 products. Also, see how passwords in [configuration files are encrypted](https://docs.wso2.com/display/ADMIN44x/Encrypting+Passwords+with+Cipher+Tool) using Secure Vault.
 
 The default secret CallbackHandler in a WSO2 product provides two options for reading these encrypted passwords when you start the server:
 
--   [Enter password in command-line](#admin_ResolvingEncryptedPasswords-Enterpasswordincommand-line)
--   [Start server as a background job](#admin_ResolvingEncryptedPasswords-Startserverasabackgroundjob)
+-   [Enter password in command-line](#ResolvingEncryptedPasswords-Enterpasswordincommand-line)
+-   [Start server as a background job](#ResolvingEncryptedPasswords-Startserverasabackgroundjob)
 
 ### Enter password in command-line
 

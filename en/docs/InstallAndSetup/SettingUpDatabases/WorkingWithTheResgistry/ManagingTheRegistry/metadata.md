@@ -1,6 +1,6 @@
-# admin\_Metadata
+# Metadata
 
-**The Metadata panel** allows you to manage resource metadata and revisions using the [Create Checkpoint](#admin_Metadata-Checkpoint) and [View Versions](#admin_Metadata-Versions) options. Each time you create a check point, it is added as a new reversion of the resource. Revisions is a useful way to facilitate Disaster Recovery and Fault Tolerance in the registry. By creating a revision, a user essentially saves a snapshot of the current state of a resource or collection that can be restored at a later date. The registry's checkpoint and restoration mechanisms are similar to that of System Restore of Microsoft Windows.
+**The Metadata panel** allows you to manage resource metadata and revisions using the [Create Checkpoint](#Metadata-Checkpoint) and [View Versions](#Metadata-Versions) options. Each time you create a check point, it is added as a new reversion of the resource. Revisions is a useful way to facilitate Disaster Recovery and Fault Tolerance in the registry. By creating a revision, a user essentially saves a snapshot of the current state of a resource or collection that can be restored at a later date. The registry's checkpoint and restoration mechanisms are similar to that of System Restore of Microsoft Windows.
 
 The **Metadata** panel displays the following properties of the resource or the collection:
 

@@ -1,9 +1,9 @@
-# admin\_Mitigating Cross Site Scripting Attacks
+# Mitigating Cross Site Scripting Attacks
 
 The following sections describe the impact of the XSS attack and the approaches you can use to mitigate it. **Note** that XSS attacks are prevented on the latest WSO2 products by default. This is due to output encoding of the displaying values. However, if additional protection is required, an input validation valve can be configured as explained below.
 
--   [How can XSS attacks be harmful?](#admin_MitigatingCrossSiteScriptingAttacks-HowcanXSSattacksbeharmful?)
--   [Mitigating XSS attacks](#admin_MitigatingCrossSiteScriptingAttacks-MitigatingXSSattacks)
+-   [How can XSS attacks be harmful?](#MitigatingCrossSiteScriptingAttacks-HowcanXSSattacksbeharmful?)
+-   [Mitigating XSS attacks](#MitigatingCrossSiteScriptingAttacks-MitigatingXSSattacks)
 
 ### How can XSS attacks be harmful?
 

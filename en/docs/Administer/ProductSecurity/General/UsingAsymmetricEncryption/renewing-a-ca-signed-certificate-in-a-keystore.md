@@ -1,12 +1,12 @@
-# admin\_Renewing a CA-Signed Certificate in a Keystore
+# Renewing a CA-Signed Certificate in a Keystore
 
 A digital certificate has a validity period, after which the certificate expires. Once a certificate expires, it is no longer valid, and it can cause the client-server communication to fail at the SSL handshake level. Therefore, it is important to plan certificate renewal ahead of time. Neglecting certificate renewal can eventually lead to a catastrophic situation such as major service outage.
 
 Following are the high level steps you need to follow to renew an expired certificate in a keystore.
 
--   [Step 1: Check the validity period of the certificate](#admin_RenewingaCA-SignedCertificateinaKeystore-Step1:Checkthevalidityperiodofthecertificate)
--   [Step 2: Generate a certificate signing request](#admin_RenewingaCA-SignedCertificateinaKeystore-Step2:Generateacertificatesigningrequest)
--   [Step 3: Import the new certificate to a keystore](#admin_RenewingaCA-SignedCertificateinaKeystore-Step3:Importthenewcertificatetoakeystore)
+-   [Step 1: Check the validity period of the certificate](#RenewingaCA-SignedCertificateinaKeystore-Step1:Checkthevalidityperiodofthecertificate)
+-   [Step 2: Generate a certificate signing request](#RenewingaCA-SignedCertificateinaKeystore-Step2:Generateacertificatesigningrequest)
+-   [Step 3: Import the new certificate to a keystore](#RenewingaCA-SignedCertificateinaKeystore-Step3:Importthenewcertificatetoakeystore)
 
 !!! tip
 Following are a few important points to keep in mind when you are renewing an expired certificate:

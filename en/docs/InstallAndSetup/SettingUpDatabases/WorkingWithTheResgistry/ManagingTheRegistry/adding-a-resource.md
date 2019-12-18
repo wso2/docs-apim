@@ -1,4 +1,4 @@
-# admin\_Adding a Resource
+# Adding a Resource
 
 You can add a resource to a certain collection for more convenient usage of the Registry.
 
@@ -12,10 +12,10 @@ Follow the instructions below to add a new child entry to a collection.
 
 The following methods are available:
 
--   **[Upload content from file](#admin_AddingaResource-1)**
--   **[Import content from URL](#admin_AddingaResource-2)**
--   **[Create Text content](#admin_AddingaResource-3)**
--   **[Create custom content](#admin_AddingaResource-4)**
+-   **[Upload content from file](#AddingaResource-1)**
+-   **[Import content from URL](#AddingaResource-2)**
+-   **[Create Text content](#AddingaResource-3)**
+-   **[Create custom content](#AddingaResource-4)**
 
 ![]({{base_path}}/assets/attachments/126562631/126562637.png)
 

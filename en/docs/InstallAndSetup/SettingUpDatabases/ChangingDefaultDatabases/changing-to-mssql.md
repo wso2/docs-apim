@@ -1,9 +1,9 @@
-# admin\_Setting up Microsoft SQL
+# Setting up Microsoft SQL
 
 The following sections describe how to set up Microsoft SQL to replace the default H2 database in your WSO2 product:
 
--   [Setting up the database and users](#admin_SettingupMicrosoftSQL-Settingupthedatabaseandusers)
--   [Setting up the JDBC driver](#admin_SettingupMicrosoftSQL-SettinguptheJDBCdriver)
+-   [Setting up the database and users](#SettingupMicrosoftSQL-Settingupthedatabaseandusers)
+-   [Setting up the JDBC driver](#SettingupMicrosoftSQL-SettinguptheJDBCdriver)
 
 ### Setting up the database and users
 
@@ -47,14 +47,14 @@ In WSO2 IoT Server copy the driver file to the `<IOTS_HOME>/lib` directory
 By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with MSSQL, see [Changing to MSSQL](https://docs.wso2.com/display/ADMIN44x/Changing+to+MSSQL) .
 
 
-# admin\_Changing to MSSQL
+# Changing to MSSQL
 
 By default, WSO2 products use the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use a MSSQL database for this purpose.
 
--   [Setting up datasource configurations](#admin_ChangingtoMSSQL-Settingupdatasourceconfigurations)
-    -   [Changing the default WSO2\_CARBON\_DB datasource](#admin_ChangingtoMSSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
-    -   [Configuring new  datasources to manage registry or user management data](#admin_ChangingtoMSSQL-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
--   [Creating the database tables](#admin_ChangingtoMSSQL-Creatingthedatabasetables)
+-   [Setting up datasource configurations](#ChangingtoMSSQL-Settingupdatasourceconfigurations)
+    -   [Changing the default WSO2\_CARBON\_DB datasource](#ChangingtoMSSQL-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+    -   [Configuring new  datasources to manage registry or user management data](#ChangingtoMSSQL-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
+-   [Creating the database tables](#ChangingtoMSSQL-Creatingthedatabasetables)
 
 !!! tip
 Before you begin
@@ -64,7 +64,7 @@ You need to set up MSSQL before following the steps to configure your product wi
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default H2 database, which stores registry and user management data. After setting up the Microsoft SQL database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoMSSQL-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoMSSQL-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default H2 database, which stores registry and user management data. After setting up the Microsoft SQL database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoMSSQL-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoMSSQL-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -235,7 +235,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
 Follow the steps below to configure new datasources to point to the new  databases you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoMSSQL-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoMSSQL-Settingupdatasourceconfigurations)
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoMSSQL-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoMSSQL-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml
