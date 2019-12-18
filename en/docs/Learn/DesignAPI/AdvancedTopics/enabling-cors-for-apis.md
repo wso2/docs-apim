@@ -4,9 +4,10 @@ Cross-Origin Resource Sharing (CORS) is a mechanism that allows accessing restri
 
 In API Manager, you can enable Cross-Origin Resource Sharing per API or as a global configuration that is applied across all APIs.
 
--   [Enabling CORS Globally](#EnablingCORSforAPIs-EnablingCORSGlobally)
--   [Enabling CORS Per API](#EnablingCORSforAPIs-EnablingCORSPerAPI)
+-   [Enabling CORS Globally](#EnablingCORSGlobally)
+-   [Enabling CORS Per API](#EnablingCORSPerAPI)
 
+<a name="EnablingCORSGlobally"></a>
 ### Enabling CORS Globally
 
 You can enable CORS globally for API Manager by configuring deployment.toml located in `<API-M_HOME>` / `repository/conf/` directory.
@@ -28,7 +29,7 @@ Follow the steps below to enable CORS response headers globally. Once this confi
 !!! info
     CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `deployment.toml` file.
 
-
+<a name="EnablingCORSPerAPI"></a>
 ### Enabling CORS Per API
 
 !!! note
