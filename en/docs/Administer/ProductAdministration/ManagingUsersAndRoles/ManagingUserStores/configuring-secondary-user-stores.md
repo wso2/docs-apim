@@ -1,11 +1,11 @@
-# admin\_Configuring Secondary User Stores
+# Configuring Secondary User Stores
 
 The default configurations of WSO2 products have a single, embedded user store (primary user store). If required, you can configure WSO2 products to connect to several secondary user stores as well. After configuration, users from different stores can log in and perform operations depending on their roles/permissions. You can also configure your own customized user stores and connect them with the products as secondary stores.
 
 The topics below explain how to configure secondary user stores manually or using the management console:
 
--   [Configuring using the management console](#admin_ConfiguringSecondaryUserStores-Configuringusingthemanagementconsole)
--   [Configuring manually](#admin_ConfiguringSecondaryUserStores-Configuringmanually)
+-   [Configuring using the management console](#ConfiguringSecondaryUserStores-Configuringusingthemanagementconsole)
+-   [Configuring manually](#ConfiguringSecondaryUserStores-Configuringmanually)
 
 !!! tip
 Before you begin:

@@ -1,4 +1,4 @@
-# admin\_Configuring TLS Termination
+# Configuring TLS Termination
 
 When you have Carbon servers fronted by a load balancer, you have the option of terminating SSL for HTTPS requests. This means that the load balancer will be decrypting incoming HTTPS messages and forwarding them to the Carbon servers as HTTP. This is useful when you want to reduce the load on your Carbon servers due to encryption. To achieve this, the load balancer should be configured with TLS termination and the Tomcat RemoteIpValve should be enabled for Carbon servers.
 
@@ -6,8 +6,8 @@ When you work with Carbon servers, this will allow you to access admin services 
 
 Given below are the steps you need to follow:
 
--   [Step 1: Configuring the load balancer with TLS termination](#admin_ConfiguringTLSTermination-Step1:ConfiguringtheloadbalancerwithTLStermination)
--   [Step 2: Enabling RemoteIpValve for Carbon servers](#admin_ConfiguringTLSTermination-Step2:EnablingRemoteIpValveforCarbonservers)
+-   [Step 1: Configuring the load balancer with TLS termination](#ConfiguringTLSTermination-Step1:ConfiguringtheloadbalancerwithTLStermination)
+-   [Step 2: Enabling RemoteIpValve for Carbon servers](#ConfiguringTLSTermination-Step2:EnablingRemoteIpValveforCarbonservers)
 
 ### Step 1: Configuring the load balancer with TLS termination
 

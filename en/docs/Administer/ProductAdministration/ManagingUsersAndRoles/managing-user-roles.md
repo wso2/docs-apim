@@ -138,7 +138,7 @@ The following are the changes that need to be made in the configurations above:
 
 You do not have to do this when updating before the first startup. The following steps guide you through updating the role names:
 
-1.  Do the configuration changes indicated in [the above section](#admin_ConfiguringRoles-UpdateRole1) .
+1.  Do the configuration changes indicated in [the above section](#ConfiguringRoles-UpdateRole1) .
 2.  You need to do the following user store level changes for existing users if you have changed the role names as mentioned earlier.
     -   If you are connected to `JDBCUserStoreManager` you need to update the `UM_USER_ROLE` table with the existing users after changing the `admin` and `everyone` role names. Also if you have changed the permission of `everyone` role, the `UM_ROLE_PERMISSION` has to be updated with the permissions to the new role.
 

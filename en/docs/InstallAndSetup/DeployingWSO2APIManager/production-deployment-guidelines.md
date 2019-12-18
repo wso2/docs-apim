@@ -1,10 +1,10 @@
-# admin\_Production Deployment Guidelines
+# Production Deployment Guidelines
 
 The requirements for deploying WSO2 products can change based on the deployment scenario and pattern. The recommendations in this topic are for general production use, assuming moderate load conditions. For situations where a high volume of traffic is expected and if there are large deployments, these guidelines may not be sufficient. See [Troubleshooting in Production Environments](https://docs.wso2.com/display/ADMIN44x/Troubleshooting+in+Production+Environments) for information on how to obtain and analyze information to solve production issues. The following are the topics addressed in this section.
 
 ------------------------------------------------------------------------
 
-\[ [Installation prerequisites](#admin_ProductionDeploymentGuidelines-installation_prerequisitesInstallationprerequisites) \] \[ [System requirements](#admin_ProductionDeploymentGuidelines-Systemrequirements) \] \[ [Installing the WSO2 product](#admin_ProductionDeploymentGuidelines-InstallingtheWSO2product) \] \[ [Download and install the product](#admin_ProductionDeploymentGuidelines-installDownloadandinstalltheproduct) \] \[ [Access the HOME directory](#admin_ProductionDeploymentGuidelines-AccesstheHOMEdirectory) \] \[ [Uninstalling the product](#admin_ProductionDeploymentGuidelines-Uninstallingtheproduct) \] \[ [Running the product](#admin_ProductionDeploymentGuidelines-Runningtheproduct) \] \[ [Tuning parameters](#admin_ProductionDeploymentGuidelines-Tuningparameters) \] \[ [Hazelcast properties](#admin_ProductionDeploymentGuidelines-Hazelcastproperties) \] \[ [Common guidelines and checklist](#admin_ProductionDeploymentGuidelines-Commonguidelinesandchecklist) \] \[ [Backup and recovery recommendations](#admin_ProductionDeploymentGuidelines-backup_recoveryBackupandrecoveryrecommendations) \]
+\[ [Installation prerequisites](#ProductionDeploymentGuidelines-installation_prerequisitesInstallationprerequisites) \] \[ [System requirements](#ProductionDeploymentGuidelines-Systemrequirements) \] \[ [Installing the WSO2 product](#ProductionDeploymentGuidelines-InstallingtheWSO2product) \] \[ [Download and install the product](#ProductionDeploymentGuidelines-installDownloadandinstalltheproduct) \] \[ [Access the HOME directory](#ProductionDeploymentGuidelines-AccesstheHOMEdirectory) \] \[ [Uninstalling the product](#ProductionDeploymentGuidelines-Uninstallingtheproduct) \] \[ [Running the product](#ProductionDeploymentGuidelines-Runningtheproduct) \] \[ [Tuning parameters](#ProductionDeploymentGuidelines-Tuningparameters) \] \[ [Hazelcast properties](#ProductionDeploymentGuidelines-Hazelcastproperties) \] \[ [Common guidelines and checklist](#ProductionDeploymentGuidelines-Commonguidelinesandchecklist) \] \[ [Backup and recovery recommendations](#ProductionDeploymentGuidelines-backup_recoveryBackupandrecoveryrecommendations) \]
 
 ------------------------------------------------------------------------
 
@@ -77,7 +77,7 @@ Given below is how to install a WSO2 product:
 
 ### Download and install the product
 
-If the installation [prerequisites](#admin_ProductionDeploymentGuidelines-installation_prerequisites) are satisfied, follow the steps below:
+If the installation [prerequisites](#ProductionDeploymentGuidelines-installation_prerequisites) are satisfied, follow the steps below:
 
 1.  Go to the [product page](https://wso2.com/) and download the product installer (click **Installer pkg** ).
 
@@ -154,7 +154,7 @@ To run WSO2 products, you start the product server at the command line. You can 
 -   When you move into a production environment, it is recommended to grant restricted access to the management console. See [Securing Carbon Applications](https://docs.wso2.com/display/ADMIN44x/Securing+Carbon+Applications) for instructions.
 -   The `config-validation.xml` file in the `<PRODUCT_HOME>/repository/conf/etc` directory contains a list of recommended system parameters, which are validated against your system when the server starts. See [Configuring config-validation.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+config-validation.xml) for details on modifying these parameters before starting the server.
 -   The Management Console uses the default [HTTP-NIO transport](https://docs.wso2.com/display/ADMIN44x/HTTP-NIO+Transport) , which is configured in the `catalina-server.xml` file in the `<PRODUCT_HOME>/repository/conf/tomcat` directory. This transport must be properly configured in this file for the management console to be accessible.
--   As explained in the [installation prerequisites](#admin_ProductionDeploymentGuidelines-installation_prerequisites) , the default product installation uses OpenJDK. Therefore, you don't require a different JDK. However, if you have set up Oracle JDK or IBM JDK, be sure to apply the following settings to your product distribution.
+-   As explained in the [installation prerequisites](#ProductionDeploymentGuidelines-installation_prerequisites) , the default product installation uses OpenJDK. Therefore, you don't require a different JDK. However, if you have set up Oracle JDK or IBM JDK, be sure to apply the following settings to your product distribution.
 
     -   [**Oracle JDK**](#cc08b6aaf09742a7b6389db09f3e3b36)
     -   [**IBM JDK**](#944559bca1c0464fa8a12ec742f9cd07)

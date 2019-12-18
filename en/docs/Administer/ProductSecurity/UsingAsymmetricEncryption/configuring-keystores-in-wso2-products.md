@@ -1,4 +1,4 @@
-# admin\_Configuring Keystores in WSO2 Products
+# Configuring Keystores in WSO2 Products
 
 After you have [created a new keystore and updated the `client-truststore.jks` file](https://docs.wso2.com/display/ADMIN44x/Creating+New+Keystores) , you must update a few configuration files in order to make the keystores work. Note that keystores are used for multiple functions in WSO2 products, which includes authenticating communication over SSL/TLS, encrypting passwords and other confidential information in configuration files etc. Therefore, you must update the specific configuration files with the updated keystore information. For example, you may have separate keystores for the purpose of encrypting passwords in configuration files, and for authenticating communication over SSL/TLS.
 
@@ -27,13 +27,13 @@ The configuration files and the keystore files referred to in each file are list
 
 See the following for details:
 
--   [Before you begin](#admin_ConfiguringKeystoresinWSO2Products-Beforeyoubegin)
--   [Configuring the primary keystore](#admin_ConfiguringKeystoresinWSO2Products-ConfiguringtheprimarykeystoreConfiguringtheprimarykeystore)
--   [Configuring a separate keystore for encrypting data in internal data stores](#admin_ConfiguringKeystoresinWSO2Products-second_keystore_internal_dataConfiguringaseparatekeystoreforencryptingdataininternaldatastores)
--   [Configuring a secondary keystore (for SSL connections)](#admin_ConfiguringKeystoresinWSO2Products-ConfiguringakeystoreforSSLconnectionsConfiguringasecondarykeystore(forSSLconnections))
--   [Configuring a keystore for Java permissions](#admin_ConfiguringKeystoresinWSO2Products-ConfiguringakeystoreforJavapermissionsConfiguringakeystoreforJavapermissions)
--   [Configuring keystores for WS-Security](#admin_ConfiguringKeystoresinWSO2Products-ConfiguringkeystoresforWS-SecurityConfiguringkeystoresforWS-Security)
--   [What's next?](#admin_ConfiguringKeystoresinWSO2Products-What'snext?)
+-   [Before you begin](#ConfiguringKeystoresinWSO2Products-Beforeyoubegin)
+-   [Configuring the primary keystore](#ConfiguringKeystoresinWSO2Products-ConfiguringtheprimarykeystoreConfiguringtheprimarykeystore)
+-   [Configuring a separate keystore for encrypting data in internal data stores](#ConfiguringKeystoresinWSO2Products-second_keystore_internal_dataConfiguringaseparatekeystoreforencryptingdataininternaldatastores)
+-   [Configuring a secondary keystore (for SSL connections)](#ConfiguringKeystoresinWSO2Products-ConfiguringakeystoreforSSLconnectionsConfiguringasecondarykeystore(forSSLconnections))
+-   [Configuring a keystore for Java permissions](#ConfiguringKeystoresinWSO2Products-ConfiguringakeystoreforJavapermissionsConfiguringakeystoreforJavapermissions)
+-   [Configuring keystores for WS-Security](#ConfiguringKeystoresinWSO2Products-ConfiguringkeystoresforWS-SecurityConfiguringkeystoresforWS-Security)
+-   [What's next?](#ConfiguringKeystoresinWSO2Products-What'snext?)
 
 ### Before you begin
 
@@ -44,7 +44,7 @@ See the following for details:
 
 The primary keystore of WSO2 products are configured by the `Keystore` element in the `carbon.xml` file (stored in the &lt; `PRODUCT_HOME>/repository/conf/` directory). This keystore is used for the following functions in WSO2 products by default.
 
--   **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal data stores. Note that you also have the option of [separating the keystore for encrypting information in internal data stores](#admin_ConfiguringKeystoresinWSO2Products-second_keystore_internal_data) .
+-   **Encrypting/decrypting** passwords and other confidential information, which are maintained in various configuration files as well as internal data stores. Note that you also have the option of [separating the keystore for encrypting information in internal data stores](#ConfiguringKeystoresinWSO2Products-second_keystore_internal_data) .
 -   **Signing messages** when the WSO2 product communicates with external parties (such SAML, OIDC id\_token signing).
 
 The default configuration is shown below.

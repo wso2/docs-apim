@@ -1,18 +1,18 @@
-# admin\_Creating New Keystores
+# Creating New Keystores
 
 WSO2 Carbon-based products are shipped with a default [keystore](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption) named **wso2carbon.jks** , which is stored in the `<PRODUCT_HOME>/repository/resources/security` directory. This keystore comes with a private/public key pair that is used for all purposes, such as encrypting sensitive information, communicating over SSL and for message encryption/signing purposes in WS-Security. You can either use one new keystore for all purposes in your product, or you can create multiple keystores for each purpose.
 
 Let's get started with creating new keystores.
 
--   [Before you begin](#admin_CreatingNewKeystores-Beforeyoubegin)
--   [Creating a new keystore](#admin_CreatingNewKeystores-Creatinganewkeystore)
-    -   [Creating a keystore using an existing certificate](#admin_CreatingNewKeystores-existing_certificateCreatingakeystoreusinganexistingcertificate)
-    -   [Creating a keystore using a new certificate](#admin_CreatingNewKeystores-Creatingakeystoreusinganewcertificate)
--   [Adding CA-signed certificates to keystores](#admin_CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores)
-    -   [Step 1: Generating a CA-signed certificate](#admin_CreatingNewKeystores-Step1:GeneratingaCA-signedcertificate)
-    -   [Step 2: Importing certificates to the keystore](#admin_CreatingNewKeystores-Step2:Importingcertificatestothekeystore)
-    -   [Step 3: Importing certificates to the truststore](#admin_CreatingNewKeystores-Step3:Importingcertificatestothetruststore)
--   [What's next?](#admin_CreatingNewKeystores-What'snext?)
+-   [Before you begin](#CreatingNewKeystores-Beforeyoubegin)
+-   [Creating a new keystore](#CreatingNewKeystores-Creatinganewkeystore)
+    -   [Creating a keystore using an existing certificate](#CreatingNewKeystores-existing_certificateCreatingakeystoreusinganexistingcertificate)
+    -   [Creating a keystore using a new certificate](#CreatingNewKeystores-Creatingakeystoreusinganewcertificate)
+-   [Adding CA-signed certificates to keystores](#CreatingNewKeystores-ca_certificateAddingCA-signedcertificatestokeystores)
+    -   [Step 1: Generating a CA-signed certificate](#CreatingNewKeystores-Step1:GeneratingaCA-signedcertificate)
+    -   [Step 2: Importing certificates to the keystore](#CreatingNewKeystores-Step2:Importingcertificatestothekeystore)
+    -   [Step 3: Importing certificates to the truststore](#CreatingNewKeystores-Step3:Importingcertificatestothetruststore)
+-   [What's next?](#CreatingNewKeystores-What'snext?)
 
 ### Before you begin
 
@@ -58,7 +58,7 @@ Secure Sockets Layer (SSL) is a protocol that is used to secure communication be
 
 #### Creating a keystore using a new certificate
 
-You can follow the steps in this section to create a new keystore with a private key and a new public key certificate. We will be using the keytool that is available with your JDK installation. Note that the pubic key certificate we generate for the keystore is **self-signed** . Therefore, if you need a public key certificate that is CA-signed, you need to generate a CA-signed certificate and import it to the keystore as explained in the [next section](#admin_CreatingNewKeystores-ca_certificate) . Alternatively, you can choose the option of generating a new keystore using a CA-signed public certificate as explained [previously](#admin_CreatingNewKeystores-existing_certificate) .
+You can follow the steps in this section to create a new keystore with a private key and a new public key certificate. We will be using the keytool that is available with your JDK installation. Note that the pubic key certificate we generate for the keystore is **self-signed** . Therefore, if you need a public key certificate that is CA-signed, you need to generate a CA-signed certificate and import it to the keystore as explained in the [next section](#CreatingNewKeystores-ca_certificate) . Alternatively, you can choose the option of generating a new keystore using a CA-signed public certificate as explained [previously](#CreatingNewKeystores-existing_certificate) .
 
 1.  Open a command prompt and go to the `<PRODUCT_HOME>/repository/resources/security/` directory. All keystores should be stored here.
 2.  Create the keystore that includes the private key by executing the following command:

@@ -1,12 +1,12 @@
-# admin\_Mitigating Cross Site Request Forgery Attacks
+# Mitigating Cross Site Request Forgery Attacks
 
 The following sections describe the impact of the Cross Site Request Forgery (CSRF) attack and how to mitigate it.
 
--   [How can CSRF attacks be harmful?](#admin_MitigatingCrossSiteRequestForgeryAttacks-HowcanCSRFattacksbeharmful?)
--   [Mitigating CSRF attacks](#admin_MitigatingCrossSiteRequestForgeryAttacks-MitigatingCSRFattacks)
--   [Configuring applications in WSO2 product to mitigate CSRF attacks](#admin_MitigatingCrossSiteRequestForgeryAttacks-ConfiguringapplicationsinWSO2producttomitigateCSRFattacks)
-    -   [Securing web applications](#admin_MitigatingCrossSiteRequestForgeryAttacks-Securingwebapplications)
-    -   [Securing Jaggery applications](#admin_MitigatingCrossSiteRequestForgeryAttacks-SecuringJaggeryapplications)
+-   [How can CSRF attacks be harmful?](#MitigatingCrossSiteRequestForgeryAttacks-HowcanCSRFattacksbeharmful?)
+-   [Mitigating CSRF attacks](#MitigatingCrossSiteRequestForgeryAttacks-MitigatingCSRFattacks)
+-   [Configuring applications in WSO2 product to mitigate CSRF attacks](#MitigatingCrossSiteRequestForgeryAttacks-ConfiguringapplicationsinWSO2producttomitigateCSRFattacks)
+    -   [Securing web applications](#MitigatingCrossSiteRequestForgeryAttacks-Securingwebapplications)
+    -   [Securing Jaggery applications](#MitigatingCrossSiteRequestForgeryAttacks-SecuringJaggeryapplications)
 
 ### How can CSRF attacks be harmful?
 
@@ -50,8 +50,8 @@ You can protect HTTP GET requests sent as a result of resource inclusions and li
 
 See the following for instructions on manually updating CSRF configurations in WSO2 products:
 
--   [Securing web applications](#admin_MitigatingCrossSiteRequestForgeryAttacks-Securingwebapplications)
--   [Securing Jaggery applications](#admin_MitigatingCrossSiteRequestForgeryAttacks-SecuringJaggeryapplications)
+-   [Securing web applications](#MitigatingCrossSiteRequestForgeryAttacks-Securingwebapplications)
+-   [Securing Jaggery applications](#MitigatingCrossSiteRequestForgeryAttacks-SecuringJaggeryapplications)
 
 #### Securing web applications
 

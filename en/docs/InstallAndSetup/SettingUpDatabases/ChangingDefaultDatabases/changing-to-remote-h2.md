@@ -1,9 +1,9 @@
-# admin\_Setting up Embedded H2
+# Setting up Embedded H2
 
 The following sections describe how to set up an embedded H2 database to replace the default H2 database in your WSO2 product:
 
--   [Setting up the database](#admin_SettingupEmbeddedH2-Settingupthedatabase)
--   [Setting up the drivers](#admin_SettingupEmbeddedH2-Settingupthedrivers)
+-   [Setting up the database](#SettingupEmbeddedH2-Settingupthedatabase)
+-   [Setting up the drivers](#SettingupEmbeddedH2-Settingupthedrivers)
 
 !!! warning
 H2 is not recommended in production
@@ -34,12 +34,12 @@ WSO2 currently ships H2 database engine version h2-1.2.140.\* and its related H2
 Next, you need to configure your product with Embedded H2 database. For more information, see [Changing to Embedded H2](https://docs.wso2.com/display/ADMIN44x/Changing+to+Embedded+H2) .
 
 
-# admin\_Changing to Embedded H2
+# Changing to Embedded H2
 
 The following sections describe how to replace the default H2 database with Embedded H2:
 
--   [Setting up datasource configurations](#admin_ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
--   [Creating database tables](#admin_ChangingtoEmbeddedH2-Creatingdatabasetables)
+-   [Setting up datasource configurations](#ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
+-   [Creating database tables](#ChangingtoEmbeddedH2-Creatingdatabasetables)
 
 !!! warning
 H2 is not recommended in production
@@ -56,7 +56,7 @@ You need to set up Embedded H2 before following the steps to configure your prod
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Embedded H2 database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoEmbeddedH2-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoEmbeddedH2-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Embedded H2 database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoEmbeddedH2-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -180,7 +180,7 @@ Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the 
 
 Follow the steps below to configure new datasources to point to the new database(s) you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoEmbeddedH2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml
@@ -231,12 +231,12 @@ Follow the steps below to run the script in Web console:
 
 
 
-# admin\_Changing to Remote H2
+# Changing to Remote H2
 
 The following sections describe how to replace the default H2 databases with Remote H2:
 
--   [Setting up datasource configurations](#admin_ChangingtoRemoteH2-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
--   [Creating database tables](#admin_ChangingtoRemoteH2-Creatingdatabasetables)
+-   [Setting up datasource configurations](#ChangingtoRemoteH2-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
+-   [Creating database tables](#ChangingtoRemoteH2-Creatingdatabasetables)
 
 !!! warning
 H2 is not recommended in production
@@ -254,7 +254,7 @@ Before you begin
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Remote H2 database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoRemoteH2-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoRemoteH2-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Remote H2 database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoRemoteH2-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoRemoteH2-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -378,7 +378,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
 Follow the steps below to configure new datasources to point to the new  databases you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoRemoteH2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoRemoteH2-Settingupdatasourceconfigurations)
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoRemoteH2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoRemoteH2-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml

@@ -1,12 +1,12 @@
-# admin\_Security Guidelines for Production Deployment
+# Security Guidelines for Production Deployment
 
 Given below are the common security guidelines for deploying a WSO2 product in a **production environment.**
 
 Also, see the [production deployment guidelines](https://docs.wso2.com/display/ADMIN44x/Production+Deployment+Guidelines) and any other product-specific guidelines that might come in the respective product's documentation.
 
--   [WSO2 product-level security](#admin_SecurityGuidelinesforProductionDeployment-WSO2product-levelsecurity)
--   [OS-level security](#admin_SecurityGuidelinesforProductionDeployment-OS-levelsecurity)
--   [Network-level security](#admin_SecurityGuidelinesforProductionDeployment-Network-levelsecurity)
+-   [WSO2 product-level security](#SecurityGuidelinesforProductionDeployment-WSO2product-levelsecurity)
+-   [OS-level security](#SecurityGuidelinesforProductionDeployment-OS-levelsecurity)
+-   [Network-level security](#SecurityGuidelinesforProductionDeployment-Network-levelsecurity)
 
 ### WSO2 product-level security
 

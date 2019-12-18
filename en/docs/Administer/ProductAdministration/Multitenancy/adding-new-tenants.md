@@ -1,9 +1,9 @@
-# admin\_Adding New Tenants
+# Adding New Tenants
 
 See the topics given below for instructions.
 
--   [Adding tenants using the management console](#admin_AddingNewTenants-Addingtenantsusingthemanagementconsole)
--   [Managing tenants using Admin Services](#admin_AddingNewTenants-ManagingtenantsusingAdminServices)
+-   [Adding tenants using the management console](#AddingNewTenants-Addingtenantsusingthemanagementconsole)
+-   [Managing tenants using Admin Services](#AddingNewTenants-ManagingtenantsusingAdminServices)
 
 ### Adding tenants using the management console
 
@@ -13,7 +13,7 @@ You can add a new tenant in the management console and then view it by following
 
     ![]({{base_path}}/assets/attachments/126562777/126562778.png)
 
-2.  Enter the tenant information in **Register A New Organization** screen as follows, and click **Save** .
+2.  Enter the tenant information in **Register A New Organization** screen as follows, and click **Save**.
 
     | Parameter Name                   | Description                                                                                                                                                                                                                                                                                       |
     |----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

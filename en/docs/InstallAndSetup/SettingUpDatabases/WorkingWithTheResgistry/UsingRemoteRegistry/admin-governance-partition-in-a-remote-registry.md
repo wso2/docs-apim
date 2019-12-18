@@ -1,4 +1,4 @@
-# admin\_Governance Partition in a Remote Registry
+# Governance Partition in a Remote Registry
 
 In this deployment strategy, only the governance partition is shared among instances of a group/cluster. For example, a WSO2 Application Server instance and a WSO2 ESB instance that have been configured to operate in a clustered environment can have a single governance registry which is shared across each node of the cluster. A separate instance of the WSO2 Governance Registry (G-Reg) is used to provide the space used in common.
 
@@ -7,9 +7,9 @@ Figure 3: Governance partition in the remote Governance Registry instance .
 
 Configuration steps are given in the following sections.
 
--   [Creating the Database](#admin_GovernancePartitioninaRemoteRegistry-Database)
--   [Configuring Governance Registry Instance](#admin_GovernancePartitioninaRemoteRegistry-RemoteRegistry)
--   [Configuring Carbon Server Nodes](#admin_GovernancePartitioninaRemoteRegistry-CarbonServerNodes)
+-   [Creating the Database](#GovernancePartitioninaRemoteRegistry-Database)
+-   [Configuring Governance Registry Instance](#GovernancePartitioninaRemoteRegistry-RemoteRegistry)
+-   [Configuring Carbon Server Nodes](#GovernancePartitioninaRemoteRegistry-CarbonServerNodes)
 
 ### Creating the database
 
