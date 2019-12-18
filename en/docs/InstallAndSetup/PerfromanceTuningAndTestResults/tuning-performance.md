@@ -81,8 +81,6 @@ In a clustered environment, the entity expansion limit has no dependency on the
 
 In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. That is, if a thread is stuck or taking a long time to process, Carbon detects such threads, interrupts and stops them. Note that Carbon prints the current stack trace before interrupting the thread. This mechanism is implemented as an Apache Tomcat valve. Therefore, it should be configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file as shown below.
 
-!!! danger
-    Cannot configure using deployment.toml
 ``` xml
 <Valve className="org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve" threshold="600"/>
 ```
@@ -101,17 +99,13 @@ In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. T
 
 The following diagram shows the communication/network paths that occur when an API is called. The timeout configurations for each network call are explained below.
 
-![](../../../../assets/attachments/103333648/103333650.png)
-
+![]({{base_path}}/assets/attachments/103333648/103333650.png)
 !!! info
     Gateway to Keymanager network call to validate token only happens with the OAuth token. This network call does not happen for JWT tokens . From WSO2 API Manager 3.0.0 onwards, JWT tokens are the default token type for applications. Since JWT tokens are self-contained access tokens, Keymanager is not needed to validate the token. The token is validated from the gateway.
     
 -   **Key validation**
     Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
 
-    !!! danger
-        Cannot configure using deployment.toml
-    ``` xml
     <transportSender name="https" class="org.apache.axis2.transport.http.CommonsHTTPTransportSender">
         <parameter name="SO_TIMEOUT">60000</parameter>
         <parameter name="CONNECTION_TIMEOUT">60000</parameter>
@@ -123,12 +117,12 @@ The following diagram shows the communication/network paths that occur when an A
 -   **Client call API Gateway + API Gateway call Backend**
     For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI620/Configuring+passthru-http.properties) in the EI documentation. To configure socket timeout value, add following to the `deployment.toml`
             ```java
-             [transport.http]
-             socket_timeout=180000
+             [passthru_http]
+             http.socket.timeout=180000
             ```
 
     !!! info
-        Note that the default value for `socket_timeout` differs between WSO2 products. In WSO2 API-M, the default value for `socket_timeout` is 180000ms.
+        Note that the default value for `http.socket.timeout` differs between WSO2 products. In WSO2 API-M, the default value for `http.socket.timeout` is 180000ms.
 
 
 ##### General APIM-level recommendations
@@ -162,18 +156,13 @@ Some general APIM-level recommendations are listed below:
 <div class="codeContent panelContent pdl">
 <pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>&lt;parameter name=&quot;defaultMaxConnPerHost&quot;&gt;1000&lt;/parameter&gt; 
 &lt;parameter name=&quot;maxTotalConnections&quot;&gt;30000&lt;/parameter&gt; </code></pre>
-</div>
-<div class="admonition danger">
-     <p class="admonition-title">Not supported</p>
-     <p>
-     Cannot configure using deployment.toml</p>
 </div> 
 </td>
 </tr>
 <tr class="even">
 <tr class="odd">
 <td>PassThrough transport of API Gateway</td>
-<td><p>Recommended values for the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file are given below. Note that the commented out values in this file are the default values that will be applied if you do not change anything.These properties need to be added under <code>[transport.http]</code> file.</p>
+<td><p>Recommended values for the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file are given below. Note that the commented out values in this file are the default values that will be applied if you do not change anything.These properties need to be added under <code>[passthru_http]</code> file.</p>
 <p><strong>Property descriptions</strong></p>
 <div class="table-wrap">
 <table>
@@ -184,12 +173,7 @@ Some general APIM-level recommendations are listed below:
 <tr class="odd">
 <td><p><code style="white-space: nowrap;">worker_thread_keepalive_sec</code></p></td>
 <td>Defines the keep-alive time for extra threads in the worker pool
-<div class="admonition danger">
-     <p class="admonition-title">Not supported</p>
-     <p>
-     Cannot configure using deployment.toml</p>
-</div> 
- </td>
+</td>
 </td>
 </tr>
 <tr class="even">
@@ -198,31 +182,21 @@ Some general APIM-level recommendations are listed below:
 </tr>
 <tr class="odd">
 <td><code style="white-space: nowrap;">io_threads_per_reactor</code></td>
-<td>Defines the number of IO dispatcher threads used per reactor
-<div class="admonition danger">
-     <p class="admonition-title">Not supported</p>
-     <p>
-     Cannot configure using deployment.toml</p>
-</div> 
- </td>
+<td>Defines the number of IO dispatcher threads used per reactor 
+</td>
 </td>
 </tr>
 <tr class="even">
-<td><p><code style="white-space: nowrap;"> max_http_connection<br />_per_host_port</code></p></td>
+<td><p><code style="white-space: nowrap;"> 'http.max.connection.per.host.port'</code></p></td>
 <td>Defines the maximum number of connections per host port</td>
 </tr>
 <tr class="odd">
-<td><code>                  http.connection.timeout	                 </code></td>
-<td>Defines a maximum time period to establish a connection with the remote host. The <code>http.connection.timeout</code> and the <code>http.socket.timeout</code>, which is explained below, are two different configuration definitions used to handle connection time out and read timeout for sockets respectively.
-<div class="admonition danger">
-     <p class="admonition-title">Not supported</p>
-     <p>
-     Cannot configure using deployment.toml</p>
-</div> 
+<td><code>'http.connection.timeout'</code></td>
+<td>Defines a maximum time period to establish a connection with the remote host. The <code>http.connection.timeout</code> and the <code>http.socket.timeout</code>, which is explained below, are two different configuration definitions used to handle connection time out and read timeout for sockets respectively. 
 </td>
 </tr>
 <tr class="even">
-<td><p><code>                   http.socket.timeout	               </code></p></td>
+<td><p><code>'http.socket.timeout'</code></p></td>
 <td>Defines the waiting time for data after establishing the connection, which refers to the maximum time of inactivity between two data packets.
 </td>
 </tr>
@@ -234,11 +208,11 @@ Some general APIM-level recommendations are listed below:
 <li><p><code>                worker_thread_keepalive_sec:               </code> Default value is 60s. This should be less than the socket timeout.</p></li>
 <li><p><code>                worker_pool_queue_length:               </code> Set to -1 to use an unbounded queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs will fail, causing some messages to be dropped by Synapse. The thread pool starts queuing jobs when all the existing threads are busy and the pool has reached the maximum number of threads. So, the recommended queue length is -1.</p></li>
 <li><p><code>                io_threads_per_reactor:               </code> Value is based on the number of processor cores in the system. (<code>Runtime.getRuntime().availableProcessors()</code>)</p></li>
-<li><p><code>                http.max.connection.per.host.port :               </code> Default value is 32767, which works for most systems but you can tune it based on your operating system (for example, Linux supports 65K connections).</p></li>
+<li><p><code>                'http.max.connection.per.host.port' :               </code> Default value is 32767, which works for most systems but you can tune it based on your operating system (for example, Linux supports 65K connections).</p></li>
 <li><code>               core_worker_pool_size: 400              </code></li>
 <li><code>               max_worker_pool_size: 500              </code></li>
 <li><code>               io_buffer_size: 16384              </code></li>
-<li><code>               http.socket.timeout : 180000              </code></li>
+<li><code>               'http.socket.timeout' : 180000              </code></li>
 </ul>
 
 <div class="admonition tip">
@@ -262,13 +236,18 @@ Some general APIM-level recommendations are listed below:
 <tbody>
 <tr class="odd">
 <td><code style="white-space: nowrap;"><br />Synapse global <br />timeout interval</code></td>
-<td><p>Defines the maximum time that a callback waits in the Gateway for a response from the backend. If no response is received within this time, the Gateway drops the message and clears out the callback. This is a global level parameter that affects all the endpoints configured in the Gateway. synapse.global_timeout_interval    </p>
-<p>The global timeout is defined in the <code>                    &lt;API-M_HOME&gt;/repository/conf/synapse.properties                   </code> file. The recommended value is 120000 ms.</p>
-<div class="admonition danger">
-     <p class="admonition-title">Not supported</p>
-     <p>
-     Cannot configure using deployment.toml</p>
-     </div> 
+<td><p>Defines the maximum time that a callback waits in the Gateway for a response from the backend. If no response is received within this time, the Gateway drops the message and clears out the callback. This is a global level parameter that affects all the endpoints configured in the Gateway.</p>
+<p>The global timeout is defined in the <code>                    &lt;API-M_HOME&gt;/repository/conf/deployment.toml                   </code> file. The recommended value is 120000 ms.</p>
+<div class="code panel pdl" style="border-width: 1px;">
+<div class="codeContent panelContent pdl">
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>
+[synapse_properties]
+'synapse.global_timeout_interval' = 120000
+</code></pre>
+</div>
+</div>
+
+
  </td>
 </td>
 </tr>
