@@ -18,6 +18,7 @@ When adding custom properties, note the following:
 After the custom properties have been added, you can [search for APIs using custom property values](#Searchusingcustomproperties) .
 
 <a name="AddcustompropertiesviatheAPIPublisher"></a>
+
 ### Add custom properties via the API Publisher
 
 1.  Sign in to the API Publisher as an API creator using the following URL: `https://<localhost>:9443/publisher` .
@@ -33,6 +34,7 @@ After the custom properties have been added, you can [search for APIs using cust
 4.  Save the API.
 
 <a name="AddcustompropertiesviatheRESTAPI"></a>
+
 ### Add custom properties via the REST API
 
 You can use the [existing REST API](../../../../../../Develop/ProductAPIs/restful-apis/) to add a new API with custom properties. Add the following element to the request body including the relevant properties,
@@ -40,6 +42,7 @@ You can use the [existing REST API](../../../../../../Develop/ProductAPIs/restfu
 `"additionalProperties : {"environment": "preprod", "secured": "true"}        `
 
 <a name="Searchusingcustomproperties"></a>
+
 ### Search using custom properties
 
 You can use the following format to search for an API using the custom properties:
