@@ -73,7 +73,7 @@ Follow the instructions given below to change the tenant loading policy to eager
 
 3.  You can then list the specific tenant domains to which eager loading should apply.
     -   If the setting should apply to all tenants, add `"*"` .
-    -   If the setting should apply to all tenants, except [foo.com](http://foo.com/) and [bar.com](http://bar.com/) , add `" *,!  foo.com ,!bar.com"`.
+    -   If the setting should apply to all tenants, except [foo.com](http://foo.com/) and [bar.com](http://bar.com/) , add `" *,!foo.com ,!bar.com"`.
     -   If the setting should apply only to [foo.com](http://foo.com/) and [bar.com](http://bar.com/) , add `"foo.com,bar.com"` .
 
 
