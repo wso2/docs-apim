@@ -1,6 +1,6 @@
 # Tuning Performance
 
-This section describes some recommended performance tuning configurations to optimize the WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment. We also recommend [a distributed API Manager setup](https://apim.docs.wso2.com/en/latest/InstallAndSetup/DeployingWSO2APIManager/deployment-patterns/) for most production systems. Out of all components of an API Manager distributed setup, the API Gateway is the most critical, because it handles all inbound calls to APIs. Therefore, we recommend you to have at least a 2-node cluster of API Gateways in a distributed setup.
+This section describes some recommended performance tuning configurations to optimize the WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment. We also recommend [a distributed API Manager setup]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/deployment-patterns/) for most production systems. Out of all components of an API Manager distributed setup, the API Gateway is the most critical, because it handles all inbound calls to APIs. Therefore, we recommend you to have at least a 2-node cluster of API Gateways in a distributed setup.
 
 -   [OS-level settings](#os-level-settings)
 -   [JVM-level settings](#jvm-level-settings)
