@@ -1,14 +1,14 @@
-# Digest Auth
+# Secure Endpoint with Digest Auth
 
-When you create an API using the API Publisher, you can specify the endpoint of the API backend implementation in the **Endpoint** tab as Production and Sandbox endpoints.
+When you [create an API](../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api.md) using the API Publisher, you can specify the endpoint of the API backend implementation in the **Endpoint** tab as Production and Sandbox endpoints.
 
-If this endpoint is secured, there is an option for you to set the Auth type, credentials for the endpoint and endpoint certification under **General Endpoint Configurations.**
-
+1. If this endpoint is secured, there is an option for you to set the Auth type, credentials for the endpoint and endpoint certification under **General Endpoint Configurations.**
 ![general-endpoint-detail](../../../../assets/img/Learn/general-endpoint-detail.png)
 
-Click **General Endpoint Configurations** to select the endpoint security scheme. If you enable **Endpoint Security** , you are prompted to select the authentication type for the endpoint and also to give its credentials.
+2. Click **General Endpoint Configurations** to select the endpoint security scheme. If you enable **Endpoint Security** , you are prompted to select the authentication type for the endpoint and also to give its credentials.
 
-Select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports Digest authentication, you can select the **Digest Auth** option from the drop down list and give your credentials and click on **save.**
+3. Select the endpoint authentication type according to the authentication scheme that is supported by your endpoint. If your endpoint supports Digest authentication, you can select the **Digest Auth** option from the drop down list and give your credentials.
+4. click on **save.**
 
 ![enpoint-security-type-digest](../../../../assets/img/Learn/enpoint-security-type-digest.png)
 

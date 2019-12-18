@@ -72,10 +72,6 @@ Blocking can be done at two levels:
      3.  Generate keys and obtain an access token for application.
        
 3.  Invoke both APIs using the access token you received in the previous step.
-
-     -   [**Format**](#Format)
-     -   [**Example**](#Example)
-     -   [**Response**](#Response)
      
       <html>
       <div class="admonition tip"> 
