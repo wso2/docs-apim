@@ -1,4 +1,4 @@
-# admin\_Properties
+# Properties
 
 The **Properties** panel displays the properties of the currently selected resource or collection. New properties can be added , while existing properties can be edited or deleted .
 

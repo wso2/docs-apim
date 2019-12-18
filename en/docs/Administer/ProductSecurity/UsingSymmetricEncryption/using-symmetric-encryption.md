@@ -1,4 +1,4 @@
-# admin\_Using Symmetric Encryption
+# Using Symmetric Encryption
 
 !!! note
 The capability of using symmetric encryption was introduced by the Carbon 4.4.3 release. Therefore, note that this feature is only applicable to products that are based on Carbon 4.4.3 or later versions.

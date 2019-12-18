@@ -1,4 +1,4 @@
-# admin\_Role-based Permissions
+# Role-based Permissions
 
 The **User Management** module in WSO2 products enable role-based access. With this functionality, the permissions enabled for a particular role determines what that user can do using the management console of a WSO2 product. Permissions can be granted to a role at two levels:
 

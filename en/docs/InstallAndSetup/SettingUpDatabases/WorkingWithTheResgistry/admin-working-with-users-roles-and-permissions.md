@@ -1,4 +1,4 @@
-# admin\_Working with Users, Roles and Permissions
+# Working with Users, Roles and Permissions
 
 The user management functionality allows you to configure the users that can access your product and the permissions that determine how each user can work with your system.
 

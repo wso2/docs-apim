@@ -1,4 +1,4 @@
-# admin\_Writing a Custom User Store Manager
+# Writing a Custom User Store Manager
 
 This page demonstrates the process of writing a simple custom user store manager for WSO2 products.
 
@@ -6,15 +6,15 @@ In enterprise systems, some key components are centralized for painless manageme
 
 The following sections provide information that you need to be aware of when writing a custom user store manager:
 
--   [AbstractUserStoreManager and implementations](#admin_WritingaCustomUserStoreManager-AbstractUserStoreManagerandimplementations)
-    -   [Important methods](#admin_WritingaCustomUserStoreManager-Importantmethods)
-    -   [Read-write methods](#admin_WritingaCustomUserStoreManager-Read-writemethods)
-    -   [Read methods](#admin_WritingaCustomUserStoreManager-Readmethods)
-    -   [Implementations](#admin_WritingaCustomUserStoreManager-Implementations)
--   [Implementing a custom JDBC user store manager](#admin_WritingaCustomUserStoreManager-ImplementingacustomJDBCuserstoremanager)
-    -   [Setting up the implementation](#admin_WritingaCustomUserStoreManager-Settinguptheimplementation)
-    -   [Writing a custom user store manager for a sample scenario](#admin_WritingaCustomUserStoreManager-Writingacustomuserstoremanagerforasamplescenario)
-    -   [Deploying and configuring the custom user store manager](#admin_WritingaCustomUserStoreManager-Deployingandconfiguringthecustomuserstoremanager)
+-   [AbstractUserStoreManager and implementations](#WritingaCustomUserStoreManager-AbstractUserStoreManagerandimplementations)
+    -   [Important methods](#WritingaCustomUserStoreManager-Importantmethods)
+    -   [Read-write methods](#WritingaCustomUserStoreManager-Read-writemethods)
+    -   [Read methods](#WritingaCustomUserStoreManager-Readmethods)
+    -   [Implementations](#WritingaCustomUserStoreManager-Implementations)
+-   [Implementing a custom JDBC user store manager](#WritingaCustomUserStoreManager-ImplementingacustomJDBCuserstoremanager)
+    -   [Setting up the implementation](#WritingaCustomUserStoreManager-Settinguptheimplementation)
+    -   [Writing a custom user store manager for a sample scenario](#WritingaCustomUserStoreManager-Writingacustomuserstoremanagerforasamplescenario)
+    -   [Deploying and configuring the custom user store manager](#WritingaCustomUserStoreManager-Deployingandconfiguringthecustomuserstoremanager)
 
 ### AbstractUserStoreManager and implementations
 

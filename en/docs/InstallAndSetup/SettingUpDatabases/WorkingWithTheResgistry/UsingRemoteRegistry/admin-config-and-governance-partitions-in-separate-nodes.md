@@ -1,4 +1,4 @@
-# admin\_Config and Governance Partitions in Separate Nodes
+# Config and Governance Partitions in Separate Nodes
 
 In this deployment strategy, let's assume 2 clusters of Carbon-based product Foo and Carbon-based product Bar that share a governance registry space by the name G-Reg 1. In addition, the product Foo cluster shares a configuration registry space by the name G-Reg 2 and the product Bar cluster shares a configuration registry space by the name G-Reg 3.
 
@@ -7,8 +7,8 @@ Figure 4: Config and governance partitions in separate registry instances .
 
 Configuration steps are given in the following sections.
 
--   [Creating the Database](#admin_ConfigandGovernancePartitionsinSeparateNodes-Database)
--   [Configuring the Remote Registry Instances](#admin_ConfigandGovernancePartitionsinSeparateNodes-RemoteRegistry)
+-   [Creating the Database](#ConfigandGovernancePartitionsinSeparateNodes-Database)
+-   [Configuring the Remote Registry Instances](#ConfigandGovernancePartitionsinSeparateNodes-RemoteRegistry)
 -   Configuring Foo Product Cluster
 -   Configuring Bar Product Cluster
 

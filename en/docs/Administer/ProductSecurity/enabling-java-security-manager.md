@@ -1,4 +1,4 @@
-# admin\_Enabling Java Security Manager
+# Enabling Java Security Manager
 
 !!! warning
 **Please note that this document is currently under review. Currently, WSO2 does not recommend Java security manager for production environments due to some known issues.**

@@ -1,4 +1,4 @@
-# admin\_Adding a Custom Proxy Path
+# Adding a Custom Proxy Path
 
 Adding a custom proxy path is useful when you have a proxy server fronting your Carbon server. In this scenario, the "custom proxy path" is used for mapping a proxy url with the actual url of your Carbon server, which allows clients to access the Carbon server with the proxy url.
 
@@ -15,7 +15,7 @@ This feature is particularly useful when multiple WSO2 products are hosted under
 Note the following:
 
 -   This functionality is only available for WSO2 products that are based on Carbon 4.3.0 or a later Carbon version. See the [WSO2 product release matrix](http://wso2.com/products/carbon/release-matrix/) for more information about WSO2 Carbon platform releases.
--   Once you have configured your products with a proxy server, it will no longer be possible to access the product behind the proxy. See the section given below on [configuring products to use the proxy server](#admin_AddingaCustomProxyPath-Step2) for more information.
+-   Once you have configured your products with a proxy server, it will no longer be possible to access the product behind the proxy. See the section given below on [configuring products to use the proxy server](#AddingaCustomProxyPath-Step2) for more information.
 
 
 In the above example, "apimanager", "esb" and "appserver" are the "proxy context paths" of the respective products, which are configured in the `carbon.xml` file (stored in `<PRODUCT_HOME>/repository/conf/` directory) for each product. When a client sends a request to the proxy entry url path, e.g. <https://wso2test.com/apimanager> , the request is directed to the back-end service url ( [https://10.100.1.1:&lt;PortNumber&gt;/carbon](https://10.100.1.1:9443/carbon) ) where the original service lies. Eventually, the client has to be served via the requested proxy entry url path. The mapping between the proxy url path and the back-end service url path is resolved by the reverse proxy server fronting the back-end service.
@@ -30,9 +30,9 @@ This functionality will be demonstrated in this documentation using two WSO2 pro
 
 Follow the steps given below.
 
--   [Step 1: Install and configure a reverse proxy](#admin_AddingaCustomProxyPath-Step1:Installandconfigureareverseproxy)
--   [Step 2: Configure products with proxy context path](#admin_AddingaCustomProxyPath-Step2Step2:Configureproductswithproxycontextpath)
--   [Step 3: Start the Product](#admin_AddingaCustomProxyPath-Step3:StarttheProduct)
+-   [Step 1: Install and configure a reverse proxy](#AddingaCustomProxyPath-Step1:Installandconfigureareverseproxy)
+-   [Step 2: Configure products with proxy context path](#AddingaCustomProxyPath-Step2Step2:Configureproductswithproxycontextpath)
+-   [Step 3: Start the Product](#AddingaCustomProxyPath-Step3:StarttheProduct)
 
 #### Step 1: Install and configure a reverse proxy
 
