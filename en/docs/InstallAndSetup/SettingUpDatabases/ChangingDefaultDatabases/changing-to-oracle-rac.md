@@ -1,9 +1,9 @@
-# admin\_Setting up Oracle RAC
+# Setting up Oracle RAC
 
 The following sections describe how to set up Oracle RAC to replace the default H2 database in your WSO2 product:
 
--   [Setting up the database and users](#admin_SettingupOracleRAC-Settingupthedatabaseandusers)
--   [Setting up the JDBC driver](#admin_SettingupOracleRAC-SettinguptheJDBCdriver)
+-   [Setting up the database and users](#SettingupOracleRAC-Settingupthedatabaseandusers)
+-   [Setting up the JDBC driver](#SettingupOracleRAC-SettinguptheJDBCdriver)
 
 Oracle Real Application Clusters (RAC) is an option that facilitates clustering and high availability in Oracle database environments. In the Oracle RAC environment, some of the commands used in `oracle.sql` are considered inefficient. Therefore, the product has a separate SQL script ( `oracle_rac.sql` ) for Oracle RAC. The Oracle RAC-friendly script is located in the `dbscripts` folder together with other `.sql` scripts.
 
@@ -39,17 +39,17 @@ Remove the old database driver from the `<PRODUCT_HOME>/repository/components/dr
 
 ## What's next
 
-By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with Oracle RAC, see [Changing to Oracle RAC](_admin_Setting_up_Oracle_RAC_) .
+By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with Oracle RAC, see [Changing to Oracle RAC](_Setting_up_Oracle_RAC_) .
 
 
-# admin\_Changing to Oracle RAC
+# Changing to Oracle RAC
 
 By default, WSO2 products use the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use an Oracle RAC database for this purpose.
 
--   [Setting up datasource configurations](#admin_ChangingtoOracleRAC-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
-    -   [Changing the default WSO2\_CARBON\_DB datasource](#admin_ChangingtoOracleRAC-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
-    -   [Configuring new datasources to manage registry or user management data](#admin_ChangingtoOracleRAC-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
--   [Creating the database tables](#admin_ChangingtoOracleRAC-Creatingthedatabasetables)
+-   [Setting up datasource configurations](#ChangingtoOracleRAC-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
+    -   [Changing the default WSO2\_CARBON\_DB datasource](#ChangingtoOracleRAC-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
+    -   [Configuring new datasources to manage registry or user management data](#ChangingtoOracleRAC-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
+-   [Creating the database tables](#ChangingtoOracleRAC-Creatingthedatabasetables)
 
 !!! tip
 Before you begin
@@ -59,7 +59,7 @@ You need to set up Oracle RAC before following the steps to configure your produ
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Oracle RAC database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoOracleRAC-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoOracleRAC-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Oracle RAC database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoOracleRAC-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -161,7 +161,7 @@ Follow the steps below to change the type of the default WSO2\_CARBON\_DB dataso
 
 Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoOracleRAC-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoOracleRAC-Settingupdatasourceconfigurations)
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoOracleRAC-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml

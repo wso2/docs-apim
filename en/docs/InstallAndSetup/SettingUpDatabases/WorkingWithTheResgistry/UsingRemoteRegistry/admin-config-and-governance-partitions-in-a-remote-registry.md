@@ -1,4 +1,4 @@
-# admin\_Config and Governance Partitions in a Remote Registry
+# Config and Governance Partitions in a Remote Registry
 
 In this deployment strategy, the configuration and governance spaces are shared among instances of a group/cluster. For example, two WSO2 Application Server instances that have been configured to operate in a clustered environment can have a single configuration and governance registry that is shared across each node of the cluster. A separate instance of the WSO2 Governance Registry is used to provide the space used in common.
 
@@ -7,9 +7,9 @@ Figure 2: Config and governance partitions in the remote Governance Registry ins
 
 Configuration steps are given in the following sections.
 
--   [Creating the Database](#admin_ConfigandGovernancePartitionsinaRemoteRegistry-Database)
--   [Configuring Governance Registry as the Remote Registry Instance](#admin_ConfigandGovernancePartitionsinaRemoteRegistry-RemoteRegistry)
--   [Configuring Carbon Server Nodes](#admin_ConfigandGovernancePartitionsinaRemoteRegistry-CarbonServerNodes)
+-   [Creating the Database](#ConfigandGovernancePartitionsinaRemoteRegistry-Database)
+-   [Configuring Governance Registry as the Remote Registry Instance](#ConfigandGovernancePartitionsinaRemoteRegistry-RemoteRegistry)
+-   [Configuring Carbon Server Nodes](#ConfigandGovernancePartitionsinaRemoteRegistry-CarbonServerNodes)
 
 ### Creating the database
 

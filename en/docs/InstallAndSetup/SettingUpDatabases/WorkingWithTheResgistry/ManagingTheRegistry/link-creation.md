@@ -1,4 +1,4 @@
-# admin\_Link Creation
+# Link Creation
 
 Follow the instructions below to create a link on a resource/collection.
 

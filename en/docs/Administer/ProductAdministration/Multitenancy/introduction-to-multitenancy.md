@@ -1,4 +1,4 @@
-# admin\_Introduction to Multitenancy
+# Introduction to Multitenancy
 
 The goal of multitenancy is to maximize resource sharing by allowing multiple users (tenants) to log in and use a single server/cluster at the same time, in a tenant-isolated manner. That is, each user is given the experience of using his/her own server, rather than a shared environment. Multitenancy ensures optimal performance of the system's resources such as memory and hardware and also secures each tenant's personal data.
 
@@ -15,12 +15,12 @@ You change the default time period allowed for tenant inactiveness by adding `-D
 ```
 
 
--   [Architecture](#admin_IntroductiontoMultitenancy-Architecture)
--   [Resource sharing](#admin_IntroductiontoMultitenancy-Resourcesharing)
--   [Tenant loading policy](#admin_IntroductiontoMultitenancy-Tenantloadingpolicy)
--   [Restrictions](#admin_IntroductiontoMultitenancy-Restrictions)
--   [Request dispatching](#admin_IntroductiontoMultitenancy-Requestdispatching)
--   [Scaling](#admin_IntroductiontoMultitenancy-Scaling)
+-   [Architecture](#IntroductiontoMultitenancy-Architecture)
+-   [Resource sharing](#IntroductiontoMultitenancy-Resourcesharing)
+-   [Tenant loading policy](#IntroductiontoMultitenancy-Tenantloadingpolicy)
+-   [Restrictions](#IntroductiontoMultitenancy-Restrictions)
+-   [Request dispatching](#IntroductiontoMultitenancy-Requestdispatching)
+-   [Scaling](#IntroductiontoMultitenancy-Scaling)
 
 ### Architecture
 

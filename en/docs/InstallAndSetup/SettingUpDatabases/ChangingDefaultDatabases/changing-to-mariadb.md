@@ -1,9 +1,9 @@
-# admin\_Setting up MariaDB
+# Setting up MariaDB
 
 The following sections describe how to set up MariaDB to replace the default H2 database in your WSO2 product
 
--   [Setting up the database and users](#admin_SettingupMariaDB-Settingupthedatabaseandusers)
--   [Setting up the drivers](#admin_SettingupMariaDB-Settingupthedrivers)
+-   [Setting up the database and users](#SettingupMariaDB-Settingupthedatabaseandusers)
+-   [Setting up the drivers](#SettingupMariaDB-Settingupthedrivers)
 
 ### Setting up the database and users
 
@@ -66,12 +66,12 @@ Download the MySQL Java connector [JAR file](http://dev.mysql.com/downloads/conn
 By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with MariaDB, see [Changing to MariaDB](https://docs.wso2.com/display/ADMIN44x/Changing+to+MariaDB) .
 
 
-# admin\_Changing to MariaDB
+# Changing to MariaDB
 
 The following sections describe how to replace the default H2 database with MariaDB, which is a drop-in replacement for MySQL.
 
--   [Setting up datasource configurations](#admin_ChangingtoMariaDB-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
--   [Creating database tables](#admin_ChangingtoMariaDB-Creatingdatabasetables)
+-   [Setting up datasource configurations](#ChangingtoMariaDB-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
+-   [Creating database tables](#ChangingtoMariaDB-Creatingdatabasetables)
 
 !!! tip
 Before you begin
@@ -81,7 +81,7 @@ You need to set up MariaDB before following the steps to configure your product 
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the MariaDB database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoMariaDB-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoMariaDB-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the MariaDB database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoMariaDB-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoMariaDB-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -209,7 +209,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
 Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoMariaDB-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoMariaDB-Settingupdatasourceconfigurations)
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoMariaDB-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoMariaDB-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/          `
 
     ``` xml

@@ -1,4 +1,4 @@
-# admin\_Configuring a Read-Only LDAP User Store
+# Configuring a Read-Only LDAP User Store
 
 User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `user-mgt.xml` file found in the `<PRODUCT_HOME>/repository/conf/` directory. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-only LDAP or Active Directory as the primary user store for the WSO2 server.
 
@@ -12,9 +12,9 @@ Note that the RDBMS used in the default configuration can remain as the database
 
 Follow the given steps to configure a read-only LDAP/AD as the primary user store:
 
--   [Step 1: Setting up the read-only LDAP/AD user store manager](#admin_ConfiguringaRead-OnlyLDAPUserStore-Step1:Settinguptheread-onlyLDAP/ADuserstoremanager)
--   [Step 2: Updating the system administrator](#admin_ConfiguringaRead-OnlyLDAPUserStore-UpdatingthesystemadministratorStep2:Updatingthesystemadministrator)
--   [Step 3: Starting the server](#admin_ConfiguringaRead-OnlyLDAPUserStore-Step3:Startingtheserver)
+-   [Step 1: Setting up the read-only LDAP/AD user store manager](#ConfiguringaRead-OnlyLDAPUserStore-Step1:Settinguptheread-onlyLDAP/ADuserstoremanager)
+-   [Step 2: Updating the system administrator](#ConfiguringaRead-OnlyLDAPUserStore-UpdatingthesystemadministratorStep2:Updatingthesystemadministrator)
+-   [Step 3: Starting the server](#ConfiguringaRead-OnlyLDAPUserStore-Step3:Startingtheserver)
 
 ### Step 1: Setting up the read-only LDAP/AD user store manager
 
@@ -97,7 +97,7 @@ Before you begin
         -   You also need to [enable connection pooling](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning#PerformanceTuning-ldaps_pooling) for LDAPS connections at the time of starting your server, which will enhance server performance.
 
 
-    2.  Obtain a user who has permission to read all users/attributes and perform searches on the user store from your LDAP/Active Directory administrator. For example, if the privileged user is AdminLDAP and the password is 2010\#Avrudu, update the following sections of the user store configuration as shown below. Note that this user does NOT have to be the system administrator that you define [here](#admin_ConfiguringaRead-OnlyLDAPUserStore-Updatingthesystemadministrator) .
+    2.  Obtain a user who has permission to read all users/attributes and perform searches on the user store from your LDAP/Active Directory administrator. For example, if the privileged user is AdminLDAP and the password is 2010\#Avrudu, update the following sections of the user store configuration as shown below. Note that this user does NOT have to be the system administrator that you define [here](#ConfiguringaRead-OnlyLDAPUserStore-Updatingthesystemadministrator) .
 
         ``` html/xml
                 <Property name="ConnectionName">uid=AdminLDAP,ou=system</Property>

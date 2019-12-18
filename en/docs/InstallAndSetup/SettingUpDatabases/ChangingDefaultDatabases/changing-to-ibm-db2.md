@@ -1,10 +1,10 @@
-# admin\_Setting up IBM DB2
+# Setting up IBM DB2
 
 The following sections describe how to set up an IBM DB2 database to replace the default H2 database in your WSO2 product:
 
--   [Prerequisites](#admin_SettingupIBMDB2-Prerequisites)
--   [Setting up the database and users](#admin_SettingupIBMDB2-Settingupthedatabaseandusers)
--   [Setting up DB2 JDBC drivers](#admin_SettingupIBMDB2-SettingupDB2JDBCdrivers)
+-   [Prerequisites](#SettingupIBMDB2-Prerequisites)
+-   [Setting up the database and users](#SettingupIBMDB2-Settingupthedatabaseandusers)
+-   [Setting up DB2 JDBC drivers](#SettingupIBMDB2-SettingupDB2JDBCdrivers)
 
 ### Prerequisites
 
@@ -16,7 +16,7 @@ For instructions on installing DB2 Express-C, see this [ebook](https://www.ibm.c
 
 ### Setting up the database and users
 
-Create the database using either [DB2 command processor](#admin_SettingupIBMDB2-UsingtheDB2commandprocessor) or [DB2 control center](#admin_SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
+Create the database using either [DB2 command processor](#SettingupIBMDB2-UsingtheDB2commandprocessor) or [DB2 control center](#SettingupIBMDB2-UsingtheDB2controlcenter) as described below.
 
 #### Using the DB2 command processor
 
@@ -64,12 +64,12 @@ Copy the DB2 JDBC drivers ( `db2jcc.jar` and `db2jcc_license_c0u.jar` ) from `<D
 By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with IBM DB2, see [Changing to IBM DB2](https://docs.wso2.com/display/ADMIN44x/Changing+to+IBM+DB2) .
 
 
-# admin\_Changing to IBM DB2
+# Changing to IBM DB2
 
 The following sections describe how to replace the default H2 database with IBM DB2:
 
--   [Setting up datasource configurations](#admin_ChangingtoIBMDB2-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
--   [Creating database tables](#admin_ChangingtoIBMDB2-Creatingdatabasetables)
+-   [Setting up datasource configurations](#ChangingtoIBMDB2-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
+-   [Creating database tables](#ChangingtoIBMDB2-Creatingdatabasetables)
 
 !!! tip
 Before you begin
@@ -79,7 +79,7 @@ You need to set up IBM DB2 before following the steps to configure your product 
 
 ### Setting up datasource configurations
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default H2 database, which stores registry and user management data. After setting up the IBM DB2 database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#admin_ChangingtoIBMDB2-Changingthedefaultdatabase) , or [configure a new datasource](#admin_ChangingtoIBMDB2-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default H2 database, which stores registry and user management data. After setting up the IBM DB2 database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoIBMDB2-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoIBMDB2-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
 
 #### Changing the default WSO2\_CARBON\_DB datasource
 
@@ -203,7 +203,7 @@ Follow the steps below to change the type of the default `WSO2_CARBON_DB` dataso
 
 Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
 
-1.  Add a new data source with similar configurations as the [`WSO2_CARBON_DB` datasource](#admin_ChangingtoIBMDB2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#admin_ChangingtoIBMDB2-Settingupdatasourceconfigurations)
+1.  Add a new data source with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoIBMDB2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoIBMDB2-Settingupdatasourceconfigurations)
 2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
 
     ``` xml

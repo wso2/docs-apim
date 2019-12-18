@@ -1,4 +1,4 @@
-# admin\_Searching the Registry
+# Searching the Registry
 
 The management console provides facility to search all resources in the registry.
 

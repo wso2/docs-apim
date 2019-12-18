@@ -1,20 +1,20 @@
-# admin\_Monitoring TCP-Based Messages
+# Monitoring TCP-Based Messages
 
 Users can view and monitor the messages passed along a TCP-based conversation using the TCPMon utility. Therefore, this is a convenient tool, particularly useful for debugging when you develop Web services. TCPMon is an Apache project distributed under [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html) .
 
 TCPMon is not dependent on any third party libraries. Its user interface is based on a swing UI and works on almost all platforms that support Java.
 
--   [admin\_Starting TCPMon](_admin_Starting_TCPMon_)
--   [admin\_Message Monitoring with TCPMon](_admin_Message_Monitoring_with_TCPMon_)
--   [admin\_Other Usages of TCPMon](_admin_Other_Usages_of_TCPMon_)
+-   [Starting TCPMon](_Starting_TCPMon_)
+-   [Message Monitoring with TCPMon](_Message_Monitoring_with_TCPMon_)
+-   [Other Usages of TCPMon](_Other_Usages_of_TCPMon_)
 
 
-# admin\_Starting TCPMon
+# Starting TCPMon
 
 TCPMon is available in the `<PRODUCT_HOME>/bin` directory of any WSO2 Carbon based product distribution. Alternatively, you can download TCPMon from Apache and run the tool.
 
--   [Running TCPMon (from Carbon product pack)](#admin_StartingTCPMon-RunningTCPMon(fromCarbonproductpack))
--   [Running TCPMon (downloaded from Apache)](#admin_StartingTCPMon-RunningTCPMon(downloadedfromApache))
+-   [Running TCPMon (from Carbon product pack)](#StartingTCPMon-RunningTCPMon(fromCarbonproductpack))
+-   [Running TCPMon (downloaded from Apache)](#StartingTCPMon-RunningTCPMon(downloadedfromApache))
 
 ### Running TCPMon (from Carbon product pack)
 
@@ -66,13 +66,13 @@ To download TCPMon from Apache and run the tool:
 
 
 
-# admin\_Other Usages of TCPMon
+# Other Usages of TCPMon
 
 TCPMon is primarily used for message monitoring. Additionally, TCPMon can also be used for sending requests to web services and as a proxy service. Refer [Starting TCPMon](https://docs.wso2.com/display/Carbon440/Starting+TCPMon) for details on how to start the tool.
 
--   [Sending Requests for Web Services](#admin_OtherUsagesofTCPMon-SendingRequestsforWebServices)
--   [As a Proxy](#admin_OtherUsagesofTCPMon-AsaProxy)
--   [Advanced Settings](#admin_OtherUsagesofTCPMon-AdvancedSettings)
+-   [Sending Requests for Web Services](#OtherUsagesofTCPMon-SendingRequestsforWebServices)
+-   [As a Proxy](#OtherUsagesofTCPMon-AsaProxy)
+-   [Advanced Settings](#OtherUsagesofTCPMon-AdvancedSettings)
 
 #### Sending Requests for Web Services
 

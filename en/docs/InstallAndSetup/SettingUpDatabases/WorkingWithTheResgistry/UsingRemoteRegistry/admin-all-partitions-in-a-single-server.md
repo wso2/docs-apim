@@ -1,4 +1,4 @@
-# admin\_All Partitions in a Single Server
+# All Partitions in a Single Server
 
 #### Strategy 1: Local Registry
 

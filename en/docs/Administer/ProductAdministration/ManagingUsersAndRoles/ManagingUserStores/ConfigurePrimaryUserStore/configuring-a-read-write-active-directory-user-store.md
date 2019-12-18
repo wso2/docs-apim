@@ -1,4 +1,4 @@
-# admin\_Configuring a Read-Write Active Directory User Store
+# Configuring a Read-Write Active Directory User Store
 
 !!! info
 The default User Store
@@ -10,9 +10,9 @@ Note that the RDBMS used in the default configuration can remain as the database
 
 Follow the given steps to configure an external Active Directory as the primary user store:
 
--   [Step 1: Setting up the external AD user store manager](#admin_ConfiguringaRead-WriteActiveDirectoryUserStore-Step1:SettinguptheexternalADuserstoremanager)
--   [Step 2: Updating the system administrator](#admin_ConfiguringaRead-WriteActiveDirectoryUserStore-Step2:Updatingthesystemadministrator)
--   [Step 3: Starting the server](#admin_ConfiguringaRead-WriteActiveDirectoryUserStore-Step3:Startingtheserver)
+-   [Step 1: Setting up the external AD user store manager](#ConfiguringaRead-WriteActiveDirectoryUserStore-Step1:SettinguptheexternalADuserstoremanager)
+-   [Step 2: Updating the system administrator](#ConfiguringaRead-WriteActiveDirectoryUserStore-Step2:Updatingthesystemadministrator)
+-   [Step 3: Starting the server](#ConfiguringaRead-WriteActiveDirectoryUserStore-Step3:Startingtheserver)
 
 ### Step 1: Setting up the external AD user store manager
 
@@ -85,7 +85,7 @@ Before you begin
         !!! note
     When working with Active Directory;
 
-    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](#admin_ConfiguringaRead-WriteActiveDirectoryUserStore-RelatedTopics) for more information.
+    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](#ConfiguringaRead-WriteActiveDirectoryUserStore-RelatedTopics) for more information.
 
         ``` xml
                 <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
