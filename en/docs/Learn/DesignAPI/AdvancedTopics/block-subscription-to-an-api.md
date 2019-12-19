@@ -16,16 +16,16 @@ Blocking can be done at two levels:
   <html>
   <div class="admonition warning">
   <p class="admonition-title">Warning</p>
-  <p>When <a href="../../../../GettingStarted/overview/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
+  <p>When <a href="{{base_path}}/GettingStarted/overview/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
   </div> 
   
   <div class="admonition note">
   <p class="admonition-title">Note</p>
   <p>See the following topics for the descriptions on the concepts that you need to know when you block subscriptions to an API:
   <ul>
-    <li><a href="../../../../GettingStarted/key-concepts/#application">Applications</a></li>
-    <li><a href="../../../../GettingStarted/key-concepts/#rate-limits">Rate Limiting</a></li>
-    <li> <a href="../../../../GettingStarted/key-concepts/#access-token">Access tokens</a></li></ul>
+    <li><a href="{{base_path}}/GettingStarted/key-concepts/#application">Applications</a></li>
+    <li><a href="{{base_path}}/GettingStarted/key-concepts/#rate-limits">Rate Limiting</a></li>
+    <li> <a href="{{base_path}}/GettingStarted/key-concepts/#access-token">Access tokens</a></li></ul>
     </p>
   </div> 
   </html>
@@ -38,13 +38,13 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition tip"> 
          <p class="admonition-title">Tip</p>
-         <p>For more information, see [Create and Publish an API](../../../../Learn/DesignAPI/CreateAPI/create-a-rest-api/).</p>
+         <p>For more information, see [Create and Publish an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).</p>
          </div>
          </html>
          
          <html>
          <body>
-         <img src="../../../../assets/img/Learn/two-apis-for-block-subscription.png" onclick="window.open('../../../../assets/img/Learn/two-apis-for-block-subscription.png', '_self');" alt="two-apis-for-block-subscription" width="100%" height="100%">
+         <img src="{{base_path}}/assets/img/Learn/two-apis-for-block-subscription.png" onclick="window.open('{{base_path}}/assets/img/Learn/two-apis-for-block-subscription.png', '_self');" alt="two-apis-for-block-subscription" width="100%" height="100%">
          </body>
          </html>
 
@@ -58,14 +58,14 @@ Blocking can be done at two levels:
          You can use the default application or create your own.
          <html>
          <body>
-         <img src="../../../../assets/img/Learn/same-application-for-two-apis.png" onclick="window.open('../../../../assets/img/Learn/same-application-for-two-apis.png', '_self');" alt="same-application-for-two-apis" width="100%" height="100%">
+         <img src="{{base_path}}/assets/img/Learn/same-application-for-two-apis.png" onclick="window.open('{{base_path}}/assets/img/Learn/same-application-for-two-apis.png', '_self');" alt="same-application-for-two-apis" width="100%" height="100%">
          </body>
          </html>
          
          You can see the Apis you have subscribed as follows and the **Status** as **unblocked**.
          <html>
          <body>
-         <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis.png', '_self');" alt="same-application-subscribed-for-two-apis" width="100%" height="100%">
+         <img src="{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis.png" onclick="window.open('{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis.png', '_self');" alt="same-application-subscribed-for-two-apis" width="100%" height="100%">
          </body>
          </html>
         
@@ -76,13 +76,13 @@ Blocking can be done at two levels:
       <html>
       <div class="admonition tip"> 
       <p class="admonition-title">Tip</p>
-      <p>For more information , see  [Consume an API](../../../../Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/)..</p>
+      <p>For more information , see  [Consume an API]({{base_path}}/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/)..</p>
       </div>
       </html>
 
       <html>
       <body> 
-      <img src="../../../../assets/img/Learn/same-application-for-two-apis-response.png" onclick="window.open('../../../../assets/img/Learn/same-application-for-two-apis-response.png', '_self');" alt="same-application-for-two-apis-response" width="100%" height="100%">
+      <img src="{{base_path}}/assets/img/Learn/same-application-for-two-apis-response.png" onclick="window.open('{{base_path}}/assets/img/Learn/same-application-for-two-apis-response.png', '_self');" alt="same-application-for-two-apis-response" width="100%" height="100%">
       </body>
       </html>
 
@@ -110,7 +110,7 @@ Blocking can be done at two levels:
      4. Click **Block All**.
         <html>
         <body>
-        <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png', '_self');" alt="same-application-subscribed-for-two-apis-and-blocked" width="100%" height="100%">
+        <img src="{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png" onclick="window.open('{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png', '_self');" alt="same-application-subscribed-for-two-apis-and-blocked" width="100%" height="100%">
        </body>
        </html>
         
@@ -139,7 +139,7 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition warning">
          <p class="admonition-title">Warning</p>
-         <p>When [Gateway caching](../../../../GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.</p>
+         <p>When [Gateway caching]({{base_path}}/GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.</p>
          </div>
          </html>
 
@@ -155,7 +155,7 @@ Blocking can be done at two levels:
         ```
         <html>
         <body>
-        <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png', '_self');" alt="same-application-subscribed-for-two-apis-and-blocked-response" width="100%" height="100%">
+        <img src="{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png" onclick="window.open('{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png', '_self');" alt="same-application-subscribed-for-two-apis-and-blocked-response" width="100%" height="100%">
         </body>
         </html>
         
@@ -163,7 +163,7 @@ Blocking can be done at two levels:
 
      <html>
      <body>
-     <img src="../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png" onclick="window.open('../../../../assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png', '_self');" alt="same-application-subscribed-for-two-apis-and-combined-subscription" width="100%" height="100%">
+     <img src="{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png" onclick="window.open('{{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png', '_self');" alt="same-application-subscribed-for-two-apis-and-combined-subscription" width="100%" height="100%">
      </body>
      </html>
 
@@ -184,7 +184,7 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition warning">
          <p class="admonition-title">Warning</p>
-         <p>When [Gateway caching](../../../../GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.</p>
+         <p>When [Gateway caching]({{base_path}}/GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.</p>
          </div>
          </html>
 

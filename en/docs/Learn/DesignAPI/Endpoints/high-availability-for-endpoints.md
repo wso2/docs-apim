@@ -4,10 +4,10 @@
 
 WSO2 API Manager provides configuring load balancing endpoints through the API Publisher.
 
-1.When you [creating an API](../CreateAPI/create-a-rest-api.md), to configure load balancing endpoints go to the edit view of the API and navigate to the **Endpoint** tab and  expand the **Load balance and Failover Configurations.**
-![load-balance-and-fail-over](../../../assets/img/Learn/load-balance-and-fail-over.png)
+1. When you [creating an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api), to configure load balancing endpoints go to the edit view of the API and navigate to the **Endpoint** tab and  expand the **Load balance and Failover Configurations.**
+![load-balance-and-fail-over]({{base_path}}/assets/img/Learn/load-balance-and-fail-over.png)
 2. Select the **Load Balanced** from the endpoint type drop-down.
-![load-balanced](../../../assets/img/Learn/load-balanced-configurations.png)
+![load-balanced]({{base_path}}/assets/img/Learn/load-balanced-configurations.png)
 Following are the other configurations that you need to do in order to specify a load balancing endpoint.
 <table>
 <colgroup>
@@ -52,16 +52,16 @@ Following are the other configurations that you need to do in order to specify a
 </tr>
 </tbody>
 </table>
-![load-balanced](../../../assets/img/Learn/load-balanced-configured.png)
+![load-balanced]({{base_path}}/assets/img/Learn/load-balanced-configured.png)
 3. After completing the configuration click on **save.**
 
 ### Configuring Failover Group of Endpoints
 WSO2 API Manager provides configuring failover group endpoints through the API Publisher.
 
-1. When you [creating an API](../CreateAPI/create-a-rest-api.md), To configure failover endpoints go to the edit view of the API and navigate to the **Endpoint** tab and click **Failover** under endpoint type by expanding **Load balance and Failover Configurations.**
-![failover](../../../assets/img/Learn/failover.png)
+1. When you [creating an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api), To configure failover endpoints go to the edit view of the API and navigate to the **Endpoint** tab and click **Failover** under endpoint type by expanding **Load balance and Failover Configurations.**
+![failover]({{base_path}}/assets/img/Learn/failover.png)
 
 2. At least one failover endpoint needs to be added for production and sandbox (if you have specified) Endpoints.You can specify more than one endpoint by clicking on **"+"** sign and can delete the endpoints by clicking on **bin** icon.
-![failover](../../../assets/img/Learn/failover-configured.png)
+![failover]({{base_path}}/assets/img/Learn/failover-configured.png)
 
 3. After completing the adding endpoints, click on **save.**
