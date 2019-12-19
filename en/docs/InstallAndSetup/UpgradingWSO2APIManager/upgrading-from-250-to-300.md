@@ -1515,7 +1515,9 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
 
-5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.0.0_HOME>/bin` location.
+5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_ANALYTICS_HOME>/repository/resources/security` directory.
+
+6.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.0.0_HOME>/bin` location.
 
     ```tab="Worker"
     sh worker.sh
