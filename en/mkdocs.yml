@@ -464,7 +464,7 @@ nav:
             - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/mutual-ssl-between-api-gateway-and-backend.md
             - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Whitelisting Hostnames for API Dev Portal: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
-            - Identity Management for the API Dev Portal: Administer/ProductSecurity/identity-management-for-the-api-store.md
+            - Identity Management for the API Developer Portal: Administer/ProductSecurity/identity-management-for-the-api-dev-portal.md
     - Reference:
         - Configuration Catalog: Reference/ConfigCatalog.md
         - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
