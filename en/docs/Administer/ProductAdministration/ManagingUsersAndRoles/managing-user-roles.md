@@ -4,10 +4,10 @@ Roles contain permissions for users to manage the server. They can be reused and
 
 Throughout this documentation, we use the following roles that are typically used in many enterprises. You can also define different user roles depending on your requirements.
 
--   **admin:** The API management provider who hosts and manages the [API Gateway]({{base_path}}/GettingStarted/overview/#api-gateway) and is responsible for creating users in the system, assigning them roles, managing databases, security, etc. The Admin role is also used to access the WSO2 Admin Portal ( `https://<APIM_Host>:<APIM_Port>/admin` ), where you can define workflow tasks, throttling policies, analytics configurations, etc. The Admin role is available by default with the credentials admin/admin. By default, this role contains all the permissions (including super admin permissions) in the permission tree.
--   **creator:** A creator is typically a person in a technical role who understands the technical aspects of the API (interfaces, documentation, versions etc.) and uses the [API publisher]({{base_path}}/GettingStarted/overview/#api-publisher) to provision APIs into the Developer Portal. The creator uses the Developer Portal to consult ratings and feedback provided by API users. Creator can add APIs to the Developer Portal but cannot manage their lifecycle. Governance permission gives a creator permission to govern, manage and configure the API artifacts.
--   **publisher:** A person in a managerial role and overlooks a set of APIs across the enterprise and controls the API lifecycle, subscriptions and monetization aspects. The publisher is also interested in usage patterns for APIs and has access to all API statistics.
--   **subscriber:** A user or an application developer who searches the [Developer Portal]({{base_path}}/GettingStarted/overview/#developer-portal) to discover APIs and use them. S/he reads the documentation and forums, ratings/comments on the APIs, subscribes to APIs, obtains access tokens and invokes the APIs.
+-   <a name="admin-role">**admin:**</a> The API management provider who hosts and manages the [API Gateway]({{base_path}}/GettingStarted/overview/#api-gateway) and is responsible for creating users in the system, assigning them roles, managing databases, security, etc. The Admin role is also used to access the WSO2 Admin Portal ( `https://<APIM_Host>:<APIM_Port>/admin` ), where you can define workflow tasks, throttling policies, analytics configurations, etc. The Admin role is available by default with the credentials admin/admin. By default, this role contains all the permissions (including super admin permissions) in the permission tree.
+-   <a name="creator-role">**creator:**</a> A creator is typically a person in a technical role who understands the technical aspects of the API (interfaces, documentation, versions etc.) and uses the [API publisher]({{base_path}}/GettingStarted/overview/#api-publisher) to provision APIs into the Developer Portal. The creator uses the Developer Portal to consult ratings and feedback provided by API users. Creator can add APIs to the Developer Portal but cannot manage their lifecycle. Governance permission gives a creator permission to govern, manage and configure the API artifacts.
+-   <a name="publisher-role">**publisher:**</a> A person in a managerial role and overlooks a set of APIs across the enterprise and controls the API lifecycle, subscriptions and monetization aspects. The publisher is also interested in usage patterns for APIs and has access to all API statistics.
+-   <a name="subscriber-role">**subscriber:**</a> A user or an application developer who searches the [Developer Portal]({{base_path}}/GettingStarted/overview/#developer-portal) to discover APIs and use them. S/he reads the documentation and forums, ratings/comments on the APIs, subscribes to APIs, obtains access tokens and invokes the APIs.
 
 Follow the instructions below to create the `creator` , `publisher` and `subscriber` roles in the API Manager for example.
 
@@ -15,15 +15,15 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
         By default, all WSO2 products have the following roles configured: 
 
         -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the Internal/everyone roles.
-        -   **Internal/everyone** - This is a conceptual role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions.
-        -   **Internal/system** - This is another conceptual role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
+        -   **Internal/everyone** - This is a pre defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged in users.
+        -   **Internal/system** - This is another pre defined role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
         -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
 
         In addition to the above, the following roles exist by default.
 
-        1.  Internal/creator
-        2.  Internal/publisher
-        3.  Internal/subscriber
+        1.  [Internal/creator](#creator-role)
+        2.  [Internal/publisher](#publisher-role)
+        3.  [Internal/subscriber](#subscriber-role)
 
 ### Create user roles
 
@@ -49,7 +49,9 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
     ![Select role permissions]({{base_path}}/assets/img/Administer/permissions.png)
 
-    Select the permissions according to the role that you create. The table below lists the permissions of the `creator` , `publisher` and `subscriber` roles which are available by default:
+    Select the permissions according to the role that you create. The table below lists the permissions of the `creator` , `publisher` and `subscriber` roles which are available by default. 
+    
+    Since we have created the `creator` role here, assign the permissions listed under the creator role as given in the table below.
 
     <table>
     <thead>
@@ -114,7 +116,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 9. Add the new role created above(`creator`) under **Roles** of all scopes that it should be assigned to as follows. 
 
-    **For example**, if the new role has API Creator permission, add it under every scope that has `Internal/creator` role specified.
+    **For example**, if the new role has the API Creator permission, add it under every scope that has `Internal/creator` role specified.
 
     If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, add the new role under `apim:api_create` scope.
 
@@ -151,7 +153,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
     These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
 
-#### Editing or deleting a role
+### Editing or deleting a role
 
 1. Log in to the management console ( `https://<APIM_Host>:<APIM_Port>/carbon` ) if you have not done already.
 
@@ -181,7 +183,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
         If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
 
 
-##### Update before the first startup (recommended)
+#### Update before the first startup (recommended)
 
 The default role name of the Administrator, (`admin`) can be changed before starting WSO2 API Manager by editing `<API-M_HOME>/repository/conf/deployment.toml` file. For more information on configuring the system administrator, see [Configuring the System Administrator]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-the-system-administrator).
 
@@ -195,7 +197,7 @@ password = "admin"
 create_admin_account = true
 ```
 
-##### Update after the product is used for some time (advanced configuration)
+#### Update after the product is used for some time (advanced configuration)
 
 If you have already updated the role names before the first startup of the product, these steps are not necessary. The following steps guide you through updating the role names after you have used the product for some time.
 
