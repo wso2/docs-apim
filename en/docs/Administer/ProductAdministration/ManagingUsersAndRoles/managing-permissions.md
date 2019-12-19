@@ -5,13 +5,13 @@ The **User Management** module in WSO2 products enable role-based access. With t
 -   **Super tenant level:** A role with super tenant permissions is used for managing all the tenants in the system and also for managing the key features in the system, which are applicable to all the tenants.
 -   **Tenant level:** A role with tenant level permissions is only applicable to individual tenant spaces.
 
-The permissions navigator that you use to enable permissions for a role is divided into these two categories (**Super Admin** permissions and **Admin** permissions) as shown below. However, note that there may be other categories of permissions enabled for a WSO2 product, depending on the type of features that are installed in the product.
+The permissions navigator that you use to enable permissions for a role is divided into these two categories (**Super Admin** permissions and **Admin** permissions) as shown below.
 
-![Admin permissions tree](../../../assets/img/Administer/admin-permissions-tree.png)
+![Admin permissions tree]({{base_path}}/assets/img/Administer/admin-permissions-tree.png)
 
 You can access the permissions navigator for a particular role by clicking **Permissions** as shown below.
 
-![Change permissions of role](../../../assets/img/Administer/change-permissions-of-role.png)
+![Change permissions of role]({{base_path}}/assets/img/Administer/change-permissions-of-role.png)
 
 By default, every WSO2 product comes with the following Users, Roles and Permissions configured:
 
@@ -40,8 +40,8 @@ By default, every WSO2 product comes with the following Users, Roles and Permiss
 By default, all WSO2 products have the following roles configured: 
 
 -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the `Internal/everyone` roles.
--   **Internal/everyone** - This is a conceptual role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions.
--   **Internal/system** - This is another conceptual role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
+-   **Internal/everyone** - This is a pre defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged in users.
+-   **Internal/system** - This is another pre defined role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
 -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
 
 In addition to the above, the following roles exist by default.
