@@ -111,8 +111,8 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Format"
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     validationQuery = "SELECT 1"
     ```
@@ -156,8 +156,8 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Format"
     type = "mssql"
     url = "jdbc:sqlserver://localhost:1433;databaseName=<DATABASE_NAME>;SendStringParametersAsUnicode=false"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
     validationQuery = "SELECT 1"
     pool_options.<OPTION-1> = <VALUE-1>

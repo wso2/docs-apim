@@ -90,8 +90,8 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Format"
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     ```
@@ -108,8 +108,8 @@ Follow the steps below to change the type of the default datasource.
     [database.apim_db]
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/apim_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "apimadmin"
+    password = "apimadmin"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     ```
@@ -132,8 +132,8 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Format"
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     pool_options.<OPTION-1> = <VALUE-1>
@@ -156,8 +156,8 @@ Follow the steps below to change the type of the default datasource.
     [database.apim_db]
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/apim_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "apimadmin"
+    password = "apimadmin"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     pool_options.maxActive = 50
