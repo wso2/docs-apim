@@ -39,7 +39,7 @@ Follow the steps below to set up a MySQL database:
         User should have the database creation privileges.
 
     ``` java
-    mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
+    $ mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
     ```
 
 1.  When prompted, specify the password that will be used to access the databases with the username you specified.
@@ -66,30 +66,30 @@ Follow the steps below to set up a MySQL database:
 1.  Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
 
     ``` java
-    GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
+    mysql> GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
     ```
 
     !!! info
         If you are using MySQL version - 8.0.x, use following commands to create the user and grant authorization:
 
         ``` java
-        CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
+        mysql> CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
         ```
 
         ``` java
-        GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
+        mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
         ```
 
 1.  Once you have finalized the permissions, reload all the privileges by executing the following command:
 
     ``` java
-    FLUSH PRIVILEGES;
+    mysql> FLUSH PRIVILEGES;
     ```
 
 1.  Log out from the MySQL command prompt by executing the following command:
 
     ``` java
-    quit;
+    mysql> quit;
     ```
 
 ### Setting up the drivers
@@ -112,13 +112,13 @@ Follow the steps below to set up a MySQL database:
 1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
 
     ```sh
-    mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
+    $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
 2.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
 
     ```sh
-    mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
+    $ mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
     ```
 
 !!! note
@@ -173,8 +173,8 @@ Follow the steps below to change the type of the default datasources.
     ``` tab="Format"
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     ```
 
     ``` tab="Example"
@@ -216,8 +216,8 @@ Follow the steps below to change the type of the default datasources.
     ``` tab="Format"
     type = "mysql"
     url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     pool_options.<OPTION-1> = <VALUE-1>
     pool_options.<OPTION-2> = <VALUE-2>
     ...
