@@ -1,9 +1,9 @@
 # Changing the Default Transport
 
-On the back end, APIs are Apache Synapse configurations that WSO2 API Manager accesses through a transport. The default API Manager transport is the PassThrough transport, but you can configure a different default transport in your `deployment.toml` file.
+APIs are made up of Apache Synapse configurations that WSO2 API Manager accesses through a transport protocol. The default API Manager transport is the PassThrough transport, but you can configure a different default transport in your `deployment.toml` file.
 
 !!! info
-    WSO2 products do not use the HTTP/S servlet transport configurations that are in `axis2.xml` file. Instead, they use Tomcat-level servlet transports, which are used by the management console in `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file .
+    WSO2 API Manager does not use the HTTP/S servlet transport protocol configurations that are in the axis2.xml file. Instead, WSO2 API Manager's Management Console uses the Tomcat-level servlet transport protocols that are available in the <API-M_HOME>/repository/conf/tomcat/catalina-server.xml file.
 
 
 The following topics provide more information on these transports:
@@ -15,7 +15,7 @@ The following topics provide more information on these transports:
 
 ### HTTP PassThrough Transport
 
-HTTP PassThrough Transport is the default, non-blocking HTTP transport implementation based on HTTP Core NIO and is specially designed for streaming messages. It is similar to the old message relay transport, but it does not care about the content type and simply streams all received messages through. It also has a simpler and cleaner model for forwarding messages back and forth. The two classes that implement the receiver and sender APIs are `org.apache.synapse.transport.passthru.PassThroughHttpListener` and `org.apache.synapse.transport.passthru.PassThroughHttpSender` , respectively. The PassThrough Transport does not require the binary relay builder and expanding formatter.
+HTTP PassThrough Transport is the default, non-blocking HTTP transport implementation based on HTTP Core NIO and is specially designed for streaming messages. It is similar to the old message relay transport, but it does not take the content type into consideration and simply streams all the messages that it receives. It also has a simpler and cleaner model for forwarding messages back and forth. The two classes that implement the receiver and sender APIs are `org.apache.synapse.transport.passthru.PassThroughHttpListener` and `org.apache.synapse.transport.passthru.PassThroughHttpSender`, respectively. The PassThrough Transport does not require the binary relay builder and expanding formatter.
 
 ### Transport Receiver Parameters
 
@@ -144,7 +144,7 @@ HTTP PassThrough Transport is the default, non-blocking HTTP transport implement
 
 ### Connection Throttling
 
-With the HTTP PassThrough, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<PRODUCT_HOME>/repository/conf/deployment.toml` and add the following configuration under passthough_http configurations.
+Using the HTTP PassThrough transport protocol, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<PRODUCT_HOME>/repository/conf/deployment.toml` and add the following configuration under `passthough_http` configurations.
     ``` java
         [passthru_http]
         max_open_connections = 2
