@@ -1,4 +1,4 @@
-# Setting up Oracle
+# Changing to Oracle
 
 By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use Oracle database for this purpose.
 
@@ -75,7 +75,7 @@ Follow the steps below to change the type of the default datasource.
     | Element                       | Description                                                                                                |
     |-------------------------------|------------------------------------------------------------------------------------------------------------|
     | **type**                      | The database type used                                                                                     |
-    | **url**                       | The URL of the database. The default port for MSSQL is 1433                                                |
+    | **url**                       | The URL of the database. The default port for Oracle is 1521                                                |
     | **username** and **password** | The name and password of the database user                                                                 |
     | **driverClassName**           | The class name of the database driver                                                                      |
     | **validationQuery**           | The SQL query that will be used to validate connections from this pool before returning them to the caller.|
