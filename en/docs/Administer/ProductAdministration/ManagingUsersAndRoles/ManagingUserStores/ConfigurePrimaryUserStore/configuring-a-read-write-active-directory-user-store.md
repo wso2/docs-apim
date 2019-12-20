@@ -133,7 +133,7 @@ Given below is a sample configuration for the external read/write user store in 
 !!! note
     When working with Active Directory;
 
-    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](https://apim.docs.wso2.com/en/latest/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-the-authorization-manager/) for more information.
+    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](./../../configuring-the-authorization-manager/) for more information.
 
         ``` xml
         <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
@@ -145,7 +145,7 @@ Given below is a sample configuration for the external read/write user store in 
 
         Although using the user store manager does not depend on this property, you must consider enabling this if there are any performance issues in your production environment. Enabling this property affects the performance when the user logs in. This depends on the users, roles and permission stats.
 
-    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](https://apim.docs.wso2.com/en/latest/Administer/ProductSecurity/UsingAsymmetricEncryption/creating-new-keystores/) .
+    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](./../../../../../ProductSecurity/UsingAsymmetricEncryption/creating-new-keystores/) .
 
         ``` toml
         ConnectionURL="ldaps://10.100.1.100:636"
@@ -201,7 +201,7 @@ Given below is a sample configuration for the external read/write user store in 
         
 ### Step 2: Updating the system administrator
 
-The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the Active Directory user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the user store. For more information on setting up the [system administrator](https://apim.docs.wso2.com/en/latest/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-the-system-administrator/) and the [authorization manager](https://apim.docs.wso2.com/en/latest/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-the-authorization-manager/) .
+The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the Active Directory user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the user store. For more information on setting up the [system administrator](./../../configuring-the-system-administrator/) and the [authorization manager](./../../configuring-the-authorization-manager/) .
 
 -   These two alternative configurations can be done as explained below.
 
@@ -258,7 +258,7 @@ Sample values: ou=Users,dc=wso2,dc=org</td>
 ## Properties used in Read-Write Active Directory User Store
 
 The following table lists the properties used in Read-write Active Directory and their descriptions:
-Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to `<PRODUCT-HOME>/repository/conf/deployment.toml`.
+Any of  the following properties can be configured for the `PRIMARY` user store by adding them as follows to `<API-M_HOME>/repository/conf/deployment.toml`.
 
 <table> 
 <col width="50">
