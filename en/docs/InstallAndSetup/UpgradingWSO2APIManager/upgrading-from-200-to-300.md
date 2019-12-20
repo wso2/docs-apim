@@ -1963,27 +1963,13 @@ Follow the instructions below to move all the existing API Manager configuration
             -Dmigrate -Dcomponent=identity
             ```
 
-7.  Migrate the Publisher access control feature.
+7.  Migrate the API Manager artifacts.
 
-    You have to run the following migration client to migrate the Access Control support for the API Publisher, because Publisher Access Control is enabled by default in WSO2 API Manager 3.0.0.
+    You have to run the following migration client to update the registry artifacts.
 
     1. Download and copy the [API Manager Migration Client](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
     2.  Start the API-M server as follows.
-
-        ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateAccessControl=true
-        ```
-
-        ``` tab="Windows"
-        wso2server.bat -DmigrateAccessControl=true
-        ```
-
-    3.  Shutdown the API-M server.
-
-8. Carryout migration for fault sequence from API-M 2.0.0 to API-M 3.0.0 using the migration client. 
-
-    1.  Start the API-M server using the commands given below:
 
         ``` tab="Linux / Mac OS"
         sh wso2server.sh -DmigrateFromVersion=2.0.0
@@ -1993,16 +1979,16 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=2.0.0
         ```
 
-    2.  Shutdown the API-M server.
+    3.  Shutdown the API-M server.
 
-9.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file:
+8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file:
 
     ``` java
     [authorization_manager.properties]
     PreserveCaseForResources = false
     ```
 
-10. Re-index the artifacts in the registry.
+9. Re-index the artifacts in the registry.
 
     1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the `SHARED_DB` database.
 
