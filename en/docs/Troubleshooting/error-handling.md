@@ -173,12 +173,6 @@ Given below are some error codes and their meanings.
 <td>Invoke API resource with an access token that is not generated to be used with the resource's scope.</td>
 </tr>
 <tr class="odd">
-<td><code>900911</code></td>
-<td><p>Invalid Authorization header</p></td>
-<td><p>Can not access the required resource with the provided access token. Check the valid resources that can be accessed with this token.</p></td>
-<td>Invoke API resource with an access token that is not generated to be used with the resource's scope.</td>
-</tr>
-<tr class="even">
 <td><code>102511</code></td>
 <td>Incomplete payload</td>
 <td>The payload sent with the request is too large and the client is unable to keep the connection alive until the payload is completely transferred to the API Gateway</td>
