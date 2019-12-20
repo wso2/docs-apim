@@ -1791,6 +1791,25 @@ Follow the instructions below to move all the existing API Manager configuration
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
 
+    !!! Attention
+        In API Manager 3.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in previous version, you need to add the following configuration to `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and primary keystore can be pointed to a keystore with a ceritificate, which has strong RSA key. 
+
+        ``` java
+        [keystore.primary]
+        file_name = "primary.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        alias = "wso2carbon"
+        key_password = "wso2carbon"
+
+        [keystore.internal]
+        file_name = "internal.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        alias = "wso2carbon"
+        key_password = "wso2carbon"
+        ```
+
     !!! note "If you have enabled Secure Vault"
         If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../Administer/ProductSecurity/LoginsAndPasswords/working-with-encrypted-passwords.md) for more details.
 
