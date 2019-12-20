@@ -15,27 +15,22 @@ The following sections describe how to set up a IBM DB2 database to replace the 
 Follow the steps below to set up a IBM DB2 database:
 
 1. Create the database using the following command:
-
    ```sh
    $ db2 CREATE DATABASE <DATABASE_NAME>
    ```
 
 1. Before issuing an SQL statement, establish the connection to the database using the following command:
-
    ```sh
    $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
    ```
 
 1. Grant required permissions for users as follows:
-
    ```sh
    $ db2 <AUTHORITY> ON DATABASE TO USER <USER_NAME>
    ```
-   
    For example:
-   
    ```sh
-      $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER regadmin
+   $ db2 GRANT DBADM, CREATETAB, BINDADD, CONNECT, CREATE_NOT_FENCED, IMPLICIT_SCHEMA, LOAD ON DATABASE TO USER regadmin
    ```
 
 1. Disconnect from the database using the following command:
@@ -54,14 +49,12 @@ Follow the steps below to set up a IBM DB2 database:
 ### Executing db scripts to create tables on IBM DB2 database
 
 1. To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
-
    ```sh
    $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
    $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/db2.sql';
    ```
 
 1. To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
-
    ```sh
    $ db2 CONNECT TO <DATABASE_NAME> user <USER_NAME> using <PASSWORD>
    $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/apimgt/db2.sql';

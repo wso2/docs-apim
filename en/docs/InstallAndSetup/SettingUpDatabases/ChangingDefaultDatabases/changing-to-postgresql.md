@@ -80,7 +80,7 @@ Follow the steps below to change the type of the default datasource.
     | Element                       | Description                                                                                                |
     |-------------------------------|------------------------------------------------------------------------------------------------------------|
     | **type**                      | The database type used                                                                                     |
-    | **url**                       | The URL of the database. The default port for MSSQL is 1433                                                |
+    | **url**                       | The URL of the database. The default port for PostgreSQL is 5432                                                |
     | **username** and **password** | The name and password of the database user                                                                 |
     | **driverClassName**           | The class name of the database driver                                                                      |
     | **validationQuery**           | The SQL query that will be used to validate connections from this pool before returning them to the caller.|
