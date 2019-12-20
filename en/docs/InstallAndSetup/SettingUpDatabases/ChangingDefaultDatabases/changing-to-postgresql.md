@@ -1,4 +1,4 @@
-# Setting up PostgreSQL
+# Changing to PostgreSQL
 
 By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use PostgreSQL for this purpose.
 
