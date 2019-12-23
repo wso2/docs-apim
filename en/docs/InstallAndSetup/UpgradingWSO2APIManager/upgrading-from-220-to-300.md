@@ -1234,11 +1234,19 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         ALTER TABLE AM_API_COMMENTS
-        MODIFY COMMENT_ID VARCHAR(255) NOT NULL
+            DROP COLUMN COMMENT_ID
+        /
+
+        ALTER TABLE AM_API_COMMENTS
+            ADD COMMENT_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
 
         ALTER TABLE AM_API_RATINGS
-        MODIFY RATING_ID VARCHAR(255) NOT NULL
+            DROP COLUMN RATING_ID
+        /
+
+        ALTER TABLE AM_API_RATINGS
+            ADD RATING_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
 
         CREATE TABLE AM_NOTIFICATION_SUBSCRIBER (
