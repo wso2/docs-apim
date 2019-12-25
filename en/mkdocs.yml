@@ -276,12 +276,10 @@ nav:
             - Migrating Apps to Different Environments: Learn/APIController/migrating-applications-to-different-environments.md
             - Building a CI/CD Pipeline: Learn/APIController/building-a-cicd-pipeline.md
         - Tutorials:
-            - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
-            - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
-            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
             - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
             - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
+            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
