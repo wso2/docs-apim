@@ -206,7 +206,7 @@ nav:
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:
                 - JSON Schema Validator: Learn/APISecurity/APIRequestResponseSchemaValidation/json-schema-validator.md
-            - OAuth2 Deep Dive:
+            - OAuth2:
                 - Token types:
                     - JWT Access Tokens: Learn/APISecurity/OAuth2/AccessTokenTypes/jwt-tokens.md
                     - Opaque Access Tokens: Learn/APISecurity/OAuth2/AccessTokenTypes/opaque-tokens.md
