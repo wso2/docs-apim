@@ -103,7 +103,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
             service_url = "https://$[GATEWAY_SERVER_HOST]:[port]/services/"
         ```
 
-2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../Learn/APISecurity/OAuth2DeepDive/encrypting-oauth-keys/) .
+2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys](../../../../Learn/APISecurity/OAuth2/encrypting-oauth-keys/) .
 
 
 3.  Optionally, configure High Availability (HA) for the Key Manager.

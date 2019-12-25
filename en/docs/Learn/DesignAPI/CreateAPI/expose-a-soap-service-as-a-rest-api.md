@@ -46,7 +46,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
     <html><div class="admonition note"><p class="admonition-title">Note</p>
      <p>
             If you wish to add scopes to the resources that were created, navigate to  ***Resources***  and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
-    [OAuthscopes](../../../../Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/)
+    [OAuthscopes](../../../../Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/)
             </p>
         </div></html>   
 

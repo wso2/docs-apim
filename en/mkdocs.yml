@@ -111,15 +111,15 @@ nav:
                 - Generate Keys:
                     - Application Keys: Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys.md
                     - Grant Types:
-                        - Password Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/password-grant.md
-                        - Client Credentials Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/client-credentials-grant.md
-                        - JWT Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/jwt-grant.md
-                        - Kerberos OAuth2 Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/kerberos-oauth2-grant.md
-                        - Refresh Token Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/refresh-token-grant.md
-                        - Authorization Code Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/authorization-code-grant.md
-                        - SAML Extension Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/saml-extension-grant.md
-                        - Implicit Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/implicit-grant.md
-                        - NTLM Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/ntlm-grant.md
+                        - Password Grant: Learn/APISecurity/OAuth2/GrantTypes/password-grant.md
+                        - Client Credentials Grant: Learn/APISecurity/OAuth2/GrantTypes/client-credentials-grant.md
+                        - JWT Grant: Learn/APISecurity/OAuth2/GrantTypes/jwt-grant.md
+                        - Kerberos OAuth2 Grant: Learn/APISecurity/OAuth2/GrantTypes/kerberos-oauth2-grant.md
+                        - Refresh Token Grant: Learn/APISecurity/OAuth2/GrantTypes/refresh-token-grant.md
+                        - Authorization Code Grant: Learn/APISecurity/OAuth2/GrantTypes/authorization-code-grant.md
+                        - SAML Extension Grant: Learn/APISecurity/OAuth2/GrantTypes/saml-extension-grant.md
+                        - Implicit Grant: Learn/APISecurity/OAuth2/GrantTypes/implicit-grant.md
+                        - NTLM Grant: Learn/APISecurity/OAuth2/GrantTypes/ntlm-grant.md
                     - Obtain Access Token:
                         - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
                         - Application Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens.md
@@ -202,35 +202,35 @@ nav:
                 - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
             - Authorization:
                 - Overview: Learn/APISecurity/Authorization/api-authorization.md
-                - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
             - Request-Response Schema Validation:
                 - JSON Schema Validator: Learn/APISecurity/APIRequestResponseSchemaValidation/json-schema-validator.md
             - OAuth2 Deep Dive:
                 - Token types:
-                    - JWT Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/jwt-tokens.md
-                    - Opaque Access Tokens: Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/opaque-tokens.md
+                    - JWT Access Tokens: Learn/APISecurity/OAuth2/AccessTokenTypes/jwt-tokens.md
+                    - Opaque Access Tokens: Learn/APISecurity/OAuth2/AccessTokenTypes/opaque-tokens.md
                 - OAuth2 Scopes:
-                    - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
-                    - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
+                    - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Scope Whitelisting: Learn/APISecurity/OAuth2/OAuth2Scopes/scope-whitelisting.md
                 - Grant Types:
-                    - Overview: Learn/APISecurity/OAuth2DeepDive/GrantTypes/overview.md
-                    - Password Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/password-grant.md
-                    - Client Credentials Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/client-credentials-grant.md
-                    - Authorization Code Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/authorization-code-grant.md
-                    - Implicit Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/implicit-grant.md
-                    - Refresh Token Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/refresh-token-grant.md
-                    - JWT Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/jwt-grant.md
-                    - SAML Extension Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/saml-extension-grant.md
-                    - Kerberos OAuth2 Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/kerberos-oauth2-grant.md
-                    - NTLM Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/ntlm-grant.md
-                - Token Revocation: Learn/APISecurity/OAuth2DeepDive/token-revocation.md
-                - Token Expiration: Learn/APISecurity/OAuth2DeepDive/token-expiration.md
-                - Token Persistence: Learn/APISecurity/OAuth2DeepDive/token-persistence.md
-                - Encrypting OAuth2 Tokens: Learn/APISecurity/OAuth2DeepDive/encrypting-oauth2-tokens.md
-                - Hashing OAuth Keys: Learn/APISecurity/OAuth2DeepDive/hashing-oauth-keys.md
-                - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2DeepDive/provisioning-out-of-band-oauth-clients.md
-                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2DeepDive/securing-oauth-token-with-hmac-validation.md
+                    - Overview: Learn/APISecurity/OAuth2/GrantTypes/overview.md
+                    - Password Grant: Learn/APISecurity/OAuth2/GrantTypes/password-grant.md
+                    - Client Credentials Grant: Learn/APISecurity/OAuth2/GrantTypes/client-credentials-grant.md
+                    - Authorization Code Grant: Learn/APISecurity/OAuth2/GrantTypes/authorization-code-grant.md
+                    - Implicit Grant: Learn/APISecurity/OAuth2/GrantTypes/implicit-grant.md
+                    - Refresh Token Grant: Learn/APISecurity/OAuth2/GrantTypes/refresh-token-grant.md
+                    - JWT Grant: Learn/APISecurity/OAuth2/GrantTypes/jwt-grant.md
+                    - SAML Extension Grant: Learn/APISecurity/OAuth2/GrantTypes/saml-extension-grant.md
+                    - Kerberos OAuth2 Grant: Learn/APISecurity/OAuth2/GrantTypes/kerberos-oauth2-grant.md
+                    - NTLM Grant: Learn/APISecurity/OAuth2/GrantTypes/ntlm-grant.md
+                - Token Revocation: Learn/APISecurity/OAuth2/token-revocation.md
+                - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
+                - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
+                - Encrypting OAuth2 Tokens: Learn/APISecurity/OAuth2/encrypting-oauth2-tokens.md
+                - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
+                - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
+                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
                 - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
                 - Gateway Threat Protectors: Learn/APISecurity/ThreatProtection/GatewayThreatProtectors/gateway-threat-protectors-for-api-manager.md

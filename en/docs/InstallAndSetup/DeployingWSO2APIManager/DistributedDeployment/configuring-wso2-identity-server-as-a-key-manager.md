@@ -175,7 +175,7 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
 
 3.  If you want to configure [JSON Web Token (JWT)](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3) in order to pass the end user attributes to backend, open the `<IS_KM_HOME>/repository/conf/deployment.toml` file in the WSO2 IS as KM node and add relevant config changes given in [Passing Enduser Attributes to the Backend Using JWT]({{base_path}}/Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt)
 
-4.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets and authorization codes) follow the steps given in [Encrypting OAuth Keys]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/encrypting-oauth-keys/) and apply relevant configurations in `<IS_KM_HOME>/repository/conf/deployment.toml` file to enable the feature.
+4.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets and authorization codes) follow the steps given in [Encrypting OAuth Keys]({{base_path}}/Learn/APISecurity/OAuth2/encrypting-oauth-keys/) and apply relevant configurations in `<IS_KM_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
 
 ### Step 5 - Configure WSO2 API-M with the WSO2 IS as Key Manager

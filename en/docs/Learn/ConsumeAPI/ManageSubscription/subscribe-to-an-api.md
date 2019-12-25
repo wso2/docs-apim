@@ -25,7 +25,7 @@ In the API dev portal,  you will have two methods to subscribe an API to an appl
 
     <a href="{{base_path}}/assets/img/Learn/key-gen-wizard-subscribe.png" ><img src="{{base_path}}/assets/img/Learn/key-gen-wizard-subscribe.png" alt="Subscribe App" title="Subscribe App" width="70%" /></a>
     
-5. In **Generate keys** step is to [generate application keys]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys)(Production or sandbox). You can choose [grant types]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/GrantTypes/overview/) which need to be allowed for this application and click **Next** button to continue. Application key and secret will be generated in this step.
+5. In **Generate keys** step is to [generate application keys]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys)(Production or sandbox). You can choose [grant types]({{base_path}}/Learn/APISecurity/OAuth2/GrantTypes/overview/) which need to be allowed for this application and click **Next** button to continue. Application key and secret will be generated in this step.
 
     <a href="{{base_path}}/assets/img/Learn/key-gen-wizard-generate-keys.png" ><img src="{{base_path}}/assets/img/Learn/key-gen-wizard-generate-keys.png" alt="Key Gen" title="Key Gen" width="70%" /></a>
     
@@ -34,7 +34,7 @@ In the API dev portal,  you will have two methods to subscribe an API to an appl
         - If you have a supported callback URL that sends a callback to a specific server or program soon after your application request is sent, you can specify it under the **Callback URL** field.
         
     
-6.  In **Generate Access Token** step, an Access token can be generated to invoke the API. The access token validity period and [scopes]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/) can be selected from the dropdown if required, then click **Next** to continue.
+6.  In **Generate Access Token** step, an Access token can be generated to invoke the API. The access token validity period and [scopes]({{base_path}}/Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/) can be selected from the dropdown if required, then click **Next** to continue.
 
 
     
