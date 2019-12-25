@@ -39,7 +39,7 @@ WSO2 API Manager supports the following DBMSs.
 <ul>
 <li>MySQL 5.7, 8</li>
 <li>Oracle 12c</li>
-<li>Microsoft SQL Server 2016</li>
+<li>Microsoft SQL Server 2017</li>
 </ul>
 </html>
 
