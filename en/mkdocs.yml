@@ -356,7 +356,6 @@ nav:
             - Configuring rsync for Deployment Synchronization: SetupAndInstall/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: SetupAndInstall/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
             - Minimum High Availability Deployment for WSO2 APIM Analytics: SetupAndInstall/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
-            - Configuring the keyStore and client trustStore for a Selected Pattern: SetupAndInstall/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
             - Deployment Guidelines:
                 - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
@@ -374,6 +373,12 @@ nav:
                 - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
                 - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
                 - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
+        - Setting up Keystores:
+            - Configuring Keystores in API Manager: SetupAndInstall/SettingUpKeystores/configuring-keystores-in-wso2-api-manager.md
+            - Keystore Basics:
+                - Creating a new Keystore: SetupAndInstall/SettingUpKeystores/KeystoreBasics/creating-new-keystores.md
+                - Renewing a CA signed certificate: SetupAndInstall/SettingUpKeystores/KeystoreBasics/renewing-a-ca-signed-certificate-in-a-keystore.md
+                - About Asymetric Cryptography: SetupAndInstall/SettingUpKeystores/KeystoreBasics/about-asymetric-cryptography.md
         - Product Compatibility: SetupAndInstall/ProductCompatibility.md
         - Performance Tuning:
               - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
@@ -447,18 +452,11 @@ nav:
                         - Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
                         - Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
                     - Working with Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
-                - Using Asymmetric Encryption:
-                    - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
-                    - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
-                    - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
-                    - Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
-                - Using Symmetric Encryption:
-                    - Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
-                    - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
-                    - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
-                    - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
-                    - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
-                    - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
+                - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/admin-mitigating-cross-site-request-forgery-attacks.md
+                - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/admin-mitigating-cross-site-scripting-attacks.md
+                - Enabling HostName Verification: Administer/ProductSecurity/General/admin-enabling-hostname-verification.md
+                - Configuring TLS Termination: Administer/ProductSecurity/General/admin-configuring-tls-termination.md
+                - Enabling Java Security Manager: Administer/ProductSecurity/General/admin-enabling-java-security-manager.md
                 - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
                 - Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
                 - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
