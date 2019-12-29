@@ -40,14 +40,14 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 2.  Log in to the **API Publisher Portal**.
 3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
 4.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
-5.  Click ![Edit]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section.  
+5.  Click [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section.  
 *You can do this for Request, Response and/or Fault message flows.*     
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-mediation.png)  
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-mediation.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-mediation.png)  
 
 6.  In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation as a XML file.  
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/upload-mediation.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/upload-mediation.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/upload-mediation.png)
 
 7.  Once the file is uploaded, save the API.
 
@@ -69,17 +69,17 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 There are set of default common policies which are predefined and stored in registry which you can upload from the 
 Publisher UI as well.
 
-![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/common-policies.png)
+[![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/common-policies.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/common-policies.png)
 
 #### Editing a Mediation Policy
 
 If you want to edit an already attached mediation policy,
 
-1.  Click ![Edit]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section. 
+1.  Click [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section. 
 
 2.  Click the download icon next to the selected mediation policy, as shown below.  
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/download-and-edit-mediation.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/download-and-edit-mediation.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/download-and-edit-mediation.png)
     
 2.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
 
@@ -90,7 +90,7 @@ You can do this for Request, Response and/or Fault message flows.
 
 2.  Select **None** as the mediation policy and save the API.
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/non-mediation.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/non-mediation.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/non-mediation.png)
 
 ### Creating Manually and Saving in the File System
 

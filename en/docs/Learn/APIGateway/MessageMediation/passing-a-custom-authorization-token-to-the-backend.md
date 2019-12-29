@@ -39,7 +39,7 @@ Here's a summary:
 3.  Navigate to the **Runtime Configurations** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
 sequence that you created earlier and click **Save** .
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/token-exchange-seq-upload.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/token-exchange-seq-upload.png)
       
 4. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click **REDPLOY** to re-publish the API. 
 
@@ -73,6 +73,6 @@ the **`Authorization`** header.
 24. Note the response that you get in the command line. According to the sample backend used in this tutorial, 
 you get the response as "Request Received."  
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/custom-header-response.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/custom-header-response.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/custom-header-response.png)
 
 In this tutorial, you passed a custom token that the backend expects along with the system-generated Authorization token, and invoked an API successfully by swapping the system's token with your custom token.

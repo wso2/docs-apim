@@ -11,7 +11,7 @@ This custom policy adds a full trace log which is getting printed when you invok
 *For example if you are using ubuntu 64 bit computer you need to download, WSO2-Integration-Studio-7.0.0-linux-gtk-x86_64.tar.gz.*
 3.  Extract the downloaded archive of the Integration Studio to the desired location and run the **IntegrationStudio** application to start the tool.
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/integration-studio.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/integration-studio.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/integration-studio.png)
 
 
     !!! tip
@@ -19,25 +19,25 @@ This custom policy adds a full trace log which is getting printed when you invok
 
 4.  Click **ESB Project -> Create New** to create a new ESB Solution Project.
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/esb-solution-project.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/esb-solution-project.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/esb-solution-project.png)
 
 5.  Provide **Project Name** as `TestProject` and click **Finish**. Then you will be redirected to the following page.
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/composite-app-pom.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/composite-app-pom.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/composite-app-pom.png)
 
 6.  Navigate to the directory path **TestProject -> src -> main -> synapse-config -> sequences** in **Project Explorer** 
 window.
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/sequences.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/sequences.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/sequences.png)
 
 7.  Right-Click on **sequences** directory and go to **New -> Sequence** to create a new sequence.  
     If you want to import existing sequence proceed with **Import Sequence** option.
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/create-new-sequence.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/create-new-sequence.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/create-new-sequence.png)
 
 8.  Create new sequence and provide sequence name `newSequence` and click **Finish**.
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/create-new-sequence-2.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/create-new-sequence-2.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/create-new-sequence-2.png)
 
 9.  Your sequence now appears on the Integration Studio console.   
     Drag and drop a **Log Mediator** from under the **Mediators** section, to your sequence and give the following values 
@@ -45,24 +45,24 @@ window.
 
     `Log Level:  Full`   
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/newsequence-xml.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/newsequence-xml.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/newsequence-xml.png)
 
 10. Right click the sequence file `newSequence.xml`, and goto **WSO2 registry -> Check in to WSO2 Registry**. You will be
 prompted with the following dialog box.
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/check-in-to-reg.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/check-in-to-reg.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/check-in-to-reg.png)
 
 11. On the dialog box that appears, enter the URL of the `WSO2 Publisher Portal` and click the Right top icon to open the **Registry Tree Browser**. 
 
 12. From **Registry Tree Browser**, locate the path where the sequence is needed to be added `(IN/OUT/FAULT)`.  
   
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/reg-browser.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/reg-browser.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/reg-browser.png)
 
 13. Then click **OK** and **Checkin**.
 
 14. After that you can check **Registry Browser** in **WSO2 Management Console** to verify whether the sequence is successfully added.
     
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/mgt-console-reg-browser.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/mgt-console-reg-browser.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/mgt-console-reg-browser.png)
     
 15. Log in to the **API Publisher Portal**. 
 
@@ -70,12 +70,12 @@ prompted with the following dialog box.
 
 17. Go to the created API and from the Left Menu, go to **Runtime Configurations**.
 
-18. Click ![Edit]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section under **Request** sub-menu.  
+18. Click [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section under **Request** sub-menu.  
 
 19. In the Select a Mediation Policy popup, select **Common Policies** and select the newly added `newSequence` from the 
 sequence list. Then, click **Select**.
 
-    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/select-mediation-policy.png)
+    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/select-mediation-policy.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/select-mediation-policy.png)
 
 20. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
 
