@@ -24,7 +24,7 @@ flows as in, out and fault. You can extend these default mediation flows to do 
 You can create a per API mediation sequence manually and upload it from the API Publisher itself. Thereby, this allows 
 you to add a customized mediation policy to your API. 
 
-Following is a manually created sample custom mediation policy. This custom sequence adds a trace log getting printed when you invoke any of the APIs deployed in the Gateway.
+Following is a manually created sample custom mediation policy. This custom sequence adds a trace log which is getting printed when you invoke any of the APIs deployed in the Gateway.
 
 !!! example
     ```xml
@@ -34,22 +34,31 @@ Following is a manually created sample custom mediation policy. This custom sequ
       </log>
     </sequence>
     ```
-Follow the below steps to upload the above sequence as a custom mediation policy in the Request message flow.
+Follow the below steps to upload the above sequence as a custom mediation policy in the **Request** message flow.
 
-1.  You can copy the above mediation flow into a XML file.
-2.  Log in to the API Publisher Portal.
-3.  Create an API by following <link Create a new API>.
-4.  Go to the created API and from the Left Menu, goto **Runtime Configurations**.
-5.  Select Edit option in the **Message Mediation** section.  You can do this for Request, Response and/or Fault message flows.     
-
-    ![]({{base_path}}/assets/img/Learn/edit-mediation.png)  
+1.  You can copy the above mediation sequence into a **XML** file.
+2.  Log in to the **API Publisher Portal**.
+3.  Create a REST API by following the instructions in [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
+4.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
+5.  Click ![Edit]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section.  
+*You can do this for Request, Response and/or Fault message flows.*     
+  
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-mediation.png)  
 
 6.  In the **Select a Mediation Policy** popup you can select **Custom Policies** radio button and upload the above-created mediation as a XML file.  
 
-    ![]({{base_path}}/assets/img/Learn/upload-mediation.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/upload-mediation.png)
 
-7.  Once the file is uploaded, save the API.     
-8.  When you invoke the API using a valid subscription, you can see the following trace log in the server logs.
+7.  Once the file is uploaded, save the API.
+
+9.  If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click `REDPLOY` to re-publish the API. 
+
+10. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
+
+    !!! tip
+        Follow the instructions in [here]({{base_path}}/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/) to invoke the API using the integrated API console. 
+
+8.  When you invoke the API using a valid subscription, you can see the following trace log in wso2carbon server logs.
 
     ```bash
     [2019-12-19 13:55:11,887]  INFO - LogMediator TRACE = API Mediation Policy
@@ -57,20 +66,20 @@ Follow the below steps to upload the above sequence as a custom mediation policy
 
 #### Attaching Common Policies
 
-There are set of default common policies stored in registry which you can upload from the Publisher UI as well.
+There are set of default common policies which are predefined and stored in registry which you can upload from the 
+Publisher UI as well.
 
-![]({{base_path}}/assets/img/Learn/download-and-edit-mediation.png)
+![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/common-policies.png)
 
 #### Editing a Mediation Policy
 
 If you want to edit an already attached mediation policy,
 
-1.  Go to the Edit option in the **Message Mediation** section. 
-You can do this for Request, Response and/or Fault message flows. 
+1.  Click ![Edit]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/edit-button.png) button in the **Message Mediation** section. 
 
-2.  Click the download icon next to the selected mediation policy, as shown below:  
+2.  Click the download icon next to the selected mediation policy, as shown below.  
 
-    ![]({{base_path}}/assets/img/Learn/download-and-edit-mediation.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/download-and-edit-mediation.png)
     
 2.  Edit the downloaded mediation XML file and re-upload it as a Custom Policy.
 
@@ -81,17 +90,20 @@ You can do this for Request, Response and/or Fault message flows.
 
 2.  Select **None** as the mediation policy and save the API.
 
-    ![]({{base_path}}/assets/img/Learn/none-mediation.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/non-mediation.png)
 
 ### Creating Manually and Saving in the File System
 
 Alternatively, you can name the mediation XML file in the pattern `<API_NAME>:v<VERSION>--<DIRECTION>` and save it directly in the following location:
 
--   In the **single-tenant mode** , save the XML file in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
+-   In the **single-tenant mode** , save the XML file in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 -   In the **multi-tenant mode** , save the XML file in the tenant's synapse sequence folder.   
-For example, if tenant id is 1, then save it in `<API_Gateway>/repository/tenants/1/synapse-configs/default/sequences` folder.
+For example, if tenant id is 1, then save it in `<API-M_HOME>/repository/tenants/1/synapse-configs/default/sequences` folder.
 
 In the naming pattern, the `<DIRECTION>` can be `In` or `Out`. When it is `In` , the extension is triggered on the in-flow (request path) and when it is `Out` , the extension is triggered on the out-flow (response path). To change the default fault sequence, you can either modify the default fault sequence or write a custom fault sequence and engage it to APIs through the API Publisher.
+
+!!! tip
+    If you are having a distributed setup, do the changes in **Gateway** node.
 
 An example synapse configuration of a per-API extension sequence created for the API `admin--TwitterSearch` version 1.0.0 is given below.
 
@@ -104,16 +116,18 @@ An example synapse configuration of a per-API extension sequence created for th
     </sequence>
     ```
 
-You can copy this content into an XML file (e.g., `twittersearch_ext.xml` ) and save it in the `<API_Gateway>/repository/deployment/server/synapse-configs/default/sequences` directory.
+You can copy this content into an XML file (e.g., `twittersearch_ext.xml` ) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 
-The above sequence prints a log message on the console whenever the `TwitterSearch` API is invoked.
+The above sequence prints a log message in the wso2carbon logs whenever the `TwitterSearch` API is invoked.
 
 ### Creating and Uploading using WSO2 Integration Studio
 
+You can design the custom mediation policy using the tooling support provided by WSO2 Integration Studio and directly upload it
+to the registry in WSO2 API Manager. Visit [Creating and Uploading using WSO2 Integration Studio]({{base_path}}/Learn/APIGateway/MessageMediation/creating-and-uploading-using-integration-studio).
 
 ## Creating Global Extensions
 
-You can also engage mediation extension sequences to all APIs of a specific tenant at once. To do that, simply create the XML with the naming pattern `WSO2AM--Ext--<DIRECTION>` and save it in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
+You can also engage mediation extension sequences to all APIs of a specific tenant at once. To do that, simply create the XML with the naming pattern `WSO2AM--Ext--<DIRECTION>` and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
 
 An example synapse configuration of a global extension sequence is given below:
 
@@ -126,9 +140,12 @@ An example synapse configuration of a global extension sequence is given below:
     </sequence>
     ```
 
-This custom sequence adds a trace log getting printed when you invoke any of the APIs deployed in the Gateway.
+This custom sequence adds a trace log which is getting printed when you invoke any of the APIs deployed in the Gateway.
 
-You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it in the `<API_Gateway>/repository/deployment/server/synapse-configs/default/sequences` directory.
+You can copy this content into an XML file (e.g., `global_ext.xml` ) and save it in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences` directory.
+
+!!! tip
+    If you are having a distributed setup, do the changes in **Gateway** node.
 
 ## Sample Message Mediation Policies
 

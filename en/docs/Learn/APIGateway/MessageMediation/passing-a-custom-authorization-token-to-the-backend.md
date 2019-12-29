@@ -1,6 +1,6 @@
 # Passing a Custom Authorization Token to the Backend
 
-When you send an API request to the backend, you pass a token in the Authorization header of the request. 
+When you send an API request to the backend, you pass a token in the `Authorization` header of the request. 
 The API Gateway uses this token to authorize access, and then drops it from the outgoing message.  If you wish to use a 
 different (or a custom generated) authorization token than the application generated access token, you can use it as a 
 token exchange mechanism in mediation logic of the API. In this tutorial, we explain how to pass a custom authorization 
@@ -15,7 +15,7 @@ Here's a summary:
 
 `Client (headers: Authorization, custom) -> Gateway (drop: Authorization, convert: custom->Authorization) -> Backend                     `
 
-1. Add the following sequence content in to a file and save it as XML file.
+1.  Add the following sequence content in to a file and save it as XML file.
 
     !!! example
         ```xml
@@ -26,8 +26,7 @@ Here's a summary:
         </sequence>
         ```
 
-2. Log in to the API Publisher, Create a new REST API with the information given in the table below. Follow <link> to
-create a new REST API.
+2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
 
     | Field         | Sample value         |
     |---------------|----------------------|
@@ -37,20 +36,22 @@ create a new REST API.
     | Business Plan | Gold                 |
     | Endpoint      | http://wso2cloud-custom-auth-header-sample-1-0-0.wso2apps.com/custom-auth-header/validate-header |
 
-3. Navigate to the **Runtime Configurations** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
+3.  Navigate to the **Runtime Configurations** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
 sequence that you created earlier and click **Save** .
 
-    ![](../../../assets/img/Learn/token-exchange-seq-upload.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/token-exchange-seq-upload.png)
       
-
 4. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click **REDPLOY** to re-publish the API. 
 
-5. Go to Developer Portal and obtain an access token for a valid subcription for the published API. For more information
-visit <link>.
+5. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
+
+    !!! tip
+        Follow the instructions in [here]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens/) to generate an application access token.  
 
 6. Install any REST client in your machine. We use [cURL](http://curl.haxx.se/download.html) here.
 
-7. Go to the command line, and invoke the API using the following cURL command. In this command, you pass the token that 
+7. Go to the command line, and invoke the API using the following cURL command.   
+In this command, you pass the token that 
 the backend expects, i.e., 1234, in the **`Custom`** header with the authorization token that the system generates in 
 the **`Authorization`** header.
 
@@ -72,6 +73,6 @@ the **`Authorization`** header.
 24. Note the response that you get in the command line. According to the sample backend used in this tutorial, 
 you get the response as "Request Received."  
 
-    [![](../../../assets/img/Learn/custom-header-response.png)](../../../assets/img/Learn/custom-header-response.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/custom-header-response.png)
 
 In this tutorial, you passed a custom token that the backend expects along with the system-generated Authorization token, and invoked an API successfully by swapping the system's token with your custom token.

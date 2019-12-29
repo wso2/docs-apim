@@ -13,13 +13,13 @@ This tutorial explains how to map your backend URLs to the pattern that you want
 
 We do the following mapping in this tutorial:
 
-![](../../../assets/img/Learn/url-mapping.png)
+![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/url-mapping.png)
 
 !!! info
     **Before you begin...** 
     
     Note that a mock backend implementation is set up in this tutorial for the purpose of demonstrating the API invocation. 
-    If you have a local API Manager setup, save [this file](https://docs.wso2.com/download/attachments/45966776/Response_API.xml?version=1&modificationDate=1433789423000&api=v2) in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` folder to set up the mock backend.
+    If you have a local API Manager setup, save [this file]({{base_path}}/assets/attachments/Learn/APIGateway/MessageMediation/Response_API.xml) in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` folder to set up the mock backend.
 
 1.  Log in to the API Publisher, design a new API with the following information, click **Create**.
 
@@ -51,7 +51,7 @@ We do the following mapping in this tutorial:
 
 6.  Enable the **Message Mediation**  switch and engage the `In` sequence that you created earlier.  
 
-    ![](../../../assets/img/Learn/upload-test-seq.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/upload-test-seq.png)
 
     !!! info
         `TestSequence.xml` removes the URL postfix from the backend endpoint, since the URI template of the API's resource is automatically appended to the end of the URL at runtime. Therefore the **request** URL is modified by adding this sequence to the **In Flow**.
@@ -61,17 +61,17 @@ We do the following mapping in this tutorial:
 
 8.  Log in to the API Devportal and subscribe to the API and generate an access token to invoke the API.
  
-9.  Click the **Try Out** tab of your API and click on **Try it out** on the /business/{businessId}/address resource.  
+9.  Click the **Try Out** tab of your API and click on **Try it out** on the `/business/{businessId}/address` resource.  
 
-    ![](../../../assets/img/Learn/test-api-try-out.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/test-api-try-out.png)
 
 19. Note below the `businessId` is added in the UI as a parameter. Give a `businessId` and click **Execute** to invoke 
 the API.  
 
-    ![](../../../assets/img/Learn/test-api-tryout-execute.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/test-api-tryout-execute.png)
 
 20. Note the response that you get. According to the mock backend used in this tutorial, you get the response `Received Request`.  
 
-    ![](/assets/img/Learn/test-api-resource.png)
+    ![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/test-api-resource.png)
 
 In this tutorial, you mapped the URL pattern of the APIs in the Publisher with the endpoint URL pattern of a sample backend.

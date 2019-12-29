@@ -1,8 +1,8 @@
 # Removing Specific Request Headers From Response
 
-Web services may contain response headers with sensitive information. This tutorial explains how to remove HTTP request headers from the responses for security reasons.
+Web services may contain response headers with sensitive information. The following explains how to remove HTTP request headers from the responses for security reasons.
 
-To remove request headers from responses for per API or globally, add the name of the header to be removed as a property in your custom out sequence.
+To remove request headers from responses for per API or globally, add the name of the header to be removed as a property in your custom `out` sequence.
   
 !!! example
     ``` bash tab="Template"
@@ -12,6 +12,9 @@ To remove request headers from responses for per API or globally, add the name o
     ``` bash tab="Sample"
     <property name="CustomTransportHeader" scope="transport" action="remove"/>
     ```
+Check out [Changing the Default Mediation Flow of API Requests]({{base_path}}/Learn/APIGateway/MessageMediation/changing-the-default-mediation-flow-of-api-requests) to learn on how to
+add the above mediation policy per API or globally.
+
 ## Handling Error Responses
 
 To handle error responses, follow the instructions below. 
@@ -33,8 +36,8 @@ To handle error responses, follow the instructions below.
         <send/>
         ```
 
-4.  To address the scenario where an error occurs during execution of API requests, open the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/sequences/fault.xml` file.
-5.  Add the name of the header to be removed as a property property, just before the beginning of "CORS request handler" sequence, as shown below.
+4.  To address the scenario where an error occurs during execution of API requests, open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/fault.xml` file.
+5.  Add the name of the header to be removed as a property property, just before the beginning of `CORS Request Handler` sequence, as shown below.
 
     !!! example
 
@@ -54,7 +57,7 @@ To handle error responses, follow the instructions below.
 !!! note
     The above method removes only the specified headers from the response. If you need to remove all the headers, follow the instructions below.
 
-    1.  Open the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/sequences/main.xml` file.
+    1.  Open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/main.xml` file.
 
     2.  Add the `TRANSPORT_HEADERS` property, after the beginning of the `<out>` sequence opening tag, as shown in the example below.
 
@@ -65,7 +68,7 @@ To handle error responses, follow the instructions below.
             <property name="TRANSPORT_HEADERS" action="remove" scope="axis2"/>
             ```
 
-    3.  Open the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/sequences/fault.xml` file.
+    3.  Open the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/sequences/fault.xml` file.
     4.  Add the `TRANSPORT_HEADERS` property before the `<send>` mediator, as shown in the example below.
 
         !!! example
@@ -74,5 +77,3 @@ To handle error responses, follow the instructions below.
             <property name="TRANSPORT_HEADERS" action="remove" scope="axis2"/>
             <send/>
             ```
-
-
