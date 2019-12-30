@@ -1,4 +1,4 @@
-# Deploying API Manager with Kubernetes or OpenShift Resources
+# Deploying API Manager with Kubernetes Resources
 
 !!! warning
     Currently this page has instructions for deployment of WSO2 API Manager with WSO2 API Manager Analytics in Kubernetes.
