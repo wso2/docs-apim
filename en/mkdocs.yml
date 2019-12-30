@@ -367,12 +367,6 @@ nav:
                 - Changing to Oracle RAC: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
                 - Changing to Embedded Derby: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
                 - Changing to IBM Informix: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
-        - Setting up Keystores:
-              - Configuring Keystores in API Manager: SetupAndInstall/SettingUpKeystores/configuring-keystores-in-wso2-api-manager.md
-              - Keystore Basics:
-                    - Creating a new Keystore: SetupAndInstall/SettingUpKeystores/KeystoreBasics/creating-new-keystores.md
-                    - Renewing a CA signed certificate: SetupAndInstall/SettingUpKeystores/KeystoreBasics/renewing-a-ca-signed-certificate-in-a-keystore.md
-                    - About Asymetric Cryptography: SetupAndInstall/SettingUpKeystores/KeystoreBasics/about-asymetric-cryptography.md
         - Product Compatibility: InstallAndSetup/ProductCompatibility.md
         - Performance Tuning:
               - Tuning Performance: InstallAndSetup/PerfromanceTuningAndTestResults/tuning-performance.md
@@ -439,21 +433,20 @@ nav:
             - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
         - Product Security:
+            - Configuring Keystores:
+                - Configuring Keystores in API Manager: Administer/ProductSecurity/ConfiguringKeystores/configuring-keystores-in-wso2-api-manager.md
+                - Keystore Basics:
+                      - Creating a new Keystore: Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores.md
+                      - Renewing a CA signed certificate: Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/renewing-a-ca-signed-certificate-in-a-keystore.md
+                      - About Asymetric Cryptography: Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/about-asymetric-cryptography.md
             - Logins and Passwords:
                 - Maintaining Logins and Passwords: Administer/ProductSecurity/LoginsAndPasswords/maintaining-logins-and-passwords.md
                 - Securing Passwords:
                     - Encrypting Passwords in Configuration files: Administer/ProductSecurity/LoginsAndPasswords/working-with-encrypted-passwords.md
                     - Customizing Secure Vault: Administer/ProductSecurity/LoginsAndPasswords/carbon-secure-vault-implementation.md
                     - Set Passwords using Environment Variables/System Properties: Administer/ProductSecurity/LoginsAndPasswords/set-passwords-using-vars-and-sys-props.md
-            - Using Asymmetric Encryption:
-                - Creating New Keystores: Administer/ProductSecurity/UsingAsymmetricEncryption/creating-new-keystores.md
-                - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/UsingAsymmetricEncryption/renewing-a-ca-signed-certificate-in-a-keystore.md
-                - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/UsingAsymmetricEncryption/configuring-keystores-in-wso2-products.md
-                - Managing Keystores with the UI: Administer/ProductSecurity/UsingAsymmetricEncryption/managing-keystores-with-the-ui.md
-            - Using Symmetric Encryption:
-                - Using Symmetric Encryption: Administer/ProductSecurity/UsingSymmetricEncryption/using-symmetric-encryption.md
-                - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/UsingSymmetricEncryption/mitigating-cross-site-request-forgery-attacks.md
-                - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/UsingSymmetricEncryption/mitigating-cross-site-scripting-attacks.md
+            - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/mitigating-cross-site-request-forgery-attacks.md
+            - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/mitigating-cross-site-scripting-attacks.md
             - Enabling HostName Verification: Administer/ProductSecurity/enabling-hostname-verification.md
             - Configuring TLS Termination: Administer/ProductSecurity/configuring-tls-termination.md
             - Enabling Java Security Manager: Administer/ProductSecurity/enabling-java-security-manager.md

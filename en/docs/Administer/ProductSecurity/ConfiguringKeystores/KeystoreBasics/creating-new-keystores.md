@@ -6,7 +6,7 @@ Let's get started with creating new keystores.
 
 ## Before you begin
 
-Be sure to go through the [Recommendations for setting up keystores](/SetupAndInstall/SettingUpKeystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores) to understand the types of keystores you need.
+Be sure to go through the [Recommendations for setting up keystores](../../configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores) to understand the types of keystores you need.
 
 ## Creating a new keystore
 
@@ -38,7 +38,7 @@ Secure Sockets Layer (SSL) is a protocol that is used to secure communication be
 
     !!! Important
 
-        If you are creating a new keystore for data encryption, be sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in the [Recommendations for setting up keystores](/SetupAndInstall/SettingUpKeystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
+        If you are creating a new keystore for data encryption, be sure to acquire a public key certificate that contains the **Data Encipherment** key usage as explained in the [Recommendations for setting up keystores](../../configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores). Otherwise, the following error can occur when you attempt data encryption:
 
         ``` java
             Exception in thread "main" org.wso2.ciphertool.CipherToolException: Error initializing Cipher 
@@ -54,7 +54,7 @@ Secure Sockets Layer (SSL) is a protocol that is used to secure communication be
 
 ### Creating a keystore using a new certificate
 
-You can follow the steps in this section to create a new keystore with a private key and a new public key certificate. We will be using the keytool that is available with your JDK installation. Note that the pubic key certificate we generate for the keystore is **self-signed** . Therefore, if you need a public key certificate that is CA-signed, you need to generate a CA-signed certificate and import it to the keystore as explained in the [next section](/SetupAndInstall/SettingUpKeystores/KeystoreBasics/renewing-a-ca-signed-certificate-in-a-keystore/) . Alternatively, you can choose the option of generating a new keystore using a CA-signed public certificate as explained [previously](#creating-a-keystore-using-an-existing-certificate) .
+You can follow the steps in this section to create a new keystore with a private key and a new public key certificate. We will be using the keytool that is available with your JDK installation. Note that the pubic key certificate we generate for the keystore is **self-signed** . Therefore, if you need a public key certificate that is CA-signed, you need to generate a CA-signed certificate and import it to the keystore as explained in the [next section](#adding-ca-signed-certificates-to-keystores). Alternatively, you can choose the option of generating a new keystore using a CA-signed public certificate as explained [previously](#creating-a-keystore-using-an-existing-certificate) .
 
 1.  Open a command prompt and go to the `<API-M_HOME>/repository/resources/security/` directory. All keystores should be stored here.
 2.  Create the keystore that includes the private key by executing the following command:
@@ -113,7 +113,7 @@ First, you need to generate a certificate signing request (CSR) for your keysto
 
     You will be asked to give the keystore password. Once the password is given, the command will output the newcertreq.csr file to the `<API-M_HOME>/repository/resources/security/` directory. This is the CSR that you must submit to a CA.
 
-2.  You must provide this CSR file to the CA. For testing purposes, try the [90 days trial SSL certificate from Comodo](https://www.instantssl.com/free-ssl-certificate.html) .
+2.  You must provide this CSR file to the CA. For testing purposes, try the [90 days trial SSL certificate from Comodo](https://www.comodo.com/e-commerce/ssl-certificates/free-ssl-certificate.php) .
 
     !!! Note
         It is preferable to have a wildcard certificate or multiple domain certificates if you wish to have multiple subdomains like *[gateway.sampledomain.org](http://gateway.sampledomain.org/)* , *[publisher.sampledomain.org](http://publisher.sampledomain.org/)* , *[identity.sampledomain.org](http://identity.sampledomain.org/)* , etc., for the deployment. For such requirements, you must modify the CSR request by adding subject alternative names. Most of the SSL providers give instructions to generate the CSR in such cases.
@@ -192,8 +192,8 @@ Follow the steps given below to import the same CA-signed public key certificate
 
     Now, you have an SSL certificate stored in a Java keystore and a public key added to the `client-truststore.jks` file. Note that both these files should be in the `<API-M_HOME>/repository/resources/security/` directory. You can now replace the default wso2carbon.jks keystore in your product with the newly created keystore by updating the configuration. 
 
-For information on the concepts of keystores and about how keystores are used in WSO2 API Manager, see [About Asymmetric Cryptography](about-asymetric-cryptography) .
+For information on the concepts of keystores and about how keystores are used in WSO2 API Manager, see [About Asymmetric Cryptography](about-asymetric-cryptography.md) .
 
 ## What's next?
 
-Once you have created a new keystore in your product as explained above, update the configuration as explained in [Configuring Keystores in API Manager](/SetupAndInstall/SettingUpKeystores/configuring-keystores-in-wso2-api-manager/) .
+Once you have created a new keystore in your product as explained above, update the configuration as explained in [Configuring Keystores in API Manager](../configuring-keystores-in-wso2-api-manager.md) .

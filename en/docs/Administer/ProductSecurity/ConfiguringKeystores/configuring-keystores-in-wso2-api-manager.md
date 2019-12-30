@@ -126,4 +126,4 @@ Follow the recommendations given below when you set up your keystores.
             ... 1 more
     ```
 
--   If you already have the required keystores for your product, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Adding CA-signed certificates to keystores](KeystoreBasics/creating-new-keystores/#adding-ca-signed-certificates-to-keystores) for instructions.
+-   If you already have the required keystores for your product, you can generate CA-signed certificates and import them into the keystores. It is not recommended to create new keystores for the purpose of replacing the certificates in the keystore. See [Adding CA-signed certificates to keystores](../KeystoreBasics/creating-new-keystores/#adding-ca-signed-certificates-to-keystores) for instructions.
