@@ -2,7 +2,7 @@
 
 The API details left menu can be customized to match with your design needs.
 
- ![../../../../../assets/img/Learn/enable-or-disable-banner.png](../../../../../assets/img/Learn/styling-api-details-left-menu1.png) 
+ ![styling api details left menu](../../../../assets/img/Learn/styling-api-details-left-menu1.png) 
 
 You can change the themes.light.custom.leftMenu attributes to change the left menu styling. Note these changes will effect the same way to application details left menu.
 
@@ -49,7 +49,7 @@ leftMenu: {
 }
 ```
 
- ![../../../../../assets/img/Learn/styling-api-details-left-menu2.png](../../../../../assets/img/Learn/styling-api-details-left-menu2.png) 
+ ![styling api details left menu](../../../../assets/img/Learn/styling-api-details-left-menu2.png) 
 
 
 Following will set the menu to right hand side and disable the icons.
@@ -71,7 +71,7 @@ leftMenu: {
 },
 ```
 
- ![../../../../../assets/img/Learn/styling-api-details-left-menu3.png](../../../../../assets/img/Learn/styling-api-details-left-menu3.png) 
+ ![styling api details left menu3.png](../../../../assets/img/Learn/styling-api-details-left-menu3.png) 
 
 | Option | type | Description |
 | ------ | -- | ----------- |

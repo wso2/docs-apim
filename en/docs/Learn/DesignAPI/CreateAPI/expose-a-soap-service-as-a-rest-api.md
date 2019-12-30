@@ -39,11 +39,14 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
 4.  The created API appears in the publisher as follows.
     ![](../../../assets/img/Learn/created-soap-api.jpg)
+
+5.  API definiton of the Created schema has been displayed at **API Definiton** tab.
+    ![](../../../assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
-            <p>
-            If you wish to add scopes to the resources that were created, navigate to ***Resources*** and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
-    [OAuthscopes](../../../../Learn/APISecurity/Authentication/securing-apis-using-oauth2-access-tokens/)
+     <p>
+            If you wish to add scopes to the resources that were created, navigate to  ***Resources***  and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
+    [OAuthscopes](../../../../Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/)
             </p>
         </div></html>   
 
@@ -55,6 +58,6 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </div>
      </html>
 
-5. Now, the SOAP service as a RESTful API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) to know details of publishing API.
+6. Now, the SOAP service as a RESTful API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) to know details of publishing API.
 
 Refer a tutorial on [Create and Publish a SOAP service as a RESTful API](../../../../Learn/Tutorials/expose-a-soap-service-as-a-rest-api/) to learn more.

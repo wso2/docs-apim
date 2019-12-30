@@ -45,7 +45,7 @@ The diagram above shows the common lifecycle activities of an API developer/man
 
 ![]({{base_path}}/assets/attachments/103327648/126556772.png)
 
-The Developer Portal is a state-of-the-art web interface that allows API publishers to host and advertise their APIs while allowing API consumers to [self register](../Learn/ConsumeAPI/Customizations/customizing-the-api-store.md) , discover, evaluate, subscribe to and consume APIs.
+The Developer Portal is a state-of-the-art web interface that allows API publishers to host and advertise their APIs while allowing API consumers to [self register](../Learn/ConsumeAPI/Customizations/customize-the-api-store-and-gateway-urls-for-tenants.md) , discover, evaluate, subscribe to and consume APIs.
 
 The diagram above shows common API consumer lifecycle activities:
 
@@ -77,9 +77,9 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
 
  The Key Manager properly decouples the operations for creating OAuth applications and validating access tokens so that you can even plug in a third party-authorization server for key validations. In a typical production environment, you can configure one of the following setups:
 
--   Configure a WSO2 API Manager instance as the Key Manager in a separate server. See [Product Profiles](../../SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/product-profiles).
--   Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager](../SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md).
--   Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager](../SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md).
+-   Configure a WSO2 API Manager instance as the Key Manager in a separate server. See [Product Profiles](../../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles).
+-   Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager](../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md).
+-   Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager](../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md).
 
 #### Traffic Manager
 

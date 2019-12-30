@@ -3,17 +3,17 @@
 This page describes the default ports that are used for each WSO2 product when the [port offset](_Changing_the_Default_Ports_with_Offset_) is 0.
 
 !!! warning
-**Note** that it is recommended to disable the HTTP transport in an API Manager production setup. Using the `Bearer` token over HTTP is a violation of the OAuth specification and can lead to security vulnerabilities.
+    **Note** that it is recommended to disable the HTTP transport in an API Manager production setup. Using the `Bearer` token over HTTP is a violation of the OAuth specification and can lead to security vulnerabilities.
 
 
--   [Product-specific ports](#DefaultProductPorts-Product-specificports)
--   [Disabling HTTP Transports](#DefaultProductPorts-DisablingHTTPTransports)
+-   [Product-specific ports](#product-specific-ports)
+-   [Disabling HTTP Transports](#disabling-http-transports)
 
 #### Common ports
 
 The following ports are common to all WSO2 products that provide the given feature. Some features are bundled in the WSO2 Carbon platform itself and therefore are available in all WSO2 products by default.
 
-[Common ports](#DefaultProductPorts-Commonports) | [Management console ports](#DefaultProductPorts-Managementconsoleports) | [LDAP server ports](#DefaultProductPorts-LDAPserverports) | [KDC ports](#DefaultProductPorts-KDCports) | [JMX monitoring ports](#DefaultProductPorts-JMXmonitoringports) | [Clustering ports](#DefaultProductPorts-Clusteringports) | [Random ports](#DefaultProductPorts-Randomports)
+[Common ports](#common-ports) | [Management console ports](#management-console-ports) | [LDAP server ports](#ldap-server-ports) | [KDC ports](#kdc-ports) | [JMX monitoring ports](#jmx-monitoring-ports) | [Clustering ports](#clustering-ports) | [Random ports](#random-ports)
 
 #### Management console ports
 
@@ -22,11 +22,10 @@ WSO2 products that provide a management console use the following servlet transp
 -   9443 - HTTPS servlet transport (the default URL of the management console is https://localhost:9443/carbon )
 -   9763 - HTTP servlet transport
 
-WSO2 Enterprise Integrator (WSO2 EI) uses the following ports to access the management console:
+WSO2 API Manager (WSO2 APIM) uses the following ports to access the management console:
 
--   9443 - HTTPS servlet transport for the **ESB** runtime (the default URL of the management console is https://localhost:9443/carbon )
--   9445 - HTTPS servlet transport for the **EI-Business Process** runtime (the default URL of the management console is https://localhost:9445/carbon )
--   9444 - Used for the **EI-Analytics** management console
+-   9443 - HTTPS servlet transport for the **APIM** runtime (the default URL of the management console is https://localhost:9443/carbon )
+-   9444 - Used for the **APIM-Analytics** management console
 
 #### LDAP server ports
 
@@ -40,7 +39,12 @@ Provided by default in the WSO2 Carbon platform.
 
 #### JMX monitoring ports
 
-WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it using `<PRODUCT_HOME>/repository/conf/etc/jmx.xml` file.
+WSO2 Carbon platform uses TCP ports to monitor a running Carbon instance using a JMX client such as JConsole. By default, JMX is enabled in all products. You can disable it by adding following configuration to `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
+
+``` java
+    [monitoring.jmx]
+    rmi_server_start = false
+```
 
 -   11111 - RMIRegistry port. Used to monitor Carbon remotely
 -   9999 - RMIServer port. Used along with the RMIRegistry port when Carbon is monitored from a JMX client that is behind a firewall
@@ -56,14 +60,14 @@ To cluster any running Carbon instance, either one of the following ports must b
 
 Certain ports are randomly opened during server startup. This is due to specific properties and configurations that become effective when the product is started. Note that the IDs of these random ports will change every time the server is started.
 
--   A random TCP port will open at server startup because of the `-Dcom.sun.management.jmxremote` property set in the server startup script. This property is used for the JMX monitoring facility in JVM.
+-   A random TCP port will open at server startup because of the `-Dcom.sun.management.jmxremote` property is set in the server startup script. This property is used for the JMX monitoring facility in JVM.
 -   A random UDP port is opened at server startup due to the log4j appender ( `SyslogAppender` ), which is configured in the `<PRODUCT_HOME>/repository/conf/log4j.properties` file.
 
 ### Product-specific ports
 
 Some products open additional ports.
 
-[API Manager](#DefaultProductPorts-APIManager) | [BPS](#DefaultProductPorts-BPS) | [Data Analytics Server](#DefaultProductPorts-DataAnalyticsServer) | [Complex Event Processor](#DefaultProductPorts-ComplexEventProcessor) | [Elastic Load Balancer](#DefaultProductPorts-ElasticLoadBalancer) | [ESB](#DefaultProductPorts-ESB) | [Enterprise Integrator](#DefaultProductPorts-EnterpriseIntegrator) | [Identity Server](#DefaultProductPorts-IdentityServer) | [Message Broker](#DefaultProductPorts-MessageBroker) | [Machine Learner](#DefaultProductPorts-MachineLearner) | [Storage Server](#DefaultProductPorts-StorageServer) | [Enterprise Mobility Manager](#DefaultProductPorts-EnterpriseMobilityManager) | [IoT Server](#DefaultProductPorts-IoTServer)
+[API Manager](#api-manager) | [BPS](#bps) | [Data Analytics Server](#data-analytics-server) | [Complex Event Processor](#complex-event-processor) | [Elastic Load Balancer](#elastic-load-balancer) | [ESB](#esb) | [Enterprise Integrator](#enterprise-integrator) | [Identity Server](#identity-server) | [Message Broker](#message-broker) | [Machine Learner](#machine-learner) | [Storage Server](#storage-server) | [Enterprise Mobility Manager](#enterprise-mobility-manager) | [IoT Server](#iot-server)
 
 ##### API Manager
 
@@ -79,7 +83,7 @@ Some products open additional ports.
 -   9099 - Web Socket ports.
 
 !!! note
-If you change the default API Manager ports with a port offset, most of its ports will be changed automatically according to the offset except a few exceptions described in the [APIM Manager documentation](https://docs.wso2.org/api-manager/Changing+the+Default+Ports+with+Offset) .
+    If you change the default API Manager ports with a port offset, most of its ports will be changed automatically according to the offset except a few exceptions described in the [APIM Manager documentation](https://apim.docs.wso2.com/en/latest/Reference/Guides/changing-the-default-ports-with-offset/) .
 
 
 ##### BPS
@@ -108,7 +112,7 @@ The Spark Analytics engine is used in 3 separate modes in WSO2 DAS as follows.
 Default port configurations for these modes are as follows.
 
 !!! info
-For more information on these ports, go to [Apache Spark Documentation](http://spark.apache.org/docs/latest/security.html) .
+    For more information on these ports, go to [Apache Spark Documentation](http://spark.apache.org/docs/latest/security.html) .
 
 
 -   **Ports available for all modes**
@@ -249,7 +253,7 @@ iOS:
 API Manager:
 
 !!! info
-The following WSO2 API Manager ports are only applicable to WSO2 EMM 1.1.0 onwards.
+    The following WSO2 API Manager ports are only applicable to WSO2 EMM 1.1.0 onwards.
 
 
 -   10397 - Thrift client and server ports
@@ -322,8 +326,7 @@ API Manager has two HTTP transports. See below for instructions on how to disab
 1.  Passthru (API Traffic) Transport
 2.  Servlet (UI Traffic and Admin service access) Transport
 
--   [**Disabling Passthru Transport**](#224b1e82eec240549aaf8389abfe1c3e)
--   [**Disabling Servlet Transport**](#5f45bce4995a40a2bf1b78f1d4cf43f0)
+##### Disabling Passthrough Transport
 
 1.  Open the `<API-M_HOME>/repository/conf/axis2/axis2.xml` file.
 2.  Locate the Transport receiver http as shown below:
@@ -337,6 +340,8 @@ API Manager has two HTTP transports. See below for instructions on how to disab
     ```
 
 3.  Comment out the http transport receiver section.
+
+##### Disabling Servlet Transport
 
 1.  Open the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 2.  Locate the Connector with the port 9763 as shown below:

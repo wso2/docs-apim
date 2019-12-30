@@ -1,4 +1,4 @@
-# admin\_Working with Properties of User Stores
+# Working with Properties of User Stores
 
 The following table provides descriptions of the key properties you use to configure primary user stores.
 

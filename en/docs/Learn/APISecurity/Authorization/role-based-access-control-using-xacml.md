@@ -24,13 +24,13 @@ Let’s take the following requirement in exposing an API via the API manager.
 
 Based on the requirement, a single API is exposed to add or retrieve order information. Each member type (webuser or admin) is identified from the resource path. The operation (GET or POST) that needs to be performed is distinguished by the HTTP verb. Follow the steps below to implement this kind of role-based access control.
 
-1.  Let’s start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore](Configuring-Primary-User-Stores_103333489.html#ConfiguringPrimaryUserStores-ConfiguringanexternalLDAPorActiveDirectoryuserstore) . For this you can create a read write LDAP user store.
+1.  Let’s start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore](../../../Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md) . For this you can create a read write LDAP user store.
 
-        !!! note
-    By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration &lt;PRODUCT\_HOME&gt;/repository/conf/user-mgt.xml in both nodes.
+    !!! note
+        By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration &lt;PRODUCT\_HOME&gt;/repository/conf/user-mgt.xml in both nodes.
 
-        !!! tip
-    In an actual deployment, both these servers can [share the user store](Configuring-Identity-Server-as-IDP-for-SSO_103333476.html#ConfiguringIdentityServerasIDPforSSO-Sharingtheuserstore) of your organization.
+    !!! tip
+        In an actual deployment, both these servers can [share the user store](../../../Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
 
 
 2.  Share the registry of both WSO2 API Manager and WSO2 Identity Server. Refer [Sharing the registry space](https://docs.wso2.com/display/AM2xx/Configuring+External+IDP+through+Identity+Server+for+SSO#ConfiguringExternalIDPthroughIdentityServerforSSO-Sharingtheregistryspace) for the steps.

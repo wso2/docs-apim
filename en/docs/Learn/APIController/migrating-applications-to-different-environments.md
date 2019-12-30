@@ -83,8 +83,7 @@ You can export an application in the API Store and download it as a zipped file.
 
 The exported application zipped file will be as follows:
 ```bash
-<exported-Application>.zip        
- └── <Application-Name>        
+<exported-Application>.zip              
  └── <Application-Name>.json        
 ```
 

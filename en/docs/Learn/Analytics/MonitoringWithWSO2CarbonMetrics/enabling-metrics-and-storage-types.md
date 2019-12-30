@@ -401,64 +401,64 @@ When set to true, the <code>             validationQuery            </code> para
 
 ### Sample configuration
 
-Shown below is a sample `metrics.xml` file with the default configurations specifying the types of storages enabled for metrics data. See the above topics for instructions.
+Shown below is a sample `metrics.xml` file with the default configurations specifying the types of storage enabled for metrics data. See the above topics for instructions.
 
-![](images/icons/grey_arrow_down.png){.expand-control-image} The default configurations in the metrics.xml file
+??? info "Click here for the default configurations in the metrics.xml file."
 
-``` xml
-    -->
-<!--
-    This is the main configuration file for metrics
--->
-
-<Metrics xmlns="http://wso2.org/projects/carbon/metrics.xml">
-
+    ``` xml
+        -->
     <!--
-        Enable Metrics
+        This is the main configuration file for metrics
     -->
-    <Enabled>false</Enabled>
-    <!--
-        Metrics reporting configurations
-    -->
-
-    <Reporting>
-        <JMX>
-            <Enabled>true</Enabled>
-        </JMX>
-        <CSV>
-            <Enabled>false</Enabled>
-            <Location>${carbon.home}/repository/logs/metrics/</Location>
-            <!-- Polling Period in seconds -->
-            <PollingPeriod>60</PollingPeriod>
-        </CSV>
-        <JDBC>
-            <Enabled>true</Enabled>
-            <!-- Source of Metrics, which will be used to
-                identify each metric in database -->
-            <!-- Commented to use the hostname
-                <Source>Carbon</Source>
-            -->
-            <!--
-                JNDI name of the data source to be used by the JDBC Reporter.
-                This data source should be defined in a *-datasources.xml
-                file in conf/datasources directory.
-            -->
-            <DataSourceName>jdbc/WSO2MetricsDB</DataSourceName>
-            <!-- Polling Period in seconds -->
-            <PollingPeriod>60</PollingPeriod>
-            <ScheduledCleanup>
-                <!--
-                    Schedule regular deletion of metrics data older than a set number of days.
-                    It is strongly recommended that you enable this job to ensure your metrics tables do not get extremely
-                    large. Deleting data older than seven days should be sufficient.
-                -->
+    
+    <Metrics xmlns="http://wso2.org/projects/carbon/metrics.xml">
+    
+        <!--
+            Enable Metrics
+        -->
+        <Enabled>false</Enabled>
+        <!--
+            Metrics reporting configurations
+        -->
+    
+        <Reporting>
+            <JMX>
                 <Enabled>true</Enabled>
-                <!-- This is the period for each cleanup operation in seconds -->
-                <ScheduledCleanupPeriod>86400</ScheduledCleanupPeriod>
-                <!-- The scheduled job will cleanup all data older than the specified days -->
-                <DaysToKeep>7</DaysToKeep>
-            </ScheduledCleanup>
-        </JDBC>
-    </Reporting>
-</Metrics>
-```
+            </JMX>
+            <CSV>
+                <Enabled>false</Enabled>
+                <Location>${carbon.home}/repository/logs/metrics/</Location>
+                <!-- Polling Period in seconds -->
+                <PollingPeriod>60</PollingPeriod>
+            </CSV>
+            <JDBC>
+                <Enabled>true</Enabled>
+                <!-- Source of Metrics, which will be used to
+                    identify each metric in database -->
+                <!-- Commented to use the hostname
+                    <Source>Carbon</Source>
+                -->
+                <!--
+                    JNDI name of the data source to be used by the JDBC Reporter.
+                    This data source should be defined in a *-datasources.xml
+                    file in conf/datasources directory.
+                -->
+                <DataSourceName>jdbc/WSO2MetricsDB</DataSourceName>
+                <!-- Polling Period in seconds -->
+                <PollingPeriod>60</PollingPeriod>
+                <ScheduledCleanup>
+                    <!--
+                        Schedule regular deletion of metrics data older than a set number of days.
+                        It is strongly recommended that you enable this job to ensure your metrics tables do not get extremely
+                        large. Deleting data older than seven days should be sufficient.
+                    -->
+                    <Enabled>true</Enabled>
+                    <!-- This is the period for each cleanup operation in seconds -->
+                    <ScheduledCleanupPeriod>86400</ScheduledCleanupPeriod>
+                    <!-- The scheduled job will cleanup all data older than the specified days -->
+                    <DaysToKeep>7</DaysToKeep>
+                </ScheduledCleanup>
+            </JDBC>
+        </Reporting>
+    </Metrics>
+    ```

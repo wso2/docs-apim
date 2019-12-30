@@ -17,7 +17,7 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide](../../SetupAndInstall/InstallationGuide/installation-prerequisites.md) .
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide](../../InstallAndSetup/InstallationGuide/installation-prerequisites.md) .
     
     ![](../../assets/img/Learn/apim-download-page.png)
     
@@ -82,12 +82,13 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 2 - Download and install WSO2 API-M Analytics](#step-2-download-and-install-wso2-api-m-analytics)
 -   [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3-configure-wso2-api-manager-to-publish-statistics)
 -   [Step 4 - Configure databases](#step-4-configure-databases)
--   [Step 5 - Configure keystores](#step-5-configure-keystores)
+-   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-cleint)
+-   [Step 6 - Configure keystores](#step-6-configure-keystores)
 
 #### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- <br/>For more information on installing WSO2 API-M, see the [Installation Guide](../../SetupAndInstall/InstallationGuide/installation-prerequisites.md) .
+ <br/>For more information on installing WSO2 API-M, see the [Installation Guide](../../InstallAndSetup/InstallationGuide/installation-prerequisites.md) .
     
  ![](../../assets/img/Learn/apim-download-page.png)
     
@@ -386,8 +387,63 @@ Configuring databases allow you to persist data relating to APIs, process them a
       ``` java
           ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
       ```
-      
-#### Step 5 - Configure keystores
+
+#### Step 5 - Configure APIM IdP Cleint
+
+APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
+
+Furthermore, APIM IdP client functionality can be controlled via the properties defined in the <APIM_ANALYTICS_HOME>/conf/dashboard/deployment.yaml file under the auth.configs namespace as shown below.
+
+```
+auth.configs:
+  type: apim
+  ssoEnabled: true
+  properties:
+    adminScope: apim_analytics:admin_carbon.super
+    allScopes: apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe
+    adminServiceBaseUrl: https://localhost:9443
+    adminUsername: admin
+    adminPassword: admin
+    kmDcrUrl: https://localhost:9443/client-registration/v0.15/register
+    kmTokenUrlForRedirection: https://localhost:9443/oauth2
+    kmTokenUrl: https://localhost:9443/oauth2
+    kmUsername: admin
+    kmPassword: admin
+    portalAppContext: analytics-dashboard
+    businessRulesAppContext : business-rules
+    cacheTimeout: 900
+    baseUrl: https://localhost:9643
+    grantType: authorization_code
+    publisherUrl: https://localhost:9443
+    #storeUrl: https://localhost:9443
+    externalLogoutUrl: https://localhost:9443/oidc/logout
+```
+#####Details of the properties in APIM IdP Client
+
+
+|**Property**                                           |**Default Value**                    |**Description**                 |
+|-------------------------------------------------------|-------------------------------------|--------------------------------|
+| `adminScope`| apim_analytics:admin_carbon.super | Admin scope which is used for permissions in dashboards.|
+| `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
+| `adminServiceBaseUrl`| https://localhost:9443 | Url which the WSO2 admin services are running.(API Manager node URL)|
+| `adminUsername`| admin | The username for the admin services.|
+| `adminPassword`| admin | The password for the admin services.|
+| `kmDcrUrl`| https://localhost:9443/client-registration/v0.15/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP.|
+| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirections.|
+| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP.|
+| `kmUsername`| admin | The username for the key manager in the IdP.|
+| `kmPassword`| admin | The password for the key manager in the IdP.|
+| `portalAppContext`| analytics-dashboard | The application context of the Analytics Dashboard application.|
+| `businessRulesAppContext`| business-rules| The application context of the Business Rules application.|
+| `cacheTimeout`| 900 | The cache timeout for the validity period of the token in seconds.|
+| `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token.|
+| `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
+| `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
+| `storeUrl`| https://localhost:9443 | Url which the API Manager store is running. Add this config if the Store and Publihser are running in two seperate nodes.|
+| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
+
+
+#### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 

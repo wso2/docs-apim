@@ -1,23 +1,23 @@
-# admin\_JMX-Based Monitoring
+# JMX-Based Monitoring
 
 Java Management Extensions (JMX) is a technology that lets you implement management interfaces for Java applications. A management interface, as defined by JMX, is composed of named objects called MBeans (Management Beans). MBeans are registered with a name (an ObjectName) in an MBeanServer. To manage a resource or many resources in your application, you can write an MBean defining its management interface and register that MBean in your MBeanServer. The content of the MBeanServer can then be exposed through various protocols, implemented by protocol connectors, or protocol adaptors.
 
--   [Configuring JMX in a WSO2 product](#admin_JMX-BasedMonitoring-ConfiguringJMXinaWSO2product)
-    -   [Configuring JMX ports for the server](#admin_JMX-BasedMonitoring-ConfiguringJMXportsfortheserver)
-    -   [Disabling JMX for the server](#admin_JMX-BasedMonitoring-DisablingJMXfortheserver)
-    -   [Enabling JMX for a datasource](#admin_JMX-BasedMonitoring-EnablingJMXforadatasource)
--   [Monitoring a WSO2 product with JConsole](#admin_JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole)
-    -   [Starting the WSO2 product with JMX](#admin_JMX-BasedMonitoring-StartingtheWSO2productwithJMX)
-    -   [Using the ServerAdmin MBean](#admin_JMX-BasedMonitoring-UsingtheServerAdminMBean)
-    -   [Using the ServiceAdmin MBean](#admin_JMX-BasedMonitoring-UsingtheServiceAdminMBean)
-    -   [Using the StatisticsAdmin MBean](#admin_JMX-BasedMonitoring-UsingtheStatisticsAdminMBean)
-    -   [Using the DataSource MBean](#admin_JMX-BasedMonitoring-UsingtheDataSourceMBean)
-    -   [Using product-specific MBeans](#admin_JMX-BasedMonitoring-Usingproduct-specificMBeans)
--   [Monitoring a WSO2 product with Jolokia](#admin_JMX-BasedMonitoring-MonitoringaWSO2productwithJolokia)
+-   [Configuring JMX in a WSO2 product](#JMX-BasedMonitoring-ConfiguringJMXinaWSO2product)
+    -   [Configuring JMX ports for the server](#JMX-BasedMonitoring-ConfiguringJMXportsfortheserver)
+    -   [Disabling JMX for the server](#JMX-BasedMonitoring-DisablingJMXfortheserver)
+    -   [Enabling JMX for a datasource](#JMX-BasedMonitoring-EnablingJMXforadatasource)
+-   [Monitoring a WSO2 product with JConsole](#JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole)
+    -   [Starting the WSO2 product with JMX](#JMX-BasedMonitoring-StartingtheWSO2productwithJMX)
+    -   [Using the ServerAdmin MBean](#JMX-BasedMonitoring-UsingtheServerAdminMBean)
+    -   [Using the ServiceAdmin MBean](#JMX-BasedMonitoring-UsingtheServiceAdminMBean)
+    -   [Using the StatisticsAdmin MBean](#JMX-BasedMonitoring-UsingtheStatisticsAdminMBean)
+    -   [Using the DataSource MBean](#JMX-BasedMonitoring-UsingtheDataSourceMBean)
+    -   [Using product-specific MBeans](#JMX-BasedMonitoring-Usingproduct-specificMBeans)
+-   [Monitoring a WSO2 product with Jolokia](#JMX-BasedMonitoring-MonitoringaWSO2productwithJolokia)
 
 ### Configuring JMX in a WSO2 product
 
-JMX is enabled in WSO2 products by default, which ensures that the JMX server starts automatically when you start a particular product.  Additionally, you can enable JMX separately for the various datasources that are used by the product. Once JMX is enabled, you can log in to the JConsole tool and monitor your product as explained in the [next section](#admin_JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole) .
+JMX is enabled in WSO2 products by default, which ensures that the JMX server starts automatically when you start a particular product.  Additionally, you can enable JMX separately for the various datasources that are used by the product. Once JMX is enabled, you can log in to the JConsole tool and monitor your product as explained in the [next section](#JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole) .
 
 #### Configuring JMX ports for the server
 
@@ -31,7 +31,7 @@ The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in 
 
 #### Disabling JMX for the server
 
-The JMX configuration is available in the jmx `.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/etc` directory) as shown below. You can disable the JMX server for your product by setting the `<StartRMIServer>` property to `false` . Note that this configuration refers to the [JMX ports configured in the `carbon.xml` file](#admin_JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .
+The JMX configuration is available in the jmx `.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/etc` directory) as shown below. You can disable the JMX server for your product by setting the `<StartRMIServer>` property to `false` . Note that this configuration refers to the [JMX ports configured in the `carbon.xml` file](#JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .
 
 ``` java
  [monitoring.jmx]
@@ -85,7 +85,7 @@ First, start the WSO2 product:
 2.  Execute the product startup script ( `wso2server.sh` for Linux and `wso2server.bat` for Windows) to start the server.
 
         !!! info
-    If [JMX is enabled](_admin_JMX-Based_Monitoring_) , the **JMX server URL** will be published on the console when the server starts as shown below.
+    If [JMX is enabled](_JMX-Based_Monitoring_) , the **JMX server URL** will be published on the console when the server starts as shown below.
 
     ``` java
         INFO {org.wso2.carbon.core.init.CarbonServerManager} -  JMX Service URL  : service:jmx:rmi://<your-ip>:11111/jndi/rmi://<your-ip>:9999/jmxrmi
@@ -97,7 +97,7 @@ Once the product server is started, you can start the JC `onsole` tool as follow
 1.  Open a command prompt and navigate to the `<JDK_HOME>/bin` directory.
 2.  Execute the j `console` command to open the log-in screen of the **Java Monitoring & Management Console** as shown below.
     ![]({{base_path}}/assets/attachments/126562846/126562847.png)3.  Enter the connection details in the above screen as follows:
-    1.  Enter the **JMX server URL** in the **Remote Process** field. This URL is published on the command prompt when you start the WSO2 server as explained [above](#admin_JMX-BasedMonitoring-start_jconsole) .
+    1.  Enter the **JMX server URL** in the **Remote Process** field. This URL is published on the command prompt when you start the WSO2 server as explained [above](#JMX-BasedMonitoring-start_jconsole) .
 
                 !!! info
         Tip
@@ -221,7 +221,7 @@ Operations available in the **Statistics** MBean:
 ![]({{base_path}}/assets/attachments/45968791/57747540.png)
 #### Using the DataSource MBean
 
-If you have [JMX enabled for a datasource connected to the product](#admin_JMX-BasedMonitoring-EnablingJMXforadatasource) , you can monitor the performance of the datasource using this MBean. The **DataSource** MBean will be listed as shown below.
+If you have [JMX enabled for a datasource connected to the product](#JMX-BasedMonitoring-EnablingJMXforadatasource) , you can monitor the performance of the datasource using this MBean. The **DataSource** MBean will be listed as shown below.
 ![]({{base_path}}/assets/attachments/126562846/126562865.png)
 **Example:** If you have JMX enabled for the default Carbon datasource in the `master-datasources.xml.` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning) for instructions on how these parameters are configured for a datasource.
 ![]({{base_path}}/assets/attachments/126562846/126562864.png)
@@ -250,4 +250,4 @@ Once the server starts, you can read MBeans using Jolokia APIs. Following are a 
 -   WSO2 ESB MBean: <http://localhost:9763/jolokia/read/org.apache.synapse:Name=https-sender,Type=PassThroughConnections/ActiveConnections>
 -   Reading Heap Memory: <http://localhost:9763/jolokia/read/java.lang:type=Memory/HeapMemoryUsage>
 
-For more information on the JMX MBeans that are available in WSO2 products, see [Monitoring a WSO2 product with JConsole](#admin_JMX-BasedMonitoring-mbeans) .
+For more information on the JMX MBeans that are available in WSO2 products, see [Monitoring a WSO2 product with JConsole](#JMX-BasedMonitoring-mbeans) .
