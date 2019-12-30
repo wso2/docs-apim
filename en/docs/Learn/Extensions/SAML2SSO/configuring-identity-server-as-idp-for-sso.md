@@ -34,7 +34,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 3.  Create a MySQL database (e.g., 410\_um\_db) and run the `<API-M_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
 
-4.  Open the `<API-M_HOME>/repository/conf/datasources/master-datasources.xml` and `<API-M_HOME>/repository/conf/user-mgt.xml` file and check the datasource configuration for the database that you use for the shared user store and user management information. Go to `<API-M_HOME>/repository/conf/deployment.toml` file and add configurations. For example, you can share a single user store as follows. If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.
+4.  Go to `<API-M_HOME>/repository/conf/deployment.toml` file and add database configurations. For example, you can share a single user store as follows. (If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.)
   
     **Example**
 
@@ -47,14 +47,14 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
     ```
 
     !!! note
-        Change the database URL to the URL of the MySQL database you have created above. Modify the username and password parameters in the above configuration with your mysql database credentials.
+        Change the database URL to the URL of the shared database (MySQL database) you have created above. Modify the username and password parameters in the above configuration with your database credentials.
     
     !!! info
         Refer [Configuring master-datasources.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+master-datasources.xml) for descriptive information about each property of the datasource configuration.
 
 5.  Add the same datasource configuration above to `<IS_HOME>/repository/conf/deployment.toml` file.
 
-7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default. To change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.9.0/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead.
+7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default, to change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.9.0/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead. 
   
     ``` toml
        [user_store]
@@ -62,7 +62,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
     ```
   
     !!! note
-        In WSO2 API Manager, the JDBC User Store is enabled by default. By changing the default user store of the WSO2 Identity server to JDBC User Store, we are pointing both WSO2 API Manager and WSO2 Identity Server to the same user store so that, their user stores are shared.
+        In WSO2 API Manager, the JDBC User Store is enabled by default. (i.e. The following configuration exists in `<API-M_HOME>/repository/conf/deployment.toml` by default.) By changing the default user store of the WSO2 Identity server to JDBC User Store, we are pointing both WSO2 API Manager and WSO2 Identity Server to the same user store so that, their user stores are shared.
 
 6.  Copy the database driver JAR file to the `<IS_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/lib` directories.
 
@@ -118,16 +118,17 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
     !!! note
         To enable tenant-specific SSO with IS 5.9.0 for `API Publisher` and `Developer Portal`, enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
 
-    ![enable-tenant-domain](../../../assets/img/Learn/Extensions/SAML2SSO/enable-tenant-domain.png)
+        ![enable-tenant-domain](../../../assets/img/Learn/Extensions/SAML2SSO/enable-tenant-domain.png)
 
 6.  Provide the configurations to register the API Publisher as the SSO service provider. These sample values may change depending on your configuration.
 
     -   **Issuer**: apim
     -   **Assertion Consumer URL**: `https://localhost:9443/commonauth`. Change the IP and port accordingly. This is the URL for the Assertion Consumer Services (ACS) page in your running publisher app.
+    -   **Response Signing Algorithm**: rsa-sha256   
     -   Select the following options:
     
            -   **Enable Response Signing**
-        
+           -   **Enable Signature Validation in Authentication Requests and Logout Request**
            -   **Enable Single Logout**
     
     -   Click **Register** once done.
@@ -135,6 +136,9 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
     **Example**
     
     [![sample-sp](../../../assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)](../../../assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)
+
+7. Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**
+   ![add-apim-cert](../../../assets/img/Learn/Extensions/SAML2SSO/add-apim-cert.png)
 
 ## Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider
 
@@ -150,8 +154,10 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 3.  Select **Add** under the **Identity Providers** menu.
 
     ![add-idp](../../../assets/img/Learn/Extensions/SAML2SSO/add-idp.png)
+    
+4. Upload public certificate of Identity Server in **Identity Provider Public Certificate**.
 
-4. Configure **Federated authenticators** > **SAML2 Web SSO Configurations**
+5. Configure **Federated authenticators** > **SAML2 Web SSO Configurations**
 
     ![federated-auth](../../../assets/img/Learn/Extensions/SAML2SSO/federated-auth.png)
     
@@ -159,16 +165,26 @@ Similarly, add Identity Server as an identity provider configurations in `https:
     -   **Service Provider Entity ID**: apim . This value can change depending on the **Issuer** value defined in WSO2 IS SSO configuration above.
     -   **Identity Provider Entity ID**: localhost
     -   **SSO URL**: `https://localhost:9444/samlsso` Change the IP and port accordingly. This is the redirecting SSO URL in your running WSO2 IS server instance.
+    -   **Signature Algorithm**: RSA with SHA256
     -   Select the following options:
-        -   **Enable Authentication Response Signing**
-        -   **Enable Logout**
         -   **Enable SAML2 Web SSO**
+        -   **EEnable Authentication Request Signing**
+        -   **Enable Authentication Response Signing**
+        -   **Enable Logout Request Signing**
+        -   **Enable Logout**      
     -   Click **Register** once done.
 
 
    **Example**
   
    [![sample-idp](../../../assets/img/Learn/Extensions/SAML2SSO/sample-idp.png)](../../../assets/img/Learn/Extensions/SAML2SSO/sample-idp.png)
+
+!!! note
+    Make sure your service provider configuration in Identity server and identity provider configuration in API Manager is similarly reflect on each other. 
+    For an example, 
+    
+    -   If **Response Signing Algorithm** in Identity Server is rsa-sha256, then **Signature Algorithm** API Manager should be RSA with SHA256.
+    -   If you enabled **Enable Single Logout** in Identity Server, then enable **Enable Logout** in API Manager.
 
 ## Configuring WSO2 API Manager apps as SAML 2.0 SSO service providers
 
@@ -178,6 +194,9 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 
     ![listed-sp](../../../assets/img/Learn/Extensions/SAML2SSO/listed-sp.png)
   
+    !!! note
+        Please note that the publisher and developer portal service providers will be listed under service providers after you have logged in to the publisher and the developer portal at least once. 
+         
 3.  Go to **Local and Outbound Authentication Configuration** and select Identity Provider as the **Federated Authentication**.
 
     ![app-federate](../../../assets/img/Learn/Extensions/SAML2SSO/app-federate.png)
