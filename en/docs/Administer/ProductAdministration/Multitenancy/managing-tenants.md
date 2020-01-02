@@ -27,9 +27,9 @@ You can add a new tenant in the management console and then view it by following
     
 ##Tenant Developer Portals
 
-When you create multiple tenants in an API Manager deployment, the API developer portals of each tenant are displayed in a muti-tenanted view for all users to browse and for permitted users to subscribe to as shown below:
+When you create multiple tenants in an API Manager deployment, the API developer portals of each tenant are displayed in a multi-tenanted view for all users to browse and for permitted users to subscribe to as shown below:
 
-1.  Access the API developer portal URL (`https://<hostname>:9443/devportal` ) using a Web browser. You see the developer portal fronts of all the registered tenant domains listed on the landing page. For example,
+1.  Access the API developer portal URL (`https://<hostname>:9443/devportal` ) using a Web browser. The storefronts of all the registered tenant domains are listed on the landing page. For example,
 
     [![]({{base_path}}/assets/img/Administer/tenant-developer-portals.png)]({{base_path}}/assets/img/Administer/tenant-developer-portals.png)
     
@@ -46,8 +46,7 @@ When you create multiple tenants in an API Manager deployment, the API developer
     -   You can also browse the other tenant developer portals listed in the public developer portal. But, within other tenant developer portals, you can only subscribe to the APIs to which your tenant domain is permitted to subscribe to. At the time an API is created, the API creator can specify which tenants are allowed to subscribe to the API. For information, see [API Subscriptions]({{base_path}}/Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md) .
 
     !!! info
-        Deleting tenant which is not available in the Management Console UI, can be done through the `RemoteTenantManager` Admin Service. You can invoke these operations using a SOAP client like SOAP UI. Follow the steps below to do the configurations using SOAP UI.
-
+        A tenant can be deleted through the `RemoteTenantManager` Admin Service. Admin service operations can be invoked using a SOAP client such as SOAP UI. Follow the steps below to do the configurations using SOAP UI.
 
         1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the following configuration.
         ``` java
@@ -58,11 +57,11 @@ When you create multiple tenants in an API Manager deployment, the API developer
         2.  Start SOAP UI client, and import the WSDL `https://localhost:9443/services/RemoteTenantManagerService?wsdl` . This assumes that you are running the SOAP UI client from the same machine as the API Manager instance.
 
         3.  Note that there are several operations shown in the SOAP UI after importing the wsdl file:
-            ![]({{base_path}}/assets/attachments/103333432/103333434.png)    
+        [![]({{base_path}}/assets/img/Administer/tenant-admin-service-wsdl-list.png)]({{base_path}}/assets/img/Administer/tenant-admin-service-wsdl-list.png)
             
         4.  Click on each operation to open the request view. For an example, for `activateTenant` operation, you can see the following request view:
-            ![]({{base_path}}/assets/attachments/103333432/103333435.png)
-        5.  You can invoke the `RemoteTenantManager` Admin service and do the tenant activation operation with the corresponding tenant ID. You can perform the other operations via SOAP UI as well. Note that you need to set the admin user credentials from the SOAP UI to invoke tenant admin operations.
+        [![]({{base_path}}/assets/img/Administer/tenant-admin-service-wsdl-service.png)]({{base_path}}/assets/img/Administer/tenant-admin-service-wsdl-service.png)
+        5.  A tenant can be activated by passing the corresponding tenant ID to the tenant activation operation of the `RemoteTenantManager` Admin service. You can perform the other operations via SOAP UI as well. Note that you need to set the admin user credentials from the SOAP UI to invoke tenant admin operations.
 
 !!! warning
     If you perform operations such as tenant deletion, even though the tenant details are removed, any data stored in registry, file system, other databases, etc. will not be removed. Such data will need to be removed manually.
