@@ -123,8 +123,6 @@ nav:
                         - NTLM Grant: Learn/APISecurity/OAuth2DeepDive/GrantTypes/ntlm-grant.md
                     - Obtain Access Token:
                         - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
-                        - Application Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens.md
-                        - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
                         - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
                         - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
                 - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md
