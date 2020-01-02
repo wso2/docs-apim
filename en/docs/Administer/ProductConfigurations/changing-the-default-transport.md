@@ -3,7 +3,7 @@
 APIs are made up of Apache Synapse configurations that WSO2 API Manager accesses through a transport protocol. The default API Manager transport is the PassThrough transport, but you can configure a different default transport in your `deployment.toml` file.
 
 !!! info
-    WSO2 API Manager does not use the HTTP/S servlet transport protocol configurations that are in the axis2.xml file. Instead, WSO2 API Manager's Management Console uses the Tomcat-level servlet transport protocols that are available in the <API-M_HOME>/repository/conf/tomcat/catalina-server.xml file.
+    WSO2 API Manager does not use the HTTP/S servlet transport protocol configurations that are in the `axis2.xml` file. Instead, WSO2 API Manager's Management Console uses the Tomcat-level servlet transport protocols that are available in the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 
 
 The following topics provide more information on these transports:
@@ -144,7 +144,7 @@ HTTP PassThrough Transport is the default, non-blocking HTTP transport implement
 
 ### Connection Throttling
 
-Using the HTTP PassThrough transport protocol, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<PRODUCT_HOME>/repository/conf/deployment.toml` and add the following configuration under `passthough_http` configurations.
+Using the HTTP PassThrough transport protocol, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration under `passthough_http` configurations.
     ``` java
         [passthru_http]
         max_open_connections = 2
