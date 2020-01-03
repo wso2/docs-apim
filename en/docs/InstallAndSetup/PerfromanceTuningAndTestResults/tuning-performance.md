@@ -101,7 +101,7 @@ The following diagram shows the communication/network paths that occur when an A
 
 ![]({{base_path}}/assets/attachments/103333648/103333650.png)
 !!! info
-    Gateway to Keymanager network call to validate token only happens with the OAuth token. This network call does not happen for JWT tokens . From WSO2 API Manager 3.0.0 onwards, JWT tokens are the default token type for applications. Since JWT tokens are self-contained access tokens, Keymanager is not needed to validate the token. The token is validated from the gateway.
+    The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JWT tokens. From WSO2 API Manager 3.0.0 onwards, JWT tokens are the default token type for applications. As JWT tokens are self-contained access tokens, the Key Manager is not needed to validate the token and the token is validated from the Gateway.
     
 -   **Key validation**
     Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
@@ -115,7 +115,7 @@ The following diagram shows the communication/network paths that occur when an A
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
 
 -   **Client call API Gateway + API Gateway call Backend**
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI620/Configuring+passthru-http.properties) in the EI documentation. To configure socket timeout value, add following to the `deployment.toml`
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the EI documentation. To configure socket timeout value, add following to the `deployment.toml`
             ```java
              [passthru_http]
              http.socket.timeout=180000
@@ -391,7 +391,7 @@ validationQuery = "SELECT 2"
 
 ##### Registry indexing configurations
 
-The registry indexing process is only required to be run on the API Publisher and API Store nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to following in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+The registry indexing process is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to following in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```java
  [indexing]
