@@ -1,34 +1,29 @@
 # Changing the Default Transport
 
-On the back end, APIs are Apache Synapse configurations that WSO2 API Manager accesses through a transport. The default API Manager transport is the PassThrough transport, but you can configure a different default transport in your `axis2.xml` file. For example, to use the HTTP-NIO transport as the default, go to the `<APIM_HOME>/repository/conf/axis2` folder, open the `axis2.xml` file, and then in the "Transport Ins" and "Transport Outs" sections, comment out the PassThrough configurations and uncomment the configurations for the HTTP-NIO transport.
+APIs are made up of Apache Synapse configurations that WSO2 API Manager accesses through a transport protocol. The default API Manager transport is the PassThrough transport, but you can configure a different default transport in your `deployment.toml` file.
 
 !!! info
-WSO2 products do not use the HTTP/S servlet transport configurations that are in `axis2.xml` file. Instead, they use Tomcat-level servlet transports, which are used by the management console in `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file .
+    WSO2 API Manager does not use the HTTP/S servlet transport protocol configurations that are in the `axis2.xml` file. Instead, WSO2 API Manager's Management Console uses the Tomcat-level servlet transport protocols that are available in the `<API-M_HOME>/repository/conf/tomcat/catalina-server.xml` file.
 
 
 The following topics provide more information on these transports:
 
--   [HTTP PassThrough transport](#ChangingtheDefaultTransport-HTTPPassThroughtransport)
--   [HTTP-NIO transport](#ChangingtheDefaultTransport-HTTP-NIOtransport)
--   [Transport receiver parameters](#ChangingtheDefaultTransport-Transportreceiverparameters)
--   [Transport sender parameters](#ChangingtheDefaultTransport-Transportsenderparameters)
--   [Connection throttling](#ChangingtheDefaultTransport-Connectionthrottling)
+-   [HTTP PassThrough Transport](#http-passthrough-transport)
+-   [Transport Receiver Parameters](#transport-receiver-parameters)
+-   [Transport Sender Parameters](#transport-sender-parameters)
+-   [Connection Throttling](#connection-throttling)
 
-### HTTP PassThrough transport
+### HTTP PassThrough Transport
 
-HTTP PassThrough Transport is the default, non-blocking HTTP transport implementation based on HTTP Core NIO and is specially designed for streaming messages. It is similar to the old message relay transport, but it does not care about the content type and simply streams all received messages through. It also has a simpler and cleaner model for forwarding messages back and forth. The two classes that implement the receiver and sender APIs are `org.apache.synapse.transport.passthru.PassThroughHttpListener` and `org.apache.synapse.transport.passthru.PassThroughHttpSender` , respectively. The PassThrough Transport does not require the binary relay builder and expanding formatter.
+HTTP PassThrough Transport is the default, non-blocking HTTP transport implementation based on HTTP Core NIO and is specially designed for streaming messages. It is similar to the old message relay transport, but it does not take the content type into consideration and simply streams all the messages that it receives. It also has a simpler and cleaner model for forwarding messages back and forth. The two classes that implement the receiver and sender APIs are `org.apache.synapse.transport.passthru.PassThroughHttpListener` and `org.apache.synapse.transport.passthru.PassThroughHttpSender`, respectively. The PassThrough Transport does not require the binary relay builder and expanding formatter.
 
-### HTTP-NIO transport
-
-The HTTP-NIO transport is a module of the Apache Synapse project. Apache Synapse ships the HTTP-NIO transport as the default, non-blocking HTTP transport implementation. The two classes that implement the receiver and sender APIs are `org.apache.synapse.transport.nhttp.HttpCoreNIOListener` and `org.apache.synapse.transport.nhttp.HttpCoreNIOSender` , respectively. These classes are available in the JAR file named `synapse-nhttp-transport.jar` . The transport implementation is based on Apache HTTP Core - NIO and uses a configurable pool of non-blocking worker threads to grab incoming HTTP messages off the wire. The PassThrough transport is the preferred default transport for WSO2 API Manager, but HTTP-NIO is supported for backward compatibility.
-
-### Transport receiver parameters
+### Transport Receiver Parameters
 
 <table>
 <colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
+<col width="15%" />
+<col width="35%" />
+<col width="10%" />
 <col width="20%" />
 <col width="20%" />
 </colgroup>
@@ -88,13 +83,13 @@ The HTTP-NIO transport is a module of the Apache Synapse project. Apache Synapse
 </tbody>
 </table>
 
-### Transport sender parameters
+### Transport Sender Parameters
 
 <table>
 <colgroup>
-<col width="20%" />
-<col width="20%" />
-<col width="20%" />
+<col width="15%" />
+<col width="35%" />
+<col width="10%" />
 <col width="20%" />
 <col width="20%" />
 </colgroup>
@@ -147,13 +142,18 @@ The HTTP-NIO transport is a module of the Apache Synapse project. Apache Synapse
 </tbody>
 </table>
 
-### Connection throttling
+### Connection Throttling
 
-With the HTTP PassThrough and HTTP NIO transports, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<PRODUCT_HOME>/repository/conf/nhttp.properties` (for the HTTP NIO transport) or `<PRODUCT_HOME>/repository/conf/passthru.properties` (for the PassThrough transport) and add the following line: `max_open_connections = 2        `
+Using the HTTP PassThrough transport protocol, you can enable connection throttling to restrict the number of simultaneous open connections. To enable connection throttling, edit the `<APIM_HOME>/repository/conf/deployment.toml` and add the following configuration under `passthough_http` configurations.
+    ``` java
+        [passthru_http]
+        max_open_connections = 2
+    ```
+
 
 This will restrict simultaneous open incoming connections to 2. To disable throttling, delete the `max_open_connections` setting or set it to -1.
 
 !!! info
-Connection throttling is never exact. For example, setting this property to 2 will result in roughly two simultaneous open connections at any given time.
+    Connection throttling is never exact. For example, setting this property to 2 will result in roughly two simultaneous open connections at any given time.
 
 
