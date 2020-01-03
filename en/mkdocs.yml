@@ -169,13 +169,16 @@ nav:
         - API Gateway:
             -  Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
             - Message Mediation:
-                - Change the Default Mediation Flow of API Requests: Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests.md
-                - Convert a JSON Message to SOAP and SOAP to JSON: Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json.md
-                - Remove Specific Request Headers From Response: Learn/APIGateway/MessageMediation/remove-specific-request-headers-from-response.md
-                - Pass a Custom Authorization Token to the Backend: Learn/APIGateway/MessageMediation/pass-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: Learn/APIGateway/MessageMediation/map-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disable Message Chunking: Learn/APIGateway/MessageMediation/disable-message-chunking.md
-                - Transform API Message Payload: Learn/APIGateway/MessageMediation/transforming-api-message-payload.md
+                - Changing the Default Mediation Flow of API Requests: Learn/APIGateway/MessageMediation/changing-the-default-mediation-flow-of-api-requests.md
+                - Creating and Uploading using Integration Studio: Learn/APIGateway/MessageMediation/creating-and-uploading-using-integration-studio.md
+                - Adding Dynamic Endpoints : Learn/APIGateway/MessageMediation/adding-dynamic-endpoints.md  
+                - Removing Specific Request Headers From Response: Learn/APIGateway/MessageMediation/removing-specific-request-headers-from-response.md
+                - Passing a Custom Authorization Token to the Backend: Learn/APIGateway/MessageMediation/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: Learn/APIGateway/MessageMediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disabling Message Chunking: Learn/APIGateway/MessageMediation/disabling-message-chunking.md
+                - Transforming API Message Payload: Learn/APIGateway/MessageMediation/transforming-api-message-payload.md
+                - Adding a Non-Blocking Send Operation: Learn/APIGateway/MessageMediation/adding-a-non-blocking-send-operation.md
+                - Adding a Class Mediator:  Learn/APIGateway/MessageMediation/adding-a-class-mediator.md
             - Handlers:
                 - Writing Custom Handlers: Learn/APIGateway/Handlers/writing-custom-handlers.md
             - Message Tracing: Learn/APIGateway/message-tracing.md
