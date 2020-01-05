@@ -39,7 +39,7 @@ There are two ways to set an offset to a port.
     - Linux/Mac OS
     
         ```toml tab="Format"
-        ./wso2server.sh <offset_value>
+        ./wso2server.sh -DportOffset=<offset_value>
         ```
         
         ```toml tab="Example"
@@ -49,7 +49,7 @@ There are two ways to set an offset to a port.
     - Windows
     
         ```toml tab="Format"
-        wso2server.bat <offset_value>
+        wso2server.bat -DportOffset=<offset_value>
         ```
         
         ```toml tab="Example"
@@ -58,4 +58,5 @@ There are two ways to set an offset to a port.
 
 When you offset the server's port, it automatically changes all ports it uses. 
 
-For the list of all default ports opened in WSO2 API Manager, see [Default Product Ports]({{base_path}}Administer/ProductConfigurations/default-product-ports/) .
+For the list of all default ports opened in WSO2 API Manager, see [Default Product Ports]({{base_path}}/Administer/ProductConfigurations/default-product-ports/) .
+

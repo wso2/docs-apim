@@ -1,4 +1,4 @@
-# Encrypting Passwords in Configuration files
+# Encrypting passwords in configuration files
 
 All WSO2 products are shipped with a **Secure Vault** implementation that allows you to store encrypted passwords in configuration files. By default, the system user passwords, key store passwords etc in configuration files are stored in plain text, but storing sensitive data such as passwords in plaintext makes the data more susceptible to compromise.
 
@@ -9,7 +9,7 @@ For example, if the admin user password is `admin`, you can define an alias (suc
 The instructions below explain how plain text passwords in configuration files can be encrypted using the secure vault implementation that is built into WSO2 products.
 
 
-## Encrypting passwords
+## Encrypting passwords in product configurations 
 
 1.  Open `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
@@ -89,6 +89,59 @@ The instructions below explain how plain text passwords in configuration files c
     ```
 
 7.  Please refer [Resolving already encrypted passwords during server startup](#resolving-already-encrypted-passwords-during-server-startup) in order to resolve the passwords during different modes of server startup.
+
+## Encrypting secured endpoint passwords
+
+When exposing an API backend which is secured with [Digest](({{base_path}}/Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth)) or [Basic]({{base_path}}/Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth) Authentication, the backend user credentials has to be provided under endpoint configuration. These credentials are encoded in base64 and stored in API configuration as Basic Authorization header(`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+
+The steps below show how to secure the endpoint's password that is given in plain-text in the UI.
+
+1.  Shut down the server if it is already running.
+
+2.  Open `<APIM_HOME>/repository/conf/deployment.toml` file and add following configuration to enable secureVault in API Manager. 
+
+    ```toml
+    [apim]
+    enable_secure_vault=true
+    ```
+
+3.  Run the cipher tool script, which is available in the `<APIM_HOME>/bin` directory. 
+
+     * On Linux/Mac OS: `./ciphertool.sh -Dconfigure`
+     * On Windows: `./ciphertool.bat -Dconfigure`
+
+4.  Then you will be prompted to enter the internal key store password for the server. When prompted, enter the primary key password, which is `wso2carbon` by default and proceed. 
+
+    If the encryption is successful, you will see the following log.
+
+    ```java
+    Internal KeyStore of Carbon Server is initialized Successfully
+    
+    Secret Configurations are written to the property file successfully
+    ```
+    
+5.  Restart the server. 
+
+     * On Linux/Mac OS: `./wso2server.sh`
+     * On Windows: `./wso2server.bat`
+     
+After enabling the backend secure vault for backend credentials, the Basic Authentication header which is written to the API gateway configuration file(Which can be found in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory) will be encrypted. For APIs which were already created and published before this step was performed, an update to the particular API would trigger the encryption process of the credentials. 
+
+For an example, see below for example of the same API when endpoint password is not encrypted and encrypted:
+
+Here, the Basic authentication header is in bas464 encoded format and can be decoded to get the actual credentials of the en
+
+``` xml
+<property name="Authorization" expression="fn:concat('Basic ', 'dGVzdDp0ZXN0MTIz')" scope="transport"/>
+```
+
+Here, the password is first looked up from the secret repository, and then set as a transport header.
+
+``` xml
+<property name="password" expression="wso2:vault-lookup('<api-identifier>')"/>
+<property name="unpw" expression="fn:concat('test',':',get-property('password'))"/>
+<property name="Authorization" expression="fn:concat('Basic ', base64Encode(get-property('unpw')))" scope="transport"/>
+```
 
 ## Changing already encrypted passwords
 

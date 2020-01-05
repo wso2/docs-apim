@@ -4,9 +4,9 @@ WSO2 API offers following authentication mechanisms to secure your API from unau
 
 [Securing APIs using OAuth2 Access Tokens]({{base_path}}/Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens)
 
-   - [JWT(Self Contained) Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/jwt-tokens)
+   - [JWT(Self Contained) Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2/AccessTokenTypes/jwt-tokens)
     
-   - [Opaque(Reference) Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2DeepDive/AccessTokenTypes/opaque-tokens)
+   - [Opaque(Reference) Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2/AccessTokenTypes/opaque-tokens)
 
 [Secure APIs Using API Keys]({{base_path}}/Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys)
 
