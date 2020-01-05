@@ -53,7 +53,7 @@ Please follow below steps to enable response caching for an API.
     </table>
 
 !!! note
-    When running a distributed deployment, you need to enable the JSON stream builders on the API Gateway and maintain the standard builders on the API Store.
+    When running a distributed deployment, you need to enable the JSON stream builders on the API Gateway and maintain the standard builders on the API Dev portal node.
 
 Follow the instructions below to enable the stream builders in the API gateway:
 
