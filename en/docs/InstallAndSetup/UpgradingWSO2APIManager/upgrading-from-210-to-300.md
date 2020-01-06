@@ -1740,6 +1740,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ??? info "Click here to see the stored procedure" 
             ``` java
+            CREATE BUFFERPOOL BP32K IMMEDIATE SIZE 250 AUTOMATIC PAGESIZE 32K
+            /
+            CREATE LARGE TABLESPACE TS32K PAGESIZE 32K MANAGED by AUTOMATIC STORAGE BUFFERPOOL BP32K
+            /
+            
             CALL SYSPROC.ADMIN_MOVE_TABLE(
             <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
             'IDN_OAUTH2_ACCESS_TOKEN',
