@@ -41,7 +41,7 @@ You can create the required databases for the API-M deployment on a separate ser
 
 The following diagram depicts how the databases are shared between WSO2 IS and WSO2 API-M.
 
-<a href="../../../../../assets/img/setup-and-install/is-as-km-dbs.png" ><img src="../../../../../assets/img/setup-and-install/is-as-km-dbs.png" alt="IS-AS-KM-DBS" title="IS-AS-KM-DBS" width="70%" /></a>
+<a href="../../../../../assets/img/install-and-setup/is-as-km-dbs.png" ><img src="../../../../../assets/img/setup-and-install/is-as-km-dbs.png" alt="IS-AS-KM-DBS" title="IS-AS-KM-DBS" width="70%" /></a>
 
 -   **WSO2AM_DB** - This database stores the identity data and API-related data and it includes OAuth tokens and keys. When serving key-validation requests, the Key Manager accesses the `WSO2AM_DB` , validates whether there are subscriptions made by the particular key. 
 
@@ -122,7 +122,7 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
     name = "Production and Sandbox"
     type = "hybrid"
     description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    service_url = "https://localhost:9443}/services/"
+    service_url = "https://localhost:9443/services/"
     username= "${admin.username}"
     password= "${admin.password}"
     ```   
