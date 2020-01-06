@@ -351,9 +351,9 @@ Configuring databases allow you to persist data relating to APIs, process them a
          ```tab="DB2"
             CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
             FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED tinyint DEFAULT 0,
-            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
+            FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+            FILE_PROCESSED SMALLINT DEFAULT 0,
+            FILE_CONTENT BLOB(16777215) DEFAULT NULL,
             PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
             );
          ```
