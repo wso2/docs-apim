@@ -29,7 +29,7 @@ To change the default configurations location for the pre-packed tool, do the fo
 1.  Open the `forgetme.sh` file found inside the `<API-M_HOME>/bin` folder. This file will contain the following.
 
     ``` java
-        sh $CARBON_HOME/repository/components/tools/forget-me/bin/forget-me -d $CARBON_HOME/repository/components/tools/forget-me/conf $@
+    sh $CARBON_HOME/repository/components/tools/forget-me/bin/forget-me -d $CARBON_HOME/repository/components/tools/forget-me/conf $@
     ```
 
 2.  The location path is the value given after `-d` within the following line. Modify the value after `-d` to change the location. The default location path is `$CARBON_HOME/repository/components/tools/forget-me/conf` .
@@ -39,10 +39,10 @@ To change the default configurations location for the pre-packed tool, do the fo
 This tool is packaged with WSO2 API Manager by default. Follow the steps below to run this tool.
 
 !!! note
-Before you begin...
+    Before you begin...
 
--   Note that this tool is designed to run in offline mode (i.e., the server should be shut down or run on another machine) in order to prevent unnecessary load to the server. If this tool runs in online mode (i.e., when the server is running), DB lock situations on the H2 databases may occur. This DB lock may happen if at least one of your databases point to H2. Let's say you have User, REG and AM databases pointed to Mysql but your Carbon DB is in H2, then also you can get this DB lock error when running in online mode.
--   If you have configured a database other than the default H2 database, copy the relevant driver to the `<API-M_HOME>/repository/components/tools/forget-me/lib` directory.
+    -   Note that this tool is designed to run in offline mode (i.e., the server should be shut down or run on another machine) in order to prevent unnecessary load to the server. If this tool runs in online mode (i.e., when the server is running), DB lock situations on the H2 databases may occur. This DB lock may happen if at least one of your databases point to H2. Let's say you have User, REG and AM databases pointed to Mysql but your Carbon DB is in H2, then also you can get this DB lock error when running in online mode.
+    -   If you have configured a database other than the default H2 database, copy the relevant driver to the `<API-M_HOME>/repository/components/tools/forget-me/lib` directory.
 
 
 1.  Open a new terminal window and navigate to the `<API-M_HOME>/bin` directory.
@@ -52,7 +52,7 @@ Before you begin...
     -   On Linux/Mac OS: `./forgetme.sh -U <username> `
     -   On Windows: `forgetme.bat -U <username>`
 
-        !!! info
+!!! info
     The command specified above uses only the `-U <username>` option, which is the only mandatory option to run the tool. There are several other optional command line options that you can specify based on your requirement. The supported options are described in detail below.
 
 
@@ -158,21 +158,21 @@ These PII references can be removed from the Analytics database by using the For
 2.  Create a folder named `'streams'` in the `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me /conf/` directory.
 3.  Create a new file named `streams.json` with content similar to what is shown below based on the streams used, and store it in the /streams directory that you created in the previous step. This file holds the details of the streams and the attributes with PII that we need to remove from the database.
 
-    ``` java
-        {
-            "streams": [
-                {
-                    "streamName": "org.wso2.analytics.apim.ipAccessSummary",
-                    "attributes": ["userId", "ip"],
-                    "id": "userId"
-                },
-                {
-                    "streamName": "org.wso2.analytics.apim.alertStakeholderInfo",
-                    "attributes": ["userId", "emails"],
-                    "id": "userId"
-                }
-            ]
-        }
+    ``` json
+    {
+        "streams": [
+            {
+                "streamName": "org.wso2.analytics.apim.ipAccessSummary",
+                "attributes": ["userId", "ip"],
+                "id": "userId"
+            },
+            {
+                "streamName": "org.wso2.analytics.apim.alertStakeholderInfo",
+                "attributes": ["userId", "emails"],
+                "id": "userId"
+            }
+        ]
+    }
     ```
 
     The above configuration includes the following:
@@ -183,19 +183,19 @@ These PII references can be removed from the Analytics database by using the For
 
 4.  Create a new file named `config.json` to `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me/conf/` directory with the content shown below .
 
-    ``` js
+    ``` json
+    {
+        "processors": [
+            "analytics-streams"
+        ],
+        "directories": [
             {
-                "processors": [
-                    "analytics-streams"
-                ],
-                "directories": [
-                    {
-                        "dir": "streams",
-                        "type": "analytics-streams",
-                        "processor": "analytics-streams"
-                    }
-                ]
+                "dir": "streams",
+                "type": "analytics-streams",
+                "processor": "analytics-streams"
             }
+        ]
+    }
     ```
 
 5.  Open a command prompt and navigate to the `<API-M_ANALYTICS_HOME>/bin` directory.
