@@ -10,7 +10,7 @@ The following sections describe how to set up Oracle RAC to replace the default 
 -   [Setting up the drivers](#setting-up-the-drivers)
 -   [Executing db scripts to create tables on Oracle RAC database](#executing-db-scripts-to-create-tables-on-oracle-rac-database)
 
-Oracle Real Application Clusters (RAC) is an option that facilitates clustering and high availability in Oracle database environments. In the Oracle RAC environment, some of the commands used in `oracle.sql` are considered inefficient. Therefore, the product has a separate SQL script, `oracle_rac.sql` for Oracle RAC. The Oracle RAC-friendly script is located in the `dbscripts` folder together with other `.sql` scripts.
+Oracle Real Application Clusters (RAC) is an option that facilitates clustering and high availability in Oracle database environments. In the Oracle RAC environment, some of the commands used in `oracle.sql` are considered inefficient. Therefore, the product has a separate SQL script, `oracle_rac.sql` for Oracle RAC. The Oracle RAC-friendly script is located in the `<API-M_HOME>/dbscripts` folder together with other `.sql` scripts.
 
 ### Setting up the database and users
 
@@ -31,9 +31,9 @@ Follow the steps below to set up an Oracle RAC database:
 
 ### Setting up the drivers
 
-Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14.jar` file) to the `<PRODUCT_HOME>/repository/components/lib/` directory.
+Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14.jar` file) to the `<API-M_HOME>/repository/components/lib/` directory.
 
-1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
+1. Unzip the WSO2 API Manager pack. Let's call it as `<API-M_HOME>`.
 
 1. Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 
