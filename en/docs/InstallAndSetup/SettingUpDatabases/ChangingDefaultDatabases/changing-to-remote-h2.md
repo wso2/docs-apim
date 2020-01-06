@@ -50,42 +50,35 @@ Follow the steps below to change the type of the default datasource.
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
-1.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details as shown below.
+1.  You simply have to update the URL pointing to your remote H2 database, the username, and password required to access the database as shown below.
 
     | Element                       | Description                                                 |
     |-------------------------------|-------------------------------------------------------------|
     | **type**                      | The database type used                                      |
-    | **url**                       | The URL of the database.                                    |
+    | **url**                       | The URL of the database. The default port for H2 is 9092    |
     | **username** and **password** | The name and password of the database user                  |
-    | **driverClassName**           | The class name of the database driver                       |
 
     Sample configuration is shown below:
 
     ``` tab="Format"
     type = "h2"
-    url = "jdbc:h2:tcp://localhost/<DATABASE_NAME>"
+    url = "jdbc:h2:tcp://localhost:9092/<DATABASE_LOCATION>"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
-    driver = "org.h2.Driver"
-    validationQuery = "SELECT 1"
     ```
 
     ``` tab="Example"
     [database.shared_db]
     type = "h2"
-    url = "jdbc:h2:tcp://localhost/~/shared_db"
+    url = "jdbc:h2:tcp://localhost:9092/~/shared_db"
     username = "regadmin"
     password = "regadmin"
-    driver = "org.h2.Driver"
-    validationQuery = "SELECT 1"
 
     [database.apim_db]
     type = "h2"
-    url = "jdbc:h2:tcp://localhost/~/apim_db"
+    url = "jdbc:h2:tcp://localhost:9092/~/apim_db"
     username = "apimadmin"
     password = "apimadmin"
-    driver = "org.h2.Driver"
-    validationQuery = "SELECT 1"
     ```
 
 1.  You can update the configuration elements given below for your database connection.
@@ -106,11 +99,9 @@ Follow the steps below to change the type of the default datasource.
     
     ``` tab="Format"
     type = "h2"
-    url = "jdbc:h2:tcp://localhost/<DATABASE_NAME>"
+    url = "jdbc:h2:tcp://localhost:9092/<DATABASE_LOCATION>"
     username = "<USER_NAME>"
     password = "<PASSWORD>"
-    driver = "org.h2.Driver"
-    validationQuery = "SELECT 1"
     pool_options.<OPTION-1> = <VALUE-1>
     pool_options.<OPTION-2> = <VALUE-2>
     ...
@@ -119,22 +110,18 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Example"
     [database.shared_db]
     type = "h2"
-    url = "jdbc:h2:tcp://localhost/~/shared_db"
+    url = "jdbc:h2:tcp://localhost:9092/~/shared_db"
     username = "regadmin"
     password = "regadmin"
-    driver = "org.h2.Driver"
-    validationQuery = "SELECT 1"
     pool_options.maxActive = 100
     pool_options.maxWait = 10000
     pool_options.validationInterval = 10000
 
     [database.apim_db]
     type = "h2"
-    url = "jdbc:h2:tcp://localhost/~/apim_db"
+    url = "jdbc:h2:tcp://localhost:9092/~/apim_db"
     username = "apimadmin"
     password = "apimadmin"
-    driver = "org.h2.Driver"
-    validationQuery = "SELECT 1"
     pool_options.maxActive = 50
     pool_options.maxWait = 30000
     ```
