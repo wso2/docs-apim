@@ -1,206 +1,162 @@
-# Setting up Oracle RAC
+# Changing to Oracle RAC
+
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use Oracle RAC for this purpose.
+
+## Setting up Oracle RAC
 
 The following sections describe how to set up Oracle RAC to replace the default H2 database in your WSO2 product:
 
--   [Setting up the database and users](#SettingupOracleRAC-Settingupthedatabaseandusers)
--   [Setting up the JDBC driver](#SettingupOracleRAC-SettinguptheJDBCdriver)
+-   [Setting up the database and users](#setting-up-the-database-and-users)
+-   [Setting up the drivers](#setting-up-the-drivers)
+-   [Executing db scripts to create tables on Oracle RAC database](#executing-db-scripts-to-create-tables-on-oracle-rac-database)
 
-Oracle Real Application Clusters (RAC) is an option that facilitates clustering and high availability in Oracle database environments. In the Oracle RAC environment, some of the commands used in `oracle.sql` are considered inefficient. Therefore, the product has a separate SQL script ( `oracle_rac.sql` ) for Oracle RAC. The Oracle RAC-friendly script is located in the `dbscripts` folder together with other `.sql` scripts.
-
-!!! info
-To test products on Oracle RAC, rename `oracle_rac.sql` to `oracle.sql` before running `-Dsetup` .
-
+Oracle Real Application Clusters (RAC) is an option that facilitates clustering and high availability in Oracle database environments. In the Oracle RAC environment, some of the commands used in `oracle.sql` are considered inefficient. Therefore, the product has a separate SQL script, `oracle_rac.sql` for Oracle RAC. The Oracle RAC-friendly script is located in the `<API-M_HOME>/dbscripts` folder together with other `.sql` scripts.
 
 ### Setting up the database and users
 
-Follow the steps below to set up an Oracle RAC database.
+Follow the steps below to set up an Oracle RAC database:
 
-1.  Set environment variables &lt; `ORACLE_HOME>` , `PATH` , `` and `ORACLE_SID` with the corresponding values ( `/oracle/app/oracle/product/11.2.0/dbhome_1` , `$PATH:<ORACLE_HOME>/bin` , and `orcl1` ) as follows:
-    ![]({{base_path}}/assets/attachments/126562524/126562530.png)2.  Connect to Oracle using SQL\*Plus as SYSDBA.
-    ![]({{base_path}}/assets/attachments/126562524/126562542.png)3.  Create a database user and grant privileges to the user as shown below:
+1.  As SYSDBA, create a database user and grant privileges to the user as shown below:
 
-    ``` powershell
-        Create user <USER_NAME> identified by password account unlock;
-        grant connect to <USER_NAME>;
-        grant create session, create table, create sequence, create trigger to <USER_NAME>;
-        alter user <USER_NAME> quota <SPACE_QUOTA_SIZE_IN_MEGABYTES> on '<TABLE_SPACE_NAME>';
-        commit;
+    ```sh
+    CREATE USER '<USER_NAME>' IDENTIFIED BY '<PASSWORD>' ACCOUNT UNLOCK;
+    GRANT CONNECT TO '<USER_NAME>';
+    GRANT CREATE SESSION, CREATE TABLE, CREATE SEQUENCE, CREATE TRIGGER, CREATE PROCEDURE TO '<USER_NAME>';
+    ALTER USER '<USER_NAME'> QUOTA '<SPACE_QUOTA_SIZE_IN_MEGABYTES>' ON '<TABLE_SPACE_NAME>';
+    GRANT DBA TO '<USER_NAME>';
+    COMMIT;
     ```
 
-4.  Exit from the SQL\*Plus session by executing the `quit` command.
+1.  Exit from the session by executing the `quit;` command.
 
-### Setting up the JDBC driver
+### Setting up the drivers
 
-Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14.jar` file) to the `<PRODUCT_HOME>/repository/components/lib/` directory.
+Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14.jar` file) to the `<API-M_HOME>/repository/components/lib/` directory.
 
-!!! info
-Remove the old database driver from the `<PRODUCT_HOME>/repository/components/dropins` directory when you upgrade the database driver.
+1. Unzip the WSO2 API Manager pack. Let's call it as `<API-M_HOME>`.
 
+1. Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 
-## What's next
+1. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
 
-By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with Oracle RAC, see [Changing to Oracle RAC](_Setting_up_Oracle_RAC_) .
+### Executing db scripts to create tables on Oracle RAC database
 
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant sql file. For example, take `shared_db` as the database.
 
-# Changing to Oracle RAC
-
-By default, WSO2 products use the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use an Oracle RAC database for this purpose.
-
--   [Setting up datasource configurations](#ChangingtoOracleRAC-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
-    -   [Changing the default WSO2\_CARBON\_DB datasource](#ChangingtoOracleRAC-ChangingthedefaultdatabaseChangingthedefaultWSO2_CARBON_DBdatasource)
-    -   [Configuring new datasources to manage registry or user management data](#ChangingtoOracleRAC-ConfiguringnewdatasourcestomanageregistryorusermanagementdataConfiguringnewdatasourcestomanageregistryorusermanagementdata)
--   [Creating the database tables](#ChangingtoOracleRAC-Creatingthedatabasetables)
-
-!!! tip
-Before you begin
-
-You need to set up Oracle RAC before following the steps to configure your product with Oracle RAC. For more information, see [Setting up Oracle RAC](https://docs.wso2.com/display/ADMIN44x/Setting+up+Oracle+RAC) .
-
-
-### Setting up datasource configurations
-
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the Oracle RAC database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoOracleRAC-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
-
-#### Changing the default WSO2\_CARBON\_DB datasource
-
-Follow the steps below to change the type of the default WSO2\_CARBON\_DB datasource.
-
-1.  Edit the default datasource configuration in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as shown below.
-
-    ``` xml
-        <datasource>
-             <name>WSO2_CARBON_DB</name>
-             <description>The datasource used for registry and user manager</description>
-             <jndiConfig>
-                  <name>jdbc/WSO2CarbonDB</name>
-             </jndiConfig>
-             <definition type="RDBMS">
-                  <configuration>
-                    <url>jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)
-                           (ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))
-                           (ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))
-                           (CONNECT_DATA=(SERVICE_NAME=rac)))</url>
-                    <username>regadmin</username>
-                    <password>regadmin</password>
-                    <driverClassName>oracle.jdbc.driver.OracleDriver</driverClassName>
-                    <maxActive>80</maxActive>
-                    <maxWait>60000</maxWait>
-                    <minIdle>5</minIdle>
-                    <testOnBorrow>true</testOnBorrow>
-                    <validationQuery>SELECT 1 FROM DUAL</validationQuery>
-                    <validationInterval>30000</validationInterval>
-                    <defaultAutoCommit>false</defaultAutoCommit>
-                  </configuration>
-             </definition>
-        </datasource>
+    ```sh
+    SQL> @<API-M_HOME>/dbscripts/oracle_rac.sql
     ```
 
-    The elements in the above configuration are described below:
+2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant sql file. For example, take `apim_db` as the database.
 
-    <table>
-    <colgroup>
-    <col width="50%" />
-    <col width="50%" />
-    </colgroup>
-    <thead>
-    <tr class="header">
-    <th>Element</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>url</strong></td>
-    <td>The URL of the database. The default port for a DB2 instance is 50000.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>username</strong> and <strong>password</strong></td>
-    <td>The name and password of the database user</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>driverClassName</strong></td>
-    <td>The class name of the database driver</td>
-    </tr>
-    <tr class="even">
-    <td><strong>maxActive</strong></td>
-    <td>The maximum number of active connections that can be allocated  at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>maxWait</strong></td>
-    <td>The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception. You can enter zero or a negative value to wait indefinitely.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>minIdle</strong></td>
-    <td>The minimum number of active connections that can remain idle in the pool without extra ones being created, or enter zero to create none.</td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>testOnBorrow</strong></p></td>
-    <td>The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>validationQuery</strong></td>
-    <td>The SQL query that will be used to validate connections from this pool before returning them to the caller.</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>validationInterval</strong></td>
-    <td>The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due forvalidation,but has been validated previously within this interval, it will not be validated again.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>defaultAutoCommit</strong></td>
-    <td><p>This property is <strong>not</strong> applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.</p>
-    <p>When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-        !!! info
-    For more information on other parameters that can be defined in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
-
-
-#### Configuring new datasources to manage registry or user management data
-
-Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
-
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoOracleRAC-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoOracleRAC-Settingupdatasourceconfigurations)
-2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
-
-    ``` xml
-        <dbConfig name="wso2registry">
-            <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-        </dbConfig>
+    ```sh
+    SQL> @<API-M_HOME>/dbscripts/apimgt/oracle_rac.sql
     ```
 
-3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
+## Changing to Oracle RAC
 
-    ``` xml
-            <Configuration>
-                <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-            </Configuration>
+- [Creating the datasource connection to Oracle RAC](#creating-the-datasource-connection-to-oracle-rac)
+
+### Creating the datasource connection to Oracle RAC
+
+A datasource is used to establish the connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasource are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
+
+After setting up the Oracle RAC database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
+
+Follow the steps below to change the type of the default datasource.
+
+1. Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
+
+1. You simply have to update the URL pointing to your Oracle database, the username, and password required to access the database and the Oracle driver details as shown below.
+
+    | Element                       | Description                                                                                                |
+    |-------------------------------|------------------------------------------------------------------------------------------------------------|
+    | **type**                      | The database type used                                                                                     |
+    | **url**                       | The URL of the database. The default port for Oracle is 1521                                                |
+    | **username** and **password** | The name and password of the database user                                                                 |
+    | **driverClassName**           | The class name of the database driver                                                                      |
+    | **validationQuery**           | The SQL query that will be used to validate connections from this pool before returning them to the caller.|
+    
+    Sample configuration is shown below:
+    
+    ``` tab="Format"
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    ```
+    
+    ``` tab="Example"
+    [database.shared_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    
+    [database.apim_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
     ```
 
-### Creating the database tables
-
-To create the database tables, connect to the database that you created earlier and run the following scripts in SQL\*Plus:
-
-1.  To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), use the below script:
-
-    ``` powershell
-            SQL> @$<PRODUCT_HOME>/dbscripts/oracle.sql
+1. You can update the configuration elements given below for your database connection.
+   
+    | Element                | Description                                                                                                                                                                                                                                                                                                                                  |
+    |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **maxActive**          | The maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.                                                                                                                                                                |
+    | **maxWait**            | The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception. You can enter zero or a negative value to wait indefinitely.                                                                                                              |
+    | **minIdle**            | The minimum number of active connections that can remain idle in the pool without extra ones being created, or enter zero to create none.                                                                                                                                                                                                    |
+    | **testOnBorrow**       | The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.                                                                                                                              |
+    | **validationInterval** | The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.                                                                                      |
+    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
+    | **commitOnReturn**     | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false.|
+    | **rollbackOnReturn**   | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
+    
+    Sample configuration is shown below:
+    
+    ``` tab="Format"
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
+    ```
+    
+    ``` tab="Example"
+    [database.shared_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
+    
+    [database.apim_db]
+    type = "oracle"
+    url = "jdbc:oracle:thin:@(DESCRIPTION=(LOAD_BALANCE=on)(ADDRESS=(PROTOCOL=TCP)(HOST=racnode1) (PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=racnode2) (PORT=1521))(CONNECT_DATA=(SERVICE_NAME=rac)))"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "oracle.jdbc.driver.OracleDriver"
+    validationQuery = "SELECT 1 FROM DUAL"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
     ```
 
-2.  Restart the server.
+4.  Restart the server.
 
-        !!! info
-    You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:
-
-    -   For Windows: `<PRODUCT_HOME>/bin/wso2server.bat -Dsetup`
-
-    -   For Linux: `<PRODUCT_HOME>/bin/wso2server.sh -Dsetup`
-
-        !!! warning
-        Deprecation of -DSetup
-    When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `-DSetup` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the `-DSetup` option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
-
-
-
-
+    !!! note
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
