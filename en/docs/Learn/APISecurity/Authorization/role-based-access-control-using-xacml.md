@@ -1,6 +1,6 @@
 # Enabling Role-Based Access Control Using XACML
 
-Many organizations expose their business capabilities through APIs. One of the key challenges is controlling access to these exposed APIs in such a way that all authorized users are able to access its APIs without any interruption, while at the same time making sure that any unauthorized users are kept out. In order to achieve this, parameters such as the user role can be used in determining whether to grant or deny access to an API for a given user. There are two ways to control access to users, namely [OAuth 2.0 scope](../../../APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/) and XACML. This section explains how an external extensible Access Control Markup Language (XACML) entitlement server can be integrated with WSO2 API Manager to provide role-based access control to APIs exposed via WSO2 API Manager. XACML is a declarative access control policy language based on XML that can provide a standardized way of validating authorization requests.
+Many organizations expose their business capabilities through APIs. One of the key challenges is controlling access to these exposed APIs in such a way that all authorized users are able to access its APIs without any interruption, while at the same time making sure that any unauthorized users are kept out. In order to achieve this, parameters such as the user role can be used in determining whether to grant or deny access to an API for a given user. There are two ways to control access to users, namely [OAuth 2.0 scope]({{base_path}}/Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/) and XACML. This section explains how an external extensible Access Control Markup Language (XACML) entitlement server can be integrated with WSO2 API Manager to provide role-based access control to APIs exposed via WSO2 API Manager. XACML is a declarative access control policy language based on XML that can provide a standardized way of validating authorization requests.
 
 WSO2 API Manager provides the capability to authorize users based on [OAuth 2.0](https://tools.ietf.org/html/rfc6749) tokens and this mechanism can be extended to provide role-based access control using OAuth 2.0 scopes. However, as opposed to using OAuth 2.0 scope to provide authorization, XACML provides a standardized way of validating authorization requests. Authorization policies can be written in a standardized way using XACML and can be stored and managed through a policy administration point (PAP). Since the policies are standardized, policies written to one XACML engine can be ported to another engine from a different vendor without any issue. Similarly, XACML provides more control on how access should be enforced as different parameters and possibilities can be evaluated. XACML also provides ‘Obligations’ and ‘Advice’ as part of the XACML response that can be used by the API Manager when enforcing the policy decision to implement fine-grained access control for APIs.
 
@@ -8,7 +8,7 @@ WSO2 API Manager provides the capability to authorize users based on [OAuth 2.0]
 
 The diagram shown below depicts the scenario where WSO2 API Manager uses the XACML entitlement server to validate API requests that come into the API Manager. In this case, WSO2 Identity Server has been used as the XACML entitlement server.
 
-![]({{base_path}}/assets/attachments/103334839/103334824.png)
+![]({{base_path}}/assets/img/Learn/xacml-with-apim.png)
 
 The process is initiated by an administrator who creates the XACML policies and adds them to the PAP. The created policies are stored in a policy repository and promoted to the policy decision point (PDP) by an authorized user. Once the policy is deployed, authorization requests are evaluated against this policy. There can be more than one policy deployed in the PDP.
 
@@ -20,17 +20,17 @@ The steps below demonstrate how WSO2 Identity Server, acting as a XACML entitlem
 
 Let’s take the following requirement in exposing an API via the API manager.
 
-![]({{base_path}}/assets/attachments/103334839/103334837.png)
+![]({{base_path}}/assets/img/Learn/enabling-roll-based-access-control.png)
 
 Based on the requirement, a single API is exposed to add or retrieve order information. Each member type (webuser or admin) is identified from the resource path. The operation (GET or POST) that needs to be performed is distinguished by the HTTP verb. Follow the steps below to implement this kind of role-based access control.
 
-1.  Let’s start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore](../../../Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md) . For this you can create a read write LDAP user store.
+1.  Let’s start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store/) . For this you can create a read write LDAP user store.
 
     !!! note
         By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration &lt;PRODUCT\_HOME&gt;/repository/conf/user-mgt.xml in both nodes.
 
     !!! tip
-        In an actual deployment, both these servers can [share the user store](../../../Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
+        In an actual deployment, both these servers can [share the user store]({{base_path}}/Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
 
 
 2.  Share the registry of both WSO2 API Manager and WSO2 Identity Server. Refer [Sharing the registry space](https://docs.wso2.com/display/AM260/Configuring+External+IDP+through+Identity+Server+for+SSO#ConfiguringExternalIDPthroughIdentityServerforSSO-Sharingtheregistryspace) for the steps.
@@ -42,8 +42,8 @@ Based on the requirement, a single API is exposed to add or retrieve order info
     | api\_user  | webuser |
     | api\_admin | admin   |
 
-4.  When adding the webuser role, set the **Login** and **Subscribe** permissions from permission tree.
-    ![]({{base_path}}/assets/attachments/103334839/103334825.png)
+4.  When adding the webuser role, set the **Login** and **Subscribe** permissions from permission tree.  
+    ![]({{base_path}}/assets/img/Learn/login-and-subscribe-permission.png)
 
 5.  Start the WSO2 Identity Server and log in to its Admin Console.
 
@@ -52,8 +52,8 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
 
 6.  Under the **Entitlement** section, click **Policy Administration &gt; Add New Entitlement Policy** .
-    ![]({{base_path}}/assets/attachments/103334839/103334836.png)
-    ![]({{base_path}}/assets/attachments/103334839/103334835.png)
+    ![]({{base_path}}/assets/img/Learn/policy-administration.png)
+    ![]({{base_path}}/assets/img/Learn/add-new-entitlement-policy.png)
 7.  You are redirected to a page listing all available policy editors. Select **Standard Policy Editor** from the list and add the values shown below in the policy editor. Refer [Creating a XACML Policy](https://is.docs.wso2.com/en/5.9.0/learn/creating-a-xacml-policy/) in WSO2 Identity Server for more information.
     1.  **Entitlement Policy Name:** PizzaShackPolicy
     2.  **Rule Combining Algorithm:** Deny unless Permit
@@ -67,7 +67,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         
         **Conditions:** Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **admin** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
-        ![]({{base_path}}/assets/attachments/103334839/103334834.png)
+        ![]({{base_path}}/assets/img/Learn/define-entitlement-rules.png)
         
         Select the attributes as given below. Note that this needs to be done for all the rules.
         
@@ -78,7 +78,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         **Entitlement Data Module:** Carbon Attribute Finder Module
         
         Click on **Add** button after providing above values as shown below.
-        ![]({{base_path}}/assets/attachments/103334839/103334833.png)
+        ![]({{base_path}}/assets/img/Learn/entitlement-values.png)
         
     2.  GetOrder- allows web users to get order information from the API. Give the information below,
     
@@ -88,7 +88,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **webuser** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
 
-        ![]({{base_path}}/assets/attachments/103334839/103334828.png)
+        ![]({{base_path}}/assets/img/Learn/add-getorder-rule.png)
 
         Select the attributes as given below. Note that this needs to be done for all the rules.
         
@@ -99,22 +99,22 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         **Entitlement Data Module:** Carbon Attribute Finder Module
         
         Click on **Add** button after providing above values as shown below.
-        ![]({{base_path}}/assets/attachments/103334839/103334833.png)
+        ![]({{base_path}}/assets/img/Learn/add-getorder-value.png)
 
 9.  Click **Add** once done.
-    ![]({{base_path}}/assets/attachments/103334839/103334829.png)
+    ![]({{base_path}}/assets/img/Learn/added-getorder.png)
 10. The rules are added to the policy. Click **Finish** to save the policy.
-    ![]({{base_path}}/assets/attachments/103334839/103334832.png)
+    ![]({{base_path}}/assets/img/Learn/save-ploicy.png)
 11. In the Policy Administration page, click **Publish to My PDP** to publish the policy to the PDP.
 
-    ![]({{base_path}}/assets/attachments/103334839/103334827.png)
+    ![]({{base_path}}/assets/img/Learn/publish-to-my-pdp.png)
 
     Keep the default selected values in the Publish Policy window and select publish.
 
     !!! tip
         You can test the service by clicking **Try** option in front of the entitlement policy. It is the tryIt tool developed for XACML in WSO2 Identity Server and you can access the same tryIt tool by navigating to **Tools &gt; XACML &gt; TryIt** .
 
-    ![]({{base_path}}/assets/attachments/103334839/103334826.png)
+    ![]({{base_path}}/assets/img/Learn/test-service-by-try-option.png)
 
     You need to enter your username as the **Subject Name** . Refer [Evaluating a XACML Policy](https://is.docs.wso2.com/en/5.9.0/administer/evaluating-a-xacml-policy/) for more information on how to use the TryIt tool for XACML Policy evaluation.
 
@@ -146,9 +146,9 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         remoteServicePassword - Password used to connect to the service
 
 
-15. Log in to the API Publisher and [create an API](../../../DesignAPI/CreateAPI/create-a-rest-api/) .
+15. Log in to the API Publisher and [create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
 16. Attach the custom sequence to the inflow of the message as shown below.
-    ![]({{base_path}}/assets/attachments/103334839/103334830.png)
+    ![]({{base_path}}/assets/img/Learn/attach-the-custom-sequence.png)
 17. Save, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail.
 
     !!! note
