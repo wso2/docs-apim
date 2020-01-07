@@ -1534,7 +1534,9 @@ Follow the instructions below to move all the existing API Manager configuration
         EXTENTSIZE 4;
         ```
 
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the identity component migration resources and unzip it in a local directory.
+
+         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
