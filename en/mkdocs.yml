@@ -426,8 +426,6 @@ nav:
                      - Working with Audit Logs: Administer/ProductAdministration/Monitoring/Logging/working-with-audit-logs.md
                 - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
                 - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
-                - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md
-                - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
                 - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
                 - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
             - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md

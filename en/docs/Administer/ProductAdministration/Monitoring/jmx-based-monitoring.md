@@ -20,57 +20,34 @@ Java Management Extensions (JMX) is a technology that lets you implement managem
 JMX is enabled in WSO2 products by default, which ensures that the JMX server starts automatically when you start a particular product.  Additionally, you can enable JMX separately for the various datasources that are used by the product. Once JMX is enabled, you can log in to the JConsole tool and monitor your product as explained in the [next section](#admin_JMX-BasedMonitoring-MonitoringaWSO2productwithJConsole) .
 
 #### Configuring JMX ports for the server
-
-The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in the `carbon.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) as shown below. If required, you can update these default values.
+The Default JMX ports (RMIRegistryPort and the RMIServerPort) are as 9999 and 11111 respectively. If required, you
+ can update the values by adding following into deployment.toml file at `<PRODUCT_HOME>/repository/conf` directory.
 
 ``` java
  [monitoring.jmx]
- rmi_registry_port
- rmi_server_port
+ rmi_registry_port = 
+ rmi_server_port = 
 ```
 
 #### Disabling JMX for the server
 
-The JMX configuration is available in the jmx `.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/etc` directory) as shown below. You can disable the JMX server for your product by setting the `<StartRMIServer>` property to `false` . Note that this configuration refers to the [JMX ports configured in the `carbon.xml` file](#admin_JMX-BasedMonitoring-ConfiguringJMXportsfortheserver) .
+You can disable the JMX server for your product by setting the following in the deployment.toml file at
+ `<PRODUCT_HOME>/repository/conf` directory.
 
 ``` java
  [monitoring.jmx]
- rmi_registry_port
- rmi_server_port
- rmi_server_start=true
+ rmi_server_start = false
 ```
 
 #### Enabling JMX for a datasource
 
-You can enable JMX for a datasource by adding the `<jmxEnabled>true</jmxEnabled>` element to the datasource configuration file. For example, to enable JMX for the default Carbon datasource in your product, add the following property to the `master-datasources.` xml file (stored in the `<PRODUCT_HOME>/repository/conf/datasources` directory).
-
-TODO: Update with toml config with jmxEnabled=true
+You can enable JMX for a datasource by adding the `jmxEnabled` element to the datasource configuration file. For example, to
+ enable JMX for the Shared datasource in your product, append the following section into the deployment.toml file at
+`<PRODUCT_HOME>/repository/conf` directory.
  
 ``` java
-
-
-    <datasource>
-                <name>WSO2_CARBON_DB</name>
-                <description>The datasource used for registry and user manager</description>
-                <jndiConfig>
-                    <name>jdbc/WSO2CarbonDB</name>
-                </jndiConfig>
-                <definition type="RDBMS">
-                    <configuration>
-                        <url>jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000</url>
-                        <username>wso2carbon</username>
-                        <password>wso2carbon</password>
-                        <driverClassName>org.h2.Driver</driverClassName>
-                        <maxActive>50</maxActive>
-                        <maxWait>60000</maxWait>
-                        <testOnBorrow>true</testOnBorrow>
-                        <validationQuery>SELECT 1</validationQuery>
-                        <validationInterval>30000</validationInterval>
-                        <defaultAutoCommit>false</defaultAutoCommit>
-                        <jmxEnabled>true</jmxEnabled>
-                    </configuration>
-                </definition>
-            </datasource>
+[database.shared_db.pool_options]
+jmxEnabled = true
 ```
 
 ### Monitoring a WSO2 product with JConsole
@@ -223,7 +200,9 @@ Operations available in the **Statistics** MBean:
 
 If you have [JMX enabled for a datasource connected to the product](#admin_JMX-BasedMonitoring-EnablingJMXforadatasource) , you can monitor the performance of the datasource using this MBean. The **DataSource** MBean will be listed as shown below.
 ![]({{base_path}}/assets/attachments/126562846/126562865.png)
-**Example:** If you have JMX enabled for the default Carbon datasource in the `master-datasources.xml.` file, the [JDBC connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the Carbon datasource will be listed as attributes as shown below. See the [performance tuning guide](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning) for instructions on how these parameters are configured for a datasource.
+**Example:** If you have JMX enabled for the Shared datasource in the `deployment.toml.` file, the [JDBC
+ connection pool parameters](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html) that are configured for the
+  Shared datasource will be listed as attributes as shown below. See the [performance tuning guide](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning) for instructions on how these parameters are configured for a datasource.
 ![]({{base_path}}/assets/attachments/126562846/126562864.png)
 #### Using product-specific MBeans
 
@@ -239,8 +218,6 @@ Follow the steps below to use Jolokia to monitor a WSO2 product.
 2.  Add it to the `<PRODUCT-HOME>/repository/components/dropins/` directory.
 
         !!! tip
-    In WSO2 EI, add it to the `<EI-HOME>/dropins/` directory.
-
 
 3.  Start the WSO2 product server.
 
