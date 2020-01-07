@@ -4,20 +4,20 @@
     **Please note that this document is currently under review. Currently, WSO2 does not recommend Java security manager for production environments due to some known issues.**
 
 
-The Java Security Manager is used to define various security policies that prevent untrusted code from manipulating your system. Enabling the Java Security Manager for WSO2 products activates the Java permissions that are in the `<PRODUCT_HOME>/repository/conf/sec.policy` file. You modify this file to change the Java security permissions as required.
+The Java Security Manager is used to define various security policies that prevent untrusted code from manipulating your system. Enabling the Java Security Manager for WSO2 products activates the Java permissions that are in the `<API-M_HOME>/repository/conf/sec.policy` file. You modify this file to change the Java security permissions as required.
 
 !!! info
     **Before you begin**
 
     * Ensure that you have Java 1.8 or Java 11 installed.
-    * Note that you need to use a keystore for signing JARs using the Java security manager. In this example, you will be using the default keystore in your WSO2 product ( `wso2carbon.jks` ). You can read about the recommendations for using keystores from [here](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption#UsingAsymmetricEncryption-RecommendationsforsettingupkeystoresinWSO2products).
+    * Note that you need to use a keystore for signing JARs using the Java security manager. In this example, you will be using the default keystore in your WSO2 product ( `wso2carbon.jks` ). You can read about the recommendations for using keystores from [here]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/about-asymetric-cryptography/).
 
 
 The steps below show how to enable the Java Security Manager for WSO2 products.
 
 1.  Download the WSO2 product to any location (e.g., `<HOME>/user/<product-pack>` folder).
 
-2. Run the startup script in the `<PRODUCT_HOME>/bin` folder. For Linux, it is `wso2server.sh`. Once the product is up and running, shutdown the server.
+2. Run the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`. Once the product is up and running, shutdown the server.
 
 3.  To sign the JARs in your product, you need a key. You can generate a new keystore (with a new key) by executing the keytool command given below. Note that the new keystore is created in the directory from which you execute the keytool command.
 
@@ -31,7 +31,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
 
     Now you have a new keystore (`signkeystore.jks`) with a new public key certificate (`signFiles`).
 
-4.  By default, WSO2 products use the default `wso2carbon.jks` keystore for signing JARs. This keystore is stored in the `<PRODUCT_HOME>/repository/resources/security` directory.      Therefore, you need to add the `signFiles` public key certificate that you created earlier into the `wso2carbon.jks` keystore.
+4.  By default, WSO2 products use the default `wso2carbon.jks` keystore for signing JARs. This keystore is stored in the `<API-M_HOME>/repository/resources/security` directory.      Therefore, you need to add the `signFiles` public key certificate that you created earlier into the `wso2carbon.jks` keystore.
 
     First, export the `signFiles` public key certificate from the `signkeystore.jks` keystore by executing the following command:
 
@@ -42,7 +42,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     Then, import the same `signFiles` certificate to the `wso2carbon.jks` keystore by executing the command given below. Be sure to specify the correct directory path to the `wso2carbon.jks` file of your product.
 
     ```bash
-    $ keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_PRODUCT_HOME>/repository/resources/security/wso2carbon.jks
+    $ keytool -import -alias signFiles -file sign-cert.cer -keystore <PATH_to_API-M_HOME>/repository/resources/security/wso2carbon.jks
     Enter keystore password:  
     Owner: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
     Issuer: CN=John, OU=Engineering, O=WSO2, L=Colombo, ST=Western, C=LK
@@ -61,7 +61,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
         Note that WSO2 no longer recommends MD5 for JAR signing due to cryptographic limitations.
 
 
-5.  Open the security policy file, and update the "grant signedBy" value in the with the new `signFiles` alias key, as shown below. If security policy file is not created before, create a `sec.policy` file in the `<PRODUCT_HOME>/repository/conf` folder and add the following content to this file.
+5.  Open the security policy file, and update the "grant signedBy" value in the with the new `signFiles` alias key, as shown below. If security policy file is not created before, create a `sec.policy` file in the `<API-M_HOME>/repository/conf` folder and add the following content to this file.
 
     ``` text
     grant signedBy "signFiles" {
@@ -72,7 +72,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     };
     ```
 
-6.  Prepare the scripts to sign the JARs and **grant them the required permission**(ex: `sudo chmod 755 signJar.sh`). For example, the `signJar.sh` script given below can be used to sign each JAR file separately or you can use the `signJars.sh` script, which runs a loop to read all JARs and sign them.
+6.  Prepare the scripts to sign the JARs and **grant them the required permission**(e.g., `sudo chmod 755 signJar.sh`). For example, the `signJar.sh` script given below can be used to sign each JAR file separately or you can use the `signJars.sh` script, which runs a loop to read all JARs and sign them.
 
     **signJar.sh script**
 
@@ -121,7 +121,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
         Every time you add an external JAR to the WSO2 product, sign them manually using the above instructions for the Java Security Manager to be effective. You add external JARs to the server when extending the product, applying patches etc.
 
 
-8.  Open the startup script in the `<PRODUCT_HOME>/bin` folder. For Linux, it is `wso2server.sh`.
+8.  Open the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`.
 9.  Add the following system properties to the startup script and save the file. Add them before the `org.wso2.carbon.bootstrap.Bootstrap $*` line.
 
     ``` java
@@ -131,7 +131,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     -Ddenied.system.properties=javax.net.ssl.trustStore,javax.net.ssl.trustStorePassword,denied.system.properties \
     ```
 
-10.  Create a `sec.policy` file with the required security policies in the `<PRODUCT_HOME>/repository/conf` folder and start the server. Starting the server makes the Java permissions defined in the `sec.policy` file to take effect.
+10.  Create a `sec.policy` file with the required security policies in the `<API-M_HOME>/repository/conf` folder and start the server. Starting the server makes the Java permissions defined in the `sec.policy` file to take effect.
 
 An example of a `sec.policy` file is given below. It includes mostly WSO2 Carbon-level permissions.
 
