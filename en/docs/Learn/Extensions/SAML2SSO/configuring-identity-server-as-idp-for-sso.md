@@ -34,7 +34,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 3.  Create a MySQL database (e.g., 410\_um\_db) and run the `<API-M_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
 
-4.  Go to `<API-M_HOME>/repository/conf/deployment.toml` file and add database configurations. For example, you can share a single user store as follows. (If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.)
+4.  Go to the `<API-M_HOME>/repository/conf/deployment.toml` file and add database configurations. For example, you can share a single user store as follows. (If you are sharing multiple datasources, you need to define a datasource for each of the user stores that you are working with, so that they can be shared.)
   
     **Example**
 
@@ -95,30 +95,30 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 3.  Select **Add** under the **Service Providers** menu.
 
-    ![add-sp](../../../assets/img/Learn/Extensions/SAML2SSO/add-sp.png)
+    ![add-sp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/add-sp.png)
   
 4.  Give a service provider name and click **Register**.
 
-    ![sp-name](../../../assets/img/Learn/Extensions/SAML2SSO/sp-name.png)
+    ![sp-name]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sp-name.png)
 
     !!! tip
         **In a multi-tenanted environment,** for all tenants to be able to log in to the APIM Web applications, do the following:
 
         -   Click the **SaaS Application** option that appears after registering the service provider.
            
-           ![](../../../assets/img/Learn/Extensions/SAML2SSO/saas.png)
+           ![]({{base_path}}assets/img/Learn/Extensions/SAML2SSO/saas.png)
            
            If not, only users in the current tenant domain (the one you are defining the service provider in) will be allowed to log in to the Web application and you have to register new service providers for all Web applications (Developer Portal and API Publisher in this case) from each tenant space separately. For example, let's say you have three tenants as TA, TB and TC and you register the service provider in TA only. If you tick the **SaaS Application** option, all users in TA, TB, TC tenant domains will be able to log in. Else, only users in TA will be able to log in.
   
         -   Because the servers in a multi-tenanted environment interact with all tenants, all nodes should share the same user store. Therefore, make sure you have a shared registry (JDBC mount, WSO2 Governance Registry, etc.) instance across all nodes.
 
 5.  You are navigated to the detailed configuration page. Inside the **Inbound Authentication Configuration** section, expand **SAML2 Web SSO Configuration** and click **Configure** .
-   ![inbound-authentication-config](../../../assets/img/Learn/Extensions/SAML2SSO/inbound-authentication-config.png)
+   ![inbound-authentication-config]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/inbound-authentication-config.png)
   
     !!! note
         To enable tenant-specific SSO with IS 5.9.0 for `API Publisher` and `Developer Portal`, enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
 
-        ![enable-tenant-domain](../../../assets/img/Learn/Extensions/SAML2SSO/enable-tenant-domain.png)
+        ![enable-tenant-domain]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/enable-tenant-domain.png)
 
 6.  Provide the configurations to register the API Publisher as the SSO service provider. These sample values may change depending on your configuration.
 
@@ -135,10 +135,10 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
     **Example**
     
-    [![sample-sp](../../../assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)](../../../assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)
+    [![sample-sp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)]({{base_path}}assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)
 
 7. Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**
-   ![add-apim-cert](../../../assets/img/Learn/Extensions/SAML2SSO/add-apim-cert.png)
+   ![add-apim-cert]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/add-apim-cert.png)
 
 ## Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider
 
@@ -153,13 +153,13 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 
 3.  Select **Add** under the **Identity Providers** menu.
 
-    ![add-idp](../../../assets/img/Learn/Extensions/SAML2SSO/add-idp.png)
+    ![add-idp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/add-idp.png)
     
 4. Upload public certificate of Identity Server in **Identity Provider Public Certificate**.
 
 5. Configure **Federated authenticators** > **SAML2 Web SSO Configurations**
 
-    ![federated-auth](../../../assets/img/Learn/Extensions/SAML2SSO/federated-auth.png)
+    [![federated-auth]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/federated-auth.png)]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/federated-auth.png)
     
     -   **Identity Provider Name**: is
     -   **Service Provider Entity ID**: apim . This value can change depending on the **Issuer** value defined in WSO2 IS SSO configuration above.
@@ -168,7 +168,7 @@ Similarly, add Identity Server as an identity provider configurations in `https:
     -   **Signature Algorithm**: RSA with SHA256
     -   Select the following options:
         -   **Enable SAML2 Web SSO**
-        -   **EEnable Authentication Request Signing**
+        -   **Enable Authentication Request Signing**
         -   **Enable Authentication Response Signing**
         -   **Enable Logout Request Signing**
         -   **Enable Logout**      
@@ -177,7 +177,7 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 
    **Example**
   
-   [![sample-idp](../../../assets/img/Learn/Extensions/SAML2SSO/sample-idp.png)](../../../assets/img/Learn/Extensions/SAML2SSO/sample-idp.png)
+   [![sample-idp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sample-idp.png)]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sample-idp.png)
 
 !!! note
     Make sure your service provider configuration in Identity server and identity provider configuration in API Manager is similarly reflect on each other. 
@@ -192,21 +192,21 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 
 2.  List service providers and select edit on API Publisher application.
 
-    ![listed-sp](../../../assets/img/Learn/Extensions/SAML2SSO/listed-sp.png)
+    ![listed-sp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/listed-sp.png)
   
     !!! note
         Please note that the publisher and developer portal service providers will be listed under service providers after you have logged in to the publisher and the developer portal at least once. 
          
 3.  Go to **Local and Outbound Authentication Configuration** and select Identity Provider as the **Federated Authentication**.
 
-    ![app-federate](../../../assets/img/Learn/Extensions/SAML2SSO/app-federate.png)
+    ![app-federate]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/app-federate.png)
   
 4.  Click **update** once done.
 
 5.  Repeat the above steps (Step 2 to Step 4) to the Developer Portal Application as well.
 
 4.  Access the API Publisher: `https://localhost:<PORT>/publisher` (e.g., `https://localhost:9443/publisher` ). Observe the request redirect to the WSO2 IS SAML2.0 based SSO login page. For example,
-    ![login-page](../../../assets/img/Learn/Extensions/SAML2SSO/login-page.png)
+    ![login-page]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/login-page.png)
   
 5.  Enter user credentials. If the user authentication is successful against WSO2 IS, it will redirect to the API Publisher Web application with the user already authenticated.
 
