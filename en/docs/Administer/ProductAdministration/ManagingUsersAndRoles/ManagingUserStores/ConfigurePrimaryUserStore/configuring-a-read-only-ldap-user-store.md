@@ -1,6 +1,6 @@
 # Configuring a Read-Only LDAP User Store
 
-User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `deployment.toml` file found in the `<PRODUCT_HOME>/repository/conf/` directory and the changes will be automatically applied to `user-mgt.xml` file in `<PRODUCT_HOME>/repository/conf/` directory as well. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-only LDAP as the primary user store for the WSO2 server.
+User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the `deployment.toml` file found in the `<API-M_HOME>/repository/conf/` directory and the changes will be automatically applied to `user-mgt.xml` file in `<API-M_HOME>/repository/conf/` directory as well. This file is shipped with user store manager configurations for all possible user store types (JDBC, read-only LDAP/Active Directory, read-write LDAP and read-write Active directory). The instructions given below explains how to configure a read-only LDAP as the primary user store for the WSO2 server.
 
 !!! info
         The default User Store
@@ -22,7 +22,7 @@ Follow the given steps to configure a read-only LDAP/AD as the primary user stor
      API Manager is compatible with multiple user store. In WSO2 Identity Server, the embedded user store is LDAP. Instead of using the embedded user store, you can set your own user store as the primary user store.
 Before you begin
 
--   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations according to the LDAP user store provider. Following is the sample read-only user store configurations:
+-   Navigate to `<API-M_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations according to the LDAP user store provider. Following is the sample read-only user store configurations:
     ```
     [user_store.properties] 
     TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
@@ -80,7 +80,7 @@ Before you begin
 !!! note
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
     
-Given below is a sample for the LDAP/AD user store configuration in read-only mode. You can change the values to match your LDAP/AD in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Properties of User Stores](#ConfiguringaRead-OnlyLDAPUserStore-Properties used in Read-only LDAP user store manager).
+Given below is a sample for the LDAP/AD user store configuration in read-only mode. You can change the values to match your LDAP/AD in `deployment.toml` file. For descriptions on each of the properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Properties of User Stores](#ConfiguringaRead-OnlyLDAPUserStore-Properties used in Read-only LDAP user store manager).
 The configuration for the external read-only user store in the user-mgt.xml file looks as follows for the above configurations:
 
     <UserManager>
@@ -160,7 +160,7 @@ The configuration for the external read-only user store in the user-mgt.xml file
             ConnectionURL="ldaps://10.100.1.100:636"
             ```
     
-           -   For Active Directory, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](https://apim.docs.wso2.com/en/latest/Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores/) .
+           -   For Active Directory, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores/) .
     
            -   You also need to [enable connection pooling](https://is.docs.wso2.com/en/5.9.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections) for LDAPS connections at the time of starting your server, which will enhance server performance.
     
@@ -214,7 +214,7 @@ The configuration for the external read-only user store in the user-mgt.xml file
         MembershipAttribute="member"
         ```
 
-        To read roles based on a backlink attribute, use the following code snipet instead of the above:
+        To read roles based on a backlink attribute, use the following code snippet instead of the above:
 
         ``` 
         ReadGroups="true"
@@ -253,7 +253,7 @@ username = "admin"
 admin_role = "admin"
 create_admin_account = true
 ```
-For information information about the system administrator user, see [Configuring the System Administrator](https://apim.docs.wso2.com/en/latest/Reference/ConfigCatalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption](https://apim.docs.wso2.com/en/latest/Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores/) .
+For information information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/Reference/ConfigCatalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores/) .
 
 ### Step 3: Starting the server
 
@@ -309,7 +309,7 @@ Following are the minimum user store properties that are needed to be provided t
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="https://apim.docs.wso2.com/en/latest/Administer/ProductSecurity/General/UsingAsymmetricEncryption/creating-new-keystores/">Using asymmetric encryption</a><br />
+<a href="{{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores/">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
 </p></td>
@@ -330,7 +330,7 @@ Sample values: uid=admin,ou=system</p></td>
 </tr>
 </table>
 </thead>
-Any of the following properties can be configured for the `PRIMARY` user store by adding them as follows to `<APIM-HOME>/repository/conf/deployment.toml`.
+Any of the following properties can be configured for the `PRIMARY` user store by adding them as follows to `<API-M_HOME>/repository/conf/deployment.toml`.
  
  <table>
  <thead>
@@ -356,7 +356,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.
  <p>Default: uid<br />
  <br />
- Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="../../learn/using-email-address-as-the-username">Using email address as the username</a></p></td>
+ Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/Administer/ProductSecurity/LoginsAndPasswords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login">Using email address as the username</a></p></td>
  </tr>
  <tr class="even">
  <td>UserNameSearchFilter</td>
