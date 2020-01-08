@@ -447,7 +447,7 @@ nav:
             - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/mitigating-cross-site-request-forgery-attacks.md
             - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/mitigating-cross-site-scripting-attacks.md
             - Enabling HostName Verification: Administer/ProductSecurity/enabling-hostname-verification.md
-            - Configuring TLS Termination: Administer/ProductSecurity/configuring-tls-termination.md
+            # - Configuring TLS Termination: Administer/ProductSecurity/configuring-tls-termination.md
             - Enabling Java Security Manager: Administer/ProductSecurity/enabling-java-security-manager.md
             - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
             - Configuring Transport Level Security: Administer/ProductSecurity/configuring-transport-level-security.md
