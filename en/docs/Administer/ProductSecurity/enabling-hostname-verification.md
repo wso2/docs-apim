@@ -5,7 +5,7 @@ If hostname verification is disabled for your product, the hostnames (that are a
 !!! note
     **Important!**
     
-    Be sure to enable hostname verification for your production environment. This is necessary to avoid security issues in production. See the full list of [security recommendations for production](https://docs.wso2.com/display/ADMIN44x/Security+Guidelines+for+Production+Deployment) environments.
+    Be sure to enable hostname verification for your production environment. This is necessary to avoid security issues in production. See the full list of [security recommendations for production]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/security-guidelines-for-production-deployment/) environments.
 
 ### Configuring hostname verification
 
@@ -34,8 +34,5 @@ The hostname verification is **disabled** by default. This is done using the `o
     -   **Strict:** When this mode is enabled, hostnames will be strictly verified against the hostname specified in the product's SSL certificate. For example, if "\*. [foo.com](http://foo.com/) " is specified as the hostname in the certificate, only the hostnames at the same level will be authorized by the server. That is subdomains such as " [a.b.foo.com](http://a.b.foo.com/) " will **not** be authorized.
     
     -   **AllowAll:** This option turns off hostname verification for the server. Note that this is not recommended in a production setup and should only be used for demonstrations and testing.
-
-!!! note 
-    Refer [Enabling HostName Verification](https://docs.wso2.com/display/ADMIN44x/Enabling+HostName+Verification) for more information.
 
 
