@@ -5,7 +5,7 @@ system suffer any failing due to several unforeseeable reasons. One of the main 
 amount of infrastructure resources possible. Thus deployment pattern comprise of only two Streaming integration 
 servers.
 
-![](../../../../../assets/img/setup-and-install/configure_apim_analytics/Minimum_HA_Architecture.png)
+![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/Minimum_HA_Architecture.png)
 
 In minimum HA setup, one node is assigned as the active node while the other node is assigned as the passive node.
 Only the active node processes the incoming events and publishes the outgoing events. Internally, the active node 
@@ -18,15 +18,15 @@ into the system.
 !!! note
     The ports that are open only in the active node at a given time include the Siddhi Store Query API endpoint to which 
     requests are sent by invoking the Siddhi Store REST API. These ports are configured in the 
-    <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml file. For more information about this port configuration, see 
+    `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` file. For more information about this port configuration, see 
     Managing Stored Data via REST APIs.
     
-    ![](../../../../../assets/img/setup-and-install/configure_apim_analytics/open_endpoint_active_node.png)
+    ![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/open_endpoint_active_node.png)
     
     When a failover occurs, the Siddhi Store Query API endpoint configured in node 2 (which becomes the currently active node) is opened, and 
     all the store query traffic is directed to that endpoint.
     
-    ![](../../../../../assets/img/setup-and-install/configure_apim_analytics//open_endpoint_after_active_member_changes
+    ![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics//open_endpoint_after_active_member_changes
     .png)
 
 !!! note
@@ -46,7 +46,7 @@ In order to configure a minimum HA cluster, the following prerequisites must be 
   - A working RDBMS instance to be used for clustering of the 2 nodes. 
   - Download the MySQL connector from <a target="_blank" href="https://dev.mysql.com/downloads/connector/j/">here</a>. 
     Extract and find the mysql-connector-java-5.*.*-bin.jar. Place this JAR in the 
-    <APIM_ANALYTICS_HOME>/lib directory of both nodes. 
+    `<APIM_ANALYTICS_HOME>/lib` directory of both nodes. 
   - In order to retrieve the state of the Siddhi Applications deployed in the system in case of a scenario where both the 
     nodes fail, state persistence must be enabled for both nodes by specifying the same datasource/file location. 
     For detailed instructions, see <a target="_blank" href="configuring-Database-and-File-System-State-Persistence">
@@ -66,7 +66,7 @@ categorized as below,
 
 !!! note
 
-    - Note that the following configurations need to be done in the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml 
+    - Note that the following configurations need to be done in the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` 
       file for both the WSO2 API Analaytics nodes in the cluster.
     - If you need to run both APIM Analytics instances in the same host, make sure that you do a port offset to change the default 
       ports in one of the hosts. For more information about the default ports, see Configuring Default Ports.
@@ -90,7 +90,7 @@ This is used to identify each node within a cluster.
     ```
           
      The datasource named PERSISTENCE_DB in the above configuration can be defined in the 
-     <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml file under the wso2.datasources section. Following is a sample 
+     `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` file under the `wso2.datasources` section. Following is a sample 
      datasource configuration.
     ```
     - name: PERSISTENCE_DB
@@ -112,7 +112,7 @@ This is used to identify each node within a cluster.
     ```
               
 3. To allow the two nodes in the cluster to coordinate effectively, configure carbon coordination by updating the 
-cluster.config section of the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml as follows (Cluster Configuration):
+cluster.config section of the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` as follows (Cluster Configuration):
     - To enable the cluster mode, set the enabled property to true.
     - In order to cluster the two nodes together, enter the same ID as the group ID for both nodes 
         (e.g., groupId: group-1).
@@ -124,7 +124,7 @@ cluster.config section of the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml 
                              the example below. Data handled by the cluster are persisted here.
                 
             Following is a sample datasource configuration for a MySQL datasource that should appear under the 
-            dataSources section of the wso2.datasources section in the  <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml.
+            dataSources section of the `wso2.datasources` section in the  `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml`.
             For detailed instructions of how to configure a datasource, see Configuring Datasources.
             
             ```     
@@ -169,7 +169,7 @@ cluster.config section of the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml 
                   eventPollingInterval: 5000
             ```
                  
-4. Next add the deployment.config section to the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml file with following 
+4. Next add the deployment.config section to the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` file with following 
 configurations (HA configuration)
     - To enable 2 node minimum HA, set the type property to "ha".
     - passiveNodeDetailsWaitTimeOutMillis - Time in milliseconds to wait till passive node details gets available in 
@@ -247,7 +247,7 @@ configurations (HA configuration)
                  
            ```
 
-5. Configure APIM_ANALYTICS_DB in <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml
+5. Configure APIM_ANALYTICS_DB in `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml`
     
    ``` yaml
     
@@ -271,16 +271,16 @@ configurations (HA configuration)
    ```
                
    - If you are configure analytics for WSO2 Micro Gateway, import the 
-       appropriate DB script from <APIM_ANALYTICS_HOME>/wso2/worker/dbscripts/apimgt/
+       appropriate DB script from `<APIM_ANALYTICS_HOME>/wso2/worker/dbscripts/apimgt/`
        
 ###Starting the cluster
 
-1. Save the required Siddhi applications in the  <APIM_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files directory in 
+1. Save the required Siddhi applications in the `<APIM_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory in 
 both nodes. In order to ensure that the Siddhi applications are completely synchronized between the active and 
 the passive node, they must be added to the siddhi-files  directory before the server startup. However, the 
 synchronization can take place effectively even if the Siddhi applications are added while the server is running. 
     
-2. Start both servers by navigating to  <APIM_ANALYTICS_HOME>/bin and issuing the following command:
+2. Start both servers by navigating to  `<APIM_ANALYTICS_HOME>/bin` and issuing the following command:
     ```
     For Windows: server.bat 
     For Linux : ./server.sh
@@ -292,14 +292,14 @@ synchronization can take place effectively even if the Siddhi applications are a
         In deploying Siddhi applications in a two node minimum HA cluster, it is recommended to use a content 
         synchronization mechanism since Siddhi applications must be deployed to both server nodes. You can use a common 
         shared file system such as Network File System (NFS) or any other shared file system that is available. 
-        You need to mount the <APIM_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files directory of the two nodes to 
+        You need to mount the `<APIM_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory of the two nodes to 
         the shared file system. 
         
     !!! note
     
         To start two WSO2 SI Nodes in the same machine, the listenerConfigurations under the wso2.transport.http namespace 
-        in the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml file must be updated to listen to different ports. The 
-        offset property under the ports section of the wso2.carbon section found in the <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml 
+        in the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml` file must be updated to listen to different ports. The 
+        offset property under the ports section of the wso2.carbon section found in the `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml`
         should also be changed in one SI instance to avoid conflicts when starting both servers.
     
     

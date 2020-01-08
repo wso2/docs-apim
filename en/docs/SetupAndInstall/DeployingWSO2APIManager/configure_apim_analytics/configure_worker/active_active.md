@@ -8,7 +8,7 @@ overview of the Active-Active deployment pattern and instructions to configure i
 
 
 ## Overview
-![](../../../../assets/img/setup-and-install/configure_apim_analytics/Active-Active_Deployment.png)
+![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/Active-Active_Deployment.png)
 
 The above diagram represents a deployment where you are not limited to two nodes. You can scale the event processing 
 horizontally by adding more API-M Analytics nodes to the deployment. In this deployment, it is recommended to 
@@ -23,7 +23,7 @@ physical database and must be linked to the same database.
 
 Partitioning aggregations can be enabled at aggregation level and also at a global level. To enable it at the global 
 level, add the following section with the *PartitionById* annotation set to true in the 
-<APIM-ANALYTICS_WORKER_HOME>/conf/worker/deployment.yaml file.
+`<APIM-ANALYTICS_WORKER_HOME>/conf/worker/deployment.yaml` file.
 
 ``` yaml
 siddhi:
@@ -35,14 +35,14 @@ siddhi:
 This query captures the information relating to the total request counts for different APIs. Each request represents 
 an event, and the information captured includes the API name, the country and city from which the request was 
 generated,and the timestamp to which the information applies. Each node stores this information in the 
-APIM_ANALYTICS_DB data store defined in the <API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml file.
+APIM_ANALYTICS_DB data store defined in the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
 
 Now let's assume that during a specific hour, the API-M Gateway node publishes 30,000 events in node 1, and 40,000 
 events in node 2 for Naples in Italy. When you retrieve the total for this hour via a retrieval query, the result is 70000.
 
 ## Configuring an active-active cluster
    
-To configure the API-M Analytics nodes to deploy them as an active-active cluster, edit the <API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml file as follows:
+To configure the API-M Analytics nodes to deploy them as an active-active cluster, edit the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file as follows:
 
 !!! note
 
@@ -97,7 +97,7 @@ partitionById and shardId parameters as Siddhi properties as shown below.
             - Edit the aggregation tables by adding a new column named SHARD_ID, and specify it as a primary key.
 
 3. Configure a database, and then update the default configuration for the APIM_ANALYTICS_DB data source with 
-parameter values suitable for your requirements in <APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml
+parameter values suitable for your requirements in `<APIM_ANALYTICS_HOME>/conf/worker/deployment.yaml`
 
    ``` yaml
     
@@ -121,7 +121,7 @@ parameter values suitable for your requirements in <APIM_ANALYTICS_HOME>/conf/wo
    ```  
    
    - If you are configure analytics for WSO2 Micro Gateway, import the 
-   appropriate DB script from <APIM_ANALYTICS_HOME>/wso2/worker/dbscripts/apimgt/
+   appropriate DB script from `<APIM_ANALYTICS_HOME>/wso2/worker/dbscripts/apimgt/`
 
 !!! note 
 
