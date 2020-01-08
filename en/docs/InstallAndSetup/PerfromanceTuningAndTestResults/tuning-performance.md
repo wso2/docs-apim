@@ -154,7 +154,7 @@ Some general APIM-level recommendations are listed below:
 </div>
      <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>&lt;parameter name=&quot;defaultMaxConnPerHost&quot;&gt;1000&lt;/parameter&gt; 
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;"  style="brush: java; gutter: false;"><code>&lt;parameter name=&quot;defaultMaxConnPerHost&quot;&gt;1000&lt;/parameter&gt; 
 &lt;parameter name=&quot;maxTotalConnections&quot;&gt;30000&lt;/parameter&gt; </code></pre>
 </div> 
 </td>
@@ -240,7 +240,7 @@ Some general APIM-level recommendations are listed below:
 <p>The global timeout is defined in the <code>                    &lt;API-M_HOME&gt;/repository/conf/deployment.toml                   </code> file. The recommended value is 120000 ms.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;"><code>
 [synapse_properties]
 'synapse.global_timeout_interval' = 120000
 </code></pre>
@@ -287,7 +287,7 @@ Some general APIM-level recommendations are listed below:
 <li><p>Open the <code style="white-space: nowrap;">                       &lt;API-M_HOME&gt;/repository/resources/api_templates/default_api_template.xml                      </code> file and remove the following configuration:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>&lt;timeout&gt;
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;"><code>&lt;timeout&gt;
     &lt;duration&gt;60000&lt;/duration&gt;
     &lt;responseAction&gt;fault&lt;/responseAction&gt;
 &lt;/timeout&gt;
@@ -306,7 +306,7 @@ Some general APIM-level recommendations are listed below:
 </p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>&lt;suspendOnFailure&gt;
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;"><code>&lt;suspendOnFailure&gt;
     &lt;errorCodes&gt;-1&lt;/errorCodes&gt;
     &lt;initialDuration&gt;0&lt;/initialDuration&gt;
     &lt;progressionFactor&gt;1.0&lt;/progressionFactor&gt;
@@ -338,7 +338,7 @@ Some general APIM-level recommendations are listed below:
 <p>Set the MySQL maximum connections:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: html/xml; gutter: false; theme: Confluence"><code>mysql&gt; show variables like &quot;max_connections&quot;; 
+<pre class="html/xml" data-syntaxhighlighter-params="brush: html/xml; gutter: false;" style="brush: html/xml; gutter: false"><code>mysql&gt; show variables like &quot;max_connections&quot;; 
  max_connections was 151 
  set to global max_connections = 250; </code></pre>
 </div>
@@ -346,7 +346,7 @@ Some general APIM-level recommendations are listed below:
 <p>Set the open files limit to 200000 by editing the <code>               /etc/sysctl.conf              </code> file:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>sudo sysctl -p</code></pre>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;"><code>sudo sysctl -p</code></pre>
 </div>
 </div>
 <p>Set the following in the <code>               &lt;API-M_HOME&gt;/repository/conf/deployment.toml              </code> file.</p>
@@ -358,7 +358,7 @@ Some general APIM-level recommendations are listed below:
 
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>[transport.https.properties]
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;"><code>[transport.https.properties]
 maxThreads="750" 
 minSpareThreads="150" 
 disableUploadTimeout="false" 
@@ -371,7 +371,7 @@ acceptCount="600" </code></pre>
 <p>Set the following connection pool elements in the same file. Time values are defined in milliseconds.</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"><code>
+<pre class="java" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;"><code>
 [database.apim_db.pool_options]
 maxActive = 51
 maxWait = 60001
