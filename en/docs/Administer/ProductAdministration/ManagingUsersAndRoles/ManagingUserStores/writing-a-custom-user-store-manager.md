@@ -74,7 +74,7 @@ options.
     <p>Be sure to manually add the following property when you implement the class:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
-    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: java; gutter: false; theme: Confluence"> <pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">setOptionalProperty</span>(<span class="st">&quot;Disabled&quot;</span>, <span class="st">&quot;false&quot;</span>, <span class="st">&quot;Whether user store is disabled&quot;</span>);</a></code></pre>
+    <div class="sourceCode" id="cb1" data-syntaxhighlighter-params="brush: java; gutter: false;" style="brush: java; gutter: false;> <pre class="sourceCode java"><code class="sourceCode java"><a class="sourceLine" id="cb1-1" title="1"><span class="fu">setOptionalProperty</span>(<span class="st">&quot;Disabled&quot;</span>, <span class="st">&quot;false&quot;</span>, <span class="st">&quot;Whether user store is disabled&quot;</span>);</a></code></pre>
     </div>
     </div>
     </div>
