@@ -106,7 +106,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
         -   Click the **SaaS Application** option that appears after registering the service provider.
            
-           ![]({{base_path}}assets/img/Learn/Extensions/SAML2SSO/saas.png)
+           ![]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/saas.png)
            
            If not, only users in the current tenant domain (the one you are defining the service provider in) will be allowed to log in to the Web application and you have to register new service providers for all Web applications (Developer Portal and API Publisher in this case) from each tenant space separately. For example, let's say you have three tenants as TA, TB and TC and you register the service provider in TA only. If you tick the **SaaS Application** option, all users in TA, TB, TC tenant domains will be able to log in. Else, only users in TA will be able to log in.
   
@@ -135,10 +135,9 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
     **Example**
     
-    [![sample-sp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)]({{base_path}}assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)
+    [![sample-sp]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/sample-sp.png)
 
 7. Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**
-   ![add-apim-cert]({{base_path}}/assets/img/Learn/Extensions/SAML2SSO/add-apim-cert.png)
 
 ## Configuring WSO2 Identity Server as a SAML 2.0 SSO Identity Provider
 
