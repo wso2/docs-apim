@@ -266,7 +266,7 @@ Some general APIM-level recommendations are listed below:
      <p class="admonition-title">Note</p>
      <p>Note that when the endpoint is suspended, the default action is defined here as invoking the fault sequence.</p>
 </div> 
-<p><img src="../../../../../assets/img/setup-and-install/timeout-configuration.png" alt="timeout-configuration.png" width="734" /></p></li>
+<p><img src="{{base_path}}/assets/img/setup-and-install/timeout-configuration.png" alt="timeout-configuration.png" width="734" /></p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
 </ol>
 <div class="admonition note">
