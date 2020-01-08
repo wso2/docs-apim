@@ -26,8 +26,8 @@ Download and install the H2 database engine on your computer.
 WSO2 currently ships H2 database engine version h2_1.4.199.\* and its related H2 database driver. If you want to use a different H2 database driver, take the following steps:
 
 1.  Delete the following H2 database-related JAR file, which is shipped with WSO2 products:
-`<PRODUCT_HOME>/repository/components/plugins/h2_1.4.199.wso2v1.jar`
-2.  Find the JAR file of the new H2 database driver ( `<H2_HOME>/bin/h2-*.jar` , where `<H2_HOME>` is the H2 installation directory) and copy it to your WSO2 product's `<PRODUCT_HOME>/repository/components/lib/` directory.
+`<API-M_HOME>/repository/components/plugins/h2_1.4.199.wso2v1.jar`
+2.  Find the JAR file of the new H2 database driver ( `<H2_HOME>/bin/h2-*.jar` , where `<H2_HOME>` is the H2 installation directory) and copy it to your WSO2 product's `<API-M_HOME>/repository/components/lib/` directory.
 
 ## What's next
 
@@ -51,7 +51,7 @@ The following sections describe how to replace the default H2 database with Embe
 !!! tip
     Before you begin,
 
-    You need to set up Embedded H2 before following the steps to configure your product with it. For more information, see [Setting up Embedded H2](https://docs.wso2.com/display/ADMIN44x/Setting+up+Embedded+H2) .
+    You need to set up Embedded H2 before following the steps to configure your product with it. For more information, see [Setting up Embedded H2]({{base_path}}/InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2/) .
 
 
 ### Setting up datasource configurations
@@ -62,7 +62,7 @@ A datasource is used to establish the connection to a database. By default, `W
 
 Follow the steps below to change the type of the default `WSO2_CARBON_DB` datasource.
 
-Edit the default datasource configuration in the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` file ` file as shown below.
+Edit the default datasource configuration in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file ` file as shown below.
 
 ```toml tab="Format"
 type = "h2"
@@ -101,7 +101,7 @@ The elements in the above configuration are described below:
   When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.                                                                                                                                                     |
 
 !!! info
-    For more information on other parameters that can be defined in the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
+    For more information on other parameters that can be defined in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
 
 
 !!! warning
@@ -118,20 +118,20 @@ The elements in the above configuration are described below:
 ** When a database connection is returned to the pool, by default  the product rolls back the pending transactions if defaultAutoCommit =true . However, if required you can disable the latter mentioned default behavior by disabling the `ConnectionRollbackOnReturnInterceptor` , which is a JDBC-Pool JDBC interceptor, and setting the connection pool behavior on return via the datasource configurations by using the following options.
 
 !!! warning
-    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) . This WUM update is only applicable to Carbon 4.4.11.
+    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/) . This WUM update is only applicable to Carbon 4.4.11.
 
 
 -   **Configure the connection pool to commit pending transactions on connection return**
     1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS: `<PRODUCT_HOME>/bin/wso2server.sh/`
-        -   On Windows: `<PRODUCT_HOME>\bin\wso2server.bat`
+        -   On Linux/Mac OS: `<API-M_HOME>/bin/wso2server.sh/`
+        -   On Windows: `<API-M_HOME>\bin\wso2server.bat`
     2.  Add the following JVM option:
 
         ``` java
 -Dndatasource.disable.rollbackOnReturn=true
         ```
 
-    3.  Navigate to the `PRODUCT_HOME>/repository/conf/deployment.toml` file.
+    3.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
     4.  Disable the `defaultAutoCommit` by defining it as `false`.
     5.  Add the `commitOnReturn` property and set it to `true` for all the datasources, including the custom datasources.
 
@@ -160,7 +160,7 @@ The elements in the above configuration are described below:
 
 -   **Configure the connection pool to rollback pending transactions on connection return**
 
-    1.  Navigate to the `PRODUCT_HOME>/repository/conf/deployment.toml` file.
+    1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
     2.  Disable the `defaultAutoCommit` by defining it as false.
 
     3.  Add the `rollbackOnReturn` property to the datasources.
@@ -194,8 +194,8 @@ The elements in the above configuration are described below:
 
 Follow the steps below to configure new datasources to point to the new database(s) you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
-2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` file.
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) above to the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
+2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 
     ```toml tab="Format"
@@ -208,7 +208,7 @@ Follow the steps below to configure new datasources to point to the new data
     dataSource = "jdbc/WSO2_CARBON_DB"
     ```
 
-3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/deployment.toml` file.
+3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file.
 
     ```toml tab="Format"
     [user_store]
@@ -227,7 +227,7 @@ To create the database tables, connect to the database that you created earlier 
 -   To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), use the below script:
 
     ``` java
-    <PRODUCT_HOME>/dbscripts/h2.sql
+    <API-M_HOME>/dbscripts/h2.sql
     ```
 
 Follow the steps below to run the script in Web console:
@@ -241,9 +241,9 @@ Follow the steps below to run the script in Web console:
 !!! info
     You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:
 
-    -   For Windows: `<PRODUCT_HOME>/bin/wso2server.bat -Dsetup`
+    -   For Windows: `<API-M_HOME>/bin/wso2server.bat -Dsetup`
 
-    -   For Linux: `<PRODUCT_HOME>/bin/wso2server.sh -Dsetup`
+    -   For Linux: `<API-M_HOME>/bin/wso2server.sh -Dsetup`
 
 !!! warning
         Deprecation of -DSetup
