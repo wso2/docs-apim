@@ -1923,7 +1923,7 @@ Follow the instructions below to move all the existing API Manager configuration
             schema: "identity"
         ```
 
-    5.  Copy the `org.wso2.carbon.is.migration-1.0.23.jar` from the extracted folder to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    5.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
     6.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
 
@@ -1958,7 +1958,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
     7.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
-        -   Remove the `org.wso2.carbon.is.migration-1.0.23.jar` file, which is in the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+        -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_3.0.0_HOME>` directory.
 
