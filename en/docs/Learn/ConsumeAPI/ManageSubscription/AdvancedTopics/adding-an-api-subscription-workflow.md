@@ -40,7 +40,7 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
         <TaskCoordinationEnabled>true</TaskCoordinationEnabled>
     ```
 
-4.  Copy the following from `<API-M_HOME>/business-processes/epr` to `<EI_HOME>/wso2/business-process/repository/conf/epr` folder. If the `<EI_HOME>/wso2/business-process/repository/conf/epr` folder isn't there, please create it.
+4.  Copy the following from `<API-M_HOME>/business-processes/epr` to `<EI_HOME>/wso2/business-process/repository/conf/epr` folder. If the `<EI_HOME>/wso2/business-process/repository/conf/epr` folder isn't there, Create it.
 
     !!! note
         Make sure to give the correct credentials in the `<EI_HOME>/wso2/business-process/repository/conf/epr` files.
@@ -176,17 +176,17 @@ First, enable the API subscription workflow **.**
         The application creation WS Workflow Executor is now engaged.
 
 
-3.  Go to the API Devportal credentials page and subscribe to an API. It will invoke the API subscription process and creates a Human Task instance that holds the execution of the BPEL until some action is performed on it. After subscribing you will see the subscription status as ON_HOLD
+3.  Go to the API Devportal credentials page and subscribe to an API. It will trigger the API subscription process and create a Human Task instance that pauses the execution of the BPEL until some action is performed on it. After subscribing you will see the subscription status as ON_HOLD
 
-     ![](../../../../assets/img/Learn/workflow-subscription-onhold.png)
+     ![]({{base_path}}/assets/img/Learn/workflow-subscription-onhold.png)
 
-4.  Sign in to the Admin Portal ( `https://<Server Host>:9443/admin` ), list all the tasks for API subscription and approve the task. It resumes the BPEL process and completes the API subscription. It will have a similar entry created. Start the approval process and complete it.
+4.  Sign in to the Admin Portal ( `https://<Server Host>:9443/admin` ), list all the tasks for API subscription and click on start to approve the task. It resumes the BPEL process and completes the subscription process.
 
-    ![](../../../../assets/img/Learn/workflow-subscription-admin-entry.png)
+    ![]({{base_path}}/assets/img/Learn/workflow-subscription-admin-entry.png)
 
     After approving go back to the API Devportal credentials page, the application status will be UNBLOCKED
      
-    ![](../../../../assets/img/Learn/workflow-subscription-complete.png)
+    ![]({{base_path}}/assets/img/Learn/workflow-subscription-complete.png)
 
 5.  Go back to the API Devportal and see that the user is now subscribed to the API.
 
