@@ -141,24 +141,24 @@ nav:
             - Collaborations:
                 - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
             - Customizations:
-                -  Customizing the API Store:
-                    - Overriding Developer Portal Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/overriding-developer-portal-theme.md
+                -  Customizing the Developer Portal:
+                    - Overriding Developer Portal Theme: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/overriding-developer-portal-theme.md
                     - Customize API Listing:
-                        - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
-                        - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-view.md
-                    - Enabling or disabling api detail tabs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-api-detail-tabs.md
-                    - Override API overview page per API: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/override-api-overview-page-per-api.md
-                    - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-rating.md
-                    - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-home-page.md
-                    - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-tag-cloud.md
-                    - Enable or disable footer: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-footer.md
-                    - Enable or disable banner: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-banner.md
-                    - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-left-menu.md
-                    - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-info-section.md
-                    - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-the-logo-and-header.md
-                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md
-                    - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/advanced-customization.md
-                - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
+                        - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/CustomizeAPIListing/categorizing-and-grouping-apis.md
+                        - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/CustomizeAPIListing/change-default-view.md
+                    - Enabling or disabling api detail tabs: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enabling-or-disabling-api-detail-tabs.md
+                    - Override API overview page per API: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/override-api-overview-page-per-api.md
+                    - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-rating.md
+                    - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-home-page.md
+                    - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-tag-cloud.md
+                    - Enable or disable footer: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-footer.md
+                    - Enable or disable banner: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-banner.md
+                    - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/styling-api-details-left-menu.md
+                    - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/styling-api-details-info-section.md
+                    - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/styling-the-logo-and-header.md
+                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enabling-or-disabling-self-signup.md
+                    - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/advanced-customization.md
+                - Log in to the Developer Portal using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
                 - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
@@ -529,4 +529,9 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
+<<<<<<< HEAD
   base_path: https://apim.docs.wso2.com/en/latest
+=======
+  base_path: https://apim.docs.wso2.com/en/latest
+
+>>>>>>> renamed store to developer portal and updated links
