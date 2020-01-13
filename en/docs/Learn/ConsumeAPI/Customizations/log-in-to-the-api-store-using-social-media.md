@@ -1,6 +1,6 @@
-# Log in to the API Store using Social Media
+# Log in to the Developer Portal using Social Media
 
-You can integrate WSO2 Identity Server with WSO2 API Manager and use your social media credentials to log in to the API Store and API Publisher. This tutorial shows you how to integrate Facebook authentication and log in to the API Store. Before following these steps, configure WSO2 Identity Server to provide Single Sign On for WSO2 API Manager by following [Configuring External IDP through Identity Server for SSO](https://docs.wso2.com/display/AM250/Configuring+External+IDP+through+Identity+Server+for+SSO) .
+You can integrate WSO2 Identity Server with WSO2 API Manager and use your social media credentials to log in to the Developer Portal and API Publisher. This tutorial shows you how to integrate Facebook authentication and log in to the Developer Portal. Before following these steps, configure WSO2 Identity Server to provide Single Sign On for WSO2 API Manager by following [Configuring External IDP through Identity Server for SSO](https://docs.wso2.com/display/AM250/Configuring+External+IDP+through+Identity+Server+for+SSO) .
 
 -   [Create a Facebook application](#LogintotheAPIStoreusingSocialMedia-CreateaFacebookapplication)
 -   [Configure Facebook login with Identity Server](#LogintotheAPIStoreusingSocialMedia-ConfigureFacebookloginwithIdentityServer)
@@ -130,7 +130,7 @@ You have to allow the usage of email addresses as usernames, to use email addres
 
 Identity Server has a dashboard which offers multiple options for users to maintain user accounts. Associating a social login for their account is a one of the options provided in this dashboard.This dashboard can be accessed in the following URL : `https://<IS_HOST>:<IS_PORT>/dashboard.` By association the social login you have the option to use local claims, instead of showing the logged name as facebook username you can use logged users as the username in user local user store
 
-1.  Login to the dashboard with API Store user account.
+1.  Login to the dashboard with Developer Portal user account.
 2.  Click **View Details** in the **Social Login** gadget.
     ![]({{base_path}}/assets/attachments/103333132/103333150.png)3.  Click **Associate Social Login** to give your facebook account details.
     ![]({{base_path}}/assets/attachments/103333132/103333151.png)4.  Enter your IDP ID (facebook) and your username (as configured in **Subject Claim URI** ) and click **Register** .
