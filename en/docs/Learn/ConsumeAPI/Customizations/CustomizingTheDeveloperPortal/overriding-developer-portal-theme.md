@@ -1,68 +1,78 @@
-# Overriding developer portal theme
+# Overriding Developer Portal Theme
 
-We provide the developers with an easier approach to customize the UI. It’s not required to have React, CSS or HTML knowledge to do UI customization. We have a single JSON file which holds the parameterized constraints of the look and feel. For an example we can change the font family from the JSON file to change it through out the devportal. It has the capability to update not only the look and feel, but also the behaviors such as making the listing view default instead of grid view, hiding social features etc. 
+WSO2 provides the developers with an easier approach to customize the UI. You do not need to have React, CSS, or HTML knowledge to customize the UI. We have a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family via the JSON file so that the changes appear through out the Developer Portal. When updating the Developer Portal theme, you can update not only the look and feel, but also behaviors such as making the listing view default instead of grid view, hiding social features, etc. 
 
-#### Overriding the default theme
+## Overriding the default theme
 
-The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` folder.
+The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory. 
 
-`defaultTheme.js` file has all the parameters defining the look and feel of the developer portal.
+The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal.
 
-Make sure to take a backup of the defaultTheme.js before making any changes.
+Make sure to take a backup of the `defaultTheme.js` before making any changes.
 
-Changes done in the defaultTheme.js will be reflected directly in the devportal. ( It's not required to restart the server or rebuild the source code)
+Changes done in the `defaultTheme.js` file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code).
 
-#### Uploading through the Admin Portal (Tenants Only)
+## Uploading via the Admin Portal (Tenants Only)
 
-**If you do not have access to the file system** , you can upload the theme through the Admin Portal as shown below:
+**If you do not have access to the file system** , you can upload the theme via the Admin Portal as shown below:
 
 1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/Learn/sampleTheme.zip). 
-2.  sampleTheme.zip contains the following folder structure. You can make the changes required to defaultTheme.json file and archive it back. The name of the archive doesn't matter but the name of the json file ( defaultTheme.json ) does.
-```
-├── css
-│   └── custom.css
-├── defaultTheme.json
-└── images
-    └── custom-logo.png
-```
+2.  The `sampleTheme.zip` file contains the following folder structure. 
 
-3.  Sign in to the WSO2 Admin Portal ( [https://server-host:9443/admin](https://server-host:9443/admin) ) with your tenant username (format `<username>@<domain>.com kim@testorg.com` ) and password.
-4.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file. ![{{base_path}}/assets/attachments/103334757/103334761.png]({{base_path}}/assets/attachments/103334757/103334761.png)
-5.  Access the API Store ( `https://<server-host>:9443/devportal` ) using your tenant username and password.
+     You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter, but the name of the JSON file (`defaultTheme.json`) does.
+     
+      ```
+      ├── css
+      │   └── custom.css
+      ├── defaultTheme.json
+      └── images
+          └── custom-logo.png
+      ```
+
+3.  Sign in to the WSO2 Admin Portal ([https://server-host:9443/admin](https://server-host:9443/admin)) with your tenant username (format `<username>@<domain>.com kim@testorg.com`) and password.
+
+4.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file. 
+
+    ![Upload tenant theme]({{base_path}}/assets/img/Learn/upload-tenant-theme.png)
+
+5.  Access the API Developer Portal (`https://<server-host>:9443/devportal`) using your tenant username and password.
+
     Note the new theme is applied.
 
-#### Adding custom logo for the tenant
+## Adding custom logo for the tenant
 
-In your tenant theme, you can refer to an image from the defaultTheme.json as follows. The examples below uses custom-logo.png from the sampleTheme.zip. The image can be referred using one of the following URL patterns.
+In your tenant theme, you can refer to an image from the `defaultTheme.json` file as follows. The examples below uses the `custom-logo.png` image from the `sampleTheme.zip`. The image can be referred using one of the following URL patterns.
 
-Following will look inside the tenant domain theme for the custom-logo.png.
+The path format to the `custom-logo.png` image within the tenant domain theme is as follows:
+
 ```js
 "logo": "/site/public/tenant_themes/<tenant-domain>/images/custom-logo.png",
 ```
+The path to the `custom-logo.png` image within the `kim@testorg.com` tenant domain theme is as follows:
 
-Following will look inside kim@testorg.com tenant domain theme for the custom-logo.png.
 ```js
 "logo": "/site/public/tenant_themes/kim@testorg.com/images/custom-logo.png",
 ```
 
-Following will show the image from an external url.
+The following defines the logo image from an external URL.
+
 ```js
 "logo": "https://dummyimage.com/208x19/66aad1/ffffff&text=testlogo",
 ```
 
-#### Applying plain old css rules to change the look and feel
+## Applying CSS rules to change the look and feel
 
-If you prefer to change the styling using CSS rules, the custom.css can be used. The above sample theme also has a custom CSS file. From the CSS file, we are changing the top header background color to black. 
+If you prefer to change the styling using CSS rules, you can use the `custom.css` file. The above sample theme also has a custom CSS file. In the CSS file, let's change the top header background color to black. 
 
-Note that we have injected ids into the dom elements. You can use them to apply CSS rules. But beware about the dynamically generated CSS class names. These class names have a number suffix which changes from version to version. So it's recommended not to use them for styling purposes. 
+Note that we have injected IDs into the dom elements. You can use them to apply CSS rules. However, be aware about the dynamically generated CSS class names. These class names have a number suffix which changes from version to version. Therefore, it is recommended not to use them for styling purposes. 
 
-The CSS file is referenced in the defaultTheme.json in the following manner. It is not a must to replace the `<tenant-domain> ` in the following line, as at runtime the developer portal will automatically replace it with the current tenant domain.
+The CSS file is referenced in the `defaultTheme.json` in the following manner. It is not a must to replace the `<tenant-domain> ` in the following line, as at runtime the Developer Portal will automatically replace it with the current tenant domain.
 
 ```js
    "tenantCustomCss": "/site/public/tenant_themes/<tenant-domain>/css/custom.css",
 ```
 
-##### Content of defaultTheme.json
+## Content of defaultTheme.json
 
 ```js
 {
