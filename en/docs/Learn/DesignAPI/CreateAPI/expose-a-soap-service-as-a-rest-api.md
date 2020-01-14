@@ -1,16 +1,16 @@
 # Expose a SOAP service as a REST API
 
 WSO2 API Manager supports the management of an existing SOAP and WSDL based services exposing as REST APIs.
-The organizations who have SOAP/ WSDL based services, can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two kinds of services as one for performing a  "pass through" of the SOAP message to the backend and other one is generating [a RESTful api from the backend SOAP service](../../../../Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend/).
+The organizations that have SOAP/WSDL based services can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two types of services - one for performs a pass-through of the SOAP message to the backend and the other generates [a RESTful API from the backend SOAP service]({{base_path}}/Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend/).
 
 Follow the instructions below to create a SOAP service as a RESTful API using **Pass Through**
 
 1.  Sign in to the API Publisher and click **CREATE API**.
       <html>
-     <img src="../../../../assets/img/Learn/create-soap-API.jpg" height="400" width="450">
+     <img src="{{base_path}}/assets/img/Learn/create-soap-API.jpg" height="400" width="450">
      </html>
 
-2.  Select **Pass Through** option and thereafter, select one of the following options:
+2.  Select the **Pass Through** option and thereafter, select one of the following options:
 
      * WSDL URL - If you select this option, you need to provide an endpoint URL.
 
@@ -18,16 +18,16 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p>When uploading a WSDL archive, all the dependent wsdls/xsds that are referred in the parent WSDL file should reside inside the WSDL archive itself. If not, the validation will fail at the point of API creation.</p>
+     <p>When uploading a WSDL archive, all the dependent WSDLS/XSDS that are referred in the parent WSDL file should reside inside the WSDL archive itself. If not, the validation will fail at the point of API creation.</p>
      </div>
      </html>
 
-     This example uses the WSDL `http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl` from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
-        ![](../../../assets/img/Learn/generate-rest-api-from-soap-backend.jpg)
+     This example uses the WSDL [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl) from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
+        ![Generate rest API from soap backend]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend.jpg)
 
-3.  Click **NEXT** button to proceed to the next phase and Provide the information in the table below and click **CREATE** button.
+3.  Click **NEXT** to proceed to the next phase, provide the information in the table below, and click **CREATE**.
 
-    | Field   | Sample value       |
+    | Field   | Sample Value       |
     |---------|--------------------|
     | Name    | PhoneVerification  |
     | Context | /phoneverify       |
@@ -35,29 +35,33 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
     | Business Plans| Unlimited|
 
-    ![](../../../assets/img/Learn/create-soap-api-form.jpg)
+    ![create soap API form]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)
+    
+     The created API appears in the Publisher as follows.
 
-4.  The created API appears in the publisher as follows.
-    ![](../../../assets/img/Learn/created-soap-api.jpg)
+     ![]({{base_path}}/assets/img/Learn/created-soap-api.jpg)
+     
+4. Click **API Definiton** to view the API definiton of the created schema.
 
-5.  API definiton of the Created schema has been displayed at **API Definiton** tab.
-    ![](../../../assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
+    ![]({{base_path}}/assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
-    <html><div class="admonition note"><p class="admonition-title">Note</p>
+     <html><div class="admonition note"><p class="admonition-title">Note</p>
      <p>
-            If you wish to add scopes to the resources that were created, navigate to  ***Resources***  and expand the resources. Thereafter, creating new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see
-    [OAuthscopes](../../../../Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/)
-            </p>
-        </div></html>   
+     If you wish to add scopes to the resources that were created, click  **Resources**. Thereafter, create new scopes and specify them under operation scope. If you specify a scope, you need to use the same scope when generating access tokens for the subscribed application to invoke the API. For more information on working with the scopes, see [OAuthscopes]({{base_path}}/Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/).
+     </p>
+     </div></html>   
 
-    ![](../../../assets/img/Learn/add-scope-for-passthrough-soap-api.jpg)
+     ![]({{base_path}}/assets/img/Learn/add-scope-for-passthrough-soap-api.jpg)
+
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p> Note that when creating this API, the default option of **Rate limiting level** , was selected to **API Level**. For more information on setting advanced throttling policies,
-     see [Enforce Throttling and Resource Access Policies](../../../../Learn/RateLimiting/setting-throttling-limits/).</p>
+     <p> Note that when creating this API, **API Level** was selected as the default option for the **Rate limiting level**. For more information on setting advanced throttling policies,
+     see [Enforce Throttling and Resource Access Policies]({{base_path}}/Learn/RateLimiting/setting-throttling-limits/).</p>
      </div>
      </html>
 
-6. Now, the SOAP service as a RESTful API created and configured successfully. Refer [Publish API](../../../../Learn/DesignAPI/PublishAPI/publish-an-api/) to know details of publishing API.
+Now, the SOAP service are created and configured successfully as a RESTful API. 
 
-Refer a tutorial on [Create and Publish a SOAP service as a RESTful API](../../../../Learn/Tutorials/expose-a-soap-service-as-a-rest-api/) to learn more.
+For more information on API publishing, see [Publish API]({{base_path}}/Learn/DesignAPI/PublishAPI/publish-an-api/).
+
+To learn more, see the tutorial on [Creating and Publishing a SOAP service as a RESTful API]({{base_path}}/Learn/Tutorials/expose-a-soap-service-as-a-rest-api/).
