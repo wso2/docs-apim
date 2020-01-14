@@ -23,7 +23,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </html>
 
      This example uses the WSDL [Phone Verify](http://ws.cdyne.com/phoneverify/phoneverify.asmx?wsdl) from CDYNE as the endpoint here, but you can use any SOAP backend of your choice.
-        ![Generate rest API from soap backend]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend.jpg)
+        [![Generate rest API from soap backend]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend.jpg)]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend.jpg)
 
 3.  Click **NEXT** to proceed to the next phase, provide the information in the table below, and click **CREATE**.
 
@@ -35,15 +35,15 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
     | Business Plans| Unlimited|
 
-    ![create soap API form]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)
+    [![Create SOAP API form]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)
     
      The created API appears in the Publisher as follows.
 
-     ![]({{base_path}}/assets/img/Learn/created-soap-api.jpg)
+     [![Created SOAP API]({{base_path}}/assets/img/Learn/created-soap-api.jpg)]({{base_path}}/assets/img/Learn/created-soap-api.jpg)
      
 4. Click **API Definition** to view the API definition of the created schema.
 
-    ![]({{base_path}}/assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
+    [![API definition of SOAP API created by Pass-through mode]({{base_path}}/assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
      <html><div class="admonition note"><p class="admonition-title">Note</p>
      <p>
@@ -51,7 +51,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </p>
      </div></html>   
 
-     ![]({{base_path}}/assets/img/Learn/add-scope-for-passthrough-soap-api.jpg)
+     [![Add scope for Pass-Through SOAP API]({{base_path}}/assets/img/Learn/add-scope-for-passthrough-soap-api.jpg)]({{base_path}}/assets/img/Learn/add-scope-for-passthrough-soap-api.jpg)
 
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
