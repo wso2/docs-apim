@@ -58,7 +58,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
      The following sample shows the generated API In-sequence for a POST method.
 
-     ``` java
+     ``` xml
         <header description="SOAPAction" name="SOAPAction" scope="transport" value="http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber"/>
         <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
         <property expression="json-eval($.CheckPhoneNumber.LicenseKey)" name="req.var.CheckPhoneNumber.LicenseKey"/>
