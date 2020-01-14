@@ -28,7 +28,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
 2. Select **Generate REST APIs** and provide the WSDL URL for the SOAP backend. 
 
-      ![]({{base_path}}/assets/img/Learn/create-soap-api-as-a-generated-api.jpg)
+      [![Create SOAP API as a generated API]({{base_path}}/assets/img/Learn/create-soap-api-as-a-generated-api.jpg)]({{base_path}}/assets/img/Learn/create-soap-api-as-a-generated-api.jpg)
 
 3. Click **Next** and provide the information in the table below.
 
@@ -40,21 +40,21 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
     | Endpoint| http://ws.cdyne.com/phoneverify/phoneverify.asmx|
     | Business Plans| Unlimited|
 
-    ![]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)
+    [![]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)]({{base_path}}/assets/img/Learn/create-soap-api-form.jpg)
 
 4. Click **CREATE**.
     
      The created API appears in the publisher as follows.
-    ![generate rest api from soap backend overview]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend-overview.jpg)
+    [![generate rest api from soap backend overview]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend-overview.jpg)]({{base_path}}/assets/img/Learn/generate-rest-api-from-soap-backend-overview.jpg)
 
 5.  Click **API Definition** and click **Edit** to modify the open API Definition of the API.
-     ![]({{base_path}}/assets/img/Learn/api-definition-of-generated-rest-api-from-soap-backend.jpg)
+     [![API definition of generated rest api from soap backend]({{base_path}}/assets/img/Learn/api-definition-of-generated-rest-api-from-soap-backend.jpg)]({{base_path}}/assets/img/Learn/api-definition-of-generated-rest-api-from-soap-backend.jpg)
     
      The generated API resources are added to the API, as shown below.
-     ![]({{base_path}}/assets/img/Learn/generated-resources-of-soap-backend.jpg)
+     [![Generated resources of SOAP backend]({{base_path}}/assets/img/Learn/generated-resources-of-soap-backend.jpg)]({{base_path}}/assets/img/Learn/generated-resources-of-soap-backend.jpg)
 
 7.  Click on a resource to view the In and Out sequences of the API.
-    [![]({{base_path}}/assets/img/Learn/in-out-sequences-of-generated-rest-api.jpg)]({{base_path}}/assets/img/Learn/in-out-sequences-of-generated-rest-api.jpg)
+    [![In out sequences of generated rest API]({{base_path}}/assets/img/Learn/in-out-sequences-of-generated-rest-api.jpg)]({{base_path}}/assets/img/Learn/in-out-sequences-of-generated-rest-api.jpg)
 
      The following sample shows the generated API In-sequence for a POST method.
 
