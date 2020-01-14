@@ -529,9 +529,4 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-<<<<<<< HEAD
   base_path: https://apim.docs.wso2.com/en/latest
-=======
-  base_path: https://apim.docs.wso2.com/en/latest
-
->>>>>>> renamed store to developer portal and updated links
