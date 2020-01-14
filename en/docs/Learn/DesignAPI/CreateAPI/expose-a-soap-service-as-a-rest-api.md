@@ -1,7 +1,7 @@
 # Expose a SOAP Service as a REST API
 
 WSO2 API Manager supports the management of an existing SOAP and WSDL based services exposing as REST APIs.
-The organizations that have SOAP/WSDL based services can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two types of services - one for performs a pass-through of the SOAP message to the backend and the other generates [a RESTful API from the backend SOAP service]({{base_path}}/Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend/).
+The organizations that have SOAP/WSDL based services can easily bridge their existing services to REST without the cost of a major migration. WSO2 API Manager supports two types of services. One service performs a pass-through of the SOAP message to the backend, and the other service generates [a RESTful API from the backend SOAP service]({{base_path}}/Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend/).
 
 Follow the instructions below to create a SOAP service as a RESTful API using **Pass Through**
 
@@ -18,7 +18,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
      <html><div class="admonition note">
      <p class="admonition-title">Note</p>
-     <p>When uploading a WSDL archive, all the dependent WSDLS/XSDS that are referred in the parent WSDL file should reside inside the WSDL archive itself. If not, the validation will fail at the point of API creation.</p>
+     <p>When uploading a WSDL archive, all the dependent WSDLS/XSDS that are referred to in the parent WSDL file should reside inside the WSDL archive itself. If not, the validation will fail at the point of API creation.</p>
      </div>
      </html>
 
@@ -41,7 +41,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
      ![]({{base_path}}/assets/img/Learn/created-soap-api.jpg)
      
-4. Click **API Definiton** to view the API definiton of the created schema.
+4. Click **API Definition** to view the API definition of the created schema.
 
     ![]({{base_path}}/assets/img/Learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
@@ -60,7 +60,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
      </div>
      </html>
 
-Now, the SOAP service are created and configured successfully as a RESTful API. 
+Now, the SOAP service is created and configured successfully as a RESTful API. 
 
 For more information on API publishing, see [Publish API]({{base_path}}/Learn/DesignAPI/PublishAPI/publish-an-api/).
 
