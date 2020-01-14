@@ -1,56 +1,55 @@
-# Change the Thumbnail of an API.
+# Change the Thumbnail of an API
 
-The thumbnail of an API can be changed by uploading an image for the thumbnail or designing a new thumbnail image
- from the Publisher UI.
+The thumbnail of an API can be changed by uploading an image for the thumbnail or by designing a new thumbnail image via the Publisher.
 
-## Upload new API Thumbnail
-1. Log in to API Publisher and click on the API that you want to change the thumbnail.
-  [![](../../../assets/img/Learn/change-thumbnail-api-publisher-view.png)](../../../assets/img/Learn/change-thumbnail-api-publisher-view.png) 
+## Upload new API thumbnail
+
+1. Sign in to API Publisher and click on the API that you want to change the thumbnail.
+   [![]({{base_path}}/assets/img/Learn/change-thumbnail-api-publisher-view.png)]({{base_path}}/assets/img/Learn/change-thumbnail-api-publisher-view.png) 
   
-2. Click on the ***Design Configurations*** from the left navigation panel and click on the API Thumbnail image.
-  [![](../../../assets/img/Learn/change-thumbnail-click-on-thumbnail.png)](../../../assets/img/Learn/change-thumbnail-click-on-thumbnail.png) 
-4. In the dialog box, select ***Upload*** radio button from the top panel and click on the Drop Zone to select an image
- for the thumbnail.
-  [![](../../../assets/img/Learn/change-thumbnail-click-upload.png)](../../../assets/img/Learn/change-thumbnail-click-upload.png) 
+2. Click **Design Configurations** and click on the API Thumbnail image.
+   [![]({{base_path}}/assets/img/Learn/change-thumbnail-click-on-thumbnail.png)]({{base_path}}/assets/img/Learn/change-thumbnail-click-on-thumbnail.png) 
+3. Click **Upload** and click on the Drop Zone to select an image for the thumbnail.
+    [![]({{base_path}}/assets/img/Learn/change-thumbnail-click-upload.png)]({{base_path}}/assets/img/Learn/change-thumbnail-click-upload.png) 
  
-5. Click on ***Upload*** to save the newly uploaded thumbnail.
-  [![](../../../assets/img/Learn/change-thumbnail-image-click-upload.png)](../../../assets/img/Learn/change-thumbnail-image-click-upload.png) 
+5. Click **Upload** to save the newly uploaded thumbnail.
+     [![]({{base_path}}/assets/img/Learn/change-thumbnail-image-click-upload.png)]({{base_path}}/assets/img/Learn/change-thumbnail-image-click-upload.png) 
   
-    The newly updated image is applied as the api thumbnail.
+    The newly added image appears as the API thumbnail.
     
-    <img src="../../../../assets/img/Learn/change-thumbnail-api-updated.png" height="250"/>
+    <img src="{{base_path}}/assets/img/Learn/change-thumbnail-api-updated.png" height="250"/>
       
 ## Design a new API Thumbnail
 
-Follow the steps 1 - 3 of the above section.
+1. Follow [steps 1 - 3 under Upload new API thumbnail](#Upload-new-API-thumbnail).
 
-4. Select ***Design*** from the top panel of the dialog box.
-    [![](../../../assets/img/Learn/change-thumbnail-design.png)](../../../assets/img/Learn/change-thumbnail-design.png) 
+2. Click **Design**.
+    [![]({{base_path}}/assets/img/Learn/change-thumbnail-design.png)]({{base_path}}/assets/img/Learn/change-thumbnail-design.png) 
     
-5. Select an icon, color and background for the thumbnail.
+4. Select an icon, color, and background for the thumbnail.
     
-    - ***Category***
+    - **Category**
         
-        Select the icon category. Currently API Publisher supports following categories.
+        Select the icon category. Currently, the API Publisher supports the following categories.
         
-        <img src="../../../../assets/img/Learn/change-thumbnail-icon-types.png" height="300"/>
+        <img src="{{base_path}}/assets/img/Learn/change-thumbnail-icon-types.png" height="300"/>
 
-    - ***Icon Color***
+    - **Icon Color**
         
         Select the icon color from the color picker.
     
-        <img src="../../../../assets/img/Learn/change-thumbnail-select-color.png" height="250"/>
+        <img src="{{base_path}}/assets/img/Learn/change-thumbnail-select-color.png" height="250"/>
         
-    - ***Background***
+    - **Background**
         
         Select the thumbnail background from the designs.
         
-        <img src="../../../../assets/img/Learn/change-thumbnail-select-background.png" height="150"/>
+        <img src="{{base_path}}/assets/img/Learn/change-thumbnail-select-background.png" height="150"/>
           
-6. After selecting the icon, color and the background, click on ***SAVE*** button to save the thumbnail.
-    [![](../../../assets/img/Learn/change-thumbnail-design-icon.png)](../../../assets/img/Learn/change-thumbnail-design-icon.png) 
+5. Click  **SAVE** to save the thumbnail.
+     [![change thumbnail design icon]({{base_path}}/assets/img/Learn/change-thumbnail-design-icon.png)]({{base_path}}/assets/img/Learn/change-thumbnail-design-icon.png) 
+     
+     The designed thumbnail appears as the API thumbnail.
 
-7. The API is updated with the designed thumbnail.
-
-    <img src="../../../../assets/img/Learn/change-thumbnail-design-icon-changed.png" height="250"/>
+     <img src="{{base_path}}/assets/img/Learn/change-thumbnail-design-icon-changed.png" height="250"/>
     
