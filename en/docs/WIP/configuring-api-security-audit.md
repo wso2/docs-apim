@@ -2,7 +2,7 @@
 
 API Security has become an important concern in recent times as organizations are more cautious about exposing raw, sensitive data via APIs. Therefore it is important that APIs adhere to the OpenAPI Specification (OAS) to ensure API security.
 
-WSO2 API-M has partnered with 42Crunch, the only enterprise API security platform, to bring in the ability to conduct a security audit on the Open API Specification definition and to obtain an audit report.
+WSO2 API-M has partnered with 42Crunch, the only enterprise API security platform, to bring in the ability to conduct a security audit on the OpenAPI Specification definition and to obtain an audit report.
 
 ## Enable the Audit API feature
 
@@ -70,7 +70,7 @@ Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file. Add the fol
 !!! tip
     For more information on creating a tenant, see [Managing Tenants](https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants).
 
-1.  Navigate to [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign In with your tenant credentials.
+1.  Navigate to [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with your tenant credentials.
 
 2.  Go to Main > Resources. Click on **Browse**.
 
@@ -135,7 +135,7 @@ This section provides:
 4.  Scores given to the Security and Data Validation sections.
 
 !!! info
-    OpenAPI Format Requirements are not taken into account whn calculating the score for the Audit Report.
+    OpenAPI Format Requirements are not taken into account when calculating the score for the Audit Report.
 
 #### OpenAPI Format Requirements
 
