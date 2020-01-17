@@ -12,7 +12,7 @@ The API Publisher of Tenant\_1, that is located in Node\_1, publishes an API to 
 
 -   API Developer Portal of Tenant\_2 in same node.
 -   API Developer Portal of Tenant\_3 in same node.
--   API Developer Portal of Tenant\_1 in Node 2
+-   API Developer Portal of Tenant\_1 in node 2.
 
 !!! note
 
