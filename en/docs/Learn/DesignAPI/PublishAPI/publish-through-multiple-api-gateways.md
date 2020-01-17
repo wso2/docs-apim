@@ -117,13 +117,10 @@ In a typical production environment, the Gateways will ideally be in separate se
 You have published an API to the API Developer Portals through multiple Gateway environments.
 
 !!! tip
-        If you have published your API through more than one Gateway,
-
-When you have generated keys for the Applications, the sample cURL command shows how to generate an access token using the Password Grant type provides the Gateway URL of the first published Gateway Environments listed in API Publisher as shown in the step 8.
-
-[![](../../../assets/img/Learn/generate-access-tokens.png)](../../../assets/img/Learn/generate-access-tokens.png)
-
-Change this gateway URL according to the Gateway that you want to publish the API if you are using this cURL command to generate access tokens.
+        If you have published your API through more than one Gateway, When you have generated keys for the Applications, the sample cURL command shows how to generate an access token using the Password Grant type provides the Gateway URL of the first published Gateway Environments listed in API Publisher as shown in the step 8.
+        [![](../../../assets/img/Learn/generate-access-tokens.png)](../../../assets/img/Learn/generate-access-tokens.png)
+        
+        Change this gateway URL according to the Gateway that you want to publish the API if you are using this cURL command to generate access tokens.
 
 !!! note
         If you wish to use the API-M pack that you used as the first instance to try-out other tutorials, please ensure to delete the API Gateway configurations that you added in step 5, and uncomment the default `[[apim.gateway.environment]]` configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file.

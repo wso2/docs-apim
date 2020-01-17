@@ -126,7 +126,7 @@ The above configuration includes the following important information:
 
     The state transition events that occur in the default API life cycle is shown in the following diagram:
 
-    ![]({{base_path}}/assets/attachments/103334766/103334771.png)
+    ![]({{base_path}}/Learn/APILifecycle/lifecycle_tab.png)
 The **Lifecycle** tab shows the current state of an API, the target events defined in the API life cycle for that state, and the set of checklist items.
 
 ![]({{base_path}}/assets/attachments/103334766/103334768.png)

@@ -289,6 +289,7 @@ nav:
             - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
             - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
+            - Create and Publish an AWS Lambda API: WIP/create-and-publish-awslambda-api.md
         - Extensions:
             - Managing Workflow Extensions:
                 - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
@@ -355,7 +356,11 @@ nav:
             - Deploying API Manager with Kubernetes or OpenShift Resources: SetupAndInstall/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring rsync for Deployment Synchronization: SetupAndInstall/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Configuring the Proxy Server and the Load Balancer: SetupAndInstall/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
-            - Minimum High Availability Deployment for WSO2 APIM Analytics: SetupAndInstall/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
+            - Configurring APIM Analytics High Availability Deployment:
+#                - Overview: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/overview.md
+                - Active-active: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/active_active.md
+                - Active-passive: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/active_passive.md
+#                - Data partitioning: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/data_partitioning.md
             - Configuring the keyStore and client trustStore for a Selected Pattern: SetupAndInstall/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
             - Deployment Guidelines:
                 - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md

@@ -13,6 +13,7 @@ An Endpoint is a specific destination for a message such as an address, WSDL, a 
 | Dynamic Endpoint        | Using dynamic endpoint type, the requests can be dynamically routed to an address, based on a specific condition (ex: request parameters, payload etc). When using this endpoint type, a mediation sequence should be applied to the message ***IN Flow*** of the API. For more details of configuring APIs to change the default mediation flow, see [Adding Mediation Extensions](../../Extensions/adding-mediation-extensions.md) . |
 | Prototype Endpoint      | Prototype endpoint is a type of HTTP Endpoint which can be used when Prototyping an API (for promoting and testing). Please refer [Deploy and Test Mock APIs](../MockAPI/deploy-and-test-mock-apis.md) for instructions. |
 | Prototype Implementation      | ***Prototype implementation*** in WSO2 API Manager uses the built in Javascript engine of Synapse to mock the responses and can be used per HTTP resource of the API. For more information on Prototype Implementation, please refer [Create a Mock API with an Inline Script](../MockAPI/create-a-mock-api-with-an-inline-script.md) for more information. |
+| AWS Lambda      | An AWS Lambda endpoint can be used to invoke AWS Lambda functions through WSO2 API Gateway. For more information on creating APIs with AWS Lambda endpoint, please refer [Create and Publish an AWS Lambda API]({{base_path}}/WIP/create-and-publish-awslambda-api). |
 
 !!!note
     - ***Prototype Endpoints*** and ***Prototype Implementation*** will be available only for the APIs which are in 
