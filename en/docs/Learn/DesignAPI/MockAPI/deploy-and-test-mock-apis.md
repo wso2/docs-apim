@@ -1,32 +1,39 @@
 # Deploy and Test Prototype APIs
 
-## Introduction
-An **API prototype** is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and provide feedback to improve. After a period of time, publishers can make changes that the users request and publish the API.
+You would need to create an API prototype for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and in-turn the subscribers can provide feedback to improve the API. After a period of time, the publishers can make changes that the users request and publish the API.
 
-## Deploy a Created API as a Prototype
+## Step 1 - Deploy a created API as a Prototype
 
 !!! note
-    The example here uses the API `PizzaShackAPI 2.0.0` , which was created by following the instructions in the
-    [create new version of an api](../APIVersioning/create-a-new-api-version.md) tutorial.
 
-1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and select the API (e.g., `PizzaShackAPI 2.0.0` ) that you want to prototype.
-[![](../../../assets/img/Learn/prototype-api-PizzaShack-publisher.png)](../../../assets/img/Learn/prototype-api-PizzaShack-publisher.png)
+    The example described in the following steps uses the `PizzaShackAPI 2.0.0` API. For more information on creating this API, see 
+    [Create a New API Version]({{base_path}}//Learn/DesignAPI/APIVersioning/create-a-new-api-version/).
 
-2. Click on ***Endpoints*** from the left navigation menu and select ***Prototype Endpoint*** radio button to select
- the prototype endpoint type.
- [![](../../../assets/img/Learn/prototype-api-select-endpoint-type.png)](../../../assets/img/Learn/prototype-api-select-endpoint-type.png)
-    and click on ***PROCEED*** in the ***Change Endpoint Type*** dialog box.
+1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 2.0.0`) that you want to prototype.
+     
+     [![PizzaShack API in the Publisher]({{base_path}}/assets/img/Learn/prototype-api-PizzaShack-publisher.png)]({{base_path}}/assets/img/Learn/prototype-api-PizzaShack-publisher.png)
+
+2. Click **Endpoints** and select **Prototype Endpoint** to select the prototype endpoint type.
+
+     [![Select endpoint]({{base_path}}/assets/img/Learn/prototype-api-select-endpoint-type.png)]({{base_path}}/assets/img/Learn/prototype-api-select-endpoint-type.png)
+
+3. Click **PROCEED**.
     
-    <img src="../../../../assets/img/Learn/prototype-api-change-endpoint-confirmation.png" width="400px" />
+     <img src="{{base_path}}/assets/img/Learn/prototype-api-change-endpoint-confirmation.png" width="400px" />
  
-2.  Enter the prototype endpoint for the API. In this example the same endpoint is used.
+4.  Enter the prototype endpoint for the API. 
 
-    Once the endpoint is added, click on ***SAVE*** button to save the api.
-    [![](../../../assets/img/Learn/prototype-api-endpoint-added.png)](../../../assets/img/Learn/prototype-api-endpoint-added.png)
+     Let's use the same endpoint in this example.
+
+     
+5. Click **SAVE**, after the endpoint is added, to save the API.
+
+     [![Add endpoint]({{base_path}}/assets/img/Learn/prototype-api-endpoint-added.png)]({{base_path}}/assets/img/Learn/prototype-api-endpoint-added.png)
     
 
-3.  Click the **Lifecycle** item from the left navigation panel of the API and click **Deploy as Prototype**.
-    [![](../../../assets/img/Learn/prototype-api-deploy-as-prototype.png)](../../../assets/img/Learn/prototype-api-deploy-as-prototype.png)
+6.  Click **Lifecycle** and click **Deploy as Prototype**.
+
+     [![Deploy API as a prototype in the lifecycle]({{base_path}}/assets/img/Learn/prototype-api-deploy-as-prototype.png)]({{base_path}}/assets/img/Learn/prototype-api-deploy-as-prototype.png)
 
     !!! note
         After creating a new version, you typically deploy it as a prototype for the purpose of testing and early promotion.
@@ -37,74 +44,75 @@ An **API prototype** is created for the purpose of early promotion and testing. 
         -   You can choose to deprecate old versions of this API at this stage by selecting the **Deprecate Old Versions** check box.
 
 
-4.  Sign in to the Developer Portal and click on the newly prototyped API `https://<hostname>:9443/devportal`. (Or
- click on the ***View in Dev Portal*** button in the api publisher.)
- [![](../../../assets/img/Learn/prototype-api-view-in-dev-portal.png)](../../../assets/img/Learn/prototype-api-view-in-dev-portal.png)
+4.  Click **View in Dev Portal** in the API Publisher to navigate to the Developer Portal.
+
+     [![View in Dev Portal]({{base_path}}/assets/img/Learn/prototype-api-view-in-dev-portal.png)]({{base_path}}/assets/img/Learn/prototype-api-view-in-dev-portal.png)
     
     !!! note
-        It is not necessary to log in to the Developer Portal to invoke prototyped APIs.
+        It is not necessary to sign in to the Developer Portal to invoke prototyped APIs.
 
-    [![](../../../assets/img/Learn/prototype-api-in-dev-portal.png)](../../../assets/img/Learn/prototype-api-in-dev-portal.png)
+    [![Prototyped API in Developer Portal]({{base_path}}/assets/img/Learn/prototype-api-in-dev-portal.png)]({{base_path}}/assets/img/Learn/prototype-api-in-dev-portal.png)
     
-    The APIs **Overview** page opens. Note that the Subscriptions are not allowed for this api.
+    The **Overview** page of the API appears. Note that the Subscriptions are not allowed for this API.
 
-    [![View overview of PizzaShackAPI 2.0.0](../../../assets/img/Learn/prototype-api-subscriptions-not-allowed.png)](../../../assets/img/Learn/prototype-api-subscriptions-not-allowed.png)
+    [![View overview of PizzaShackAPI 2.0.0]({{base_path}}/assets/img/Learn/prototype-api-subscriptions-not-allowed.png)]({{base_path}}/assets/img/Learn/prototype-api-subscriptions-not-allowed.png)
 
-5.  To invoke the Prototyped API, click the **Try Out** on the left navigation menu.
+5.  Click **Try Out** to invoke the Prototyped API. 
    
-    [![](../../../assets/img/Learn/prototype-api-try-out-menu.png)](../../../assets/img/Learn/prototype-api-try-out-menu.png)
+     [![Try-out menu of prototyped API]({{base_path}}/assets/img/Learn/prototype-api-try-out-menu.png)]({{base_path}}/assets/img/Learn/prototype-api-try-out-menu.png)
 
 
-6.  In the **API Console** of the prototyped API, expand the `GET /menu` method and click **Try it out**.
+6.  Expand the `GET /menu` method and click **Try it out** in the **API Console** of the prototyped API.
 
-    [![](../../../assets/img/Learn/prototype-api-menu-try-it-out.png)](../../../assets/img/Learn/prototype-api-menu-try-it-out.png)
+     [![Try-out menu of prototyped API]({{base_path}}/assets/img/Learn/prototype-api-menu-try-it-out.png)]({{base_path}}/assets/img/Learn/prototype-api-menu-try-it-out.png)
 
 
 7.  Click **Execute** to invoke the API.
-    [![](../../../assets/img/Learn/prototype-api-execute.png)](../../../assets/img/Learn/prototype-api-execute.png)
+
+     [![Invoke the API]({{base_path}}/assets/img/Learn/prototype-api-execute.png)]({{base_path}}/assets/img/Learn/prototype-api-execute.png)
+
     Note the response that appears in the console. You do not have to subscribe to the API or pass an authorization key to invoke a prototyped API.
     
-    [![](../../../assets/img/Learn/prototype-api-success-response.png)](../../../assets/img/Learn/prototype-api-success-response.png)
+    [![]({{base_path}}/assets/img/Learn/prototype-api-success-response.png)]({{base_path}}/assets/img/Learn/prototype-api-success-response.png)
 
-## Publish a Prototyped API.
+## Step 2 - Publish a Prototyped API
 
-To publishing a prototyped api with proper production/ sandbox endpoints (after testing and promotions), follow the
- instructions below.
- 
- Once published the api, users will need to subscribe and generate an access token to invoke the api. 
+After the API is published, the users need to subscribe and generate an access token to invoke the API.
 
-1. Goto the API Publisher and click on the Prototyped api that is required to Publish.
+Follow the instructions below to publish a prototyped API with proper production/sandbox endpoints (after testing and promotions): 
+
+1. Navigate to the API Publisher and click on the Prototyped API that you need to Publish.
     
-    [![](../../../assets/img/Learn/prototype-api-click-on-api.png)](../../../assets/img/Learn/prototype-api-click-on-api.png)
+     [![]({{base_path}}/assets/img/Learn/prototype-api-click-on-api.png)]({{base_path}}/assets/img/Learn/prototype-api-click-on-api.png)
     
-2. Goto the ***Lifecycle*** Page by clicking on the Lifecycle menu item from the left navigation panel and click on
- the ***DEMOTE TO CREATED*** button.
+2. Click **Lifecycle** and click **DEMOTE TO CREATED**.
 
-    [![](../../../assets/img/Learn/prototype-api-demote-to-created.png)](../../../assets/img/Learn/prototype-api-demote-to-created.png)
+     [![]({{base_path}}/assets/img/Learn/prototype-api-demote-to-created.png)]({{base_path}}/assets/img/Learn/prototype-api-demote-to-created.png)
 
-4. Check the Requirements section for Publish. 
+3. Check on the **Requirements** section, which lists out the requirements that need to be completed in order to Publish an API. 
 
     !!! tip
-        In the Lifecycle page, the requirements for the next lifecycle state change are listed in the right panel.
-        You can click the link button next to each requirement item to navigate to the corresponding page.
-        [![](../../../assets/img/Learn/api-lifecycle-requirements.png)](../../../assets/img/Learn/api-lifecycle-requirements.png)
+        The requirements for the next lifecycle state change are listed in the Requirements section.
+        If there are any requirements that you have not fulfilled, you can click on the link next to each item in the Requirement section to navigate to the corresponding page where you will be able to add the required details.
+        [![]({{base_path}}/assets/img/Learn/api-lifecycle-requirements.png)]({{base_path}}/assets/img/Learn/api-lifecycle-requirements.png)
         
         
     !!! note
-        In this scenario, the current endpoint is set as a prototype endpoint. In order to publish the api, Production / Sandbox endpoints should be provided.
+        In this scenario, the current endpoint is set as a prototype endpoint. Enter the Production/Sandbox endpoints to publish the API.
          
-    Go to the Endpoints Page by clicking on the Endpoints menu item (or the link icon next to Endpoints Provided in
-     the right panel)
-   [![](../../../assets/img/Learn/prototype-api-to-endpoints.png)](../../../assets/img/Learn/prototype-api-to-endpoints.png)
+4. Click **Endpoints**.
+
+     [![]({{base_path}}/assets/img/Learn/prototype-api-to-endpoints.png)]({{base_path}}/assets/img/Learn/prototype-api-to-endpoints.png)
  
-5. In the Endpoints page, select the Endpoint type.
-   [![](../../../assets/img/Learn/prototype-api-select-http-endpoint.png)](../../../assets/img/Learn/prototype-api-select-http-endpoint.png)
+5. Select the Endpoint type.
 
-6. Check the Production/ Sandbox check boxes, add the corresponding endpoint and click on ***SAVE*** button to save
- the api.
-   [![](../../../assets/img/Learn/prototype-api-to-publish-add-endpoint.png)](../../../assets/img/Learn/prototype-api-to-publish-add-endpoint.png)
+     [![]({{base_path}}/assets/img/Learn/prototype-api-select-http-endpoint.png)]({{base_path}}/assets/img/Learn/prototype-api-select-http-endpoint.png)
+
+6. Check the Production/Sandbox check boxes, add the corresponding endpoint, and click **SAVE** to save the API.
+
+     [![]({{base_path}}/assets/img/Learn/prototype-api-to-publish-add-endpoint.png)]({{base_path}}/assets/img/Learn/prototype-api-to-publish-add-endpoint.png)
    
-7. To Publish the API, goto the Lifecycle page and Click on ***PUBLISH*** Button.
+7. Click **Lifecycle** and click **PUBLISH** to Publish the API.
 
-    [![](../../../assets/img/Learn/prototype-api-publish.png)](../../../assets/img/Learn/prototype-api-publish.png)
+     [![]({{base_path}}/assets/img/Learn/prototype-api-publish.png)]({{base_path}}/assets/img/Learn/prototype-api-publish.png)
    
