@@ -1,6 +1,6 @@
 # Deploy and Test Prototype APIs
 
-Generally, you would need to create APIs with inline scripts for testing purposes. You can deploy a new API or a new version of an existing API as a prototype. Thereby, this provides subscribers an early implementation of the API that they can try out and test without a subscription or monetization, and provide feedback to improve the API. After a period of time, the publishers can make changes that the users requested and publish the API.
+You would need to create an API prototype for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription or monetization, and in-turn the subscribers can provide feedback to improve the API. After a period of time, the publishers can make changes that the users request and publish the API.
 
 ## Step 1 - Deploy a created API as a Prototype
 
