@@ -412,23 +412,17 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.5.0 version to API-M 3.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.0.0 version.
 
-4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the **WSO2UM_DB**.
+4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows to update the datasource name under the realm manager configurations in the `user-mgt.xml` file by pointing to the WSO2UM_DB.
 
     ```
-    "realm_manager": {
-        "data_source": "WSO2USER_DB",
-        "properties": {
-        "isCascadeDeleteEnabled": true,
-        "initializeNewClaimManager": true
-        }
-    }
+    [realm_manager]
+    data_source = "WSO2USER_DB"
     ```
+
+5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
     !!! info
         In API-M 3.0.0, you do not need to configure the registry configurations as you did in the `<OLD_API-M_HOME>/repository/conf/registry.xml` file and the user database configurations as you did in in the `<OLD_API-M_HOME>/repository/conf/user-mgt.xml` file, as those configurations have been handled internally.
-
-
-5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
 6.  Move all your Synapse configurations to API-M 3.0.0 pack.
     -   Move your Synapse super tenant configurations.

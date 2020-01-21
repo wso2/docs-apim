@@ -410,16 +410,11 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the WSO2UM_DB.
+4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows to update the datasource name under the realm manager configurations in the `user-mgt.xml` file by pointing to the WSO2UM_DB.
 
     ```
-    "realm_manager": {
-        "data_source": "WSO2USER_DB",
-        "properties": {
-        "isCascadeDeleteEnabled": true,
-        "initializeNewClaimManager": true
-        }
-    }
+    [realm_manager]
+    data_source = "WSO2USER_DB"
     ```
 
 5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
