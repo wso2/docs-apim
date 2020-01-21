@@ -410,7 +410,7 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows to update the datasource name under the realm manager configurations in the `user-mgt.xml` file by pointing to the WSO2UM_DB.
+4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
