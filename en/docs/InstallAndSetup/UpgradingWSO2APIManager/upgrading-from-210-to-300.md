@@ -413,16 +413,11 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.1.0 version to API-M 3.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.0.0 version.
 
-4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the WSO2UM_DB.
+4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
-    "realm_manager": {
-        "data_source": "WSO2USER_DB",
-        "properties": {
-        "isCascadeDeleteEnabled": true,
-        "initializeNewClaimManager": true
-        }
-    }
+    [realm_manager]
+    data_source = "WSO2USER_DB"
     ```
 
 5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
