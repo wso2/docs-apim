@@ -243,7 +243,7 @@ This should be done in the backend services in the Application Server or WSO2 ES
 
 ##### How can I enable self signup to the API Store?
 
-See [how to enable self signup](../Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md).
+See [how to enable self signup]({{base_path}}/Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enabling-or-disabling-self-signup/).
 
 ##### How can I disable self signup to the API Store? I want to engage my own approval mechanism.
 

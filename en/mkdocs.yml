@@ -294,7 +294,6 @@ nav:
                 - Configuring Single Sign-on with SAML2: Learn/Extensions/SAML2SSO/configuring-single-sign-on-with-saml2.md
                 - Configuring Identity Server as IDP for SSO: Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md
                 - Configuring External IDP through Identity Server for SSO: Learn/Extensions/SAML2SSO/configuring-external-idp-through-identity-server-for-sso.md
-            - Adding Mediation Extensions: Learn/Extensions/adding-mediation-extensions.md
             - Writing Custom Grant Types: Learn/Extensions/writing-custom-grant-types.md
             - Extending Key Validation: Learn/Extensions/extending-key-validation.md
             - Extending the Key Manager Interface: Learn/Extensions/extending-the-key-manager-interface.md
@@ -344,7 +343,6 @@ nav:
                     - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md
             - Changing the Hostname: InstallAndSetup/DeployingWSO2APIManager/changing-the-hostname.md
             - Changing the Default Ports with Offset: InstallAndSetup/DeployingWSO2APIManager/changing-the-default-ports-with-offset.md
-            - Configuring the keyStore and client trustStore for a Selected Pattern: InstallAndSetup/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
             - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
             - Configuring rsync for Deployment Synchronization: InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
@@ -428,7 +426,6 @@ nav:
             - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
             - Default Product Ports: Administer/ProductConfigurations/default-product-ports.md
             - Configuring Caching: Administer/ProductConfigurations/configuring-caching.md
-            - Configuring Keystores: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
             - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
         - Product Security:
