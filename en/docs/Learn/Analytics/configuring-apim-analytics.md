@@ -82,7 +82,7 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 2 - Download and install WSO2 API-M Analytics](#step-2-download-and-install-wso2-api-m-analytics)
 -   [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3-configure-wso2-api-manager-to-publish-statistics)
 -   [Step 4 - Configure databases](#step-4-configure-databases)
--   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-cleint)
+-   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
 -   [Step 6 - Configure keystores](#step-6-configure-keystores)
 
 #### Step 1 - Download and install WSO2 API-M
@@ -388,7 +388,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
           ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
       ```
 
-#### Step 5 - Configure APIM IdP Cleint
+#### Step 5 - Configure APIM IdP Client
 
 APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
 
