@@ -1,10 +1,8 @@
-# Building CI/CD Pipeline for WSO2 API-M 
-
-## CI/CD With WSO2 API Management
+# CI/CD with WSO2 API Manager
 
 APIs have become a defacto for connecting apps, services, and data. An organization can have multiple environments, such 
-as development, testing, QA, staging, and production, each with own instance of API managers. So the APIs need to be 
-available on each environment after developers specify conditions. Manually promoting APIs between environments is a 
+as development, testing, QA, staging, and production, each with own instance of API Managers. Therefore, the APIs need to be 
+available on each environment after developers specify the required conditions. Manually promoting APIs between environments is a 
 tedious, error-prone, and time-consuming task. This drastically reduces an organization’s productivity.
 
 WSO2 API Manager addresses the issue of API automation by providing a platform-agnostic, developer-centric solution. 
@@ -16,9 +14,7 @@ address modern requirements for automating API deployments.
 [![]({{base_path}}/assets/img/Learn/APIController/ci-cd-pipeline-for-apis-with-wso2-apim.png)]({{base_path}}/assets/img/Learn/APIController/ci-cd-pipeline-for-apis-with-wso2-apim.png)
 
 Continuous integration and continuous deployment for APIs is an open-ended scenario; different organizations have 
-different ways of addressing the problem. We have focus on discussing a generic solution that involves a minimum number 
-of parties in an organization for API automation. Although the diagram shows three parties, there could be more or less, 
-depending on the organization’s structure.
+different ways of addressing the problem. The above diagram depicts a generic solution that involves a minimum number of parties in an organization for API automation. Although the diagram shows three parties, there could be more or less, depending on the organization’s structure.
 
 -   API Developers: Develop APIs and related services
 -   API Publishers: Publish APIs to users
@@ -32,7 +28,7 @@ environment-related configurations and can promote the API seamlessly to other e
 
 Let us check out the basic building blocks for creating a CI/CD pipeline with WSO2 API-M.
 
-### Preparing Environments
+## Preparing Environments
 
 1.  Download and install WSO2 API Manager 3.0 in your environments. For more information, visit [here]({{base_path}}/InstallAndSetup/InstallationGuide/installation-prerequisites/).
 
@@ -55,7 +51,7 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
     For more information on adding environments, visit [here]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#add-an-environment). 
 
-### Creating & Publishing API in Lower Environment
+## Creating & Publishing API in Lower Environment
 
 Now we have to added two different environments. Our end goal is to automate the API migration between dev and prod 
 environments. So first the API shoulbe be published in dev environment using Publisher UI of API Manager. 
@@ -78,7 +74,7 @@ For this example, we are gonna use the [Swagger Petstore API](https://petstore.s
     [![]({{base_path}}/assets/img/Learn/APIController/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/Learn/APIController/prod-dev-endpoints-petstore-api.png)
 
 
-### Exporting API from Lower Environment
+## Exporting API from Lower Environment
 
 The **apictl** can export an API as an archive from a lower environment, which contains all the information to recreate the API on another upper environment.
 
@@ -114,7 +110,7 @@ The **apictl** can export an API as an archive from a lower environment, which c
 
   For more information on exporting APIs, visit [Export an API]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#export-an-api).
 
-### Preparing an API Project for CI/CD
+## Preparing an API Project for CI/CD
 
 1.  After exporting the API as an archive, extract the content (API will be be exported as an archive to 
 `<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory called 
@@ -161,7 +157,7 @@ required and provide as a flag with `import-api` command.
 
 4.  Now we can commit this project to a version control system.        
 
-### Importing API to Upper Environment
+## Importing API to Upper Environment
 
 The Automation Server can be configured to run a specific pipeline for promoting artifacts to other environments. 
 The DevOps team can develop this pipeline further to include automated tests, workflow approvals, and other tasks.  
@@ -216,7 +212,7 @@ also see the API is in the published state too.
     -   For example, if an API is in the Published state in the development environment, it will also be in the same state 
     in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
 
-### Swagger/OpenAPI-based API CI/CD
+## Swagger/OpenAPI-based API CI/CD
 
 WSO2 API Manager supports OpenAPI/Swagger specifications to create APIs. The **apictl** can generate projects with Swagger/OpenAPI specifications without using API-M Publisher. This powerful feature can be used to design pipelines that depend on Swagger/OpenAPI specifications.   
 
