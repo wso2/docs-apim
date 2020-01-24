@@ -91,6 +91,20 @@ The **apictl** can export an API as an archive from a lower environment, which c
 
     For more information on login to environments, visit [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
+    !!! warning
+        -   A user with `admin` role is allowed to export APIs.
+        -   A user with any role [`custom_role`] having either one of the `API Create` or `API Publish` permissions (along with `Login` permission) can be allowed to export APIs by following the below steps,
+            1. Login in as tenant admin user to the management console of the API-M. 
+            2. Browse the registry for `/_system/config/apimgt/applicationdata/tenant-conf.json` resource to edit the content.
+            3. Update the `RESTAPIScopes` json field with the following,
+                ```bash
+                {...
+                    "Name": "apim:api_import_export",
+                    "Roles": "admin, custom_role"
+                ...},
+                ``` 
+            4. Restart the server or, wait for 15mins till registry cache get expired.
+
 2. Then we can export the API from the lower environment using `export-api` command.
 
     !!! example
@@ -139,9 +153,7 @@ required and provide as a flag with `import-api` command.
         such as retry/suspend timeouts, gateway environments etc, in `api_params.yaml`.  
         - Backend certificates for each URL can be configured. For certificates, a valid path to the certificate file is 
         required. They can be stored in the Automation Server.
-        - The apictl supports detecting environment variables defined in usual notation. If an environment variable is 
-        not set, the tool will fail and request for a set of required environment variables on the system. This is to 
-        ensure that information is not missing during the migration process.
+        - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail and request for a set of required environment variables on the system. This is to ensure that information is not missing during the migration process.
         - We recommend keeping API and environment-specific parameters in separate repositories.
         - For more information on using an environment parameter file, refer 
         [Configuring Environment Specific Parameters]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#configuring-environment-specific-parameters).
@@ -154,14 +166,30 @@ required and provide as a flag with `import-api` command.
 The Automation Server can be configured to run a specific pipeline for promoting artifacts to other environments. 
 The DevOps team can develop this pipeline further to include automated tests, workflow approvals, and other tasks.  
 
-The **apictl** tool should be installed in automation servers to begin the process. Since the tool supports a variety of platforms, including Linux/Windows and macOS, this can be done easily. The apictl tool supports importing API Projects via the `import-api` command. This command is mainly used in the pipeline to migrate to different environments.
+The **apictl** tool should be installed in automation servers to begin the process. Since the tool supports a variety of platforms, including Linux/Windows and macOS, this can be done easily. The **apictl** tool supports importing API Projects via the `import-api` command. This command is mainly used in the pipeline to migrate to different environments.
 
-1.  We can try out importing SwaggerPetstore API into the production environment and test if the API works. To do this,
+1.  We can try out importing `SwaggerPetstore` API into the production environment and test if the API works. To do this,
     execute the following sample command,
 
     !!! warning
         Make sure you have already logged-in to the `prod` environment. For more information, refer 
         [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#login-to-an-environment).
+
+        -   A user with `admin` role is allowed to import APIs.
+        -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login` permission) can be allowed to import APIs by following the below steps,
+            1. Login in as tenant admin user to the management console of the API-M. 
+            2. Browse the registry for `/_system/config/apimgt/applicationdata/tenant-conf.json` resource to edit the content.
+            3. Update the `RESTAPIScopes` json field with the following,
+                ```bash
+                {...
+                    "Name": "apim:api_import_export",
+                    "Roles": "admin, custom_role"
+                ...},
+                ``` 
+            4. Restart the server or, wait for 15mins till registry cache get expired.
+        -   If the `custom_role` only have `API Create` permissions, then the user with the `custom_role` can import APIs only which are in `CREATED` state.
+        -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have both `API Create` and `API Publish` permissions.
+        -   A user having the `custom_role` with only `API Publish` permission, cannot import an API.         
 
     !!! example
         ```bash
@@ -183,16 +211,14 @@ environment-related details.
 3. You can investigate that the API has been imported with correct environment-specific details you defined and you can 
 also see the API is in the published state too.
 !!! info  
-    -   When exporting an API, the apictl tool will also export the API’s lifecycle status. When importing to another 
-    environment, this lifecycle status will be preserved. This ensures that the API has the same state across environments. 
+    -   When exporting an API, the **apictl** tool will also export the API’s lifecycle status. When importing to another environment, this lifecycle status will be preserved. This ensures that the API has the same state across environments. 
     
     -   For example, if an API is in the Published state in the development environment, it will also be in the same state 
-    in the testing environment. This default behavior can be changed via the apictl tool, which assigns APIs the Created 
-    state after importing. 
+    in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
 
 ### Swagger/OpenAPI-based API CI/CD
 
-WSO2 API Manager supports OpenAPI/Swagger specifications to create APIs. The apictl can generate projects with Swagger/OpenAPI specifications without using API-M Publisher. This powerful feature can be used to design pipelines that depend on Swagger/OpenAPI specifications.   
+WSO2 API Manager supports OpenAPI/Swagger specifications to create APIs. The **apictl** can generate projects with Swagger/OpenAPI specifications without using API-M Publisher. This powerful feature can be used to design pipelines that depend on Swagger/OpenAPI specifications.   
 
 Based on API Project generation, a powerful pipeline for API automation can be developed with OpenAPI/Swagger. 
 It allows rapid API development and increases developer productivity.
@@ -207,10 +233,9 @@ For more information, on initializing an API Project using OpenAPI/Swagger Speci
 [![]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)
 
 !!! info
-    - This generates an API project in the PetstoreAPI directory using provided specification. This project can be directly 
+    - This generates an API project in the `PetstoreAPI` directory using provided specification. This project can be directly 
     imported into the API Manager.
-    - The apictl allows further customization to project initialization using a template file. Organization-specific 
-    common details can be put into this template file and shared across developers to increase productivity.
+    - The **apictl** allows further customization to project initialization using a template file. Organization-specific common details can be put into this template file and shared across developers to increase productivity.
     - To further finetune API creation, an additional API Definition file can be used. This definition file supports detecting environment variables during the creation process. It can be combined with scripting to develop powerful tools for 
     automating API Project creation.
     - With this, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By combining 
@@ -218,11 +243,10 @@ For more information, on initializing an API Project using OpenAPI/Swagger Speci
     specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
     - For example, when an organization depends on microservices architecture, this method can be utilized to create an automated pipeline to take Swagger/OpenAPI specification to upper environments.
 
-Now you know the building blocks of creating a CI/CD pipeline using apictl. By using the above, you can create 
+Now you know the building blocks of creating a CI/CD pipeline using **apictl**. By using the above, you can create 
 an automated pipeline for API promotion between environments for any preferred approach. 
 
-Let us see how we can use the above knowledge to create a Jenkins CI/CD Pipeline with WSO2 API Management for Dev First
-Approach.
+Let us see how we can use the above knowledge to create a **Jenkins CI/CD Pipeline with WSO2 API Management for Dev First Approach**.
 
 -   [Building a Jenkins CI/CD Pipeline for Dev First Approach]({{base_path}}/Learn/APIController/building-jenkins-ci-cd-pipeline-for-dev-first-approach/)
 

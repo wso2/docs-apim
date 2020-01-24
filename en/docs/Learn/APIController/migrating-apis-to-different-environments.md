@@ -15,9 +15,23 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     For more information, visit [Add an Environment](../getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! warning
-    -  Only the following types of users are allowed to export and import APIs.  
-        -   A user with the `admin` role.
-        -   A user with a role having `apim:api_import_export` Admin REST API scope.
+    -   A user with `admin` role is allowed to export and import APIs.
+    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (alogn with `Login`
+    permission) can be allowed to export and import APIs by following the below steps,
+        1. Login in as tenant admin user to the management console of the API-M. 
+        2. Browse the registry for `/_system/config/apimgt/applicationdata/tenant-conf.json` resource to edit the content.
+        3. Update the `RESTAPIScopes` json field with the following,
+            ```bash
+            {...
+                "Name": "apim:api_import_export",
+                "Roles": "admin, custom_role"
+            ...},
+            ``` 
+        4. Restart the server or, wait for 15mins till registry cache get expired.
+    -   To export APIs, the `custom_role` should have either one of the `API Create` and `API Publish` permissions.     
+    -   If the `custom_role` only have `API Create` permissions, then the user with the `custom_role` can import APIs ONLY which are in `CREATED` state.
+    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH `API Create` and `API Publish` permissions.
+    -   A user having the `custom_role` with only `API Publish` permission, CANNOT import an API.     
 
 ### Export an API
 

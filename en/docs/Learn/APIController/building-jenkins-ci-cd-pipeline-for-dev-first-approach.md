@@ -7,8 +7,6 @@ WSO2 API Management environment without accessing the Publisher Portal directly.
 
 Let's see how we can create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. We are using Postman to write the test scripts to test the API deployed in WSO2 API Manager.
 
-[![]({{base_path}}/assets/img/Learn/APIController/ci-cd-for-dev-first-approach.png)]({{base_path}}/assets/img/Learn/APIController/ci-cd-for-dev-first-approach.png)
-
 ## Prerequisites
 
 1.  Install Jenkins from [here](https://jenkins.io/doc/book/installing/).
@@ -31,6 +29,8 @@ developer machines. For more information, visit [here]({{base_path}}/Learn/APICo
 
 
 ## Building the Pipeline
+
+[![]({{base_path}}/assets/img/Learn/APIController/ci-cd-for-dev-first-approach.png)]({{base_path}}/assets/img/Learn/APIController/ci-cd-for-dev-first-approach.png)
 
 1.  **As the API Developer, first write the OpenAPI Specification for the backend API and write the     test scripts to test 
 the API in lower WSO2 API-M environments**
@@ -81,7 +81,8 @@ the API in lower WSO2 API-M environments**
         -   We have kept the context field blank, as we want to automatically derive the context using API name followed by 
             version. 
         -   The API Status value is given as an environment variable, `$STATE`. Before initializing the API Project, 
-            developer needs to set up the environment variable $STATE in the OS using the command, `export STATE=PUBLISHED`.
+            developer needs to set up the environment variable `$STATE` in the OS using the command,   
+            `export STATE=PUBLISHED`.
 
 3. **Update API data in the API Project**
 
@@ -89,8 +90,7 @@ the API in lower WSO2 API-M environments**
     of the SampleStore API Project.   
 
     !!! info
-        -   After initializing an API project, the developer can update the created API project files to add an API thumbnail, 
-        API documentation, Custom meditations, etc. In this tutorial, we will add a thumbnail for the API.
+        -   After initializing an API project, the developer can update the created API project files to add an API thumbnail, API documentation, Custom meditations, etc. In this tutorial, we will add a thumbnail for the API.
 
         -   Similarly, developers can add any additional meta information to the api.yaml and add API documentation, 
         custom mediations to the same API project.
@@ -107,18 +107,15 @@ the API in lower WSO2 API-M environments**
         -   When there are multiple environments, to allow easily configuring environment-specific details, **apictl** 
         supports an additional parameter file.
 
-        -   Once the file is placed in the project directory, the tool will auto-detect the parameters file upon running the 
-        `import-api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in 
-        the project directory, the tool will lookup in the project’s base path and the current working directory.
+        -   Once the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import-api` command and create an environment-based artifact for API Manager. 
+        -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
         -   For more information on using an environment template, visit 
         [Configure Environment Specific Details]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#configure-environment-specific-details). 
 
     !!! tip
         The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 
-        single variable based on the environment type.
-
-    
+        single variable based on the environment type. 
 
 5. **Commit the API Project with Test Scripts to Github Repository**
 
