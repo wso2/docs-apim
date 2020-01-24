@@ -13,8 +13,7 @@ OSGI bundle is a tightly coupled, dynamically loadable collection of classes, ja
 
 -   [API-M Profiles](#ProductProfiles-API-MProfiles)
 -   [Starting an API-M profile](#ProductProfiles-StartinganAPI-Mprofile)
-    -   [Method 1- Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
-    -   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
+    -   [Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
 -   [How multi-profiling works](#ProductProfiles-Howmulti-profilingworks)
 
 ### API-M Profiles
@@ -82,14 +81,13 @@ The following are the different profiles available in WSO2 API Manager.
 
 You can start an API Manager profile in the following methods, based on your requirement
 
--   [Method 1- Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
--   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
+-   [Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
 
 !!! info
 It is recommended to start the components in the following order: Key Manager, Publisher, Developer Portal, Traffic Manager, and Gateway.
 
 
-#### Method 1- Optimizing before starting the server
+#### Optimizing and starting the server
 
 Create an optimized distribution for a particular API-M profile.
 
@@ -102,7 +100,7 @@ Create an optimized distribution for a particular API-M profile.
         sh <PRODUCT_HOME>/bin/profileSetup.sh  -Dprofile=<preferred-profile>
     ```
 
-    **Starting the Publisher profile**
+    **Optimizing the Publisher profile**
 
     ``` java
             sh <PRODUCT_HOME>/bin/profileSetup.sh  -Dprofile=api-publisher 
@@ -121,23 +119,6 @@ Create an optimized distribution for a particular API-M profile.
 
     ``` java
             sh <PRODUCT_HOME>/bin/wso2server.sh -Dprofile=api-publisher
-    ```
-
-#### Method 2 - Optimizing while starting the server
-
-1.  Start the server using the script based on your operating system, using the command given below.
-
-    -   [**Sample commands**](#8480e9325dec42eb82f98b679afa8816)
-    -   [**Example**](#88dfa68c4bb148ac8afc74a1fd49607c)
-
-    ``` java
-            sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile>
-    ```
-
-    **Starting the Publisher profile**
-
-    ``` java
-            sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher
     ```
 
     ??? info "Click here to see the sample output when you start the Publisher profile."
@@ -164,21 +145,7 @@ Create an optimized distribution for a particular API-M profile.
                 Starting the server...
         ```
 
-!!! note
-    Note that registry indexing for the Traffic Manager and Gateway worker profiles are disabled when you run the profile optimization. To enable registry indexing, open the `<PRODUCT_HOME>/repository/conf/registry.xml` file. Set the value of the `<startIndexing>` parameter in the `<indexingConfiguration>` section to true as shown below.
-
-    ``` java
-        <indexingConfiguration>
-        <startIndexing>true</startIndexing>
-        . . .
-        </indexingConfiguration>
-    ```
 
 
-### How multi-profiling works
-
-Starting a product on a preferred profile starts only a subset of features bundled in the product. In order to identify what feature bundles apply to which profile, each product maintains a set of `bundles.info` files in the `<PRODUCT_HOME>/repository/components/<profile-name>/configuration/org.eclipse.equinox.simpleconfigurator` directories. The `bundles.info` files contain references to the actual bundles. Note that `<profile-name>` in the directory path refers to the name of the profile. For example, when there's a product profile named webapp, references to all the feature bundles required for webapp profile to function are in a `bundles.info` file saved in the `<PRODUCT_HOME>/repository/components/webapp/configuration/org.eclipse.equinox.simpleconfigurator` directory.
-
-Note that when you start the server without using a preferred profile, the server refers to the `<PRODUCT_HOME>/repository/components/default/configuration/org.eclipse.equinox.simpleconfigurator/bundles.info` file by default. This file contains references to all bundles in the `<PRODUCT_HOME>/repository/components/plugins` directory, which is where all components/bundles of a product are saved.
 
 
