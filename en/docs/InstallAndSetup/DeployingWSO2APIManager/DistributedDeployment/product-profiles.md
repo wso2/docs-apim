@@ -83,7 +83,6 @@ The following are the different profiles available in WSO2 API Manager.
 You can start an API Manager profile in the following methods, based on your requirement
 
 -   [Method 1- Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
--   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
 
 !!! info
 It is recommended to start the components in the following order: Key Manager, Publisher, Developer Portal, Traffic Manager, and Gateway.
@@ -121,23 +120,6 @@ Create an optimized distribution for a particular API-M profile.
 
     ``` java
             sh <PRODUCT_HOME>/bin/wso2server.sh -Dprofile=api-publisher
-    ```
-
-#### Method 2 - Optimizing while starting the server
-
-1.  Start the server using the script based on your operating system, using the command given below.
-
-    -   [**Sample commands**](#8480e9325dec42eb82f98b679afa8816)
-    -   [**Example**](#88dfa68c4bb148ac8afc74a1fd49607c)
-
-    ``` java
-            sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile>
-    ```
-
-    **Starting the Publisher profile**
-
-    ``` java
-            sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher
     ```
 
     ??? info "Click here to see the sample output when you start the Publisher profile."
