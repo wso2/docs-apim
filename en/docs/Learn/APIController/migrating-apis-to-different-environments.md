@@ -15,9 +15,23 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     For more information, visit [Add an Environment](../getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! warning
-    -  Only the following types of users are allowed to export and import APIs.  
-        -   A user with the `admin` role.
-        -   A user with a role having `apim:api_import_export` Admin REST API scope.
+    -   A user with `admin` role is allowed to export and import APIs.
+    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (alogn with `Login`
+    permission) can be allowed to export and import APIs by following the below steps,
+        1. Login in as tenant admin user to the management console of the API-M. 
+        2. Browse the registry for `/_system/config/apimgt/applicationdata/tenant-conf.json` resource to edit the content.
+        3. Update the `RESTAPIScopes` json field with the following,
+            ```bash
+            {...
+                "Name": "apim:api_import_export",
+                "Roles": "admin, custom_role"
+            ...},
+            ``` 
+        4. Restart the server or, wait for 15mins till registry cache get expired.
+    -   To export APIs, the `custom_role` should have either one of the `API Create` and `API Publish` permissions.     
+    -   If the `custom_role` only have `API Create` permissions, then the user with the `custom_role` can import APIs ONLY which are in `CREATED` state.
+    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH `API Create` and `API Publish` permissions.
+    -   A user having the `custom_role` with only `API Publish` permission, CANNOT import an API.     
 
 ### Export an API
 
@@ -200,62 +214,62 @@ You can use the API archive exported from the previous section and import it to 
         !!! tip
             You must add the flag `--preserve-provider` to the CTL command and set its value to false if the API is imported to a different domain than its exported one. So it sets the provider of the imported API to the user who is issuing the CTL command. 
 
-    !!! note
-        **Configuring Environment Specific Details while Importing API**
+##### Configuring Environment Specific Parameters
+When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments.
 
-        When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments.
+To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. Following is the structure of the parameter file.
 
-        To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. Following is the structure of the parameter file.
+```go
+environments:
+    - name: <environment_name>
+        endpoints:
+        production:
+            url: <production_endpoint_url>
+            config:
+            retryTimeOut: <no_of_retries_before_suspension>
+            retryDelay: <retry_delay_in_ms>
+            factor: <suspension_factor>
+        sandbox:
+            url: <sandbox_endpoint_url>
+            config:
+            retryTimeOut: <no_of_retries_before_suspension>
+            retryDelay: <retry_delay_in_ms>
+            factor: <suspension_factor>
+        gatewayEnvironments:
+        - <gateway_environment_name>           
+        certs:
+        - hostName: <endpoint_url>
+            alias: <certificate_alias>
+            path: <certificate_file_path>
+```
+When running the `import-api` command, CTL tool will lookup the `api_params.yaml` file in the current location of archive. If not present, it will lookup the file in the current working directory. 
 
-        ```go
-        environments:
-            - name: <environment_name>
-              endpoints:
-                production:
-                  url: <production_endpoint_url>
-                  config:
-                    retryTimeOut: <no_of_retries_before_suspension>
-                    retryDelay: <retry_delay_in_ms>
-                    factor: <suspension_factor>
-                sandbox:
-                  url: <sandbox_endpoint_url>
-                  config:
-                    retryTimeOut: <no_of_retries_before_suspension>
-                    retryDelay: <retry_delay_in_ms>
-                    factor: <suspension_factor>
-              gatewayEnvironments:
-                - <gateway_environment_name>           
-              certs:
-                - hostName: <endpoint_url>
-                  alias: <certificate_alias>
-                  path: <certificate_file_path>
-        ```
-        When running the `import-api` command, CTL tool will lookup the `api_params.yaml` file in the current location of archive. If not present, it will lookup the file in the current working directory. 
+Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
 
-        Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
-        ```go
-        apictl import-api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
-        ```
+!!! example
+    ```go
+    apictl import-api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
+    ```
+!!! note
+    **Add Dynamic Data to Environment Configs**
 
-        **Add Dynamic Data to Environment Configs**
+    The above parameter file supports detecting environment variables during the API import process. You can use the usual notation. For eg: `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
 
-        The above parameter file supports detecting environment variables during the API import process. You can use the usual notation. For eg: `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
+    In runtime, the CTL look will inject the environment variable values and merge the related environment configs in the parameter file with the API artifact.
 
-        In runtime, the CTL look will inject the environment variable values and merge the related environment configs in the parameter file with the API artifact.
+!!! info
+    Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.
 
-    !!! info
-        Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.
+!!! tip
+    **Troubleshooting**  
+        
+    After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-    !!! tip
-        **Troubleshooting**  
-            
-        After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
+    1.  Shut down the API Manager 3.0.0, backup and delete the `<API-M_3.0.0_HOME>/solr` directory
+        
+    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-        1.  Shut down the API Manager 3.0.0, backup and delete the `<API-M_3.0.0_HOME>/solr` directory
-            
-        2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.0.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
-
-        3.  Restart API Manager 3.0.0 server.
+    3.  Restart API Manager 3.0.0 server.
 
 ### Import/Export APIs in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing APIs between tenanted environments.

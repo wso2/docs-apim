@@ -231,6 +231,24 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     
     -   Make sure you have logged-in to the importing environment. If not follow steps in [Login to an Environment](../getting-started-with-wso2-api-controller#login-to-an-environment). 
 
+
+!!! warning
+    -   A user with `admin` role is allowed to import APIs.
+    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login` permission) can be allowed to import APIs by following the below steps,
+        1. Login in as tenant admin user to the management console of the API-M. 
+        2. Browse the registry for `/_system/config/apimgt/applicationdata/tenant-conf.json` resource to edit the content.
+        3. Update the `RESTAPIScopes` json field with the following,
+            ```bash
+            {...
+                "Name": "apim:api_import_export",
+                "Roles": "admin, custom_role"
+            ...},
+            ``` 
+        4. Restart the server or, wait for 15mins till registry cache get expired.
+    -   If the `custom_role` ONLY have `API Create` permissions, then the user with the `custom_role` can import APIs ONLY which are in `CREATED` state.
+    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH `API Create` and `API Publish` permissions.
+    -   A user having the `custom_role` with ONLY `API Publish` permission, cannot import an API.    
+
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
 
 -   **Command**
