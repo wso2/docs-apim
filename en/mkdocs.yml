@@ -275,7 +275,7 @@ nav:
             - Importing APIs Via Dev First Approach: Learn/APIController/importing-apis-via-dev-first-approach.md
             - Migrating APIs to Different Environments: Learn/APIController/migrating-apis-to-different-environments.md
             - Migrating Apps to Different Environments: Learn/APIController/migrating-applications-to-different-environments.md
-            - CI/CD With WSO2 API Management: Learn/APIController/ci-cd-with-wso2-api-management.md
+            - CI/CD with WSO2 API Manager: Learn/APIController/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: Learn/APIController/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
         - Tutorials:
             - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
