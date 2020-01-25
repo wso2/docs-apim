@@ -195,7 +195,7 @@ The **apictl** tool should be installed in the automation servers to begin the p
             4. Restart the server or wait for 15 mins until the registry cache expires.
         -   If the `custom_role` only has the `API Create` permissions, then the user with that `custom_role` can import APIs only that are in the `CREATED` state.
         -   To import an API by updating/changing the lifecycle state, the user with a `custom_role` should have both `API Create` and `API Publish` permissions.
-        -   A user that has a `custom_role` with only the `API Publish` permission, cannot import an API.         
+        -   A user that has the `custom_role` with only the `API Publish` permission cannot import an API.         
 
     !!! example
         ```bash
