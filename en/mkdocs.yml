@@ -363,8 +363,6 @@ nav:
                 - Changing to IBM DB2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
                 - Changing to Remote H2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
                 - Changing to Oracle RAC: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
-                - Changing to Embedded Derby: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
-                - Changing to IBM Informix: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
         - Product Compatibility: InstallAndSetup/ProductCompatibility.md
         - Performance Tuning:
               - Tuning Performance: InstallAndSetup/PerfromanceTuningAndTestResults/tuning-performance.md
