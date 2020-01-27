@@ -20,13 +20,34 @@ different ways of addressing the problem. The above diagram depicts a generic so
 -   API Publishers: Publish APIs to users
 -   DevOps: Control the deployment process
 
-API Developers and Publishers work with a version control system, which acts as a single source of truth for the pipeline. 
+API Developers and Publishers work with a version control system, which acts as a single source of truth for the pipeline.   
+
+## API Publisher based CI/CD
+
 API Developers can use WSO2 API Manager's Publisher to create APIs. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. After APIs are exported from one environment, promoting it to the other environment is done via the `apictl`. It is capable of handling 
-environment-related configurations and can promote the API seamlessly to other environments via a single command.  
+environment-related configurations and can promote the API seamlessly to other environments via a single command.
 
-Let us check out the basic building blocks for creating a CI/CD pipeline with WSO2 API-M.
 
-## Preparing Environments
+**To migrate the existing APIs using the API Publisher via CI/CD** carry out the steps mentioned in <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, and <a href="#F">F</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
+
+## Dev First based approach based CI/CD
+
+WSO2 API Manager supports OpenAPI/Swagger specifications to create APIs. The **apictl** can generate projects with Swagger/OpenAPI specifications without using the API Publisher in WSO2 API Manager. This powerful feature can be used to design pipelines that depend on Swagger/OpenAPI specifications.   
+
+Based on the API Project generation, a powerful pipeline for API automation can be developed using OpenAPI/Swagger. This allows rapid API development and increases developer productivity.
+
+[![]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)
+
+
+**To migrate APIs using the Developer First approach via CI/CD** carry out <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a></a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
+
+_________________
+## Building blocks for creating a CI/CD pipeline
+
+Let us check out the basic building blocks for creating a CI/CD pipeline with WSO2 API-M in sequential order.
+
+<a name="A"></a>
+### (A.) - Prepare the environments
 
 1.  Download and install WSO2 API Manager 3.0 in your environments.
      
@@ -53,7 +74,8 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
     For more information, see [Add an environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#add-an-environment). 
 
-## Creating and Publishing an API in a Lower Environment
+<a name="B"></a>
+### (B.) - Create and Publish an API in a lower environment
 
 Now, you have added two different environments. Our end goal is to automate the API migration between the `dev` and `prod` environments. Therefore, first, the API should be published in the `dev` environment using the API Publisher in WSO2 API Manager. 
 For more information on deploying an API in the API Manager, see the [Quick Start Guide](http://localhost:8000/GettingStarted/quick-start-guide/).   
@@ -81,8 +103,8 @@ For this example, let's use the [Swagger Petstore API](https://petstore.swagger.
 
      [![]({{base_path}}/assets/img/Learn/APIController/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/Learn/APIController/prod-dev-endpoints-petstore-api.png)
 
-
-## Exporting an API from a Lower Environment
+<a name="C"></a>
+### (C.) - Export an API from a lower environment
 
 The **apictl** can export an API as an archive from a lower environment (i.e., dev), which contains all the information to recreate the API on another upper environment (i.e., prod).
 
@@ -120,7 +142,31 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 
      For more information, see [Export an API]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#export-an-api).
 
-## Preparing an API Project for CI/CD
+<a name="D"></a>
+### (D.) - Initialize the project using a Swagger/OpenAPI specification
+
+Execute the following command to directly generate the `PetstoreAPI` project using a Swagger/OpenAPI specification.
+
+!!! example
+    ```bash
+    apictl init PetstoreAPI --oas path/to/petstore.yaml
+    ```
+
+- This generates an API project in the `PetstoreAPI` directory using the provided specification. This project can be directly 
+imported into the API Manager.
+- The **apictl** allows further customization to the project initialization using a template file. Organization-specific common details can be added into this template file and shared across developers to increase productivity.
+- To further finetune API creation, an additional API Definition file can be used. This definition file supports detecting environment variables during the creation process. It can be combined with scripting to develop powerful tools for 
+automating API Project creation.
+- Using this method, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By combining 
+templating and the definition file, the automation servers can be configured to initialize API Projects from Swagger/OpenAPI 
+specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
+- For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
+
+For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
+[Initialize an API Project]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+
+<a name="E"></a>
+### (E.) - Prepare an API project for CI/CD
 
 1.  Extract the content (API will be exported as an archive to the 
 `<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory named 
@@ -166,7 +212,8 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 
 4.  Commit the project to the version control system.        
 
-## Importing API to Upper Environment
+<a name="F"></a>
+### (F.) - Import the API to an upper environment
 
 The Automation Server can be configured to run a specific pipeline for promoting artifacts to other environments. 
 The DevOps team can develop this pipeline further to include automated tests, workflow approvals, and other tasks.  
@@ -225,41 +272,8 @@ The **apictl** tool should be installed in the automation servers to begin the p
     -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state 
     in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
 
-## Swagger/OpenAPI-based API CI/CD
-
-WSO2 API Manager supports OpenAPI/Swagger specifications to create APIs. The **apictl** can generate projects with Swagger/OpenAPI specifications without using the API Publisher in WSO2 API Manager. This powerful feature can be used to design pipelines that depend on Swagger/OpenAPI specifications.   
-
-Based on the API Project generation, a powerful pipeline for API automation can be developed using OpenAPI/Swagger. This allows rapid API development and increases developer productivity.
-
-For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
-[Initialize an API Project]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#initialize-an-api-project).
-
-[![]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)
-
-Execute the following command to directly generate the `PetstoreAPI` project using a Swagger/OpenAPI specification.
-
-!!! example
-    ```bash
-    apictl init PetstoreAPI --oas path/to/petstore.yaml
-    ```
-
-- This generates an API project in the `PetstoreAPI` directory using the provided specification. This project can be directly 
-imported into the API Manager.
-- The **apictl** allows further customization to the project initialization using a template file. Organization-specific common details can be added into this template file and shared across developers to increase productivity.
-- To further finetune API creation, an additional API Definition file can be used. This definition file supports detecting environment variables during the creation process. It can be combined with scripting to develop powerful tools for 
-automating API Project creation.
-- Using this method, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By combining 
-templating and the definition file, the automation servers can be configured to initialize API Projects from Swagger/OpenAPI 
-specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
-- For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
-
 Now, you know the building blocks of creating a CI/CD pipeline using **apictl**. By using the above, you can create 
 an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
 
 !!! More
     Next let's use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/Learn/APIController/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).
-
-
-
-
-
