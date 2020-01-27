@@ -24,7 +24,7 @@ API Developers and Publishers work with a version control system, which acts as 
 
 ## API Publisher based CI/CD
 
-API Developers can use WSO2 API Manager's Publisher to create APIs. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. After APIs are exported from one environment, promoting it to the other environment is done via the `apictl`. It is capable of handling 
+API Developers can use the API Publisher in WSO2 API Manager to create APIs. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. After the API Developer exports the APIs from one environment, he/she can promote it to the other environment via the **WSO2 API Controller** (**apictl**) tool. The **apictl** is capable of handling 
 environment-related configurations and can promote the API seamlessly to other environments via a single command.
 
 
