@@ -24,9 +24,7 @@ API Developers and Publishers work with a version control system, which acts as 
 
 ## API Publisher based CI/CD
 
-API Developers can use the API Publisher in WSO2 API Manager to create APIs. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. After the API Developer exports the APIs from one environment, he/she can promote it to the other environment via the **WSO2 API Controller** (**apictl**) tool. The **apictl** is capable of handling 
-environment-related configurations and can promote the API seamlessly to other environments via a single command.
-
+API Developers can use the API Publisher in WSO2 API Manager to create APIs in a lower environment. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. Therefore, after the API Developer exports the APIs from the lower environment, the API Developer can commit the exported API artifacts to a source code management repository, run the tests in the lower environment, and promote the APIs to an upper environment. This process of promoting the API seamlessly to multiple environments can be automated via the **apictl** tool and other CI/CD tools (e.g., Jenkins, GitHub). The **apictl** tool makes this process simpler as it handles per environment-related configurations. 
 
 **To migrate the existing APIs using the API Publisher via CI/CD** carry out the steps mentioned in <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, and <a href="#F">F</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
 
@@ -142,6 +140,10 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 
      For more information, see [Export an API]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#export-an-api).
 
+3.  Extract the content (API will be exported as an archive to the 
+`<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory named 
+`SwaggerPetstore-1.0.0`. Rename it to `SwaggerPetstore` for easy reference.
+
 <a name="D"></a>
 ### (D.) - Initialize the project using a Swagger/OpenAPI specification
 
@@ -168,12 +170,10 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 <a name="E"></a>
 ### (E.) - Prepare an API project for CI/CD
 
-1.  Extract the content (API will be exported as an archive to the 
-`<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory named 
-`SwaggerPetstore-1.0.0`.
-
-2.  Copy this directory into your Version Control Repository.            
-     Rename it to `SwaggerPetstore` for easy reference.
+2.  Copy this directory into your Version Control Repository.
+    
+    - If you are using the Dev First approach - Copy the initialized project directory.
+    - If you are using the Publisher based approach - Copy the extracted project directory.
 
 3.  Define the environment-specific details in the `api_params.yaml` parameter file.
 
