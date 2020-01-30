@@ -6,7 +6,7 @@ The steps below show how to engage a throttling policy to an API at runtime.
 
 1.  Write a new throttling policy. For example, the following sample throttling policy points to a backend service and allows 1000 concurrent requests to a service.
 
-    ``` html/xml
+    ```
         <wsp:Policy xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
         xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
         xmlns:throttle="http://www.wso2.org/products/wso2commons/throttle"
@@ -43,7 +43,7 @@ The steps below show how to engage a throttling policy to an API at runtime.
 
 7.  To engage the policy to a selected API, add it to your API definition. In this example, we add it to the login API under APIThrottleHandler.
 
-    ``` html/xml
+    ```
         <api xmlns="http://ws.apache.org/ns/synapse" name="_WSO2AMLoginAPI_" context="/login">
             <resource methods="POST" url-mapping="/*">
                 <inSequence>
