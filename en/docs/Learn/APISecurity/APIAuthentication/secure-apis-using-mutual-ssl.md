@@ -22,14 +22,6 @@ This section explains how to APIs in WSO2 API Manager can be secured using mutua
         If you need to use a certificate in any other format, you can convert it using a standard tool before uploading.
 
 
-    !!! info
-        After configuring, the certificate will be added to the Gateway nodes which are defined under the Environments in `api-manager.xml` . 
-        
-        In a clustered setup, as gateway configurations are identical, sync the 
-        
-        `<API-M_HOME>/repository/resources/security/listenerprofiles.xml` and 
-        
-        `<API-M_HOME>/repository/resources/security/client-truststore.jks` among the gateway nodes. After the configured interval, the synapse transport will be reloaded in all the gateway nodes.
 
 
 5.  Provide an alias and public certificate. Select the tier that should be used to throttle out the calls using this particular client certificate and click **Upload** .
