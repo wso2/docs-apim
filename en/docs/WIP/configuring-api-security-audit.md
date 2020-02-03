@@ -47,7 +47,7 @@ Follow the instructions below to obtain the API token and collection ID from 42C
 
 You need to add the API Token and Collection ID properties inside the configuration files in WSO2 API-M in order to configure WSO2 API-M with the retrieved properties. Use one of the following methods to carry out this process.
 
-#### Enable API security audit for all tenants
+#### Enable Audit API for all tenants
 
 1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file. 
 
@@ -70,7 +70,7 @@ You need to add the API Token and Collection ID properties inside the configurat
     !!! tip
         Set the **global** property to **false** to disable the feature for all other tenants except the super tenant.
 
-#### Enable API security audit for a single tenant
+#### Enable Audit API for a single tenant
 
 !!! tip
     For more information on creating a tenant, see [Managing Tenants]({{base_path}}/Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy/).
