@@ -4,7 +4,7 @@ You can share an API with application developers who are subscribed to the Devel
 
 The following diagram illustrates the process involved when an API Publisher publishes to multiple Developer Portals.
 
-<img src="{{base_path}}/assets/img/Learn/publish-to-multiple-Developer-Portals.png" alt="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" title="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" width="75%" />
+<img src="{{base_path}}/assets/img/Learn/publish-to-multiple-developer-Portals.png" alt="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" title="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" width="75%" />
 
 <a name="step8"> </a>
 
