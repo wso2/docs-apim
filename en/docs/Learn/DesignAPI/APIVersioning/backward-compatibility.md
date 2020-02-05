@@ -1,19 +1,19 @@
 # Backward Compatibility
 
-## Default version
-The **Default Version** option means that you make this version the default in a group of different versions of 
-the API. A default API can be invoked without specifying the version number in the URL. For example, if you mark
-`http://<hostname>:<port>/phoneverify/2.0` as the default version when the API has 1.0 and 3.0 versions as well, requests 
-made to `http://<hostname>:<port>/phoneverify/` get automatically routed to version 2.0.
+The following section explains the concept of a default version and backward compatibility with regard to an API version.
 
-If you mark any version of an API as the default, two API URLs are listed in its **Overview** tab in the Developer Portal. 
-One URL is with the version and the other is without. You can invoke a default version using both URLs.
+## Default version
+
+The **Default Version** option means that you make this version the default in a group of different versions of the API. You can invoke a default API without specifying the version number in the URL. 
+
+Example:
+
+If you mark `http://<hostname>:<port>/phoneverify/2.0` as the default version when the API has 1.0 and 3.0 versions as well, requests made to `http://<hostname>:<port>/phoneverify/` get automatically routed to version 2.0.
+
+If you mark any version of an API as the default, two API URLs are listed in its **Overview** tab in the Developer Portal. One URL appears with the version and the other URL appears without the version. You can invoke the default version of an API using either one of the latter mentioned URLs.
    
-   ![default-api-urls](../../../assets/img/Learn/default-api-urls.png)
+   [![default-api-urls]({{base_path}}/assets/img/Learn/default-api-urls.png)]({{base_path}}/assets/img/Learn/default-api-urls.png)
 
 ## Default version and Backward Compatibility
-When you want to modify a published API, a new version of the API can be created. 
-We can make the new version as the default API version, 
-so the subscribers who are using the default API URL for accessing the API can get the changes immediately.
-However, the changes made to the API version must be backward compatible. That means, the subscriber should be able to 
-use the API as before without failures. 
+
+When you need to modify a published API, you can create a new version of the existing API. In addition, you can make the new version of the API the default API version, so that the subscribers who are using the default API URL for accessing the API can get the changes immediately. However, the changes made to the API version must be backward compatible in order to enable the subscribers to be able to use the API as they did before, without failures. 
