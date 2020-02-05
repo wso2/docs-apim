@@ -21,7 +21,7 @@ When you publish a new version of an API, you have to maintain the old versions 
     !!! info
         The **Publish** button is only accessible to users who have the `publisher` permission.
 
-     ![publish-version-api]({{base_path}}/assets/img/Learn/publish-version-api.png)
+     [![publish-version-api]({{base_path}}/assets/img/Learn/publish-version-api.png)]({{base_path}}/assets/img/Learn/publish-version-api.png)
         
 !!! note
     Leave the **Requires Re-Subscription when publishing the API** checkbox cleared if you want all users who are subscribed to the older version of the API to be automatically subscribed to the new version. If not, they need to subscribe to the new version again.

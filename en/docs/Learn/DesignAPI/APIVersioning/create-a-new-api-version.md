@@ -18,15 +18,15 @@ Follow the instructions below to create a new version of an existing API:
      
      Create and publish an API. For more information, see [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/) and [Publish an API]({{base_path}}/Learn/DesignAPI/PublishAPI/publish-an-api/).
 
-2.  Navigate to the API listing page, and click on the API for which you want to create a new version (e.g., `PhoneVerification 2.0.0` ). 
+2.  Navigate to the API listing page, and click on the API for which you want to create a new version (e.g., `PhoneVerification 2.0.0`). 
                                         
 3.  Click **Create New Version**.
      
-     ![Create New Version button]({{base_path}}/assets/img/Learn/create-new-version-button.png)
+     [![Create New Version button]({{base_path}}/assets/img/Learn/create-new-version-button.png)]({{base_path}}/assets/img/Learn/create-new-version-button.png)
 
 4.  Enter a version number and click **Create**. 
 
-     ![Create New API Version]({{base_path}}/assets/img/Learn/create-new-api-version.png)
+     [![Create New API Version]({{base_path}}/assets/img/Learn/create-new-api-version.png)]({{base_path}}/assets/img/Learn/create-new-api-version.png)
 
      You are redirected to the API **Overview** page. 
 
