@@ -4,18 +4,27 @@
 
 The documentation types supported in the API Publisher are as follows:
 
--   **In-line** : Hosts documentation (How-tos, Samples, SDK, forums etc.) in WSO2 API Publisher itself and allows it to be edited directly from the UI.
--   **URL** : Links of public or support forums or file references (URLs) of an external configuration management system.
--   **File:** Allows to upload the documentation directly to the server.
--   Using the integrated API Console
+-   **In-line**: Hosts documentation (How-tos, Samples, SDK, forums etc.) in WSO2 API Publisher itself and allows it to be edited directly from the UI.
+-   **URL**: Links of public or support forums or file references (URLs) of an external configuration management system.
+-   **File**: Allows to upload the documentation directly to the server.
+-   **Markdown**: Allows to add markdown (md) docs via a Markdown editor.
 
 Follow the steps below to learn how to add a documentation to an API.
 
 1.  Sign in to the WSO2 API Publisher.
 `https://<hostname>:9443/publisher`
+
 2.  Click the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add documentation.
-    ![](../../../assets/img/Learn/add-docs-select-api.png)
-3.  **Add in-line documentation.**
+    ![](../../../assets/img/Learn/select-api.png)
+
+3. Follow the steps below for each type.
+
+    -   [Add in-line documentation](#add-in-line-documentation)
+    -   [Add documentation using a URL](#add-documentation-using-a-url)
+    -   [Add documentation using a file](#add-documentation-using-a-file)
+    -   [Add markdown documentation](#add-markdown-documentation)
+
+    ### Add in-line documentation
 
     1.  Select the **Documents** tab of the API and click **Add New Document** .
         ![](../../../assets/img/Learn/add-docs-documents.png)
@@ -44,11 +53,11 @@ Follow the steps below to learn how to add a documentation to an API.
         !!! info
             Edit button can be used to update/change the document information.
 
-    5.  Edit the document content in-line using the embedded editor and click **Update Content** .
+    5.  Edit the document content in-line using the embedded editor and click **Update Content**.
         ![](../../../assets/img/Learn/add-docs-update-content.png)
         The API's **Documents** tab opens.
 
-4.  **Add documentation using a URL** .
+    ### Add documentation using a URL
 
     You can use either **Public Forum**, **Support Forum** or **Other** types to add documentation using a URL.
 
@@ -117,7 +126,7 @@ Follow the steps below to learn how to add a documentation to an API.
     4.  Click **Add Document** .
         The API's **Documents** tab opens.
 
-5.  **Add documentation using a file** .
+    ### Add documentation using a file
 
     1.  Click **Add New Document** to add yet another document using a file.
 
@@ -132,16 +141,41 @@ Follow the steps below to learn how to add a documentation to an API.
 
         ![](../../../assets/img/Learn/add-docs-pdf-file.png)
 
-    3.  Click **Add Document** .
-    
-6. You have now added three documents to the API: in-line, using a URL, and a file.
+    3.  Click **Add Document**.
+        
+    ### Add markdown documentation
+
+    1.  Select the **Documents** tab of the API and click **Add New Document** .
+        ![](../../../assets/img/Learn/add-docs-documents.png)
+
+    2.  Enter the following details to create documentation in-line and click **Add Document**.
+
+        |         |                                      |
+        |---------|--------------------------------------|
+        | Name    | PizzaShackAPI Documentation                    |
+        | Summary | This is the official documentation for the PizzaShack API |
+        | Type    | How To                               |
+        | Source  | Markdown                              |
+
+        ![](../../../assets/img/Learn/add-docs-markdown.png)
+
+    3.  Click **Add Content** to open an embedded editor.
+        ![](../../../assets/img/Learn/add-docs-markdown-add-content.png)
+
+    4.  Edit the document content using the embedded markdown editor and click **Update Content**.
+        ![](../../../assets/img/Learn/add-docs-markdown-editor.png)
+        
+    5.  The API's **Documents** tab opens.
+        ![](../../../assets/img/Learn/add-docs-markdown-view.png)
+
+4. You have now added four documents to the API: in-line, using a URL, using a file and markdown type.
         ![](../../../assets/img/Learn/add-docs-all.png)
 
-7.  Log in to the WSO2 Developer Portal and click the `PizzaShackAPI` 1.0.0 version.
+5.  Log in to the WSO2 Developer Portal and click the `PizzaShackAPI` 1.0.0 version.
 `https://<hostname>:9443/devportal         `
     ![](../../../assets/img/Learn/view-docs-devportal.png)
 
-8.  Go to the API's **Documentation** tab and see the documents listed by type.
+6.  Go to the API's **Documentation** tab and see the documents listed by type.
     Click the links to see the documentation content. As a subscriber, you can read the documentation and learn about the API.
     ![](../../../assets/img/Learn/view-docs-api.png)
 

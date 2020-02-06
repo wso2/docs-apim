@@ -1,4 +1,4 @@
-# admin\_Monitoring Message Flows
+# Monitoring Message Flows
 
 Message Flows provide graphical or textual views of the globally-engaged handlers in the system at a given time. This functionality is provided by the following feature:
 

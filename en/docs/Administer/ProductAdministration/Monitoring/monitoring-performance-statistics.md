@@ -1,4 +1,4 @@
-# admin\_Monitoring Performance Statistics
+# Monitoring Performance Statistics
 
 WSO2 products provide a range of performance statistics on a running Carbon instance. These statistics include information about memory availability, request count, server name, server start time, system up time, active services, total memory, average, minimum, maximum response times etc. Statistics are accessible through the management console of a running Carbon instance.
 
@@ -13,11 +13,11 @@ Follow the instructions given below to access system-level statistics.
 2.  The **System Statistics** page appears as follows:
     ![]({{base_path}}/assets/attachments/126562881/126562886.png)
     The following information is available:
-    -   [Service Summary](#admin_MonitoringPerformanceStatistics-ServiceSummary)
-    -   [Server Information](#admin_MonitoringPerformanceStatistics-ServerInformation)
-    -   [Response Time Graph](#admin_MonitoringPerformanceStatistics-ResponseTimeGraph)
-    -   [Memory Graph](#admin_MonitoringPerformanceStatistics-MemoryGraph)
-    -   [Statistics Configuration Panel](#admin_MonitoringPerformanceStatistics-StatisticsConfigurationPanel)
+    -   [Service Summary](#MonitoringPerformanceStatistics-ServiceSummary)
+    -   [Server Information](#MonitoringPerformanceStatistics-ServerInformation)
+    -   [Response Time Graph](#MonitoringPerformanceStatistics-ResponseTimeGraph)
+    -   [Memory Graph](#MonitoringPerformanceStatistics-MemoryGraph)
+    -   [Statistics Configuration Panel](#MonitoringPerformanceStatistics-StatisticsConfigurationPanel)
 
 #### Service Summary
 

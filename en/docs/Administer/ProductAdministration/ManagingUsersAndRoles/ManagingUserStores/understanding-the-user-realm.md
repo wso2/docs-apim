@@ -1,4 +1,4 @@
-# admin\_Understanding the User Realm
+# Understanding the User Realm
 
 User management functionality is provided by default in all WSO2 Carbon-based products and is configured in the 
 `deployment.toml` file found in the `<PRODUCT_HOME>/repository/conf/` directory. The following documentation explains 

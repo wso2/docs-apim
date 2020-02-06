@@ -4,8 +4,8 @@ The Developer Portal provides several useful features to build and nurture an ac
 
 Let's see what community features are available in the Developer Portal:
 
--   [Use the search facility](#UsetheCommunityFeatures-Usethesearchfacility)
--   [Rate and comment](#UsetheCommunityFeatures-Rateandcomment)
+-   [Use the search facility](#use-the-search-facility)
+-   [Rate and comment](#rate-and-comment)
 
 #### Use the search facility
 
@@ -26,8 +26,6 @@ Rates and comments give useful insights to potential API consumers on the qualit
 5.  Type a comment and click **Add Comment**.
     ![](../../../assets/img/Learn/community-features-comments.png)
 6.  Note that the comments appear sorted by the time they were entered, alongside the author's name.
-    
     ![](../../../assets/img/Learn/community-features-view-comments.png)
-
 7.  You can also check the comments in the **Overview** page.
     ![](../../../assets/img/Learn/community-features-view-comments-overview.png) 

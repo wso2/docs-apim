@@ -105,6 +105,14 @@ Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/
 "workFlowServerURL": "https://localhost:9445/services/"
 ```
 
+!!! note
+    When enabling the workflow, make sure to **import the certificate** of API Manager into the client-truststore of the EI server and also import the certificate of EI into the client-truststore of API Manager.
+
+    Paths to the directory containing the client-truststore of each product are :
+
+        1. API-M - '<API-M_HOME>/repository/resources/security'
+        2. EI - '<EI_HOME>/wso2/business-process/repository/resources/security'
+
 ### Engaging the WS Workflow Executor in the API Manager
 
 First, enable the application creation workflow **.**
