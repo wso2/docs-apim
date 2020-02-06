@@ -335,12 +335,12 @@ nav:
                 - Distributed Deployment:
                     - Distributed Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                     - Deploying WSO2 API-M in a Distributed Setup: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                    - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
                     - WSO2 API-M Gateways in a Distributed Deployment:
                         - Configure WSO2 API-M Gateways in a Distributed Deployment: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
                         - Configuring the Gateway in a Distributed Environment with rsync: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
                         - Working with Hazelcast Clustering: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
                     - Configure a Thrid Party Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
+                    - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
                     - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md
             - Changing the Hostname: InstallAndSetup/DeployingWSO2APIManager/changing-the-hostname.md
             - Changing the Default Ports with Offset: InstallAndSetup/DeployingWSO2APIManager/changing-the-default-ports-with-offset.md
