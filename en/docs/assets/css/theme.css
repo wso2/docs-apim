@@ -1077,3 +1077,7 @@ html .md-footer-meta.md-typeset a,
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.ds-suggestions {
+    font-size: 0.75rem;
+}
