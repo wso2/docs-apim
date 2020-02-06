@@ -1,4 +1,4 @@
-# Configure a Thrid Party Key Manager
+# Configure a Third Party Key Manager
 
 The **Key Manager** handles all clients, security, and access token-related operations. In a typical API Manager production deployment, different components talk to the Key Manager component for achieving different tasks. The API Gateway connects with the Key Manager to check the validity of OAuth tokens, subscriptions, and API invocations. When a subscriber generates an access token to the application using the API Store, the Store makes a call to the Key Manager to create an OAuth App and obtains an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database. For more information, see [Key Manager](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-KeyManager) .
 
@@ -17,9 +17,9 @@ This sample only extends the Key Manager interface.
 
 Follow the instructions below to configure the third-party Key Manager:
 
--   [Step 1: Start the authorization server](#ConfigureaThridPartyKeyManager-Step1:Starttheauthorizationserver)
--   [Step 2: Configure WSO2 API Manager](#ConfigureaThridPartyKeyManager-Step2:ConfigureWSO2APIManager)
--   [Step 3: Run the sample](#ConfigureaThridPartyKeyManager-Step3:Runthesample)
+-   [Step 1: Start the authorization server](#ConfigureaThirdPartyKeyManager-Step1:Starttheauthorizationserver)
+-   [Step 2: Configure WSO2 API Manager](#ConfigureaThirdPartyKeyManager-Step2:ConfigureWSO2APIManager)
+-   [Step 3: Run the sample](#ConfigureaThirdPartyKeyManager-Step3:Runthesample)
 
 ### Step 1: Start the authorization server
 
