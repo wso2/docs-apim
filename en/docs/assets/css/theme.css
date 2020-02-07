@@ -1077,27 +1077,3 @@ html .md-footer-meta.md-typeset a,
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
-
-.ds-suggestions {
-    font-size: 0.75rem;
-}
-
-/* Title (eg. Bootstrap CDN) */
-  .algolia-autocomplete .algolia-docsearch-suggestion--title {
-    font-weight: bold;
-    color: #351700 !important;
-  }
-
-  /* Highlighted text */
-  .algolia-autocomplete .algolia-docsearch-suggestion--highlight {
-    color: #f47b20 !important;
-    background-color: #ffaa001f !important
-  }
-
-  .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion.suggestion-layout-simple {
-    background-color: #ffaa001f !important;
-  }
-
-  .algolia-autocomplete .ds-dropdown-menu .ds-suggestion.ds-cursor .algolia-docsearch-suggestion:not(.suggestion-layout-simple) .algolia-docsearch-suggestion--content {
-    background-color: #ffaa001f !important;
-  }
