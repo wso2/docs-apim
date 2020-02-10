@@ -16,7 +16,7 @@ First, [invoke a few APIs](../../../ConsumeAPI/InvokeApis/InvokeApisUsingTools/i
       **Publisher Dashboard**
       
       + Overview Page
-        + Total Api Count
+        + Total API Count
         + Total App Count
         + Total Subscriptions
         + Total Signups
@@ -24,14 +24,14 @@ First, [invoke a few APIs](../../../ConsumeAPI/InvokeApis/InvokeApisUsingTools/i
         + Top App Creators
         + Top Subscriptions per API Provider
       + API and Application Statistics Page
-        + Apis Created Over Time
+        + APIs Created Over Time
         + Apps Created Over Time
       + Developer Statistics Page
         + Subscriptions Over Time
         + Developer Signups Over Time
       + Faults Page
-        + Top Faulty Apis
-        + Top Throttled Apis
+        + Top Faulty APIs
+        + Top Throttled APIs
       
       **Developer Portal Dashboard**
       
@@ -68,7 +68,7 @@ Please refer below sub sections for more details about each dashboard.
  
 ### Overview 
 #### Total API Count
-This widget displays the total number of apis created and the number of apis created within the last week by the publishers of logged in user's tenant.
+This widget displays the total number of APIs created and the number of APIs created within the last week by the publishers of logged in user's tenant.
 
   ![](../../../assets/img/Learn/publisher-overview-total-api-count.png)
 
@@ -78,7 +78,7 @@ This widget displays the total number of applications created and the number of 
  ![](../../../assets/img/Learn/publisher-overview-total-app-count.png)
 
 #### Total Subscriptions
-This widget displays the total api subscriptions by the subscribers of the logged in user's tenant and its last weeks statistics of the same factor.
+This widget displays the total API subscriptions by the subscribers of the logged in user's tenant and its last weeks statistics of the same factor.
 
  ![](../../../assets/img/Learn/publisher-overview-total-subscriptions.png)
  
@@ -91,44 +91,44 @@ This widget displays count of the unique subscribers logged in to the developer 
 
 This widget has two sections.
 
-+ Api Availability - Displays a percentage of api availability 
-+ Top Rated Apis - Displays the total number of stars received (ratings) by each api 
++ API Availability - Displays a percentage of API availability 
++ Top Rated APIs - Displays the total number of stars received (ratings) by each API 
  
  for that particular tenant.
 
 !!! Note
-      In order to view statistics of **Api Availability** widget, it is required to enable alerts as described in [Configuring Alerts](../../ManagingAlertsWithRealTimeAnalytics/configuring-alerts).
+      In order to view statistics of **API Availability** widget, it is required to enable alerts as described in [Configuring Alerts](../../ManagingAlertsWithRealTimeAnalytics/configuring-alerts).
       
   The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)](../../ManagingAlertsWithRealTimeAnalytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
   
   ![](../../../assets/img/Learn/publisher-overview-overall-api-stats.png)
   
-Along with the total number of stars received for each api, Top Rated Apis section of the widget displays the api creator of each api as well. 
+Along with the total number of stars received for each API, Top Rated APIs section of the widget displays the API creator of each API as well. 
 By clicking on the filter arrow
 <html>
 <body>
 <img src="../../../../assets/img/Learn/analytics-filterby-arrow.png" width="20"/>
 </body>
 </html>
-,you can search by **Api name** and **Ratings**.
+,you can search by **API name** and **Ratings**.
 
   ![](../../../assets/img/Learn/publisher-overview-overall-api-stats-ratings.png)
 
 #### Top API Creators
 
-As the name depicts this widget displays the top api creators and the percerntage of apis that each of them have created.
-You can choose the limit of api creators that you want to see by giving the number under the limit field.
+As the name depicts this widget displays the top API creators and the percerntage of APIs that each of them have created.
+You can choose the limit of API creators that you want to see by giving the number under the limit field.
    
    ![](../../../assets/img/Learn/publisher-overview-top-api-creators-1.png)
    
-You also get a list view of api creators along with the number of apis created by each api creator. 
-This list can be searched either via Api name or Api count.
+You also get a list view of API creators along with the number of APIs created by each API creator. 
+This list can be searched either via API name or API count.
 
    ![](../../../assets/img/Learn/publisher-overview-top-api-creators-2.png)
 
 #### Top App Creators
 
-As same as Top Api Creators widget, Top App Creators widget displays a percentage of apps created by each app creator and also a list of app creators along with the number of apps they created with the filtering capabilities.
+As same as Top API Creators widget, Top App Creators widget displays a percentage of apps created by each app creator and also a list of app creators along with the number of apps they created with the filtering capabilities.
 
    ![](../../../assets/img/Learn/publisher-overview-top-app-creators-1.png)
   
@@ -136,7 +136,7 @@ As same as Top Api Creators widget, Top App Creators widget displays a percentag
   
 #### Top Subcriptions per API Provider
 
-This widget displays the percentage of subscription count against each api provider. It also has a list view with the subscription count with the filtering capability based on the provider name and count.
+This widget displays the percentage of subscription count against each API provider. It also has a list view with the subscription count with the filtering capability based on the provider name and count.
 
    ![](../../../assets/img/Learn/publisher-overview-top-subscription-per-provider-1.png)
       
@@ -155,9 +155,9 @@ You can also select the time period and granularities such as minute, hour,day f
 
 #### APIs Created Over Time
 
-This widget displays the number of apis published over a given time period.
-You can filter based on the api created by you or apis created by all.
-It also has a list view along with the filtering capability based on Api Name.
+This widget displays the number of APIs published over a given time period.
+You can filter based on the API created by you or APIs created by all.
+It also has a list view along with the filtering capability based on API Name.
 
 <html>
 <body>
@@ -169,7 +169,7 @@ It also has a list view along with the filtering capability based on Api Name.
 
 #### Apps Created Over Time
 
-This widget displays number of applications created over a given period of time. Statistics can be filtered based on api creator, app creator and subscribed api.
+This widget displays number of applications created over a given period of time. Statistics can be filtered based on API creator, app creator and subscribed API.
 This also has a list view with app name and created time which can be filtered based on the app name.
 
 <html>
@@ -210,8 +210,8 @@ This widget displays the number of developers who signed up to the developer por
 
 #### Overall API Usage
 
-This widget displays the number of subscriptions of each API with a graphical view of number of api invocations. 
-It also has a list view of total number of api invocations across all versions.
+This widget displays the number of subscriptions of each API with a graphical view of number of API invocations. 
+It also has a list view of total number of API invocations across all versions.
 
 <html>
 <body>
@@ -223,7 +223,7 @@ It also has a list view of total number of api invocations across all versions.
 
 #### API Version Usage Summary
 
-This widget displays the api invocation counts for each of the APIs grouped by each API version.
+This widget displays the API invocation counts for each of the APIs grouped by each API version.
 
 <html>
 <body>
@@ -235,8 +235,8 @@ This widget displays the api invocation counts for each of the APIs grouped by e
 
 #### Top API Users
 
-This widget lists the users who has done the most number of api invocations. 
-It also has several filters to search based on the creator of the api ( either All or Me ), Api Name and Api Version.
+This widget lists the users who has done the most number of API invocations. 
+It also has several filters to search based on the creator of the API ( either All or Me ), API Name and API Version.
 
 <html>
 <body>
@@ -248,7 +248,7 @@ It also has several filters to search based on the creator of the api ( either A
 
 #### API Resource Usage Summary
 
-This widget displays the number of api invocations made by resources for an API in a list view.
+This widget displays the number of API invocations made by resources for an API in a list view.
 
 <html>
 <body>
@@ -260,7 +260,7 @@ This widget displays the number of api invocations made by resources for an API 
 
 #### API Backend Usage Summary
 
-This widget displays the number of total api invocations aggregated based on Api Name, Api Version, Api Creator, Api Context  and Api Backend endpoint.
+This widget displays the number of total API invocations aggregated based on API Name, API Version, API Creator, API Context  and API Backend endpoint.
 
 <html>
 <body>
@@ -286,7 +286,7 @@ This widget is a list view of the last access times of an API, according to the 
 
 #### Top User Agents
 
-This widget displays the percentage of api invocations using each browser. And the results can be filtered based on Api Creator ( either All or Me), Api Name and Api version.
+This widget displays the percentage of API invocations using each browser. And the results can be filtered based on API Creator ( either All or Me), API Name and API version.
 
 <html>
 <body>
@@ -298,8 +298,8 @@ This widget displays the percentage of api invocations using each browser. And t
 
 #### Top Platforms
 
-This widget displays the percentage of api invocations done using different operating systems.
-Results of this widget also can be filtered based on Api Creator ( either All or Me), Api Name and Api version.
+This widget displays the percentage of API invocations done using different operating systems.
+Results of this widget also can be filtered based on API Creator ( either All or Me), API Name and API version.
 
 <html>
 <body>
@@ -334,7 +334,7 @@ It also displays a comparison view of the latencies.
 A successful invocation is when an API receives the expected response. 
 In Analytics, if a runtime exception that is related to the backend communication occurs, it is considered as a faulty invocation. 
 However, authentication related issues are not considered as faulty invocations. 
-A percentage of faulty invocations for each api is displayed in this widget and it also has a list view which displays the total number of faulty invocations for each api.
+A percentage of faulty invocations for each API is displayed in this widget and it also has a list view which displays the total number of faulty invocations for each API.
 
 <html>
 <body>
@@ -346,7 +346,7 @@ A percentage of faulty invocations for each api is displayed in this widget and 
 
 #### Top Throttled Out APIs
 
-This widget displays a percentage of throttled out request counts for each api as well as a list view with throttled out request count.
+This widget displays a percentage of throttled out request counts for each API as well as a list view with throttled out request count.
 
 <html>
 <body>
@@ -438,7 +438,7 @@ This widget displays the usage of resources of the APIs by each application.
 </body>
 </html>
 
-#### Api Usage of Application
+#### API Usage of Application
 
 This widget displays the number of invocations made for each API by each application.
 

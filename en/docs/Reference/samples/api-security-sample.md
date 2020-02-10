@@ -1,4 +1,4 @@
-# API Security Sample Sample
+# API Security Sample
 
 ### Usecase
 
