@@ -786,7 +786,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
      For more information, see the [Getting Started section in the Admin REST API guide](https://docs.wso2.com/display/AM260/apidocs/admin/index.html#guide).
 
     ``` java
-    curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.14/register
+    curl -X POST -H "Authorization: Basic <base64encoded-admin-account-credentials>" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.15/register
     ```
 
     -   `<base64encoded-admin-account-credentials>` - Use a base64 encoder (e.g., <https://www.base64encode.org/> ) to encode the username and password that corresponds to your admin user account using the following format: 
