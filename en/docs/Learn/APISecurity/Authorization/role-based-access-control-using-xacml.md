@@ -32,35 +32,32 @@ Based on the requirement, a single API is exposed to add or retrieve order info
     !!! tip
         In an actual deployment, both these servers can [share the user store]({{base_path}}/Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
 
-
-2.  Share the registry of both WSO2 API Manager and WSO2 Identity Server. Refer [Sharing the registry space](https://docs.wso2.com/display/AM260/Configuring+External+IDP+through+Identity+Server+for+SSO#ConfiguringExternalIDPthroughIdentityServerforSSO-Sharingtheregistryspace) for the steps.
-
-3.  Start the WSO2 API Manager server and log in to the Management Console. Create user information with the following permission structure.
+2.  Start the WSO2 API Manager server and log in to the Management Console. Create user information with the following permission structure.
 
     | User       | Role    |
     |------------|---------|
     | api\_user  | webuser |
     | api\_admin | admin   |
 
-4.  When adding the webuser role, set the **Login** and **Subscribe** permissions from permission tree.  
+3.  When adding the webuser role, set the **Login** and **Subscribe** permissions from permission tree.  
     ![]({{base_path}}/assets/img/Learn/login-and-subscribe-permission.png)
 
-5.  Start the WSO2 Identity Server and log in to its Admin Console.
+4.  Start the WSO2 Identity Server and log in to its Admin Console.
 
     !!! tip
         Since API Manager and Identity Server run on the same server, offset the Identity Server by 1.
 
 
-6.  Under the **Entitlement** section, click **Policy Administration &gt; Add New Entitlement Policy** .
+5.  Under the **Entitlement** section, click **Policy Administration &gt; Add New Entitlement Policy** .
     ![]({{base_path}}/assets/img/Learn/policy-administration.png)
     ![]({{base_path}}/assets/img/Learn/add-new-entitlement-policy.png)
-7.  You are redirected to a page listing all available policy editors. Select **Standard Policy Editor** from the list and add the values shown below in the policy editor. Refer [Creating a XACML Policy](https://is.docs.wso2.com/en/5.9.0/learn/creating-a-xacml-policy/) in WSO2 Identity Server for more information.
+6.  You are redirected to a page listing all available policy editors. Select **Standard Policy Editor** from the list and add the values shown below in the policy editor. Refer [Creating a XACML Policy](https://is.docs.wso2.com/en/5.9.0/learn/creating-a-xacml-policy/) in WSO2 Identity Server for more information.
     1.  **Entitlement Policy Name:** PizzaShackPolicy
     2.  **Rule Combining Algorithm:** Deny unless Permit
 
     When the rule combination algorithm is set to **Deny Unless Permit** , you need to set the permit criteria as a rule.
     
-8.  In the **Define Entitlement Rule(s)** area, set the following 2 rules to define the kind of requests and from which user they should be permitted.
+7.  In the **Define Entitlement Rule(s)** area, set the following 2 rules to define the kind of requests and from which user they should be permitted.
     1.  AdminGrant - grants full access to the admin user. Give the information below,
 
         **Rule Name:** AdminGrant
@@ -101,11 +98,11 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         Click on **Add** button after providing above values as shown below.
         ![]({{base_path}}/assets/img/Learn/add-getorder-value.png)
 
-9.  Click **Add** once done.
+8.  Click **Add** once done.
     ![]({{base_path}}/assets/img/Learn/added-getorder.png)
-10. The rules are added to the policy. Click **Finish** to save the policy.
+9. The rules are added to the policy. Click **Finish** to save the policy.
     ![]({{base_path}}/assets/img/Learn/save-ploicy.png)
-11. In the Policy Administration page, click **Publish to My PDP** to publish the policy to the PDP.
+10. In the Policy Administration page, click **Publish to My PDP** to publish the policy to the PDP.
 
     ![]({{base_path}}/assets/img/Learn/publish-to-my-pdp.png)
 
@@ -121,11 +118,11 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     ![]({{base_path}}/assets/attachments/103334839/103334831.png)
 
-12. Download the [entitlement-1.0-SNAPSHOT.jar](https://docs.wso2.com/download/attachments/57743363/entitlement-1.0-SNAPSHOT.jar?version=1&modificationDate=1515491619000&api=v2) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
+11. Download the [entitlement-1.0-SNAPSHOT.jar](https://docs.wso2.com/download/attachments/57743363/entitlement-1.0-SNAPSHOT.jar?version=1&modificationDate=1515491619000&api=v2) and add it to the `<API-M_HOME>/repository/components/lib` directory. This JAR file contains the `APIEntitlementCallbackHandler` class which passes the username, HTTP verb and the resource path to the XACML entitlement server. If you want to view the source code of the JAR, go [here](https://github.com/nadeesha5814/XACML-APIManager) .
 
-13. Restart the server once the JAR file is added.
+12. Restart the server once the JAR file is added.
 
-14. Now, you need to create a sequence containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.xml` .
+13. Now, you need to create a sequence containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.xml` .
 
     ``` xml
         <sequence xmlns="http://ws.apache.org/ns/synapse"  name="EntitlementMediator">     
@@ -146,10 +143,10 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         remoteServicePassword - Password used to connect to the service
 
 
-15. Log in to the API Publisher and [create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
-16. Attach the custom sequence to the inflow of the message as shown below.
+14. Log in to the API Publisher and [create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
+15. Attach the custom sequence to the inflow of the message as shown below.
     ![]({{base_path}}/assets/img/Learn/attach-the-custom-sequence.png)
-17. Save, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail.
+16. Save, publish and test the API to make sure that the requests specified in the 2 rules defined in step 8 are accessible according to the user role specified. For example, the POST operation is only available to users with the role admin. If an anonymous user tries to access the POST operation, it should fail.
 
     !!! note
             If you encounter an error stating "org.apache.axis2.transport.jms.JMSSender cannot be found by axis2\_1.6.1.wso2v16" when publishing the API, comment out the following JMSSender configuration in the `<APIM_HOME>/repository/conf/axis2/axis2_blocking_client.xml` file and restart the server.
@@ -157,5 +154,5 @@ Based on the requirement, a single API is exposed to add or retrieve order info
             `<!--transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/-->          `
 
 
-18. If you want to debug the entitlement mediator, enable debug logs in the Management Console for the `org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler` class.
+17. If you want to debug the entitlement mediator, enable debug logs in the Management Console for the `org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler` class.
 
