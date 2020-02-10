@@ -146,6 +146,7 @@ Use the following sample cURL command to generate an access token for the Gatewa
 
 Change the Gateway URL based on the Gateway that you need to publish the API.
 
+
 !!! note
     If you wish to use the API-M pack that you used as the first instance to try-out other tutorials, please ensure to delete the API Gateway configurations that you added in step 5, and uncomment the default `[[apim.gateway.environment]]` configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 

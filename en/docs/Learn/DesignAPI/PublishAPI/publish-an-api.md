@@ -4,7 +4,7 @@
 
 Follow the steps below to publish an API using WSO2 API Manager.
 
-1.  Sign in to the API Publisher (`https://localhost:9443/publisher`). 
+1.  Sign in to the API Publisher `https://<hostname>:9443/publisher` (e.g., `https://localhost:9443/publisher` ). Upon signing in, the list of APIs in the API Publisher is listed. Please refer [create an API guide](/Learn/DesignAPI/CreateAPI/create-a-rest-api/) to create a new API. 
 
      The list of APIs in the API Publisher appears. If there are no APIs created, [create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/) before starting.
 
@@ -16,7 +16,7 @@ Follow the steps below to publish an API using WSO2 API Manager.
 
      [![Lifecycle tab]({{base_path}}/assets/img/Learn/lifecycle-tab.png)]({{base_path}}/assets/img/Learn/lifecycle-tab.png)
 
-     The lifecycle state transition grid appears. Before publishing an API, the following requirements have to be satisfied.
+     The lifecycle state transition grid appears. Before publishing an API, the following requirements have to be satisfied.publish-through-multiple-api-gateways.md
 
         -   Endpoint provided
         -   Business Plan(s) selected

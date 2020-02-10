@@ -51,6 +51,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
     
      The Registry opens.
 
+
 6.  Navigate to the `/_system/governance/apimgt/externalstores/external-api-stores.xml` file.
 
      ![Navigating to the external-api-stores.xml file]({{base_path}}/assets/img/Learn/browse-to-external-api-stores.png)
