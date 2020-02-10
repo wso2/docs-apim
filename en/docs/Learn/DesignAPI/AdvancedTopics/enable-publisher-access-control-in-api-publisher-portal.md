@@ -2,25 +2,6 @@
 
 APIs created in the API Publisher Portal are visible to any user who logs in to the Publisher Portal, by default. However, the API Manager allows API creators to restrict the visibility of their APIs within the Publisher Portal. This feature allows API creators to restrict API view and modify actions to a set of users, based on their roles.
 
-## Instructions to existing users
-
-Re-indexing the artifacts in the registry.
-
--   Add the following configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file. (Note: If you want to reindex again in future, you can increment the value "1" to "2").
-  If what you have is a **distributed API Manager setup** , change the file in the API Publisher node. 
-
-    ``` 
-    [indexing]
-    re_indexing="1"
-    ```
-
--   Shut down API Manager if you have already started it, backup and delete the `<API-M_HOME>/solr` directory if it exist.
--   Restart the server.
-
-!!! info
-    Note that the registry indexing takes some time depending on the number of APIs you have in your store, so the existing APIs may not appear if you are accessing the publisher/store immediately after you start the server.
-
-
 ## Using the API Publisher UI
 
 1.  Log in to API Publisher as an API Creator. For more information on User Roles, see [Managing Users and Roles](_Managing_Users_and_Roles_) .
@@ -42,6 +23,14 @@ Re-indexing the artifacts in the registry.
      </html>
 
 4.  Save the API.
+
+     <html>
+     <head>
+     </head>
+     <body>
+     <img src="../../../../assets/img/Learn/save-api.png" alt="Save API" title="Save API" width="250" height="50"/>
+     </body>
+     </html>
 
 !!! info
     Ensure that the roles you add are valid. If the current creator is not an APIM admin, there should be at least one role of the current creator.

@@ -1,10 +1,10 @@
-# admin\_Customizing the Management Console
+# Customizing the Management Console
 
 See the following topics to do customizations to the management console:
 
--   [Changing the management console's URL](#admin_CustomizingtheManagementConsole-Changingthemanagementconsole'sURL)
--   [Configuring the session time-out](#admin_CustomizingtheManagementConsole-Configuringthesessiontime-out)
--   [Changing the management console's interface](#admin_CustomizingtheManagementConsole-Changingthemanagementconsole'sinterface)
+-   [Changing the management console's URL](#CustomizingtheManagementConsole-Changingthemanagementconsole'sURL)
+-   [Configuring the session time-out](#CustomizingtheManagementConsole-Configuringthesessiontime-out)
+-   [Changing the management console's interface](#CustomizingtheManagementConsole-Changingthemanagementconsole'sinterface)
 
 ### Changing the management console's URL
 
@@ -196,7 +196,7 @@ Follow the steps below to customize the above management console by changing the
 
     ![Management Console with the new logo]({{base_path}}/assets/attachments/126562834/126562839.png)
     
-# admin\_Customizing Error Pages
+# Customizing Error Pages
 
 WSO2 Carbon servers display errors, exceptions, and HTTP status codes in full detail. These are known as Verbose error messages. These error messages contain technical details such as stack traces. There may also disclose other sensitive details. Attackers may fingerprint the server, based on the information disclosed in error messages. Alternatively, attackers may attempt to trigger specific error messages to obtain technical information about the server. You can avoid these situations by configuring the server to display generic, non-detailed error messages in Apache Tomcat.
 

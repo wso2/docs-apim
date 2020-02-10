@@ -1,21 +1,22 @@
-# admin\_Troubleshooting in Production Environments
+# Troubleshooting in Production Environments
 
 The following sections provide information on how to troubleshoot various problems that may arise for deployment in production environments.
 
--   [Analyzing a stack trace](#admin_TroubleshootinginProductionEnvironments-Analyzingastacktrace)
--   [Capturing the state of the system](#admin_TroubleshootinginProductionEnvironments-Capturingthestateofthesystem)
--   [Viewing process threads in Solaris](#admin_TroubleshootinginProductionEnvironments-ViewingprocessthreadsinSolaris)
--   [Checking the health of a cluster](#admin_TroubleshootinginProductionEnvironments-Checkingthehealthofacluster)
+-   [Analyzing a stack trace](#analyzing-a-stack-trace)
+-   [Capturing the state of the system](#capturing-the-state-of-the-system)
+-   [Viewing process threads in Solaris](#viewing-process-threads-in-solaris)
+-   [Checking the health of a cluster](#checking-the-health-of-a-cluster)
 
 ### Analyzing a stack trace
 
 When your Java process starts to spin your CPU, you must immediately analyze the issue using the following two commands and obtain the invaluable information required to tackle the issue. This is done based on the process ID (pid).
 
-1.`jstack <pid> > thread-dump.txt         `
+1.`jstack <pid> > thread-dump.txt`
+
 2.`ps -C java -L -o pcpu,cpu,nice,state,cputime,pid,tid > thread-usage.txt                     `
 
-        !!! tip
-    **Tip** : OS X users can alternatively use the command `ps M <PID>` instead.
+!!! tip
+      OS X users can alternatively use the command `ps M <PID>` instead.
 
 
 These commands provide you with the **thread-dump.txt** file and the **thread-usage.txt** file. After obtaining these two files, do the following.
@@ -40,21 +41,21 @@ These commands provide you with the **thread-dump.txt** file and the **thread-us
 4.  That thread usually has a stack trace, and that's the lead you need to find the issue. In this example, the stack trace of the thread that spins is as follows.
 
     ``` java
-            "HTTPS-Sender I/O dispatcher-1" prio=10 tid=0x00007fb54c010000 nid=0x644 runnable [0x00007fb534e20000]
-               java.lang.Thread.State: RUNNABLE
-                    at org.apache.http.impl.nio.reactor.IOSessionImpl.getEventMask(IOSessionImpl.java:139)
-                    - locked <0x00000006cd91fef8> (a org.apache.http.impl.nio.reactor.IOSessionImpl)
-                    at org.apache.http.nio.reactor.ssl.SSLIOSession.updateEventMask(SSLIOSession.java:300)
-                    at org.apache.http.nio.reactor.ssl.SSLIOSession.inboundTransport(SSLIOSession.java:402)
-                    - locked <0x00000006cd471df8> (a org.apache.http.nio.reactor.ssl.SSLIOSession)
-                    at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:121)
-                    at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:160)
-                    at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:342)
-                    at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:320)
-                    at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:280)
-                    at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:106)
-                    at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:604)
-                    at java.lang.Thread.run(Thread.java:722)
+     "HTTPS-Sender I/O dispatcher-1" prio=10 tid=0x00007fb54c010000 nid=0x644 runnable [0x00007fb534e20000]
+        java.lang.Thread.State: RUNNABLE
+             at org.apache.http.impl.nio.reactor.IOSessionImpl.getEventMask(IOSessionImpl.java:139)
+             - locked <0x00000006cd91fef8> (a org.apache.http.impl.nio.reactor.IOSessionImpl)
+             at org.apache.http.nio.reactor.ssl.SSLIOSession.updateEventMask(SSLIOSession.java:300)
+             at org.apache.http.nio.reactor.ssl.SSLIOSession.inboundTransport(SSLIOSession.java:402)
+             - locked <0x00000006cd471df8> (a org.apache.http.nio.reactor.ssl.SSLIOSession)
+             at org.apache.http.impl.nio.reactor.AbstractIODispatch.inputReady(AbstractIODispatch.java:121)
+             at org.apache.http.impl.nio.reactor.BaseIOReactor.readable(BaseIOReactor.java:160)
+             at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvent(AbstractIOReactor.java:342)
+             at org.apache.http.impl.nio.reactor.AbstractIOReactor.processEvents(AbstractIOReactor.java:320)
+             at org.apache.http.impl.nio.reactor.AbstractIOReactor.execute(AbstractIOReactor.java:280)
+             at org.apache.http.impl.nio.reactor.BaseIOReactor.execute(BaseIOReactor.java:106)
+             at org.apache.http.impl.nio.reactor.AbstractMultiworkerIOReactor$Worker.run(AbstractMultiworkerIOReactor.java:604)
+             at java.lang.Thread.run(Thread.java:722)
     ```
 
 ### Capturing the state of the system
@@ -64,13 +65,13 @@ Carbondump is a tool used to collect all the necessary data from a running WSO2
 When using the tool, you have to provide the process ID (pid) of the product instance and the `<PRODUCT_HOME>` location, which is where your unzipped Carbon distribution files reside. The command takes the following format:
 
 ``` java
-    sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
+sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
 ```
 
 For example,
 
 ``` java
-    In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.0.0/ -pid 5151
+In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.0.0/ -pid 5151
 In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.0.0\ -pid 5151
 ```
 The tool captures the following information about the system:
@@ -122,7 +123,7 @@ Failure detectors used in distributed systems can be unreliable. In these sort o
 If a heartbeat message is not received by a given amount of time, Hazelcast assumes the node is dead. This is configured via the `hazelcast.max.no.heartbeat.seconds` property. The optimum value for this property depends on the system. Although the default is 600 seconds, it might be necessary to reduce the heartbeat to a lower value if nodes are to be declared dead in a shorter time frame. However, you must verify this in your system and adjust as necessary depending on your scenario.
 
 !!! warning
-**Warning** : Reducing the value of this property to a lower value can result in nodes being considered as dead even if they are not. This results in multiple messages indicating that a node is leaving and rejoining the cluster.
+      Reducing the value of this property to a lower value can result in nodes being considered as dead even if they are not. This results in multiple messages indicating that a node is leaving and rejoining the cluster.
 
 
 Do the following steps to configure the maximum time between heartbeats.

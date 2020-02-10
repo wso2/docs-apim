@@ -1,6 +1,6 @@
 ## Rewrite
 
-# admin\_Masking Sensitive Information in Logs
+# Masking Sensitive Information in Logs
 
 There can be business sensitive information that are added to logs in the WSO2 product console and/or WSO2 Carbon log files. When these logs are analyzed, the information is exposed to those who check this.
 

@@ -1,13 +1,25 @@
-# Securing APIs using OAuth2 Opaque Access Tokens
+# Securing APIs using OAuth2 Access Tokens
 
-APIs published on the WSO2 API Gateway are secured using OAuth2.0 by default. Any client application invoking a secure published API needs to have a valid subscription to the particular API and present a valid OAuth2.0 Access Token to the API Gateway. Please refer more information on how to subscribe to an API in
-[Subscribe to an API](../../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api/)[](edit_uri/) to understand how you can subscribe an application to an API and get credentials for your application.
+APIs published on WSO2 API Gateway can be secured by OAuth 2.0, which is the de facto standard for access delegation in REST API world. Any client application invoking a OAuth2 secured API needs to have a valid subscription to that particular API and present a valid OAuth2.0 Access Token when invoking it. Please refer [Subscribe to an API](../../../../Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api/) for more information on how to subscribe an application to an API and generate credentials for it.
 
-Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can get access tokens to invoke APIs that are subscribed to the particular application. To understand how you can get tokens for different types of applications, see [OAuth2 Grant Types](../../../../Learn/APISecurity/OAuth2/GrantTypes/password-grant)[](edit_uri/) .
+Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain an access tokens to invoke APIs which are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the trust relationship with the application. Please see [OAuth2 Grant Types]
+({{base_path}}/Learn/APISecurity/OAuth2/GrantTypes/overview/) to understand more about the OAuth2 grant types.
 
-## Authentication
+## OAuth 2.0 Access Token Types
 
-HTTP Authorization header is the most common method of providing authentication information for REST APIs. The application needs to have the access token in an authorization header for the client application to authenticate the API that is being accessed. The format of the header is as follows.
+OAuth 2.0 access tokens come in two different flavors
+
+   - [JWT Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2/AccessTokenTypes/jwt-tokens)
+    
+   - [Opaque Access Tokens]({{base_path}}/Learn/APISecurity/OAuth2/AccessTokenTypes/opaque-tokens)
+   
+The token type is bound to the application and the consumer has to specify the supported token type at application creation time. Once the token type is specified, all the access tokens issues under that particular application will be in the specified access token type. 
+
+For example, the **DefaultApplication** available for consumers in Dev Portal is in JWT token type, hence all the access tokens issued under the **DefaultApplication** are JWT tokens.
+
+## Authentication via Access Tokens
+
+HTTP Authorization header is the most common method of providing authentication information for REST APIs. The access token (followed by **Bearer**) need to be sent via the authorization header, for the client application to authenticate the API that is being accessed. The format of the header is as follows.
 
 ``` bash tab="Format"
 Default Format
@@ -27,16 +39,17 @@ Example with **customized** authorization header
 The string `NtBQkXoKElu0H1a1fQ0DWfo6IX4a` is a sample value of the access token that is being sent from the client application.
 ```
 
+Please refer [Customizing Authorization Header](#customizing-the-authorization-header) for more information on customizing the default Authorization header.
 
-## Customizing the authorization header
+## Customizing the Authorization header
 
 If the value of the authorization header needs to be changed due to organizational policies, legacy APIs, or for any other reason, it can be done at three levels in WSO2 API Manager (WSO2 API-M) as described below.
 
--   [Server wide customization](#SecuringAPIsusingOAuth2AccessTokens-Serverwidecustomization)
--   [Tenant wide customization](#SecuringAPIsusingOAuth2AccessTokens-Tenantwidecustomization)
--   [Per API customization](#SecuringAPIsusingOAuth2AccessTokens-PerAPIcustomization)
+-   [Customize across all Tenants](#customize-across-all-tenants)
+-   [Customize per Tenant](#customize-per-tenant)
+-   [Customize per API](#customize-per-api)
 
-### Server wide customization
+### Customize across all Tenants
 
 Follow the instructions below to change the value of the authorization header at the server level configurations:
 
@@ -66,7 +79,7 @@ Follow the instructions below to change the value of the authorization header 
 
 3.  If you have already published APIs, Sign in to the WSO2 API Publisher ( `https://<hostname>:9443/publisher` ) and republish those APIs.
 
-### Tenant wide customization
+### Customize per Tenant
 
 Each tenant can define their own name for the authorization header by following the instructions below:
 
@@ -74,7 +87,7 @@ Each tenant can define their own name for the authorization header by following 
     The tenant wide authorization header customizations take precedence over the server wide authorization header customizations .
 
 
-1.  Sign in to the [WSO2 API Manager Management Console](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheManagementConsole) with your tenant credentials.
+1.  Sign in to the [WSO2 API Manager Management Console](../../../InstallAndSetup/InstallationGuide/running-the-product.md#accessing-the-management-console) with your tenant credentials.
 `https://<server-host>:9443/carbon`
 
 !!! tip
@@ -187,9 +200,9 @@ Each tenant can define their own name for the authorization header by following 
             }
 ```
 
-6.  If you have already published APIs, [sign in to the API Publisher](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheAPIPublisher) using your tenant credentials and republish those APIs.
+6.  If you have already published APIs, [sign in to the API Publisher](../../../InstallAndSetup/InstallationGuide/running-the-product.md#accessing-the-api-publisher) using your tenant credentials and republish those APIs.
 
-### Per API customization
+### Customize per API
 
 The API Publisher application allows an API Developer or Product Manager to specify the name of the authorization header when creating or modifying an API.
 
@@ -199,7 +212,7 @@ The customized authorization header defined per API takes precedence over the 
 
 Follow the instructions below to add a customized authorization header for an API:
 
-1.  [Sign in to the Publisher](Running-the-Product_103334417.html#RunningtheProduct-AccessingtheAPIPublisher) .
+1.  [Sign in to the Publisher](../../../InstallAndSetup/InstallationGuide/running-the-product.md#accessing-the-api-publisher) .
 `https://<server-host>:9443/publisher         `
 2.  When [creating](_Create_and_Publish_an_API_) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 

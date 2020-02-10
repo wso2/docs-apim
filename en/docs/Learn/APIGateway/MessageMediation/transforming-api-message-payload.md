@@ -14,16 +14,16 @@ from the message. As with message builders, the message formatter is selected ba
     Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API 
     Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's 
     synapse configuration directly. The recommended way to extend an API's mediation flow is by 
-    [engaging <code>In/Out</code> sequences](../change-the-default-mediation-flow-of-api-requests) .
+    [engaging <code>In/Out</code> sequences]({{base_url}}/Learn/APIGateway/MessageMediation/changing-the-default-mediation-flow-of-api-requests) .
 
 
-Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to implement the API Gateway through 
-which API messages are transformed:
+!!! info
+    Also see the following sections in the WSO2 EI documentation. WSO2 EI is used to implement the API Gateway through which API messages are transformed:
 
--   [Accessing content from JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#accessing-content-from-json-payloads)
--   [Logging JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#logging-json-payloads)
--   [Constructing and transforming JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#constructing-and-transforming-json-payloads)
--   [Troubleshooting, debugging, and logging](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#troubleshooting-debugging-and-logging)
+    -   [Accessing content from JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#accessing-content-from-json-payloads)
+    -   [Logging JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#logging-json-payloads)
+    -   [Constructing and transforming JSON payloads](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#constructing-and-transforming-json-payloads)
+    -   [Troubleshooting, debugging, and logging](https://ei.docs.wso2.com/en/latest/micro-integrator/use-cases/examples/json_examples/json-examples/#troubleshooting-debugging-and-logging)
 
 ### JSON message builders and formatters
 

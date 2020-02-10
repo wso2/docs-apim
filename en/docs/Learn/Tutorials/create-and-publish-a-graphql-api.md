@@ -15,7 +15,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
    
     Example: `https://localhost:9443/publisher`
 
-    Use your username and password to sign in.
+    Let's use `admin` as your username and password to sign in.
 
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
@@ -257,6 +257,14 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
          ```
 
          [![Try out the post operation]({{base_path}}/assets/img/Learn/post-try-out-starwars.png)]({{base_path}}/assets/img/Learn/post-try-out-starwars.png)
+
+      <html>
+      <div class="admonition note">
+      <p class="admonition-title">Note</p>
+      <p>If you are going to invoke QUERY Operation, payload should be started with either with 'query' keyword or without any keyword.</p>
+      <p>If you are going to invoke MUTATION Operation, payload should be started starting with 'mutation' keyword.</p>
+      </div> 
+      </html>
 
     6. Click **Execute**.
 

@@ -30,13 +30,12 @@ dev_addr: localhost:8000
 copyright: WSO2 API Manager - Documentation
 
 # Configuration
-theme: material
 theme:
   name: material
+  custom_dir: theme/material
   palette:
     primary: deep-orange
     accent: deep-orange
-  custom_dir: theme/material
   logo: images/logo.svg
   favicon: images/favicon.png
   highlightjs: true
@@ -46,461 +45,440 @@ theme:
 
 # Navigation
 nav:
-    - Welcome to WSO2 API Manager Documentation: 'index.md'
-    - Get Started: 
-        - Overview:  GettingStarted/overview.md
-        - Key Concepts: GettingStarted/key-concepts.md
-        - Quick Start Guide: GettingStarted/quick-start-guide.md
-        - About this Release: GettingStarted/about-this-release.md
-    - Learn:
-        - Design APIs:
-            - Create APIs:
-                  - Create a new API:
-                        - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
-                        - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
-                        - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
-                        - Create a WebSockect API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
-                        - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
-                        - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
-                  - Adding Custom Properties to APIs: Learn/DesignAPI/CreateAPI/adding-custom-properties-to-apis.md
-                  - Change the Thumbnail of an API : Learn/DesignAPI/CreateAPI/change-api-thumbnail.md
-            - Publish APIs:
-                - Publish an API: Learn/DesignAPI/PublishAPI/publish-an-api.md
-                - Publish through Multiple API Gateways: Learn/DesignAPI/PublishAPI/publish-through-multiple-api-gateways.md
-                - Publish to Multiple External API Developer Portals: Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores.md
-            - Prototype APIs:
-                - Create a Prototype API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
-                - Deploy and Test Prototype APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
-            - Create API Product:
-                - API Product Overview: Learn/DesignAPI/CreateAPIProduct/api-product-overview.md
-                - Create an API Product: Learn/DesignAPI/CreateAPIProduct/create-api-product.md
-            - Endpoints:
-                - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
-                - Security:
-                    - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
-                    - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
-                    - Encrypting the secured endpoint passwords: Learn/DesignAPI/Endpoints/EndpointSecurity/encrypting-secure-endpoint-passwords.md
-                - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
-                - Resiliency:
-                    - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
-                    - Endpoint Suspension: Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension.md
-                    - Prevent API Suspension: Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension.md
-                - Manage Certificates: Learn/DesignAPI/Endpoints/certificates.md
-            - Lifecycle Managament:
-                - API Lifecycle: Learn/DesignAPI/LifecycleManagement/api-lifecycle.md
-                - Customize API Life Cycle: Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle.md
-                - Extending the API Life Cycle: Learn/DesignAPI/LifecycleManagement/extending-the-api-life-cycle.md
-            - API Versioning:
-                - Create a New API Version: Learn/DesignAPI/APIVersioning/create-a-new-api-version.md
-                - Deprecate the Old Version: Learn/DesignAPI/APIVersioning/deprecate-the-old-version.md
-                - Backward Compatibility: Learn/DesignAPI/APIVersioning/backward-compatibility.md
-                - Enabling Notifications: Learn/DesignAPI/APIVersioning/enabling-notifications.md
-            - API Documentation:
-                - Add API Documentation:  Learn/DesignAPI/APIDocumentation/add-api-documentation.md
-                - Search Documentation:
-                    - Add New Search Keyword: Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword.md
-            - Advanced Topics:
-                - Enable Publisher Access Control in API Publisher Portal: Learn/DesignAPI/AdvancedTopics/enable-publisher-access-control-in-api-publisher-portal.md
-                - Control API Visibility and Subscription Availability in the Developer Portal: Learn/DesignAPI/AdvancedTopics/control-api-visibility-and-subscription-availability-in-developer-portal.md
-                - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
-                - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
-                - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md 
-        - Consume APIs:
-            - Discover APIs:
-                - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md    
-            - Manage Applications:
-                - Create Application: Learn/ConsumeAPI/ManageApplication/create-application.md
-                - Generate Keys:
-                    - Application Keys: Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys.md
-                    - Grant Types:
-                        - Password Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant.md
-                        - Client Credentials Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant.md
-                        - JWT Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/jwt-grant.md
-                        - Kerberos OAuth2 Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/kerberos-oauth2-grant.md   
-                        - Refresh Token Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/refresh-token-grant.md
-                        - Authorization Code Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/authorization-code-grant.md
-                        - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
-                        - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
-                        - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
-                    - Obtain Access Token:
-                        - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
-                        - Application Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens.md
-                        - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
-                        - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
-                        - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
-                    -  Grant Types: Learn/ConsumeAPI/ManageApplication/grant-type.md 
-                - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md
-                - Advanced Topics:
-                        - Add Custom Attributes to Applications: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications.md
-                        - Changing the Owner of an Application: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/changing-the-owner-of-an-application.md
-                        - Adding an Application Creation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-creation-workflow.md
-                        - Adding an Application Key Generation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-key-generation-workflow.md
-            - Manage Subscriptions: 
-                - Subscribe to an API: Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md
-                - Advanced Topics:
-                        - Adding an API Subscription Workflow: Learn/ConsumeAPI/ManageSubscription/AdvancedTopics/adding-an-api-subscription-workflow.md
-            - Invoke APIs:
-                - Obtain Access Token:
-                        - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
-                        - Application Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens.md
-                        - User Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/user-access-tokens.md
-                        - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
-                        - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
-                - Invoke APIs Using Tools:
-                        - Invoke an API using the Integrated API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console.md
-                        - Include Additional Headers in the API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/include-additional-headers-in-the-api-console.md
-                        - Invoke an API using a SOAP Client: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client.md
-                        - Test an API using a Ready! API: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/test-an-api-using-a-ready-api.md  
-            - Collaborations:
-                - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
-            - Customizations:
-                -  Customizing the API Store:
-                    - Overriding Developer Portal Theme: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/overriding-developer-portal-theme.md
-                    - Customize API Listing:
-                        - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/categorizing-and-grouping-apis.md
-                        - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/CustomizeAPIListing/change-default-view.md
-                    - Enabling or disabling api detail tabs: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-api-detail-tabs.md
-                    - Override API overview page per API: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/override-api-overview-page-per-api.md
-                    - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-rating.md
-                    - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-home-page.md
-                    - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-tag-cloud.md
-                    - Enable or disable footer: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-footer.md
-                    - Enable or disable banner: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enable-or-disable-banner.md
-                    - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-left-menu.md
-                    - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-api-details-info-section.md
-                    - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/styling-the-logo-and-header.md
-                    - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup.md   
-                    - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheAPIStore/advanced-customization.md
-                - Log in to the API Store using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-api-store-using-social-media.md
-                - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
-                - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
-                - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
-                - Customizing Login Pages for Developer Portal and Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-            - Generating SDKs:  
-                - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md     
-        - API Gateway:
-            -  Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
-            - Message Mediation:
-                - Change the Default Mediation Flow of API Requests: Learn/APIGateway/MessageMediation/change-the-default-mediation-flow-of-api-requests.md
-                - Convert a JSON Message to SOAP and SOAP to JSON: Learn/APIGateway/MessageMediation/convert-a-json-message-to-soap-and-soap-to-json.md
-                - Remove Specific Request Headers From Response:  Learn/APIGateway/MessageMediation/remove-specific-request-headers-from-response.md
-                - Pass a Custom Authorization Token to the Backend: Learn/APIGateway/MessageMediation/pass-a-custom-authorization-token-to-the-backend.md
-                - URL Mapping: Learn/APIGateway/MessageMediation/map-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
-                - Disable Message Chunking: Learn/APIGateway/MessageMediation/disable-message-chunking.md
-                - Transform API Message Payload: Learn/APIGateway/MessageMediation/transforming-api-message-payload.md
-            - Handlers:
-                - Writing Custom Handlers: Learn/APIGateway/Handlers/writing-custom-handlers.md
-            - Message Tracing: Learn/APIGateway/message-tracing.md
-            - Threat Protectors:
-                - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
-            - Passing Enduser Attributes to the Backend:
-                - Passing Enduser Attributes to the Backend Using JWT: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt.md
-            - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
-            - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
-            - Advanced Topics:
-                -  API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
-        - API Microgateway: ''
-        - API Security:
-            - Authentication:
-                - API Authentication : Learn/APISecurity/api-authentication.md
-                - Secure APIs using OAuth2 Opaque Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
-                - Secure APIs using JWT Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-jwt-tokens.md
-                - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
-                - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
-                - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
-            - Authorization:
-                - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
-                - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
-            - Request-Response Schema Validation:
-                - JSON Schema Validator: Learn/APISecurity/SchemaValidation/json-schema-validator.md            
-            - OAuth2 Deep Dive:
-                - Token types: Learn/APISecurity/OAuth2DeepDive/token-types.md
-                - OAuth2 Scopes:
-                    - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
-                    - Scope Whitelisting: Learn/APISecurity/OAuth2DeepDive/OAuth2Scopes/scope-whitelisting.md
-                - Grant Types:
-                    - Password Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/password-grant.md
-                    - Client Credentials Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/client-credentials-grant.md
-                    - JWT Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/jwt-grant.md
-                    - Kerberos OAuth2 Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/kerberos-oauth2-grant.md   
-                    - Refresh Token Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/refresh-token-grant.md
-                    - Authorization Code Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/authorization-code-grant.md
-                    - SAML Extension Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/saml-extension-grant.md
-                    - Implicit Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/implicit-grant.md
-                    - NTLM Grant: Learn/ConsumeAPI/ManageApplication/GenerateKeys/GrantTypes/ntlm-grant.md
-                - Token Revocation: Learn/APISecurity/OAuth2DeepDive/token-revocation.md
-                - Token Expiration: Learn/APISecurity/OAuth2DeepDive/token-expiration.md
-                - Token Persistence: Learn/APISecurity/OAuth2DeepDive/token-persistence.md
-                - Encrypting OAuth Keys: Learn/APISecurity/OAuth2DeepDive/encrypting-oauth-keys.md
-                - Hashing OAuth Keys: Learn/APISecurity/OAuth2DeepDive/hashing-oauth-keys.md
-                - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2DeepDive/provisioning-out-of-band-oauth-clients.md
-                - Saving Access Tokens in Separate Tables: Learn/APISecurity/OAuth2DeepDive/saving-access-tokens-in-separate-tables.md
-                - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2DeepDive/securing-oauth-token-with-hmac-validation.md
-            - Threat Protection:
-                - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
-                - Gateway Threat Protectors: Learn/APISecurity/ThreatProtection/GatewayThreatProtectors/gateway-threat-protectors-for-api-manager.md
-                - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
-                - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
-                - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md 
-            - OpenID Connect:
-                - Obtaining User Profile Information with OpenID Connect: Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect.md
-        - Rate Limiting:
-            - Throttling Use-Cases: Learn/RateLimiting/introducing-throttling-use-cases.md
-            - Adding New Throttling Policies: Learn/RateLimiting/adding-new-throttling-policies.md
-            - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
-            - Blacklisting and Whitelisting Requests: Learn/RateLimiting/blacklisting-whitelisting.md
-            - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
-            - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
-            - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
-            - Advanced Topics:
-                - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md 
-        - API Monetization:
-            - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
-        - Analytics:
-            - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md
-            - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md 
-            - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
-            - Managing Analytics Dashboard Permissions: Learn/Analytics/managing-dashboard-permissions.md
-            - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
-            - Alerts for APIs: 
-                - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
-                - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
-                - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
-                - Viewing Alerts:  Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts.md
-            - Using Geolocation Based Statistics:
-                - Configuring Geolocation Based Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics.md
-                - Writing a Custom Geolocation Provider: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/writing-a-custom-geolocation-provider.md
-                - Updating Geo Location Data Set: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set.md           
-            - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
-            - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
-            - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
-        - API Controller:
-            - Getting Started with WSO2 API Controller: Learn/APIController/getting-started-with-wso2-api-controller.md
-            - Importing APIs Via Dev First Approach: Learn/APIController/importing-apis-via-dev-first-approach.md
-            - Migrating APIs to Different Environments: Learn/APIController/migrating-apis-to-different-environments.md
-            - Migrating Apps to Different Environments: Learn/APIController/migrating-applications-to-different-environments.md
-            - Building a CI/CD Pipeline: Learn/APIController/building-a-cicd-pipeline.md
-        - Tutorials:
-            - Create and Publish an API: Learn/Tutorials/create-and-publish-an-api.md
-            - Subscribe to an API: Learn/Tutorials/subscribe-to-an-api.md
-            - Edit and Consume APIs using Swagger Tools: Learn/Tutorials/edit-and-consume-apis-using-swagger-tools.md
-            - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
-            - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
-            - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
-            - Create and Publish an AWS Lambda API: WIP/create-and-publish-awslambda-api.md
-        - Extensions:
-            - Managing Workflow Extensions:
-                - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
-                - Customizing a Workflow Extension: Learn/Extensions/ManagingWorkflowExtension/customizing-a-workflow-extension.md
-                - Configuring HTTP Redirection for Workflows: Learn/Extensions/ManagingWorkflowExtension/configuring-http-redirection-for-workflows.md
-                - Configuring Workflows for Tenants: Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-for-tenants.md
-                - Configuring Workflows in a Cluster: Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-in-a-cluster.md
-                - Changing the Default User Role in Workflows: Learn/Extensions/ManagingWorkflowExtension/changing-the-default-user-role-in-workflows.md
-                - Cleaning Up Workflow Tasks: Learn/Extensions/ManagingWorkflowExtension/cleaning-up-workflow-tasks.md
-            - SAML2 SSO:
-                - Configuring Single Sign-on with SAML2: Learn/Extensions/SAML2SSO/configuring-single-sign-on-with-saml2.md
-                - Configuring Identity Server as IDP for SSO: Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md
-                - Configuring External IDP through Identity Server for SSO: Learn/Extensions/SAML2SSO/configuring-external-idp-through-identity-server-for-sso.md
-            - Adding Mediation Extensions: Learn/Extensions/adding-mediation-extensions.md
-            - Writing Custom Grant Types: Learn/Extensions/writing-custom-grant-types.md
-            - Extending Key Validation: Learn/Extensions/extending-key-validation.md
-            - Extending the Key Manager Interface: Learn/Extensions/extending-the-key-manager-interface.md
-            - Extending Scope Validation: Learn/Extensions/extending-scope-validation.md
-            - Editing API Templates: Learn/Extensions/editing-api-templates.md
-    - Develop:
-        - Product REST APIs:
-            - RESTful APIs: Develop/ProductAPIs/restful-apis.md
-            - WSO2 Publisher API v1: Develop/ProductAPIs/publisher-v1.md
-            - WSO2 Publisher API v0.15: Develop/ProductAPIs/publisher-v0.15.md
-            - WSO2 Developer Portal API v1: Develop/ProductAPIs/devportal-v1.md
-            - WSO2 Developer Portal API v0.15: Develop/ProductAPIs/devportal-v0.15.md
-            - WSO2 Admin Portal: Develop/ProductAPIs/admin-v1.md
-        - Admin Services: Develop/wso2-admin-services.md
-        - Using the Registry REST API: Develop/using-the-registry-rest-api.md
-        - Working with Audit Logs: Develop/working-with-audit-logs.md
-        - Working with the Source Code: Develop/working-with-the-source-code.md
-        - Java Documentation: Develop/java-documentation.md
-    - Setup and Install:
-        - Installation Guide:
-            - Installation Prerequisites: SetupAndInstall/InstallationGuide/installation-prerequisites.md
-            - Installing the Product:
-                - Installing via the Installer: SetupAndInstall/InstallationGuide/InstallingTheProduct/installing-via-the-installer.md
-                - Installing the Binary:
-                    - Installing on Linux or OS X: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x.md
-                    - Installing on Solaris: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-solaris.md
-                    - Installing on Windows: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-windows.md
-                    - Installing as a Linux Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service.md
-                    - Installing as a Windows Service: SetupAndInstall/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service.md
-            - Running the Product: SetupAndInstall/InstallationGuide/running-the-product.md
-            - Basic Health Checks: SetupAndInstall/InstallationGuide/basic-health-checks.md
-        - Deploying WSO2 API Manager:
-            - Deployment Patterns: SetupAndInstall/DeployingWSO2APIManager/deployment-patterns.md
-            - All-In-One Deployment:
-                - All-in-One Deployment Overview: SetupAndInstall/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview.md
-                - Configuring a Single Node: SetupAndInstall/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md 
-                - Configuring an Active-Active Deployment: SetupAndInstall/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment.md
-            - Distributed Deployment:
-                - Distributed Deployment Overview: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
-                - Deploying WSO2 API-M in a Distributed Setup: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
-                - WSO2 API-M Gateways in a Distributed Deployment:
-                    - Configure WSO2 API-M Gateways in a Distributed Deployment: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
-                    - Configuring the Gateway in a Distributed Environment with rsync: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
-                    - Working with Hazelcast Clustering: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
-                - Configure a Thrid Party Key Manager: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
-                - Product Profiles: SetupAndInstall/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
-                - WSO2 Identity Server as Key Manager: 
-                    - Configuring WSO2 Identity Server as a Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager.md
-                    - Configuring the Databases for IS as the Key Manager: SetupAndInstall/DeployingWSO2APIManager/ThirdPartyKeyManager/configuring-the-databases-for-is-as-the-key-manager.md
-            - Deploying API Manager with Kubernetes or OpenShift Resources: SetupAndInstall/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-            - Configuring rsync for Deployment Synchronization: SetupAndInstall/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
-            - Configuring the Proxy Server and the Load Balancer: SetupAndInstall/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
-            - Configurring APIM Analytics High Availability Deployment:
-#                - Overview: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/overview.md
-                - Active-active: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/active_active.md
-                - Active-passive: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/active_passive.md
-#                - Data partitioning: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/data_partitioning.md
-            - Configuring the keyStore and client trustStore for a Selected Pattern: SetupAndInstall/DeployingWSO2APIManager/configuring-the-keystore-and-client-truststore-for-a-selected-pattern.md
-            - Deployment Guidelines:
-                - Production Deployment Guidelines: SetupAndInstall/DeployingWSO2APIManager/admin-production-deployment-guidelines.md
-                - Security Guidelines for Production Deployment: SetupAndInstall/DeployingWSO2APIManager/admin-security-guidelines-for-production-deployment.md
-        - Setting up Databases:
-            - Overview: SetupAndInstall/SettingUpDatabases/overview.md
-            - Changing Default Databases:
-                - Changing to Embedded H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2.md
-                - Changing to MySQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mysql.md
-                - Changing to MSSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mssql.md
-                - Changing to PostgreSQL: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-postgresql.md
-                - Changing to Oracle: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle.md
-                - Changing to MariaDB: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mariadb.md
-                - Changing to IBM DB2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
-                - Changing to Remote H2: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
-                - Changing to Oracle RAC: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
-                - Changing to Embedded Derby: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
-                - Changing to IBM Informix: SetupAndInstall/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
-        - Product Compatibility: SetupAndInstall/ProductCompatibility.md
-        - Performance Tuning:
-              - Tuning Performance: SetupAndInstall/PerfromanceTuningAndTestResults/tuning-performance.md
-              - WSO2 API-M Performance and Capacity Planning: SetupAndInstall/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
-        - Upgrading WSO2 API Manager:
-              - Upgrading Process: SetupAndInstall/UpgradingWSO2APIManager/upgrading-process.md
-              - 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-260-to-300.md
-              - 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-250-to-300.md
-              - 2.2.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-220-to-300.md
-              - 2.1.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-210-to-300.md
-              - 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-200-to-300.md
-              - 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-1100-to-300.md
-              - 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2APIManager/upgrading-from-191-to-300.md
-
-        - Upgrading WSO2 IS as KM:
-              - 2.6.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-570-to-590.md
-              - 2.5.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-560-to-590.md
-              - 2.2.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-550-to-590.md
-              - 2.1.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-530-to-590.md
-              - 2.0.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-520-to-590.md
-              - 1.10.0 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-510-to-590.md
-              - 1.8.0/1.9.0/1.9.1 to 3.0.0: SetupAndInstall/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-500-to-590.md
-    - Administer:
-        - Product Administration:
-            - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
-            - Managing Users and Roles:
-                - Introduction to Users Management: Administer/ProductAdministration/ManagingUsersAndRoles/introduction-to-user-management.md
-                - Managing User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles.md
-                - Managing Users: Administer/ProductAdministration/ManagingUsersAndRoles/managing-users.md
-                - Managing Role Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/managing-permissions.md
-                - Managing User Stores:
-                      - Introduction to User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores.md
-                      - Configuring Primary User Stores:
-                            - Configuring Primary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-the-primary-user-store.md
-                            - Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md
-                            - Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md
-                            - Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-only-ldap-user-store.md
-                            - Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-active-directory-user-store.md
-                      - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
-                      - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
-            - Multitenancy:
-                  - Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy.md
-                  - Managing Tenants: Administer/ProductAdministration/WorkingWithMultipleTenants/managing-tenants.md
-                  - Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/configuring-the-tenant-loading-policy.md
-            - Monitoring:
-                - Monitoring Logs:
-                     - Setting Up Logging: Administer/ProductAdministration/Monitoring/Logging/setting-up-logging.md
-                     - Http Access Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
-                     - Working with Audit Logs: Administer/ProductAdministration/Monitoring/Logging/working-with-audit-logs.md
-                - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
-                - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
-                - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md
-                - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
-                - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
-                - Monitoring Server Health: Administer/ProductAdministration/Monitoring/monitoring-server-health.md
-            - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
-        - Product Configurations:
-            - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
-            - Default Product Ports: Administer/ProductConfigurations/default-product-ports.md
-            - Configuring Caching: Administer/ProductConfigurations/configuring-caching.md
-            - Changing the Hostname: Administer/ProductConfigurations/changing-the-hostname.md
-            - Configuring Keystores: Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager.md
-            - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
-            - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
-        - Product Security:
-            - General:
-                -  Logins and Passwords:    
-                    - Maintaining Logins and Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords.md
-                    - Securing Passwords in Configuration Files:
-                        - Encrypting Passwords with Cipher Tool: Administer/ProductSecurity/General/LoginsAndPasswords/admin-encrypting-passwords-with-cipher-tool.md
-                        - Resolving Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/admin-resolving-encrypted-passwords.md
-                        - Carbon Secure Vault Implementation: Administer/ProductSecurity/General/LoginsAndPasswords/admin-carbon-secure-vault-implementation.md
-                    - Working with Encrypted Passwords: Administer/ProductSecurity/General/LoginsAndPasswords/working-with-encrypted-passwords.md
-                - Using Asymmetric Encryption:
-                    - Creating New Keystores: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-creating-new-keystores.md
-                    - Renewing a CA-Signed Certificate in a Keystore: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-renewing-a-ca-signed-certificate-in-a-keystore.md
-                    - Configuring Keystores in WSO2 Products: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-configuring-keystores-in-wso2-products.md
-                    - Managing Keystores with the UI: Administer/ProductSecurity/General/UsingAsymmetricEncryption/admin-managing-keystores-with-the-ui.md
-                - Using Symmetric Encryption:
-                    - Using Symmetric Encryption: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-using-symmetric-encryption.md
-                    - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-request-forgery-attacks.md
-                    - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-mitigating-cross-site-scripting-attacks.md
-                    - Enabling HostName Verification: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-hostname-verification.md
-                    - Configuring TLS Termination: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-configuring-tls-termination.md
-                    - Enabling Java Security Manager: Administer/ProductSecurity/General/UsingSymmetricEncryption/admin-enabling-java-security-manager.md
-                - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/General/general-data-protection-regulation-gdpr-for-wso2-api-manager.md    
-                - Configuring Transport Level Security: Administer/ProductSecurity/General/admin-configuring-transport-level-security.md
-                - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/General/mutual-ssl-between-api-gateway-and-backend.md
-            - Supported Cipher Suites: ''
-            - API Designer Portal: 
-                - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-            - Application Developer Portal:
-                - Whitelisting Hostnames for API Store: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
-                - Identity Management for the API Store: Administer/ProductSecurity/identity-management-for-the-api-store.md
-    - Reference:
-        - Configuration Catalog: Reference/ConfigCatalog.md
-        - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
-        - FAQ: Reference/faq.md
-        - Guides:
-            - Changing the Default Ports with Offset: Reference/Guides/changing-the-default-ports-with-offset.md
-            - Message Flow in the API Manager Gateway: Reference/Guides/message-flow-in-the-api-manager-gateway.md
-            - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/accessing-api-manager-by-multiple-devices-simultaneously.md
-            - admin_Database Upgrade Guide: Reference/Guides/admin-database-upgrade-guide.md
-            - admin_Directory Structure of WSO2 Products: Reference/Guides/admin-directory-structure-of-wso2-products.md
-        - Samples:
-            - API Development Sample:
-                - Managing APIs Sample: Reference/samples/APIDevelopmentSample/managing-apis-sample.md
-                - Collaborative API Development Sample: Reference/samples/APIDevelopmentSample/collaborative-api-development-sample.md
-                - Development of Developer Optimized APIs Sample: Reference/samples/APIDevelopmentSample/development-of-developer-optimized-apis-sample.md
-            - API Governance Sample: Reference/samples/api-governance-sample.md
-            - API Lifecycle Management Sample: Reference/samples/api-lifecycle-management-sample.md
-            - API Rate Limiting Sample: Reference/samples/api-rate-limiting-sample.md
-            - API Rate Monetization Sample: Reference/samples/api-rate-monetization-sample.md
-            - API Security Sample Sample: Reference/samples/api-security-sample-sample.md
-            - API Versioning Sample: Reference/samples/api-versioning-sample.md
-        - Business Scenarios: Reference/Guides/business-scenarios.md
-        - Other: Reference/other.md
-    - Troubleshooting:
-        - Error Handling: Troubleshooting/error-handling.md
-        - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
-        - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
-        - Working with Observability: Troubleshooting/working-with-observability.md
+  - Welcome to WSO2 API Manager Documentation: 'index.md'
+  - Get Started:
+      - Overview: GettingStarted/overview.md
+      - Key Concepts: GettingStarted/key-concepts.md
+      - Quick Start Guide: GettingStarted/quick-start-guide.md
+      - About this Release: GettingStarted/about-this-release.md
+  - Learn:
+      - Design APIs:
+          - Create APIs:
+              - Create a new API:
+                  - Create a REST API: Learn/DesignAPI/CreateAPI/create-a-rest-api.md
+                  - Create a REST API from a Swagger Definition: Learn/DesignAPI/CreateAPI/create-a-rest-api-from-a-swagger-definition.md
+                  - Create a GraphQL API: Learn/DesignAPI/CreateAPI/create-a-graphql-api.md
+                  - Create a WebSocket API: Learn/DesignAPI/CreateAPI/create-a-websocket-api.md
+                  - Expose a SOAP Service as a REST API: Learn/DesignAPI/CreateAPI/expose-a-soap-service-as-a-rest-api.md
+                  - Generate REST API from SOAP Backend: Learn/DesignAPI/CreateAPI/generate-rest-api-from-soap-backend.md
+              - Adding Custom Properties to APIs: Learn/DesignAPI/CreateAPI/adding-custom-properties-to-apis.md
+              - Change the Thumbnail of an API : Learn/DesignAPI/CreateAPI/change-api-thumbnail.md
+          - Publish APIs:
+              - Publish an API: Learn/DesignAPI/PublishAPI/publish-an-api.md
+              - Publish through Multiple API Gateways: Learn/DesignAPI/PublishAPI/publish-through-multiple-api-gateways.md
+              - Publish to Multiple External API Developer Portals: Learn/DesignAPI/PublishAPI/publish-to-multiple-external-api-stores.md
+          - Prototype APIs:
+              - Create a Prototype API with an Inline Script: Learn/DesignAPI/MockAPI/create-a-mock-api-with-an-inline-script.md
+              - Deploy and Test Prototype APIs: Learn/DesignAPI/MockAPI/deploy-and-test-mock-apis.md
+          - Create API Product:
+              - API Product Overview: Learn/DesignAPI/CreateAPIProduct/api-product-overview.md
+              - Create an API Product: Learn/DesignAPI/CreateAPIProduct/create-api-product.md
+          - Endpoints:
+              - Endpoint Types: Learn/DesignAPI/Endpoints/endpoint-types.md
+              - Security:
+                  - Secure Endpoint with Basic Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth.md
+                  - Secure Endpoint with Digest Auth: Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth.md
+              - High Availability for Endpoints: Learn/DesignAPI/Endpoints/high-availability-for-endpoints.md
+              - Resiliency:
+                  - Endpoint Timeouts: Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts.md
+                  - Endpoint Suspension: Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension.md
+                  - Prevent API Suspension: Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension.md
+              - Manage Certificates: Learn/DesignAPI/Endpoints/certificates.md
+          - Lifecycle Managament:
+              - API Lifecycle: Learn/DesignAPI/LifecycleManagement/api-lifecycle.md
+              - Customize API Life Cycle: Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle.md
+              - Extending the API Life Cycle: Learn/DesignAPI/LifecycleManagement/extending-the-api-life-cycle.md
+          - API Versioning:
+              - Create a New API Version: Learn/DesignAPI/APIVersioning/create-a-new-api-version.md
+              - Deprecate the Old Version: Learn/DesignAPI/APIVersioning/deprecate-the-old-version.md
+              - Backward Compatibility: Learn/DesignAPI/APIVersioning/backward-compatibility.md
+              - Enabling Notifications: Learn/DesignAPI/APIVersioning/enabling-notifications.md
+          - API Documentation:
+              - Add API Documentation: Learn/DesignAPI/APIDocumentation/add-api-documentation.md
+              - Search Documentation:
+                  - Add New Search Keyword: Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword.md
+          - Advanced Topics:
+              - Enable Publisher Access Control in API Publisher Portal: Learn/DesignAPI/AdvancedTopics/enable-publisher-access-control-in-api-publisher-portal.md
+              - Control API Visibility and Subscription Availability in the Developer Portal: Learn/DesignAPI/AdvancedTopics/control-api-visibility-and-subscription-availability-in-developer-portal.md
+              - Enabling CORS for APIs: Learn/DesignAPI/AdvancedTopics/enabling-cors-for-apis.md
+              - Adding an API State Change Workflow: Learn/DesignAPI/AdvancedTopics/adding-an-api-state-change-workflow.md
+              - Block Subscription to an API: Learn/DesignAPI/AdvancedTopics/block-subscription-to-an-api.md
+      - Consume APIs:
+          - Discover APIs:
+              - Search: Learn/ConsumeAPI/DiscoverAPIs/search.md
+          - Manage Applications:
+              - Create Application: Learn/ConsumeAPI/ManageApplication/create-application.md
+              - Generate Keys:
+                  - Application Keys: Learn/ConsumeAPI/ManageApplication/GenerateKeys/generate-api-keys.md
+                  - Grant Types:
+                      - Password Grant: Learn/APISecurity/OAuth2/GrantTypes/password-grant.md
+                      - Client Credentials Grant: Learn/APISecurity/OAuth2/GrantTypes/client-credentials-grant.md
+                      - JWT Grant: Learn/APISecurity/OAuth2/GrantTypes/jwt-grant.md
+                      - Kerberos OAuth2 Grant: Learn/APISecurity/OAuth2/GrantTypes/kerberos-oauth2-grant.md
+                      - Refresh Token Grant: Learn/APISecurity/OAuth2/GrantTypes/refresh-token-grant.md
+                      - Authorization Code Grant: Learn/APISecurity/OAuth2/GrantTypes/authorization-code-grant.md
+                      - SAML Extension Grant: Learn/APISecurity/OAuth2/GrantTypes/saml-extension-grant.md
+                      - Implicit Grant: Learn/APISecurity/OAuth2/GrantTypes/implicit-grant.md
+                      - NTLM Grant: Learn/APISecurity/OAuth2/GrantTypes/ntlm-grant.md
+                  - Obtain Access Token:
+                      - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
+                      - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
+                      - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
+              - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md
+              - Advanced Topics:
+                  - Add Custom Attributes to Applications: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications.md
+                  - Changing the Owner of an Application: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/changing-the-owner-of-an-application.md
+                  - Adding an Application Creation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-creation-workflow.md
+                  - Adding an Application Key Generation Workflow: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/adding-an-application-key-generation-workflow.md
+          - Manage Subscriptions:
+              - Subscribe to an API: Learn/ConsumeAPI/ManageSubscription/subscribe-to-an-api.md
+              - Advanced Topics:
+                  - Adding an API Subscription Workflow: Learn/ConsumeAPI/ManageSubscription/AdvancedTopics/adding-an-api-subscription-workflow.md
+          - Invoke APIs:
+              - Invoke an API using the Integrated API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console.md
+              - Include Additional Headers in the API Console: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/include-additional-headers-in-the-api-console.md
+              - Invoke an API using a SOAP Client: Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-a-soap-client.md
+          - Collaborations:
+              - Use the Community Features: Learn/ConsumeAPI/Collaboration/use-the-community-features.md
+          - Customizations:
+              -  Customizing the Developer Portal:
+                   - Overriding Developer Portal Theme: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/overriding-developer-portal-theme.md
+                   - Customize API Listing:
+                       - Categorizing and grouping APIs: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/CustomizeAPIListing/categorizing-and-grouping-apis.md
+                       - Change Default View: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/CustomizeAPIListing/change-default-view.md
+                   - Enabling or disabling api detail tabs: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enabling-or-disabling-api-detail-tabs.md
+                   - Override API overview page per API: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/override-api-overview-page-per-api.md
+                   - Enable or disable rating: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-rating.md
+                   - Enable or disable home page: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-home-page.md
+                   - Enable or disable tag cloud: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-tag-cloud.md
+                   - Enable or disable footer: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-footer.md
+                   - Enable or disable banner: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enable-or-disable-banner.md
+                   - Styling API details left menu: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/styling-api-details-left-menu.md
+                   - Styling API details info section: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/styling-api-details-info-section.md
+                   - Styling the logo and header: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/styling-the-logo-and-header.md
+                   - Enabling or disabling self signup : Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enabling-or-disabling-self-signup.md
+                   - Advanced Customization: Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/advanced-customization.md
+              - Log in to the Developer Portal using Social Media: Learn/ConsumeAPI/Customizations/log-in-to-the-dev-portal-using-social-media.md
+              - Adding a User Signup Workflow: Learn/ConsumeAPI/Customizations/adding-a-user-signup-workflow.md
+              - Directing the Root Context to the Developer Portal: Learn/ConsumeAPI/Customizations/directing-the-root-context-to-the-developer-portal.md
+              - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
+              - Customizing Login Pages for Developer Portal and Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+          - Generating SDKs:
+              - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md
+      - API Gateway:
+          - Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
+          - Message Mediation:
+              - Changing the Default Mediation Flow of API Requests: Learn/APIGateway/MessageMediation/changing-the-default-mediation-flow-of-api-requests.md
+              - Creating and Uploading using Integration Studio: Learn/APIGateway/MessageMediation/creating-and-uploading-using-integration-studio.md
+              - Adding Dynamic Endpoints : Learn/APIGateway/MessageMediation/adding-dynamic-endpoints.md
+              - Removing Specific Request Headers From Response: Learn/APIGateway/MessageMediation/removing-specific-request-headers-from-response.md
+              - Passing a Custom Authorization Token to the Backend: Learn/APIGateway/MessageMediation/passing-a-custom-authorization-token-to-the-backend.md
+              - URL Mapping: Learn/APIGateway/MessageMediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+              - Disabling Message Chunking: Learn/APIGateway/MessageMediation/disabling-message-chunking.md
+              - Transforming API Message Payload: Learn/APIGateway/MessageMediation/transforming-api-message-payload.md
+              - Adding a Non-Blocking Send Operation: Learn/APIGateway/MessageMediation/adding-a-non-blocking-send-operation.md
+              - Adding a Class Mediator:  Learn/APIGateway/MessageMediation/adding-a-class-mediator.md
+          - Handlers:
+              - Writing Custom Handlers: Learn/APIGateway/Handlers/writing-custom-handlers.md
+          - Response Caching: Learn/APIGateway/response-caching.md
+          - Message Tracing: Learn/APIGateway/message-tracing.md
+          - Threat Protectors:
+              - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
+              - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
+              - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
+          - Passing Enduser Attributes to the Backend:
+              - Passing Enduser Attributes to the Backend Using JWT: Learn/APIGateway/PassingEndUserAttributesToTheBackend/passing-enduser-attributes-to-the-backend-using-jwt.md
+          - Gateway Environments: Learn/APIGateway/maintaining-separate-production-and-sandbox-gateways.md
+          - Scaling the Gateway: Learn/APIGateway/scaling-the-gateway.md
+          - Advanced Topics:
+              - API Gateways with Dedicated Backends: Learn/APIGateway/api-gateways-with-dedicated-backends.md
+      - API Microgateway:
+          - Grouping APIs with Labels: Learn/APIMicrogateway/grouping-apis-with-labels.md
+      - API Security:
+          - Authentication:
+              - Overview: Learn/APISecurity/APIAuthentication/api-authentication-overview.md
+              - Secure APIs using OAuth2 Access Tokens: Learn/APISecurity/APIAuthentication/secure-apis-using-oauth2-tokens.md
+              - Secure APIs using API Keys: Learn/APISecurity/APIAuthentication/secure-apis-using-api-keys.md
+              - Secure APIs using Mutual SSL: Learn/APISecurity/APIAuthentication/secure-apis-using-mutual-ssl.md
+              - Secure APIs using Basic Authentication: Learn/APISecurity/APIAuthentication/secure-apis-using-basic-authentication.md
+          - Authorization:
+              - Overview: Learn/APISecurity/Authorization/api-authorization.md
+              - Role-Based Access Control using Scopes: Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+              - Role-Based Access Control using XACML: Learn/APISecurity/Authorization/role-based-access-control-using-xacml.md
+          - Request-Response Schema Validation:
+              - JSON Schema Validator: Learn/APISecurity/APIRequestResponseSchemaValidation/json-schema-validator.md
+          - OAuth2:
+              - Token types:
+                  - JWT Access Tokens: Learn/APISecurity/OAuth2/AccessTokenTypes/jwt-tokens.md
+                  - Opaque Access Tokens: Learn/APISecurity/OAuth2/AccessTokenTypes/opaque-tokens.md
+              - OAuth2 Scopes:
+                  - Role-Based Access Control with OAuth Scopes: Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes.md
+                  - Scope Whitelisting: Learn/APISecurity/OAuth2/OAuth2Scopes/scope-whitelisting.md
+              - Grant Types:
+                  - Overview: Learn/APISecurity/OAuth2/GrantTypes/overview.md
+                  - Password Grant: Learn/APISecurity/OAuth2/GrantTypes/password-grant.md
+                  - Client Credentials Grant: Learn/APISecurity/OAuth2/GrantTypes/client-credentials-grant.md
+                  - Authorization Code Grant: Learn/APISecurity/OAuth2/GrantTypes/authorization-code-grant.md
+                  - Implicit Grant: Learn/APISecurity/OAuth2/GrantTypes/implicit-grant.md
+                  - Refresh Token Grant: Learn/APISecurity/OAuth2/GrantTypes/refresh-token-grant.md
+                  - JWT Grant: Learn/APISecurity/OAuth2/GrantTypes/jwt-grant.md
+                  - SAML Extension Grant: Learn/APISecurity/OAuth2/GrantTypes/saml-extension-grant.md
+                  - Kerberos OAuth2 Grant: Learn/APISecurity/OAuth2/GrantTypes/kerberos-oauth2-grant.md
+                  - NTLM Grant: Learn/APISecurity/OAuth2/GrantTypes/ntlm-grant.md
+              - Token Revocation: Learn/APISecurity/OAuth2/token-revocation.md
+              - Token Expiration: Learn/APISecurity/OAuth2/token-expiration.md
+              - Token Persistence: Learn/APISecurity/OAuth2/token-persistence.md
+              - Encrypting OAuth2 Tokens: Learn/APISecurity/OAuth2/encrypting-oauth2-tokens.md
+              - Hashing OAuth Keys: Learn/APISecurity/OAuth2/hashing-oauth-keys.md
+              - Provisioning Out-of-Band OAuth Clients: Learn/APISecurity/OAuth2/provisioning-out-of-band-oauth-clients.md
+              - Securing OAuth Token with HMAC Validation: Learn/APISecurity/OAuth2/securing-oauth-token-with-hmac-validation.md
+          - Threat Protection:
+              - Bot Detection: Learn/APISecurity/ThreatProtection/bot-detection.md
+              - Gateway Threat Protectors: Learn/APISecurity/ThreatProtection/GatewayThreatProtectors/gateway-threat-protectors-for-api-manager.md
+              - Regular Expression Threat Protection: Learn/APIGateway/ThreatProtectors/regular-expression-threat-protection-for-api-gateway.md
+              - JSON Threat Protection: Learn/APIGateway/ThreatProtectors/json-threat-protection-for-api-gateway.md
+              - XML Threat Protection: Learn/APIGateway/ThreatProtectors/xml-threat-protection-for-api-gateway.md
+          - OpenID Connect:
+              - Obtaining User Profile Information with OpenID Connect: Learn/APISecurity/OpenIDConnect/obtaining-user-profile-information-with-openid-connect.md
+      - Rate Limiting:
+          - Throttling Use-Cases: Learn/RateLimiting/introducing-throttling-use-cases.md
+          - Adding New Throttling Policies: Learn/RateLimiting/adding-new-throttling-policies.md
+          - Setting Throttling Limits: Learn/RateLimiting/setting-throttling-limits.md
+          - Blacklisting and Whitelisting Requests: Learn/RateLimiting/blacklisting-whitelisting.md
+          - Enforce Throttling and Resource Access Policies: Learn/RateLimiting/enforce-throttling-and-resource-access-policies.md
+          - Setting Maximum Backend Throughput Limits: Learn/RateLimiting/setting-maximum-backend-throughput-limits.md
+          - Engaging a New Throttling Policy at Runtime: Learn/RateLimiting/engaging-a-new-throttling-policy-at-runtime.md
+          - Advanced Topics:
+              - Custom Throttling: Learn/RateLimiting/AdvancedTopics/custom-throttling.md
+      - API Monetization:
+          - Monetizing an API: Learn/APIMonetization/monetizing-an-api.md
+      - Analytics:
+          - Overview of API Analytics: Learn/Analytics/overview-of-api-analytics.md
+          - Introducing the WSO2 API Manager Statistics Model: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/introducing-the-wso2-api-manager-statistics-model.md
+          - Configuring APIM Analytics: Learn/Analytics/configuring-apim-analytics.md
+          - Managing Analytics Dashboard Permissions: Learn/Analytics/managing-dashboard-permissions.md
+          - Viewing API Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics.md
+          - Alerts for APIs:
+              - Alert Types: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/alert-types.md
+              - Configuring Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/configuring-alerts.md
+              - Subscribing for Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/subscribing-for-alerts.md
+              - Viewing Alerts: Learn/Analytics/ManagingAlertsWithRealTimeAnalytics/viewing-alerts.md
+          - Using Geolocation Based Statistics:
+              - Configuring Geolocation Based Statistics: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/configuring-geolocation-based-statistics.md
+              - Writing a Custom Geolocation Provider: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/writing-a-custom-geolocation-provider.md
+              - Updating Geo Location Data Set: Learn/Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/UsingGeoLocationBasedStatistics/updating-geo-location-data-set.md
+          - Integrating with Google Analytics: Learn/Analytics/integrating-with-google-analytics.md
+          - Purging Analytics Data: Learn/Analytics/purging-analytics-data.md
+          - Default Ports of WSO2 API-M Analytics: Learn/Analytics/default-ports-of-wso2-api-m-analytics.md
+      - API Controller:
+          - Getting Started with WSO2 API Controller: Learn/APIController/getting-started-with-wso2-api-controller.md
+          - Importing APIs Via Dev First Approach: Learn/APIController/importing-apis-via-dev-first-approach.md
+          - Migrating APIs to Different Environments: Learn/APIController/migrating-apis-to-different-environments.md
+          - Migrating Apps to Different Environments: Learn/APIController/migrating-applications-to-different-environments.md
+          - CI/CD with WSO2 API Manager: Learn/APIController/ci-cd-with-wso2-api-management.md
+          - Building a Jenkins CI/CD Pipeline for Dev First Approach: Learn/APIController/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+      - Tutorials:
+          - Create and Publish a GraphQL API: Learn/Tutorials/create-and-publish-a-graphql-api.md
+          - Expose a SOAP Service as a REST API: Learn/Tutorials/expose-a-soap-service-as-a-rest-api.md
+          - Create and Publish WebSocket API: Learn/Tutorials/create-and-publish-websocket-api.md
+          - Create and Publish an AWS Lambda API: WIP/create-and-publish-awslambda-api.md
+      - Extensions:
+          - Managing Workflow Extensions:
+              - Invoking the API Manager from the BPEL Engine: Learn/Extensions/ManagingWorkflowExtension/invoking-the-api-manager-from-the-bpel-engine.md
+              - Customizing a Workflow Extension: Learn/Extensions/ManagingWorkflowExtension/customizing-a-workflow-extension.md
+              - Configuring HTTP Redirection for Workflows: Learn/Extensions/ManagingWorkflowExtension/configuring-http-redirection-for-workflows.md
+              - Configuring Workflows for Tenants: Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-for-tenants.md
+              - Configuring Workflows in a Cluster: Learn/Extensions/ManagingWorkflowExtension/configuring-workflows-in-a-cluster.md
+              - Changing the Default User Role in Workflows: Learn/Extensions/ManagingWorkflowExtension/changing-the-default-user-role-in-workflows.md
+              - Cleaning Up Workflow Tasks: Learn/Extensions/ManagingWorkflowExtension/cleaning-up-workflow-tasks.md
+          - SAML2 SSO:
+              - Configuring Single Sign-on with SAML2: Learn/Extensions/SAML2SSO/configuring-single-sign-on-with-saml2.md
+              - Configuring Identity Server as IDP for SSO: Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md
+              - Configuring External IDP through Identity Server for SSO: Learn/Extensions/SAML2SSO/configuring-external-idp-through-identity-server-for-sso.md
+          - Writing Custom Grant Types: Learn/Extensions/writing-custom-grant-types.md
+          - Extending Key Validation: Learn/Extensions/extending-key-validation.md
+          - Extending the Key Manager Interface: Learn/Extensions/extending-the-key-manager-interface.md
+          - Extending Scope Validation: Learn/Extensions/extending-scope-validation.md
+          - Editing API Templates: Learn/Extensions/editing-api-templates.md
+  - Develop:
+      - Product REST APIs:
+          - RESTful APIs: Develop/ProductAPIs/restful-apis.md
+          - WSO2 Publisher API v1: Develop/ProductAPIs/publisher-v1.md
+          - WSO2 Publisher API v0.15: Develop/ProductAPIs/publisher-v0.15.md
+          - WSO2 Developer Portal API v1: Develop/ProductAPIs/devportal-v1.md
+          - WSO2 Developer Portal API v0.15: Develop/ProductAPIs/devportal-v0.15.md
+          - WSO2 Admin Portal: Develop/ProductAPIs/admin-v1.md
+      - Admin Services: Develop/wso2-admin-services.md
+      - Using the Registry REST API: Develop/using-the-registry-rest-api.md
+      - Working with the Source Code: Develop/working-with-the-source-code.md
+      - Java Documentation: Develop/java-documentation.md
+  - Install and Setup:
+      - Installation Guide:
+          - Installation Prerequisites: InstallAndSetup/InstallationGuide/installation-prerequisites.md
+          - Installing the Product:
+              - Installing via the Installer: InstallAndSetup/InstallationGuide/InstallingTheProduct/installing-via-the-installer.md
+              - Installing the Binary:
+                  - Installing on Linux or OS X: InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-linux-or-os-x.md
+                  - Installing on Solaris: InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-solaris.md
+                  - Installing on Windows: InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-on-windows.md
+                  - Installing as a Linux Service: InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-linux-service.md
+                  - Installing as a Windows Service: InstallAndSetup/InstallationGuide/InstallingTheProduct/InstallingTheBinary/installing-as-a-windows-service.md
+          - Running the Product: InstallAndSetup/InstallationGuide/running-the-product.md
+          - Basic Health Checks: InstallAndSetup/InstallationGuide/basic-health-checks.md
+      - Deploying WSO2 API Manager:
+          - Deployment Patterns:
+              - Deployment Patterns Overview: InstallAndSetup/DeployingWSO2APIManager/deployment-patterns.md
+              - All-In-One Deployment:
+                  - All-in-One Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/SingleNode/all-in-one-deployment-overview.md
+                  - Configuring a Single Node: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-a-single-node.md
+                  - Configuring an Active-Active Deployment: InstallAndSetup/DeployingWSO2APIManager/SingleNode/configuring-an-active-active-deployment.md
+              - Distributed Deployment:
+                  - Distributed Deployment Overview: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/understanding-the-distributed-deployment-of-wso2-api-m.md
+                  - Deploying WSO2 API-M in a Distributed Setup: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/deploying-wso2-api-m-in-a-distributed-setup.md
+                  - WSO2 API-M Gateways in a Distributed Deployment:
+                      - Configure WSO2 API-M Gateways in a Distributed Deployment: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/distributed-deployment-of-the-gateway.md
+                      - Configuring the Gateway in a Distributed Environment with rsync: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md
+                      - Working with Hazelcast Clustering: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/working-with-hazelcast-clustering.md
+                  - Configure a Thrid Party Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-thrid-party-key-manager.md
+                  - Product Profiles: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles.md
+                  - Configuring WSO2 Identity Server as Key Manager: InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md
+          - Changing the Hostname: InstallAndSetup/DeployingWSO2APIManager/changing-the-hostname.md
+          - Changing the Default Ports with Offset: InstallAndSetup/DeployingWSO2APIManager/changing-the-default-ports-with-offset.md
+          - Configuring the Proxy Server and the Load Balancer: InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer.md
+          - Configuring rsync for Deployment Synchronization: InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization.md
+          - Deploying API Manager with Kubernetes or OpenShift Resources: InstallAndSetup/DeployingWSO2APIManager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
+          - Minimum High Availability Deployment for WSO2 APIM Analytics: InstallAndSetup/DeployingWSO2APIManager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
+          - Deployment Guidelines:
+              - Production Deployment Guidelines: InstallAndSetup/DeployingWSO2APIManager/production-deployment-guidelines.md
+              - Security Guidelines for Production Deployment: InstallAndSetup/DeployingWSO2APIManager/security-guidelines-for-production-deployment.md
+      - Setting up Databases:
+          - Overview: InstallAndSetup/SettingUpDatabases/overview.md
+          - Changing Default Databases:
+              - Changing to Embedded H2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2.md
+              - Changing to MySQL: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mysql.md
+              - Changing to MSSQL: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mssql.md
+              - Changing to PostgreSQL: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-postgresql.md
+              - Changing to Oracle: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle.md
+              - Changing to MariaDB: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-mariadb.md
+              - Changing to IBM DB2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
+              - Changing to Remote H2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
+              - Changing to Oracle RAC: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
+              - Changing to Embedded Derby: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
+              - Changing to IBM Informix: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
+      - Product Compatibility: InstallAndSetup/ProductCompatibility.md
+      - Performance Tuning:
+          - Tuning Performance: InstallAndSetup/PerfromanceTuningAndTestResults/tuning-performance.md
+          - WSO2 API-M Performance and Capacity Planning: InstallAndSetup/PerfromanceTuningAndTestResults/wso2-api-m-performance-and-capacity-planning.md
+      - Upgrading WSO2 API Manager:
+          - Upgrading Process: InstallAndSetup/UpgradingWSO2APIManager/upgrading-process.md
+          - 2.6.0 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-260-to-300.md
+          - 2.5.0 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-250-to-300.md
+          - 2.2.0 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-220-to-300.md
+          - 2.1.0 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-210-to-300.md
+          - 2.0.0 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-200-to-300.md
+          - 1.10.0 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-1100-to-300.md
+          - 1.8.0/1.9.0/1.9.1 to 3.0.0: InstallAndSetup/UpgradingWSO2APIManager/upgrading-from-191-to-300.md
+          - Upgrading to Log4j2: InstallAndSetup/UpgradingWSO2APIManager/upgrading-to-log4j2.md
+      - Upgrading WSO2 IS as KM:
+          - 2.6.0 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-570-to-590.md
+          - 2.5.0 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-560-to-590.md
+          - 2.2.0 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-550-to-590.md
+          - 2.1.0 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-530-to-590.md
+          - 2.0.0 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-520-to-590.md
+          - 1.10.0 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-510-to-590.md
+          - 1.8.0/1.9.0/1.9.1 to 3.0.0: InstallAndSetup/UpgradingWSO2ISAsKeyManager/upgrading-from-is-km-500-to-590.md
+  - Administer:
+      - Product Administration:
+          - Updating WSO2 API Manager: Administer/ProductAdministration/updating-wso2-api-manager.md
+          - Managing Users and Roles:
+              - Introduction to User Management: Administer/ProductAdministration/ManagingUsersAndRoles/introduction-to-user-management.md
+              - Managing User Roles: Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles.md
+              - Managing Users: Administer/ProductAdministration/ManagingUsersAndRoles/managing-users.md
+              - Managing Role Permissions: Administer/ProductAdministration/ManagingUsersAndRoles/managing-permissions.md
+          - Managing User Stores:
+              - Introduction to User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores.md
+              - Configuring Primary User Stores:
+                  - Configuring Primary User Stores: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-the-primary-user-store.md
+                  - Configuring a JDBC User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store.md
+                  - Configuring a Read-Write LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store.md
+                  - Configuring a Read-Only LDAP User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-only-ldap-user-store.md
+                  - Configuring a Read-Write Active Directory User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-active-directory-user-store.md
+              - Configuring Secondary User Store: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores.md
+              - Writing a custom User Store Manager: Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/writing-a-custom-user-store-manager.md
+          - Multitenancy:
+              - Introduction to Multitenancy: Administer/ProductAdministration/Multitenancy/introduction-to-multitenancy.md
+              - Managing Tenants: Administer/ProductAdministration/Multitenancy/managing-tenants.md
+              - Configuring the Tenant Loading Policy: Administer/ProductAdministration/Multitenancy/configuring-the-tenant-loading-policy.md
+          - Monitoring:
+              - Monitoring Logs:
+                  - Setting up logging: Administer/ProductAdministration/Monitoring/Logging/setting-up-logging.md
+                  - Monitoring HTTP access logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs.md
+                  - Monitoring audit Logs: Administer/ProductAdministration/Monitoring/Logging/monitoring-audit-logs.md
+                  - Managing log growth: Administer/ProductAdministration/Monitoring/Logging/managing-log-growth.md
+              - Working with Observability: Administer/ProductAdministration/Monitoring/working-with-observability.md
+              - Capturing System Data in Error Situations: Administer/ProductAdministration/Monitoring/capturing-system-data-in-error-situations.md
+              - JMX-Based Monitoring: Administer/ProductAdministration/Monitoring/jmx-based-monitoring.md
+              - Monitoring Message Flows: Administer/ProductAdministration/Monitoring/monitoring-message-flows.md
+              - Monitoring Performance Statistics: Administer/ProductAdministration/Monitoring/monitoring-performance-statistics.md
+              - Monitoring TCP-Based Messages: Administer/ProductAdministration/Monitoring/monitoring-tcp-based-messages.md
+          - Revoke OAuth2 Application: Administer/ProductAdministration/revoke-oauth2-application.md
+          - Removing Unused Tokens from the Database: Administer/ProductAdministration/removing-unused-tokens-from-the-database.md
+      - Product Configurations:
+          - Changing the Default Transport: Administer/ProductConfigurations/changing-the-default-transport.md
+          - Default Product Ports: Administer/ProductConfigurations/default-product-ports.md
+          - Configuring Caching: Administer/ProductConfigurations/configuring-caching.md
+          - Common Runtime and Configuration Artifacts: Administer/ProductConfigurations/common-runtime-and-configuration-artifacts.md
+          - Customizing the Management Console: Administer/ProductConfigurations/customizing-the-management-console.md
+      - Product Security:
+          - Configuring Keystores:
+              - Configuring Keystores in API Manager: Administer/ProductSecurity/ConfiguringKeystores/configuring-keystores-in-wso2-api-manager.md
+              - Keystore Basics:
+                  - Creating a new Keystore: Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores.md
+                  - Renewing a CA signed certificate: Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/renewing-a-ca-signed-certificate-in-a-keystore.md
+                  - About Asymetric Cryptography: Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/about-asymetric-cryptography.md
+          - Logins and Passwords:
+              - Maintaining Logins and Passwords: Administer/ProductSecurity/LoginsAndPasswords/maintaining-logins-and-passwords.md
+              - Securing Passwords:
+                  - Encrypting Passwords in Configuration files: Administer/ProductSecurity/LoginsAndPasswords/working-with-encrypted-passwords.md
+                  - Customizing Secure Vault: Administer/ProductSecurity/LoginsAndPasswords/carbon-secure-vault-implementation.md
+                  - Set Passwords using Environment Variables/System Properties: Administer/ProductSecurity/LoginsAndPasswords/set-passwords-using-vars-and-sys-props.md
+          - Mitigating Cross Site Request Forgery Attacks: Administer/ProductSecurity/mitigating-cross-site-request-forgery-attacks.md
+          - Mitigating Cross Site Scripting Attacks: Administer/ProductSecurity/mitigating-cross-site-scripting-attacks.md
+          - Enabling HostName Verification: Administer/ProductSecurity/enabling-hostname-verification.md
+          # - Configuring TLS Termination: Administer/ProductSecurity/configuring-tls-termination.md
+          - Enabling Java Security Manager: Administer/ProductSecurity/enabling-java-security-manager.md
+          - General Data Protection Regulation (GDPR) for WSO2 API Manager: Administer/ProductSecurity/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
+          - Configuring Transport Level Security: Administer/ProductSecurity/configuring-transport-level-security.md
+          - Mutual SSL between API Gateway and Backend: Administer/ProductSecurity/mutual-ssl-between-api-gateway-and-backend.md
+          - Multi Factor Authentication (MFA) for Publisher and Developer Portals: Administer/ProductSecurity/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+          - Whitelisting Hostnames for API Dev Portal: Administer/ProductSecurity/whitelisting-host-names-for-api-store.md
+          - Identity Management for the API Developer Portal: Administer/ProductSecurity/identity-management-for-the-api-dev-portal.md
+  - Reference:
+      - Configuration Catalog: Reference/ConfigCatalog.md
+      - WSO2 API Manager Best Practices: Reference/wso2-api-manager-best-practices.md
+      - FAQ: Reference/faq.md
+      - Guides:
+          - Message Flow in the API Manager Gateway: Reference/Guides/message-flow-in-the-api-manager-gateway.md
+          - Accessing API Manager by Multiple Devices Simultaneously: Reference/Guides/accessing-api-manager-by-multiple-devices-simultaneously.md
+          - Directory Structure of WSO2 Products: Reference/Guides/directory-structure-of-wso2-products.md
+      - Samples:
+          - API Development Sample:
+              - Managing APIs Sample: Reference/samples/APIDevelopmentSample/managing-apis-sample.md
+              - Collaborative API Development Sample: Reference/samples/APIDevelopmentSample/collaborative-api-development-sample.md
+              - Development of Developer Optimized APIs Sample: Reference/samples/APIDevelopmentSample/development-of-developer-optimized-apis-sample.md
+          - API Governance Sample: Reference/samples/api-governance-sample.md
+          - API Lifecycle Management Sample: Reference/samples/api-lifecycle-management-sample.md
+          - API Rate Limiting Sample: Reference/samples/api-rate-limiting-sample.md
+          - API Rate Monetization Sample: Reference/samples/api-rate-monetization-sample.md
+          - API Security Sample Sample: Reference/samples/api-security-sample-sample.md
+          - API Versioning Sample: Reference/samples/api-versioning-sample.md
+      - Business Scenarios: Reference/Guides/business-scenarios.md
+      - Other: Reference/other.md
+  - Troubleshooting:
+      - Error Handling: Troubleshooting/error-handling.md
+      - Troubleshooting in Production Environments: Troubleshooting/admin-troubleshooting-in-production-environments.md
+      - Cleaning Up Partially Created Keys: Troubleshooting/cleaning-up-partially-created-keys.md
+      - Troubleshooting 'Registered callback does not match with the provided url' error: Troubleshooting/troubleshooting-invalid-callback-error.md
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
@@ -550,3 +528,5 @@ extra:
       link: https://www.linkedin.com/company/wso2
   site_version: 3.1.0
   base_path: https://apim.docs.wso2.com/en/next
+
+

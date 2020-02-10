@@ -4,8 +4,10 @@ Cross-Origin Resource Sharing (CORS) is a mechanism that allows accessing restri
 
 In API Manager, you can enable Cross-Origin Resource Sharing per API or as a global configuration that is applied across all APIs.
 
--   [Enabling CORS Globally](#EnablingCORSforAPIs-EnablingCORSGlobally)
--   [Enabling CORS Per API](#EnablingCORSforAPIs-EnablingCORSPerAPI)
+-   [Enabling CORS Globally](#EnablingCORSGlobally)
+-   [Enabling CORS Per API](#EnablingCORSPerAPI)
+
+<a name="EnablingCORSGlobally"></a>
 
 ### Enabling CORS Globally
 
@@ -28,6 +30,7 @@ Follow the steps below to enable CORS response headers globally. Once this confi
 !!! info
     CORS configuration is enabled by default. Access control can be done by changing the parameters mentioned above in the `deployment.toml` file.
 
+<a name="EnablingCORSPerAPI"></a>
 
 ### Enabling CORS Per API
 
@@ -65,5 +68,26 @@ Follow the steps below to enable CORS response headers globally. Once this confi
      </html>
 
 You have successfully enabled CORS for a specific API.
+
+## Enabling CORS for OAuth Token related APIs
+
+Enabling CORS configuration through `api-manager.xml` is only valid for APIs created through the API manager Publisher application. Hence, enabling CORS for OAuth token related APIs ( **/authorize, /revoke, /token, /userinfo** ) can be carried out as follows.
+
+Based on the API that you need to enable CORS, add the following handler configuration to the relevant API synapse file present in `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api/` folder. It should be added within the `<handlers>` parent element.
+
+``` java
+    <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler">
+        <property name="apiImplementationType" value="ENDPOINT"/>
+    </handler>
+```
+
+The following are the mappings of the synapse files corresponding to the OAuth token related APIs.
+
+| Endpoint   | Synapse configuration                         |
+|------------|-----------------------------------------------|
+| /authorize | `_AuthorizeAPI_.xml` |
+| /revoke    | `_RevokeAPI_.xml`|
+| /token     | `_TokenAPI_.xml`|
+| /userinfo  | `_UserInfoAPI_.xml`|
 
 

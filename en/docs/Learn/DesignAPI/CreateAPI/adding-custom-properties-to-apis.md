@@ -2,8 +2,8 @@
 
 Usually, APIs have a pre-defined set of properties such as the name, version, context, etc. However, there may be instances where you want to add specific custom properties to your API. You can do this in either of the following ways:
 
--   [Add custom properties via the API Publisher](#AddingCustomPropertiestoAPIs-AddcustompropertiesviatheAPIPublisher)
--   [Add custom properties via the REST API](#AddingCustomPropertiestoAPIs-AddcustompropertiesviatheRESTAPI)
+-   [Add custom properties via the API Publisher](#AddcustompropertiesviatheAPIPublisher)
+-   [Add custom properties via the REST API](#AddcustompropertiesviatheRESTAPI)
 
 When adding custom properties, note the following:
 
@@ -15,7 +15,9 @@ When adding custom properties, note the following:
 
 -   Property name cannot be any of the following as they are reserved keywords: provider, version, context, status, description, subcontext, doc, lcState, name, tags.
 
-After the custom properties have been added, you can [search for APIs using custom property values](#AddingCustomPropertiestoAPIs-Searchusingcustomproperties) .
+After the custom properties have been added, you can [search for APIs using custom property values](#Searchusingcustomproperties) .
+
+<a name="AddcustompropertiesviatheAPIPublisher"></a>
 
 ### Add custom properties via the API Publisher
 
@@ -31,11 +33,15 @@ After the custom properties have been added, you can [search for APIs using cust
      </html>
 4.  Save the API.
 
+<a name="AddcustompropertiesviatheRESTAPI"></a>
+
 ### Add custom properties via the REST API
 
 You can use the [existing REST API](../../../../../../Develop/ProductAPIs/restful-apis/) to add a new API with custom properties. Add the following element to the request body including the relevant properties,
 
 `"additionalProperties : {"environment": "preprod", "secured": "true"}        `
+
+<a name="Searchusingcustomproperties"></a>
 
 ### Search using custom properties
 

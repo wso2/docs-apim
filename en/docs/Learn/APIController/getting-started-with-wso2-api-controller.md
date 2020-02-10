@@ -1,27 +1,11 @@
 # Getting Started with WSO2 API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing apis and applications, creating API projects, importing and exporting APIs and applications, generating tokens for testing purposes, etc.  
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs and applications, creating API projects, importing and exporting APIs and applications, generating tokens for testing purposes, etc.  
 
--   [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool)
--   [Global Flags for CTL Tool](#global-flags-for-ctl-tool)
--   [Check the Version of the CTL](#check-the-version-of-the-ctl)
--   [Set Mode of the CTL](#set-mode-of-the-ctl)
--   [Add an Environment](#add-an-environment)
--   [Remove an Environment](#remove-an-environment)
--   [List Environments](#list-environments)
--   [Login to an Environment](#login-to-an-environment)
--   [Logout from an Environment](#logout-from-an-environment)
--   [List APIs of an Environment](#list-apis-of-an-environment)
--   [List Applications of an Environment](#list-applications-of-an-environment)
--   [Get Keys for an API](#get-keys-for-an-api) 
--   [Set Token Type](#set-token-type)
--   [Set HTTP Request Timeout](#set-http-request-timeout)
--   [Set Export Directory](#set-export-directory)
-
-## Download and Initialize the CTL Tool
+## Download and initialize the CTL Tool
 
 1.  Navigate to the API Management Tooling page - <https://wso2.com/api-management/tooling/>
-2.  Click **Download** button under **Dev-Ops Tooling** according to your preferred platform (i.e., Mac, Windows, Linux).
+2.  Under **Dev-Ops Tooling**, click **Download** based on your preferred platform (i.e., Mac, Windows, Linux).
 3.  Extract the downloaded archive of the CTL Tool to the desired location.
 
 4.  Navigate to the working directory where the executable CTL Tool resides.
@@ -31,19 +15,19 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
     ``` go
     ./apictl
     ```
-    The directory structure for the configuration files ( `$HOME/.wso2apictl` ) will be created upon the execution of the `apictl` command.
+    The directory structure for the configuration files ( `<USER_HOME>/.wso2apictl` ) will be created upon the execution of the `apictl` command.
 
 6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
 
     !!! Tip    
-        For further instructions execute the following command.
+        For further instructions, execute the following command.
         ``` go
         apictl --help
         ```
 
 
-## Global Flags for CTL Tool
+## Global flags for CTL Tool
 
 The following are some global flags that you can use with any CTL tool command.
 
@@ -56,7 +40,7 @@ The following are some global flags that you can use with any CTL tool command.
     Display information and example usage of a command
 ```
 
-## Check the Version of the CTL
+## Check the version of the CTL
 
 Run the following CTL command to check the version of the CTL.
 
@@ -71,7 +55,7 @@ Run the following CTL command to check the version of the CTL.
     Build Date: 2019-10-28 13:22:12 UTC
     ```
 
-## Set Mode of the CTL
+## Set mode of the CTL
 
 Run the following CTL command to set the mode of the CTL. The allowed modes are `default` and `kubernetes`.
     
@@ -90,16 +74,16 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
         apictl set mode kubernetes
         ```
 
-## Add an Environment
+## Add an environment
 
-You can add environments by either manually editing the `$HOME/.wso2apictl/main_config.yaml` file or by running the following CTL command.
+You can add environments by either manually editing the `<USER_HOME>/.wso2apictl/main_config.yaml` file or by running the following CTL command.
 
 ``` go
 apictl add-env
 ```
 
 1.  Make sure that the WSO2 API Manager is started and that the CTL tool is running.     
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to add an environment.
 
     -   **Command**
@@ -174,10 +158,10 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
         Successfully added environment 'production'
         ```
 
-## Remove an Environment
+## Remove an environment
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.  
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to remove an environment.
 
     -   **Command**
@@ -209,10 +193,10 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
         Execute 'apictl add-env --help' to see how to add a new environment
         ```
 
-## List Environments
+## List environments
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.    
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to list the environments.  
 
     -   **Command**
@@ -241,12 +225,12 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
 
         ```
 
-## Login to an Environment
+## Login to an environment
 
 After adding an environment, you can log in to the API Manager instance in that environment using credentials.
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run any of the following CTL commands to log in to the environment.
 
     -   **Command**
@@ -264,8 +248,8 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
         ``` 
 
         !!! tip
-            If you run `apictl login <environment-name>` you are prompt to provide both username and password.  
-            If you run `apictl login <environment-name> --username <username>`, you are prompt to provide password.
+            If you run `apictl login <environment-name>` you are prompted to provide both the username and the password.
+            If you run `apictl login <environment-name> --username <username>`, you are prompted to provide the password.
 
         !!! info
             **Flags:**  
@@ -303,10 +287,10 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
         cat ~/.mypassword | ./apictl login dev --username admin --password-stdin -k
         ```          
 
-## Logout from an Environment
+## Logout from an environment
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 
 2.  Run the following command to log out from the current session of the API Manager environment.
 
@@ -321,12 +305,12 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
             apictl logout dev
             ```
 
-## List APIs of an Environment
-By following the below steps, you can display a list of APIs in an environment using CTL.
+## List APIs of an environment
+Follow the instructions below to display a list of APIs in an environment using CTL:
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-2.  Log in to the API Manager in the environment by following steps in [Login to an Environment](#login-to-an-environment).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run any of the following CTL commands to list the APIs.
 
     -   **Command**
@@ -367,13 +351,13 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
         91fe87c3-f0d7-4c35-81f5-0e0e42d8e19f   PizzaShackAPI       2.0.0               /pizzashack         CREATED             Alice
         ```
 
-## List Applications of an Environment
-You can display a list of Applications in an environment using CTL.
+## List applications of an environment
+Follow the instructions below to display a list of applications in an environment using CTL:
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-2.  Log in to the API Manager in the environment by following steps in [Login to an Environment](#login-to-an-environment).
-3.  Run any of the following CTL commands to list the Applications.
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
+3.  Run any of the following CTL commands to list the applications.
 
     -   **Command**
         ``` bash
@@ -414,12 +398,12 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
         36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
         ```  
 
-## Get Keys for an API
-For testing purposes, the CTL tool allows generating a JWT/OAuth token to invoke an API by subscribing from a default application.
+## Get keys for an API
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API by subscribing to it using the default application:
 
 1.  Make sure that WSO2 API Manager is started and the CTL tool is running.     
-For more information, visit [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-2. Log in to the API Manager in the environment by following steps in [Login to an Environment](#login-to-an-environment).
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+2. Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3. Run any of the following CTL commands to get keys for the API.
 
     - **Command**
@@ -446,9 +430,9 @@ For more information, visit [Download and Initialize the CTL Tool](#download-and
             `--provider` or `-r` : Provider of the API   
 
     !!! info
-        Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API and generate keys based on the token type given in `$HOME/.wso2apictl/main-config.yaml`. Refer [Set Token Type](#set-token-type) to change the token type. 
+        Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. For information on changing the token type, see [Set Token Type](#set-token-type). 
 
-## Set Token Type
+## Set token type
 
 Run the following CTL command to set the token type of the default apictl application.
 
@@ -471,7 +455,7 @@ Run the following CTL command to set the token type of the default apictl applic
         -   Required :   
             `--token-type` or `-t` : Type of the token to be generated
 
-## Set HTTP Request Timeout
+## Set HTTP request timeout
 
 Run the following CTL command to set the HTTP request timeout.
 
@@ -491,7 +475,7 @@ Run the following CTL command to set the HTTP request timeout.
         - Required :   
           `--http-request-timeout` : Timeout for HTTP Client (default 10000)
 
-## Set Export Directory
+## Set export directory
 
 Run the following CTL command to change the default location of the export directory.
 
