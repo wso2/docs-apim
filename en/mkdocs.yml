@@ -469,7 +469,7 @@ nav:
             - API Lifecycle Management Sample: Reference/samples/api-lifecycle-management-sample.md
             - API Rate Limiting Sample: Reference/samples/api-rate-limiting-sample.md
             - API Rate Monetization Sample: Reference/samples/api-rate-monetization-sample.md
-            - API Security Sample Sample: Reference/samples/api-security-sample-sample.md
+            - API Security Sample: Reference/samples/api-security-sample.md
             - API Versioning Sample: Reference/samples/api-versioning-sample.md
         #- Business Scenarios: Reference/Guides/business-scenarios.md
         - Other: Reference/other.md
