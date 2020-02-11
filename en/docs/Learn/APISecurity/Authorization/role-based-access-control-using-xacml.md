@@ -16,7 +16,7 @@ The API Manager acts as the policy enforcement point (PEP). Whenever an API invo
 
 ### Enabling role-based access control
 
-The steps below demonstrate how WSO2 Identity Server, acting as a XACML entitlement server, can validate authentication requests from the API Manager based on a set of predefined XACML entitlement policies. This allows a standardized way of defining entitlement policies that can be enforced from WSO2 API Manager. For detailed information on XACML, see [XACML Architecture](https://docs.wso2.com/display/IS570/Access+Control+and+Entitlement+Management) in the WSO2 Identity Server documentation.
+The steps below demonstrate how WSO2 Identity Server, acting as a XACML entitlement server, can validate authentication requests from the API Manager based on a set of predefined XACML entitlement policies. This allows a standardized way of defining entitlement policies that can be enforced from WSO2 API Manager. For detailed information on XACML, see [XACML Architecture](https://is.docs.wso2.com/en/5.9.0/get-started/access-control-and-entitlement-management/) in the WSO2 Identity Server documentation.
 
 Let’s take the following requirement in exposing an API via the API manager.
 
@@ -27,7 +27,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 1.  Let’s start by creating the required users. First, you need to link both the API Manager and the Identity Server to the same user store in order to share users, roles and other related information. This can be done by linking the API manager with the LDAP user store within WSO2 Identity Server. For more information, see [Configuring an external LDAP or Active Directory Userstore]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-read-write-ldap-user-store/) . For this you can create a read write LDAP user store.
 
     !!! note
-        By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration &lt;PRODUCT\_HOME&gt;/repository/conf/user-mgt.xml in both nodes.
+        By default, in API Manager JDBCUserStore is enabled. When you are moving to the ReadWriteLDAPUserStore, make sure you have commented the configuration of JDBCUserStore and keep only one user store configuration `<API-M_HOME>/repository/conf/user-mgt.xml` in both nodes.
 
     !!! tip
         In an actual deployment, both these servers can [share the user store]({{base_path}}/Learn/Extensions/SAML2SSO/configuring-identity-server-as-idp-for-sso.md#sharing-the-user-store) of your organization.
@@ -45,6 +45,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 4.  Start the WSO2 Identity Server and log in to its Admin Console.
 
     !!! tip
+
         Since API Manager and Identity Server run on the same server, offset the Identity Server by 1.
 
 
@@ -56,11 +57,9 @@ Based on the requirement, a single API is exposed to add or retrieve order info
     2.  **Rule Combining Algorithm:** Deny unless Permit
 
     When the rule combination algorithm is set to **Deny Unless Permit** , you need to set the permit criteria as a rule.
-    
+
 7.  In the **Define Entitlement Rule(s)** area, set the following 2 rules to define the kind of requests and from which user they should be permitted.
     1.  AdminGrant - grants full access to the admin user. Give the information below,
-
-        **Rule Name:** AdminGrant
         
         **Conditions:** Under **Define your conditions by using followings....** , select drop down options as **Subject** , **is/are** , **at-least-one-member-of** in order and enter **admin** in the last field.
         Click the icon next to **END** shown below to configure the attribute value and attribute source to retrieve the user roles from the user store.
@@ -75,6 +74,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
         **Entitlement Data Module:** Carbon Attribute Finder Module
         
         Click on **Add** button after providing above values as shown below.
+
         ![]({{base_path}}/assets/img/Learn/entitlement-values.png)
         
     2.  GetOrder- allows web users to get order information from the API. Give the information below,
@@ -105,7 +105,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 10. In the Policy Administration page, click **Publish to My PDP** to publish the policy to the PDP.
 
     ![]({{base_path}}/assets/img/Learn/publish-to-my-pdp.png)
-
+    
     Keep the default selected values in the Publish Policy window and select publish.
 
     !!! tip
@@ -125,9 +125,9 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 13. Now, you need to create a sequence containing the entitlement policy mediator that can be attached to each API required to authorize users with the entitlement server. Create an XML file with the following configuration and name it `EntitlementMediator.xml` .
 
     ``` xml
-        <sequence xmlns="http://ws.apache.org/ns/synapse"  name="EntitlementMediator">     
-            <entitlementService xmlns="http://ws.apache.org/ns/synapse" remoteServiceUrl="https://localhost:9444/services" remoteServiceUserName="admin" remoteServicePassword="admin" callbackClass="org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler"/>
-        </sequence>
+    <sequence xmlns="http://ws.apache.org/ns/synapse"  name="EntitlementMediator">     
+       <entitlementService xmlns="http://ws.apache.org/ns/synapse" remoteServiceUrl="https://localhost:9444/services" remoteServiceUserName="admin" remoteServicePassword="admin" callbackClass="org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler"/>
+    </sequence>
     ```
 
     !!! note
@@ -142,7 +142,6 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
         remoteServicePassword - Password used to connect to the service
 
-
 14. Log in to the API Publisher and [create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
 15. Attach the custom sequence to the inflow of the message as shown below.
     ![]({{base_path}}/assets/img/Learn/attach-the-custom-sequence.png)
@@ -152,7 +151,6 @@ Based on the requirement, a single API is exposed to add or retrieve order info
             If you encounter an error stating "org.apache.axis2.transport.jms.JMSSender cannot be found by axis2\_1.6.1.wso2v16" when publishing the API, comment out the following JMSSender configuration in the `<APIM_HOME>/repository/conf/axis2/axis2_blocking_client.xml` file and restart the server.
 
             `<!--transportSender name="jms" class="org.apache.axis2.transport.jms.JMSSender"/-->          `
-
 
 17. If you want to debug the entitlement mediator, enable debug logs in the Management Console for the `org.wso2.sample.handlers.entitlement.APIEntitlementCallbackHandler` class.
 

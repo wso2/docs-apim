@@ -1,8 +1,9 @@
 # Configuring a Single Node
 
-This page walks you through how to manually configure and deploy WSO2 API Manager in a standalone single instance, without using a distributed or HA deployment patterns. For an overview of Single Node and Active-Active deployments, please see \_Deploying API Manager using Single Node Instances .
+This page walks you through how to manually configure and deploy WSO2 API Manager in a standalone single instance, without using a distributed or HA deployment patterns. 
 
-The page: **\_Deploying API Manager using Single Node Instances** was not found. Please check/update the page name used in the 'multiexcerpt-include macro.
+<a href="{{base_path}}/assets/img/setup-and-install/single-node-deployment.png" ><img src="{{base_path}}/assets/img/setup-and-install/single-node-deployment.png" alt="Single node deployment" title="Single node deployment" width="70%" /></a>
+
 
 Follow the instructions below to configure and deploy API-M using a single node:
 

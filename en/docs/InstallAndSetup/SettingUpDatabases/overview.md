@@ -16,7 +16,8 @@ Explained below are the default databases that you will find in the `database` d
     **Do not share** `WSO2MB_DB` among the nodes in an **Active-Active set-up** or **Traffic Manager HA** scenario, because each node should have its own local `WSO2_MB_STORE_DB` database to act as separate Traffic Managers.
 
 Following image shows the default databases and the data that are stored in each database.
-![](../../assets/img/setup-and-install/working-with-dbs-overview.png)
+
+<a href="{{base_path}}/assets/img/setup-and-install/working-with-dbs-overview.png" ><img src="{{base_path}}/assets/img/setup-and-install/working-with-dbs-overview.png" alt="Data bases" title="Data bases" width="100%" /></a>
 
 ### Changing the default databases
 

@@ -1,283 +1,172 @@
-# Setting up IBM Informix
+# Changing to IBM Informix
 
-The following sections describe how to set up IBM Informix to replace the default H2 database in your WSO2 product:
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use IBM Informix for this purpose.
 
--   [Prerequisites](#SettingupIBMInformix-Prerequisites)
--   [Creating the database](#SettingupIBMInformix-Creatingthedatabase)
--   [Setting up Informix JDBC drivers](#SettingupIBMInformix-SettingupInformixJDBCdrivers)
+## Setting up IBM Informix
 
-### Prerequisites
+The following sections describe how to set up a IBM Informix database to replace the default H2 database in your WSO2 product:
 
-Download the latest version of [IBM Informix](http://www-01.ibm.com/software/data/informix/downloads.html) and install it on your computer.
+-   [Setting up the database and users](#setting-up-the-database-and-users)
+-   [Setting up the drivers](#setting-up-the-drivers)
+-   [Executing db scripts on IBM Informix database](#executing-db-scripts-on-ibm-informix-database)
 
-### Creating the database
+### Setting up the database and users
 
 Create the database and users in Informix. For instructions on creating the database and users, see [Informix product documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_links/information_management/informix_servers?productContext=-1122713425) [.](http://www-01.ibm.com/software/data/informix/)
 
 !!! tip
-Do the following changes to the default database when creating the Informix database.
+    Do the following changes to the default database when creating the Informix database.
 
--   Define the page size as 4K or higher when creating the dbspace as shown in the following command (i.e. denoted by `-k 4` ) :
-
-    ``` java
-        onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
-    ```
-
--   Add the following system environment variables.
-
-    ``` text
-            export DB_LOCALE=en_US.UTF-8
-            export CLIENT_LOCALE=en_US.UTF-8
-    ```
-
--   Create an sbspace other than the dbspace by executing the following command:
-
-    ``` java
+    -   Define the page size as 4K or higher when creating the dbspace as shown in the following command (i.e. denoted by `-k 4` ) :
+    
+        ``` java
             onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
-    ```
+        ```
+    
+    -   Add the following system environment variables.
+    
+        ``` text
+                export DB_LOCALE=en_US.UTF-8
+                export CLIENT_LOCALE=en_US.UTF-8
+        ```
+    
+    -   Create an sbspace other than the dbspace by executing the following command:
+    
+        ``` java
+                onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
+        ```
+    
+    -   Add the following entry to the `<INFORMIX_HOME>/etc/onconfig` file, and replace the given example sbspace name (i.e. `testspace4` ) with your sbspace name:
+    
+        ``` java
+                SBSPACENAME testspace4
+        ```
 
--   Add the following entry to the `<INFORMIX_HOME>/etc/onconfig` file, and replace the given example sbspace name (i.e. `testspace4` ) with your sbspace name:
 
-    ``` java
-            SBSPACENAME testspace4
-    ```
+### Setting up the drivers
 
+1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
 
-### Setting up Informix JDBC drivers
+1. Download the Informix JDBC driver.
 
-Download the Informix JDBC drivers and copy them to your WSO2 product's `<PRODUCT_HOME>/repository/components/lib/` directory.
+1. Copy the file relevant JAR file for your JRE version to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
 !!! info
-Use Informix JDBC driver version 3.70.JC8, 4.10.JC2 or higher.
+    Use Informix JDBC driver version 3.70.JC8, 4.10.JC2 or higher.
 
+### Executing db scripts on IBM Informix database
 
-## What's next
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), use the script: `<API-M_HOME>/dbscripts/informix.sql/`
 
-By default, all WSO2 products are configured to use the embedded H2 database. To configure your product with IBM Informix, see [Changing to IBM Informix](https://docs.wso2.com/display/ADMIN44x/Changing+to+IBM+Informix) .
+1.  To create tables in the apim database (`WSO2AM_DB`), use the script: `<API-M_HOME>/dbscripts/apimgt/informix.sql/`
 
 
 # Changing to IBM Informix
 
-The following sections describe how to replace the default H2 databases with IBM Informix:
+-   [Creating the datasource connection to IBM Informix](#creating-the-datasource-connection-to-ibm-informix)
 
--   [Setting up datasource configurations](#ChangingtoIBMInformix-SettingupdatasourceconfigurationsSettingupdatasourceconfigurations)
--   [Creating database tables](#ChangingtoIBMInformix-Creatingdatabasetables)
+### Creating the datasource connection to IBM Informix
 
-!!! tip
-Before you begin
+A datasource is used to establish the connection to a database. By default, `SHARED_DB` and `AM_DB` datasource are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
 
-You need to set up IBM Informix before following the steps to configure your product with it. For more information, see [Setting up IBM Informix](https://docs.wso2.com/display/ADMIN44x/Setting+up+IBM+Informix) .
+After setting up the IBM Informix database to replace the default H2 database, either change the default configurations of the `SHARED_DB` and `AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
 
+Follow the steps below to change the type of the default datasource.
 
-### Setting up datasource configurations
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
-A datasource is used to establish the connection to a database. By default, `WSO2_CARBON_DB` datasource is used to connect to the default  H2 database, which stores registry and user management data. After setting up the IBM Informix database to replace the default H2 database, either [change the default configurations of the `WSO2_CARBON_DB` datasource](#ChangingtoIBMInformix-Changingthedefaultdatabase) , or [configure a new datasource](#ChangingtoIBMInformix-Configuringnewdatasourcestomanageregistryorusermanagementdata) to point it to the new database as explained below.
+1.  You simply have to update the URL pointing to your IBM Informix database, the username, and password required to access the database, the IBM Informix driver details and validation query for validating the connection as shown below.
 
-#### Changing the default WSO2\_CARBON\_DB datasource
+    | Element                       | Description                                                                                                |
+    |-------------------------------|------------------------------------------------------------------------------------------------------------|
+    | **type**                      | The database type used                                                                                     |
+    | **url**                       | The URL of the database. The default port for IBM Informix is 1533.                                        |
+    | **username** and **password** | The name and password of the database user                                                                 |
+    | **driverClassName**           | The class name of the database driver                                                                      |
+    | **validationQuery**           | The SQL query that will be used to validate connections from this pool before returning them to the caller.|
 
-Follow the steps below to change the type of the default `WSO2_CARBON_DB` datasource.
+    !!! tip
+        Add the following configuration to the connection URL when specifying it as shown in the example below:
+        
+        `CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;`
 
-1.  Edit the default datasourceconfigurationin the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as shown below.
+    Sample configuration is shown below:
 
-    ``` xml
-        <datasource>
-                    <name>WSO2AM_DB</name>
-                    <description>The datasource used for API Manager database</description>
-                    <jndiConfig>
-                        <name>jdbc/WSO2AM_DB</name>
-                    </jndiConfig>
-                    <definition type="RDBMS">
-                        <configuration>
-                            <!-- IP ADDRESS AND PORT OF DB SERVER -->
-                            <url>jdbc:informix-sqli://localhost:1533/AM_DB;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;</url>
-                            <username>wso2carbon</username>
-                            <password>wso2carbon</password>
-                            <driverClassName>com.informix.jdbc.IfxDriver</driverClassName>
-                            <maxActive>50</maxActive>
-                            <maxWait>60000</maxWait>
-                            <testOnBorrow>true</testOnBorrow>
-                            <validationQuery>SELECT 1</validationQuery>
-                            <validationInterval>30000</validationInterval>
-                            <defaultAutoCommit>false</defaultAutoCommit>
-                        </configuration>
-                    </definition>
-                </datasource>
+    ``` tab="Format"
+    url = "jdbc:informix-sqli://localhost:1533/<DATABASE_NAME>;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "com.informix.jdbc.IfxDriver"
+    validationQuery = "SELECT 1"
     ```
 
-    The elements in the above configuration are described below:
+    ``` tab="Example"
+    [database.shared_db]
+    url = "jdbc:informix-sqli://localhost:1533/shared_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "com.informix.jdbc.IfxDriver"
+    validationQuery = "SELECT 1"
 
-    <table>
-    <thead>
-    <tr class="header">
-    <th>Element</th>
-    <th>Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="odd">
-    <td><strong>url</strong></td>
-    <td><div class="content-wrapper">
-    <p>The URL of the database. The default port for a DB2 instance is 50000.</p>
-    <p>You need to add the following configuration when specifying the connection URL as shown in the example above:</p>
-        !!! tip
-        <p>Add the following configuration to the connection URL when specifying it as shown in the example above: <code>                 CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;                </code></p>
-
-    </div></td>
-    </tr>
-    <tr class="even">
-    <td><strong>username</strong> and <strong>password</strong></td>
-    <td>The name and password of the database user</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>driverClassName</strong></td>
-    <td>The class name of the database driver</td>
-    </tr>
-    <tr class="even">
-    <td><strong>maxActive</strong></td>
-    <td>The maximum number of active connections that can be allocated  at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>maxWait</strong></td>
-    <td>The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception. You can enter zero or a negative value to wait indefinitely.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>minIdle</strong></td>
-    <td>The minimum number of active connections that can remain idle in the pool without extra ones being created, or enter zero to create none.</td>
-    </tr>
-    <tr class="odd">
-    <td><p><strong>testOnBorrow</strong></p></td>
-    <td>The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>validationQuery</strong></td>
-    <td>The SQL query that will be used to validate connections from this pool before returning them to the caller.</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>validationInterval</strong></td>
-    <td>The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>defaultAutoCommit</strong></td>
-    <td><p>This property is <strong>not</strong> applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default.</p>
-    <p>When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.</p></td>
-    </tr>
-    </tbody>
-    </table>
-
-        !!! info
-    For more information on other parameters that can be defined in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
-
-
-        !!! warning
-    The following elements are available only as a **WUM** update and is effective from 14th September 2018 (2018-09-14).  For more information, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) .
-    This WUM update is only applicable to Carbon 4.4.11 and will be shipped out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more information on Carbon compatibility, see [Release Matrix](https://wso2.com/products/carbon/release-matrix/) .
-
-
-    | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                            |
-    |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | **commitOnReturn**   | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false. |
-    | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                                |
-
-    **Configuring the connection pool behavior on return
-    ** When a database connection is returned to the pool, by default  the product rolls back the pending transactions if defaultAutoCommit =true . However, if required you can disable the latter mentioned default behavior by disabling the `ConnectionRollbackOnReturnInterceptor` , which is a JDBC-Pool JDBC interceptor, and setting the connection pool behavior on return via the datasource configurations by using the following options.
-
-        !!! warning
-    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) . This WUM update is only applicable to Carbon 4.4.11.
-
-
-    -   **Configure the connection pool to commit pending transactions on connection return**
-        1.  Navigate to either one of the following locations based on your OS.
-            -   On Linux/Mac OS: `<PRODUCT_HOME>/bin/wso2server.sh/`
-            -   On Windows: `<PRODUCT_HOME>\bin\wso2server.bat`
-        2.  Add the following JVM option:
-
-            ``` java
-                        -Dndatasource.disable.rollbackOnReturn=true \
-            ```
-
-        3.  Navigate to the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file.
-        4.  Disable the `defaultAutoCommit` by defining it as false.
-        5.  Add the `commitOnReturn` property and set it to true for all the datasources, including the custom datasources.
-
-            ``` html/xml
-                            <datasource>
-                                 ...
-                                 <definition type="RDBMS">
-                                     <configuration>
-                                           ...
-                                           <defaultAutoCommit>false</defaultAutoCommit>
-                                           <commitOnReturn>true</commitOnReturn>    
-                                           ...
-                                     </configuration>
-                                 </definition>
-                            </datasource>
-            ```
-
-    -   **Configure the connection pool to rollback pending transactions on connection return**
-
-        1.  Navigate to the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file.
-        2.  Disable the `defaultAutoCommit` by defining it as false.
-
-        3.  Add the `rollbackOnReturn` property to the datasources.
-
-            ``` html/xml
-                            <datasource>
-                                 ...
-                                 <definition type="RDBMS">
-                                     <configuration>
-                                           ...
-                                           <defaultAutoCommit>false</defaultAutoCommit> 
-                                           <rollbackOnReturn>true</rollbackOnReturn>
-                                           ...
-                                     </configuration>
-                                 </definition>
-                            </datasource>
-            ```
-
-#### Configuring new  datasources to manage registry or user management data
-
-Follow the steps below to configure new datasources to point to the new databases you create to manage registry and/or user management data separately.
-
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoIBMInformix-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoIBMInformix-Settingupdatasourceconfigurations)
-2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
-
-    ``` xml
-            <dbConfig name="wso2registry">
-                <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-            </dbConfig>
+    [database.apim_db]
+    url = "jdbc:informix-sqli://localhost:1533/apim_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "com.informix.jdbc.IfxDriver"
+    validationQuery = "SELECT 1"
     ```
 
-3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
+1.  You can update the configuration elements given below for your database connection.
 
-    ``` xml
-            <Configuration>
-                <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-            </Configuration>
+    | Element                | Description                                                                                                                                                                                                                                                                                                                                  |
+    |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | **maxActive**          | The maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.                                                                                                                                                                |
+    | **maxWait**            | The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception. You can enter zero or a negative value to wait indefinitely.                                                                                                              |
+    | **minIdle**            | The minimum number of active connections that can remain idle in the pool without extra ones being created, or enter zero to create none.                                                                                                                                                                                                    |
+    | **testOnBorrow**       | The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.                                                                                                                              |
+    | **validationInterval** | The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.                                                                                      |
+    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
+    | **commitOnReturn**     | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false.|
+    | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
+
+    Sample configuration is shown below:
+    
+    ``` tab="Format"
+    url = "jdbc:informix-sqli://localhost:1533/<DATABASE_NAME>;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
+    driver = "com.informix.jdbc.IfxDriver"
+    validationQuery = "SELECT 1"
+    pool_options.<OPTION-1> = <VALUE-1>
+    pool_options.<OPTION-2> = <VALUE-2>
+    ...
     ```
-
-### Creating database tables
-
-To create the database tables, connect to the database that you created earlier and run the following scripts.
-
-1.  To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), use the below script:
-
-    ``` java
-            <PRODUCT_HOME>/dbscripts/informix.sql
+    
+    ``` tab="Example"
+    [database.shared_db]
+    url = "jdbc:informix-sqli://localhost:1533/shared_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "regadmin"
+    password = "regadmin"
+    driver = "com.informix.jdbc.IfxDriver"
+    validationQuery = "SELECT 1"
+    pool_options.maxActive = 100
+    pool_options.maxWait = 10000
+    pool_options.validationInterval = 10000
+    
+    [database.apim_db]
+    url = "jdbc:informix-sqli://localhost:1533/apim_db;CLIENT_LOCALE=en_US.utf8;DB_LOCALE=en_us.utf8;IFX_USE_STRENC=true;"
+    username = "apimadmin"
+    password = "apimadmin"
+    driver = "com.informix.jdbc.IfxDriver"
+    validationQuery = "SELECT 1"
+    pool_options.maxActive = 50
+    pool_options.maxWait = 30000
     ```
+    
+    !!! info
+        For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-2.  Restart the server.
+1.  Restart the server.
 
-        !!! info
-    You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:
-
-    -   For Windows: `<PRODUCT_HOME>/bin/wso2server.bat -Dsetup`
-
-    -   For Linux: `<PRODUCT_HOME>/bin/wso2server.sh -Dsetup`
-
-        !!! warning
-        Deprecation of -DSetup
-    When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `-DSetup` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the `-DSetup` option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
-
-
-
-
+    !!! note
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).

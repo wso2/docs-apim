@@ -68,7 +68,7 @@ Follow the instructions given below to change the tenant loading policy to eager
 
     ``` java
     [tenant_mgt]
-    eager_loading_tenants="*,! foo.com ,!bar.com"
+    eager_loading_tenants="*,!foo.com ,!bar.com"
     ```
 
 3.  You can then list the specific tenant domains to which eager loading should apply.

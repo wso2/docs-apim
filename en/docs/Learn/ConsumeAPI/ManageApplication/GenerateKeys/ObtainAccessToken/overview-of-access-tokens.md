@@ -12,6 +12,6 @@ WSO2 API Manager provides two types of access tokens for authentication:
 -   **User Access Tokens** : Tokens to identify the final user of an application. For example, the final user of a mobile application deployed on different devices.
 
 !!! note
-In WSO2 API-M the access token must be unique for the following combinations - `CONSUMER_KEY, AUTHZ_USER, USER_TYPE, TOKEN_STATE, TOKEN_STATE_ID` and `TOKEN_SCOPE` . The latter mentioned constraint is defined in the `IDN_OAUTH2_ACCESS_TOKEN` table. Therefore, it is not possible to have more than one Access Token for any of the above combinations.
+        In WSO2 API-M the access token must be unique for the following combinations - `CONSUMER_KEY, AUTHZ_USER, USER_TYPE, TOKEN_STATE, TOKEN_STATE_ID` and `TOKEN_SCOPE` . The latter mentioned constraint is defined in the `IDN_OAUTH2_ACCESS_TOKEN` table. Therefore, it is not possible to have more than one Access Token for any of the above combinations.
 
 

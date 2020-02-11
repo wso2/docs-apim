@@ -2,7 +2,7 @@
 
 This page walks you through how to manually configure WSO2 API Manager (WSO2 API-M) with two active nodes that each have all the components of the API-M together in one instance (all-in-one instance).
 
-![](../../../assets/img/setup-and-install/active-active-deployment.png)
+<a href="{{base_path}}/assets/img/setup-and-install/active-active-deployment.png" ><img src="{{base_path}}/assets/img/setup-and-install/active-active-deployment.png" alt="Active active deployment" title="Active active deployment" width="100%" /></a>
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 

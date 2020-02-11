@@ -2,31 +2,34 @@
 
 The maximum backend throughput setting limits the total number of calls a particular API in the API Manager is allowed to make to the backend. While the [other throttling levels](../setting-throttling-limits) define the quota the API invoker gets, they do not ensure that the backend is protected from overuse. The maximum backend throughput setting limits the quota the backend can handle. The counters maintained when evaluating the maximum backend throughput are shared across all nodes of the Gateway cluster and apply across all users using any application that accesses that particular API.
 
-You set a maximum backend throughput by going into the API page in **API Publisher** using the **Runtime Configurations** tab. Select the **Specify** option for the maximum backend throughput and specify the limits of the Production and Sandbox endpoints separately, as the two endpoints can come from two servers with different capacities.
+Please follow below steps to set a maximum backend throughput for a given API.
 
-![](../../assets/img/Learn/learn-throttling-maxtps.png)
+1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher`.
 
-Alternatively, you can go to the synapse configuration of the API, which is created at the point of creating the API, in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory (for a tenant user, the location would be the `<API-M_HOME>/repository/tenants/<TenantID>/synapse-configs/default/api directory` ), and specify the maximum backend throughput by modifying the synapse configuration. Maximum backend throughput limits are usually counted over a duration of 1 second, but you can increase the duration using the **productionUnitTime** and **sandboxUnitTime** properties in the API's synapse configuration. For example,
+2.  Click on the API which you want to set the maximum backend throughput.
 
-If you want to accept only 600 requests by the production endpoint within a minute of duration and 700 total requests within 5 minutes by sandbox endpoint you can modify the synapse configuration as below.
+    <a href="{{base_path}}/assets/img/Learn/select-api.png" ><img src="{{base_path}}/assets/img/Learn/select-api.png" alt="Select API" title="Select API" width="40%" /></a>  
+    
+3.  Navigate to **Runtime Configurations** tab.
 
-``` xml
-    <handlers>
-         <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.CORSRequestHandler">
-            <property name="apiImplementationType" value="ENDPOINT"/>
-         </handler>
-         <handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler"/>
-         <handler class="org.wso2.carbon.apimgt.gateway.handlers.throttling.ThrottleHandler">
-            <property name="id" value="A"/>
-            <property name="productionMaxCount" value="600"/>
-            <property name="productionUnitTime" value="60000"/>
-            <property name="sandboxMaxCount" value="700"/>
-            <property name="sandboxUnitTime" value="300000"/>
-            <property name="policyKey" value="gov:/apimgt/applicationdata/tiers.xml"/>
-         </handler>
-         <handler class="org.wso2.carbon.apimgt.usage.publisher.APIMgtUsageHandler"/>
-         ...
-    </handlers> 
-```
+4.  Select the **Specify** option for the maximum backend throughput and specify the limits of the Production and Sandbox endpoints separately, as the two endpoints can come from two servers with different capacities.
 
-Note that the duration is specified in milliseconds.
+    <a href="{{base_path}}/assets/img/Learn/learn-throttling-maxtps.png" ><img src="{{base_path}}/assets/img/Learn/learn-throttling-maxtps.png" alt="Max backend throughput" title="Max backend throughput" width="100%" /></a> 
+    
+5.  Save the API.
+
+    <a href="{{base_path}}/assets/img/Learn/save-api.png" ><img src="{{base_path}}/assets/img/Learn/save-api.png" alt="Save API " title="Save API" width="40%" /></a> 
+    
+    
+When the maximum backend throughput quota is reached for a given API, anymore requests won't be accepted for that particular API. Following error message will be returned for all the throttled out requests.
+
+```json
+{
+  "fault": {
+    "code": 900801,
+    "message": "API Limit Reached",
+    "description": "API not accepting requests"
+  }
+}
+
+```  

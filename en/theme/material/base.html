@@ -69,7 +69,7 @@
       {% endif %}
     {% endblock %}
     {% block libs %}
-      <script src="{{ 'assets/javascripts/modernizr.268332fc.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/modernizr.892d34f1.js' | url }}"></script>
     {% endblock %}
     {% block fonts %}
       {% if font != false %}
@@ -94,6 +94,7 @@
       {% endif %}
     {% endblock %}
     {% block extrahead %}{% endblock %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css">
   </head>
   {% if palette.primary or palette.accent %}
     {% set primary = palette.primary | replace(" ", "-") | lower %}
@@ -193,7 +194,7 @@
       {% endblock %}
     </div>
     {% block scripts %}
-      <script src="{{ 'assets/javascripts/application.c3ee3888.js' | url }}"></script>
+      <script src="{{ 'assets/javascripts/application.198c86c7.js' | url }}"></script>
       {% if lang.t("search.language") != "en" %}
         {% set languages = lang.t("search.language").split(",") %}
         {% if languages | length and languages[0] != "" %}
@@ -220,4 +221,6 @@
       {% endfor %}
     {% endblock %}
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+  <script>docsearch({apiKey:"31b0f8eb79778a2d238bc9600dc812af",indexName:"wso2",inputSelector:".md-search__input",debug:!1})</script>
 </html>

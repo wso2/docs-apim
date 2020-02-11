@@ -1,4 +1,4 @@
-# Setting up PostgreSQL
+# Changing to PostgreSQL
 
 By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use PostgreSQL for this purpose.
 
@@ -80,7 +80,7 @@ Follow the steps below to change the type of the default datasource.
     | Element                       | Description                                                                                                |
     |-------------------------------|------------------------------------------------------------------------------------------------------------|
     | **type**                      | The database type used                                                                                     |
-    | **url**                       | The URL of the database. The default port for MSSQL is 1433                                                |
+    | **url**                       | The URL of the database. The default port for PostgreSQL is 5432                                                |
     | **username** and **password** | The name and password of the database user                                                                 |
     | **driverClassName**           | The class name of the database driver                                                                      |
     | **validationQuery**           | The SQL query that will be used to validate connections from this pool before returning them to the caller.|
@@ -90,8 +90,8 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Format"
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     ```
@@ -108,8 +108,8 @@ Follow the steps below to change the type of the default datasource.
     [database.apim_db]
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/apim_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "apimadmin"
+    password = "apimadmin"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     ```
@@ -132,8 +132,8 @@ Follow the steps below to change the type of the default datasource.
     ``` tab="Format"
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/<DATABASE_NAME>"
-    username = "regadmin"
-    password = "regadmin"
+    username = "<USER_NAME>"
+    password = "<PASSWORD>"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     pool_options.<OPTION-1> = <VALUE-1>
@@ -156,15 +156,18 @@ Follow the steps below to change the type of the default datasource.
     [database.apim_db]
     type = "postgre"
     url = "jdbc:postgresql://localhost:5432/apim_db"
-    username = "regadmin"
-    password = "regadmin"
+    username = "apimadmin"
+    password = "apimadmin"
     driver = "org.postgresql.Driver"
     validationQuery = "SELECT 1"
     pool_options.maxActive = 50
     pool_options.maxWait = 30000
     ```
 
-4.  Restart the server.
+    !!! info
+        For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+
+1. Restart the server.
 
     !!! note
         To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).

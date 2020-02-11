@@ -1,46 +1,45 @@
 # Create a New API Version
 
-A new **API version** is created when you want to change a published API's behavior,
-authentication mechanism, resources, [throttling tiers](../../../../Learn/RateLimiting/introducing-throttling-use-cases/),
-target audiences, etc. It is not recommended to modify a published API that has subscribers plugged into it.
+You need to create a new **API version** when you want to change a published API's behavior,
+authentication mechanism, resources, [throttling tiers]({{base_path}}/Learn/RateLimiting/introducing-throttling-use-cases/), target audiences, etc. WSO2 does not recommend to modify a published API that has subscribers plugged into it.
 
 After creating a new version, you typically deploy it as a prototype for early promotion.
-A prototype can be used for testing, without a subscription, along with the published versions of the API. After a period
-of time during which the new version is used in parallel with the older versions, the prototyped API can be published
-and its older versions can be deprecated.
+A prototype can be used for testing, without a subscription, along with the published versions of the API. After a period of time of using the new version of the API in parallel with the older versions, you can publish the prototyped API and deprecate the older versions.
 
 !!! note
     The example here uses the PhoneVerification API, which you created in the
-    [Create and Publish an API](../../../../Learn/Tutorials/create-and-publish-an-api/) section.
+    [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/Learn/DesignAPI/PublishAPI/publish-an-api/) section.
 
-The steps below show you how to create a new version of an existing API.
+Follow the instructions below to create a new version of an existing API:
 
 1.  Sign in to the WSO2 API Publisher.
-`https://<hostname>:9443/publisher` 
-Refer [Create and Publish an API](../../../../Learn/Tutorials/create-and-publish-an-api/) to create and publish an API.
+     
+     `https://<hostname>:9443/publisher` 
+     
+     Create and publish an API. For more information, see [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/) and [Publish an API]({{base_path}}/Learn/DesignAPI/PublishAPI/publish-an-api/).
 
-2.  Go to the APIs listing page. Then click on the API name that corresponds to the API for which you want to create a
-new version (e.g., `PhoneVerification 2.0.0` ). 
+2.  Navigate to the API listing page, and click on the API for which you want to create a new version (e.g., `PhoneVerification 2.0.0`). 
                                         
 3.  Click **Create New Version**.
-   ![Create New Version button](../../../assets/img/Learn/create-new-version-button.png)
+     
+     [![Create New Version button]({{base_path}}/assets/img/Learn/create-new-version-button.png)]({{base_path}}/assets/img/Learn/create-new-version-button.png)
 
-4.  Enter a version number. Select **Create**. Then you will be redirected to the API **overview** page. 
-   ![Create New API Version](../../../assets/img/Learn/create-new-api-version.png)
+4.  Enter a version number and click **Create**. 
+
+     [![Create New API Version]({{base_path}}/assets/img/Learn/create-new-api-version.png)]({{base_path}}/assets/img/Learn/create-new-api-version.png)
+
+     You are redirected to the API **Overview** page. 
 
 !!! note
-    For more details on the default version, 
-    see [Backward Compatibility](../../../../Learn/DesignAPI/APIVersioning/backward-compatibility/) section.
+    For more details on the default version, see [Backward Compatibility]({{base_path}}/Learn/DesignAPI/APIVersioning/backward-compatibility/) section.
 
 !!! note
-    By default, only the latest version of an API is shown in the Developer Portal. If you want to display multiple
-    versions, add/change following configuration in `<API-M_HOME>/repository/conf/deployment.toml` file,
-    and restart the server.
+    By default, only the latest version of an API is shown in the Developer Portal. If you want to display multiple versions, add/change the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file, and restart the server.
     ``` toml
        [apim.devportal]
        display_multiple_versions = true
     ```
 
 You have created a new version of an API. In the next tutorial, let's learn how to
-[publish the new version and deprecate old API versions](../../../../Learn/DesignAPI/APIVersioning/deprecate-the-old-version/).
+[publish the new version and deprecate old API versions]({{base_path}}/Learn/DesignAPI/APIVersioning/deprecate-the-old-version/).
 

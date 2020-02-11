@@ -319,7 +319,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download API Manager 3.0.0 from <https://wso2.com/api-management/>.
+2.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.0.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -412,23 +412,17 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.5.0 version to API-M 3.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.0.0 version.
 
-4.  Update `<API-M_3.0.0_HOME>/repository/resources/conf/default.json` file by pointing to the **WSO2UM_DB**.
+4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
-    "realm_manager": {
-        "data_source": "WSO2USER_DB",
-        "properties": {
-        "isCascadeDeleteEnabled": true,
-        "initializeNewClaimManager": true
-        }
-    }
+    [realm_manager]
+    data_source = "WSO2USER_DB"
     ```
+
+5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
     !!! info
         In API-M 3.0.0, you do not need to configure the registry configurations as you did in the `<OLD_API-M_HOME>/repository/conf/registry.xml` file and the user database configurations as you did in in the `<OLD_API-M_HOME>/repository/conf/user-mgt.xml` file, as those configurations have been handled internally.
-
-
-5.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
 6.  Move all your Synapse configurations to API-M 3.0.0 pack.
     -   Move your Synapse super tenant configurations.
@@ -659,15 +653,19 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(ID)
         )/
 
-        ALTER TABLE AM_API_COMMENTS
-            ALTER COLUMN COMMENT_ID
-            SET DATA TYPE VARCHAR(255) NOT NULL
-        /
+        ALTER TABLE AM_API_COMMENTS DROP PRIMARY KEY;
+        ALTER TABLE AM_API_COMMENTS DROP COMMENT_ID;
+        ALTER TABLE AM_API_COMMENTS ADD COMMENT_ID VARCHAR(255) NOT NULL DEFAULT '0';
+        CALL ADMIN_CMD('REORG table AM_API_COMMENTS');
+        UPDATE AM_API_COMMENTS SET COMMENT_ID=(hex(GENERATE_UNIQUE())) WHERE COMMENT_ID='0';
+        ALTER TABLE AM_API_COMMENTS PRIMARY KEY (COMMENT_ID);
 
-        ALTER TABLE AM_API_RATINGS
-            ALTER COLUMN RATING_ID
-            SET DATA TYPE VARCHAR(255) NOT NULL
-        /
+        ALTER TABLE AM_API_RATINGS DROP PRIMARY KEY;
+        ALTER TABLE AM_API_RATINGS DROP RATING_ID;
+        ALTER TABLE AM_API_RATINGS ADD RATING_ID VARCHAR(255) NOT NULL DEFAULT '0';
+        CALL ADMIN_CMD('REORG table AM_API_RATINGS');
+        UPDATE AM_API_RATINGS SET RATING_ID=(hex(GENERATE_UNIQUE())) WHERE RATING_ID='0';
+        ALTER TABLE AM_API_RATINGS PRIMARY KEY (RATING_ID);
 
         CREATE TABLE IF NOT EXISTS AM_NOTIFICATION_SUBSCRIBER (
             UUID VARCHAR(255) NOT NULL,
@@ -1071,11 +1069,19 @@ Follow the instructions below to move all the existing API Manager configuration
         /
 
         ALTER TABLE AM_API_COMMENTS
-        MODIFY COMMENT_ID VARCHAR(255) NOT NULL
+            DROP COLUMN COMMENT_ID
+        /
+
+        ALTER TABLE AM_API_COMMENTS
+            ADD COMMENT_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
 
         ALTER TABLE AM_API_RATINGS
-        MODIFY RATING_ID VARCHAR(255) NOT NULL
+            DROP COLUMN RATING_ID
+        /
+
+        ALTER TABLE AM_API_RATINGS
+            ADD RATING_ID VARCHAR(255) DEFAULT (SYS_GUID()) NOT NULL
         /
 
         CREATE TABLE AM_NOTIFICATION_SUBSCRIBER (
@@ -1307,6 +1313,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ??? info "Click here to see the stored procedure" 
             ``` java
+            CREATE BUFFERPOOL BP32K IMMEDIATE SIZE 250 AUTOMATIC PAGESIZE 32K
+            /
+            CREATE LARGE TABLESPACE TS32K PAGESIZE 32K MANAGED by AUTOMATIC STORAGE BUFFERPOOL BP32K
+            /
+            
             CALL SYSPROC.ADMIN_MOVE_TABLE(
             <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE>,
             'IDN_OAUTH2_ACCESS_TOKEN',
@@ -1349,7 +1360,9 @@ Follow the instructions below to move all the existing API Manager configuration
         MANAGED BY AUTOMATIC STORAGE USING STOGROUP IBMSTOGROUP
         EXTENTSIZE 4;
         ```
-    1.  Download the [wso2is-5.9.0-migration.zip](../../assets/attachments/InstallAndSetup/wso2is-5.9.0-migration.zip) and extract it.
+    1.  Download the identity component migration resources and unzip it in a local directory.
+
+         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.0.0_HOME>` directory.
 
@@ -1364,7 +1377,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             Make sure you have enabled migration by setting the **migrationEnable** element to `true` as shown above.
 
-    4.  Copy the `org.wso2.carbon.is.migration-1.0.23.jar` from the extracted folder to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
     5.  Start WSO2 API Manager 3.0.0 as follows to carry out the complete Identity component migration.
 
@@ -1399,7 +1412,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     6.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
-        -   Remove the `org.wso2.carbon.is.migration-1.0.23.jar` file, which is in the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+        -   Remove the `org.wso2.carbon.is.migration-x.x.x.jar` file, which is in the `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_3.0.0_HOME>` directory.
 
@@ -1515,7 +1528,9 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.0.0
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
 
-5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.0.0_HOME>/bin` location.
+5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version from `<OLD_API-M_ANALYTICS_HOME>/repository/resources/security` and replace the existing keystores in the `<NEW_API-M_ANALYTICS_HOME>/resources/security` directory.
+
+6.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.0.0_HOME>/bin` location.
 
     ```tab="Worker"
     sh worker.sh
@@ -1705,3 +1720,14 @@ This concludes the upgrade process.
     If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.
+
+!!! Important
+    In API Manager 3.0.0, login flow is changed with role base access control where user should have respective roles to access Publisher and Developer Portal. Since 3.0.0 UI depends completely on REST APIs, authentication to access different components solely depends on the scope-role mapping defined in registry file `tenant-conf.json`. 
+
+    By default, the scope-role mapping is added only for the internal roles such as `Internal/publisher`, `Internal/creator` and `Internal/subscriber`. If there are any custom roles defined for API Creator, API Publisher, API Subscriber and Admin, those roles should be configured under relevant scopes. To edit the `tenant-conf.json` in order to assign custom roles to the scopes, follow the steps given below:
+
+    1. Log in to the Management Console and click **Main > Resource > Browse**.
+
+    2. Browse to the **/_system/config/apimgt/applicationdata/tenant-conf.json** file and click **Edit as Text**.
+    
+    Scopes required to invoke each APIs can be found under `OAuth2Security` section for each resources. The swagger definition for the Publisher RESTful APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher.v1/src/main/resources/publisher-api.yaml) and the swagger definition for the Developer Portal REST APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/store-api.yaml). 

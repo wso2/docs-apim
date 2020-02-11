@@ -3,7 +3,7 @@
 The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 1.8.0/1.9.0/1.9.1** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
 
 !!! tip
-    You can download the **pre-packaged WSO2 Identity Server 5.9.0, which is also known as Identity Server as the Key Manager 5.9.0** from [here](https://wso2.com/api-management/install/key-manager/).
+    You can download the **pre-packaged WSO2 Identity Server 5.9.0, which is also known as Identity Server as the Key Manager 5.9.0** from [here](https://wso2.com/api-management/install/key-manager/). Make sure you are using the latest [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack.
 
 !!! note
     -   You can use the following steps in either one of the following situations:

@@ -5,12 +5,12 @@ The following sections describe how to set up an embedded H2 database to replace
 -   [Setting up the database](#SettingupEmbeddedH2-Settingupthedatabase)
 -   [Setting up the drivers](#SettingupEmbeddedH2-Settingupthedrivers)
 
-!!! warning
-H2 is not recommended in production
+!!! warning 
+    H2 is not recommended in production
 
-The embedded H2 database is NOT recommended in enterprise testing and production environments. It has lower performance, clustering limitations, and can cause file corruption failures. Please use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL instead.
+    The embedded H2 database is NOT recommended in enterprise testing and production environments. It has lower performance, clustering limitations, and can cause file corruption failures. Please use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL instead.
 
-You can use the embedded H2 database in development environments and as the local registry in a registry mount.
+    You can use the embedded H2 database in development environments and as the local registry in a registry mount.
 
 
 ### Setting up the database
@@ -18,16 +18,16 @@ You can use the embedded H2 database in development environments and as the loca
 Download and install the H2 database engine on your computer.
 
 !!! info
-For instructions on installing DB2 Express-C, see [H2 installation guide.](http://www.h2database.com/html/quickstart.html)
+    For instructions on installing DB2 Express-C, see [H2 installation guide.](http://www.h2database.com/html/quickstart.html)
 
 
 ### Setting up the drivers
 
-WSO2 currently ships H2 database engine version h2-1.2.140.\* and its related H2 database driver. If you want to use a different H2 database driver, take the following steps:
+WSO2 currently ships H2 database engine version h2_1.4.199.\* and its related H2 database driver. If you want to use a different H2 database driver, take the following steps:
 
 1.  Delete the following H2 database-related JAR file, which is shipped with WSO2 products:
-`<PRODUCT_HOME>/repository/components/plugins/h2-database-engine_1.2.140.wso2v3.jar`
-2.  Find the JAR file of the new H2 database driver ( `<H2_HOME>/bin/h2-*.jar` , where `<H2_HOME>` is the H2 installation directory) and copy it to your WSO2 product's `<PRODUCT_HOME>/repository/components/lib/` directory.
+`<API-M_HOME>/repository/components/plugins/h2_1.4.199.wso2v1.jar`
+2.  Find the JAR file of the new H2 database driver ( `<H2_HOME>/bin/h2-*.jar` , where `<H2_HOME>` is the H2 installation directory) and copy it to your WSO2 product's `<API-M_HOME>/repository/components/lib/` directory.
 
 ## What's next
 
@@ -42,16 +42,16 @@ The following sections describe how to replace the default H2 database with Embe
 -   [Creating database tables](#ChangingtoEmbeddedH2-Creatingdatabasetables)
 
 !!! warning
-H2 is not recommended in production
+    H2 is not recommended in production
 
-The embedded H2 database is NOT recommended in enterprise testing and production environments. It has lower performance, clustering limitations, and can cause file corruption failures. Please use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL instead.
+    The embedded H2 database is NOT recommended in enterprise testing and production environments. It has lower performance, clustering limitations, and can cause file corruption failures. Please use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, or MS SQL instead.
 
-You can use the embedded H2 database in development environments and as the local registry in a registry mount.
+    You can use the embedded H2 database in development environments and as the local registry in a registry mount.
 
 !!! tip
-Before you begin
+    Before you begin,
 
-You need to set up Embedded H2 before following the steps to configure your product with it. For more information, see [Setting up Embedded H2](https://docs.wso2.com/display/ADMIN44x/Setting+up+Embedded+H2) .
+    You need to set up Embedded H2 before following the steps to configure your product with it. For more information, see [Setting up Embedded H2]({{base_path}}/InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2/) .
 
 
 ### Setting up datasource configurations
@@ -62,31 +62,25 @@ A datasource is used to establish the connection to a database. By default, `W
 
 Follow the steps below to change the type of the default `WSO2_CARBON_DB` datasource.
 
-Edit the default datasource configuration in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file as shown below.
+Edit the default datasource configuration in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file ` file as shown below.
 
-``` html/xml
-    <datasource>
-        <name>WSO2_CARBON_DB</name>
-        <description>The datasource used for registry and user manager</description>
-        <jndiConfig>
-             <name>jdbc/WSO2CarbonDB</name>
-        </jndiConfig>
-        <definition type="RDBMS">
-             <configuration>
-                 <url>jdbc:h2:repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000</url>
-                 <username>wso2carbon</username>
-                 <password>wso2carbon</password>
-                 <driverClassName>org.h2.Driver</driverClassName>
-                 <maxActive>50</maxActive>
-                 <maxWait>60000</maxWait>
-                 <minIdle>5</minIdle>
-                 <testOnBorrow>true</testOnBorrow>
-                 <validationQuery>SELECT 1</validationQuery>
-                 <validationInterval>30000</validationInterval>
-                 <defaultAutoCommit>false</defaultAutoCommit>
-             </configuration>
-        </definition>
-    </datasource>
+```toml tab="Format"
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+username = "wso2carbon"
+password = "wso2carbon"
+driver="org.h2.Driver"
+validationQuery="SELECT 1"
+```
+
+```toml tab="Example"
+[database.carbon_db]
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2CARBON_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+username = "wso2carbon"
+password = "wso2carbon"
+driver="org.h2.Driver"
+validationQuery="SELECT 1"
 ```
 
 The elements in the above configuration are described below:
@@ -95,7 +89,7 @@ The elements in the above configuration are described below:
 |-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **url**                       | The URL of the database. The default port for a DB2 instance is 50000.                                                                                                                                                                                                                                                                       |
 | **username** and **password** | The name and password of the database user                                                                                                                                                                                                                                                                                                   |
-| **driverClassName**           | The class name of the database driver                                                                                                                                                                                                                                                                                                        |
+| **driver**                    | The class name of the database driver                                                                                                                                                                                                                                                                                                        |
 | **maxActive**                 | The maximum number of active connections that can beallocated  atthe same time from this pool. Enter any negative value to denote an unlimited number of active connections.                                                                                                                                                                 |
 | **maxWait**                   | The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception. You can enter zero or a negative value to wait indefinitely.                                                                                                              |
 | **minIdle**                   | The minimum number of active connections that can remain idle in the pool without extra ones being created, or enter zero to create none.                                                                                                                                                                                                    |
@@ -107,12 +101,12 @@ The elements in the above configuration are described below:
   When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.                                                                                                                                                     |
 
 !!! info
-For more information on other parameters that can be defined in the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
+    For more information on other parameters that can be defined in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes) .
 
 
 !!! warning
-The following elements are available only as a **WUM** update and is effective from 14th September 2018 (2018-09-14).  For more information, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) .
-This WUM update is only applicable to Carbon 4.4.11 and will be shipped out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more information on Carbon compatibility, see [Release Matrix](https://wso2.com/products/carbon/release-matrix/) .
+    The following elements are available only as a **WUM** update and is effective from 14th September 2018 (2018-09-14).  For more information, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) .
+    This WUM update is only applicable to Carbon 4.4.11 and will be shipped out-out-the-box with Carbon versions newer than Carbon 4.4.35. For more information on Carbon compatibility, see [Release Matrix](https://wso2.com/products/carbon/release-matrix/) .
 
 
 | **Element**          | **Description**                                                                                                                                                                                                                                                                                                                                                                |
@@ -120,81 +114,110 @@ This WUM update is only applicable to Carbon 4.4.11 and will be shipped out-out-
 | **commitOnReturn**   | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false. |
 | **rollbackOnReturn** | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.                                                                                            |
 
-**Configuring the connection pool behavior on return
+**Configuring the connection pool behavior on return**
 ** When a database connection is returned to the pool, by default  the product rolls back the pending transactions if defaultAutoCommit =true . However, if required you can disable the latter mentioned default behavior by disabling the `ConnectionRollbackOnReturnInterceptor` , which is a JDBC-Pool JDBC interceptor, and setting the connection pool behavior on return via the datasource configurations by using the following options.
 
 !!! warning
-Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://www.google.com/url?q=https%3A%2F%2Fdocs.wso2.com%2Fdisplay%2FADMIN44x%2FUpdating%2BWSO2%2BProducts&sa=D&sntz=1&usg=AFQjCNEMvqxxFtu8Qv8K4YugxNXrTfNtUA) . This WUM update is only applicable to Carbon 4.4.11.
+    Disabling the `ConnectionRollbackOnReturnInterceptor` is only possible with the **WUM** update and is effective from 14th September 2018 (2018-09-14). For more information on updating WSO2 API Manager, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/) . This WUM update is only applicable to Carbon 4.4.11.
 
 
 -   **Configure the connection pool to commit pending transactions on connection return**
     1.  Navigate to either one of the following locations based on your OS.
-        -   On Linux/Mac OS: `<PRODUCT_HOME>/bin/wso2server.sh/`
-        -   On Windows: `<PRODUCT_HOME>\bin\wso2server.bat`
+        -   On Linux/Mac OS: `<API-M_HOME>/bin/wso2server.sh/`
+        -   On Windows: `<API-M_HOME>\bin\wso2server.bat`
     2.  Add the following JVM option:
 
         ``` java
-                -Dndatasource.disable.rollbackOnReturn=true \
+-Dndatasource.disable.rollbackOnReturn=true
         ```
 
-    3.  Navigate to the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file.
-    4.  Disable the `defaultAutoCommit` by defining it as false.
-    5.  Add the `commitOnReturn` property and set it to true for all the datasources, including the custom datasources.
+    3.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+    4.  Disable the `defaultAutoCommit` by defining it as `false`.
+    5.  Add the `commitOnReturn` property and set it to `true` for all the datasources, including the custom datasources.
 
-        ``` html/xml
-                    <datasource>
-                         ...
-                         <definition type="RDBMS">
-                             <configuration>
-                                   ...
-                                   <defaultAutoCommit>false</defaultAutoCommit>
-                                   <commitOnReturn>true</commitOnReturn>    
-                                   ...
-                             </configuration>
-                         </definition>
-                    </datasource>
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/shared_db"
+        username = "regadmin"
+        password = "regadmin"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
+        pool_options.defaultAutoCommit=false
+        pool_options.commitOnReturn=true
+
+        [database.apim_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/apim_db"
+        username = "apimadmin"
+        password = "apimadmin"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        pool_options.validationInterval = 10000
+        pool_options.defaultAutoCommit=false
         ```
 
 -   **Configure the connection pool to rollback pending transactions on connection return**
 
-    1.  Navigate to the `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file.
+    1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
     2.  Disable the `defaultAutoCommit` by defining it as false.
 
     3.  Add the `rollbackOnReturn` property to the datasources.
 
-        ``` html/xml
-                    <datasource>
-                         ...
-                         <definition type="RDBMS">
-                             <configuration>
-                                   ...
-                                   <defaultAutoCommit>false</defaultAutoCommit> 
-                                   <rollbackOnReturn>true</rollbackOnReturn>
-                                   ...
-                             </configuration>
-                         </definition>
-                    </datasource>
+        ``` toml
+        [database.shared_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/shared_db"
+        username = "regadmin"
+        password = "regadmin"
+        pool_options.maxActive = 100
+        pool_options.maxWait = 10000
+        pool_options.validationInterval = 10000
+        pool_options.defaultAutoCommit=false
+        pool_options.commitOnReturn=true
+        pool_options.rollbackOnReturn=true
+
+        [database.apim_db]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/apim_db"
+        username = "apimadmin"
+        password = "apimadmin"
+        pool_options.maxActive = 50
+        pool_options.maxWait = 30000
+        pool_options.validationInterval = 10000
+        pool_options.defaultAutoCommit=false
+        pool_options.rollbackOnReturn=true
         ```
 
 #### Configuring new datasources to manage registry or user management data
 
 Follow the steps below to configure new datasources to point to the new database(s) you create to manage registry and/or user management data separately.
 
-1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) above to the &lt; `PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
-2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/registry.xml` file.
+1.  Add a new datasource with similar configurations as the [`WSO2_CARBON_DB` datasource](#ChangingtoEmbeddedH2-Changingthedefaultdatabase) above to the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file. Change its elements with your custom values. For instructions, see [Setting up datasource configurations.](#ChangingtoEmbeddedH2-Settingupdatasourceconfigurations)
+2.  If you are setting up a separate database to store registry-related data, update the following configurations in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-    ``` xml
-            <dbConfig name="wso2registry">
-                <dataSource>jdbc/MY_DATASOURCE_NAME</dataSource>
-            </dbConfig>
+
+    ```toml tab="Format"
+    [database.config]
+    dataSource = "jdbc/MY_DATASOURCE_NAME"
     ```
 
-3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `PRODUCT_HOME>/repository/conf/user-mgt.xml` file.
+    ```toml tab="Example"
+    [database.config]
+    dataSource = "jdbc/WSO2_CARBON_DB"
+    ```
 
-    ``` xml
-            <Configuration>
-                <Property name="dataSource">jdbc/MY_DATASOURCE_NAME</Property>
-            </Configuration>
+3.  If you are setting up a separate database to store user management data, update the following configurations in the &lt; `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+    ```toml tab="Format"
+    [user_store]
+    dataSource = "jdbc/MY_DATASOURCE_NAME"
+    ```
+
+    ```toml tab="Example"
+    [user_store]
+    dataSource = "jdbc/WSO2_CARBON_DB"
     ```
 
 ### Creating database tables
@@ -204,7 +227,7 @@ To create the database tables, connect to the database that you created earlier 
 -   To create tables in the registry and user manager database ( `WSO2CARBON_DB` ), use the below script:
 
     ``` java
-            <PRODUCT_HOME>/dbscripts/h2.sql
+    <API-M_HOME>/dbscripts/h2.sql
     ```
 
 Follow the steps below to run the script in Web console:
@@ -215,14 +238,14 @@ Follow the steps below to run the script in Web console:
 4.  Click **Run** .
 5.  Restart the server.
 
-        !!! info
+!!! info
     You can create database tables automatically **when starting the product for the first time** by using the `-Dsetup` parameter as follows:
 
-    -   For Windows: `<PRODUCT_HOME>/bin/wso2server.bat -Dsetup`
+    -   For Windows: `<API-M_HOME>/bin/wso2server.bat -Dsetup`
 
-    -   For Linux: `<PRODUCT_HOME>/bin/wso2server.sh -Dsetup`
+    -   For Linux: `<API-M_HOME>/bin/wso2server.sh -Dsetup`
 
-        !!! warning
+!!! warning
         Deprecation of -DSetup
     When proper Database Administrative (DBA) practices are followed, the systems (except analytics products) are not granted DDL (Data Definition) rights on the schema. Therefore, maintaining the `-DSetup` option is redundant and typically unusable. **As a result, from [January 2018 onwards](https://wso2.com/products/carbon/release-matrix/) WSO2 has deprecated the `-DSetup` option** . Note that the proper practice is for the DBA to run the DDL statements manually so that the DBA can examine and optimize any DDL statement (if necessary) based on the DBA best practices that are in place within the organization.
 
