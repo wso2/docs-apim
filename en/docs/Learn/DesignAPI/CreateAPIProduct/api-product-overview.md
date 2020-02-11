@@ -10,7 +10,7 @@ Let's use the following  example to understand how API Products work in WSO2 API
 
 **Example**
 
-   [![Example for API Product](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)](../../../assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)
+   [![Example for API Product]({{base_path}}/assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)]({{base_path}}/assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)
   
 A financial institution has the following three APIs.
 
@@ -188,7 +188,7 @@ The resources of the above mentioned existing APIs can be reused and exposed via
     </tr>
     <tr>
     <td><strong>PUT /accounts/{accountId}</strong></td>
-    <td>Update a specific credit account based on the an Account ID.</code></td>
+    <td>Update a specific credit account based on the Account ID.</code></td>
     </tr>
     <tr>
     <td><strong>DELETE /accounts/{accountId}</strong></td>
