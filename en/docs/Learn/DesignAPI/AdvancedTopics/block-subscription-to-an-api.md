@@ -35,6 +35,10 @@ Blocking can be done at two levels:
 
      2.  Create two APIs and publish them to the WSO2 API Developer Portal.
 
+         `https://<hostname>:9443/devportal` 
+
+         (e.g., `https://localhost:9443/devportal`). 
+
          <html>
          <div class="admonition tip"> 
          <p class="admonition-title">Tip</p>
@@ -137,7 +141,7 @@ Blocking can be done at two levels:
         </ams:fault>
         ```
 
-        [![]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
+        [![Have the same application for two APIs and block response]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
         
      If you click **Applications** in the API Developer Portal, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
 
@@ -146,6 +150,10 @@ Blocking can be done at two levels:
 6.  Unblock the API.
 
      1.  Go back to the API Publisher.
+
+         `https://<hostname>:9443/publisher` 
+
+         (e.g., `https://localhost:9443/publisher`). 
 
      2.  Click on the respective API
 
