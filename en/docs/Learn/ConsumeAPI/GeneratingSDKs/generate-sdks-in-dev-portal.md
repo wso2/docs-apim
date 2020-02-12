@@ -1,10 +1,10 @@
 #Generate SDKs in Developer Portal
 
-A software development kit (SDK) is a set of software development tools that allows to create applications for a specific platform. If an API consumer wants to create an application, they can generate a client side SDK for a supported language/framework and use it to write a software application to consume the subscribed APIs. 
+A Software Development Kit (SDK) is a set of software development tools that allows to create applications for a specific platform. If an API consumer wants to create an application, they can generate a client side SDK for a supported language/framework and use it to write a software application to consume the subscribed APIs. 
 
-## Download SDK from Dev Portal
+## Download SDK from Developer Portal
 
-Following are the steps to generate and download client-side SDKs via API Dev Portal.
+Following are the steps to generate and download client-side SDKs via API Developer Portal.
 
 1.  Sign in to the WSO2 API Developer Portal ( `https://<hostname>:<port>/devportal` ) and click on the API you want to generate a client-side SDK (e.g., `PizzaShackAPI` ) 
 
@@ -20,7 +20,7 @@ Following are the steps to generate and download client-side SDKs via API Dev Po
     
 ##  Configuring supported languages for SDK generation
 
-By default, **android, java, javascript** and **jmeter** SDKs are available to be downloaded via dev portal. In addition to that API Manager supports SDK generation for following languages too. **scala, csharp, dart, flash, groovy, nodejs, perl, php, python, ruby, swift, clojure, asyncScala, csharpDotNet2**.
+By default, **android, java, javascript** and **jmeter** SDKs are available to be downloaded via Developer Portal. In addition to that API Manager supports SDK generation for following languages too. **scala, csharp, dart, flash, groovy, nodejs, perl, php, python, ruby, swift, clojure, asyncScala, csharpDotNet2**.
 
 Follow the below steps to configure the languages available for SDK generation.
 
