@@ -8,8 +8,9 @@
         <p>Once the keys are generated, copy the access token. You can use this token to invoke APIs that you subscribe to using the same application.</p>
     </div>
 
-2.  Go to the Developer Portal. Select your API and download the SDK for Java. 
-![Default SDKs in Developer Portal](../../../assets/img/Learn/default-sdks.png)
+2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/Learn/ConsumeAPI/GeneratingSDKs/generate-sdks-in-dev-portal/). 
+
+![Default SDKs in Developer Portal]({{base_path}}/assets/img/Learn/default-sdks.png)
 
 3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
 <details class="admonition info">

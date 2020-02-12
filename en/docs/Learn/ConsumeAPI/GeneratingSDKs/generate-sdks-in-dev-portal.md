@@ -34,9 +34,3 @@ Follow the below steps to configure the languages available for SDK generation.
     ```
     
 3.  [Restart the server]({{base_path}}/InstallAndSetup/InstallationGuide/running-the-product/) to get the configuration changes applied.
-
-
-
-
-
-
