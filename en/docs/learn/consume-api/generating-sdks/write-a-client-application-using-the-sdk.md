@@ -1,6 +1,7 @@
 # Write a Client Application Using the SDK
 
-1.  Follow the steps in the [Quick Start Guide](/getting-started/quick-start-guide), to deploy the sample API, subscribe and generate keys.
+
+1.  Follow the steps in the [Quick Start Guide]({{base_path}}/GettingStarted/quick-start-guide), to deploy the sample API, subscribe and generate keys.
 
     <div class="admonition info">
         <p class="admonition-title">Info</p>
