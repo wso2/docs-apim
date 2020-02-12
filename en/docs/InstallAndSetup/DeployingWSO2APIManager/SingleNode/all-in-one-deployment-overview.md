@@ -1,6 +1,6 @@
 # All-in-One Deployment Overview
 
-In a typical production deployment, API Manager is deployed as components (Publisher, Store, Gateway, Key Manager 
+In a typical production deployment, API Manager is deployed as components (Publisher, Dev Portal, Gateway, Key Manager 
 and Traffic Manager). While this provides very high performance and a high level of scalability, it may be too 
 complex if you want to run API Manager as a small to medium scale API Management solution. A WSO2 API-M single node 
 deployment, which has all the API-M components in one instance, would be simple to set up and requires less resources
