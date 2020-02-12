@@ -296,7 +296,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
 
     !!! Info
 
-        If this is the first time you are using the API Controller you will be prompted to enter your account credentials on API Manager. You can enter your credentials as **`admin/admin`**. 
+        If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on API Manager. You can use the default admin credentials as **`admin/admin`**. 
 
      ``` bash
      ./apictl import-api --file ./PetstoreAPI --environment dev -k 

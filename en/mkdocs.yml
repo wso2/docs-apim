@@ -164,6 +164,7 @@ nav:
                 - Customizing User Signup in Developer Portal: Learn/ConsumeAPI/Customizations/customizing-user-signup-in-developer-portal.md
                 - Customizing Login Pages for Developer Portal and Publisher: Learn/ConsumeAPI/Customizations/customizing-login-pages-for-dev-portal-and-publisher.md
             - Generating SDKs:
+                - Generate SDKs in Developer Portal: Learn/ConsumeAPI/GeneratingSDKs/generate-sdks-in-dev-portal.md
                 - Write a Client Application Using the SDK: Learn/ConsumeAPI/GeneratingSDKs/write-a-client-application-using-the-sdk.md
         - API Gateway:
             - Overview of the WSO2 API Gateway: Learn/APIGateway/overview-of-the-api-gateway.md
@@ -363,8 +364,6 @@ nav:
                 - Changing to IBM DB2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-db2.md
                 - Changing to Remote H2: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-remote-h2.md
                 - Changing to Oracle RAC: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-oracle-rac.md
-                - Changing to Embedded Derby: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-derby.md
-                - Changing to IBM Informix: InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-ibm-informix.md
         - Product Compatibility: InstallAndSetup/ProductCompatibility.md
         - Performance Tuning:
               - Tuning Performance: InstallAndSetup/PerfromanceTuningAndTestResults/tuning-performance.md
