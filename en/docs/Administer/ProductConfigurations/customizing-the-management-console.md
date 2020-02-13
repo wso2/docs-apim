@@ -269,17 +269,15 @@ You can customize the above error message by following the instructions given be
 9.  Build the Maven project by executing the following command: mvn `clean install`
 
 10. Once the project is built, copy the JAR file (from the `<PROJECT_HOME>/target/` directory) to the `<CARBON_HOME>/repository/components/dropins/` directory.
-11. Change the following configurations in the `<CARBON_HOME>/repository/conf/tomcat/carbon/WEB-INF/web.xml` file.
+11. Add the following configurations in the `<CARBON_HOME>/repository/conf/deployment.toml` file.
 
     ``` text
-            <error-page>
-                <error-code>404</error-code>
-                <location>/carbon/new_error_404.html</location>
-            </error-page>
+    [error_page]
+    code_403.location = "/carbon/new_error_404.html"
     ```
 
         !!! tip
-    You need to replicate this configuration, and change the values of the `<error-code>` and `<location>` elements accordingly for each new HTML error page you add.
+    You need to replicate this configuration, and change the values of the respective error_code location value accordingly for each new HTML error page you add.
 
 
 12. Restart the WSO2 Carbon server.
