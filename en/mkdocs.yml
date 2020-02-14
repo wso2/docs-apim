@@ -123,7 +123,7 @@ nav:
                     - Obtain Access Token:
                         - Overview of Access Tokens: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/overview-of-access-tokens.md
                         - Access Tokens Per Device: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/access-tokens-per-device.md
-                        - Changing the default token expiration time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
+                        - Changing the Default Token Expiration Time: Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time.md
                 - Sharing Applications: Learn/ConsumeAPI/ManageApplication/SharingApplications/sharing-applications.md
                 - Advanced Topics:
                         - Add Custom Attributes to Applications: Learn/ConsumeAPI/ManageApplication/AdvancedTopics/add-custom-attributes-to-applications.md
