@@ -18,7 +18,7 @@ Follow the instructions below to configure the third-party Key Manager:
 
 ### Step 1: Start the authorization server
 
-1.  Download the binary located [here](https://github.com/Rajith90/surf-oauth-demo/blob/v2.1.0/resources/surf-oauth.war) and deploy it in a Tomcat server.
+1.  Download the binary located [here](https://github.com/chanakaudaya/surf-oauth-demo/blob/master/resources/surf-oauth.war) and deploy it in a Tomcat server.
 
     !!! info
         Alternatively, you can build the OAuth Server from scratch and start the server by issuing the [mvn jetty:run](https://github.com/OAuth-Apis/apis/blob/master/README.md#getting-started) command in the `api-authorization-server-war` folder. Detailed steps for building and starting the server are provided [here](https://github.com/OAuth-Apis/apis/blob/master/README.md#getting-started).
@@ -74,7 +74,7 @@ Follow the instructions below to configure the third-party Key Manager:
 
 ### Step 2: Configure WSO2 API Manager
 
-1.  Build the demo.client available at <https://github.com/Rajith90/surf-oauth-demo/tree/v2.1.0>.
+1.  Build the demo.client available at <https://github.com/chanakaudaya/surf-oauth-demo/tree/master>.
 
 2.  Copy the JAR files that you built in to the `<API-M_HOME>/repository/components/lib` directory.
 
