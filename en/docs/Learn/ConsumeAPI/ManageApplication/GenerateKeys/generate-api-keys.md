@@ -1,4 +1,4 @@
-#Application Keys
+# Application Keys
 
 An API Access Token/Key is a string that is being passed as a HTTP header of an API request. WSO2 APIM provides OAuth2.0 
 bearer token based authentication for API access and the API key has to be submitted alongside the API request in 
