@@ -1,6 +1,6 @@
 # Adding an Application Creation Workflow
 
-This section explains how to attach a custom workflow to the application creation operation in WSO2 API Manager (WSO2 API-M).
+This section explains as to how you can attach a custom workflow to the application creation operation in WSO2 API Manager (WSO2 API-M).
 
 Attaching a custom workflow to application creation allows you to control the creation of applications within the Developer Portal. An application is the entity that holds a set of subscribed  API's that would be accessed by a authorization key specified for that particular application. Therefore, controlling the creation of these applications would be a decision based on the organization's requirements. 
 
