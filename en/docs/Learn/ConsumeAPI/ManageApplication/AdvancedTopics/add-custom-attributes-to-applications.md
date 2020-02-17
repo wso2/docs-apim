@@ -1,6 +1,6 @@
 # Add Custom Attributes to Applications
 
-You can create applications via the WSO2 API Manager Developer Portal. When you subscribe to an API using an application, it allows you to consume the API. Thereby, this helps developers to expose and monetize their APIs. Applications can be created with a predefined set of properties. In addition, WSO2 API Manager also allows you to add a set of custom attributes while creating an application if required.
+You as a developer can register applications via the WSO2 API Manager Developer Portal. When you create a subscription to an API for an application, it allows you to consume the API. Thereby, this helps developers to expose and monetize their APIs. Applications can be created with a predefined set of properties. In addition, WSO2 API Manager also allows you to add a set of custom attributes while creating an application if required.
 
 Follow the steps below to configure WSO2 API Manager in order to accept custom attributes to applications:
 
