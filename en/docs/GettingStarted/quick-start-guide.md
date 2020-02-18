@@ -35,11 +35,11 @@ Follow the instructions below to create a publish an API via the API Publisher P
  
      1. Navigate to [https://www.mocky.io/](https://www.mocky.io/) on your web browser. 
              
-         A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the service URL (`https://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service.
+         A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the service URL (`http://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service.
 
         [![]({{base_path}}/assets/img/get_started/Mocky_io.png)]({{base_path}}/assets/img/get_started/Mocky_io.png)
          
-     2. Optionally, to test this service, copy the service URL [https://www.mocky.io/v2/5185415ba171ea3a00704eed](https://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
+     2. Optionally, to test this service, copy the service URL [http://www.mocky.io/v2/5185415ba171ea3a00704eed](http://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
          `{"hello": "world"}`
     
@@ -296,7 +296,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
 
     !!! Info
 
-        If this is the first time you are using the API Controller you will be prompted to enter your account credentials on API Manager. You can enter your credentials as **`admin/admin`**. 
+        If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on API Manager. You can use the default admin credentials as **`admin/admin`**. 
 
      ``` bash
      ./apictl import-api --file ./PetstoreAPI --environment dev -k 

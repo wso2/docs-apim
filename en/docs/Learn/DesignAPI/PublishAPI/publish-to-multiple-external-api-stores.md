@@ -198,7 +198,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
 11. Select the Developer Portal that you want to publish to (in this case, `DeveloperPortal2`) and click **Save**.
 
-     [![]({{base_path}}/assets/img/Learn/publish-to-external-devportal.png)]({base_path}}/assets/img/Learn/publish-to-external-devportal.png)
+     [![]({{base_path}}/assets/img/Learn/publish-to-external-devportal.png)]({{base_path}}/assets/img/Learn/publish-to-external-devportal.png)
 
 12. Sign in to the external API Developer Portal (in this case, `http://localhost:9444/devportal`) and click on the API that you just published.
 

@@ -38,7 +38,7 @@ Extract the WSO2 product to a preferred directory in your machine and set the en
 
     ``` java
     #! /bin/sh
-    export JAVA_HOME="/usr/lib/jvm/jdk1.7.0_07"
+    export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_xx"
     startcmd='<API-M_HOME>/bin/wso2server.sh start > /dev/null &'
     restartcmd='<API-M_HOME>/bin/wso2server.sh restart > /dev/null &'
     stopcmd='<API-M_HOME>/bin/wso2server.sh stop > /dev/null &'
