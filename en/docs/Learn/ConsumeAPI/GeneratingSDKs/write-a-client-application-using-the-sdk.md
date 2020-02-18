@@ -1,15 +1,5 @@
 # Write a Client Application Using the SDK
 
-A software development kit (SDK) is a set of software development tools that allows to create applications for a specific platform. If an API consumer wants to create an application, they can generate a client side SDK for a supported language/framework and use it to write a software application to consume the subscribed APIs. This tutorial shows you how to write a client application using an SDK.
-
-#### Writing a client application using the SDK with a static access token
-
-<div class="admonition note">
-    <p class="admonition-title">Note</p>
-    <p>In this example, we use the sample API in WSO2 API Manager as a demonstration. To deploy the sample API, log in to the API Publisher and click the <b>Deploy Sample API</b> button. Note that the button only appears if no APIs have been created so far, in the given tenant space.</p>
-    <p>If a different API is used, the SDK functions to invoke the API are based on the specifications of that API.</p>
-</div>
-
 1.  Follow the steps in the [Quick Start Guide](/GettingStarted/quick-start-guide), to deploy the sample API, subscribe and generate keys.
 
     <div class="admonition info">
@@ -18,8 +8,9 @@ A software development kit (SDK) is a set of software development tools that all
         <p>Once the keys are generated, copy the access token. You can use this token to invoke APIs that you subscribe to using the same application.</p>
     </div>
 
-2.  Go to the Developer Portal. Select your API and download the SDK for Java. 
-![Default SDKs in Developer Portal](../../../assets/img/Learn/default-sdks.png)
+2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/Learn/ConsumeAPI/GeneratingSDKs/generate-sdks-in-dev-portal/). 
+
+![Default SDKs in Developer Portal]({{base_path}}/assets/img/Learn/default-sdks.png)
 
 3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
 <details class="admonition info">

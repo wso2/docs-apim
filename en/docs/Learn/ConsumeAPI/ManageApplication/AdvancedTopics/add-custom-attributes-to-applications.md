@@ -1,62 +1,68 @@
 # Add Custom Attributes to Applications
 
-Applications in the API Developer Portal are created and subscribed to APIs allowing users to consume the APIs, and helping developers to expose and monetize their APIs. Applications can be created with a predefined set of properties. This feature enables the functionality to provide a set of custom attributes while creating an application.
+You as a developer can register applications via the WSO2 API Manager Developer Portal. When you create a subscription to an API for an application, it allows you to consume the API. Thereby, this helps developers to expose and monetize their APIs. Applications can be created with a predefined set of properties. In addition, WSO2 API Manager also allows you to add a set of custom attributes while creating an application if required.
 
-Follow the steps below to configure adding custom attributes to applications
+Follow the steps below to configure WSO2 API Manager in order to accept custom attributes to applications:
 
--   [Step 1 - Configuring custom attributes for applications](#step-1-configuring-custom-attributes-for-applications)
--   [Step 2 - Creating an application with custom attributes through the API Developer Portal](#step-2-creating-an-application-with-custom-attributes-through-the-api-developer-portal)
+## Step 1 - Configure custom attributes for applications
 
-### Step 1 - Configuring custom attributes for applications
-
-Custom attributes can be configured in the following ways.
+Use one of the following options to configure custom attributes in WSO2 API Manager.
 
 -   [Server-specific configuration](#server-specific-configuration)
 -   [Tenant-specific configuration](#tenant-specific-configuration)
 
-#### Server-specific configuration
+### Server-specific configuration
 
-To configure server-specific custom attributes, open the `<API-M-home>/repository/conf/deployment.toml` file. Add `application_attributes` as shown in the example below.
+Follow the instructions below to configure server-specific custom attributes:
 
-``` java
-[[apim.devportal.application_attributes]]
-required=true
-hidden=false
-name="External Reference Id"
-description="Sample description of the attribute"
-```
+1. Open the `<API-M-home>/repository/conf/deployment.toml` file. 
 
-#### Tenant-specific configuration
+2. Add the `application_attributes` section as shown below.
 
-To configure tenant-specific custom attributes follow the steps below,
+    ``` java
+    [[apim.devportal.application_attributes]]
+    required=true
+    hidden=false
+    name="External Reference Id"
+    description="Sample description of the attribute"
+    ```
 
-1.  Sign in to the WSO2 Carbon console `https://<hostname>:9443/carbon`.
-2.  Click on Resources --> Browse and navigate to `/_system/config/apimgt/applicationdata/tenant-conf.json`.
-3. Add `ApplicationConfigs` under `Attributes` as shown below in the **tenant-conf.json** file
+### Tenant-specific configuration
 
-``` java
-"ApplicationConfigs": {
-    "Attributes" : [
-        {
-            "Attribute" : "External Reference Number",
-            "Required" : true,
-            "Description" : "Sample description"
-        },
-        {
-            "Attribute" : "Tenant Billing tier"
-        }
-     ]
-    }
-```
+Follow the instructions below to configure tenant-specific custom attributes:
 
-### Step 2 - Creating an application with custom attributes through the API Developer Portal
+1. Sign in to the WSO2 API Manager Management Console `https://<hostname>:9443/carbon`.
+2. Click **Resources** --> **Browse**.
+3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` in the navigation bar and click **Go**.
+4. Add `ApplicationConfigs` under `Attributes` as shown below in the **tenant-conf.json** file.
 
-After configuring the custom attributes as shown in the previous section, you will be able to add these attributes to the applications you create in the API Developer Portal.
+     ``` java
+     "ApplicationConfigs": {
+        "Attributes" : [
+            {
+                "Attribute" : "External Reference Number",
+                "Required" : true,
+                "Description" : "Sample description"
+            },
+            {
+                "Attribute" : "Tenant Billing tier"
+            }
+        ]
+     }
+     ```
 
-1.  Log in to the API Developer Portal. Click **Add Application** , to add a new application
+## Step 2 - Create an application with the custom attributes
 
-    [ ![](./../../../../assets/img/Learn/application-attributes-application-add.png) ](/../../../assets/img/Learn/application-attributes-application-add.png)
+After configuring the custom attributes as shown in the previous step, you will be able to add these attributes to the applications you create via the Developer Portal.
 
-2.  You will see the configured custom attribute as shown below.
+1. Sign in to the API Developer Portal. 
 
-    [ ![](./../../../../assets/img/Learn/application-attributes.png) ](/../../../assets/img/Learn/application-attributes.png)
+2. Click **Add Application**, to add a new application.
+
+    [![Add application button]({{base_path}}/assets/img/Learn/application-attributes-application-add.png)]({{base_path}}/assets/img/Learn/application-attributes-application-add.png)
+    
+    You will see the configured custom attribute as shown below.
+
+    [![Custom application attributes]({{base_path}}/assets/img/Learn/application-attributes.png)]({{base_path}}/assets/img/Learn/application-attributes.png)
+
+3. Add the application details and click **SAVE**.

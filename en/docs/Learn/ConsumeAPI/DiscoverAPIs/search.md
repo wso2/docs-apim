@@ -1,6 +1,6 @@
 # Search
 
-The Developer Portal provides several useful features to build and nurture an active community of users for your APIs. This is required to advertize APIs, learn user requirements and market trends.
+The Developer Portal provides several useful features to build and nurture an active community of users for your APIs. This is required to advertise APIs, learn user requirements, and market trends.
 
 Let's see what community features are available in the Developer Portal:
 
@@ -49,7 +49,7 @@ You can search for APIs in the API Publisher or Developer Portal in the followin
 <tr class="odd">
 <td>By the subcontext</td>
 <td><p><strong>subcontext:xxxx</strong> . For example, subcontext:/checkphonenumber.</p>
-<p>A subcontext is the URL pattern of any resource of the API. API resources are created at the time the API is created or later when it is modified. For example, if you create a resource by the name <code>              checkphonenumber             </code> , then <code>              /checkphonenumber             </code> becomes one subcontext of the API. <strong><br />
+<p>A subcontext is the URL pattern of any resource of the API. API resources are created at the time the API is created or later when it is modified. For example, if you create a resource by the name <code>      checkphonenumber</code>, then <code>/checkphonenumber</code> becomes one subcontext of the API. <strong><br />
 </strong></p></td>
 </tr>
 <tr class="even">
@@ -66,7 +66,7 @@ You can search for APIs in the API Publisher or Developer Portal in the followin
 <tr class="even">
 <td>By microgateway label</td>
 <td><p><strong>label:xxxx</strong> . For example, label:marketing</p>
-<p>A label is used to group APIs based on the microgateway distribution. It can be given to an API at the time it is created or later. There can be APIs without labels as this parameter is optional.</p></td>
+<p>A label is used to group APIs based on the Microgateway distribution. It can be given to an API at the time it is created or later. There can be APIs without labels as this parameter is optional.</p></td>
 </tr>
 <tr class="odd">
 <td>By a custom property</td>

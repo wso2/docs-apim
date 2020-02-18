@@ -14,17 +14,17 @@ Follow the instructions below to obtain the API token and collection ID from 42C
 
 2.  Click **Settings**.
 
-     [![api token settings menu]({{base_path}}/assets/img/Learn/api-token-settings-menu.png)]({{base_path}}/assets/img/Learn/api-token-settings-menu.png)
+     [![API token settings menu]({{base_path}}/assets/img/Learn/api-token-settings-menu.png)]({{base_path}}/assets/img/Learn/api-token-settings-menu.png)
 
 3.  Click **API Tokens** and click **Create New Token**.
 
-     [![api token create button]({{base_path}}/assets/img/Learn/api-token-create-button.png)]({{base_path}}/assets/img/Learn/api-token-create-button.png)
+     [![API token create button]({{base_path}}/assets/img/Learn/api-token-create-button.png)]({{base_path}}/assets/img/Learn/api-token-create-button.png)
 
 4.  Enter a name for the token and select **API Contract Security Audit** as the token access right. 
 
      When working with API Audit, you only need to select the **API Contract Security Audit** permission.
 
-     [![api token dialog box]({{base_path}}/assets/img/Learn/api-token-dialog-box.png)]({{base_path}}/assets/img/Learn/api-token-dialog-box.png)
+     [![API token dialog box]({{base_path}}/assets/img/Learn/api-token-dialog-box.png)]({{base_path}}/assets/img/Learn/api-token-dialog-box.png)
 
 5.  Click **Generate Token**.
 
