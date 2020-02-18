@@ -1,8 +1,6 @@
 # Application Keys
 
-An API Access Token/Key is a string that is being passed as a HTTP header of an API request. WSO2 APIM provides OAuth2.0 
-bearer token based authentication for API access and the API key has to be submitted alongside the API request in 
-order to authenticate the access.
+An API Access Token/Key is a string that is being passed as a HTTP header of an API request. WSO2 APIM provides OAuth2.0 bearer token based authentication for API access and the API key has to be submitted alongside the API request in order to authenticate the access.
 
 When an Application Developer registers an Application in the Developer Portal, a consumer-key 
 and consumer-secret pair is generated, which represents the credentials of the Application that is 
@@ -46,4 +44,4 @@ Follow the instructions below to generate/renew application keys:
 
 !!! tip
     When you generate access tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/Learn/APISecurity/OAuth2/OAuth2Scopes/fine-grained-access-control-with-oauth-scopes/) and thereafter, generate the token for it.
-
+    
