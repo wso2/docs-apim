@@ -1,6 +1,6 @@
 # Configuring a Single Node
 
-This page walks you through how to manually configure and deploy WSO2 API Manager in a standalone single instance, without using a distributed or HA deployment patterns. 
+This page walks you through how to manually configure and deploy WSO2 API Manager in a single standalone instance, without using a distributed or HA deployment patterns. 
 
 [![Single node deployment]({{base_path}}/assets/img/setup-and-install/single-node-deployment.png)]({{base_path}}/assets/img/setup-and-install/single-node-deployment.png)
 
@@ -19,7 +19,7 @@ Follow the instructions below to configure and deploy API-M using a single node:
 ## Configure URLs that are used to expose APIs
 
 Add this hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file. Update the endpoints with your chosen hostname as shown below. 
-In this case let's use `gw.wso2.com` as the hostname:
+In this case, let's use `gw.wso2.com` as the hostname:
     ``` java
     [[apim.gateway.environment]]
     name = "Production and Sandbox"
