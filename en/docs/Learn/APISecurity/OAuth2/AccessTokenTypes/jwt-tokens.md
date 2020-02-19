@@ -30,14 +30,14 @@ The following prerequisites have to be satisfied for JWT based tokens to work.
 The following are the mandatory attributes that are required for a JWT token.
 
 - `Header`
-- `typ` - The type of the token (`JWT`).
-- `alg` - The algorithm used to sign the token (e.g., RS256).
+    - `typ` - The type of the token (`JWT`).
+    - `alg` - The algorithm used to sign the token (e.g., RS256).
 - `Payload`
-- `sub` - The subject of the token, which identifies as to whom the token refers to.
-- `application` - Application for which the token is generated.
-- `consumerKey`
-- `iat` - The time the token was issued.
-- `exp` - The expiry time of the token.
+    - `sub` - The subject of the token, which identifies as to whom the token refers to.
+    - `application` - Application for which the token is generated.
+    - `consumerKey`
+    - `iat` - The time the token was issued.
+    - `exp` - The expiry time of the token.
 
 ## Using JWT Tokens
 

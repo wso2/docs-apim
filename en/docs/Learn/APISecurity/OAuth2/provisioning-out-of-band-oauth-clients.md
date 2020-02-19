@@ -1,6 +1,6 @@
 # Provisioning Out-of-Band OAuth2 Clients
 
-When an application access token is generated, an OAuth2 client is created underneath. The consumer key and consumer secret shown under a key type actually belongs to the OAuth2 client. There can be situations where an OAuth2 client is created elsewhere, but needs to be associated with an application in the API Store. This type of OAuth2 clients are called as **Out-of-Band OAuth2 Clients**. 
+When an application keys are generated, an OAuth2 client is created underneath. The consumer key and consumer secret shown under a key type actually belongs to the OAuth2 client. There can be situations where an OAuth2 client is created elsewhere, but needs to be associated with an application in the API Store. This type of OAuth2 clients are called as **Out-of-Band OAuth2 Clients**. 
 
 For instance, in an organization where WSO2 Identity Server is used as the authoritative server, OAuth2 clients may only be created through the Identity Server. Similarly, when a 
 third party OAuth2 provider is used, users might want to use previously created OAuth2 clients with the API Manager. To achieve this, you can provision the OAuth2 clients created outside the API Store into the WSO2 API Manager (WSO2 APIM), thereby associating it with an application in the API Store. Once the mapping is done, you can use it in the same way as an OAuth2 client created through the API Store.
