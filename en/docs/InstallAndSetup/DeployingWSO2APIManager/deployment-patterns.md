@@ -1,27 +1,32 @@
-# WSO2 API Manager deployment patterns
+# WSO2 API Manager Deployment Patterns
 
-\[ [Pattern 1](#pattern-1-single-node-all-in-one-deployment) \] \[ [Pattern 2](#pattern-2-deployment-with-a-separate-gateway-and-separate-key-manager) \] \[ [Pattern 3](#pattern-3-fully-distributed-setup) \] \[ [Pattern 4](#pattern-4-internal-and-external-on-premise-api-management) \] \[ [Pattern 5](#pattern-5-internal-and-external-public-and-private-cloud-api-management) \]
 
 ## Pattern 1: Single node (all-in-one) deployment
 
-![]({{base_path}}/assets/attachments/103334440/103334441.png)
-You can use this pattern when you are working with a low throughput.
+[![Single node deployment]({{base_path}}/assets/img/setup-and-install/1-single-node-deployment.png)]({{base_path}}/assets/img/setup-and-install/1-single-node-deployment.png)
+
+You can use this pattern when you are working with low throughput.
 
 ## Pattern 2: Deployment with a separate Gateway and separate Key Manager
 
-![]({{base_path}}/assets/attachments/103334440/103334442.png)
+[![Deployment with a separate Gateway and separate Key Manager]({{base_path}}/assets/img/setup-and-install/2-separate-gateway-and-key-manager.png)]({{base_path}}/assets/img/setup-and-install/2-separate-gateway-and-key-manager.png)
+
 You can use this pattern when you require a high throughput scenario that requires a shorter token lifespan.
 
 ## Pattern 3: Fully distributed setup
 
-![]({{base_path}}/assets/attachments/103334440/103334445.png)
+[![Fully distributed setup]({{base_path}}/assets/img/setup-and-install/3-fully-distributed-setup.png)]({{base_path}}/assets/img/setup-and-install/3-fully-distributed-setup.png)
+
 You can use this pattern to maintain scalability at each layer and higher flexibility at each component.
 
 ## Pattern 4: Internal and external (on-premise) API Management
 
-![]({{base_path}}/assets/attachments/103334440/103334444.png)
-You can use this pattern when you require a separate internal and external API Management with separated Gateway instances.
+[![Internal and external API-M]({{base_path}}/assets/img/setup-and-install/4-internal-and-external.png)]({{base_path}}/assets/img/setup-and-install/4-internal-and-external.png)
+
+You can use this pattern when you require a separate internal and external API Management with separate Gateway instances.
 
 ## Pattern 5: Internal and external (public and private cloud) API Management
-![]({{base_path}}/assets/attachments/103334440/103334443.png)
+
+[![Internal and external (public and private cloud) API-M]({{base_path}}/assets/img/setup-and-install/Internal-public-and-private-cloud.png)]({{base_path}}/assets/img/setup-and-install/Internal-public-and-private-cloud.png)
+
 You can use this pattern when you wish to maintain a cloud deployment as an external API Gateway layer.
