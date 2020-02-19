@@ -9,7 +9,7 @@ WSO2 API Manager uses the following main components:
 |                     |                                                                                                                                                       |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Publisher**       | Enables API providers to easily publish their APIs, share documentation, provision API keys, and gather feedback on API features, quality, and usage. |
-| **Store**           | Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.                   |
+| **Developer Portal**           | Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.                   |
 | **Key Manager**     | Responsible for all security and key-related operations.                                                                                              |
 | **Gateway**         | Responsible for securing, protecting, managing, and scaling API calls.                                                                                |
 | **Traffic Manager** | Used to make a decision on throttling.                                                                                                                |
@@ -18,10 +18,10 @@ For more information on the above, see the main components of a distributed sys
 
 Additionally, API Manager uses the following databases, which are shared among the server nodes.
 
--   **User Manager database** - Stores information related to users and user roles. This information is shared among the Key Manager Server, Store, and Publisher. Users can access the Publisher for API creation and the Store for consuming the APIs. The User Manager database is also referred to as **WSO2UM\_DB** and **userdb**.
+-   **User Manager database** - Stores information related to users and user roles. This information is shared among the Key Manager Server, Developer Portal, and Publisher. Users can access the Publisher for API creation and the Developer Portal for consuming the APIs. The User Manager database is also referred to as **WSO2UM\_DB** and **userdb**.
 -   **API Manager database** - Stores information related to the APIs along with the API subscription details. The Key Manager Server uses this database to store user access tokens that are used for verification of API calls. The API Manager database is also referred to as **WSO2\_AM\_DB** and **apimgtdb**.
--   **Registry database** - Shares information between the Publisher and Store. When an API is published through the Publisher, it is made available in the Store via the shared registry database. Although you would normally share information between the Publisher and Store components only, if you are planning to create this setup for a multi-tenanted environment (create and work with tenants), it is required to share the information in this database between the Gateway and Key Manager components as well. The Registry database is also referred to as **WSO2REG\_DB** and **regdb**.
--   **Statistics database** - Stores information related to API statistics. After you [configure API-M analytics]({{base_path}}/Learn/Analytics/configuring-apim-analytics/), it writes summarized data to this database. The Publisher and Store can then query this database to display the statistics data. The **Statistics database** is also referred to as **WSO2\_STAT\_DB** and **statdb**.
+-   **Registry database** - Shares information between the Publisher and Developer Portal. When an API is published through the Publisher, it is made available in the Developer Portal via the shared registry database. Although you would normally share information between the Publisher and Developer Portal components only, if you are planning to create this setup for a multi-tenanted environment (create and work with tenants), it is required to share the information in this database between the Gateway and Key Manager components as well. The Registry database is also referred to as **WSO2REG\_DB** and **regdb**.
+-   **Statistics database** - Stores information related to API statistics. After you [configure API-M analytics]({{base_path}}/Learn/Analytics/configuring-apim-analytics/), it writes summarized data to this database. The Publisher and Developer Portal can then query this database to display the statistics data. The **Statistics database** is also referred to as **WSO2\_STAT\_DB** and **statdb**.
 -   **Message Broker database** - Traffic Manager uses this database as the message store for broker when [advanced throttling]({{base_path}}/Learn/RateLimiting/introducing-throttling-use-cases/) is used. The Message Broker DB is also referred to as **WSO2\_MB\_STORE\_DB** and **mbstoredb**.
 
 WSO2 API Manager components use the databases as follows:
@@ -65,7 +65,7 @@ Database<br />
 <td>Not used</td>
 </tr>
 <tr class="even">
-<td><p><strong>Store</strong></p></td>
+<td><p><strong>Developer Portal</strong></p></td>
 <td><p>Used</p></td>
 <td><p>Used</p></td>
 <td><p>Used</p></td>
