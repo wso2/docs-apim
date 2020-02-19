@@ -2,7 +2,7 @@
 
 Follow the instructions below to deploy WSO2 API Manager (WSO2 API-M) in a distributed environment, as depicted in the following deployment diagram:
 
-![API-M in a distributed setup]({{base_path}}/assets/img/setup-and-install/distributed_deployment.png)
+[![API-M in a distributed setup]({{base_path}}/assets/img/setup-and-install/distributed_deployment.png)]({{base_path}}/assets/img/setup-and-install/distributed_deployment.png)
 
 ### Step 1 - Install and configure WSO2 API-M
 
