@@ -26,7 +26,7 @@ The **WSO2 API Manager 3.0.0** is the **latest** **WSO2 API Manager release*
 
     JWT Authentication allows users to use self-contained tokens when invoking APIs. When an API is secured using the OAuth2 security scheme, the JWT tokens that are issued for the users from the Developer Portal can be used to invoke APIs.
 
-- **[API Schema Validator]({{base_path}}/Learn/APISecurity/SchemaValidation/json-schema-validator)**
+- **[API Schema Validator]({{base_path}}/Learn/APISecurity/APIRequestResponseSchemaValidation/json-schema-validator)**
 
     WSO2 API Manager allows users to use their Open API definitions and enforce the request and response validations without any additional work (i.e., implementing custom mediations, etc.)
 
