@@ -1,10 +1,10 @@
 # Revoke OAuth2 Application
 
-1.  An OAuth client is created when an application [access token is generated](https://docs.wso2.com/display/AM200/Working+with+Access+Tokens). When a subscriber creates an application and generates an access token to the application using the API Store, the Store makes a call to the API Gateway, which in turn connects with the Key Manager to create an OAuth client and obtain an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
+1.  An OAuth client is created when an application [access token is generated]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens/). When a subscriber creates an application and generates an access token to the application using the API Store, the Store makes a call to the API Gateway, which in turn connects with the Key Manager to create an OAuth client and obtain an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
 
     You can revoke the access tokens issued for the application by following the instructions below
 
-    1.  Log in to the management console  (`https://<HostName>:9443/carbon`)
+    1.  Sign in to the management console (`https://<HostName>:9443/carbon`)
 
     2.  In the **Main** menu, click **Service Providers → List**.
 
