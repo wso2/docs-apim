@@ -1,6 +1,6 @@
 # Changing to Oracle RAC
 
-By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use Oracle RAC for this purpose.
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the instructions you need to follow in order to use Oracle RAC for this purpose.
 
 ## Setting up Oracle RAC
 
@@ -14,7 +14,7 @@ Oracle Real Application Clusters (RAC) is an option that facilitates clustering 
 
 ### Setting up the database and users
 
-Follow the steps below to set up an Oracle RAC database:
+Follow the instructions below to set up an Oracle RAC database:
 
 1.  As SYSDBA, create a database user and grant privileges to the user as shown below:
 
@@ -33,7 +33,7 @@ Follow the steps below to set up an Oracle RAC database:
 
 Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14.jar` file) to the `<API-M_HOME>/repository/components/lib/` directory.
 
-1. Unzip the WSO2 API Manager pack. Let's call it as `<API-M_HOME>`.
+1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
 1. Download the [Oracle JDBC driver](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html).
 
@@ -41,19 +41,23 @@ Copy the Oracle JDBC libraries (for example, the `<ORACLE_HOME>/jdbc/lib/ojdbc14
 
 ### Executing db scripts to create tables on Oracle RAC database
 
-1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant sql file. For example, take `shared_db` as the database.
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), login to the database via client and execute the relevant sql file. 
+
+    For example, let's consider `shared_db` as the database.
 
     ```sh
     SQL> @<API-M_HOME>/dbscripts/oracle_rac.sql
     ```
 
-2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant sql file. For example, take `apim_db` as the database.
+2.  To create tables in the apim database (`WSO2AM_DB`), login to the database via client and execute the relevant sql file. 
+
+    For example, let's consider `apim_db` as the database.
 
     ```sh
     SQL> @<API-M_HOME>/dbscripts/apimgt/oracle_rac.sql
     ```
 
-## Changing to Oracle RAC
+## Changing the Carbon database to Oracle RAC
 
 - [Creating the datasource connection to Oracle RAC](#creating-the-datasource-connection-to-oracle-rac)
 
@@ -63,16 +67,16 @@ A datasource is used to establish the connection to a database. By default, `W
 
 After setting up the Oracle RAC database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
 
-Follow the steps below to change the type of the default datasource.
+Follow the instructions below to change the type of the default datasource.
 
 1. Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
-1. You simply have to update the URL pointing to your Oracle database, the username, and password required to access the database and the Oracle driver details as shown below.
+1. You simply have to update the URL pointing to your Oracle RAC database, the username, and password required to access the database and the Oracle RAC driver details as shown below.
 
     | Element                       | Description                                                                                                |
     |-------------------------------|------------------------------------------------------------------------------------------------------------|
     | **type**                      | The database type used                                                                                     |
-    | **url**                       | The URL of the database. The default port for Oracle is 1521                                                |
+    | **url**                       | The URL of the database. The default port for Oracle RAC is 1521                                                |
     | **username** and **password** | The name and password of the database user                                                                 |
     | **driverClassName**           | The class name of the database driver                                                                      |
     | **validationQuery**           | The SQL query that will be used to validate connections from this pool before returning them to the caller.|
@@ -162,4 +166,4 @@ Follow the steps below to change the type of the default datasource.
 1. Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
