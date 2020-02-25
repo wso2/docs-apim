@@ -12,7 +12,7 @@ The following sections describe how to set up a IBM Informix database to replace
 
 ### Setting up the database and users
 
-Create the database and users in Informix. For instructions on creating the database and users, see [Informix product documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_links/information_management/informix_servers?productContext=-1122713425) [.](http://www-01.ibm.com/software/data/informix/)
+Create the database and users in Informix. For instructions on creating the database and users, see [Informix product documentation](http://www-947.ibm.com/support/entry/portal/all_documentation_links/information_management/informix_servers?productContext=-1122713425).
 
 !!! tip
     Do the following changes to the default database when creating the Informix database.
@@ -20,32 +20,32 @@ Create the database and users in Informix. For instructions on creating the dat
     -   Define the page size as 4K or higher when creating the dbspace as shown in the following command (i.e. denoted by `-k 4` ) :
     
         ``` java
-            onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
+        onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
         ```
     
     -   Add the following system environment variables.
     
         ``` text
-                export DB_LOCALE=en_US.UTF-8
-                export CLIENT_LOCALE=en_US.UTF-8
+        export DB_LOCALE=en_US.UTF-8
+        export CLIENT_LOCALE=en_US.UTF-8
         ```
     
     -   Create an sbspace other than the dbspace by executing the following command:
     
         ``` java
-                onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
+        onspaces -c -S testspace4 -k 4 -p /usr/informix/logdir/data5.dat -o 100 -s 3000000
         ```
     
     -   Add the following entry to the `<INFORMIX_HOME>/etc/onconfig` file, and replace the given example sbspace name (i.e. `testspace4` ) with your sbspace name:
     
         ``` java
-                SBSPACENAME testspace4
+        SBSPACENAME testspace4
         ```
 
 
 ### Setting up the drivers
 
-1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
+1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
 1. Download the Informix JDBC driver.
 
@@ -61,7 +61,7 @@ Create the database and users in Informix. For instructions on creating the dat
 1.  To create tables in the apim database (`WSO2AM_DB`), use the script: `<API-M_HOME>/dbscripts/apimgt/informix.sql/`
 
 
-# Changing to IBM Informix
+## Changing the Carbon database to IBM Informix
 
 -   [Creating the datasource connection to IBM Informix](#creating-the-datasource-connection-to-ibm-informix)
 
@@ -169,4 +169,4 @@ Follow the steps below to change the type of the default datasource.
 1.  Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
