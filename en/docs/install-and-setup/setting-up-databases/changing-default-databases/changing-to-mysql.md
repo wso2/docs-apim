@@ -1,9 +1,9 @@
 # Changing to MySQL
 
-By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use MySQL for this purpose.
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the  instructions you need to follow in order to use MySQL for this purpose.
 
 !!! info
-    The steps involved in installing and configuring the databases are the same irrespective of whether you are using a single node (standalone) deployment, an active-active deployment, or a distributed deployment.
+    The  instructions involved in installing and configuring the databases are the same irrespective of whether you are using a single node (standalone) deployment, an active-active deployment, or a distributed deployment.
 
 ## Setting up MySQL
 
@@ -15,10 +15,10 @@ The following sections describe how to set up a MySQL database to replace the de
 
 ### Setting up the database and users
 
-Follow the steps below to set up a MySQL database:
+Follow the  instructions below to set up a MySQL database:
 
 !!! note
-    Note that we recommend to use Fail Over configuration over Load Balanced configuration with the MySQL clusters.
+    WSO2 recommends that you use Failover configuration over Load Balanced configuration with the MySQL clusters.
 
 1.  Define the hostname for configuring permissions for the new database by opening the `/etc/hosts` file and adding the following:
 
@@ -58,12 +58,14 @@ Follow the steps below to set up a MySQL database:
           mysql> create database <DATABASE_NAME> character set latin1;
           ```
 
-        - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html) . The default database collation, which is `latin1_swedish_ci` , is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information, because when deleting the API, it keeps the Registry collection left behind.
+        - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information, because when deleting the API, it keeps the Registry collection left behind.
         
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
     
 
-1.  Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
+1.  Give authorization to the user you use to access the databases as follows. 
+
+     For example, let's consider `apimadmin` as the user.
 
     ``` java
     mysql> GRANT ALL ON regdb.* TO apimadmin@localhost IDENTIFIED BY "apimadmin";
@@ -80,7 +82,7 @@ Follow the steps below to set up a MySQL database:
         mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
         ```
 
-1.  Once you have finalized the permissions, reload all the privileges by executing the following command:
+1.  After you have finalized the permissions, reload all the privileges by executing the following command:
 
     ``` java
     mysql> FLUSH PRIVILEGES;
@@ -94,18 +96,20 @@ Follow the steps below to set up a MySQL database:
 
 ### Setting up the drivers
 
-1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
+1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
 2. Download the MySQL Java connector [JAR file](https://dev.mysql.com/downloads/connector/j/), and extract it.
 
 3. Copy it to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
 !!! tip
-    Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the steps below:
+    Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the  instructions below:
 
-    1.  Shut down the server and remove all existing connectors from `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins`.
+    1.  Shut down the server and remove all existing connectors from the `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins` directories.
     2.  Download the connector JAR that is compatible with your current MySQL version.
-    3.  Copy the JAR file **only to** `<API-M_HOME>/repository/components/lib` location. Files will be copied automatically to the dropins folder during the server startup.
+    3.  Copy the JAR file **only to** the `<API-M_HOME>/repository/components/lib` location.
+    
+        Files will be copied automatically to the dropins folder during the server startup.
 
 ### Executing db scripts to create tables on MySQL database
 
@@ -130,19 +134,19 @@ Follow the steps below to set up a MySQL database:
     -   Ensure that MySQL is configured so that all nodes can connect to it.
     -   To access the databases from remote instances, its required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
 
-```tab="Format"
-mysql> grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
-```
+    ```tab="Format"
+    mysql> grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
+    ```
 
-``` tab="Example"
-mysql> grant all on shared_db.* TO 'wso2user'@'%' identified by 'wso2123';
-mysql> grant all on apim_db.* TO 'wso2user'@'%' identified by 'wso2123';
-```
+    ``` tab="Example"
+    mysql> grant all on shared_db.* TO 'wso2user'@'%' identified by 'wso2123';
+    mysql> grant all on apim_db.* TO 'wso2user'@'%' identified by 'wso2123';
+    ```
 
 !!! note
     In the sample commands above, its assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
 
-## Changing to MySQL
+## Changing the Carbon database to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
 
@@ -153,9 +157,9 @@ A datasource is used to establish the connection to a database. By default, `W
 After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasources, or configure a new datasource to point it to the new database as explained below.
 
 !!! note
-    **If you are configuring API-M in a distributed setup** , do the changes in all the WSO2 API-M components.
+    **If you are configuring API-M in a distributed setup**, do the changes in all the WSO2 API-M components.
 
-Follow the steps below to change the type of the default datasources.
+Follow the  instructions below to change the type of the default datasources.
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
@@ -248,4 +252,4 @@ Follow the steps below to change the type of the default datasources.
 1.  Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
