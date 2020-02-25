@@ -15,6 +15,7 @@ The following sections describe how to set up PostgreSQL database to replace the
 Follow the  instructions below to set up the PostgreSQL database and users.
 
 1. Login to PostgreSQL using a client (e.g. `psql`). Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `POSTGRE_HOST_IP` is the IP of the host of PostgreSQL server.
+  
    ```sh
    $ psql -h <POSTGRE_HOST_IP> -U <USER_NAME> -W
    ```
@@ -22,6 +23,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
 1. When prompted, specify the password that will be used to access the databases with the username you specified.
 
 1. In the PostgreSQL command prompt, create the database using the following command:
+   
    ```sh
    postgres# CREATE DATABASE <DATABASE_NAME>;
    ```
@@ -35,6 +37,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     ```
    
 1. Log out from the postgres command prompt by executing the following command:
+   
    ```sh
    postgres# quit;
    ```
