@@ -18,7 +18,7 @@
 site_name: WSO2 API Manager Documentation 3.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://wso2.com/
+site_url: https://apim.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-apim
