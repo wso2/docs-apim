@@ -18,7 +18,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
 #### Enable TCP/IP
 
 1.  In the start menu, click **Programs** and launch **Microsoft SQL Server 2017.**
-1.  Click **Configuration Tools** , and then click **SQL Server Configuration Manager** .
+1.  Click **Configuration Tools**, and then click **SQL Server Configuration Manager**.
 1.  Enable **TCP/IP** and disable **Named Pipes** from protocols of your Microsoft SQL server.
 1.  Double click **TCP/IP** to open the TCP/IP properties window and set **Listen All** to `Yes` on the **Protocol** tab.
 1.  On the **IP Address** tab, disable **TCP Dynamic Ports** by leaving it blank and give a valid TCP port, so that Microsoft SQL server will listen on that port.
@@ -26,7 +26,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
     !!! info
         The best practice is to use port 1433, because you can use it in order processing services.
 
-1.  Similarly, enable TCP/IP from **SQL Native Client Configuration** and disable **Named Pipes** . Also, check whether the port is set correctly to 1433.
+1.  Similarly, enable TCP/IP from **SQL Native Client Configuration** and disable **Named Pipes**. Also, check whether the port is set correctly to 1433.
 1.  Restart Microsoft SQL server.
 
 #### Create the database and user
@@ -37,7 +37,7 @@ Follow the steps below to set up the Microsoft SQL database and users.
 
 #### Grant permissions
 
-Assign newly created users the required grants/permissions to log in and create tables, to insert, index, select, update and delete data in tables in the newly created database. These are the minimum set of SQL server permissions.
+Assign newly created users the required grants/permissions to log in and create tables, to insert, index, select, update, and delete data in tables in the newly created database. These are the minimum set of SQL server permissions.
 
 
 ### Setting up the drivers
@@ -51,8 +51,8 @@ Assign newly created users the required grants/permissions to log in and create 
 !!! tip
     Be sure to use the connector version that is supported by the MSSQL version you use. If you come across any issues due to version incompatibility, follow the steps below:
 
-    1.  Shut down the server and remove all existing connectors from `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins`.
-    1.  Copy the JAR file **only to** `<API-M_HOME>/repository/components/lib` location. Files will be copied automatically to the dropins folder during the server startup.
+    1.  Shut down the server and remove all the existing connectors from the `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins` directories.
+    1.  Copy the JAR file **only to** the `<API-M_HOME>/repository/components/lib` location. Files will be copied automatically to the `dropins` folder during the server startup.
 
 
 ### Executing db scripts to create tables on MSSQL database
@@ -79,24 +79,24 @@ $ pip install mssql-cli
     `<API-M_HOME>/dbscripts/mb-store/mssql.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
 
 
-## Changing to MSSQL
+## Changing the Carbon database to MSSQL
 
 -   [Creating the datasource connection to MSSQL](#creating-the-datasource-connection-to-mssql)
 
 ### Creating the datasource connection to MSSQL
 
-A datasource is used to establish the connection to a database. By default, `SHARED_DB` and `AM_DB` datasource are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
+A datasource is used to establish a connection to a database. By default, the `SHARED_DB` and `AM_DB` datasources are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
 
 After setting up the MSSQL database to replace the default H2 database, either change the default configurations of the `SHARED_DB` and `AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
 
 !!! note
-    **If you are configuring API-M in a distributed setup** , do the changes in all the WSO2 API-M components.
+    **If you are configuring API-M in a distributed setup**, do the changes in all the WSO2 API-M components.
 
 Follow the steps below to change the type of the default datasource.
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
-1.  You simply have to update the URL pointing to your MSSQL database, the username, and password required to access the database, the MSSQL driver details and validation query for validating the connection as shown below.
+1.  You simply have to update the URL pointing to your MSSQL database, the username, and password required to access the database, the MSSQL driver details, and the validation query for validating the connection as shown below.
 
     | Element                       | Description                                                                                                |
     |-------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -194,4 +194,4 @@ Follow the steps below to change the type of the default datasource.
 1.  Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
