@@ -6,6 +6,10 @@ By default, WSO2 API Manager uses the embedded H2 database as the database for s
 
 The following sections describe how to set up PostgreSQL database to replace the default H2 database in your WSO2 product.
 
+- [Setting up the database and users](#setting-up-the-database-and-users)
+- [Setting up the drivers](#setting-up-the-drivers)
+- [Executing db scripts to create tables on MySQL database](#executing-db-scripts-to-create-tables-on-mysql-database)
+
 ### Setting up the database and users
 
 Follow the  instructions below to set up the PostgreSQL database and users.
