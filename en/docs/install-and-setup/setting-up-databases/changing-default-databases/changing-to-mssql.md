@@ -79,7 +79,7 @@ $ pip install mssql-cli
     `<API-M_HOME>/dbscripts/mb-store/mssql.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
 
 
-## Changing to MSSQL
+## Changing the Carbon database to MSSQL
 
 -   [Creating the datasource connection to MSSQL](#creating-the-datasource-connection-to-mssql)
 
