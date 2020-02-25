@@ -1,18 +1,14 @@
 # Changing to PostgreSQL
 
-By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use PostgreSQL for this purpose.
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the  instructions you need to follow in order to use PostgreSQL for this purpose.
 
 ## Setting up PostgreSQL
 
-The following sections describe how to set up PostgreSQL database to replace the default H2 database in your WSO2 product:
-
--   [Setting up the database and users](#setting-up-the-database-and-users)
--   [Setting up the drivers](#setting-up-the-drivers)
--   [Executing db scripts on PostgreSQL database](#executing-db-scripts-to-create-tables-on-mysql-database)
+The following sections describe how to set up PostgreSQL database to replace the default H2 database in your WSO2 product.
 
 ### Setting up the database and users
 
-Follow the steps below to set up the PostgreSQL database and users.
+Follow the  instructions below to set up the PostgreSQL database and users.
 
 1. Login to PostgreSQL using a client (e.g. `psql`). Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `POSTGRE_HOST_IP` is the IP of the host of PostgreSQL server.
    ```sh
@@ -26,10 +22,13 @@ Follow the steps below to set up the PostgreSQL database and users.
    postgres# CREATE DATABASE <DATABASE_NAME>;
    ```
 
-1. Give authorization to the user you use to access the databases as follows. For example, take `apimadmin` as the user.
-   ```sh
-   postgres# grant all privileges on database <DATABASE_NAME> to apimadmin;
-   ```
+1. Give authorization to the user you use to access the databases as follows. 
+
+    For example, let's consider `apimadmin` as the user.
+
+    ```sh
+    postgres# grant all privileges on database <DATABASE_NAME> to apimadmin;
+    ```
    
 1. Log out from the postgres command prompt by executing the following command:
    ```sh
@@ -38,7 +37,7 @@ Follow the steps below to set up the PostgreSQL database and users.
 
 ### Setting up the drivers
 
-1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
+1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
 1. Download the [PostgreSQL JDBC driver](http://jdbc.postgresql.org/download.html).
 
@@ -46,19 +45,23 @@ Follow the steps below to set up the PostgreSQL database and users.
 
 ### Executing db scripts to create tables on MySQL database
 
-1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below. For example, take `shared_db` as the database.
+1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below. 
+
+    For example, take `shared_db` as the database.
 
     ```sh
     $ psql -U <USER_NAME> -d shared_db -f <API-M_HOME>/dbscripts/postgresql.sql -W
     ```
 
-2.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below. For example, take `apim_db` as the database
+2.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below. 
+    
+    For example, take `apim_db` as the database
 
     ```sh
     $ psql -U <USER_NAME> -d apim_db -f <API-M_HOME>/dbscripts/apimgt/postgresql.sql  -W
     ```
 
-## Changing to PostgreSQL
+## Changing to the Carbon database to PostgreSQL
 
 - [Creating the datasource connection to PostgreSQL](#creating-the-datasource-connection-to-postgresql)
 
@@ -69,9 +72,9 @@ A datasource is used to establish the connection to a database. By default, `W
 After setting up the PostgreSQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasources, or configure a new datasource to point it to the new database as explained below.
 
 !!! note
-    **If you are configuring API-M in a distributed setup** , do the changes in all the WSO2 API-M components.
+    **If you are configuring API-M in a distributed setup**, do the changes in all the WSO2 API-M components.
 
-Follow the steps below to change the type of the default datasource.
+Follow the instructions below to change the type of the default datasource.
 
 1. Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
@@ -170,5 +173,5 @@ Follow the steps below to change the type of the default datasource.
 1. Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
 
