@@ -95,12 +95,12 @@ To enable dynamic loading of this configuration, add below configurations to the
 Now both the backend service and ESB is configured to use default key stores and API Manager is configured to load dynamic SSL profiles. Restart API Manager.
 
 !!! tip
-You can start API Manager using the following options, to see the SSI debug logs.
-``` java
+    You can start API Manager using the following options, to see the SSI debug logs.
+    ``` java
     -Djavax.net.debug=ssl:handshake
     -Djavax.net.debug=all
     -Djavax.net.debug=all:handshake:verbose
-```
+    ```
 
 
 ### Test Mutual SSL between API Gateway and backend
@@ -110,4 +110,3 @@ You can do the following to test your mutual SSL configurations
 1.  [Create an API](_Create_and_Publish_an_API_)
 2.  [Subscribe to the API](_Subscribe_to_an_API_)
 3.  [Invoke the API](_Invoke_an_API_using_the_Integrated_API_Console_)
-
