@@ -55,7 +55,7 @@ Follow the instructions below to change the type of the default datasource.
     | Element                       | Description                                                 |
     |-------------------------------|-------------------------------------------------------------|
     | **type**                      | The database type used                                      |
-    | **url**                       | The URL of the database. The default port for H2 is 9092    |
+    | **url**                       | The URL of the database. The default port for H2 remote is 9092    |
     | **username** and **password** | The name and password of the database user                  |
 
     Sample configuration is shown below:
