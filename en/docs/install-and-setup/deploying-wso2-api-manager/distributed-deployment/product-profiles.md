@@ -70,7 +70,12 @@ The following are the different profiles available in WSO2 API Manager.
 </tbody>
 </table>
 
-## Optimizing and starting the server
+### Starting an API-M profile
+
+You can start an API Manager profile in the following methods, based on your requirement
+
+-   [Method 1 - Optimizing before starting the server](#ProductProfiles-Method1-Optimizingbeforestartingtheserver)
+-   [Method 2 - Optimizing while starting the server](#ProductProfiles-Method2-Optimizingwhilestartingtheserver)
 
 !!! note
     It is recommended to start the components in the following order: 
@@ -80,64 +85,115 @@ The following are the different profiles available in WSO2 API Manager.
     3. Developer Portal
     4. Traffic Manager
     5. Gateway
+    
+#### Method 1- Optimizing before starting the server
 
 Create an optimized distribution for a particular API-M profile.
 
 1.  Run the `<API-M_HOME>/bin/profileSetup.sh` script or `<API-M_HOME>/bin/profileSetup.bat` script based on your operating system, with the profile flag.
 
-    **Sample commands**
-    ``` java
+    ``` tab="Sample Format"
     sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=<preferred-profile>
     ```
-    **Example**
     
-    For example you can execute the profile setup for the Publisher profile as follows:
-
-    ``` java
+    ``` tab="Example:Linux/Solaris/MacOS"
     sh <API-M_HOME>/bin/profileSetup.sh  -Dprofile=api-publisher
     ```
-
+    
+    ``` tab="Example:Windows"
+    <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=api-publisher
+    ```
+    
 2.  Start the server with the specified profile. 
-
-     A sample command is shown below.
-
-    **Sample commands**
-    ``` java
+    
+    ``` tab="Sample Format"
     sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile>
     ```
-    **Example**
     
-    For example you can start the Publisher profile as follows:
-
-    ``` java
+    ``` tab="Example:Linux/Solaris/MacOS"
     sh <API-M_HOME>/bin/wso2server.sh -Dprofile=api-publisher
     ```
+    
+    ``` tab="Example:Windows"
+    <PRODUCT_HOME>/bin/wso2server.bat -Dprofile=api-publisher
+    ```    
+      
+    
+#### Method 2 - Optimizing while starting the server
 
-    ??? info "Click here to see the sample output when you start the Publisher profile."
+1.  Start the server using the script based on your operating system, using the command given below.
+
+    ``` tab="Sample Format"
+    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile>
+    ```
+    
+    ``` tab="Example:Linux/Solaris/MacOS"
+    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher
+    ```
+    
+    ``` tab="Example:Windows"
+    <PRODUCT_HOME>/bin/wso2server.bat --optimize -Dprofile=api-publisher
+    ```  
+    
+
+    ??? info "Click here to see the sample output when you optimize the server for Publisher profile while starting in Publisher profile."
 
         ``` java
-            Starting to optimize API Manager for the API Publisher profile
-            [2018-06-19 17:36:08:045] INFO - Disabled the <DataPublisher> from api-manager.xml file
-            [2018-06-19 17:36:08:055] INFO - Disabled the <JMSConnectionDetails> from api-manager.xml file
-            [2018-06-19 17:36:08:066] INFO - Disabled the <transportSender name="ws" class="org.wso2.carbon.websocket.transport.WebsocketTransportSender"> from axis2.xml file
-            [2018-06-19 17:36:08:072] INFO - Disabled the <transportSender name="wss" class="org.wso2.carbon.websocket.transport.WebsocketTransportSender"> from axis2.xml file
-            [2018-06-19 17:36:08:074] INFO - Removed the WebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
-            [2018-06-19 17:36:08:076] INFO - Removed the SecureWebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
-            [2018-06-19 17:36:08:082] INFO - Removed the authenticationendpoint.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:085] INFO - Removed the api#am#admin#v0.13.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:087] INFO - Removed the throttle#data#v1.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:090] INFO - Removed the oauth2.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:093] INFO - Removed the am#sample#pizzashack#v1.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:097] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:099] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:102] INFO - Removed the api#am#store#v0.13.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:105] INFO - Removed the client-registration#v0.13.war file from ../repository/deployment/server/webapps
-            [2018-06-19 17:36:08:131] INFO - Removed store directory from ../repository/deployment/server/jaggeryapps
-            Finished the optimizations
-            Starting the server...
+        [2020-02-26 11:50:39] INFO - Starting to optimize API Manager for the API Publisher profile
+        [2020-02-26 11:50:39] INFO - Starting to optimize configs in deployment.toml
+        [2020-02-26 11:50:39] INFO - Renamed the existing ../repository/conf/deployment.toml file as deployment.toml
+                    .backup
+        [2020-02-26 11:50:39] INFO - Renamed the existing ../repository/resources/conf/deployment-templates/api-publisher.toml file as deployment.toml
+        [2020-02-26 11:50:39] INFO - Removed the WebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
+        [2020-02-26 11:50:39] INFO - Removed the SecureWebSocketInboundEndpoint.xml file from ../repository/deployment/server/synapse-configs/default/inbound-endpoints/
+        [2020-02-26 11:50:39] INFO - Removed the api#identity#consent-mgt#v1.0.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the throttle#data#v1.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the am#sample#pizzashack#v1.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the api#am#store#v0.16.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the api#am#store.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the api#identity#recovery#v0.9.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the api#identity#user#v1.0.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the api#identity#oauth2#dcr#v1.1.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed the am#sample#calculator#v1.war file from ../repository/deployment/server/webapps
+        [2020-02-26 11:50:39] INFO - Removed devportal directory from ../repository/deployment/server/jaggeryapps
+        Finished the optimizations
+        Starting the server...
+        JAVA_HOME environment variable is set to /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home
+        CARBON_HOME environment variable is set to /Users/samithac/WSO2/RND-Projects/16-profile-optimization-fix/setup/wso2am-3.1.0-beta
+        Using Java memory options: -Xms256m -Xmx1024m
+        [2020-02-26 11:50:41,936]  INFO {org.wso2.config.mapper.ConfigParser} - Applying Configurations upon new Templates
+        [2020-02-26 11:50:41,938]  WARN {org.wso2.config.mapper.ConfigParser} - Overriding files in configuration directory /Users/samithac/WSO2/RND-Projects/16-profile-optimization-fix/setup/wso2am-3.1.0-beta
+        [2020-02-26 11:50:42,759]  INFO {org.wso2.config.mapper.ConfigParser} - Writing Metadata Entries...
+        [2020-02-26 11:50:47,604]  INFO - CarbonCoreActivator Starting WSO2 Carbon...
+        [2020-02-26 11:50:47,612]  INFO - CarbonCoreActivator Operating System : Mac OS X 10.14.6, x86_64
+        [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Home        : /Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home/jre
+        [2020-02-26 11:50:47,613]  INFO - CarbonCoreActivator Java Version     : 1.8.0_152
         ```
+Configuration optimization is one step occurred in profile optimization process. This is occurred by replacing the 
+deployment.toml file with a pre-configured profile-specific toml file existing in the pack. If 
+required, we can skip this step from the profile optimization process, via passing additional option 
+'--skipConfigOptimization', so that the existing deployment.toml file in the pack will not be overridden. 
+    
+    ``` tab="Sample Format"
+    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=<preferred-profile> --skipConfigOptimization
+    ```
+    
+    ``` tab="Example:Linux/Solaris/MacOS"
+    sh <PRODUCT_HOME>/bin/wso2server.sh --optimize -Dprofile=api-publisher --skipConfigOptimization    
+    ```
+    
+    ``` tab="Example:Windows"
+    <PRODUCT_HOME>/bin/wso2server.bat --optimize -Dprofile=api-publisher --skipConfigOptimization
+    
+    ```  
+        
+So, before running this command (with --skipConfigOptimization option) you are expected to do the configuration 
+changes in deployment.toml manually in the pack. So passing this option allows you to preserve the already manually
+ applied configurations, when doing the profile optimization via the commands.
 
-
-
+!!! note
+    Doing the profile optimization using the scripts, is the recommended approach and manually doing 
+    the optimization including the usage of option --skipConfigOptimization, should be done only in the cases 
+    where it can't be avoided. 
 
 
