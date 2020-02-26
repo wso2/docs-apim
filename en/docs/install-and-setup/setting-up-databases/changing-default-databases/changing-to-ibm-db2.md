@@ -1,6 +1,6 @@
 # Changing to IBM DB2
 
-By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the steps you need to follow in order to use IBM DB2 for this purpose.
+By default, WSO2 API Manager uses the embedded H2 database as the database for storing user management and registry data. Given below are the instructions you need to follow in order to use IBM DB2 for this purpose.
 
 ## Setting up IBM DB2
 
@@ -12,7 +12,7 @@ The following sections describe how to set up a IBM DB2 database to replace the 
 
 ### Setting up the database and users
 
-Follow the steps below to set up a IBM DB2 database:
+Follow the instructions below to set up a IBM DB2 database:
 
 1. Create the database using the following command:
    ```sh
@@ -40,7 +40,7 @@ Follow the steps below to set up a IBM DB2 database:
 
 ### Setting up the drivers
 
-1. Unzip the WSO2 API Manager pack. Let's call it `<API-M_HOME>`.
+1. Unzip the WSO2 API Manager pack. Let's refer to this as `<API-M_HOME>`.
 
 2. Download the [IBM DB2 JDBC driver](https://www.ibm.com/support/pages/db2-jdbc-driver-versions-and-downloads).
 
@@ -60,7 +60,7 @@ Follow the steps below to set up a IBM DB2 database:
    $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/apimgt/db2.sql';
    ```
 
-## Changing to IBM DB2
+## Changing the Carbon database to IBM DB2
 
 - [Creating the datasource connection to IBM DB2](#creating-the-datasource-connection-to-ibm-db2)
 
@@ -71,13 +71,13 @@ A datasource is used to establish the connection to a database. By default, `W
 After setting up the IBM DB2 database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasource, or configure a new datasource to point it to the new database as explained below.
 
 !!! note
-    **If you are configuring API-M in a distributed setup** , do the changes in all the WSO2 API-M components.
+    **If you are configuring API-M in a distributed setup**, do the changes in all the WSO2 API-M components.
 
-Follow the steps below to change the type of the default datasource.
+Follow the instructions below to change the type of the default datasource.
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
-1.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details as shown below.
+1.  You simply have to update the URL pointing to your IBM DB2 database, the username, and password required to access the database and the IBM DB2 driver details as shown below.
 
     | Element                       | Description                                                                                                |
         |-------------------------------|------------------------------------------------------------------------------------------------------------|
@@ -172,4 +172,4 @@ Follow the steps below to change the type of the default datasource.
 1.  Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/ConfigurePrimaryUserStore/configuring-a-jdbc-user-store).
