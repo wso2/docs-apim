@@ -1,4 +1,4 @@
-# Enable or disable footer
+# Enable or Disable Footer
 
 The footer section is visible by default. You can hide footer by changing themes.light.custom.footer.active to false as follows.
 

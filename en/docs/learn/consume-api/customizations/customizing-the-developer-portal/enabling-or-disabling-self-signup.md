@@ -1,4 +1,4 @@
-# Enabling or disabling self signup
+# Enabling or Disabling Self Signup
 
 #### Enabling self signup
 

@@ -1,4 +1,4 @@
-# Encrypting passwords in configuration files
+# Encrypting Passwords in Configuration Files
 
 All WSO2 products are shipped with a **Secure Vault** implementation that allows you to store encrypted passwords in configuration files. By default, the system user passwords, key store passwords etc in configuration files are stored in plain text, but storing sensitive data such as passwords in plaintext makes the data more susceptible to compromise.
 

@@ -1,4 +1,4 @@
-# Styling API details info section
+# Styling API Details Info Section
 
 The API details info section can be customized to match with your design needs.
 
