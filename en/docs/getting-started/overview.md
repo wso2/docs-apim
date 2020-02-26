@@ -78,13 +78,13 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
  The Key Manager properly decouples the operations for creating OAuth applications and validating access tokens so that you can even plug in a third party-authorization server for key validations. In a typical production environment, you can configure one of the following setups:
 
 -   Configure a WSO2 API Manager instance as the Key Manager in a separate server. See [Product Profiles](../../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles).
--   Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager](../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configuring-wso2-identity-server-as-a-key-manager.md).
+-   Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager).
 -   Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager](../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-third-party-key-manager.md).
 
 #### Traffic Manager
 
 ![]({{base_path}}/assets/attachments/103327648/126556774.png)
-The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests. For more information, see [Working with Throttling](../Learn/RateLimiting/introducing-throttling-use-cases.md).
+The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests. For more information, see [Working with Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases).
 
 #### Analytics
 
