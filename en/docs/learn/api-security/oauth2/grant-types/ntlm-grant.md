@@ -20,7 +20,7 @@
     ```
 
     !!! note
-        Note that for users to be counted in the [Registered Users for Application statistics](../../../../../Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
+        Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
 
 
 

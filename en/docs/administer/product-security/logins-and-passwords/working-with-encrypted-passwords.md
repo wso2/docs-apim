@@ -61,7 +61,7 @@ The instructions below explain how plain text passwords in configuration files c
        ``` 
        
     !!!Note
-        You can also replace your passwords by referring values passed by environment variables and system properties. See the instructions on [Set Passwords using Environment Variables/System Properties]({{base_path}}/Administer/ProductSecurity/General/LoginsAndPasswords/set-passwords-using-vars-and-sys-props)
+        You can also replace your passwords by referring values passed by environment variables and system properties. See the instructions on [Set Passwords using Environment Variables/System Properties]({{base_path}}/administer/product-security/General/logins-and-passwords/set-passwords-using-vars-and-sys-props)
        
 4.  Open a terminal, navigate to the `<APIM_HOME>/bin` directory, and execute the following command to encrypt the passwords (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
 
@@ -92,7 +92,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend which is secured with [Digest](({{base_path}}/Learn/DesignAPI/Endpoints/EndpointSecurity/basic-auth)) or [Basic]({{base_path}}/Learn/DesignAPI/Endpoints/EndpointSecurity/digest-auth) Authentication, the backend user credentials has to be provided under endpoint configuration. These credentials are encoded in base64 and stored in API configuration as Basic Authorization header(`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend which is secured with [Digest](({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth)) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) Authentication, the backend user credentials has to be provided under endpoint configuration. These credentials are encoded in base64 and stored in API configuration as Basic Authorization header(`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
 The steps below show how to secure the endpoint's password that is given in plain-text in the UI.
 
@@ -180,8 +180,8 @@ To change any password which we have encrypted already, follow the below steps:
 -   [Start server as a background job](#start-server-as-a-background-job)
 
 !!! Note
-    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/Administer/ProductConfigurations/configuring-keystores-in-wso2-api-manager/) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
-    handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. Read more about [Secure Vault concepts]({{base_path}}/Administer/ProductSecurity/General/LoginsAndPasswords/carbon-secure-vault-implementation)
+    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/administer/product-configurations/configuring-keystores-in-wso2-api-manager/) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
+    handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. Read more about [Secure Vault concepts]({{base_path}}/administer/product-security/General/logins-and-passwords/carbon-secure-vault-implementation)
 
 
 ### Enter password in command-line

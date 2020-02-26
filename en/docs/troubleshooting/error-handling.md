@@ -326,7 +326,7 @@ Therefore,
 Error code = 101504 + 3 = 101507
 
 These Transport error codes are used in [Advanced Configurations of
-Endpoints](/../../../../Learn/DesignAPI/Endpoints/endpoint-types/)
+Endpoints](/../../../../learn/design-api/endpoints/endpoint-types/)
 .
 
 ### Custom error messages

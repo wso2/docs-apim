@@ -8,11 +8,11 @@ You need to enable response caching when creating a new API or editing an existi
 
 Please follow below steps to enable response caching for an API.
 
-1.  [Create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
+1.  [Create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 
 2.  Navigate to the **Runtime Configurations** tab where you find the response caching configuration. Then turn on Response caching and give a timeout value. This enables the default response caching settings.
 
-    ![]({{base_path}}/assets/img/Learn/enable-response-caching.png)
+    ![]({{base_path}}/assets/img/learn/enable-response-caching.png)
 
 3.  If you want to change the default response caching settings, edit the following cache mediator properties in the `<API-M_HOME>/repository/resources/api_templates/velocity_template.xml` file:
 
@@ -70,5 +70,5 @@ Follow the instructions below to enable the stream builders in the API gateway:
 
 You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://docs.wso2.com/display/EI650/JMX+Monitoring) using the exposed MBeans. You can use the `InvalidateMediatorCache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
 
-![JMX monitoring through JConsole]({{base_path}}/assets/img/Learn/jmx-monitoring-through-jsoncole.png)
+![JMX monitoring through JConsole]({{base_path}}/assets/img/learn/jmx-monitoring-through-jsoncole.png)
 

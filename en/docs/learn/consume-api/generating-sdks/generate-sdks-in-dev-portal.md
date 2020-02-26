@@ -8,15 +8,15 @@ Following are the steps to generate and download client-side SDKs via API Develo
 
 1.  Sign in to the WSO2 API Developer Portal ( `https://<hostname>:<port>/devportal` ) and click on the API you want to generate a client-side SDK (e.g., `PizzaShackAPI` ) 
 
-    <a href="{{base_path}}/assets/img/Learn/select-api-dev-portal.png" ><img src="{{base_path}}/assets/img/Learn/select-api-dev-portal.png" alt="API Overview" title="API Overview" width="70%" /></a>
+    <a href="{{base_path}}/assets/img/learn/select-api-dev-portal.png" ><img src="{{base_path}}/assets/img/learn/select-api-dev-portal.png" alt="API Overview" title="API Overview" width="70%" /></a>
  
 2.  Navigate to SDK tab. Then you will find SDKs which are available to download by default. 
 
-    <a href="{{base_path}}/assets/img/Learn/default-sdks.png" ><img src="{{base_path}}/assets/img/Learn/default-sdks.png" alt="API Overview" title="API Overview" width="70%" /></a>
+    <a href="{{base_path}}/assets/img/learn/default-sdks.png" ><img src="{{base_path}}/assets/img/learn/default-sdks.png" alt="API Overview" title="API Overview" width="70%" /></a>
     
 3.  Click on the **Download** button to download the required SDK. Then the zip archive of the SDK will be downloaded. 
 
-    <a href=    "{{base_path}}/assets/img/Learn/download-sdk.png" ><img src="{{base_path}}/assets/img/Learn/download-sdk.png" alt="API Overview" title="API Overview" width="70%" /></a>    
+    <a href=    "{{base_path}}/assets/img/learn/download-sdk.png" ><img src="{{base_path}}/assets/img/learn/download-sdk.png" alt="API Overview" title="API Overview" width="70%" /></a>    
     
 ##  Configuring supported languages for SDK generation
 
@@ -33,4 +33,4 @@ Follow the below steps to configure the languages available for SDK generation.
     supported_languages = "android, java, scala, csharp, dart, flash, groovy, javascript"
     ```
     
-3.  [Restart the server]({{base_path}}/InstallAndSetup/InstallationGuide/running-the-product/) to get the configuration changes applied.
+3.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to get the configuration changes applied.

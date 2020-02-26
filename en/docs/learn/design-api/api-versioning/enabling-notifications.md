@@ -31,7 +31,7 @@ Follow the instructions below to enable notifications for new API versions:
 
 3. Click **Main &gt; Resource &gt; Browse**.
 
-    [![Browser option]({{base_path}}/assets/img/Learn/browse-option.png)]({{base_path}}/assets/img/Learn/browse-option.png)
+    [![Browser option]({{base_path}}/assets/img/learn/browse-option.png)]({{base_path}}/assets/img/learn/browse-option.png)
 
 
 4.  Enter `/_system/config/apimgt/applicationdata/tenant-conf.json`, click **Go**, and click **Edit as Text**.

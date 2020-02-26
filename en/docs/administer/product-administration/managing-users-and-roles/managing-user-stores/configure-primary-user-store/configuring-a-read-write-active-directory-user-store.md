@@ -145,7 +145,7 @@ Given below is a sample configuration for the external read/write user store in 
 
         Although using the user store manager does not depend on this property, you must consider enabling this if there are any performance issues in your production environment. Enabling this property affects the performance when the user logs in. This depends on the users, roles and permission stats.
 
-    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](./../../../../../ProductSecurity/UsingAsymmetricEncryption/creating-new-keystores/) .
+    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](./../../../../../product-security/UsingAsymmetricEncryption/creating-new-keystores/) .
 
         ``` toml
         ConnectionURL="ldaps://10.100.1.100:636"

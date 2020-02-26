@@ -14,7 +14,7 @@ chunked messages. To disable sending chunked messages to the backend for a spec
         ```
 
 2.  Use the same sequence and apply it as a mediation extension to the inflow of this particular API.       
-You can copy the content of the above sequence to an XML file and upload it to an API using Publisher Portal UI. For more information, visit [Creating and Uploading Manually in API Publisher]({{base_path}}/Learn/APIGateway/MessageMediation/changing-the-default-mediation-flow-of-api-requests#creating-and-uploading-manually-in-api-publisher)
+You can copy the content of the above sequence to an XML file and upload it to an API using Publisher Portal UI. For more information, visit [Creating and Uploading Manually in API Publisher]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests#creating-and-uploading-manually-in-api-publisher)
 
 Once the API is published, chunking is disabled for the message that is sent to the backend.
 

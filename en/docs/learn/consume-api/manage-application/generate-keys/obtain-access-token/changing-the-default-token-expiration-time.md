@@ -53,4 +53,4 @@ Refresh access tokens have an expiration time, which is set to 24 hours by defau
         refresh_token_validity = 86400
     ```
 
-In addition, see [Configuring Caching]({{base_path}}/Administer/ProductConfigurations/configuring-caching/) for several caching options that you can use to optimize key validation.
+In addition, see [Configuring Caching]({{base_path}}/administer/product-configurations/configuring-caching/) for several caching options that you can use to optimize key validation.

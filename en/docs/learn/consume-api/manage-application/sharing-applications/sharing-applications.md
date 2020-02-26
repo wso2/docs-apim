@@ -52,19 +52,19 @@ Share an application with multiple users who are in the same group or who are in
 
      `https://<hostname>:9443/devportal`
 
-     [![Sign in to Developer Portal]({{base_path}}/assets/img/Learn/application-sharing-signin.png)]({{base_path}}/assets/img/Learn/application-sharing-signin.png)
+     [![Sign in to Developer Portal]({{base_path}}/assets/img/learn/application-sharing-signin.png)]({{base_path}}/assets/img/learn/application-sharing-signin.png)
 
 2. Click **Register Now**.
 
-     <a href="{{base_path}}/assets/img/Learn/application-sharing-signup.png"><img src="{{base_path}}/assets/img/Learn/application-sharing-signup.png" width="350" height="350"/></a>
+     <a href="{{base_path}}/assets/img/learn/application-sharing-signup.png"><img src="{{base_path}}/assets/img/learn/application-sharing-signup.png" width="350" height="350"/></a>
 
 
 3.  Sign up to the API Developer Portal as two different users (e.g., user1, user2) belonging to the same organization.
     - Provide the username and proceed click **PROCEED TO SELF REGISTER** to Self Register.
-     <a href="{{base_path}}/assets/img/Learn/application-sharing-username.png"><img src="{{base_path}}/assets/img/Learn/application-sharing-username.png" width="550" height="250"/></a>
+     <a href="{{base_path}}/assets/img/learn/application-sharing-username.png"><img src="{{base_path}}/assets/img/learn/application-sharing-username.png" width="550" height="250"/></a>
 
     - Provide the user details and click **REGISTER**.
-     <a href="{{base_path}}/assets/img/Learn/application-sharing-signup-form.png"><img src="{{base_path}}/assets/img/Learn/application-sharing-signup-form.png" width="450" height="550"/></a>
+     <a href="{{base_path}}/assets/img/learn/application-sharing-signup-form.png"><img src="{{base_path}}/assets/img/learn/application-sharing-signup-form.png" width="450" height="550"/></a>
 
 4.  Sign in as **user1** and add application **App\_A**.
 
@@ -75,7 +75,7 @@ Share an application with multiple users who are in the same group or who are in
 
         - If you have [enabled group sharing](#enabling-application-sharing), but if you have not entered a group ID in the **Groups** section, WSO2 API-M will automatically share the application with the users who are in the same organization that you are in because they are considered as part of the same group.
 
-    [![Create an application]({{base_path}}/assets/img/Learn/application-sharing.png)]({{base_path}}/assets/img/Learn/application-sharing.png)
+    [![Create an application]({{base_path}}/assets/img/learn/application-sharing.png)]({{base_path}}/assets/img/learn/application-sharing.png)
 
 ## Using application sharing
 
@@ -91,17 +91,17 @@ You can use application sharing as follows:
 
      You will see App_A that was added by **user1**.
     
-     [![Application list]({{base_path}}/assets/img/Learn/application-sharing-sharedapp.png)]({{base_path}}/assets/img/Learn/application-sharing-sharedapp.png)   
+     [![Application list]({{base_path}}/assets/img/learn/application-sharing-sharedapp.png)]({{base_path}}/assets/img/learn/application-sharing-sharedapp.png)   
    
 4.  Subscribe to the default API using App\_A.
      
-     [![Subscribe to the default API]({{base_path}}/assets/img/Learn/application-sharing-subscribe.png)]({{base_path}}/assets/img/Learn/application-sharing-subscribe.png) 
+     [![Subscribe to the default API]({{base_path}}/assets/img/learn/application-sharing-subscribe.png)]({{base_path}}/assets/img/learn/application-sharing-subscribe.png) 
 
 5.  Sign in to the API Developer Portal as **user1.** 
 
      The subscriptions for App\_A by **user2** will be displayed.
     
-     [![Subscription list]({{base_path}}/assets/img/Learn/application-shared-subscriptions.png)]({{base_path}}/assets/img/Learn/application-shared-subscriptions.png) 
+     [![Subscription list]({{base_path}}/assets/img/learn/application-shared-subscriptions.png)]({{base_path}}/assets/img/learn/application-shared-subscriptions.png) 
 
 ## Extending the group ID extractor
 

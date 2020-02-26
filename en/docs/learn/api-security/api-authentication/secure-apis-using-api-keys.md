@@ -44,7 +44,7 @@ Create and publish an API that is secured with the API key security scheme as th
 
 2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
 
-     ![Configure API key authentication](../../../assets/img/Learn/api-key-option.png)
+     ![Configure API key authentication](../../../assets/img/learn/api-key-option.png)
 
 3. Click **Runtime Configurations**.
 
@@ -66,15 +66,15 @@ Create and publish an API that is secured with the API key security scheme as th
      </html>
 
 4. Click **Subscribe**.
-     ![Subscribe to the API](../../../assets/img/Learn/subscribe-to-api.png)
+     ![Subscribe to the API](../../../assets/img/learn/subscribe-to-api.png)
 
 5. Click **MANAGE APP**, which corresponds to the application that you used to subscribe to the API.
 
-     ![View list of credentials](../../../assets/img/Learn/view-credentials-manage-app.png)
+     ![View list of credentials](../../../assets/img/learn/view-credentials-manage-app.png)
 
 6. Click **APIKEY** and click **GENERATE KEY**.
 
-     ![Generate API key](../../../assets/img/Learn/generate-api-key.png)
+     ![Generate API key](../../../assets/img/learn/generate-api-key.png)
 
 7. Optionally, define a validity period for the token.
 
@@ -86,7 +86,7 @@ Create and publish an API that is secured with the API key security scheme as th
      
 8. Copy the API key.
 
-     ![Copy API key](../../../assets/img/Learn/copy-api-key.png)
+     ![Copy API key](../../../assets/img/learn/copy-api-key.png)
 
 ### Step 4 - Invoke the API
 

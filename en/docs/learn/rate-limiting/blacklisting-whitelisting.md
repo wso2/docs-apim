@@ -19,11 +19,11 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 2.  Open **Throttling Policies** tab and navigate to **Advanced Throttling.**
 3.  Click ADD NEW POLICY to add a new Throttling tier.
 
-    ![](../../assets/img/Learn/ip-whitelisting-add-policy.png)
+    ![](../../assets/img/learn/ip-whitelisting-add-policy.png)
 
 4.  Fill the details as below and click **Add Conditional Group** .
 
-    ![](../../assets/img/Learn/ip-whitelisting-add-conditional-group.png)
+    ![](../../assets/img/learn/ip-whitelisting-add-conditional-group.png)
 
 5.  Open the Conditional Group added and fill the details.
 
@@ -37,7 +37,7 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 
     Following is an example configuration.
 
-    ![](../../assets/img/Learn/whitelist-specific-ip.png)
+    ![](../../assets/img/learn/whitelist-specific-ip.png)
       
      <div class="admonition info">
     <p class="admonition-title">Note</p>  
@@ -45,7 +45,7 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
     You can whitelist a range of IP as well by selecting **IP Range** for the IP Condition Type in the Conditional Group and specifying the range as follows.</p>
     </div>
 
-    ![](../../assets/img/Learn/ip-range-whitelisting.png)
+    ![](../../assets/img/learn/ip-range-whitelisting.png)
 
 6.  Click **Save** .
        
@@ -56,7 +56,7 @@ IP whitelisting is a way of configuring a filter to extract a particular set of 
 1.  Login to API Publisher https://:9443/publisher.
 2.  Selct the API and go to the <b>Resources</b> menu.
 3.  Enable **API level** under **Operational Configuration** and select the newly created Throttling policy.
-    ![](../../assets/img/Learn/apply-whitelist-to-api.png)
+    ![](../../assets/img/learn/apply-whitelist-to-api.png)
     
 4.  Save and Publish the API.
     Now the API will be accessible only by the IP specified in the throttling policy.
@@ -82,18 +82,18 @@ To blacklist a request,
 1.  Log in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials.
 2.  Click **Black List** under the **Throttle Policies** section and click **Add Item** .
 
-    ![](../../assets/img/Learn/add-blacklist-policy.png)
+    ![](../../assets/img/learn/add-blacklist-policy.png)
 
 Select the item to black list, enter a value and click **Blacklist** .
 
-![](../../assets/img/Learn/select-blacklist-condition.png)
+![](../../assets/img/learn/select-blacklist-condition.png)
 
 <div class="admonition info">
     <p class="admonition-title">Note</p>
 <p>You can temporary on/off the blacklisting condition by enabling/disabling the <b>Condition status</b> that is auto enabled when a blacklisting condition is created. </p>
 </div>
 
-![](../../assets/img/Learn/blacklist-condition-status.png)
+![](../../assets/img/learn/blacklist-condition-status.png)
 
 ##### Blacklisting PhoneVerification API
 
@@ -103,10 +103,10 @@ As described above you can blacklist requests for APIs, by Applications, to IP A
 2.  Click **Black List** under the **Throttle Policies** section and click **Add Item** .
 3.  Select **API Context** and provide the Context of PhoneVerification API with version as the **Value.**
 
-    ![](../../assets/img/Learn/select-context-blacklist.png)
+    ![](../../assets/img/learn/select-context-blacklist.png)
 
 4.  Click **Blacklist.**
 5.  Now login to API Developer Portal using the URL `https://localhost:9443/devportal` and invoke the API.
     You will see the following response.
 
-    ![](../../assets/img/Learn/blacklisted-api.png)
+    ![](../../assets/img/learn/blacklisted-api.png)

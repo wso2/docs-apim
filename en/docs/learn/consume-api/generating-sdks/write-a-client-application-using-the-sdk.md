@@ -1,6 +1,6 @@
 # Write a Client Application Using the SDK
 
-1.  Follow the steps in the [Quick Start Guide](/GettingStarted/quick-start-guide), to deploy the sample API, subscribe and generate keys.
+1.  Follow the steps in the [Quick Start Guide](/getting-started/quick-start-guide), to deploy the sample API, subscribe and generate keys.
 
     <div class="admonition info">
         <p class="admonition-title">Info</p>
@@ -8,9 +8,9 @@
         <p>Once the keys are generated, copy the access token. You can use this token to invoke APIs that you subscribe to using the same application.</p>
     </div>
 
-2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/Learn/ConsumeAPI/GeneratingSDKs/generate-sdks-in-dev-portal/). 
+2.  Go to the Developer Portal. Select your API and [download the SDK for Java]({{base_path}}/learn/consume-api/generating-sdks/generate-sdks-in-dev-portal/). 
 
-![Default SDKs in Developer Portal]({{base_path}}/assets/img/Learn/default-sdks.png)
+![Default SDKs in Developer Portal]({{base_path}}/assets/img/learn/default-sdks.png)
 
 3.  In this example, you would have downloaded the `PizzaShackAPI_1.0.0_java.zip` file. This file name includes the API name, version, and language of the SDK. Unzip the `PizzaShackAPI_1.0.0_java.zip` file.
 <details class="admonition info">
@@ -139,7 +139,7 @@
 
     <div class="admonition warning">
         <p class="admonition-title">Warning</p>
-        <p>You need an access token to invoke the API. It is important to have a valid subscription before using the SDK, to obtain an access token. Note that the obtained access token has an [expiration time](/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/changing-the-default-token-expiration-time).</p>
+        <p>You need an access token to invoke the API. It is important to have a valid subscription before using the SDK, to obtain an access token. Note that the obtained access token has an [expiration time](/learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time).</p>
     </div>
     
 9.  Set the base path to the API client.
@@ -150,7 +150,7 @@
     The base path for the client application is the production (or sandbox) URL of the API. This will be in the form of ```http(s)://<host>:<port>/<context-of-the-api>```. The default ports for HTTP and HTTPS are ```8280``` and ```8243``` respectively.
     
     The context of the API can be found from the API Overview in Developer Portal.
-    ![Context of the API](../../../assets/img/Learn/context-of-api.png)
+    ![Context of the API](../../../assets/img/learn/context-of-api.png)
 
 10. Once the `ApiClient` object has all the required data, set the `ApiClient` for the instance of the `DefaultApi` object.
 

@@ -74,6 +74,6 @@
     ```
 
 !!! note
-    For information on how to configure alerts, see [Configuring Alerts](../../../ManagingAlertsWithRealTimeAnalytics/configuring-alerts/).
+    For information on how to configure alerts, see [Configuring Alerts](../../../managing-alerts-with-real-time-analytics/configuring-alerts/).
  
 

@@ -2,18 +2,18 @@
 
 You can use any SOAP client to **invoke an API** . We use the SOAP UI in this example.
 
-The examples here uses the `PhoneVerification` API, which is created in section [Expose a SOAP service as a REST API]({{base_path}}/Learn/Tutorials/expose-a-soap-service-as-a-rest-api/) .
+The examples here uses the `PhoneVerification` API, which is created in section [Expose a SOAP service as a REST API]({{base_path}}/learn/tutorials/expose-a-soap-service-as-a-rest-api/) .
 
 Let's invoke the `PhoneVerification` API using a SOAP client.
 
 1.  Sign in to the API Store and click an API that you want to invoke (e.g., `PhoneVerification` ).
 2.  The API's **Overview** page opens. Select an application (e.g., `DefaultApplication` ), with an available tier and subscribe to the API.
 
-    ![]({{base_path}}/assets/img/Learn/subscribe-phone-verification.png)
+    ![]({{base_path}}/assets/img/learn/subscribe-phone-verification.png)
 
 3.  Click the **Applications** menu, open the default application using which you subscribed to the API, and generate a production key.
 
-    ![]({{base_path}}/assets/img/Learn/generate-keys-production-default.png)
+    ![]({{base_path}}/assets/img/learn/generate-keys-production-default.png)
 
 4.  Copy the access token to the clipboard as you need it later to invoke the API.
 

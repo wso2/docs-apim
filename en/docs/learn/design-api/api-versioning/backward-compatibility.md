@@ -12,7 +12,7 @@ If you mark `http://<hostname>:<port>/phoneverify/2.0` as the default version wh
 
 If you mark any version of an API as the default, two API URLs are listed in its **Overview** tab in the Developer Portal. One URL appears with the version and the other URL appears without the version. You can invoke the default version of an API using either one of the latter mentioned URLs.
    
-   [![default-api-urls]({{base_path}}/assets/img/Learn/default-api-urls.png)]({{base_path}}/assets/img/Learn/default-api-urls.png)
+   [![default-api-urls]({{base_path}}/assets/img/learn/default-api-urls.png)]({{base_path}}/assets/img/learn/default-api-urls.png)
 
 ## Default version and Backward Compatibility
 

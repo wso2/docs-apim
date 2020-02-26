@@ -47,7 +47,7 @@ To prevent these types of security attacks, it is encouraged to disable the weak
     See the list of [supported cipher suites](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) .
 
 4.  Start the server.
-5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]({{base_path}}/assets/attachments/Administer/TestSSLServer.jar).
+5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]({{base_path}}/assets/attachments/administer/TestSSLServer.jar).
 
     ``` java
         $ java -jar TestSSLServer.jar localhost 9443

@@ -6,14 +6,14 @@ This page walks you through how to manually configure WSO2 API Manager (WSO2 API
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 
--   [Step 1 - Create a SSL certificate]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores)
--   [Step 2 - Configure the load balancer]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/configuring-the-proxy-server-and-the-load-balancer)
--   [Step 3 - Configure the databases]({{base_path}}/InstallAndSetup/SettingUpDatabases/overview)
--   [Step 4 - Configure your deployment with production hardening]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/production-deployment-guidelines)
+-   [Step 1 - Create a SSL certificate]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores)
+-   [Step 2 - Configure the load balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer)
+-   [Step 3 - Configure the databases]({{base_path}}/install-and-setup/setting-up-databases/overview)
+-   [Step 4 - Configure your deployment with production hardening]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines)
 -   [Step 5 - Configure the Publisher with the Gateway](#configure-the-publisher-with-the-gateway)
 -   [Step 6 - Configure the content synchronization mechanism](#configure-the-content-synchronization-mechanism)
 -   [Step 7 - Configure Throttling](#configure-throttling)
--   [Step 8 - Configure Analytics (Optional)]({{base_path}}/Learn/Analytics/configuring-apim-analytics/)
+-   [Step 8 - Configure Analytics (Optional)]({{base_path}}/learn/analytics/configuring-apim-analytics/)
 -   [Step 9 - Configure the second WSO2 API-M node](#configure-the-second-wso2-api-m-node)
 -   [Step 10 - Start the WSO2 API-M servers](#start-the-wso2-api-m-servers)
 
@@ -33,7 +33,7 @@ service_url = "https://localhost:${mgt.transport.https.port}/services/"
 
 ### RSYNC
 The API artifacts will be synchronized in one direction. The synchronization will take place from manager to the worker as explained in the [Configuring rsync for Deployment 
-Synchronization]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization) section. Therefore, the API artifact should be only created on one node that acts as a manager node 
+Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization) section. Therefore, the API artifact should be only created on one node that acts as a manager node 
 for the purpose of artifact synchronization. Follow the instructions below to configure the manager node:
 
 Let's assume that `node-1` is the manager node for artifact synchronization.
@@ -74,7 +74,7 @@ of a single point of failure that is present when using remote synchronization (
      
 However, if you are unable to maintain a shared file system, you can synchronize content using rsync. For 
 information on setting up a rsync based deployment synchronization, see [Configuring rsync for Deployment 
-Synchronization]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/configuring-rsync-for-deployment-synchronization).
+Synchronization]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization).
     
 
 ## Configure throttling
@@ -115,13 +115,13 @@ Make a copy of the active instance configured above and use this copy as the sec
 
 !!! info
     When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 
-    in [step 1]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores).
+    in [step 1]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores).
 
 ## Start the WSO2 API-M servers
 
 If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used as the Key Manager in high availability mode while the rest of the WSO2 API-M components are all in one node, configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager) before starting the API-M servers.
 
-Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server](https://apim.docs.wso2.com/en/latest/InstallAndSetup/InstallationGuide/running-the-product/#starting-the-server).
+Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server](https://apim.docs.wso2.com/en/latest/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
 ```tab="Linux/Mac OS"
 cd <API-M_HOME>/bin/

@@ -14,18 +14,18 @@ Let's see create a CI/CD pipeline using Jenkins as the automation tool and Githu
 2.  Install [npm and nodejs plugins](https://wiki.jenkins.io/display/JENKINS/NodeJS+Plugin) and [Newman](https://learning.getpostman.com/docs/postman/collection-runs/integration-with-jenkins/#installation) globally 
 in your Jenkins server.  
 
-     [![install node-npm-jenkins]({{base_path}}/assets/img/Learn/APIController/install-node-npm-jenkins.png)]({{base_path}}/assets/img/Learn/APIController/install-node-npm-jenkins.png)   
+     [![install node-npm-jenkins]({{base_path}}/assets/img/learn/api-controller/install-node-npm-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/install-node-npm-jenkins.png)   
 
 3.  Download and setup [WSO2 API-M 3.0](https://wso2.com/api-management/) in Development and Production environment servers. 
      
-     For more information, see [installation-prerequisites]({{base_path}}/InstallAndSetup/InstallationGuide/installation-prerequisites/).
+     For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
 4. Download and setup [WSO2 API Controller](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
-     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
-     [![Setup apictl in Jenkins]({{base_path}}/assets/img/Learn/APIController/setup-apictl-jenkins.png)]({{base_path}}/assets/img/Learn/APIController/setup-apictl-jenkins.png)
+     [![Setup apictl in Jenkins]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/setup-apictl-jenkins.png)
   
 !!! info
     For this tutorial, let's use a sample backend Ballerina [service](https://github.com/dushaniw/wso2-apim-cicd-apis/blob/master/SampleStoreService/samplestore.bal) for the SampleStore Application. 
@@ -36,7 +36,7 @@ developer machines.
 
 ## Building the Pipeline
 
-[![]({{base_path}}/assets/img/Learn/APIController/ci-cd-for-dev-first-approach.png)]({{base_path}}/assets/img/Learn/APIController/ci-cd-for-dev-first-approach.png)
+[![]({{base_path}}/assets/img/learn/api-controller/ci-cd-for-dev-first-approach.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-for-dev-first-approach.png)
 
 ### Step 1 - Write the OpenAPI Specification and test scripts
 
@@ -62,16 +62,16 @@ Initialize an API Project using the OpenAPI definition, API definition template,
     **Before you begin...**   
 
     -   As the API Developer, make sure WSO2 API Manager CTL Tool is initialized and running in your local machine, 
-    if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
     
     
-Run the following sample command to initialize an API Project using the CTL by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+Run the following sample command to initialize an API Project using the CTL by providing the OpenAPI specification and API Definition template. For more information, see [Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 !!! example
     ``` bash
     apictl init SampleStore --oas store.yaml --definition api_template.yaml -k
     ```
-    [![init samplestore api project]({{base_path}}/assets/img/Learn/APIController/init-samplestore-api-project.png)]({{base_path}}/assets/img/Learn/APIController/init-samplestore-api-project.png)  
+    [![init samplestore api project]({{base_path}}/assets/img/learn/api-controller/init-samplestore-api-project.png)]({{base_path}}/assets/img/learn/api-controller/init-samplestore-api-project.png)  
 
 When running the above command, you can inject data into the definition template using environment variables. 
     
@@ -98,7 +98,7 @@ Add a thumbnail image of any image file type with the name `icon.<img-extension>
     -   Similarly, developers can add any additional meta information to the `api.yaml` file and also add the required API documentation and the required custom mediations to the respective folders of the same API project.
 
     -   To get an understanding of the directory structure of an API project, see 
-    [Initialize an API Project]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+    [Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 ### Step 4 - Define environment specific data
 
@@ -111,7 +111,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
 
     -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
-    -   For more information on using an environment template, see [Configure Environment Specific Details]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#configure-environment-specific-details). 
+    -   For more information on using an environment template, see [Configure Environment Specific Details]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#configure-environment-specific-details). 
 
 !!! tip
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 
@@ -123,7 +123,7 @@ Commit the API project with the required test scripts to the GitHub repository.
 
 Add the test script developed in **Step 1**, into the same API Project for easy use and commit the API project along with the test scripts to a [GitHub](https://github.com/) source code management repository.
 
-[![]({{base_path}}/assets/img/Learn/APIController/commit-api-project-github.png)]({{base_path}}/assets/img/Learn/APIController/commit-api-project-github.png)  
+[![]({{base_path}}/assets/img/learn/api-controller/commit-api-project-github.png)]({{base_path}}/assets/img/learn/api-controller/commit-api-project-github.png)  
     
 ### Step 6 - Trigger Jenkins Pipeline 
 
@@ -144,7 +144,7 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
 2. Add the two environments using the following sample `apictl` commands.
 
     !!! warning
-        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+        Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     !!! example
         ``` bash
@@ -160,20 +160,20 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
         --token https://prod.apim.wso2.com/token \
          ```
 
-     For more information, see [Add an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#add-an-environment). 
+     For more information, see [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
     
      You can also add an environment manually beforehand or provide the details as a shell script in the same pipeline.
 
 3. Store the credentials for the two environments as Jenkins credentials.  
 
-     [![]({{base_path}}/assets/img/Learn/APIController/jenkins-credentials.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-credentials.png) 
+     [![]({{base_path}}/assets/img/learn/api-controller/jenkins-credentials.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-credentials.png) 
 
 
 4. Add the Jenkins pipeline configuration defined in [here](https://github.com/dushaniw/wso2-apim-cicd-apis/blob/master/jenkinsfile).
 
-     [![]({{base_path}}/assets/img/Learn/APIController/jenkins-pipeline-build.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-pipeline-build.png) 
+     [![]({{base_path}}/assets/img/learn/api-controller/jenkins-pipeline-build.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-pipeline-build.png) 
 
-     [![]({{base_path}}/assets/img/Learn/APIController/pipeline-config.png)]({{base_path}}/assets/img/Learn/APIController/pipeline-config.png) 
+     [![]({{base_path}}/assets/img/learn/api-controller/pipeline-config.png)]({{base_path}}/assets/img/learn/api-controller/pipeline-config.png) 
 
     !!! info
         -   The `RETRY` variable is defined with 80 milliseconds so that the production and sandbox endpoints of the API deployed in the dev environment has an endpoint retry timeout value of 80 milliseconds. 
@@ -193,33 +193,33 @@ the Jenkins server.
 
 A successful pipeline build will have a similar console output to the following.     
 
-[![]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-1.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-1.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-1.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-1.png) 
 
-[![]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-2.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-2.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-2.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-2.png) 
 
-[![]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-3.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-3.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-3.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-3.png) 
 
-[![]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-4.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-4.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-4.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-4.png) 
 
-[![]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-5.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-5.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-5.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-5.png) 
 
-[![]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-6.png)]({{base_path}}/assets/img/Learn/APIController/jenkins-cicd-pipeline-output-6.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-6.png)]({{base_path}}/assets/img/learn/api-controller/jenkins-cicd-pipeline-output-6.png) 
 
 
 After the pipeline status changes to **SUCCESS**, when you navigate to the API Publisher in the dev and prod environments, you can see the **SampleStore** API is in the `PUBLISHED` state. 
 
 If you check the endpoints, you can see the endpoint URLs are updated according to the dev and production environment configs. 
 
-[![]({{base_path}}/assets/img/Learn/APIController/dev-samplestoreapi.png)]({{base_path}}/assets/img/Learn/APIController/dev-samplestoreapi.png)
+[![]({{base_path}}/assets/img/learn/api-controller/dev-samplestoreapi.png)]({{base_path}}/assets/img/learn/api-controller/dev-samplestoreapi.png)
 
-[![]({{base_path}}/assets/img/Learn/APIController/prod-samplestoreapi.png)]({{base_path}}/assets/img/Learn/APIController/prod-samplestoreapi.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/prod-samplestoreapi.png)]({{base_path}}/assets/img/learn/api-controller/prod-samplestoreapi.png) 
 
 
 Further, if you go and check the advanced endpoint configurations of the same API, you can see the retry timeout is updated to 80 and 60 milliseconds accordingly.
 
-[![]({{base_path}}/assets/img/Learn/APIController/dev-advanced-config.png)]({{base_path}}/assets/img/Learn/APIController/dev-advanced-config.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/dev-advanced-config.png)]({{base_path}}/assets/img/learn/api-controller/dev-advanced-config.png) 
 
-[![]({{base_path}}/assets/img/Learn/APIController/prod-advanced-config.png)]({{base_path}}/assets/img/Learn/APIController/prod-advanced-config.png) 
+[![]({{base_path}}/assets/img/learn/api-controller/prod-advanced-config.png)]({{base_path}}/assets/img/learn/api-controller/prod-advanced-config.png) 
 
 You have successfully created a basic CI/CD pipeline using **Jenkins** as the CI tool and **GitHub** as the SCM tool, to 
 create and deploy an API using the **API/Dev first approach** with WSO2 API Management.

@@ -10,7 +10,7 @@ Let's use the following  example to understand how API Products work in WSO2 API
 
 **Example**
 
-   [![Example for API Product]({{base_path}}/assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)]({{base_path}}/assets/img/Learn/DesignAPI/CreateAPIProduct/api-product-overview.png)
+   [![Example for API Product]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-overview.png)]({{base_path}}/assets/img/learn/design-api/create-api-product/api-product-overview.png)
   
 A financial institution has the following three APIs.
 

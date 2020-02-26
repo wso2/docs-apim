@@ -13,7 +13,7 @@ Digest Authentication applies a hash function to the username and the password b
 
 Digest Authentication is safer than Basic Authentication, which uses unencrypted base64 encoding instead of a hashing mechanism.
 
-When you [create an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api) using the API Publisher, you can specify the endpoint of the API backend implementation via the **Endpoint** page as Production and Sandbox endpoints.
+When you [create an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api) using the API Publisher, you can specify the endpoint of the API backend implementation via the **Endpoint** page as Production and Sandbox endpoints.
 
 Follow the instructions below to use Digest Auth as the endpoint authentication type when using a secured endpoint:
 
@@ -21,11 +21,11 @@ Follow the instructions below to use Digest Auth as the endpoint authentication 
 
 2. Click **General Endpoint Configurations** to select the endpoint security scheme. 
 
-     ![general-endpoint-detail]({{base_path}}/assets/img/Learn/general-endpoint-detail.png)
+     ![general-endpoint-detail]({{base_path}}/assets/img/learn/general-endpoint-detail.png)
 
 3. Select **Digest Auth** as the endpoint authentication type and enter your credentials.
      
-     ![enpoint-security-type-digest]({{base_path}}/assets/img/Learn/enpoint-security-type-digest.png)
+     ![enpoint-security-type-digest]({{base_path}}/assets/img/learn/enpoint-security-type-digest.png)
 
     !!! info
 

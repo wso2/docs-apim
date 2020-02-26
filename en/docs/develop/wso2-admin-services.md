@@ -44,7 +44,7 @@ By default, the WSDLs of admin services are hidden from consumers. Given below i
     ```
     
 5.  The list of admin services of your product are listed. For example:
-    ![Discover Admin Services]({{base_path}}/assets/img/Develop/discover-admin-services.png)
+    ![Discover Admin Services]({{base_path}}/assets/img/develop/discover-admin-services.png)
     
 6.  To see the service contract of an admin service, select the admin service's URL and then paste it in your browser with **?wsdl** at the end. 
 
@@ -219,4 +219,4 @@ public class AdminServiceClientManager {
 }
 ```
 
-The complete maven project can be found at: [org.wso2.carbon.sample.admin.service.invoker.zip]({{base_path}}/assets/attachments/Develop/org.wso2.carbon.sample.admin.service.invoker.zip)
+The complete maven project can be found at: [org.wso2.carbon.sample.admin.service.invoker.zip]({{base_path}}/assets/attachments/develop/org.wso2.carbon.sample.admin.service.invoker.zip)

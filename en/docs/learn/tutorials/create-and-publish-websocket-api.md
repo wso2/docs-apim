@@ -5,7 +5,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WebSocket APIs, see <a href="{{base_path}}/Learn/DesignAPI/CreateAPI/create-a-websocket-api">Create a WebSocket API</a>.</p>
+<p>For more information on WebSocket APIs, see <a href="{{base_path}}/learn/design-api/create-api/create-a-websocket-api">Create a WebSocket API</a>.</p>
 </div> 
 </html>
 
@@ -27,7 +27,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
       </div>
      </html>
     
-     [![Create WebSocket API menu]({{base_path}}/assets/img/Learn/create-websocket-api.jpg)]({{base_path}}/assets/img/Learn/create-websocket-api.jpg)
+     [![Create WebSocket API menu]({{base_path}}/assets/img/learn/create-websocket-api.jpg)]({{base_path}}/assets/img/learn/create-websocket-api.jpg)
 
 3.  Enter the detials of the new WebSocket API.
 
@@ -67,7 +67,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
     </tbody>
     </table>
     
-    [![Create a WebSocket API menu]({{base_path}}/assets/img/Learn/create-web-socket-api.jpg)]({{base_path}}/assets/img/Learn/create-web-socket-api.jpg)
+    [![Create a WebSocket API menu]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)]({{base_path}}/assets/img/learn/create-web-socket-api.jpg)
 
     <html>
      <div class="admonition note">
@@ -80,7 +80,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
 
      The overview page of the created WebSocket API appears.
 
-     [![Overview of WebSocket API]({{base_path}}/assets/img/Learn/overview-websocket-api.jpg)]({{base_path}}/assets/img/Learn/overview-websocket-api.jpg)
+     [![Overview of WebSocket API]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)]({{base_path}}/assets/img/learn/overview-websocket-api.jpg)
 
 5.  Optionally, enter the endpoint configurations.
 
@@ -90,11 +90,11 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
      
          For more information, see the following sections on endpoint related configurations.
 
-         - [Endpoint Timeouts]({{base_path}}/Learn/DesignAPI/Endpoints/Resiliency/endpoint-timeouts)
-         - [Endpoint Suspension]({{base_path}}/Learn/DesignAPI/Endpoints/Resiliency/endpoint-suspension)
-         - [Prevent API Suspension]({{base_path}}/Learn/DesignAPI/Endpoints/Resiliency/prevent-api-suspension)
+         - [Endpoint Timeouts]({{base_path}}/learn/design-api/endpoints/resiliency/endpoint-timeouts)
+         - [Endpoint Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/endpoint-suspension)
+         - [Prevent API Suspension]({{base_path}}/learn/design-api/endpoints/resiliency/prevent-api-suspension)
 
-     [![View endpoint details]({{base_path}}/assets/img/Learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/Learn/endpoint-view-of-websocket-api.jpg)
+     [![View endpoint details]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)]({{base_path}}/assets/img/learn/endpoint-view-of-websocket-api.jpg)
 
 Now, you have created and configured the WebSocket API successfully.
 
@@ -127,11 +127,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
          </p>
          </div>
 
-         [![Key generation wizard]({{base_path}}/assets/img/Learn/websocket-api-credential-page.jpg)]({{base_path}}/assets/img/Learn/websocket-api-credential-page.jpg)
+         [![Key generation wizard]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)]({{base_path}}/assets/img/learn/websocket-api-credential-page.jpg)
 
     2. Copy the authorization token that appears.
 
-         [![Authorization token]({{base_path}}/assets/img/Learn/websocket-api-key-generation-wizard.jpg)]({{base_path}}/assets/img/Learn/websocket-api-key-generation-wizard.jpg)
+         [![Authorization token]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)
 
 4. Try out the operations.
 

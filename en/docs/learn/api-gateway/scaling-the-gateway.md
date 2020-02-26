@@ -10,7 +10,7 @@ For key validation, the Gateway can usually handle 3,000 transactions per second
 -   When the cache is enabled at the Key Manager and disabled at the Gateway, you can have only one Gateway per Key Manager.
 -   If both caches are disabled (not recommended), even with only one Gateway per Key Manager, the system may not be able to handle the load, as the Key Manager will only be able to handle 500 TPS.
 
-For more information, see [Key cache](../../../Administer/ProductConfigurations/configuring-caching/#key-cache) in the WSO2 API Manager documentation.
+For more information, see [Key cache](../../../administer/product-configurations/configuring-caching/#key-cache) in the WSO2 API Manager documentation.
 
 ### Scaling Gateways and Traffic Managers
 

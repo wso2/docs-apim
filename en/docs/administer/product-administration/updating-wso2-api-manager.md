@@ -17,7 +17,7 @@ For more information, see [Using WSO2 Update Manager](https://docs.wso2.com/disp
 
     **Persisting Index data**
 
-    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. Refer [Add New Search Keyword]({{base_path}}/Learn/DesignAPI/APIDocumentation/SearchDocumentation/add-new-search-keyword) for more information.
+    The indexing related information of WSO2 API Manager is stored in the `<API-M_HOME>/solr/data` directory. Once the data is indexed, it is stored in the index directory. Refer [Add New Search Keyword]({{base_path}}/learn/design-api/api-documentation/search-documentation/add-new-search-keyword) for more information.
     
     !!! tip
         Before you discard the old API Manager instance,
@@ -39,4 +39,4 @@ For more information, see [Using WSO2 Update Manager](https://docs.wso2.com/disp
         Take a backup of `<API-M_HOME>/repository/database/WSO2METRICS_DB.h2.db` and replace it to the API Manager binary pack in the `<API-M_HOME>/repository/database` directory that is updated with the WUM updates.
         
     
-    For more information on run time and configuration artifact directories of API Manager refer [Common Runtime and Configuration Artifacts]({{base_path}}/Administer/ProductConfigurations/common-runtime-and-configuration-artifacts/) .
+    For more information on run time and configuration artifact directories of API Manager refer [Common Runtime and Configuration Artifacts]({{base_path}}/administer/product-configurations/common-runtime-and-configuration-artifacts/) .

@@ -5,10 +5,10 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 !!! info
     **Before you begin...** 
 
-    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     -  Make sure to add an environment before you start working with the following CTL commands, because all APIs need to be imported or exported to/from a specific environment.      
-    For more information, visit [Add an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#add-an-environment).
+    For more information, visit [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! warning
     -   A user with `admin` role is allowed to export and import APIs.
@@ -33,7 +33,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 
 ### Export an API
 
-1.  Log in to the API Manager in exporting the environment by following steps in [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the API Manager in exporting the environment by following steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -146,7 +146,7 @@ You can use the API archive exported from the previous section and import it to 
     4. Compress the `<API-name-version>` directory.  
     For example, compress the `PhoneVerification_1.0.0` directory.
 
-1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#login-to-an-environment).
+1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
     !!! tip
         If you are already logged-in and your logged-in credentials and keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 

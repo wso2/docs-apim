@@ -4,10 +4,10 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 !!! info
     **Before you begin...** 
 
-    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the instructions in [Download and Initialize the CTL Tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the instructions in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     -  Make sure to add an environment before you start working with the following CTL commands, because all applications need to be imported or exported to/from a specific environment.    
-       For more information, see [Add an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#add-an-environment).
+       For more information, see [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! warning
     -  Only the following types of users are allowed to export and import applications.  
@@ -18,14 +18,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 
 The lifecycle of an application could be defined as the stages of an application between the development and production environments. The feature facilitates to manage the application life cycle by allowing the user to migrate the applications within desired environments. The user should have admin permissions in order to use this.
 
-[![Managing Application Lifecycle]({{base_path}}/assets/img/Learn/managing-application-lifecycle.png)]({{base_path}}/assets/img/Learn/managing-application-lifecycle.png)
+[![Managing Application Lifecycle]({{base_path}}/assets/img/learn/managing-application-lifecycle.png)]({{base_path}}/assets/img/learn/managing-application-lifecycle.png)
 
 
 ## Export an application
 
 You can export an application in the Developer Portal and download it as a zipped file.
 
-1.  Log in to the API Manager in exporting the environment by following the instructions in [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the API Manager in exporting the environment by following the instructions in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and the keys are already available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -85,7 +85,7 @@ The exported application zipped file will be as follows:
 
 You can import an application to your environment as a zipped application. When you import an application as a zipped file, a new application is created within the target environment.
 
-1.  Log in to the API Manager in exporting the environment by following the instructions in [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#login-to-an-environment).  
+1.  Log in to the API Manager in exporting the environment by following the instructions in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).  
     
     !!! tip
         If you are already logged-in and your logged-in credentials and the keys already are available in the `<USER_HOME>/.wso2apictl/keys.json` file, you can skip this step. 
@@ -172,12 +172,12 @@ You can import an application to your environment as a zipped application. When 
 There are three options to import applications in a single-tenant environment.
 
 -   Application A in environment 1 is migrated to environment 2. Some APIs may not be available in environment 2 (API B in this case) and the relevant subscriptions are not added in such cases (skipped).
-    [![Importing Applications across Two Environments with the Same Owner]({{base_path}}/assets/img/Learn/import-apps-tenanted-env1.png)]({{base_path}}/assets/img/Learn/import-apps-tenanted-env1.png)
+    [![Importing Applications across Two Environments with the Same Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env1.png)
 
 -   A different owner can be specified while importing an application to environment 2,  without preserving the original user of environment 1.
-    [![Importing Applications across Two environments with Different Owners]({{base_path}}/assets/img/Learn/import-apps-tenanted-env2.png)]({{base_path}}/assets/img/Learn/import-apps-tenanted-env2.png)
+    [![Importing Applications across Two environments with Different Owners]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env2.png)
 -   The original owner of the application can be preserved when the application is imported to environment 2 by adding the `--preserveOwner` flag.
-    [![Importing Applications across Two environments with Preserve Owner]({{base_path}}/assets/img/Learn/import-apps-tenanted-env3.png)]({{base_path}}/assets/img/Learn/import-apps-tenanted-env3.png)
+    [![Importing Applications across Two environments with Preserve Owner]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)]({{base_path}}/assets/img/learn/import-apps-tenanted-env3.png)
 
 ### Import applications in a multi-tenant environment
 

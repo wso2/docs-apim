@@ -24,4 +24,4 @@ If you open the root context, which is <https://apis.com:9443> in your browser, 
 5.  Open the default context ( <https://apis.com:9443> ) again in a browser and note that it directs to the Developer Portal.
 
 !!! tip
-    If you want to configure the Publisher and Developer Portal to pass proxy server requests, configure a [reverse proxy server](../../../../Reference/faq/#how-can-i-set-up-a-reverse-proxy-server-to-pass-server-requests).
+    If you want to configure the Publisher and Developer Portal to pass proxy server requests, configure a [reverse proxy server](../../../../reference/faq/#how-can-i-set-up-a-reverse-proxy-server-to-pass-server-requests).

@@ -9,7 +9,7 @@ Kerberos is a security protocol that has support built into various operating sy
 
 The following section describes the flow involved in exchanging a Kerberos ticket for an OAuth2 token.
 
-![Kerberos-OAuth2 Grant Flow when using WSO2 API-M](../../../../assets/img/Learn/kerberos-grant-flow.png)
+![Kerberos-OAuth2 Grant Flow when using WSO2 API-M](../../../../assets/img/learn/kerberos-grant-flow.png)
 
 1.  The Kerberos client requests the Kerberos Service Ticket from the Kerberos Key Distribution Center (KDC) to invoke the service.
     The Kerberos Key Distribution Center can be any Kerberos Server.
@@ -118,7 +118,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
         2.  Click on the **Kerberos** checkbox as shown in the screenshot.
 
-            [![](../../../../assets/img/Learn/kerberos-grant-application.png)](../../../../assets/img/Learn/kerberos-grant-application.png)
+            [![](../../../../assets/img/learn/kerberos-grant-application.png)](../../../../assets/img/learn/kerberos-grant-application.png)
 
         3.  Click **Generate Keys** to generate the keys.
 
@@ -149,14 +149,14 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
         -   **Server Principal Password** : &lt;password&gt;
 
-        [![](../../../../assets/img/Learn/kerberos-grant-idp.png)](../../../../assets/img/Learn/kerberos-grant-idp.png)
+        [![](../../../../assets/img/learn/kerberos-grant-idp.png)](../../../../assets/img/learn/kerberos-grant-idp.png)
 
     5.  Generate the kerberos token.
 
 6.  Invoke the token endpoint using the message format discussed in [step 3](#kerberos-grant-token-request) .
 
     !!! note
-        Note that for users to be counted in the [Registered Users for Application statistics](../../../../../Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
+        Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
 
 
 

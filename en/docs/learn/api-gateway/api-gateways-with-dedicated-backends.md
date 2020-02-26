@@ -4,11 +4,11 @@ We can extend the [multiple gateway environments](../maintaining-separate-produc
 
 However, the API Publisher can only provide a single static endpoint for an API in the implementation. Therefore, the API call is directed to a single endpoint in whichever Gateway the API is deployed in, as depicted in the diagram below.
 
-[![Single endpoint](../../assets/img/Learn/single-endpoint.png)](../../assets/img/Learn/single-endpoint.png)
+[![Single endpoint](../../assets/img/learn/single-endpoint.png)](../../assets/img/learn/single-endpoint.png)
 
 However, in most situations, you would want to have each Gateway proxying to a dedicated backend API. To provide that capability, WSO2 API Manager provides the ability to specify parameterized endpoint URLs at the time of specifying the API endpoint URL. This URL is resolved at runtime with the details (host and port) specified at the startup of each Gateway. Each gateway then points to a dedicated backend API, as depicted in the digram below.
 
-[![Dedicated endpoint](../../assets/img/Learn/dedicated-endpoint.png)](../../assets/img/Learn/dedicated-endpoint.png)
+[![Dedicated endpoint](../../assets/img/learn/dedicated-endpoint.png)](../../assets/img/learn/dedicated-endpoint.png)
 ### Configuring Parameterized Endpoints
 
 Follow the steps below to configure a parameterized endpoint as the API endpoint.
@@ -16,9 +16,9 @@ Follow the steps below to configure a parameterized endpoint as the API endpoint
 1.  Start the WSO2 API Manager server that includes the API Publisher component and create an API.
 2.  Go to the **Endpoints** tab of the API and replace the host and port of the API endpoint with `{uri.var.host}` and `{uri.var.port} ` respectively, as shown below.
 
-    [![Dedicated backend definition](../../assets/img/Learn/dedicated-backend-def.png)](../../assets/img/Learn/dedicated-backend-def.png)
+    [![Dedicated backend definition](../../assets/img/learn/dedicated-backend-def.png)](../../assets/img/learn/dedicated-backend-def.png)
 
-3.  Save and [publish](../../DesignAPI/PublishAPI/publish-an-api) the API.
+3.  Save and [publish](../../design-api/publish-api/publish-an-api) the API.
 
 4.  Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/sequences` directory of each Gateway and create the following sequence.
 

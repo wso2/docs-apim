@@ -178,7 +178,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
     2.  Click **Apply Changes** and complete the API creation process.
 
 10. Complete the rest of the API creation process.
-    For more information, see step 7 onwards under [Create and Publish an API](../../../Learn/Tutorials/create-and-publish-an-api/).
+    For more information, see step 7 onwards under [Create and Publish an API](../../../learn/tutorials/create-and-publish-an-api/).
 
 11. Click **Go to APIStore** and the API you just published appears.
 12. Click **API Console** .

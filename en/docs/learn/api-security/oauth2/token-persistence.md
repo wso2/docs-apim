@@ -10,7 +10,7 @@ The following sections guide you through the difference between these two approa
 
 #### Synchronous token persistence
 
-![](../../../assets/img/Learn/synchronous-token-persistence.png)
+![](../../../assets/img/learn/synchronous-token-persistence.png)
 
 The flow of synchronous token persistence is as follows:
 
@@ -32,7 +32,7 @@ The flow of synchronous token persistence is as follows:
 
 #### Asynchronous token persistence
 
-![](../../../assets/img/Learn/asynchronous-token-generation.png)
+![](../../../assets/img/learn/asynchronous-token-generation.png)
 
 The flow of asynchronous token persistence is as follows:
 

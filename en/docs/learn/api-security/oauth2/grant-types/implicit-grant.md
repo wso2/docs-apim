@@ -8,7 +8,7 @@ The implicit grant type does not require client authentication, and relies on th
 
 The diagram below depicts the flow of Implicit Grant.
 
-[![](../../../../assets/img/Learn/implicit-grant.png)](../../../../assets/img/Learn/implicit-grant-flow.png)
+[![](../../../../assets/img/learn/implicit-grant.png)](../../../../assets/img/learn/implicit-grant-flow.png)
 
 1.  The client requests for the access token with the client ID and grant type, and other optional parameters.
 
@@ -79,18 +79,18 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
 
 1.  Login to WSO2 API Manager Store and create an application as shown below.
 
-    [![](../../../../assets/img/Learn/create-application.png)](../../../../assets/img/Learn/create-application.png)
+    [![](../../../../assets/img/learn/create-application.png)](../../../../assets/img/learn/create-application.png)
     
 2.  Go to the **Production keys** tab for the application. Add <https://localhost:8443/playground2/oauth2client> as the **Callback URL.** Select **Implicit** from the list of grant types and click **Generate Keys** .
 
-    [![](../../../../assets/img/Learn/implicit-grant.png)](../../../../assets/img/Learn/implicit-grant.png)
+    [![](../../../../assets/img/learn/implicit-grant.png)](../../../../assets/img/learn/implicit-grant.png)
 
     !!! note
         The Implicit grant and Code grant type checkboxes are disabled by default in the UI. To enable selecting the checkboxes, enter the Callback URL for the application.
     
 3.  Go to playground app <https://localhost:8443/playground2/index.jsp> and click **import photos.**
 
-    [![](../../../../assets/img/Learn/playground2-app.png)](../../../../assets/img/Learn/playground2-app.png)
+    [![](../../../../assets/img/learn/playground2-app.png)](../../../../assets/img/learn/playground2-app.png)
 
 4.  Give the information in the table below and click **Authorize** .
 
@@ -129,21 +129,21 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
     </tbody>
     </table>
 
-    [![](../../../../assets/img/Learn/playground2-implicit-grant.png)](../../../../assets/img/Learn/playground2-implicit-grant.png)
+    [![](../../../../assets/img/learn/playground2-implicit-grant.png)](../../../../assets/img/learn/playground2-implicit-grant.png)
 
 5.  The playground application redirects to the login page. Enter you username and password and click **Sign In.**
 
-    [![](../../../../assets/img/Learn/login-page.png)](../../../../assets/img/Learn/login-page.png)
+    [![](../../../../assets/img/learn/login-page.png)](../../../../assets/img/learn/login-page.png)
 
 6.  Select **Approve Once** or **Approve Always** to provide access to your profile information.
 
-    [![](../../../../assets/img/Learn/authorization-code-consent-page.png)](../../../../assets/img/Learn/authorization-code-consent-page.png)  
+    [![](../../../../assets/img/learn/authorization-code-consent-page.png)](../../../../assets/img/learn/authorization-code-consent-page.png)  
 
 7.  You will receive the access token as follows
 
-    [![](../../../../assets/img/Learn/implicit-grant-access-token-page.png)](../../../../assets/img/Learn/implicit-grant-access-token-page.png)
+    [![](../../../../assets/img/learn/implicit-grant-access-token-page.png)](../../../../assets/img/learn/implicit-grant-access-token-page.png)
 
 !!! note
-    For users to be counted in the [Registered Users for Application statistics](../../../../../Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](../password-grant/) type.
+    For users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](../password-grant/) type.
 
 

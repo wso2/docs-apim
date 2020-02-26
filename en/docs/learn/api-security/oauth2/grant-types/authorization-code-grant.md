@@ -68,19 +68,19 @@ The steps below show how access tokens are generated for the authorization code 
 
 1.  Log in to the API Developer Portal and create a new application.
 
-    [![](../../../../assets/img/Learn/create-application.png)](../../../../assets/img/Learn/create-application.png)
+    [![](../../../../assets/img/learn/create-application.png)](../../../../assets/img/learn/create-application.png)
     
 2.  Go to the **Production Keys** tab.
 3.  Add the Callback URL of your playground app, select **Code** Grant type click **GENERATE KEYS** .
 
-    [![](../../../../assets/img/Learn/authorization-code-grant.png)](../../../../assets/img/Learn/authorization-code-grant.png)
+    [![](../../../../assets/img/learn/authorization-code-grant.png)](../../../../assets/img/learn/authorization-code-grant.png)
 
     !!! note
         By default the implicit and code grant type selection checkboxes are disabled in the UI. You need to enter the callback URL first to enable selecting the code grant type.
 
 4.  Go to the playground app and click Import Photos.
 
-    [![](../../../../assets/img/Learn/playground2-app.png)](../../../../assets/img/Learn/playground2-app.png)
+    [![](../../../../assets/img/learn/playground2-app.png)](../../../../assets/img/learn/playground2-app.png)
     
 5.  Give the information in the table below and click **Authorize** .
 
@@ -92,15 +92,15 @@ The steps below show how access tokens are generated for the authorization code 
     | Callback URL             | The callback URL of your application                                                                  |
     | Authorize Endpoint       | `https://localhost:9443/oauth2/authorize` |
 
-    [![](../../../../assets/img/Learn/playground2-oauth2-page.png)](../../../../assets/img/Learn/playground2-oauth2-page.png)
+    [![](../../../../assets/img/learn/playground2-oauth2-page.png)](../../../../assets/img/learn/playground2-oauth2-page.png)
 
 6.  The playground application redirects to the login page. Enter you username and password and click **Sign In.**
 
-    [![](../../../../assets/img/Learn/login-page.png)](../../../../assets/img/Learn/login-page.png)
+    [![](../../../../assets/img/learn/login-page.png)](../../../../assets/img/learn/login-page.png)
 
 7.  Select **Approve Once** or **Approve Always** to provide access to your profile information.
 
-    [![](../../../../assets/img/Learn/authorization-code-consent-page.png)](../../../../assets/img/Learn/authorization-code-consent-page.png)   
+    [![](../../../../assets/img/learn/authorization-code-consent-page.png)](../../../../assets/img/learn/authorization-code-consent-page.png)   
     
 8.  Provide following information in the redirected page and click on **Get Access token**.
 
@@ -121,14 +121,14 @@ The steps below show how access tokens are generated for the authorization code 
     </tbody>
     </table>
 
-    [![](../../../../assets/img/Learn/authorization-code-get-accesstoken.png)](../../../../assets/img/Learn/authorization-code-get-accesstoken.png)
+    [![](../../../../assets/img/learn/authorization-code-get-accesstoken.png)](../../../../assets/img/learn/authorization-code-get-accesstoken.png)
 
      You will receive the access token as follows:
 
-    [![](../../../../assets/img/Learn/authorization-code-accesstoken.png)](../../../../assets/img/Learn/authorization-code-accesstoken.png)
+    [![](../../../../assets/img/learn/authorization-code-accesstoken.png)](../../../../assets/img/learn/authorization-code-accesstoken.png)
         
 !!! note
-    Note that for users to be counted in the [Registered Users for Application statistics](../../../../../Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
+    Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
 
 
 

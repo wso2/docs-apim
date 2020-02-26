@@ -1,6 +1,6 @@
 # Customize API Life Cycle
 
-APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consists of [six states]({{base_path}}/Learn/DesignAPI/LifecycleManagement/api-lifecycle/#api-lifecycle-states). This tutorial demonstrates as to how you can edit the default API lifecycle and customize it based on to your requirements.
+APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consists of [six states]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/#api-lifecycle-states). This tutorial demonstrates as to how you can edit the default API lifecycle and customize it based on to your requirements.
 
 !!! note
     This capability is not available in WSO2 API Manager versions prior to 1.10.0.
@@ -12,7 +12,7 @@ Follow the steps below to add a new state to the default life cycle.
 
 2.  Click on the API that you created previously.
     (e.g., PizzaShackAPI - 1.0.0).
-    ![Published life cycle state]({{base_path}}/assets/img/Learn/default-lifecycle.png)
+    ![Published life cycle state]({{base_path}}/assets/img/learn/default-lifecycle.png)
 
 3.  Click **Lifecycle** to view the current states available by default.
 
@@ -20,11 +20,11 @@ Follow the steps below to add a new state to the default life cycle.
 
 5.  Navigate to **Extensions &gt; Configure &gt; Lifecycles**.
 
-    ![]({{base_path}}/assets/img/Learn/lifecycle-menu.png)
+    ![]({{base_path}}/assets/img/learn/lifecycle-menu.png)
     
 6.  Click the **View/Edit** link corresponding to the default API LifeCycle.
 
-    ![]({{base_path}}/assets/img/Learn/api-lifecycle-veiw.png) 
+    ![]({{base_path}}/assets/img/learn/api-lifecycle-veiw.png) 
     
      The APILifeCycle configurations appear.
 
@@ -211,4 +211,4 @@ Follow the steps below to add a new state to the default life cycle.
 -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
 
 
-For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/Learn/DesignAPI/LifecycleManagement/extending-the-api-life-cycle/) .
+For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/learn/design-api/lifecycle-management/extending-the-api-life-cycle/) .

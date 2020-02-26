@@ -4,14 +4,14 @@
 
     **Before you begin:**
 
-    -   See [our compatibility matrix]({{base_path}}/InstallAndSetup/ProductCompatibility) to find out if this version of the product is fully tested on Linux or OS X.
+    -   See [our compatibility matrix]({{base_path}}/install-and-setup/ProductCompatibility) to find out if this version of the product is fully tested on Linux or OS X.
 
 Follow the instructions below to install API Manager on Linux or Mac OS X.
 
 ### Installing the required applications
 
 1.  Log in to the command line (Terminal on Mac).
-2.  Ensure that your system meets the [Installation Prerequisites]({{base_path}}/InstallAndSetup/InstallationGuide/installation-prerequisites). Java Development Kit (JDK) is essential to run the product.
+2.  Ensure that your system meets the [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites). Java Development Kit (JDK) is essential to run the product.
 
 ### Installing the API Manager
 
@@ -70,4 +70,4 @@ If you need to set additional system properties when the server starts, you can 
 
     When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost`
 
-You are now ready to [run the product]({{base_path}}/InstallAndSetup/InstallationGuide/running-the-product/).
+You are now ready to [run the product]({{base_path}}/install-and-setup/installation-guide/running-the-product/).

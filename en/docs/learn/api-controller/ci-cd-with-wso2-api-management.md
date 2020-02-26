@@ -11,7 +11,7 @@ environment-related configurations and also create API Projects from Swagger/Ope
 fully automated API deployment with only a few steps. With the power of flexible tooling, WSO2 API Manager is ready to 
 address modern requirements for automating API deployments.
 
-[![]({{base_path}}/assets/img/Learn/APIController/ci-cd-pipeline-for-apis-with-wso2-apim.png)]({{base_path}}/assets/img/Learn/APIController/ci-cd-pipeline-for-apis-with-wso2-apim.png)
+[![]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)
 
 Continuous integration and continuous deployment for APIs is an open-ended scenario; different organizations have 
 different ways of addressing the problem. The above diagram depicts a generic solution that involves a minimum number of parties in an organization for API automation. Although the diagram shows three parties, there could be more or less depending on the organization’s structure.
@@ -34,7 +34,7 @@ WSO2 API Manager supports OpenAPI/Swagger specifications to create APIs. The **a
 
 Based on the API Project generation, a powerful pipeline for API automation can be developed using OpenAPI/Swagger. This allows rapid API development and increases developer productivity.
 
-[![]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/Learn/APIController/api-automation-with-openapi-swagger.png)
+[![]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)
 
 
 **To migrate APIs using the Developer First approach via CI/CD** carry out <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a></a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
@@ -49,11 +49,11 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
 1.  Download and install WSO2 API Manager 3.0 in your environments.
      
-     For more information, see [installation Prerequisites]({{base_path}}/InstallAndSetup/InstallationGuide/installation-prerequisites/).
+     For more information, see [installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
 2.  Download and setup WSO2 API Controller, `apictl`. 
 
-     For more information, see [Download and initialize the ctl tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
+     For more information, see [Download and initialize the ctl tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
 3.  Add API Manager environments using the `add-env` command.
 
@@ -70,13 +70,13 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
                     --token https://localhost:8243/token \
         ```
 
-    For more information, see [Add an environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#add-an-environment). 
+    For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
 
 <a name="B"></a>
 ### (B.) - Create and Publish an API in a lower environment
 
 Now, you have added two different environments. Our end goal is to automate the API migration between the `dev` and `prod` environments. Therefore, first, the API should be published in the `dev` environment using the API Publisher in WSO2 API Manager. 
-For more information on deploying an API in the API Manager, see the [Quick Start Guide](http://localhost:8000/GettingStarted/quick-start-guide/).   
+For more information on deploying an API in the API Manager, see the [Quick Start Guide](http://localhost:8000/getting-started/quick-start-guide/).   
 
 For this example, let's use the [Swagger Petstore API](https://petstore.swagger.io/). 
 
@@ -88,7 +88,7 @@ For this example, let's use the [Swagger Petstore API](https://petstore.swagger.
   
   3. Create the API and define its name as `SwaggerPetstore` and Version as `1.0.0`.
 
-      [![]({{base_path}}/assets/img/Learn/APIController/create-api.png)]({{base_path}}/assets/img/Learn/APIController/create-api.png)
+      [![]({{base_path}}/assets/img/learn/api-controller/create-api.png)]({{base_path}}/assets/img/learn/api-controller/create-api.png)
 
  4. Enter the backend URLs for the Production and Sandbox environments, and publish the API.
 
@@ -99,7 +99,7 @@ For this example, let's use the [Swagger Petstore API](https://petstore.swagger.
       Sandbox: http://dev.sandbox.wso2.com
       ```
 
-     [![]({{base_path}}/assets/img/Learn/APIController/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/Learn/APIController/prod-dev-endpoints-petstore-api.png)
+     [![]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)]({{base_path}}/assets/img/learn/api-controller/prod-dev-endpoints-petstore-api.png)
 
 <a name="C"></a>
 ### (C.) - Export an API from a lower environment
@@ -113,7 +113,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
         apictl login dev -u admin -p admin -k
         ```
 
-     For more information, see [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#login-to-an-environment).
+     For more information, see [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
     !!! warning
         -   A user with `admin` role is allowed to export APIs.
@@ -138,7 +138,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
         apictl export-api -e dev -n SwaggerPetstore -v 1.0.0 --provider admin
         ```
 
-     For more information, see [Export an API]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#export-an-api).
+     For more information, see [Export an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#export-an-api).
 
 3.  Extract the content (API will be exported as an archive to the 
 `<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory named 
@@ -165,7 +165,7 @@ specifications and also have custom parameter files. This reduces human interven
 - For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
 
 For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
-[Initialize an API Project]({{base_path}}/Learn/APIController/importing-apis-via-dev-first-approach/#initialize-an-api-project).
+[Initialize an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#initialize-an-api-project).
 
 <a name="E"></a>
 ### (E.) - Prepare an API project for CI/CD
@@ -198,7 +198,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
                 url: 'http://prod.sandbox.wso2.com'
         ```  
 
-     [![]({{base_path}}/assets/img/Learn/APIController/creating-env-based-artifacts.png)]({{base_path}}/assets/img/Learn/APIController/creating-env-based-artifacts.png)        
+     [![]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)]({{base_path}}/assets/img/learn/api-controller/creating-env-based-artifacts.png)        
 
     !!! info
         - The tool reduces the pipeline’s complexity and provides a simple and powerful mechanism to handle environment-specific configurations.
@@ -207,7 +207,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
         required. These paths can be stored in the Automation Server.
         - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. In addition, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
         - It is recommended to store API and environment-specific parameters in separate repositories.
-        - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#configuring-environment-specific-parameters).
+        - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#configuring-environment-specific-parameters).
 
 
 4.  Commit the project to the version control system.        
@@ -224,7 +224,7 @@ The **apictl** tool should be installed in the automation servers to begin the p
 
     !!! warning
         Make sure you have already logged-in to the `prod` environment. For more information, see 
-        [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#login-to-an-environment).
+        [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
         -   A user with `admin` role is allowed to import APIs.
         -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login` permission) is allowed to import APIs by following the steps below.
@@ -254,7 +254,7 @@ The **apictl** tool should be installed in the automation servers to begin the p
         
         - The import command prepares an API Project for WSO2 API Manager by processing the parameter file. It determines which configuration should be processed to create an API Project by detecting the environment that has been used to import it.
 
-        - For more information on importing an API to an environment, see [Import an API]({{base_path}}/Learn/APIController/migrating-apis-to-different-environments/#import-an-api).
+        - For more information on importing an API to an environment, see [Import an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#import-an-api).
 
      Now the tool will automatically detect the target environment and prepare a new artifact containing environment-related details. 
 
@@ -276,4 +276,4 @@ Now, you know the building blocks of creating a CI/CD pipeline using **apictl**.
 an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
 
 !!! More
-    Next let's use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/Learn/APIController/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).
+    Next let's use the above knowledge to create a [Jenkins CI/CD Pipeline with WSO2 API Management for a Dev First Approach]({{base_path}}/learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach/).

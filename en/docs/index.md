@@ -19,7 +19,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 </div>
 <div>
    <div class="content"> 
-     <div class="card" onclick="location.href='GettingStarted/quick-start-guide';">
+     <div class="card" onclick="location.href='getting-started/quick-start-guide';">
 		<div class="line"></div>
            	<div class="card-icon">
 			<i class="material-icons md-36">timer</i>
@@ -31,7 +31,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       		</div>
 		</div>
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/DesignAPI/CreateAPI/create-a-rest-api';">
+      <div class="card" onclick="location.href='learn/design-api/create-api/create-a-rest-api';">
             <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">create</i></div>
              <div class="card-content">
@@ -41,7 +41,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       </div>
       <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/ConsumeAPI/DiscoverAPIs/search';">
+      <div class="card" onclick="location.href='learn/consume-api/discover-apis/search';">
             <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">store</i></div>
 <div class="card-content">
@@ -51,7 +51,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 </div>
       <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/APIGateway/overview-of-the-api-gateway';">
+      <div class="card" onclick="location.href='learn/api-gateway/overview-of-the-api-gateway';">
             <div class="line"></div> 
             <div class="card-icon"><i class="material-icons md-36">input</i></div>
 <div class="card-content">
@@ -76,7 +76,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
                 <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices.</p>
             </div>
       </div>
-      <div class="card" onclick="location.href='Learn/APISecurity/APIAuthentication/api-authentication-overview';">
+      <div class="card" onclick="location.href='learn/api-security/api-authentication/api-authentication-overview';">
 	    <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">security</i></div>
             <div class="card-content">
@@ -84,7 +84,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 		    <p class="hint">Authenticate and authorize API requests</p>
             </div>
       </div>
-      <div class="card" onclick="location.href='Learn/RateLimiting/introducing-throttling-use-cases';">
+      <div class="card" onclick="location.href='learn/rate-limiting/introducing-throttling-use-cases';">
 	    <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">traffic</i></div>
             <div class="card-content">
@@ -94,7 +94,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       </div>
         <!-- end card -->
       <!-- card -->
-      <div class="card" onclick="location.href='Learn/Analytics/overview-of-api-analytics';">
+      <div class="card" onclick="location.href='learn/analytics/overview-of-api-analytics';">
 	    <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">show_chart</i></div>
             <div class="card-content">

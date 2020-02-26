@@ -2,7 +2,7 @@
 
 You cannot dynamically construct the back-end endpoint of an API using the address endpoints in the WSO2 API Manager. To achieve the requirement of a dynamic endpoint, you can use the default endpoint instead. 
 
-[![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/dynamic-endpoints.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/dynamic-endpoints.png)  
+[![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/dynamic-endpoints.png)  
 
 The default endpoint sends the message to the address specified in the **To** header. The **To** header can be constructed dynamically. For example,
 
@@ -18,7 +18,7 @@ In this example, you have constructed the `service_ep` property dynamically and 
 `http://jsonplaceholder.typicode.com/posts/`. 
 
 !!! tip
-    For more details about working with dynamic endpoints, see [Endpoint Types]({{base_url}}/Learn/DesignAPI/Endpoints/endpoint-types).
+    For more details about working with dynamic endpoints, see [Endpoint Types]({{base_url}}/learn/design-api/endpoints/endpoint-types).
 
 You can copy the content of the above sequence to an XML file and upload it to an API configured with a dynamic endpoint using Publisher Portal UI.  
-For more information, visit [Creating and Uploading Manually in API Publisher]({{base_path}}/Learn/APIGateway/MessageMediation/changing-the-default-mediation-flow-of-api-requests#creating-and-uploading-manually-in-api-publisher).
+For more information, visit [Creating and Uploading Manually in API Publisher]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests#creating-and-uploading-manually-in-api-publisher).
