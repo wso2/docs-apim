@@ -8,7 +8,7 @@ Follow the instructions below to deploy WSO2 API Manager (WSO2 API-M) in a distr
 
 ??? info "Click here for information on installing and configuring WSO2 API-M."
 
-    The following steps describe how to download, install, and configure WSO2 API Manager, with five instances.
+    The following instructions describe how to download, install, and configure WSO2 API Manager, with five instances.
     
     1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) in each of the five servers in the cluster for distributed deployment.
     2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories respectively as Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager.
@@ -103,7 +103,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
 3.  Optionally, configure High Availability (HA) for the Key Manager.
 
     !!! warning
-        These steps are **ONLY applicable** if you need to configure **HA for the Key Manager.**    
+        These instructions are **ONLY applicable** if you need to configure **HA for the Key Manager.**    
     
         1.  Make a copy of the active instance configured above and use this copy as the second Key Manager active instance.
         2.  Configure a load balancer to front the two Key Manager nodes.
@@ -296,7 +296,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         ``` toml tab="Single Traffic Manager"
         Configure the Publisher with a single Traffic Manager as follows:
         [apim.throttling]
-        service_url = https://Traffic-Manager-host:${mgt.transport.https.port}/services/
+        service_url = "https://Traffic-Manager-host:${mgt.transport.https.port}/services/"
         throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
 
         [[apim.throttling.url_group]]
@@ -307,7 +307,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         ``` toml tab="Traffic Manager with HA"
         Configure the Publisher with multiple Traffic Managers that are fronted by a load balancer as follows:
         [apim.throttling]
-        service_url = https://[Traffic-Manager-LB-Host]:${mgt.transport.https.port}/services/
+        service_url = "https://[Traffic-Manager-LB-Host]:${mgt.transport.https.port}/services/"
         throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
 
         [[apim.throttling.url_group]]
@@ -340,7 +340,7 @@ This section involves setting up the API Publisher node and enabling it to work 
             https_endpoint = "https://[API-Gateway-Host-or-IP]:${https.nio.port}"
             ```
 
-        -   If you are using **multiple Gateway nodes** , configure the **Publisher** with the **Gateway nodes** as follows:
+        -   If you are using **multiple Gateway nodes**, configure the **Publisher** with the **Gateway nodes** as follows:
 
             ``` tab="Gateway with Shared File System"
             Configure the Publisher when working with multiple Gateways that are fronted by a load balancer when using a shared file system (e.g., NFS), to synchronize the data between your Gateway nodes as follows:
@@ -518,7 +518,7 @@ This section involves setting up the Developer Portal node and enabling it to wo
             https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
             ```
 
-        -   If you are using **multiple Gateway nodes** , configure the **Developer Portal** with the **Gateway nodes** as follows:
+        -   If you are using **multiple Gateway nodes**, configure the **Developer Portal** with the **Gateway nodes** as follows:
 
             Configure the **Developer Portal when working with multiple Gateways** that are fronted by a load balancer as follows:
 
@@ -634,7 +634,7 @@ This section involves setting up the Developer Portal node and enabling it to wo
 This section involves setting up the Gateway node and enabling it to work with the other components in the distributed deployment.
 
 !!! note
-    **Steps 1 to 5** in the following section are **common** irrespective of your API-M deployment, such as deploying a single Gateway node or deploying multiple Gateway nodes for High Availability (HA). However, if you are using two Gateway nodes for high availability (HA), first follow the instructions that are available in the \_Distributed Deployment of the Gateway document, and then carry out the following steps to configure the connections from Gateway(s) to other components.
+    **instructions 1 to 5** in the following section are **common** irrespective of your API-M deployment, such as deploying a single Gateway node or deploying multiple Gateway nodes for High Availability (HA). However, if you are using two Gateway nodes for high availability (HA), first follow the instructions that are available in the \_Distributed Deployment of the Gateway document, and then carry out the following instructions to configure the connections from Gateway(s) to other components.
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node.
 2.  Modify the `deployment.toml` file as follows. This configures the connection to the Key Manager component.
 
