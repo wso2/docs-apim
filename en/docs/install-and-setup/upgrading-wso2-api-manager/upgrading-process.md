@@ -4,10 +4,10 @@ This section contains the complete upgrading process related to the WSO2 API Man
 Go through the guidelines given below before attempting to upgrade the production environment.
 
 !!! note
-    To upgrade **from a version older than 1.8.0** , follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
+    To upgrade **from a version older than 1.8.0**, follow the instructions in the document that was released immediately after your current release and upgrade incrementally.
 
 !!! info
-    For more information about this release, see [About this Release](../../GettingStarted/about-this-release.md).
+    For more information about this release, see [About this Release]({{base_path}}/getting-started/about-this-release).
 
 1.  If you already have a [WSO2 subscription](https://wso2.com/subscription), reach out to our support team through 
 your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
@@ -17,12 +17,10 @@ your [support account](https://support.wso2.com/jira/secure/Dashboard.jspa).
     requirement to migrate to an intermediate version, contact 
     [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
-!!! note
-    Migrating the production environment requires additional hardware/VM resources since both the old 
-    environment and the new environment will be running until all the traffic is routed to the new 
-    environment.    
+    !!! note
+        Migrating the production environment requires additional hardware/VM resources because both the old environment and the new environment will be running until all the traffic is routed to the new environment.    
     
-3. If you have customizations in your setup, check if they are supported out of the box in the latest 
+3. If you have customizations in your setup, check if they are supported out-of-the-box in the latest 
 version.
     - If your customizations are already available in the latest version, you can remove the 
     customization after migration. You can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa)
@@ -33,10 +31,10 @@ version.
         !!! info "Migrating the customizations that are not available in the latest version"
             - First update the dependency version of the 
             dependant WSO2 components and re-build the customized component.
-            - As a practice, WSO2 does not make API changes in minor releases of the dependency jars. However, if 
+            - As a practice, WSO2 does not make API changes in minor releases of the dependency JARs. However, if 
             there are API changes, please update the custom code and re-build.
                         
-4.  List down the functional and nonfunctional use cases in your deployment and create test cases for them. 
+4.  List down the functional and non-functional use cases in your deployment and create test cases for them. 
 **NOTE:** This step is crucial to verify that the migrated environment works as expected.     
 
 5.  Identify the configuration migrations required for the new setup. Refer [Configuration Catalog](../../Reference/ConfigCatalog.md) for more information regarding the new config modal introduced.

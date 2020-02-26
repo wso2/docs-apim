@@ -68,6 +68,9 @@ Follow the  instructions below to set up the PostgreSQL database and users.
     $ psql -U <USER_NAME> -d apim_db -f <API-M_HOME>/dbscripts/apimgt/postgresql.sql  -W
     ```
 
+!!! note
+    `<API-M_HOME>/dbscripts/mb-store/postgresql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to PostgreSQL, then you need to have seperate databases for each API-M Traffic Manager node.
+
 ## Changing to the Carbon database to PostgreSQL
 
 - [Creating the datasource connection to PostgreSQL](#creating-the-datasource-connection-to-postgresql)
