@@ -20,7 +20,7 @@ The API Manager comes with a pre-created default application, which allows unlim
 
 3.  Click **ADD NEW APPLICATION**.
 
-    ![Add new application option]({{base_path}}/assets/img/Learn/add-new-application-option.png)   
+    ![Add new application option]({{base_path}}/assets/img/learn/add-new-application-option.png)   
 
 4.  Enter the application details and click **SAVE** to create the application.
    
@@ -37,16 +37,16 @@ The API Manager comes with a pre-created default application, which allows unlim
      </html>
 
         
-       [![create a new application]({{base_path}}/assets/img/Learn/create-new-application.png)]({{base_path}}/assets/img/Learn/create-new-application.png)
+       [![create a new application]({{base_path}}/assets/img/learn/create-new-application.png)]({{base_path}}/assets/img/learn/create-new-application.png)
       
        If the application creation is successful, you will be redirected to the application overview page.
 
-       [![Application overview]({{base_path}}/assets/img/Learn/application-overview.png)]({{base_path}}/assets/img/Learn/application-overview.png)
+       [![Application overview]({{base_path}}/assets/img/learn/application-overview.png)]({{base_path}}/assets/img/learn/application-overview.png)
     
 5.  Click **BACK TO LISTING** to navigate to Applications listing page.
     
     You will find the PizzaShack application listed with other applications. The application can be edited or deleted by the application owner.
 
-    [![Application listing]({{base_path}}/assets/img/Learn/applications-listing.png)]({{base_path}}/assets/img/Learn/applications-listing.png)
+    [![Application listing]({{base_path}}/assets/img/learn/applications-listing.png)]({{base_path}}/assets/img/learn/applications-listing.png)
 
     

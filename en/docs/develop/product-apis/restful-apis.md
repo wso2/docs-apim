@@ -6,18 +6,18 @@ There are two versions of REST APIs available for the API Publisher and Develope
 
 <table>
   <tr>
-    <td><a href="{{base_path}}/Develop/ProductAPIs/publisher-v1/">WSO2 Publisher v1</a></td>
+    <td><a href="{{base_path}}/develop/product-apis/publisher-v1/">WSO2 Publisher v1</a></td>
   </tr>
   <tr>
-    <td><a href="{{base_path}}/Develop/ProductAPIs/publisher-v0.15/">WSO2 Publisher v0.15</a></td>
+    <td><a href="{{base_path}}/develop/product-apis/publisher-v0.15/">WSO2 Publisher v0.15</a></td>
   </tr>
   <tr>
-    <td><a href="{{base_path}}/Develop/ProductAPIs/devportal-v1/">WSO2 Developer Portal v1</a></td>
+    <td><a href="{{base_path}}/develop/product-apis/devportal-v1/">WSO2 Developer Portal v1</a></td>
   </tr>
   <tr>
-    <td><a href="{{base_path}}/Develop/ProductAPIs/devportal-v0.15/">WSO2 Developer Portal v0.15</a></td>
+    <td><a href="{{base_path}}/develop/product-apis/devportal-v0.15/">WSO2 Developer Portal v0.15</a></td>
   </tr>
   <tr>
-    <td><a href="{{base_path}}/Develop/ProductAPIs/admin-v1/">WSO2 Admin API v0.15</a></td>
+    <td><a href="{{base_path}}/develop/product-apis/admin-v1/">WSO2 Admin API v0.15</a></td>
   </tr>
 </table>

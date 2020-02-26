@@ -4,9 +4,9 @@ You can obtain an access token by providing the resource owner's username and pa
 
 #### Prerequisites
 
--   A valid user account in the API Developer Portal. You can self sign up if it is [enabled by an admin](../../../../Customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup) .
+-   A valid user account in the API Developer Portal. You can self sign up if it is [enabled by an admin](../../../../customizations/CustomizingTheAPIStore/enabling-or-disabling-self-signup) .
 -   A valid consumer key and consumer secret pair. Initially, these keys must be generated through the API Developer Portal by clicking **GENERATE KEYS** on the **Production Keys** tab of the application.
--   A running API Gateway instance (typically an API Manager instance should be running). For instructions on API Gateway, see [Components](../../../../../../GettingStarted/overview/#api-gateway).
+-   A running API Gateway instance (typically an API Manager instance should be running). For instructions on API Gateway, see [Components](../../../../../../getting-started/overview/#api-gateway).
 
 -   If the Key Manager is on a different server than the API Gateway, change the server URL (host and ports) of the Key Manager accordingly by adding following configuration in `<AM_HOME>/repository/conf/deployment.toml` file.
 
@@ -15,7 +15,7 @@ You can obtain an access token by providing the resource owner's username and pa
     configuration.ServerURL = "<key-manager-server-url>"
 
 ```
--   If you have multiple Carbon servers running on the same computer, [change the port with an offset](../../../../../../Reference/Guides/changing-the-default-ports-with-offset/) to avoid port conflicts.
+-   If you have multiple Carbon servers running on the same computer, [change the port with an offset](../../../../../../reference/guides/changing-the-default-ports-with-offset/) to avoid port conflicts.
 
 #### Invoking the Token API to generate tokens
 
@@ -94,6 +94,6 @@ You can obtain an access token by providing the resource owner's username and pa
 Instead of using the Token API, you can generate access tokens from the API Developer Portal's UI.
 
 !!! note
-    Note that for users to be counted in the [Registered Users for Application statistics](../../../../../Analytics/AnalyzingAPIMStatisticsWithBatchAnalytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](#password-grant) type.
+    Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](#password-grant) type.
 
 

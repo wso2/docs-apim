@@ -15,7 +15,7 @@ If you want to see the APIs grouped according to different topics in the API Sto
 2.  Add an API group to the APIs that you wish to group.
     1.  Go to the API Publisher ( `https://<HostName>:9443/publisher` ).
     2.  Click on the respective API and go to `Design Configurations`.
-    [ ![](../../../../../assets/img/Learn/categorizing-and-grouping-apis-publisher.png) ](../../../../../assets/img/Learn/categorizing-and-grouping-apis-publisher.png)
+    [ ![](../../../../../assets/img/learn/categorizing-and-grouping-apis-publisher.png) ](../../../../../assets/img/learn/categorizing-and-grouping-apis-publisher.png)
     3.  Add a group name to the APIs that you wish to group.
 
         For example add the "Technology-group".
@@ -26,7 +26,7 @@ If you want to see the APIs grouped according to different topics in the API Sto
     Sign in to the API Devloper Portal and note the API groups.
     If you wish, you can click on a group to see the APIs that belong to a specific group.
 
-    [ ![](../../../../../assets/img/Learn/categorizing-and-grouping-apis-group-list-view.png) ](../../../../../assets/img/Learn/categorizing-and-grouping-apis-group-list-view.png)
+    [ ![](../../../../../assets/img/learn/categorizing-and-grouping-apis-group-list-view.png) ](../../../../../assets/img/learn/categorizing-and-grouping-apis-group-list-view.png)
 
     ## API grouping configuration options
 

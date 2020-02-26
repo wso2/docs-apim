@@ -55,7 +55,7 @@ There are two approaches to configure a secondary user store. It can be configur
 
 5.  Enter values for the properties, using the descriptions in the Descriptions column for guidance. The properties that appear vary based on the user store manager class you selected, and there may be additional properties in Optional or Advanced sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
 
-    ![]({{base_path}}/assets/img/Administer/secondary-user-store-definition.png)
+    ![]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)
 
     !!! note
         Make sure that you do not enter `federated` as the domain name as the term is reserved for federated users.
@@ -63,7 +63,7 @@ There are two approaches to configure a secondary user store. It can be configur
 6.  Ensure that all the mandatory fields are filled and a valid domain name is given and click **Add**.
 
 7.  A message appears saying that the user stores are being added.
-    ![]({{base_path}}/assets/img/Administer/secondary-user-store-update-msg.png)
+    ![]({{base_path}}/assets/img/administer/secondary-user-store-update-msg.png)
 
     !!! info
         **Note** : The above message does not imply that the user store is added successfully. It simply means that the server is attempting to add the new user store to the end of the available chain of stores.

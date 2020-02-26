@@ -53,7 +53,7 @@ in sequence.
 
 -   Select `json\_validator` from the drop-down menu for Common Policies.
 
-    [ ![](../../../assets/img/Learn/json-validator.png) ](../../../assets/img/Learn/json-validator.png)
+    [ ![](../../../assets/img/learn/json-validator.png) ](../../../assets/img/learn/json-validator.png)
 
 -   Scroll down the page and click **Save** to save the changes.
 

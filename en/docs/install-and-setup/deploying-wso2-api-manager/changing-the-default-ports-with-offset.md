@@ -11,7 +11,7 @@ There are two ways to set an offset to a port.
 
 ## Configuring the port offset
 
-1. [Stop the server]({{base_path}}/InstallAndSetup/InstallationGuide/running-the-product/#stopping-the-server) if it is already running
+1. [Stop the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running
 
 2.  Open `<APIM_HOME>/repository/conf/deployment.toml` file.
 
@@ -28,11 +28,11 @@ There are two ways to set an offset to a port.
     offset=1
     ```
 
-4. [Restart the server]({{base_path}}/InstallAndSetup/InstallationGuide/running-the-product/).
+4. [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/).
 
 ## Passing the port offset during server startup
 
-1.  [Stop the server]({{base_path}}/InstallAndSetup/InstallationGuide/running-the-product/#stopping-the-server) if it is already running
+1.  [Stop the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#stopping-the-server) if it is already running
 
 2.  Restart the server with `-DportOffset` system property.
 
@@ -58,5 +58,5 @@ There are two ways to set an offset to a port.
 
 When you offset the server's port, it automatically changes all ports it uses. 
 
-For the list of all default ports opened in WSO2 API Manager, see [Default Product Ports]({{base_path}}/Administer/ProductConfigurations/default-product-ports/) .
+For the list of all default ports opened in WSO2 API Manager, see [Default Product Ports]({{base_path}}/administer/product-configurations/default-product-ports/) .
 

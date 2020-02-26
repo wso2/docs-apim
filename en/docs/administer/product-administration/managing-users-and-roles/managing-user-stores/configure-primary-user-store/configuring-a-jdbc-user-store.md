@@ -8,7 +8,7 @@ JDBC user stores can be configured using the <APIM_HOME>/repository/conf/deploym
 You can either use the default configuration or you can change it in the following ways:
 
 -   You can set up two separate databases for the Authorization Manager and the User Store Manager.
--   It is not recommended to use the default H2 database in production. Therefore, you can replace them with a different RDBMS. For instructions on setting up a new RDBMS and configuring it for your system, see [Setting Up Databases]({{base_path}}/InstallAndSetup/SettingUpDatabases/overview).
+-   It is not recommended to use the default H2 database in production. Therefore, you can replace them with a different RDBMS. For instructions on setting up a new RDBMS and configuring it for your system, see [Setting Up Databases]({{base_path}}/install-and-setup/setting-up-databases/overview).
 
 !!!tip
     Before you begin, ensure that the RDBMS that you want to use as the JDBC user store is correctly set up for your system. Then, follow the steps given below to configure a JDBC user store as the primary user store in your product.

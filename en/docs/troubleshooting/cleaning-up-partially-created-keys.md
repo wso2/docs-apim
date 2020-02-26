@@ -8,4 +8,4 @@ To delete the remaining application data from API Manager, follow below steps.
 2. Click on the application name. This will show the application details.
 3. Click on the **Clean up** button found at the bottom of the page.
 
-![]({{base_path}}/assets/img/Troubleshooting/cleanup-keys.png)
+![]({{base_path}}/assets/img/troubleshooting/cleanup-keys.png)

@@ -11,7 +11,7 @@ Basic Authentication is an API level configuration. Please sign in to the API Pu
 Basic Authentication. Under the Application Level Security section in the Runtime Configuration of the API Details page allow users to configure
 the Basic Authentication as follow.
 
-[ ![](../../../assets/img/Learn//basic_authentication.png) ](../../../assets/img/Learn//basic_authentication.png)
+[ ![](../../../assets/img/learn//basic_authentication.png) ](../../../assets/img/learn//basic_authentication.png)
 
 ## Understanding multiple authentication schemes
 
@@ -20,14 +20,14 @@ In addition to using these schemes  individually, it is also possible to use the
 
  
 If someone enable multiple schemes, the priority will be given in the order of Mutual SSL, OAuth2, Basic Auth and API Key. 
-Between OAuth2/Basic Auth and API Key, it will authenticate with only one authentication type based on the above order.
+Between oauth2/Basic Auth and API Key, it will authenticate with only one authentication type based on the above order.
 
 Mutual SSL treats as a transport level authentication scheme and it's separate out from the Application security schemes.
 
-Additionally, the user will required to specify either one of Mutual SSL or OAuth2/Basic Auth/API Key mandatory as without 
+Additionally, the user will required to specify either one of Mutual SSL or oauth2/Basic Auth/API Key mandatory as without 
 anyone of mandatory will skip the authentication.
  
-Note : If OAuth2/Basic Auth is set as mandatory, the request is need to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
+Note : If oauth2/Basic Auth is set as mandatory, the request is need to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
 
 
 ## Invoking an API using Basic Authentication
@@ -43,7 +43,7 @@ curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H  "accept: appli
 ```
 
 ##Basic Authentication with Scopes
-WSO2 API Manager allow users to configure [Scopes](Learn/APISecurity/OAuth2/AOuth2Scopes/fine-grained-access-control-with-oauth-scopes) with role bindings which can associate with API Resources. Basic authentication
+WSO2 API Manager allow users to configure [Scopes](learn/api-security/oauth2/AOuth2Scopes/fine-grained-access-control-with-oauth-scopes) with role bindings which can associate with API Resources. Basic authentication
 uses credentials of the user to authenticate with the Basic Authentication protected API.
 
 If a user associate API resources with scopes which protected with Basic Authentication scheme, API Manager will perform the 

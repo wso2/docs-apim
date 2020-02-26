@@ -87,7 +87,7 @@ Given below is how to configure this in a distributed API Manager setup.
 
 An API's resources are HTTP methods that handle particular types of requests such as GET, POST etc. They are similar to methods of a particular class. Each resource has parameters such as its throttling level, Auth type etc.
 
-![]({{base_path}}/assets/img/Administer/resource-security-and-throttling-limit.png)
+![]({{base_path}}/assets/img/administer/resource-security-and-throttling-limit.png)
 
 Users can make requests to an API by calling any one of the HTTP methods of the API's resources. The API Manager uses the resource cache at the Gateway node to store the API's resource-level parameters (Auth type and throttling level). The cache entry is identified by a cache key, which is based on the API's context, version, request path and HTTP method. Caching avoids the need to do a separate back-end call to check the Auth type and throttling level of a resource, every time a request to the API comes. It improves performance.
 
@@ -148,7 +148,7 @@ The OAuth token is saved in this cache, which is enabled by default. Whenever a 
 
 ### Response cache
 
-Please refer [Response Caching]({{base_path}}/Learn/APIGateway/response-caching/) to see how to enable response caching for a given API.
+Please refer [Response Caching]({{base_path}}/learn/api-gateway/response-caching/) to see how to enable response caching for a given API.
 
 ### API Store cache
 

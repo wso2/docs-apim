@@ -11,15 +11,15 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 2.  Select **My Apps** in the navigation and create a new app by clicking **Create App** .
 3.  Enter the name of your app and your email address. Click **Create App ID** .
 
-    ![Create new facebook app]({{base_path}}/assets/img/Learn/create-facebook-app.png)
+    ![Create new facebook app]({{base_path}}/assets/img/learn/create-facebook-app.png)
 
 4.  Click **Set Up** to create a **Facebook Login** product.
 
-    ![Setup facebook login product]({{base_path}}/assets/img/Learn/setup-facebook-login-app.png)
+    ![Setup facebook login product]({{base_path}}/assets/img/learn/setup-facebook-login-app.png)
 
 5.  Select **Web** to work with this sample. You can select any other platform you wish to use.
 
-    ![Setup facebook login product]({{base_path}}/assets/img/Learn/web-facebook-login-app.png)
+    ![Setup facebook login product]({{base_path}}/assets/img/learn/web-facebook-login-app.png)
 
 6.  Add the `serverURL` of WSO2 Identity Server (which is configured with `offset` = 1) <https://localhost:9444/> and click **Save** and **Continue** .
 
@@ -28,24 +28,24 @@ You can integrate WSO2 Identity Server with WSO2 API Manager and use your social
 
         For example, if the host name is **identity.com**, then the server URL is `https://identity.com:9444/`
 
-    ![Add facebook Identity Server URL]({{base_path}}/assets/img/Learn/add-facebook-is-server-url.png)
+    ![Add facebook Identity Server URL]({{base_path}}/assets/img/learn/add-facebook-is-server-url.png)
 
 7.  Go to **Set Up the Facebook SDK for JavaScript** and click **Next** until the steps are complete.
 8.  Click **Settings** and select **Basic**. You can find your `App ID` and the `App Secret` as shown in the image below.
 
-    ![Facebook App Id]({{base_path}}/assets/img/Learn/appId-facebook.png)
+    ![Facebook App Id]({{base_path}}/assets/img/learn/appId-facebook.png)
 
 9.  Select a **Category** for you application.
 
-    ![Facebook App Category]({{base_path}}/assets/img/Learn/facebook-app-category.png)
+    ![Facebook App Category]({{base_path}}/assets/img/learn/facebook-app-category.png)
 
     Add the correct **Site URL** as shown below and click **Save Changes** .
 
-    ![Facebook Site URL]({{base_path}}/assets/img/Learn/facebook-site-url.png)
+    ![Facebook Site URL]({{base_path}}/assets/img/learn/facebook-site-url.png)
     
 10. Click on the new **Facebook Login** product you have added and configure it as follows.
 
-    ![Facebook Login App Settings]({{base_path}}/assets/img/Learn/facebook-login-app-settings.png)
+    ![Facebook Login App Settings]({{base_path}}/assets/img/learn/facebook-login-app-settings.png)
 
     | Parameter                 | Value                                                                                           |
     |---------------------------|-------------------------------------------------------------------------------------------------|
@@ -75,7 +75,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
 
 3.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
-    ![Configure a Federated Authenticator for Facebook Login]({{base_path}}/assets/img/Learn/configure-federated-authenticator-for-facebook.png)
+    ![Configure a Federated Authenticator for Facebook Login]({{base_path}}/assets/img/learn/configure-federated-authenticator-for-facebook.png)
 
 4.  Enter the **Client ID** and **Client Secret** from the values obtained from Facebook app created in the previous section.
 
@@ -100,7 +100,7 @@ We need to acquire the identity information by configuring claims to use Authent
 
 4.  Select the **Define Custom Claim Dialect** option under **Select Claim mapping Dialect** and click **Add Claim Mapping** to add custom claim mappings as follows.
 
-    ![Claim configuration for Facebook Login]({{base_path}}/assets/img/Learn/claim-configuration-facebook.png)
+    ![Claim configuration for Facebook Login]({{base_path}}/assets/img/learn/claim-configuration-facebook.png)
 
     If you prefer to use the User ID as your first name of Facebook account, configure `first_name` claim as above. You need to select the same claim as **UserID Claim URI**.
 
@@ -122,20 +122,20 @@ For more information, see [Permissions Reference - Facebook Login.](https://deve
 To federate logging in to the Publisher and Developer Portal with Facebook, you need to configure the service provider with the Facebook Identity Provider.
 
 !!! note
-        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/Administer/ProductSecurity/General/LoginsAndPasswords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
+        You have to allow the usage of email addresses as usernames, to use email addresses. For instructions, see [Setting up an e-mail login](/administer/product-security/General/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login).
 
 
 1.  Go to the **Management Console** of WSO2 Identity Server (`https://localhost:9444/carbon`) and click on **Service Providers**.
 
 2.  Click **Edit** to edit the `admin_admin_publisher`.
 
-    ![Service Providers List]({{base_path}}/assets/img/Learn/service-providers-list-facebook-auth.png)
+    ![Service Providers List]({{base_path}}/assets/img/learn/service-providers-list-facebook-auth.png)
 
 3.  Go to the **Local & Outbound Authentication Configuration** section. Select the Identity Provider you created from the dropdown list under **Federated Authentication**.
 
 4.  Make sure that **Federated Authentication** is selected. Click **Update** to save the changes.
 
-    ![Set Facebook Auth for Service Providers]({{base_path}}/assets/img/Learn/set-facebook-auth-for-service-providers.png)
+    ![Set Facebook Auth for Service Providers]({{base_path}}/assets/img/learn/set-facebook-auth-for-service-providers.png)
 
 5.  Repeat steps 1 to 4 and configure the `admin_admin_store` service provider.
 
@@ -148,7 +148,7 @@ To federate logging in to the Publisher and Developer Portal with Facebook, you 
 
 2.  Enter the username and password of your facebook account.
 
-    ![Login to facebook]({{base_path}}/assets/img/Learn/login-with-facebook.png)
+    ![Login to facebook]({{base_path}}/assets/img/learn/login-with-facebook.png)
 
 3.  After successfully authenticating the log in, you will be logged into Publisher. Your username will be the first name of your Facebook account. This is because you have already configured the first name as the **UserID Claim URI**.
 
@@ -165,19 +165,19 @@ Identity Server has a dashboard which offers multiple options for users to maint
 
 2.  Click **View Details** in the **Associated Accounts** gadget.
 
-    ![Associated Accounts Gadget]({{base_path}}/assets/img/Learn/is-login-dashboard.png)
+    ![Associated Accounts Gadget]({{base_path}}/assets/img/learn/is-login-dashboard.png)
 
 3.  Click **Add Association** to give your facebook account details.
 
-    ![Add association]({{base_path}}/assets/img/Learn/add-association-facebook-login.png)
+    ![Add association]({{base_path}}/assets/img/learn/add-association-facebook-login.png)
 
 4.  Select Account Type as `Federated`, enter your Identity Provider Id (facebook) and your username (as configured in **Subject Claim URI** ) and click **Associate**.
 
-    ![Add IDP]({{base_path}}/assets/img/Learn/associate-idp.png)
+    ![Add IDP]({{base_path}}/assets/img/learn/associate-idp.png)
 
 5.  Select **Local & Outbound Configuration** and check **Assert identity using mapped local subject identifier**.
 
-    ![Select mapped local subject identifier]({{base_path}}/assets/img/Learn/assert-identity-using-mapped-local-subject-id.png)
+    ![Select mapped local subject identifier]({{base_path}}/assets/img/learn/assert-identity-using-mapped-local-subject-id.png)
 
 After logging in to Publisher, you will see the configured local claim appearing as your username.
 

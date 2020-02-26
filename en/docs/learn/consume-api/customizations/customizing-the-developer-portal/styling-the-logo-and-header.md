@@ -2,7 +2,7 @@
 
 The header section can be customized to match different design needs. Following is the default look and the configuration.
 
- ![changing the logo and header](../../../../assets/img/Learn/changing-the-logo-and-header1.png) 
+ ![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header1.png) 
 
 ```js
 appBar: {
@@ -18,7 +18,7 @@ appBar: {
 #### Example
 
 We can change the logo and header background as follows by changing the above parameters.
- ![changing the logo and header](../../../../assets/img/Learn/changing-the-logo-and-header2.png) 
+ ![changing the logo and header](../../../../assets/img/learn/changing-the-logo-and-header2.png) 
 
 ```js
  appBar: {

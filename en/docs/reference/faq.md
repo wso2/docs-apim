@@ -77,7 +77,7 @@ For a list of all default ports available, see [Default Ports of WSO2 Products](
 
 ##### What are the technologies used underneath WSO2 API Manager?
 
-The API Manager is built on top of [WSO2 Carbon](http://wso2.com/products/carbon) , an OSGi based components framework for SOA. For more details, see [API Manager components](../GettingStarted/key-concepts.md#key-concepts).
+The API Manager is built on top of [WSO2 Carbon](http://wso2.com/products/carbon) , an OSGi based components framework for SOA. For more details, see [API Manager components](../getting-started/key-concepts.md#key-concepts).
 
 ##### Can I get involved in API-M development activities?
 
@@ -235,7 +235,7 @@ You can enable centralized authentication using a WSO2 Identity Server based [se
 
 ##### How can I manage the API permissions/visibility?
 
-To set visibility of the API only to selected user roles in the server, see [API Visibility](../GettingStarted/key-concepts.md#api-visibility) .
+To set visibility of the API only to selected user roles in the server, see [API Visibility](../getting-started/key-concepts.md#api-visibility) .
 
 ##### How can I add security policies (UT, XACML, etc.) for the services?
 
@@ -243,7 +243,7 @@ This should be done in the backend services in the Application Server or WSO2 ES
 
 ##### How can I enable self signup to the API Store?
 
-See [how to enable self signup]({{base_path}}/Learn/ConsumeAPI/Customizations/CustomizingTheDeveloperPortal/enabling-or-disabling-self-signup/).
+See [how to enable self signup]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 
 ##### How can I disable self signup to the API Store? I want to engage my own approval mechanism.
 
@@ -282,7 +282,7 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ##### How can I manage session timeouts for the management console?
 
-To configure session timeouts, see [Configuring the session time-out](../InstallAndSetup/InstallationGuide/running-the-product.md#configuring-the-session-time-out) .
+To configure session timeouts, see [Configuring the session time-out](../install-and-setup/installation-guide/running-the-product.md#configuring-the-session-time-out) .
 
 ##### How can I add authentication headers to messages going out of the API Gateway to the backend?
 

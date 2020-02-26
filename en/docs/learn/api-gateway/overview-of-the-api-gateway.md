@@ -1,7 +1,7 @@
 # Overview of the API Gateway
 WSO2 API Gateway is the 
 
-[![API-M overview](../../assets/img/Learn/apim-overview.png)](../../assets/img/Learn/apim-overview.png)
+[![API-M overview](../../assets/img/learn/apim-overview.png)](../../assets/img/learn/apim-overview.png)
 
 **WSO2 API Gateway** which is powered by [WSO2 EI](https://docs.wso2.com/display/EI650/WSO2+Enterprise+Integrator+Documentation) provides a runtime, backend component (an API proxy) for API calls.
 It secures, protects, manages, and scales API calls by intercepting API requests and applying policies such as throttling and security using handlers and managing API statistics.
@@ -13,7 +13,7 @@ When the API Manager is running, you can access the Gateway using the URL [https
     Although the API Gateway contains EI features, it is recommended not to use it for EI-specific tasks. Use it only for Gateway functionality related to API invocations. For example, if you want to call external services like SAP, use a separate EI cluster for that.
 
 **Gateway Architecture**
-[![Gateway overview](../../assets/img/Learn/gateway-overview.png)](../../assets/img/Learn/gateway-overview.png)
+[![Gateway overview](../../assets/img/learn/gateway-overview.png)](../../assets/img/learn/gateway-overview.png)
 
 When an API request first hit to the WSO2 API Gateway it is received by the HTTP/HTTPS `transports`.The transport is responsible for carrying messages that are in a specific format.
 Transport provides a receiver, which is used to receive messages, and a sender, which is used to send messages.

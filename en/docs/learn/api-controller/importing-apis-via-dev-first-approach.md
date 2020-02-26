@@ -5,11 +5,11 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 !!! info
     **Before you begin...** 
 
-    -   Make sure WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
+    -   Make sure WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     -   Make sure you already have added an environment using the CTL tool for the API Manager environment you plan to import the API to. 
 
-        If not, follow the steps in [Add an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#add-an-environment).
+        If not, follow the steps in [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
 
 ## Initialize an API Project
 
@@ -223,9 +223,9 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 !!! info
     **Before you begin...** 
 
-    -   Make sure you have already created an environment to which you are planning to import the API. If not, follow steps in [Add an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#add-an-environment).
+    -   Make sure you have already created an environment to which you are planning to import the API. If not, follow steps in [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
-    -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/Learn/APIController/getting-started-with-wso2-api-controller#login-to-an-environment). 
+    -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment). 
 
 
 !!! warning

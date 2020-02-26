@@ -16,7 +16,7 @@ Follow the instructions below to add documentation to an API:
      `https://<hostname>:9443/publisher`
 
 2.  Click on the API (e.g., `PizzaShackAPI 1.0.0` ) for which you want to add the documentation.
-    [![Select API in API Publisher]({{base_path}}/assets/img/Learn/select-api.png)]({{base_path}}/assets/img/Learn/select-api.png)
+    [![Select API in API Publisher]({{base_path}}/assets/img/learn/select-api.png)]({{base_path}}/assets/img/learn/select-api.png)
 
 3. Add the specific documentation.
     
@@ -31,7 +31,7 @@ Follow the instructions below to add documentation to an API:
 
     1.  Click **Documents** and click **Add New Document**.
         
-         [![Add new documents option]({{base_path}}/assets/img/Learn/add-docs-documents.png)]({{base_path}}/assets/img/Learn/add-docs-documents.png)
+         [![Add new documents option]({{base_path}}/assets/img/learn/add-docs-documents.png)]({{base_path}}/assets/img/learn/add-docs-documents.png)
 
     2.  Enter the following details to create an in-line document.
 
@@ -42,25 +42,25 @@ Follow the instructions below to add documentation to an API:
         | Type    | How To                               |
         | Source  | In-line                              |
 
-        [![Create an inline document]({{base_path}}/assets/img/Learn/add-docs-create-inline.png)]({{base_path}}/assets/img/Learn/add-docs-create-inline.png)
+        [![Create an inline document]({{base_path}}/assets/img/learn/add-docs-create-inline.png)]({{base_path}}/assets/img/learn/add-docs-create-inline.png)
 
     3.  Click **Add Document**.
 
     4.  Click **Add Content** to open an embedded editor.
 
-         [![Add content to inline document]({{base_path}}/assets/img/Learn/add-docs-add-content.png)]({{base_path}}/assets/img/Learn/add-docs-add-content.png)
+         [![Add content to inline document]({{base_path}}/assets/img/learn/add-docs-add-content.png)]({{base_path}}/assets/img/learn/add-docs-add-content.png)
 
         !!! note
             You can edit the content later by clicking **Edit Content**. It will open up the embedded editor to proceed.
 
-        [![Edit content in a API document]({{base_path}}/assets/img/Learn/add-docs-edit-content.png)]({{base_path}}/assets/img/Learn/add-docs-edit-content.png)
+        [![Edit content in a API document]({{base_path}}/assets/img/learn/add-docs-edit-content.png)]({{base_path}}/assets/img/learn/add-docs-edit-content.png)
 
         !!! info
             You can use the **Edit Content** option to update/change the document information.
 
     5.  Edit the document content in-line using the embedded editor and click **Update Content**.
     
-         [![Edit inline document]({{base_path}}/assets/img/Learn/add-docs-update-content.png)]({{base_path}}/assets/img/Learn/add-docs-update-content.png)
+         [![Edit inline document]({{base_path}}/assets/img/learn/add-docs-update-content.png)]({{base_path}}/assets/img/learn/add-docs-update-content.png)
          
          The API's **Documents** tab opens.
 
@@ -98,7 +98,7 @@ Follow the instructions below to add documentation to an API:
         </tbody>
         </table>
 
-        [![Add forum type URL based API documentation]({{base_path}}/assets/img/Learn/add-docs-forum-type.png)]({{base_path}}/assets/img/Learn/add-docs-forum-type.png)
+        [![Add forum type URL based API documentation]({{base_path}}/assets/img/learn/add-docs-forum-type.png)]({{base_path}}/assets/img/learn/add-docs-forum-type.png)
 
     #### Add an other type URL based document
 
@@ -134,7 +134,7 @@ Follow the instructions below to add documentation to an API:
         </tbody>
         </table>
 
-        [![Add other type URL based API documentation]({{base_path}}/assets/img/Learn/add-docs-url-type.png)]({{base_path}}/assets/img/Learn/add-docs-url-type.png)
+        [![Add other type URL based API documentation]({{base_path}}/assets/img/learn/add-docs-url-type.png)]({{base_path}}/assets/img/learn/add-docs-url-type.png)
 
     4.  Click **Add Document**.
          
@@ -151,9 +151,9 @@ Follow the instructions below to add documentation to an API:
         | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
-        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/Learn/api-docs-sample.pdf). |
+        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
 
-        [![Add file based API documentation]({{base_path}}/assets/img/Learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/Learn/add-docs-pdf-file.png)
+        [![Add file based API documentation]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)
 
     3.  Click **Add Document**.
         
@@ -161,7 +161,7 @@ Follow the instructions below to add documentation to an API:
 
     1.  Click **Documents** and click **Add New Document**.
         
-         [![Add new document option]({{base_path}}/assets/img/Learn/add-docs-documents.png)]({{base_path}}/assets/img/Learn/add-docs-documents.png)
+         [![Add new document option]({{base_path}}/assets/img/learn/add-docs-documents.png)]({{base_path}}/assets/img/learn/add-docs-documents.png)
 
     2.  Enter the following details to create Markdown documentation and click **Add Document**.
 
@@ -172,28 +172,28 @@ Follow the instructions below to add documentation to an API:
         | Type    | How To                               |
         | Source  | Markdown                              |
 
-        [![Add Markdown based API documentation]({{base_path}}/assets/img/Learn/add-docs-markdown.png)]({{base_path}}/assets/img/Learn/add-docs-markdown.png)
+        [![Add Markdown based API documentation]({{base_path}}/assets/img/learn/add-docs-markdown.png)]({{base_path}}/assets/img/learn/add-docs-markdown.png)
 
     3.  Click **Add Content** to open an embedded editor.
-        [![Add content for Markdown documentation]({{base_path}}/assets/img/Learn/add-docs-markdown-add-content.png)]({{base_path}}/assets/img/Learn/add-docs-markdown-add-content.png)
+        [![Add content for Markdown documentation]({{base_path}}/assets/img/learn/add-docs-markdown-add-content.png)]({{base_path}}/assets/img/learn/add-docs-markdown-add-content.png)
 
     4.  Edit the document content using the embedded markdown editor and click **Update Content**.
         
-         [![Update content for Markdown documentation]({{base_path}}/assets/img/Learn/add-docs-markdown-editor.png)]({{base_path}}/assets/img/Learn/add-docs-markdown-editor.png)
+         [![Update content for Markdown documentation]({{base_path}}/assets/img/learn/add-docs-markdown-editor.png)]({{base_path}}/assets/img/learn/add-docs-markdown-editor.png)
          
          The API's **Documents** tab opens.
          
-         [![APIs documentation tab with added documentation]({{base_path}}/assets/img/Learn/add-docs-markdown-view.png)]({{base_path}}/assets/img/Learn/add-docs-markdown-view.png)
+         [![APIs documentation tab with added documentation]({{base_path}}/assets/img/learn/add-docs-markdown-view.png)]({{base_path}}/assets/img/learn/add-docs-markdown-view.png)
 
      You have now added four type of documents to the API: in-line, URL, file, and markdown.
      
-     [![APIs documentation tab with a list of the added documentation]({{base_path}}/assets/img/Learn/add-docs-all.png)]({{base_path}}/assets/img/Learn/add-docs-all.png)
+     [![APIs documentation tab with a list of the added documentation]({{base_path}}/assets/img/learn/add-docs-all.png)]({{base_path}}/assets/img/learn/add-docs-all.png)
 
 5.  Sign in to the WSO2 Developer Portal and click on the `PizzaShackAPI` version 1.0.0 API.
     
      `https://<hostname>:9443/devportal         `
     
-     [![API in Developer Portal]({{base_path}}/assets/img/Learn/view-docs-devportal.png)]({{base_path}}/assets/img/Learn/view-docs-devportal.png)
+     [![API in Developer Portal]({{base_path}}/assets/img/learn/view-docs-devportal.png)]({{base_path}}/assets/img/learn/view-docs-devportal.png)
 
 6.  Click **Documentation**.
  
@@ -203,6 +203,6 @@ Follow the instructions below to add documentation to an API:
 
      As a subscriber, you can read the documentation and learn about the API.
 
-     [![View API related documentation]({{base_path}}/assets/img/Learn/view-docs-api.png)]({{base_path}}/assets/img/Learn/view-docs-api.png)
+     [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
 
 You have created documentation using the API Publisher and viewed the documentation as a subscriber in the Developer Portal.

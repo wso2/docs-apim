@@ -8,7 +8,7 @@ When you publish an API using the API Publisher, it gets deployed on the API Gat
 
 This is the default scenario. Because this Gateway instance handles both production and sandbox token traffic, it is called a hybrid API Gateway. When an API request comes to the API Gateway, it checks whether the requesting token is of type PRODUCTION or SANDBOX and forwards the request to the appropriate endpoint. The diagram below depicts this scenario.
 
-[![Hybrid Gateway](../../assets/img/Learn/hybrid-gw.png)](../../assets/img/Learn/hybrid-gw.png)
+[![Hybrid Gateway](../../assets/img/learn/hybrid-gw.png)](../../assets/img/learn/hybrid-gw.png)
 
 #### Multiple Gateways to handle production and sandbox requests separately
 
@@ -16,7 +16,7 @@ Having a single Gateway instance to pass through both types of requests can nega
 
 The diagram below depicts this using two Gateways:
 
-[![Production and sandbox gateways](../../assets/img/Learn/production-sandbox-gws.png)](../../assets/img/Learn/production-sandbox-gws.png)
+[![Production and sandbox gateways](../../assets/img/learn/production-sandbox-gws.png)](../../assets/img/learn/production-sandbox-gws.png)
 
 In either of the two approaches, if an API Gateway receives an invalid token, it returns an error to the requesting client saying that the token is invalid.
 
@@ -62,7 +62,7 @@ The `type` attribute of the environment can take the following values:
 
 If you work with Gateways in different geographical locations, configuring multiple environments in the `<API-M_HOME>/repository/conf/deployment.toml` file is recommended. The diagram below depicts a sample setup:
 
-[![Multi-region Gateway](../../assets/img/Learn/multi-reigion-gw.png)](../../assets/img/Learn/multi-reigion-gw.png)
+[![Multi-region Gateway](../../assets/img/learn/multi-reigion-gw.png)](../../assets/img/learn/multi-reigion-gw.png)
 
 **Figure** : API Gateways in different geographical regions
 

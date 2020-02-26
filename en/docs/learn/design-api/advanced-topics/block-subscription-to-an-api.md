@@ -5,7 +5,7 @@ An API publisher can **block subscription** to an API as a way of disabling acce
 You can block APIs by subscription by blocking access to a specific user to access a specific API that he/she has subscribed to using a specific application. If a user is subscribed to two APIs using the same application and you block access to only one of the APIs, the user can still continue to invoke the other API that he/she subscribed to using the same application. In addition, the user can continue to access the same API subscribed to using different applications.
 
 !!! info
-    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request blacklisting]({{base_path}}/Learn/RateLimiting/blacklisting-whitelisting/#blacklisting-requests).
+    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request blacklisting]({{base_path}}/learn/rate-limiting/blacklisting-whitelisting/#blacklisting-requests).
 
 
 Blocking can be done at two levels:
@@ -16,16 +16,16 @@ Blocking can be done at two levels:
   <html>
   <div class="admonition warning">
   <p class="admonition-title">Warning</p>
-  <p>When <a href="{{base_path}}/GettingStarted/overview/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
+  <p>When <a href="{{base_path}}/getting-started/overview/#api-gateway">API Gateway</a> caching is enabled (it is enabled by default), even after blocking a subscription, consumers might still be able to access APIs until the cache expires, which happens approximately every 15 minutes. Likewise, the API Gateway cache applies even when an API is unblocked.</p>
   </div> 
   
   <div class="admonition note">
   <p class="admonition-title">Note</p>
   <p>See the following topics for the descriptions on the concepts that you need to know when you block subscriptions to an API:
   <ul>
-    <li><a href="{{base_path}}/GettingStarted/key-concepts/#application">Applications</a></li>
-    <li><a href="{{base_path}}/GettingStarted/key-concepts/#rate-limits">Rate Limiting</a></li>
-    <li> <a href="{{base_path}}/GettingStarted/key-concepts/#access-token">Access tokens</a></li></ul>
+    <li><a href="{{base_path}}/getting-started/key-concepts/#application">Applications</a></li>
+    <li><a href="{{base_path}}/getting-started/key-concepts/#rate-limits">Rate Limiting</a></li>
+    <li> <a href="{{base_path}}/getting-started/key-concepts/#access-token">Access tokens</a></li></ul>
     </p>
   </div> 
   </html>
@@ -42,11 +42,11 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition tip"> 
          <p class="admonition-title">Tip</p>
-         <p>For more information, see [Create and Publish an API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).</p>
+         <p>For more information, see [Create and Publish an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).</p>
          </div>
          </html>
          
-         [![Block subscription for two APIs]({{base_path}}/assets/img/Learn/two-apis-for-block-subscription.png)]({{base_path}}/assets/img/Learn/two-apis-for-block-subscription.png)
+         [![Block subscription for two APIs]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)]({{base_path}}/assets/img/learn/two-apis-for-block-subscription.png)
 
 2.  Subscribe to both the APIs.
      1.  Sign in to the WSO2 API Developer Portal and click **APIs**.
@@ -57,11 +57,11 @@ Blocking can be done at two levels:
 
          You can use the default application or create your own.
 
-         [![Have the same application for two APIs]({{base_path}}/assets/img/Learn/same-application-for-two-apis.png)]({{base_path}}/assets/img/Learn/same-application-for-two-apis.png)
+         [![Have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis.png)]({{base_path}}/assets/img/learn/same-application-for-two-apis.png)
          
          You can see the APIs that you have subscribed to and the **Status** as **unblocked**.
 
-         [![Same application subscribed for two APIs]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis.png)]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis.png)
+         [![Same application subscribed for two APIs]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis.png)
         
      3.  Generate keys and obtain an access token for application.
        
@@ -70,11 +70,11 @@ Blocking can be done at two levels:
       <html>
       <div class="admonition tip"> 
       <p class="admonition-title">Tip</p>
-      <p>For more information, see  [Consume an API]({{base_path}}/Learn/ConsumeAPI/InvokeApis/InvokeApisUsingTools/invoke-an-api-using-the-integrated-api-console/).</p>
+      <p>For more information, see  [Consume an API]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/).</p>
       </div>
       </html>
 
-     [![Response when you have the same application for two APIs]({{base_path}}/assets/img/Learn/same-application-for-two-apis-response.png)]({{base_path}}/assets/img/Learn/same-application-for-two-apis-response.png)
+     [![Response when you have the same application for two APIs]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)]({{base_path}}/assets/img/learn/same-application-for-two-apis-response.png)
 
      The following is the [cURL](http://curl.haxx.se/download.html) command format for phoneverify2 API.
      
@@ -99,7 +99,7 @@ Blocking can be done at two levels:
 
      4. Click **Block All**.
 
-        [![Have the same application for two APIs and block all subscriptions]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png)]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked.png)
+        [![Have the same application for two APIs and block all subscriptions]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)
         
        <html>
        <div class="admonition tip"> 
@@ -126,7 +126,7 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition warning">
          <p class="admonition-title">Warning</p>
-         <p>When [Gateway caching]({{base_path}}/GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.</p>
+         <p>When [Gateway caching]({{base_path}}/getting-started/overview/#api-gateway) is enabled, which is the case by default, the subscription blocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is blocked, then the API will be blocked immediately.</p>
          </div>
          </html>
 
@@ -141,11 +141,11 @@ Blocking can be done at two levels:
         </ams:fault>
         ```
 
-        [![Have the same application for two APIs and block response]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
+        [![Have the same application for two APIs and block response]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
         
      If you click **Applications** in the API Developer Portal, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
 
-     [![Same application subscribed for two APIs and combined subscription]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)]({{base_path}}/assets/img/Learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)
+     [![Same application subscribed for two APIs and combined subscription]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)
 
 6.  Unblock the API.
 
@@ -168,7 +168,7 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition warning">
          <p class="admonition-title">Warning</p>
-         <p>When [Gateway caching]({{base_path}}/GettingStarted/overview/#api-gateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.</p>
+         <p>When [Gateway caching]({{base_path}}/getting-started/overview/#api-gateway) is enabled, which is the case by default, the subscription unblocking will take place only after the token cache expires (the default token cache expiry time is 15min). However, if the token is regenerated after the API is unblocked, then the API will be unblocked immediately.</p>
          </div>
          </html>
 

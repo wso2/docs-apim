@@ -12,5 +12,5 @@ If you want to change it to listing view change `themes.light.custom.defaultApiV
 
 Changes done in the defaultTheme.js will be reflected directly in the devportal. ( It's not required to restart the server or rebuild the source code)
 
-![../../../../../assets/img/Learn/change-default-view.png](../../../../../assets/img/Learn/change-default-view.png)
+![../../../../../assets/img/learn/change-default-view.png](../../../../../assets/img/learn/change-default-view.png)
 

@@ -37,7 +37,7 @@ Following is the default configuration for carbon logs and the default values ca
      DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
      ```
    
-   The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/Administer/ProductAdministration/Monitoring/Logging/managing-log-growth) guide.
+   The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth) guide.
    
 ###Enable Logs for a Component
 
@@ -186,8 +186,8 @@ Following is a sample of gateway wire log for an API request.
 4.  Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/wso2carbon.log` file.
 
 ##HTTP Access Logs
-HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. Please see [Monitoring HTTP Access Logs]({{base_path}}/Administer/ProductAdministration/Monitoring/Logging/monitoring-http-access-logs/) for instructions on how to configure and use HTTP access logs in WSO2 API Manager.
+HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. Please see [Monitoring HTTP Access Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-http-access-logs/) for instructions on how to configure and use HTTP access logs in WSO2 API Manager.
 
 ##Audit Logs
-Audit logs are used for tracking the sequence of actions that affect a particular task carried out on the server. Please see [Monitoring Audit Logs]({{base_path}}/Administer/ProductAdministration/Monitoring/Logging/monitoring-audit-logs/) for instructions on how to configure and use audit logs in WSO2 API Manager.
+Audit logs are used for tracking the sequence of actions that affect a particular task carried out on the server. Please see [Monitoring Audit Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-audit-logs/) for instructions on how to configure and use audit logs in WSO2 API Manager.
 

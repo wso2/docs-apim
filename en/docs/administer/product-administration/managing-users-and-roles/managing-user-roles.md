@@ -4,10 +4,10 @@ Roles contain permissions for users to manage the server. They can be reused and
 
 Throughout this documentation, we use the following roles that are typically used in many enterprises. You can also define different user roles depending on your requirements.
 
--   <a name="admin-role">**admin:**</a> The API management provider who hosts and manages the [API Gateway]({{base_path}}/GettingStarted/overview/#api-gateway) and is responsible for creating users in the system, assigning them roles, managing databases, security, etc. The Admin role is also used to access the WSO2 Admin Portal ( `https://<APIM_Host>:<APIM_Port>/admin` ), where you can define workflow tasks, throttling policies, analytics configurations, etc. The Admin role is available by default with the credentials admin/admin. By default, this role contains all the permissions (including super admin permissions) in the permission tree.
--   <a name="creator-role">**creator:**</a> A creator is typically a person in a technical role who understands the technical aspects of the API (interfaces, documentation, versions etc.) and uses the [API publisher]({{base_path}}/GettingStarted/overview/#api-publisher) to provision APIs into the Developer Portal. The creator uses the Developer Portal to consult ratings and feedback provided by API users. Creator can add APIs to the Developer Portal but cannot manage their lifecycle. Governance permission gives a creator permission to govern, manage and configure the API artifacts.
+-   <a name="admin-role">**admin:**</a> The API management provider who hosts and manages the [API Gateway]({{base_path}}/getting-started/overview/#api-gateway) and is responsible for creating users in the system, assigning them roles, managing databases, security, etc. The Admin role is also used to access the WSO2 Admin Portal ( `https://<APIM_Host>:<APIM_Port>/admin` ), where you can define workflow tasks, throttling policies, analytics configurations, etc. The Admin role is available by default with the credentials admin/admin. By default, this role contains all the permissions (including super admin permissions) in the permission tree.
+-   <a name="creator-role">**creator:**</a> A creator is typically a person in a technical role who understands the technical aspects of the API (interfaces, documentation, versions etc.) and uses the [API publisher]({{base_path}}/getting-started/overview/#api-publisher) to provision APIs into the Developer Portal. The creator uses the Developer Portal to consult ratings and feedback provided by API users. Creator can add APIs to the Developer Portal but cannot manage their lifecycle. Governance permission gives a creator permission to govern, manage and configure the API artifacts.
 -   <a name="publisher-role">**publisher:**</a> A person in a managerial role and overlooks a set of APIs across the enterprise and controls the API lifecycle, subscriptions and monetization aspects. The publisher is also interested in usage patterns for APIs and has access to all API statistics.
--   <a name="subscriber-role">**subscriber:**</a> A user or an application developer who searches the [Developer Portal]({{base_path}}/GettingStarted/overview/#developer-portal) to discover APIs and use them. S/he reads the documentation and forums, ratings/comments on the APIs, subscribes to APIs, obtains access tokens and invokes the APIs.
+-   <a name="subscriber-role">**subscriber:**</a> A user or an application developer who searches the [Developer Portal]({{base_path}}/getting-started/overview/#developer-portal) to discover APIs and use them. S/he reads the documentation and forums, ratings/comments on the APIs, subscribes to APIs, obtains access tokens and invokes the APIs.
 
 Follow the instructions below to create the `creator` , `publisher` and `subscriber` roles in the API Manager for example.
 
@@ -30,24 +30,24 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 1.  Log in to the management console ( `https://<APIM_Host>:<APIM_Port>/carbon` ) as admin (default credentials are admin/admin).
 2.  In the **Main** menu, click **Add** under **Users and Roles**.
 
-    ![Add users and roles]({{base_path}}/assets/img/Administer/add-users-and-roles.png)
+    ![Add users and roles]({{base_path}}/assets/img/administer/add-users-and-roles.png)
 
 3.  Click **Add New Role**.
 
-    ![Add new role]({{base_path}}/assets/img/Administer/add-new-role.png)
+    ![Add new role]({{base_path}}/assets/img/administer/add-new-role.png)
 
 4.  Enter the name of the user role (e.g., `creator` ).
 
-    ![Enter role details]({{base_path}}/assets/img/Administer/enter-role-details.png)
+    ![Enter role details]({{base_path}}/assets/img/administer/enter-role-details.png)
     
-    In the Domain list, specify the user store where you want to create this role. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on how user stores (which are repositories storing information about users and roles) are set up and configured, see [Configuring User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores). Enter a unique name for this role (`creator`) and click **Next**.
+    In the Domain list, specify the user store where you want to create this role. This list includes the primary user store and any other secondary user stores that are configured for your product. For information on how user stores (which are repositories storing information about users and roles) are set up and configured, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores). Enter a unique name for this role (`creator`) and click **Next**.
 
     !!! tip
-            The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-secondary-user-stores/).
+            The **Domain** drop-down list contains all user stores configured in the system. By default, only the PRIMARY user store is configured. To configure secondary user stores, see [Configuring Secondary User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
 
 5.  The permissions page opens. 
 
-    ![Select role permissions]({{base_path}}/assets/img/Administer/permissions.png)
+    ![Select role permissions]({{base_path}}/assets/img/administer/permissions.png)
 
     Select the permissions according to the role that you create. The table below lists the permissions of the `creator` , `publisher` and `subscriber` roles which are available by default. 
     
@@ -71,7 +71,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
     <li>Manage &gt; Resources &gt; Govern and all underlying permissions</li>
     </ul></td>
     <td><div class="content-wrapper">
-    <img src="../../../../assets/img/Administer/creator-role-permissions.png" />
+    <img src="../../../../assets/img/administer/creator-role-permissions.png" />
     </div></td>
     </tr>
     <tr class="even">
@@ -81,7 +81,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
     <li>Manage &gt; API &gt; Publish</li>
     </ul></td>
     <td><div class="content-wrapper">
-    <img src="../../../../assets/img/Administer/publisher-role-permissions.png" />
+    <img src="../../../../assets/img/administer/publisher-role-permissions.png" />
     </div></td>
     </tr>
     <tr class="odd">
@@ -94,7 +94,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
     <br />
     </td>
     <td><div class="content-wrapper">
-    <img src="../../../../assets/img/Administer/subscriber-role-permissions.png" />
+    <img src="../../../../assets/img/administer/subscriber-role-permissions.png" />
     </div></td>
     </tr>
     </tbody>
@@ -112,7 +112,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 8. Click on **Edit as text**. 
 
-    ![Edit the Tenant conf file]({{base_path}}/assets/img/Administer/add-roles-to-tenant-conf.png)
+    ![Edit the Tenant conf file]({{base_path}}/assets/img/administer/add-roles-to-tenant-conf.png)
 
 9. Add the new role created above(`creator`) under **Roles** of all scopes that it should be assigned to as follows. 
 
@@ -159,19 +159,19 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 2. In the **Main** menu, click **List** under **Users and Roles**.
 
-    ![List users and roles]({{base_path}}/assets/img/Administer/list-users-and-roles.png)
+    ![List users and roles]({{base_path}}/assets/img/administer/list-users-and-roles.png)
 
 3. Click **Roles**.
 
-    ![List roles]({{base_path}}/assets/img/Administer/list-roles.png)
+    ![List roles]({{base_path}}/assets/img/administer/list-roles.png)
 
 4. If you need to do modifications to a role, select the domain (user store) under **Search Roles** > **Select Domain** where the role resides.
 
-    ![Select User Store Domains]({{base_path}}/assets/img/Administer/select-user-store-domains.png)
+    ![Select User Store Domains]({{base_path}}/assets/img/administer/select-user-store-domains.png)
 
     Then use the relevant links in the **Actions** column in the role listing to perform the following:
 
-    ![Edit or Delete roles]({{base_path}}/assets/img/Administer/edit-or-delete-roles.png)
+    ![Edit or Delete roles]({{base_path}}/assets/img/administer/edit-or-delete-roles.png)
 
     -   Rename the role
     -   Change the default permissions associated with this role
@@ -185,7 +185,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 #### Update before the first startup (recommended)
 
-The default role name of the Administrator, (`admin`) can be changed before starting WSO2 API Manager by editing `<API-M_HOME>/repository/conf/deployment.toml` file. For more information on configuring the system administrator, see [Configuring the System Administrator]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/configuring-the-system-administrator).
+The default role name of the Administrator, (`admin`) can be changed before starting WSO2 API Manager by editing `<API-M_HOME>/repository/conf/deployment.toml` file. For more information on configuring the system administrator, see [Configuring the System Administrator]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-the-system-administrator).
 
 Configure the property `admin_role` with your custom role (`administrator`) in the `deployment.toml` file as follows and start the server.
 
@@ -201,7 +201,7 @@ create_admin_account = true
 
 If you have already updated the role names before the first startup of the product, these steps are not necessary. The following steps guide you through updating the role names after you have used the product for some time.
 
-1.  Make the configuration changes indicated in [the above section]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/managing-user-roles/#update-before-the-first-startup-recommended).
+1.  Make the configuration changes indicated in [the above section]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/#update-before-the-first-startup-recommended).
 
 2.  Do the following user store level changes for existing users:
 
@@ -210,7 +210,7 @@ If you have already updated the role names before the first startup of the produ
     !!! info
             The schema can be located by referring to the data source `[database.shared_db]` defined in the `deployment.toml` file. The data source definition can also be found in the same file.
 
-    -   If you are connected to the `ReadWriteLdapUserStoreManager`, populate the members of the previous `admin` role to the new role under **Groups**. For more information, see [Configuring User Stores]({{base_path}}/Administer/ProductAdministration/ManagingUsersAndRoles/ManagingUserStores/introduction-to-userstores) .
+    -   If you are connected to the `ReadWriteLdapUserStoreManager`, populate the members of the previous `admin` role to the new role under **Groups**. For more information, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores) .
 
 3.  After the changes, **restart** the server.
 

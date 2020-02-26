@@ -19,7 +19,7 @@ Sign in to the Developer Portal.
 
 2. Click **ADD NEW APPLICATION**.
 
-      <a href="../../../../../assets/img/Learn/add-new-application-option.png" ><img src="../../../../../assets/img/Learn/add-new-application-option.png" alt="Add new application option" title="Add new application option" width="70%" /></a>
+      <a href="../../../../../assets/img/learn/add-new-application-option.png" ><img src="../../../../../assets/img/learn/add-new-application-option.png" alt="Add new application option" title="Add new application option" width="70%" /></a>
 
 3. Enter the application details.
 
@@ -35,7 +35,7 @@ Sign in to the Developer Portal.
      </table>
      </html>
 
-     <a href="../../../../../assets/img/Learn/create-oauth-application.png" ><img src="../../../../../assets/img/Learn/create-oauth-application.png" alt="Add oauth application" title="Add oauth application" width="70%" /></a>
+     <a href="../../../../../assets/img/learn/create-oauth-application.png" ><img src="../../../../../assets/img/learn/create-oauth-application.png" alt="Add oauth application" title="Add oauth application" width="70%" /></a>
 
 ### Step 3 - Generate a OAuth2 Opaque(Reference) token
 
@@ -47,15 +47,15 @@ Sign in to the Developer Portal.
 
 4. Click **Subscribe**.
 
-    <a href="../../../../../assets/img/Learn/subscribe-to-api.png" ><img src="../../../../../assets/img/Learn/subscribe-to-api.png" alt="Subscribe" title="Subscribe" width="70%" /></a>
+    <a href="../../../../../assets/img/learn/subscribe-to-api.png" ><img src="../../../../../assets/img/learn/subscribe-to-api.png" alt="Subscribe" title="Subscribe" width="70%" /></a>
 
 5. Click **PROD KEYS**, which corresponds to the OAuth Opaque token-based application.
 
-     <a href="../../../../../assets/img/Learn/view-credentials-list.png" ><img src="../../../../../assets/img/Learn/view-credentials-list.png" alt="View Credentials" title="View Credentials" width="70%" /></a>
+     <a href="../../../../../assets/img/learn/view-credentials-list.png" ><img src="../../../../../assets/img/learn/view-credentials-list.png" alt="View Credentials" title="View Credentials" width="70%" /></a>
 
 6. Click **Generate** to generate keys and access token.
 
-      <a href="../../../../../assets/img/Learn/opaque-access-token.png" ><img src="../../../../../assets/img/Learn/opaque-access-token.png" alt="Generate Tokens" title="Generate Tokens" width="70%" /></a>
+      <a href="../../../../../assets/img/learn/opaque-access-token.png" ><img src="../../../../../assets/img/learn/opaque-access-token.png" alt="Generate Tokens" title="Generate Tokens" width="70%" /></a>
 
 ### Step 4 - Invoke the API using the OAuth Access Token
 

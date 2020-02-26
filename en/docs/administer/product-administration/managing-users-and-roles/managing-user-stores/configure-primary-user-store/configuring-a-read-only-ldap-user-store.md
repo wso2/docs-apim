@@ -160,7 +160,7 @@ The configuration for the external read-only user store in the user-mgt.xml file
             ConnectionURL="ldaps://10.100.1.100:636"
             ```
     
-           -   For Active Directory, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores/) .
+           -   For Active Directory, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/) .
     
            -   You also need to [enable connection pooling](https://is.docs.wso2.com/en/5.9.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections) for LDAPS connections at the time of starting your server, which will enhance server performance.
     
@@ -253,7 +253,7 @@ username = "admin"
 admin_role = "admin"
 create_admin_account = true
 ```
-For information information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/Reference/ConfigCatalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption]({{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores/) .
+For information information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/ConfigCatalog/#super-admin-configurations) , and for information on how keystores are used in WSO2 products, see [Using Asymmetric Encryption]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/) .
 
 ### Step 3: Starting the server
 
@@ -309,7 +309,7 @@ Following are the minimum user store properties that are needed to be provided t
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="{{base_path}}/Administer/ProductSecurity/ConfiguringKeystores/KeystoreBasics/creating-new-keystores/">Using asymmetric encryption</a><br />
+<a href="{{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
 </p></td>
@@ -356,7 +356,7 @@ Any of the following properties can be configured for the `PRIMARY` user store b
  <td>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.
  <p>Default: uid<br />
  <br />
- Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/Administer/ProductSecurity/LoginsAndPasswords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login">Using email address as the username</a></p></td>
+ Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="{{base_path}}/administer/product-security/logins-and-passwords/maintaining-logins-and-passwords/#setting-up-an-e-mail-login">Using email address as the username</a></p></td>
  </tr>
  <tr class="even">
  <td>UserNameSearchFilter</td>

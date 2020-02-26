@@ -31,7 +31,7 @@ Let's take a look at the different levels of throttling:
 
 Subscription-level throttling tiers can be applied for an API when creating APIs using the API Publisher portal.
 
-![](../../assets/img/Learn/available-subscription-tiers-publisher.png)
+![](../../assets/img/learn/available-subscription-tiers-publisher.png)
 ###### Subscription-level Throttling tiers
 
 The default throttling tiers are as follows:
@@ -70,7 +70,7 @@ For each subscription level throttle key, a WS policy is created on demand. The
 
 After subscription-level throttling tiers are set and the API is published, at subscription time, the consumers of the API can sign in to the **Developer Portal** and select which tier (out of those enabled for subscribers) they are interested in, as shown below:
 
-![](../../assets/img/Learn/subscribe-application-tier.png)
+![](../../assets/img/learn/subscribe-application-tier.png)
 
 According to the selected tiers, the subscribers are granted a maximum number of requests to the API.
 
@@ -85,13 +85,13 @@ Advanced throttling policies are applied when you are Publishing an API. It can 
 
 API level policies can be engaged via the resources section of an API in the Publisher portal by selecting **API Level** under **Rate limitting level** as shown below.
 
-![](../../assets/img/Learn/api-level-advanced-policy.png)
+![](../../assets/img/learn/api-level-advanced-policy.png)
 
 ##### **Resource level(Operation level) Throttling**
 
 An API is made up of one or more resources. Each resource handles a particular type of request and is similar to a method (function) in a larger API. You can use this method when handling a large number of request at resource level such as Financial transactions. For example, Imagine API have two resources and one resource take more request than other you do not need to throttle it in API level in that case you can use this.  Resource-level throttling tiers are set to HTTP verbs of an API's  resources.  You can apply resource-level throttling through the **Resources** section of an API as shown below.
 
-![](../../assets/img/Learn/operation-level-advanced-policy.png)
+![](../../assets/img/learn/operation-level-advanced-policy.png)
 ##### Advanced Throttling tiers
 
 The default throttling tiers are as follows:
@@ -107,7 +107,7 @@ It is also possible to specify a bandwidth per unit time instead of a number of 
 
 Application-level throttling tiers are defined at the time an application is created in the API Store as shown below. The limits are restricted per token for a specific application.
 
-![](../../assets/img/Learn/application-create-policy.png)
+![](../../assets/img/learn/application-create-policy.png)
 An application is a logical collection of one or more APIs and is required to subscribe to an API. Applications allow you to use a single access token to invoke a collection of APIs and to subscribe to one API multiple times with different SLA levels.
 
 An application is available to a consumer at different levels of service. For example, if you have infrastructure limitations in facilitating more than a certain number of requests to an application at a time, the throttling tiers can be set accordingly so that the application can have a maximum number of requests within a defined time.

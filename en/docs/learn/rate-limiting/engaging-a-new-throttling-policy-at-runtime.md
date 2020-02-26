@@ -30,12 +30,12 @@ The steps below show how to engage a throttling policy to an API at runtime.
 
 2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and go to the **Resource &gt; Browse** menu to view the registry.
 
-    ![](../../assets/img/Learn/learn-throttling-runtime-browse.png)
+    ![](../../assets/img/learn/learn-throttling-runtime-browse.png)
 
 3.  Click the `/_system/goverence/apimgt/applicationdata` path to go to its detailed view.
-    ![](../../assets/img/Learn/learn-throttling-runtime-appdata.png)
+    ![](../../assets/img/learn/learn-throttling-runtime-appdata.png)
 4.  In the detail view, click **Add Resource** .
-    ![](../../assets/img/Learn/learn-throttling-runtime-addresource.png)
+    ![](../../assets/img/learn/learn-throttling-runtime-addresource.png)
 
 5.  Upload the policy file to the server as a registry resource.
 

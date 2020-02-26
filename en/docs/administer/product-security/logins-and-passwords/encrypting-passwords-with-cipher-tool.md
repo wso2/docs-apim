@@ -82,8 +82,8 @@ Follow the steps given below to have passwords encrypted using the automated pro
 
             ``` java
                             DataBridge.Config.keyStorePassword=repository/conf/data-bridge/data-bridge-config.xml//dataBridgeConfiguration/keyStorePassword,false
-                            Analytics.DASPassword=repository/conf/api-manager.xml//APIManager/Analytics/DASPassword,true
-                            Analytics.DASRestApiPassword=repository/conf/api-manager.xml//APIManager/Analytics/DASRestApiPassword,true
+                            Analytics.DASPassword=repository/conf/api-manager.xml//APIManager/analytics/DASPassword,true
+                            Analytics.DASRestApiPassword=repository/conf/api-manager.xml//APIManager/analytics/DASRestApiPassword,true
             ```
 
 

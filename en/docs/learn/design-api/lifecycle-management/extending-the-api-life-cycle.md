@@ -1,6 +1,6 @@
 # Extending the API Life Cycle
 
-APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. In previous API Manager versions, an API had a predefined life cycle consists of [six states]({{base_path}}/Learn/DesignAPI/LifecycleManagement/api-lifecycle/#api-lifecycle-states) which could not be customized or extended. From API Manager 1.10.0 onwards, you can extend the API life cycle with the WSO2 registry based life cycle in API Manager.
+APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. In previous API Manager versions, an API had a predefined life cycle consists of [six states]({{base_path}}/learn/design-api/lifecycle-management/api-lifecycle/#api-lifecycle-states) which could not be customized or extended. From API Manager 1.10.0 onwards, you can extend the API life cycle with the WSO2 registry based life cycle in API Manager.
 
 ## Default API Lifecycle in WSO2 API Manager
 
@@ -17,7 +17,7 @@ To see the default API life cycle configuration, follow the steps below.
 
 2.  Navigate to **Extensions &gt; Configure &gt; Lifecycles**.
 
-     ![]({{base_path}}/assets/img/Learn/api-lifecycle-veiw.png) 
+     ![]({{base_path}}/assets/img/learn/api-lifecycle-veiw.png) 
 
 3.  Click the **View/Edit** link corresponding to the API LifeCycle. T he default API life cycle configuration opens.
 
@@ -159,7 +159,7 @@ With the integration of the registry life cycle to the API life cycle of WSO2 AP
 
 Following are some extension points that can be used:
 
--   [Define your own life cycle states]({{base_path}}/Learn/DesignAPI/LifecycleManagement/customize-api-life-cycle/}) in the API life cycle
+-   [Define your own life cycle states]({{base_path}}/learn/design-api/lifecycle-management/customize-api-life-cycle/}) in the API life cycle
 -   Change the state transition events as per the environmental preferences
 -   Add custom checklist items for specific state transitions
 -   Change the execution code for each state transition

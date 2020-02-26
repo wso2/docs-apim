@@ -31,7 +31,7 @@ Example usecase:
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/enterprise-integrator/6.5.0).
 2.  Set an offset of 2 to the default BPS port in the `<EI_HOME>/wso2/business-process/conf/carbon.xml` file. 
 
-     This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/changing-the-default-ports-with-offset/).
+     This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset/).
 
     ``` java
     <Offset>2</Offset>
@@ -82,13 +82,13 @@ Example usecase:
     2. Upload the `<API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip` file to EI. 
         
          This is the business process archive file.
-         [![Upload BPEL archive file]({{base_path}}/assets/img/Learn/add-application-wf-BPEL.png)]({{base_path}}/assets/img/Learn/add-application-wf-BPEL.png)
+         [![Upload BPEL archive file]({{base_path}}/assets/img/learn/add-application-wf-BPEL.png)]({{base_path}}/assets/img/learn/add-application-wf-BPEL.png)
 
 7.  Click **Main** --> **Human Tasks** --> **Add** and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to EI. 
 
      This is the human task archived file.
 
-     [![Add human task package]({{base_path}}/assets/img/Learn/add-application-wf-humantask.png)]({{base_path}}/assets/img/Learn/add-application-wf-humantask.png)
+     [![Add human task package]({{base_path}}/assets/img/learn/add-application-wf-humantask.png)]({{base_path}}/assets/img/learn/add-application-wf-humantask.png)
 
 !!! tip
     **Before you begin**, if you have changed the API Manager's default user and role, make sure you do the following changes:
@@ -131,7 +131,7 @@ First, enable the application creation workflow.
 
 2. Click **Main** --> **Resources** --> **Browse**.
 
-    <a href="{{base_path}}/assets/img/Learn/add-application-wf-browse.png"><img src="{{base_path}}/assets/img/Learn/add-application-wf-browse.png" width="250" height="100"/></a>
+    <a href="{{base_path}}/assets/img/learn/add-application-wf-browse.png"><img src="{{base_path}}/assets/img/learn/add-application-wf-browse.png" width="250" height="100"/></a>
     
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor, and enable **WS Workflow Executor**. In addition, specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
 
@@ -165,13 +165,13 @@ First, enable the application creation workflow.
          
          Note that the **Status** field of the application states **INACTIVE (Waiting for approval)** if the BPEL is invoked correctly, indicating that the request is successfully submitted.
 
-         [![Application status is INACTIVE - Waiting for approval]({{base_path}}/assets/img/Learn/add-application-wf-inactive.png) ]({{base_path}}/assets/img/Learn/add-application-wf-inactive.png)
+         [![Application status is INACTIVE - Waiting for approval]({{base_path}}/assets/img/learn/add-application-wf-inactive.png) ]({{base_path}}/assets/img/learn/add-application-wf-inactive.png)
 
 4.  Sign in to the Admin Portal (`https://localhost:9443/admin`), list all the tasks for application creation and approve the task. 
 
      It resumes the BPEL process and completes the application creation.
      
-     [![Approve tasks]({{base_path}}/assets/img/Learn/add-application-wf-approve.png)]({{base_path}}/assets/img/Learn/add-application-wf-approve.png)
+     [![Approve tasks]({{base_path}}/assets/img/learn/add-application-wf-approve.png)]({{base_path}}/assets/img/learn/add-application-wf-approve.png)
 
 
 5.  Go back to the **Applications** page in the WSO2 Developer Portal and see the created application.

@@ -16,7 +16,7 @@ Changes done in the `defaultTheme.js` file are reflected directly in the Develop
 
 **If you do not have access to the file system** , you can upload the theme via the Admin Portal as shown below:
 
-1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/Learn/sampleTheme.zip). 
+1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/learn/sampleTheme.zip). 
 2.  The `sampleTheme.zip` file contains the following folder structure. 
 
      You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter, but the name of the JSON file (`defaultTheme.json`) does.
@@ -33,7 +33,7 @@ Changes done in the `defaultTheme.js` file are reflected directly in the Develop
 
 4.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file. 
 
-    ![Upload tenant theme]({{base_path}}/assets/img/Learn/upload-tenant-theme.png)
+    ![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
 
 5.  Access the API Developer Portal (`https://<server-host>:9443/devportal`) using your tenant username and password.
 

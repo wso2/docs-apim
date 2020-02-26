@@ -59,10 +59,10 @@ After configuring the custom attributes as shown in the previous step, you will 
 
 2. Click **Add Application**, to add a new application.
 
-    [![Add application button]({{base_path}}/assets/img/Learn/application-attributes-application-add.png)]({{base_path}}/assets/img/Learn/application-attributes-application-add.png)
+    [![Add application button]({{base_path}}/assets/img/learn/application-attributes-application-add.png)]({{base_path}}/assets/img/learn/application-attributes-application-add.png)
     
     You will see the configured custom attribute as shown below.
 
-    [![Custom application attributes]({{base_path}}/assets/img/Learn/application-attributes.png)]({{base_path}}/assets/img/Learn/application-attributes.png)
+    [![Custom application attributes]({{base_path}}/assets/img/learn/application-attributes.png)]({{base_path}}/assets/img/learn/application-attributes.png)
 
 3. Add the application details and click **SAVE**.

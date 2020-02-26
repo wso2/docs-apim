@@ -11,12 +11,12 @@ The scopes can be created and applied to an API resources at API create time. Pl
 
 1. Login to API Publisher (https://localhost:9443/publisher) 
 
-2. Start creating an API as described [here]({{base_path}}Learn/DesignAPI/CreateAPI/create-a-rest-api).
+2. Start creating an API as described [here]({{base_path}}learn/design-api/create-api/create-a-rest-api).
 
 3. Navigate to Scope section and click on create scope button.
 
-    <a href="../../../../../assets/img/Learn/start-creating-scope.png" ><img src="../../../.
-    ./../assets/img/Learn/start-creating-scope.png" alt="Start Creating a Scope" 
+    <a href="../../../../../assets/img/learn/start-creating-scope.png" ><img src="../../../.
+    ./../assets/img/learn/start-creating-scope.png" alt="Start Creating a Scope" 
          title="Start Creating a Scope" width="70%" /></a>
 
 4. In scope creation wizard, you will be prompted to enter a scope name, scope description and optionally, allowed roles and a description. Fill in required details of the scope and click **Save** button.
@@ -44,7 +44,7 @@ The scopes can be created and applied to an API resources at API create time. Pl
     </tbody>
     </table>
 
-    <a href="../../../../../assets/img/Learn/create-a-new-scope.png" ><img src="../../../../../assets/img/Learn/create-a-new-scope.png" alt="Create a Scope" 
+    <a href="../../../../../assets/img/learn/create-a-new-scope.png" ><img src="../../../../../assets/img/learn/create-a-new-scope.png" alt="Create a Scope" 
          title="Create a Scope" width="70%" /></a>
 
 ## Applying a Scope to an API Resource
@@ -53,12 +53,12 @@ A scopes has be applied to a resource, in order to restrict the access to a user
 
 1. Go to API Resource section and click on the resource you would like to apply the scope.
 
-    <a href="../../../../../assets/img/Learn/select-resource.png" ><img src="../../../../../assets/img/Learn/select-resource.png" alt="Select Resource" 
+    <a href="../../../../../assets/img/learn/select-resource.png" ><img src="../../../../../assets/img/learn/select-resource.png" alt="Select Resource" 
          title="Select Resource" width="70%" /></a>
 
 2. Select the created scope from the drop down and click on **Save** button to save changes.
 
-    <a href="../../../../../assets/img/Learn/apply-scope.png" ><img src="../../../../../assets/img/Learn/apply-scope.png" alt="Apply Scope" 
+    <a href="../../../../../assets/img/learn/apply-scope.png" ><img src="../../../../../assets/img/learn/apply-scope.png" alt="Apply Scope" 
          title="Apply Scope" width="70%" /></a>
 
 3. Publish the API.
@@ -71,27 +71,27 @@ When a scope has been assigned to an API resource, the access is getting restric
 
 2. Navigate to the API which has the scope protected API resource and go to Credential section to subscribe to an application.
 
-    <a href="../../../../../assets/img/Learn/subscribe-weatherapi.png" ><img src="../../../../../assets/img/Learn/subscribe-weatherapi.png" alt="Subscribe" 
+    <a href="../../../../../assets/img/learn/subscribe-weatherapi.png" ><img src="../../../../../assets/img/learn/subscribe-weatherapi.png" alt="Subscribe" 
          title="Subscribe" width="50%" /></a>
          
 3. Generate production keys for the application.
 
-    <a href="../../../../../assets/img/Learn/generate-app-keys.png" ><img src="../../../../../assets/img/Learn/generate-app-keys.png" alt="Generate App Keys" 
+    <a href="../../../../../assets/img/learn/generate-app-keys.png" ><img src="../../../../../assets/img/learn/generate-app-keys.png" alt="Generate App Keys" 
          title="Generate App Keys" width="60%" /></a>
 
 4. Click on **GENERATE ACCESS TOKEN** button. Then select the scope from the prompted window and generate the access token.
 
-    <a href="../../../../../assets/img/Learn/generate-access-token-with-scopes.png" ><img src="../../../../../assets/img/Learn/generate-access-token-with-scopes.png" alt="Generate App Keys" 
+    <a href="../../../../../assets/img/learn/generate-access-token-with-scopes.png" ><img src="../../../../../assets/img/learn/generate-access-token-with-scopes.png" alt="Generate App Keys" 
          title="Generate App Keys" width="50%" /></a>
 
 5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Unless, only the default scopes will be returned with the access token.
  
-    <a href="../../../../../assets/img/Learn/token-scopes.png" ><img src="../../../../../assets/img/Learn/token-scopes.png" alt="Token scopes" 
+    <a href="../../../../../assets/img/learn/token-scopes.png" ><img src="../../../../../assets/img/learn/token-scopes.png" alt="Token scopes" 
          title="Token Scopes" width="40%" /></a>   
          
 6. Invoke the API resource with the above generated access token. If the user is assigned with the authorized roles, the API invocation will be successful. An API resource access by an unauthorized user will be failed giving 403 Forbidden error.
 
-     <a href="../../../../../assets/img/Learn/unauthorized-access.png" ><img src="../../../../../assets/img/Learn/unauthorized-access.png" alt="Token scopes" 
+     <a href="../../../../../assets/img/learn/unauthorized-access.png" ><img src="../../../../../assets/img/learn/unauthorized-access.png" alt="Token scopes" 
          title="Token Scopes" width="50%" /></a>
 
 

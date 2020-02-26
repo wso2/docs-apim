@@ -78,7 +78,7 @@ In addition to the default indexes, you can write your own indexer implementatio
     |-----------------------------------------------|-----------------------------------------------------------------------------------------------------------|
     | `class`| Java class name of the indexer.                                                                           |
     | `mefiaTypeRegEx` | A regular expression (regex) pattern to match the media type.                                             |
-    | `profiles`| [API-M profiles]({{base_path}}/InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles/) in which the indexer is available. |
+    | `profiles`| [API-M profiles]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles/) in which the indexer is available. |
 
 4.  Restart the server. 
 

@@ -8,7 +8,7 @@ When the developer portal required to present corporate branding it’s a common
 3. Second description and the listing of APIs filtered by a given tag ( provided via the theme file ).
 4. Contact us section
 
- ![enable or disable home page](../../../../assets/img/Learn/enable-or-disable-home-page.png) 
+ ![enable or disable home page](../../../../assets/img/learn/enable-or-disable-home-page.png) 
 
 ## Landing page configuration options
 

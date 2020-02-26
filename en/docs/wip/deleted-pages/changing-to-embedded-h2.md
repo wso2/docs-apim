@@ -35,7 +35,7 @@ The following sections describe how to replace the default H2 database with Embe
 !!! tip
     Before you begin,
 
-    You need to set up Embedded H2 before following the instructions to configure your product with it. For more information, see [Setting up Embedded H2]({{base_path}}/InstallAndSetup/SettingUpDatabases/ChangingDefaultDatabases/changing-to-embedded-h2/).
+    You need to set up Embedded H2 before following the instructions to configure your product with it. For more information, see [Setting up Embedded H2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2/).
 
 
 ### Setting up datasource configurations

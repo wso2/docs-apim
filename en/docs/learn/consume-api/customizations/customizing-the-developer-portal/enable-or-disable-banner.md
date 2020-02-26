@@ -2,7 +2,7 @@
 
 The banner section is hidden by default. The banner section can use to show an announcement to developer portal users as follows. 
 
- ![enable or disable banner](../../../../assets/img/Learn/enable-or-disable-banner.png) 
+ ![enable or disable banner](../../../../assets/img/learn/enable-or-disable-banner.png) 
 
 You can show banner by changing themes.light.custom.banner.active to true as follows.
 

@@ -26,7 +26,7 @@ Here's a summary:
         </sequence>
         ```
 
-2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/Learn/DesignAPI/CreateAPI/create-a-rest-api/).
+2.  Log in to the **API Publisher**, create a new REST API with the information given in the table below by following the instructions in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 
     | Field         | Sample value         |
     |---------------|----------------------|
@@ -39,14 +39,14 @@ Here's a summary:
 3.  Navigate to the **Runtime Configurations** tab, enable the **Message Mediation** in Request flow. Engage the `In` 
 sequence that you created earlier and click **Save** .
 
-    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/token-exchange-seq-upload.png)
+    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/token-exchange-seq-upload.png)
       
 4. If the API is not in `PUBLISHED` state, go to **Lifecycle** tab, click **REDPLOY** to re-publish the API. 
 
 5. Go **Developer Portal**, subscribe and obtain a token to invoke the published API. 
 
     !!! tip
-        Follow the instructions in [here]({{base_path}}/Learn/ConsumeAPI/ManageApplication/GenerateKeys/ObtainAccessToken/application-access-tokens/) to generate an application access token.  
+        Follow the instructions in [here]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/application-access-tokens/) to generate an application access token.  
 
 6. Install any REST client in your machine. We use [cURL](http://curl.haxx.se/download.html) here.
 
@@ -73,6 +73,6 @@ the **`Authorization`** header.
 24. Note the response that you get in the command line. According to the sample backend used in this tutorial, 
 you get the response as "Request Received."  
 
-    [![]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/custom-header-response.png)]({{base_path}}/assets/img/Learn/APIGateway/MessageMediation/custom-header-response.png)
+    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/custom-header-response.png)
 
 In this tutorial, you passed a custom token that the backend expects along with the system-generated Authorization token, and invoked an API successfully by swapping the system's token with your custom token.

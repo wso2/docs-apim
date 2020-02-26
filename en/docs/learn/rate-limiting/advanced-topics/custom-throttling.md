@@ -25,6 +25,6 @@ For example, the following sample custom policy allows the admin user to send 5 
     INSERT ALL EVENTS into ResultStream;
 ```
 
-![](../../../assets/img/Learn/learn-throttling-custom-policy.png)
+![](../../../assets/img/learn/learn-throttling-custom-policy.png)
 
 As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.

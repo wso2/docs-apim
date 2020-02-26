@@ -126,10 +126,10 @@ nav:
                         - Changing the Default Token Expiration Time: learn/consume-api/manage-application/generate-keys/obtain-access-token/changing-the-default-token-expiration-time.md
                 - Sharing Applications: learn/consume-api/manage-application/sharing-applications/sharing-applications.md
                 - Advanced Topics:
-                        - Add Custom Attributes to Applications: learn/consume-api/manage-subscription/advanced-topics/add-custom-attributes-to-applications.md
-                        - Changing the Owner of an Application: learn/consume-api/manage-subscription/advanced-topics/changing-the-owner-of-an-application.md
-                        - Adding an Application Creation Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-application-creation-workflow.md
-                        - Adding an Application Key Generation Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-application-key-generation-workflow.md
+                        - Add Custom Attributes to Applications: learn/consume-api/manage-application/advanced-topics/add-custom-attributes-to-applications.md
+                        - Changing the Owner of an Application: learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application.md
+                        - Adding an Application Creation Workflow: learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow.md
+                        - Adding an Application Key Generation Workflow: learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
             - Manage Subscriptions:
                 - Subscribe to an API: learn/consume-api/manage-subscription/subscribe-to-an-api.md
                 - Advanced Topics:
@@ -144,8 +144,8 @@ nav:
                 -  Customizing the Developer Portal:
                     - Overriding Developer Portal Theme: learn/consume-api/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                     - Customize API Listing:
-                        - Categorizing and grouping APIs: learn/consume-api/customizations/customizing-the-developer-portal/CustomizeAPIListing/categorizing-and-grouping-apis.md
-                        - Change Default View: learn/consume-api/customizations/customizing-the-developer-portal/CustomizeAPIListing/change-default-view.md
+                        - Categorizing and grouping APIs: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis.md
+                        - Change Default View: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
                     - Enabling or disabling api detail tabs: learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
                     - Override API overview page per API: learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
                     - Enable or disable rating: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
