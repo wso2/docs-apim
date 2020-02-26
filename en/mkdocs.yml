@@ -362,7 +362,6 @@ nav:
                 - Changing to Oracle: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
                 - Changing to MariaDB: install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                 - Changing to IBM DB2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
-                - Changing to IBM Informix: install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-informix.md
                 - Changing to Remote H2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-remote-h2.md
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
         - Product Compatibility: install-and-setup/ProductCompatibility.md

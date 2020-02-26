@@ -35,4 +35,3 @@ management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
 -   [Changing to PostgreSQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql)
 -   [Changing to IBM DB2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
 -   [Changing to MariaDB]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
--   [Changing to Remote H2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-remote-h2)
