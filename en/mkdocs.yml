@@ -280,6 +280,7 @@ nav:
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
         - Tutorials:
             - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
+            - Create and Publish an AWS Lambda API: learn/tutorials/create-and-publish-awslambda-api.md
             - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
             - Create and Publish WebSocket API: learn/tutorials/create-and-publish-websocket-api.md
             - Edit and Consume APIs using Swagger Tools: learn/tutorials/edit-and-consume-apis-using-swagger-tools.md
