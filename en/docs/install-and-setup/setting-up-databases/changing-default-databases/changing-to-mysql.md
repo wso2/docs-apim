@@ -126,7 +126,7 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/mysql.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
+    `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database.
 
 !!! note
     Additional notes
