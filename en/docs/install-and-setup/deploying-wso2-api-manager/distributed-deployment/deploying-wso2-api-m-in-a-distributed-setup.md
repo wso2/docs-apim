@@ -117,13 +117,13 @@ This section involves setting up the Key Manager node and enabling it to work wi
     
         ``` java
         cd <API-M_HOME>/bin/
-        sh wso2server.sh -Dprofile=traffic-manager
+        sh wso2server.sh -Dprofile=api-key-manager
         ```
        
     -   [**Windows**](#windows)
         ``` java
         cd <API-M_HOME>\bin\
-        wso2server.bat --run -Dprofile=traffic-manager
+        wso2server.bat --run -Dprofile=api-key-manager
         ```
 
 !!! note
