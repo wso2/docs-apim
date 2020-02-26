@@ -79,7 +79,7 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
 
 -   Configure a WSO2 API Manager instance as the Key Manager in a separate server. See [Product Profiles](../../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/product-profiles).
 -   Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager).
--   Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager](../InstallAndSetup/DeployingWSO2APIManager/DistributedDeployment/configure-a-third-party-key-manager.md).
+-   Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager).
 
 #### Traffic Manager
 
