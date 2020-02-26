@@ -28,11 +28,10 @@ management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
 
 **Changing the default database:** You simply have to set up new physical databases, point the product server to the new databases by updating the relevant configuration files, and create the required tables using the scripts provided in the product pack. See the following topics for instructions:
 
--   [Changing to MySQL](ChangingDefaultDatabases/changing-to-mysql.md)
--   [Changing to Oracle](ChangingDefaultDatabases/changing-to-oracle.md)
--   [Changing to MSSQL](ChangingDefaultDatabases/changing-to-mssql.md)
--   [Changing to Oracle RAC](ChangingDefaultDatabases/changing-to-oracle-rac.md)
--   [Changing to PostgreSQL](ChangingDefaultDatabases/changing-to-postgresql.md)
--   [Changing to IBM DB2](ChangingDefaultDatabases/changing-to-ibm-db2.md)
--   [Changing to MariaDB](ChangingDefaultDatabases/changing-to-mariadb.md)
--   [Changing to Remote H2](ChangingDefaultDatabases/changing-to-remote-h2.md)
+-   [Changing to MySQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql)
+-   [Changing to Oracle]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle)
+-   [Changing to MSSQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql)
+-   [Changing to Oracle RAC]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac)
+-   [Changing to PostgreSQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql)
+-   [Changing to IBM DB2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
+-   [Changing to MariaDB]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
