@@ -47,7 +47,7 @@ Create the database and users in Informix. For instructions on creating the dat
 
 1. Unzip the WSO2 API Manager pack. Let's refer to it as `<API-M_HOME>`.
 
-1. Download the Informix JDBC driver.
+1. Download the [Informix JDBC driver](https://www.ibm.com/support/knowledgecenter/SSGU8G_12.1.0/com.ibm.jdbc_pg.doc/ids_jdbc_013.htm).
 
 1. Copy the file relevant JAR file for your JRE version to the `<API-M_HOME>/repository/components/lib/` directory in all the nodes of the cluster.
 
