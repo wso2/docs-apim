@@ -1,4 +1,4 @@
-# Enable or disable banner
+# Enable or Disable Banner
 
 The banner section is hidden by default. The banner section can use to show an announcement to developer portal users as follows. 
 
