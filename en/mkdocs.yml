@@ -362,7 +362,7 @@ nav:
                 - Changing to MariaDB: install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                 - Changing to IBM DB2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
-        - Product Compatibility: install-and-setup/ProductCompatibility.md
+        - Product Compatibility: install-and-setup/product-compatibility.md
         - Performance Tuning:
               - Tuning Performance: install-and-setup/perfromance-tuning-and-test-results/tuning-performance.md
         - Upgrading WSO2 API Manager:
