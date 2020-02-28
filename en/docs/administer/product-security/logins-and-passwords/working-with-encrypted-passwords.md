@@ -100,7 +100,7 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend, which is secured with [Digest]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend, which is secured with [Digest]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in the API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
 Follow the instructions below to secure the endpoint's password that is given in plain-text in the UI.
 
@@ -212,11 +212,11 @@ Follow the instructions below to change any password that you have already encry
     
     When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
-2.  When prompted, you as the administrator who is starting the server must provide the private key and keystore passwords using the command-line to proceed. 
+2.  When prompted, you as the administrator who is starting the server must provide the private key password and the keystore password using the command-line to proceed. 
 
      Note that passwords are hidden from the terminal and log files.
 
-    !!! Note
+    !!! Info
         During the server startup, it tries to connect to the default user store. In order to connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted with the key store password in order to proceed with the decryption.
         
 
@@ -239,7 +239,7 @@ If you start the WSO2 API Manager as a background job, you will not be able to p
 
 2.  Add the primary keystore password (which is `wso2carbon` by default) to the new file and save it. 
 
-     By default, the password provider assumes that both the private key and keystore passwords are the same. If not, the private key password must be entered in the second line of the file.
+     By default, the password provider assumes that both the private key password and keystore password are the same. If not, the private key password must be entered in the second line of the file.
 
 3. Start the server as a background process by running the following command.
 
