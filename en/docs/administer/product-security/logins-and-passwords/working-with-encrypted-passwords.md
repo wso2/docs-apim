@@ -1,6 +1,6 @@
 # Encrypting Passwords in Configuration Files
 
-All WSO2 products are shipped with a **Secure Vault** implementation that allows you to store encrypted passwords in configuration files. By default, the system user passwords, key store passwords etc in configuration files are stored in plain text, but storing sensitive data such as passwords in plaintext makes the data more susceptible to compromise.
+All WSO2 products are shipped with a **Secure Vault** implementation that allows you to store encrypted passwords in configuration files. By default, the system user passwords, key store passwords, etc. in configuration files are stored in plain text, but storing sensitive data such as passwords in plain text makes the data more susceptible to compromise.
 
 **Secure Vault** allows you to store encrypted passwords and map them with aliases, which are used in configuration files instead of the actual passwords. These encrypted passwords will be decrypted and resolved during runtime only.
 
@@ -11,9 +11,9 @@ The instructions below explain how plain text passwords in configuration files c
 
 ## Encrypting passwords in product configurations 
 
-1.  Open `<APIM_HOME>/repository/conf/deployment.toml` file. 
+1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
-2.  Add `[secrets]` configuration section and include the passwords which you need to protect in the format of `<alias>="[<actual_password>]"`, under `[secrets]` as shown below (The most commonly used passwords in configuration files are listed in the example configuration).
+2.  Add the `[secrets]` configuration section and include the passwords which you need to protect. Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
    
        
        ``` tab="Format"
@@ -30,9 +30,11 @@ The instructions below explain how plain text passwords in configuration files c
        truststrore_password = "[wso2carbon]"
        ```    
 
-3.  Locate the configurations with the plain text passwords in `<APIM_HOME>/repository/conf/deployment.toml` configuration file. Then replace them with `$secret(<alias>)` in order to refer the encrypted password instead of plain text password. Please note that the `alias` has to be the alias value configured in above step as the mapping of the actual password . 
+3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret(<alias>)` in order to refer to the encrypted password instead of the plain text password. 
 
-    Sample configuration for most commonly used passwords is given below.
+     Note that the `alias` has to be the alias value that you configured in the above step as the mapping of the actual password. 
+
+    The sample configuration for the most commonly used passwords is given below.
    
        ``` tab="Format"
        [super_admin]
@@ -60,17 +62,21 @@ The instructions below explain how plain text passwords in configuration files c
        password = "$secret{truststrore_password}"   
        ``` 
        
-    !!!Note
-        You can also replace your passwords by referring values passed by environment variables and system properties. See the instructions on [Set Passwords using Environment Variables/System Properties]({{base_path}}/administer/product-security/General/logins-and-passwords/set-passwords-using-vars-and-sys-props)
+    !!! Note
+        You can also replace your passwords by referring values passed by environment variables and system properties. For instructions, see [Set Passwords using Environment Variables/System Properties]({{base_path}}/administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props)
        
-4.  Open a terminal, navigate to the `<APIM_HOME>/bin` directory, and execute the following command to encrypt the passwords (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
+4.  Encrypt the passwords.
+    1. Open a terminal and navigate to the `<APIM_HOME>/bin` directory.
+    2. Execute the following command to encrypt the passwords. (You must first enable the Cipher tool for the product by executing the `-Dconfigure` command with the cipher tool script as shown below).
 
-    * On Linux: `./ciphertool.sh -Dconfigure`
-    * On Windows: `./ciphertool.bat -Dconfigure`
+        * On Linux: `./ciphertool.sh -Dconfigure`
+        * On Windows: `./ciphertool.bat -Dconfigure`
 
-5.  Then you will be prompted to enter the internal key store password for the server. When prompted, enter the primary key password, which is by default `wso2carbon` and proceed. 
+    You will be prompted to enter the internal key store password for the server. 
 
-    If the encryption is successful, you will see the following log.
+5.  When prompted, enter the primary key password, which is by default `wso2carbon` and proceed. 
+
+     If the encryption is successful, you will see the following log.
 
     ```java
     Internal KeyStore of Carbon Server is initialized Successfully
@@ -78,7 +84,9 @@ The instructions below explain how plain text passwords in configuration files c
     Secret Configurations are written to the property file successfully
     ```
 
-6.  Go back to the `<APIM_HOME>/repository/conf/deployment.toml` file and see that the alias passwords are encrypted.
+6.  Open to the `<APIM_HOME>/repository/conf/deployment.toml` file.
+    
+     You will see that the alias passwords are encrypted.
 
     ```toml
     [secrets]
@@ -88,31 +96,33 @@ The instructions below explain how plain text passwords in configuration files c
     truststrore_password  = "FEQvzFCYpJfuD9XYb0H4KW/lZICu7vaPMzC02kIIbMy47q1q68QxIdOAwQxv+wiRAI/fQIxX6ygTjWV+3bjYmP1Mj0qrhx6CeH6L467ISIHT8oTdecqq5kcGqMEBanexQ7Wu/ULeiiaGLA4x9OXHgJsKd9x3yf6Vm56FzmVkUM5+HAX6pYpBSEFuDKJprhlJtvrEN//nGb0p342g4CqG9VqW3UFbkQaawmItSd9pMnBlDM6+STmiDBUFrV7gdJfrCzGnJs7QBl20Kxg5aznNkwnpJ3bEwj3Trkzsxujk1wMOnhk5XvwdeKRevkX8MyHrnUICyXZ6TK0po1wrYZjYvw=="
     ```
 
-7.  Please refer [Resolving already encrypted passwords during server startup](#resolving-already-encrypted-passwords-during-server-startup) in order to resolve the passwords during different modes of server startup.
+    To resolve the passwords during different modes of server startup, see [Resolving already encrypted passwords during server startup](#resolving-already-encrypted-passwords-during-server-startup).
 
 ## Encrypting secured endpoint passwords
 
-When exposing an API backend which is secured with [Digest](({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth)) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) Authentication, the backend user credentials has to be provided under endpoint configuration. These credentials are encoded in base64 and stored in API configuration as Basic Authorization header(`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
+When exposing an API backend, which is secured with [Digest]({{base_path}}/learn/design-api/endpoints/endpoint-security/digest-auth) or [Basic]({{base_path}}/learn/design-api/endpoints/endpoint-security/basic-auth) Authentication, the backend user credentials have to be provided under endpoint configuration. These credentials are encoded in base64 and stored in API configuration as Basic Authorization header (`Authorization: Basic base64Encode(<username>:password)`). By default, the Authorization header value is stored in plain text.
 
-The steps below show how to secure the endpoint's password that is given in plain-text in the UI.
+Follow the instructions below to secure the endpoint's password that is given in plain-text in the UI.
 
 1.  Shut down the server if it is already running.
 
-2.  Open `<APIM_HOME>/repository/conf/deployment.toml` file and add following configuration to enable secureVault in API Manager. 
+2.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file and add the following configuration to enable secure vault in API Manager. 
 
     ```toml
     [apim]
     enable_secure_vault=true
     ```
 
-3.  Run the cipher tool script, which is available in the `<APIM_HOME>/bin` directory. 
+3.  Run the Cipher tool script, which is available in the `<APIM_HOME>/bin` directory. 
 
      * On Linux/Mac OS: `./ciphertool.sh -Dconfigure`
      * On Windows: `./ciphertool.bat -Dconfigure`
 
-4.  Then you will be prompted to enter the internal key store password for the server. When prompted, enter the primary key password, which is `wso2carbon` by default and proceed. 
+     You will be prompted to enter the internal key store password for the server. 
 
-    If the encryption is successful, you will see the following log.
+4.  When prompted, enter the primary key password, which is by default `wso2carbon`. 
+
+     If the encryption is successful, you will see the following log.
 
     ```java
     Internal KeyStore of Carbon Server is initialized Successfully
@@ -125,11 +135,13 @@ The steps below show how to secure the endpoint's password that is given in plai
      * On Linux/Mac OS: `./wso2server.sh`
      * On Windows: `./wso2server.bat`
      
-After enabling the backend secure vault for backend credentials, the Basic Authentication header which is written to the API gateway configuration file(Which can be found in `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory) will be encrypted. For APIs which were already created and published before this step was performed, an update to the particular API would trigger the encryption process of the credentials. 
+After enabling the backend secure vault for backend credentials, the Basic Authentication header which is written in the API Gateway configuration file, which can be found in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/api` directory, will be encrypted. If there were APIs that were already created and published before these instructions were performed, an update to the particular API would trigger the encryption process of the credentials. 
 
-For an example, see below for example of the same API when endpoint password is not encrypted and encrypted:
+Example:
 
-Here, the Basic authentication header is in bas464 encoded format and can be decoded to get the actual credentials of the en
+The following example depicts the same API when the endpoint password is not encrypted and encrypted:
+
+Here, the Basic authentication header is in base64 encoded format and can be decoded to get the actual credentials of the endpoint.
 
 ``` xml
 <property name="Authorization" expression="fn:concat('Basic ', 'dGVzdDp0ZXN0MTIz')" scope="transport"/>
@@ -145,15 +157,17 @@ Here, the password is first looked up from the secret repository, and then set a
 
 ## Changing already encrypted passwords
 
-To change any password which we have encrypted already, follow the below steps:
+Follow the instructions below to change any password that you have already encrypted:
 
-1.  Be sure to shut down the server.
-2.  Open a command prompt and go to the MI_HOME/bin/ directory, where the cipher tool scripts (for Windows and Linux) are stored.
+1.  Shut down the server.
+2.  Open a command prompt and go to the `<API-M_HOME>/bin/` directory, where the Cipher tool scripts (for Windows and Linux) are stored.
 3.  Execute the following command for your OS:
     * On Linux: `./ciphertool.sh -Dchange`
     * On Windows: `./ciphertool.bat -Dchange`
-4.  It will prompt for the internal keystore password. Enter the keystore password (which is "wso2carbon" for the default keystore).
-5.  The alias values of all the passwords that you encrypted will now be shown in a numbered list as follows.
+    You will be prompted to enter the internal keystore password.
+4.  Enter the keystore password (which is "wso2carbon" for the default keystore).
+    
+     The alias values of all the passwords that you encrypted will now be shown in a numbered list as follows.
 
     ```bash
     Internal KeyStore of Carbon Server is initialized Successfully
@@ -164,13 +178,18 @@ To change any password which we have encrypted already, follow the below steps:
     [4] truststrore_password
     [Please enter the Number which is corresponding to the Password that is needed be changed [Press Enter to Skip] : ]
     ```
-6.  The system will then prompt you to select the alias of the password which you want to change. Enter the list number of the password alias.
+     
+     The system will then prompt you to select the alias of the password which you want to change. 
 
-    For example, if you want to change the password for `admin_password`, enter `3`. 
+5.  Enter the list number of the password alias.
+
+     For example, if you want to change the password for `admin_password`, enter `3`. 
+
+     The system will then prompt you (twice) to enter the new password.
     
-7.  The system will then prompt you (twice) to enter the new password. Enter your new password.
+6.  Enter your new password.
 
-8.  If the encryption is successful, you will get `Encryption is done Successfully` message.
+     If the encryption is successful, you will get the `Encryption is done Successfully` message.
 
 ## Resolving already encrypted passwords during server startup
 
@@ -180,8 +199,8 @@ To change any password which we have encrypted already, follow the below steps:
 -   [Start server as a background job](#start-server-as-a-background-job)
 
 !!! Note
-    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/administer/product-configurations/configuring-keystores-in-wso2-api-manager/) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
-    handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. Read more about [Secure Vault concepts]({{base_path}}/administer/product-security/General/logins-and-passwords/carbon-secure-vault-implementation)
+    If you have secured the plain text passwords in configuration files using Secure Vault, the keystore password and private key password of the product's [primary keystore]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager) will serve as the root passwords for Secure Vault. This is because the keystore passwords are needed to initialise the values encrypted by the **Secret Manager** in the **Secret Repository**. Therefore, the **Secret Callback 
+    handler** is used to resolve these passwords. The default secret CallbackHandler provides the two options given below. For more information on secure vault concepts, see [Secure Vault concepts]({{base_path}}/administer/product-security/logins-and-passwords/carbon-secure-vault-implementation/#elements-of-the-secure-vault-implementation).
 
 
 ### Enter password in command-line
@@ -191,10 +210,14 @@ To change any password which we have encrypted already, follow the below steps:
     * On Linux: `./wso2server.sh`
     * On Windows: `./wso2server.bat`
     
-2.  When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`. When this is prompted, the administrator starting the server must provide the private key and keystore passwords using the command-line to proceed. Note that passwords are hidden from the terminal and log files.
+    When you run the startup script, the following message will be prompted before starting the server: `[Enter KeyStore and Private Key Password:]`.
 
-    !!!Note
-        During the server startup, it tries to connect to default user store. In order to connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted with key store password in order to proceed with the decryption.
+2.  When prompted, you as the administrator who is starting the server must provide the private key and keystore passwords using the command-line to proceed. 
+
+     Note that passwords are hidden from the terminal and log files.
+
+    !!! Note
+        During the server startup, it tries to connect to the default user store. In order to connect to the default user store, the encrypted passwords should be decrypted. Therefore, the server admin will be prompted with the key store password in order to proceed with the decryption.
         
 
 ### Start server as a background job
@@ -203,8 +226,8 @@ If you start the WSO2 API Manager as a background job, you will not be able to p
 
 1.  Create a new file in the <APIM_HOME> directory. The file should be named according to your OS as explained below.
 
-    * For Linux: The file name should be `password-tmp`.
-    * For Windows: The file name should be `password-tmp.txt`.
+    * For Linux: The file name should be `password-tmp`
+    * For Windows: The file name should be `password-tmp.txt`
 
     !!! Note
         When you start the server, the keystore password will be picked from this new file. Note that this file is automatically deleted from the file system after the server starts. Therefore, the admin has to create a new text file every time the server starts.
@@ -214,9 +237,11 @@ If you start the WSO2 API Manager as a background job, you will not be able to p
         * For Linux: The file name should be `password-persist`
         * For Windows: The file name should be `password-persist.txt`
 
-2.  Add the primary keystore password (which is `wso2carbon` by default) to the new file and save. By default, the password provider assumes that both private key and keystore passwords are the same. If not, the private key password must be entered in the second line of the file.
+2.  Add the primary keystore password (which is `wso2carbon` by default) to the new file and save it. 
 
-3. Now, start the server as a background process by running the following command.
+     By default, the password provider assumes that both the private key and keystore passwords are the same. If not, the private key password must be entered in the second line of the file.
+
+3. Start the server as a background process by running the following command.
 
     * On Linux: `./wso2server.sh start`
     * On Windows: `./wso2server.bat start`
