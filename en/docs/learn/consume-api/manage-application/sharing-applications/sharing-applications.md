@@ -73,8 +73,6 @@ Share an application with multiple users who are in the same group or who are in
     !!! note
         - You can enter one group ID or multiple group IDs based on the groups with which you wish to share the application.
 
-        - If you have [enabled group sharing](#enabling-application-sharing), but if you have not entered a group ID in the **Groups** section, WSO2 API-M will automatically share the application with the users who are in the same organization that you are in because they are considered as part of the same group.
-
     [![Create an application]({{base_path}}/assets/img/learn/application-sharing.png)]({{base_path}}/assets/img/learn/application-sharing.png)
 
 ## Using application sharing
