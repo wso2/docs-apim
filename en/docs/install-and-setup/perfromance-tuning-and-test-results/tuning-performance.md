@@ -32,28 +32,28 @@ Following are the configurations that can be applied to optimize the OS-level pe
 1.  To optimize network and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
 
     !!! info
-            It is not recommended to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
+        It is not recommended to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
 
 
     ``` java
-     net.ipv4.tcp_fin_timeout = 30
-     fs.file-max = 2097152
-     net.ipv4.tcp_tw_recycle = 1
-     net.ipv4.tcp_tw_reuse = 1
-     net.core.rmem_default = 524288
-     net.core.wmem_default = 524288
-     net.core.rmem_max = 67108864
-     net.core.wmem_max = 67108864
-     net.ipv4.tcp_rmem = 4096 87380 16777216
-     net.ipv4.tcp_wmem = 4096 65536 16777216
-     net.ipv4.ip_local_port_range = 1024 65535      
+    net.ipv4.tcp_fin_timeout = 30
+    fs.file-max = 2097152
+    net.ipv4.tcp_tw_recycle = 1
+    net.ipv4.tcp_tw_reuse = 1
+    net.core.rmem_default = 524288
+    net.core.wmem_default = 524288
+    net.core.rmem_max = 67108864
+    net.core.wmem_max = 67108864
+    net.ipv4.tcp_rmem = 4096 87380 16777216
+    net.ipv4.tcp_wmem = 4096 65536 16777216
+    net.ipv4.ip_local_port_range = 1024 65535      
     ```
 
 2.  To alter the number of allowed open files for system users, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character).
 
     ``` java
-     * soft nofile 4096
-     * hard nofile 65535
+    * soft nofile 4096
+    * hard nofile 65535
     ```
 
     Optimal values for these parameters depend on the environment.
@@ -61,8 +61,8 @@ Following are the configurations that can be applied to optimize the OS-level pe
 3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character). Each carbon server instance you run would require upto 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each carbon server (both hard and soft).
 
     ``` java
-     * soft nproc 20000
-     * hard nproc 20000
+    * soft nproc 20000
+    * hard nproc 20000
     ```
 
 ## JVM-level settings
@@ -72,7 +72,7 @@ When an XML element has a large number of sub-elements and the system tries to p
 To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/wso2server.bat` file (for Windows) or the `<API-M_HOME>/bin/wso2server.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
 
 ``` java
- -DentityExpansionLimit=10000
+-DentityExpansionLimit=10000
 ```
 
 In a clustered environment, the entity expansion limit has no dependency on the number of worker nodes.
@@ -85,7 +85,7 @@ In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. T
 <Valve className="org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve" threshold="600"/>
 ```
 
--   The `className` is the Java class used for the implementation. Set it to `org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve` .
+-   The `className` is the Java class used for the implementation. Set it to `org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve`.
 -   The `threshold` gives the minimum duration in seconds after which a thread is considered stuck. The default value is 600 seconds.
 
 ## APIM-level settings
@@ -117,9 +117,9 @@ The following diagram shows the communication/network paths that occur when an A
 
 -   **Client call API Gateway + API Gateway call Backend**
     For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the EI documentation. To configure socket timeout value, add following to the `deployment.toml`
-            ```java
-             [passthru_http]
-             http.socket.timeout=180000
+            ``` java
+            [passthru_http]
+            http.socket.timeout=180000
             ```
 
     !!! info
@@ -353,7 +353,7 @@ Some general APIM-level recommendations are listed below:
 <p>Set the following in the <code>               &lt;API-M_HOME&gt;/repository/conf/deployment.toml              </code> file.</p>
 <div class="admonition info">
     <p class="admonition-title">Info</p>
-    <p>If you use WSO2 Identity Server (WSO2 IS) as the Key Manager, then the root location of the above path and the subsequent path needs to change from <code>               &lt;API-M_HOME&gt;              </code> to <code>               &lt;IS_HOME&gt;              </code> .</p>
+    <p>If you use WSO2 Identity Server (WSO2 IS) as the Key Manager, then the root location of the above path and the subsequent path needs to change from <code>               &lt;API-M_HOME&gt;              </code> to <code>               &lt;IS_HOME&gt;</code>.</p>
 </div>
 
 
@@ -395,8 +395,8 @@ validationQuery = "SELECT 2"
 The registry indexing process is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to add the following in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```java
- [indexing]
- enable = false
+[indexing]
+enable = false
 ```
 
 ### Registry Caching based configurations
