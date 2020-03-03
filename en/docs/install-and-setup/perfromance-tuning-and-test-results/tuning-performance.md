@@ -402,18 +402,6 @@ The registry indexing process is only required to be run on the API Publisher an
 enable = false
 ```
 
-### Registry Caching based configurations
-
-When Registry caching is enabled, it requires a unique ID in order to cache the resources. The getConnectionId method gets called in the latter mentioned situation order to retrieve the username of the connection. In the case of some database vendors, the getConnectionId method makes a database call to fetch the latter mentioned information. Such a database call is a massive overhead because the getConnectionId method frequently gets called. Therefore, it is recommended to avoid those database calls in order to improve the performance.
-
-Follow the instructions below to avoid those database calls and improve the performance during Registry Caching.
-
-1. Add the following JVM parameter in the `<API-M_HOME>/bin/wso2server.sh` (for Linux/Mac OS) or `<API-M_HOME>/bin/wso2server.bat` (for Windows OS) file based on your OS and save the file.
-   `
-   -Dcarbon.registry.database.connectionid.avoiddbcalls=true
-   `
-2. Restart the WSO2 API Manager server.
-
 ## Throttle data and Analytics-related settings
 
 This section describes the parameters you need to configure to tune the performance of API-M Analytics and Throttling when it is affected by high load, network traffic, etc. You need to tune these parameters based on the deployment environment.
