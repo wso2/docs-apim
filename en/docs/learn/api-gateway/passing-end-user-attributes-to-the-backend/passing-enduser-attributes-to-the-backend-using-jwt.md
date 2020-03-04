@@ -76,7 +76,7 @@ Before passing end-user attributes, you need to enable and configure the JWT imp
 <p>By default, the <code>claims_extractor_impl</code> parameter is commented out in the <code>deployment.toml</code> file. Enable it to add all user claims in the JWT token:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
-<pre class="xml" data-syntaxhighlighter-params="brush: xml; gutter: false; theme: Confluence" data-theme="Confluence" style="brush: xml; gutter: false; theme: Confluence"><code>claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever"</code></pre>
+<code>claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever"</code>
 </div>
 </div>
 <p>By default, the following are encoded to the JWT:</p>
@@ -125,7 +125,7 @@ if the <code>getClaims</code> method returns <code>{email:user1@wso2.com, gender
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>apim.jwt.claims_extractor_impl</code> element defined above.</p>
-<p>The JWT token contains all claims define in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get a list of users to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT token.</p>
+<p>The JWT token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
 </tr>
@@ -159,26 +159,34 @@ Follow the instructions below if you want to pass additional attributes to the b
     import org.wso2.carbon.apimgt.keymgt.dto.APIKeyValidationInfoDTO;
     import org.wso2.carbon.apimgt.keymgt.token.JWTGenerator;
     import org.wso2.carbon.apimgt.api.*;
+    
     import java.util.Map;
-
+    
     public class CustomTokenGenerator extends JWTGenerator {
-
         public Map<String, String> populateStandardClaims(TokenValidationContext validationContext)
-                    throws APIManagementException {
-                Map claims = super.populateStandardClaims(keyValidationInfoDTO);
-                String dialect = getDialectURI();
-                if (claims.get(dialect + "/enduser") != null) {
-                        String enduser = claims.get(dialect + "/enduser");
-                        if (enduser.endsWith("@carbon.super")) {
-                            enduser = enduser.replace("@carbon.super", "");
-                            claims.put(dialect + "/enduser", enduser);
+                throws APIManagementException {
+            Map<String, String> claims = super.populateStandardClaims(validationContext);
+            boolean isApplicationToken =
+                    validationContext.getValidationInfoDTO().getUserType().equalsIgnoreCase(APIConstants.ACCESS_TOKEN_USER_TYPE_APPLICATION) ? true : false;
+            String dialect = getDialectURI();
+            if (claims.get(dialect + "/enduser") != null) {
+                if (isApplicationToken) {
+                    claims.put(dialect + "/enduser", "null");
+                    claims.put(dialect + "/enduserTenantId", "null");
+                } else {
+                    String enduser = claims.get(dialect + "/enduser");
+                    if (enduser.endsWith("@carbon.super")) {
+                        enduser = enduser.replace("@carbon.super", "");
+                        claims.put(dialect + "/enduser", enduser);
                     }
                 }
-                return claims;
+            }
+            return claims;
         }
-
-        public Map populateCustomClaims(APIKeyValidationInfoDTO keyValidationInfoDTO, String apiContext, String version, String accessToken)
-                throws APIManagementException {
+    
+    
+    
+        public Map<String, String> populateCustomClaims(TokenValidationContext tokenValidationContext) throws APIManagementException {
             Long time = System.currentTimeMillis();
             String text = "This is custom JWT";
             Map map = new HashMap();
@@ -189,7 +197,9 @@ Follow the instructions below if you want to pass additional attributes to the b
     }
     ```
 
-2.  Build your class and add the JAR file to the `<API-M_HOME>/repository/components/lib` directory.
+     Click here for a sample [Custom JWT Generator](https://github.com/wso2/samples-apim/tree/master/CustomJWTGenerator).
+
+2.  [Build your class](https://dzone.com/articles/custom-jwt-generator-in-wso2-api-manager) and add the JAR file to the `<API-M_HOME>/repository/components/lib` directory.
 
 3.  Add your class in the `apim.jwt.generator_impl` element of the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
