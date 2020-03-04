@@ -1,6 +1,6 @@
 # Tuning Performance
 
-This section describes some recommended performance tuning configurations to optimize WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment. WSO2 also recommends [a distributed API Manager setup]({{base_path}}/install-and-setup/deploying-wso2-api-manager/deployment-patterns/) for most production systems. Out of all components of an API Manager distributed setup, the API Gateway is the most critical, because it handles all inbound calls to APIs. Therefore, WSO2 recommends that you have at least a 2-node cluster of API Gateways in a distributed setup.
+This section describes some recommended performance tuning configurations to optimize WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment.
 
 -   [OS-level settings](#os-level-settings)
 -   [JVM-level settings](#jvm-level-settings)
@@ -397,7 +397,7 @@ validationQuery = "SELECT 2"
 
 ### Registry indexing configurations
 
-The registry indexing process is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to add the following configuration section in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+The registry indexing process, which indexes the APIs in the Registry, is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to add the following configuration section in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```java
 [indexing]
