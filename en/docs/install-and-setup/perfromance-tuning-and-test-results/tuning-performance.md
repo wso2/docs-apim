@@ -49,6 +49,8 @@ Following are the configurations that can be applied to optimize the OS-level pe
     net.ipv4.ip_local_port_range = 1024 65535      
     ```
 
+    For more information on the above configurations, see [sysctl](https://wiki.archlinux.org/index.php/Sysctl).
+
 2.  To alter the number of allowed open files for system users, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character).
 
     ``` java
