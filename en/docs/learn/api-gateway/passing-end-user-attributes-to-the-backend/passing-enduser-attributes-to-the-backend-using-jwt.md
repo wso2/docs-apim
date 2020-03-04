@@ -125,7 +125,7 @@ if the <code>getClaims</code> method returns <code>{email:user1@wso2.com, gender
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>apim.jwt.claims_extractor_impl</code> element defined above.</p>
-<p>The JWT token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get a list of user claims to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT token.</p>
+<p>The JWT token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
 </tr>
