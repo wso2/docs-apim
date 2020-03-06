@@ -1,5 +1,5 @@
 
-# AI based Recommendation System for the API Developer portal
+# AI based Recommendation System for the Developer portal
 
 ## API Marketplace
 
@@ -24,20 +24,21 @@ With this feature, we are addressing the two issues mentioned above.
 
 - Find the best audience for the API, whom will be really interested in the APIs capabilities and use it in their
  applications,
- - Recommending APIs based on the application developers interests and the application that they are creating.
+- Recommending APIs based on the application developers interests and the application that they are creating.
 
 Using AI technologies, this feature will analyze the behavior of the developer, application that he or she is 
 developing and suggest a list of new APIs that are not subscribed by the user but might be useful for the project. 
 In order to recommend effectively, there must be at least 20 APIs in the portal.
 
-![](../assets/img/api-recommendations.png)
-
 ## Solution
-Recommendation server will be deployed in WSO2 and will be provided to all the customers as a service. This service 
-is OAuth2 protected and if you want to use this feature in your developer portal, APIM team will provide access to 
-the recommendations API. Once the recommendations feature is activated, recommendation feature related events will be 
-published to this recommendations API. When a user logs in to the developer portal, recommended APIs based on that 
-portal will be sent from the service and that APIs will be listed.
+Recommendation service is available as a SaaS service for all wso2 customers and secured via oauth2. If a specific 
+customer requires to enable this feature, they will have to request a consumer key and secret via the wso2 support 
+portal. Once the recommendations feature is activated, recommendation feature related events will be 
+published to this recommendations API. The recommendation service analyzes all the information and runs through its 
+algorithm to find the most suitable API recommendations for the logged-in user. These APIs will then be listed in the 
+devportal similar to the following image.
+
+![](../assets/img/api-recommendations.png)
 
 ## To API Publishers
 If you want your API to be discovered by a larger audience, try to be descriptive when adding details of the API. 
@@ -78,7 +79,7 @@ apply_for_all_tenants = false
  recommendations in all the developer portals and if you need to apply the recommendation feature only for selected 
  tenants, add false here. 
 
-### Enable recommendations feature for a specific tenant
+### Enable recommendations feature only for a specific tenant
 
 1. Add `apply_for_all_tenants = false` in deployment.toml under `[apim.devportal.recommendations]`
 2. Start the WSO2 API Manager server.
