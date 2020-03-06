@@ -268,6 +268,7 @@ nav:
                 - Configuring Geolocation Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
                 - Writing a Custom Geolocation Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
                 - Updating Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md
+            - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
             - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: learn/analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
