@@ -11,10 +11,10 @@ This concept is equally valid for API domain.
 
 WSO2 API Manager Developer Portal is a marketplace for APIs. API publishers (Sellers) will publish their APIs 
 through the Publisher and those APIs will be listed in the developer portal. Application Developers (Consumers) can 
-login to the portal to choose and subscribe which APIs to leverage in their applications. The only difference between 
-a product marketplace and an API marketplace is that, the products in API marketplaces (APIs) are constantly updating 
-with new features, new capabilities and new use cases. How successful are we, when marketing a new feature of an API 
-to the correct audience, when there are thousands of APIs in the marketplace?
+login to the portal to choose and subscribe which APIs to leverage in their applications. The products in API 
+marketplaces (APIs) are constantly updating with new features, new capabilities and new use cases. How successful are we, 
+when marketing a new API or a new feature of an existing API to the correct audience, when there are thousands of APIs 
+in the marketplace?
 
 Solution-seeking App developers know that they want APIs for their application, but they aren’t sure what the best 
 solution is for their needs. There are thousands of different APIs and the developer has to pick the APIs of interest 
@@ -22,8 +22,8 @@ by browsing through the APIs or searching with a particular information associat
 
 With this feature, we are addressing the two issues mentioned above.  
 
-- Find the best audience for the API, whom will be really interested in the APIs capabilities and use it in their
- applications,
+- Have a better visibility to the API and Find the best audience for the API, whom will be really interested in the
+ APIs capabilities and use it in their applications.
 - Recommending APIs based on the application developers interests and the application that they are creating.
 
 Using AI technologies, this feature will analyze the behavior of the developer, application that he or she is 
