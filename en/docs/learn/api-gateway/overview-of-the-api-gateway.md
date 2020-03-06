@@ -1,7 +1,5 @@
 # Overview of the API Gateway
 
-WSO2 API Manager is a fully open-source and is released under [Apache 2.0 License](http://www.apache.org/licenses/LICENSE-2.0.html), one of the most business-friendly licenses available today. It provides Web interfaces for development teams to deploy and monitor APIs, and for consumers to subscribe to, discover and consume APIs through a user-friendly Developer Portal. 
-
 [![API-M overview](../../assets/img/learn/apim-overview.png)](../../assets/img/learn/apim-overview.png)
 
 **WSO2 API Gateway** which is powered by [WSO2 EI](https://docs.wso2.com/display/EI650/WSO2+Enterprise+Integrator+Documentation) provides a runtime, backend component (an API proxy) for API calls.

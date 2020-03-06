@@ -163,9 +163,8 @@ To deploy BPELs in an API Manager tenant space, the tenant space should be acces
 
 #### Creating a BPEL
 
-In this section, you create a BPEL that has service endpoints pointing to services hosted in the tenant's space. This example uses the [Application Creation](https://docs.wso2.com/api-manager/Workflow%3A+Application+Creation) workflow.
+In this section, you create a BPEL that has service endpoints pointing to services hosted in the tenant's space. This example uses the [Application Creation]({{base_path}}/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow/) workflow.
 
-1.  Set a port offset of 2 to the EI using the `<EI_HOME>/repository/conf/carbon.xml` file. This prevents any port conflicts when you start more than one WSO2 products on the same server.
 
 2.  Log in to the API Manager's management console ( `https://localhost:9443/carbon` ) and create a tenant using the **Configure -&gt; Multitenancy** menu.
     ![]({{base_path}}/assets/attachments/103334719/103334732.png)

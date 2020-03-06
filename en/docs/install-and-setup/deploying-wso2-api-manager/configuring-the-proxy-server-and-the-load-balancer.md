@@ -476,7 +476,7 @@ sudo service nginx restart
 
 When using a load balancer, you need to configure the proxy host and the port to be able to work with the Proxy Server configuration.
 
-To do that add the foolowing to the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
+To do that add the following to the `<API-M_HOME>/repository/conf/deployment.toml` file as shown below.
 
 ```java
 [transport.https.properties]

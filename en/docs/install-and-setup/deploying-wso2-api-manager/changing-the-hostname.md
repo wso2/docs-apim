@@ -31,7 +31,7 @@ By default, WSO2 products identify the hostname of the current machine through t
 
 2.  Generate a key store, export the public certificate from the keystore, and import that certificate to the `client­-truststore.jks` file.
     
-     For more information, see [Creating New Keystores]({{base_path}}/administer/product-security/UsingAsymmetricEncryption/creating-new-keystores/).
+     For more information, see [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/).
 
 3.  Restart the server.
 

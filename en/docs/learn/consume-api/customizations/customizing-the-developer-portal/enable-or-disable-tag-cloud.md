@@ -1,4 +1,4 @@
-# Enable or disable tag cloud
+# Enable or Disable Tag Cloud
 
 The tag cloud is enable by default. You can disable tag cloud by changing themes.light.custom.tagCloud.active to false as follows.
 
