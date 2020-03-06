@@ -1,4 +1,4 @@
-# Enable or disable api detail tabs
+# Enable or Disable API Detail Tabs
 
 When you go to the API detials page all the links ( credentials, comments, tryout, sdks, documents) tabs are displayed. You can enable or disable them by configuring defaultTheme.js.
 

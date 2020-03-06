@@ -1,4 +1,4 @@
-# Enable or disable rating
+# Enable or Disable Rating
 
 The star traing is enable by default. You can disable star rating by changing themes.light.custom.social.showRating to false as follows.
 

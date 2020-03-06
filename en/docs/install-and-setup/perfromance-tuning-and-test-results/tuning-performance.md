@@ -1,21 +1,21 @@
 # Tuning Performance
 
-This section describes some recommended performance tuning configurations to optimize the WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment. We also recommend [a distributed API Manager setup]({{base_path}}/install-and-setup/deploying-wso2-api-manager/deployment-patterns/) for most production systems. Out of all components of an API Manager distributed setup, the API Gateway is the most critical, because it handles all inbound calls to APIs. Therefore, we recommend you to have at least a 2-node cluster of API Gateways in a distributed setup.
+This section describes some recommended performance tuning configurations to optimize WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment.
 
 -   [OS-level settings](#os-level-settings)
 -   [JVM-level settings](#jvm-level-settings)
 -   [WSO2 Carbon platform-level settings](#wso2-carbon-platform-level-settings)
 -   [APIM-level settings](#apim-level-settings)
--   [Throttle data and Analytics-related settings](#throttle-data-and-analytics-related-settings)
+-   [Rate limit data and Analytics-related settings](#rate-limit-data-and-analytics-related-settings)
 
 !!! warning
-    Performance tuning requires you to modify important system files, which affect all programs running on the server. We recommend you to familiarize yourself with these files using Unix/Linux documentation before editing them.
+    Performance tuning requires you to modify important system files, which affect all programs running on the server. WSO2 recommends that you familiarize yourself with these files using Unix/Linux documentation before editing them.
 
 !!! info
-    The values we discuss here are general recommendations. They might not be the optimal values for the specific hardware configurations in your environment. We recommend you to carry out load tests on your environment to tune the API Manager accordingly.
+    The values that WSO2 discusses here are general recommendations. They might not be the optimal values for the specific hardware configurations in your environment. WSO2 recommends that you carry out load tests on your environment to tune the API Manager accordingly.
 
 
-#### OS-level settings
+## OS-level settings
 
 When it comes to performance, the OS that the server runs plays an important role.
 
@@ -32,81 +32,85 @@ Following are the configurations that can be applied to optimize the OS-level pe
 1.  To optimize network and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
 
     !!! info
-            It is not recommended to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
+        It is **not recommended** to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.
 
 
     ``` java
-     net.ipv4.tcp_fin_timeout = 30
-     fs.file-max = 2097152
-     net.ipv4.tcp_tw_recycle = 1
-     net.ipv4.tcp_tw_reuse = 1
-     net.core.rmem_default = 524288
-     net.core.wmem_default = 524288
-     net.core.rmem_max = 67108864
-     net.core.wmem_max = 67108864
-     net.ipv4.tcp_rmem = 4096 87380 16777216
-     net.ipv4.tcp_wmem = 4096 65536 16777216
-     net.ipv4.ip_local_port_range = 1024 65535      
+    net.ipv4.tcp_fin_timeout = 30
+    fs.file-max = 2097152
+    net.ipv4.tcp_tw_recycle = 1
+    net.ipv4.tcp_tw_reuse = 1
+    net.core.rmem_default = 524288
+    net.core.wmem_default = 524288
+    net.core.rmem_max = 67108864
+    net.core.wmem_max = 67108864
+    net.ipv4.tcp_rmem = 4096 87380 16777216
+    net.ipv4.tcp_wmem = 4096 65536 16777216
+    net.ipv4.ip_local_port_range = 1024 65535      
     ```
+
+    For more information on the above configurations, see [sysctl](https://wiki.archlinux.org/index.php/Sysctl).
 
 2.  To alter the number of allowed open files for system users, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character).
 
     ``` java
-     * soft nofile 4096
-     * hard nofile 65535
+    * soft nofile 4096
+    * hard nofile 65535
     ```
 
     Optimal values for these parameters depend on the environment.
 
-3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character). Each carbon server instance you run would require upto 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each carbon server (both hard and soft).
+3.  To alter the maximum number of processes your user is allowed to run at a given time, configure the following settings in the `/etc/security/limits.conf` file of Linux (be sure to include the leading \* character). Each Carbon server instance you run would require upto 1024 threads (with default thread pool configuration). Therefore, you need to increase the nproc value by 1024 per each Carbon server (both hard and soft).
 
     ``` java
-     * soft nproc 20000
-     * hard nproc 20000
+    * soft nproc 20000
+    * hard nproc 20000
     ```
 
-#### JVM-level settings
+## JVM-level settings
 
-When an XML element has a large number of sub elements and the system tries to process all the sub elements, the system can become unstable due to a memory overhead. This is a security risk.
+When an XML element has a large number of sub-elements and the system tries to process all the sub-elements, the system can become unstable due to a memory overhead. This is a security risk.
 
 To avoid this issue, you can define a maximum level of entity substitutions that the XML parser allows in the system. You do this using the `entity expansion limit` as follows in the `<API-M_HOME>/bin/wso2server.bat` file (for Windows) or the `<API-M_HOME>/bin/wso2server.sh` file (for Linux/Solaris). The default entity expansion limit is 64000.
 
 ``` java
- -DentityExpansionLimit=10000
+-DentityExpansionLimit=10000
 ```
 
 In a clustered environment, the entity expansion limit has no dependency on the number of worker nodes.
 
-#### WSO2 Carbon platform-level settings
+## WSO2 Carbon platform-level settings
 
-In multitenant mode, the WSO2 Carbon runtime limits the thread execution time. That is, if a thread is stuck or taking a long time to process, Carbon detects such threads, interrupts and stops them. Note that Carbon prints the current stack trace before interrupting the thread. This mechanism is implemented as an Apache Tomcat valve. Therefore, it should be configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file as shown below.
+In multi-tenant mode, the WSO2 Carbon runtime limits the thread execution time. That is, if a thread is stuck or taking a long time to process, Carbon detects such threads, interrupts, and stops them. Note that Carbon prints the current stack trace before interrupting the thread. This mechanism is implemented as an Apache Tomcat valve. Therefore, it should be configured in the `<PRODUCT_HOME>/repository/conf/tomcat/catalina-server.xml` file as shown below.
 
 ``` xml
 <Valve className="org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve" threshold="600"/>
 ```
 
--   The `className` is the Java class used for the implementation. Set it to `org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve` .
+-   The `className` is the Java class used for the implementation. Set it to `org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve`.
 -   The `threshold` gives the minimum duration in seconds after which a thread is considered stuck. The default value is 600 seconds.
 
-#### APIM-level settings
+## APIM-level settings
 
 -   [Timeout configurations for an API call](#timeout-configurations-for-an-api-call)
 -   [General APIM-level recommendations](#general-apim-level-recommendations)
 -   [Registry indexing configurations](#registry-indexing-configurations)
 -   [Tuning data-agent parameters](#tuning-data-agent-parameters)
 
-##### Timeout configurations for an API call
+### Timeout configurations for an API call
 
 The following diagram shows the communication/network paths that occur when an API is called. The timeout configurations for each network call are explained below.
 
 ![]({{base_path}}/assets/img/setup-and-install/gateway-to-keymanager-ws-call.png)
 
 !!! info
-    The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JWT tokens. From WSO2 API Manager 3.0.0 onwards, JWT tokens are the default token type for applications. As JWT tokens are self-contained access tokens, the Key Manager is not needed to validate the token and the token is validated from the Gateway.
+    The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JWT tokens. From WSO2 API Manager 3.0.0 onwards, JWT tokens are the default token type for applications. As JWT tokens are self-contained access tokens, the Key Manager is not needed to validate the token, and the token is validated from the Gateway.
     
 -   **Key validation**
+
     Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
 
+    ```
     <transportSender name="https" class="org.apache.axis2.transport.http.CommonsHTTPTransportSender">
         <parameter name="SO_TIMEOUT">60000</parameter>
         <parameter name="CONNECTION_TIMEOUT">60000</parameter>
@@ -116,25 +120,26 @@ The following diagram shows the communication/network paths that occur when an A
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
 
 -   **Client call API Gateway + API Gateway call Backend**
-    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the EI documentation. To configure socket timeout value, add following to the `deployment.toml`
-            ```java
-             [passthru_http]
-             http.socket.timeout=180000
+
+    For backend communication, the API Manager uses PassThrough transport. This is configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring passthru properties](https://docs.wso2.com/display/EI650/Tuning+the+HTTP+Transport) in the WSO2 Enterprise Integrator documentation. Add the following section to the `deployment.toml` file to configure the Socket timeout value.
+            ``` java
+            [passthru_http]
+            http.socket.timeout=180000
             ```
 
     !!! info
-        Note that the default value for `http.socket.timeout` differs between WSO2 products. In WSO2 API-M, the default value for `http.socket.timeout` is 180000ms.
+        The default value for `http.socket.timeout` differs between WSO2 products. In WSO2 API-M, the default value for `http.socket.timeout` is 180000ms.
 
 
-##### General APIM-level recommendations
+### General APIM-level recommendations
 
 Some general APIM-level recommendations are listed below:
 
 <table>
 <thead>
 <tr class="header">
-<th>Improvement Area</th>
-<th>Performance Recommendations</th>
+<th><b>Improvement Area</b></th>
+<th><b>Performance Recommendations</b></th>
 </tr>
 </thead>
 <tbody>
@@ -163,7 +168,7 @@ Some general APIM-level recommendations are listed below:
 <tr class="even">
 <tr class="odd">
 <td>PassThrough transport of API Gateway</td>
-<td><p>Recommended values for the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file are given below. Note that the commented out values in this file are the default values that will be applied if you do not change anything.These properties need to be added under <code>[passthru_http]</code> file.</p>
+<td><p>Recommended values for the <code>&lt;API-M_HOME&gt;/repository/conf/deployment.toml</code> file are given below. Note that the commented out values in this file are the default values that will be applied if you do not change anything. These properties need to be added under <code>[passthru_http]</code> file.</p>
 <p><strong>Property descriptions</strong></p>
 <div class="table-wrap">
 <table>
@@ -193,7 +198,7 @@ Some general APIM-level recommendations are listed below:
 </tr>
 <tr class="odd">
 <td><code>'http.connection.timeout'</code></td>
-<td>Defines a maximum time period to establish a connection with the remote host. The <code>http.connection.timeout</code> and the <code>http.socket.timeout</code>, which is explained below, are two different configuration definitions used to handle connection time out and read timeout for sockets respectively. 
+<td>Defines a maximum time period to establish a connection with the remote host. The <code>http.connection.timeout</code> and the <code>http.socket.timeout</code>, which is explained below, are two different configuration definitions used to handle connection time out and read timeout for Sockets respectively. 
 </td>
 </tr>
 <tr class="even">
@@ -206,10 +211,10 @@ Some general APIM-level recommendations are listed below:
 </div>
 <p><strong>Recommended values</strong></p>
 <ul>
-<li><p><code>                worker_thread_keepalive_sec:               </code> Default value is 60s. This should be less than the socket timeout.</p></li>
-<li><p><code>                worker_pool_queue_length:               </code> Set to -1 to use an unbounded queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs will fail, causing some messages to be dropped by Synapse. The thread pool starts queuing jobs when all the existing threads are busy and the pool has reached the maximum number of threads. So, the recommended queue length is -1.</p></li>
+<li><p><code>                worker_thread_keepalive_sec:               </code> Default value is 60s. This should be less than the Socket timeout.</p></li>
+<li><p><code>                worker_pool_queue_length:               </code> Set to -1 to use an unbounded queue. If a bound queue is used and the queue gets filled to its capacity, any further attempts to submit jobs will fail, causing some messages to be dropped by Synapse. The thread pool starts queuing jobs when all the existing threads are busy and when the pool has reached the maximum number of threads. So, the recommended queue length is -1.</p></li>
 <li><p><code>                io_threads_per_reactor:               </code> Value is based on the number of processor cores in the system. (<code>Runtime.getRuntime().availableProcessors()</code>)</p></li>
-<li><p><code>                'http.max.connection.per.host.port' :               </code> Default value is 32767, which works for most systems but you can tune it based on your operating system (for example, Linux supports 65K connections).</p></li>
+<li><p><code>                'http.max.connection.per.host.port' :               </code> Default value is 32767, which works for most systems, but you can tune it based on your operating system (for example, Linux supports 65K connections).</p></li>
 <li><code>               core_worker_pool_size: 400              </code></li>
 <li><code>               max_worker_pool_size: 500              </code></li>
 <li><code>               io_buffer_size: 16384              </code></li>
@@ -227,7 +232,7 @@ Some general APIM-level recommendations are listed below:
 <td>Timeout configurations</td>
 <td><div class="content-wrapper">
 <p>The API Gateway routes the requests from your client to an appropriate endpoint. The most common reason for your client getting a timeout is when the Gateway's timeout is larger than the client's timeout values. You can resolve this by either increasing the timeout on the client's side or by decreasing it on the API Gateway's side.</p>
-<p>Here are a few parameters, in <strong>addition to the timeout parameters discussed in the previous sections</strong> .</p>
+<p>Here are a few parameters, in <strong>addition to the timeout parameters discussed in the previous sections</strong>.</p>
 <div class="table-wrap">
 <table>
 <colgroup>
@@ -258,7 +263,7 @@ Some general APIM-level recommendations are listed below:
 <p>You can define timeouts per endpoint for different backend services, along with the action to be taken in case of a timeout.</p>
 <p>You can set this through the Publisher UI by following the steps below:</p>
 <ol>
-<li>Log in to the API Publisher ( <code>                      https://&lt;HostName&gt;:9443/publisher                     </code> ). Select your API and click <strong>Endpoints</strong> .</li>
+<li>Sign in to the API Publisher (<code>https://&lt;HostName&gt;:9443/publisher</code>). Select your API and click <strong>Endpoints</strong>.</li>
 <li>Click the cogwheel icon next to the endpoint you want to re-configure.</li>
 <li><p>In the <strong>Advanced Settings</strong> dialog box that appears, increase the duration by modifying the default property set as 3000 ms.</p>
 
@@ -275,7 +280,7 @@ Some general APIM-level recommendations are listed below:
 </div>
 <div class="admonition warning">
      <p class="admonition-title">Warning</p>
-<p>If your API is marked as the default version</a> , it has a different template (without the version number) that comes with a pre-defined timeout for the endpoint. This timeout does not change with the changes you do to the API by editing the Advanced Endpoint Configuration. Therefore, if this predefined timeout (60 seconds) is less than the actual API timeout, it triggers the timeout before the actual configured API timeout.</p>
+<p>If your API is marked as the default version</a>, it has a different template (without the version number) that comes with a predefined timeout for the endpoint. This timeout does not change with the changes you do to the API by editing the Advanced Endpoint Configuration. Therefore, if this predefined timeout (60 seconds) is less than the actual API timeout, it triggers the timeout before the actual configured API timeout.</p>
 <p>To overcome this, update the <code>                     default_api_template.xml                    </code> residing in the <code>                     &lt;API-M_HOME&gt;/repository/resources/api_templates                    </code> directory by removing the endpoint timeout configuration from the default API. Then, the APIs marked as the default version also trigger the timeout when the actual API timeout is met.</p>
 <p>Follow the steps below to update the <code>                     default_api_template.xml                    </code> to remove the endpoint configuration for the default APIs.</p>
 <div class="admonition tip">
@@ -320,10 +325,10 @@ Some general APIM-level recommendations are listed below:
 </div>
 <div class="admonition info">
     <p class="admonition-title">Info</p>
-    <p>By adding this configuration, you ensure that the APIs marked as the default version never timeout or are suspended using the endpoint configration defined in the synapse file of the API.</p>
+    <p>By adding this configuration, you ensure that the APIs marked as the default version never timeout or are suspended using the endpoint configuration defined in the synapse file of the API.</p>
 </div></li>
 
-<li><p>Go to the API Publisher and republish the default API by clicking <strong>Save and Publish</strong> .</p></li>
+<li><p>Go to the API Publisher and republish the default API by clicking <strong>Save and Publish</strong>.</p></li>
 </ol>
 </div>
 </div></td>
@@ -353,7 +358,7 @@ Some general APIM-level recommendations are listed below:
 <p>Set the following in the <code>               &lt;API-M_HOME&gt;/repository/conf/deployment.toml              </code> file.</p>
 <div class="admonition info">
     <p class="admonition-title">Info</p>
-    <p>If you use WSO2 Identity Server (WSO2 IS) as the Key Manager, then the root location of the above path and the subsequent path needs to change from <code>               &lt;API-M_HOME&gt;              </code> to <code>               &lt;IS_HOME&gt;              </code> .</p>
+    <p>If you use WSO2 Identity Server (WSO2 IS) as the Key Manager, then the root location of the above path and the subsequent path needs to change from <code>               &lt;API-M_HOME&gt;              </code> to <code>               &lt;IS_HOME&gt;</code>.</p>
 </div>
 
 
@@ -384,28 +389,28 @@ validationQuery = "SELECT 2"
 </code></pre>
 </div>
 </div>
-<p>Note that you set the <code>               &lt;testOnBorrow&gt;              </code> element to <code>               true              </code> and provide a validation query (e.g., in Oracle, <code>               SELECT 1 FROM DUAL              </code> ), which is run to refresh any stale connections in the connection pool. Set a suitable value for the <code>               &lt;validationInterval&gt;              </code> element, which defaults to 30000 milliseconds. It determines the time period after which the next iteration of the validation query will be run on a particular connection. It avoids excess validations and ensures better performance.</p>
+<p>Note that you set the <code>               &lt;testOnBorrow&gt;              </code> element to <code>               true              </code> and provide a validation query (e.g., in Oracle, <code>               SELECT 1 FROM DUAL              </code> ), which is run to refresh any stale connections in the connection pool. Set a suitable value for the <code>               &lt;validationInterval&gt;              </code> element, which defaults to 30000 milliseconds. It determines the time period, after which the next iteration of the validation query will be run on a particular connection. It avoids excess validations and ensures better performance.</p>
 </div></td>
 </tr>
 </tbody>
 </table>
 
-##### Registry indexing configurations
+### Registry indexing configurations
 
-The registry indexing process is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to following in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+The registry indexing process, which indexes the APIs in the Registry, is only required to be run on the API Publisher and Developer Portal nodes. To disable the indexing process from running on the other nodes (Gateways and Key Managers), you need to add the following configuration section in the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
 ```java
- [indexing]
- enable = false
+[indexing]
+enable = false
 ```
 
-#### Throttle data and Analytics-related settings
+## Rate limit data and Analytics-related settings
 
-This section describes the parameters you need to configure to tune the performance of API-M Analytics and Throttling when it is affected by high load, network traffic etc. You need to tune these parameters based on the deployment environment.
+This section describes the parameters you need to configure to tune the performance of API-M Analytics and rate-limiting when it is affected by high load, network traffic, etc. You need to tune these parameters based on the deployment environment.
 
-##### Tuning data-agent parameters
+### Tuning data-agent parameters
 
-The following parameters should be configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. Note that there are two sub-sections related to  **Thrift** and **Binary** .
+The following parameters should be configured in the `<API-M_HOME>/repository/conf/deployment.toml` file. Note that there are two sub-sections related to  **Thrift** and **Binary**.
 
 ``` java
 [transport.thrift.agent]
@@ -414,15 +419,15 @@ The following parameters should be configured in the `<API-M_HOME>/repository/co
 [transport.binary.agent]
 :
 ```
-The Thrift section is related to Analytics and the Binary section is related to Throttling. Same set of parameters mentioned below can be found in both sections. The parameter descriptions and recommendations are intended towards the for performance tuning of Analytics, but the same recommendations are relevant for Throttling data related tuning in the Binary section. Note that the section for Thrift is relevant only if Analytics is enabled.
+The Thrift section is related to Analytics, and the Binary section is related to rate limiting. The same set of parameters mentioned below can be found in both sections. The parameter descriptions and recommendations are intended towards the performance tuning of Analytics, but the same recommendations are relevant for rate limiting data related tuning in the Binary section. Note that the section for Thrift is relevant only if Analytics is enabled.
 
 <table>
 <thead>
 <tr class="header">
-<th>Parameter</th>
-<th>Description</th>
-<th>Default Value</th>
-<th>Tuning Recommendation</th>
+<th><b>Parameter</b></th>
+<th><b>Description</b></th>
+<th><b>Default Value</b></th>
+<th><b>Tuning Recommendation</b></th>
 </tr>
 </thead>
 <tbody>
@@ -431,8 +436,8 @@ The Thrift section is related to Analytics and the Binary section is related to 
 <td>The number of messages that can be stored in WSO2 API-M at a given time before they are published to the Analytics Server.</td>
 <td>32768</td>
 <td><div class="content-wrapper">
-<p>This value should be increased when the Analytics Server is busy due to a request overload or if there is high network traffic. This prevents the generation of the  <code>   <b> queue full, dropping message </b>             </code> error.</p>
-<p>When the Analytics server is not very busy and when the network traffic is relatively low, the queue size can be reduced to avoid an overconsumption of memory.</p>
+<p>This value should be increased when the Analytics Server is busy due to a request overload or if there is high network traffic. This prevents the generation of the <code><b>queue full, dropping message</b></code> error.</p>
+<p>When the Analytics server is not very busy and when the network traffic is relatively low, the queue size can be reduced to avoid overconsumption of memory.</p>
 
 <div class="admonition info">
     <p class="admonition-title">Info</p>
@@ -445,7 +450,16 @@ The Thrift section is related to Analytics and the Binary section is related to 
 <td><code>             batch_size            </code></td>
 <td>The WSO2 API-M statistical data sent to the Analytics Server to be published in the Analytics Dashboard are grouped into batches. This parameter specifies the number of requests to be included in a batch.</td>
 <td>200</td>
-<td>This value should be tuned in proportion to the volume of requests sent from WSO2 API-M to the Analytics Server. This value should be reduced if you want to reduce the system overhead of the Analytics Server. This value should be increased if WSO2 API-M is generating a high amount of statistics and if the <code>             queue_size            </code> cannot be further increased without causing an overconsumption of memory.</td>
+<td>The batch size should be tuned in proportion to the volume of requests sent from WSO2 API-M to the Analytics Server.
+<ul>
+<li>
+<b>Increase the batch size</b> - If WSO2 API-M is generating a high amount of statistics and if the <code>queue_size</code> cannot be further increased without causing overconsumption of memory.
+</li>
+<li>
+<b>Reduce the batch size</b> - If you want to reduce the system overhead of the Analytics Server.
+</li>
+</ul>
+</td>
 </tr>
 <tr class="odd">
 <td><code>             core_pool_size            </code></td>
@@ -465,16 +479,14 @@ The Thrift section is related to Analytics and the Binary section is related to 
 <td>250</td>
 <td>This value must be increased when there is an increase in the throughput of events handled by WSO2 API-M Analytics.<br />
 <br />
-The value of the <code>             tcpMaxWorkerThreads            </code> parameter in the <code>             &lt;APIM-ANALYTICS_HOME&gt;/repository/conf/data-bridge/data-bridge-config.xml            </code> must change based on the value specified for this parameter and the number of data publishers publishing statistics. e.g., When the value for this parameter is <code>             250            </code> and the number of data publishers is 7, the value for the <code>             tcpMaxWorkerThreads            </code> parameter must be <code>             1750            </code> (i.e., 7 * 250). This is because you need to ensure that there are enough receiver threads to handle the number of messages published by the data publishers.</td>
+The value of the <code>             tcpMaxWorkerThreads            </code> parameter in the <code>             &lt;APIM-ANALYTICS_HOME&gt;/repository/conf/data-bridge/data-bridge-config.xml            </code> must change based on the value specified for this parameter and the number of data publishers publishing statistics. For example, when the value for this parameter is <code>             250            </code> and the number of data publishers is 7, the value for the <code>             tcpMaxWorkerThreads            </code> parameter must be <code>             1750            </code> (i.e., 7 * 250). This is because you need to ensure that there are enough receiver threads to handle the number of messages published by the data publishers.</td>
 </tr>
 <tr class="even">
 <td><code>             secure_max_transport_pool_size            </code></td>
 <td>The maximum number of secure transport threads that should be allocated at any given time to publish WSO2 API-M statistical data to the Analytics Server.</td>
 <td>250</td>
 <td><p>This value must be increased when there is an increase in the throughput of events handled by WSO2 API-M Analytics.</p>
-<p>The value of the <code>              sslMaxWorkerThreads             </code> parameter in the <code>              &lt;APIM-ANALYTICS_HOME&gt;/repository/conf/data-bridge/data-bridge-config.xml             </code> must change based on the value specified for this parameter and the number of data publishers publishing statistics. e.g., When the value for this parameter is <code>              250             </code> and the number of data publishers is 7, the value for the <code>              sslMaxWorkerThreads             </code> parameter must be <code>              1750             </code> (i.e., 7 * 250). This is because you need to ensure that there are enough receiver threads to handle the number of messages published by the data publishers.</p></td>
+<p>The value of the <code>              sslMaxWorkerThreads             </code> parameter in the <code>              &lt;APIM-ANALYTICS_HOME&gt;/repository/conf/data-bridge/data-bridge-config.xml             </code> must change based on the value specified for this parameter and the number of data publishers publishing statistics. For example, when the value for this parameter is <code>              250             </code> and the number of data publishers is 7, the value for the <code>              sslMaxWorkerThreads             </code> parameter must be <code>              1750             </code> (i.e., 7 * 250). This is because you need to ensure that there are enough receiver threads to handle the number of messages published by the data publishers.</p></td>
 </tr>
 </tbody>
 </table>
-
-

@@ -1,4 +1,4 @@
-# Styling API details left menu
+# Styling API Details Left Menu
 
 The API details left menu can be customized to match with your design needs.
 

@@ -1,4 +1,4 @@
-# Changing the logo and header styles
+# Changing the Logo and Header Styles
 
 The header section can be customized to match different design needs. Following is the default look and the configuration.
 
