@@ -32,14 +32,6 @@ siddhi:
    shardId: wso2-dc
 ```
 
-This query captures the information relating to the total request counts for different APIs. Each request represents 
-an event, and the information captured includes the API name, the country and city from which the request was 
-generated,and the timestamp to which the information applies. Each node stores this information in the 
-APIM_ANALYTICS_DB data store defined in the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
-
-Now let's assume that during a specific hour, the API-M Gateway node publishes 30,000 events in node 1, and 40,000 
-events in node 2 for Naples in Italy. When you retrieve the total for this hour via a retrieval query, the result is 70000.
-
 ## Configuring an active-active cluster
    
 To configure the API-M Analytics nodes to deploy them as an active-active cluster, edit the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file as follows:
@@ -125,10 +117,16 @@ parameter values suitable for your requirements in `<APIM_ANALYTICS_HOME>/conf/w
 
 !!! note 
 
-    As explained in above the events are processed in multiple active nodes. Eventhough this is usually a stateful 
-    operation, you can overcome the node-dependent calculations via distributed aggregation. This allows WSO2 API-M to 
+    As explained above the events are processed in multiple active nodes. Even though this is usually a stateful operation,
+    you can overcome the node-dependent calculations via distributed aggregation. This allows WSO2 API-M to
     execute APIM Analytics scripts that depend on incremental distributed aggregation.
     
-    However, an active-active deployment can affect alerts because alerts also depend on some in-memory stateful 
-    operations such as windows. Due to this, alerts can be generated based on the events received by specific node. Thus 
-    the alerts are node-dependent, and you need to disable them to run scripts with distributed incremental aggregation.
+    However, in an active-active deployment, all the processings are done locally. Hence all the alerts are generated based 
+    on the local counts. Due to that all the generated alerts are specific to a single gateway. But some alerts need distributed
+    gateway count and hence the accuracy of some alert effect in active-active deployment.
+
+    The following alerts are affected alert types in active-active deployment.
+
+    * Abnormal Resource Access
+    * Unseen Source IP Access
+    * Tier Crossing
