@@ -348,7 +348,9 @@ nav:
             - Configuring the Proxy Server and the Load Balancer: install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md
             - Configuring rsync for Deployment Synchronization: install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-        # PAGE NOT UPDATED- Minimum High Availability Deployment for WSO2 APIM Analytics: install-and-setup/deploying-wso2-api-manager/minimum-high-availability-deployment-for-wso2-apim-analytics.md
+            - Configurring APIM Analytics High Availability Deployment:
+                - Active-active: install-and-setup/deploying-wso2-api-manager/configure_apim_analytics/configure_worker/active_active.md
+                - Active-passive: install-and-setup/deploying-wso2-api-manager/configure_apim_analytics/configure_worker/active_passive.md
             - Deployment Guidelines:
                 - Production Deployment Guidelines: install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md
