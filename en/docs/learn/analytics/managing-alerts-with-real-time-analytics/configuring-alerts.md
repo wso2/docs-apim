@@ -74,37 +74,8 @@ You can configuring alerts as business rule by using the features listed below.
 !!! note
     Before you begin, make sure that the worker instance of the Analytics server is running.
 
-1.  Get a new distribution of API-M Analytics.
-2.  Go to `<API-M_ANALYTICS_HOME>/wso2/dashboard/resources/dashboards` and remove the `apimdevportal.json` and `apimpublisher.json` files.
-3.  Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file and do the following ;
-       
-    - Comment out the authentication configuration `auth.configs` as shown below.
+1.  Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file and do the following ;
 
-    ``` java
-        ## Authentication configuration
-            #auth.configs:
-            #  type: apim
-            #  ssoEnabled: true
-            #  properties:
-            #    adminScope: apim_analytics:admin_carbon.super
-            #    allScopes: apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe
-            #    adminServiceBaseUrl: https://localhost:9443
-            #    adminUsername: admin
-            #    adminPassword: admin
-            #    kmDcrUrl: https://localhost:9443/client-registration/v0.15/register
-            #    kmTokenUrlForRedirection: https://localhost:9443/oauth2
-            #    kmTokenUrl: https://localhost:9443/oauth2
-            #    kmUsername: admin
-            #    kmPassword: admin
-            #    portalAppContext: analytics-dashboard
-            #    businessRulesAppContext : business-rules
-            #    cacheTimeout: 900
-            #    baseUrl: https://localhost:9643
-            #    grantType: authorization_code
-            #    publisherUrl: https://localhost:9443
-            #    #storeUrl: https://localhost:9443
-    ```
-    
     - Point the business rules manager to the worker node by configuring the `deployment_configs` of `wso2.business.rules.manager` as shown below.
     
     ``` java
@@ -117,12 +88,12 @@ You can configuring alerts as business rule by using the features listed below.
              <API-M_ANALYTICS_WORKER_HOST>:<API-M_ANALYTICS_WORKER_PORT>
           ...
     ```
-4.  Go to the `<API-M_ANALYTICS_HOME>/bin` directory and run the following command to start the dashboard.
+2.  Go to the `<API-M_ANALYTICS_HOME>/bin` directory and run the following command to start the dashboard.
 
     -   On Windows: `dashboard.bat --run` 
     -   On Linux: `sh dashboard.sh`
 
-5.  Go to the Business Rules and Status Dashboard. ( e.g., `https://<API-M_ANALYTICS_HOST>:9643/business-rules`)
+3.  Log into the to the Business Rules. ( e.g., `https://<API-M_ANALYTICS_HOST>:9643/business-rules`)
 6.  You can view the existing business rules that are applied for API Manager. Depending on your privileges, you can view, edit, and delete business rules.
     For more details on working with business rules, see [Managing Business Rules](https://ei.docs.wso2.com/en/latest/streaming-integrator/admin/creating-business-rules-templates/#managing-business-rules) .
     ![Alerts business rules](../../../assets/img/learn/alerts-business-rules.png)
