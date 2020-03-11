@@ -1,4 +1,4 @@
-# Enable or disable home page
+# Enable or Disable Home Page
 
 When the developer portal required to present corporate branding it’s a common requirement to have a landing page. The default landing page is the API listing page. But when we enable home page, there will be an additional landing page. It can be customized based on the design requirements. 
 

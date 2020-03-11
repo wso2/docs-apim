@@ -2,14 +2,11 @@
 
 Kerberos is a security protocol that has support built into various operating systems and open-source distributions (e.g.,  Ubuntu, Windows, RedHat, Open Solaris, etc). In addition, a majority of browsers support some Kerberos functions as well. As WSO2 API Manager uses the OAuth 2.0 protocol, the Kerberos OAuth2 grant type allows organizations to exchange a Kerberos ticket for an OAuth 2.0 token. Thereby, allowing organizations to re-use their existing Kerberos infrastructure, while easier adopting OAuth 2.0 within these organizations.
 
--   [Kerberos OAuth2 grant flow](#kerberos-oAuth2-grant-flow)
--   [Configuring Kerberos Grant with API Manager](#configuring-kerberos-grant-with-api-manager)
-
-### Kerberos OAuth2 grant flow
+## Kerberos OAuth2 grant flow
 
 The following section describes the flow involved in exchanging a Kerberos ticket for an OAuth2 token.
 
-![Kerberos-OAuth2 Grant Flow when using WSO2 API-M](../../../../assets/img/learn/kerberos-grant-flow.png)
+![Kerberos-OAuth2 Grant Flow when using WSO2 API-M]({{base_path}}/assets/img/learn/kerberos-grant-flow.png)
 
 1.  The Kerberos client requests the Kerberos Service Ticket from the Kerberos Key Distribution Center (KDC) to invoke the service.
     The Kerberos Key Distribution Center can be any Kerberos Server.
@@ -64,12 +61,12 @@ The following section describes the flow involved in exchanging a Kerberos ticke
     }
     ```
 
-### Configuring Kerberos Grant with API Manager
+## Configuring Kerberos Grant with API Manager
 
 Follow the instructions below to configure Kerberos Grant with WSO2 API Manager:
 
 !!! note
-    Download the kerberos_grant_1.0.0.jar from [here](../../../../assets/attachments/learn/kerberos-grant-1.0.0.jar). Copy it to the <API-M_HOME>/repository/components/lib folder.
+    Download the kerberos_grant_1.0.0.jar from [here]({{base_path}}/assets/attachments/learn/kerberos-grant-1.0.0.jar). Copy it to the <API-M_HOME>/repository/components/lib folder.
 
 
 1.  To configure `Kerberos` as supported grant type, add following configuration in the `<API-M_HOME>/repository/conf/deployemnt.toml` file.
@@ -86,7 +83,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
     ``` java
     Server {
         com.sun.security.auth.module.Krb5LoginModule required
-        useKeyTab=tfalse
+        useKeyTab=false
         storeKey=true
         useTicketCache=false
         isInitiator=false;
@@ -98,8 +95,8 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
 3.  Copy the following JARs into the `<API-M_HOME>/repository/components/dropins` directory.
 
-    - [org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar](../../../../assets/attachments/learn/org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar)                       
-    - [org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar](../../../../assets/attachments/learn/org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar)
+    - [org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar]({{base_path}}/assets/attachments/learn/org.wso2.carbon.identity.application.authenticator.iwa-5.3.0.jar)                       
+    - [org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar]({{base_path}}/assets/attachments/learn/org.wso2.carbon.identity.idp.metadata.saml2_1.0.1.jar)
 4.  Configure OAuth2 for your client application with the Kerberos grant type.
 
     1.  Start the WSO2 API-M server by navigating to the `<API-M_HOME>/bin` directory in your console and running one of the following scripts based on your OS.
@@ -114,18 +111,18 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
     4.  Generate the Production Keys.
 
-        1.  Click **Production Keys** .
+        1.  Click **Production Keys**.
 
         2.  Click on the **Kerberos** checkbox as shown in the screenshot.
 
-            [![](../../../../assets/img/learn/kerberos-grant-application.png)](../../../../assets/img/learn/kerberos-grant-application.png)
+            [![]({{base_path}}/assets/img/learn/kerberos-grant-application.png)]({{base_path}}/assets/img/learn/kerberos-grant-application.png)
 
         3.  Click **Generate Keys** to generate the keys.
 
-5.  Configure the Service Principal Name ( `SPNName)` and Service Principal Password ( `SPNPassword)` .
+5.  Configure the Service Principal Name (`SPNName`) and Service Principal Password (`SPNPassword`).
 
     !!! info
-        A **service principal name** ( **SPN** ) is a unique identifier of a **service** instance. SPNs are used by Kerberos authentication to associate a **service** instance with a **service** logon account. This allows a client application to request that the **service** authenticate an account even if the client does not have the account **name** .
+        A **service principal name** (**SPN**) is a unique identifier of a **service** instance. SPNs are used by Kerberos authentication to associate a **service** instance with a **service** logon account. This allows a client application to request that the **service** authenticate an account even if the client does not have the account **name**.
 
 
     1.  Sign in to the WSO2 API-M Management Console.
@@ -149,14 +146,60 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
         -   **Server Principal Password** : &lt;password&gt;
 
-        [![](../../../../assets/img/learn/kerberos-grant-idp.png)](../../../../assets/img/learn/kerberos-grant-idp.png)
+        [![]({{base_path}}/assets/img/learn/kerberos-grant-idp.png)]({{base_path}}/assets/img/learn/kerberos-grant-idp.png)
 
-    5.  Generate the kerberos token.
+5.  Generate the kerberos token.
 
-6.  Invoke the token endpoint using the message format discussed in [step 3](#kerberos-grant-token-request) .
+    1.  Git clone the `KerbClientProject`.
+
+        ``` java
+        git clone https://github.com/erandacr/KerbClientProject
+        ```
+
+    2.  Run KerbClient.cs using an IDE.  
+        You can run it using Visual Studio by downloading and installing
+        the following required libraries and programs.
+
+        -   [Visual Studio
+            sdk](https://www.microsoft.com/net/download/visual-studio-sdks)
+            (.NET Core 2.1)
+        -   [Microsoft Visual
+            Studio](https://visualstudio.microsoft.com/downloads/)
+            (Professional Edition)
+        -   Install the `              System.Net.Http.dll             `
+            and define the path in the ‘
+            `              KerbClientProject.csproj             ` ’
+            file.
+
+        !!! tip
+        
+            You can also use any other IDE to run this project.
+        
+
+    3.  Configure the following parameters in the project according to
+        your setup.
+
+        ``` java
+        // Service Name goes here
+        static string serviceName = "HTTP/apimserver.example.com@EXAMPLE.COM";
+        // Token endpoint URL
+        static string URI = "https://idp.example.com:9443/oauth2/token";
+        // Client ID
+        static string username = "1ouL2fO6SxlfD2LDw125cTo0vQka";
+        // Client Secret
+        static string password = "uUEtm89tY6QZuZUmqZfL92BDFeAa";
+        // Kerberos realm name
+        static string realm_Name = "example.com";
+        ```
+
+    4.  Run the project by selecting the **Start without Debugging**
+        option on the Visual Studio editor.
+
+    This project generates a Kerberos ticket and a kerberos token is
+    generated using the ticket. The generated token can be used to get
+    the OAuth token.
+
+6.  Invoke the token endpoint using the message format discussed in [step 3](#kerberos-grant-token-request).
 
     !!! note
-        Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
-
-
-
+        Note that for users to be counted in the [Registered Users for Application statistics]({{base_path}}/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#registered-application-users) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant) type.

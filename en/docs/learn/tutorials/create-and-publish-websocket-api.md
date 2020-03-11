@@ -134,20 +134,34 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
          [![Authorization token]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)]({{base_path}}/assets/img/learn/websocket-api-key-generation-wizard.jpg)
 
 4. Try out the operations.
+     
+      1.  Install wscat client. 
 
-    1. Install wscat client. 
+           `npm install -g wscat`
 
-         `npm install -g wscat`
-
-    2. Invoke the API using following command.
+      2.  Invoke the API by using an authorization header by executing the following command.
         
-         ``` java tab="WS"
-         wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]" 
-         ```
+           ``` java tab="WS"
+           wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+           ```
 
-         ``` java tab="WSS"
-         wscat -c wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
-         ```
+           ``` java tab="WSS"
+           wscat -c wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
+           ```
+
+          <html>
+          <div class="admonition note">
+          <p class="admonition-title">Note</p>
+          <p>
+              There are clients (specially browsers) that do not allow to add headers to the Websocket handshake. In such cases, you can send the access token for the Websocket API invocation as a query parameter named `access_token` by using the command below:</p>
+
+           ``` java tab="WS"
+           wscat -c ws://localhost:9099/echowebsocket/1.0.0?access_token=[accesstoken] 
+           ```
+  
+           ``` java tab="WSS"
+           wscat -c wss://localhost:9099/echowebsocket/1.0.0?access_token=[accesstoken]
+           ```
 
       <html>
       <div class="admonition note">

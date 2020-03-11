@@ -15,10 +15,10 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 3.0.0
+site_name: WSO2 API Manager Documentation 3.1.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://wso2.com/
+site_url: https://apim.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -54,7 +54,7 @@ nav:
     - Learn:
         - Design APIs:
             - Create APIs:
-                  - Create a new API:
+                  - Create a New API:
                         - Create a REST API: learn/design-api/create-api/create-a-rest-api.md
                         - Create a REST API from a Swagger Definition: learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md
                         - Create a GraphQL API: learn/design-api/create-api/create-a-graphql-api.md
@@ -135,28 +135,28 @@ nav:
                 - Advanced Topics:
                         - Adding an API Subscription Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
             - Invoke APIs:
-                    - Invoke an API using the Integrated API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
+                    - Invoke an API Using the Integrated API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
                     - Include Additional Headers in the API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
-                    - Invoke an API using a SOAP Client: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+                    - Invoke an API Using a SOAP Client: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
             - Collaborations:
                 - Use the Community Features: learn/consume-api/collaboration/use-the-community-features.md
             - Customizations:
                 -  Customizing the Developer Portal:
                     - Overriding Developer Portal Theme: learn/consume-api/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                     - Customize API Listing:
-                        - Categorizing and grouping APIs: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis.md
+                        - Categorizing and Grouping APIs: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis.md
                         - Change Default View: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-                    - Enabling or disabling api detail tabs: learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
-                    - Override API overview page per API: learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
-                    - Enable or disable rating: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
-                    - Enable or disable home page: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
-                    - Enable or disable tag cloud: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
-                    - Enable or disable footer: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
-                    - Enable or disable banner: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
-                    - Styling API details left menu: learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-                    - Styling API details info section: learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
-                    - Styling the logo and header: learn/consume-api/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-                    - Enabling or disabling self signup : learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                    - Enabling or Disabling API Detail Tabs: learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                    - Override API Overview Page per API: learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                    - Enable or Disable Rating: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                    - Enable or Disable Home Page: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                    - Enable or Disable Tag Cloud: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                    - Enable or Disable Footer: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                    - Enable or Disable Banner: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                    - Styling API Details Left Menu: learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                    - Styling API Details Info Section: learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
+                    - Styling the Logo and Header: learn/consume-api/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                    - Enabling or Disabling Self Signup : learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
                     - Advanced Customization: learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization.md
                 - Log in to the Developer Portal using Social Media: learn/consume-api/customizations/log-in-to-the-dev-portal-using-social-media.md
                 - Adding a User Signup Workflow: learn/consume-api/customizations/adding-a-user-signup-workflow.md
@@ -235,7 +235,7 @@ nav:
                 - Securing OAuth Token with HMAC Validation: learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
             - Threat Protection:
                 - Bot Detection: learn/api-security/threat-protection/bot-detection.md
-                - Gateway Threat Protectors: learn/api-security/threat-protection/Gatewaythreat-protectors/gateway-threat-protectors-for-api-manager.md
+                - Gateway Threat Protectors: learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
                 - Regular Expression Threat Protection: learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
                 - JSON Threat Protection: learn/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
                 - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
@@ -361,16 +361,14 @@ nav:
         - Setting up Databases:
             - Overview: install-and-setup/setting-up-databases/overview.md
             - Changing Default Databases:
-                - Changing to Embedded H2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-embedded-h2.md
                 - Changing to MySQL: install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql.md
                 - Changing to MSSQL: install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql.md
                 - Changing to PostgreSQL: install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md
                 - Changing to Oracle: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle.md
                 - Changing to MariaDB: install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                 - Changing to IBM DB2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
-                - Changing to Remote H2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-remote-h2.md
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
-        - Product Compatibility: install-and-setup/ProductCompatibility.md
+        - Product Compatibility: install-and-setup/product-compatibility.md
         - Performance Tuning:
               - Tuning Performance: install-and-setup/perfromance-tuning-and-test-results/tuning-performance.md
         - Upgrading WSO2 API Manager:
@@ -437,13 +435,13 @@ nav:
             - Configuring Keystores:
                 - Configuring Keystores in API Manager: administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                 - Keystore Basics:
-                    - Creating a new Keystore: administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md
-                    - Renewing a CA signed certificate: administer/product-security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
+                    - Creating a New Keystore: administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md
+                    - Renewing a CA Signed Certificate: administer/product-security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
                     - About Asymetric Cryptography: administer/product-security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
             - Logins and Passwords:
                 - Maintaining Logins and Passwords: administer/product-security/logins-and-passwords/maintaining-logins-and-passwords.md
                 - Securing Passwords:
-                    - Encrypting Passwords in Configuration files: administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md
+                    - Encrypting Passwords in Configuration Files: administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md
                     - Customizing Secure Vault: administer/product-security/logins-and-passwords/carbon-secure-vault-implementation.md
                     - Set Passwords using Environment Variables/System Properties: administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
             - Mitigating Cross Site Request Forgery Attacks: administer/product-security/mitigating-cross-site-request-forgery-attacks.md
@@ -453,7 +451,7 @@ nav:
             - Enabling Java Security Manager: administer/product-security/enabling-java-security-manager.md
             - General Data Protection Regulation (GDPR) for WSO2 API Manager: administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
             - Configuring Transport Level Security: administer/product-security/configuring-transport-level-security.md
-            - Mutual SSL between API Gateway and Backend: administer/product-security/mutual-ssl-between-api-gateway-and-backend.md
+            - Mutual SSL Between API Gateway and Backend: administer/product-security/mutual-ssl-between-api-gateway-and-backend.md
             - Multi Factor Authentication (MFA) for Publisher and Developer Portals: administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Identity Management for the API Developer Portal: administer/product-security/identity-management-for-the-api-dev-portal.md
     - Reference:

@@ -1,6 +1,6 @@
 # Customize the API Store and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Store is `https://<HostName>:9443/store` . Follow the steps below to change the URL of the Gateways and API Store tenants in WSO2 API Manager.
+The default URL of WSO2 API Manager Store is `https://<HostName>:9443/devportal` . Follow the steps below to change the URL of the Gateways and API Store tenants in WSO2 API Manager.
 
 -   [Install Nginx and create SSL certificates](#CustomizetheAPIStoreandGatewayURLsforTenants-InstallNginxandcreateSSLcertificates)
 -   [Setup custom domain mapping in the registry](#CustomizetheAPIStoreandGatewayURLsforTenants-Setupcustomdomainmappingintheregistry)
@@ -60,8 +60,8 @@ If you are using Mac OS, you need to install Nginx using the [brew package manag
                        proxy_set_header X-Forwarded-Server $host;
                        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
                        proxy_set_header Host $http_host;
-                       proxy_pass https://localhost:9443/store/;
-                       proxy_redirect  https://localhost:9443/store/ /;
+                       proxy_pass https://localhost:9443/devportal/;
+                       proxy_redirect  https://localhost:9443/devportal/ /;
                        proxy_redirect  <custom URL>;
                        proxy_cookie_path /store/ /;
                    }

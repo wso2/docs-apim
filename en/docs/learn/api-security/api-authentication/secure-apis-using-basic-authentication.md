@@ -4,21 +4,16 @@ Basic authentication is a simple HTTP authentication scheme in which the request
 schemes. In addition to using these schemes individually, it is also possible to use 
 the OAuth2 and Basic schemes at the same time. 
 
-The following sections explains how to work with Basic Authentication on the WSO2 API Gateway.
+The subsequent sections explain how you can work with Basic Authentication on the WSO2 API Gateway.
 
-- [Enabling Basic Authentication for an API](#SecuringAPIswithBasicAuthentication-EnablingBasicAuthenticationforanAPI)
-- [Enabling multiple authentication schemes](#SecuringAPIswithBasicAuthentication-Enablingmultipleauthenticationschemes)
-- [Invoking an API using Basic Authentication](#SecuringAPIswithBasicAuthentication-InvokinganAPIusingBasicAuthentication)
-- [Basic Authentication with Scopes](#SecuringAPIswithBasicAuthentication-BasicAuthenticationwithScopes)
-
-##Enabling Basic Authentication for an API
+## Enabling Basic Authentication for an API
 Basic Authentication is an API level configuration. Please sign in to the API Publisher and click on the API that you need to configure the 
 Basic Authentication. Under the Application Level Security section in the Runtime Configuration of the API Details page allow users to configure
 the Basic Authentication as follow.
 
 [ ![](../../../assets/img/learn//basic_authentication.png) ](../../../assets/img/learn//basic_authentication.png)
 
-##Understanding multiple authentication schemes
+## Understanding multiple authentication schemes
 
 The WSO2 API Gateway is able to authenticate requests using Mutual SSl, Basic, OAuth2 and API Key authentication schemes. 
 In addition to using these schemes  individually, it is also possible to use the multiple schemes at the same time.
@@ -35,7 +30,7 @@ anyone of mandatory will skip the authentication.
 Note : If oauth2/Basic Auth is set as mandatory, the request is need to be authenticated using only one of them. If OAuth2 failed only, the Basic Authentication will be applied.
 
 
-##Invoking an API using Basic Authentication
+## Invoking an API using Basic Authentication
 
 Use the cURL command below to invoke the API via the gateway.
 
