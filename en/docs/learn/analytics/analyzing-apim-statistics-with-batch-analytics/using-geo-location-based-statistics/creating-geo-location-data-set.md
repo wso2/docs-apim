@@ -1,6 +1,6 @@
-# Updating Geo Location Data Set
+# Creating Geo Location Data Set
 
-Follow the procedure below in order to update your existing Geo Location dataset to use in [Configuring Geolocation Based Statistics](../configuring-geolocation-based-statistics/).
+Follow the procedure below in order to create a Geo Location dataset to use when [Configuring Geolocation Based Statistics](../configuring-geolocation-based-statistics/).
 
 1.  Download the latest CSV file from [here](http://geolite.maxmind.com/download/geoip/database/GeoLite2-City-CSV.zip).
 2.  Download the geoip-2-csv-converter from <https://github.com/maxmind/geoip2-csv-converter/releases> according to your operating system.
