@@ -9,7 +9,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 1.  Sign in to the API Publisher and click **CREATE API**.
       <html>
-     <img src="../../../assets/img/learn/create-soap-API.jpg" height="400" width="450">
+     <img src="../../../assets/img/learn/create-soap-api.jpg" height="400" width="450">
      </html>
 
 2.  Select **Pass Through** option and thereafter, select one of the following options:
@@ -78,7 +78,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 5. Click **GENERATE** button, generated JWT token can be seen at the popup and copy it.
      <html>
-     <img src="../../../assets/img/learn/generate-accessToken-popup.jpg" height="400" width="580">
+     <img src="../../../assets/img/learn/generate-access-token-popup.jpg" height="400" width="580">
      </html>
 
     Let's invoke the API.

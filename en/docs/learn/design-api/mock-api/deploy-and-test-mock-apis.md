@@ -11,7 +11,7 @@ You would need to create an API prototype for the purpose of early promotion and
 
 1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 2.0.0`) that you want to prototype.
      
-     [![PizzaShack API in the Publisher]({{base_path}}/assets/img/learn/prototype-api-PizzaShack-publisher.png)]({{base_path}}/assets/img/learn/prototype-api-PizzaShack-publisher.png)
+     [![PizzaShack API in the Publisher]({{base_path}}/assets/img/learn/prototype-api-pizzashack-publisher.png)]({{base_path}}/assets/img/learn/prototype-api-pizzashack-publisher.png)
 
 2. Click **Endpoints** and select **Prototype Endpoint** to select the prototype endpoint type.
 

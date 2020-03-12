@@ -11,7 +11,7 @@ Basic Authentication is an API level configuration. Please sign in to the API Pu
 Basic Authentication. Under the Application Level Security section in the Runtime Configuration of the API Details page allow users to configure
 the Basic Authentication as follow.
 
-[ ![](../../../assets/img/learn//basic_authentication.png) ](../../../assets/img/learn//basic_authentication.png)
+[ ![](../../../assets/img/learn//basic-authentication.png) ](../../../assets/img/learn//basic-authentication.png)
 
 ## Understanding multiple authentication schemes
 

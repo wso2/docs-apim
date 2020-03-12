@@ -8,7 +8,7 @@ overview of the Active-Active deployment pattern and instructions to configure i
 
 
 ## Overview
-![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/Active-Active_Deployment.png)
+![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/active-active-deployment.png)
 
 The above diagram represents a deployment where you are not limited to two nodes. You can scale the event processing 
 horizontally by adding more API-M Analytics nodes to the deployment. In this deployment, it is recommended to 

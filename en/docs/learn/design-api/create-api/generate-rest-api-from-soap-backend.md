@@ -14,7 +14,7 @@ Follow the instructions below to generate REST APIs in WSO2 API Manager for an e
 
 1.  Sign in to the API Publisher and click **CREATE API**
    <html>
-     <img src="{{base_path}}/assets/img/learn/create-soap-API.jpg" height="400" width="450">
+     <img src="{{base_path}}/assets/img/learn/create-soap-api.jpg" height="400" width="450">
      </html>
  
     <html><div class="admonition info">

@@ -252,4 +252,4 @@ Before you start , sign in to the API Publisher and deploy the sample API ( `Piz
 
 Note that the customized authorization header appears in the Store UI as well.
 
-[ ![](../../../assets/img/learn//auth_header.png) ](../../../assets/img/learn//auth_header.png)
+[ ![](../../../assets/img/learn//auth-header.png) ](../../../assets/img/learn//auth-header.png)
