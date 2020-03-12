@@ -71,7 +71,7 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
 5.  Select the newly created Microgateway label.
 
-    [![Microgateway label in the Publisher]({{base_path}}/assets/img/learn/Microgateway-label-publisher.png)]({{base_path}}/assets/img/learn/Microgateway-label-publisher.png)
+    [![Microgateway label in the Publisher]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)
 
 6.  Click **Save** to attach it to the Pizzashack API.
 
@@ -87,6 +87,6 @@ Example: `https://localhost:9443/devportal`
 
 The attached Microgateways appear in the **Overview** tab of the API.
 
-[![Microgateway label in the Developer Portal]({{base_path}}/assets/img/learn/Microgateway-label-devportal.png)]({{base_path}}/assets/img/learn/Microgateway-label-devportal.png)
+[![Microgateway label in the Developer Portal]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)
 
 

@@ -101,7 +101,7 @@ in sequence.
 
 -   Select `xml_validator` from the drop-down menu for Common Policies.
 
-    ![](../../../assets/img/learn/mediation-xml_validator.png)
+    ![](../../../assets/img/learn/mediation-xml-validator.png)
     
 -   Scroll down the page and click **Save** to save the changes.
 

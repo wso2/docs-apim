@@ -28,7 +28,7 @@ Follow the instructions below to create a REST API using a Open API definition f
     ![](../../../assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
 
 5. Page will be redirected to the overview page of the Petstore API.
- [![](../../../assets/img/learn/overviewpage-rest-api-creating-by-swagger-Def.jpg)](../../../assets/img/learn/overviewpage-rest-api-creating-by-swagger-Def.jpg)
+ [![](../../../assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.jpg)](../../../assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.jpg)
 
 ## Resources
    Navigate to **Resources** tab and notice that all the **API resources** are created automatically when the Swagger URL is specified.

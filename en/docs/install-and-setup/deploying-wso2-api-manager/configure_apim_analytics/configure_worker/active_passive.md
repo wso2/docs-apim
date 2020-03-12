@@ -5,7 +5,7 @@ system suffer any failing due to several unforeseeable reasons. One of the main 
 amount of infrastructure resources possible. Thus deployment pattern comprise of only two Streaming integration 
 servers.
 
-![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/Minimum_HA_Architecture.png)
+![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/minimum-ha-architecture.png)
 
 In minimum HA setup, one node is assigned as the active node while the other node is assigned as the passive node.
 Only the active node processes the incoming events and publishes the outgoing events. Internally, the active node 

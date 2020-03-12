@@ -37,7 +37,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
              
          A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the service URL (`http://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service.
 
-        [![]({{base_path}}/assets/img/get_started/Mocky_io.png)]({{base_path}}/assets/img/get_started/Mocky_io.png)
+        [![]({{base_path}}/assets/img/get_started/mocky-io.png)]({{base_path}}/assets/img/get_started/mocky-io.png)
          
      2. Optionally, to test this service, copy the service URL [http://www.mocky.io/v2/5185415ba171ea3a00704eed](http://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
@@ -89,7 +89,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
      </tr>
      </table>
      
-     ![[Create an API]({{base_path}}/assets/img/get_started/api_create.png)]({{base_path}}/assets/img/get_started/api_create.png)
+     ![[Create an API]({{base_path}}/assets/img/get_started/api-create.png)]({{base_path}}/assets/img/get_started/api-create.png)
         
 6. Click **Create & Publish**. 
 
