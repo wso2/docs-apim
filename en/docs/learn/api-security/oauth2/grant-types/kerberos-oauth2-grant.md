@@ -158,57 +158,57 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
         [![Kerberos grant idp]({{base_path}}/assets/img/learn/kerberos-grant-idp.png)]({{base_path}}/assets/img/learn/kerberos-grant-idp.png)
 
-    5.  Generate the Kerberos token.
+4.  Generate the Kerberos token.
 
-         Let's follow the instructions below to generate the Kerberos token using the `KerbClientProject` sample client.
+        Let's follow the instructions below to generate the Kerberos token using the `KerbClientProject` sample client.
 
-        1.  Git clone the `KerbClientProject`.
+    1.  Git clone the `KerbClientProject`.
 
-            ``` java
-            git clone https://github.com/erandacr/KerbClientProject
-            ```
+        ``` java
+        git clone https://github.com/erandacr/KerbClientProject
+        ```
 
-        2.  Run `KerbClient.cs` using an IDE.  
+    2.  Run `KerbClient.cs` using an IDE.  
 
-             You can run it using Visual Studio by downloading and installing the following required libraries and programs.
+            You can run it using Visual Studio by downloading and installing the following required libraries and programs.
 
-            !!! tip
-            
-                You can use any other IDE to run this project.
-
-            -   [Visual Studio
-                sdk](https://www.microsoft.com/net/download/visual-studio-sdks)
-                (.NET Core 2.1)
-            -   [Microsoft Visual
-                Studio](https://visualstudio.microsoft.com/downloads/)
-                (Professional Edition)
-            -   Install the `System.Net.Http.dll`
-                and define the path in the `KerbClientProject.csproj` file.
+        !!! tip
         
+            You can use any other IDE to run this project.
 
-        3.  Configure the following parameters in the project according to
-            your setup.
+        -   [Visual Studio
+            sdk](https://www.microsoft.com/net/download/visual-studio-sdks)
+            (.NET Core 2.1)
+        -   [Microsoft Visual
+            Studio](https://visualstudio.microsoft.com/downloads/)
+            (Professional Edition)
+        -   Install `System.Net.Http.dll`
+            and define the path in the `KerbClientProject.csproj` file.
+    
 
-            ``` java
-            // Service Name goes here
-            static string serviceName = "HTTP/apimserver.example.com@EXAMPLE.COM";
-            // Token endpoint URL
-            static string URI = "https://idp.example.com:9443/oauth2/token";
-            // Client ID
-            static string username = "1ouL2fO6SxlfD2LDw125cTo0vQka";
-            // Client Secret
-            static string password = "uUEtm89tY6QZuZUmqZfL92BDFeAa";
-            // Kerberos realm name
-            static string realm_Name = "example.com";
-            ```
+    3.  Configure the following parameters in the project according to
+        your setup.
 
-        4.  Run the project.
-             
-             Select the **Start without Debugging** option in the Visual Studio editor to run the project.
+        ``` java
+        // Service Name goes here
+        static string serviceName = "HTTP/apimserver.example.com@EXAMPLE.COM";
+        // Token endpoint URL
+        static string URI = "https://idp.example.com:9443/oauth2/token";
+        // Client ID
+        static string username = "1ouL2fO6SxlfD2LDw125cTo0vQka";
+        // Client Secret
+        static string password = "uUEtm89tY6QZuZUmqZfL92BDFeAa";
+        // Kerberos realm name
+        static string realm_Name = "example.com";
+        ```
 
-             The latter mentioned action will also invoke the token endpoint using the message format that was discussed in [step 3](#kerberos-grant-token-request).
+    4.  Run the project.
+            
+            Select the **Start without Debugging** option in the Visual Studio editor to run the project.
 
-            This project generates a Kerberos ticket. Thereafter it generates the Kerberos token using the Kerberos ticket, and finally, it passes the Kerberos token to generate the OAuth token.
+            The latter mentioned action will also invoke the token endpoint using the message format that was discussed in [step 3](#kerberos-grant-token-request).
+
+        This project generates a Kerberos ticket. Thereafter it generates the Kerberos token using the Kerberos ticket, and finally, it passes the Kerberos token to generate the OAuth token.
 
     !!! note
         For the users to be counted in the [Registered Application Users statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#registered-application-users), which considers the number of users that are shared across each application, they should generate access tokens using the [Password Grant]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant) type.
