@@ -2,7 +2,7 @@
 
 An API key is the simplest form of application-based security that you can configure for an API. You can obtain an API key for a client application from WSO2 API Manager's Developer Portal, via the UI, or via REST APIs. Thereafter, the client application can use the API key to invoke the APIs that are secured with the API key security scheme.
 
-WSO2 API Manager uses a self-contained JWT token as the API key, and this JWT token is generated via the Developer Portal without communicating with the Key Manager.
+WSO2 API Manager uses a self-contained JSON Web Token (JWT) as the API key, and this JWT is generated via the Developer Portal without communicating with the Key Manager.
 
 When an API is invoked specifying an API key as the authentication method, the APIM Gateway performs the following two basic validations.
 

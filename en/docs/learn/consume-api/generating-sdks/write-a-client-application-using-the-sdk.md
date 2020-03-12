@@ -130,7 +130,7 @@
     apiClient.addDefaultHeader("Accept", "application/json");
     ```
 
-8.  Include the access token as a header in the API client object, to invoke the API. If the access token you generated above is a JWT token, you can replace the ```accessToken``` string with the JWT obtained.
+8.  Include the access token as a header in the API client object, to invoke the API. If the access token you generated above is a JSON Web Token (JWT), you can replace the ```accessToken``` string with the JWT obtained.
 
     ``` java
     String accessToken = "bc392b16-6ce2-3208-9023-8938fbc376ea";
