@@ -123,7 +123,6 @@ Follow the instructions below to design a GraphQL API
     Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
 
     1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
-
        
        [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
      
