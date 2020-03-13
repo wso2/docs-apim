@@ -2,7 +2,7 @@
 
 API Manager analytics provides three types of dashboards which are APIM Admin, APIM Developer Portal and APIM Publisher.
 
-The users will not be allowed to modify the default dashboards, i.e either to modify the layout of the widget or add custom widgets to a particular dashboard. If it is required to modify the default dashboard, a copy of the dashboard should be created and the modification should be applied to that copy as described below.
+The users will not be allowed to modify the default dashboards, i.e either to modify the layout of the widget or add custom widgets to a particular dashboard. If it is required to modify one of the default dashboards, a copy of the dashboard should be created and the modification should be applied to that copy as described below.
 
 1.  Click on the button at the bottom right corner of the dashboard that needs to be customized as shown below.
 
