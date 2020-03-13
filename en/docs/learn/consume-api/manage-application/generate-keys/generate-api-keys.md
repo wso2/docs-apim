@@ -27,8 +27,8 @@ Follow the instructions below to generate/renew application keys:
     
      - If the application type is **JWT**, a JSON Web Token (JWT) is generated. Make sure to copy the JWT access token that appears so that you can use it in the future.
 
-        <a href="{{base_path}}/assets/img/learn/jwt-access-token.png" ><img src="{{base_path}}/assets/img/learn/jwt-access-token.png" alt="JWT" 
-          title="JWT" width="60%" /></a>
+        <a href="{{base_path}}/assets/img/learn/jwt-access-token.png" ><img src="{{base_path}}/assets/img/learn/jwt-access-token.png" alt="JWT access token" 
+          title="JWT access token" width="60%" /></a>
      
      -  If the application type is **OAuth**, the generated access token will be an Opaque token.
      

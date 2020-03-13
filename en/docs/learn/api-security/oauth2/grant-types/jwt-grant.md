@@ -2,7 +2,7 @@
 
 The JSON Web Token(JWT) bearer grant is simply a JSON string containing claim values that will be evaluated and validated by the JWT Grant Handlers at the Authorization Server end, before issuing an access token.
 
-WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager features, can accept JWT Assertions from OAuth 2.0 clients as means of resource owner authentication and authorization. Additionally, it can exchange the JWT with OAuth 2.0 access tokens in order to access protected resources on behalf of the resource owner.
+WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager features, can accept JWT Assertions from OAuth 2.0 clients as means of resource owner authentication and authorization. Additionally, it can exchange the JWT access token with OAuth 2.0 access tokens in order to access protected resources on behalf of the resource owner.
 
 -   [Configuring the JWT grant](#configuring-the-jwt-grant)
 -   [Using the JWT grant](#using-the-jwt-grant)
@@ -10,7 +10,7 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager fe
 
 ### Configuring the JWT grant
 
-1.  Sign in to the WSO2 API Manager. Enter your username and password to log on to the Management Console ( <https://localhost:9443/carbon> ).
+1.  Sign in to the WSO2 API Manager. Enter your username and password to log on to the Management Console (<https://localhost:9443/carbon>).
 
 2.  Navigate to the **Identity Providers** section under the **Main** tab of the management console and click **Add** .
 3.  Provide the following values to configure the IDP:

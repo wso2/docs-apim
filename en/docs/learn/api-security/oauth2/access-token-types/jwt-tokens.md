@@ -1,16 +1,16 @@
 # Secure APIs using JWT (Self Contained) Access Tokens
 
-JSON Web Token (JWT) is an open standard of transmitting information securely between two parties. As the tokens are digitally signed, the information is secured. The authentication and authorization process uses JWTs. It is ideal to use JWTs as API credentials because JWTs can carry claims (data) that are used in order to authenticate and authorize requests.
+JSON Web Token (JWT) is an open standard of transmitting information securely between two parties. As the tokens are digitally signed, the information is secured. The authentication and authorization process uses JWT access tokens. It is ideal to use JWT access tokens as API credentials because JWT access tokens can carry claims (data) that are used in order to authenticate and authorize requests.
 
 WSO2 API Manager supports the use of self-contained and signed JWT formatted OAuth2.0 access tokens as API credentials. Therefore, you can use JWT formatted OAuth2.0 access tokens to authenticate any API that is secured using the OAuth2 security scheme. The App Developer can create a `JWT` or `OAuth2.0` application via the Developer Portal, in WSO2 API Manager, in order to subscribe to an API. JWT type applications in WSO2 API Manager uses self-contained signed JWT formatted access tokens.
 
-When an API is invoked using a JWT, the API Gateway validates the request by itself. In the case of regular opaque access tokens, the API Gateway communicates with the Key Manager (in a distributed deployment) to validate the token.
+When an API is invoked using a JWT access tokens, the API Gateway validates the request by itself. In the case of regular opaque access tokens, the API Gateway communicates with the Key Manager (in a distributed deployment) to validate the token.
 
 ## Prerequisites for JWT based tokens
 
 The following prerequisites have to be satisfied for JWT based tokens to work.
 
--   Only signed JWTs are allowed.
+-   Only signed JWT access tokens are allowed.
 
 -   The expected token format is as follows: 
 
@@ -25,9 +25,9 @@ The following prerequisites have to be satisfied for JWT based tokens to work.
       </div> 
      </html>
 
-## Mandatory attributes of a JWT
+## Mandatory attributes of a JWT access token
 
-The following are the mandatory attributes that are required for a JWT.
+The following are the mandatory attributes that are required for a JWT access token.
 
 - `Header`
     - `typ` - The type of the token (`JWT`).
@@ -39,7 +39,7 @@ The following are the mandatory attributes that are required for a JWT.
     - `iat` - The time the token was issued.
     - `exp` - The expiry time of the token.
 
-## Using JWTs
+## Using JWT access tokens
 
 Follow the instructions below to work with JWT Authentication in WSO2 API Manager.
 
@@ -49,7 +49,7 @@ Sign in to the Developer Portal.
     
 `https://<hostname>:9443/devportal`
 
-### Step 2 - Create a JWT based application
+### Step 2 - Create a JWT access token based application
 
 1. Click **Applications**.
 
@@ -73,7 +73,7 @@ Sign in to the Developer Portal.
 
      ![Add new Application](../../../../assets/img/learn/add-new-application.png)
 
-### Step 3 - Generate a JWT
+### Step 3 - Generate a JWT access token
 
 1. Click **APIs** and click on the PizzaShackAPI.
 
@@ -90,7 +90,7 @@ Sign in to the Developer Portal.
 
 6. Click **GENERATE ACCESS TOKEN**, click **Generate**, and copy the JWT.
 
-### Step 4 - Invoke the API using the JWT
+### Step 4 - Invoke the API using the JWT access token
 
 Invoking an API with a JWT formatted access token is similar to invoking the API with a regular opaque access token. Use the cURL command below to invoke the API via the API Gateway.
 

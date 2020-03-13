@@ -2,7 +2,7 @@
 
 [OpenID Connect](http://openid.net/connect/) is an **authentication protocol** that is a simple identity layer on top of the OAuth 2.0 protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
 
-You can use WSO2 API Manager to obtain basic profile information about the user who generates the access token. To obtain this information, the `openid` scope needs to be passed, when generating the access token. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response for this request. You can configure the information returned with the JWT.
+You can use WSO2 API Manager to obtain basic profile information about the user who generates the access token. To obtain this information, the `openid` scope needs to be passed, when generating the access token. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response for this request. You can configure the information returned with the JWT access token.
 
 
 The following two options are available to obtain the actual user information.
