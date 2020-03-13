@@ -20,7 +20,7 @@ The users will not be allowed to modify the default dashboards, i.e either to mo
     
     ![Duplicated dashboard](../../assets/img/learn/apim-analytics-duplicated-dashboard.png)
     
-5.  Again click the dropdown button at the bottom right corner of the created dashboard and click the `design` button as shown below.
+5.  Click the dropdown button at the bottom right corner of the created dashboard and click the `design` button as shown below.
     
     ![Dashboard dropdown](../../assets/img/learn/apim-analytics-design-dropdown.png)
     
