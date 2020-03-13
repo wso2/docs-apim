@@ -26,7 +26,7 @@ An example of a JWT is given below:
     }
 ```
 
-The above JWT token contains the following information.
+The above JWT access token contains the following information.
 
 **JWT Header :** The header section declares that the encoded object is a JSON Web Token (JWT) and the JWT is in plain text, that is not signed using any encryption algorithm.
 
@@ -73,7 +73,7 @@ Before passing end-user attributes, you need to enable and configure the JWT imp
 <tr class="odd">
 <td><pre><code>apim.jwt.claims_extractor_impl</code></pre></td>
 <td><div class="content-wrapper">
-<p>By default, the <code>claims_extractor_impl</code> parameter is commented out in the <code>deployment.toml</code> file. Enable it to add all user claims in the JWT token:</p>
+<p>By default, the <code>claims_extractor_impl</code> parameter is commented out in the <code>deployment.toml</code> file. Enable it to add all user claims in the JWT access token:</p>
 <div class="code panel pdl" style="border-width: 1px;">
 <div class="codeContent panelContent pdl">
 <code>claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever"</code>
@@ -125,7 +125,7 @@ if the <code>getClaims</code> method returns <code>{email:user1@wso2.com, gender
 <td><pre><code>apim.jwt.claim_dialect</code></pre></td>
 <td><div class="content-wrapper">
 <p>The dialect URI under which the user's claims are be looked for. Only works with the default value of the <code>apim.jwt.claims_extractor_impl</code> element defined above.</p>
-<p>The JWT token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT token.</p>
+<p>The JWT access token contains all claims that are defined in the <code>apim.jwt.claim_dialect</code> element. The default value of this element is <code>http://wso2.org/claims</code>. To get the list of a specific user's claims that need to be included in the JWT, simply uncomment this element after enabling the JWT. It will include all claims in <code>http://wso2.org/claims</code> to the JWT access token.</p>
 </div></td>
 <td>http://wso2.org/claims</td>
 </tr>
@@ -139,7 +139,7 @@ if the <code>getClaims</code> method returns <code>{email:user1@wso2.com, gender
 </table>
 
 !!! tip
-    You can use TCPMon or API Gateway debug logs to capture the JWT token header with end-user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
+    You can use TCPMon or API Gateway debug logs to capture the JWT access token header with end-user details. Follow the instructions below to enable the Gateway DEBUG logs for wire messages:
 
     1.  Go to the `<APIM_GATEWAY>/repository/conf` directory and open the `log4j2.properties` file with a text editor.
     2.  Add these two loggers to the list of loggers:<br/>
@@ -229,7 +229,7 @@ generator_impl = "org.wso2.carbon.apimgt.keymgt.token.URLSafeJWTGenerator"
 
 JWT expiry time depends directly on whether caching is enabled in the Gateway Manager or Key Manager. The WSO2 API-M Gateway caching is enabled by default. However, if required, you can enable or disable the caching for the Gateway Manager or the Key Manager using the `apim.cache.gateway_token.enable` or `apim.cache.km_token.enable` elements respectively in the `<API-M_HOME>/repository/conf/deployment.toml` file. If caching is enabled for the Gateway Manager or the Key Manager, the JWT expiry time will be the same as the default cache expiry time.
 
-The claims that are retrieved for the JWT Token generation are cached. The expiry time of these JWT claims can be set by setting the **apim.cache.jwt_claim.expiry_time** in the `deployment.toml` file:
+The claims that are retrieved for the JWT access token generation are cached. The expiry time of these JWT claims can be set by setting the **apim.cache.jwt_claim.expiry_time** in the `deployment.toml` file:
 
 ``` toml
 [apim.cache.jwt_claim]

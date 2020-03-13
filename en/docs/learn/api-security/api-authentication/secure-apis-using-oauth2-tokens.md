@@ -15,7 +15,7 @@ OAuth 2.0 access tokens come in two different flavors
    
 The token type is bound to the application and the consumer has to specify the supported token type at application creation time. Once the token type is specified, all the access tokens issues under that particular application will be in the specified access token type. 
 
-For example, the **DefaultApplication** available for consumers in Dev Portal is in JWT token type, hence all the access tokens issued under the **DefaultApplication** are JWT tokens.
+For example, the **DefaultApplication** available for consumers in Dev Portal is in JWT access token type, hence all the access tokens issued under the **DefaultApplication** are JWT access tokens.
 
 ## Authentication via Access Tokens
 

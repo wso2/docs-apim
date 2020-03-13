@@ -76,7 +76,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     ![](../../assets/img/learn/generate-accesstoken.jpg)
 
 
-5. Click **GENERATE** button, generated JWT token can be seen at the popup and copy it.
+5. Click **GENERATE** button, generated JWT access token can be seen at the popup and copy it.
      <html>
      <img src="../../../assets/img/learn/generate-access-token-popup.jpg" height="400" width="580">
      </html>
