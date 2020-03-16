@@ -8,10 +8,10 @@ The [Swagger UI](https://github.com/swagger-api/swagger-ui) is a dependency-free
 
 For more information also, see the [Swagger 2.0 specification](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) .
 
-Let's see how to use the API Console in the Store to invoke an API.
+Let's see how to use the API Console in the Developer Portal to invoke an API.
 
 !!! Note
-    You can only try out HTTPS based APIs via the API Console because the API Store runs on HTTPS.
+    You can only try out HTTPS based APIs via the API Console because the Developer Portal runs on HTTPS.
 
 
 The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) .

@@ -12,7 +12,7 @@ When scopes which cannot be associated to roles are requested, the token should 
 
 The following steps show a demonstration:
 
-1.  Start the API Manager server and log into the API Store.
+1.  Start the API Manager server and log into the Developer Portal.
 2.  Create an application. On the **Production Keys** tab of your application, click **Generate Keys** .
 3.  Obtain the **Base64** encoded representation of the Consumer Key and the Consumer Secret separated by a colon according to the following format.
 

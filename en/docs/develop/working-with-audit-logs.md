@@ -23,7 +23,7 @@ The audit logs that get created when running WSO2 API-M are stored in the `audit
 
 ### Audit log actions
 
-In WSO2 API-M, audit logs can be enabled for the following user actions in the Publisher and Store.
+In WSO2 API-M, audit logs can be enabled for the following user actions in the Publisher and Developer Portal.
 
 #### Publisher
 
@@ -34,12 +34,12 @@ In WSO2 API-M, audit logs can be enabled for the following user actions in the P
 | Update an API            | `[2017-06-08 10:22:49,657]  INFO -  {"performedBy":"admin","action":"updated","typ":"API","info":"{\"provider\":\"admin\",\"name\":\"PhoneVerification\",\"context\":\"\\\/phoneverify\\\/1.0.0\",\"version\":\"1.0.0\"}"}` |
 | Delete an API            | `[2017-06-08 10:15:55,369]  INFO -  {"performedBy":"admin","action":"deleted","typ":"API","info":"{\"provider\":\"admin\",\"name\":\"PhoneVerification\",\"version\":\"1.0.0\"}"}`|
 
-#### Store
+#### Developer Portal
 
 | Action                          | Sample Format                                                                                                                                                                                                                                                                         |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sign in to the Store            | `[2017-06-07 22:34:54,684]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-06-07 22:34:54,682+0530]`|
-| Sign up via the Store           | `[2017-06-07 22:55:34,054]  INFO -  Initiator : admin@carbon.super | Action : Update Roles of User | Target : Kimmmy | Data : { Roles : [] } | Result : Success`|
+| Sign in to the Developer Portal            | `[2017-06-07 22:34:54,684]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-06-07 22:34:54,682+0530]`|
+| Sign up via the Developer Portal           | `[2017-06-07 22:55:34,054]  INFO -  Initiator : admin@carbon.super | Action : Update Roles of User | Target : Kimmmy | Data : { Roles : [] } | Result : Success`|
 | Create an application           | `[2017-06-07 22:40:17,625]  INFO -  {"performedBy":"admin","action":"created","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"TestApp\",\"callbackURL\":null}"}`|
 | Update an application           | `[2017-06-07 22:44:25,931]  INFO -  {"performedBy":"admin","action":"updated","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"MobileApp\",\"callbackURL\":\"\",\"status\":\"APPROVED\"}"}`|
 | Delete an application           | `[2017-06-07 22:45:59,093]  INFO -  {"performedBy":"admin","action":"deleted","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"MobileApp\",\"callbackURL\":\"\"}"}`|

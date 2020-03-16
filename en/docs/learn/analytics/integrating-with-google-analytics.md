@@ -25,7 +25,7 @@ This guide explains how to setup API Manager in order to feed runtime statistics
 
     ![Screen shot of service bus source view with registry configuration highlighted](../../assets/img/learn/service-bus-configuration.png)
     
-6.  API Manager is now integrated with Google Analytics. A user who has subscribed to a published API through the API Store should see an icon as `Real-Time` after logging into their Google Analytics account. Click on this icon and select **Overview**.
+6.  API Manager is now integrated with Google Analytics. A user who has subscribed to a published API through the Developer Portal should see an icon as `Real-Time` after logging into their Google Analytics account. Click on this icon and select **Overview**.
 
 7.  Invoke the above API using the embedded [WSO2 REST Client](../../../learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console/)(or any third-part rest client such as cURL).
 
