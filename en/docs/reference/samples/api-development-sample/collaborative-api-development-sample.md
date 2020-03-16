@@ -80,7 +80,7 @@ Follow the instructions below to implement the latter mentioned business scenari
 5.  [Allow visibiliy](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-APIvisibility) of the `Employee_info_API` API only to the finance and manufacturing departments, and restrict it to the operations departments, so that the finance and manufacturing departments can get the number of employees working in the core departments.
 
         !!! tip
-    From this you can share/restrict the consumption of the API in the Store, but you can not share/restrict editing of the API in Publisher. This has been identified as a GAP in WSO2 API Manager 2.1.0
+    From this you can share/restrict the consumption of the API in the Developer Portal , but you can not share/restrict editing of the API in Publisher. This has been identified as a GAP in WSO2 API Manager 2.1.0
 
 
     The screen shots below show that both John and Tom can subscribe to the `Employee_info_API` API as both of them have been given the privilege to access the `Employee_info_API` API.
