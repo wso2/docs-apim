@@ -8,7 +8,7 @@ The following sections describe how to set up PostgreSQL database to replace the
 
 - [Setting up the database and users](#setting-up-the-database-and-users)
 - [Setting up the drivers](#setting-up-the-drivers)
-- [Executing db scripts to create tables on MySQL database](#executing-db-scripts-to-create-tables-on-mysql-database)
+- [Executing db scripts to create tables on PostgreSQL database](#executing-db-scripts-to-create-tables-on-postgresql-database)
 
 ### Setting up the database and users
 
@@ -50,7 +50,7 @@ Follow the  instructions below to set up the PostgreSQL database and users.
 
 1. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
 
-### Executing db scripts to create tables on MySQL database
+### Executing db scripts to create tables on PostgreSQL database
 
 1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below. 
 
