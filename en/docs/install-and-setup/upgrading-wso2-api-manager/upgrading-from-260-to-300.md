@@ -380,7 +380,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ```tab="PostgreSQL"
         [database.apim_db]
-        type = "postgres"
+        type = "postgre"
         url = "jdbc:postgresql://localhost:5432/mig_am_db"
         username = "username"
         password = "password"
