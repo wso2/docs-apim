@@ -165,7 +165,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
 9.  Change the title of the API.
 
     1.  Click **Edit Source** , and add the following code in the Swagger UI.
-        This is the title that is visible to the consumers in the API Store after the API is published.
+        This is the title that is visible to the consumers in the Developer Portal after the API is published.
 
         ``` java
                     info:
@@ -173,7 +173,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
         ```
 
         ![]({{base_path}}/assets/attachments/103328505/103328467.png)
-        You can see how this change is reflected in the API Store in step 15.
+        You can see how this change is reflected in the Developer Portal in step 15.
 
     2.  Click **Apply Changes** and complete the API creation process.
 
@@ -182,7 +182,7 @@ This tutorial uses the `PhoneVerification` API created in [Create and Publish an
 
 11. Click **Go to APIStore** and the API you just published appears.
 12. Click **API Console** .
-    Note that the changes that you made earlier now appear in the API Store for consumers.
+    Note that the changes that you made earlier now appear in the Developer Portal for consumers.
     ![]({{base_path}}/assets/attachments/103328505/103328468.png)
 
 In this tutorial, you have seen how the integrated Swagger Editor can be used to design, describe, and document your API, so that the API consumers get a better understanding of the API's functionality.

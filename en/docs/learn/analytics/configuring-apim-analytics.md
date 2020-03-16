@@ -439,7 +439,7 @@ auth.configs:
 | `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token.|
 | `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
 | `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
-| `storeUrl`| https://localhost:9443 | Url which the API Manager store is running. Add this config if the Store and Publihser are running in two seperate nodes.|
+| `storeUrl`| https://localhost:9443 | Url which the API Manager store is running. Add this config if the Developer Portal and Publihser are running in two seperate nodes.|
 | `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
 
 

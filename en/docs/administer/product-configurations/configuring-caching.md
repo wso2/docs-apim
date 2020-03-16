@@ -17,7 +17,7 @@ This section covers the following:
 -   [Resource cache](#resource-cache)
 -   [Key Manager cache](#key-manager-cache)
 -   [Response cache](#response-cache)
--   [API Store cache](#api-store-cache)
+-   [Developer Portal cache](#developer-portal-cache)
 
 !!! tip
     In a distributed environment, the caching configurations you do in one node replicates equally in all nodes.
@@ -54,7 +54,7 @@ The revoke API invokes the cache clear handler, which extracts information from 
 
 Given below is how to configure this in a distributed API Manager setup.
 
-1.  In the `deployment.toml` file of the **API Store node** , point the revoke endpoint as follows:
+1.  In the `deployment.toml` file of the **Developer Portal node** , point the revoke endpoint as follows:
 
     ``` java
         [apim.oauth_config]
@@ -150,9 +150,9 @@ The OAuth token is saved in this cache, which is enabled by default. Whenever a 
 
 Please refer [Response Caching]({{base_path}}/learn/api-gateway/response-caching/) to see how to enable response caching for a given API.
 
-### API Store cache
+### Developer Portal cache
 
-The API Store has several caches to reduce the page-load times and increase its responsiveness when multiple users access it simultaneously.
+The Developer Portal has several caches to reduce the page-load times and increase its responsiveness when multiple users access it simultaneously.
 
 -   **Tag cache:** This cache saves the API's tags after they have been retrieved from registry. If your APIs and associated tags change frequently, it is recommended to configure a smaller cache refresh time (in milliseconds). This cache is disabled by default. To enable it, uncomment the following element in the `<APIM_HOME>/repository/conf/deployment.toml` file.
 

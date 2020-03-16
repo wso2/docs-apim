@@ -1,6 +1,6 @@
 # Revoke OAuth2 Application
 
-1.  An OAuth client is created when an application [access token is generated]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens). When a subscriber creates an application and generates an access token to the application using the API Store, the Store makes a call to the API Gateway, which in turn connects with the Key Manager to create an OAuth client and obtain an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
+1.  An OAuth client is created when an application [access token is generated]({{base_path}}/learn/consume-api/manage-application/generate-keys/obtain-access-token/overview-of-access-tokens). When a subscriber creates an application and generates an access token to the application using the Developer Portal, the Developer Portal makes a call to the API Gateway, which in turn connects with the Key Manager to create an OAuth client and obtain an access token. Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
 
     You can revoke the access tokens issued for the application by following the instructions below
 
@@ -27,7 +27,7 @@
         ![]({{base_path}}/assets/attachments/103333704/103333709.png)
         
         !!! info
-            After an OAuth application is revoked, the consumer secret and all the generated access tokens and authorization codes will be invalid. You will not be able to regenerate access tokens in the API store or using the Token API.
+            After an OAuth application is revoked, the consumer secret and all the generated access tokens and authorization codes will be invalid. You will not be able to regenerate access tokens in the Developer Portal or using the Token API.
 
         !!! note
             To re-activate the application, the consumer secret must be regenerated as shown in the next step
@@ -38,7 +38,7 @@
         ![]({{base_path}}/assets/attachments/103333704/103333710.png)
         
         !!! info
-            You have to generate new access tokens and authorization codes for the OAuth application through the API Store or using the Token API after regenerating the consumer secret.
+            You have to generate new access tokens and authorization codes for the OAuth application through the Developer Portal or using the Token API after regenerating the consumer secret.
 
 
 

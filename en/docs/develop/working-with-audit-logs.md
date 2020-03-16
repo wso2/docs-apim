@@ -38,8 +38,8 @@ In WSO2 API-M, audit logs can be enabled for the following user actions in the P
 
 | Action                          | Sample Format                                                                                                                                                                                                                                                                         |
 |---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Sign in to the Store            | `[2017-06-07 22:34:54,684]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-06-07 22:34:54,682+0530]`|
-| Sign up via the Store           | `[2017-06-07 22:55:34,054]  INFO -  Initiator : admin@carbon.super | Action : Update Roles of User | Target : Kimmmy | Data : { Roles : [] } | Result : Success`|
+| Sign in to the Developer Portal            | `[2017-06-07 22:34:54,684]  INFO -  'admin@carbon.super [-1234]' logged in at [2017-06-07 22:34:54,682+0530]`|
+| Sign up via the Developer Portal           | `[2017-06-07 22:55:34,054]  INFO -  Initiator : admin@carbon.super | Action : Update Roles of User | Target : Kimmmy | Data : { Roles : [] } | Result : Success`|
 | Create an application           | `[2017-06-07 22:40:17,625]  INFO -  {"performedBy":"admin","action":"created","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"TestApp\",\"callbackURL\":null}"}`|
 | Update an application           | `[2017-06-07 22:44:25,931]  INFO -  {"performedBy":"admin","action":"updated","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"MobileApp\",\"callbackURL\":\"\",\"status\":\"APPROVED\"}"}`|
 | Delete an application           | `[2017-06-07 22:45:59,093]  INFO -  {"performedBy":"admin","action":"deleted","typ":"Application","info":"{\"tier\":\"20PerMin\",\"name\":\"MobileApp\",\"callbackURL\":\"\"}"}`|

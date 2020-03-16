@@ -32,7 +32,7 @@ Follow the steps below to enable OAuth2 token encryption
 
     !!! tip
 
-        -   If you use a [Distributed API Manager setup](../../../../install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m) , the changes must be made on both the API Store and Key Manager nodes.
+        -   If you use a [Distributed API Manager setup](../../../../install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m) , the changes must be made on both the Developer Portal and Key Manager nodes.
         -   If you use WSO2 Identity Server [(WSO2 IS) as the Key Manager setup](../../../../install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/) , you need to make changes in both WSO2 IS and WSO2 API Manager.
 
 
