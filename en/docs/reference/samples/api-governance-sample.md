@@ -59,7 +59,7 @@ Created API for finance department
 Engaged advance throttle policy for the stock `GET` request in super tenant
 
 ![](https://lh4.googleusercontent.com/0z7Bg6VgIuCSctQhZQ7EGCp01-8MQV7LDqv8KA3LAappv5N9hlSmyK2ynwdHqFjoZkeJcq4lcsVusOJGWPbxLvuIRBRLXEiAfwNX-790V3dpxaOZTz6tagXaJjfwOET-rGl0VN33)
-Alex can log in to the Store
+Alex can log in to the Developer Portal 
 
 ![](https://lh6.googleusercontent.com/uHjIwBtisnHDsjLtKDoJgSA0o0F9IZgYCxoRdC9BNAwy1MaHyh08W-nzbA5dI7igWtGLq6vPOB_9QO04EFbRHs_CSMu3kDwQ88yd6cFmllIlDkn7yNlxo4LB1kHqqY9PPG9RvKlq)
 Alex cannot log in to the Publisher since it has been restricted

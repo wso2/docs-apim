@@ -118,7 +118,7 @@ You need to do the following in WSO2 API Manager.
 6.  Create an API that is publicly visible, to get mobile phone prices by exposing the API to the mobile phone prices. This API should be tagged as “mobile”.
 
         !!! note
-    Depending on the situation, you can specify the "Visibility on the Store" as Public, which means that the API is accessible to everyone, or you can restrict by roles, whereby the API is visible only to specific user roles in the tenant store that you specified).
+    Depending on the situation, you can specify the "Visibility on the Developer Portal " as Public, which means that the API is accessible to everyone, or you can restrict by roles, whereby the API is visible only to specific user roles in the tenant store that you specified).
 
 
 7.  Create an API to get the prices of the mobile pouches. This should also have the tag “mobile”. In this scenario, when an application client sends a request for the mobile phone prices it will also send a request to another API that has the same tag and get the relevant results. (When a user buys a mobile, it should predict the available matching mobile pouches that are for sale.)

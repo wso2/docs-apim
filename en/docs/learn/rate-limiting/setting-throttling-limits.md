@@ -105,7 +105,7 @@ It is also possible to specify a bandwidth per unit time instead of a number of 
 
 #### Application-level throttling (application developer)
 
-Application-level throttling tiers are defined at the time an application is created in the API Store as shown below. The limits are restricted per token for a specific application.
+Application-level throttling tiers are defined at the time an application is created in the Developer Portal as shown below. The limits are restricted per token for a specific application.
 
 ![](../../assets/img/learn/application-create-policy.png)
 An application is a logical collection of one or more APIs and is required to subscribe to an API. Applications allow you to use a single access token to invoke a collection of APIs and to subscribe to one API multiple times with different SLA levels.

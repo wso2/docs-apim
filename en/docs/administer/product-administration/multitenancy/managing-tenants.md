@@ -28,7 +28,7 @@ You can add a new tenant in the management console and then view it by following
 
 When you create multiple tenants in an API Manager deployment, the API developer portals of each tenant are displayed in a multi-tenanted view for all users to browse and for permitted users to subscribe to as shown below:
 
-1.  Access the API developer portal URL (`https://<hostname>:9443/devportal` ) using a Web browser. The storefronts of all the registered tenant domains are listed on the landing page. For example,
+1.  Access the API Developer Portal URL (`https://<hostname>:9443/devportal` ) using a Web browser. The Developer Portal fronts of all the registered tenant domains are listed on the landing page. For example,
 
     [![]({{base_path}}/assets/img/administer/tenant-developer-portals.png)]({{base_path}}/assets/img/administer/tenant-developer-portals.png)
     

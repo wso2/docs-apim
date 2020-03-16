@@ -1,13 +1,13 @@
 # Configuring Workflows in a Cluster
 
-If you are working in a clustered API Manager setup with the API Store, Publisher, Gateway and Key Manager in separate servers, do the workflow configurations that are discussed in the previous topics in the **API Store node** . In addition, do the following configurations.
+If you are working in a clustered API Manager setup with the Developer Portal, Publisher, Gateway and Key Manager in separate servers, do the workflow configurations that are discussed in the previous topics in the **Developer Portal node** . In addition, do the following configurations.
 
 In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web application using the same node as the API Publisher. This is recommended because workflow management is an administrative task and is meant to reside within a private network as the Publisher. Typically, the Admin Portal from the same user store as the API Manager. Therefore, you can use the Admin Portal residing in the Publisher node instead of having it separately. This eliminates the need for a dedicated workflow management node. You need a dedicated node if the Admin Portal users reside in a separate user store.
 
 1.  If you want to change the user roles that can access the Admin Portal, open the `<APIM_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file that is in the node from where you access the Admin Portal (the API Publisher node in this example) and change its `Allowed Roles` parameter. You can add multiple user roles as a comma-separated list.
 
 2.  By default, workflow related configuration files have the port of the Business Process Server with an offset of 2. If you set up the BPS with a different port offset, change the workflow server URLs in the site.json file accordingly.
-3.  Point the `<Address>` sub element of the `<endpoint>` element to the API Store node in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml` file of the API Store node.
+3.  Point the `<Address>` sub element of the `<endpoint>` element to the Developer Portal node in the `<APIM_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml` file of the Developer Portal node.
 
     ``` java
         <endpoint>
@@ -15,7 +15,7 @@ In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web applic
         </endpoint>
     ```
 
-4.  Add the IP address and the port of the API Store to the `<Address>` element of the .epr file of the workflow that you configure. You can find the .epr file by the name of the workflow in the `<APIM_HOME>/business-processes/epr` folder.
+4.  Add the IP address and the port of the Developer Portal to the `<Address>` element of the .epr file of the workflow that you configure. You can find the .epr file by the name of the workflow in the `<APIM_HOME>/business-processes/epr` folder.
 
 5.  Go to the `<APIM_HOME>/business-processes/<workflow name>/BPEL` folder and unzip the file that is there by the name of the workflow. For example, `<APIM_HOME>/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0.zip` .
 
@@ -56,7 +56,7 @@ In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web applic
     </td>
     </tr>
     <tr class="even">
-    <td>Open the <code>               CallbackService              </code> WSDL file and point the address elements to the API Store node in NIO port.</td>
+    <td>Open the <code>               CallbackService              </code> WSDL file and point the address elements to the Developer Portal node in NIO port.</td>
     <td><p>In the <code>                &lt;APIM_HOME&gt;/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0/WorkflowCallbackService.wsdl</code> file:</p>
     <div class="code panel pdl" style="border-width: 1px;">
     <div class="codeContent panelContent pdl">
