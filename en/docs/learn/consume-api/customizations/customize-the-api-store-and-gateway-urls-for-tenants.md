@@ -1,10 +1,10 @@
-# Customize the API Store and Gateway URLs for Tenants
+# Customize the Developer Portal and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Store is `https://<HostName>:9443/devportal` . Follow the steps below to change the URL of the Gateways and API Store tenants in WSO2 API Manager.
+The default URL of WSO2 API Manager Store is `https://<HostName>:9443/devportal` . Follow the steps below to change the URL of the Gateways and Developer Portal tenants in WSO2 API Manager.
 
 -   [Install Nginx and create SSL certificates](#CustomizetheAPIStoreandGatewayURLsforTenants-InstallNginxandcreateSSLcertificates)
 -   [Setup custom domain mapping in the registry](#CustomizetheAPIStoreandGatewayURLsforTenants-Setupcustomdomainmappingintheregistry)
--   [Configure the store webapp](#CustomizetheAPIStoreandGatewayURLsforTenants-Configurethestorewebapp)
+-   [Configure the Developer Portal webapp](#CustomizetheAPIStoreandGatewayURLsforTenants-Configurethedeveloperportalwebapp)
 
 #### Install Nginx and create SSL certificates
 
@@ -71,7 +71,7 @@ If you are using Mac OS, you need to install Nginx using the [brew package manag
 #### Setup custom domain mapping in the registry
 
 !!! note
-Only the super tenant can add custom URLs in their registry space for other tenants. Tenants cannot configure custom URLs for their Store or Gateway.
+Only the super tenant can add custom URLs in their registry space for other tenants. Tenants cannot configure custom URLs for their Developer Portal or Gateway.
 
 
 1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the super admin.
@@ -106,7 +106,7 @@ Only the super tenant can add custom URLs in their registry space for other ten
     ``` java
         {    "tenantDomain": "<tenant domain name>",
             "store" : {
-                "customUrl" : "<custom domain for store>"
+                "customUrl" : "<custom domain for developer portal>"
             },
             "gateway" : {
                 "customUrl" : "<custom domain for gateway>"
@@ -116,9 +116,9 @@ Only the super tenant can add custom URLs in their registry space for other ten
 
     ![]({{base_path}}/assets/attachments/103334773/103334774.png)
 
-The URLs of the Store and Gateway are updated accordingly.
+The URLs of the Developer Portal and Gateway are updated accordingly.
 
-#### Configure the store webapp
+#### Configure the Developer Portal webapp
 
 1.  Go to `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf` directory, open the `site.json` file and add the tenant header parameter as shown below.
 

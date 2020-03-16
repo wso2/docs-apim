@@ -13,11 +13,11 @@ The final BPEL should have a design similar to the following diagram,
 Follow the steps below to test this out.
 
 
-1.  Log in to the API Store and create two new applications.
+1.  Log in to the Developer Portal and create two new applications.
 2.  Log in to the Admin Portal ( `https://<Server Host>:9443/admin` ) and approve the creation of one application.
-3.  In the API Store, subscribe an API to the approved application.
+3.  In the Developer Portal, subscribe an API to the approved application.
 4.  Generate production and/or sandbox key(s) for the approved application.
 5.  Check the pending approval tasks in the Admin Portal. You see tasks pending for application creation, application registration and subscription creation.
-6.  Delete the items you created from the API Store and notice that the respective administrator approval tasks are removed.
-7.  If the application with pending subscription and key generation approvals is deleted from the API Store, all the pending subscription and key generation approval tasks are deleted for that application.
+6.  Delete the items you created from the Developer Portal and notice that the respective administrator approval tasks are removed.
+7.  If the application with pending subscription and key generation approvals is deleted from the Developer Portal, all the pending subscription and key generation approval tasks are deleted for that application.
 

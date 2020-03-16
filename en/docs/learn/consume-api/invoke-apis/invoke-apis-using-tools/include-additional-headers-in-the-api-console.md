@@ -4,7 +4,7 @@
 
 
 !!! Note
-        The Swagger API Console is a JavaScript client that runs in the API Store and makes JavaScript calls from the Store to the API Gateway. In order to successfuly invoke an API by specifying an additional header via the API console, first you must specify the header that you want to add, under the CORS ( [Cross Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ) configuration.
+        The Swagger API Console is a JavaScript client that runs in the Developer Portal and makes JavaScript calls from the Developer Portal to the API Gateway. In order to successfuly invoke an API by specifying an additional header via the API console, first you must specify the header that you want to add, under the CORS ( [Cross Origin Resource Sharing](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) ) configuration.
 
 
         Open the `<API-M_HOME>/repository/conf/deployment.toml` file, and specify the additional headers ( `userId` , in this case)under the `[apim.cors]` section: Alternatively, you could choose to add this additional header only to a specific API ( [Enabling Cors per API]({{base_path}}/learn/design-api/advanced-topics/enabling-cors-for-apis/#enabling-cors-per-api)).
@@ -34,7 +34,7 @@ Next, let's see how to add the header as a parameter to the API Console.
 
 4.  Once you are done, click **Save** .
 
-5.  Log in to the API Store, subscribe to the API and generate an access token for the application you subscribed with. Once done Click on the API and then navigate to the API console via the Test button.
+5.  Log in to the Developer Portal, subscribe to the API and generate an access token for the application you subscribed with. Once done Click on the API and then navigate to the API console via the Test button.
     
 8.  Once you expand the modified resource, you would notice that the added header parameter is visible in the API console and expecting an input.
 

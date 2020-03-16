@@ -24,7 +24,7 @@ into the system.
     ![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/open_endpoint_active_node.png)
     
     When a failover occurs, the Siddhi Store Query API endpoint configured in node 2 (which becomes the currently active node) is opened, and 
-    all the store query traffic is directed to that endpoint.
+    all the Developer Portal query traffic is directed to that endpoint.
     
     ![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics//open_endpoint_after_active_member_changes
     .png)

@@ -164,7 +164,7 @@ Click the following topics for a description of the concepts that you need to kn
 
     ![]({{base_path}}/assets/attachments/103327814/103327779.png)
 
-    You can invoke the API without a subscription after publishing the API to the Store. For more information, see [Deploy and Test as a Prototype](_Deploy_and_Test_Mock_APIs_) .
+    You can invoke the API without a subscription after publishing the API to the Developer Portal. For more information, see [Deploy and Test as a Prototype](_Deploy_and_Test_Mock_APIs_) .
 
 
 10. Click **Next: Manage &gt;** and enter the information in the table below.
@@ -184,7 +184,7 @@ Click the following topics for a description of the concepts that you need to kn
     <td><div class="content-wrapper">
     <p>The transport protocol on which the API is exposed.  Both HTTP and HTTPS transports are selected by default. If you want to limit API availability to only one transport (e.g., HTTPS), clear the checkbox of the other transport.</p>
         !!! warning
-        <p>You can only <a href="_Invoke_an_API_using_the_Integrated_API_Console_">try out HTTPS based APIs via the API Console</a> because the API Store runs on HTTPS.</p>
+        <p>You can only <a href="_Invoke_an_API_using_the_Integrated_API_Console_">try out HTTPS based APIs via the API Console</a> because the Developer Portal runs on HTTPS.</p>
 
     </div></td>
     </tr>
@@ -208,7 +208,7 @@ Click the following topics for a description of the concepts that you need to kn
 
     For more information on **maximum backend throughput** and **advanced throttling policies** , see [Working with Throttling](_Rate_Limiting_) .
 
-11. Click **Save & Publish** . This publishes the API that you just created to the API Store so that subscribers can use it.
+11. Click **Save & Publish** . This publishes the API that you just created to the Developer Portal so that subscribers can use it.
 
         !!! tip
     You can save partially complete or completed APIs without publishing it. Select the API and click on the **Lifecycle** tab to manage the API Lifecycle .

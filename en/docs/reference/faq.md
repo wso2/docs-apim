@@ -26,9 +26,9 @@
     -   [How can I continue to use my email address as the username in a distributed API-M deployment?](#FAQ-HowcanIcontinuetousemyemailaddressastheusernameinadistributedAPI-Mdeployment?)
     -   [How can I set up a reverse proxy server to pass server requests?](#FAQ-HowcanIsetupareverseproxyservertopassserverrequests?)
 -   [Functionality](#FAQ-Functionality)
-    -   [Why can't I see all the APIs that I published on the API Store?](#FAQ-Whycan'tIseealltheAPIsthatIpublishedontheAPIStore?)
+    -   [Why can't I see all the APIs that I published on the Developer Portal?](#FAQ-Whycan'tIseealltheAPIsthatIpublishedontheAPIStore?)
     -   [When editing an API's resource parameters, how can I add multiple options to the Response Content Type parameter?](#FAQ-WheneditinganAPI'sresourceparameters,howcanIaddmultipleoptionstotheResponseContentTypeparameter?)
-    -   [Why are the changes I did to the  Response Content Type  resource parameter of a published API not reflected in the API Store, even after saving?](#FAQ-WhyarethechangesIdidtotheResponseContentTyperesourceparameterofapublishedAPInotreflectedintheAPIStore,evenaftersaving?)
+    -   [Why are the changes I did to the  Response Content Type  resource parameter of a published API not reflected in the Developer Portal, even after saving?](#FAQ-WhyarethechangesIdidtotheResponseContentTyperesourceparameterofapublishedAPInotreflectedintheAPIStore,evenaftersaving?)
     -   [How do I change the pass-through transport configurations?](#FAQ-HowdoIchangethepass-throughtransportconfigurations?)
     -   [How can I extend the default API Manager server by installing new features?](#FAQ-HowcanIextendthedefaultAPIManagerserverbyinstallingnewfeatures?)
     -   [How can I preserve the CDATA element tag in API responses?](#FAQ-HowcanIpreservetheCDATAelementtaginAPIresponses?)
@@ -36,9 +36,9 @@
     -   [How can I manage authentication centrally in a clustered environment?](#FAQ-HowcanImanageauthenticationcentrallyinaclusteredenvironment?)
     -   [How can I manage the API permissions/visibility?](#FAQ-HowcanImanagetheAPIpermissions/visibility?)
     -   [How can I add security policies (UT, XACML, etc.) for the services?](#FAQ-HowcanIaddsecuritypolicies(UT,XACML,etc.)fortheservices?)
-    -   [How can I enable self signup to the API Store?](#FAQ-HowcanIenableselfsignuptotheAPIStore?)
-    -   [How can I disable self signup to the API Store? I want to engage my own approval mechanism.](#FAQ-HowcanIdisableselfsignuptotheAPIStore?Iwanttoengagemyownapprovalmechanism.)
-    -   [Is there a way to lock a user's account after a certain number of failed login attempts to the API Store?](#FAQ-Isthereawaytolockauser'saccountafteracertainnumberoffailedloginattemptstotheAPIStore?)
+    -   [How can I enable self signup to the Developer Portal?](#FAQ-HowcanIenableselfsignuptotheAPIStore?)
+    -   [How can I disable self signup to the Developer Portal? I want to engage my own approval mechanism.](#FAQ-HowcanIdisableselfsignuptotheAPIStore?Iwanttoengagemyownapprovalmechanism.)
+    -   [Is there a way to lock a user's account after a certain number of failed login attempts to the Developer Portal?](#FAQ-Isthereawaytolockauser'saccountafteracertainnumberoffailedloginattemptstotheAPIStore?)
     -   [How do I change the default admin password and what files should I edit after changing it?](#FAQ-HowdoIchangethedefaultadminpasswordandwhatfilesshouldIeditafterchangingit?)
     -   [How can I recover the admin password used to log in to the management console?](#FAQ-HowcanIrecovertheadminpasswordusedtologintothemanagementconsole?)
     -   [How can I manage session timeouts for the management console?](#FAQ-HowcanImanagesessiontimeoutsforthemanagementconsole?)
@@ -175,18 +175,18 @@ See [Configuring the Proxy Server and the Load Balancer](_Configuring_the_Proxy_
 
 ### Functionality
 
-##### Why can't I see all the APIs that I published on the API Store?
+##### Why can't I see all the APIs that I published on the Developer Portal?
 
-If you have multiple versions of an API published, only the latest version is shown in the API Store. To display multiple versions, set the `<DisplayMultipleVersions>` element to `true` in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+If you have multiple versions of an API published, only the latest version is shown in the Developer Portal. To display multiple versions, set the `<DisplayMultipleVersions>` element to `true` in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
 ##### When editing an API's resource parameters, how can I add multiple options to the **Response Content Type parameter** ?
 
 You cannot do this using the UI. Instead, edit the Swagger definition of the API as shown in the following example,
 `content_type: ["text/xml","text/plain"]        `
 
-##### Why are the changes I did to the `Response Content Type` resource parameter of a published API not reflected in the API Store, even after saving?
+##### Why are the changes I did to the `Response Content Type` resource parameter of a published API not reflected in the Developer Portal, even after saving?
 
-If you edited the **Response Content Type** using the UI, please open the API's Swagger definition, do your changes, and save. Then the changes should be reflected back in the API Store. This will be fixed in a future release.
+If you edited the **Response Content Type** using the UI, please open the API's Swagger definition, do your changes, and save. Then the changes should be reflected back in the Developer Portal. This will be fixed in a future release.
 
 ##### How do I change the pass-through transport configurations?
 
@@ -241,15 +241,15 @@ To set visibility of the API only to selected user roles in the server, see [API
 
 This should be done in the backend services in the Application Server or WSO2 ESB.
 
-##### How can I enable self signup to the API Store?
+##### How can I enable self signup to the Developer Portal?
 
 See [how to enable self signup]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/).
 
-##### How can I disable self signup to the API Store? I want to engage my own approval mechanism.
+##### How can I disable self signup to the Developer Portal? I want to engage my own approval mechanism.
 
 To disable the self signup capability, open the API-M management console and click the **Resources &gt; Browse** menu. The registry opens. Navigate to the `/_system/governance/apimgt/applicationdata/sign-up-config.xml` file and set the `<SelfSignUp><Enabled>` element to false. To engage your own signup process, see [Adding a User Signup Workflow](_Adding_a_User_Signup_Workflow_) .
 
-##### Is there a way to lock a user's account after a certain number of failed login attempts to the API Store?
+##### Is there a way to lock a user's account after a certain number of failed login attempts to the Developer Portal?
 
 If your identity provider is WSO2 Identity Server, this facility comes out of the box. If not, install the **Account Recovery and Credentials Management** feature (available under the User Management category) to the API Manager and configure it. For more information, see [User Account Locking and Account Disabling](https://docs.wso2.com/display/IS550/User+Account+Locking+and+Account+Disabling) in the Identity Server documentation. For more information on installing features, see [Working with features](https://docs.wso2.com/display/ADMIN44x/Installing+Features+using+pom+Files) in the Admin Guide.
 

@@ -11,7 +11,7 @@ When an API is invoked specifying an API key as the authentication method, the A
 
 ## Prerequisites for API keys
 
-- The API key should be a valid JWT signed using the primary KeyStore private key of the API Store. 
+- The API key should be a valid JWT signed using the primary KeyStore private key of the Developer Portal. 
 
 - The expected token format is as follows:
 
@@ -132,7 +132,7 @@ You can use any one of the following methods to invoke the API.
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Make sure to import the Store certificate to the APIM gateway client-truststore under the same alias. </p>
+<p>Make sure to import the Developer Portal certificate to the APIM gateway client-truststore under the same alias. </p>
 </div> 
 </html>
      

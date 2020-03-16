@@ -124,7 +124,7 @@ Note the following regarding the above sample:
 -   The `WorkflowException` is thrown to roll back the subscription in case of a failure.
 
 !!! info
-In a distributed setup, the custom workflows should be deployed in the Store node.
+In a distributed setup, the custom workflows should be deployed in the Developer Portal node.
 
 
 After the implementation of the class is done, follow the steps below to implement the new workflow extension in the API Manager:

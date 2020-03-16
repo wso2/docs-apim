@@ -6,7 +6,7 @@ The examples here uses the `PhoneVerification` API, which is created in section 
 
 Let's invoke the `PhoneVerification` API using a SOAP client.
 
-1.  Sign in to the API Store and click an API that you want to invoke (e.g., `PhoneVerification` ).
+1.  Sign in to the Developer Portal and click an API that you want to invoke (e.g., `PhoneVerification` ).
 2.  The API's **Overview** page opens. Select an application (e.g., `DefaultApplication` ), with an available tier and subscribe to the API.
 
     ![]({{base_path}}/assets/img/learn/subscribe-phone-verification.png)
@@ -31,7 +31,7 @@ Let's invoke the `PhoneVerification` API using a SOAP client.
 10. Add the following dummy values and submit the request.
 
     1.  Change the endpoint with the production URL of the API.
-        You can copy the production URL from the API's **Overview** tab in the API Store (i.e., It is `https://localhost:8243/phoneverify/1.0.0` for the `PhoneVerification` API). Append the resources to the end of the URL, if any. The resource is `/CheckPhoneNumber` for the `PhoneVerification` API that we use here.
+        You can copy the production URL from the API's **Overview** tab in the Developer Portal (i.e., It is `https://localhost:8243/phoneverify/1.0.0` for the `PhoneVerification` API). Append the resources to the end of the URL, if any. The resource is `/CheckPhoneNumber` for the `PhoneVerification` API that we use here.
 
     2.  In the SOAP request, change the parameters, which are PhoneNumber and LicenseKey.
 
