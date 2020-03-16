@@ -206,6 +206,7 @@ nav:
                 - Overview: learn/api-security/authorization/api-authorization.md
                 - Role-Based Access Control using Scopes: learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                 - Role-Based Access Control using XACML: learn/api-security/authorization/role-based-access-control-using-xacml.md
+            - Securing APIs by Auditing API Definitions: learn/api-security/configuring-api-security-audit.md
             - Request-Response Schema Validation:
                 - JSON Schema Validator: learn/api-security/api-request-response-schema-validation/json-schema-validator.md
             - OAuth2:
