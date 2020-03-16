@@ -4,6 +4,6 @@ The source code of all WSO2 products as well as the scripts that are used for bu
 
 -   [WSO2 GitHub Repositories](https://wso2.github.io/github-repositories.html)
 -   [Using Maven to Build WSO2 Products](https://wso2.github.io/using-maven.html)
--   [Contributing to the Code Base](index)
+-   [Contributing to the Code Base](https://wso2.github.io/index.html)
 
 
