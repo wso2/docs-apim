@@ -10,9 +10,9 @@ Let's create an API Product named customer leasing that includes resources from 
 
 2. Create the following two APIs by importing 
 the attached OpenAPI definition (a.k.a Swagger definition) files.
-     - Customer Info API - [customer-info-api.yaml]({{base_path}}/assets/attachments/learn/design-api/create-api-product/customer-info-api.yaml) 
+     - Customer Info API - [customer-info-api.yaml]({{base_path}}/assets/attachments/learn/customer-info-api.yaml) 
 
-     - Leasing API - [leasing-api.yaml]({{base_path}}/assets/attachments/learn/design-api/create-api-product/leasing-api.yaml)
+     - Leasing API - [leasing-api.yaml]({{base_path}}/assets/attachments/learn/leasing-api.yaml)
 
      <html>
      <div class="admonition note">
