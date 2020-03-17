@@ -361,6 +361,7 @@ nav:
             - Changing the Hostname: install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md
             - Changing the Default Ports with Offset: install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md
             - Configuring the Proxy Server and the Load Balancer: install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md
+            - Configuring message builders and formatters: install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md
             - Configuring rsync for Deployment Synchronization: install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring API-M Analytics High Availability Deployment:
