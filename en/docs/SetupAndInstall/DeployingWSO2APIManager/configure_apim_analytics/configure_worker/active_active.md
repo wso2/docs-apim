@@ -4,7 +4,7 @@ You can use the Active-Active deployment pattern to configure API-M Analytics as
 
 ## Overview
 
-![API-M Analytics Active-Active deployment]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/Active-Active_Deployment.png)
+[![API-M Analytics Active-Active deployment]({{base_path}}/assets/img/setup-and-install/analytics-active-active-deployment.png)]({{base_path}}/assets/img/setup-and-install/analytics-active-active-deployment.png)
 
 The above diagram represents a deployment where you are not limited to two nodes. You can scale the event processing horizontally by adding more API-M Analytics nodes to the deployment. In this deployment, it is recommended to configure the Gateway node to publish events to multiple API-M Analytics nodes in a Round-robin manner to ensure better fault tolerance. The publishing of events can be carried out by one or more of the API-M Gateway nodes.
 
