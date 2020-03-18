@@ -27,6 +27,6 @@ You can use this pattern when you require a separate internal and external API M
 
 ## Pattern 5: Internal and external (public and private cloud) API Management
 
-[![Internal and external (public and private cloud) API-M]({{base_path}}/assets/img/setup-and-install/Internal-public-and-private-cloud.png)]({{base_path}}/assets/img/setup-and-install/Internal-public-and-private-cloud.png)
+[![Internal and external (public and private cloud) API-M]({{base_path}}/assets/img/setup-and-install/internal-public-and-private-cloud.png)]({{base_path}}/assets/img/setup-and-install/internal-public-and-private-cloud.png)
 
 You can use this pattern when you wish to maintain a cloud deployment as an external API Gateway layer.
