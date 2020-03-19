@@ -43,7 +43,7 @@ This section explains how to add a custom workflow to control the API state chan
 1.  Download [WSO2 Business Process Server](http://wso2.com/products/business-process-server/).
 2.  Set an offset of 2 to the default BPS port in the `<BPS_HOME>/repository/conf/carbon.xml` file. 
 
-     This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md).
+     This prevents port conflicts that occur when you start more than one WSO2 product on the same server. For more information, see [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset).
 
     ``` xml
     <Offset>2</Offset>
