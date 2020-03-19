@@ -26,6 +26,18 @@ Follow the instructions below to configure server-specific custom attributes:
     name="External Reference Id"
     description="Sample description of the attribute"
     ```
+    
+    !!! note
+        Default attribute values can be specified in the configurations as below. Default values must be defined for required, hidden attributes.
+        
+        ``` java
+        [[apim.devportal.application_attributes]]
+        required=true
+        hidden=true
+        default="DEFAULT"
+        name="Organization Id"
+        description="Sample description of the attribute"
+        ```  
 
 ### Tenant-specific configuration
 
