@@ -31,7 +31,7 @@ Follow the instructions below to configure server-specific custom attributes:
         Default attribute values can be specified in the configurations as below. Default values must be defined for 
         required, hidden attributes.
         
-        ``` java
+        ```
         [[apim.devportal.application_attributes]]
         required=true
         hidden=true
