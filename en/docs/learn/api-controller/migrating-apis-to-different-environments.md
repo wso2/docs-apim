@@ -60,13 +60,13 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             **Flags:**  
             
             -    Required :  
-                `--name` or `-n` : Name of the API to be exported  
-                `--version` or `-v` : Version of the API to be exported           
-                `--environment` or `-e` : Environment to which the API should be exported  
+                - `--name` or `-n` : Name of the API to be exported  
+                - `--version` or `-v` : Version of the API to be exported      
+                - `--environment` or `-e` : Environment to which the API should be exported  
             -   Optional : 
-                `--provider` or `-r` : Provider of the API 
-                `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
-                `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
+                - `--provider` or `-r` : Provider of the API 
+                - `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
+                - `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
         !!! example
             ```go
