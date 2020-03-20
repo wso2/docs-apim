@@ -105,7 +105,7 @@ To configure the API-M Analytics nodes to deploy them as an active-active cluste
               isAutoCommit: false     
     ```  
    
-   - If you have configured Analytics for [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/), import the appropriate DB script from the `<APIM_ANALYTICS_HOME>/wso2/worker/dbscripts/apimgt/` directory.
+       - If you have configured Analytics for [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/), import the appropriate DB script from the `<APIM_ANALYTICS_HOME>/wso2/worker/dbscripts/apimgt/` directory.
 
 !!! note 
 
