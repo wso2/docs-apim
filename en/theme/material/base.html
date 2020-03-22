@@ -224,5 +224,12 @@
     {% endblock %}
   </body>
   <script src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-  <script>docsearch({apiKey:"31b0f8eb79778a2d238bc9600dc812af",indexName:"wso2",inputSelector:".md-search__input",debug:!1})</script>
+  <script>docsearch(
+    {
+      apiKey:"31b0f8eb79778a2d238bc9600dc812af",
+      indexName:"wso2",
+      inputSelector:".md-search__input",
+      algoliaOptions: {"facetFilters":["language:en","version:3.0.0"]}
+      }
+  )</script>
 </html>
