@@ -13,7 +13,9 @@ Make sure to take a backup of the `defaultTheme.js` before making any changes.
 Changes done in the `defaultTheme.js` file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code).
 
 !!!Note
-    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file. Following link list down the available params  [https://material-ui.com/customization/default-theme/#default-theme](https://material-ui.com/customization/default-theme/#default-theme)
+    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. 
+    You can refer to `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
+    The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file. Following link list down the available params  [https://material-ui.com/customization/default-theme/#default-theme](https://material-ui.com/customization/default-theme/#default-theme)
 
 
 ## Uploading via the Admin Portal (Tenants Only)
