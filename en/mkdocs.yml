@@ -18,7 +18,7 @@
 site_name: WSO2 API Manager Documentation 3.1.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/latest/
+site_url: https://apim.docs.wso2.com/en/next/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -102,7 +102,7 @@ nav:
                 - Control API Visibility and Subscription Availability in the Developer Portal: learn/design-api/advanced-topics/control-api-visibility-and-subscription-availability-in-developer-portal.md
                 - Enabling CORS for APIs: learn/design-api/advanced-topics/enabling-cors-for-apis.md
                 - Adding an API State Change Workflow: learn/design-api/advanced-topics/adding-an-api-state-change-workflow.md
-                - Block Subscription to an API: learn/design-api/advanced-topics/block-subscription-to-an-api.md 
+                - Block Subscription to an API: learn/design-api/advanced-topics/block-subscription-to-an-api.md
         - Consume APIs:
             - Discover APIs:
                 - Search: learn/consume-api/discover-apis/search.md
@@ -172,7 +172,7 @@ nav:
             - Message Mediation:
                 - Changing the Default Mediation Flow of API Requests: learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
                 - Creating and Uploading using Integration Studio: learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
-                - Adding Dynamic Endpoints : learn/api-gateway/message-mediation/adding-dynamic-endpoints.md  
+                - Adding Dynamic Endpoints : learn/api-gateway/message-mediation/adding-dynamic-endpoints.md
                 - Removing Specific Request Headers From Response: learn/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
                 - Passing a Custom Authorization Token to the Backend: learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
                 - URL Mapping: learn/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
@@ -257,7 +257,7 @@ nav:
             - Monetizing an API: learn/api-monetization/monetizing-an-api.md
         - Analytics:
             - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
-            - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md 
+            - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md
             - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
             - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
             - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
@@ -533,5 +533,3 @@ extra:
       link: https://www.linkedin.com/company/wso2
   site_version: 3.1.0
   base_path: https://apim.docs.wso2.com/en/next
-
-
