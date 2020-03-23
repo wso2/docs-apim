@@ -22,7 +22,7 @@ The AI-based recommendations for the Developer Portal uses a specialized recomme
 
 After the recommendations feature is activated, the recommendation feature related events will be published to this service. The recommendation engine analyzes all the information and runs through its algorithm to find the most suitable API recommendations for the user who is currently signed in to the Developer Portal. These APIs will then be listed in the Developer Portal, similar to the following image.
 
-![](../assets/img/api-recommendations.png)
+[![API recommendations]({{base_path}}/assets/img/learn/api-recommendations.png)]({{base_path}}/assets/img/learn/api-recommendations.png)
 
 The following are the recommendation related events that are sent to the recommendations service:
 
