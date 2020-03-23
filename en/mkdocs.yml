@@ -106,6 +106,7 @@ nav:
         - Consume APIs:
             - Discover APIs:
                 - Search: learn/consume-api/discover-apis/search.md
+                - AI-based Recommendations for the Developer Portal : learn/consume-api/discover-apis/api-recommendations.md
             - Manage Applications:
                 - Create Application: learn/consume-api/manage-application/create-application.md
                 - Generate Keys:
