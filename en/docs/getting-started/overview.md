@@ -86,7 +86,7 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
 
 ![]({{base_path}}/assets/img/get_started/traffic-manager.png)
 
-The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate-limiting of API requests. For more information, see [Working with Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases).
+The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests. For more information, see [Working with Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases).
 
 
 #### Analytics
