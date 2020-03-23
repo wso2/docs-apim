@@ -28,16 +28,6 @@ management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
 
 **Changing the default database:** You simply have to set up new physical databases, point the product server to the new databases by updating the relevant configuration files, and create the required tables using the scripts provided in the product pack. See the following topics for instructions:
 
-<<<<<<< HEAD:en/docs/install-and-setup/setting-up-databases/overview.md
--   [Changing to MySQL](changing-default-databases/changing-to-mysql.md)
--   [Changing to Oracle](changing-default-databases/changing-to-oracle.md)
--   [Changing to MSSQL](changing-default-databases/changing-to-mssql.md)
--   [Changing to Oracle RAC](changing-default-databases/changing-to-oracle-rac.md)
--   [Changing to PostgreSQL](changing-default-databases/changing-to-postgresql.md)
--   [Changing to IBM DB2](changing-default-databases/changing-to-ibm-db2.md)
--   [Changing to MariaDB](changing-default-databases/changing-to-mariadb.md)
--   [Changing to Remote H2](changing-default-databases/changing-to-remote-h2.md)
-=======
 -   [Changing to MySQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql)
 -   [Changing to Oracle]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle)
 -   [Changing to MSSQL]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql)
@@ -46,4 +36,3 @@ management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
 -   [Changing to IBM DB2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
 -   [Changing to MariaDB]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
 
->>>>>>> 3.0.0:en/docs/InstallAndSetup/SettingUpDatabases/overview.md
