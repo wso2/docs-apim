@@ -108,37 +108,15 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
             By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
 
-7. Navigate to **Resources** > **Browse** in the main menu and access the file `/_system/config/apimgt/applicationdata/tenant-conf.json`.
+7. Log in to admin portal ( `https://<APIM_Host>:<APIM_Port>/admin`) and navigate to Settings > Scope Mapping in admin portal. 
 
-8. Click on **Edit as text**. 
-
-    ![Edit the Tenant conf file]({{base_path}}/assets/img/administer/add-roles-to-tenant-conf.png)
-
-9. Add the new role created above(`creator`) under **Roles** of all scopes that it should be assigned to as follows. 
+8. Update mappings and add the new role created above(creator) under Roles of all scopes that it should be assigned to as follows.  
 
     **For example**, if the new role has the API Creator permission, add it under every scope that has `Internal/creator` role specified.
 
     If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, add the new role under `apim:api_create` scope.
-
-``` json
-    "RESTAPIScopes": {
-    "Scope": [
-    {
-        "Name": "apim:api_publish",
-        "Roles": "admin,Internal/publisher"
-    },
-    {
-        "Name": "apim:api_create",
-        "Roles": "admin,Internal/creator,creator"
-    },
-    {
-        "Name": "apim:api_view",
-        "Roles": "admin,Internal/publisher,Internal/creator,creator"
-    },
-    ...
-    ]
-}
-```
+    
+    [![Add Scope Mapping]({{base_path}}/assets/img/learn/scope-mapping.png)]({{base_path}}/assets/img/learn/scope-mapping.png) 
 
 !!! info
     **Application Roles**
@@ -152,6 +130,75 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
     This is a special case of internal role that is created for a particular service provider application. Only users who are assigned the application role permission can manage the corresponding service provider application.
 
     These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
+
+### Adding Role Mappings
+
+In the above example we mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There we had to update each and every entry that contained `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated.
+Therefore from APIM 3.1.0 onwards we are introduing a `Role Mapping` feature to enable users to easily map new roles to existing scopes.
+
+1. Log in to the admin portal ( `https://<APIM_Host>:<APIM_Port>/admin` ) if you have not done already.
+
+2. Navigate to Settings > Scope Mapping in admin portal.
+
+3. Under Role Mappings define a mapping as follows.
+
+[![Add Role Mapping]({{base_path}}/assets/img/learn/role-mapping.png)]({{base_path}}/assets/img/learn/role-mapping.png)
+
+This will update all scope mappings in tenant-conf.json with Internal/creator as an allowed role resulting the new creator role too be allowed for all scopes allowed for Internal/creator role.
+
+!!! info 
+    Under default configurations following are the scopes allowed for each deafult Internal role.
+    
+    | Role                                   | admin   | Internal/publisher   | Internal/creator   | Internal/subscriber   | Internal/analytics   | Internal/everyone   |
+    |-- ------------------------------------ | ------- | -------------------- | ------------------ | --------------------- | -------------------- | ----------------- --|
+    | apim:api_publish                       | &check; | &check;              |                    |                       |                      |                     |
+    | apim:api_create                        | &check; |                      | &check;            |                       |                      |                     |
+    | apim:api_view                          | &check; | &check;              | &check;            |                       | &check;              |                     |
+    | apim:api_delete                        | &check; |                      | &check;            |                       |                      |                     |
+    | apim:subscribe                         | &check; |                      |                    | &check;               |                      |                     |
+    | apim:tier_view                         | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:tier_manage                       | &check; |                      |                    |                       |                      |                     |
+    | apim:bl_view                           | &check; |                      |                    |                       |                      |                     |
+    | apim:subscription_view                 | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:subscription_block                | &check; | &check;              |                    |                       |                      |                     |
+    | apim:mediation_policy_view             | &check; |                      | &check;            |                       |                      |                     |
+    | apim:mediation_policy_create           | &check; |                      | &check;            |                       |                      |                     |
+    | apim:api_workflow                      | &check; |                      |                    |                       |                      |                     |
+    | apim:app_owner_change                  | &check; |                      |                    |                       |                      |                     |
+    | apim:app_import_export                 | &check; |                      |                    |                       |                      |                     |
+    | apim:api_import_export                 | &check; |                      |                    |                       |                      |                     |
+    | apim:label_manage                      | &check; |                      |                    |                       |                      |                     |
+    | apim:label_read                        | &check; |                      |                    |                       |                      |                     |
+    | apim:app_update                        | &check; |                      |                    | &check;               |                      |                     |
+    | apim:app_manage                        | &check; |                      |                    | &check;               |                      |                     |
+    | apim:sub_manage                        | &check; |                      |                    | &check;               |                      |                     |
+    | apim:monetization_usage_publish        | &check; | &check;              |                    |                       |                      |                     |
+    | apim:document_create                   | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:ep_certificates_update            | &check; |                      | &check;            |                       |                      |                     |
+    | apim:client_certificates_update        | &check; |                      | &check;            |                       |                      |                     |
+    | apim:threat_protection_policy_manage   | &check; |                      | &check;            |                       |                      |                     |
+    | apim:document_manage                   | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:client_certificates_add           | &check; |                      | &check;            |                       |                      |                     |
+    | apim:publisher_settings                | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim:store_settings                    | &check; |                      |                    | &check;               |                      |                     |
+    | apim:client_certificates_view          | &check; |                      | &check;            |                       |                      |                     |
+    | apim:mediation_policy_manage           | &check; |                      | &check;            |                       |                      |                     |
+    | apim:threat_protection_policy_create   | &check; |                      | &check;            |                       |                      |                     |
+    | apim:ep_certificates_add               | &check; |                      | &check;            |                       |                      |                     |
+    | apim:ep_certificates_view              | &check; |                      | &check;            |                       |                      |                     |
+    | apim:api_key                           | &check; |                      | &check;            |                       |                      |                     |
+    | apim_analytics:admin                   | &check; |                      |                    |                       |                      |                     |
+    | apim_analytics:product_manager         | &check; | &check;              | &check;            | &check;               |                      |                     |
+    | apim_analytics:api_developer           | &check; | &check;              | &check;            |                       |                      |                     |
+    | apim_analytics:app_developer           | &check; |                      |                    | &check;               |                      |                     |
+    | apim_analytics:devops_engineer         | &check; | &check;              | &check;            | &check;               |                      |                     |
+    | apim_analytics:analytics_viewer        | &check; |                      |                    |                       | &check;              |                     |
+    | apim_analytics:everyone                |         |                      |                    |                       |                      | &check;             |
+    | apim:pub_alert_manage                  | &check; |                      | &check;            |                       |                      |                     |
+    | apim:sub_alert_manage                  | &check; |                      |                    | &check;               |                      |                     |
+    | apim:tenantInfo                        | &check; |                      |                    |                       |                      |                     |
+    | apim:admin_operations                  | &check; |                      |                    |                       |                      |                     |
+
 
 ### Editing or deleting a role
 
