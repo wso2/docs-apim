@@ -4,16 +4,11 @@ WSO2 API Manager is shipped with an H2 database for storing data. These default 
 
 ### Default databases
 
-Explained below are the default databases that you will find in the `database` directory.
+Explained below are the default databases which will be used within API Manager.
 
 -   **AM database** :`WSO2AM_DB.mv.db` WSO2 API Manager has this database keeping its specific API-M related data.
 -   **Shared database** :`WSO2SHARED_DB.mv.db` This database contains the registry and user management data.
 -   **Carbon database:** `WSO2CARBON_DB.mv.db` This database has the internal data related to the product. This data is stored in the embedded H2 database.
--   **Metrics database:** `WSO2METRICS_DB.mv.db` This database has the metrics monitoring data. This data is stored in the embedded H2 database.
--   **MB database:** `WSO2MB_DB.mv.db` This database has the message brokering data.
-
-!!! Warning
-    **Do not share** `WSO2MB_DB` among the nodes in an **Active-Active set-up** or **Traffic Manager HA** scenario, because each node should have its own local `WSO2_MB_STORE_DB` database to act as separate Traffic Managers.
 
 Following image shows the default databases and the data that are stored in each database.
 
@@ -21,7 +16,7 @@ Following image shows the default databases and the data that are stored in each
 
 ### Changing the default databases
 
-The embedded H2 databases shipped with your product are suitable for suitable for development and testing environments. However, for **production environments,** it is recommended to use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc.
+The embedded H2 databases shipped with your product are suitable for development and testing environments. However, for **production environments,** it is recommended to use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc.
 
 WSO2 products are shipped with scripts for creating the required tables in all the required databases: The scripts for creating tables for apim, user
 management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
