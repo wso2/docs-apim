@@ -5,7 +5,7 @@ system suffer any failing due to several unforeseeable reasons. One of the main 
 amount of infrastructure resources possible. Thus deployment pattern comprise of only two Streaming integration 
 servers.
 
-![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/Minimum_HA_Architecture.png)
+[![API-M Analytics active-passive deployment]({{base_path}}/assets/img/setup-and-install/analytics-active-passive-deployment.png)]({{base_path}}/assets/img/setup-and-install/analytics-active-passive-deployment.png)
 
 In minimum HA setup, one node is assigned as the active node while the other node is assigned as the passive node.
 Only the active node processes the incoming events and publishes the outgoing events. Internally, the active node 
@@ -24,7 +24,7 @@ into the system.
     ![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics/open_endpoint_active_node.png)
     
     When a failover occurs, the Siddhi Store Query API endpoint configured in node 2 (which becomes the currently active node) is opened, and 
-    all the store query traffic is directed to that endpoint.
+    all the Developer Portal query traffic is directed to that endpoint.
     
     ![]({{base_path}}/assets/img/setup-and-install/configure_apim_analytics//open_endpoint_after_active_member_changes
     .png)

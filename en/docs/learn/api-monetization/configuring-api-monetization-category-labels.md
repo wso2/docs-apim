@@ -1,12 +1,12 @@
 # Configuring API Monetization Category Labels
 
-When defining throttling tiers using the Admin Portal, you have the option to specify a given billing plan for tiers. A tier is defined as either a free or paid tier. Depending on the tiers available for a given API, the following API monetization categories are displayed as labels in the store.
+When defining throttling tiers using the Admin Portal, you have the option to specify a given billing plan for tiers. A tier is defined as either a free or paid tier. Depending on the tiers available for a given API, the following API monetization categories are displayed as labels in the Developer Portal.
 
--   **Free** - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Store.
+-   **Free** - If all subscription tiers are defined as Free, the API uses the **Free billing plan** and the API is labeled as Free in the Developer Portal.
 
--   **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Store.
+-   **Paid** - If all subscription tiers are defined as Paid, the API uses the **Commercial billing plan** and the API is labeled as Paid in the Developer Portal.
 
--   **Freemium** - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Store.
+-   **Freemium** - If the API has a combination of Free and Paid subscription tiers, the API uses the **Freemium billing plan** and the API is labeled as Freemium in the Developer Portal.
 
 Follow the configuration steps below to enable API monetization category labels:
 
@@ -32,7 +32,7 @@ Follow the configuration steps below to enable API monetization category labels:
 Note that the above configuration can be done independently on a per tenant basis.
 
 
-When the above `EnableMonetization` property is set to true for the respective tenant, the API monetization category labels are displayed in the tenant API store.
+When the above `EnableMonetization` property is set to true for the respective tenant, the API monetization category labels are displayed in the tenant Developer Portal.
 
 ![]({{base_path}}/assets/attachments/103333418/103333420.png)
 **Related links**

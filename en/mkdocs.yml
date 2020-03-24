@@ -106,6 +106,7 @@ nav:
         - Consume APIs:
             - Discover APIs:
                 - Search: learn/consume-api/discover-apis/search.md
+                - AI-based Recommendations for the Developer Portal : learn/consume-api/discover-apis/api-recommendations.md
             - Manage Applications:
                 - Create Application: learn/consume-api/manage-application/create-application.md
                 - Generate Keys:
@@ -353,10 +354,10 @@ nav:
             - Configuring the Proxy Server and the Load Balancer: install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md
             - Configuring rsync for Deployment Synchronization: install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-            - Configurring APIM Analytics High Availability Deployment:
+            - Configuring API-M Analytics High Availability Deployment:
 #                - Overview: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/overview.md
-                - Active-active: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/active_active.md
-                - Active-passive: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/active_passive.md
+                - Active-Active: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md
+                - Active-Passive: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md
 #                - Data partitioning: SetupAndInstall/DeployingWSO2APIManager/configure_apim_analytics/configure_worker/data_partitioning.md
             - Deployment Guidelines:
                 - Production Deployment Guidelines: install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md
@@ -373,7 +374,7 @@ nav:
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
         - Product Compatibility: install-and-setup/product-compatibility.md
         - Performance Tuning:
-              - Tuning Performance: install-and-setup/perfromance-tuning-and-test-results/tuning-performance.md
+              - Tuning Performance: install-and-setup/performance-tuning-and-test-results/tuning-performance.md
         - Upgrading WSO2 API Manager:
               - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
               - 2.6.0 to 3.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-300.md

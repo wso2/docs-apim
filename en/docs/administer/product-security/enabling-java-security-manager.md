@@ -61,18 +61,8 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
         Note that WSO2 no longer recommends MD5 for JAR signing due to cryptographic limitations.
 
 
-5.  Open the security policy file, and update the "grant signedBy" value in the with the new `signFiles` alias key, as shown below. If security policy file is not created before, create a `sec.policy` file in the `<API-M_HOME>/repository/conf` folder and add the following content to this file.
 
-    ``` text
-    grant signedBy "signFiles" {
-      // permission java.util.PropertyPermission "*", "read";
-      // permission java.lang.RuntimePermission "*", "*";
-      // permission java.io.FilePermission "*", "*";
-      permission java.security.AllPermission;
-    };
-    ```
-
-6.  Prepare the scripts to sign the JARs and **grant them the required permission**(e.g., `sudo chmod 755 signJar.sh`). For example, the `signJar.sh` script given below can be used to sign each JAR file separately or you can use the `signJars.sh` script, which runs a loop to read all JARs and sign them.
+5.  Prepare the scripts to sign the JARs and **grant them the required permission**(e.g., `sudo chmod 755 signJar.sh`). For example, the `signJar.sh` script given below can be used to sign each JAR file separately or you can use the `signJars.sh` script, which runs a loop to read all JARs and sign them.
 
     **signJar.sh script**
 
@@ -111,7 +101,7 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     done 
     ```
 
-7.  Execute the following commands to sign the JARs in your product:
+6.  Execute the following commands to sign the JARs in your product:
 
     ``` java
     ./signJars.sh /HOME/user/<product-pack>
@@ -121,8 +111,8 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
         Every time you add an external JAR to the WSO2 product, sign them manually using the above instructions for the Java Security Manager to be effective. You add external JARs to the server when extending the product, applying patches etc.
 
 
-8.  Open the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`.
-9.  Add the following system properties to the startup script and save the file. Add them before the `org.wso2.carbon.bootstrap.Bootstrap $*` line.
+7.  Open the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`.
+8.  Add the following system properties to the startup script and save the file. Add them before the `org.wso2.carbon.bootstrap.Bootstrap $*` line.
 
     ``` java
     -Djava.security.manager=org.wso2.carbon.bootstrap.CarbonSecurityManager \
@@ -131,29 +121,69 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     -Ddenied.system.properties=javax.net.ssl.trustStore,javax.net.ssl.trustStorePassword,denied.system.properties \
     ```
 
-10.  Create a `sec.policy` file with the required security policies in the `<API-M_HOME>/repository/conf` folder and start the server. Starting the server makes the Java permissions defined in the `sec.policy` file to take effect.
+9.  Create a `sec.policy` file with the required security policies in the `<API-M_HOME>/repository/conf` folder and start the server. Starting the server makes the Java permissions defined in the `sec.policy` file to take effect.
 
 An example of a `sec.policy` file is given below. It includes mostly WSO2 Carbon-level permissions.
 
 ``` text
+keystore "file:${user.dir}/repository/resources/security/wso2carbon.jks", "JKS";
+
 grant {
-    // Allow socket connections for any host
-    permission java.net.SocketPermission "*:1-65535", "connect,resolve";
-               
-    // Allow to read all properties. Use -Ddenied.system.properties in wso2server.sh to restrict properties
-    permission java.util.PropertyPermission "*", "read";
-                   
-    permission java.lang.RuntimePermission "getClassLoader";
-                   
-    // CarbonContext APIs require this permission
-    permission java.lang.management.ManagementPermission "control";
-               
-    // Required by any component reading XMLs. For example: org.wso2.carbon.databridge.agent.thrift:4.2.1.
-    permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind.v2.runtime.reflect";
-               
-    // Required by org.wso2.carbon.ndatasource.core:4.2.0. This is only necessary after adding above permission. 
-    permission java.lang.RuntimePermission "accessClassInPackage.com.sun.xml.internal.bind";
+  permission java.net.SocketPermission "*:1-65535", "connect,resolve";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.context";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.registry.api";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.registry.core";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.user.api";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.user.core";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.authenticator.stub";
+  permission java.lang.RuntimePermission "accessClassInPackage.org.wso2.carbon.core.common";
+  permission java.lang.management.ManagementPermission "control";
+  permission java.lang.RuntimePermission "getClassLoader";
+  permission java.lang.RuntimePermission "setContextClassLoader";
+  permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+  permission java.lang.RuntimePermission "accessDeclaredMembers";
+  permission java.util.PropertyPermission "*", "read";
+  permission java.lang.RuntimePermission "accessClassInPackage.sun.misc";
+  permission java.lang.RuntimePermission "accessClassInPackage.sun.security.util";
+  permission java.lang.RuntimePermission "modifyThreadGroup";
+  permission java.io.FilePermission "*", "read";
 };
+
+grant signedBy "signfiles" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${user.dir}/repository/deployment/server/-" {
+  permission java.security.AllPermission;
+};
+
+grant signedBy "signfiles",  codeBase "file:${user.dir}/bin/" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/lib/-" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/jre/lib/ext/-" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/../lib/-" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/lib/ext/-" {
+  permission java.security.AllPermission;
+};
+grant codeBase "file:${java.home}/../lib/-" {
+  permission java.security.AllPermission;
+};
+
+grant codeBase "file:${java.home}/lib/ext/-" {
+  permission java.security.AllPermission;
+};
+
 ```
 
 

@@ -164,7 +164,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In a distributed WSO2 API Manager deployment, you need to do the following configurations in the Publisher and the Store nodes.</p>
+<p>In a distributed WSO2 API Manager deployment, you need to do the following configurations in the Publisher and the Developer Portal nodes.</p>
 </div> 
 </html>
 

@@ -1,36 +1,44 @@
-#Generate SDKs in Developer Portal
+# Generate SDKs in the Developer Portal
 
-A Software Development Kit (SDK) is a set of software development tools that allows to create applications for a specific platform. If an API consumer wants to create an application, they can generate a client side SDK for a supported language/framework and use it to write a software application to consume the subscribed APIs. 
+A Software Development Kit (SDK) is a set of software development tools that allows you to create applications for a specific platform. If an API consumer wants to create an application, they can generate a client-side SDK for a supported language/framework and use it to write a software application to consume the subscribed APIs. 
 
-## Download SDK from Developer Portal
+## Downloading SDKs from the Developer Portal
 
-Following are the steps to generate and download client-side SDKs via API Developer Portal.
+Follow the instructions below to generate and download client-side SDKs via the Developer Portal:
 
-1.  Sign in to the WSO2 API Developer Portal ( `https://<hostname>:<port>/devportal` ) and click on the API you want to generate a client-side SDK (e.g., `PizzaShackAPI` ) 
+1.  Sign in to the WSO2 API Developer Portal.
 
-    <a href="{{base_path}}/assets/img/learn/select-api-dev-portal.png" ><img src="{{base_path}}/assets/img/learn/select-api-dev-portal.png" alt="API Overview" title="API Overview" width="70%" /></a>
+     (`https://<hostname>:<port>/devportal`)
+
+2. Click on the API for which you want to generate a client-side SDK (e.g., `PizzaShackAPI`).
+
+     [![API Overview]({{base_path}}/assets/img/learn/select-api-dev-portal.png)]({{base_path}}/assets/img/learn/select-api-dev-portal.png)
  
-2.  Navigate to SDK tab. Then you will find SDKs which are available to download by default. 
+3.  Click **SDKs**. 
 
-    <a href="{{base_path}}/assets/img/learn/default-sdks.png" ><img src="{{base_path}}/assets/img/learn/default-sdks.png" alt="API Overview" title="API Overview" width="70%" /></a>
+     The default SDKs that you can download appear. 
+
+     [![Default SDKs]({{base_path}}/assets/img/learn/default-sdks.png)]({{base_path}}/assets/img/learn/default-sdks.png)
     
-3.  Click on the **Download** button to download the required SDK. Then the zip archive of the SDK will be downloaded. 
+4.  Click **Download** to download the required SDK. 
 
-    <a href=    "{{base_path}}/assets/img/learn/download-sdk.png" ><img src="{{base_path}}/assets/img/learn/download-sdk.png" alt="API Overview" title="API Overview" width="70%" /></a>    
+     This downloads the ZIP archive of the SDK.
+
+     <a href="{{base_path}}/assets/img/learn/download-sdk.png"><img src="{{base_path}}/assets/img/learn/download-sdk.png" alt="Download SDK" title="Download SDK" width="80%" /></a>    
     
 ##  Configuring supported languages for SDK generation
 
-By default, **android, java, javascript** and **jmeter** SDKs are available to be downloaded via Developer Portal. In addition to that API Manager supports SDK generation for following languages too. **scala, csharp, dart, flash, groovy, nodejs, perl, php, python, ruby, swift, clojure, asyncScala, csharpDotNet2**.
+By default, **Android, Java, JavaScript**, and **JMeter** the SDKs that are available to be downloaded via the Developer Portal in WSO2 API Manager (WSO2 API-M). In addition to the latter mentioned SDKs, WSO2 API Manager also supports SDK generation for the following languages. **Scala, C-Sharp (C#), Dart, Flash, Groovy, Node.js (NodeJs), Perl, PHP, Python, Ruby, Swift, Clojure, AsyncScala, CsharpDotNet2**.
 
-Follow the below steps to configure the languages available for SDK generation.
+Follow the instructions below to configure the languages available for SDK generation:
 
 1.  Open `<API-M_HOME>/repository/conf/deployment.toml` file.
 
-2.  Add following configuration, specifying the required languages.
+2.  Add the following configuration to specify the required languages.
 
     ```toml
     [apim.sdk]
-    supported_languages = "android, java, scala, csharp, dart, flash, groovy, javascript"
+    supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "groovy", "javascript"]
     ```
     
-3.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to get the configuration changes applied.
+3.  [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/) to apply the configuration changes.
