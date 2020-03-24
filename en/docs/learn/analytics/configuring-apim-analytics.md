@@ -380,7 +380,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
 !!! Info
       **Do the following to integrate third party products when configuring databases.**
       <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
-      For detailed instructions, see [Adding Third Party Non OSGi Libraries](../adding-third-party-non-osgi-libraries/).
+      For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/learn/analytics/adding-third-party-non-osgi-libraries/).
 
 #### Step 5 - Configure APIM IdP Client
 
