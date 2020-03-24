@@ -38,7 +38,7 @@ Follow the instructions below to configure server-specific custom attributes:
         default="DEFAULT"
         name="Organization Id"
         description="Sample description of the attribute"
-            ```
+        ```
 
 ### Tenant-specific configuration
 
