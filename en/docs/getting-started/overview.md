@@ -63,7 +63,8 @@ When WSO2 API Manager is running, you can access the Gateway using the following
 
 #### Key Manager
 
-![]({{base_path}}/assets/attachments/103327648/126556773.png)
+![]({{base_path}}/assets/img/get_started/key-manager.png)
+
 
 The Key Manager manages all clients, security and access token-related operations. The Gateway connects with the Key Manager to check the validity of access tokens, subscriptions and API invocations. The Key Manager also provides a token API to generate access tokens that can be accessed via the Gateway. The Key Manager supports OAuth 2.0, JWT, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
 
@@ -84,12 +85,15 @@ You can avoid making the Gateway connect with the Key Manager every time it rece
 
 #### Traffic Manager
 
-![]({{base_path}}/assets/attachments/103327648/126556774.png)
+![]({{base_path}}/assets/img/get_started/traffic-manager.png)
+
 The Traffic Manager helps users to regulate API traffic, make APIs and applications available to consumers at different service levels, and secure APIs against security attacks. The Traffic Manager features a dynamic throttling engine to process throttling policies in real-time, including rate limiting of API requests. For more information, see [Working with Throttling]({{base_path}}/learn/rate-limiting/introducing-throttling-use-cases).
 
 
 #### Analytics
 
 ![]({{base_path}}/assets/attachments/103327648/126556775.png)
+![]({{base_path}}/assets/img/get_started/analytics.png)
+
 Additionally, monitoring and analytics are provided by the analytics component, WSO2 API Manager Analytics. This component provides a host of statistical graphs and an alerting mechanism on pre-determined events. For more information, see [Working with Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics).
 
