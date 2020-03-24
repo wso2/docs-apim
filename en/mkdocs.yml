@@ -276,6 +276,7 @@ nav:
             - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: learn/analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
+            - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
         - API Controller:
             - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
             - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
