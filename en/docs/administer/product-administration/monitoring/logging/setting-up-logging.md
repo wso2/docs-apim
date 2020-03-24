@@ -183,7 +183,7 @@ Following is a sample of gateway wire log for an API request.
     ```
     loggers = synapse-headers, trace-messages, org-apache-coyote,com-hazelcast
     ```
-4.  Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/wso2carbon.log` file.
+4.  Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/logs/wso2carbon.log` file.
 
 ##HTTP Access Logs
 HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. Please see [Monitoring HTTP Access Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-http-access-logs/) for instructions on how to configure and use HTTP access logs in WSO2 API Manager.
