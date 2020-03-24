@@ -379,14 +379,8 @@ Configuring databases allow you to persist data relating to APIs, process them a
 
 !!! Info
       **Do the following to integrate third party products when configuring databases.**
-      <br/>WSO2 SI is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
-      To convert the jar files to OSGi bundles, follow the steps below.
-      <br/>  1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
-      <br/>  2. Go to the `<API-M_ANALYTICS_HOME>/bin` directory. Run the command given below, to generate the converted file in the `<API-M_ANALYTICS_HOME>/lib` directory.
-        
-      ``` java
-          ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
-      ```
+      <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
+      For detailed instructions, see [Adding Third Party Non OSGi Libraries](../adding-third-party-non-osgi-libraries/).
 
 #### Step 5 - Configure APIM IdP Client
 
