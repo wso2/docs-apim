@@ -2,10 +2,10 @@
 
 This section walks you through how to redirect to a third party entity using the redirect URL as part of a custom workflow extension. For example, consider an API Manager user publishes an API and wants to make that API a chargeable API. If there are no payment details of the subscriber, that subscriber is forwarded to a third party entity that handles the payment detail collection etc.
 
--   [Writing the custom workflow executor](#ConfiguringHTTPRedirectionforWorkflows-Writingthecustomworkflowexecutor)
--   [Deploying the custom workflow executor](#ConfiguringHTTPRedirectionforWorkflows-Deployingthecustomworkflowexecutor)
--   [Using the workflow](#ConfiguringHTTPRedirectionforWorkflows-Usingtheworkflow)
--   [Invoking the API Manager](#ConfiguringHTTPRedirectionforWorkflows-InvokingtheAPIManager)
+-   [Writing the custom workflow executor](#writing-the-custom-workflow-executor)
+-   [Deploying the custom workflow executor](#deploying-the-custom-workflow-executor)
+-   [Using the workflow](#using-the-workflow)
+-   [Invoking the API Manager](#invoking-the-api-manager)
 
 Each workflow executor in the WSO2 API Manager is inherited from the **`org.wso2.carbon.apimgt.impl.workflow.WorkflowExecutor         `** abstract class, which has the following abstract methods:
 
@@ -185,4 +185,4 @@ To customize the default workflow extension, you override the **`execute()      
 
 ### Invoking the API Manager
 
-To invoke the API Manager from a third party entity, see [Invoking the API Manager from the BPEL Engine](_Invoking_the_API_Manager_from_the_BPEL_Engine_) .
+To invoke the API Manager from a third party entity, see [Invoking the API Manager from the BPEL Engine](invoking-the-api-manager-from-the-bpel-engine) .
