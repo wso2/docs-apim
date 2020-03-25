@@ -4,15 +4,21 @@ The requirements for deploying WSO2 products can change based on the deployment 
 
 ------------------------------------------------------------------------
 
-\[ [Installation prerequisites](#ProductionDeploymentGuidelines-installation_prerequisitesInstallationprerequisites) \] \[ [System requirements](#ProductionDeploymentGuidelines-Systemrequirements) \] \[ [Installing the WSO2 product](#ProductionDeploymentGuidelines-InstallingtheWSO2product) \] \[ [Download and install the product](#ProductionDeploymentGuidelines-installDownloadandinstalltheproduct) \] \[ [Access the HOME directory](#ProductionDeploymentGuidelines-AccesstheHOMEdirectory) \] \[ [Uninstalling the product](#ProductionDeploymentGuidelines-Uninstallingtheproduct) \] \[ [Running the product](#ProductionDeploymentGuidelines-Runningtheproduct) \] \[ [Tuning parameters](#ProductionDeploymentGuidelines-Tuningparameters) \] \[ [Hazelcast properties](#ProductionDeploymentGuidelines-Hazelcastproperties) \] \[ [Common guidelines and checklist](#ProductionDeploymentGuidelines-Commonguidelinesandchecklist) \] \[ [Backup and recovery recommendations](#ProductionDeploymentGuidelines-backup_recoveryBackupandrecoveryrecommendations) \]
+-   [Installation Prerequisites](#installation-prerequisites) 
+-   [Installing the WSO2 Product](#installing-the-wso2-product) 
+-   [Running the Product](#running-the-product) 
+-   [Tuning Parameters](#tuning-parameters) 
+-   [Hazelcast Properties](#hazelcast-properties) 
+-   [Common Guidelines and Checklist](#common-guidelines-and-checklist) 
+-   [Backup and Recovery Recommendations](#backup-and-recovery-recommendations)
 
 ------------------------------------------------------------------------
 
-### Installation prerequisites
+## Installation Prerequisites
 
 Prior to installing any WSO2 Carbon-based product, it is necessary to have the appropriate hardware and software for running the product.
 
-### System requirements
+### System Requirements
 
 <table>
 <tbody>
@@ -54,13 +60,12 @@ Prior to installing any WSO2 Carbon-based product, it is necessary to have the a
 </tbody>
 </table>
 
-#### 
-Environment compatibility
+### Environment compatibility
 
 -   By default, WSO2 products are installed with **OpenJDK** , which allows you to run the product as soon as it is installed.
 
-        !!! tip
-    To use a different JDK, point the **`JAVA_HOME           `** environment variable to the new JDK. Make sure your JDK version is [compatible with the WSO2 product](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) .
+    !!! tip
+        To use a different JDK, point the **`JAVA_HOME           `** environment variable to the new JDK. Make sure your JDK version is [compatible with the WSO2 product](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) .
 
 
 -   All WSO2 products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. For most enterprise production environments, however, we recommend you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see [Working with Databases](https://docs.wso2.com/display/ADMIN44x/Working+with+Databases) in the Administration Guide. Also, we do not recommend the H2 database as a user store.
@@ -71,23 +76,23 @@ Environment compatibility
 
 ------------------------------------------------------------------------
 
-### Installing the WSO2 product
+## Installing the WSO2 Product
 
 Given below is how to install a WSO2 product:
 
-### Download and install the product
+### Download and Install the Product
 
 If the installation [prerequisites](#ProductionDeploymentGuidelines-installation_prerequisites) are satisfied, follow the steps below:
 
 1.  Go to the [product page](https://wso2.com/) and download the product installer (click **Installer pkg** ).
 
-        !!! tip
-    Note that there are several options for installing the product in various environments. Use the available links for more information on each option.
+    !!! tip
+        Note that there are several options for installing the product in various environments. Use the available links for more information on each option.
 
 
 2.  Double-click to open the installation wizard, which will guide you through the installation. When you finish, the product will be installed and ready for use.
 
-### Access the HOME directory
+### Access the HOME Directory
 
 Let's call the installation location of your product as the **&lt;PRODUCT\_HOME&gt;** directory. This is located in a place specific to your OS as shown below:
 
@@ -98,7 +103,7 @@ Let's call the installation location of your product as the **&lt;PRODUCT\_HOME&
 | Ubuntu  | `/usr/lib/wso2/             <PRODUCT_NAME>/<VERSION>`|
 | CentOS  | `/usr/lib64/             <PRODUCT_NAME>/<VERSION>`|
 
-### Uninstalling the product
+### Uninstalling the Product
 
 To remove an already installed product, follow the instructions below:
 
@@ -121,35 +126,37 @@ To remove an already installed product, follow the instructions below:
         sudo yum remove <PRODUCT_DISTRIBUTION_NAME>-x86_64                                                                                                                                                                                         
   ```|
 
-#### Setting system properties
+### Setting System Properties
 
 If you need to set additional system properties when the server starts, you can take the following approaches:
 
 -   **Set the properties from a script** . Setting your system properties in the startup script (i.e. the `<PRODUCT_HOME>/bin/wso2server.` sh file), is ideal because it ensures that you set the properties every time you start the server. To avoid having to modify the script each time you upgrade, the best approach is to create your own startup script that wraps the WSO2 startup script and adds the properties you want to set, rather than editing the WSO2 startup script directly.
 
-        !!! note
-    Be sure to set the `org.wso2.ignoreHostnameVerification` system property in the `<PRODUCT_HOME>/bin/wso2server.` sh file to `false` as follows:
+    !!! note
+        Be sure to set the `org.wso2.ignoreHostnameVerification` system property in the `<PRODUCT_HOME>/bin/wso2server.` sh file to `false` as follows:
 
         org.wso2.ignoreHostnameVerification=false 
 
     This setting will enable hostname verification of HTTP requests and responses in the Carbon server, and thereby avoid security issues in production environments.
 
 
--   **Set the properties from an external registry** . If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a property file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation) .
+-   **Set the properties from an external registry** 
 
-!!! info
-**Note** : When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost        `
+    If you want to access properties from an external registry, you could create Java code that reads the properties at runtime from that registry. Be sure to store sensitive data such as username and password to connect to the registry in a property file instead of in the Java code and secure the properties file with the [secure vault](https://docs.wso2.com/display/ADMIN44x/Carbon+Secure+Vault+Implementation) .
+
+!!! note    
+    When using SUSE Linux, it ignores `/etc/resolv.conf` and only looks at the `/etc/hosts` file. This means that the server will throw an exception on startup if you have not specified anything besides localhost. To avoid this error, add the following line above `127.0.0.1 localhost` in the `/etc/hosts` file: `<ip_address><machine_name> localhost`
 
 
 You are now ready to run the product.
 
 ------------------------------------------------------------------------
 
-### Running the product
+## Running the product
 
 To run WSO2 products, you start the product server at the command line. You can then run the Management Console application to configure and manage the product.
 
-#### Before you begin
+### Before you begin
 
 -   When you move into a production environment, it is recommended to grant restricted access to the management console. See [Securing Carbon Applications](https://docs.wso2.com/display/ADMIN44x/Securing+Carbon+Applications) for instructions.
 -   The `config-validation.xml` file in the `<PRODUCT_HOME>/repository/conf/etc` directory contains a list of recommended system parameters, which are validated against your system when the server starts. See [Configuring config-validation.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+config-validation.xml) for details on modifying these parameters before starting the server.
@@ -172,7 +179,7 @@ To run WSO2 products, you start the product server at the command line. You can 
 
     If you are using IBM JDK 1.8, change the value of the `org.owasp.csrfguard.PRNG.Provider` property to ' `IBMJCE` ' in the `Owasp.CsrfGuard.Carbon.properties` file. This file is stored in the `<PRODUCT_HOME>/repository/conf/security` / directory.
 
-#### Starting the product profiles
+### Starting the Product Profiles
 
 Open a command prompt and execute the name of the product distribution (For example, `wso2ei-6.30` ):
 
@@ -180,11 +187,11 @@ Open a command prompt and execute the name of the product distribution (For exam
     <PRODUCT_DISTRIBUTION_NAME>
 ```
 
-#### Stopping the server
+### Stopping the Server
 
 To stop the server, press **Ctrl+C** in the command window, or click the **Shutdown/Restart** link in the navigation pane in the Management Console.
 
-#### Running recommendations for security
+### Running Recommendations for Security
 
 The following are security related recommendations to be followed when running the product.
 
@@ -195,20 +202,20 @@ The following are security related recommendations to be followed when running t
 
 ------------------------------------------------------------------------
 
-### Tuning parameters
+## Tuning Parameters
 
 -   The latency numbers (~50ms) are based on a two datacenter setup with a high-speed network connection. With the default configuration, you might notice intermittent behavior, so it is important to tune the system.
 -   It is not recommended to use Metrics for system monitoring (JVM, CPU, etc.) in a production deployment. You can use external monitoring tools for this purpose.
 
 ------------------------------------------------------------------------
 
-### Hazelcast properties
+## Hazelcast Properties
 
 WSO2 products use [Hazelcast](https://docs.wso2.com/display/ADMIN44x/Clustering+Overview) as its default clustering engine. The following configuration must be placed in the `<PRODUCT_HOME>/repository/conf/hazelcast.properties` file. Create this file if it does not exist.
 
 ``` java
-    hazelcast.shutdownhook.enabled=false
-    hazelcast.logging.type=log4j
+hazelcast.shutdownhook.enabled=false
+hazelcast.logging.type=log4j
 ```
 
 The above configurations are explained below.
@@ -222,7 +229,7 @@ Additionally, Hazelcast indicates that if all members are not mentioned in the w
 
 ------------------------------------------------------------------------
 
-### Common guidelines and checklist
+## Common Guidelines and Checklist
 
 The following table lists out the common guidelines and details pertaining to them. These are common to all products and are followed for making an installed WSO2 product ready for production.
 
@@ -463,11 +470,11 @@ Listed below are the main WSO2 products:</li>
 
 ------------------------------------------------------------------------
 
-### Backup and recovery recommendations
+## Backup and Recovery Recommendations
 
 None of the WSO2 products persist data in the file systems or retain or generate artifacts. By default, we only store log files in the file system and data and artifacts in the databases and the repository.
 
-#### What you should back up
+### What You Should Backup
 
 1.  **Database backups** :
     -   Back up of all the databases defined in `<PRODUCT_HOME>/repository/conf/datasources/master-datasources.xml` .
@@ -477,14 +484,14 @@ None of the WSO2 products persist data in the file systems or retain or generate
 3.  **WSO2 product instance backups** :
     A one-time-only backup that you take of the entire server directory. This includes all the configuration files, logs, server extensions, and deployment artifacts for both tenants and super tenants. This back up is ideally done when the server is ready to be deployed in a production environment.
 
-#### Backup recommendations
+### Backup recommendations
 
 We recommend that you use a proper artifact management system such as **[Puppet](https://puppet.com/)** to back up and manage your artifacts before deploying them in the WSO2 Carbon runtime. Also, use the **[WSO2 Update Manager (WUM)](https://docs.wso2.com/display/ADMIN44x/Updating+WSO2+Products)** tool , which is a command-line utility that allows you to get the latest updates ( bug fixes and security fixes ) of a particular product release.
 
 ![]({{base_path}}/assets/attachments/126562305/126562306.png)
 **Diagram** : managing your artifacts using a configuration management system
 
-#### Recovery recommendations
+### Recovery Recommendations
 
 Be sure to determine the following depending on your business-continuity requirements:
 
@@ -499,7 +506,7 @@ We also recommend the following:
 2.  Schedule disaster recovery drills to test the recoverability of the system.
 3.  Test your artifacts in an environment that is identical to the production environment before deploying them into production.
 
-#### Recovery strategy
+### Recovery Strategy
 
 The following steps include how to recover your setup using the backups:
 
