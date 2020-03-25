@@ -47,7 +47,7 @@ Basic health checks can be performed on APIM analytics profiles by connecting to
 | Analytics Worker       | 9091 (HTTP), 9444 (HTTPS)                |
 | Analytics Dashboard    | 9092 (HTTP), 9643 (HTTPS)                |
 
-APIM Analytics by default is shipped with the simple service named `health`. This service returns the status as a json string as `{"status":"healthy"}`.
+APIM Analytics by default is shipped with the simple service named `health`, and that is available in port number 9091 for Worker profile and 9092 for Dashboard profile. This service returns the status as a json string as `{"status":"healthy"}`.
 
 The cURL command format, a sample cURL command and the response from the `health` service are given below.
 
