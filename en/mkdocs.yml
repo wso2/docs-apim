@@ -318,6 +318,7 @@ nav:
             - WSO2 Admin Portal: develop/product-apis/admin-v1.md
         - Admin Services: develop/wso2-admin-services.md
         - Using the Registry REST API: develop/using-the-registry-rest-api.md
+        - Using the Siddhi Store REST API: develop/analytics-rest-api.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
     - Install and Setup:
