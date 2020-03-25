@@ -87,7 +87,7 @@ This widget displays count of the unique subscribers logged in to the developer 
 
  ![](../../../assets/img/learn/publisher-overview-total-signups.png)
 
-#### Overal API Stats
+#### Overall API Stats
 
 This widget has two sections.
 
@@ -142,17 +142,6 @@ This widget displays the percentage of subscription count against each API provi
       
    ![](../../../assets/img/learn/publisher-overview-top-subscription-per-provider-2.png)
    
-### API and Application Statistics
-
-Under this page you can choose to view APIs/Apps based on different filter criteria.
-You can also select the time period and granularities such as minute, hour,day for which you wish to view the statistics. 
-
-<html>
-<body>
-<img src="../../../../assets/img/learn/publisher-date-time-picker.png" width="500"/>
-</body>
-</html>
-
 #### APIs Created Over Time
 
 This widget displays the number of APIs published over a given time period.
@@ -498,3 +487,25 @@ The status of the APIs (all API versions) represented in a tabular view.
 </html>
 
 The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)](../../../../learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type.
+
+## Date Range Picker
+
+This can be used to configure the **time period** and **granularity mode** of the data should be visualized or reported in the widgets listed above. Here the aggregated data to the selected granularity will be visualized or reported in widgets.
+
+The following diagram shows the configurable options in this widget.  
+
+<html>
+<body>
+<img src="../../../../assets/img/learn/publisher-date-time-picker.png" width="500"/>
+</body>
+</html>
+
+The time period can be defined, either choosing from `Quick Ranges` or defining `Custom Ranges`. For the quick ranges `1 Min`, `15 Min`, `1 Hour`, `1 Day`, `7 Days`, `1 Month`, `3 Months`, `6 Months`, and `1 Year` options are provided.
+For `Custom Ranges` users can define the start date as `From` and end date as `To`.
+
+For `Quick Ranges` the **granularity mode** selected as default and for `Custom Ranges`, users can choose from `second`, `minute`, `hour`, `day`, `month` and `year`.
+
+Generally the widgets will visualize or report the data retrieved during the initialization. But if a user required to update the widget data with time, can toggle the `sync button` at the upper right corner of the diagram.
+
+!!! note
+        During the `synced mode` the `To` value of the Date Range Picker updated to the current time for every 30 seconds and all the widgets will retrieve the data for updated time period.  
