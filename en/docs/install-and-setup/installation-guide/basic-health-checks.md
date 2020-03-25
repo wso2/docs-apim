@@ -40,6 +40,8 @@ cURL command:
 ```
 ## APIM Analytics Profiles
 
+Basic health checks can be performed on APIM analytics profiles by connecting to relevant ports. See the following table for the ports that can be used for health checks.
+
 | APIM Analytics Profile | Ports that can be used for health checks |
 |------------------------|------------------------------------------|
 | Analytics Worker       | 9091 (HTTP), 9444 (HTTPS)                |
