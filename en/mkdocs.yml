@@ -297,24 +297,6 @@ nav:
             - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
             - Create and Publish WebSocket API: learn/tutorials/create-and-publish-websocket-api.md
             - Edit and Consume APIs using Swagger Tools: learn/tutorials/edit-and-consume-apis-using-swagger-tools.md
-        - Extensions:
-            - Managing Workflow Extensions:
-                - Invoking the API Manager from the BPEL Engine: learn/extensions/managing-workflow-extension/invoking-the-api-manager-from-the-bpel-engine.md
-                - Customizing a Workflow Extension: learn/extensions/managing-workflow-extension/customizing-a-workflow-extension.md
-                - Configuring HTTP Redirection for Workflows: learn/extensions/managing-workflow-extension/configuring-http-redirection-for-workflows.md
-                - Configuring Workflows for Tenants: learn/extensions/managing-workflow-extension/configuring-workflows-for-tenants.md
-                - Configuring Workflows in a Cluster: learn/extensions/managing-workflow-extension/configuring-workflows-in-a-cluster.md
-                - Changing the Default User Role in Workflows: learn/extensions/managing-workflow-extension/changing-the-default-user-role-in-workflows.md
-                - Cleaning Up Workflow Tasks: learn/extensions/managing-workflow-extension/cleaning-up-workflow-tasks.md
-            - SAML2 SSO:
-                - Configuring Single Sign-on with SAML2: learn/extensions/saml2-sso/configuring-single-sign-on-with-saml2.md
-                - Configuring Identity Server as IDP for SSO: learn/extensions/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                - Configuring External IDP through Identity Server for SSO: learn/extensions/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-            - Writing Custom Grant Types: learn/extensions/writing-custom-grant-types.md
-            - Extending Key Validation: learn/extensions/extending-key-validation.md
-            - Extending the Key Manager Interface: learn/extensions/extending-the-key-manager-interface.md
-            - Extending Scope Validation: learn/extensions/extending-scope-validation.md
-            - Editing API Templates: learn/extensions/editing-api-templates.md
     - Develop:
         - Product REST APIs:
             - RESTful APIs: develop/product-apis/restful-apis.md
@@ -328,6 +310,23 @@ nav:
         - Using the Siddhi Store REST API: develop/analytics-rest-api.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
+        - Extending WSO2 API Manager:
+            - Extending Key Management:
+                - develop/extending-api-manager/extending-key-management/extending-key-validation.md
+                - develop/extending-api-manager/extending-key-management/extending-scope-validation.md
+                - develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                - develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+            - Extending API Gateway:
+                - develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                - develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
+            - Extending Workflows:
+                - Invoking the API Manager from the BPEL Engine: develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
+                - Customizing a Workflow Extension: develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
+                - Configuring HTTP Redirection for Workflows: develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
+                - Configuring Workflows for Tenants: develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
+                - Configuring Workflows in a Cluster: develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
+                - Changing the Default User Role in Workflows: develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
+                - Cleaning Up Workflow Tasks: develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
     - Install and Setup:
         - Installation Guide:
             - Installation Prerequisites: install-and-setup/installation-guide/installation-prerequisites.md
