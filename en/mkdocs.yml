@@ -311,10 +311,13 @@ nav:
             - WSO2 Developer Portal API v0.15: develop/product-apis/devportal-v0.15.md
             - WSO2 Admin Portal: develop/product-apis/admin-v1.md
         - Admin Services: develop/wso2-admin-services.md
-        - Using the Registry REST API: develop/using-the-registry-rest-api.md
-        - Using the Siddhi Store REST API: develop/analytics-rest-api.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
+        - Extending WSO2 API Manager:
+            - Extending Gateway:
+                  - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-templates.md
+        - Using the Siddhi Store REST API: develop/analytics-rest-api.md
+        - Using the Registry REST API: develop/using-the-registry-rest-api.md
     - Install and Setup:
         - Installation Guide:
             - Installation Prerequisites: install-and-setup/installation-guide/installation-prerequisites.md
