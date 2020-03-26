@@ -35,3 +35,14 @@ Now let's see how we can change the default permissions that is set for each of 
 !!! Info
       List of available scopes will be populated for each permission level. Dashboard owners can set the required scopes for each of those permission levels. Each permission level can have multiple scopes.
 
+## Permission Level and User Role Mapping
+
+Following table illustrates the default mapping between permission level for each analytics dashboard and user role for default configuration of permission level, user roles and their scopes.
+
+| **User role**       | **APIM Admin**    | **APIM Publisher**  | **APIM Developer Portal** |
+|---------------------|-------------------|---------------------|---------------------------|
+| admin               | Owner / Editor    | Owner / Editor      | Owner / Editor            |
+| Internal/analytics  | Not allowed       | Viewer              | Not allowed               |
+| Internal/creator    | Not allowed       | Viewer              | Not allowed               |
+| Internal/publisher  | Not allowed       | Viewer              | Not allowed               |
+| Internal/subscriber | Not allowed       | Not allowed         | Viewer                    |
