@@ -4,13 +4,50 @@ WSO2 provides the developers with an easier approach to customize the UI. You do
 
 ## Overriding the default theme
 
-The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory. 
+### Devportal
+
+You can find default theme from the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal.
 
+You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+
+Ex: Enable landing page. **defaultTheme.js**.
+
+```sh
+const Configurations = {
+    custom: {
+        landingPage: {
+            active: true,
+        },
+    },
+};
+```
+Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
+
+```sh
+{
+  "custom": {
+    "landingPage": {
+      "active": true
+    }
+  }
+}
+```
+
+
+### Publisher
+
+The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/theme/` directory. 
+
+The `defaultTheme.js` file has all the parameters defining the look and feel of the Publisher app.
+
 Make sure to take a backup of the `defaultTheme.js` before making any changes.
 
-Changes done in the `defaultTheme.js` file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code).
+Changes done in the `defaultTheme.js` file are reflected directly in the Publisher app ( It's not required to restart the server or rebuild the source code). 
+
+!!! info
+      It's required to keep the complete configuration in the site/public/theme/defaultTheme.js for **publisher** app.
 
 !!!Note
     API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. 
