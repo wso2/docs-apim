@@ -22,16 +22,18 @@ ___________________________________
 
 ## Step 1 - Create a SSL Certificate
 
-All WSO2 products are by default shipped with a keystore file and truststore file stored in the `<PRODUCT_HOME>/repository/resources/security/ directory`. The default keystore that is shipped with a WSO2 product, `wso2carbon.jks` is configured with
-private key and self signed public key pair for all purposes, such as encrypting sensitive information, communicating over SSL etc. 
-
 !!! info   
+    All WSO2 products are by default shipped with a keystore file and truststore file stored in the 
+    `<PRODUCT_HOME>/repository/resources/security/ directory`. The default keystore that is shipped with a WSO2 product, 
+    `wso2carbon.jks` is configured with private key and self signed public key pair for all purposes, such as encrypting 
+    sensitive information, communicating over SSL etc. 
+    
     In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
 To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/). 
 
 !!! tip
-    You should use the same keystore and trustore for SSL in both WSO2 API-M instances.
+    You should use the same keystore and trusstore for SSL in both WSO2 API-M instances.
 
 ## Step 2 - Configure the Load Balancer
 
