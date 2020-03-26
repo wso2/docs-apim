@@ -2,8 +2,7 @@
 
 When an API is [published]({base_path}/learn/design-api/publish-api/publish-an-api/), corresponding synapse configuration of the API is generated and deployed in `<APIM_HOME>repository/deployment/server/synapse-configs/default/api/` location of the gateway in `<provider_name>--<API_name>_v<API_version>.xml` format(eg: admin--PizzaShackAPI_v1.0.0.xml). 
  
-An API's gateway configuration file(Synapse configuration) content contains API metadata, API resource information, properties etc and it is generated based on the API template file which can be found in `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` location. You can modify the default API template definition in order to customize the synapse configurations of all APIs that are being deployed to gateway.
-
+An API's gateway configuration file(Synapse configuration) content contains API metadata, API resource information, properties etc and it is generated based on the API template file which can be found in `<APIM_HOME>/repository/resources/api_templates/velocity_template.xml` location. You can modify the default API template definition in order to customize the synapse configurations of all APIs or a specific set of APIs that are being deployed to gateway.
 
 ## Engaging a custom handler based on API Properties
 
