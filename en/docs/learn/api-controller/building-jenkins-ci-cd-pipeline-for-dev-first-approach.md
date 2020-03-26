@@ -16,7 +16,7 @@ in your Jenkins server.
 
      [![install node-npm-jenkins]({{base_path}}/assets/img/learn/api-controller/install-node-npm-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/install-node-npm-jenkins.png)   
 
-3.  Download and setup [WSO2 API-M 3.0](https://wso2.com/api-management/) in Development and Production environment servers. 
+3.  Download and setup [WSO2 API-M 3.1.0](https://wso2.com/api-management/) in Development and Production environment servers. 
      
      For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
@@ -149,13 +149,13 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
     !!! example
         ``` bash
         apictl add-env -e dev \
-        --registration https://dev.apim.wso2.com/ client-registration/v0.15/register \
+        --registration https://dev.apim.wso2.com/ client-registration/v0.16/register \
         --apim https://dev.apim.wso2.com \
         --token https://dev.apim.wso2.com/token \
         ```
         ``` bash
         apictl add-env -e prod \
-        --registration https://prod.apim.wso2.com/client-registration/v0.15/register \
+        --registration https://prod.apim.wso2.com/client-registration/v0.16/register \
         --apim https://prod.apim.wso2.com \
         --token https://prod.apim.wso2.com/token \
          ```
