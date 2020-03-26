@@ -7,7 +7,7 @@ In this guide, you access the Admin Portal ( `https://:9443/admin` ) Web applic
 1.  If you want to change the user roles that can access the Admin Portal, open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json` file that is in the node from where you access the Admin Portal (the API Publisher node in this example) and change its `Allowed Roles` parameter. You can add multiple user roles as a comma-separated list.
 
 2.  By default, workflow related configuration files have the port of the Business Process Server with an offset of 2. If you set up the BPS with a different port offset, change the workflow server URLs in the site.json file accordingly.
-3.  Point the `uri-template` sub element of the `<endpoint>` element to the node where Admin Portal is enabled(preferably Publisher node) in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml` file of the Developer Portal node.
+3.  Point the `uri-template` sub element of the `<endpoint>` element to the node where the Admin Portal is enabled (preferably the Publisher node) in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/proxy-services/WorkflowCallbackService.xml` file of the Developer Portal node.
 
     ``` java
             <send>
