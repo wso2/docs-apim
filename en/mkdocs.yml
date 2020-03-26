@@ -525,7 +525,9 @@ plugins:
 extra_css:
   - assets/lib/highlightjs/default.min.css
   - assets/css/theme.css
+  - assets/lib/json-formatter/json-formatter.css
 extra_javascript:
+  - assets/lib/json-formatter/json-formatter.umd.js
   - assets/lib/highlightjs/highlight.min.js
   - assets/js/theme.js
   - assets/lib/backtotop/js/util.js

@@ -1,16 +1,19 @@
 # Overriding Developer Portal Theme
 
-WSO2 provides the developers with an easier approach to customize the UI. You do not need to have React, CSS, or HTML knowledge to customize the UI. We have a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family via the JSON file so that the changes appear through out the Developer Portal. When updating the Developer Portal theme, you can update not only the look and feel, but also behaviors such as making the listing view default instead of grid view, hiding social features, etc. 
+WSO2 provides the developers with an easier approach to customize the UI. You do not need to have React, CSS, or HTML knowledge to customize the UI. We have a single JSON file which holds the parameterized constraints of the look and feel. For example, you can change the font family via the JSON file so that the changes appear throughout the Developer Portal. When updating the Developer Portal theme, you can update not only the look and feel but also behaviors such as making the listing view default instead of grid view, hiding social features, etc.
 
-## Overriding the default theme
-
-### Devportal
+## Devportal
 
 You can find default theme from the following location `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js`. 
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Developer Portal.
 
 You can override the parameters defined in the above file from `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`. Changes done in this file are reflected directly in the Developer Portal ( It's not required to restart the server or rebuild the source code). 
+
+!!!Note
+    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. 
+    You can refer to `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
+    The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file.
 
 Ex: Enable landing page. **defaultTheme.js**.
 
@@ -34,30 +37,11 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
   }
 }
 ```
+### Tenant Theming 
 
+#### Uploading Devportal theme via the Admin Portal (Tenants Only)
 
-### Publisher
-
-The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/theme/` directory. 
-
-The `defaultTheme.js` file has all the parameters defining the look and feel of the Publisher app.
-
-Make sure to take a backup of the `defaultTheme.js` before making any changes.
-
-Changes done in the `defaultTheme.js` file are reflected directly in the Publisher app ( It's not required to restart the server or rebuild the source code). 
-
-!!! info
-      It's required to keep the complete configuration in the site/public/theme/defaultTheme.js for **publisher** app.
-
-!!!Note
-    API Manager Devportal is themed using React Material Design. The theme configuration is an external JSON file resides outside the React codebase. While an administrator who has access to the file system can override the default theme configuration, a tenant admin can override both of them via the defaultTheme.json file. 
-    You can refer to `<APIM_HOME>/repository/deployment/server/jaggeryapps/devportal/source/src/defaultTheme.js` for available parameters. Note that you need to only put the parameters that you override to your file.
-    The parameters you can override via the theme are listed at the bottom. Additionally, the default theme params available with React Material Design library can be overridden via this file. Following link list down the available params  [https://material-ui.com/customization/default-theme/#default-theme](https://material-ui.com/customization/default-theme/#default-theme)
-
-
-## Uploading via the Admin Portal (Tenants Only)
-
-**If you do not have access to the file system** , you can upload the theme via the Admin Portal as shown below:
+**If you do not have access to the file system** , you can upload the Devportal theme via the Admin Portal as shown below:
 
 1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/learn/sampleTheme.zip). 
 2.  The `sampleTheme.zip` file contains the following folder structure. 
@@ -89,7 +73,7 @@ Changes done in the `defaultTheme.js` file are reflected directly in the Publish
 
 4.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file. 
 
-    ![Upload tenant theme]({{base_path}}/assets/img/Learn/upload-tenant-theme.png)
+    ![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
 
 5.  Access the API Developer Portal (`https://<server-host>:9443/devportal`) using your tenant username and password.
 
@@ -130,7 +114,7 @@ Changes done in the `defaultTheme.js` file are reflected directly in the Publish
     }
     ```
 
-## Adding custom logo for the tenant
+#### Adding custom logo for the tenant
 
 In your tenant theme, you can refer to an image from the `defaultTheme.json` file as follows. The examples below uses the `custom-logo.png` image from the `sampleTheme.zip`. The image can be referred using one of the following URL patterns.
 
@@ -151,7 +135,7 @@ The following defines the logo image from an external URL.
 "logo": "https://dummyimage.com/208x19/66aad1/ffffff&text=testlogo",
 ```
 
-## Applying CSS rules to change the look and feel
+#### Applying CSS rules to change the look and feel
 
 If you prefer to change the styling using CSS rules, you can use the `custom.css` file. The above sample theme also has a custom CSS file. In the CSS file, let's change the top header background color to black. 
 
@@ -163,9 +147,13 @@ The CSS file is referenced in the `defaultTheme.json` in the following manner. I
    "tenantCustomCss": "/site/public/tenant_themes/<tenant-domain>/apim/css/custom.css",
 ```
 
-## Content of defaultTheme.json
+#### Content of defaultTheme.json
 
-```js
+The following is the Devportal app theme object merging with the React Material Design default theme object described [here](https://material-ui.com/customization/default-theme/#default-theme).
+
+<div>
+<div class="jsonTreeOutput"></div>
+<textarea class="jsonTreeInput">
 {
   "direction": "ltr",
   "palette": {
@@ -472,9 +460,11 @@ The CSS file is referenced in the `defaultTheme.json` in the following manner. I
     }
   }
 }
-```
+</textarea>
+</div>
 
-## Applying themes for tenant login pages
+
+#### Applying themes for tenant login pages
 
 1. Configure a custom URL for tenant.
 
@@ -528,3 +518,155 @@ The CSS file is referenced in the `defaultTheme.json` in the following manner. I
     
 4. Copy the image files into `login/images` folder and mention the file names against favicon and logo src fileds. In case you need to change the look and feel of login pages you can add a custom css file to `login/css` folder. Make sure to name the file as `custom.css`.
 5. Zip this file along with other resources in the tenant theme and upload via admin portal. Or you can make changes manually if you have access to the server's file system.
+
+## Publisher
+
+The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/theme/` directory. 
+
+The `defaultTheme.js` file has all the parameters defining the look and feel of the Publisher app.
+
+Make sure to take a backup of the `defaultTheme.js` before making any changes.
+
+Changes done in the `defaultTheme.js` file are reflected directly in the Publisher app ( It's not required to restart the server or rebuild the source code). 
+
+!!!Note
+      It's required to keep the complete configuration in the site/public/theme/defaultTheme.js for **publisher** app. 
+
+#### Content of defaultTheme.js
+
+The following is the Publisher app theme object merging with the React Material Design default theme object described [here](https://material-ui.com/customization/default-theme/#default-theme).
+
+
+<div>
+<div class="jsonTreeOutput"></div>
+<textarea class="jsonTreeInput">
+{
+  "palette": {
+    "primary": {
+      "main": "#15b8cf"
+    },
+    "secondary": {
+      "light": "#0066ff",
+      "main": "#a2ecf5",
+      "contrastText": "#ffcc00"
+    },
+    "background": {
+      "default": "#f6f6f6",
+      "paper": "#ffffff",
+      "appBar": "#1d344f",
+      "appBarSelected": "#1d344f",
+      "leftMenu": "#1a1f2f",
+      "leftMenuActive": "#254061",
+      "drawer": "#1a1f2f",
+      "activeMenuItem": "#254061"
+    }
+  },
+  "typography": {
+    "fontFamily": "\"Open Sans\", \"Helvetica\", \"Arial\", sans-serif",
+    "fontSize": 12,
+    "subtitle2": {
+      "fontWeight": 600,
+      "fontSize": "0.875rem"
+    },
+    "h4": {
+      "fontSize": "1.3rem"
+    }
+  },
+  "zIndex": {
+    "apiCreateMenu": 1250,
+    "operationDeleteUndo": 1600,
+    "overviewArrow": 1,
+    "goToSearch": 2
+  },
+  "custom": {
+    "wrapperBackground": "#f9f9f9",
+    "starColor": "#f2c73a",
+    "disableColor": "#D3D3D3",
+    "leftMenuWidth": 210,
+    "contentAreaWidth": 1240,
+    "drawerWidth": 200,
+    "logo": "/site/public/images/logo.svg",
+    "logoHeight": 40,
+    "logoWidth": 222,
+    "defaultApiView": "grid",
+    "showApiHelp": false,
+    "leftMenu": "icon left",
+    "leftMenuIconSize": 24,
+    "leftMenuIconMainSize": 52,
+    "leftMenuTextStyle": "capitalize",
+    "resourceChipColors": {
+      "get": "#61affe",
+      "post": "#49cc90",
+      "put": "#fca130",
+      "delete": "#f93e3e",
+      "options": "#0d5aa7",
+      "patch": "#50e3c2",
+      "head": "#9012fe",
+      "trace": "#785446",
+      "disabled": "#ebebeb"
+    },
+    "operationChipColor": {
+      "query": "#b3e6fe",
+      "mutation": "#c1dea0",
+      "subscription": "#ffcc80"
+    },
+    "overviewStepper": {
+      "backgrounds": {
+        "completed": "#eeeeee",
+        "active": "#fff",
+        "inactive": "#e0e0e0"
+      },
+      "iconSize": 32
+    },
+    "thumbnail": {
+      "backgrounds": [
+        {
+          "prime": 2406206207,
+          "sub": 1338177791
+        },
+        {
+          "prime": 4101969663,
+          "sub": 3453762047
+        },
+        {
+          "prime": 4097980159,
+          "sub": 4274063359
+        },
+        {
+          "prime": 563540991,
+          "sub": 2934571263
+        },
+        {
+          "prime": 4288086271,
+          "sub": 4293606655
+        },
+        {
+          "prime": 4288086271,
+          "sub": 4267123455
+        }
+      ],
+      "document": {
+        "icon": "library_books",
+        "backgrounds": {
+          "prime": 3489136639,
+          "sub": 3808425983
+        }
+      }
+    },
+    "adminRole": "admin",
+    "commentsLimit": 5,
+    "maxCommentLength": 1300,
+    "productSampleProgess": {
+      "backgroundMain": "#15b8cf",
+      "backgroundChip": "#5aebf9"
+    },
+    "warningColor": "#ffc439",
+    "title": {
+      "prefix": "[Devportal]",
+      "sufix": "- WSO2 APIM"
+    }
+  }
+}
+</textarea>
+</div>
+

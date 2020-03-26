@@ -31,6 +31,24 @@
             links[i].className += " localLink";
         }
     }
+    var jsonTreeInputs = document.getElementsByClassName('jsonTreeInput');
+    if(jsonTreeInputs && jsonTreeInputs.length > 0){
+        for( var i=0; i < jsonTreeInputs.length; i++){
+            var jsonTreeInput = jsonTreeInputs[i];
+            var jsonTreeOutput = jsonTreeInput.previousElementSibling;
+            
+            try {
+                var formatter = new JSONFormatter(JSON.parse(jsonTreeInput.innerHTML), 1, { hoverPreviewEnabled: false });
+                jsonTreeOutput.innerHTML = '';
+                jsonTreeOutput.appendChild(formatter.render());
+                jsonTreeInput.style.display = 'none';
+            } catch (e) {
+                console.error(e);
+            } 
+        }
+        
+    }
+    
 })();
 
 /*
