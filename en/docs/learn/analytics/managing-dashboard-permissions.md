@@ -37,7 +37,7 @@ Now let's see how we can change the default permissions that is set for each of 
 
 ## Permission Level and User Role Mapping
 
-Following table illustrates the default mapping between permission level for each analytics dashboard and user role for default configuration of permission level, user roles and their scopes.
+Following table illustrates the default mapping between the permission level for each analytics dashboard and user role. This table can be referred to assign a role to a user in order to provide the required permissions. 
 
 | **User role**       | **APIM Admin**    | **APIM Publisher**  | **APIM Developer Portal** |
 |---------------------|-------------------|---------------------|---------------------------|
