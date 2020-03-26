@@ -490,7 +490,7 @@ The availability of APIs statistics is directly related to the [Availability of 
 
 ## Date Range Picker
 
-This can be used to configure the **time period** and **granularity mode** of the data should be visualized or reported in the widgets listed above. Here the aggregated data to the selected granularity will be visualized or reported in widgets.
+This can be used to configure the **time period** and **granularity mode** of the data which should be visualized in the widgets listed above.
 
 The following diagram shows the configurable options in this widget.  
 
@@ -505,7 +505,14 @@ For `Custom Ranges` users can define the start date as `From` and end date as `T
 
 For `Quick Ranges` the **granularity mode** selected as default and for `Custom Ranges`, users can choose from `second`, `minute`, `hour`, `day`, `month` and `year`.
 
-Generally the widgets will visualize or report the data retrieved during the initialization. But if a user required to update the widget data with time, can toggle the `sync button` at the upper right corner of the diagram.
+Generally, the widgets will visualize the data retrieved during the initialization. But if the users are required to update the widget with new data since the widget's initial load, they can toggle the `sync button`
+(
+<html>
+<body>
+<img src="../../../../assets/img/learn/analytics-sync-button.png" width="20"/>
+</body>
+</html> 
+) marked at the upper right corner of the diagram.
 
 !!! note
-        During the `synced mode` the `To` value of the Date Range Picker updated to the current time for every 30 seconds and all the widgets will retrieve the data for updated time period.  
+        During the `synced mode` the `To` value of the Date Range Picker will be updated to the current timestamp every 30 seconds and all the widgets will retrieve the data for the updated time period. This mode can be useful to present the dashboard in a non-interactive display.    
