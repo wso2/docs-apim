@@ -1,11 +1,11 @@
-# Fetch APIM Analytics Data via Siddhi REST API
+# Fetch API-M Analytics Data via Siddhi REST API
 
-Analytics data published to the WSO2 APIM Analytics Server can be viewed via the analytics dashboard portal. In addition to this, these data can be fetched via REST APIs to external dashboards/applications for interested parties. Following section explains the usage of the Siddhi Store REST API to achieve this requirement.
+You can view the analytics related data that is published to the WSO2 API-M Analytics Server via the analytics dashboard portal. In addition, interested parties can fetch this data via REST APIs to external dashboards/applications. The following section explains the usage of the Siddhi Store REST API to achieve the latter mentioned requirement.
 
 
 ## Retrieving records from aggregation tables
 
-WSO2 APIM Analytic Server persists analytics data in aggregation tables. Data can be retrieved from these tables by execurting a cURL command with a siddhi query which adheres to the following syntax.
+WSO2 API-M Analytic Server persists analytics related data in the aggregation tables. You can retrieve data from these tables by executing a cURL command with a Siddhi query that adheres to the following syntax.
 
 ```
 from <aggregation> 
@@ -20,7 +20,7 @@ select <attribute name>, <attribute name>, ...
 ```
 
 
-### Sample cURL Command
+### Sample cURL command
 
 ``` java tab="Format"
 curl -X POST -u "username:password" -H "Content-Type: application/json"  -d '{"appName" : "APIM_ACCESS_SUMMARY", "query" : "from <aggregatiom_table> on <condition> within <from_timestamp>, <to_timestamp> per \"<granularity>\" select <comma separated column list> order by <required_column_to_order> DESC"}' "https://<hostname>:<port>/stores/query" -k
@@ -35,9 +35,8 @@ curl -X POST -H "content-type: application/json" -u "admin:admin" -d '{"appName"
 
 ```{"records":[["admin@carbon.super","admin",45]]}```
 
-## Constructing a Siddhi Query to Fetch Data
+## Constructing a Siddhi Query to fetch data
 
-Available aggregation tables in APIM Analytics and its schema are listed in [here]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model/#api-manager-aggregate-tables). By inspecting the schema of each aggregation table, and modifying the query accordingly, required data can be fetched via the API from REST clients. 
+The available aggregation tables in WSO2 API-M Analytics and its schema are listed [here]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model/#api-manager-aggregate-tables). 
 
-
-
+You need to inspect the schema of each aggregation table and thereafter modify the query accordingly, in order to fetch the required data via the API from the REST clients.
