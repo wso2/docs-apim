@@ -63,7 +63,7 @@ The steps below show how access tokens are generated for the authorization code 
 !!! note
     **Before you begin**
 
-    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/latest/learn/deploying-the-sample-app/#deploying-the-playground2-webapp) .
+    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.9.0/learn/deploying-the-sample-app/#deploying-the-playground2-webapp) .
 
 
 1.  Log in to the API Developer Portal and create a new application.
