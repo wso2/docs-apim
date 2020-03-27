@@ -1,7 +1,11 @@
 
 # API Category based Grouping
 
-You can use API categories to group APIs. In previous versions of WSO2 API Manager, the process of grouping APIs was carried out by using Tagwise groups. However, the tagwise grouping feature has been deprecated with the introduction of the API categories feature in WSO2 API Manager 3.1.0. WSO2 recommends all users to use API categories instead of Tagwise grouping.
+You can use API categories to group APIs. In previous versions of WSO2 API Manager, the process of grouping APIs was carried out by using Tagwise groups. 
+
+!!! note
+
+    The [Tagwise grouping feature]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping) has been deprecated with the introduction of the API categories feature in WSO2 API Manager 3.1.0. Therfore, WSO2 recommends all users to use API categories instead of Tagwise grouping.
 
 Initially, the Admins will define API categories. Thereafter, API providers will add API categories to APIs when designing them via the API Publisher. API categories allow API providers to categorize APIs that have similar attributes. When a categorized API gets published to the Developer Portal, its categories appear as clickable links to the API consumers. The API consumers can use the available API categories to quickly jump to a category of interest.
 
@@ -9,10 +13,10 @@ Initially, the Admins will define API categories. Thereafter, API providers will
 
 You can add an API category using any of the following methods:
 
-- [Add API Category using the Admin Portal UI]({{base_path}}/wip/api-categories/#add-api-category-using-the-admin-portal-ui)
-- [Add API Category using the Admin REST API]({{base_path}}/wip/api-categories/#add-api-category-using-the-admin-portal-ui)
+- [Add API Category using the Admin Portal UI]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/#add-api-category-using-the-admin-portal-ui)
+- [Add API Category using the Admin REST API]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/#add-api-category-using-the-admin-portal-ui)
 
-### Add API Category using the Admin Portal UI
+### Add an API Category using the Admin Portal UI
 
 1. Sign in to the Admin Portal.
    
@@ -32,7 +36,7 @@ You can add an API category using any of the following methods:
 
 4. Click **Save**.
 
-### Add API Category using the Admin REST API
+### Add an API Category using the Admin REST API
 
 ```
 curl -k -X POST -H "Authorization: Bearer <ACCESS_TOKEN>" -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v0.16/api-categories -d @category-data.json
