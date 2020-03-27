@@ -1,6 +1,6 @@
 # White Labeling for Tenants
 This section explains how to white label analytics dashboard for tenants. You can customize logo and favicon for tenants. 
-1. Add following configuration in the deployment.yaml. You can Use `logoFileName` and `faviconFileName` directives of deployment.yaml specifiy file names of logo and favicon.(Ex: logo.png, favicon.ico)
+1. Add following configuration in the deployment.yaml. You can use `logoFileName` and `faviconFileName` directives of deployment.yaml to specifiy file names of logo and favicon.(Ex: logo.png, favicon.ico)
     ```yaml
     themeConfigProviderClass: org.wso2.analytics.apim.dashboards.theme.config.provider.CustomDashboardThemeConfigProvider
     logoFileName: logo.png
