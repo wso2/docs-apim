@@ -182,13 +182,13 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
         ```
         
     ``` tab="Format"        
-    [apim.throttling.url_group]]
+    [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://<traffic-manager-ip>:<binary-data-publishing-port>"]
     traffic_manager_auth_urls=["ssl://<traffic-manager-ip>:<binary-data-publishing-authentication-port>"]
     ```
          
     ``` tab="Example"
-    [apim.throttling.url_group]]
+    [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://tm.wso2.com:9611"]
     traffic_manager_auth_urls=["ssl://tm.wso2.com:9711"]
     ```
@@ -196,21 +196,21 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
     If the traffic Manager deployment with High Availability(HA), the endpoints of both nodes has to be configured as follows.
     
     ``` tab="Format"        
-    [apim.throttling.url_group]]
+    [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://<traffic-manager-1-ip>:<binary-data-publishing-port>"]
     traffic_manager_auth_urls=["ssl://<traffic-manager-1-ip>:<binary-data-publishing-authentication-port>"]
     
-    [apim.throttling.url_group]]
+    [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://<traffic-manager-2-ip>:<binary-data-publishing-port>"]
     traffic_manager_auth_urls=["ssl://<traffic-manager-2-ip>:<binary-data-publishing-authentication-port>"]
     ```
          
     ``` tab="Example"
-    [apim.throttling.url_group]]
+    [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://tm1.wso2.com:9611"]
     traffic_manager_auth_urls=["ssl://tm1.wso2.com:9711"]
     
-    [apim.throttling.url_group]]
+    [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://tm2.wso2.com:9611"]
     traffic_manager_auth_urls=["ssl://tm2.wso2.com:9711"]    
     ```
