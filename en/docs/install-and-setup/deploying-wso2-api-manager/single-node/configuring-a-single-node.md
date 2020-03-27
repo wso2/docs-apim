@@ -21,7 +21,7 @@ Follow the instructions below to configure and deploy API-M using a single node:
 
 !!! info   
     All WSO2 products are by default shipped with a keystore file and truststore file stored in the 
-    `<PRODUCT_HOME>/repository/resources/security/ directory`. The default keystore that is shipped with a WSO2 product, 
+    `<PRODUCT_HOME>/repository/resources/security/` directory. The default keystore that is shipped with a WSO2 product, 
     `wso2carbon.jks` is configured with private key and self signed public key pair for all purposes, such as encrypting 
     sensitive information, communicating over SSL etc. 
     
