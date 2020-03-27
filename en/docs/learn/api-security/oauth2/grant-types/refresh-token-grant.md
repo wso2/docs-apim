@@ -13,7 +13,7 @@ A refresh token has to be obtained before using it with a grant type such as the
 
 The diagram below illustrates the refresh token grant flow.
 
-![]({{base_path}}/assets/img/Learn/oauth-refresh-token-diagram.png)
+![]({{base_path}}/assets/img/learn/oauth-refresh-token-diagram.png)
 
 -   [Generating a new access token and refresh token](#generating-a-new-access-token-and-refresh-token)
 -   [Revoking a refresh token](#revoking-a-refresh-token)
@@ -66,7 +66,7 @@ The above REST response grants you a renewed access token along with a refresh t
 
 ### Revoking a refresh token
 
-After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:8243/revoke> .
+After issuing an access token and refresh token, a user or an admin can revoke it in case of theft or a security violation. You can do this by calling the Revoke API using a utility like cURL. The Revoke API's endpoint URL is <https://localhost:8243/revoke>.
 
 #### Option 1
 
@@ -152,6 +152,6 @@ curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refres
 ```
 
 !!! note
-    Note that for users to be counted in the [Registered Users for Application statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
+    Note that for users to be counted in the [Registered Users for Application statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant) type.
 
 

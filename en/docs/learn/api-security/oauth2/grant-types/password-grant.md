@@ -10,7 +10,7 @@ Instead of redirecting the user to the authorization server, the client itself w
 
 The diagram below illustrates the resource owner password credentials grant flow.
 
-![]({{base_path}}/assets/img/Learn/oauth-resource-owner-diagram.png)
+![]({{base_path}}/assets/img/learn/oauth-resource-owner-diagram.png)
 
 #### Prerequisites
 
@@ -21,8 +21,8 @@ The diagram below illustrates the resource owner password credentials grant flow
 -   If the Key Manager is on a different server than the API Gateway, change the server URL (host and ports) of the Key Manager accordingly by adding following configuration in `<APIM_HOME>/repository/conf/deployment.toml` file.
 
 ``` java
-    [apim.key_manager]
-    configuration.ServerURL = "<key-manager-server-url>"
+[apim.key_manager]
+configuration.ServerURL = "<key-manager-server-url>"
 
 ```
 If you have multiple Carbon servers running on the same computer, [change the port with an offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset/#changing-the-default-ports-with-offset) to avoid port conflicts.
@@ -47,7 +47,7 @@ If you have multiple Carbon servers running on the same computer, [change the po
 2.  Access the Token API by using a REST client such as cURL, with the following parameters.
 
     -   Assuming that both the client and the API Gateway are running on same server, the token API url is [https://localhost:8243/token](https://localhost:8243/login)
-    -   payload - `"grant_type=password&username=<username>&password=<password>&scope=<scope>"` . Replace the `<username>` and `<password>` values as appropriate.
+    -   payload - `"grant_type=password&username=<username>&password=<password>&scope=<scope>"`. Replace the `<username>` and `<password>` values as appropriate.
 
         !!! tip
             **`<scope>` is optional.**
@@ -82,7 +82,7 @@ If you have multiple Carbon servers running on the same computer, [change the po
 
     Replace the `<base64encode(clientId:clientSecret)>` as appropriate.
 
-    For example, use the following cURL command to access the Token API. It generates two tokens as an access token and a refresh token. You can use the refresh token at the time a token is renewed . Replace the `<username>` and `<password>` as appropriate.
+    For example, use the following cURL command to access the Token API. It generates two tokens as an access token and a refresh token. You can use the refresh token at the time a token is renewed. Replace the `<username>` and `<password>` as appropriate.
 
     ``` java
         curl -k -d "grant_type=password&username=<username>&password=<password>" -H "Authorization: Basic d1U2MkRqbHlEQm5xODdHbEJ3cGxmcXZtQWJBYTprc2RTZG9lZkREUDd3cGFFbGZxdm1qRHVl" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token

@@ -8,7 +8,7 @@ The implicit grant type does not require client authentication, and relies on th
 
 The diagram below depicts the flow of Implicit Grant :
 
-![]({{base_path}}/assets/img/Learn/oauth-implicit-grant-diagram.png)
+![]({{base_path}}/assets/img/learn/oauth-implicit-grant-diagram.png)
 
 1.  The client requests for the access token with the client ID and grant type, and other optional parameters.
 
@@ -105,20 +105,20 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
          
 2.  Login to WSO2 API Manager Store and create an application as shown below.
 
-    [![](../../../../assets/img/learn/create-application.png)]({{base_path}}/assets/img/learn/create-application.png)
+    [![]({{base_path}}/assets/img/learn/create-application.png)]({{base_path}}/assets/img/learn/create-application.png)
     
-3.  Go to the **Production keys** tab for the application. Add <http://wso2is.local:8080/playground2/oauth2client> as the **Callback URL.** Select **Implicit** from the list of grant types and click **Generate Keys** .
+3.  Go to the **Production keys** tab for the application. Add <http://wso2is.local:8080/playground2/oauth2client> as the **Callback URL.** Select **Implicit** from the list of grant types and click **Generate Keys.**
 
-    [![](../../../../assets/img/learn/implicit-grant.png)]({{base_path}}/assets/img/learn/implicit-grant.png)
+    [![]({{base_path}}/assets/img/learn/implicit-grant.png)]({{base_path}}/assets/img/learn/implicit-grant.png)
 
     !!! note
         The Implicit grant and Code grant type checkboxes are disabled by default in the UI. To enable selecting the checkboxes, enter the Callback URL for the application.
     
 4.  Go to playground app <http://wso2is.local:8080/playground2/> and click **import photos.**
 
-    [![](../../../../assets/img/learn/playground2-app.png)]({{base_path}}/assets/img/learn/playground2-app.png)
+    [![]({{base_path}}/assets/img/learn/playground2-app.png)]({{base_path}}/assets/img/learn/playground2-app.png)
 
-5.  Give the information in the table below and click **Authorize** .
+5.  Give the information in the table below and click **Authorize.**
 
     <table>
     <thead>
@@ -155,19 +155,19 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
     </tbody>
     </table>
 
-    [![](../../../../assets/img/learn/playground2-implicit-grant.png)](../../../../assets/img/learn/playground2-implicit-grant.png)
+    [![]({{base_path}}/assets/img/learn/playground2-implicit-grant.png)]({{base_path}}/assets/img/learn/playground2-implicit-grant.png)
 
 6.  The playground application redirects to the login page. Enter you username and password and click **Sign In.**
 
-    [![](../../../../assets/img/learn/login-page.png)](../../../../assets/img/learn/login-page.png)
+    [![]({{base_path}}/assets/img/learn/login-page.png)]({{base_path}}/assets/img/learn/login-page.png)
 
 7.  Select **Approve Once** or **Approve Always** to provide access to your profile information.
 
-    [![](../../../../assets/img/learn/authorization-code-consent-page.png)](../../../../assets/img/learn/authorization-code-consent-page.png)  
+    [![]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)]({{base_path}}/assets/img/learn/authorization-code-consent-page.png)  
 
 8.  You will receive the access token as follows
 
-    [![](../../../../assets/img/learn/implicit-grant-access-token-page.png)](../../../../assets/img/learn/implicit-grant-access-token-page.png)
+    [![]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)
 
 !!! note
     For users to be counted in the [Registered Users for Application statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](../password-grant/) type.
