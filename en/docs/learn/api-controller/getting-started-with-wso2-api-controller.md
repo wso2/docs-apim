@@ -51,8 +51,8 @@ Run the following CTL command to check the version of the CTL.
 -   **Response**
 
     ```bash
-    Version: 3.0.0
-    Build Date: 2019-10-28 13:22:12 UTC
+    Version: 3.1.0
+    Build Date: 2020-03-24 13:22:12 UTC
     ```
 
 ## Set mode of the CTL
@@ -123,29 +123,29 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --registration https://localhost:9444/client-registration/v0.15/register \
+                        --registration https://localhost:9444/client-registration/v0.16/register \
                         --apim https://localhost:9444 \
                         --token https://localhost:8244/token \
             ``` 
 
             ``` bash tab="Mac"
-            ./apictl add-env -e dev --registration https://localhost:9444/client-registration/v0.15/register --apim https://localhost:9444 --token https://localhost:8244/token
+            ./apictl add-env -e dev --registration https://localhost:9444/client-registration/v0.16/register --apim https://localhost:9444 --token https://localhost:8244/token
             ```               
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9443/client-registration/v0.15/register \
+                        --registration https://localhost:9443/client-registration/v0.16/register \
                         --apim https://localhost:9443 \
                         --token https://localhost:8243/token \
-                        --admin https://localhost:9443/api/am/admin/v0.15 \
-                        --api_list https://localhost:9443/api/am/publisher/v0.15/apis \
-                        --app_list https://localhost:9443/api/am/store/v0.15/applications
+                        --admin https://localhost:9443/api/am/admin/v0.16 \
+                        --api_list https://localhost:9443/api/am/publisher/v1/apis \
+                        --app_list https://localhost:9443/api/am/store/v1/applications
             ```
 
             ``` bash tab="Mac"
-            apictl add-env -e production --registration https://localhost:9443/client-registration/v0.15/register --apim https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443/api/am/admin/v0.15 --api_list https://localhost:9443/api/am/publisher/v0.15/apis --app_list https://localhost:9443/api/am/store/v0.15/applications
+            apictl add-env -e production --registration https://localhost:9443/client-registration/v0.16/register --apim https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443/api/am/admin/v0.16 --api_list https://localhost:9443/api/am/publisher/v1/apis --app_list https://localhost:9443/api/am/store/v1/applications
             ```  
     
     -   **Response**
@@ -220,8 +220,8 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         ```bash tab="Example Response"
         NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT                                       TOKEN ENDPOINT
-        dev          https://localhost:9443   https://localhost:9443/client-registration/v0.15/register   https://localhost:8243/token
-        production   https://localhost:9444   https://localhost:9444/client-registration/v0.15/register   https://localhost:8244/token   
+        dev          https://localhost:9443   https://localhost:9443/client-registration/v0.16/register   https://localhost:8243/token
+        production   https://localhost:9444   https://localhost:9444/client-registration/v0.16/register   https://localhost:8244/token   
 
         ```
 
@@ -268,7 +268,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```
             
             ```bash
-            apictl login dev -username admin -password admin -k
+            apictl login dev --username admin --password admin -k
             ```
                  
     -   **Response**
