@@ -1,5 +1,9 @@
 # Basic Health Checks
 
+Both API Manager and APIM Analytics support basic health checking by exposing health check APIs for available profiles.
+
+## API Manager Profiles
+
 Basic health checks can be performed on an API Manager node by connecting to relevant ports. See the following table for the ports that can be used for health checks in a fully distributed deployment.
 
 | API Manager Profile | Ports that can be used for health checks |
@@ -33,4 +37,43 @@ cURL command:
 
 ``` java
     <ns:getVersionResponse xmlns:ns="http://version.services.core.carbon.wso2.org"><return>WSO2 API Manager-2.6.0</return></ns:getVersionResponse>
+```
+## APIM Analytics Profiles
+
+Basic health checks can be performed on APIM analytics profiles by connecting to relevant ports. 
+
+APIM Analytics by default is shipped with the simple service named `health`, and that is available in port number 9091 for Worker profile.
+ 
+The following configuration should be added to the `<ANALYTICS_HOME>/conf/dashboard/deployment.yaml` in order to expose the service in the dashboard profile.
+```yaml
+   wso2.transport.http:
+      listenerConfigurations:
+          - id: "default"
+            host: "0.0.0.0"
+            port: 9092
+```
+This service returns the status as a json string as `{"status":"healthy"}`.
+
+See the following table for the ports that can be used for health checks.
+
+| APIM Analytics Profile | Ports that can be used for health checks |
+|------------------------|------------------------------------------|
+| Analytics Worker       | 9091 (HTTP), 9444 (HTTPS)                |
+| Analytics Dashboard    | 9092 (HTTP), 9643 (HTTPS)                |
+
+The cURL command format, a sample cURL command and the response from the `health` service are given below.
+
+cURL command:
+
+-   **Format**
+``` java
+    curl -X GET http://<HOSTNAME>:<PORT>/health
+```
+-   **Example**
+``` java
+    curl -X GET http://localhost:9091/health
+```
+-   **Response**
+``` java
+    {"status":"healthy"}
 ```
