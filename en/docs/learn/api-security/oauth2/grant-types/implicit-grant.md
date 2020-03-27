@@ -64,20 +64,19 @@ The following parameters are required to implement the Implicit grant type in W
 !!! Tip 
         The playground application will send a authorization request the **authorize** endpoint using the following format.
         
-        ```java
-        https://<host>:<port>/oauth2/authorize?response_type=token
-        &client_id=<client-ID>
-        &redirect_uri=<callback-url>
-        &scope=<scope>
-        ```
-        
-        !!! Example
-            ```java
-            https://localhost:9443/oauth2/authorize?response_type=id_token+token
-            &client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
-            &redirect_uri=http://wso2is.local:8080/playground2/oauth2client
-            &scope=openid
-            ```  
+``` java tab="Format"
+https://<host>:<port>/oauth2/authorize?response_type=token
+&client_id=<client-ID>
+&redirect_uri=<callback-url>
+&scope=<scope>
+```
+ 
+``` java tab="Example"
+https://localhost:9443/oauth2/authorize?response_type=id_token+token
+&client_id=Cx4LKFNObeuXocx7xgOpz5vfzFoa
+&redirect_uri=http://wso2is.local:8080/playground2/oauth2client
+&scope=openid
+```
 
 #### Try implicit grant to generate tokens
 
@@ -168,8 +167,5 @@ In this example we use the WSO2 Playground app, which is hosted as a web applica
 8.  You will receive the access token as follows
 
     [![]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)]({{base_path}}/assets/img/learn/implicit-grant-access-token-page.png)
-
-!!! note
-    For users to be counted in the [Registered Users for Application statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) , which takes the number of users shared each of the Application, they have to generate access tokens using [Password Grant](../password-grant/) type.
 
 

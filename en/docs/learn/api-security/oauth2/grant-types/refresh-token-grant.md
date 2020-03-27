@@ -151,7 +151,4 @@ curl -k -v -d "token=4ed29669-a457-3f83-af1e-180cad271cca&token_type_hint=refres
     < Transfer-Encoding: chunked
 ```
 
-!!! note
-    Note that for users to be counted in the [Registered Users for Application statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant) type.
-
 

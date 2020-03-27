@@ -52,7 +52,7 @@ If you have multiple Carbon servers running on the same computer, [change the po
         !!! tip
             **`<scope>` is optional.**
     
-            If you define a **scope** for an API's resource, the API can only be accessed through a token that is issued for the scope of the said resource. For example, if you define a scope named 'update' and issue one token for the scopes 'read' and 'update', the token is allowed to access the resource. However, if you issue the token for the scope named 'read', the request to the API will be blocked.
+            If you define a [scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) for an API's resource, the API can only be accessed through a token that is issued for the scope of the said resource. For example, if you define a scope named 'update' and issue one token for the scopes 'read' and 'update', the token is allowed to access the resource. However, if you issue the token for the scope named 'read', the request to the API will be blocked.
 
 
     -   Headers 
@@ -84,8 +84,12 @@ If you have multiple Carbon servers running on the same computer, [change the po
 
     For example, use the following cURL command to access the Token API. It generates two tokens as an access token and a refresh token. You can use the refresh token at the time a token is renewed. Replace the `<username>` and `<password>` as appropriate.
 
-    ``` java
-        curl -k -d "grant_type=password&username=<username>&password=<password>" -H "Authorization: Basic d1U2MkRqbHlEQm5xODdHbEJ3cGxmcXZtQWJBYTprc2RTZG9lZkREUDd3cGFFbGZxdm1qRHVl" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+    ``` java tab="Format"
+    curl -k -d "grant_type=password&username=<username>&password=<password>" -H "Authorization: Basic EncodeToBase64(consumer-key:consumer-secret)" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
+    ```
+    
+    ``` java tab="Example"
+    curl -k -d "grant_type=password&username=admin&password=admin" -H "Authorization: Basic d1U2MkRqbHlEQm5xODdHbEJ3cGxmcXZtQWJBYTprc2RTZG9lZkREUDd3cGFFbGZxdm1qRHVl" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
     ```
 
     You receive a response similar to the following:
@@ -102,8 +106,4 @@ If you have multiple Carbon servers running on the same computer, [change the po
     ```
 
 Instead of using the Token API, you can generate access tokens from the API Developer Portal's UI.
-
-!!! note
-    For users to be counted in the [Registered Users for Application statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](#password-grant) type.
-
 
