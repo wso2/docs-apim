@@ -60,8 +60,6 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
     !!! note
         Note that WSO2 no longer recommends MD5 for JAR signing due to cryptographic limitations.
 
-
-
 5.  Prepare the scripts to sign the JARs and **grant them the required permission**(e.g., `sudo chmod 755 signJar.sh`). For example, the `signJar.sh` script given below can be used to sign each JAR file separately or you can use the `signJars.sh` script, which runs a loop to read all JARs and sign them.
 
     **signJar.sh script**
@@ -109,7 +107,6 @@ The steps below show how to enable the Java Security Manager for WSO2 products.
 
     !!! tip
         Every time you add an external JAR to the WSO2 product, sign them manually using the above instructions for the Java Security Manager to be effective. You add external JARs to the server when extending the product, applying patches etc.
-
 
 7.  Open the startup script in the `<API-M_HOME>/bin` folder. For Linux, it is `wso2server.sh`.
 8.  Add the following system properties to the startup script and save the file. Add them before the `org.wso2.carbon.bootstrap.Bootstrap $*` line.
