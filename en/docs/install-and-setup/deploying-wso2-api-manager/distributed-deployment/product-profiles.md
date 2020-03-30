@@ -176,7 +176,7 @@ required, we can skip this step from the profile optimization process, via passi
 
 !!! warning
     This option '--skipConfigOptimization' is supported by default only from WSO2 API Manager 3.1.0 onwards. It is 
-    available for WSO2 APIM 3.0.0 only as a **WUM** update and is effective from 6th March 2020 (2020-03-06). For more 
+    available for WSO2 APIM 3.0.0 only as a **WUM** update and is effective from 29th March 2020 (2020-03-29). For more 
     information on how to update using WUM, see 
     [Getting WSO2 Updates](https://docs.wso2.com/display/ADMIN44x/Getting+WSO2+Updates) documentation.
 
