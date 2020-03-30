@@ -7,30 +7,34 @@ The tag cloud is enable by default. You can disable tag cloud by changing themes
 2. Refresh the Developer Portal to view the changes.
 
 ```js
-tagCloud: {
-    active: false,
-    colorOptions: { // This is the Options object passed to TagCloud component of https://www.npmjs.com/package/react-tagcloud
-        luminosity: 'light',
-        hue: 'blue',
+const Configurations = {
+    custom: {
+        tagCloud: {
+            active: true,
+            colorOptions: {
+                luminosity: 'dark',
+                hue: 'blue',
+            },
+            leftMenu: {
+                width: 200,
+                height: 'calc(100vh - 222px)',
+                background: '#d8e4e9',
+                color: '#000',
+                titleBackground: '#222',
+                sliderBackground: '#222',
+                sliderWidth: 25,
+                hasIcon: false,
+            },
+        },
     },
-    leftMenu: { // These params will be applyed only if the style is 'fixed-left'
-        width: 200,
-        height: 'calc(100vh - 222px)',
-        background: '#1a1f2f',
-        color: '#c7e9ff',
-        titleBackground: '#335c8b',
-        sliderBackground: '#335c8b',
-        sliderWidth: 25,
-        hasIcon: false,
-    },
-}
+};
 ```
 leftMenu object properties are applied only if the tagCloud.style='fixed-left'
 
 | Option | type | Values | Description |
 | ------ | -- | ----------- | ----------- |
 | active | boolean | true(default), false | If true(default) tag cloud is enabled. If false, the feature is disabled |
-| colorOptions | JSON Object | |  This is the Options object passed to TagCloud component more options can be found from https://www.npmjs.com/package/react-tagcloud | 
+| colorOptions | JSON Object | |  This is the Options object passed to TagCloud component more options can be found from [https://www.npmjs.com/package/react-tagcloud](https://www.npmjs.com/package/react-tagcloud) | 
 | leftMenu.width | integer | | Defines the width of the left side panel shown when tag cloud or tag wise grouping is visible |
 | leftMenu.height | string | | Set the height for the left side panel shown when the tag cloud or tag wise grouping is visible |
 | leftMenu.background | string | | Set the background color for the left side panel shown when thag cloud or tag wise grouping is visible | 

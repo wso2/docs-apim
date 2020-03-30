@@ -9,12 +9,16 @@ The footer section is visible by default. You can hide footer by changing themes
 ### Following attributes available for footer.
 
 ```js
-footer: {
-    active: true,
-    text: '',
-    background: '#bdbdbd',
-    color: '#222222',
-}
+const Configurations = {
+    custom: {
+        footer: {
+            active: true,
+            text: '',
+            background: '#000',
+            color: '#fff',
+        },
+    },
+};
 ```
 
 | Option | type | Description |

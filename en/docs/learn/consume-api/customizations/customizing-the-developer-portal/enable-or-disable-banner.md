@@ -2,7 +2,7 @@
 
 The banner section is hidden by default. The banner section can use to show an announcement to developer portal users as follows. 
 
- ![enable or disable banner](../../../../assets/img/learn/enable-or-disable-banner.png) 
+ ![enable or disable banner]({{base_path}}/assets/img/learn/enable-or-disable-banner.png) 
 
 You can show banner by changing themes.light.custom.banner.active to true as follows.
 
@@ -13,18 +13,22 @@ You can show banner by changing themes.light.custom.banner.active to true as fol
 ### Following attributes available for banner.
 
 ```js
-banner: {
-    active: false,
-    style: 'text',
-    image: '/site/public/images/landing/01.jpg',
-    text: 'This is a very important announcement',
-    color: '#ffffff',
-    background: '#e08a00',
-    padding: 20,
-    margin: 0,
-    fontSize: 18,
-    textAlign: 'center',
-}
+const Configurations = {
+    custom: {
+        banner: {
+            active: true,
+            style: 'text',
+            image: '/site/public/images/landing/01.jpg',
+            text: 'This is a very important announcement',
+            color: '#ffffff',
+            background: '#e08a00',
+            padding: 20,
+            margin: 0,
+            fontSize: 18,
+            textAlign: 'center',
+        },
+    },
+};
 ```
 
 | Option | type | Description |
