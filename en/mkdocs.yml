@@ -259,27 +259,29 @@ nav:
             - Monetizing an API: learn/api-monetization/monetizing-an-api.md
         - Analytics:
             - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
-            - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md 
-            - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
-            - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
             - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
+            - Using Geolocation Based Statistics:
+                - Configuring Geolocation Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
+                - Writing a Custom Geolocation Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
+                - Updating Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md
             - Alerts for APIs:
                 - Alert Types: learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md
                 - Configuring Alerts: learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md
                 - Subscribing for Alerts: learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md
                 - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
-            - Using Geolocation Based Statistics:
-                - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
-                - Configuring Geo Location Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
-                - Writing a Custom Geo Location Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
-            - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
-            - Creating Custom Widgets: learn/analytics/creating-custom-widgets-in-analytics-dashboards.md
-            - Customizing Analytics Dashboards: learn/analytics/customizing-analytics-dashboards.md
-            - White Labeling for Tenants: learn/analytics/white-labeling-tenants.md
-            - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
-            - Purging Analytics Data: learn/analytics/purging-analytics-data.md
-            - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
-            - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
+            - Setup & Configuration:
+                - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
+                - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
+                - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
+                - Purging Analytics Data: learn/analytics/purging-analytics-data.md
+                - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
+            - Development:
+                - Creating Custom Widgets: learn/analytics/creating-custom-widgets-in-analytics-dashboards.md
+                - Customizing Analytics Dashboards: learn/analytics/customizing-analytics-dashboards.md
+                - White Labeling for Tenants: learn/analytics/white-labeling-tenants.md
+                - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
+                - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md 
+                - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md                         
         - API Controller:
             - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
             - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
