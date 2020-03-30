@@ -316,6 +316,11 @@ environments:
                   retryTimeOut: <no_of_retries_before_suspension>
                   retryDelay: <retry_delay_in_ms>
                   factor: <suspension_factor>
+      security:
+        - enabled: <whether_security_is_enabled>
+          type: <endpoint_authentication_type_basic_or_digest>
+          username: <endpoint_username>
+          password: <endpoint_password>
       gatewayEnvironments:
         - <gateway_environment_name>           
       certs:
@@ -332,6 +337,11 @@ The following code snippet contains sample configuration of the parameter file.
           endpoints:
             production:
               url: 'https://dev.wso2.com'
+          security:
+           - enabled: true
+             type: basic
+             username: admin
+             password: admin
           certs:
             - hostName: 'https://dev.wso2.com'
               alias: Dev
@@ -342,6 +352,11 @@ The following code snippet contains sample configuration of the parameter file.
           endpoints:
             production:
               url: 'https://test.wso2.com'
+          security:
+           - enabled: true
+             type: digest
+             username: admin
+             password: admin
               config:
                 retryTimeOut: $RETRY
             sandbox:
@@ -349,5 +364,6 @@ The following code snippet contains sample configuration of the parameter file.
     ```
 -   You can also provide a custom path for the parameter file using the `--params` flag.
 -   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
+-   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then non of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
 -   Certificates for each URL can be configured in the parameter file. For certificates, a valid path to the certificate file is required. 
 -   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.   
