@@ -52,7 +52,7 @@ Run the following CTL command to check the version of the CTL.
 
     ```bash
     Version: 3.1.0
-    Build Date: 2020-03-24 13:22:12 UTC
+    Build Date: 2020-03-31 13:22:12 UTC
     ```
 
 ## Set mode of the CTL
@@ -90,31 +90,32 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         ``` bash tab="Linux/Unix"
         apictl add-env -e <environment-name> \
-                        --registration <registration-endpoint> \
+                        --registration <client-registration-endpoint> \
                         --apim <API-Manager-endpoint> \
                         --token <token-endpoint> \
                         --admin <admin-REST-API-endpoint> \
-                        --api_list <API-listing-REST-API-endpoint> \
-                        --app_list <application-listing-REST-API-endpoint>
+                        --publisher <Publisher-endpoint> \
+                        --devportal <DevPortal-endpoint>
         ```
 
         ``` bash tab="Mac"
-        apictl add-env -e <environment-name> --registration <registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --api_list <API-listing-REST-API-endpoint> --app_list <application-listing-REST-API-endpoint>
+        apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <DevPortal-endpoint>
         ```
 
         !!! info
             **Flags:**  
             
-            -    Required :     
-                `--environment` or `-e` : Name of the environment to be added  
-                `--registration` : Registration endpoint for the environment  
-                `--token` : Token endpoint for the environment  
-                `--apim` : API Manager endpoint for the environments  
+            -    Required :  
 
-            -   Optional :      
+                `--environment` or `-e` : Name of the environment to be added   
+                `--token` : Token endpoint for the environment
+                AND (either)
+                `--apim` : API Manager endpoint for the environments
+                OR (the following 4)
+                `--registration` : Registration endpoint for the environment 
                 `--admin` : Admin endpoint for the environment  
-                `--api_list` : API List endpoint for the environment  
-                `--app_list` : Application List endpoint for the environment  
+                `--publisher` : Publisher endpoint for the environment  
+                `--devportal` : DevPortal endpoint for the environment 
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.   
@@ -123,31 +124,45 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --registration https://localhost:9444/client-registration/v0.16/register \
                         --apim https://localhost:9444 \
                         --token https://localhost:8244/token \
             ``` 
 
             ``` bash tab="Mac"
-            ./apictl add-env -e dev --registration https://localhost:9444/client-registration/v0.16/register --apim https://localhost:9444 --token https://localhost:8244/token
+            ./apictl add-env -e dev --apim https://localhost:9444 --token https://localhost:8244/token
             ```               
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9443/client-registration/v0.16/register \
-                        --apim https://localhost:9443 \
+                        --registration https://localhost:9443 \
                         --token https://localhost:8243/token \
-                        --admin https://localhost:9443/api/am/admin/v0.16 \
-                        --api_list https://localhost:9443/api/am/publisher/v1/apis \
-                        --app_list https://localhost:9443/api/am/store/v1/applications
+                        --admin https://localhost:9443 \
+                        --publisher https://localhost:9443 \
+                        --devportal https://localhost:9443 \
             ```
 
             ``` bash tab="Mac"
-            apictl add-env -e production --registration https://localhost:9443/client-registration/v0.16/register --apim https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443/api/am/admin/v0.16 --api_list https://localhost:9443/api/am/publisher/v1/apis --app_list https://localhost:9443/api/am/store/v1/applications
+            apictl add-env -e production --registration https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443 --publisher https://localhost:9443 --devportal https://localhost:9443
             ```  
     
+        !!! example
+
+            ``` bash tab="Linux/Unix"
+            apictl add-env -e production \
+                        --registration https://localhost:9443 \
+                        --apim https://localhost:9443 \
+                        --token https://localhost:8243/token \
+                        --admin https://localhost:9443 \
+                        --publisher https://localhost:9443 \
+                        --devportal https://localhost:9443 \
+            ```
+
+            ``` bash tab="Mac"
+            apictl add-env -e production --registration https://localhost:9443 --apim https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443 --publisher https://localhost:9443 --devportal https://localhost:9443
+            ```  
+
     -   **Response**
     
         ``` bash tab="Response Format"
@@ -214,14 +229,14 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     -   **Response**
 
         ``` bash tab="Response Format"
-        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT
-        <environment-name>    <API-Manager-endpoint>    <registration-endpoint>    <token-endpoint>
+        NAME                  API MANAGER ENDPOINT      REGISTRATION ENDPOINT      TOKEN ENDPOINT     PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT
+        <environment-name>    <APIM-endpoint>           <registration-endpoint>    <token-endpoint>   <Publisher-endpoint>     <DevPortal-endpoint>     <admmin-endpoint>
         ```
 
         ```bash tab="Example Response"
-        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT                                       TOKEN ENDPOINT
-        dev          https://localhost:9443   https://localhost:9443/client-registration/v0.16/register   https://localhost:8243/token
-        production   https://localhost:9444   https://localhost:9444/client-registration/v0.16/register   https://localhost:8244/token   
+        NAME         API MANAGER ENDPOINT     REGISTRATION ENDPOINT    TOKEN ENDPOINT                  PUBLISHER ENDPOINT       DEVPORTAL ENDPOINT       ADMIN ENDPOINT
+        dev          https://localhost:9443   https://localhost:9443   https://localhost:8243/token    https://localhost:9443   https://localhost:9443   https://localhost:9443
+        production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444
 
         ```
 

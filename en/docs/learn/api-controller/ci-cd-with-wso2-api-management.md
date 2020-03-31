@@ -60,12 +60,10 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
     !!! example
         ``` bash
         apictl add-env -e dev \
-                    --registration https://localhost:9444/client-registration/v0.16/register \
                     --apim https://localhost:9444 \
                     --token https://localhost:8244/token \
 
         apictl add-env -e prod \
-                    --registration https://localhost:9443/client-registration/v0.16/register \
                     --apim https://localhost:9443 \
                     --token https://localhost:8243/token \
         ```
