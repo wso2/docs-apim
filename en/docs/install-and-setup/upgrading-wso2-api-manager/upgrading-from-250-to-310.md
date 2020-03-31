@@ -300,9 +300,9 @@ current API Manager 2.5.0 version and run the below scripts against **the regist
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-590.md).
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-300)
+-   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.1.0 server](#step-4-restart-the-wso2-api-m-300-server)
+-   [Step 4 - Restart the WSO2 API-M 3.1.0 server](#step-4-restart-the-wso2-api-m-310-server)
 
 ### Step 1 - Migrate the API Manager configurations
 

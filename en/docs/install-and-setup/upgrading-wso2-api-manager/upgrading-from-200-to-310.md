@@ -298,9 +298,9 @@ current API Manager 2.0.0 version and run the below scripts against **the databa
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-590.md).
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
--   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-300)
+-   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.1.0 server](#step-4-restart-the-wso2-api-m-300-server)
+-   [Step 4 - Restart the WSO2 API-M 3.1.0 server](#step-4-restart-the-wso2-api-m-310-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -470,15 +470,15 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim200_to_apim300_gateway_artifact_migrator.sh](../../assets/attachments/install-and-setup/apim200_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0. 
+        Run the [apim200_to_apim310_gateway_artifact_migrator.sh](../../assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0. 
         ```
-        ./apim200_to_apim300_gateway_artifact_migrator.sh <API-definitions-path>
+        ./apim200_to_apim310_gateway_artifact_migrator.sh <API-definitions-path>
         ```
 
         !!! note
             If you are getting a "Permission Denied" message when you execute the above command, grant the permission as follows.
             ```
-            chmod 777 apim200_to_apim300_gateway_artifact_migrator.sh
+            chmod 777 apim200_to_apim310_gateway_artifact_migrator.sh
             ```
 
         `<API-definition-path>` - This is the location where the WSO2 API-M 3.1.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.
@@ -493,7 +493,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     ??? note "Windows"
         !!! note "Super Tenant"
-            Run the PowerShell script [apim200_to_apim300_gateway_artifact_migrator.ps1](../../assets/attachments/install-and-setup/apim200_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
+            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator.ps1](../../assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -503,7 +503,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
             2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
             ```
-            .\apim200_to_apim300_gateway_artifact_migrator.ps1 <API-definitions-path>
+            .\apim200_to_apim310_gateway_artifact_migrator.ps1 <API-definitions-path>
             ```
 
             `<API-definition-path>` - This is the location where the WSO2 API-M 3.1.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.
@@ -513,7 +513,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Where `<API-M_3.1.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.1.0`, which is the **full path** to the particular location.
 
         !!! note "Tenants"
-            Run the PowerShell script [apim200_to_apim300_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
+            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/install-and-setup/apim210_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -523,7 +523,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
             2.  Run the PowerShell script by passing the location of the gateway artifacts that you need to migrate.
             ```
-            .\apim200_to_apim300_gateway_artifact_migrator_for_tenants.ps1 <API-definitions-path>
+            .\apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1 <API-definitions-path>
             ```
 
             `<API-definition-path>` - This is the location where the WSO2 API-M 3.1.0 API definitions, which were copied from the API-M 2.0.0 deployment, reside.
@@ -538,9 +538,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
     !!! info "Troubleshooting"
 
-        **Why do I get the following error - `apim200_to_apim300_gateway_artifact_migrator.ps1`/`apim200_to_apim300_gateway_artifact_migrator_for_tenants.ps1` cannot be loaded because the execution of scripts is disabled on this system?**
+        **Why do I get the following error - `apim200_to_apim310_gateway_artifact_migrator.ps1`/`apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1` cannot be loaded because the execution of scripts is disabled on this system?**
 
-        When running the `apim200_to_apim300_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system.
+        When running the `apim200_to_apim310_gateway_artifact_migrator.ps1` script, if the execution process is aborted with the above error, it means that the execution of unknown scripts is disabled in the system.
         
         To overcome this issue and allow the execution of such scripts, run the following command in the terminal as the **Administrator**.
 

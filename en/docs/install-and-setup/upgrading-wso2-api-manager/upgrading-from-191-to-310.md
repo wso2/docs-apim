@@ -18,7 +18,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from API
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-590.md).
 
 -   [Step 1 - Upgrade WSO2 API Manager to 2.0.0](#step-1-upgrade-wso2-api-manager-to-200)
--   [Step 2 - Upgrade WSO2 API Manager to 3.1.0](#step-2-upgrade-wso2-api-manager-to-300)
+-   [Step 2 - Upgrade WSO2 API Manager to 3.1.0](#step-2-upgrade-wso2-api-manager-to-310)
 
 ### Step 1 - Upgrade WSO2 API Manager to 2.0.0
 
@@ -29,7 +29,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from API
 
 ### Step 2 - Upgrade WSO2 API Manager to 3.1.0
 
-After you have successfully migrated your current WSO2 API-M version to 2.0.0, upgrade from API-M 2.0.0 to API-M 3.1.0. For more information, see [Upgrading API Manager from 2.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-200-to-300.md).
+After you have successfully migrated your current WSO2 API-M version to 2.0.0, upgrade from API-M 2.0.0 to API-M 3.1.0. For more information, see [Upgrading API Manager from 2.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-200-to-310.md).
 
 This concludes the upgrade process.
 
