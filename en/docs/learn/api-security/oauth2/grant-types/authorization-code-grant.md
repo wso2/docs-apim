@@ -10,7 +10,7 @@ The client then requests an access token from the authorization server's `/token
 
 The diagram below depicts the flow of Authorization Code Grant :
 
-![](../../../../assets/img/learn/oauth-authorization-code-grant-diagram.png)
+![]({{base_path}}/assets/img/learn/oauth-authorization-code-grant-diagram.png)
 
 #### Invoking the Token API to generate tokens
 
@@ -79,9 +79,9 @@ The steps below show how access tokens are generated for the authorization code 
     ```
         
     !!!info "Why is this step needed?"
-        Some browsers do not allow you to create cookies for a naked hostname, such as `localhost`. Cookies are required when working with SSO. Therefore, to ensure that the SSO capabilities work as expected in this tutorial, you need to configure the `/etc/host` file as explained in this step.
+        Some browsers do not allow you to create cookies for a naked hostname, such as `localhost`. Cookies are required when working with SSO. Therefore, to ensure that the SSO capabilities work as expected in this tutorial, you need to configure the `/etc/hosts` file as explained in this step.
             
-        The `/etc/host` file is a read-only file. Therefore, you won't be able to edit it by opening the file via a text editor. Instead, edit the file using the terminal commands. For example, use the following command if you are working on a Mac/Linux environment.
+        The `/etc/hosts` file is a read-only file. Therefore, you won't be able to edit it by opening the file via a text editor. Instead, edit the file using the terminal commands. For example, use the following command if you are working on a Mac/Linux environment.
             
         ``` java
         sudo nano /etc/hosts
