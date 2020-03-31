@@ -37,7 +37,7 @@ Based on the API Project generation, a powerful pipeline for API automation can 
 [![]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)
 
 
-**To migrate APIs using the Developer First approach via CI/CD** carry out <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a></a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
+**To migrate APIs using the Developer First approach via CI/CD** carry out <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
 
 _________________
 ## Building blocks for creating a CI/CD pipeline
@@ -58,17 +58,23 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 3.  Add API Manager environments using the `add-env` command.
 
     !!! example
-        ``` bash
+        ``` bash tab="Linux/Unix"
         apictl add-env -e dev \
-                    --registration https://localhost:9444/client-registration/v0.15/register \
-                    --apim https://localhost:9444 \
-                    --token https://localhost:8244/token \
-
-        apictl add-env -e prod \
                     --registration https://localhost:9443/client-registration/v0.15/register \
                     --apim https://localhost:9443 \
                     --token https://localhost:8243/token \
+
+        apictl add-env -e prod \
+                    --registration https://localhost:9444/client-registration/v0.15/register \
+                    --apim https://localhost:9444 \
+                    --token https://localhost:8244/token \
         ```
+
+        ``` bash tab="Mac"
+        apictl add-env -e dev --registration https://localhost:9443/client-registration/v0.15/register --apim https://localhost:9443 --token https://localhost:8243/token
+
+        apictl add-env -e prod --registration https://localhost:9444/client-registration/v0.15/register --apim https://localhost:9444 --token https://localhost:8244/token
+        ```  
 
     For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
 
@@ -147,7 +153,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 <a name="D"></a>
 ### (D.) - Initialize the project using a Swagger/OpenAPI specification
 
-Execute the following command to directly generate the `PetstoreAPI` project using a Swagger/OpenAPI specification.
+Execute the following command to directly generate the `PetstoreAPI` project using a Swagger/OpenAPI specification. (You can download the Swagger/OpenAPI specification from [here](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v2.0/yaml/petstore.yaml).)
 
 !!! example
     ```bash
@@ -260,11 +266,11 @@ The **apictl** tool should be installed in the automation servers to begin the p
 
 3. Sign in to the API Publisher.
 
-     `https://localhost:9443/publisher`
+     `https://localhost:9444/publisher`
 
 4. Check the details of the API.
      
-     You will see that the API has been imported with correct environment-specific details that you defined and also that the API is in the `PUBLISHED` state.
+     You will see that the API has been imported with correct environment-specific details that you defined. Also, If you have followed, <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, and <a href="#F">F</a>, you can see that the API is in the `PUBLISHED` state and if you have followed <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a>, then your API will be in `CREATED` state.
 
 !!! info  
     -   When exporting an API, the **apictl** tool will also export the API’s lifecycle status. When importing to another environment, this lifecycle status will be preserved. This ensures that the API has the same state across environments. 

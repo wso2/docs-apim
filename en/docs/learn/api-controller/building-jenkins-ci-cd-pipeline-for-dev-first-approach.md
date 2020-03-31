@@ -5,7 +5,7 @@ and API Publisher Portal. First, an API developer develops his/her own backend m
 Specification for it. Thereafter, he/she can create an API using that OpenAPI specification and deploy it to the desired 
 WSO2 API Management environment without accessing the Publisher Portal directly.
 
-Let's see create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let's use Postman to write the test scripts in order to test the API that is deployed in WSO2 API Manager.
+Let's create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let's use Postman to write the test scripts in order to test the API that is deployed in WSO2 API Manager.
 
 ## Prerequisites
 
