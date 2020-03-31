@@ -4,7 +4,7 @@ set -e
 location=$1
 
 if [[ -z $location ]]; then
-  echo 'Usage: ./apim220_to_apim300_gateway_artifact_migrator.sh <location of gateway artifacts>'
+  echo 'Usage: ./apim210_to_apim310_gateway_artifact_migrator.sh <location of gateway artifacts>'
   exit 1
 fi
 
@@ -15,6 +15,9 @@ pushd $location > /dev/null
 echo 'starting gateway artifact migration...'
 
 c='<handler class="org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler">\n\t\t<property name="RemoveOAuthHeadersFromOutMessage" value="true"/>\n\t</handler>'
+
+find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 sed -i -e 's/org.wso2.carbon.mediator.cache.digest.DOMHASHGenerator/org.wso2.carbon.mediator.cache.digest.REQUESTHASHGenerator/'
+find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 sed -i -e 's/org.wso2.caching.digest.REQUESTHASHGenerator/org.wso2.carbon.mediator.cache.digest.REQUESTHASHGenerator/'
 find . -wholename './[0-9]*/synapse-configs/default/*.xml' -print0 -o -name '*.xml' -print0 | xargs -0 sed -i -e "s@<handler class=\"org.wso2.carbon.apimgt.gateway.handlers.security.APIAuthenticationHandler\"/>@${c}@"
 
 popd > /dev/null
