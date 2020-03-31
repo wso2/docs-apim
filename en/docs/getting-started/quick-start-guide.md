@@ -243,7 +243,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      </div>  
    
      ``` bash
-     ./apictl add-env -e dev --registration https://localhost:9443/client-registration/v0.15/register --apim  https://localhost:9443 --token https://localhost:8243/token
+     ./apictl add-env -e dev --apim  https://localhost:9443 --token https://localhost:8243/token
      ```
 
      On successfully executing this command, you should see the following message.
