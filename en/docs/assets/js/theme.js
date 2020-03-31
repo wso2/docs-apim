@@ -296,3 +296,13 @@ window.addEventListener('scroll', function() {
         editIcon.classList.remove('active');
     }
 });
+
+/*
+ * Fixes the issue related to clicking on anchors and landing somewhere below it
+ */
+
+window.addEventListener("hashchange", function () {
+
+    window.scrollTo(window.scrollX, window.scrollY - 90, 'smooth');
+
+});
