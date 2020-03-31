@@ -260,6 +260,7 @@ nav:
         - Analytics:
             - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
             - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
+            - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
             - Using Geolocation Based Statistics:
                 - Configuring Geolocation Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
                 - Writing a Custom Geolocation Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
