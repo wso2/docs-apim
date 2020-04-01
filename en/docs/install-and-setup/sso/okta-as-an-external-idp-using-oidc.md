@@ -2,8 +2,8 @@ In the following document we will explain how to connect OKTA as a third party I
 
 ### Pre-requisites
 
-1. Create an account in https://developer.okta.com/
-2. Download the latest API-Manager distribution from https://wso2.com/api-management/
+1. Create an account in [https://developer.okta.com/](https://developer.okta.com/)
+2. Download the latest API-Manager distribution from [https://wso2.com/api-management/](https://wso2.com/api-management/)
 3. Unzip the distribution and open the `deployment.toml` file located in `<APIM_HOME>/repository/conf/` and add the following configuration
     ```
     [tenant_mgt]
