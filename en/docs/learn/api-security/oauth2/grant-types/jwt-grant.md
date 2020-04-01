@@ -12,7 +12,7 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager fe
 
 1.  Sign in to the WSO2 API Manager. Enter your username and password to log on to the Management Console (<https://localhost:9443/carbon>).
 
-2.  Navigate to the **Identity Providers** section under the **Main** tab of the management console and click **Add** .
+2.  Navigate to the **Identity Providers** section under the **Main** tab of the management console and click **Add.**
 3.  Provide the following values to configure the IDP:
     -   **Identity Provider Name:** Enter an issuer name as the identity provider name. This is used to generate the JWT assertion.
     -   **Identity Provider Public Certificate :** The certificate used to sign the JWT assertion.
@@ -36,19 +36,19 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager fe
         See [Using Asymmetric Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption) in the WSO2 Product Administration Guide for more information on how public keys work and how to sign these keys by a certification authority.
 
 
-    -   **Alias** : Give the name of the alias if the Identity Provider identifies this token endpoint by an alias (e.g., `https://localhost:9443/oauth2/token                        ).` For more information, see [Adding a new identity provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-an-identity-provider/).
+    -   **Alias** : Give the name of the alias if the Identity Provider identifies this token endpoint by an alias (e.g., `https://localhost:9443/oauth2/token)`. For more information, see [Adding a new identity provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-an-identity-provider/).
 
-    [![](../../../../assets/img/learn/add-identity-provider.png)](../../../../assets/img/learn/add-identity-provider.png)
+    [![]({{base_path}}/assets/img/learn/add-identity-provider.png)]({{base_path}}/assets/img/learn/add-identity-provider.png)
 
-4.  Navigate to the **Main** menu to access the **Identity** menu. Click **Add** under **Service Providers**.
+4.  Navigate to the **Main** menu to access the **Identity** menu. Click **Add** under **Service Providers.**
 
 5.  Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-a-service-provider/) for more information.
 
-6.  Expand the **OAuth/OpenID Connect Configuration** under Inbound Authentication Configuration and click **Configure** .
+6.  Expand the **OAuth/OpenID Connect Configuration** under Inbound Authentication Configuration and click **Configure.**
 
-7.  Enter a **Callback URL** . For example, use `https://localhost:8443/playground2/oauth2client` and click **Add**. The **OAuth Client Key** and **OAuth Client Secret** will now be visible.
+7.  Enter a **Callback URL.** For example, use `https://wso2is.local:8080/playground2/oauth2client` and click **Add**. The **OAuth Client Key** and **OAuth Client Secret** will now be visible.
 
-    [![](../../../../assets/img/learn/add-service-provider.png)](../../../../assets/img/learn/add-service-provider.png)
+    [![]({{base_path}}/assets/img/learn/add-service-provider.png)]({{base_path}}/assets/img/learn/add-service-provider.png)
 
 ### Using the JWT grant
 
@@ -63,7 +63,7 @@ curl -i -X POST -u liXJsel4bJ76arbg3DXC3rU4w60a:wQEYq83njU29ZFbpQWdZsUlXcnga -k 
 ```
 
 The **-u** flag should specify the “ `<Client Id>:<Client Secret>` ” value. The assertion parameter value is the signed base64 encoded JWT.
-The value of the assertion parameter **MUST** contain a **single JWT** . You can refer [JWT Bearer Grant](#jwt-bearer-grant) for more information about assertion.
+The value of the assertion parameter **MUST** contain a **single JWT.** You can refer [JWT Bearer Grant](#jwt-bearer-grant) for more information about assertion.
 
 !!! info
     If you have configured the service provider and identity provider in a tenant, you have to add the tenant domain as a query parameter to the access token endpoint.
