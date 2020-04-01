@@ -722,6 +722,31 @@ Follow the instructions below to move all the existing API Manager configuration
             TOKEN_TYPE VARCHAR(15) DEFAULT 'DEFAULT',
             TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (UUID)
+        );
+
+        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
+            UUID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_ID INTEGER,
+            UNIQUE (NAME,TENANT_ID),
+            PRIMARY KEY (UUID)
+        );
+
+        ALTER TABLE AM_SYSTEM_APPS
+        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
+
+        CREATE TABLE IF NOT EXISTS AM_USER (
+            USER_ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            PRIMARY KEY(USER_ID)
+        );
+
+        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
+            API_ID INTEGER NOT NULL,
+            AUDIT_UUID VARCHAR(255) NOT NULL,
+            PRIMARY KEY (API_ID),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );          
         ```
 
@@ -933,6 +958,32 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (UUID)
         )
         /
+
+        CREATE TABLE AM_API_CATEGORIES (
+            UUID VARCHAR(50) NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(1024),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            UNIQUE (NAME,TENANT_ID),
+            PRIMARY KEY (UUID)
+        ) /
+
+        ALTER TABLE AM_SYSTEM_APPS
+        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super'
+        /
+
+        CREATE TABLE AM_USER (
+            USER_ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            PRIMARY KEY(USER_ID)
+        ) /
+
+        CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
+            API_ID INTEGER NOT NULL,
+            AUDIT_UUID VARCHAR(255) NOT NULL,
+            PRIMARY KEY (API_ID),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
+        ) /
         ```
 
         ```tab="MSSQL"
@@ -1137,6 +1188,34 @@ Follow the instructions below to move all the existing API Manager configuration
             TIME_CREATED DATETIME DEFAULT GETDATE(),
             PRIMARY KEY (UUID)
         );
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_CATEGORIES]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_API_CATEGORIES (
+            UUID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_ID INTEGER DEFAULT -1,
+            UNIQUE (NAME,TENANT_ID),
+            PRIMARY KEY (UUID)
+        );
+
+        ALTER TABLE AM_SYSTEM_APPS
+        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_USER]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_USER (
+            USER_ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            PRIMARY KEY(USER_ID)
+        );
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SECURITY_AUDIT_UUID_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
+            API_ID INTEGER NOT NULL,
+            AUDIT_UUID VARCHAR(255) NOT NULL,
+            PRIMARYśKEY (API_ID),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
+        );
         ```
 
         ```tab="MySQL"
@@ -1308,6 +1387,34 @@ Follow the instructions below to move all the existing API Manager configuration
             TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (UUID)
         ) ENGINE=InnoDB;
+
+        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
+            UUID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_ID INTEGER DEFAULT -1,
+            UNIQUE (NAME,TENANT_ID),
+            PRIMARY KEY (UUID)
+        ) ENGINE=InnoDB;
+
+        ALTER TABLE AM_SYSTEM_APPS
+        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
+
+        ALTER TABLE AM_SYSTEM_APPS
+        DROP INDEX NAME;
+
+        CREATE TABLE IF NOT EXISTS AM_USER (
+            USER_ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            PRIMARY KEY(USER_ID)
+        ) ENGINE=InnoDB;
+
+        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
+            API_ID INTEGER NOT NULL,
+            AUDIT_UUID VARCHAR(255) NOT NULL,
+            PRIMARY KEY (API_ID),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
+        ) ENGINE INNODB;
         ```
 
         ```tab="Oracle"
@@ -1579,6 +1686,39 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY (UUID)
         )
         /
+
+        CREATE TABLE AM_API_CATEGORIES (
+            UUID VARCHAR2(50),
+            NAME VARCHAR2(255) NOT NULL,
+            DESCRIPTION VARCHAR2(1024),
+            TENANT_ID INTEGER DEFAULT -1,
+            UNIQUE (NAME,TENANT_ID),
+            PRIMARY KEY (UUID)
+        )
+        /
+
+        ALTER TABLE AM_SYSTEM_APPS
+        ADD TENANT_DOMAIN VARCHAR2(255) DEFAULT 'carbon.super'
+        /
+
+        ALTER TABLE AM_SYSTEM_APPS
+        DROP UNIQUE (NAME)
+        /
+
+        CREATE TABLE AM_USER (
+            USER_ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            PRIMARY KEY(USER_ID)
+        )
+        /
+
+        CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
+            API_ID INTEGER NOT NULL,
+            AUDIT_UUID VARCHAR(255) NOT NULL,
+            PRIMARY KEY (API_ID),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
+        )
+        /
         ```
 
         ```tab="PostgreSQL"
@@ -1794,6 +1934,37 @@ Follow the instructions below to move all the existing API Manager configuration
             TIME_CREATED TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
             PRIMARY KEY (UUID)
         );
+
+        DROP TABLE IF EXISTS AM_API_CATEGORIES;
+        CREATE TABLE IF NOT EXISTS AM_API_CATEGORIES (
+            UUID VARCHAR(50),
+            NAME VARCHAR(255),
+            DESCRIPTION VARCHAR(1024),
+            TENANT_ID INTEGER DEFAULT -1,
+            UNIQUE (NAME,TENANT_ID),
+            PRIMARY KEY (UUID)
+        );
+
+        ALTER TABLE AM_SYSTEM_APPS
+        ADD TENANT_DOMAIN VARCHAR(255) DEFAULT 'carbon.super';
+
+        ALTER TABLE AM_SYSTEM_APPS
+        DROP CONSTRAINT AM_SYSTEM_APPS_NAME_KEY;
+
+        DROP TABLE IF EXISTS AM_USER;
+        CREATE TABLE IF NOT EXISTS AM_USER (
+            USER_ID VARCHAR(255) NOT NULL,
+            USER_NAME VARCHAR(255) NOT NULL,
+            PRIMARY KEY(USER_ID)
+        );
+
+        DROP TABLE IF EXISTS AM_SECURITY_AUDIT_UUID_MAPPING;
+        CREATE TABLE IF NOT EXISTS AM_SECURITY_AUDIT_UUID_MAPPING (
+            API_ID INTEGER NOT NULL,
+            AUDIT_UUID VARCHAR(255) NOT NULL,
+            PRIMARY KEY (API_ID),
+            FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
+        );
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.1.0_HOME>/repository/resources/security` directory.
@@ -1924,7 +2095,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
     5.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
-    6.  Start WSO2 API Manager 3.1.0 as follows to carry out the complete Identity component migration.
+    6. Update <API-M_3.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+    
+        ```
+        [user_store]
+        type = "database"
+        ```
+
+    7.  Start WSO2 API Manager 3.1.0 as follows to carry out the complete Identity component migration.
 
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
@@ -1936,6 +2114,14 @@ Follow the instructions below to move all the existing API Manager configuration
 
         !!! note
             Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+        
+        !!! note
+            Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+
+            ```
+            [user_store]
+            type = "database_unique_id"
+            ``` 
 
         !!! warning "Troubleshooting"
             When running the above step if you encounter the following error message, please follow the steps in this section. Please note that this error could occur only if the identity tables contain a huge volume of data.
@@ -2029,7 +2215,7 @@ Follow the instructions below to move all the existing API Manager configuration
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
 !!! info
-    As you are upgrading from WSO2 API-M Analytics 2.0.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.1.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.1.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
+    As you are upgrading from WSO2 API-M Analytics 2.0.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.1.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.1.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
 
 ### Step 4 - Restart the WSO2 API-M 3.1.0 server
 
