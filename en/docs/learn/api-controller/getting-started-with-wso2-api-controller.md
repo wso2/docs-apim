@@ -124,43 +124,43 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --apim https://localhost:9444 \
-                        --token https://localhost:8244/token \
+                        --apim https://localhost:9443 \
+                        --token https://localhost:8243/token \
             ``` 
 
             ``` bash tab="Mac"
-            ./apictl add-env -e dev --apim https://localhost:9444 --token https://localhost:8244/token
+            apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
             ```               
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9443 \
-                        --token https://localhost:8243/token \
-                        --admin https://localhost:9443 \
-                        --publisher https://localhost:9443 \
-                        --devportal https://localhost:9443 \
+                        --registration https://localhost:9444 \
+                        --token https://localhost:8244/token \
+                        --admin https://localhost:9444 \
+                        --publisher https://localhost:9444 \
+                        --devportal https://localhost:9444 \
             ```
 
             ``` bash tab="Mac"
-            apictl add-env -e production --registration https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443 --publisher https://localhost:9443 --devportal https://localhost:9443
+            apictl add-env -e production --registration https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444 --publisher https://localhost:9444 --devportal https://localhost:9444
             ```  
     
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9443 \
-                        --apim https://localhost:9443 \
-                        --token https://localhost:8243/token \
-                        --admin https://localhost:9443 \
-                        --publisher https://localhost:9443 \
-                        --devportal https://localhost:9443 \
+                        --registration https://localhost:9444 \
+                        --apim https://localhost:9444 \
+                        --token https://localhost:8244/token \
+                        --admin https://localhost:9444 \
+                        --publisher https://localhost:9444 \
+                        --devportal https://localhost:9444 \
             ```
 
             ``` bash tab="Mac"
-            apictl add-env -e production --registration https://localhost:9443 --apim https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443 --publisher https://localhost:9443 --devportal https://localhost:9443
+            apictl add-env -e production --registration https://localhost:9444--apim https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444 --publisher https://localhost:9444 --devportal https://localhost:9444
             ```  
 
     -   **Response**
