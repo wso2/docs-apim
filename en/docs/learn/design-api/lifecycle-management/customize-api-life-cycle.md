@@ -198,8 +198,8 @@ Follow the steps below to add a new state to the default life cycle.
 
                 lifeCycleImage: '/publisher/site/public/images/custom-lifecycle.png,
 
-    !!! Attention "For Advanced Customization"
-        If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the [LifeCycleImage.jsx](https://github.com/wso2/carbon-apimgt/blob/v6.6.163/features/apimgt/org.wso2.carbon.apimgt.publisher.feature/src/main/resources/publisher/source/src/app/components/Apis/Details/LifeCycle/LifeCycleImage.jsx) file as mentioned in the [Advanced Customization]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization/) section.
+    !!! Tip "For Advanced Customization"
+        If you want to add the custom lifecycle state to the existing lifecycle diagram, you have to customize the LifeCycleImage.jsx file located in  `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/source/src/app/components/Apis/Details/LifeCycle/` directory, as mentioned in the [Advanced Customization]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization/) section.
 
 
 For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/learn/design-api/lifecycle-management/extending-the-api-life-cycle/) .
