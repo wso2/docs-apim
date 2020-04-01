@@ -174,4 +174,4 @@ In the following document we will explain how to connect OKTA as a third party I
     
     Repeat the same for devportal service provider.
 
-Now you are able to login to the publisher & devportal using the OKTA.
+Now you are able to login to the publisher & devportal using OKTA.
