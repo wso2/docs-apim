@@ -1687,7 +1687,7 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-                CREATE TABLE AM_API_CATEGORIES (
+        CREATE TABLE AM_API_CATEGORIES (
             UUID VARCHAR2(50),
             NAME VARCHAR2(255) NOT NULL,
             DESCRIPTION VARCHAR2(1024),
