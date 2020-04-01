@@ -173,3 +173,5 @@ In the following document we will explain how to connect OKTA as a third party I
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png"/>
     
     Repeat the same for devportal service provider.
+
+Now you are able to login to the publisher & devportal using the OKTA.
