@@ -160,7 +160,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
 4.  Generate the Kerberos token.
 
-        Let's follow the instructions below to generate the Kerberos token using the `KerbClientProject` sample client.
+    Let's follow the instructions below to generate the Kerberos token using the `KerbClientProject` sample client.
 
     1.  Git clone the `KerbClientProject`.
 
@@ -208,7 +208,15 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
             The latter mentioned action will also invoke the token endpoint using the message format that was discussed in [step 3](#kerberos-grant-token-request).
 
-        This project generates a Kerberos ticket. Thereafter it generates the Kerberos token using the Kerberos ticket, and finally, it passes the Kerberos token to generate the OAuth token.
+        This project generates a Kerberos ticket. Thereafter it generates the Kerberos token using the Kerberos ticket, and finally, it passes the Kerberos token to generate the OAuth2 token. 
+
+        A sample response you get when running the client, would be like this.
+
+        ```java
+        Response:  {"access_token":"c8c32c0b-888a-3d4f-a751-1b119f05e5de","refresh_token":"7c54e379-5878-3509-a9d9-5edf6e864ad7","scope":"default","token_type":"Bearer","expires_in":3600}
+        ```
+
+5.  You can use the received OAuth2 token directly to invoke an API.
 
     !!! note
         For the users to be counted in the [Registered Application Users statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#registered-application-users), which considers the number of users that are shared across each application, they should generate access tokens using the [Password Grant]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant) type.
