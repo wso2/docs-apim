@@ -123,29 +123,29 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --registration https://localhost:9444/client-registration/v0.15/register \
-                        --apim https://localhost:9444 \
-                        --token https://localhost:8244/token \
+                        --registration https://localhost:9443/client-registration/v0.15/register \
+                        --apim https://localhost:9443 \
+                        --token https://localhost:8243/token \
             ``` 
 
             ``` bash tab="Mac"
-            ./apictl add-env -e dev --registration https://localhost:9444/client-registration/v0.15/register --apim https://localhost:9444 --token https://localhost:8244/token
+            apictl add-env -e dev --registration https://localhost:9443/client-registration/v0.15/register --apim https://localhost:9443 --token https://localhost:8243/token
             ```               
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9443/client-registration/v0.15/register \
-                        --apim https://localhost:9443 \
-                        --token https://localhost:8243/token \
-                        --admin https://localhost:9443/api/am/admin/v0.15 \
-                        --api_list https://localhost:9443/api/am/publisher/v0.15/apis \
-                        --app_list https://localhost:9443/api/am/store/v0.15/applications
+                        --registration https://localhost:9444/client-registration/v0.15/register \
+                        --apim https://localhost:9444 \
+                        --token https://localhost:8244/token \
+                        --admin https://localhost:9444/api/am/admin/v0.15 \
+                        --api_list https://localhost:9444/api/am/publisher/v0.15/apis \
+                        --app_list https://localhost:9444/api/am/store/v0.15/applications
             ```
 
             ``` bash tab="Mac"
-            apictl add-env -e production --registration https://localhost:9443/client-registration/v0.15/register --apim https://localhost:9443 --token https://localhost:8243/token --admin https://localhost:9443/api/am/admin/v0.15 --api_list https://localhost:9443/api/am/publisher/v0.15/apis --app_list https://localhost:9443/api/am/store/v0.15/applications
+            apictl add-env -e production --registration https://localhost:9444/client-registration/v0.15/register --apim https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444/api/am/admin/v0.15 --api_list https://localhost:9444/api/am/publisher/v0.15/apis --app_list https://localhost:9444/api/am/store/v0.15/applications
             ```  
     
     -   **Response**
