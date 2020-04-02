@@ -1,7 +1,7 @@
 # Production Deployment Guidelines
 
-The requirements for deploying WSO2 products can change based on the deployment scenario and pattern. The 
-recommendations in this topic are for general production use, assuming moderate load conditions. For situations where
+The requirements for deploying WSO2 products can be changed based on the deployment scenario and pattern. The 
+recommendations under this topic are for general production use, assuming moderate load conditions. For situations where
  a high volume of traffic is expected and if there are large deployments, these guidelines may not be sufficient. See
   [Troubleshooting in Production Environments]({{base_path}}/troubleshooting/admin-troubleshooting-in-production-environments) for information on how to obtain and analyze information
    to solve production issues. The following are the topics addressed in this section.
@@ -220,7 +220,9 @@ file in the `<PRODUCT_HOME>/repository/conf/tomcat` directory. According to th
  
 These configurations has to be set properly for the management console to be accessible.
 
--   As explained in the [installation prerequisites](#installation-prerequisites) , the default product installation uses OpenJDK. Therefore, you don't require a different JDK. However, if you have set up Oracle JDK or IBM JDK, be sure to apply the following settings to your product distribution.
+-   As explained in the [installation prerequisites](#installation-prerequisites) , the default product installation 
+uses OpenJDK. Therefore, you don't require a separate JDK. However, if you have set up Oracle JDK or IBM JDK, be sure
+ to apply the following settings to your product distribution.
 
     -   [**Oracle JDK**](#cc08b6aaf09742a7b6389db09f3e3b36)
     -   [**IBM JDK**](#944559bca1c0464fa8a12ec742f9cd07)
