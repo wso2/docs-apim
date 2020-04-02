@@ -1,4 +1,4 @@
-In the following document we will explain how to connect OKTA as a third party Identity provier to WSO2 API-Manager. Before we start first make sure you have all the pre-requisite mentioned below.
+In the following document we will explain how to connect OKTA as a third party Identity provier to WSO2 API-Manager. Before we start first make sure you have all the pre-requisites mentioned below.
 
 ### Pre-requisites
 
@@ -9,7 +9,7 @@ In the following document we will explain how to connect OKTA as a third party I
     [tenant_mgt]
     enable_email_domain= true
     ```
-    This is needed since OKTA uses the email as the username by default,  therefore to  use the email as the username in WSO2 API-Manager we have to enable it since it not enabled by default.
+    This is needed since OKTA uses the email as the username by default,  therefore to  use the email as the username in WSO2 API-Manager we have to enable it since it not enabled by default. Once enabled both email as username and normal usernames can be used.
 4. Start the Server.
 
 ### Setup OKTA
@@ -22,7 +22,7 @@ In the following document we will explain how to connect OKTA as a third party I
     [![]({{base_path}}/assets/img/learn/okta-add-new-application-web.png)]({{base_path}}/assets/img/learn/okta-add-new-application-web.png)
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-application-details.png)]({{base_path}}/assets/img/learn/okta-add-new-application-details.png)
-3. Next we need to add a new attribute to the default user profile of OKTA represent a the user role. Navigate to Users -> Profile Editor and click on the pencil icon to edit the default profile
+3. Next we need to add a new attribute to the default user profile of OKTA to epresent the user role. Navigate to Users -> Profile Editor and click on the pencil icon to edit the default profile
 
     [![]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)]({{base_path}}/assets/img/learn/okta-add-new-attribute.png)
 
@@ -59,7 +59,7 @@ In the following document we will explain how to connect OKTA as a third party I
 
 1. Login in to `https://localhost:9443/carbon`.
 
-2. First we need to create a role that needs to be assinged to users that will be provioned from okta. click on add in Users and Roles section and add a new role.
+2. First we need to create a role that needs to be assinged to users that will be provisioned from okta. click on add in Users and Roles section and add a new role.
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role.png" width="400" height="200"/>
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-add-role-name.png" width="400" height="200"/>
@@ -88,7 +88,7 @@ In the following document we will explain how to connect OKTA as a third party I
     <br/>
     [![]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png)]({{base_path}}/assets/img/learn/okta-apim-role-scope-mapping-edit3.png) 
 
-    This will allow the user a user having the okta_role to login to publisher and devportal
+    This will allow the user a user having the okta_role to login to Publisher and Developer Portal
 
 4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name. Expand Federated authenticators -> OAuth2/OpenID connect configuration add the following details. 
     [![]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png) 
@@ -161,17 +161,17 @@ In the following document we will explain how to connect OKTA as a third party I
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-jit.png"/>
 
-8. Navigate to Service providers -> list as shown below. There are two service providers created apim_publisher, apim_devportal. Click on edit on publisher.
+8. Navigate to Service providers -> list as shown below. There are two service providers created apim_publisher, apim_devportal. Click on edit on apim_publisher.
 
     !!!warning
-        You will have to logged into the devportal and publisher at least once for the two service providers to appear as it is created during first login.
+        You will have to logged into the Developer Portal and Publisher at least once for the two service providers to appear as it is created during first login.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png"/>
 
-    Expand local and outbound authentication configuration and under federated authentation select the name of the identity provider you created.
+    Expand local and outbound authentication configuration and under federated authentication select the name of the identity provider you created.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp-outbound.png"/>
     
-    Repeat the same for devportal service provider.
+    Repeat the same for apim_devportal service provider.
 
-Now you are able to login to the publisher & devportal using OKTA.
+Now you are able to login to the Publisher & Developer Portal using OKTA.
