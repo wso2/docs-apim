@@ -9,8 +9,8 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 ### Configuring JMX ports for the server
 
 The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below config into 
-`<PRODUCT_HOME>/repository/conf/deployment.toml`file as shown below. Below are the default values and you can update 
-these default values as required.
+`<PRODUCT_HOME>/repository/conf/deployment.toml` file as shown below. Following are the default values and you can 
+update them as required.
 
 ````
  [monitoring.jmx]
