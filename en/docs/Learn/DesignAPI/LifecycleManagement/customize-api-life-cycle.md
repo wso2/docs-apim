@@ -1,43 +1,43 @@
 # Customize API Life Cycle
 
-APIs created in WSO2 API Manager have their own life cycle consisting of the following: a set of life cycle states, specific actions for each state transition, and a checklist of items before a state transition occurs. An API has a predefined life cycle consists of [six states]({{base_path}}/Learn/DesignAPI/LifecycleManagement/api-lifecycle/#api-lifecycle-states). This tutorial demonstrates as to how you can edit the default API lifecycle and customize it based on to your requirements.
+APIs created in WSO2 API Manager have their own life cycle consisting of the following: 
 
-!!! note
-    This capability is not available in WSO2 API Manager versions prior to 1.10.0.
+-   A set of life cycle states
+-   Specific actions for each state transition
+-   A checklist of items before a state transition occurs. 
 
+An API has a predefined life cycle consists of [six states]({{base_path}}/Learn/DesignAPI/LifecycleManagement/api-lifecycle/#api-lifecycle-states). This tutorial demonstrates on how you can edit the default API lifecycle and customize it based on to your requirements.
 
 Follow the steps below to add a new state to the default life cycle.
 
-1.  Sign in to the API Publisher
+1.  Sign in to the API Publisher and click on the API that you created previously.
 
-2.  Click on the API that you created previously.
     (e.g., PizzaShackAPI - 1.0.0).
+
+2.  Click **Lifecycle** to view the current states available by default.
     ![Published life cycle state]({{base_path}}/assets/img/Learn/default-lifecycle.png)
 
-3.  Click **Lifecycle** to view the current states available by default.
+3.  Open the WSO2 API Manager Management Console: <https://localhost:9443/carbon>
 
-4.  Open the WSO2 API Manager Management Console: <https://localhost:9443/carbon>
-
-5.  Navigate to **Extensions &gt; Configure &gt; Lifecycles**.
+4.  Navigate to **Extensions &gt; Configure &gt; Lifecycles**.
 
     ![]({{base_path}}/assets/img/Learn/lifecycle-menu.png)
     
-6.  Click the **View/Edit** link corresponding to the default API LifeCycle.
+5.  Click the **View/Edit** link corresponding to the default API LifeCycle.
 
     ![]({{base_path}}/assets/img/Learn/api-lifecycle-veiw.png) 
     
      The APILifeCycle configurations appear.
 
     ``` java
-        <aspect name="APILifeCycle" class="org.wso2.carbon.governance.registry.extensions.aspects.DefaultLifeCycle">
-            <configuration type="literal">
-                <lifecycle>
-                    <scxml xmlns="http://www.w3.org/2005/07/scxml"
-                           version="1.0"
-                           initialstate="Created">
+    <aspect name="APILifeCycle" class="org.wso2.carbon.governance.registry.extensions.aspects.DefaultLifeCycle">
+        <configuration type="literal">
+            <lifecycle>
+                <scxml  xmlns="http://www.w3.org/2005/07/scxml"
+                        version="1.0"
+                        initialstate="Created">
                     <state id="Created">
                         <datamodel>
-
                             <data name="checkItems">
                                 <item name="Deprecate old versions after publish the API" forEvent="">
                                 </item>
@@ -56,7 +56,6 @@ Follow the steps below to add a new state to the default life cycle.
                         </datamodel>
                         <transition event="Publish" target="Published"/>
                         <transition event="Deploy as a Prototype" target="Prototyped"/>
-
                     </state>
 
                     <state id="Prototyped">
@@ -82,11 +81,8 @@ Follow the steps below to add a new state to the default life cycle.
                         <transition event="Deploy as a Prototype" target="Prototyped"/>
                     </state>
 
-
                     <state id="Published">
-
                         <datamodel>
-
                             <data name="transitionExecution">
                                 <execution forEvent="Block"
                                            class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
@@ -143,72 +139,72 @@ Follow the steps below to add a new state to the default life cycle.
         </configuration>
     </aspect>
     ```
-7.  Update the API lifecycle definition.
+6.  Update the API lifecycle definition.
 
-     1.  Add a sample state to the API Lifecycle.
-        
-         Copy and paste the following sample code in the file.
+     1.  Add a sample state to the API Lifecycle. Copy and paste the following sample code in the file.
 
         !!! info
-            The sample **REJECTED** state is added between **PUBLISHED** and **RETIRED** . It uses the `Re-submit` and `Retire` state transition events to change to the consequent states. Custom checklist items are also given under `"checkItems"` , which are tasks to be done in a state transition. You can select/deselect these items in the management console.
+            The sample **REJECTED** state is added between **PUBLISHED** and **RETIRED** . It uses the `Re-submit` and `Retire` state transition events to change to the consequent states. Custom checklist items are also given under `checkItems` , which are tasks to be done in a state transition. You can select/deselect these items in the management console.
 
 
         ``` java
-                 <state id="Rejected">
-                    <datamodel>
-                        <data name="checkItems">
-                            <item name="Deprecate old versions after rejecting the API" forEvent="">
-                            </item>
-                            <item name="Remove subscriptions after rejection" forEvent="">
-                            </item>
-                        </data>
-                        <data name="transitionExecution">
-                            <execution forEvent="Re-Submit" class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                            </execution>
-                            <execution forEvent="Retire" class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
-                            </execution>
-                        </data>
-                    </datamodel>
-                        <transition event="Re-Submit" target="Published"/>
-                        <transition event="Retire" target="Retired"/>
-                </state>
+         <state id="Rejected">
+            <datamodel>
+                <data name="checkItems">
+                    <item name="Deprecate old versions after rejecting the API" forEvent="">
+                    </item>
+                    <item name="Remove subscriptions after rejection" forEvent="">
+                    </item>
+                </data>
+                <data name="transitionExecution">
+                    <execution forEvent="Re-Submit" class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
+                    </execution>
+                    <execution forEvent="Retire" class="org.wso2.carbon.apimgt.impl.executors.APIExecutor">
+                    </execution>
+                </data>
+            </datamodel>
+            <transition event="Re-Submit" target="Published"/>
+            <transition event="Retire" target="Retired"/>
+        </state>
         ```
 
-         !!! note
-             The same execution class is used ( `org.wso2.carbon.apimgt.impl.executors.APIExecutor` ) for all state transitions. However, you can plug your own execution code when modifying the life cycle configuration.
+        !!! note
+            The same execution class is used ( `org.wso2.carbon.apimgt.impl.executors.APIExecutor` ) for all state transitions. However, you can plug your own execution code when modifying the life cycle configuration.
 
-         For example, if you want to add notifications for a specific state transition, you can plug your own custom execution class for that particular state in the API life cycle. Any changes are updated in the **Lifecycle** tab accordingly.
+            For example, if you want to add notifications for a specific state transition, you can plug your own custom execution class for that particular state in the API life cycle. Any changes are updated in the **Lifecycle** tab accordingly.
 
 
     2.  Add a new transition event under the PUBLISHED state, to show the state change to REJECTED.
 
-         ``` java
-         ...   
-            <transition event="Reject" target="Rejected"/>
-         ...
-         ```
-
-8.  Make the transition event visible in API Publisher.
-     
-     1.  Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/conf/locales/jaggery/locale_default.json` file.
-    
-     2.  Add the following code in the file. Note that the key value in the JSON pair should be lowercase.
-
         ``` java
-        "reject": "Rejected",
+        ...   
+        <transition event="Reject" target="Rejected"/>
+        ...
         ```
 
-9.  Restart the WSO2 API Manager server.
+7.  Restart the WSO2 API Manager server.
 
-10.  Re-open API Publisher and check the Lifecycle to see the changes.
+10.  Open API Publisher and check the Lifecycle to see the changes.
 
-     ![]({{base_path}}/assets/attachments/103328609/103328611.png)
+     ![]({{base_path}}/assets/img/Learn/custom-lifecycle-state.png)
 
 !!! tip
     Consider the following points when extending and customizing the API lifecycle XML configuration.
 
--   Do not change the life cycle name since it needs to be engaged with the APIs dynamically.
--   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
+    -   Do not change the life cycle name since it needs to be engaged with the APIs dynamically.
+    -   Make sure you keep the **PUBLISHED** and **PROTOTYPED** states as those two states will be used by API Publisher in the API creation wizard.
+
+!!! info
+    By default following lifecycle diagram is added in Publisher portal to show the state changes.
+
+    ![]({{base_path}}/assets/img/Learn/default-lifecycle-image.png)
+
+    If you want to change the lifecycle image in Publisher, you can follow the steps mentioned below:
+
+    -   Search for **lifeCycleImage** in `defaultTheme.js` file resides in `<APIM-Home>/repository/deployment/server/jaggeryapps/publisher/site/public/theme` directory and uncomment it.
+    -   Replace the path with correct path of image. For instance,
+
+            lifeCycleImage: '/publisher/site/public/images/custom-lifecycle.png,
 
 
 For more details on customizing the API lifecycle, see [Extending the API Life Cycle]({{base_path}}/Learn/DesignAPI/LifecycleManagement/extending-the-api-life-cycle/) .
