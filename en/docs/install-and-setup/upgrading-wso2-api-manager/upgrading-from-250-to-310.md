@@ -1692,7 +1692,7 @@ Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.
 
 Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
 
-    ??? info "DB Scripts"
+??? info "DB Scripts"
     ```tab="H2"
     ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
     ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
