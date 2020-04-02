@@ -76,6 +76,9 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
 
 ## Add an environment
 
+!!! warn
+    From API Manager Tooling 3.1.0 version onwards, the names of the endpoints have been modified and this causes changing the syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If you have an older file, you'll get an error while executing the apictl commands due to this. To avoid that, backup and remove `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure the environments using new commands as explained below.
+        
 You can add environments by either manually editing the `<USER_HOME>/.wso2apictl/main_config.yaml` file or by running the following CTL command.
 
 ``` go
@@ -98,7 +101,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                         --devportal <DevPortal-endpoint>
         ```
 
-        ``` bash tab="Mac"
+        ``` bash tab="Mac/Windows"
         apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <DevPortal-endpoint>
         ```
 
@@ -128,7 +131,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                         --token https://localhost:8243/token \
             ``` 
 
-            ``` bash tab="Mac"
+            ``` bash tab="Mac/Windows"
             apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
             ```               
 
@@ -143,7 +146,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                         --devportal https://localhost:9444 \
             ```
 
-            ``` bash tab="Mac"
+            ``` bash tab="Mac/Windows"
             apictl add-env -e production --registration https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444 --publisher https://localhost:9444 --devportal https://localhost:9444
             ```  
     
@@ -159,7 +162,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                         --devportal https://localhost:9444 \
             ```
 
-            ``` bash tab="Mac"
+            ``` bash tab="Mac/Windows"
             apictl add-env -e production --registration https://localhost:9444--apim https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444 --publisher https://localhost:9444 --devportal https://localhost:9444
             ```  
 
