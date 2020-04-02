@@ -71,7 +71,7 @@ which allows you to run the product as soon as it is installed. If you are using
  the WSO2 product.
 
 !!! tip
-    To use a different JDK, point the **`JAVA_HOME`** environment variable to the new JDK. Make sure your JDK version is [compatible with the WSO2 product](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs) .
+    To use a different JDK, point the **`JAVA_HOME`** environment variable to the new JDK. Make sure your JDK version is [compatible with the WSO2 product](https://docs.wso2.com/display/compatibility/Tested+Operating+Systems+and+JDKs).
 
 
 -   All WSO2 products are generally compatible with most common DBMSs. The embedded H2 database is suitable for development, testing, and some production environments. For most enterprise production environments, however, we recommend you use an industry-standard RDBMS such as Oracle, PostgreSQL, MySQL, MS SQL, etc. For more information, see [Working with Databases](https://docs.wso2.com/display/ADMIN44x/Working+with+Databases) in the Administration Guide. Also, we do not recommend the H2 database as a user store.
