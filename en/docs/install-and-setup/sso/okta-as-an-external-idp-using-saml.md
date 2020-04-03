@@ -109,8 +109,13 @@ In the following document we will explain how to connect OKTA as a third party I
 
     This will allow the user a user having the okta_role to login to Publisher and Developer Portal
 
-4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name. Expand the federated authenticators -> SAML2 Web SSO Configuration section and under Select Mode select Metadata File Configuration and update the xml file that was saved during the okta setup process.
+4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name. 
 
+    [![]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
+    <br/>
+    <br/>
+    @
+    Expand the federated authenticators -> SAML2 Web SSO Configuration section and under Select Mode select Metadata File Configuration and update the xml file that was saved during the okta setup process.
     [![]({{base_path}}/assets/img/learn/okta-saml-apim-idp.png)]({{base_path}}/assets/img/learn/okta-saml-apim-idp.png) 
 
     <table>
@@ -150,7 +155,7 @@ In the following document we will explain how to connect OKTA as a third party I
 8. Navigate to Service providers -> list as shown below. There are two service providers created apim_publisher, apim_devportal. Click on edit on apim_publisher.
 
     !!!warning
-        You will have to logged into the Developer Portal and publisher at least once for the two service providers to appear as it is created during first login.
+        You will have to logged into the Developer Portal and Publisher at least once for the two service providers to appear as it is created during first login.
 
     <img src="{{base_path}}/assets/img/learn/okta-apim-role-oidc-sp.png"/>
 

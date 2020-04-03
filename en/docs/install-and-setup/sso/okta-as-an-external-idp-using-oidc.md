@@ -90,7 +90,13 @@ In the following document we will explain how to connect OKTA as a third party I
 
     This will allow the user a user having the okta_role to login to Publisher and Developer Portal
 
-4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name. Expand Federated authenticators -> OAuth2/OpenID connect configuration add the following details. 
+4. Login in to `https://localhost:9443/carbon` & Click on add in identity providers section. Enter Identity Provider Name.  
+
+    [![]({{base_path}}/assets/img/learn/okta-saml-add-idp.png)]({{base_path}}/assets/img/learn/okta-saml-add-idp.png) 
+    <br/>
+    <br/>
+
+    Expand Federated authenticators -> OAuth2/OpenID connect configuration add the following details.
     [![]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png)]({{base_path}}/assets/img/learn/okta-apim-idp-odic-details.png) 
 <table>
     <colgroup>
