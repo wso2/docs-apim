@@ -121,14 +121,19 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 `--devportal` : DevPortal endpoint for the environment 
             
         !!! tip
-            When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.   
+            When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
+
+        !!! note
+            The flags `--environment (-e)` and `--token` are mandatory.
+            You can either provide only the 2 flags `--apim` and `--token`, or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
+            If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
                         --apim https://localhost:9443 \
-                        --token https://localhost:8243/token \
+                        --token https://localhost:8243/token
             ``` 
 
             ``` bash tab="Mac/Windows"
@@ -139,31 +144,28 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9444 \
-                        --token https://localhost:8244/token \
-                        --admin https://localhost:9444 \
-                        --publisher https://localhost:9444 \
-                        --devportal https://localhost:9444 \
+                        --registration https://idp.com:9444 \
+                        --token https://gw.com:8244/token \
+                        --admin https://apim.com:9444 \
+                        --publisher https://apim.com:9444 \
+                        --devportal https://apps.com:9444
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e production --registration https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444 --publisher https://localhost:9444 --devportal https://localhost:9444
+            apictl add-env -e production --registration https://idp.com:9444 --token https://gw.com:8244/token --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444
             ```  
     
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
-                        --registration https://localhost:9444 \
-                        --apim https://localhost:9444 \
-                        --token https://localhost:8244/token \
-                        --admin https://localhost:9444 \
-                        --publisher https://localhost:9444 \
-                        --devportal https://localhost:9444 \
+                        --registration https://idp.com:9444 \
+                        --apim https://apim.com:9444 \
+                        --token https://gw.com:8244/token
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e production --registration https://localhost:9444--apim https://localhost:9444 --token https://localhost:8244/token --admin https://localhost:9444 --publisher https://localhost:9444 --devportal https://localhost:9444
+            apictl add-env -e production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
             ```  
 
     -   **Response**

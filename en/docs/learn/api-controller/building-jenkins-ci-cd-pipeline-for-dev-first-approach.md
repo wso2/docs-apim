@@ -147,18 +147,19 @@ Follow the instructions below to use a GitHub Webhook to trigger the Jenkins Pip
         Make sure you have already installed `apictl` to the Jenkins server and set the Path variable. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     !!! example
-        ``` bash
+        ```bash
         apictl add-env -e dev \
-        --registration https://dev.apim.wso2.com/ client-registration/v0.16/register \
+        --registration https://dev.apim.wso2.com \
         --apim https://dev.apim.wso2.com \
-        --token https://dev.apim.wso2.com/token \
+        --token https://dev.apim.wso2.com/token
         ```
-        ``` bash
+        
+        ```bash
         apictl add-env -e prod \
-        --registration https://prod.apim.wso2.com/client-registration/v0.16/register \
+        --registration https://prod.apim.wso2.com \
         --apim https://prod.apim.wso2.com \
-        --token https://prod.apim.wso2.com/token \
-         ```
+        --token https://prod.apim.wso2.com/token
+        ```
 
      For more information, see [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
     
