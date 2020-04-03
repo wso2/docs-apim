@@ -235,7 +235,7 @@ You can use the API archive exported from the previous section and import it to 
                 `--preserve-provider` : Preserve existing provider of API after importing. Default value is `true`.  
                 `--update` : Update an existing API or create a new API in the importing environment.  
                 `--params` : Define the API Manager environment params file (default "api_params.yaml").   
-                `--skipCleanup` : Leave all temporary files created in the CTL during import process.   Default value is `false`.  
+                `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
             ```bash
