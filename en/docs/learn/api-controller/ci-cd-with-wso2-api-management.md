@@ -61,11 +61,11 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
         ``` bash tab="Linux/Unix"
         apictl add-env -e dev \
                     --apim https://localhost:9443 \
-                    --token https://localhost:8243/token \
+                    --token https://localhost:8243/token
 
         apictl add-env -e prod \
                     --apim https://localhost:9444 \
-                    --token https://localhost:8244/token \
+                    --token https://localhost:8244/token
         ```
 
         ``` bash tab="Mac"
