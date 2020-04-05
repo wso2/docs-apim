@@ -43,7 +43,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
             
          `{"hello": "world"}`
     
-4. Click **Create New API** and then click **Design a new REST API**.dfsf
+4. Click **Create New API** and then click **Design a new REST API**.
    
     [![Design a new REST API]({{base_path}}/assets/img/get_started/design_new_rest_api.png)]({{base_path}}/assets/img/get_started/design_new_rest_api.png)
 
