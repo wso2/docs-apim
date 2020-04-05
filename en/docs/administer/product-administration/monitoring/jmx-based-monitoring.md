@@ -8,24 +8,24 @@ JMX is enabled in WSO2 products by default, which ensures that the JMX server st
 
 ### Configuring JMX ports for the server
 
-The default JMX ports (RMIRegistryPort and the RMIServerPort) are configured in the `carbon.xml` file (stored in the `<PRODUCT_HOME>/repository/conf` directory) as shown below. If required, you can update these default values.
+The default JMX ports (RMIRegistryPort and the RMIServerPort) can be changed by adding the below config into 
+`<PRODUCT_HOME>/repository/conf/deployment.toml` file as shown below. Following are the default values and you can 
+update them as required.
 
-``` java
+````
  [monitoring.jmx]
- rmi_registry_port
- rmi_server_port
-```
+ rmi_registry_port = 9999
+ rmi_server_port = 11111
+````
 
 ### Disabling JMX for the server
 
-The JMX configuration is available in the jmx `.xml` file (stored in the `<PRODUCT_HOME>/repository/conf/etc` directory) as shown below. You can disable the JMX server for your product by setting the `<StartRMIServer>` property to `false`. Note that this configuration refers to the [JMX ports configured in the carbon.xml file](#configuring-jmx-ports-for-the-server).
-
-``` java
+You can disable the JMX server for your product by adding the `rmi_server_start` property with value `false` into 
+`<PRODUCT_HOME>/repository/conf/deployment.toml` file as shown below.
+````
  [monitoring.jmx]
- rmi_registry_port
- rmi_server_port
- rmi_server_start=true
-```
+ rmi_server_start=false
+````
 
 ### Enabling JMX for a datasource
 

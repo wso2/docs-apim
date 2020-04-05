@@ -60,13 +60,13 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             **Flags:**  
             
             -    Required :  
-                - `--name` or `-n` : Name of the API to be exported  
-                - `--version` or `-v` : Version of the API to be exported      
-                - `--environment` or `-e` : Environment to which the API should be exported  
-            -   Optional : 
-                - `--provider` or `-r` : Provider of the API 
-                - `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
-                - `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
+                `--name` or `-n` : Name of the API to be exported  
+                `--version` or `-v` : Version of the API to be exported      
+                `--environment` or `-e` : Environment from which the API should be exported  
+            -    Optional :  
+                `--provider` or `-r` : Provider of the API   
+                `--preserveStatus` : Preserve API status when exporting. Otherwise, the API will be exported in the `CREATED` status. The default value is `true`.  
+                `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
         !!! example
             ```go
@@ -128,7 +128,65 @@ The structure of an exported API ZIP file is explained below:
 | Docs               | **docs.yaml**: It contains the summary of all the documents available for the API <br/> **FileContents**: It contains the uploaded file type documents available for the API <br/> **InlineContents**: It contains inline and Markdown type documents available for the API.                                                                                                                                        |
 | Image              | Thumbnail image of the API                                                                                                                                                                                                                                                                                                                                                        |
 | WSDL               | WSDL file of the API                                                                                                                                                                                                                                                                                                                                                              |
-| Sequences          | **fault-sequence**: It contains the specific API fault sequence. <br/> **in-sequence**: It contains the specific API in sequence. <br/> **out-sequence**: It contains the specific API out sequence.                                                                                                                                                                                                                  |        
+| Sequences          | **fault-sequence**: It contains the specific API fault sequence. <br/> **in-sequence**: It contains the specific API in sequence. <br/> **out-sequence**: It contains the specific API out sequence.                                                                                                                                                                                                                  |    
+
+### Export all the APIs of a tenant at once
+
+You can use the below command to export all the APIs belong to the currently logged in user's tenant at once.
+
+- **Command**
+
+    ``` go
+    apictl export-apis --environment <environment-from-which-artifacts-should-be-exported> -k
+    ```
+    ``` go
+    apictl export-apis --environment <environment-from-which-artifacts-should-be-exported> --force -k
+    ```
+    ``` go
+    apictl export-apis --environment <environment-from-which-artifacts-should-be-exported> --format <export-format> --preserveStatus --force -k
+    ```
+
+    !!! info
+        **Flags:**  
+        
+        -    Required :      
+            `--environment` or `-e` : Environment from which the APIs should be exported  
+        -    Optional :  
+            `--force` : Clean all the previously exported APIs of the given target tenant, in the given environment if any, and to export APIs from beginning  
+            `--preserveStatus` : Preserve API status when exporting. Otherwise, the APIs will be exported in the `CREATED` status. The default value is `true`.  
+            `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
+
+    !!! example
+        ```go
+        apictl export-apis -e production -k
+        ```
+        ```go
+        apictl export-apis --environment production --format json  --preserveStatus --force -k
+        ```
+
+- **Response**
+
+    ``` go tab="Response Format"
+    Exporting APIs for the migration...
+    Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
+    Batch of <number-of-APIs> APIs exported successfully..!
+
+    Total number of APIs exported: <number-of-APIs>
+    API export path: <USER_HOME>/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
+
+    Command: export-apis execution completed !
+    ```
+
+    ``` go tab="Example Response"
+    Exporting APIs for the migration...
+    Cleaning all the previously exported APIs of the given target tenant, in the given environment if any, and prepare to export APIs from beginning
+    Batch of 5 APIs exported successfully..!
+
+    Total number of APIs exported: 5
+    API export path: /Users/kim/.wso2apictl/exported/migration/<environment-name>/tenant-default/apis
+
+    Command: export-apis execution completed !
+    ```
 
 ### Import an API
 
@@ -175,8 +233,8 @@ You can use the API archive exported from the previous section and import it to 
                 `--environment` or `-e` : Environment to which the API should be exported.  
             -   Optional :  
                 `--preserve-provider` : Preserve existing provider of API after importing. Default value is `true`.  
-                `--update` : Update an existing API or create a new API in the importing environment.
-                `--params` : Define the API Manager environment params file (default "api_params.yaml"). 
+                `--update` : Update an existing API or create a new API in the importing environment.  
+                `--params` : Define the API Manager environment params file (default "api_params.yaml").   
                 `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
         !!! example
