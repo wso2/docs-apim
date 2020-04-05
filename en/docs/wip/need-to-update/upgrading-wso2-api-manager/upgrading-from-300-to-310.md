@@ -1,6 +1,6 @@
-# Upgrading API Manager from 3.1.0 to 3.1.0
+# Upgrading API Manager from 3.0.0 to 3.1.0
 
-The following information describes how to upgrade your API Manager server **from APIM 3.1.0 to 3.1.0**.
+The following information describes how to upgrade your API Manager server **from APIM 3.0.0 to 3.1.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process](../upgrading-wso2-api-manager/upgrading-process.md) for more information.
