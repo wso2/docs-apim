@@ -240,34 +240,43 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 6. Try out the operations.
     1. Click **TEST** to navigate to the developer console.
 
-       [![Authorization token]({{base_path}}/assets/img/learn/authorization-token.png)]({{base_path}}/assets/img/learn/authorization-token.png)
+         [![StarWars Developer Console ]({{base_path}}/assets/img/learn/star-wars-developer-console.png)]({{base_path}}/assets/img/learn/star-wars-developer-console.png)
 
-    2. Select whether to invoke the API using HTTP or HTTPS from **Servers**.
+    2. Paste the access token that you previously copied into the **Access Token** field.
 
-    3. Paste the access token that you previously copied into the **Access Token** field.
+         [![Copy Access Token for tryout GraphQL API]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)]({{base_path}}/assets/img/learn/graphql-api-copy-access-token.png)
 
-    4. Click **POST**.
-    
-    5. Click **Try it out** and enter the following sample payload as the StarWarsAPI POST request.
+    3. Enter the following sample payload as the StarWarsAPI request. Then click on execute button as follows.
     
          ```
-         {
-         "query": "{ allFilms{title  episodeId}  allPlanets {films { species {skinColor} } }}"
-         }   
+         query{
+            allFilms{
+               title
+               episodeId
+            }
+            allPlanets{
+               films{
+                  species{
+                     skinColor
+                  }
+               }
+            }
+         }
+
          ```
 
-         [![Try out the post operation]({{base_path}}/assets/img/learn/post-try-out-starwars.png)]({{base_path}}/assets/img/learn/post-try-out-starwars.png)
+      [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
 
       <html>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p>If you are going to invoke QUERY Operation, payload should be started with either with 'query' keyword or without any keyword.</p>
-      <p>If you are going to invoke MUTATION Operation, payload should be started starting with 'mutation' keyword.</p>
+      <p>If you are going to invoke QUERY Operation, payload should be started with 'query' keyword.</p>
+      <p>If you are going to invoke MUTATION Operation, payload should be started with 'mutation' keyword.</p>
       </div> 
       </html>
 
-    6. Click **Execute**.
+    4. Click **Execute**.
 
-        [![Try out the post operation]({{base_path}}/assets/img/learn/post-response-starwars.png)]({{base_path}}/assets/img/learn/post-response-starwars.png)
+      [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
 
 You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your API with the access token.

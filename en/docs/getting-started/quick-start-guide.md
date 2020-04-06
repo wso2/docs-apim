@@ -1,31 +1,31 @@
 # Quick Start Guide
 
-## Before you begin...
+## Design Your First API
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>   <ol><li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 11.\* or 1.8.\* and set the <code>JAVA_HOME</code> environment variable. For more information on setting the <code>JAVA_HOME</code> environment variable for different operating systems, see <a href="{{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/">Setup and Install</a>.</li>
-<li><a href="https://wso2.com/api-management/">Download the latest version of WSO2 API Manager</a>.</li>
-<li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
-</div>
+This section is a step-by-step guide to create, publish and invoke an API using the WSO2 API Manager's publisher and store user interfaces.
 
-This guide walks you through the following 3 scenarios.
+### Before you begin...
+
+<p>   <ol><li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 11.\* or 1.8.\* and set the <code>JAVA_HOME</code> environment variable. For more information on setting the <code>JAVA_HOME</code> environment variable for different operating systems, see <a href="{{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/">Setup and Install</a>.</li>
+<li><a href="https://wso2.com/api-management/">Download the version 3.1.0 of WSO2 API Manager</a>.</li>
+<li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
+</p>
+
+### Objectives
 
 1. Creating and publishing an API via the API Publisher Portal.
 2. Subscribing to the API via the Developer Portal and generating keys.
 3. Invoking the API with the generated keys.
 
-Finally, this guide takes a look at how you can create an API using the API controller, which is a command line tool to create and publish APIs.
+
 
  Let's get started...
-
-## Working with the WSO2 API Manager UIs
 
 ### Step 1 - Create and publish an API
 
 Follow the instructions below to create a publish an API via the API Publisher Portal.
 
-1. Navigate to the API Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
+1. Navigate to the API Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
                                                  
     [![API Publisher home page]({{base_path}}/assets/img/get_started/api_publisher_home.png)]({{base_path}}/assets/img/get_started/api_publisher_home.png)
 
@@ -35,7 +35,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
  
      1. Navigate to [https://www.mocky.io/](https://www.mocky.io/) on your web browser. 
              
-         A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the service URL (`http://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service.
+         A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the  service URL (`http://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service. Note that we are using the HTTP protocol instead of HTTPS.
 
         [![]({{base_path}}/assets/img/get_started/Mocky_io.png)]({{base_path}}/assets/img/get_started/Mocky_io.png)
          
@@ -117,14 +117,16 @@ Follow the instructions below to subscribe to the API and generate the keys via 
  
 4. Register an OAuth2.0 application.
 
-    1. Click **Key Generation Wizard**. 
+    1. Click **Subscribe** on the **Subscriptions** card
+    [![Subscription Card]({{base_path}}/assets/img/get_started/subscription_card.png)]({{base_path}}/assets/img/get_started/subscription_card.png)
+    
+    2. Click **Subscription & Key Generation Wizard**
     
          This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.  
 
-         [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
+    [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
 
-
-    2.  Create the OAuth2.0 application.
+    3.  Create the OAuth2.0 application.
     
          Enter the application name, and click **Next** without changing any of the other default values.   
 
@@ -213,11 +215,14 @@ Follow the instructions below to invoke the previously created API with the gene
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.  
 
-## Working with the command line tool - API Controller (apictl)  
+6. Let's look at how you can use the CI/CD command line tool for APIs (API Controller) to develop and deploy an API on WSO2 API Manager. <Link to Page>
+
+ 
+## Automate API Development and Deployment
 
 Let's look at how you can use the CI/CD command line tool for APIs (API Controller) to develop and deploy an API on WSO2 API Manager.   
 
-### Step 1 - Download and setup the API Controller
+### Before you Begin...
 
 1. Download the latest version of the API Controller based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/). 
 
@@ -225,7 +230,16 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
 
      This location will be referred to as the `apictl` directory.   
 
-3. Use the command line tool to navigate to the `apictl` directory.  
+3. Use the command line tool to navigate to the `apictl` directory.
+
+    !!!warn
+        From API Manager Tooling 3.1.0 version onwards, the names of
+        the endpoints have been modified and this causes changing the 
+        syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If
+        you have an older file, you'll get an error while executing the 
+        apictl commands due to this. To avoid that, backup and remove 
+        `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure 
+        the environments using new commands as explained below. 
 
      Execute the following command to view the available operations.
 
@@ -233,24 +247,45 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      ./apictl --help
      ```   
 
-4. Point the API Controller to the instance of API Manager in which you want to deploy APIs. 
+4. Point the API Controller to the instance of API Manager in which you 
+    want to deploy APIs. 
 
-     Execute the following command to add an environment. 
+    Execute the following command to add an environment. 
      
-     <div class="admonition note">
-     <p class="admonition-title">Note</p>
-     <p>It is assumed that WSO2 API Manager is run locally (localhost) using the default ports. </p>
-     </div>  
+    !!!note
+        It is assumed that WSO2 API Manager is run locally 
+         (localhost) using the default ports.
+    
+    ``` bash
+        ./apictl add-env -e dev --registration https://localhost:9443 
+             --token https://localhost:8243/token --admin 
+             https://localhost:9443 --publisher https://localhost:9443 
+            --devportal https://localhost:9443
+    ```
+     
+    !!!info
+         **Flags:**
+             -Required :     
+                 --environment` or `-e` : Name of the environment to be added  
+                `--registration` : Registration endpoint for the environment  
+                `--token` : Token endpoint for the environment  
+                `--apim` : API Manager endpoint for the environments  
+     
+             -   Optional :      
+                 `--admin` : Admin endpoint for the environment  
+                 `--api_list` : API List endpoint for the environment  
+                 `--app_list` : Application List endpoint for the environment 
+                 `--app_list` : Application List endpoint for the environment
    
-     ``` bash
-     ./apictl add-env -e dev --registration https://localhost:9443/client-registration/v0.15/register --apim  https://localhost:9443 --token https://localhost:8243/token
-     ```
+
+     
+  
 
      On successfully executing this command, you should see the following message.
      
      `Successfully added environment 'dev'`
 
-### Step 2 - Create an API
+### Step 1 - Create an API
        
 1. Initialize an API project by providing a name for the project. 
 
@@ -288,7 +323,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
         the following step. 
         - If you want to push this API to the Publisher Portal only, the status should be `CREATED`.    
 
-### Step 3 - Publish the API
+### Step 2 - Publish the API
 
 1. Push the API to WSO2 API Manager. 
 
@@ -317,5 +352,3 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     <a href="#invoke">Invoke the API with the generated keys</a> </li>
     </ul>
     </div> 
-     
- 

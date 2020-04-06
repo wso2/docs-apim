@@ -1,4 +1,3 @@
-
 # AI-based Recommendations for the Developer Portal
 
 ## API Marketplace
