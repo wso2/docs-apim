@@ -406,6 +406,8 @@ nav:
         - SSO:
             - Using OKTA As An External IDP With OIDC: install-and-setup/sso/okta-as-an-external-idp-using-oidc.md
             - Using OKTA As An External IDP With SAML: install-and-setup/sso/okta-as-an-external-idp-using-saml.md
+        - Federating OAuth Applications: install-and-setup/federating-oauth-applications.md
+        
     - Administer:
         - Product Administration:
             - Updating WSO2 API Manager: administer/product-administration/updating-wso2-api-manager.md
