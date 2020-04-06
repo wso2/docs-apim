@@ -312,13 +312,13 @@ nav:
         - Java Documentation: develop/java-documentation.md
         - Extending WSO2 API Manager:
             - Extending Key Management:
-                - develop/extending-api-manager/extending-key-management/extending-key-validation.md
-                - develop/extending-api-manager/extending-key-management/extending-scope-validation.md
-                - develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-                - develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
+                - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
+                - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
             - Extending API Gateway:
-                - develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-                - develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                - Writing Custom Handlers: develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
             - Extending Workflows:
                 - Invoking the API Manager from the BPEL Engine: develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
                 - Customizing a Workflow Extension: develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
