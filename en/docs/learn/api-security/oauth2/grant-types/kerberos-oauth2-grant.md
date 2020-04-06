@@ -22,12 +22,24 @@ The following section describes the flow involved in exchanging a Kerberos ticke
      The message format of the OAuth2 token request should be as follows. You can use one of the following two cURL commands to request for the OAuth2 token.
     </p>
     
-    ``` java tab="cURL Request Format 1"
+    Format 1 :
+    
+    ``` java tab="Format"
     curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
-    ```  
+    ``` 
+    
+    ``` java tab="Example"
+    curl -v -X POST -H "Authorization: Basic <base64-encoded(client-id:client-secret)>" -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    ```   
 
-    ``` java tab="cURL Request Format 2"
+    Format 2 :
+
+    ``` java tab="Format"
     curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=<kerberos-realm>&kerberos_token=<kerberos-token>&scope=<scope>" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
+    ```
+    
+    ``` java tab="Example"
+    curl -u <client-id>:<client-secret> -k -d "grant_type=kerberos&kerberos_realm=example.com&kerberos_token=YII1...&scope=my_scope" -H "Content-Type:application/x-www-form-urlencoded" https://localhost:8243/token
     ```  
 
     **cURL Response**
@@ -128,10 +140,12 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
         3.  Click **Generate Keys** to generate the keys.
 
-3.  Configure the Service Principal Name (`SPNName`) and Service Principal Password (`SPNPassword`).
+5.  Configure the Service Principal Name (`SPN`) and Service Principal Password (`SPP`).
 
     !!! info
-        A **service principal name** (**SPN**) is a unique identifier of a **service** instance. SPNs are used by Kerberos authentication to associate a **service** instance with a **service** logon account. This allows a client application to request that the **service** authenticate an account even if the client does not have the account **name**.
+        A **service principal name** (**SPN**) is a unique identifier of a **service** instance. 
+        SPNs are used by Kerberos authentication to associate a **service** instance with a **service** logon account. 
+        This allows a client application to request that the **service** authenticate an account even if the client does not have the account **name**.
 
 
     1.  Sign in to the WSO2 API-M Management Console.
@@ -143,7 +157,9 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
     3.  Add a new Identity Provider (IDP) by entering the following information.
 
         !!! note
-            The IDP name should be the name of the realm. Based on this example, it should be `example.com`. An identity provider is needed here to manage the KDC Service. It provides access to an identity stored in a [Kerberos](http://web.mit.edu/kerberos/) authentication server.
+            The IDP name should be the name of the realm. Based on this example, it should be `example.com`. 
+            An identity provider is needed here to manage the KDC Service. 
+            It provides access to an identity stored in a [Kerberos](http://web.mit.edu/kerberos/) authentication server.
 
 
         -   **Identity Provider Name** : example.com
@@ -186,8 +202,7 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
             and define the path in the `KerbClientProject.csproj` file.
     
 
-    3.  Configure the following parameters in the project according to
-        your setup.
+    3.  Configure the following parameters in the project according to your setup.
 
         ``` java
         // Service Name goes here
@@ -218,5 +233,3 @@ Follow the instructions below to configure Kerberos Grant with WSO2 API Manager
 
 5.  You can use the received OAuth2 token directly to invoke an API.
 
-    !!! note
-        For the users to be counted in the [Registered Application Users statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#registered-application-users), which considers the number of users that are shared across each application, they should generate access tokens using the [Password Grant]({{base_path}}/learn/api-security/oauth2/grant-types/password-grant) type.

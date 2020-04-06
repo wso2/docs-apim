@@ -19,8 +19,3 @@
     curl -k -d "grant_type=iwa:ntlm&windows_token=<give the NTLM token you got in step 3>" -H "Authorization: Basic <give the string you got in step2>" -H "Content-Type: application/x-www-form-urlencoded" https://localhost:8243/token
     ```
 
-    !!! note
-        Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
-
-
-
