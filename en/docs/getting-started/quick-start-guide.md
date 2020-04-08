@@ -214,9 +214,6 @@ Follow the instructions below to invoke the previously created API with the gene
      [![]({{base_path}}/assets/img/get_started/try_it_success.png)]({{base_path}}/assets/img/get_started/try_it_success.png)
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.  
-
-6. Let's look at how you can use the CI/CD command line tool for APIs (API Controller) to develop and deploy an API on WSO2 API Manager. <Link to Page>
-
  
 ## Automate API Development and Deployment
 
