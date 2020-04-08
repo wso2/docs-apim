@@ -8,12 +8,12 @@
   "all": {
     "3.1.0":{
         "doc": "3.1.0",
-        "notes": "3.1.0/getting-started/about-this-release/"
+        "notes": "3.1.0/getting-started/about-this-release"
 
     },	    
     "3.0.0": {
-        "doc": "3.0.0",
-        "notes": "3.0.0/getting-started/about-this-release/"
+        "doc": "https://apim.docs.wso2.com/en/3.0.0/getting-started/about-this-release",
+        "notes": "https://apim.docs.wso2.com/en/3.0.0/getting-started/about-this-release"
     },
     "2.6.0": {
         "doc": "https://docs.wso2.com/display/AM260/",
