@@ -121,7 +121,7 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
 
      For more information, see [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
-    !!! warning
+    !!! tip
         A user with `admin` role is allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 2. Export the API from the lower environment using the `export-api` command.
@@ -215,7 +215,7 @@ The **apictl** tool should be installed in the automation servers to begin the p
 
 1.  Import the `SwaggerPetstore` API into the production environment and test the API by running the following sample command.
 
-    !!! warning
+    !!! tip
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
         [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
