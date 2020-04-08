@@ -228,7 +228,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment). 
 
 
-!!! warning
+!!! tip
     A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
