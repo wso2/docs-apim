@@ -11,25 +11,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     For more information, visit [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
 !!! warning
-    -   A user with `admin` role is allowed to export and import APIs.
-    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login`
-    permission) is allowed to export and import APIs by following the steps below.
-         1. Sign in to the API-M management console as a tenant admin user. 
-                 `https://localhost:9443/carbon`
-         2. Click **Main > Resources > Browse**
-         3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-         4. Update the `RESTAPIScopes` JSON field with the following.
-            ```bash
-            {...
-                "Name": "apim:api_import_export",
-                "Roles": "admin, custom_role"
-            ...},
-            ``` 
-         5. Restart the server or wait for 15 mins until the registry cache expires.
-    -   To export APIs, the `custom_role` should have either one of the `API Create` and `API Publish` permissions.     
-    -   If the `custom_role` only has the `API Create` permission, then the user with the `custom_role` can import APIs ONLY which are in `CREATED` state.
-    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH the `API Create` and `API Publish` permissions.
-    -   A user having the `custom_role` with only `API Publish` permission, CANNOT import an API.     
+    A user with `admin` role is allowed to import/export APIs. To create a custom user who can import/export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 ### Export an API
 
