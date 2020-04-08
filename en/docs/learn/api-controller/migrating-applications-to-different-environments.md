@@ -12,7 +12,8 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
 !!! warning
     -  Only the following types of users are allowed to export and import applications.  
         -   A user with the `admin` role.
-        -   A user with a role having `apim:app_import_export` Admin REST API scope.
+        -   A user with a role having `apim:app_import_export` Admin REST API scope with `API Subscribe` permission.
+    - Refer [Creating Custom Users to Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations) for more information.
 
 ## Manage the application lifecycle
 
