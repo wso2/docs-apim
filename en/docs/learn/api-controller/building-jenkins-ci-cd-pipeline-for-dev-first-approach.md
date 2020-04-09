@@ -111,7 +111,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
 
     -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
-    -   For more information on using an environment template, see [Configure Environment Specific Details]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#configure-environment-specific-details). 
+    -   For more information on using an environment template, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters). 
 
 !!! tip
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 
