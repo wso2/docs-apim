@@ -198,7 +198,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
         required. These paths can be stored in the Automation Server.
         - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. In addition, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
         - It is recommended to store API and environment-specific parameters in separate repositories.
-        - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#configuring-environment-specific-parameters).
+        - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
 
 
 4.  Commit the project to the version control system.        
