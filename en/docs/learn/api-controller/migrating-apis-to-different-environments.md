@@ -252,48 +252,14 @@ You can use the API archive exported from the previous section and import it to 
         !!! tip
             You must add the flag `--preserve-provider` to the CTL command and set its value to `false` if the API is imported to a different domain than its exported one. So it sets the provider of the imported API to the user who is issuing the CTL command. 
 
-##### Configuring Environment Specific Parameters
-When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments.
-
-To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. The following is the structure of the parameter file.
-
-```go
-environments:
-    - name: <environment_name>
-        endpoints:
-        production:
-            url: <production_endpoint_url>
-            config:
-            retryTimeOut: <no_of_retries_before_suspension>
-            retryDelay: <retry_delay_in_ms>
-            factor: <suspension_factor>
-        sandbox:
-            url: <sandbox_endpoint_url>
-            config:
-            retryTimeOut: <no_of_retries_before_suspension>
-            retryDelay: <retry_delay_in_ms>
-            factor: <suspension_factor>
-        gatewayEnvironments:
-        - <gateway_environment_name>           
-        certs:
-        - hostName: <endpoint_url>
-            alias: <certificate_alias>
-            path: <certificate_file_path>
-```
-When running the `import-api` command, CTL tool will lookup the `api_params.yaml` file in the current location of archive. If not present, it will lookup the file in the current working directory. 
-
-Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
-
-!!! example
-    ```go
-    apictl import-api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
-    ```
 !!! note
+    **Configuring Environment Specific Parameters**
+
+    When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
+
     **Add Dynamic Data to Environment Configs**
 
-    The above parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
-
-    In runtime, the CTL look will inject the environment variable values and merge the related environment configs in the parameter file with the API artifact.
+    The above parameter file supports detecting environment variables during the API import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.

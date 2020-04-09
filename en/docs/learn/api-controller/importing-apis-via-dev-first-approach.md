@@ -168,25 +168,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 
         **Generate APIs with Dynamic Data**
 
-        When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file and create the `api.yaml` with the dynamic data. A sample custom definition file is shown below.
-
-        ```bash
-        id:
-            providerName: admin
-            apiName: $APINAME
-            version: $APIVERSION
-        ```
-
-        When executing the `apictl init` command, the CLI tool automatically injects the values to the API definition. If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
-
-        In runtime, the CTL tool will automatically inject the environment variable values to the artifacts in the API project.
-
-        !!! tip
-            To make this work you will need to set up required environment variables according to your OS. In a Linux/Unix environment, it can be done using
-            ```bash
-            export APINAME=MyAPI
-            export APIVERSION=1.0.0
-            ```      
+        When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#initialize-api-projects-with-dynamic-data). 
 
 4. Open the `<API Project>/Meta-information/api.yaml` file. You can edit the mandatory configurations listed below.
 
@@ -254,7 +236,7 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--preserve-provider` : Preserve the existing provider of API after importing. Default value is `true`. 
             `--update` : Update an existing API or create a new API in the importing environment.  
             `--params` : Provide a API Manager environment params file (default "api_params.yaml").   
-            For more information, see [Configure Environment Specific Details](#configure-environment-specific-details).  
+            For more information, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) .  
             `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
     !!! example
@@ -276,78 +258,3 @@ After editing the mandatory fields in the API Project, you can import the API to
     ``` bash
     Successfully imported API!
     ```
-
-#### Configure Environment Specific Details
-When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. It is recommended to store the parameter file with the API Project; however, it can be stored anywhere as required. 
-
-After the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import-api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. 
-
-The following is the structure of the parameter file.
-
-```go
-environments:
-    - name: <environment_name>
-      endpoints:
-          production:
-              url: <production_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
-          sandbox:
-              url: <sandbox_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
-      security:
-        - enabled: <whether_security_is_enabled>
-          type: <endpoint_authentication_type_basic_or_digest>
-          username: <endpoint_username>
-          password: <endpoint_password>
-      gatewayEnvironments:
-        - <gateway_environment_name>           
-      certs:
-        - hostName: <endpoint_url>
-          alias: <certificate_alias>
-          path: <certificate_file_path>
-```
-The following code snippet contains sample configuration of the parameter file.
-
-!!! example
-    ```go
-    environments:
-        - name: dev
-          endpoints:
-            production:
-              url: 'https://dev.wso2.com'
-          security:
-           - enabled: true
-             type: basic
-             username: admin
-             password: admin
-          certs:
-            - hostName: 'https://dev.wso2.com'
-              alias: Dev
-              path: ~/.certs/dev.pem 
-          gatewayEnvironments:
-            - Production and Sandbox    
-        - name: test
-          endpoints:
-            production:
-              url: 'https://test.wso2.com'
-          security:
-           - enabled: true
-             type: digest
-             username: admin
-             password: admin
-              config:
-                retryTimeOut: $RETRY
-            sandbox:
-              url: 'https://test.sandbox.wso2.com'
-    ```
--   You can also provide a custom path for the parameter file using the `--params` flag.
--   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
--   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then non of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
--   Certificates for each URL can be configured in the parameter file. For certificates, a valid path to the certificate file is required. 
--   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.   
