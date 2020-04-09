@@ -417,41 +417,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
         ```  
-
-## Get keys for an API
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API by subscribing to it using the default application:
-
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.     
-For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-2. Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
-3. Run any of the following CTL commands to get keys for the API.
-
-    - **Command**
-
-    ```bash
-    apictl get-keys -n <API name> -v <API version> -r <API provider> -e <environment> -k
-    ```  
-
-    ```bash
-    apictl get-keys --name <API name> --version <API version> --provider <API provider> --environment <environment> -k
-    ```
-
-    !!! example
-        ```bash
-        apictl get-keys -n PizzaShackAPI -v 1.0.0 -r admin -e dev -k
-        ```
-    !!! info
-        **Flags:**  
-            
-        -   Required :  
-            `--environment` or `-e` : Key generation environment  
-            `--name` or `-n` : API to enerate keys for  
-            `--version` or `-v` : Version of the API  
-            `--provider` or `-r` : Provider of the API   
-
-    !!! info
-        Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. For information on changing the token type, see [Set Token Type](#set-token-type). 
-
+        
 ## Set token type
 
 Run the following CTL command to set the token type of the default apictl application.
