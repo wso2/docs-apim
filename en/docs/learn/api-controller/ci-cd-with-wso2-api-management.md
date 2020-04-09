@@ -250,7 +250,7 @@ The **apictl** tool should be installed in the automation servers to begin the p
 <a name="G"></a>
 ### (G.) - Get keys for an API
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API by subscribing to it using the default application:
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API by subscribing to it using a new application created by CTL:
 
 !!! tip
     - Make sure that WSO2 API Manager is started and the CTL tool is running. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). 
