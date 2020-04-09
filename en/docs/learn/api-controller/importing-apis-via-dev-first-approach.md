@@ -168,25 +168,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 
         **Generate APIs with Dynamic Data**
 
-        When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file and create the `api.yaml` with the dynamic data. A sample custom definition file is shown below.
-
-        ```bash
-        id:
-            providerName: admin
-            apiName: $APINAME
-            version: $APIVERSION
-        ```
-
-        When executing the `apictl init` command, the CLI tool automatically injects the values to the API definition. If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
-
-        In runtime, the CTL tool will automatically inject the environment variable values to the artifacts in the API project.
-
-        !!! tip
-            To make this work you will need to set up required environment variables according to your OS. In a Linux/Unix environment, it can be done using
-            ```bash
-            export APINAME=MyAPI
-            export APIVERSION=1.0.0
-            ```      
+        When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#initialize-api-projects-with-dynamic-data).
 
 4. Open the `<API Project>/Meta-information/api.yaml` file. You can edit the mandatory configurations listed below.
 
