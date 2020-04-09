@@ -277,6 +277,15 @@ You can use the API archive exported from the previous section and import it to 
 
     3.  Restart API Manager 3.1.0 server.
 
+!!! warning
+    If you have enabled Secure Endpoint (Refer [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) for more information), the endpoint password will be removed when exporting an API causing an error when you try to import the sane API to an environment. There are 2 solutions for this.
+
+    1.  If Secure Endpoint is enabled and if the endpoint password should be exposed;
+    `ExposeEndpointPassword` should be set to `true` in the `/_system/config/apimgt/applicationdata/tenant-conf.json` in the registry so that the exported API will contain the endpoint password.
+
+    2.  Or else, if Secure Endpoint is enabled and if the endpoint password should not be exposed;
+    `ExposeEndpointPassword` should be set to `false` in the `/_system/config/apimgt/applicationdata/tenant-conf.json` in the registry (by default this is set to `false`). Here, the secure endpoint password is removed while exporting the API, since it may cause security issues. Hence, the password needs to be added manually when importing the API.
+
 ### Import/Export APIs in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing APIs between tenanted environments.
 
