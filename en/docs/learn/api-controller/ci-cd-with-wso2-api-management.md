@@ -24,9 +24,9 @@ API Developers and Publishers work with a version control system, which acts as 
 
 ## API Publisher based CI/CD
 
-API Developers can use the API Publisher in WSO2 API Manager to create APIs in a lower environment. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. Therefore, after the API Developer exports the APIs from the lower environment, the API Developer can commit the exported API artifacts to a source code management repository, run the tests in the lower environment, and promote the APIs to an upper environment. This process of promoting the API seamlessly to multiple environments can be automated via the **apictl** tool and other CI/CD tools (e.g., Jenkins, GitHub). The **apictl** tool makes this process simpler as it handles per environment-related configurations. 
+API Developers can use the API Publisher in WSO2 API Manager to create APIs in a lower environment. CI/CD for API Manager relies on a Version Control system that acts as a Single Source of Truth for the pipeline. Therefore, after the API Developer exports the APIs from the lower environment, the API Developer can commit the exported API artifacts to a source code management repository, run the tests in the lower environment, promote the APIs to an upper environment and generate keys for promoted APIs. This process of promoting the API seamlessly to multiple environments can be automated via the **apictl** tool and other CI/CD tools (e.g., Jenkins, GitHub). The **apictl** tool makes this process simpler as it handles per environment-related configurations. 
 
-**To migrate the existing APIs using the API Publisher via CI/CD** carry out the steps mentioned in <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, and <a href="#F">F</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
+**To migrate the existing APIs using the API Publisher via CI/CD** carry out the steps mentioned in <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, <a href="#F">F</a> and <a href="#G">G</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
 
 ## Dev First based approach based CI/CD
 
@@ -37,7 +37,7 @@ Based on the API Project generation, a powerful pipeline for API automation can 
 [![]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)]({{base_path}}/assets/img/learn/api-controller/api-automation-with-openapi-swagger.png)
 
 
-**To migrate APIs using the Developer First approach via CI/CD** carry out <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
+**To migrate APIs using the Developer First approach via CI/CD** carry out <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, <a href="#F">F</a> and <a href="#G">G</a>, which is listed under the Building blocks for creating a CI/CD pipeline section, in sequential order.
 
 _________________
 ## Building blocks for creating a CI/CD pipeline
@@ -246,6 +246,44 @@ The **apictl** tool should be installed in the automation servers to begin the p
     
     -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state 
     in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
+
+<a name="G"></a>
+### (G.) - Get keys for an API
+
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API by subscribing to it using the default application:
+
+!!! tip
+    - Make sure that WSO2 API Manager is started and the CTL tool is running. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). 
+    - You should log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
+
+Run any of the following CTL commands to get keys for the API.
+
+- **Command**
+
+    ```bash
+    apictl get-keys -n <API name> -v <API version> -r <API provider> -e <environment> -k
+    ```  
+
+    ```bash
+    apictl get-keys --name <API name> --version <API version> --provider <API provider> --environment <environment> -k
+    ```
+
+    !!! example
+        ```bash
+        apictl get-keys -n PizzaShackAPI -v 1.0.0 -r admin -e dev -k
+        ```
+    !!! info
+        **Flags:**  
+            
+        -   Required :  
+            `--environment` or `-e` : Key generation environment  
+            `--name` or `-n` : API to enerate keys for  
+            `--version` or `-v` : Version of the API  
+            `--provider` or `-r` : Provider of the API   
+
+!!! info
+    - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
+    - Using apictl tool the token type , HTTP request timeout, and export directory can be set up and changed. For more information on changing the token type, see [Set token type]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-token-type), [Set HTTP request timeout]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
 
 Now, you know the building blocks of creating a CI/CD pipeline using **apictl**. By using the above, you can create 
 an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
