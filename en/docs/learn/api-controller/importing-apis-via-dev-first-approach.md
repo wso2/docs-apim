@@ -228,24 +228,8 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment). 
 
 
-!!! warning
-    -   A user with `admin` role is allowed to import APIs.
-    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login` permission) is allowed to import APIs by following the steps below.
-            1. Sign in to the API-M management console as a tenant admin user. 
-                 `https://localhost:9443/carbon`
-            2. Click **Main > Resources > Browse**
-            3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-            4. Update the `RESTAPIScopes` JSON field with the following.
-                ```bash
-                {...
-                    "Name": "apim:api_import_export",
-                    "Roles": "admin, custom_role"
-                ...},
-                ``` 
-            4. Restart the server or wait for 15 mins until the registry cache expires.
-    -   If the `custom_role` ONLY has the `API Create` permission, then the user with the `custom_role` can import APIs ONLY that are in `CREATED` state.
-    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH `API Create` and `API Publish` permissions.
-    -   A user that has the `custom_role` with ONLY `API Publish` permission cannot import an API.    
+!!! tip
+    A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
 
