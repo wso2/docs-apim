@@ -44,10 +44,10 @@ The following code snippet contains sample configuration of the parameter file.
             production:
               url: 'https://dev.wso2.com'
           security:
-           - enabled: true
-             type: basic
-             username: admin
-             password: admin
+            - enabled: true
+              type: basic
+              username: admin
+              password: admin
           certs:
             - hostName: 'https://dev.wso2.com'
               alias: Dev
@@ -58,15 +58,15 @@ The following code snippet contains sample configuration of the parameter file.
           endpoints:
             production:
               url: 'https://test.wso2.com'
-          security:
-           - enabled: true
-             type: digest
-             username: admin
-             password: admin
               config:
                 retryTimeOut: $RETRY
             sandbox:
               url: 'https://test.sandbox.wso2.com'
+          security:
+            - enabled: true
+              type: digest
+              username: admin
+              password: admin
     ```
 Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
 
