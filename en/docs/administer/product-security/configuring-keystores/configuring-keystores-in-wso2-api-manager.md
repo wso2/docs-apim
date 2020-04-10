@@ -92,9 +92,6 @@ key_password =  "passwd12#"
     key_password =  "passwd12#"
     ```
 
-!!! important
-    Due to a known limitation of the GA version of WSO2 API Manager 3.0.0, note that there are a few other configuration required when changing the default keystores. For more information, see the ticket [Need to support keystore/truststore configuration properly from deployment.toml](https://github.com/wso2/product-apim/issues/7146).
-
 ## Recommendations for setting up keystores
 
 Follow the recommendations given below when you set up your keystores. 

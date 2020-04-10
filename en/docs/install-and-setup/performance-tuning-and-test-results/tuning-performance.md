@@ -104,7 +104,7 @@ The following diagram shows the communication/network paths that occur when an A
 ![]({{base_path}}/assets/img/setup-and-install/gateway-to-keymanager-ws-call.png)
 
 !!! info
-    The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JSON Web Tokens (JWTs). From WSO2 API Manager 3.0.0 onwards, JWT access tokens are the default token type for applications. As JWTs are self-contained access tokens, the Key Manager is not needed to validate the token, and the token is validated from the Gateway.
+    The Gateway to Key Manager network call to validate the token only happens with the OAuth token. This network call does not happen for JSON Web Tokens (JWTs). JWT access tokens are the default token type for applications. As JWTs are self-contained access tokens, the Key Manager is not needed to validate the token, and the token is validated from the Gateway.
     
 -   **Key validation**
 
