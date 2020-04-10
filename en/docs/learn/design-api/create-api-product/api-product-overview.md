@@ -129,35 +129,34 @@ A financial institution has the following three APIs.
 The resources of the above mentioned existing APIs can be reused and exposed via API Products as shown below.
 
 - **Leasing API Product**
-    
+
     <html>
     <table>
     <thead>
     <tr>
     <th>Resources</th>
     <th>Description</th>
+    <th>API</th>
     </tr>
     </thead>
     <tbody>
     <tr>
+    <td><strong>GET /customers</strong></td>
+    <td>Get the list of all the existing customers.</td>
+    <td rowspan="2" style="vertical-align : middle">Customer Info API</td>
+    </tr>
+    <tr>
+    <td><strong>GET /customers/{customerId}</strong></td>
+    <td>Get details of a specific customer based on the customer ID.</td>
+    </tr>
+    <tr>
     <td><strong>GET /assets</strong></td>
     <td>Get the list of all the existing assets that can be leased.</td>
+    <td rowspan="2" style="vertical-align : middle">Leasing API</td>
     </tr>
     <tr>
     <td><strong>GET /assets/{assetId}</strong></td>
     <td>Get details of a specific asset based on the asset ID.</td>
-    </tr>
-    <tr>
-    <td><strong>POST /assets</strong></td>
-    <td>Add a new asset.</td>
-    </tr>
-    <tr>
-    <td><strong>PUT /assets/{assetId}</strong></td>
-    <td>Update a specific asset based on the asset ID.</td>
-    </tr>
-    <tr>
-    <td><strong>DELETE /assets/{assetId}</strong></td>
-    <td>Delete a specific asset based on an asset ID.</td>
     </tr>
     </tbody>
     </table>
@@ -171,28 +170,27 @@ The resources of the above mentioned existing APIs can be reused and exposed via
     <tr>
     <th>Resources</th>
     <th>Description</th>
+    <th>API</th>
     </tr>
     </thead>
     <tbody>
     <tr>
-    <td><strong>GET /accounts/{customerId}</strong></td>
-    <td>Get the list of credit accounts for a customer based on his/her customer ID.</td>
+    <td><strong>GET /customers</strong></td>
+    <td>Get the list of all the existing customers.</td>
+    <td rowspan="2" style="vertical-align : middle">Customer Info API</td>
+    </tr>
+    <tr>
+    <td><strong>GET /customers/{customerId}</strong></td>
+    <td>Get details of a specific customer based on the customer ID.</td>
     </tr>
     <tr>
     <td><strong>GET /accounts/{accountId}</strong></td>
     <td>Get details of a specific credit account based on the account ID.</td>
+    <td rowspan="2" style="vertical-align : middle">Credit API</td>
     </tr>
     <tr>
     <td><strong>POST /accounts/{customerId}</strong></td>
     <td>Add a new credit account for a customer based on a customer ID.</td>
-    </tr>
-    <tr>
-    <td><strong>PUT /accounts/{accountId}</strong></td>
-    <td>Update a specific credit account based on the Account ID.</code></td>
-    </tr>
-    <tr>
-    <td><strong>DELETE /accounts/{accountId}</strong></td>
-    <td>Delete a specific credit account based on an account ID.</td>
     </tr>
     </tbody>
     </table>
