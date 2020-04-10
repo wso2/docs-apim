@@ -3,7 +3,7 @@
 WSO2 API Controller, **apictl** allows to create and deploy APIs without using WSO2 API Publisher Portal. You can use this feature to create an API **from scratch** or **using an existing Swagger or Open API specification** and then deploy it to the desired API Manager environment.
 
 !!! info
-    **Before you begin...** 
+    **Before you begin** 
 
     -   Make sure WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
@@ -86,6 +86,57 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                         `--oas` : Provide an OpenAPI specification file/URL for the API   
                         `--force` or `-f` : To overwrite directory and create project 
 
+        !!! note
+            You can define scopes for a resource when defining a Swagger2 or OpenAPI3 specification to generate an API.
+
+            !!! example
+                ```yaml
+                openapi: 3.0.0
+                info:
+                title: Online-Store
+                version: v1.0.0
+                description: This API contains operations related to online shopping store.
+                x-wso2-basePath: /store/{version}
+                x-wso2-production-endpoints:
+                urls:
+                    - http://products
+                paths:
+                /products:
+                    get:
+                    responses:
+                        "200":
+                        description: successful operation
+                /products/{productId}:
+                    get:
+                    parameters:
+                        - name: productId
+                        in: path
+                        required: true
+                        schema:
+                            type: string
+                    security: 
+                        - 
+                        default: 
+                            - "products:read"
+                    responses:
+                        "200":
+                        description: successful operation
+                components: 
+                securitySchemes: 
+                    default: 
+                        type: "oauth2"
+                        flows: 
+                            implicit: 
+                            authorizationUrl: "https://test.com"
+                            scopes: 
+                                products:read: ""
+                            x-scopes-bindings: 
+                                products:read: "admin"
+                ```
+
+            First you need to define the scope name (products:read) under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section.
+
+            Make sure to set the security name as **`default`** when defining the scopes.
 
      A project folder with the following default structure will be created in the given directory.
 
@@ -170,7 +221,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 
         When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#initialize-api-projects-with-dynamic-data).
 
-4. Open the `<API Project>/Meta-information/api.yaml` file. You can edit the mandatory configurations listed below.
+3. Open the `<API Project>/Meta-information/api.yaml` file. You can edit the mandatory configurations listed below.
 
     | Field                                        | Description                                             |
     |----------------------------------------------|---------------------------------------------------------|
