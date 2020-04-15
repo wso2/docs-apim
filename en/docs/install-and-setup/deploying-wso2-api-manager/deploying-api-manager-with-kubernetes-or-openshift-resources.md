@@ -35,10 +35,10 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
 
     ``` java
         git clone https://github.com/wso2/kubernetes-apim.git
-        git checkout tags/v3.0.0.2
+        git checkout tags/v3.1.0.1
     ```
 
-2.  Provide the necessary configurations .
+2.  Provide the necessary configurations.
     
 
     !!! note
@@ -88,4 +88,4 @@ Follow the instructions below to use Kubernetes (K8s) and Helm resources for con
     3.  Try navigating to `https://<RELEASE_NAME>-am/carbon`, `https://<RELEASE_NAME>-am/publisher` and `https://<RELEASE_NAME>-am/devportal` from your favorite browser.
     
 !!! note
-    You can read the [README guide](https://github.com/wso2/kubernetes-apim/blob/v3.0.0.2/advanced/am-pattern-1/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations. 
+    You can read the [README guide](https://github.com/wso2/kubernetes-apim/blob/v3.1.0.1/advanced/am-pattern-1/README.md) of WSO2 API Manager Git repository for further details on other dependencies and configurations. 
