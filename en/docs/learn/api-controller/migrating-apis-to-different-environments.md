@@ -259,9 +259,7 @@ You can use the API archive exported from the previous section and import it to 
 
     **Add Dynamic Data to Environment Configs**
 
-    The above parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
-
-    In runtime, the CTL look will inject the environment variable values and merge the related environment configs in the parameter file with the API artifact.
+    The above parameter file supports detecting environment variables during the API import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.
