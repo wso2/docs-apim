@@ -1058,7 +1058,7 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-        CREATE TABLE AM_MONETIZATION_USAGE_PUBLISHER (
+        CREATE TABLE AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
             STATUS VARCHAR(50) NOT NULL,
