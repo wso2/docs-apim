@@ -15,7 +15,7 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 3.1.0
+site_name: WSO2 API Manager Documentation 3.2.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
 site_url: https://apim.docs.wso2.com/en/next/
@@ -554,7 +554,7 @@ extra:
       link: https://twitter.com/wso2
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
-  site_version: 3.1.0
+  site_version: 3.2.0
   base_path: https://apim.docs.wso2.com/en/next
 
 
