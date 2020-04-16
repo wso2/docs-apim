@@ -105,40 +105,40 @@ Follow the instructions below to design a GraphQL API
 
 5. Optionally, modify the existing GraphQL schema definition.
 
-    1. Click **Schema Definition**.
+     1. Click **Schema Definition**.
 
-    2. Click **DOWNLOAD DEFINITION**.
+     2. Click **DOWNLOAD DEFINITION**.
 
-       The existing GraphQL API schema gets downloaded.
+         The existing GraphQL API schema gets downloaded.
 
-       [![Add schema definition]({{base_path}}/assets/img/learn/download-schema-definition.png)]({{base_path}}/assets/img/learn/download-schema-definition.png)   
+         [![Add schema definition]({{base_path}}/assets/img/learn/download-schema-definition.png)]({{base_path}}/assets/img/learn/download-schema-definition.png)   
 
-    3. Update the schema definition as required.
+     3. Update the schema definition as required.
 
-    4. Click **IMPORT DEFINITION** to import the updated schema definition.
+     4. Click **IMPORT DEFINITION** to import the updated schema definition.
 
 6. Update the GraphQL API operations as required.
 
-    Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
+     Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
 
-    1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
+     1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
 
        
-       [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
+         [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
      
-    2. Update the operations as required.
+     2. Update the operations as required.
          
-        The Publisher can add rate limiting policies, scopes, and enable/disable security for each of the GraphQL API operations.
+         The Publisher can add rate limiting policies, scopes, and enable/disable security for each of the GraphQL API operations.
 
-        1. Create scopes.
+         1. Create scopes.
 
-            Repeat the following sub-steps to create two scopes named `adminScope` and `FilmSubscriberScope`.
+             Repeat the following sub-steps to create two scopes named `adminScope` and `FilmSubscriberScope`.
 
-            1. Click **Scopes** > **ADD NEW SCOPE**.
+             1. Click **Scopes** > **ADD NEW SCOPE**.
 
                 [![Add a scope page]({{base_path}}/assets/img/learn/add-scope.png)]({{base_path}}/assets/img/learn/add-scope.png)
 
-            2. Enter the required details.
+             2. Enter the required details.
 
                 <div class="admonition note">
                 <p class="admonition-title">Note</p>
@@ -152,19 +152,19 @@ Follow the instructions below to design a GraphQL API
 
                 [![Create a scope]({{base_path}}/assets/img/learn/create-scope.png)]({{base_path}}/assets/img/learn/create-scope.png)
 
-            3. Press `Enter` to add each scope. 
+             3. Press `Enter` to add each scope. 
 
-            4. Click **SAVE**.
+             4. Click **SAVE**.
 
                 [![List of added scopes]({{base_path}}/assets/img/learn/starwars-scope-list.png)]({{base_path}}/assets/img/learn/starwars-scope-list.png) 
 
          2. Define the operation level configurations.
 
-            1. Click **Operations**.
+             1. Click **Operations**.
             
-            2. Click **Operation Level** to apply rate limiting for operations.
+             2. Click **Operation Level** to apply rate limiting for operations.
 
-                [![Update GraphQL API operations]({{base_path}}/assets/img/learn/update-operations.png)]({{base_path}}/assets/img/learn/update-operations.png) 
+                 [![Update GraphQL API operations]({{base_path}}/assets/img/learn/update-operations.png)]({{base_path}}/assets/img/learn/update-operations.png) 
 
             3. Select a throttling policy, scope, and enable or disable security for each of the operations.
 

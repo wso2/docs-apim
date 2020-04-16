@@ -218,26 +218,26 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
      [![Download GraphQL API schema]({{base_path}}/assets/img/learn/download-schema.png)]({{base_path}}/assets/img/learn/download-schema.png)
 
-5. Subscribe to the API.
+4. Subscribe to the API.
 
     1. Click **KEY GENERATION WIZARD**.
     
-       This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (`allFilms`, `allPlanets`) that you assigned to the operations.
+         This wizard takes you through the steps of creating a new application, subscribing, generating keys, and generating an access token to invoke the API. Add the two scopes (`allFilms`, `allPlanets`) that you assigned to the operations.
 
-       <div class="admonition note">
-       <p class="admonition-title">Note</p>
-       <p> 
-       You can use any application (e.g., JWT or OAuth) to subscribe to the API.
-       </p>
-       </div>
+         <div class="admonition note">
+         <p class="admonition-title">Note</p>
+         <p> 
+         You can use any application (e.g., JWT or OAuth) to subscribe to the API.
+         </p>
+         </div>
 
-       [![Key generation wizard]({{base_path}}/assets/img/learn/starwars-scopes-gen-access-token.png)]({{base_path}}/assets/img/learn/starwars-scopes-gen-access-token.png)
+         [![Key generation wizard]({{base_path}}/assets/img/learn/starwars-scopes-gen-access-token.png)]({{base_path}}/assets/img/learn/starwars-scopes-gen-access-token.png)
 
     2. Copy the authorization token that appears.
 
-       [![Copy the authorization token]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)
+         [![Copy the authorization token]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)
 
-6. Try out the operations.
+5. Try out the operations.
     1. Click **TEST** to navigate to the developer console.
 
          [![StarWars Developer Console ]({{base_path}}/assets/img/learn/star-wars-developer-console.png)]({{base_path}}/assets/img/learn/star-wars-developer-console.png)
@@ -265,18 +265,18 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
          ```
 
-      [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
+         [![Execute GraphQL Query]({{base_path}}/assets/img/learn/graphql-console-execute.png)]({{base_path}}/assets/img/learn/graphql-console-execute.png)
 
-      <html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>If you are going to invoke QUERY Operation, payload should be started with 'query' keyword.</p>
-      <p>If you are going to invoke MUTATION Operation, payload should be started with 'mutation' keyword.</p>
-      </div> 
-      </html>
+         <html>
+         <div class="admonition note">
+         <p class="admonition-title">Note</p>
+         <p>If you are going to invoke QUERY Operation, payload should be started with 'query' keyword.</p>
+         <p>If you are going to invoke MUTATION Operation, payload should be started with 'mutation' keyword.</p>
+         </div> 
+         </html>
 
     4. Click **Execute**.
 
-      [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
+        [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
 
 You have successfully created and published your first GraphQL API, subscribed to it, obtained an access token for testing and tested your API with the access token.
