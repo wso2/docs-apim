@@ -223,7 +223,7 @@ enable_h2_console = true</code></pre>
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[databaseconfiguration]</code>
+                            <code>[database_configuration]</code>
 
                             <p>
                                 Configurations required to enable browsing the H2 database from a web browser.
