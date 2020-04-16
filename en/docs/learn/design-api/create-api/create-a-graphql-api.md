@@ -122,23 +122,23 @@ Follow the instructions below to design a GraphQL API
 
     Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
 
-    1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
+     1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
        
-       [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
+         [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
      
-    2. Update the operations as required.
+     2. Update the operations as required.
          
-        The Publisher can add rate limiting policies, scopes, and enable/disable security for each of the GraphQL API operations.
+         The Publisher can add rate limiting policies, scopes, and enable/disable security for each of the GraphQL API operations.
 
-        1. Create scopes.
+         1. Create scopes.
 
-            Repeat the following sub-steps to create two scopes named `adminScope` and `FilmSubscriberScope`.
+             Repeat the following sub-steps to create two scopes named `adminScope` and `FilmSubscriberScope`.
 
-            1. Click **Scopes** > **ADD NEW SCOPE**.
+             1. Click **Scopes** > **ADD NEW SCOPE**.
 
                 [![Add a scope page]({{base_path}}/assets/img/learn/add-scope.png)]({{base_path}}/assets/img/learn/add-scope.png)
 
-            2. Enter the required details.
+             2. Enter the required details.
 
                 <div class="admonition note">
                 <p class="admonition-title">Note</p>
@@ -152,27 +152,27 @@ Follow the instructions below to design a GraphQL API
 
                 [![Create a scope]({{base_path}}/assets/img/learn/create-scope.png)]({{base_path}}/assets/img/learn/create-scope.png)
 
-            3. Press `Enter` to add each scope. 
+             3. Press `Enter` to add each scope. 
 
-            4. Click **SAVE**.
+             4. Click **SAVE**.
 
                 [![List of added scopes]({{base_path}}/assets/img/learn/starwars-scope-list.png)]({{base_path}}/assets/img/learn/starwars-scope-list.png) 
 
          2. Define the operation level configurations.
 
-            1. Click **Operations**.
+             1. Click **Operations**.
             
-            2. Click **Operation Level** to apply rate limiting for operations.
+             2. Click **Operation Level** to apply rate limiting for operations.
 
                 [![Update GraphQL API operations]({{base_path}}/assets/img/learn/update-operations.png)]({{base_path}}/assets/img/learn/update-operations.png) 
 
-            3. Select a throttling policy, scope, and enable or disable security for each of the operations.
+             3. Select a throttling policy, scope, and enable or disable security for each of the operations.
 
                  For more information on the payload, see [GraphQL operations](#graphql-operations). 
 
                  Apply the `adminScope` and `FilmSubscriberScope` scopes to the `allFilms` and `allPlanets` operations, respectively.
             
-            4. Click **Save**.
+             4. Click **Save**.
 
                  If you check the list of scopes, it should appear as follows:
 
