@@ -523,7 +523,7 @@ Follow the instructions below to move all the existing API Manager configuration
                 CURRENCY VARCHAR(15) NULL DEFAULT NULL
             );
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE_PUBLISHER (
+        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
             STATUS VARCHAR(50) NOT NULL,
@@ -644,7 +644,7 @@ Follow the instructions below to move all the existing API Manager configuration
             ADD CURRENCY VARCHAR(15) DEFAULT NULL
         /
 
-        CREATE TABLE AM_MONETIZATION_USAGE_PUBLISHER (
+        CREATE TABLE AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
             STATUS VARCHAR(50) NOT NULL,
@@ -764,9 +764,9 @@ Follow the instructions below to move all the existing API Manager configuration
             CURRENCY VARCHAR(15) NULL DEFAULT NULL
         ;
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_USAGE_PUBLISHER]') AND TYPE IN (N'U'))
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_USAGE]') AND TYPE IN (N'U'))
 
-        CREATE TABLE AM_MONETIZATION_USAGE_PUBLISHER (
+        CREATE TABLE AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
             STATUS VARCHAR(50) NOT NULL,
@@ -900,7 +900,7 @@ Follow the instructions below to move all the existing API Manager configuration
             ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
             ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL;
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE_PUBLISHER (
+        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
             STATUS VARCHAR(50) NOT NULL,
@@ -1229,7 +1229,7 @@ Follow the instructions below to move all the existing API Manager configuration
             ADD PRICE_PER_REQUEST VARCHAR(15) NULL DEFAULT NULL, 
             ADD CURRENCY VARCHAR(15) NULL DEFAULT NULL;
 
-        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE_PUBLISHER (
+        CREATE TABLE IF NOT EXISTS AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
             STATUS VARCHAR(50) NOT NULL,
