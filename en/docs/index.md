@@ -68,7 +68,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
       <!-- end card -->
       <!-- card -->
    <!-- card -->
-      <div class="card" onclick="location.href='https://docs.wso2.com/display/MG301/';">
+      <div class="card" onclick="location.href='https://docs.wso2.com/display/MG310';">
 	   <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">input</i></div>
             <div class="card-content">
