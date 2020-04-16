@@ -21,13 +21,13 @@ Follow the instructions below to design a GraphQL API
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
      <html>
-     <img src="{{base_path}}/assets/img/learn/create-graphQL-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600"/>
+     <img src="{{base_path}}/assets/img/learn/create-graphql-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600"/>
      </html>
 
 
 3. Import the schema and click **Next**.  
 
-     [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphQL-schema.png)]({{base_path}}/assets/img/learn/import-graphQL-schema.png)
+     [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema.png)]({{base_path}}/assets/img/learn/import-graphql-schema.png)
 
      Let's use the [StarWarsAPI schema definition]({{base_path}}/assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
    
@@ -40,7 +40,7 @@ Follow the instructions below to design a GraphQL API
       </div>
 
 
-      [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphQL-schema-via-file.png)]({{base_path}}/assets/img/learn/import-graphQL-schema-via-file.png)
+      [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**. 
     
@@ -101,7 +101,7 @@ Follow the instructions below to design a GraphQL API
     </tr>
     </table>
       
-    [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-API-details.png)]({{base_path}}/assets/img/learn/add-graphql-API-details.png)
+    [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-api-details.png)]({{base_path}}/assets/img/learn/add-graphql-API-details.png)
 
 5. Optionally, modify the existing GraphQL schema definition.
 
@@ -119,26 +119,26 @@ Follow the instructions below to design a GraphQL API
 
 6. Update the GraphQL API operations as required.
 
-    Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
+     Instead of resources, which get populated for REST APIs, operations get populated for GraphQL APIs.
 
-    1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
+     1. Click **Show More** under the **Operations** section in the **OVERVIEW** page to navigate to the operations page.
 
        
-       [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
+         [![GraphQL API operations]({{base_path}}/assets/img/learn/operations.png)]({{base_path}}/assets/img/learn/operations.png)
      
-    2. Update the operations as required.
+     2. Update the operations as required.
          
-        The Publisher can add rate limiting policies, scopes, and enable/disable security for each of the GraphQL API operations.
+         The Publisher can add rate limiting policies, scopes, and enable/disable security for each of the GraphQL API operations.
 
-        1. Create scopes.
+         1. Create scopes.
 
-            Repeat the following sub-steps to create two scopes named `adminScope` and `FilmSubscriberScope`.
+             Repeat the following sub-steps to create two scopes named `adminScope` and `FilmSubscriberScope`.
 
-            1. Click **Scopes** > **ADD NEW SCOPE**.
+             1. Click **Scopes** > **ADD NEW SCOPE**.
 
                 [![Add a scope page]({{base_path}}/assets/img/learn/add-scope.png)]({{base_path}}/assets/img/learn/add-scope.png)
 
-            2. Enter the required details.
+             2. Enter the required details.
 
                 <div class="admonition note">
                 <p class="admonition-title">Note</p>
@@ -156,7 +156,7 @@ Follow the instructions below to design a GraphQL API
 
             4. Click **SAVE**.
 
-                [![List of added scopes]({{base_path}}/assets/img/learn/starwars-scope-list.png)]({{base_path}}/assets/img/learn/starwars-scope-list.png) 
+                 [![List of added scopes]({{base_path}}/assets/img/learn/starwars-scope-list.png)]({{base_path}}/assets/img/learn/starwars-scope-list.png) 
 
          2. Define the operation level configurations.
 
@@ -164,7 +164,7 @@ Follow the instructions below to design a GraphQL API
             
             2. Click **Operation Level** to apply rate limiting for operations.
 
-                [![Update GraphQL API operations]({{base_path}}/assets/img/learn/update-operations.png)]({{base_path}}/assets/img/learn/update-operations.png) 
+                 [![Update GraphQL API operations]({{base_path}}/assets/img/learn/update-operations.png)]({{base_path}}/assets/img/learn/update-operations.png) 
 
             3. Select a throttling policy, scope, and enable or disable security for each of the operations.
 
