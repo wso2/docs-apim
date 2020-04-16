@@ -1,9 +1,6 @@
 # Viewing API Statistics
 
-API statistics are provided for both the API Publisher and the Developer Portal. 
-
-From API-M Analytics 3.0.0 release onwards, Publisher and Developer Portal statistics are moved out from the Publisher and Developer portal apps.
-And those can be viewed using the **dashboard** runtime of the API-M Analytics server.
+API statistics related to both the API Publisher and the Developer Portal can be viewed using the **dashboard** runtime of the API-M Analytics server.
 
 For instructions on how to set up Analytics, see [Configuring APIM Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics). 
 Once Analytics is set up, follow the instructions below to view statistics relevant to API Publisher and Developer Portal.
