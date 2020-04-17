@@ -132,7 +132,7 @@ Here's an example consumer key and secret combination:
 
     Let's create a SAML2 assertion using the same command-line client that you used in the previous section.
 
-2.  Download the command-line tool from [here]({{base_path}}/assets/attachments/learn/SAML2AssertionCreator.zip) and extract the ZIP file.
+2.  Download the command-line tool from [here]({{base_path}}/assets/attachments/learn/saml2-assertion-creator.zip) and extract the ZIP file.
 
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:8243/token`
 
