@@ -141,67 +141,6 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
 This tool can run standalone and therefore cater to multiple products. This means that if you are using multiple WSO2 products and need to delete the user's identity from all products at once, you can do so by running the tool in standalone mode.
 For information on how to build and run the Forget-Me tool, see [Removing References to Deleted User Identities in WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products) in the WSO2 Administration Guide.
 
-### Running the tool in API Manager Analytics
+### GDPR for API Manager Analytics
 
-Shown below is an example data stream used by API Manager Analytics. Note that the userId/username, emails and the ip are personally identifiable information (PII) of the user.
-
-| Stream Name                                                                          | Attribute List                                           |
-|--------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `org.wso2.analytics.apim.ipAccessSummary`| -`userId` 
-  -`ip`|
-| `org.wso2.analytics.apim.alertStakeholderInfo` | -`userId` 
-  -`emails`|
-
-These PII references can be removed from the Analytics database by using the Forget-Me tool. Follow the steps given below.
-
-1.  Add the relevant drivers for your Analytics-specific databases to the `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me/lib` directory. For example, if you have changed your Analytics databases from the default H2 instances to MySQL, copy the MySQL driver to this given directory.
-2.  Create a folder named `'streams'` in the `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me /conf/` directory.
-3.  Create a new file named `streams.json` with content similar to what is shown below based on the streams used, and store it in the /streams directory that you created in the previous step. This file holds the details of the streams and the attributes with PII that we need to remove from the database.
-
-    ``` json
-    {
-        "streams": [
-            {
-                "streamName": "org.wso2.analytics.apim.ipAccessSummary",
-                "attributes": ["userId", "ip"],
-                "id": "userId"
-            },
-            {
-                "streamName": "org.wso2.analytics.apim.alertStakeholderInfo",
-                "attributes": ["userId", "emails"],
-                "id": "userId"
-            }
-        ]
-    }
-    ```
-
-    The above configuration includes the following:
-
-    -   **Stream Name** : The name of the stream.
-    -   **Attributes:** The list of attributes that contain PII.
-    -   **id** : The ID attribute, which holds the value that needs to be anonymized (replaced with a pseudonym).
-
-4.  Create a new file named `config.json` to `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me/conf/` directory with the content shown below .
-
-    ``` json
-    {
-        "processors": [
-            "analytics-streams"
-        ],
-        "directories": [
-            {
-                "dir": "streams",
-                "type": "analytics-streams",
-                "processor": "analytics-streams"
-            }
-        ]
-    }
-    ```
-
-5.  Open a command prompt and navigate to the `<API-M_ANALYTICS_HOME>/bin` directory.
-6.  Execute one of the following commands depending on your operating system:
-
-    -   On Linux/Mac OS: `./forgetme.sh -U <username>`
-    -   On Windows: `forgetme.bat -U <username>`
-
-
+For information on GDPR for API Manager Analytics, please refer [General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics]({{base_path}}/learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics).
