@@ -108,7 +108,7 @@ Follow the instructions in this tutorial to design, publish, and invoke a GraphQ
          </table>
       </html>
 
-      [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-API-details.png)]({{base_path}}/assets/img/learn/add-graphql-API-details.png)
+      [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-api-details.png)]({{base_path}}/assets/img/learn/add-graphql-api-details.png)
 
 5. Optionally, modify the existing GraphQL schema definition.
 

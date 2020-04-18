@@ -101,7 +101,7 @@ Follow the instructions below to design a GraphQL API
     </tr>
     </table>
       
-    [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-API-details.png)]({{base_path}}/assets/img/learn/add-graphql-API-details.png)
+    [![Add GraphQL API details]({{base_path}}/assets/img/learn/add-graphql-api-details.png)]({{base_path}}/assets/img/learn/add-graphql-api-details.png)
 
 5. Optionally, modify the existing GraphQL schema definition.
 
