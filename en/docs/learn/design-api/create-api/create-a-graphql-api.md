@@ -21,13 +21,13 @@ Follow the instructions below to design a GraphQL API
 2. Click **CREATE API** and then click **I Have a GraphQL SDL schema**.
 
      <html>
-     <img src="{{base_path}}/assets/img/learn/create-graphQL-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600"/>
+     <img src="{{base_path}}/assets/img/learn/create-graphql-schema-option.png" alt="Create GraphQL schema option" title="Create GraphQL schema option" width="600"/>
      </html>
 
 
 3. Import the schema and click **Next**.  
 
-     [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphQL-schema.png)]({{base_path}}/assets/img/learn/import-graphQL-schema.png)
+     [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema.png)]({{base_path}}/assets/img/learn/import-graphql-schema.png)
 
      Let's use the [StarWarsAPI schema definition]({{base_path}}/assets/attachments/learn/schema_graphql.graphql) to create the schema file. 
    
@@ -40,7 +40,7 @@ Follow the instructions below to design a GraphQL API
       </div>
 
 
-      [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphQL-schema-via-file.png)]({{base_path}}/assets/img/learn/import-graphQL-schema-via-file.png)
+      [![Import a graphQL schema by adding a file]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)]({{base_path}}/assets/img/learn/import-graphql-schema-via-file.png)
 
 4. Enter the GraphQL API related details and click **Create**. 
     

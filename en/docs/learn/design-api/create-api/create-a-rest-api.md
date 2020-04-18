@@ -80,7 +80,7 @@ Follow the instructions below to create a REST API using the basic flow.
 
          Transport Level Security  defines the transport protocol on which the API is exposed.  
 
-         [![Transport-level security]({{base_path}}/assets/img/learn/transportLevel-security.jpg)]({{base_path}}/assets/img/learn/transportLevel-security.jpg)
+         [![Transport-level security]({{base_path}}/assets/img/learn/transport-level-security.jpg)]({{base_path}}/assets/img/learn/transport-level-security.jpg)
 
        2. If you wish to limit the API availability to only one transport (e.g., HTTPS), uncheck the **Transport Level Security** checkbox.
            
