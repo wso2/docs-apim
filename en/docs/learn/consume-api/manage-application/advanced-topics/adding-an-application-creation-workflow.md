@@ -82,7 +82,7 @@ Example usecase:
     2. Upload the `<API-M_HOME>/business-processes/application-creation/BPEL/ApplicationApprovalWorkFlowProcess_1.0.0.zip` file to EI. 
         
          This is the business process archive file.
-         [![Upload BPEL archive file]({{base_path}}/assets/img/learn/add-application-wf-BPEL.png)]({{base_path}}/assets/img/learn/add-application-wf-BPEL.png)
+         [![Upload BPEL archive file]({{base_path}}/assets/img/learn/add-application-wf-bpel.png)]({{base_path}}/assets/img/learn/add-application-wf-bpel.png)
 
 7.  Click **Main** --> **Human Tasks** --> **Add** and upload the `<API-M_HOME>/business-processes/application-creation/HumanTask/ApplicationsApprovalTask-1.0.0.zip` file to EI. 
 
