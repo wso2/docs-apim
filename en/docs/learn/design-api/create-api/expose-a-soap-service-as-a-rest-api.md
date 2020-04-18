@@ -7,7 +7,7 @@ Follow the instructions below to create a SOAP service as a RESTful API using **
 
 1.  Sign in to the API Publisher and click **CREATE API**.
       <html>
-     <img src="{{base_path}}/assets/img/learn/create-soap-API.jpg" height="400" width="450">
+     <img src="{{base_path}}/assets/img/learn/create-soap-api.jpg" height="400" width="450">
      </html>
 
 2.  Select the **Pass Through** option and thereafter, select one of the following options:

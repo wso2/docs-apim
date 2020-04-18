@@ -9,7 +9,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 
 1.  Sign in to the API Publisher and click **CREATE API**.
       <html>
-     <img src="{{base_path}}/assets/img/learn/create-soap-API.jpg" height="400" width="450">
+     <img src="{{base_path}}/assets/img/learn/create-soap-api.jpg" height="400" width="450">
      </html>
 
 2.  Select **Pass Through** option and thereafter, select one of the following options:
