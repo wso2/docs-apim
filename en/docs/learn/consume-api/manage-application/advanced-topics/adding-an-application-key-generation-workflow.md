@@ -169,7 +169,7 @@ This section explains as to how you can attach a custom workflow to the **applic
 
 7.  Click **Main** --> **Processes** --> **Add** --> **BPEL** and upload the `<API-M_HOME>/business-processes/application-registration/BPEL/ApplicationRegistrationWorkflowProcess_1.0.0.zip` file to EI. This is the business process archive file.
 
-     [![Upload BPEL package]({{base_path}}/assets/img/learn/add-registration-wf-BPEL.png)]({{base_path}}/assets/img/learn/add-application-wf-BPEL.png)
+     [![Upload BPEL package]({{base_path}}/assets/img/learn/add-registration-wf-bpel.png)]({{base_path}}/assets/img/learn/add-registration-wf-bpel.png)
 
 8.  Click **Main** --> **Processes** --> **Human Tasks** --> **Add** and upload the `<APIM_HOME>/business-processes/application-registration/HumanTask/ApplicationRegistrationTask-1.0.0.zip` file to EI.    
 
