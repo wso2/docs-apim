@@ -85,7 +85,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add-env
 ```
 
-1.  Make sure that the WSO2 API Manager is started and that the CTL tool is running.     
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.     
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to add an environment.
 
@@ -180,7 +180,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Remove an environment
 
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.  
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.  
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to remove an environment.
 
@@ -215,7 +215,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## List environments
 
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.    
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.    
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to list the environments.  
 
@@ -249,7 +249,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 After adding an environment, you can log in to the API Manager instance in that environment using credentials.
 
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run any of the following CTL commands to log in to the environment.
 
@@ -309,7 +309,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Logout from an environment
 
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 
 2.  Run the following command to log out from the current session of the API Manager environment.
@@ -328,7 +328,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## List APIs of an environment
 Follow the instructions below to display a list of APIs in an environment using CTL:
 
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run any of the following CTL commands to list the APIs.
@@ -374,7 +374,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## List applications of an environment
 Follow the instructions below to display a list of applications in an environment using CTL:
 
-1.  Make sure that WSO2 API Manager is started and the CTL tool is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run any of the following CTL commands to list the applications.
