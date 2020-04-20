@@ -503,8 +503,8 @@ The status of the APIs (all API versions) represented in a tabular view.
 
 <html>
 <body>
-<img src="{{base_path}}/assets/img/learn/admin-portal-apiAvailability.png" 
-     onclick="window.open('{{base_path}}/assets/img/learn/admin-portal-apiAvailability.png', '_self');" 
+<img src="{{base_path}}/assets/img/learn/admin-portal-api-availability.png" 
+     onclick="window.open('{{base_path}}/assets/img/learn/admin-portal-api-availability.png', '_self');" 
      alt="failover" width="100%" height="100%"/>
 </body>
 </html>

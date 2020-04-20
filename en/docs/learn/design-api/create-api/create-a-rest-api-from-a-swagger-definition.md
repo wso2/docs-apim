@@ -12,10 +12,10 @@ Follow the instructions below to create a REST API using a Open API definition f
     </html>
 
 2.  Go to **CREATE API** and Click **I Have an Existing API**.
-    ![](../../../assets/img/learn/create-a-rest-api-using-existing-swagger-def.jpg)
+    ![]({{base_path}}/assets/img/learn/create-a-rest-api-using-existing-swagger-def.jpg)
 
-3.  Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT** .
-    ![](../../../assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
+3.  Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT**.
+    ![]({{base_path}}/assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
 
 4.  Edit the information as given below and Click **CREATE**
 
@@ -25,20 +25,20 @@ Follow the instructions below to create a REST API using a Open API definition f
     | Context | /petstore    |
     | Version | 1.0.0        |
 
-    ![](../../../assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
+    ![]({{base_path}}/assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
 
 5. Page will be redirected to the overview page of the Petstore API.
- [![](../../../assets/img/learn/overviewpage-rest-api-creating-by-swagger-Def.jpg)](../../../assets/img/learn/overviewpage-rest-api-creating-by-swagger-Def.jpg)
+ [![]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.jpg)]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.jpg)
 
 ## Resources
    Navigate to **Resources** tab and notice that all the **API resources** are created automatically when the Swagger URL is specified.
    
-   [![](../../../assets/img/learn/resource-of-pet-store-api.jpg)](../../../assets/img/learn/resource-of-pet-store-api.jpg)
+   [![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)
 
 ## API Definition
 1. Navigate to **API Definition** and Click **Edit** to remove the security headers. This is required to invoke the API in the developer portal using the Swagger UI.
     
-    ![](../../../assets/img/learn/edit-api-definition-pet-store.jpg)
+    ![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.jpg)
 
 
 2. Remove the security tag from the `/pet` POST resource given below.
@@ -63,7 +63,7 @@ Follow the instructions below to create a REST API using a Open API definition f
             - api_key: []
     ```
 4.  After removing the security tags, click **Update Contents** to save the changes.
- ![](../../../assets/img/learn/update-content-pet-store.jpg)
+ ![]({{base_path}}/assets/img/learn/update-content-pet-store.jpg)
 
 ## Enpoints
 1. Navigate to the **Endpoints** page. Enter the information shown below and click **SAVE**.
@@ -75,17 +75,17 @@ Follow the instructions below to create a REST API using a Open API definition f
     | Sandbox endpoint    | Providing only the production endpoint is sufficient. |
 
      <html>
-     <img src="../../../../assets/img/learn/add-endpoint-pet-store-api.jpg" height="400" width="400">
+     <img src="{{base_path}}/assets/img/learn/add-endpoint-pet-store-api.jpg" height="400" width="400">
      </html>
 
-    ![](../../../assets/img/learn/add-endpoint-configuration-for-pet-store-api.jpg)
+    ![]({{base_path}}/assets/img/learn/add-endpoint-configuration-for-pet-store-api.jpg)
 
 ## Runtime Configuration
   Navigate to **Runtime Configuration** page. 
   Transport Level Security  defines the transport protocol on which the API is exposed.
      
   <html>
-     <img src="../../../../assets/img/learn/transport-level-security-pet-store.jpg" height="400" width="700">
+     <img src="{{base_path}}/assets/img/learn/transport-level-security-pet-store.jpg" height="400" width="700">
      </html>
 
   <html><div class="admonition note">
@@ -103,9 +103,9 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
-   ![](../../../assets/img/learn/add-bussiness-plans-for-pet-store-api.jpg )
+   ![]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.jpg)
 
 
-Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API](../../../../learn/design-api/publish-api/publish-an-ap)  to get details of publishing API.
+Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API]({{base_path}}/learn/design-api/publish-api/publish-an-ap) to get details of publishing API.
 
 
