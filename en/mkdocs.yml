@@ -304,7 +304,6 @@ nav:
             - Extending Key Validation: learn/extensions/extending-key-validation.md
             - Extending the Key Manager Interface: learn/extensions/extending-the-key-manager-interface.md
             - Extending Scope Validation: learn/extensions/extending-scope-validation.md
-            - Editing API Templates: learn/extensions/editing-api-templates.md
     - Develop:
         - Product REST APIs:
             - RESTful APIs: develop/product-apis/restful-apis.md

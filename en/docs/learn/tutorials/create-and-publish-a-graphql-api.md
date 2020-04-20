@@ -218,7 +218,7 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
      [![Download GraphQL API schema]({{base_path}}/assets/img/learn/download-schema.png)]({{base_path}}/assets/img/learn/download-schema.png)
 
-5. Subscribe to the API.
+4. Subscribe to the API.
 
     1. Click **KEY GENERATION WIZARD**.
     
@@ -237,10 +237,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
        [![Copy the authorization token]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)]({{base_path}}/assets/img/learn/copy-access-token-starwars.png)
 
-6. Try out the operations.
-    1. Click **TEST** to navigate to the developer console.
+5. Try out the operations.
 
-       [![Authorization token]({{base_path}}/assets/img/learn/authorization-token.png)]({{base_path}}/assets/img/learn/authorization-token.png)
+    1. Click **TEST** to navigate to the developer console.
+    
+        [![Authorization token]({{base_path}}/assets/img/learn/authorization-token.png)]({{base_path}}/assets/img/learn/authorization-token.png)
 
     2. Select whether to invoke the API using HTTP or HTTPS from **Servers**.
 
@@ -258,13 +259,13 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
 
          [![Try out the post operation]({{base_path}}/assets/img/learn/post-try-out-starwars.png)]({{base_path}}/assets/img/learn/post-try-out-starwars.png)
 
-      <html>
-      <div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>If you are going to invoke QUERY Operation, payload should be started with either with 'query' keyword or without any keyword.</p>
-      <p>If you are going to invoke MUTATION Operation, payload should be started starting with 'mutation' keyword.</p>
-      </div> 
-      </html>
+         <html>
+         <div class="admonition note">
+         <p class="admonition-title">Note</p>
+         <p>If you are going to invoke QUERY Operation, payload should be started with either with 'query' keyword or without any keyword.</p>
+         <p>If you are going to invoke MUTATION Operation, payload should be started starting with 'mutation' keyword.</p>
+         </div> 
+         </html>
 
     6. Click **Execute**.
 
