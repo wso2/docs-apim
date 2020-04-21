@@ -49,7 +49,7 @@ Log growth in [Carbon logs]({{base_path}}/administer/product-administration/moni
             
      
         ```toml
-        appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy HH-mm-ss}.log
+        appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}-%i.log
         ```   
 
 -   The following property under `CARBON_LOGFILE` appender is used to limit the number of backup files.
@@ -96,7 +96,7 @@ Log growth in [Carbon logs]({{base_path}}/administer/product-administration/moni
             
      
         ```toml
-        appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy HH-mm-ss}.log
+        appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}-%i.log
         ```
         
 -   The following property under `AUDIT_LOGFILE` appender is used to limit the number of audit log backup files.
