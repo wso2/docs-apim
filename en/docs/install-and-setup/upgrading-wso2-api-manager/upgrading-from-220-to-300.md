@@ -1178,7 +1178,7 @@ Follow the instructions below to move all the existing API Manager configuration
         )
         /
 
-        CREATE AM_SYSTEM_APP_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        CREATE SEQUENCE AM_SYSTEM_APP_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
         /
         CREATE OR REPLACE TRIGGER AM_SYSTEM_APPS_TRIG
         BEFORE INSERT
@@ -1186,7 +1186,7 @@ Follow the instructions below to move all the existing API Manager configuration
         REFERENCING NEW AS NEW
         FOR EACH ROW
             BEGIN
-                SELECT SEQUENCE AM_SYSTEM_APP_SEQUENCE.nextval INTO :NEW.ID FROM dual;
+                SELECT AM_SYSTEM_APP_SEQUENCE.nextval INTO :NEW.ID FROM dual;
             END;
         /
 
