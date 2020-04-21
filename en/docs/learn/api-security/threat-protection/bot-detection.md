@@ -40,7 +40,8 @@ Follow the instructions below to enable email notifications for bot detection:
      ```
      wso2.datasources:
       dataSources:
-     ...
+        ...
+
         - name: AM_DB
             description: "The datasource used for the AM_DB which is shared from API-M."
             jndiConfig:
@@ -57,7 +58,8 @@ Follow the instructions below to enable email notifications for bot detection:
                 connectionTestQuery: SELECT 1
                 validationTimeout: 30000
                 isAutoCommit: false
-      ...
+        ...
+
      ```
 
 3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
@@ -143,25 +145,27 @@ Follow the instructions below to view the bot detection data for the unauthorize
      ```
      wso2.datasources:
       dataSources:
-     ...
 
-     ```
-     - name: AM_DB
-        description: "The datasource used for the AM_DB which is shared from API-M."
-        jndiConfig:
-          name: jdbc/AM_DB
-        definition:
-          type: RDBMS
-          configuration:
-            jdbcUrl: 'jdbc:mysql://localhost:3306/apimgt_database'
-            username: username
-            password: password
-            driverClassName: com.mysql.jdbc.Driver
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
+      ...
+
+        - name: AM_DB
+            description: "The datasource used for the AM_DB which is shared from API-M."
+            jndiConfig:
+              name: jdbc/AM_DB
+            definition:
+              type: RDBMS
+              configuration:
+                jdbcUrl: 'jdbc:mysql://localhost:3306/apimgt_database'
+                username: username
+                password: password
+                driverClassName: com.mysql.jdbc.Driver
+                maxPoolSize: 50
+                idleTimeout: 60000
+                connectionTestQuery: SELECT 1
+                validationTimeout: 30000
+                isAutoCommit: false
+      
+      ...        
      ```
 
 3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
