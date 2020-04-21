@@ -43,7 +43,7 @@ Follow the instructions below to enable email notifications for bot detection:
         ...
 
         - name: AM_DB
-            description: "The datasource used for the AM_DB which is shared from API-M."
+            description: "Main datasource used by API Manager."
             jndiConfig:
               name: jdbc/AM_DB
             definition:
@@ -149,7 +149,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
         ...
 
         - name: AM_DB
-            description: "The datasource used for the AM_DB which is shared from API-M."
+            description: "Main datasource used by API Manager."
             jndiConfig:
               name: jdbc/AM_DB
             definition:
