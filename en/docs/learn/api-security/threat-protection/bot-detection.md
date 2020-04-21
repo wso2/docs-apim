@@ -40,7 +40,7 @@ Follow the instructions below to enable email notifications for bot detection:
      ```
      wso2.datasources:
       dataSources:
-      ...
+        ...
 
         - name: AM_DB
             description: "The datasource used for the AM_DB which is shared from API-M."
@@ -60,7 +60,7 @@ Follow the instructions below to enable email notifications for bot detection:
                 isAutoCommit: false
         
         ...
-        
+
      ```
 
 3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
@@ -148,7 +148,6 @@ Follow the instructions below to view the bot detection data for the unauthorize
       dataSources:
         ...
 
-    
         - name: AM_DB
             description: "The datasource used for the AM_DB which is shared from API-M."
             jndiConfig:
