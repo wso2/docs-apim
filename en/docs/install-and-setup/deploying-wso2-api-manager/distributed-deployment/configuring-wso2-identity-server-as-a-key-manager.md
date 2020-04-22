@@ -246,7 +246,11 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
         - If you are working with multiple IS as Key Manager in **High Availability(HA)** mode **active-activ** node setup, you need to replace the `<key-manager-host>` in `service_url` config with the host of the load balancer which is used to front the all key manager nodes.
 
 
-2. Make sure to import the Key Manager's public certificate to WSO2 API-M's `client-truststore.jks` . For more information, see [Importing Certificates to TrustStore]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) .
+2. Import the Key Manager's public certificate to WSO2 API-M's truststore. 
+
+     Import the public certificate of WSO2 IS as the Key Manager, which is used to sign the tokens, to the WSO2 API-M truststore (`client-truststore.jks`) under the "gateway_certificate_alias" alias. 
+     
+     For more information, see [Import the public certificate into the client trust store]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens/#importing-the-public-certificate-into-the-client-trust-store). 
 
 3. By default, both API Manager and the WSO2 IS as Key Manager comes with JDBC User Store as the primary userstore. But if you wish to use any other type of user store(LDAP, Active Directory etc) in IS as Key Manager, that particular user store has to be configured in API Manager nodes as well. Please refer [Configuring Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply relevant configs to plug a new user store.
 
