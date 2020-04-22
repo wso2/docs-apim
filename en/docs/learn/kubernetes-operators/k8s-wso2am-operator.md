@@ -5,6 +5,9 @@ With WSO2 API Manager Operator, it makes easy to deploy WSO2 API Manager in Kube
  
 ## Quick Start Guide
 Follow the quick start [here](https://github.com/wso2/k8s-wso2am-operator/tree/v1.0.0#quick-start-guide).
+
+## WSO2 API Manager Operator Doc space
+Follow the WSO2 API Manager Operator documentation space [here](https://github.com/wso2/k8s-wso2am-operator/tree/v1.0.0/docs)
  
 ## Install K8s WSO2 API Manager Operator
 Follow the installation instructions in [operator hub](https://operatorhub.io/operator/wso2am-operator).
