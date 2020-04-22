@@ -1,8 +1,8 @@
 # Adding Internationalization and Localization
 
-The API Manager includes two Web interfaces as API Publisher and API Store. The steps below explain how to localize the API Publisher UI. Similarly, the API Store could also be localized by following the steps below.
+The API Manager includes two Web interfaces, namely the API Publisher and Developer Portal. The steps below explain as to how you can localize the API Publisher UI. Similarly, you can also localize the Developer Portal by following the steps below.
 
-### Changing the browser settings
+## Changing the browser settings
 
 Set your browser's language as preferred by following the user guide of your browser. For example, in Google Chrome, you set the language by going to `chrome://settings/languages` URL in your browser.
 
@@ -13,7 +13,7 @@ If you move up the Spanish language to the top once you refresh the publisher or
 !!! info
     The default developer portal ships with the English language, additionally there are three more languages ( Spanish, Arabic, and Sinhala ) packed with the product for demonstration and testing purposes. The publisher web app also packed with one additional language ( Sinhala ). If you are adding a new language, you need to follow the instructions below.
 
-### Adding a new Language to Devportal or Publisher web applications
+## Adding a new Language to Devportal or Publisher web applications
 
 Every text in the web apps is loaded from an external JSON file. These JSON files are asynchronously fetched from the browser base on the browser local. These local files can be found from the following location for publisher and devportal.
 
@@ -37,14 +37,14 @@ This JSON have key-value pairs as follows.
 
 You have to go through each of these values and convert them into French language accordingly.
 
-### Finding the keys to modify.
+## Finding the keys to modify
 
 Sometimes going through the list of keys and modifying each of them is not going to be enough. You might want to find a key that is responsible for a particular text in the UI. Let’s consider the following scenario. 
 
 In this example, we are going to find the key for the main title APIs in the following screen.
 
 
-#### Prerequisites.
+### Prerequisites
 
 1. Chrome web browser
 2. React Developer Tools extension for Google Chrome
@@ -63,7 +63,7 @@ Click the “Components” tab and copy the ID of the text component.
 	
 ![Finding Key3]({{base_path}}/assets/img/administer/find-key-03.png)
 
-### Changing the direction.
+## Changing the direction
 From **APIM 3.1.0**, we have enabled direction change for the **Devportal** web application. With this feature, it’s possible to entirely change the default direction of the UI from LTR ( Left To Right )  to RTL ( Right to Left ). This required if you are trying to add support for languages like Arabic. 
 
 Add the following configuration to defaultTheme.js to change the page direction to RTL ( Right To Left ).  If you have already done customizations to the default theme, make sure to merge the following with the existing changes carefully.
@@ -89,7 +89,8 @@ Reload the Devportal to view the changes.
 
 
 
-### Enabling language switch.
+## Enabling language switch
+
 From **APIM 3.1.0**, we have developed a language switch for the **Devportal** web application. 
 
 Open the defaultTheme.js file.
@@ -205,7 +206,7 @@ const DefaultConfigurations = {
 }
 ```
 
-### Advanced Concepts.
+## Advanced Concepts
 
 The following document describes how i18n is implemented in the web applications, how you can auto-generate the language file and how to programmatically convert the local file from one language to any other language.
 
