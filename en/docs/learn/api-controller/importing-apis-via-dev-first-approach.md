@@ -3,7 +3,7 @@
 WSO2 API Controller, **apictl** allows to create and deploy APIs without using WSO2 API Publisher Portal. You can use this feature to create an API **from scratch** or **using an existing Swagger or Open API specification** and then deploy it to the desired API Manager environment.
 
 !!! info
-    **Before you begin...** 
+    **Before you begin** 
 
     -   Make sure WSO2 API Manager CTL Tool is initialized and running, if not, follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
@@ -86,6 +86,57 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                         `--oas` : Provide an OpenAPI specification file/URL for the API   
                         `--force` or `-f` : To overwrite directory and create project 
 
+        !!! note
+            You can define scopes for a resource when defining a Swagger2 or OpenAPI3 specification to generate an API.
+
+            !!! example
+                ```yaml
+                openapi: 3.0.0
+                info:
+                title: Online-Store
+                version: v1.0.0
+                description: This API contains operations related to online shopping store.
+                x-wso2-basePath: /store/{version}
+                x-wso2-production-endpoints:
+                urls:
+                    - http://products
+                paths:
+                /products:
+                    get:
+                    responses:
+                        "200":
+                        description: successful operation
+                /products/{productId}:
+                    get:
+                    parameters:
+                        - name: productId
+                        in: path
+                        required: true
+                        schema:
+                            type: string
+                    security: 
+                        - 
+                        default: 
+                            - "products:read"
+                    responses:
+                        "200":
+                        description: successful operation
+                components: 
+                securitySchemes: 
+                    default: 
+                        type: "oauth2"
+                        flows: 
+                            implicit: 
+                            authorizationUrl: "https://test.com"
+                            scopes: 
+                                products:read: ""
+                            x-scopes-bindings: 
+                                products:read: "admin"
+                ```
+
+            First you need to define the scope name (products:read) under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section.
+
+            Make sure to set the security name as **`default`** when defining the scopes.        
 
      A project folder with the following default structure will be created in the given directory.
 
@@ -168,25 +219,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 
         **Generate APIs with Dynamic Data**
 
-        When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file and create the `api.yaml` with the dynamic data. A sample custom definition file is shown below.
-
-        ```bash
-        id:
-            providerName: admin
-            apiName: $APINAME
-            version: $APIVERSION
-        ```
-
-        When executing the `apictl init` command, the CLI tool automatically injects the values to the API definition. If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
-
-        In runtime, the CTL tool will automatically inject the environment variable values to the artifacts in the API project.
-
-        !!! tip
-            To make this work you will need to set up required environment variables according to your OS. In a Linux/Unix environment, it can be done using
-            ```bash
-            export APINAME=MyAPI
-            export APIVERSION=1.0.0
-            ```      
+        When initializing an API Project, the CTL is capable of detecting environment variables in the default definition file or in the provided custom definition file. For more information on using dynamic data, see [Initialize API Projects with Dynamic Data]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#initialize-api-projects-with-dynamic-data).
 
 4. Open the `<API Project>/Meta-information/api.yaml` file. You can edit the mandatory configurations listed below.
 
@@ -228,24 +261,8 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     -   Make sure you have logged-in to the importing environment. If not, follow steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment). 
 
 
-!!! warning
-    -   A user with `admin` role is allowed to import APIs.
-    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login` permission) is allowed to import APIs by following the steps below.
-            1. Sign in to the API-M management console as a tenant admin user. 
-                 `https://localhost:9443/carbon`
-            2. Click **Main > Resources > Browse**
-            3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-            4. Update the `RESTAPIScopes` JSON field with the following.
-                ```bash
-                {...
-                    "Name": "apim:api_import_export",
-                    "Roles": "admin, custom_role"
-                ...},
-                ``` 
-            4. Restart the server or wait for 15 mins until the registry cache expires.
-    -   If the `custom_role` ONLY has the `API Create` permission, then the user with the `custom_role` can import APIs ONLY that are in `CREATED` state.
-    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH `API Create` and `API Publish` permissions.
-    -   A user that has the `custom_role` with ONLY `API Publish` permission cannot import an API.    
+!!! tip
+    A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 After editing the mandatory fields in the API Project, you can import the API to an environment using any of the following commands.  
 
@@ -270,7 +287,7 @@ After editing the mandatory fields in the API Project, you can import the API to
             `--preserve-provider` : Preserve the existing provider of API after importing. Default value is `true`. 
             `--update` : Update an existing API or create a new API in the importing environment.  
             `--params` : Provide a API Manager environment params file (default "api_params.yaml").   
-            For more information, see [Configure Environment Specific Details](#configure-environment-specific-details).  
+            For more information, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) .  
             `--skipCleanup` : Leave all temporary files created in the CTL during import process. Default value is `false`.  
 
     !!! example
@@ -292,78 +309,3 @@ After editing the mandatory fields in the API Project, you can import the API to
     ``` bash
     Successfully imported API!
     ```
-
-#### Configure Environment Specific Details
-When there are multiple environments, to allow easily configuring environment-specific details, apictl supports an additional parameter file named `api_params.yaml`. It is recommended to store the parameter file with the API Project; however, it can be stored anywhere as required. 
-
-After the file is placed in the project directory, the tool will auto-detect the parameters file upon running the `import-api` command and create an environment-based artifact for API Manager. If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory. 
-
-The following is the structure of the parameter file.
-
-```go
-environments:
-    - name: <environment_name>
-      endpoints:
-          production:
-              url: <production_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
-          sandbox:
-              url: <sandbox_endpoint_url>
-              config:
-                  retryTimeOut: <no_of_retries_before_suspension>
-                  retryDelay: <retry_delay_in_ms>
-                  factor: <suspension_factor>
-      security:
-        - enabled: <whether_security_is_enabled>
-          type: <endpoint_authentication_type_basic_or_digest>
-          username: <endpoint_username>
-          password: <endpoint_password>
-      gatewayEnvironments:
-        - <gateway_environment_name>           
-      certs:
-        - hostName: <endpoint_url>
-          alias: <certificate_alias>
-          path: <certificate_file_path>
-```
-The following code snippet contains sample configuration of the parameter file.
-
-!!! example
-    ```go
-    environments:
-        - name: dev
-          endpoints:
-            production:
-              url: 'https://dev.wso2.com'
-          security:
-           - enabled: true
-             type: basic
-             username: admin
-             password: admin
-          certs:
-            - hostName: 'https://dev.wso2.com'
-              alias: Dev
-              path: ~/.certs/dev.pem 
-          gatewayEnvironments:
-            - Production and Sandbox    
-        - name: test
-          endpoints:
-            production:
-              url: 'https://test.wso2.com'
-          security:
-           - enabled: true
-             type: digest
-             username: admin
-             password: admin
-              config:
-                retryTimeOut: $RETRY
-            sandbox:
-              url: 'https://test.sandbox.wso2.com'
-    ```
--   You can also provide a custom path for the parameter file using the `--params` flag.
--   Production/Sandbox backends for each environment can be specified in the parameter file with additional configurations, such as timeouts.
--   Under the security field, if the `enabled` attribute is `true`, you must specify the `username`, `password` and the `type` (can be either only `basic` or `digest`). If the `enabled` attribute is `false`, then non of the security parameters will be set. If the `enabled` attribute is not set (blank), then the security parameters in api.yaml file will be considered.
--   Certificates for each URL can be configured in the parameter file. For certificates, a valid path to the certificate file is required. 
--   The parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail. In addition, the system will also request for a set of required environment variables.   

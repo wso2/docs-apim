@@ -20,7 +20,7 @@ in your Jenkins server.
      
      For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
-4. Download and setup [WSO2 API Controller](https://wso2.com/api-management/tooling/) to the Jenkins server and the
+4. Download and setup [WSO2 API Controller 3.1.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
      For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
@@ -111,7 +111,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
 
     -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
-    -   For more information on using an environment template, see [Configure Environment Specific Details]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#configure-environment-specific-details). 
+    -   For more information on using an environment template, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters). 
 
 !!! tip
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 

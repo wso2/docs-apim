@@ -3,33 +3,15 @@
 WSO2 API Controller, **apictl** allows you to maintain multiple environments running on the same WSO2 API-M version. This allows you to import and export APIs between your environments. For example, if you have an API running in the development environment, you can export it and import it to the production environment. Thereby, APIs do not have to be created from scratch in different environments.
 
 !!! info
-    **Before you begin...** 
+    **Before you begin** 
 
     -   Make sure WSO2 API CTL Tool is initialized and running, if not follow the steps in [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).
 
     -  Make sure to add an environment before you start working with the following CTL commands, because all APIs need to be imported or exported to/from a specific environment.      
     For more information, visit [Add an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#add-an-environment).
     
-!!! warning
-    -   A user with `admin` role is allowed to export and import APIs.
-    -   A user with a role [`custom_role`] with BOTH `API Create` and `API Publish` permissions (along with `Login`
-    permission) is allowed to export and import APIs by following the steps below.
-         1. Sign in to the API-M management console as a tenant admin user. 
-                 `https://localhost:9443/carbon`
-         2. Click **Main > Resources > Browse**
-         3. Enter `/_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to browse the registry and locate the required resource.
-         4. Update the `RESTAPIScopes` JSON field with the following.
-            ```bash
-            {...
-                "Name": "apim:api_import_export",
-                "Roles": "admin, custom_role"
-            ...},
-            ``` 
-         5. Restart the server or wait for 15 mins until the registry cache expires.
-    -   To export APIs, the `custom_role` should have either one of the `API Create` and `API Publish` permissions.     
-    -   If the `custom_role` only has the `API Create` permission, then the user with the `custom_role` can import APIs ONLY which are in `CREATED` state.
-    -   To import an API by updating/changing the lifecycle state, the user with the `custom_role` should have BOTH the `API Create` and `API Publish` permissions.
-    -   A user having the `custom_role` with only `API Publish` permission, CANNOT import an API.     
+!!! tip
+    A user with `admin` role is allowed to import/export APIs. To create a custom user who can import/export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
 ### Export an API
 
@@ -270,48 +252,14 @@ You can use the API archive exported from the previous section and import it to 
         !!! tip
             You must add the flag `--preserve-provider` to the CTL command and set its value to `false` if the API is imported to a different domain than its exported one. So it sets the provider of the imported API to the user who is issuing the CTL command. 
 
-##### Configuring Environment Specific Parameters
-When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments.
-
-To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. The following is the structure of the parameter file.
-
-```go
-environments:
-    - name: <environment_name>
-        endpoints:
-        production:
-            url: <production_endpoint_url>
-            config:
-            retryTimeOut: <no_of_retries_before_suspension>
-            retryDelay: <retry_delay_in_ms>
-            factor: <suspension_factor>
-        sandbox:
-            url: <sandbox_endpoint_url>
-            config:
-            retryTimeOut: <no_of_retries_before_suspension>
-            retryDelay: <retry_delay_in_ms>
-            factor: <suspension_factor>
-        gatewayEnvironments:
-        - <gateway_environment_name>           
-        certs:
-        - hostName: <endpoint_url>
-            alias: <certificate_alias>
-            path: <certificate_file_path>
-```
-When running the `import-api` command, CTL tool will lookup the `api_params.yaml` file in the current location of archive. If not present, it will lookup the file in the current working directory. 
-
-Instead of the default `api_params.yaml`, you can a provide custom parameter file using `--params` flag. A sample command will be as follows.
-
-!!! example
-    ```go
-    apictl import-api -f dev/PhoneVerification_1.0.zip -e production --params /home/user/custom_params.yaml 
-    ```
 !!! note
+    **Configuring Environment Specific Parameters**
+
+    When the importing and exporting environments are different, before importing the API, you may need to update the exported API with details relevant to the importing environment. For example, the production and sandbox URLs, the timeout configurations, the backend certificates of your endpoints might differ between the dev and production environments. To allow easily configuring environment-specific details, by default CTL tool supports an additional parameter file named `api_params.yaml`. For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
+
     **Add Dynamic Data to Environment Configs**
 
-    The above parameter file supports detecting environment variables during the API import process. You can use the usual notation. For example, `url: $DEV_PROD_URL`.  If an environment variable is not set, the tool will fail and request a set of required environment variables on the system.
-
-    In runtime, the CTL look will inject the environment variable values and merge the related environment configs in the parameter file with the API artifact.
+    The above parameter file supports detecting environment variables during the API import process. For more information on using dynamic data, see [Add Dynamic Data to Environment Configs]({{base_path}}/learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects/#add-dynamic-data-to-environment-configs).
 
 !!! info
     Tiers and sequences are provider-specific. If an exported tier is not already available in the importing environment, that tier is not added to the new environment. However, if an exported API sequence is not available in the importing environment, it is added.
@@ -326,6 +274,15 @@ Instead of the default `api_params.yaml`, you can a provide custom parameter fil
     2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.1.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
     3.  Restart API Manager 3.1.0 server.
+
+!!! warning
+    If you have enabled Secure Endpoint (Refer [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) for more information), the endpoint password will be removed when exporting an API causing an error when you try to import the same API to an environment. There are 2 solutions for this.
+
+    1.  If Secure Endpoint is enabled and if the endpoint password should be exposed;
+    `ExposeEndpointPassword` should be set to `true` in the `/_system/config/apimgt/applicationdata/tenant-conf.json` in the registry so that the exported API will contain the endpoint password.
+
+    2.  Or else, if Secure Endpoint is enabled and if the endpoint password should not be exposed;
+    `ExposeEndpointPassword` should be set to `false` in the `/_system/config/apimgt/applicationdata/tenant-conf.json` in the registry (by default this is set to `false`). Here, the secure endpoint password is removed while exporting the API, since it may cause security issues. Hence, the password needs to be added manually when importing the API.
 
 ### Import/Export APIs in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing APIs between tenanted environments.

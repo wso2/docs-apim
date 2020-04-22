@@ -54,17 +54,17 @@ You need to add the API Token and Collection ID properties inside the configurat
 2.  Add the following configuration to the file and save the changes.
 
      ``` bash tab="Format"
-    [security_audit]
-    api_token="{api-token}"
-    collection_id="{collection-id}"
-    global=true
+        [security_audit]
+        api_token="{api-token}"
+        collection_id="{collection-id}"
+        global=true
      ```
 
      ``` bash tab="Example"
-    [security_audit]
-    api_token="c21404ea-p13x-1swq-013a-pur90605uiwl"
-    collection_id="a5213vyo-6tre-560u-p04h-p0inb98i0gt1"
-    global=true
+        [security_audit]
+        api_token="c21404ea-p13x-1swq-013a-pur90605uiwl"
+        collection_id="a5213vyo-6tre-560u-p04h-p0inb98i0gt1"
+        global=true
      ```
 
     !!! tip

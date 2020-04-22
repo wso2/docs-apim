@@ -273,7 +273,7 @@ This widget displays the API invocation counts for each of the APIs grouped by e
 #### Top API Users
 
 This widget lists the users who has done the most number of API invocations. 
-It also has several filters to search based on the creator of the API ( either All or Me ), API Name and API Version.
+It also has several filters to search based on the creator of the API (either All or Me), API Name and API Version.
 
 <html>
 <body>
@@ -335,7 +335,7 @@ This widget is a list view of the last access times of an API, according to the 
 
 #### Top User Agents
 
-This widget displays the percentage of API invocations using each browser. And the results can be filtered based on API Creator ( either All or Me), API Name and API version.
+This widget displays the percentage of API invocations using each browser. And the results can be filtered based on API Creator (either All or Me), API Name and API version.
 
 <html>
 <body>
@@ -348,7 +348,7 @@ This widget displays the percentage of API invocations using each browser. And t
 #### Top Platforms
 
 This widget displays the percentage of API invocations done using different operating systems.
-Results of this widget also can be filtered based on API Creator ( either All or Me), API Name and API version.
+Results of this widget also can be filtered based on API Creator (either All or Me), API Name and API version.
 
 <html>
 <body>
@@ -428,7 +428,7 @@ Therefore, at a given time, some statistics generated within the last 24 hours m
       And these permissions can be changed as per your preferences by going to **Settings** options of the dashboard. More information can be found at [Managing Analytics Dashboard Permissions]({{base_path}}/learn/analytics/managing-dashboard-permissions/) page.
 
 
-Log into the analytics-dashboard application and access developer portal statistics ( ex: [https://localhost:9643/analytics-dashboard/dashboards/apimdevportal](https://localhost:9643/analytics-dashboard/dashboards/apimdevportal) ) dashboard from there.
+Log into the analytics-dashboard application and access developer portal statistics (ex: [https://localhost:9643/analytics-dashboard/dashboards/apimdevportal](https://localhost:9643/analytics-dashboard/dashboards/apimdevportal)) dashboard from there.
 
 #### Faulty Invocation per Application
 
@@ -497,8 +497,8 @@ This widget displays the number of invocations made for each API by each applica
 
 ## Admin Portal Statistics
 
-Log in to the Admin Portal ( `https://localhost:9443/admin` ). 
-API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY** .
+Log in to the Admin Portal (`https://localhost:9443/admin`). 
+API Availability is the only statistical view that exists in the Admin Portal. Admin users can view API Availability statistics by navigating to **ANALYTICS &gt; API AVAILABILITY**.
 
 #### Availability of APIs
 
@@ -506,8 +506,8 @@ The status of the APIs (all API versions) represented in a tabular view.
 
 <html>
 <body>
-<img src="{{base_path}}/assets/img/learn/admin-portal-apiAvailability.png" 
-     onclick="window.open('{{base_path}}/assets/img/learn/admin-portal-apiAvailability.png', '_self');" 
+<img src="{{base_path}}/assets/img/learn/admin-portal-api-availability.png" 
+     onclick="window.open('{{base_path}}/assets/img/learn/admin-portal-api-availability.png', '_self');" 
      alt="failover" width="100%" height="100%"/>
 </body>
 </html>
@@ -519,8 +519,8 @@ The status of the APIs (all API versions) represented in a tabular view.
 <tr class="odd">
 <td>Status</td>
 <td><div class="content-wrapper">
-<p>This indicates the status of the API. There are two possible values; <strong>Available</strong> and <strong>Limited</strong> .</p>
-<p><strong>Available</strong> - This status indicates that the API has traffic with normal successful invocations. By default, if an API receives successful invocations for at least one out of five invocations within 30000 milliseconds, the status of the API becomes <strong>Available</strong> .</p>
+<p>This indicates the status of the API. There are two possible values; <strong>Available</strong> and <strong>Limited</strong>.</p>
+<p><strong>Available</strong> - This status indicates that the API has traffic with normal successful invocations. By default, if an API receives successful invocations for at least one out of five invocations within 30000 milliseconds, the status of the API becomes <strong>Available</strong>.</p>
 
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
@@ -528,7 +528,7 @@ The status of the APIs (all API versions) represented in a tabular view.
 </div>
 </html>
 
-<html><p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring), the API status changes to <strong>Limited</strong> .</p></html>
+<html><p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring), the API status changes to <strong>Limited</strong>.</p></html>
 
 <html><div class="admonition info">
 <p class="admonition-title">Note</p>
