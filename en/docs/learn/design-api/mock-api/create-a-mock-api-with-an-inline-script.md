@@ -57,11 +57,17 @@ The example response defined in the swagger is set as the mock response payload.
     mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
     mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
     ```
+    
 7. Lets manually modify the inline script of “/pet/{petId}” to set a path parameter entered by the user to a variable that will satisfy a condition and set a response accordingly.
 
-   Note that the RESET button appears once a change is mood to the script. When pressed the script will revert back to the originally generated script.
+      !!! tip
+   
+        RESET button appears once a change is mood to the script. When pressed the script will revert back to the originally generated script.
+        
+
 
    [![Modified inline script]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)]({{base_path}}/assets/img/learn/create-api-prototype-generated-script-modified.png)
+   
    
 
     ```
@@ -105,6 +111,7 @@ The example response defined in the swagger is set as the mock response payload.
     mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
 
     ```
+    
 ### Inline Script Methods  
     
 The following table shows the mc. methods that can be used to invoke functions in the inline script. With these functions, it is possible to access the Synapse predefined in a script variable named mc. The mc variable represents an implementation of the MessageContext, named ScriptMessageContext.java, which contains the following methods that can be accessed within the script as mc.methodName.
@@ -113,7 +120,6 @@ The following table shows the mc. methods that can be used to invoke functions i
 |---------|------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Yes     | getPayloadXML()                    | This gets an XML representation of SOAP Body payload.                                                                                                          |
 | No      | setPayloadXML(payload)             | This sets the SOAP body payload from XML.                                                                                                                      |
-| No      | addHeader(mustUnderstand, content) | This adds a new SOAP header to the message.                                                                                                                    |
 | Yes     | getEnvelopeXML()                   | This gets the XML representation of the complete SOAP envelope.                                                                                                |
 | No      | setTo(reference)                   | This is used to set the value which specifies the receiver of the message.                                                                                     |
 | Yes     | setFaultTo(reference)              | This is used to set the value which specifies the receiver of the faults relating to the message.                                                              |
@@ -170,10 +176,18 @@ The following table shows the mc. methods that can be used to invoke functions i
    [![Response for petid1]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)]({{base_path}}/assets/img/learn/create-api-prototype-execute-response-petid1.png)
    
    
-   
-
 You have successfully created an API with inline script, deployed it as a prototype, and invoked it via the integrated API Console.
 
 An API can also be prototyped by moving the API to the PROTOTYPED state by changing the API lifecycle state and providing the prototype endpoints.
 
+For more information, see the [Deploy and Test Prototype APIs](deploy-and-test-mock-apis.md) tutorial.
+
+!!! info
+    Related Guides
+    
+    - [Create and Publish an API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/)
+    
+    - [Create a WebSocket API]({{base_path}}/learn/design-api/create-api/create-a-websocket-api/)
+
+    - [Create an API from an Open API definition]({{base_path}}//learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition/)
 
