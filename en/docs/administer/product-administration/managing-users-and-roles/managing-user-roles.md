@@ -116,7 +116,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
     If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, add the new role under `apim:api_create` scope.
     
-    [![Add Scope Mapping]({{base_path}}/assets/img/learn/scope-mapping.png)]({{base_path}}/assets/img/learn/scope-mapping.png) 
+    ![Add Scope Mapping]({{base_path}}/assets/img/administer/scope-mapping.png) 
 
 !!! info
     **Application Roles**
@@ -133,8 +133,8 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
 ### Adding Role Mappings
 
-In the above example we mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There we had to update each and every entry that contained `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated.
-Therefore from APIM 3.1.0 onwards we are introduing a `Role Mapping` feature to enable users to easily map new roles to existing scopes.
+In the above example we mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There we had to update each and every entry that contained the `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated.
+Therefore from APIM 3.1.0 onwards we are introducing a `Role Mapping` feature to enable users to easily map new roles to existing scopes.
 
 1. Log in to the admin portal ( `https://<APIM_Host>:<APIM_Port>/admin` ) if you have not done already.
 
@@ -142,7 +142,7 @@ Therefore from APIM 3.1.0 onwards we are introduing a `Role Mapping` feature to 
 
 3. Under Role Mappings define a mapping as follows.
 
-[![Add Role Mapping]({{base_path}}/assets/img/learn/role-mapping.png)]({{base_path}}/assets/img/learn/role-mapping.png)
+![Add Role Mapping]({{base_path}}/assets/img/administer/role-mapping.png)
 
 This will update all scope mappings in tenant-conf.json with Internal/creator as an allowed role resulting the new creator role too be allowed for all scopes allowed for Internal/creator role.
 
