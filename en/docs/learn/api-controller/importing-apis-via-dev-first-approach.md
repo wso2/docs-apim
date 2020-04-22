@@ -117,7 +117,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                     security: 
                         - 
                         default: 
-                            - "products:read"
+                            - "read"
                     responses:
                         "200":
                         description: successful operation
@@ -129,14 +129,14 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                             implicit: 
                             authorizationUrl: "https://test.com"
                             scopes: 
-                                products:read: ""
+                                read: ""
                             x-scopes-bindings: 
-                                products:read: "admin"
+                                read: "admin"
                 ```
 
-            First you need to define the scope name (products:read) under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section.
+            First you need to define the scope name ("read") under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section. You can use your choice of name as the security scheme.
 
-            Make sure to set the security name as **`default`** when defining the scopes.        
+            Make sure to set the security type as **`oauth2`** when defining the scopes and when defining roles under a particular scope make sure that roles are include in **x-scopes-bindings:**  then scope name and the role permitted by the scope.          
 
      A project folder with the following default structure will be created in the given directory.
 
