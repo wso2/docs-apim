@@ -31,32 +31,39 @@ Follow the instructions below to enable email notifications for bot detection:
 
 1. Enable WSO2 API Manager Analytics.
 
-    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics](../../../../learn/analytics/configuring-apim-analytics/).
+    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/).
     
 2. Share your API-M database (`AM_DB`).
 
-     Modify the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file as follows. 
+     Add the following `AM_DB` datasource configuration in the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file under the `wso2.datasources:` section.
+     
+     ```
+     wso2.datasources:
+      dataSources:
+        ...
+
+        - name: AM_DB
+            description: "Main datasource used by API Manager."
+            jndiConfig:
+              name: jdbc/AM_DB
+            definition:
+              type: RDBMS
+              configuration:
+                jdbcUrl: 'jdbc:mysql://localhost:3306/apimgt_database'
+                username: username
+                password: password
+                driverClassName: com.mysql.jdbc.Driver
+                maxPoolSize: 50
+                idleTimeout: 60000
+                connectionTestQuery: SELECT 1
+                validationTimeout: 30000
+                isAutoCommit: false
+        
+        ...
 
      ```
-     - name: AM_DB
-        description: "The datasource used for APIM MGW analytics data."
-        jndiConfig:
-          name: jdbc/AM_DB
-        definition:
-          type: RDBMS
-          configuration:
-            jdbcUrl: 'jdbc:mysql://localhost:3306/apimgt_database'
-            username: username
-            password: password
-            driverClassName: com.mysql.jdbc.Driver
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
-     ```
 
-3. [Enable Alerts](../../../../learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
+3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
 
 4. Follow the instructions below to configure an email address to send email alerts to subscribers.
 
@@ -109,13 +116,13 @@ Follow the instructions below to enable email notifications for bot detection:
 
 9. Click **CONFIGURE EMAILS**.
   
-    ![Add email recipients](../../../assets/img/learn/bot-email-notification.png)
+    ![Add email recipients]({{base_path}}/assets/img/learn/bot-email-notification.png)
 
 10. Add the recipient's email address and click **Add**.
 
     If a hacker (e.g., bot attacker) tries to invoke an open service API, WSO2 API Manager will send emails to the email alert recipients. The following is a sample email notification.
 
-    ![Sample email notification for unauthorized API call](../../../assets/img/learn/sample-alert-email.png)
+    ![Sample email notification for unauthorized API call]({{base_path}}/assets/img/learn/sample-alert-email.png)
  
 ## Viewing bot detection data via the Admin Portal
 
@@ -130,30 +137,38 @@ Follow the instructions below to view the bot detection data for the unauthorize
 
 1. Enable WSO2 API Manager Analytics.
 
-    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics](../../../../learn/analytics/configuring-apim-analytics/).
+    Follow steps 1, 2, and 3 of the quick setup in [Configuring API Manager Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics/).
     
-2. Share your API-M database (`AM_DB`) by modifying the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file as follows. 
+2. Share your API-M database (`AM_DB`). 
 
+     Add the following `AM_DB` datasource configuration in the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file under the `wso2.datasources:` section.
+     
      ```
-     - name: AM_DB
-        description: "The datasource used for APIM MGW analytics data."
-        jndiConfig:
-          name: jdbc/AM_DB
-        definition:
-          type: RDBMS
-          configuration:
-            jdbcUrl: 'jdbc:mysql://localhost:3306/apimgt_database'
-            username: username
-            password: password
-            driverClassName: com.mysql.jdbc.Driver
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1
-            validationTimeout: 30000
-            isAutoCommit: false
+     wso2.datasources:
+      dataSources:
+        ...
+
+        - name: AM_DB
+            description: "Main datasource used by API Manager."
+            jndiConfig:
+              name: jdbc/AM_DB
+            definition:
+              type: RDBMS
+              configuration:
+                jdbcUrl: 'jdbc:mysql://localhost:3306/apimgt_database'
+                username: username
+                password: password
+                driverClassName: com.mysql.jdbc.Driver
+                maxPoolSize: 50
+                idleTimeout: 60000
+                connectionTestQuery: SELECT 1
+                validationTimeout: 30000
+                isAutoCommit: false
+        
+        ...
      ```
 
-3. [Enable Alerts](../../../../learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
+3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
 
 4. Follow the instructions below to configure an email address to send email alerts to subscribers.
 
@@ -204,6 +219,6 @@ Follow the instructions below to view the bot detection data for the unauthorize
 
 8. Click **BOT DETECTION DATA**.
 
-     ![Bot detection data details for unauthorized API calls](../../../assets/img/learn/bot-data.png)
+     ![Bot detection data details for unauthorized API calls]({{base_path}}/assets/img/learn/bot-data.png)
 
     If a hacker (e.g., bot attacker) tries to invoke an open service API, the Bot detection data details, which appear in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log` trace log, will appear.
