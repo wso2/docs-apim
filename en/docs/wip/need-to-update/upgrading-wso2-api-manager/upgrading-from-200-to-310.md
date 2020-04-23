@@ -1579,7 +1579,7 @@ Follow the instructions below to move all the existing API Manager configuration
         REFERENCING NEW AS NEW
         FOR EACH ROW
             BEGIN
-                SELECT SEQUENCE AM_SYSTEM_APP_SEQUENCE.nextval INTO :NEW.ID FROM dual;
+                SELECT AM_SYSTEM_APP_SEQUENCE.nextval INTO :NEW.ID FROM dual;
             END;
         /
 
