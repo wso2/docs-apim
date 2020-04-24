@@ -460,6 +460,7 @@ nav:
             - Configuring Caching: administer/product-configurations/configuring-caching.md
             - Common Runtime and Configuration Artifacts: administer/product-configurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: administer/product-configurations/customizing-the-management-console.md
+            - Adding Internationalization and Localization: administer/product-configurations/adding-internationalization.md
         - Product Security:
             - Configuring Keystores:
                 - Configuring Keystores in API Manager: administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
