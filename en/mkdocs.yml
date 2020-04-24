@@ -373,7 +373,8 @@ nav:
             - Deploying API Manager with Kubernetes or OpenShift Resources: install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
             - Configuring API-M Analytics High Availability Deployment:
                 - Active-Active: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md
-                - Active-Passive: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md            - Deployment Guidelines:
+                - Active-Passive: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md            
+            - Deployment Guidelines:
                 - Production Deployment Guidelines: install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md
         - Setting up Databases:
@@ -535,5 +536,4 @@ extra:
       link: https://www.linkedin.com/company/wso2
   site_version: 3.2.0
   base_path: https://apim.docs.wso2.com/en/next
-
 
