@@ -33,7 +33,7 @@ The API Manager includes two Web interfaces, namely the API Publisher and Develo
         English
         </td>
         <td>
-        Spanish</br>Arabic</br>Sinhala
+        N/A
         </td>
         </tr>
                 <tr>
@@ -44,7 +44,7 @@ The API Manager includes two Web interfaces, namely the API Publisher and Develo
         English
         </td>
         <td>
-        Sinhala
+        Spanish</br>French
         </td>
         </tr>
         </table>
@@ -64,7 +64,7 @@ For example, let's assume that you are using Google Chrome, and let's change the
 
 2. Add the highest preference to "Spanish", so that "Spanish" moves to the top of the language list.
 
-3. Refresh the API Publisher and Developer Portal web apps.
+3. Refresh the API Publisher web app.
      
      The text in the browser will be translated into Spanish. 
      
