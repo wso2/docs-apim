@@ -155,7 +155,7 @@ Let's find the key for the main title named **APIs** in the following screen.
 
 ## Changing the direction of the UI
 
-WSO2 API-M 3.1.0 onwards has the capability of direction change for the **Developer Portal** web application. This feature enables you to entirely change the default direction of the UI from LTR (Left To Right) to RTL (Right to Left). This is required if you are trying to add support for languages such as Arabic. 
+WSO2 API Manager has the capability of direction change for the **Developer Portal** web application. This feature enables you to entirely change the default direction of the UI from LTR (Left To Right) to RTL (Right to Left). This is required if you are trying to add support for languages such as Arabic. 
 
 Follow the instructions below to change the direction of the UI:
 
@@ -189,7 +189,7 @@ Follow the instructions below to change the direction of the UI:
 
 ## Enabling the language switch
 
-WSO2 API-M 3.1.0 onwards has the capability of language switching for the **Developer Portal** web application. 
+WSO2 API Manager has the capability of language switching for the **Developer Portal** web application. 
 
 !!! note
     - When you switch between languages via the language switch, it will take precedence over the browser locale. 
