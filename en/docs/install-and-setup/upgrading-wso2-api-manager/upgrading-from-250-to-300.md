@@ -1421,8 +1421,27 @@ Follow the instructions below to move all the existing API Manager configuration
             ```
             -Dmigrate -Dcomponent=identity
             ```
+7.  Migrate the API Manager artifacts.
 
-6.  Re-index the artifacts in the registry.
+    You have to run the following migration client to update the registry artifacts.
+    
+    1.  Download and extract [migration-resources.zip](../../assets/attachments/InstallAndSetup/migration-resources.zip). Copy the extracted migration-resources folder to the `<API-M_3.0.0_HOME>` directory.
+
+    2. Download and copy the [API Manager Migration Client](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-2.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+
+    3.  Start the API-M server as follows.
+
+        ``` tab="Linux / Mac OS"
+        sh wso2server.sh -DmigrateFromVersion=2.5.0
+        ```
+
+        ``` tab="Windows"
+        wso2server.bat -DmigrateFromVersion=2.5.0
+        ```
+
+    3.  Shutdown the API-M server.
+
+8.  Re-index the artifacts in the registry.
 
     1.  Run the [reg-index.sql](../../assets/attachments/InstallAndSetup/reg-index.sql) script against the configured `SHARED_DB` database.
 
@@ -1601,7 +1620,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         validationQuery = "SELECT 1"
         ```
 
-2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-2.jar](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-2.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 

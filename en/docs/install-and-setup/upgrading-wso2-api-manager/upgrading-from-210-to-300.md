@@ -1861,9 +1861,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
     You have to run the following migration client to update the registry artifacts.
 
-    1. Download and copy the [API Manager Migration Client](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder. 
+    1.  Download and extract [migration-resources.zip](../../assets/attachments/InstallAndSetup/migration-resources.zip). Copy the extracted migration-resources folder to the `<API-M_3.0.0_HOME>` directory.
 
-    2.  Start the API-M server as follows.
+    2.  Download and copy the [API Manager Migration Client](../../assets/attachments/InstallAndSetup/org.wso2.carbon.apimgt.migrate.client-3.0.x-2.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder. 
+
+    3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
         sh wso2server.sh -DmigrateFromVersion=2.1.0
@@ -1873,7 +1875,7 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=2.1.0
         ```
 
-    3.  Shutdown the API-M server.
+    4.  Shutdown the API-M server.
 
 8.  Re-index the artifacts in the registry.
 
