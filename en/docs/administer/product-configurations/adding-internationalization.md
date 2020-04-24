@@ -280,7 +280,7 @@ Follow the instructions below to enable the language switch:
 
      Now, a switch will be displayed in the top menu to change the language.
 
-     ![Switch language]({{base_path}}/assets/img/administer/find-key-04.png)
+     ![Switch language option]({{base_path}}/assets/img/administer/find-key-04.png)
 
 
 ### Languages available by default
