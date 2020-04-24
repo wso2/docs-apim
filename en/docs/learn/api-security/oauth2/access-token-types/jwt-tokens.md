@@ -24,6 +24,11 @@ The following prerequisites have to be satisfied for JWT based tokens to work.
       <p>The latter mentioned prerequisite is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
      </html>
+-  Enable the following configuration to the <NEW_API-M_HOME>/repository/conf/deployment.toml file of new WSO2 API Manager.
+
+    [apim.jwt]
+    
+    enable = true
 
 ## Mandatory attributes of a JWT access token
 
