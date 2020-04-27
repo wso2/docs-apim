@@ -24,11 +24,6 @@ The following prerequisites have to be satisfied for JWT based tokens to work.
       <p>The latter mentioned prerequisite is not applicable if you use the default certificates, which are the certificates that are shipped with the product itself. </p>
       </div> 
      </html>
--  Enable the following configuration to the <NEW_API-M_HOME>/repository/conf/deployment.toml file of new WSO2 API Manager.
-
-    [apim.jwt]
-    
-    enable = true
 
 ## Mandatory attributes of a JWT access token
 
@@ -48,13 +43,19 @@ The following are the mandatory attributes that are required for a JWT access to
 
 Follow the instructions below to work with JWT Authentication in WSO2 API Manager.
 
-### Step 1 - Access the Developer Portal
+### Step 1 - Enable a jwt in toml file
+ 
+ [apim.jwt]
+    
+  enable = true
+
+### Step 2 - Access the Developer Portal
 
 Sign in to the Developer Portal.  
     
 `https://<hostname>:9443/devportal`
 
-### Step 2 - Create a JWT access token based application
+### Step 3 - Create a JWT access token based application
 
 1. Click **Applications**.
 
@@ -78,7 +79,7 @@ Sign in to the Developer Portal.
 
      ![Add new Application](../../../../assets/img/learn/add-new-application.png)
 
-### Step 3 - Generate a JWT access token
+### Step 4 - Generate a JWT access token
 
 1. Click **APIs** and click on the PizzaShackAPI.
 
@@ -95,7 +96,7 @@ Sign in to the Developer Portal.
 
 6. Click **GENERATE ACCESS TOKEN**, click **Generate**, and copy the JWT access token.
 
-### Step 4 - Invoke the API using the JWT access token
+### Step 5 - Invoke the API using the JWT access token
 
 Invoking an API with a JWT formatted access token is similar to invoking the API with a regular opaque access token. Use the cURL command below to invoke the API via the API Gateway.
 
