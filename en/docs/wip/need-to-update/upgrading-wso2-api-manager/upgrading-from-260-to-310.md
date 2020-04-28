@@ -556,9 +556,9 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
+        CREATE INDEX IF NOT EXISTS IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
 
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        CREATE INDEX IF NOT EXISTS IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
             ID INTEGER AUTO_INCREMENT NOT NULL,
@@ -577,7 +577,7 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        CREATE INDEX IF NOT EXISTS IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
             ID INTEGER AUTO_INCREMENT NOT NULL,
@@ -589,7 +589,7 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        CREATE INDEX IF NOT EXISTS IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
             ID INTEGER AUTO_INCREMENT NOT NULL,
@@ -1027,9 +1027,11 @@ Follow the instructions below to move all the existing API Manager configuration
         PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
-
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RID' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
+        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE(RESOURCE_ID);
+        
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_USER' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
+        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE(RESOURCE_OWNER_NAME, USER_DOMAIN);
 
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_RESOURCE_META_DATA]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
@@ -1050,7 +1052,8 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RS' and object_id = OBJECT_ID('IDN_UMA_RESOURCE_SCOPE'))
+        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE(SCOPE_NAME);
 
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PERMISSION_TICKET]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_UMA_PERMISSION_TICKET (
@@ -1063,7 +1066,8 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_PT' and object_id = OBJECT_ID('IDN_UMA_PERMISSION_TICKET'))
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET(NAME, PT);
 
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_UMA_PT_RESOURCE (
@@ -1205,9 +1209,21 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
-
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        DELIMITER $$
+        create procedure SKIP_INDEX_IF_EXISTS(indexName varchar(64), tableName varchar(64), tableColumns varchar(255))
+        BEGIN
+            BEGIN
+            DECLARE CONTINUE HANDLER FOR SQLEXCEPTION BEGIN
+                END;
+            SET @s = CONCAT('CREATE INDEX ', indexName, ' ON ', tableName, tableColumns); PREPARE stmt FROM @s;
+                EXECUTE stmt; 
+            END;
+        END $$
+        DELIMITER ;
+        
+        CALL SKIP_INDEX_IF_EXISTS('IDX_RID', 'IDN_UMA_RESOURCE', '(RESOURCE_ID)');
+        
+        CALL SKIP_INDEX_IF_EXISTS('IDX_USER', 'IDN_UMA_RESOURCE', '(RESOURCE_OWNER_NAME, USER_DOMAIN)');
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_RESOURCE_META_DATA (
             ID INTEGER AUTO_INCREMENT NOT NULL,
@@ -1226,7 +1242,7 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        CALL SKIP_INDEX_IF_EXISTS('IDX_RS', 'IDN_UMA_RESOURCE_SCOPE', '(SCOPE_NAME)');
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PERMISSION_TICKET (
             ID INTEGER AUTO_INCREMENT NOT NULL,
@@ -1238,7 +1254,9 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        CALL SKIP_INDEX_IF_EXISTS('IDX_PT', 'IDN_UMA_PERMISSION_TICKET', '(PT)');
+
+        DROP PROCEDURE IF EXISTS SKIP_INDEX_IF_EXISTS;
 
         CREATE TABLE IF NOT EXISTS IDN_UMA_PT_RESOURCE (
             ID INTEGER AUTO_INCREMENT NOT NULL,
@@ -1443,10 +1461,20 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)
+        CREATE OR REPLACE PROCEDURE add_index_if_not_exists (query IN VARCHAR2)
+          IS
+        BEGIN
+          execute immediate query;
+          dbms_output.put_line(query);
+        exception WHEN OTHERS THEN
+          dbms_output.put_line( 'Skipped ');
+        END;
         /
-
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)
+        
+        CALL add_index_if_not_exists('CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID)')
+        /
+        
+        CALL add_index_if_not_exists('CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN)')
         /
 
         CREATE TABLE IDN_UMA_RESOURCE_META_DATA (
@@ -1494,7 +1522,7 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)
+        CALL add_index_if_not_exists('CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME)')
         /
 
         CREATE TABLE IDN_UMA_PERMISSION_TICKET (
@@ -1707,9 +1735,9 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
+        CREATE INDEX IF NOT EXISTS IDX_RID ON IDN_UMA_RESOURCE (RESOURCE_ID);
 
-        CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
+        CREATE INDEX IF NOT EXISTS IDX_USER ON IDN_UMA_RESOURCE (RESOURCE_OWNER_NAME, USER_DOMAIN);
 
         DROP TABLE IF EXISTS IDN_UMA_RESOURCE_META_DATA;
         DROP SEQUENCE IF EXISTS IDN_UMA_RESOURCE_META_DATA_SEQ;
@@ -1734,7 +1762,7 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (RESOURCE_IDENTITY) REFERENCES IDN_UMA_RESOURCE (ID) ON DELETE CASCADE
         );
 
-        CREATE INDEX IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
+        CREATE INDEX IF NOT EXISTS IDX_RS ON IDN_UMA_RESOURCE_SCOPE (SCOPE_NAME);
 
         DROP TABLE IF EXISTS IDN_UMA_PERMISSION_TICKET;
         DROP SEQUENCE IF EXISTS IDN_UMA_PERMISSION_TICKET_SEQ;
@@ -1749,7 +1777,7 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
+        CREATE INDEX IF NOT EXISTS IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT);
 
         DROP TABLE IF EXISTS IDN_UMA_PT_RESOURCE;
         DROP SEQUENCE IF EXISTS IDN_UMA_PT_RESOURCE_SEQ;
