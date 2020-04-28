@@ -263,9 +263,9 @@ nav:
             - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
             - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
             - Using Geolocation Based Statistics:
-                - Configuring Geolocation Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
-                - Writing a Custom Geolocation Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
-                - Updating Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md
+                - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
+                - Configuring Geo Location Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
+                - Writing a Custom Geo Location Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
             - Alerts for APIs:
                 - Alert Types: learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md
                 - Configuring Alerts: learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md
