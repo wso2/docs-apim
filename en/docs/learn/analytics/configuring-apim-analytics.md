@@ -230,6 +230,32 @@ Save the changes.
 
 Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
 
+!!! note
+    If you are configuring APIM Analytics related databases in **Oracle**, apart from the below mentioned configurations, 
+    you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to each analytics related 
+    database(either in worker or dashboard) you configure with Oracle.
+    
+    In the following example `APIM_ANALYTICS_DB` is configured with Oracle.
+    ``` java
+    - name: APIM_ANALYTICS_DB
+      description: "The datasource used for APIM statistics aggregated data."
+      jndiConfig:
+        name: jdbc/APIM_ANALYTICS_DB
+        definition:
+          type: RDBMS
+          configuration:
+            jdbcUrl: 'jdbc:oracle:thin:@localhost:1521:XE'
+            username: 'root'
+            password: '123'
+            driverClassName: oracle.jdbc.OracleDriver
+            maxPoolSize: 50
+            idleTimeout: 60000
+            connectionTestQuery: SELECT 1 FROM DUAL
+            connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+            validationTimeout: 30000
+            isAutoCommit: false
+    ```
+
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.
     1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
