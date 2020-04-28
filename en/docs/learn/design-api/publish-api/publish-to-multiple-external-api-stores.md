@@ -91,7 +91,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
             <!--Configuration to set the Developer Portal URL of the current running APIM deployment. 
             APIs published to external developer portals will be redirected to this URL-->
             
-                <StoreURL>http://<ip_address>:<port>localhost:9444/devportal</StoreURL>
+                <StoreURL>http://<ip_address>:<port>localhost:9443/devportal</StoreURL>
 
                 <ExternalAPIStore id="SLStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>SL-Store</DisplayName>
