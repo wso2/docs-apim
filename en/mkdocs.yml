@@ -426,7 +426,6 @@ nav:
                 - Enabling Tracing with OpenTracing: administer/product-administration/monitoring/monitoring-with-opentracing.md
                 - Capturing System Data in Error Situations: administer/product-administration/monitoring/capturing-system-data-in-error-situations.md
                 - JMX-Based Monitoring: administer/product-administration/monitoring/jmx-based-monitoring.md
-                - Monitoring Message Flows: administer/product-administration/monitoring/monitoring-message-flows.md
                 - Monitoring Performance Statistics: administer/product-administration/monitoring/monitoring-performance-statistics.md
                 - Monitoring TCP-Based Messages: administer/product-administration/monitoring/monitoring-tcp-based-messages.md
             - Revoke OAuth2 Application: administer/product-administration/revoke-oauth2-application.md

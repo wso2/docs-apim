@@ -90,6 +90,11 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 - [Developer Portal]({{base_path}}/develop/product-apis/devportal-v0.15/) and [Publisher]({{base_path}}/develop/product-apis/publisher-v0.15) v0.15 based REST APIs.
 
+### Removed features and functionalities
+
+- [Monitoring message flows](https://apim.docs.wso2.com/en/3.0.0/administer/product-administration/monitoring/monitoring-message-flows/)
+
+     This feature was removed due to low usage of the feature.
 
 ## Compatible WSO2 product versions
 
