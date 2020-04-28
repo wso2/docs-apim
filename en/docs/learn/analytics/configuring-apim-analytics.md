@@ -419,22 +419,22 @@ auth.configs:
 |-------------------------------------------------------|-------------------------------------|--------------------------------|
 | `adminScope`| apim_analytics:admin_carbon.super | Admin scope which is used for permissions in dashboards.|
 | `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
-| `adminServiceBaseUrl`| https://localhost:9443 | Url which the WSO2 admin services are running.(API Manager node URL)|
+| `adminServiceBaseUrl`| https://localhost:9443 | Url which the WSO2 admin services are running. This should be pointed to API Manager node URL in the all in one deployment. In a distributed deployment, this needs to be pointed to the API Manager Publisher node url.|
 | `adminUsername`| admin | The username for the admin services.|
 | `adminPassword`| admin | The password for the admin services.|
-| `kmDcrUrl`| https://localhost:9443/client-registration/v0.15/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP.|
-| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirections.|
-| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP.|
+| `kmDcrUrl`| https://localhost:9443/client-registration/v0.15/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node url.|
+| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirections. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node url.|
+| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node url.|
 | `kmUsername`| admin | The username for the key manager in the IdP.|
 | `kmPassword`| admin | The password for the key manager in the IdP.|
 | `portalAppContext`| analytics-dashboard | The application context of the Analytics Dashboard application.|
 | `businessRulesAppContext`| business-rules| The application context of the Business Rules application.|
 | `cacheTimeout`| 900 | The cache timeout for the validity period of the token in seconds.|
 | `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token.|
-| `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
+| `grantType`| authorization_code | The grant type used in the OAuth application token request.|
 | `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
-| `storeUrl`| https://localhost:9443 | Url which the API Manager store is running. Add this config if the Developer Portal and Publihser are running in two seperate nodes.|
-| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
+| `storeUrl`| https://localhost:9443 | Url which the API Manager Developer Portal is running. Add this config if the Developer Portal and Publisher are running in two separate nodes.|
+| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. The `https://localhost:9443` section should be replaced with the API Manager node URL in the all in one deployment. In a distributed deployment, `https://localhost:9443` section should be replaced with the API Manager Publisher node url.|
 
 
 #### Step 6 - Configure keystores
