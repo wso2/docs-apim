@@ -72,10 +72,10 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
 
     In this example,
 
-    - `http://localhost:9464/devportal` is the API Developer Portal of the second WSO2 API Manager instance.
+    - `http://localhost:9444/devportal` is the API Developer Portal of the second WSO2 API Manager instance.
     -   You publish to its super tenant's Developer Portal (admin/admin).
     -   For this tutorial, change the `DisplayName` to `DeveloperPortal2` , so that it is clear that we are referring to the second WSO2 API-M instance, which we are using as the external Developer Portal.
-    -   The port is 9464 as you incremented it by 1 in step 2.
+    -   The port is 9444 as you incremented it by 1 in step 2.
     -   If the second WSO2 API Manager instance has multiple tenants and you want to publish to a tenant's Developer Portal, the tenant's Developer Portal URL and credentials must be given here.
 
 
@@ -91,7 +91,7 @@ In this guide, let's use two separate instances of WSO2 API Manager, and let's p
             <!--Configuration to set the Developer Portal URL of the current running APIM deployment. 
             APIs published to external developer portals will be redirected to this URL-->
             
-                <StoreURL>http://<ip_address>:<port>localhost:9463/devportal</StoreURL>
+                <StoreURL>http://<ip_address>:<port>localhost:9444/devportal</StoreURL>
 
                 <ExternalAPIStore id="SLStore" type="wso2" className="org.wso2.carbon.apimgt.impl.publishers.WSO2APIPublisher">
                     <DisplayName>SL-Store</DisplayName>
