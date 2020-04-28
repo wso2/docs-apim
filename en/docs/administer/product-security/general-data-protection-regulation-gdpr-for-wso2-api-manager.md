@@ -20,7 +20,47 @@ All configurations related to this tool can be found inside the `<API-M_HOME>/re
 
 -   Log file name regex: `(.)*(log|out)`
 
-For information on changing these configurations, see [Configuring the config.json file](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-Configuringtheconfig.jsonfile) in the Product Administration Guide.
+#### Configuring the master configuration file
+The master configuration file of the Identity Anonymization tool is the config.json file. Following is a sample config.json file:
+
+``` js
+{
+  "processors" : [
+    "log-file", "rdbms"
+  ],
+  "directories": [
+    {
+      "dir": "log-config",
+      "type": "log-file",
+      "processor" : "log-file",
+      "log-file-path" : "logs",
+      "log-file-name-regex" : "wso2carbon.log"
+    },
+    {
+      "dir": "sql",
+      "type": "rdbms",
+      "processor" : "rdbms"
+    }
+  ],
+  "extensions": [
+    {
+      "dir": "datasources",
+      "type": "datasource",
+      "processor" : "rdbms",
+      "properties" : [
+        {"identity": "WSO2_CARBON_DB"}
+      ]
+    }
+  ]
+}
+```
+
+You can configure the following in the config.json file based on your requirement:
+
+* processors - A list of processors on which you want the tool run. The processors that you can specify are pre-defined. Possible values are RDBMS and log-file.
+* directories - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the config.json file, or specify the absolute path to the directory.
+* processor - The type of processor to use to process instructions in the corresponding directory.
+* extensions - The extensions to be initialized prior to starting a processor.
 
 ### Changing the default configurations location
 
