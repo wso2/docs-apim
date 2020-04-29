@@ -1549,7 +1549,10 @@ Follow the instructions below to move all the existing API Manager configuration
         END;
         /
 
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)
+        CALL add_index_if_not_exists('CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET (PT)')
+        /
+        
+        DROP PROCEDURE add_index_if_not_exists
         /
 
         CREATE TABLE IDN_UMA_PT_RESOURCE (
