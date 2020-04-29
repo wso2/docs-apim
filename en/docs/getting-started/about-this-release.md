@@ -60,11 +60,11 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ### Improvements to existing WSO2 API-M features
 
-- [Language Switch]({{base_path}}/administer/product-configurations/adding-internationalization/#enabling-the-language-switch)
+- [Language Switch]({{base_path}}/learn/consume-api/customizations/adding-internationalization/#enabling-the-language-switch)
     
     A language switch allows the Developer Portal users to select the language in which they want to read the content. The Developer Portal theming architecture lets developers to add a language switch in different ways.
 
-- [Changing the layout direction in the Developer Portal]({{base_path}}/administer/product-configurations/adding-internationalization/#changing-the-layout-direction)
+- [Changing the layout direction in the Developer Portal]({{base_path}}/learn/consume-api/customizations/adding-internationalization/#changing-the-layout-direction)
 
     You can switch the Developer Portal layout direction from its default LTR to RTL using a single configuration.
 
