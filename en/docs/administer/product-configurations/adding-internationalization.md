@@ -153,7 +153,7 @@ Let's find the key for the main title named **APIs** in the following screen.
      ![Inspect element window]({{base_path}}/assets/img/administer/find-key-03.png)
 
 
-## Changing the direction of the UI
+## Changing the layout direction
 
 WSO2 API Manager has the capability of direction change for the **Developer Portal** web application. This feature enables you to entirely change the default direction of the UI from LTR (Left To Right) to RTL (Right to Left). This is required if you are trying to add support for languages such as Arabic. 
 
