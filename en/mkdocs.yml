@@ -285,6 +285,7 @@ nav:
                 - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
                 - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md
                 - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
+                - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
         - API Controller:
             - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
             - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
