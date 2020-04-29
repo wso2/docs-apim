@@ -18,7 +18,7 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M related new features
 
-- **[Integrating AWS Lambda with APIM]({{base_path}}/learn/tutorials/create-and-publish-awslambda-ap)**
+- **[Integrating AWS Lambda with APIM]({{base_path}}/learn/tutorials/create-and-publish-awslambda-api)**
 
      When using AWS Lambda to create and publish APIs, you can execute your code without having to manage or provision servers.
 
@@ -27,7 +27,7 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
      WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), which is the only enterprise API security platform, in order to be able to conduct a security audit on the OpenAPI Specification definition and to obtain an audit report.
 
-- **[API Categories]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md)**
+- **[API Categories]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping)**
 
      API categories are similar to Tag wise grouping. However, admins need to define API categories that Publishers can use when creating APIs. Furthermore, unlike Tag wise grouping API categories do not use a naming convention. Therefore, with the introduction of this feature, WSO2 has deprecated the Tag wise grouping feature.
 
@@ -35,7 +35,9 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
      The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations. 
 
-- **API Mocking Feature**
+- [**API Mocking**]({{base_path}}/learn/design-api/mock-api/create-a-mock-api-with-an-inline-script)
+
+     Ability to create a prototype API using a mock payload that is generated for inline scripts.
 
 ### WSO2 API-M Analytics related new features
 
@@ -58,13 +60,13 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ### Improvements to existing WSO2 API-M features
 
-- Language Switcher
+- [Language Switch]({{base_path}}/learn/consume-api/customizations/adding-internationalization/#enabling-the-language-switch)
     
-    A language switcher allows the Developer Portal users to select the language in which they want to read the content. The Developer Portal theming architecture lets developers add a language switcher in different ways.
+    A language switch allows the Developer Portal users to select the language in which they want to read the content. The Developer Portal theming architecture lets developers to add a language switch in different ways.
 
-- Right to left support for the Developer Portal
+- [Changing the layout direction in the Developer Portal]({{base_path}}/learn/consume-api/customizations/adding-internationalization/#changing-the-layout-direction)
 
-    You can switch the of the Developer Portal layout direction from its default LTR to RTL using a single configuration.
+    You can switch the Developer Portal layout direction from its default LTR to RTL using a single configuration.
 
 - Custom URL feature improvements
 
@@ -90,6 +92,11 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 - [Developer Portal]({{base_path}}/develop/product-apis/devportal-v0.15/) and [Publisher]({{base_path}}/develop/product-apis/publisher-v0.15) v0.15 based REST APIs.
 
+### Removed features and functionalities
+
+- [Monitoring message flows](https://apim.docs.wso2.com/en/3.0.0/administer/product-administration/monitoring/monitoring-message-flows/)
+
+     This feature was removed due to low usage of the feature.
 
 ## Compatible WSO2 product versions
 
