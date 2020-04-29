@@ -30,14 +30,14 @@ If you have configured logs with PII to be saved in another location, you can ad
   ],
   "directories": [
     {
-      "dir": "log-config1",
+      "dir": "worker-logs",
       "type": "log-file",
       "processor" : "log-file",
       "log-file-path" : "<API-M_ANALYTICS_HOME>/wso2/worker/logs",
       "log-file-name-regex" : "(.)*(log|out)"
     },
     {
-      "dir": "log-config2",
+      "dir": "dashboard-logs",
       "type": "log-file",
       "processor" : "log-file",
       "log-file-path" : "<API-M_ANALYTICS_HOME>/wso2/dashboard/logs",
