@@ -70,3 +70,5 @@ six==1.4.1
 tornado==5.1.1
 vboxapi==1.0
 xattr==0.6.4
+mkdocs-redirects==1.0.0
+mkdocs-exclude==1.0.2
