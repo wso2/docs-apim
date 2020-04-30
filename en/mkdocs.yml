@@ -233,6 +233,7 @@ nav:
                 - Setting Maximum Backend Throughput Limits: learn/rate-limiting/setting-maximum-backend-throughput-limits.md
                 - Engaging a New Throttling Policy at Runtime: learn/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
                 - Advanced Topics:
+<<<<<<< HEAD
                       - Custom Throttling: learn/rate-limiting/advanced-topics/custom-throttling.md
           - API Monetization:
                 - Monetizing an API: learn/api-monetization/monetizing-an-api.md
@@ -283,6 +284,180 @@ nav:
                 - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
                 - Create and Publish WebSocket API: learn/tutorials/create-and-publish-websocket-api.md
                 - Edit and Consume APIs using Swagger Tools: learn/tutorials/edit-and-consume-apis-using-swagger-tools.md
+=======
+                        - Adding an API Subscription Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
+            - Invoke APIs:
+                    - Invoke an API Using the Integrated API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
+                    - Invoke an GraphQL API using the Integrated GraphQL Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
+                    - Include Additional Headers in the API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
+                    - Invoke an API Using a SOAP Client: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+            - Collaborations:
+                - Use the Community Features: learn/consume-api/collaboration/use-the-community-features.md
+            - Customizations:
+                -  Customizing the Developer Portal:
+                    - Overriding Developer Portal Theme: learn/consume-api/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                    - Customize API Listing:
+                        - Categorizing and Grouping APIs:
+                            - API Category based Grouping: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md
+                            - Tagwise based Grouping: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md
+                        - Change Default View: learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+                    - Enabling or Disabling API Detail Tabs: learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                    - Override API Overview Page per API: learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                    - Enable or Disable Rating: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                    - Enable or Disable Home Page: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                    - Enable or Disable Tag Cloud: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                    - Enable or Disable Footer: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                    - Enable or Disable Banner: learn/consume-api/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                    - Styling API Details Left Menu: learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                    - Styling API Details Info Section: learn/consume-api/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
+                    - Styling the Logo and Header: learn/consume-api/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                    - Enabling or Disabling Self Signup : learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                    - Advanced Customization: learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization.md
+                - Log in to the Developer Portal using Social Media: learn/consume-api/customizations/log-in-to-the-dev-portal-using-social-media.md
+                - Adding a User Signup Workflow: learn/consume-api/customizations/adding-a-user-signup-workflow.md
+                - Directing the Root Context to the Developer Portal: learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md
+                - Customizing User Signup in Developer Portal: learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md
+                - Customizing Login Pages for Developer Portal and Publisher: learn/consume-api/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+            - Generating SDKs:
+                - Generate SDKs in Developer Portal: learn/consume-api/generating-sdks/generate-sdks-in-dev-portal.md
+                - Write a Client Application Using the SDK: learn/consume-api/generating-sdks/write-a-client-application-using-the-sdk.md
+        - API Gateway:
+            - Overview of the WSO2 API Gateway: learn/api-gateway/overview-of-the-api-gateway.md
+            - Message Mediation:
+                - Changing the Default Mediation Flow of API Requests: learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests.md
+                - Creating and Uploading using Integration Studio: learn/api-gateway/message-mediation/creating-and-uploading-using-integration-studio.md
+                - Adding Dynamic Endpoints : learn/api-gateway/message-mediation/adding-dynamic-endpoints.md
+                - Removing Specific Request Headers From Response: learn/api-gateway/message-mediation/removing-specific-request-headers-from-response.md
+                - Passing a Custom Authorization Token to the Backend: learn/api-gateway/message-mediation/passing-a-custom-authorization-token-to-the-backend.md
+                - URL Mapping: learn/api-gateway/message-mediation/mapping-the-parameters-of-your-backend-urls-with-the-api-publisher-urls.md
+                - Disabling Message Chunking: learn/api-gateway/message-mediation/disabling-message-chunking.md
+                - Transforming API Message Payload: learn/api-gateway/message-mediation/transforming-api-message-payload.md
+                - Adding a Non-Blocking Send Operation: learn/api-gateway/message-mediation/adding-a-non-blocking-send-operation.md
+                - Adding a Class Mediator:  learn/api-gateway/message-mediation/adding-a-class-mediator.md
+            - Handlers:
+                - Writing Custom Handlers: learn/api-gateway/handlers/writing-custom-handlers.md
+            - Response Caching: learn/api-gateway/response-caching.md
+            - Message Tracing: learn/api-gateway/message-tracing.md
+            - Threat Protectors:
+                - Regular Expression Threat Protection: learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                - JSON Threat Protection: learn/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+            - Passing Enduser Attributes to the Backend:
+                - Passing Enduser Attributes to the Backend Using JWT: learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt.md
+            - Gateway Environments: learn/api-gateway/maintaining-separate-production-and-sandbox-gateways.md
+            - Scaling the Gateway: learn/api-gateway/scaling-the-gateway.md
+            - Advanced Topics:
+                - API Gateways with Dedicated Backends: learn/api-gateway/api-gateways-with-dedicated-backends.md
+        - API Microgateway:
+            - Grouping APIs with Labels: learn/api-microgateway/grouping-apis-with-labels.md
+        - API Security:
+            - Authentication:
+                - Overview: learn/api-security/api-authentication/api-authentication-overview.md
+                - Secure APIs using OAuth2 Access Tokens: learn/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
+                - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
+                - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
+                - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
+            - Authorization:
+                - Overview: learn/api-security/authorization/api-authorization.md
+                - Role-Based Access Control using Scopes: learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                - Role-Based Access Control using XACML: learn/api-security/authorization/role-based-access-control-using-xacml.md
+            - Securing APIs by Auditing API Definitions: learn/api-security/configuring-api-security-audit.md
+            - Request-Response Schema Validation:
+                - JSON Schema Validator: learn/api-security/api-request-response-schema-validation/json-schema-validator.md
+            - OAuth2:
+                - Token types:
+                    - JWT Access Tokens: learn/api-security/oauth2/access-token-types/jwt-tokens.md
+                    - Opaque Access Tokens: learn/api-security/oauth2/access-token-types/opaque-tokens.md
+                - OAuth2 Scopes:
+                    - Role-Based Access Control with OAuth Scopes: learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
+                    - Scope Whitelisting: learn/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
+                - Grant Types:
+                    - Overview: learn/api-security/oauth2/grant-types/overview.md
+                    - Password Grant: learn/api-security/oauth2/grant-types/password-grant.md
+                    - Client Credentials Grant: learn/api-security/oauth2/grant-types/client-credentials-grant.md
+                    - Authorization Code Grant: learn/api-security/oauth2/grant-types/authorization-code-grant.md
+                    - Implicit Grant: learn/api-security/oauth2/grant-types/implicit-grant.md
+                    - Refresh Token Grant: learn/api-security/oauth2/grant-types/refresh-token-grant.md
+                    - JWT Grant: learn/api-security/oauth2/grant-types/jwt-grant.md
+                    - SAML Extension Grant: learn/api-security/oauth2/grant-types/saml-extension-grant.md
+                    - Kerberos OAuth2 Grant: learn/api-security/oauth2/grant-types/kerberos-oauth2-grant.md
+                    - NTLM Grant: learn/api-security/oauth2/grant-types/ntlm-grant.md
+                - Token Revocation: learn/api-security/oauth2/token-revocation.md
+                - Token Expiration: learn/api-security/oauth2/token-expiration.md
+                - Token Persistence: learn/api-security/oauth2/token-persistence.md
+                - Encrypting OAuth2 Tokens: learn/api-security/oauth2/encrypting-oauth2-tokens.md
+                - Hashing OAuth Keys: learn/api-security/oauth2/hashing-oauth-keys.md
+                - Provisioning Out-of-Band OAuth Clients: learn/api-security/oauth2/provisioning-out-of-band-oauth-clients.md
+                - Securing OAuth Token with HMAC Validation: learn/api-security/oauth2/securing-oauth-token-with-hmac-validation.md
+            - Threat Protection:
+                - Bot Detection: learn/api-security/threat-protection/bot-detection.md
+                - Gateway Threat Protectors: learn/api-security/threat-protection/gateway-threat-protectors/gateway-threat-protectors-for-api-manager.md
+                - Regular Expression Threat Protection: learn/api-gateway/threat-protectors/regular-expression-threat-protection-for-api-gateway.md
+                - JSON Threat Protection: learn/api-gateway/threat-protectors/json-threat-protection-for-api-gateway.md
+                - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
+            - OpenID Connect:
+                - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+        - Rate Limiting:
+            - Throttling Use-Cases: learn/rate-limiting/introducing-throttling-use-cases.md
+            - Adding New Throttling Policies: learn/rate-limiting/adding-new-throttling-policies.md
+            - Setting Throttling Limits: learn/rate-limiting/setting-throttling-limits.md
+            - Blacklisting and Whitelisting Requests: learn/rate-limiting/blacklisting-whitelisting.md
+            - Enforce Throttling and Resource Access Policies: learn/rate-limiting/enforce-throttling-and-resource-access-policies.md
+            - Setting Maximum Backend Throughput Limits: learn/rate-limiting/setting-maximum-backend-throughput-limits.md
+            - Engaging a New Throttling Policy at Runtime: learn/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
+            - Advanced Topics:
+                - Custom Throttling: learn/rate-limiting/advanced-topics/custom-throttling.md
+        - API Monetization:
+            - Monetizing an API: learn/api-monetization/monetizing-an-api.md
+        - Analytics:
+            - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
+            - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
+            - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
+            - Using Geolocation Based Statistics:
+                - Configuring Geolocation Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
+                - Writing a Custom Geolocation Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
+                - Updating Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md
+            - Alerts for APIs:
+                - Alert Types: learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md
+                - Configuring Alerts: learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md
+                - Subscribing for Alerts: learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md
+                - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
+            - Setup & Configuration:
+                - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
+                - Configuring Keystores in APIM Analytics : learn/analytics/configuring-keystores-in-apim-analytics.md
+                - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
+                - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
+                - Purging Analytics Data: learn/analytics/purging-analytics-data.md
+                - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
+            - Development:
+                - Creating Custom Widgets: learn/analytics/creating-custom-widgets-in-analytics-dashboards.md
+                - Customizing Analytics Dashboards: learn/analytics/customizing-analytics-dashboards.md
+                - White Labeling for Tenants: learn/analytics/white-labeling-tenants.md
+                - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
+                - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md
+                - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
+                - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
+        - API Controller:
+            - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
+            - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
+            - Migrating APIs to Different Environments: learn/api-controller/migrating-apis-to-different-environments.md
+            - Migrating Apps to Different Environments: learn/api-controller/migrating-applications-to-different-environments.md
+            - CI/CD with WSO2 API Manager: learn/api-controller/ci-cd-with-wso2-api-management.md
+            - Building a Jenkins CI/CD Pipeline for Dev First Approach: learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+            - Advanced Topics:
+                - Creating Custom Users to Perform API Controller Operations: learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
+                - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+        - Kubernetes Operators:
+            - K8s API Operator: learn/kubernetes-operators/k8s-api-operator.md
+            - K8s WSO2 API Manager Operator: learn/kubernetes-operators/k8s-wso2am-operator.md
+        - Tutorials:
+            - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
+            - Create and Publish an AWS Lambda API: learn/tutorials/create-and-publish-awslambda-api.md
+            - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
+            - Create and Publish WebSocket API: learn/tutorials/create-and-publish-websocket-api.md
+            - Edit and Consume APIs using Swagger Tools: learn/tutorials/edit-and-consume-apis-using-swagger-tools.md
+>>>>>>> 45ef4a7b52a16fc6a12a7a13e7a6a046f9ee2872
     - Develop:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md

@@ -20,7 +20,47 @@ All configurations related to this tool can be found inside the `<API-M_HOME>/re
 
 -   Log file name regex: `(.)*(log|out)`
 
-For information on changing these configurations, see [Configuring the config.json file](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products#RemovingReferencestoDeletedUserIdentitiesinWSO2Products-Configuringtheconfig.jsonfile) in the Product Administration Guide.
+#### Configuring the master configuration file
+The master configuration file of the Identity Anonymization tool is the config.json file. Following is a sample config.json file:
+
+``` js
+{
+  "processors" : [
+    "log-file", "rdbms"
+  ],
+  "directories": [
+    {
+      "dir": "log-config",
+      "type": "log-file",
+      "processor" : "log-file",
+      "log-file-path" : "logs",
+      "log-file-name-regex" : "wso2carbon.log"
+    },
+    {
+      "dir": "sql",
+      "type": "rdbms",
+      "processor" : "rdbms"
+    }
+  ],
+  "extensions": [
+    {
+      "dir": "datasources",
+      "type": "datasource",
+      "processor" : "rdbms",
+      "properties" : [
+        {"identity": "WSO2_CARBON_DB"}
+      ]
+    }
+  ]
+}
+```
+
+You can configure the following in the config.json file based on your requirement:
+
+* processors - A list of processors on which you want the tool run. The processors that you can specify are pre-defined. Possible values are RDBMS and log-file.
+* directories - The definitions of directories on which you want the tool to run. When you specify a directory definition, be sure to either specify the directory path relative to the location of the config.json file, or specify the absolute path to the directory.
+* processor - The type of processor to use to process instructions in the corresponding directory.
+* extensions - The extensions to be initialized prior to starting a processor.
 
 ### Changing the default configurations location
 
@@ -141,67 +181,6 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
 This tool can run standalone and therefore cater to multiple products. This means that if you are using multiple WSO2 products and need to delete the user's identity from all products at once, you can do so by running the tool in standalone mode.
 For information on how to build and run the Forget-Me tool, see [Removing References to Deleted User Identities in WSO2 Products](https://docs.wso2.com/display/ADMIN44x/Removing+References+to+Deleted+User+Identities+in+WSO2+Products) in the WSO2 Administration Guide.
 
-### Running the tool in API Manager Analytics
+### GDPR for API Manager Analytics
 
-Shown below is an example data stream used by API Manager Analytics. Note that the userId/username, emails and the ip are personally identifiable information (PII) of the user.
-
-| Stream Name                                                                          | Attribute List                                           |
-|--------------------------------------------------------------------------------------|----------------------------------------------------------|
-| `org.wso2.analytics.apim.ipAccessSummary`| -`userId` 
-  -`ip`|
-| `org.wso2.analytics.apim.alertStakeholderInfo` | -`userId` 
-  -`emails`|
-
-These PII references can be removed from the Analytics database by using the Forget-Me tool. Follow the steps given below.
-
-1.  Add the relevant drivers for your Analytics-specific databases to the `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me/lib` directory. For example, if you have changed your Analytics databases from the default H2 instances to MySQL, copy the MySQL driver to this given directory.
-2.  Create a folder named `'streams'` in the `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me /conf/` directory.
-3.  Create a new file named `streams.json` with content similar to what is shown below based on the streams used, and store it in the /streams directory that you created in the previous step. This file holds the details of the streams and the attributes with PII that we need to remove from the database.
-
-    ``` json
-    {
-        "streams": [
-            {
-                "streamName": "org.wso2.analytics.apim.ipAccessSummary",
-                "attributes": ["userId", "ip"],
-                "id": "userId"
-            },
-            {
-                "streamName": "org.wso2.analytics.apim.alertStakeholderInfo",
-                "attributes": ["userId", "emails"],
-                "id": "userId"
-            }
-        ]
-    }
-    ```
-
-    The above configuration includes the following:
-
-    -   **Stream Name** : The name of the stream.
-    -   **Attributes:** The list of attributes that contain PII.
-    -   **id** : The ID attribute, which holds the value that needs to be anonymized (replaced with a pseudonym).
-
-4.  Create a new file named `config.json` to `<API-M_ANALYTICS_HOME>/repository/components/tools/forget-me/conf/` directory with the content shown below .
-
-    ``` json
-    {
-        "processors": [
-            "analytics-streams"
-        ],
-        "directories": [
-            {
-                "dir": "streams",
-                "type": "analytics-streams",
-                "processor": "analytics-streams"
-            }
-        ]
-    }
-    ```
-
-5.  Open a command prompt and navigate to the `<API-M_ANALYTICS_HOME>/bin` directory.
-6.  Execute one of the following commands depending on your operating system:
-
-    -   On Linux/Mac OS: `./forgetme.sh -U <username>`
-    -   On Windows: `forgetme.bat -U <username>`
-
-
+For information on GDPR for API Manager Analytics, please refer [General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics]({{base_path}}/learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics).
