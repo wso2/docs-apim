@@ -63,7 +63,7 @@ You will be able to log in to the management console of the product with the **a
 
 The **Login** permission defined under **Admin** permissions allows users to log in to the management console of the product. Therefore, this is the primary permission required for using the management console.
 
-![Login Permissions](../../../assets/img/administer/login-permissions.png)
+![Login Permissions](../../assets/img/administer/login-permissions.png)
 
 ### Super Tenant Permissions
 

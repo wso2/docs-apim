@@ -17,7 +17,7 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md) .
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install/installation-prerequisites.md) .
     
     ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
@@ -33,7 +33,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
        <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
                         Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
                         </p>
-                        ![](../../assets/img/learn/analytics-quick-setup.png)
+                        ![]({{base_path}}/assets/img/learn/analytics-quick-setup.png)
        </div>
        </html>
                   
@@ -88,7 +88,7 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 #### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md) .
+ <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install/installation-prerequisites.md) .
     
  ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
@@ -228,32 +228,6 @@ Save the changes.
 #### Step 4 - Configure databases
 
 Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
-
-!!! note
-    If you are configuring APIM Analytics related databases in **Oracle**, apart from the below mentioned configurations, 
-    you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to each analytics related 
-    database(either in worker or dashboard) you configure with Oracle.
-    
-    In the following example `APIM_ANALYTICS_DB` is configured with Oracle.
-    ``` java
-    - name: APIM_ANALYTICS_DB
-      description: "The datasource used for APIM statistics aggregated data."
-      jndiConfig:
-        name: jdbc/APIM_ANALYTICS_DB
-        definition:
-          type: RDBMS
-          configuration:
-            jdbcUrl: 'jdbc:oracle:thin:@localhost:1521:XE'
-            username: 'root'
-            password: '123'
-            driverClassName: oracle.jdbc.OracleDriver
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1 FROM DUAL
-            connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
-            validationTimeout: 30000
-            isAutoCommit: false
-    ```
 
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.

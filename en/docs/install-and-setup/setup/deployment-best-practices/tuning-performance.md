@@ -29,7 +29,7 @@ When it comes to performance, the OS that the server runs plays an important rol
 
 Following are the configurations that can be applied to optimize the OS-level performance:
 
-1.  To optimize network and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
+1.  To optimize etwork and OS performance, configure the following settings in the `/etc/sysctl.conf` file of Linux. These settings specify a larger port range, a more effective TCP connection timeout value, and a number of other important parameters at the OS-level.
 
     !!! info
         It is **not recommended** to use `net.ipv4.tcp_tw_recycle = 1` when working with network address translation (NAT), such as if you are deploying products in EC2 or any other environment configured with NAT.

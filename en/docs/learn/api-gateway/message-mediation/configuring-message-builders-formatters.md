@@ -153,7 +153,6 @@ The default message builder or message formatter for a given content type can be
 
 3. Save the changes and [restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server) to get the changes applied.
 
-Refer [Configuring message builders/formatters](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/#configuring-message-buildersformatters) for more information on enabling message builders/formatters for different use cases.
 
 ##Custom message builders and formatters
 

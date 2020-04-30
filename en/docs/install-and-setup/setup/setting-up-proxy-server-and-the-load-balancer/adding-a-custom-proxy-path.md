@@ -1,4 +1,3 @@
-# Adding a Custom Proxy Path
 
 Adding a custom proxy path is useful when you have a proxy server fronting your Carbon server. In this scenario, the "custom proxy path" is used for mapping a proxy url with the actual url of your Carbon server, which allows clients to access the Carbon server with the proxy url.
 
