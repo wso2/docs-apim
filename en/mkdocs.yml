@@ -290,20 +290,20 @@ nav:
           - Publisher APIs:
               - Publisher v0.16:
                   - Getting Started: develop/product-apis/publisher-apis/publisher-v0.16/guide.md
-                  - WSO2 Publisher API v0.16: develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16.md
+                  - Publisher API v0.16: develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16.md
               - Publisher v1:
                   - Getting Started: develop/product-apis/publisher-apis/publisher-v1/guide.md
-                  - WSO2 Publisher API v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                  - ublisher API v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
           - Developer Portal APIs:
               - Developer Portal API v0.16:
                   - Getting Started: develop/product-apis/devportal-apis/devportal-v0.16/guide.md
-                  - WSO2 Developer Portal API v0.16: develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16.md
-          - Developer Portal API v1:
-              - Getting Started: develop/product-apis/devportal-apis/devportal-v1/guide.md
-              - WSO2 Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-      - Admin Portal APIs:
-          - Getting Started: develop/product-apis/admin-apis/guide.md
-          - WSO2 Admin Portal v0.16: develop/product-apis/admin-apis/admin-v1.md
+                  - Developer Portal API v0.16: develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16.md
+              - Developer Portal API v1:
+                  - Getting Started: develop/product-apis/devportal-apis/devportal-v1/guide.md
+                  - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+          - Admin Portal APIs:
+              - Getting Started: develop/product-apis/admin-apis/guide.md
+              - Admin Portal v0.16: develop/product-apis/admin-apis/admin-v1.md
       - Using the Registry REST API: develop/using-the-registry-rest-api.md
       - Using the Siddhi Store REST API: develop/analytics-rest-api.md
       - Extending WSO2 API Manager:
