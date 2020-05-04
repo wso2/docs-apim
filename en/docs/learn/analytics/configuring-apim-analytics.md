@@ -5,7 +5,7 @@ This section explains how to configure analytics for WSO2 API Manager (WSO2 API-
 Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
 
 !!! note
-      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) ) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/next/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/) .
+      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/next/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
       -   It is not recommended to configure the Gateway node as an analytics server.
 
 
@@ -17,15 +17,15 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide](../../install-and-setup/installation-guide/installation-prerequisites.md) .
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
     
-    ![](../../assets/img/learn/apim-download-page.png)
+    ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 2.  Download and install WSO2 API-M Analytics.
     To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-    As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator 1.0.0 (WSO2 SI), for more information you can refer to the [WSO2 SI documentation](#https://ei.docs.wso2.com/en/next/streaming-integrator/setup/installing-si-in-vm/).
+    As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
 
-    ![](../../assets/img/learn/analytics-download-page.png)
+    ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
     
        <html><div class="admonition warning">
@@ -33,7 +33,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
        <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
                         Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
                         </p>
-                        ![](../../assets/img/learn/analytics-quick-setup.png)
+                        ![]({{base_path}}/assets/img/learn/analytics-quick-setup.png)
        </div>
        </html>
                   
@@ -88,16 +88,16 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 #### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- <br/>For more information on installing WSO2 API-M, see the [Installation Guide](../../install-and-setup/installation-guide/installation-prerequisites.md) .
+ <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
     
- ![](../../assets/img/learn/apim-download-page.png)
+ ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 #### Step 2 - Download and install WSO2 API-M Analytics
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
 <br/>As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator 1.0.0 (WSO2 SI), for more information you can refer to the [WSO2 SI documentation](#https://ei.docs.wso2.com/en/next/streaming-integrator/setup/installing-si-in-vm/).
 
-  ![](../../assets/img/learn/analytics-download-page.png)
+  ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
 #### Step 3 - Configure WSO2 API Manager to publish statistics
 
@@ -467,6 +467,6 @@ auth.configs:
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores](../../../administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
+If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
 
