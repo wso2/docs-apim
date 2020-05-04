@@ -5,7 +5,7 @@ This section explains how to configure analytics for WSO2 API Manager (WSO2 API-
 Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
 
 !!! note
-      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
+      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Enterprise Integrator 7.0.x - Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
       -   It is not recommended to configure the Gateway node as an analytics server.
 
 
