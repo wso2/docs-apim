@@ -5,19 +5,19 @@ This section explains how to configure analytics for WSO2 API Manager (WSO2 API-
 Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
 
 !!! note
-      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) ) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/next/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/) .
+      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/next/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
       -   It is not recommended to configure the Gateway node as an analytics server.
 
 
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
 
-###Quick Setup
+### Quick Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md) .
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md).
     
     ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
@@ -30,18 +30,18 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
-       <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
+       <p>If you are following the quick setup make sure both the binaries (unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
                         Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
                         </p>
-                        ![](../../assets/img/learn/analytics-quick-setup.png)
+                        ![]({{base_path}}/assets/img/learn/analytics-quick-setup.png)
        </div>
        </html>
                   
 3.  To enable Analytics, open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the analytics enabling section as shown below. Save this change.
 
     ``` toml
-        [apim.analytics]
-        enable = true
+      [apim.analytics]
+      enable = true
     ```
 
     !!! note
@@ -88,14 +88,14 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 #### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md) .
+ <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md).
     
  ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 #### Step 2 - Download and install WSO2 API-M Analytics
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-<br/>As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator 1.0.0 (WSO2 SI), for more information you can refer to the [WSO2 SI documentation](#https://ei.docs.wso2.com/en/next/streaming-integrator/setup/installing-si-in-vm/).
+<br/>As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
 
   ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
@@ -109,8 +109,8 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the following section as shown below. Save this change.
 
    ``` toml
-       [apim.analytics]
-       enable = true
+   [apim.analytics]
+   enable = true
    ```
 Configure the following parameters under the `[apim.analytics]` section if required.
 
@@ -348,7 +348,8 @@ auth.configs:
     devPortalUrl: https://localhost:9443
     externalLogoutUrl: https://localhost:9443/oidc/logout
 ```
-#####Details of the properties in APIM IdP Client
+
+##### Details of the properties in APIM IdP Client
 
 
 |**Property**                                           |**Default Value**                    |**Description**                 |
