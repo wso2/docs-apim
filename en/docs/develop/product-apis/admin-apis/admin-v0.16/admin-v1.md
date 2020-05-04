@@ -3,7 +3,7 @@ template: templates/swagger.html
 ---
 
 !!! warning
-    **WSO2 recommends that you use the Admin v0.16 REST APIs** as it is up to date and has support for the latest WSO2 API Manager features with regard to the Admin Portal.
+    **WSO2 recommends that you use the Admin v0.16 REST APIs** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features with regard to the Admin Portal.
 
 ??? Info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager

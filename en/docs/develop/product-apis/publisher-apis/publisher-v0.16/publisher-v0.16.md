@@ -3,7 +3,7 @@ template: templates/swagger.html
 ---
 !!! warning
     - The **Publisher v0.16 REST APIs will be deprecated in the next WSO2 API Manager release**. 
-    - **[WSO2 recommends that you use the Publisher v1 REST APIs]({{base_path}}/develop/product-apis/publisher-apis/publisher-v1/publisher-v1)** as it up to date and has support for the latest WSO2 API Manager features.
+    - **[WSO2 recommends that you use the Publisher v1 REST APIs]({{base_path}}/develop/product-apis/publisher-apis/publisher-v1/publisher-v1)** as it up to date and has support for the latest WSO2 API Manager 3.1.0 features.
 
 ??? Info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager. 

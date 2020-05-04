@@ -1,7 +1,7 @@
 # Getting Started
 
 !!! warning
-    **WSO2 recommends that you use the Developer Portal v1 REST APIs** as it is up to date and has support for the latest WSO2 API Manager features.
+    **WSO2 recommends that you use the Developer Portal v1 REST APIs** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features.
 
 WSO2 API Manager is a complete solution for publishing APIs, creating and managing a developer community, and for scalably routing API traffic. It leverages proven, production-ready, integration, security and governance components from WSO2 Enterprise Service Bus, WSO2 Identity Server, and WSO2 Governance Registry. Moreover, it is powered by API Manager Analytics, thereby making WSO2 API Manager ready for any large-scale deployments right away.
 
