@@ -1,6 +1,10 @@
 ---
 template: templates/swagger.html
 ---
+
+!!! warning
+    **WSO2 recommends that you use the Developer Portal v1 REST APIs** as it is up to date and has support for the latest WSO2 API Manager features.
+
 ??? Info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager.
 
