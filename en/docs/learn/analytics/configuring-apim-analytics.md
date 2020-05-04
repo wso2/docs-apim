@@ -12,18 +12,21 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
 
-###Quick Setup
+### Quick Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
+
     WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
     
     ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 2.  Download and install WSO2 API-M Analytics.
+
     To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-    As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+
+    As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
 
     ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
@@ -49,12 +52,14 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 
 4.  Start the Worker profile of the Analytics Server.
-    <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+
+    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `worker.bat --run`
     -   On Linux/Mac OS: `sh worker.sh`
 
 5.  Start the API Manager server.
-    <br/>Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
+    Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `wso2server.bat --run`
     -   On Linux/Mac OS: `sh wso2server.sh` 
     
@@ -64,7 +69,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
                     INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
                     
 6.  Start the Dashboard profile of the Analytics Server.
-    <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
+    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `dashboard.bat --run`  
     -   On Linux/Mac OS: `sh dashboard.sh`    
     
@@ -74,7 +80,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
-###Standard Setup
+### Standard Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
