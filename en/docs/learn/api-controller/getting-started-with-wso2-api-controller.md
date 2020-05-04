@@ -456,6 +456,132 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
             ``` 
         
+## Delete an API/API Product/Application in an environment
+Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
+
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
+3.  Run the corresponding CTL command below to delete an API/API Product/Application in an environment.
+
+    1. Delete an API in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl delete api -n <API name> -v <API version> -e <environment> -k
+            ```
+            ``` bash
+            apictl delete api --name <API name> --version <API version> --environment <environment> --insecure
+            ```
+            ``` bash
+            apictl delete api --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : Environment from which the API should be deleted  
+                    `--name` or `-n` : Name of the API to be deleted  
+                    `--version` or `-v` : Version of the API to be deleted  
+                -   Optional :  
+                    `--provider` or `-r` : Provider of the API to be deleted  
+
+            !!! example
+                ```bash
+                apictl delete api -n PizzaShackAPI -v 1.0.0 -e dev -k
+                ```
+                ```bash
+                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+                ```    
+                ```go
+                apictl delete api --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+                ```  
+
+        -   **Response**
+
+            ```go
+            PizzaShackAPI API deleted successfully!
+            ```
+
+    2. Delete an API Product in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl delete api-product -n <API Product name> -e <environment> -k
+            ```
+            ``` bash
+            apictl delete api-product --name <API Product name> --environment <environment> --insecure
+            ```
+            ``` bash
+            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> --insecure
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : Environment from which the API Product should be deleted  
+                    `--name` or `-n` : Name of the API Prodcut to be deleted   
+                -   Optional :  
+                    `--provider` or `-r` : Provider of the API Product to be deleted  
+
+            !!! example
+                ```bash
+                apictl delete api-product -n LeasingAPIProduct -e dev -k
+                ```
+                ```bash
+                apictl delete api-product --name LeasingAPIProduct -environment production --insecure
+                ```    
+                ```go
+                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice --insecure
+                ```  
+
+        -   **Response**
+
+            ```go
+            LeasingAPIProduct API Product deleted successfully!
+            ```
+    
+    3. Delete an Application in an environment.
+
+        -   **Command**
+            ``` bash
+            apictl delete app -n <application name> -e <environment> -k
+            ```
+            ``` bash
+            apictl delete app -name <application name> --environment <environment> --insecure
+            ```
+            ``` bash
+            apictl delete app --name <application name> --environment <environment> --owner <application owner> --insecure
+            ```
+
+            !!! info
+                **Flags:**  
+                
+                -   Required :  
+                    `--environment` or `-e` : Environment from which the Application should be deleted  
+                    `--name` or `-n` : Name of the Application to be deleted   
+                -   Optional :  
+                    `--owner` or `-o` : Owner of the Application to be deleted  
+
+            !!! example
+                ```bash
+                apictl delete app -n DefaultApplication -e dev -k
+                ```
+                ```bash
+                apictl delete app --name DefaultApplication --environment production --insecure
+                ```    
+                ```go
+                apictl delete app --name DefaultApplication --environment production --owner sampleUser --insecure
+                ```  
+
+        -   **Response**
+
+            ```go
+            DefaultApplication Application deleted successfully!
+            ``` 
+
 ## Set token type
 
 Run the following CTL command to set the token type of the default apictl application.
