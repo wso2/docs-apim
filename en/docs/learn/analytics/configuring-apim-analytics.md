@@ -40,8 +40,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 3.  To enable Analytics, open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the analytics enabling section as shown below. Save this change.
 
     ``` toml
-        [apim.analytics]
-        enable = true
+   [apim.analytics]
+   enable = true
     ```
 
     !!! note
@@ -50,8 +50,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 4.  Start the Worker profile of the Analytics Server.
     <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `worker.bat --run              `
-    -   On Linux/Mac OS: `sh worker.sh               `
+    -   On Windows: `worker.bat --run`
+    -   On Linux/Mac OS: `sh worker.sh`
 
 5.  Start the API Manager server.
     <br/>Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
@@ -109,8 +109,8 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the following section as shown below. Save this change.
 
    ``` toml
-       [apim.analytics]
-       enable = true
+   [apim.analytics]
+   enable = true
    ```
 Configure the following parameters under the `[apim.analytics]` section if required.
 
@@ -334,64 +334,64 @@ Configuring databases allow you to persist data relating to APIs, process them a
       4. Create the AM_USAGE_UPLOADED_FILES table in the APIM_ANALYTICS_DB database. 
       
          ```tab="MySQL"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED tinyint(1) DEFAULT 0,
-            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
+         CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+         FILE_NAME varchar(255) NOT NULL,
+         FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+         FILE_PROCESSED tinyint(1) DEFAULT 0,
+         FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
+         PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+         );
                
          ```
          
          ```tab="MSSQL"
-            CREATE TABLE AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP DATETIME2(0) DEFAULT GETDATE(),
-            FILE_PROCESSED smallint DEFAULT 0,
-            FILE_CONTENT VARBINARY(max) DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
+         CREATE TABLE AM_USAGE_UPLOADED_FILES (
+         FILE_NAME varchar(255) NOT NULL,
+         FILE_TIMESTAMP DATETIME2(0) DEFAULT GETDATE(),
+         FILE_PROCESSED smallint DEFAULT 0,
+         FILE_CONTENT VARBINARY(max) DEFAULT NULL,
+         PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+         );
          ```
          
          ```tab="Oracle"
-            CREATE TABLE AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar2(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT SYSTIMESTAMP,
-            FILE_PROCESSED number(3) DEFAULT 0,
-            FILE_CONTENT BLOB DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
+         CREATE TABLE AM_USAGE_UPLOADED_FILES (
+         FILE_NAME varchar2(255) NOT NULL,
+         FILE_TIMESTAMP TIMESTAMP(0) DEFAULT SYSTIMESTAMP,
+         FILE_PROCESSED number(3) DEFAULT 0,
+         FILE_CONTENT BLOB DEFAULT NULL,
+         PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+         );
          ```
          
          ```tab="Postgres"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED smallint DEFAULT 0,
-            FILE_CONTENT BYTEA DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
+         CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+         FILE_NAME varchar(255) NOT NULL,
+         FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
+         FILE_PROCESSED smallint DEFAULT 0,
+         FILE_CONTENT BYTEA DEFAULT NULL,
+         PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+         );
          ```
          
          ```tab="DB2"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FILE_PROCESSED SMALLINT DEFAULT 0,
-            FILE_CONTENT BLOB(16777215) DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
+         CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+         FILE_NAME varchar(255) NOT NULL,
+         FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+         FILE_PROCESSED SMALLINT DEFAULT 0,
+         FILE_CONTENT BLOB(16777215) DEFAULT NULL,
+         PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+         );
          ```
          
          ```tab="Informix"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED tinyint DEFAULT 0,
-            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
+         CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
+         FILE_NAME varchar(255) NOT NULL,
+         FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
+         FILE_PROCESSED tinyint DEFAULT 0,
+         FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
+         PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
+         );
          ```
    
        
