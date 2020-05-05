@@ -1,7 +1,12 @@
 ---
 template: templates/swagger.html
 ---
-??? Note "Click here to see how to try out the APIs"
+
+!!! warning
+    **WSO2 recommends that you use the Publisher v1 REST APIs** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features.
+
+
+??? info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager.
 
        1. Expand the relevant API operation and click the **Try It Out** button.

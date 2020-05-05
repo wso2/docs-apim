@@ -1,5 +1,8 @@
 # Getting Started
 
+!!! warning
+    **WSO2 recommends that you use the Admin v0.16 REST APIs** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features with regard to the Admin Portal.
+
 WSO2 API Manager is a complete solution for publishing APIs, creating and managing a developer community, and for scalably routing API traffic. It leverages proven, production-ready, integration, security and governance components from WSO2 Enterprise Service Bus, WSO2 Identity Server, and WSO2 Governance Registry. Moreover, it is powered by WSO2 Business Activity Monitor, thereby making WSO2 API Manager ready for any large-scale deployments right away.
 
 The REST API is implemented based on REST best practices and specifications as a CXF REST web application running on WSO2 API Manager. API development is started with a Swagger specification with a contract-first approach. Please see the full [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.6.163/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin/src/main/resources/admin-api.yaml), which is written using Swagger 2.0. This can be also retrieved from the Web app itself using the URL `https://<host-name[:port]>/api/am/admin/v0.16/swagger.json`.

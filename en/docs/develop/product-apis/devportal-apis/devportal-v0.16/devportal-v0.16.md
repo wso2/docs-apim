@@ -1,7 +1,11 @@
 ---
 template: templates/swagger.html
 ---
-??? Note "Click here to see how to try out the APIs"
+!!! warning
+    - The **Developer Portal v0.16 REST APIs will be deprecated in the next WSO2 API Manager release**. 
+    - **[WSO2 recommends that you use the Developer Portal v1 REST APIs]({{base_path}}/develop/product-apis/devportal-apis/devportal-v1/devportal-v1)** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features.
+
+??? Info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager.
 
        1. Expand the relevant API operation and click the **Try It Out** button.
