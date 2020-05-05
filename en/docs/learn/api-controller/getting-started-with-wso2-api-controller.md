@@ -187,18 +187,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     -   **Command**
 
         ```bash
-        apictl remove-env -e <environment-name> 
+        apictl remove env <environment-name> 
         ``` 
 
-        !!! info
-            **Flags:**  
-            
-            -    Required :     
-                `--environment` or `-e`: Name of the environment to be removed  
-  
         !!! example
             ```bash
-            apictl remove-env --environment production
+            apictl remove env production
             ```
 
     -   **Response**
