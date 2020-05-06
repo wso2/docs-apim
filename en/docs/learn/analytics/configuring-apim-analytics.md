@@ -89,6 +89,7 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 4 - Configure databases](#step-4-configure-databases)
 -   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
 -   [Step 6 - Configure keystores](#step-6-configure-keystores)
+-   [Step 7 - Configure User-Agent Parser](#step-7-configure-user-agent-parser)
 
 #### Step 1 - Download and install WSO2 API-M
 
@@ -476,4 +477,24 @@ In the SSL handshake between the API Manager and API Manager Analytics servers, 
 
 If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
+#### Step 7 - Configure User-Agent Parser
+
+For analytics purpose, User-Agent and Operating System information are extracted from the User-Agent header of the API requests. This requires a set of regular expressions to parse the header and extract the information. As a default, that is configured to use `<API-M_ANALYTICS_HOME>/conf/worker/regexs.yaml` for the purpose as shown below.
+
+```
+siddhi:
+  extensions:
+    # Provides the regular expression collection to parse the user-agent header
+    -
+      extension:
+        name: 'getUserAgentProperty'
+        namespace: 'env'
+        properties:
+          regexFilePath : ${sys:carbon.home}/conf/worker/regexes.yaml
+```
+If a user wants to use their own regular expressions to extract the information in detail, then the `regexFilePath` property can be replaced with their own file.
+
+!!! warning
+      The regular expressions configured above is reduced to provide the optimal performance, while identifying common User-Agents and Operating Systems. Completely removing the configuration will end up in using a standard regular expression set packed inside the parser library. That will extract almost every User-Agents and Operating Systems, but might provide lower performance throughput.
+      
 
