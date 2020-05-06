@@ -355,6 +355,9 @@ Results of this widget also can be filtered based on API Creator ( either All or
 </body>
 </html>
 
+!!! note
+        The above User-Agent and Platform information are extracted from the User-Agent header of the API requests. To customize the information to be extracted follow [Configuring User-Agent Parser]({{base_path}}/learn/analytics/configuring-apim-analytics/#step-7-configure-user-agent-parser).
+
 ### API Proxy Performance
 
 #### API Latency Time
