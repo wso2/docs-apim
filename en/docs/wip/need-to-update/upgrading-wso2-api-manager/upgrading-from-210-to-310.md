@@ -546,6 +546,17 @@ Follow the instructions below to move all the existing API Manager configuration
 
 4.  Upgrade the WSO2 API Manager database from version 2.1.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
+    !!! Attention
+        If there is a error similar to this when running the db script for ***mssql***
+        ``` java
+            SQL Error [5074] [S0001]: The object '<SOME_ID>' is dependent on column 'ACCESS_TOKEN'.
+        ```
+        Use the ID mentioned in the error to run the sql statement below. This will drop a default constraint created by the database
+        ```java
+            ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
+            DROP CONSTRAINT <SOME_ID>;
+        ```
+
     ??? info "DB Scripts"
         ```tab="H2"
         ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING ALTER COLUMN ACCESS_TOKEN VARCHAR(512);
@@ -1158,7 +1169,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
             API_ID INTEGER NOT NULL,
             AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARYśKEY (API_ID),
+            PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
         ```
