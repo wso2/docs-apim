@@ -220,9 +220,9 @@ Follow the instructions below to add a customized authorization header for an AP
 
 3.  Save and Publish the API.
    
-   !!! note
+!!! note
        When creating an API by importing a swagger or open API definition, the user can define the customized authorization header in the OAS definition using the **“x-wso2-auth-header”** extension.
-      !!! example
+      
       ```yaml
          x-wso2-auth-header: "CustomAuthorizationHeader"
       ```
