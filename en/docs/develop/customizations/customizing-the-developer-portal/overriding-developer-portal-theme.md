@@ -43,7 +43,7 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 
 **If you do not have access to the file system** , you can upload the Devportal theme via the Admin Portal as shown below:
 
-1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/learn/sampleTheme.zip). 
+1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/learn/SampleTheme.zip). 
 2.  The `sampleTheme.zip` file contains the following folder structure. 
 
      You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter, but the name of the JSON file (`defaultTheme.json`) does.
