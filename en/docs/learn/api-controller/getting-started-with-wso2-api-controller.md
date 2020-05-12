@@ -594,6 +594,53 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             DefaultApplication Application deleted successfully!
             ``` 
 
+## Change status of an API in an environment
+Follow the instructions below to change the status of an API in an environment using CTL:
+
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
+3.  Run the corresponding CTL command below to change the status of an API in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> -k
+        ```
+        ``` bash
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --insecure
+        ```
+        ``` bash
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+        ```
+
+        !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--environment` or `-e` : Environment of which the API state should be changed  
+                `--name` or `-n` : Name of the API to be state changed  
+                `--version` or `-v` : Version of the API to be state changed  
+                `--action` or `-a` : Action to be taken to change the status of the API
+            -   Optional :  
+                `--provider` or `-r` : Provider of the API to be state changed  
+
+        !!! example
+            ```bash
+            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev -k
+            ```
+            ```bash
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+            ```    
+            ```go
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+            ```  
+
+    -   **Response**
+
+        ```go
+        PizzaShackAPI API state changed successfully!
+        ```
+
 ## Formatting the outputs of list
 
 Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted with Go Templates. 
