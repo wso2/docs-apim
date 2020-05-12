@@ -471,8 +471,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Delete an API/API Product/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.1 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+
+    !!! Note
+        Note that you need to have the latest patch release of APICTL 3.1.0 version (3.1.1) to use this feature.
+
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to delete an API/API Product/Application in an environment.
 
@@ -597,8 +601,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Change status of an API in an environment
 Follow the instructions below to change the status of an API in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.1 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+
+    !!! Note
+        Note that you need to have the latest patch release of APICTL 3.1.0 version (3.1.1) to use this feature.
+
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to change the status of an API in an environment.
 
