@@ -319,7 +319,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl logout dev
             ```
 
-## List APIs/API Products/Applications in an environment
+## List APIs/Applications in an environment
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
@@ -347,14 +347,15 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                     `--environment` or `-e` : Environment to be searched  
                 -   Optional :  
                     `--query` or `-q` : Search query pattern  
-                    `--limit` or `-l` : Maximum number of APIs to return
+                    `--limit` or `-l` : Maximum number of apis to return (Default 25)
+                    `--format` : pretty-print environments using templates
 
             !!! example
                 ```bash
                 apictl list apis -e dev -k
                 ```
                 ```bash
-                apictl list apis --environment production --insecure
+                apictl list apis --environment production --limit 15 --insecure
                 ```    
                 ```go
                 apictl list apis --environment production --query provider:Alice name:PizzaShackAPI --insecure
@@ -367,49 +368,25 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             12d6e73c-778d-45ac-b57d-117c6c5092a4   PhoneVerification   1.0                 /phoneverify        PUBLISHED           admin
             91fe87c3-f0d7-4c35-81f5-0e0e42d8e19f   PizzaShackAPI       2.0.0               /pizzashack         CREATED             Alice
             ```
-
-    2. List API Products in an environment.
-    
-        -   **Command**
-            ``` bash
-            apictl list api-products -e <environment> -k
-            ```
-            ``` bash
-            apictl list api-products --environment <environment> --insecure
-            ```
-            ``` bash
-            apictl list api-products --environment <environment> --query <API search query> --insecure
-            ```
-
-            !!! info
-                **Flags:**  
+            
+            !!! tip 
+                When using the `apictl list apis -e dev` command, `-q` or `--query` optional flag can be used to 
+                search for APIs.
+                You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
+                **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
+                **label**.  Also you can use combined modifiers.  
+                **Example:**
+                   
+                -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
+                -  `'provider:"wso2"'` will match an API if the provider of the API is exactly `wso2`.
+                -  `status:PUBLISHED` will match an API if the API is in PUBLISHED state.
+                -  `label:external` will match an API if it contains a Microgateway label called "external".
+                -  `name:pizzashack version:v1` will match an API if the name of the API is pizzashack and version is v1.
                 
-                -   Required :  
-                    `--environment` or `-e` : Environment to be searched  
-                -   Optional :  
-                    `--query` or `-q` : Search query pattern  
-                    `--limit` or `-l` : Maximum number of API Products to return
+                If no advanced attribute modifier has been specified, the API names containing the search term will 
+                be returned as a result.
 
-            !!! example
-                ```bash
-                apictl list api-products -e dev -k
-                ```
-                ```bash
-                apictl list api-products --environment production --insecure
-                ```    
-                ```go
-                apictl list api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
-                ```  
-
-        -   **Response**
-
-            ```go
-            ID                                     NAME                CONTEXT              STATUS              PROVIDER
-            b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct   /leasingapiproduct   PUBLISHED           admin
-            ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct    /creditapiproduct    PUBLISHED           Alice
-            ```
-    
-    3. List Applications in an environment.
+    2. List Applications in an environment.
 
         -   **Command**
             ``` bash
@@ -429,7 +406,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                     `--environment` or `-e` : Environment to be searched  
                 -   Optional :  
                     `--owner` or `-o` : Owner of the Application  
-                    `--limit` or `-l` : Maximum number of applications to return
+                    `--limit` or `-l` : Maximum number of applications to return (Default 25)
 
             !!! example
                 ```bash
@@ -439,7 +416,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 apictl list apps --environment production --insecure
                 ```    
                 ```go
-                apictl list apps --environment production --owner sampleUser --insecure
+                apictl list apps --environment production --owner sampleUser --limit 15 --insecure
                 ```  
 
         -   **Response**
@@ -450,11 +427,15 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
             ``` 
         
-## Delete an API/API Product/Application in an environment
+## Delete an API/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.1 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+
+    !!! Note
+        Note that you need to have the APICTL version 3.1.1 or higher to use this feature.
+
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to delete an API/API Product/Application in an environment.
 
@@ -497,47 +478,8 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```go
             PizzaShackAPI API deleted successfully!
             ```
-
-    2. Delete an API Product in an environment.
-
-        -   **Command**
-            ``` bash
-            apictl delete api-product -n <API Product name> -e <environment> -k
-            ```
-            ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --insecure
-            ```
-            ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> --insecure
-            ```
-
-            !!! info
-                **Flags:**  
-                
-                -   Required :  
-                    `--environment` or `-e` : Environment from which the API Product should be deleted  
-                    `--name` or `-n` : Name of the API Prodcut to be deleted   
-                -   Optional :  
-                    `--provider` or `-r` : Provider of the API Product to be deleted  
-
-            !!! example
-                ```bash
-                apictl delete api-product -n LeasingAPIProduct -e dev -k
-                ```
-                ```bash
-                apictl delete api-product --name LeasingAPIProduct -environment production --insecure
-                ```    
-                ```go
-                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice --insecure
-                ```  
-
-        -   **Response**
-
-            ```go
-            LeasingAPIProduct API Product deleted successfully!
-            ```
     
-    3. Delete an Application in an environment.
+    2. Delete an Application in an environment.
 
         -   **Command**
             ``` bash
@@ -575,6 +517,146 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```go
             DefaultApplication Application deleted successfully!
             ``` 
+
+## Change status of an API in an environment
+Follow the instructions below to change the status of an API in an environment using CTL:
+
+1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.1 version of APTCTL is running.   
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
+
+    !!! Note
+        Note that you need to have the APICTL version 3.1.1 or higher to use this feature.
+
+2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
+3.  Run the corresponding CTL command below to change the status of an API in an environment.
+
+    -   **Command**
+        ``` bash
+        apictl change-status api -a <Action> -n <API name> -v <API version> -e <environment> -k
+        ```
+        ``` bash
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --insecure
+        ```
+        ``` bash
+        apictl change-status api --action <Action> --name <API name> --version <API version> --environment <environment> --provider <API provider> --insecure
+        ```
+
+        !!! info
+            **Flags:**  
+            
+            -   Required :  
+                `--environment` or `-e` : Environment of which the API state should be changed  
+                `--name` or `-n` : Name of the API to be state changed  
+                `--version` or `-v` : Version of the API to be state changed  
+                `--action` or `-a` : Action to be taken to change the status of the API
+            -   Optional :  
+                `--provider` or `-r` : Provider of the API to be state changed  
+
+        !!! example
+            ```bash
+            apictl change-status api -a Publish -n PizzaShackAPI -v 1.0.0 -e dev -k
+            ```
+            ```bash
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --insecure
+            ```    
+            ```go
+            apictl change-status api --action Publish --name PizzaShackAPI --version 1.0.0 --environment production --provider Alice --insecure
+            ```  
+
+    -   **Response**
+
+        ```go
+        PizzaShackAPI API state changed successfully!
+        ```
+
+    !!! Info
+        Supported action values : Publish, Deploy as a Prototype, Demote to Created, Demote to Prototyped, Block, Deprecate, Re-Publish, Retire.
+        Note that the Re-publish action is available only after calling Block action.
+
+## Formatting the outputs of list
+
+Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted with Go Templates. 
+
+#### Available formatting options
+
+<table>
+    <thead>
+        <tr class="header">
+            <th>Name</th>
+            <th>Usage</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="odd">
+            <td>table</td>
+            <td>This is the default format and the output is displayed as a table</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ``` 
+                    --format "table {% raw %}{{.Name}}\t{{.Id}}{% endraw %}" 
+                    ```
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>json</td>
+            <td>Output is formatted as JSON</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ```
+                    --format "{% raw %}{{ json . }}{% endraw %}" 
+                    ```
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>jsonPretty</td>
+            <td>Outputs a human-readable JSON with indented by 2 spaces</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ``` 
+                    --format "table {% raw %}{{ jsonPretty . }}{% endraw %}" 
+                    ```
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>upper</td>
+            <td>Convert string to uppercase</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ``` 
+                    --format "{% raw %}{{upper .Name}}\t{{upper .Context}}{% endraw %}" 
+                    ```
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>lower</td>
+            <td>Convert string to lowercase</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ``` 
+                    --format "{% raw %}{{lower .Name}}\t{{lower .Context}}{% endraw %}"
+                    ```
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td>title</td>
+            <td>Convert the first letter to uppercase of a string</td>
+            <td>
+                <div style="width: 100%; display: block; overflow: auto;">
+                    ``` 
+                    --format "{% raw %}{{title .Name}}\t{{title .Context}}{% endraw %}" 
+                    ```
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ## Set token type
 
