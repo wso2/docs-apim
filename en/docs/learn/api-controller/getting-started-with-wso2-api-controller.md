@@ -475,7 +475,7 @@ Follow the instructions below to delete an API/API Product/Application in an env
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 
     !!! Note
-        Note that you need to have the latest patch release of APICTL 3.1.0 version (3.1.1) to use this feature.
+        Note that you need to have the APICTL version 3.1.1 or higher to use this feature.
 
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to delete an API/API Product/Application in an environment.
@@ -605,7 +605,7 @@ Follow the instructions below to change the status of an API in an environment u
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 
     !!! Note
-        Note that you need to have the latest patch release of APICTL 3.1.0 version (3.1.1) to use this feature.
+        Note that you need to have the APICTL version 3.1.1 or higher to use this feature.
 
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to change the status of an API in an environment.
