@@ -108,14 +108,13 @@ The following diagram shows the communication/network paths that occur when an A
     
 -   **Key validation**
 
-    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/axis2/axis2_client.xml` file. All timeout values are in milliseconds.
+    Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/deployment.toml` file. All timeout values are in milliseconds.
 
-    ```
-    <transportSender name="https" class="org.apache.axis2.transport.http.CommonsHTTPTransportSender">
-        <parameter name="SO_TIMEOUT">60000</parameter>
-        <parameter name="CONNECTION_TIMEOUT">60000</parameter>
-    </transportSender>
-    ```
+            ``` java
+            [transport.client.http.properties]
+            SO_TIMEOUT = 6000
+            CONNECTION_TIMEOUT = 6000
+            ```
 
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
 
