@@ -248,24 +248,24 @@ The **apictl** tool should be installed in the automation servers to begin the p
     in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
 
 <a name="G"></a>
-### (G.) - Get keys for an API/API Product
+### (G.) - Get keys for an API
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API or an API Product by subscribing to it using a new application created by CTL:
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API by subscribing to it using a new application created by CTL:
 
 !!! tip
     - Make sure that WSO2 API Manager is started and the CTL tool is running. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). 
     - You should log in to the API Manager in the environment by following the instructions in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
-Run any of the following CTL commands to get keys for the API/API Product.
+Run any of the following CTL commands to get keys for the API.
 
 - **Command**
 
     ```bash
-    apictl get-keys -n <API or API Product name> -v <API or API Product version> -r <API or API Product provider> -e <environment> -k
+    apictl get-keys -n <API name> -v <API version> -r <API provider> -e <environment> -k
     ```  
 
     ```bash
-    apictl get-keys --name <API or API Product name> --version <API or API Product version> --provider <API or API Product provider> --environment <environment> -k
+    apictl get-keys --name <API name> --version <API version> --provider <API provider> --environment <environment> -k
     ```
 
     !!! example
@@ -277,10 +277,10 @@ Run any of the following CTL commands to get keys for the API/API Product.
             
         -   Required :  
             `--environment` or `-e` : Key generation environment  
-            `--name` or `-n` : API or API Product to enerate keys for   
+            `--name` or `-n` : API to generate keys for   
         -   Optional :  
-            `--provider` or `-r` : Provider of the API or API Product  
-            `--version` or `-v` : Version of the API or API Product (Currently API Products do not have versions)
+            `--provider` or `-r` : Provider of the API  
+            `--version` or `-v` : Version of the API  
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
