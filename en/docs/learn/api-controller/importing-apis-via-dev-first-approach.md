@@ -136,7 +136,149 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
 
             First you need to define the scope name (products:read) under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section.
 
-            Make sure to set the security name as **`default`** when defining the scopes.        
+            Make sure to set the security name as **`default`** when defining the scopes.
+            
+        !!! note
+            You can define WSO2 APIM supported open API extensions for an API when defining a Swagger2 or OpenAPI3 specification to generate an API. These extensions can be used to define endpoint configurations, runtime configurations, resource level, and API level throttling, transport-level security, and CORS configurations and response cache configurations. The list of APIM supported open API extensions is as follows.
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <p><strong>Extension</strong></p>
+                        </td>
+                        <td>
+                            <p><strong>Description</strong></p>
+                        </td>
+                        <td>
+                            <p><strong>API Level/ Resource Level</strong></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-basePath</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">The base path which gateway exposes the API</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-production-endpoints</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify the actual back end of the service</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-sandbox-endpoints</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify the sandbox endpoint of the service if available</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-throttling-tier</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify the rate-limiting for the API or resource</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level/ Resource level</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-cors</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify CORS configuration for the API</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-disable-security</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">The resource can be invoked without any authentication</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Resource level</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-response-cache</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Enable response caching when creating a new API with cache timeout</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-mutual-ssl</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Enable mutual ssl for API</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-auth-header</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify the authorization header for the API in which either bearer or basic token is sent</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-transports</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify the transport security for the API(http, https and mutual SSL)</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level&nbsp;</span></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p><span style="font-weight: 400;">x-wso2-application-security</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">Specify application security (basic_auth, api_key, oauth2)</span></p>
+                        </td>
+                        <td>
+                            <p><span style="font-weight: 400;">API level/ Resource level</span></p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            Let's see how these OpenAPI extensions are used in [Open API definition](https://github.com/wso2/product-microgateway/blob/master/samples/endpoint_by_reference_sample.yaml).
 
      A project folder with the following default structure will be created in the given directory.
 
