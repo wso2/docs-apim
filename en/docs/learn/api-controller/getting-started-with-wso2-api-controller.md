@@ -319,7 +319,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             apictl logout dev
             ```
 
-## List APIs/API Products/Applications in an environment
+## List APIs/Applications in an environment
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
@@ -386,48 +386,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 If no advanced attribute modifier has been specified, the API names containing the search term will 
                 be returned as a result.
 
-    2. List API Products in an environment.
-    
-        -   **Command**
-            ``` bash
-            apictl list api-products -e <environment> -k
-            ```
-            ``` bash
-            apictl list api-products --environment <environment> --insecure
-            ```
-            ``` bash
-            apictl list api-products --environment <environment> --query <API search query> --insecure
-            ```
-
-            !!! info
-                **Flags:**  
-                
-                -   Required :  
-                    `--environment` or `-e` : Environment to be searched  
-                -   Optional :  
-                    `--query` or `-q` : Search query pattern  
-                    `--limit` or `-l` : Maximum number of API Products to return
-
-            !!! example
-                ```bash
-                apictl list api-products -e dev -k
-                ```
-                ```bash
-                apictl list api-products --environment production --insecure
-                ```    
-                ```go
-                apictl list api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
-                ```  
-
-        -   **Response**
-
-            ```go
-            ID                                     NAME                CONTEXT              STATUS              PROVIDER
-            b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct   /leasingapiproduct   PUBLISHED           admin
-            ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct    /creditapiproduct    PUBLISHED           Alice
-            ```
-    
-    3. List Applications in an environment.
+    2. List Applications in an environment.
 
         -   **Command**
             ``` bash
@@ -468,7 +427,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
             ``` 
         
-## Delete an API/API Product/Application in an environment
+## Delete an API/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
@@ -515,47 +474,8 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```go
             PizzaShackAPI API deleted successfully!
             ```
-
-    2. Delete an API Product in an environment.
-
-        -   **Command**
-            ``` bash
-            apictl delete api-product -n <API Product name> -e <environment> -k
-            ```
-            ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --insecure
-            ```
-            ``` bash
-            apictl delete api-product --name <API Product name> --environment <environment> --provider <API Product provider> --insecure
-            ```
-
-            !!! info
-                **Flags:**  
-                
-                -   Required :  
-                    `--environment` or `-e` : Environment from which the API Product should be deleted  
-                    `--name` or `-n` : Name of the API Prodcut to be deleted   
-                -   Optional :  
-                    `--provider` or `-r` : Provider of the API Product to be deleted  
-
-            !!! example
-                ```bash
-                apictl delete api-product -n LeasingAPIProduct -e dev -k
-                ```
-                ```bash
-                apictl delete api-product --name LeasingAPIProduct -environment production --insecure
-                ```    
-                ```go
-                apictl delete api-product --name LeasingAPIProduct --environment production --provider Alice --insecure
-                ```  
-
-        -   **Response**
-
-            ```go
-            LeasingAPIProduct API Product deleted successfully!
-            ```
     
-    3. Delete an Application in an environment.
+    2. Delete an Application in an environment.
 
         -   **Command**
             ``` bash
