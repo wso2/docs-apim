@@ -649,6 +649,10 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         PizzaShackAPI API state changed successfully!
         ```
 
+    !!! Info
+        Supported action values : Publish, Deploy as a Prototype, Demote to Created, Demote to Prototyped, Block, Deprecate, Re-Publish, Retire.
+        Note that the Re-publish action is available only after calling Block action.
+
 ## Formatting the outputs of list
 
 Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted with Go Templates. 
