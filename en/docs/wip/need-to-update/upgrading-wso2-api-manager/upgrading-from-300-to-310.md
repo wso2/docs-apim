@@ -483,11 +483,11 @@ Follow the instructions below to move all the existing API Manager configuration
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
-        sh wso2server.sh -DmigrateFromVersion=2.6.0
+        sh wso2server.sh -DmigrateFromVersion=3.0.0
         ```
 
         ``` tab="Windows"
-        wso2server.bat -DmigrateFromVersion=2.6.0
+        wso2server.bat -DmigrateFromVersion=3.0.0
         ```
 
     4.  Shutdown the API-M server.
