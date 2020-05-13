@@ -312,7 +312,6 @@ nav:
               - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
               - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
               - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-              - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
               - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
           - Extending API Gateway:
               - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md

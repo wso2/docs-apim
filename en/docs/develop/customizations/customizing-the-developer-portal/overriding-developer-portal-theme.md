@@ -43,8 +43,8 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 
 **If you do not have access to the file system** , you can upload the Devportal theme via the Admin Portal as shown below:
 
-1.  Download the sample theme here [sampleTheme.zip]({{base_path}}/assets/attachments/learn/sampleTheme.zip). 
-2.  The `sampleTheme.zip` file contains the following folder structure. 
+1.  Download the sample theme here [sample-theme.zip]({{base_path}}/assets/attachments/learn/sample-theme.zip). 
+2.  The `sample-theme.zip` file contains the following folder structure. 
 
      You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter, but the name of the JSON file (`defaultTheme.json`) does.
      Uses of resources in `login` folder will be discussed in ## Applying thems for tenant login pages section.
@@ -116,7 +116,7 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 
 #### Adding custom logo for the tenant
 
-In your tenant theme, you can refer to an image from the `defaultTheme.json` file as follows. The examples below uses the `custom-logo.png` image from the `sampleTheme.zip`. The image can be referred using one of the following URL patterns.
+In your tenant theme, you can refer to an image from the `defaultTheme.json` file as follows. The examples below uses the `custom-logo.png` image from the `sample-theme.zip`. The image can be referred using one of the following URL patterns.
 
 The path format to the `custom-logo.png` image within the tenant domain theme is as follows:
 
