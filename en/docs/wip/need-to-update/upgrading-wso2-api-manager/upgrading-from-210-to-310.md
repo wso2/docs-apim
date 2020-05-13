@@ -2073,7 +2073,7 @@ Follow the instructions below to move all the existing API Manager configuration
     ./assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
     2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2
-    .carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+    .carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
     3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
