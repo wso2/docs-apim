@@ -462,7 +462,7 @@ Follow the instructions below to move all the existing API Manager configuration
             1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
                 ```
                 [indexing]
-                frequency= 10
+                frequency = 10
                 ```
 
             2.  Re-run the command above.

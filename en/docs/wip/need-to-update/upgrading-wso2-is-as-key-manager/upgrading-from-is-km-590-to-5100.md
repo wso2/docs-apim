@@ -20,7 +20,9 @@ but **instead of step 2 - (5)**, which explains how to migrate the WSO2 API-M Id
 follow the WSO2 Identity Server 5.10.0 documentation to migrate the WSO2 Identity Server (WSO2 IS) from version 5.9.0 to 5.10.0.
 [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.9.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/)
 
-Before execute the migration client, note that you have removed the following entries from migration-config.yaml in the migration-resources directory.
+Before execute the IS migration client, follow the below steps.
+
+    1. Remove the following entries from migration-config.yaml in the migration-resources directory.
                 ```
                 - version: "5.10.0"
                     migratorConfigs:
@@ -34,7 +36,23 @@ Before execute the migration client, note that you have removed the following en
                         location: "step2"
                         schema: "identity"
                 ```
+    2. Update <IS-KM-HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+    
+        ```
+        [user_store]
+        type = "database"
+        ```
 
+        !!! note
+            Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+
+        !!! note
+            Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+
+            ```
+            [user_store]
+            type = "database_unique_id"
+            ```
 
 
 
