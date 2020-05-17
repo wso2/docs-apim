@@ -26,22 +26,21 @@ current API Manager 2.6.0 version and run the below scripts against **the databa
 
 !!! info "Turning off registry versioning in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
-    Set the `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings`
-    false.
+    Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
     ```
     <staticConfiguration>
-        <versioningProperties>false</versioningProperties>
-        <versioningComments>false</versioningComments>
-        <versioningTags>false</versioningTags>
-        <versioningRatings>false</versioningRatings>
+        <versioningProperties>true</versioningProperties>
+        <versioningComments>true</versioningComments>
+        <versioningTags>true</versioningTags>
+        <versioningRatings>true</versioningRatings>
     </staticConfiguration>
     ```
     
     !!! warning
         If the above configurations are already set as `false` you should not run the below scripts.
     
-    When the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in.
+    From API-M 3.0.0 version onwards, those configurations are set to false and when the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.
     
     ??? info "DB Scripts"
         ```tab="H2"
@@ -2018,7 +2017,11 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=2.6.0
         ```
 
-    4.  Shutdown the API-M server.
+    4. Shutdown the API-M server.
+    
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+
+       -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
 7.  Re-index the artifacts in the registry.
     1.  Run the [reg-index.sql](../../assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
@@ -2034,7 +2037,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [indexing]

@@ -2168,9 +2168,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
     You have to run the following migration client to update the registry artifacts.
 
-    1. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+    1. Download and extract the [migration-resources.zip](../.
+    ./assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2.  Start the API-M server as follows.
+    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+
+    3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
         sh wso2server.sh -DmigrateFromVersion=2.0.0
@@ -2180,7 +2183,11 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=2.0.0
         ```
 
-    3.  Shutdown the API-M server.
+    4. Shutdown the API-M server.
+    
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+
+       -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
 8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file:
 
@@ -2204,7 +2211,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
         [indexing]

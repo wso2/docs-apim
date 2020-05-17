@@ -12,10 +12,38 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     -   If you wish to upgrade your APIM environment from **API-M 2.0.0 to 3.1.0**, which is using the **internal** WSO2 Identity Server (**WSO2 IS**) **capabilities**, follow the instructions in [Upgrading API-M from 2.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-200-to-310.md).
 
-Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.1.0 to 3.1.0** when using **WSO2 IS** as the **Key Manager:**
+Upgrade WSO2 API-M **from WSO2 API-M 2.0.0 to 3.1.0** when using **WSO2 IS** as the **Key Manager:** as mentioned in below.
 
-1.  Migrate the WSO2 Identity Server (WSO2 IS) from version 5.2.0 to 5.10.0.
-    [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.2.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) as described in the WSO2 Identity Server 5.10.0 documentation.
+Follow the instructions mentioned in [Upgrading API-M from 2.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-200-to-310.md), 
+but **instead of step 2 - (6)**, which explains how to migrate the WSO2 API-M Identity components, 
+follow the WSO2 Identity Server 5.10.0 documentation to migrate the WSO2 Identity Server (WSO2 IS) from version 5.2.0 to 5.10.0.
+[Migrate the WSO2 Identity Server (WSO2 IS) from version 5.2.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/)
 
-2.  Migrate WSO2 API-M from 2.0.0 to 3.1.0.
-    Follow the instructions mentioned in [Upgrading API-M from 2.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-200-to-310.md), but **skip the step 2 - (6)**, which explains how to migrate the WSO2 API-M Identity components.
+Before execute the migration client, note that you have removed the following entries from migration-config.yaml in the migration-resources directory.
+                ```
+                 - version: "5.3.0"
+                    migratorConfigs:
+                        -
+                        name: "ChallengeQuestionDataMigrator"
+                        order: 6
+                        parameters:
+                        schema: "identity"
+                        
+                - version: "5.5.0"
+                    migratorConfigs:
+                       -
+                        name: "EventPublisherMigrator"
+                        order: 11
+            
+                - version: "5.10.0"
+                    migratorConfigs:
+                    -
+                        name: "MigrationValidator"
+                        order: 2
+                    -
+                        name: "SchemaMigrator"
+                        order: 5
+                        parameters:
+                        location: "step2"
+                        schema: "identity"
+                ```

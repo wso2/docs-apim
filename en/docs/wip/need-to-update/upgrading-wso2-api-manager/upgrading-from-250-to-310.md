@@ -1637,7 +1637,11 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=2.5.0
         ```
 
-    4.  Shutdown the API-M server.
+    4. Shutdown the API-M server.
+    
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+
+       -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
 7.  Re-index the artifacts in the registry.
 
@@ -1654,7 +1658,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3. Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+    3. Add the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
         [indexing]

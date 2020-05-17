@@ -149,7 +149,7 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.  Update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+4.   If you have used separate DB for user management, you need to update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
@@ -500,7 +500,11 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=3.0.0
         ```
 
-    4.  Shutdown the API-M server.
+    4. Shutdown the API-M server.
+    
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+
+       -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
 7.  Re-index the artifacts in the registry.
     1.  Run the [reg-index.sql](../../assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
@@ -516,11 +520,11 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration in to `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [indexing]
-        re_indexing= 1
+        re_indexing = 1
         ```
 
         !!! info 
