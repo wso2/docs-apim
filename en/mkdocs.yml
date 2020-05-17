@@ -31,9 +31,19 @@ copyright: WSO2 API Manager - Documentation
 
 # Configuration
 theme:
-  name: readthedocs
+  name: material
+  custom_dir: theme/material
+  palette:
+    primary: deep-orange
+    accent: deep-orange
+  logo: images/logo.svg
+  favicon: images/favicon.png
+  highlightjs: true
+  feature:
+    tabs: true
+  language: 'en'
 #Breaks build if there's a warning
-strict: false
+strict: true
 # Navigation
 nav:
   - Welcome to WSO2 API Manager Documentation: index.md
@@ -518,6 +528,8 @@ plugins:
   - search
   - markdownextradata: {}
   - exclude:
+      glob:
+        - wip/*
   - redirects:
       redirect_maps:
         learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md: 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/'
