@@ -295,7 +295,7 @@ current API Manager 2.0.0 version and run the below scripts against **the databa
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 !!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-590.md).
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md).
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
