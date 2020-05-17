@@ -10,7 +10,7 @@ The following information describes how to upgrade your API Manager server **fro
 
         -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.1.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
-    2.  Before starting the upgrade, run the [token and session cleanup scripts](../../administer/product-administration/removing-unused-tokens-from-the-database.md) in the databases of the environment, if you are not doing regular cleanups.
+    2.  Before starting the upgrade, run the [token and session cleanup scripts](../../../administer/product-administration/removing-unused-tokens-from-the-database.md) in the databases of the environment, if you are not doing regular cleanups.
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.0.0 to 3.1.0**.
 
@@ -305,7 +305,7 @@ current API Manager 2.0.0 version and run the below scripts against **the databa
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
-    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog](../../reference/ConfigCatalog.md).
+    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog](../../../reference/ConfigCatalog.md).
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
@@ -470,7 +470,7 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim200_to_apim310_gateway_artifact_migrator.sh](../../assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0. 
+        Run the [apim200_to_apim310_gateway_artifact_migrator.sh](../../../assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0. 
         ```
         ./apim200_to_apim310_gateway_artifact_migrator.sh <API-definitions-path>
         ```
@@ -493,7 +493,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     ??? note "Windows"
         !!! note "Super Tenant"
-            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator.ps1](../../assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
+            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator.ps1](../../../assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -513,7 +513,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Where `<API-M_3.1.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.1.0`, which is the **full path** to the particular location.
 
         !!! note "Tenants"
-            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/install-and-setup/apim210_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
+            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1](../../../assets/attachments/install-and-setup/apim210_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -1989,7 +1989,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../../administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -2168,9 +2168,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
     You have to run the following migration client to update the registry artifacts.
 
-    1. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+    1. Download and extract the [migration-resources.zip](../../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2.  Start the API-M server as follows.
+    2. Download and copy the [API Manager Migration Client](../../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.x-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+
+    3.  Start the API-M server as follows.
 
         ``` tab="Linux / Mac OS"
         sh wso2server.sh -DmigrateFromVersion=2.0.0
@@ -2180,7 +2182,11 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=2.0.0
         ```
 
-    3.  Shutdown the API-M server.
+    4. Shutdown the API-M server.
+    
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+
+       -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
 8.  Preserve the case sensitive behavior for the migrated resources by adding the following property to the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file:
 
@@ -2191,12 +2197,12 @@ Follow the instructions below to move all the existing API Manager configuration
 
 9. Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
+    1.  Run the [reg-index.sql](../../../assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar](../../../assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
@@ -2204,7 +2210,7 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
 
         ```
         [indexing]

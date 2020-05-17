@@ -12,10 +12,43 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     -   If you wish to upgrade your APIM environment from **API-M 2.5.0 to 3.1.0**, which is using the **internal** WSO2 Identity Server (**WSO2 IS**) **capabilities**, follow the instructions in [Upgrading API-M from 2.5.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-250-to-310.md).
 
-Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 2.5.0 to 2.6.0** when using **WSO2 IS** as the **Key Manager:**
+Upgrade WSO2 API-M **from WSO2 API-M 2.5.0 to 3.1.0** when using **WSO2 IS** as the **Key Manager:** as mentioned in below.
 
-1.  Migrate the WSO2 Identity Server (WSO2 IS) from version 5.6.0 to 5.10.0.
-    [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.6.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) as described in the WSO2 Identity Server 5.10.0 documentation.
+Follow the instructions mentioned in [Upgrading API-M from 2.5.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-250-to-310.md), 
+but **instead of step 2 - (5)**, which explains how to migrate the WSO2 API-M Identity components, 
+follow the WSO2 Identity Server 5.10.0 documentation to migrate the WSO2 Identity Server (WSO2 IS) from version 5.6.0 to 5.10.0.
+[Migrate the WSO2 Identity Server (WSO2 IS) from version 5.6.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/)
 
-2.  Migrate WSO2 API-M from 2.5.0 to 3.1.0.
-    Follow the instructions mentioned in [Upgrading API-M from 2.5.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-250-to-310.md), but **skip the step 2 - (5)**, which explains how to migrate the WSO2 API-M Identity components.
+Before execute the IS migration client, follow the below steps.
+
+    1. Remove the following entries from migration-config.yaml in the migration-resources directory.
+                ```
+                - version: "5.10.0"
+                    migratorConfigs:
+                    -
+                        name: "MigrationValidator"
+                        order: 2
+                    -
+                        name: "SchemaMigrator"
+                        order: 5
+                        parameters:
+                        location: "step2"
+                        schema: "identity"
+                ```
+    2. Update <IS-KM-HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+    
+        ```
+        [user_store]
+        type = "database"
+        ```
+
+        !!! note
+            Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+
+        !!! note
+            Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+
+            ```
+            [user_store]
+            type = "database_unique_id"
+            ```

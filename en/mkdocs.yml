@@ -440,6 +440,25 @@ nav:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
           - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+      - Upgrading WSO2 API Manager:
+          - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-310.md
+          - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-310.md
+          - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310.md
+          - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-310.md
+          - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-310.md
+          - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-310.md
+          - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310.md
+          - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-310.md
+          - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
+      - Upgrading WSO2 IS as KM:
+          - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
+          - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md
+          - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md
+          - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md
+          - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md
+          - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md
+          - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md
+          - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md
   - Administer:
       - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
       - Managing Users and Roles:
@@ -497,6 +516,7 @@ nav:
       - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
       - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
       - Removing Unused Tokens from the Database: troubleshooting/removing-unused-tokens-from-the-database.md
+      - administer/product-administration/removing-unused-tokens-from-the-database.md
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
@@ -624,7 +644,6 @@ plugins:
         'administer/product-administration/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/jmx-based-monitoring/'
         'administer/product-administration/monitoring/monitoring-tcp-based-messages.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages/'
         'administer/product-administration/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application/'
-        'administer/product-administration/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/removing-unused-tokens-from-the-database/'
         'administer/product-configurations/changing-the-default-transport.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/changing-the-default-transport/'
         'administer/product-configurations/default-product-ports.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/reference/default-product-ports/'
         'administer/product-configurations/configuring-caching.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/configuring-caching/'
