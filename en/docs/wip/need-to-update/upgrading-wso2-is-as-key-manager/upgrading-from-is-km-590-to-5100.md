@@ -53,14 +53,3 @@ Before execute the IS migration client, follow the below steps.
             [user_store]
             type = "database_unique_id"
             ```
-
-
-
-
-
-
-
-
-
-
-    
