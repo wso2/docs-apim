@@ -379,7 +379,7 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.1.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -483,12 +483,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Migrate the API Manager artifacts.
 
-    You have to run the following migration client to update the registry artifacts.
+    You have to run the following migration client to update the registry artifxacts.
 
     1. Download and extract the [migration-resources.zip](../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2
-    .carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
