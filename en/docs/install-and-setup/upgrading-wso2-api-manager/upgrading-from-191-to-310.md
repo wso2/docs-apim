@@ -12,7 +12,7 @@ The following information describes how to upgrade your API Manager server **fro
 
     2.  Before starting the upgrade, run the [token and session cleanup scripts](../../troubleshooting/removing-unused-tokens-from-the-database.md) in the databases of the environment, if you are not doing regular cleanups.
 
-Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.8.0/1.9.0/1.9.1 to 3.1.0** .
+Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.8.0/1.9.0/1.9.1 to 3.1.0**.
 
 !!! note
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md).
