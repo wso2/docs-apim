@@ -19,37 +19,37 @@ Follow the instructions below to upgrade WSO2 API-M **from WSO2 API-M 1.10.0 to 
 
 Before execute the IS migration client, follow the below steps.
 
-    1. Remove the following entries from migration-config.yaml in the migration-resources directory.
-                ```
-                - version: "5.10.0"
-                    migratorConfigs:
-                    -
-                        name: "MigrationValidator"
-                        order: 2
-                    -
-                        name: "SchemaMigrator"
-                        order: 5
-                        parameters:
-                        location: "step2"
-                        schema: "identity"
-                ```
-    2. Update <IS-KM-HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
-    
-        ```
+1. Remove the following entries from migration-config.yaml in the migration-resources directory.
+                
+        - version: "5.10.0"
+            migratorConfigs:
+            -
+                name: "MigrationValidator"
+                order: 2
+            -
+                name: "SchemaMigrator"
+                order: 5
+                parameters:
+                location: "step2"
+                schema: "identity"
+               
+
+2. Update <IS-KM-HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
+
         [user_store]
         type = "database"
+
+!!! note
+    
+    Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
+
+!!! note
+    
+    Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
         ```
-
-        !!! note
-            Please note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finish completely and server get started.
-
-        !!! note
-            Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
-
-            ```
-            [user_store]
-            type = "database_unique_id"
-            ```
+        [user_store]
+        type = "database_unique_id"
+        ```
 
 2.  Migrate WSO2 API-M from 1.10.0 to 3.1.0.
     -   Migrate WSO2 API-M from 1.10.0 to 2.6.0. 
