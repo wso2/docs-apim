@@ -35,9 +35,6 @@ current API Manager 3.0.0 version and run the below scripts against **the databa
     !!! note "NOTE"
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
-!!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md).
-
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
@@ -392,7 +389,9 @@ Follow the instructions below to move all the existing API Manager configuration
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.10.0.
 
     !!! note
-        As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
+        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md) instead of below steps.
+
+        But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
