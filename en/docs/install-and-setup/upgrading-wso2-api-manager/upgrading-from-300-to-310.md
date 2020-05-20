@@ -43,9 +43,9 @@ current API Manager 3.0.0 version and run the below scripts against **the databa
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
-    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog](../../reference/ConfigCatalog.md).
-
-Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
+    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as some configuration files may have changed. Instead, redo the configuration changes in the new configuration files.
+Follow the instructions below to move all the existing API Manager configurations from the current environment to the
+ new one. For more information refer [Configuration Catalog](../../reference/ConfigCatalog.md)
 
 1.  Back up all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
 
@@ -484,9 +484,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
     You have to run the following migration client to update the registry artifxacts.
 
-    1. Download and extract the [migration-resources.zip](../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
+    1. Download and extract the [migration-resources.zip](../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
