@@ -12,9 +12,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 
     -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M 1.8.0/1.9.0/1.9.1 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-191-to-310.md) to upgrade your APIM environment from API-M 1.8.0/1.9.0/1.9.1 to 3.1.0.
 
-Follow the WSO2 Identity Server 5.10.0 documentation [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.0.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) to migrate the WSO2 Identity Server (WSO2 IS) from version 5.1.0 to 5.10.0.
-
-Before execute the IS migration client, follow the below steps.
+Before executing the IS migration client, keep in mind to follow the below steps.
 
 1. Remove the following entries from migration-config.yaml in the migration-resources directory.
                 
@@ -35,6 +33,9 @@ Before execute the IS migration client, follow the below steps.
 
         [user_store]
         type = "database"
+
+
+Now, follow the WSO2 Identity Server 5.10.0 documentation [Migrate the WSO2 Identity Server (WSO2 IS) from version 5.0.0 to 5.10.0](https://is.docs.wso2.com/en/5.10.0/setup/migrating-to-5100/) to migrate the WSO2 Identity Server (WSO2 IS) from version 5.1.0 to 5.10.0.
 
 !!! note
     
