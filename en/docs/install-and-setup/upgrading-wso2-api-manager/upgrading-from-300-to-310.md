@@ -389,9 +389,9 @@ Follow the instructions below to move all the existing API Manager configuration
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.10.0.
 
     !!! note
-        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md).
+        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md) instead of below steps.
 
-        Even if you are not using WSO2 IS as a Key Manager, following steps are necessary to be followed in order to upgrade identity components as WSO2 API-M shares the identity components with WSO2 Identity Sever (WSO2 IS).
+        But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
