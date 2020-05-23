@@ -59,7 +59,7 @@ A sequence diagram explaining the above flow would be as follows:
 
 In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML token and the API Manager is used as the OAuth server.
 
-1.  Sign in to the API Manager's management console ( `https://localhost:9443/carbon` ) using admin/admin credentials.
+1.  Sign in to the API Manager's management console (`https://localhost:9443/carbon`) using admin/admin credentials.
 
     !!! note
         If you are using a tenant to create the Identity Provider, use the credentials of tenant admin to log into the API Manager's Management Console.
@@ -154,7 +154,7 @@ Here's an example consumer key and secret combination:
     <tbody>
     <tr>
     <td><code>Identity_Provider_Entity_Id</code> (issuer)</td>
-    <td>This is the value of the <code>saml:Issuer</code> , which is a unique identifier of the identity provider.</td>
+    <td>This is the value of the <code>saml:Issuer</code>, which is a unique identifier of the identity provider.</td>
     </tr>
     <tr>
     <td><code>saml-subject</code></td>
