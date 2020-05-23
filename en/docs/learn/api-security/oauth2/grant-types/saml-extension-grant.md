@@ -54,7 +54,7 @@ A sequence diagram explaining the above flow would be as follows:
     [apim.key_manager]
     configuration.ServerURL = "<key-manager-server-url>"
     ```
-    -   A valid SAML2 assertion. For instructions on how to configure WSO2 API Manager with SAML2, see [Configuring API Manager for SSO]({{base_path}}/administer/product-security/saml2-sso/configuring-single-sign-on-with-saml2/)
+    -   A valid SAML2 assertion. For instructions on how to configure WSO2 API Manager with SAML2, see [Configuring API Manager for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2/)
 
 
 In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML token and the API Manager is used as the OAuth server.
