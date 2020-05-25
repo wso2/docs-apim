@@ -1676,90 +1676,13 @@ Follow the instructions below to move all the existing API Manager configuration
 
 Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.1.0
 
-#### Step 3.1 - Migrating the Analytics Database
-
-Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
-
-??? info "DB Scripts"
-    ```tab="H2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);           
-    ```
-    
-    ```tab="DB2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);
-    ```
-
-    ```tab="MSSQL"
-    DECLARE @con_com as VARCHAR(8000);
-    SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('APILASTACCESSSUMMARY') AND type='PK');
-    EXEC('ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT ' + @con_com);
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARYADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-
-    ```tab="MySQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-    
-    ```tab="Oracle"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-        
-    ```tab="PostgreSQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-
-#### Step 3.2 - Configure WSO2 API-M Analytics 3.1.0
+#### Step 3.1 - Configure WSO2 API-M Analytics 3.1.0
 
 !!! note
     -   In API-M 2.5.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
     -   In API-M 3.1.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
 
-Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
-
-??? info "DB Scripts"
-    ```tab="H2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);           
-    ```
-
-    ```tab="DB2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);
-    ```
-
-    ```tab="MSSQL"
-    DECLARE @con_com as VARCHAR(8000);
-    SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('APILASTACCESSSUMMARY') AND type='PK');
-    EXEC('ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT ' + @con_com);
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARYADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-
-    ```tab="MySQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-    
-    ```tab="Oracle"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-        
-    ```tab="PostgreSQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
 
 1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.1.0](http://wso2.com/api-management/).
 
@@ -1834,14 +1757,16 @@ Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.
     sh dashboard.sh
     ```
 
-#### Step 3.3 - Configure WSO2 API-M 3.1.0 for Analytics
+
+#### Step 3.2 - Configure WSO2 API-M 3.1.0 for Analytics and Migrate data into new Analytics Database
 
 Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
 1.  Configure following statistics related datasources for WSO2 API Manager Analytics in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
 
     !!! warning
-        The following 3 datasources should be configured in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file **only until the stats migration is complete**. After the statistics migration is completed remove the `WSO2AM_STATS_DB` and `APIM_ANALYTICS_DB` datasource configurations, which were added for the old and new statistics databases, from the latter mentioned file.
+        The following 3 datasources should be configured in the `<API-M_3.1.0_HOME>/repository/conf/ deployment.toml`
+         file **only until the stats migration is complete**. After the statistics migration is completed remove the `WSO2AM_STATS_DB` and `APIM_ANALYTICS_DB` datasource configurations, which were added for the old and new statistics databases, into the latter mentioned file.
 
     The following in an example of how the configurations should be defined when using MySQL.
 
@@ -1862,6 +1787,8 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         id = "WSO2AM_STATS_DB"
         type = "mysql"
         url = "jdbc:mysql://localhost:3306/stats_db"
+        driver = "com.mysql.jdbc.Driver"
+        validationQuery = "SELECT 1"
         username = "username"
         password = "password"
         pool_options.defaultAutoCommit = true
@@ -1874,6 +1801,8 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         id = "APIM_ANALYTICS_DB"
         type = "mysql"
         url = "jdbc:mysql://localhost:3306/analytics_db"
+        driver = "com.mysql.jdbc.Driver"
+        validationQuery = "SELECT 1"
         username = "username"
         password = "password"
         pool_options.defaultAutoCommit = true
@@ -1883,8 +1812,8 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         When performing Analytics migration in WSO2 API-M Analytics 3.1.0, you need to set the **defaultAutoCommit** value to **true** in the `APIM_ANALYTICS_DB` and `WSO2AM_STATS_DB` datasource configurations.
 
     ??? attention "If you are using another DB type"
-        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
-
+        If you are using another DB type other than **H2** or **MySQL**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+ 
         ```
         [database.apim_db]
         type = "mssql"
@@ -1895,19 +1824,19 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         validationQuery = "SELECT 1"
         ```
 
-2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-2.jar](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.0
-.0_HOME>/repository/components/dropins` folder.
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.1.0_HOME>/repository/components/lib` folder.
 
-4.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+4.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.1.0_HOME>/repository/conf/ deployment.toml` file.
 
     ``` java
     [apim.analytics]
     enable = false
     ```
 
-5.  After setting the above configurations in place, start up the WSO2 API-M 3.1.0 server with the following commands.
+5.  After setting the above configurations in place, start up the WSO2 API-M 3.1.0 server with the following command,
+ **if you had enabled Geo Location Based Statistics** in the old version setup.
 
     ``` tab="Linux / Mac OS"
     sh wso2server.sh -DmigrateStats=true
@@ -1915,6 +1844,17 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
     ``` tab="Windows"
     wso2server.bat -DmigrateStats=true
+    ```
+    
+    If you had not enabled Geo Location Based Statistics in the old version setup, you have to start up the WSO2 
+    API-M 3.1.0 server with the following command to do the table-wise migration. (this will migrate all the tables except GeoLocationAgg table)
+
+    ``` tab="Linux / Mac OS"
+    sh wso2server.sh -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
+    ```
+
+    ``` tab="Windows"
+    wso2server.bat -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
     ```
 
     !!! info "Table-wise Migration"
@@ -1941,7 +1881,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         For example, if you need to migrate only the `ApiPerDestinationAgg` and `ApiResPathPerApp` tables use the following command:
 
         !!! attention
-            When you need to migrate multiple tables, the comma separated table names should without spaces before or after the comma as shown below.
+            When you need to migrate multiple tables, the comma separated table names should be without spaces before or after the comma as shown below.
 
 
         ``` java
@@ -1977,8 +1917,47 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         In such scenarios, you will face a migration data loss due to API or Application deletion.
 
 
-6.  Stop the WSO2 API-M server and remove the migration JAR copied under **Step 3.2 - 3**.
+6.  Stop the WSO2 API-M server.
 
+7.  Execute the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
+
+    ??? info "DB Scripts"
+        ```tab="H2"
+        ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
+        ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
+        ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);           
+        ```
+        
+        ```tab="DB2"
+        ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
+        ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
+        ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);
+        ```
+    
+        ```tab="MSSQL"
+        DECLARE @con_com as VARCHAR(8000);
+        SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('APILASTACCESSSUMMARY') AND type='PK');
+        EXEC('ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT ' + @con_com);
+        ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
+        ALTER TABLE APILASTACCESSSUMMARYADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+        ```
+    
+        ```tab="MySQL"
+        ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
+        ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+        ```
+        
+        ```tab="Oracle"
+        ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
+        ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+        ```
+            
+        ```tab="PostgreSQL"
+        ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
+        ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+        ```
+    
+8.  Remove the migration JAR copied under **Step 3.2 - 2**.    
 7.  Remove both the old and new `WSO2AM_STATS_DB` and `APIM_ANALYTICS_DB` datasources from the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file, which you defined in **Step 3.2 - 1**.
 
 8.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.

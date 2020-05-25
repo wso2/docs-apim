@@ -181,11 +181,6 @@ sure that hostname verification is enabled in the product startup script ( <cod
 <p>See <a href="https://docs.wso2.com/display/ADMIN44x/Enabling+HostName+Verification">Enabling HostName Verification</a> for instructions.</p></td>
 </tr>
 <tr class="even">
-<td><p>Enable additional XSS Protection</p></td>
-<td><p>XSS attacks are prevented on the latest WSO2 products by default. This is done by encoding the displaying values. However, if additional protection is required, an input validation valve can be configured.</p>
-<p>See <a href="{{base_path}}/administer/product-security/mitigating-cross-site-scripting-attacks/">Mitigating Cross Site Scripting Attacks</a> for instructions.</p></td>
-</tr>
-<tr class="odd">
 <td><p>Increase JSESSIONID length</p></td>
 <td><div class="content-wrapper">
 <p>If required, increase the session ID length by changing the <code>               sessionIDLength              </code> attribute of the session manager in the <code>               context.xml              </code> file (stored in the <code>               &lt;PRODUCT_HOME&gt;/repository/conf/tomcat/context.xml              </code> directory) as shown below. The default value is 16 bytes.</p>
@@ -196,14 +191,14 @@ sure that hostname verification is enabled in the product startup script ( <cod
 </div>
 </div></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Change default admin credentials</p>
 <p><br />
 </p></td>
 <td><p>All WSO2 products have the Administrator account configured by default. The default user name and password of the administrator account is &quot;admin&quot;. To change the administrator credentials, you need to first sign in to the management console of the product as &quot;admin&quot;, and then use the <strong>Change Password</strong> option under <strong>Home-&gt;Configure-&gt;User Management-&gt;Users</strong> in the navigator.</p>
 <p>See <a href="{{base_path}}/administer/product-security/logins-and-passwords/maintaining-logins-and-passwords/#changing-the-super-admin-credentials">Changing the super admin credentials</a> for more information on how to change the password of the administrator.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Restrict access to the management console</p>
 <p><br />
 </p></td>
@@ -212,7 +207,7 @@ sure that hostname verification is enabled in the product startup script ( <cod
 instead of granting all permission to one administrator, you can distribute the responsibilities among administrators by assigning different permissions for conducting various tasks.</p>
 <p>See <a href="{{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles/">Managing User Roles</a> for instructions.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Enable log rotation and monitoring</p>
 <p><br />
 </p></td>
@@ -225,7 +220,7 @@ configured in the <code>              &lt;PRODUCT_HOME&gt;/repository/conf/log4
 files. See <a href="{{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth/">Managing
  log growth</a> for details on how to configure log rotation and manage log growth details in WSO2 API Manager.</p></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><p>Prevent Log Forging</p></td>
 <td><p>Log forging can be identified by appending a UUID to the log message. The conversion character '%u' can be 
 used in the pattern layout to log a UUID. For example, the log pattern can be set as follwing for <code>AUDIT</code> 
@@ -234,7 +229,7 @@ logs, so that the UUID will be printed at the beginning of each log record.</p>
 <p>See <a href="{{base_path}}/administer/product-administration/monitoring/logging/setting-up-logging/">Setting up 
 logging in API Manage</a> for more information on configuring logging.</p></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><p>Set appropriate JVM parameters</p>
 <p><br />
 </p></td>
