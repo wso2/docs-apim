@@ -1326,7 +1326,12 @@ Follow the instructions below to move all the existing API Manager configuration
             END;
         /
 
-        CREATE TABLE AM_API_CLIENT_CERTIFICATE (
+        DECLARE table_count NUMBER;
+          BEGIN
+            table_count := 0;
+            SELECT COUNT(1) INTO table_count from user_tables WHERE table_name= 'AM_API_CLIENT_CERTIFICATE';
+            IF table_count = 0 THEN
+            EXECUTE IMMEDIATE 'CREATE TABLE AM_API_CLIENT_CERTIFICATE (
             TENANT_ID INTEGER NOT NULL,
             ALIAS VARCHAR2(45) NOT NULL,
             API_ID INTEGER NOT NULL,
@@ -1335,7 +1340,9 @@ Follow the instructions below to move all the existing API Manager configuration
             TIER_NAME VARCHAR2 (512),
             FOREIGN KEY (API_ID) REFERENCES AM_API (API_ID) ON DELETE CASCADE,
             PRIMARY KEY (ALIAS, TENANT_ID, REMOVED)
-        )
+            )';
+          END IF;
+        END;
         /
 
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD (
