@@ -54,12 +54,12 @@ A sequence diagram explaining the above flow would be as follows:
     [apim.key_manager]
     configuration.ServerURL = "<key-manager-server-url>"
     ```
-    -   A valid SAML2 assertion. For instructions on how to configure WSO2 API Manager with SAML2, see [Configuring API Manager for SSO]({{base_path}}/administer/product-security/saml2-sso/configuring-single-sign-on-with-saml2/)
+    -   A valid SAML2 assertion. For instructions on how to configure WSO2 API Manager with SAML2, see [Configuring API Manager for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2/)
 
 
 In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML token and the API Manager is used as the OAuth server.
 
-1.  Sign in to the API Manager's management console ( `https://localhost:9443/carbon` ) using admin/admin credentials.
+1.  Sign in to the API Manager's management console (`https://localhost:9443/carbon`) using admin/admin credentials.
 
     !!! note
         If you are using a tenant to create the Identity Provider, use the credentials of tenant admin to log into the API Manager's Management Console.
@@ -154,7 +154,7 @@ Here's an example consumer key and secret combination:
     <tbody>
     <tr>
     <td><code>Identity_Provider_Entity_Id</code> (issuer)</td>
-    <td>This is the value of the <code>saml:Issuer</code> , which is a unique identifier of the identity provider.</td>
+    <td>This is the value of the <code>saml:Issuer</code>, which is a unique identifier of the identity provider.</td>
     </tr>
     <tr>
     <td><code>saml-subject</code></td>
