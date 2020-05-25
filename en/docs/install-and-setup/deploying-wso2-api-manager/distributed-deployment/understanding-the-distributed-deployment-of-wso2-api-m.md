@@ -16,7 +16,7 @@ WSO2 API Manager uses the following main components:
 
 For more information on the above, see the main components of a distributed system.
 
-API Manager uses the following internal datastores to store temporary internal system data required by the local instance of the API Manager. These datastores should not externalized and are not required to be managed outside of API Manager.
+API Manager uses the following internal datastores to store temporary internal system data required by the local instance of the API Manager.
 
 -   **Carbon database** - Stores general internal data related to the product.
 
