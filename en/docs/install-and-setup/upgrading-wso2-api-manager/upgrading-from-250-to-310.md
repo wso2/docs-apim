@@ -28,22 +28,21 @@ current API Manager 2.5.0 version and run the below scripts against **the regist
 
 !!! info "Turning off registry versioning in your current API-M and running the scripts"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
-    Set the `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings`
-    false.
+    Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
     ```
     <staticConfiguration>
-        <versioningProperties>false</versioningProperties>
-        <versioningComments>false</versioningComments>
-        <versioningTags>false</versioningTags>
-        <versioningRatings>false</versioningRatings>
+        <versioningProperties>true</versioningProperties>
+        <versioningComments>true</versioningComments>
+        <versioningTags>true</versioningTags>
+        <versioningRatings>true</versioningRatings>
     </staticConfiguration>
     ```
     
     !!! warning
         If the above configurations are already set as `false` you should not run the below scripts.
     
-    When the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in.
+    From API-M 3.0.0 version onwards, those configurations are set to false and when the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.
     
     ??? info "DB Scripts"
         ```tab="H2"
