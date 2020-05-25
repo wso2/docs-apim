@@ -2184,8 +2184,9 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
         ```
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
+5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version from `<OLD_API-M_ANALYTICS_HOME>/repository/resources/security` and replace the existing keystores in the `<NEW_API-M_ANALYTICS_HOME>/resources/security` directory.
 
-5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.1.0_HOME>/bin` location.
+6.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.1.0_HOME>/bin` location.
     
     ```tab="Worker"
     sh worker.sh
