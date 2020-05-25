@@ -101,7 +101,7 @@ As explained in the above section, you can create any user with a custom role to
 </tr>
 <tr class="even">
 <td>list apis</td>
-<td>-</td>
+<td><strong>API Create</strong> or <strong>API Publish</strong> or <strong>API Subscribe</strong></td>
 <td>apim:api_view</td>
 </tr>
 <tr class="odd">
