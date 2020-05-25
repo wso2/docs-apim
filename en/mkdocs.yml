@@ -441,6 +441,7 @@ nav:
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
           - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
       - Upgrading WSO2 API Manager:
+          - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
           - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-310.md
           - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-310.md
           - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310.md
@@ -449,7 +450,6 @@ nav:
           - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-310.md
           - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310.md
           - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-310.md
-          - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
           - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
       - Upgrading WSO2 IS as KM:
           - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
