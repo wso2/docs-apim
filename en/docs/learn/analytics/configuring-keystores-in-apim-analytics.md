@@ -1,6 +1,6 @@
 # Configuring Keystores in API-M Analytics
 
-WSO2 products use asymmetric cryptography by default for the purposes of authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography).
+WSO2 products use asymmetric cryptography by default for authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography).
 
 In WSO2 API-M Analytics a set of keystores can be configured and used for different use cases in both dashboard and worker profiles.
 
@@ -11,7 +11,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
 !!! note
     Other than explicitly mentioned, you need to do all the following configuration updates related to the dashboard profile in the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
 
-1. Update the databridge configurations.
+1. Update the Databridge configurations.
 
     This is used for authenticating communication over SSL/TLS between API Manager and API-M Analytics. Handles thrift and binary transports.  
 
