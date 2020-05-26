@@ -95,7 +95,7 @@ Follow the instructions below to enable notifications for new API versions:
         If you create the subscriber via the Management Console, you need to add the subscriber's email in the subscriber user profile. You can find the user profile when you list the users in the management console.
 
     !!! note
-        If you are using a Google mail account, note that Google has restricted third-party apps and apps with lower security levels from sending emails by default. Therefore, you need to configure your account to disable this restriction. For more information on Setting up Gmail, see [Creating Users using the Ask Password Option](https://is.docs.wso2.com/en/5.9.0/using-wso2-identity-server/creating-users-using-the-ask-password-option/).
+        If you are using a Google mail account, note that Google has restricted third-party apps and apps with lower security levels from sending emails by default. Therefore, you need to configure your account to disable this restriction. For more information on Setting up Gmail, see [Creating Users using the Ask Password Option](https://is.docs.wso2.com/en/5.9.0/learn/creating-users-using-the-ask-password-option/).
 
 
 
