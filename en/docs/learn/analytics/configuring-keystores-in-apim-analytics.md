@@ -77,9 +77,13 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
         ??? info "Click here for more info on the `master-keys.yaml` file"
             The base64 encoded plaintext keystore password and the base64 encoded plaintext private password of the keystore used for Secure Vault is defined in the master-keys.yaml file. WSO2 Carbon Server reads this file to obtain these two passwords, so that it can decrypt the passwords in the `secrets.properties` file in order to start the server.
 
-4. Set the correct keystore password.
+4. Set the new keystore details when you change the keystore.
 
-      Define the correct keystore password for the `Djavax.net.ssl.keyStorePassword` system property in the `<ANALYTICS_HOME>/wso2/dashboard/bin/carbon.sh` file when you change the keystore.
+      1. Navigate to the <ANALYTICS_HOME>/wso2/dashboard/bin/carbon.sh` file.
+      
+      2. Define the correct keystore path for the `Djavax.net.ssl.keyStore` system property.
+      
+      3. Define the correct keystore password for the `Djavax.net.ssl.keyStorePassword` system property.
 
 ## Configuring keystores in worker profile
 
@@ -152,9 +156,13 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
         ??? info "Click here for more info on the `master-keys.yaml` file"
             The base64 encoded plaintext keystore password and the base64 encoded plaintext private password of the keystore used for Secure Vault is defined in the master-keys.yaml file. WSO2 Carbon Server reads this file to obtain these two passwords, so that it can decrypt the passwords in the `secrets.properties` file in order to start the server.
 
-4. Set the correct keystore password.
+4. Set the new keystore details when you change the keystore.
 
-     Define the correct keystore password for the `Djavax.net.ssl.keyStorePassword` system property in the `<ANALYTICS_HOME>/wso2/worker/bin/carbon.sh` file.
+      1. Navigate to the <ANALYTICS_HOME>/wso2/dashboard/bin/carbon.sh` file.
+      
+      2. Define the correct keystore path for the `Djavax.net.ssl.keyStore` system property.
+      
+      3. Define the correct keystore password for the `Djavax.net.ssl.keyStorePassword` system property.
 
 5. Update the Siddhi stores query API configurations.
 
