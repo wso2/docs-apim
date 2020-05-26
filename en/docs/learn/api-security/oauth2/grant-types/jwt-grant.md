@@ -36,13 +36,13 @@ WSO2 API Manager, as an OAuth 2.0 Authorization Server with its key manager fe
         See [Using Asymmetric Encryption](https://docs.wso2.com/display/ADMIN44x/Using+Asymmetric+Encryption) in the WSO2 Product Administration Guide for more information on how public keys work and how to sign these keys by a certification authority.
 
 
-    -   **Alias** : Give the name of the alias if the Identity Provider identifies this token endpoint by an alias (e.g., `https://localhost:9443/oauth2/token)`. For more information, see [Adding a new identity provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-an-identity-provider/).
+    -   **Alias** : Give the name of the alias if the Identity Provider identifies this token endpoint by an alias (e.g., `https://localhost:9443/oauth2/token)`. For more information, see [Adding a new identity provider](https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-an-identity-provider/).
 
     [![]({{base_path}}/assets/img/learn/add-identity-provider.png)]({{base_path}}/assets/img/learn/add-identity-provider.png)
 
 4.  Navigate to the **Main** menu to access the **Identity** menu. Click **Add** under **Service Providers.**
 
-5.  Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-a-service-provider/) for more information.
+5.  Fill in the **Service Provider Name** and provide a brief **Description** of the service provider. See [Adding a Service Provider](https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-a-service-provider/) for more information.
 
 6.  Expand the **OAuth/OpenID Connect Configuration** under Inbound Authentication Configuration and click **Configure.**
 
