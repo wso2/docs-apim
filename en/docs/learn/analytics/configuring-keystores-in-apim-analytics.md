@@ -32,6 +32,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
 2. Update the HTTP transport configurations.
    
     This is used for authentication, encryption, and signing with regard to the analytics dashboard web application.
+
     ```yaml
     wso2.transport.http:
       ...
@@ -110,7 +111,8 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
 
 2. Update the HTTP transport configurations.
 
-    This is used for authentication, encryption, and signing for the analytics dashboard web application.
+    This is used for authentication, encryption, and signing with regard to the analytics worker.
+
     ```yaml
     wso2.transport.http:
       ...
@@ -158,7 +160,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
 
 4. Set the new keystore details when you change the keystore.
 
-      1. Navigate to the <ANALYTICS_HOME>/wso2/dashboard/bin/carbon.sh` file.
+      1. Navigate to the <ANALYTICS_HOME>/wso2/worker/bin/carbon.sh` file.
       
       2. Define the correct keystore path for the `Djavax.net.ssl.keyStore` system property.
       
