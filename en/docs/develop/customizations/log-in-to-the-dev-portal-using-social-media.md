@@ -61,9 +61,9 @@ Now you have configured Facebook as your Identity Provider.
 
 ### Configure Facebook login with Identity Server
 
-Let's see how to configure WSO2 Identity Server to work with Facebook for user authentication, so that when you try to login to the Publisher or Developer Portal, WSO2 Identity Server will redirect to Facebook to do the authentication. For this purpose you have to configure WSO2 Identity Server by [adding a new identity provider](https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-an-identity-provider/)
+Let's see how to configure WSO2 Identity Server to work with Facebook for user authentication, so that when you try to login to the Publisher or Developer Portal, WSO2 Identity Server will redirect to Facebook to do the authentication. For this purpose you have to configure WSO2 Identity Server by [adding a new identity provider](https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-an-identity-provider/)
 
-1.  Log in to the [Management Console](https://is.docs.wso2.com/en/5.9.0/setup/running-the-product/#accessing-the-management-console) of WSO2 Identity Server as the admin user.
+1.  Log in to the [Management Console](https://is.docs.wso2.com/en/5.10.0/setup/running-the-product/#accessing-the-management-console) of WSO2 Identity Server as the admin user.
 2.  Go to the **Identity** section under the **Main** tab. Click **Add** under **Identity Providers** and enter following details.
 
     | Identity provider Name | Alias                                 |
@@ -71,7 +71,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
     | facebook               | <https://localhost:9444/oauth2/token> |
 
     !!! note
-        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.9.0/get-started/quick-start-guide/#federated-authentication).
+        To authenticate the user with **Facebook** which is an external system, we have to configure the federated authenticator. For more details, see [Federated Authetication](https://is.docs.wso2.com/en/5.10.0/get-started/quick-start-guide/#federated-authentication).
 
 3.  Go to **Facebook Configuration** under **Federated Authenticators**.
 
@@ -90,7 +90,7 @@ Let's see how to configure WSO2 Identity Server to work with Facebook for user a
 
 ### Configuring requested claims for user authentication in Facebook Identity Provider
 
-We need to acquire the identity information by configuring claims to use Authentication in facebook. Let's see how you can configure Identity Server with Facebook by mapping the claims. For more information on claim Mapping refer [Claim Management](https://is.docs.wso2.com/en/5.9.0/learn/claim-management/) .
+We need to acquire the identity information by configuring claims to use Authentication in facebook. Let's see how you can configure Identity Server with Facebook by mapping the claims. For more information on claim Mapping refer [Claim Management](https://is.docs.wso2.com/en/5.10.0/learn/claim-management/) .
 
 1.  Go to the **Identity** section under the **Main** tab. Select **List** under **Identity Providers**.
 
@@ -159,7 +159,7 @@ To federate logging in to the Publisher and Developer Portal with Facebook, you 
 Identity Server has a dashboard which offers multiple options for users to maintain user accounts. Associating a social login for their account is one of the options provided in this dashboard. It can be accessed with the following URL : `https://<IS_HOST>:<IS_PORT>/dashboard.` By associating the social login you have the option to use local claims. Instead of showing the logged in name as facebook username you can show the username in the local user store.
 
 !!! note
-        Make sure that you have enabled user account association for federated users by setting `enable_for_federated_users` property to `true` as explained in [Associating User Accounts.](https://is.docs.wso2.com/en/5.9.0/learn/associating-user-accounts)
+        Make sure that you have enabled user account association for federated users by setting `enable_for_federated_users` property to `true` as explained in [Associating User Accounts.](https://is.docs.wso2.com/en/5.10.0/learn/associating-user-accounts)
 
 1.  Login to the dashboard with Developer Portal user account.
 

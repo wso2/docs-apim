@@ -66,11 +66,11 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ### Login in via multiple user attributes in Developer Portal
 
-See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.9.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager. 
+See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager. 
 
 ### Setting up an e-mail login
 
-For information, see [Email Authentication](https://is.docs.wso2.com/en/5.9.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
+For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
 
 -   When setting up email login, specify the complete username with tenant domain. If you are in the super tenant mode the username should be as follows. `<email>@carbon.super`
   
@@ -95,8 +95,8 @@ You can auto-provision users based on a social network login by integrating the 
 
 To overcome this limitation, you can write a custom authenticator to retrieve the tenant domain of the user and write a custom login page where the user can enter the tenant domain, which is then added to the authenticator context. Then, write a custom provisioning handler to provision the user in the tenant domain that is maintained in the context.
 
--   For information on writing a custom authenticator, see [Creating Custom Authenticators](https://is.docs.wso2.com/en/5.9.0/develop/writing-a-custom-local-authenticator/) in the WSO2 IS documentation.
--   For information on writing a custom login page, see [Customizing Login Pages](https://is.docs.wso2.com/en/5.9.0/develop/customizing-login-pages-for-service-providers/) in the WSO2 IS documentation.
+-   For information on writing a custom authenticator, see [Creating Custom Authenticators](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-local-authenticator/) in the WSO2 IS documentation.
+-   For information on writing a custom login page, see [Customizing Login Pages](https://is.docs.wso2.com/en/5.10.0/develop/customizing-login-pages-for-service-providers/) in the WSO2 IS documentation.
 
 
 

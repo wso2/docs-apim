@@ -10,7 +10,7 @@ Identity management for the API developer portal includes the following features
 
 Password recovery feature does not work by default because an email server is not configured to send the password recovery email. Follow the steps below to enable password recovery feature for the API Developer Portal.
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add a mail server configuration as shown below. See [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.9.0/setup/configuring-email-sending/) for more information.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add a mail server configuration as shown below. See [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/) for more information.
 
     ``` java
         [output_adapter.email]
@@ -45,7 +45,7 @@ You can lock user accounts with the Account recovery and credential management f
 
 #### Account locking by failed login attempts
 
-The following steps show how to enable account locking. See [Account Locking by Failed Login Attempts](https://is.docs.wso2.com/en/5.9.0/learn/account-locking-by-failed-login-attempts/) for more information. 
+The following steps show how to enable account locking. See [Account Locking by Failed Login Attempts](https://is.docs.wso2.com/en/5.10.0/learn/account-locking-by-failed-login-attempts/) for more information. 
 
 1.  Log into the Management Console( `https://<API-M_HOST>:<API-M_PORT>/carbon` ) using admin credentials..
 
@@ -67,7 +67,7 @@ The following steps show how to enable account locking. See [Account Locking by 
 
 #### Account locking by an administrative user
 
-An administrative user can lock and unlock a particular user's account through the management console. See [Locking a Specific User Account](https://is.docs.wso2.com/en/5.9.0/learn/locking-a-specific-user-account/) for more information. 
+An administrative user can lock and unlock a particular user's account through the management console. See [Locking a Specific User Account](https://is.docs.wso2.com/en/5.10.0/learn/locking-a-specific-user-account/) for more information. 
 
 1.  Log in to the Management Console( `https://<API-M_HOST>:<API-M_PORT>/carbon` ) using admin credentials.
 
@@ -89,7 +89,7 @@ An administrative user can lock and unlock a particular user's account through t
 
 ### Password policies
 
-You can define custom password policies for API developer portal user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.9.0/develop/writing-a-custom-password-validator/) for more information.
+You can define custom password policies for API developer portal user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
 
 ``` java
     [identity_mgt.events.schemes]
