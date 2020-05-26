@@ -2074,7 +2074,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following step from  migration-config.yaml in version: "5.10.0"
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from  migration-config.yaml in version: "5.10.0"
                 ```
                 -
                     name: "MigrationValidator"
