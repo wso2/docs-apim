@@ -467,7 +467,7 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim210_to_apim300_gateway_artifact_migrator.sh]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0. 
+        Run the [apim210_to_apim300_gateway_artifact_migrator.sh]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0.
         ```
         ./apim210_to_apim300_gateway_artifact_migrator.sh <API-definitions-path>
         ```
