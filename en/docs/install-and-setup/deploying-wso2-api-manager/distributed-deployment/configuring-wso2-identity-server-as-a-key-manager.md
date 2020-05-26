@@ -19,7 +19,7 @@ Please follow below steps to configure the prepackaged WSO2 Identity Server as t
 !!! Info
     What is referred to as the prepackaged WSO2 Identity Server as a Key Manager?
 
-    The **prepackaged WSO2 Identity Server as a Key Manager 5.9.0** comes with the necessary configurations already installed in order to connect it with WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.9.0. The prepackaged WSO2 Identity Server as a Key Manager 5.9.0 is compatible with WSO2 API Manager 3.0.0 and is available as  by [WUM](https://wso2.com/updates) .
+    The **prepackaged WSO2 Identity Server as a Key Manager 5.10.0** comes with the necessary configurations already installed in order to connect it with WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.10.0. The prepackaged WSO2 Identity Server as a Key Manager 5.10.0 is compatible with WSO2 API Manager 3.0.0 and is available as  by [WUM](https://wso2.com/updates) .
     
 Download the prepackaged WSO2 Identity Server from [here](https://wso2.com/api-management/install/key-manager/) or get the [wum updated distribution](https://wso2.com/updates) and unzip it. `<IS_KM_HOME>` will refer to the root folder of the unzipped WSO2 IS pack. It is assumed that you have already downloaded WSO2 API Manager. `<APIM_HOME>` will refer to the root folder of the unzipped WSO2 API-M pack.
 
@@ -266,7 +266,7 @@ The steps to setup and configure the databases for WSO2 IS as the Key Manager no
 
 ### Step 7 - Start the Key Manager(s)
 
-Start WSO2 Identity Server for the changes to take effect. For more information, see [Running the Product](https://is.docs.wso2.com/en/5.9.0/setup/running-the-product/) in the WSO2 Identity Server documentation.
+Start WSO2 Identity Server for the changes to take effect. For more information, see [Running the Product](https://is.docs.wso2.com/en/5.10.0/setup/running-the-product/) in the WSO2 Identity Server documentation.
 
    -   [**Linux/Mac OS**](#Linux-Mac)
         ``` java

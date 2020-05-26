@@ -24,7 +24,7 @@ token_generator="com.sample.lahiru.wso2.hmac.oauth"
 ```
 
 !!! info
-    More information on developing OAuth token generator extensions can be found [here](https://is.docs.wso2.com/en/5.9.0/learn/extension-points-for-oauth/#oauth-token-generator) . Code for this particular solution can be found in [oauth-hmac-extension](https://github.com/lahirus/oauth-hmac-extension/blob/master/src/main/java/com/sample/lahiru/wso2/hmac/oauth/OAuthHMACTokenIssuer.java) GitHub repository .
+    More information on developing OAuth token generator extensions can be found [here](https://is.docs.wso2.com/en/5.10.0/learn/extension-points-for-oauth/#oauth-token-generator) . Code for this particular solution can be found in [oauth-hmac-extension](https://github.com/lahirus/oauth-hmac-extension/blob/master/src/main/java/com/sample/lahiru/wso2/hmac/oauth/OAuthHMACTokenIssuer.java) GitHub repository .
 
 
 This extension is responsible for enhancing the OAuth token with HMAC(Hash-based Message Authentication Code), so that above mentioned attacks will be less effective. Following two parts will be added to the token in addition to the default token created in WSO2 IS.
