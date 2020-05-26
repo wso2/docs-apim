@@ -83,7 +83,7 @@ Some products open additional ports.
 -   9099 - Web Socket ports.
 
 !!! note
-    If you change the default API Manager ports with a port offset, most of its ports will be changed automatically according to the offset except a few exceptions described in the [APIM Manager documentation](https://apim.docs.wso2.com/en/latest/reference/guides/changing-the-default-ports-with-offset/) .
+    If you change the default API Manager ports with a port offset, most of its ports will be changed automatically according to the offset except a few exceptions described in the [APIM Manager documentation]({{base_path}}/reference/guides/changing-the-default-ports-with-offset/) .
 
 
 ##### BPS
