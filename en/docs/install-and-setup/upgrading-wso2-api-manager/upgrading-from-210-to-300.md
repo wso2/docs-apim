@@ -3,14 +3,14 @@
 The following information describes how to upgrade your API Manager server **from APIM 2.1.0 to 3.0.0**.
 
 !!! note
-    Before you follow this section, see [Upgrading Process](../upgrading-wso2-api-manager/upgrading-process.md) for more information.
+    Before you follow this section, see [Upgrading Process]({{base_path}}/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! attention "Before you Begin"
     1.  This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
 
         -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
-    2.  Before starting the upgrade, run the [token and session cleanup scripts](../../administer/product-administration/removing-unused-tokens-from-the-database.md) in the databases of the environment, if you are not doing regular cleanups.
+    2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/administer/product-administration/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.1.0 to 3.0.0**.
 
@@ -296,7 +296,7 @@ current API Manager 2.1.0 version and run the below scripts against **the databa
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 !!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-590.md).
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0]({{base_path}}/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-590).
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.0.0](#step-2-upgrade-api-manager-to-300)
@@ -306,7 +306,7 @@ current API Manager 2.1.0 version and run the below scripts against **the databa
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
-    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog](../../reference/ConfigCatalog.md).
+    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog]({{base_path}}/reference/ConfigCatalog).
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
@@ -450,10 +450,10 @@ Follow the instructions below to move all the existing API Manager configuration
 
 9.  If you manually added any JAR files to the `<API-M_2.1.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
 
-10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2](../upgrading-wso2-api-manager/upgrading-to-log4j2.md) to migrate your existing log4j.properties file to log4j2.properties file.
+10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
-        Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2](../upgrading-wso2-api-manager/upgrading-to-log4j2.md) to see how to add a log appender or a logger to the log4j2.properties file.
+        Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
 
     !!! note
         Log4j2 has hot deployment support, and **Managing Logs** section has been removed from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
@@ -467,7 +467,7 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim210_to_apim300_gateway_artifact_migrator.sh](../../assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0. 
+        Run the [apim210_to_apim300_gateway_artifact_migrator.sh]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0. 
         ```
         ./apim210_to_apim300_gateway_artifact_migrator.sh <API-definitions-path>
         ```
@@ -490,7 +490,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     ??? note "Windows"
         !!! note "Windows - Super Tenant"
-            Run the PowerShell script [apim210_to_apim300_gateway_artifact_migrator.ps1](../../assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0.
+            Run the PowerShell script [apim210_to_apim300_gateway_artifact_migrator.ps1]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.ps1) as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -1716,7 +1716,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/administer/product-security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -1913,7 +1913,7 @@ Follow the instructions below to move all the existing API Manager configuration
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
 !!! info
-    As you are upgrading from WSO2 API-M Analytics 2.1.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.0.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.0.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
+    As you are upgrading from WSO2 API-M Analytics 2.1.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.0.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.0.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
 
 ### Step 4 - Restart the WSO2 API-M 3.0.0 server
 
