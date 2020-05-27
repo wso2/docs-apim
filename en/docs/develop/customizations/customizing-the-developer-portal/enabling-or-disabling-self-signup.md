@@ -66,4 +66,4 @@ In order to disable self signup for a particular tenant, follow the steps below.
     ![Self registration disabled](../../../assets/img/learn/self-signup-disabled.png)
 
 !!! tip
-    To engage your own signup process, see [Adding a User Signup Workflow](/learn/consume-api/customizations/adding-a-user-signup-workflow).
+    To engage your own signup process, see [Adding a User Signup Workflow](https://apim.docs.wso2.com/en/latest/develop/customizations/adding-a-user-signup-workflow/).
