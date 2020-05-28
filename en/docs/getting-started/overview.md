@@ -52,7 +52,7 @@ The diagram above shows common API consumer lifecycle activities:
 
 #### API Gateway
 
-The API Gateway is a runtime, backend component (an [API proxy](https://docs.wso2.com/display/EI611/Working+with+APIs) ) developed using [WSO2 ESB](https://apim.docs.wso2.com/en/latest/getting-started/about-this-release/). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics. Upon validation of a policy, the Gateway passes web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the [Key Manager](#key-manager).
+The API Gateway is a runtime, backend component (an [API proxy](https://docs.wso2.com/display/EI611/Working+with+APIs) ) developed using [WSO2 ESB]{{base_path}}/getting-started/about-this-release/). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics. Upon validation of a policy, the Gateway passes web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the [Key Manager](#key-manager).
 
 The API Gateway supports OAuth 2.0, JWT, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms the above mentioned authentication mechanisms and enables IT organizations to enforce rate limits and throttling policies.
 

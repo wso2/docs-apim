@@ -14,7 +14,7 @@ from the message. As with message builders, the message formatter is selected ba
     Note that if you edit an API's synapse configuration as mentioned in this guide and then go back to the API 
     Publisher and save the API, your changes will be overwritten. Therefore, we do not recommend changing the API's 
     synapse configuration directly. The recommended way to extend an API's mediation flow is by 
-    [engaging <code>In/Out</code> sequences]({{base_url}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) .
+    [engaging <code>In/Out</code> sequences]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests) .
 
 
 !!! info
@@ -62,7 +62,7 @@ If you want to handle JSON payloads that are sent using a media type other than 
 register the JSON builder and formatter for that media type using the `deployment.toml` file found in the 
 `<APIM_HOME>/repository/conf` directory):
 
-For example, if the media type is `text/javascript` , register the message builder and formatter as follows:
+For example, if the media type is `text/javascript`, register the message builder and formatter as follows:
 
 ``` toml
 [message_builder]
@@ -128,7 +128,7 @@ text_javascript = "org.apache.synapse.commons.json.JsonStreamFormatter"
 
 When building the XML tree, JSON builders attach the converted XML infoset to a special XML element that acts as 
 the root element of the final XML tree. If the original JSON payload is of type `object` , the special element is 
-`<jsonObject/>` . If it is an `array` , the special element is `<jsonArray/>` . Following are examples of JSON and 
+`<jsonObject/>` . If it is an `array` , the special element is `<jsonArray/>`. Following are examples of JSON and 
 XML representations of various objects and arrays.
 
 #### Null objects

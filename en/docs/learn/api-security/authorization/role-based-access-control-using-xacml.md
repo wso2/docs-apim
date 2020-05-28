@@ -16,7 +16,7 @@ The API Manager acts as the policy enforcement point (PEP). Whenever an API invo
 
 ### Enabling role-based access control
 
-The steps below demonstrate how WSO2 Identity Server, acting as a XACML entitlement server, can validate authentication requests from the API Manager based on a set of predefined XACML entitlement policies. This allows a standardized way of defining entitlement policies that can be enforced from WSO2 API Manager. For detailed information on XACML, see [XACML Architecture](https://is.docs.wso2.com/en/5.9.0/get-started/access-control-and-entitlement-management/) in the WSO2 Identity Server documentation.
+The steps below demonstrate how WSO2 Identity Server, acting as a XACML entitlement server, can validate authentication requests from the API Manager based on a set of predefined XACML entitlement policies. This allows a standardized way of defining entitlement policies that can be enforced from WSO2 API Manager. For detailed information on XACML, see [XACML Architecture](https://is.docs.wso2.com/en/5.10.0/get-started/access-control-and-entitlement-management/) in the WSO2 Identity Server documentation.
 
 Let’s take the following requirement in exposing an API via the API manager.
 
@@ -52,7 +52,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 5.  Under the **Entitlement** section, click **Policy Administration &gt; Add New Entitlement Policy** .
     ![]({{base_path}}/assets/img/learn/policy-administration.png)
     ![]({{base_path}}/assets/img/learn/add-new-entitlement-policy.png)
-6.  You are redirected to a page listing all available policy editors. Select **Standard Policy Editor** from the list and add the values shown below in the policy editor. Refer [Creating a XACML Policy](https://is.docs.wso2.com/en/5.9.0/learn/creating-a-xacml-policy/) in WSO2 Identity Server for more information.
+6.  You are redirected to a page listing all available policy editors. Select **Standard Policy Editor** from the list and add the values shown below in the policy editor. Refer [Creating a XACML Policy](https://is.docs.wso2.com/en/5.10.0/learn/creating-a-xacml-policy/) in WSO2 Identity Server for more information.
     1.  **Entitlement Policy Name:** PizzaShackPolicy
     2.  **Rule Combining Algorithm:** Deny unless Permit
 
@@ -113,7 +113,7 @@ Based on the requirement, a single API is exposed to add or retrieve order info
 
     ![]({{base_path}}/assets/img/learn/test-service-by-try-option.png)
 
-    You need to enter your username as the **Subject Name** . Refer [Evaluating a XACML Policy](https://is.docs.wso2.com/en/5.9.0/administer/evaluating-a-xacml-policy/) for more information on how to use the TryIt tool for XACML Policy evaluation.
+    You need to enter your username as the **Subject Name** . Refer [Evaluating a XACML Policy](https://is.docs.wso2.com/en/5.10.0/administer/evaluating-a-xacml-policy/) for more information on how to use the TryIt tool for XACML Policy evaluation.
 
 
     ![]({{base_path}}/assets/attachments/103334839/103334831.png)

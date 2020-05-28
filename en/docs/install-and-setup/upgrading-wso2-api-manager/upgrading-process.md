@@ -46,10 +46,15 @@ version.
 6.  Prepare a test setup of the upgrading version with customizations and necessary config changes, and 
 test your functional and non-functional requirements.
 
-7.  Start the migration from the lowest environment (e.g., dev) and continue up to the highest before the production 
+
+7.  Before start the upgrading process, Please make sure that you have read the whole documentation specific to the version upgarde and have a clear understanding of the upgrading process.
+
+8. If you have expired certificates in client-trustore, follow [Renewing a CA-Signed Certificate in a Keystore]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/#renewing-a-ca-signed-certificate-in-a-keystore)
+
+9.  Start the migration from the lowest environment (e.g., dev) and continue up to the highest before the production 
 (e.g., pre-prod). Run the test cases in the migrated environments to confirm that your functional and non-functional requirements are met in the migrated environment.
 
-8. Before you carry out the production migration, run a pilot migration on your pre-prod environment. 
+10. Before you carry out the production migration, run a pilot migration on your pre-prod environment. 
 
     It will be ideal if the pre-prod environment is similar to the production environment.
 
@@ -57,7 +62,7 @@ test your functional and non-functional requirements.
 
     -  If the production database dump cannot be used, at least ensure that you have a sufficient amount of data in the database to mimic the production environment.
     
-9. When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. 
+11. When you follow the above instructions, you can get a rough estimate of the time for the final production update, and you can allocate time slots based on the above analysis. 
 
     WSO2 recommends that you perform the migration while the system is under minimum traffic. 
 

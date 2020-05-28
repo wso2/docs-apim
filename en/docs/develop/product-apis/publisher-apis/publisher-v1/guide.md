@@ -1,7 +1,5 @@
 # Getting Started
 
-!!! warning
-    **WSO2 recommends that you use the Publisher v1 REST APIs** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features.
 
 WSO2 API Manager is a complete solution for publishing APIs, creating and managing a developer community, and for scalably routing API traffic. It leverages proven, production-ready, integration, security and governance components from WSO2 Enterprise Service Bus, WSO2 Identity Server, and WSO2 Governance Registry. Moreover, it is powered by API Manager Analytics, thereby making WSO2 API Manager ready for any large-scale deployments right away.
 
@@ -12,7 +10,7 @@ The API comes with a pluggable security mechanism. Since API security is impleme
 Before invoking the API with the access token, obtain the consumer key/secret key pair by calling the dynamic client registration endpoint. You can request an access token with the preferred grant type. An example is shown below,
 
 ```
-curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v1/register
+curl -k -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.16/register
 ```
 
 Sample request:

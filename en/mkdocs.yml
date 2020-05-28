@@ -312,7 +312,6 @@ nav:
               - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
               - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
               - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-              - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
               - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
           - Extending API Gateway:
               - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
@@ -383,8 +382,8 @@ nav:
               - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
               - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
               - Configure Gateway for High Availability:
-                  - Clustering WSO2 API-M Gateway for HA Using Shared File System: install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-shared-file-system.md
-                  - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md
+                  - Clustering WSO2 API-M Gateway for HA Using Shared File System: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system.md
+                  - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
               - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
           - Configure Key Manager:
               - Configure a Third Party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
@@ -441,6 +440,26 @@ nav:
           - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
           - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
           - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+      - Upgrading WSO2 API Manager:
+          - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
+          - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-310.md
+          - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-310.md
+          - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310.md
+          - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-310.md
+          - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-310.md
+          - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-310.md
+          - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310.md
+          - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-310.md
+          - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
+      - Upgrading WSO2 IS as KM:
+          - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
+          - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md
+          - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md
+          - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md
+          - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md
+          - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md
+          - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md
+          - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md
   - Administer:
       - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
       - Managing Users and Roles:
@@ -498,6 +517,7 @@ nav:
       - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
       - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
       - Removing Unused Tokens from the Database: troubleshooting/removing-unused-tokens-from-the-database.md
+
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
@@ -533,7 +553,7 @@ plugins:
         - wip/*
   - redirects:
       redirect_maps:
-        learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md: 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/'
+        'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/'
         'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping/'
         'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
         'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
@@ -571,8 +591,10 @@ plugins:
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-        'install-and-setup/deploying-wso2-api-manager/distributed-deployment/distributed-deployment-of-the-gateway.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-shared-file-system/'
-        'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync/'
+        'install-and-setup/deploying-wso2-api-manager/distributed-deployment/distributed-deployment-of-the-gateway.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/'
+        'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-shared-file-system.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/'
+        'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
+        'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
@@ -580,7 +602,7 @@ plugins:
         'install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/'
         'install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/'
         'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/api-gateway/message-mediation/configuring-message-builders-formatters/'
-        'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync/'
+        'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
         'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
         'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/'
         'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/'
@@ -624,8 +646,8 @@ plugins:
         'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/capturing-system-data-in-error-situations/'
         'administer/product-administration/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/jmx-based-monitoring/'
         'administer/product-administration/monitoring/monitoring-tcp-based-messages.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages/'
-        'administer/product-administration/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application/'
         'administer/product-administration/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/removing-unused-tokens-from-the-database/'
+        'administer/product-administration/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application/'
         'administer/product-configurations/changing-the-default-transport.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/changing-the-default-transport/'
         'administer/product-configurations/default-product-ports.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/reference/default-product-ports/'
         'administer/product-configurations/configuring-caching.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/configuring-caching/'

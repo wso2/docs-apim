@@ -69,7 +69,7 @@ The steps below show how access tokens are generated for the authorization code 
 !!! note
     **Before you begin**
 
-    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.9.0/develop/deploying-the-sample-app/).
+    The following instructions use the sample playground webapp. For instructions on how to set up the sample webapp, see [Setting up the Sample Webapp](https://is.docs.wso2.com/en/5.10.0/develop/deploying-the-sample-app/).
 
 
 1.  Open a terminal window and add the following entry to the `/etc/hosts` file of your machine to configure the hostname.

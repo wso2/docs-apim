@@ -3,7 +3,7 @@
 The following information describes how to upgrade your API Manager server **from APIM 3.0.0 to 3.1.0**.
 
 !!! note
-    Before you follow this section, see [Upgrading Process](../upgrading-wso2-api-manager/upgrading-process.md) for more information.
+    Before you follow this section, see [Upgrading Process]({{base_path}}/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! attention "Before you Begin"
     This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
@@ -35,9 +35,6 @@ current API Manager 3.0.0 version and run the below scripts against **the databa
     !!! note "NOTE"
         Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
-!!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0](../upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md).
-
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
@@ -46,9 +43,9 @@ current API Manager 3.0.0 version and run the below scripts against **the databa
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
-    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog](../../reference/ConfigCatalog.md).
-
-Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
+    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as some configuration files may have changed. Instead, redo the configuration changes in the new configuration files.
+Follow the instructions below to move all the existing API Manager configurations from the current environment to the
+ new one. For more information refer [Configuration Catalog]({{base_path}}/reference/config-catalog)
 
 1.  Back up all databases in your API Manager instances along with the Synapse configurations of all the tenants and the super tenant.
 
@@ -149,7 +146,7 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.  Update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+4.   If you have used separate DB for user management, you need to update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
 
     ```
     [realm_manager]
@@ -379,7 +376,7 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.1.0_HOME>/repository/resources/security` directory.
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files](../../administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -392,7 +389,9 @@ Follow the instructions below to move all the existing API Manager configuration
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.10.0.
 
     !!! note
-        As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
+        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100) instead of below steps.
+
+        But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
@@ -409,8 +408,18 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above.
-
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following 2 steps from  migration-config.yaml which is included under version: "5.10.0".
+                ```
+                -
+                    name: "MigrationValidator"
+                    order: 2
+                -
+                    name: "SchemaMigrator"
+                    order: 5
+                    parameters:
+                    location: "step2"
+                    schema: "identity"
+                ```
     4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
     5. Update <API-M_3.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.
@@ -452,7 +461,7 @@ Follow the instructions below to move all the existing API Manager configuration
             1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
                 ```
                 [indexing]
-                frequency= 10
+                frequency = 10
                 ```
 
             2.  Re-run the command above.
@@ -473,12 +482,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Migrate the API Manager artifacts.
 
-    You have to run the following migration client to update the registry artifacts.
+    You have to run the following migration client to update the registry artifxacts.
 
-    1. Download and extract the [migration-resources.zip](../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
+    1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2
-    .carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -490,15 +498,19 @@ Follow the instructions below to move all the existing API Manager configuration
         wso2server.bat -DmigrateFromVersion=3.0.0
         ```
 
-    4.  Shutdown the API-M server.
+    4. Shutdown the API-M server.
+    
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+
+       -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
 7.  Re-index the artifacts in the registry.
-    1.  Run the [reg-index.sql](../../assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
+    1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
         !!! attantion
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
@@ -506,11 +518,11 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! note
             You need to do this step, if you have **multiple tenants** only.
 
-    3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+    3.  Add the following configuration in to `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
         
         ```
         [indexing]
-        re_indexing= 1
+        re_indexing = 1
         ```
 
         !!! info 
