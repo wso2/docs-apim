@@ -248,8 +248,7 @@ been removed from Hotspot JVM.</p>
 <td><p>Restrict outbound connections of Publisher node</p>
 <p><br />
 </p></td>
-<td><p>Shall we change this to the following:
-In a WSO2 API-M deployment, WSO2 recommends that you restrict outbound connections of the Publisher node and only allow access to the required internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
+<td><p>In a WSO2 API-M deployment, WSO2 recommends that you restrict outbound connections of the Publisher node and only allow access to the required internal nodes (only to the nodes that the Publisher portal is intended to communicate with) of the deployment. Therefore, even if a situation arises where privileged user credentials are exposed to a user with malicious intent, such users will not be able to exploit and perform any unintended network interactions.</p>
 </td>
 </tr>
 </tbody>
