@@ -168,3 +168,43 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
      [apim.devportal]
      api_key_alias = "<alias-name>"
      ```
+
+### API Key Restriction for IP Address and HTTP Referer
+
+After issuing an API key for an application, it can be used by anyone to invoke an API 
+subscribed to the application. However, if an unauthorized party got hold of the token, it can create unnecessary 
+invocations to the APIs. To prevent this issue, we can specify the authorized parties upon the token generation. 
+WSO2 API Manager allows API keys to be restricted based on two approaches.
+
+#### 1) IP Address Restriction
+
+With this restriction, only the clients with specific IP addresses can use the token. The IP addresses can be given 
+in below formats.
+
+- IPv4 (e.g.- `192.168.1.2`)
+- IPv6 (e.g.- `2002:eb8::2`)
+- IP range in CIDR notation (e.g.- `152.12.0.0/13`, `1001:ab8::/14`) 
+
+Generating API key with IP restriction
+
+- Navigate to API key generation window of the specific application in the Developer Portal
+- Select `IP Addresses` radio button and add the IP addresses in the text input as below and generate the key
+
+![IP Restricted API key](../../../assets/img/learn/ip-api-key.png)
+
+#### 2) HTTP Referer Restriction
+
+With this restriction, only the specific HTTP referrers can use the token. When API clients run on web browsers, 
+limiting the access to API through only specific web pages can be achieved by this. The referrer can be specified in 
+below formats.
+
+- A specific URL with an exact path: `www.example.com/path`
+- Any URL in a single subdomain, using a wildcard asterisk (*): `sub.example.com/*`
+- Any subdomain or path URLs in a single domain, using wildcard asterisks (\*): `*.example.com/*`
+
+Generating API key with HTTP Referer restriction
+
+- Navigate to API key generation window of the specific application in the Developer Portal
+- Select `HTTP Referrers (Web Sites)` radio button and add the referrers in the text input as below and generate the key
+
+![HTTP Referer Restricted API key](../../../assets/img/learn/http-referer-api-key.png)
