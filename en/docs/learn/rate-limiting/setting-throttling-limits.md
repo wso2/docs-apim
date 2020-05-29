@@ -122,3 +122,29 @@ The default throttling levels are as follows:
 -   **Unlimited:** Unlimited access. The **Default Application** , which is provided out of the box has the tier set to Unlimited.
 
 It is also possible to specify a bandwidth per unit time instead of a number of requests. This can be done through the Admin Portal of API Manager. For information on editing the values of the existing tiers, defining new tiers and specifying a bandwidth per unit time, see [Adding a new application-level throttling tier](../adding-new-throttling-policies/#adding-a-new-application-level-throttling-tier) .
+<div class="admonition info">
+<p class="admonition-title">Note</p>
+<p> When creating an API by importing a swagger or open API definition, the user can define the throttle policies for both API level and resource level using the <b>“x-wso2-throttling-tier"</b> extension.</p>
+            ```yaml
+            x-wso2-basePath: /petstore/v1
+            x-wso2-throttling-tier: 10kPerMin
+            x-wso2-production-endpoints:
+            urls:
+            - https://petstore.swagger.io/v2
+
+            ```
+<p>Resource level throttle policies also can be defined as well.</p>
+            ```yaml
+            paths:
+                "/pet/findByStatus":
+                    get:
+                    tags:
+                    - pet
+                    summary: Finds Pets by status
+                    description: Multiple status values can be provided with comma separated strings
+                    operationId: findPetsByStatus
+                    x-wso2-throttling-tier: 20kPerMin
+            ```
+</div>
+
+
