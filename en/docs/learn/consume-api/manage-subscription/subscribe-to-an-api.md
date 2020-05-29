@@ -2,7 +2,7 @@
 
 You have to **subscribe** to a published API before using it in your applications. The subscription process fulfills the authentication process and provides you with access tokens that you can use to invoke an API. 
 
-The examples here use the `PizzaShackAPI` REST API, which is [created]({{base_path}}//learn/design-api/create-api/create-a-rest-api) and [published]({{base_path}}/learn/design-api/publish-api/publish-an-api) to Developer Portal in WSO2 API Manager.
+The examples here use the `PizzaShackAPI` REST API, which is [created]({{base_path}}/learn/design-api/create-api/create-a-rest-api) and [published]({{base_path}}/learn/design-api/publish-api/publish-an-api) to Developer Portal in WSO2 API Manager.
 
 The following are the two methods available in the Developer Portal to subscribe an API to an application. 
 

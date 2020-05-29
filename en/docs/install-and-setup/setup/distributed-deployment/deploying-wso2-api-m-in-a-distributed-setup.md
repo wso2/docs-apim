@@ -721,7 +721,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         By default, WSO2 API Manager is shipped with a keystore (`wso2carbon.jks`) and a trust store (`client-truststore.jks`). For more information on how to create a new key store and a trust store with a private key and a self-signed certificate, see Configuring Keystore and Truststore and also see the [recommendations on setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
 
-5.  Start the WSO2 API-M Gateway node by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}//install-and-setup/installation-guide/running-the-product/#starting-the-server).
+5.  Start the WSO2 API-M Gateway node by typing the following command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
     ??? info "Click here to view sample configuration for the Gateway"
         ``` toml
