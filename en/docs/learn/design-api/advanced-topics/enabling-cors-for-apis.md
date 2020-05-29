@@ -50,7 +50,8 @@ Follow the instructions below to enable CORS response headers globally. Once thi
      After you enable CORS, you will be able to see the CORS response header configuration section. 
 
     !!! note
-        When creating a new API by using a swagger or open API definition, response caching can be set up by defining an APIM supported open API extension **“x-wso2-cors”**.
+        When creating a new API by using a Swagger or Open API definition, response caching can be set up by defining an API-M supported Open API extension **“x-wso2-cors”**.
+
         !!! example
             ```yaml
             x-wso2-cors: 
@@ -71,7 +72,6 @@ Follow the instructions below to enable CORS response headers globally. Once thi
                     - "DELETE"
                     - "PATCH"
                     - "OPTIONS"
-
             ```
      
 4. Configure the CORS related configurations.
