@@ -39,7 +39,7 @@ Follow the instructions below to enable CORS response headers globally. Once thi
     You need to enable CORS globally before you enable CORS Per API. Therefore, if you have not enabled CORS globally, follow the instructions in [Enabling CORS Globally]({{base_path}}/learn/design-api/advanced-topics/enabling-cors-for-apis/#enabling-cors-globally) before carrying out the following instructions.
 
 
-1.  Sign in to API Publisher and [create a new API]({{base_path}}/design-api/create-api/create-a-rest-api/).
+1.  Sign in to API Publisher and [create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api).
 
 2. Click **Runtime Configurations**.
 
@@ -112,5 +112,3 @@ The following are the mappings of the Synapse files corresponding to the OAuth t
 | /revoke    | `_RevokeAPI_.xml`|
 | /token     | `_TokenAPI_.xml`|
 | /userinfo  | `_UserInfoAPI_.xml`|
-
-

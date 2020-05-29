@@ -79,7 +79,7 @@ Follow the instructions below to enable the stream builders in the API gateway:
 
 ## Invalidating Cached Responses Remotely
 
-You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://docs.wso2.com/display/EI650/JMX+Monitoring) using the exposed MBeans. You can use the `InvalidateMediatorCache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
+You can invalidate all cached response remotely by using any [JMX monitoring tool such as Jconsole](https://ei.docs.wso2.com/en/latest/micro-integrator/administer-and-observe/jmx_monitoring) using the exposed MBeans. You can use the `InvalidateMediatorCache()` operation of the `org.wso2.carbon.mediation` MBean for this as shown below.
 
 ![JMX monitoring through JConsole]({{base_path}}/assets/img/learn/jmx-monitoring-through-jsoncole.png)
 
