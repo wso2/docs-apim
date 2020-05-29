@@ -3,12 +3,12 @@
 The following information describes how to upgrade your API Manager server **from APIM 3.0.0 to 3.1.0**.
 
 !!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/upgrading-wso2-api-manager/upgrading-process) for more information.
+    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! attention "Before you Begin"
     This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
 
-    -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.1.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
+    -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.1.0. For more information on how to do this, see [Updating API Manager]({{base_path}}/administer/updating-wso2-api-manager/#wso2-update-manager-wum).
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.0.0 to 3.1.0**.
 
@@ -389,7 +389,7 @@ Follow the instructions below to move all the existing API Manager configuration
 5.  Upgrade the Identity component in WSO2 API Manager from version 5.9.0 to 5.10.0.
 
     !!! note
-        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100) instead of below steps.
+        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100) instead of below steps.
 
         But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
 
@@ -737,4 +737,4 @@ This concludes the upgrade process.
 
     2. Browse to the **/_system/config/apimgt/applicationdata/tenant-conf.json** file and click **Edit as Text**.
     
-    Scopes required to invoke each APIs can be found under `OAuth2Security` section for each resources. The swagger definition for the Publisher RESTful APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher.v1/src/main/resources/publisher-api.yaml) and swagger definition for the Developer Portal REST APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/store-api.yaml). 
+    Scopes required to invoke each APIs can be found under `OAuth2Security` section for each resources. The Swagger definition for the Publisher RESTful APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher.v1/src/main/resources/publisher-api.yaml) and Swagger definition for the Developer Portal REST APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/store-api.yaml). 
