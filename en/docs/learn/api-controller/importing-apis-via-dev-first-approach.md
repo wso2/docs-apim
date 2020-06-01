@@ -117,7 +117,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                     security: 
                         - 
                         default: 
-                            - "products:read"
+                            - "read"
                     responses:
                         "200":
                         description: successful operation
@@ -129,14 +129,15 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                             implicit: 
                             authorizationUrl: "https://test.com"
                             scopes: 
-                                products:read: ""
+                                read: ""
                             x-scopes-bindings: 
-                                products:read: "admin"
+                                read: "admin"
                 ```
 
-            First you need to define the scope name (products:read) under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section.
+            First you need to define the scope name ("read") under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section. You can use any preferred name as the security scheme.
 
-            Make sure to set the security name as **`default`** when defining the scopes.
+            Make sure to set the security type as **`oauth2`** when defining the scopes. Also when defining the roles under a particular scope, put them under **x-scopes-bindings:**  as a scope name and roles mapping.        
+
             
         !!! note
             You can define WSO2 APIM supported open API extensions for an API when defining a Swagger2 or OpenAPI3 specification to generate an API. These extensions can be used to define endpoint configurations, runtime configurations, resource level throttling, and API level throttling, transport-level security, CORS configurations and response cache configurations. The list of APIM supported OpenAPI extensions is as follows.
