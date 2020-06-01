@@ -14,9 +14,9 @@ Password recovery feature does not work by default because an email server is no
 
     ``` java
         [output_adapter.email]
-        from_address = "wso2am@gmail.com"
-        username = "wso2amtest"
-        password = "Wso2@am70"
+        from_address = "abcd@gmail.com"
+        username = "abcd@gmail.com"
+        password = "xxxxxx"
         hostname = "smtp.gmail.com"
         port = "587"
         enable_start_tls = true
