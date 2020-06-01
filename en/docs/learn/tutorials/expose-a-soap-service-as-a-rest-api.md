@@ -125,7 +125,7 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
     <html><div class="admonition note">
      <p class="admonition-title">Note</p>
      <p>You can also invoke this API using a third-party tool such as SOAP UI. For more information on how to invoke an API using a SOAP client, 
-     see [Invoke an API using a SOAP Client]({{base_path}}//learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client/) .</p>
+     see [Invoke an API using a SOAP Client]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client/) .</p>
      </div>
      </html>
 

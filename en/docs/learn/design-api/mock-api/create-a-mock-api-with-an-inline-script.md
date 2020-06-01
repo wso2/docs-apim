@@ -198,7 +198,7 @@ For more information, see the [Deploy and Test Prototype APIs]({{base_path}}/lea
     <a href="{{base_path}}/learn/design-api/create-api/create-a-websocket-api">Create a WebSocket API </a>
 </li>
 <li>
-    <a href="{{base_path}}//learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
+    <a href="{{base_path}}/learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition">Create an API from an OpenAPI definition</a></li>
   </p>
   </div>
 
