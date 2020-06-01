@@ -512,7 +512,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
-        !!! attantion
+        !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
 
         !!! note
