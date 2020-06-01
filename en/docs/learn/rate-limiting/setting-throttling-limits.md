@@ -145,4 +145,3 @@ It is also possible to specify a bandwidth per unit time instead of a number of 
                     x-wso2-throttling-tier: 20kPerMin
             ```
 </div>
-

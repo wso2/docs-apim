@@ -139,7 +139,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
             Make sure to set the security name as **`default`** when defining the scopes.
             
         !!! note
-            You can define WSO2 APIM supported open API extensions for an API when defining a Swagger2 or OpenAPI3 specification to generate an API. These extensions can be used to define endpoint configurations, runtime configurations, resource level, and API level throttling, transport-level security, and CORS configurations and response cache configurations. The list of APIM supported open API extensions is as follows.
+            You can define WSO2 APIM supported open API extensions for an API when defining a Swagger2 or OpenAPI3 specification to generate an API. These extensions can be used to define endpoint configurations, runtime configurations, resource level throttling, and API level throttling, transport-level security, CORS configurations and response cache configurations. The list of APIM supported OpenAPI extensions is as follows.
 
             <table>
                 <tbody>
