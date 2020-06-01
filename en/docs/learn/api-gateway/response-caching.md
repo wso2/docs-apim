@@ -14,6 +14,17 @@ Please follow below steps to enable response caching for an API.
 
     ![]({{base_path}}/assets/img/learn/enable-response-caching.png)
 
+    !!! note
+        When creating a new API by using a swagger or open API definition, response caching can be set up by defining an APIM supported open API extension **“x-wso2-response-cache”**.
+
+        !!! example
+            ```yaml
+             x-wso2-response-cache: 
+                enabled: true
+                cacheTimeoutInSeconds: 400
+            ```
+
+
 3.  If you want to change the default response caching settings, edit the following cache mediator properties in the `<API-M_HOME>/repository/resources/api_templates/velocity_template.xml` file:
 
     <table>

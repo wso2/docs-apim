@@ -5,43 +5,45 @@ This section explains how to configure analytics for WSO2 API Manager (WSO2 API-
 Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
 
 !!! note
-      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) ) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/next/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/) .
+      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Enterprise Integrator 7.0.x - Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
       -   It is not recommended to configure the Gateway node as an analytics server.
 
 
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
 
-###Quick Setup
+## Quick Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/) . For more information on installing WSO2 API-M, see the [Installation Guide](../../install-and-setup/installation-guide/installation-prerequisites.md) .
+
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
     
-    ![](../../assets/img/learn/apim-download-page.png)
+    ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 2.  Download and install WSO2 API-M Analytics.
-    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-    As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator 1.0.0 (WSO2 SI), for more information you can refer to the [WSO2 SI documentation](#https://ei.docs.wso2.com/en/next/streaming-integrator/setup/installing-si-in-vm/).
 
-    ![](../../assets/img/learn/analytics-download-page.png)
+    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options. Navigate to the **Other Resources** section, and click **Analytics**. 
+    As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+
+    ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
     
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
-       <p>If you are following the quick setup make sure both the binaries ( unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
+       <p>If you are following the quick setup make sure both the binaries (unzipped API-M pack and unzipped Analytics pack) are inside the same directory. 
                         Because the default configurations such as database connection urls etc are configured assuming that both the packs are inside the same folder.
                         </p>
-                        ![](../../assets/img/learn/analytics-quick-setup.png)
+                        ![]({{base_path}}/assets/img/learn/analytics-quick-setup.png)
        </div>
        </html>
                   
 3.  To enable Analytics, open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the analytics enabling section as shown below. Save this change.
 
     ``` toml
-        [apim.analytics]
-        enable = true
+      [apim.analytics]
+      enable = true
     ```
 
     !!! note
@@ -49,12 +51,14 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 
 4.  Start the Worker profile of the Analytics Server.
-    <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
+    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `worker.bat --run              `
     -   On Linux/Mac OS: `sh worker.sh               `
 
 5.  Start the API Manager server.
-    <br/>Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
+    Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `wso2server.bat --run`
     -   On Linux/Mac OS: `sh wso2server.sh` 
     
@@ -64,7 +68,8 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
                     INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
                     
 6.  Start the Dashboard profile of the Analytics Server.
-    <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
+    Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `dashboard.bat --run`  
     -   On Linux/Mac OS: `sh dashboard.sh`    
     
@@ -74,7 +79,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
-###Standard Setup
+## Standard Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
@@ -84,22 +89,25 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 4 - Configure databases](#step-4-configure-databases)
 -   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
 -   [Step 6 - Configure keystores](#step-6-configure-keystores)
+-   [Step 7 - Configure User-Agent Parser](#step-7-configure-user-agent-parser)
 
-#### Step 1 - Download and install WSO2 API-M
+### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- <br/>For more information on installing WSO2 API-M, see the [Installation Guide](../../install-and-setup/installation-guide/installation-prerequisites.md) .
+ 
+ For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
     
- ![](../../assets/img/learn/apim-download-page.png)
+ ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
-#### Step 2 - Download and install WSO2 API-M Analytics
+### Step 2 - Download and install WSO2 API-M Analytics
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-<br/>As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator 1.0.0 (WSO2 SI), for more information you can refer to the [WSO2 SI documentation](#https://ei.docs.wso2.com/en/next/streaming-integrator/setup/installing-si-in-vm/).
 
-  ![](../../assets/img/learn/analytics-download-page.png)
+As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator (WSO2 SI), for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+
+  ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
-#### Step 3 - Configure WSO2 API Manager to publish statistics
+### Step 3 - Configure WSO2 API Manager to publish statistics
 
 Follow the instructions below to do the required configurations for WSO2 API-M to publish statistics in the WSO2 API-M Analytics server.
 
@@ -109,8 +117,8 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
 Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the following section as shown below. Save this change.
 
    ``` toml
-       [apim.analytics]
-       enable = true
+   [apim.analytics]
+   enable = true
    ```
 Configure the following parameters under the `[apim.analytics]` section if required.
 
@@ -139,7 +147,7 @@ The server URL of the remote WSO2 API-M Analytics server used to collect statist
 <p class="admonition-title">From DAS to SI</p>
 <p>
 Previously, when WSO2 API-M Analytics was powered by WSO2 Data Analytics Server 3.1.0, you had to add a comma to separate the DAS URLs so that the analytics events were published to both nodes. 
-However, when using WSO2 API-M Analytics 3.0.0, which is based on WSO2 Streaming Integrator 1.0.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+However, when using WSO2 API-M Analytics 3.1.0, which is based on WSO2 Enterprise Integrator 7.0.x Streaming Integrator, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
 <br/>e.g.,
 <br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
 </p>
@@ -226,9 +234,35 @@ Please note that if the <code>username</code> and <code>password</code> are unco
 
 Save the changes.
 
-#### Step 4 - Configure databases
+### Step 4 - Configure databases
 
 Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
+
+!!! note
+    If you are configuring APIM Analytics related databases in **Oracle**, apart from the below mentioned configurations, 
+    you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to each analytics related 
+    database(either in worker or dashboard) you configure with Oracle.
+    
+    In the following example `APIM_ANALYTICS_DB` is configured with Oracle.
+    ``` java
+    - name: APIM_ANALYTICS_DB
+      description: "The datasource used for APIM statistics aggregated data."
+      jndiConfig:
+        name: jdbc/APIM_ANALYTICS_DB
+        definition:
+          type: RDBMS
+          configuration:
+            jdbcUrl: 'jdbc:oracle:thin:@localhost:1521:XE'
+            username: 'root'
+            password: '123'
+            driverClassName: oracle.jdbc.OracleDriver
+            maxPoolSize: 50
+            idleTimeout: 60000
+            connectionTestQuery: SELECT 1 FROM DUAL
+            connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
+            validationTimeout: 30000
+            isAutoCommit: false
+    ```
 
 1.  Stop the WSO2 API-M Analytics server if it is running already.
 2.  Configure the dashboard profile.
@@ -382,7 +416,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
       <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
       For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/learn/analytics/adding-third-party-non-osgi-libraries/).
 
-#### Step 5 - Configure APIM IdP Client
+### Step 5 - Configure APIM IdP Client
 
 APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
 
@@ -412,7 +446,7 @@ auth.configs:
     #storeUrl: https://localhost:9443
     externalLogoutUrl: https://localhost:9443/oidc/logout
 ```
-#####Details of the properties in APIM IdP Client
+#### Details of the properties in APIM IdP Client
 
 
 |**Property**                                           |**Default Value**                    |**Description**                 |
@@ -437,10 +471,29 @@ auth.configs:
 | `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
 
 
-#### Step 6 - Configure keystores
+### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
-If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores](../../../administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
+If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
+### Step 7 - Configure User-Agent Parser
 
+The User-Agent and Operating System information is extracted from the User-Agent header of the API requests for the purpose of analytics. This process requires a set of regular expressions to parse the header and extract the information. By default, it is configured to use the `<API-M_ANALYTICS_HOME>/conf/worker/regexs.yaml` file for this purpose as shown below.
+
+```
+siddhi:
+  extensions:
+    # Provides the regular expression collection to parse the user-agent header
+    -
+      extension:
+        name: 'getUserAgentProperty'
+        namespace: 'env'
+        properties:
+          regexFilePath : ${sys:carbon.home}/conf/worker/regexes.yaml
+```
+However, if you need to use your own regular expressions to extract the information in detail, then you can replace the `regexFilePath` property with your own file.
+
+!!! warning
+    The regular expressions configured above is reduced to provide the optimal performance, while identifying common User-Agents and Operating Systems. However, if you completely remove the latter mentioned configuration, you will end-up by using a standard regular expression set, which is packed inside the parser library, and it will extract almost every User-Agents and Operating Systems, but might provide lower performance throughput.
+      

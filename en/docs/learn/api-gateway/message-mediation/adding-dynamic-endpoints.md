@@ -18,7 +18,7 @@ In this example, you have constructed the `service_ep` property dynamically and 
 `http://jsonplaceholder.typicode.com/posts/`. 
 
 !!! tip
-    For more details about working with dynamic endpoints, see [Endpoint Types]({{base_url}}/learn/design-api/endpoints/endpoint-types).
+    For more details about working with dynamic endpoints, see [Endpoint Types]({{base_path}}/learn/design-api/endpoints/endpoint-types).
 
 You can copy the content of the above sequence to an XML file and upload it to an API configured with a dynamic endpoint using Publisher Portal UI.  
 For more information, visit [Creating and Uploading Manually in API Publisher]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests#creating-and-uploading-manually-in-api-publisher).

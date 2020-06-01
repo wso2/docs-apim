@@ -49,6 +49,30 @@ Follow the instructions below to enable CORS response headers globally. Once thi
 
      After you enable CORS, you will be able to see the CORS response header configuration section. 
      
+    !!! note
+        When creating a new API by using a swagger or open API definition, response caching can be set up by defining an APIM supported open API extension **“x-wso2-cors”**.
+        !!! example
+            ```yaml
+            x-wso2-cors: 
+                corsConfigurationEnabled: true
+                accessControlAllowOrigins: 
+                    - "*"
+                accessControlAllowCredentials: false
+                accessControlAllowHeaders: 
+                    - "authorization"
+                    - "Access-Control-Allow-Origin"
+                    - "Content-Type"
+                    - "SOAPAction"
+                    - "apikey"
+                accessControlAllowMethods: 
+                    - "GET"
+                    - "PUT"
+                    - "POST"
+                    - "DELETE"
+                    - "PATCH"
+                    - "OPTIONS"
+            ```
+
 4. Configure the CORS related configurations.
      
      Listed below are the CORS specific response headers supported by the API Gateway and how to configure them.

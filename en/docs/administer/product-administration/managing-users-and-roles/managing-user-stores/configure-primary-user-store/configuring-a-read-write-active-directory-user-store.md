@@ -288,7 +288,7 @@ Default: user</td>
 <td>The attribute used for uniquely identifying a user entry. Users can be authenticated using their email address, UID, etc. The name of the attribute is considered as the username.
 <p>Default: cn<br />
 <br />
-Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="https://is.docs.wso2.com/en/5.9.0/learn/using-email-address-as-the-username/">Using email address as the username</a></p>
+Note: email address is considered as a special case in WSO2 products, if you want to set the email address as username, see <a href="https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/">Using email address as the username</a></p>
 sample values: sAMAccountName</td>
 </tr>
 <tr class="even">

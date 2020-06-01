@@ -8,7 +8,9 @@ The following information describes how to upgrade your API Manager server **fro
 !!! attention "Before you Begin"
     This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
 
-    -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.1.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
+    -   **If you are upgrading to this version, in order to use t
+    
+    his version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.1.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 3.0.0 to 3.1.0**.
 
@@ -409,8 +411,18 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above.
-
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following steps from  migration-config.yaml which is included under version: "5.10.0".
+                ```
+                -
+                    name: "MigrationValidator"
+                    order: 2
+                -
+                    name: "SchemaMigrator"
+                    order: 5
+                    parameters:
+                    location: "step2"
+                    schema: "identity"
+                ```
     4.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
     5. Update <API-M_3.1.0_HOME>/repository/conf/deployment.toml file as follows, to point to the previous user store.

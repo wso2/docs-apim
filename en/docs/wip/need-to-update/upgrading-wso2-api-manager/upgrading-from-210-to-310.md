@@ -1973,7 +1973,18 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above.
+            Make sure you have enabled migration by setting the `migrationEnable` element to `true` as shown above. You have to remove the following step from  migration-config.yaml which is included under version: "5.10.0"
+                ```
+                -
+                    name: "MigrationValidator"
+                    order: 2
+                -
+                    name: "SchemaMigrator"
+                    order: 5
+                    parameters:
+                    location: "step2"
+                    schema: "identity"
+                ```
 
     4.  Remove the following entry from the `migration-config.yaml` file.
 
@@ -2098,7 +2109,7 @@ Follow the instructions below to move all the existing API Manager configuration
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
 !!! info
-    As you are upgrading from WSO2 API-M Analytics 2.1.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.1.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.1.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](https://apim.docs.wso2.com/en/latest/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
+    As you are upgrading from WSO2 API-M Analytics 2.1.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.1.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.1.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
 
 ### Step 4 - Restart the WSO2 API-M 3.1.0 server
 
