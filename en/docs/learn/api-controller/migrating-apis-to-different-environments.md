@@ -172,7 +172,7 @@ You can use the below command to export all the APIs belong to the currently log
 
 ### Import an API
 
-You can use the API archive exported from the previous section and import it to the API Manager instance in the target environment. When importing the API, you can either **deploy the API as a new API** or **seamlessly update an existing API** in the environment with it.   
+You can use the API archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API, you can either **deploy the API as a new API** or **seamlessly update an existing API** in the environment with it.   
 
 !!! warning
     **For Secure Endpoint Enabled APIs:**
@@ -183,7 +183,7 @@ You can use the API archive exported from the previous section and import it to 
     2. Go to the `<API-name-version>/Meta-information` directory and open the `api.<json/yaml>` file.  
     For example, go to `PhoneVerification_1.0.0/Meta-information` directory and open the `api.yaml` file.  
     3. Modify the `endpointUTPassword` with your endpoint password and save the `api.yaml` file.
-    4. Compress the `<API-name-version>` directory.  
+    4. Compress the `<API-name-version>` directory. (or you can import the extracted folder)
     For example, compress the `PhoneVerification_1.0.0` directory.
 
 1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
@@ -230,7 +230,7 @@ You can use the API archive exported from the previous section and import it to 
             apictl import-api -f dev/PhoneVerification_1.0.0.zip -e production --preserve-provider=false --update=true --params dev/api_params.yaml -k 
             ```
         !!! tip
-            If your file path is `/Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification\_1.0.0.zip.`, then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for `--file` or `-f` flag.
+            If your file path is `/Users/kim/.wso2apictl/exported/apis/dev/PhoneVerification_1.0.0.zip.`, then you need to enter `dev/PhoneVerification_1.0.0.zip` as the value for `--file` or `-f` flag.
 
         !!! tip
             When using `--update` flag with `import-api` command, the CTL tool will check if the given API exists in the targeted environment. If the API exists, it will update the existing API. If not, it will create a new API in the imported environment. 
