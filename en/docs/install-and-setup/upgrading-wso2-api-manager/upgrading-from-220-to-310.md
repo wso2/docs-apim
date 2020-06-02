@@ -12,6 +12,11 @@ The following information describes how to upgrade your API Manager server **fro
 
     2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/troubleshooting/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
 
+!!! note "If you are using PostgreSQL"
+    The DB user needs to have superuser role to run the migration client and the relevant scripts
+    ```
+    ALTER USER <user> WITH SUPERUSER;
+    ```
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.2.0 to 3.1.0**.
 
 ### Preparing for Migration
@@ -1824,7 +1829,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
-        !!! attantion
+        !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
 
         !!! note
@@ -1838,8 +1843,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! info 
-            If you use a clustered/distributed API Manager setup, change the file in the API Publisher node. For example, change the /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime registry path to /_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1
-
+             If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
+             
     4.  If the `<API-M_3.1.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
 
     5.  Start the WSO2 API-M server.
