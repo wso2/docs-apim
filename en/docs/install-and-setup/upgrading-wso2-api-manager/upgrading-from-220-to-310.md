@@ -13,7 +13,7 @@ The following information describes how to upgrade your API Manager server **fro
     2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/troubleshooting/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
 
 !!! note "If you are using PostgreSQL"
-    The DB user need to have superuser role to run the migration client and the relevant scripts
+    The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```
@@ -1843,7 +1843,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! info 
-             If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal
+             If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
              
     4.  If the `<API-M_3.1.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
 

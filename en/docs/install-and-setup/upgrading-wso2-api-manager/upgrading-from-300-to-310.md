@@ -11,7 +11,7 @@ The following information describes how to upgrade your API Manager server **fro
     -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.1.0. For more information on how to do this, see [Updating API Manager]({{base_path}}/administer/updating-wso2-api-manager/#wso2-update-manager-wum).
 
 !!! note "If you are using PostgreSQL"
-    The DB user need to have superuser role to run the migration client and the relevant scripts
+    The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```
@@ -532,7 +532,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! info 
-             If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal
+             If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
              
     4.  If the `<API-M_3.1.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
 
