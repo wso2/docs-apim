@@ -5,7 +5,7 @@ and API Publisher Portal. First, an API developer develops his/her own backend m
 Specification for it. Thereafter, he/she can create an API using that OpenAPI specification and deploy it to the desired 
 WSO2 API Management environment without accessing the Publisher Portal directly.
 
-Let's see create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let's use Postman to write the test scripts in order to test the API that is deployed in WSO2 API Manager.
+Let's create a CI/CD pipeline using Jenkins as the automation tool and Github as the source code management repository. Let's use Postman to write the test scripts in order to test the API that is deployed in WSO2 API Manager.
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ Define environment specific data in API parameter file. In this tutorial as ther
 
     -   If the `api_params.yaml` is not found in the project directory, the tool will lookup in the project’s base path and the current working directory.
 
-    -   For more information on using an environment template, see [Configure Environment Specific Details]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#configure-environment-specific-details). 
+    -   For more information on using an environment template, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
 
 !!! tip
     The `retryTimeOut` is defined as an environment variable so that the actual value of it can be controlled using a 

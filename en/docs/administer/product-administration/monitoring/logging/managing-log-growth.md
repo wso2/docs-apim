@@ -42,14 +42,14 @@ Log growth in [Carbon logs]({{base_path}}/administer/product-administration/moni
             
         If the size of the log file is exceeding the value defined in the `appender.CARBON_LOGFILE.policies.size.size` property, the content is copied to a backup file and the logs are continued to be added to a new empty log file.  
          
-    4.  Append timestamp(HH-mm-ss) to file pattern `appender.CARBON_LOGFILE.filePattern`. 
+    4.  Append timestamp(MM-dd-yyyy) to file pattern `appender.CARBON_LOGFILE.filePattern`. 
     
         !!!Note
             When file size based log rollover has been enabled, the timestamp should be appended to file pattern in order to differentiate the backup file names by time stamp. Unless, the current backup file will be replaced by the next backup which is created on the same day, since both file  will be having the same name(ie: wso2carbon-12-16-2019.log).
             
      
         ```toml
-        appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy HH-mm-ss}.log
+        appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}-%i.log
         ```   
 
 -   The following property under `CARBON_LOGFILE` appender is used to limit the number of backup files.
@@ -89,14 +89,14 @@ Log growth in [Carbon logs]({{base_path}}/administer/product-administration/moni
             
         If the size of the log file is exceeding the value defined in the `appender.CARBON_LOGFILE.policies.size.size` property, the content is copied to a backup file and the logs are continued to be added to a new empty log file.  
          
-    4.  Append timestamp(HH-mm-ss) to file pattern `appender.AUDIT_LOGFILE.filePattern`. 
+    4.  Append timestamp(MM-dd-yyyy) to file pattern `appender.AUDIT_LOGFILE.filePattern`. 
     
         !!!Note
             When file size based log rollover has been enabled, the timestamp should be appended to file pattern in order to differentiate the backup file names by time stamp. Unless, the current backup file will be replaced by the next backup which is created on the same day, since both file names are same(ie: audit-12-16-2019.log).
             
      
         ```toml
-        appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy HH-mm-ss}.log
+        appender.AUDIT_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/audit-%d{MM-dd-yyyy}-%i.log
         ```
         
 -   The following property under `AUDIT_LOGFILE` appender is used to limit the number of audit log backup files.

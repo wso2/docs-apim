@@ -18,7 +18,7 @@
 site_name: WSO2 API Manager Documentation 3.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/latest/
+site_url: https://apim.docs.wso2.com/en/3.0.0/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -265,12 +265,13 @@ nav:
                 - Subscribing for Alerts: learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md
                 - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
             - Using Geolocation Based Statistics:
-                - Configuring Geolocation Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
-                - Writing a Custom Geolocation Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
-                - Updating Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md
+                - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
+                - Configuring Geo Location Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md
+                - Writing a Custom Geo Location Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md
             - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
             - Purging Analytics Data: learn/analytics/purging-analytics-data.md
             - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
+            - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
         - API Controller:
             - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
             - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
@@ -278,6 +279,9 @@ nav:
             - Migrating Apps to Different Environments: learn/api-controller/migrating-applications-to-different-environments.md
             - CI/CD with WSO2 API Manager: learn/api-controller/ci-cd-with-wso2-api-management.md
             - Building a Jenkins CI/CD Pipeline for Dev First Approach: learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
+            - Advanced Topics:
+                - Creating Custom Users to Perform API Controller Operations: learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
+                - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
         - Tutorials:
             - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
             - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
@@ -300,7 +304,6 @@ nav:
             - Extending Key Validation: learn/extensions/extending-key-validation.md
             - Extending the Key Manager Interface: learn/extensions/extending-the-key-manager-interface.md
             - Extending Scope Validation: learn/extensions/extending-scope-validation.md
-            - Editing API Templates: learn/extensions/editing-api-templates.md
     - Develop:
         - Product REST APIs:
             - RESTful APIs: develop/product-apis/restful-apis.md
@@ -310,9 +313,13 @@ nav:
             - WSO2 Developer Portal API v0.15: develop/product-apis/devportal-v0.15.md
             - WSO2 Admin Portal: develop/product-apis/admin-v1.md
         - Admin Services: develop/wso2-admin-services.md
-        - Using the Registry REST API: develop/using-the-registry-rest-api.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
+        - Extending WSO2 API Manager:
+            - Extending Gateway:
+                  - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-templates.md
+        - Using the Siddhi Store REST API: develop/analytics-rest-api.md
+        - Using the Registry REST API: develop/using-the-registry-rest-api.md
     - Install and Setup:
         - Installation Guide:
             - Installation Prerequisites: install-and-setup/installation-guide/installation-prerequisites.md
@@ -346,11 +353,12 @@ nav:
             - Changing the Hostname: install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md
             - Changing the Default Ports with Offset: install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md
             - Configuring the Proxy Server and the Load Balancer: install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md
+            - Configuring message builders and formatters: install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md
             - Configuring rsync for Deployment Synchronization: install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md
             - Deploying API Manager with Kubernetes or OpenShift Resources: install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md
-            - Configurring APIM Analytics High Availability Deployment:
-                - Active-active: install-and-setup/deploying-wso2-api-manager/configure_apim_analytics/configure_worker/active_active.md
-                - Active-passive: install-and-setup/deploying-wso2-api-manager/configure_apim_analytics/configure_worker/active_passive.md
+            - Configuring APIM Analytics High Availability Deployment:
+                - Active-Active: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md
+                - Active-Passive: install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md
             - Deployment Guidelines:
                 - Production Deployment Guidelines: install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md
@@ -366,7 +374,7 @@ nav:
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
         - Product Compatibility: install-and-setup/product-compatibility.md
         - Performance Tuning:
-              - Tuning Performance: install-and-setup/perfromance-tuning-and-test-results/tuning-performance.md
+              - Tuning Performance: install-and-setup/performance-tuning-and-test-results/tuning-performance.md
         - Upgrading WSO2 API Manager:
               - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
               - 2.6.0 to 3.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-300.md
@@ -427,6 +435,7 @@ nav:
             - Configuring Caching: administer/product-configurations/configuring-caching.md
             - Common Runtime and Configuration Artifacts: administer/product-configurations/common-runtime-and-configuration-artifacts.md
             - Customizing the Management Console: administer/product-configurations/customizing-the-management-console.md
+            - Adding Internationalization and Localization: administer/product-configurations/adding-internationalization.md
         - Product Security:
             - Configuring Keystores:
                 - Configuring Keystores in API Manager: administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
@@ -524,4 +533,4 @@ extra:
     - type: linkedin
       link: https://www.linkedin.com/company/wso2
   site_version: 3.0.0
-  base_path: https://apim.docs.wso2.com/en/latest
+  base_path: https://apim.docs.wso2.com/en/3.0.0

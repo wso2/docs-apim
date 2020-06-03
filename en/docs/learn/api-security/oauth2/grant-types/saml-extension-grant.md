@@ -15,7 +15,7 @@ Enterprise applications that have SAML2 based SSO infrastructures sometimes ne
 
 The diagram below depicts the above with **WSO2 Identity Server** as the IdP.
 
-[![](../../../../assets/img/learn/saml-extension-grant-flow.png)](../../../../assets/img/learn/saml-extension-grant-flow.png)
+[![]({{base_path}}/assets/img/learn/saml-extension-grant-flow.png)]({{base_path}}/assets/img/learn/saml-extension-grant-flow.png)
 
 The steps of the above diagram are explained below:
 
@@ -44,7 +44,7 @@ The steps of the above diagram are explained below:
 
 A sequence diagram explaining the above flow would be as follows:
 
-[![](../../../../assets/img/learn/saml-extension-grant-flow-chart.png)](../../../../assets/img/learn/saml-extension-grant-flow-chart.png)
+[![]({{base_path}}/assets/img/learn/saml-extension-grant-flow-chart.png)]({{base_path}}/assets/img/learn/saml-extension-grant-flow-chart.png)
 
 ### Configuring the token exchange
 
@@ -59,7 +59,8 @@ A sequence diagram explaining the above flow would be as follows:
     [apim.key_manager]
     configuration.ServerURL = "<key-manager-server-url>"
     ```
-    -   A valid SAML2 assertion. For instructions on how to configure WSO2 API Manager with SAML2, see [Configuring API Manager for SSO](../../../../../../administer/product-security/saml2-sso/configuring-single-sign-on-with-saml2/)
+    -   A valid SAML2 assertion. For instructions on how to configure WSO2 API Manager with SAML2, see [Configuring API Manager for SSO]({{base_path}}/learn/extensions/saml2-sso/configuring-single-sign-on-with-saml2/#configuring-single-sign-on-with-saml2)
+    
 
 
 In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML token and the API Manager is used as the OAuth server.
@@ -70,9 +71,9 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
         If you are using a tenant to create the Identity Provider, use the credentials of tenant admin to log into the API Manager's Management Console.
 
 
-2.  Click **Main &gt; Identity Providers &gt; Add** .
+2.  Click **Main &gt; Identity Providers &gt; Add**.
 
-    [![](../../../../assets/img/learn/add-identity-provider-menu.png)](../../../../assets/img/learn/add-identity-provider-menu.png)
+    [![]({{base_path}}/assets/img/learn/add-identity-provider-menu.png)]({{base_path}}/assets/img/learn/add-identity-provider-menu.png)
 
 3.  Provide the following values to configure the IdP:
     -   Under **Basic Information**
@@ -102,17 +103,17 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
                 <code>https://localhost:9443/samlsso?tenantDomain=&lt;tenantDomain&gt;</code>
 
 
-    [![](../../../../assets/img/learn/add-identity-provider-with-saml-config.png)](../../../../assets/img/learn/add-identity-provider-with-saml-config.png)
+    [![]({{base_path}}/assets/img/learn/add-identity-provider-with-saml-config.png)]({{base_path}}/assets/img/learn/add-identity-provider-with-saml-config.png)
 
     Next, let's  register a service provider.
 
 4.  Sign in to the management console of the Identity Server and click **Main &gt; Service Providers &gt; Add**.
 
-    [![](../../../../assets/img/learn/add-service-provider-menu.png)](../../../../assets/img/learn/add-service-provider-menu.png)
+    [![]({{base_path}}/assets/img/learn/add-service-provider-menu.png)]({{base_path}}/assets/img/learn/add-service-provider-menu.png)
 
 5.  Choose to edit the service provider that you just registered and click **Inbound Authentication Configuration &gt; SAML2 Web SSO Configuration** .
 
-    [![](../../../../assets/img/learn/add-service-provider-saml-config.png)](../../../../assets/img/learn/add-service-provider-saml-config.png)
+    [![]({{base_path}}/assets/img/learn/add-service-provider-saml-config.png)]({{base_path}}/assets/img/learn/add-service-provider-saml-config.png)
     
 6.  Provide the following values to configure the SP and click **Update** :
     -   **Issuer** : Give any name
@@ -122,7 +123,7 @@ In this example, **WSO2 Identity Server 5.7.0** is used as the IdP to get a SAML
     -   **Audience** : URL of the token API.
         For example: `https://localhost:9443/oauth2/token`
 
-    [![](../../../../assets/img/learn/service-provider-saml-config.png)](../../../../assets/img/learn/service-provider-saml-config.png)
+    [![]({{base_path}}/assets/img/learn/service-provider-saml-config.png)]({{base_path}}/assets/img/learn/service-provider-saml-config.png)
     
     Let's see how to get a signed SAML2 token (encoded assertion value) when authenticating against a SAML2 IDP. With the authentication request, you pass attributes such as the SAML2 issuer name, token endpoint and the restricted audience. In this guide, we use a command-line client program developed by WSO2 to create the 64-bit, URL-encoded SAML assertion.
 
@@ -137,7 +138,7 @@ Here's an example consumer key and secret combination:
 
     Let's create a SAML2 assertion using the same command-line client that you used in the previous section.
 
-2.  Download the command-line tool from [here](../../../../assets/attachments/learn/SAML2AssertionCreator.zip) and extract the ZIP file.
+2.  Download the command-line tool from [here]({{base_path}}/assets/attachments/learn/SAML2AssertionCreator.zip) and extract the ZIP file.
 
 3.  Go to the extracted folder using the command line and execute the following command. We assume that both the client and the API Gateway run on the same server. Therefore, the Token API URL is `https://localhost:8243/token`
 
@@ -201,7 +202,7 @@ Here's an example consumer key and secret combination:
     ```
 
 !!! note
-    Note that for users to be counted in the [Registered Users for Application statistics](../../../../../analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
+    Note that for users to be counted in the [Registered Users for Application statistics]({{base_path}}/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics/#ViewingAPIStatistics-TopUsersperApplication) which takes the number of users shared each of the Application, they should have to generate access tokens using [Password Grant](../password-grant/) type.
 
 
 
