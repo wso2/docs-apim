@@ -64,7 +64,7 @@ You will now configure the inter-component relationships of the distributed setu
 
 #### Step 6.1 - Configure the common configurations
 
-The common configurations can be done automatically when starting up the server. For instructions, see [Starting an API-M profile]({{base_path}}/product-profiles).
+The common configurations can be done automatically when starting up the server. For instructions, see [Starting an API-M profile]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
 
 !!! tip
     When a node starts, it starts all the components and featured bundled with it. If you are concerned about resource utilization, you can run the product on a specific profile, so that only the components and features that are required for that node and common features start up.
@@ -75,7 +75,7 @@ The common configurations can be done automatically when starting up the server.
 sh <PRODUCT_HOME>/bin/wso2server.sh -Dprofile=api-devportal
 ```
 
-For more information on using multi-profile support, see [Product Profiles](../product-profiles).
+For more information on using multi-profile support, see [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
 
 #### Step 6.2 - Configure and start the Key Manager
 
