@@ -20,6 +20,7 @@ See [Writing a Custom OAuth 2.0 Grant Type](https://is.docs.wso2.com/en/5.10.0/l
     !!! info    
         The **prepackaged WSO2 Identity Server as a Key Manager 5.10.0** comes with the necessary configurations already installed in order to connect WSO2 Identity Server as the Key Manager for WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.10.0. The prepackaged WSO2 Identity Server as a Key Manager 5.10.0 is compatible with WSO2 API Manager 3.0 and is supported by [WUM](https://wso2.com/updates) .
 
+
     <table>
     <thead>
     <tr class="header">

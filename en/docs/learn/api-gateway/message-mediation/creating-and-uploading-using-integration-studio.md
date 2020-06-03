@@ -1,6 +1,6 @@
 # Creating and Uploading using WSO2 Integration Studio
 
-From API-M-3.0.0 onwards you can design all custom mediation policies using a tool such as the WSO2 Integration Studio and then store the policy in the registry which can be later deployed to the Gateway.
+You can design all custom mediation policies using a tool such as the WSO2 Integration Studio and then store the policy in the registry which can be later deployed to the Gateway.
 
 Let's see how to create a custom mediation policy using the WSO2 Integration Studio and then deploy and use it in your APIs.
 This custom policy adds a full trace log which is getting printed when you invoke a particular API deployed in the Gateway.

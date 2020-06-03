@@ -1,8 +1,8 @@
 # Message Tracing
 
-Message Tracing refers to the process of identifying each message flow of each of the transactions that go through the 
-Gateway. You can do message tracing on WSO2 API Manager by installing the Message Tracer feature that has been 
-specifically developed for WSO2 products. You can use the Message Tracer to derive  logging, auditing, and debugging 
+Message Tracing refers to the process of identifying each message flow of each of the transactions that go through the 
+Gateway. You can do message tracing on WSO2 API Manager by installing the Message Tracer feature that has been 
+specifically developed for WSO2 products. You can use the Message Tracer to derive  logging, auditing, and debugging 
 related information with regard to message content and it’s direction. The Message Tracer is a part of carbon-analytics 
 and it is built into WSO2 API Manager.
 
@@ -12,8 +12,8 @@ Follow the steps below to configure the Message Tracer in API Manager to dump tr
 can be viewed via the terminal or the `wso2carbon` log file.
 
 1.  Start the WSO2 API Manager server.
-2.  Sign in to the WSO2 APIM Management Console (<https://localhost:9443/carbon>).
-3.  Click **Message Tracing**, which is under the **Configure** tab, to navigate to the Message Tracing Configurations.
+2.  Sign in to the WSO2 APIM Management Console (<https://localhost:9443/carbon>).
+3.  Click **Message Tracing**, which is under the **Configure** tab, to navigate to the Message Tracing Configurations.
 4.  Select the following options to enable message tracing and click **Update**.
 
     | Configuration                     | Description                                                                          |
@@ -128,7 +128,7 @@ As an additional step you can publish these trace messages to WSO2 API Manager A
     [Configuring APIM Analytics]({{base_path}}/analytics/configuring-apim-analytics).
 
 
-1.  Sign in to WSO2 APIM Management Console (<https://localhost:9443/carbon>) if you have not done so already.
+1.  Sign in to WSO2 APIM Management Console (<https://localhost:9443/carbon>) if you have not done so already.
 2.  Select **Enable Analytics Event Publishing** , which is in the Message Tracing Configuration page and click **Update**.
 
     [![Enable analytics Event Publishing]({{base_path}}/assets/img/learn/analytics-event-publishing.png)]({{base_path}}/assets/img/learn/analytics-event-publishing.png)
@@ -154,12 +154,12 @@ WSO2 API Manager Analytics.
     
     3.  Click **Next\[Persist Event\]** at the bottom of the edit view.
     
-    4.  In the next page select Persist Event Stream and select all the attribute check-boxes in order to persist all 
-    the information and click Save Event Stream.
+    4.  In the next page select Persist Event Stream and select all the attribute check-boxes in order to persist all 
+    the information and click Save Event Stream.
         
         [![Save Event Stream]({{base_path}}/assets/img/learn/save-event-stream.png)]({{base_path}}/assets/img/learn/save-event-stream.png)
     
-7.  Add an Event receiver to point to the Event stream.
+7.  Add an Event receiver to point to the Event stream.
 
     1.  Go to **Main -&gt; Event -&gt; Receivers** in WSO2 API Manager Analytics and click **Add Event Receiver**.
         
@@ -178,8 +178,8 @@ WSO2 API Manager Analytics.
 
         [![Add a new Event Receiver]({{base_path}}/assets/img/learn/new-event-receiver.png)]({{base_path}}/assets/img/learn/new-event-receiver.png)
         
-8.  Configure a publisher that can publish events to WSO2 API Manager Analytics.
-    1.  Sign in to WSO2 APIM Management console (<https://localhost:9443/carbon>) if you have not done so already.
+8.  Configure a publisher that can publish events to WSO2 API Manager Analytics.
+    1.  Sign in to WSO2 APIM Management console (<https://localhost:9443/carbon>) if you have not done so already.
     2.  Go to **Main &gt; Event &gt; Publishers** and click **Add Event Publisher**.
         [![Add Event Publisher option]({{base_path}}/assets/img/learn/add-event-publisher.png)]({{base_path}}/assets/img/learn/add-event-publisher.png)
     3.  In Create a New Event Publisher page, add the following details and click **Add Event Publisher**.
