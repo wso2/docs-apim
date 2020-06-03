@@ -22,7 +22,7 @@ To customize the default workflow extension, you override the **`execute()      
 2.  Upon extension of the **`WorkflowExecutor          `** class, override the **`complete()          `** and **`execute()          `** methods.
 3.  The **`execute()          `** method is the first method called by API Manager. Call the **`super.execute          `** method inside the `execute()` method to add the workflow entry to the database.
 4.  In the **`execute()`** method define the callback URL, RedirectUrl, workflowRefId, and RedirectConfirmationMsg. The callback URL should ideally be an open endpoint accepting workflow reference ID as a parameter. Once the endpoint is invoked, it should in-turn invoke the Admin REST APIs callback method ({{base_path}}/develop/product-apis/admin-v1/#/Workflows%20(Individual)/post_workflows_update_workflow_status). Note that the Admin REST API resources require authentication before invocation.
-                                                                                      httpworkflowResponse.setRedirectConfirmationMsg
+                                                                            
 5.  Create a response of type **`WorkflowResponse           `** . For HTTP responses, WSO2 API Manager has an inbuilt object named **`HttpWorkflowResponse           `** found at `org.wso2.carbon.apimgt.api.WorkflowResponse` . When creating the HTTP workflow response object, specify the additional parameters and the redirect URL. The usage of these parameters are listed below.
 
     <table>

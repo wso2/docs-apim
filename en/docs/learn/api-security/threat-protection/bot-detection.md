@@ -144,10 +144,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
      
      ```
      wso2.datasources:
-      dataSources:
-
-      ...
-
+        ...
         - name: AM_DB
             description: "Main datasource used by API Manager."
             jndiConfig:
@@ -164,8 +161,7 @@ Follow the instructions below to view the bot detection data for the unauthorize
                 connectionTestQuery: SELECT 1
                 validationTimeout: 30000
                 isAutoCommit: false
-      
-      ...        
+        ...
      ```
 
 3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
