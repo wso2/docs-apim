@@ -173,7 +173,8 @@ Follow the steps given below to enable access logs for the PassThrough or NIO tr
 4.  Add the following configuration in the <APIM_HOME>/repository/conf/nhttp.properties file. You need to add this configuration in order to make sure that the access logs related to the PassThrough and NIO transports are rotated on a daily basis. If this configuration is not set, all the access log details related to the PassThrough and NIO transports will get logged in a single file. The date will be appended to the access log when it is rotated.        
     
     ```properties
-    nhttp.is.log.rotatable=true
+    [n_http]
+    "nhttp.is.log.rotatable" = "true"
     ```
     
 5.  Then [Restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/).
