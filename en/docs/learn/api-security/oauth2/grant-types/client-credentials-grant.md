@@ -2,7 +2,7 @@
 
 Client credentials can be used when the authorization scope is limited to the protected resources belonging to the client. Client credentials are used as an authorization grant when the client requests access to protected resources based on an authorization previously arranged with the authorization server. The client application requests an access token from the authorization server, authenticating the request with its client key and client secret. If the client is successfully authenticated, an access token is returned.
 
-Please refer to the [WSO2 IS documentation](https://is.docs.wso2.com/en/5.9.0/learn/client-credentials-grant/) for a detailed explanation on this grant type.
+Please refer to the [WSO2 IS documentation](https://is.docs.wso2.com/en/5.10.0/learn/client-credentials-grant/) for a detailed explanation on this grant type.
 
 #### Flow
 

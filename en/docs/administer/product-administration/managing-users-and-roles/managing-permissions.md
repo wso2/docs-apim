@@ -52,7 +52,7 @@ In addition to the above, the following roles exist by default.
 
 For more information about managing roles, see [Managing User Roles]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-roles)
 
-You will be able to log in to the management console of the product with the **admin** user defined in the `user-mgt.xml` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **admin** role. The possibility of managing users, roles and permissions is granted by the **User Management** permission. For more information, see [Configuring the User Realm](https://is.docs.wso2.com/en/5.9.0/setup/configuring-the-realm/) .
+You will be able to log in to the management console of the product with the **admin** user defined in the `user-mgt.xml` file. You can then create new users and roles and configure permissions for the roles using the management console. However, note that you cannot modify the permissions of the **admin** role. The possibility of managing users, roles and permissions is granted by the **User Management** permission. For more information, see [Configuring the User Realm](https://is.docs.wso2.com/en/5.10.0/setup/configuring-the-realm/) .
 
 ## Description of role-based permissions
 
@@ -121,7 +121,7 @@ The following table describes the permissions at **Tenant** level. These are als
 <td>Admin</td>
 <td><p>When the <strong>Admin</strong> permission node is selected, features including the following menus are enabled in the management console:</p>
 <p><strong>- Identity/User Stores:</strong> This permission allows users to add new user stores and manage them with the management console. Note that only secondary user stores can be added using this option. See the topic on <a href="../../../../administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/">Configuring Secondary User Stores</a> for more details.<br />
-<strong>- Identity/Identity Providers:</strong> See the topic on <a href="https://is.docs.wso2.com/en/5.9.0/learn/adding-and-configuring-an-identity-provider">working with identity providers</a> for details on how to use this option.</p>
+<strong>- Identity/Identity Providers:</strong> See the topic on <a href="https://is.docs.wso2.com/en/5.10.0/learn/adding-and-configuring-an-identity-provider">working with identity providers</a> for details on how to use this option.</p>
 <p>- Additionally, all permissions listed under <strong>Admin</strong> in the permissions navigator are selected automatically.</p></td>
 </tr>
 <tr class="even">
@@ -130,11 +130,11 @@ The following table describes the permissions at **Tenant** level. These are als
 </tr>
 <tr class="odd">
 <td>Admin/Manage/Identity/Claim</td>
-<td>This permission enables the <strong>Identity/Claims</strong> option in the <strong>Main</strong> menu. This option allows users to perform Claim Management. For more details, see <a href="https://is.docs.wso2.com/en/5.9.0/learn/claim-management/">Claim Management.</a></td>
+<td>This permission enables the <strong>Identity/Claims</strong> option in the <strong>Main</strong> menu. This option allows users to perform Claim Management. For more details, see <a href="https://is.docs.wso2.com/en/5.10.0/learn/claim-management/">Claim Management.</a></td>
 </tr>
 <tr class="even">
 <td>Admin/Manage/Identity/Key Store Management</td>
-<td>This permission enables the <strong>Manage/KeyStores</strong> option in the <strong>Main</strong> menu. This option allows users to add and modify new key stores. For more details on Key Store Management, see <a href="https://is.docs.wso2.com/en/5.9.0/administer/creating-new-keystores/">Ceating New Key Stores</a></td>
+<td>This permission enables the <strong>Manage/KeyStores</strong> option in the <strong>Main</strong> menu. This option allows users to add and modify new key stores. For more details on Key Store Management, see <a href="https://is.docs.wso2.com/en/5.10.0/administer/creating-new-keystores/">Ceating New Key Stores</a></td>
 </tr>
 <tr class="odd">
 <td>Admin/Manage/Resources/Browse</td>

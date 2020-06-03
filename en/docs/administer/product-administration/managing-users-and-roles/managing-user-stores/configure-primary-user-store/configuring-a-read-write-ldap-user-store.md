@@ -72,7 +72,7 @@ Once the above points are made note of and completed, you can start configuring 
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
 
 
-The configuration for the external read/write user store in the `user-mgt.xml` file looks as follows. For more information about each of the properties used in the `deployment.toml` file for configuring the primary user store , see [Properties of User Stores](https://is.docs.wso2.com/en/5.9.0/setup/configuring-a-read-write-ldap-user-store/#properties-used-in-read-write-ldap-user-store-manager) .
+The configuration for the external read/write user store in the `user-mgt.xml` file looks as follows. For more information about each of the properties used in the `deployment.toml` file for configuring the primary user store , see [Properties of User Stores](https://is.docs.wso2.com/en/5.10.0/setup/configuring-a-read-write-ldap-user-store/#properties-used-in-read-write-ldap-user-store-manager) .
 
 ``` xml
 <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager">
@@ -148,7 +148,7 @@ The configuration for the external read/write user store in the `user-mgt.xml` f
            ```
            ConnectionURL = "ldaps://10.100.1.100:636"
            ```
-           -   You also need to [enable connection pooling](https://is.docs.wso2.com/en/5.9.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections) for LDAPS connections at the time of starting your server, which will enhance server performance.
+           -   You also need to [enable connection pooling](https://is.docs.wso2.com/en/5.10.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections) for LDAPS connections at the time of starting your server, which will enhance server performance.
 
 
 4.  In WSO2 products based on Carbon 4.5.x, you can set the `LDAPConnectionTimeout` property: If the connection to the LDAP is inactive for the length of time (in milliseconds) specified by this property, the connection will be terminated.
@@ -191,7 +191,7 @@ The configuration for the external read/write user store in the `user-mgt.xml` f
 
 ### Step 2: Updating the system administrator
 
-The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the LDAP user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the LDAP. For information about the system administrator user, see [Configuring the System Administrator](https://apim.docs.wso2.com/en/latest/reference/ConfigCatalog/#super-admin-configurations) .
+The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the LDAP user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the LDAP. For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations) .
 
 These two alternative configurations can be done as explained below.
 

@@ -466,7 +466,13 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ID                                     NAME                OWNER       STATUS     GROUP ID
             29b4fcc6-05a4-42a7-aa64-f1a1b8a7b979   DefaultApplication  admin       APPROVED 
             36d51e55-3f1e-4f85-86ee-8fe73b0c8adff  SampleApplication   sampleUser  APPROVED   orgA
-            ``` 
+            ```
+
+            !!! tip 
+                When using the `apictl list apps -e dev` command, you can either specify `-o` (`--owner`) flag or not.
+
+                - When someone has invoked the command **without specifying the owner flag**, it will list all the applications in that environment which belongs to the tenant that the currently logged in user belongs.
+                - When someone has invoked the command **by specifying the owner flag**, it will list all the applications belongs to that particular owner in that environment.
         
 ## Delete an API/API Product/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:

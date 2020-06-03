@@ -70,7 +70,7 @@ Follow the instructions below to enable notifications for new API versions:
     <td><p>Subscriber email addresses are extracted from user claims. The default pack uses the <code>org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever</code> class to read the claim values from the user store.</p>
       <div class="admonition note">
       <p class="admonition-title">Claims</p>
-      <p>A claim is a piece of information about a particular subject. It can be anything that the subject is owned by or associated with, such as name, group, preferences, etc. For information on how to add new claim mappings, see <a href="https://is.docs.wso2.com/en/5.9.0/learn/configuring-claims/">Configuring Claims</a>.</p>
+      <p>A claim is a piece of information about a particular subject. It can be anything that the subject is owned by or associated with, such as name, group, preferences, etc. For information on how to add new claim mappings, see <a href="https://is.docs.wso2.com/en/5.10.0/learn/configuring-claims/">Configuring Claims</a>.</p>
       </div>
     </td>
     </tr>
@@ -95,7 +95,6 @@ Follow the instructions below to enable notifications for new API versions:
         If you create the subscriber via the Management Console, you need to add the subscriber's email in the subscriber user profile. You can find the user profile when you list the users in the management console.
 
     !!! note
-        If you are using a Google mail account, note that Google has restricted third-party apps and apps with lower security levels from sending emails by default. Therefore, you need to configure your account to disable this restriction. For more information on Setting up Gmail, see [Creating Users using the Ask Password Option](https://is.docs.wso2.com/en/5.9.0/using-wso2-identity-server/creating-users-using-the-ask-password-option/).
-
+        If you are using a Google mail account, note that Google has restricted third-party apps and apps with lower security levels from sending emails by default. Therefore, you need to configure your account to disable this restriction. For more information on Setting up Gmail, see [Creating Users using the Ask Password Option](https://is.docs.wso2.com/en/5.10.0/learn/creating-users-using-the-ask-password-option).
 
 

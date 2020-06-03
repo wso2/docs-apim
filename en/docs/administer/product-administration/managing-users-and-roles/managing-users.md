@@ -44,4 +44,4 @@ The Admin Dashboard ( `https://<hostname>:9443/admin`) is intended to be used by
 
 Now this user is able to login and perform administrative tasks using the Admin Dashboard.
 
-For more details on User Management refer [Configuring Users.](https://is.docs.wso2.com/en/5.9.0/learn/configuring-users/)
+For more details on User Management refer [Configuring Users.](https://is.docs.wso2.com/en/5.10.0/learn/configuring-users/)

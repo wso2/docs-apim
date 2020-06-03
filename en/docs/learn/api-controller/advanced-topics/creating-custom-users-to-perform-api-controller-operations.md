@@ -22,8 +22,16 @@ To perform tasks using the API Controller, a particular user must have required 
         4.  Update the `RESTAPIScopes` JSON field by adding `custom_role` to the `Roles` field under the corresponding scope `Name` fields as shown below.
             ```bash
             {
+                "Name": "apim:api_publish",
+                "Roles": "admin,Internal/publisher,custom_role"
+            },
+            {
                 "Name": "apim:api_view",
                 "Roles": "admin,Internal/publisher,Internal/creator,Internal/analytics,custom_role"
+            },
+            {
+                "Name": "apim:api_delete",
+                "Roles": "admin,Internal/creator,custom_role"
             },
             {
                 "Name": "apim:subscribe",
@@ -40,6 +48,14 @@ To perform tasks using the API Controller, a particular user must have required 
                 "Name": "apim:api_import_export",
                 "Roles": "admin,custom_role"
             },
+            },
+                "Name": "apim:app_manage",
+                "Roles": "admin,Internal/subscriber,custom_role"
+            },
+            {
+                "Name": "apim:api_product_import_export",
+                "Roles": "admin,custom_role"
+            },
             ``` 
 
     2.  Using API-M management console.
@@ -52,7 +68,7 @@ To perform tasks using the API Controller, a particular user must have required 
 
             [![Admin portal scope mapping]({{base_path}}/assets/img/learn/api-controller/admin-portal-scope-mapping.png)]({{base_path}}/assets/img/learn/api-controller/admin-portal-scope-mapping.png)
 
-            The above screenshot only shows adding the `custom_role` to the scopes `apim:api_view` and `apim:subscribe`. But similarly, you should add `custom_role` to the scopes `apim:app_owner_change`, `apim:app_import_export` and `apim:api_import_export` as well.
+            The above screenshot only shows adding the `custom_role` to the scopes `apim:api_publish`, `api_view` and `apim:subscribe`. But similarly, you should add `custom_role` to the scopes `apim:app_owner_change`, `apim:app_import_export`, `apim:api_import_export`, `apim:app_manage` and `apim:api_product_import_export` as well.
 
 3.  Restart the server or wait for 15 mins until the registry cache expires.
 
@@ -105,12 +121,22 @@ As explained in the above section, you can create any user with a custom role to
 <td>apim:api_view</td>
 </tr>
 <tr class="odd">
+<td>delete api</td>
+<td><strong>API Create</strong></td>
+<td>apim:api_delete,<br>apim:api_view</td>
+</tr>
+<tr class="even">
+<td>change-status api</td>
+<td><strong>API Publish</strong></td>
+<td>apim:api_publish,<br>apim:api_view</td>
+</tr>
+<tr class="odd">
 <td>import-api</td>
 <td><strong>API Create</strong> to import an API in CREATED state,<br> Both <strong>API Create</strong> and <strong>API Publish</strong> to import an API in PUBLISHED state</td>
 <td>apim:api_import_export</td>
 </tr>
 <tr class="even">
-<td>import-api with     --update</td>
+<td>import-api with --update</td>
 <td><strong>API Create</strong> to import an API in CREATED state,<br> Both <strong>API Create</strong> and <strong>API Publish</strong> to import an API in PUBLISHED state</td>
 <td>apim:api_import_export,<br>apim:api_view</td>
 </tr>
@@ -125,9 +151,49 @@ As explained in the above section, you can create any user with a custom role to
 <td>apim:api_import_export,<br>apim:api_view</td>
 </tr>
 <tr class="odd">
+<td>list api-products</td>
+<td>-</strong></td>
+<td>apim:api_view</td>
+</tr>
+<tr class="even">
+<td>delete api-product</td>
+<td><strong>API Publish</strong></td>
+<td>apim:api_publish,<br>apim:api_view</td>
+</tr>
+<tr class="odd">
+<td>import api-product</td>
+<td><strong>API Publish</strong></td>
+<td>apim:api_product_import_export</td>
+</tr>
+<tr class="even">
+<td>import api-product --import-apis</td>
+<td><strong>API Publish</strong></td>
+<td>apim:api_product_import_export,<br>apim:api_import_export</td>
+</tr>
+<tr class="odd">
+<td>import api-product --update-apis</td>
+<td><strong>API Publish</strong></td>
+<td>apim:api_product_import_export,<br>apim:api_import_export</td>
+</tr>
+<tr class="even">
+<td>import api-product --update-api-product</td>
+<td><strong>API Publish</strong></td>
+<td>apim:api_product_import_export</td>
+</tr>
+<tr class="odd">
+<td>export api-product</td>
+<td>-</td>
+<td>apim:api_product_import_export,<br>apim:api_import_export</td>
+</tr>
+<tr class="even">
 <td>list apps</td>
 <td>-</td>
-<td>apim:app_import_export,<br>apim:app_owner_change</td>
+<td>apim:app_owner_change</td>
+</tr>
+<tr class="odd">
+<td>delete app</td>
+<td><strong>API Subscribe</strong></td>
+<td>apim:subscribe,<br>apim:app_manage,,<br>apim:app_owner_change</td>
 </tr>
 <tr class="even">
 <td>import-app</td>

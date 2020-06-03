@@ -12,7 +12,7 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
 
-### Quick Setup
+## Quick Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
@@ -79,7 +79,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
-###Standard Setup
+## Standard Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
@@ -89,8 +89,9 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 4 - Configure databases](#step-4-configure-databases)
 -   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
 -   [Step 6 - Configure keystores](#step-6-configure-keystores)
+-   [Step 7 - Configure User-Agent Parser](#step-7-configure-user-agent-parser)
 
-#### Step 1 - Download and install WSO2 API-M
+### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
  
@@ -98,7 +99,7 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
     
  ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
-#### Step 2 - Download and install WSO2 API-M Analytics
+### Step 2 - Download and install WSO2 API-M Analytics
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
 
@@ -106,7 +107,7 @@ As the process of installing API-M Analytics is identical to installing WSO2 Ent
 
   ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
-#### Step 3 - Configure WSO2 API Manager to publish statistics
+### Step 3 - Configure WSO2 API Manager to publish statistics
 
 Follow the instructions below to do the required configurations for WSO2 API-M to publish statistics in the WSO2 API-M Analytics server.
 
@@ -233,7 +234,7 @@ Please note that if the <code>username</code> and <code>password</code> are unco
 
 Save the changes.
 
-#### Step 4 - Configure databases
+### Step 4 - Configure databases
 
 Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
 
@@ -415,7 +416,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
       <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
       For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/learn/analytics/adding-third-party-non-osgi-libraries/).
 
-#### Step 5 - Configure APIM IdP Client
+### Step 5 - Configure APIM IdP Client
 
 APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
 
@@ -445,7 +446,7 @@ auth.configs:
     #storeUrl: https://localhost:9443
     externalLogoutUrl: https://localhost:9443/oidc/logout
 ```
-#####Details of the properties in APIM IdP Client
+#### Details of the properties in APIM IdP Client
 
 
 |**Property**                                           |**Default Value**                    |**Description**                 |
@@ -470,10 +471,29 @@ auth.configs:
 | `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
 
 
-#### Step 6 - Configure keystores
+### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
 If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
+### Step 7 - Configure User-Agent Parser
 
+The User-Agent and Operating System information is extracted from the User-Agent header of the API requests for the purpose of analytics. This process requires a set of regular expressions to parse the header and extract the information. By default, it is configured to use the `<API-M_ANALYTICS_HOME>/conf/worker/regexs.yaml` file for this purpose as shown below.
+
+```
+siddhi:
+  extensions:
+    # Provides the regular expression collection to parse the user-agent header
+    -
+      extension:
+        name: 'getUserAgentProperty'
+        namespace: 'env'
+        properties:
+          regexFilePath : ${sys:carbon.home}/conf/worker/regexes.yaml
+```
+However, if you need to use your own regular expressions to extract the information in detail, then you can replace the `regexFilePath` property with your own file.
+
+!!! warning
+    The regular expressions configured above is reduced to provide the optimal performance, while identifying common User-Agents and Operating Systems. However, if you completely remove the latter mentioned configuration, you will end-up by using a standard regular expression set, which is packed inside the parser library, and it will extract almost every User-Agents and Operating Systems, but might provide lower performance throughput.
+      
