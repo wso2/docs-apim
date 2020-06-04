@@ -19,6 +19,9 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```
+!!! note "If you are using Oracle"
+    Please commit the changes after running the scripts given below
+    
 ### Preparing for Migration
 #### Disabling versioning in the registry configuration
 

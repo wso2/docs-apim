@@ -17,6 +17,9 @@ The following information describes how to upgrade your API Manager server **fro
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```
+!!! note "If you are using Oracle"
+    Please commit the changes after running the scripts given below
+    
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.2.0 to 3.1.0**.
 
 ### Preparing for Migration
