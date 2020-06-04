@@ -1,5 +1,5 @@
 ---
-template: templates/no-nav.html
+template: templates/single-column.html
 ---
 
 <!--
@@ -20,4 +20,5 @@ template: templates/no-nav.html
  * under the License.
 -->
 
-## Page not found.
+Try one of the navigation links above or use the search engine in the top right corner. 
+

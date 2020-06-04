@@ -1,3 +1,0 @@
-# Scaling the Gateway
-
-
