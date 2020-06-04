@@ -17,6 +17,9 @@ The following information describes how to upgrade your API Manager server **fro
     ```
     ALTER USER <user> WITH SUPERUSER;
     ```    
+!!! note "If you are using Oracle"
+    Please commit the changes after running the scripts given below
+    
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.1.0 to 3.1.0**.
 
 ### Preparing for Migration
@@ -1910,7 +1913,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ./ciphertool.bat -Dconfigure
         ```
 
-6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.10.0.
+6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.10.0.
 
     !!! note
         If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100) instead of below steps.
@@ -1972,7 +1975,7 @@ Follow the instructions below to move all the existing API Manager configuration
         EXTENTSIZE 4;
         ```
 
-    1.  Download the identity component migration resources and unzip it in a local directory.
+    1.  Download the identity component migration resources and unzip it in a local directory.
 
          Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
