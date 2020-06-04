@@ -21,7 +21,7 @@ Please follow below steps to configure the prepackaged WSO2 Identity Server as t
 
     The **prepackaged WSO2 Identity Server as a Key Manager 5.9.0** comes with the necessary configurations already installed in order to connect it with WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.9.0. The prepackaged WSO2 Identity Server as a Key Manager 5.9.0 is compatible with WSO2 API Manager 3.0.0 and is available as  by [WUM](https://wso2.com/updates) .
     
-Download the prepackaged WSO2 Identity Server from [here](https://wso2.com/api-management/previous-releases/) (Select the version as 3.0.0 and download the Identity Server from the table) or get the [wum updated distribution](https://wso2.com/updates) and unzip it. `<IS_KM_HOME>` will refer to the root folder of the unzipped WSO2 IS pack. It is assumed that you have already downloaded WSO2 API Manager. `<APIM_HOME>` will refer to the root folder of the unzipped WSO2 API-M pack.
+Download the prepackaged WSO2 Identity Server as a Key Manager from [here](https://wso2.com/api-management/previous-releases/) (Select the version as 3.0.0 and download the Identity Server as a Key Manager from the table) or get the [WUM updated distribution](https://wso2.com/updates) and unzip it. `<IS_KM_HOME>` will refer to the root folder of the unzipped WSO2 Identity Server as a Key Manager pack. It is assumed that you have already downloaded WSO2 API Manager. `<APIM_HOME>` will refer to the root folder of the unzipped WSO2 API-M pack.
 
 ### Step 2 - Optionally, configure port offset for WSO2 IS
 
