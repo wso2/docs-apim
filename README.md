@@ -1,7 +1,6 @@
 # WSO2 API Manager Documentation
 
-**[BUILD STATUS](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim/badge/icon)**
-
+[![BUILD STATUS](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim/badge/icon)](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim)
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-wso2am-orange)](https://stackoverflow.com/tags/wso2-am/)
 [![slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?src=sidebar)
 
@@ -66,9 +65,9 @@ $ pip install --upgrade pip
 
 1. Navigate to the `<Language-folder>/` folder.
 
-   ```shell
-   $ cd docs-apim/en
-   ```
+    ```shell
+    $ cd docs-apim/en
+    ```
 
 2. Install the required pip packages.
 
@@ -93,7 +92,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 1. Fork the GitHub repository: `https://github.com/wso2/docs-apim.git`
 2. Navigate to the place where you want to clone the repo.
 
-   Git clone the forked repository.
+    Git clone the forked repository.
 
     ```shell
     $ git clone https://github.com/[git-username]/docs-apim.git
@@ -101,7 +100,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 
 3. Navigate to the folder containing the repo that you cloned in step 4.1 on a terminal window.
 
-   For example:
+    For example:
 
     ```shell
     $ cd docs-apim/<Language-folder>/
@@ -123,7 +122,7 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
   
 5. Open the following URL on a new browser window to view the API-M documentation site locally.
 
-   [http://localhost:8000/getting-started/overview/](http://localhost:8000/getting-started/overview/)
+    [http://localhost:8000/getting-started/overview/](http://localhost:8000/getting-started/overview/)
 
 ## License
 
