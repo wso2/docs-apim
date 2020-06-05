@@ -193,3 +193,64 @@ Follow the instructions below to import the public certificate into the client t
      ```
 
 5. Enter `wso2carbon` as the default password of the trust store when prompted.
+
+## Validating JWT generated From external Oauth Provider
+
+JWT generated from an external Oauth provider can validate through Gateway as per the following diagram.
+
+### Signature Validation flow.
+
+![]({{base_path}}/assets/img/learn/external-jwt-signature-validation.png)
+
+In order to do the signature validation of jwt, can use one of the following steps.
+
+- Import the public certificate into client-truststore.jks located under `<API-M_HOME>/repository/resources/security/` by using **kid** value as alias of key.
+
+- Use JWK endpoint of Oauth Provider.
+
+ 1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf` folder.
+ 2. Add following content under the `[[apim.jwt.issuer]]` for issuer.
+  ```
+  [[apim.jwt.issuer]]
+  name = "<issuer value of jwt>"
+  [apim.jwt.issuer.jwks]
+  url = "<jwks endpoint of oauth provider>"
+  ```
+
+### Transform JWT Claims
+
+By default WSO2 API Manager can convert the JWT claims into desired claims by configuring the claim mapping as per the following steps.
+
+1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf` folder.
+2. Add the claim mapping as following under the `[[apim.jwt.issuer]]`.
+  ```
+  [[apim.jwt.issuer.claim_mapping]]
+  remote_claim = "<remote claim value>"
+  local_claim = "<local claim value to map>"
+  ....
+  ```
+By Default Claim mapping done in as one to one mapping, If claim mapping needs to be done in advance behaviour, Users can write a JWT transformer that can configure to specific token issuer.
+
+
+### Scope Validation flow
+
+By default WSO2 API Manager validates the scopes came in JWT in scopes claim. If JWT contains the scopes in a different claim, users need to map the claim into `scope` claim as per [Transform JWT Claims](#transform-jwt-claims).
+
+
+### Subscription validation flow.
+
+By default WSO2 API Manager doesn't validate subscription against Application if JWT generated from different oauth provider.
+In order to validate subscriptions, following prerequisites need to be satisfied.
+
+1. JWT needs to contain the consumer key of the generated Oauth client application. By Default APIM reads the consumer key from `azp` claim or from `consumerKey` claim. If consumer key claim in a different claim, users need to map the claim into one of the above claim as per [Transform JWT Claims](#transform-jwt-claims).
+
+2. Consumer key need to be mapped into the Application by using [Provisioning Out-of-Band OAuth2 Clients]({{base_path}}/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/#provisioning-out-of-band-oauth2-clients/).
+
+Subscription validation from Key manager for JWT can be enabled by going through the following steps.
+
+1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf` folder.
+2. Add the **subscription_validation_via_km** configuration under the `[apim.jwt_authenitcation]`.
+  ```
+  [apim.jwt_authenitcation]
+  subscription_validation_via_km = true
+  ```
