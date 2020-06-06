@@ -23,7 +23,7 @@ template: templates/single-column.html
     </div>
 </div>
 <div>
-    <div class="content"> 
+    <div class="content">
         <!-- card -->
         <div class="card" onclick="location.href='getting-started/quick-start-guide';">
             <div class="line"></div>
@@ -44,7 +44,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">Design API</p>
-                <p class="hint">Develop, Publish, Manage, and Monitor APIs </p>
+                <p class="hint">Develop, Publish, Manage, and Monitor APIs</p>
             </div>
         </div>
         <!-- end card -->
@@ -56,7 +56,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">Consume API</p>
-                <p class="hint"> Find, Explore, Subscribe, Consume, and Evaluate APIs</p>
+                <p class="hint">Find, Explore, Subscribe, Consume, and Evaluate APIs</p>
             </div>
         </div>
         <!-- end card -->
