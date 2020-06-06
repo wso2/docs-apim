@@ -46,22 +46,22 @@ Listed below are the known limitations for this feature.
 -   Resource-level security will not be applicable to the APIs that are only protected with Mutual SSL.
 
 -   Scope-level security will not be applicable to the APIs that are only protected with Mutual SSL.
-### Invoke an API secured with Mutual SSL though SSL Terminated Load Balancer.
 
-When SSL Termination of invocation request happens at the loadbalancer, following prerequisites need to be met from the load balancer.
+### Handling MTLS when SSL is terminated by the loadbalancer/reverse proxy.
+
+When SSL Termination of API requests happens at the loadbalancer/reverse proxy, the following prerequisites need to be met from the load balancer.
 
 -   Terminate the mutual SSL connection from client
--   Offload the Terminated SSL certficate from client into the Gateway in a Header.(eg: https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate)
+-   Pass the client SSL certificate to the Gateway in an HTTP Header. ( eg: https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate )
 
-Below diagram show how MutualSSL works in such environment.
+The below diagram shows how MutualSSL works in such environment.
 
 ![]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
 
-Default WSO2 API Manager supports to retrieve Certificate from **X-WSO2-CLIENT-CERTIFICATE** header. In order to change the retrival header,
-follow the below instructions.
+By default, the WSO2 API Manager retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header. In order to change the header,
 
 -  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
--  Configure the *certificate_header* under the [apimgt.mutual_ssl]. 
+-  Configure the *certificate_header* under the [apimgt.mutual_ssl] configuration.
 
      ```
      [apimgt.mutual_ssl]
