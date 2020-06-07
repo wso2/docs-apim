@@ -1,136 +1,210 @@
 # Customize the Developer Portal and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Developer Portal is `https://<HostName>:9443/devportal` . Follow the steps below to change the URL of the Gateways and Developer Portal tenants in WSO2 API Manager.
+The default URL of WSO2 API Manager Developer Portal(`https://<HostName>:9443/devportal`) and the gateway URLs `http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>` can be customized per tenant. Follow the below steps to customize both devportal and gateway urls for a given tenant.
 
--   [Install Nginx and create SSL certificates](#CustomizetheAPIStoreandGatewayURLsforTenants-InstallNginxandcreateSSLcertificates)
--   [Setup custom domain mapping in the registry](#CustomizetheAPIStoreandGatewayURLsforTenants-Setupcustomdomainmappingintheregistry)
--   [Configure the Developer Portal webapp](#CustomizetheAPIStoreandGatewayURLsforTenants-Configurethestorewebapp)
-
-#### Install Nginx and create SSL certificates
-
-Follow the steps below to install Nginx and create SSL certificates.
-
-!!! note
-Install nginx in Mac OS
-
-If you are using Mac OS, you need to install Nginx using the [brew package manager](https://brew.sh/) . The commands are as follows.
-
--   Command to install nginx
-
-    ``` java
-        brew install nginx
-    ```
-
--   Command to run nginx
-
-    ``` java
-            sudo nginx
-    ```
+-   [Configure per tenant custom domain mappings](#setup-custom-domain-mapping-in-the-registry)
+-   [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
+-   [Configure the load balancer for custom URLs](#configure-the-load-balancer-for-custom-urls)
 
 
-1.  Run the following command and install Nginx, if not already available.
-
-    ``` java
-        sudo apt-get install nginx
-    ```
-
-2.  Create an SSL certificate.
-
-    ``` java
-            sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
-    ```
-
-3.  Navigate to the `<API-M_HOME>/repository/resources/security` directory and use the following command to add the certificate to the client trust store.
-
-    ``` java
-            keytool -import -file /etc/nginx/ssl/nginx.crt -keystore client-truststore.jks -storepass wso2carbon -alias wso2carbon2
-    ```
-
-4.  Navigate to the `/etc/nginx/sites-enabled/default` directory in your terminal and add the following configurations with your custom domain name.
-
-    ``` java
-            server {
-                   listen 443;
-                   ssl on;
-                   ssl_certificate /etc/nginx/ssl/nginx.crt;
-                   ssl_certificate_key /etc/nginx/ssl/nginx.key;
-                   location / {
-                       proxy_set_header X-WSO2-Tenant "ten5.com";
-                       proxy_set_header X-Forwarded-Host $host;
-                       proxy_set_header X-Forwarded-Server $host;
-                       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-                       proxy_set_header Host $http_host;
-                       proxy_pass https://localhost:9443/devportal/;
-                       proxy_redirect  https://localhost:9443/devportal/ /;
-                       proxy_redirect  <custom URL>;
-                       proxy_cookie_path /store/ /;
-                   }
-            }
-    ```
-
-#### Setup custom domain mapping in the registry
+## Configure per tenant custom domain mappings
 
 !!! note
-Only the super tenant can add custom URLs in their registry space for other tenants. Tenants cannot configure custom URLs for their Developer Portal or Gateway.
-
+    Only the super tenant can add custom URLs in their registry space for other tenants. Tenants cannot configure custom URLs for their Developer Portal or Gateway.
 
 1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the super admin.
 
-2.  In the **Main** menu, click **Browse** under **Resources.
-    ![]({{base_path}}/assets/attachments/103334773/103334777.png)**
+2.  In the **Main** menu, click **Browse** under **Resources**.
 
-3.  Navigate to the `/_system/governance registry` path and create the following directory structure in the registry.
+    ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
 
+3.  Navigate to the `/_system/governance` registry path and create `customurl/api-cloud/<tenant-domain>/urlMapping` directory structure in the registry, as shown in the following diagram. Replace the `<tenant-domain>` placeholder with the domain name of the tenant you want to customize the devportal and gateway URLs. For details on how to create and manage multiple tenants, see [Managing Tenants]({{base_path}}/administer/multitenancy/managing-tenants).
+    
+    ![]({{base_path}}/assets/img/develop/customizations/mapping-file-directory-structure.png)
+
+    To create a directory in the registry path, 
+    
+    1.  Navigate to the location in the registry browser, click and open the location.
+        
+    2.  Click **Add Collection** and specify the name of the directory and click **Add** .
+    
+        ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
+   
         !!! note
-    In [API Cloud](https://docs.wso2.com/display/APICloud/Customize+Cloud+URLs) , this directory structure is created automatically when specifying the custom URL through the UI.
+        In [API Cloud](https://docs.wso2.com/display/APICloud/Customize+Cloud+URLs), this directory structure is created automatically when specifying the custom URL through the UI.
 
+4.  Navigate to `/_system/governance/customurl/api-cloud/<tenant-domain>/urlMapping`. Click **Add Resource** under **Entries** and select **Create Text Content** as the resource type. 
+       
+5.  Provide tenant domain as the resource name and add the following configurations as the resource content. In here, you need to specify the developer portal and the gateway custom URLs for the respective tenant.
 
-`customurl/api-cloud/<tenant-domain>/urlMapping          `
-
-    ![]({{base_path}}/assets/attachments/103334773/103334776.png)
-
-        !!! tip
-    To create a directory in the registry path,
-
-    1. Navigate to the location in the registry browser, click and open the location.
-
-    2. Click **Add Collection** and specify the name of the directory and click **Add** .
-
-    ![]({{base_path}}/assets/attachments/103334773/103334775.png)
-
-
-4.  Navigate to `/_system/governance/customurl/api-cloud/< tenant-domain>/urlMapping` . Click **Add Resource** under **Entries** and click **Create Text Content.**
-
-5.  Add the following resource configurations to the registry and click **Add** .
-
-    ``` java
-        {    "tenantDomain": "<tenant domain name>",
-            "store" : {
-                "customUrl" : "<custom domain for developer portal>"
-            },
-            "gateway" : {
-                "customUrl" : "<custom domain for gateway>"
-            }
+    ``` tab="Format"
+        {
+           "tenantDomain":"<tenant domain name>",
+           "store":{
+              "customUrl":"<custom domain for developer portal>"
+           },
+           "gateway":{
+              "customUrl":"<custom domain for gateway>"
+           }
         }
+    ``` 
+          
+    ``` tab="Example"
+        {
+           "tenantDomain":"wso2.com",
+           "store":{
+              "customUrl":"developer.wso2.com"
+           },
+           "gateway":{
+              "customUrl":"gw.wso2.com"
+           }
+        }
+    ```   
+    
+    ![]({{base_path}}/assets/img/develop/customizations/create-mapping-file.png)
+
+
+## Configure per tenant service provider creation for devportal
+
+By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom urls are enabled for a given tenant, this particular SAAS application cannot be used(Due to tenant custom callback urls) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
+
+1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the **tenant admin**.
+
+2.  In the **Main** menu, click **Browse** under **Resources**.
+
+    ![]({{base_path}}/assets/img/develop/customizations/browse-registry.png)
+    
+3.  Navigate to `/_system/config/apimgt/applicationdata/tenant-conf.json` configuration file.
+
+    ![]({{base_path}}/assets/img/develop/customizations/tenant-conf.png )
+
+4.  Edit tenant-conf.json and add following new property to enable per tenant service provider creation for the respective tenant. Then save the content.
+
+    ```json
+      "EnablePerTenantServiceProviderCreation": true
+    ```
+    
+    ![]({{base_path}}/assets/img/develop/customizations/per-tenant-sp-creation-config.png )
+    
+## Configure the load balancer for custom URLs
+
+Carry out the following steps to configure NGINX as the load balancer to support custom tenant URLs.
+
+!!!Note
+
+    Although the following section instructs you to use NGINX as the load balancer, you can use any load balancer in your deployment based on your preference.
+     
+1.  Install NGINX. For more information on installing NGINX, refer [NGINX](https://nginx.org/en/) official documentation.
+
+2.  Navigate to the <API-M_HOME>/repository/resources/security directory and use the following command to add the nginx certificate to the client trust store.
+
+    ```keytool -import -file /etc/nginx/ssl/nginx.crt -keystore client-truststore.jks -storepass wso2carbon -alias wso2carbon2```
+
+3.  Add following Nginx server configurations to handle customized **developer portal URL** configured for the tenant.
+
+    ```tab="Format"
+    server{
+       listen 443;
+       ssl on;
+       server_name "{custom-url-for-dev-portal}";
+       ssl_certificate {nginx-certificate-file-path};
+       ssl_certificate_key {nginx-key-file-path};
+       location /{
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://{server-IP}:9443/devportal/;
+               proxy_redirect https://{server-IP}:9443/devportal/ /;
+               proxy_set_header X-WSO2-Tenant "{tenant-domain}";
+
+       }
+       location ~ (/api/am/store/v1|/oauth2|/authenticationendpoint|/logincontext|/commonauth) {
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://{server-IP}:9443;
+               proxy_set_header X-WSO2-Tenant "{tenant-domain}";
+       }
+    }
     ```
 
-    ![]({{base_path}}/assets/attachments/103334773/103334774.png)
+    ```tab="Example"
+    server{
+       listen 443;
+       ssl on;
+       server_name "developer.wso2.com";
+       ssl_certificate /usr/local/etc/nginx/ssl/nginx.crt;
+       ssl_certificate_key /usr/local/etc/nginx/ssl/nginx.key;
+       location /{
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://192.168.1.8:9443/devportal/;
+               proxy_redirect https://localhost:9443/devportal/ /;
+               proxy_set_header X-WSO2-Tenant "wso2.com";
 
-The URLs of the Developer Portal and Gateway are updated accordingly.
+       }
+       location ~ (/api/am/store/v1|/oauth2|/authenticationendpoint|/logincontext|/commonauth|/oidc) {
+               proxy_set_header X-Forwarded-Host $host;
+               proxy_set_header X-Forwarded-Server $host;
+               proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+               proxy_set_header Host $http_host;
+               proxy_read_timeout 5m;
+               proxy_send_timeout 5m;
+               proxy_pass https://192.168.1.8:9443;
+               proxy_set_header X-WSO2-Tenant "wso2.com";
+       }
+    }
+    ```    
+    
+4.  Add following Nginx server configurations to handle customized **Gateway URL** configured for the tenant.
 
-#### Configure the Developer Portal webapp
 
-1.  Go to `<API-M_HOME>/repository/deployment/server/jaggeryapps/store/site/conf` directory, open the `site.json` file and add the tenant header parameter as shown below.
-
-    ``` java
-            "reverseProxy" : {
-                    "enabled" : "auto", 
-                    "host" : "sample.proxydomain.com", 
-                    "context":"",
-                    "tenantHeader" : "X-WSO2-Tenant"
-                },
-    ```
-
-    You can choose any name for the header and set the virtual host to create the specific domain.
-
-For details on how to create and manage multiple tenants, see [Managing Tenants](https://docs.wso2.com/display/AM260/Managing+Tenants) . You can also see [Multi-tenant Architecture](https://docs.wso2.com/display/AM200/Multi-tenant+Architecture) for more information about tenants.
+    ```tab="Format"
+    server{
+           listen 443;
+           ssl on;
+           server_name "{custom-url-for-gateway}";
+           ssl_certificate {nginx-certificate-file-path};
+           ssl_certificate_key {nginx-key-file-path};
+           location /{
+                   proxy_set_header X-Forwarded-Host $host;
+                   proxy_set_header X-Forwarded-Server $host;
+                   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                   proxy_set_header Host $http_host;
+                   proxy_read_timeout 5m;
+                   proxy_send_timeout 5m;
+                   proxy_pass https://{server-IP}:8243/t/{tenant-domain}/;
+           }
+    }
+    ```   
+     
+    ```tab="Example"
+    server{
+           listen 443;
+           ssl on;
+           server_name "gw.wso2.com";
+           ssl_certificate /usr/local/etc/nginx/ssl/nginx.crt;
+           ssl_certificate_key /usr/local/etc/nginx/ssl/nginx.key;
+           location /{
+                   proxy_set_header X-Forwarded-Host $host;
+                   proxy_set_header X-Forwarded-Server $host;
+                   proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                   proxy_set_header Host $http_host;
+                   proxy_read_timeout 5m;
+                   proxy_send_timeout 5m;
+                   proxy_pass https://192.168.1.8:8243/t/wso2.com/;
+           }
+    }
+    ```     
+    
+      

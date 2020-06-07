@@ -354,6 +354,7 @@ nav:
           - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
           - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
           - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+          - Customizing the Developer Portal and Gateway URLs for Tenants: develop/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
           - Adding internationalization: develop/customizations/adding-internationalization.md
       - Admin Services: develop/wso2-admin-services.md
       - Working with the Source Code: develop/working-with-the-source-code.md
