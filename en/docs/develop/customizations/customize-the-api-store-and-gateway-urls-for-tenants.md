@@ -1,4 +1,4 @@
-# Customize the Developer Portal and Gateway URLs for Tenants
+# Customizing the Developer Portal and Gateway URLs for Tenants
 
 The default URL of WSO2 API Manager Developer Portal(`https://<HostName>:9443/devportal`) and the gateway URLs `http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>` can be customized per tenant. Follow the below steps to customize both devportal and gateway urls for a given tenant.
 
