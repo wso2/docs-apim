@@ -1,6 +1,6 @@
 # Customizing the Developer Portal and Gateway URLs for Tenants
 
-The default URL of WSO2 API Manager Developer Portal(`https://<HostName>:9443/devportal`) and the gateway URLs `http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>` can be customized per tenant. Follow the below steps to customize both devportal and gateway urls for a given tenant.
+The default URL of WSO2 API Manager Developer Portal(`https://<HostName>:9443/devportal`) and the gateway URLs (`http://<HostName>:8280/t/<tenant-domain>` and `https://<HostName>:8243/t/<tenant-domain>`) can be customized per tenant. Following steps illustrates how to configure devportal and gateway custom urls for a given tenant.
 
 -   [Configure per tenant custom domain mappings](#setup-custom-domain-mapping-in-the-registry)
 -   [Configure per tenant service provider creation for devportal](#configure-per-tenant-service-provider-creation-for-devportal)
@@ -33,7 +33,7 @@ The default URL of WSO2 API Manager Developer Portal(`https://<HostName>:9443/de
         !!! note
         In [API Cloud](https://docs.wso2.com/display/APICloud/Customize+Cloud+URLs), this directory structure is created automatically when specifying the custom URL through the UI.
 
-4.  Navigate to `/_system/governance/customurl/api-cloud/<tenant-domain>/urlMapping`. Click **Add Resource** under **Entries** and select **Create Text Content** as the resource type. 
+4.  Navigate to `/_system/governance/customurl/api-cloud/<tenant-domain>/urlMapping` in the registry. Click **Add Resource** under **Entries** and select **Create Text Content** as the resource type. 
        
 5.  Provide tenant domain as the resource name and add the following configurations as the resource content. In here, you need to specify the developer portal and the gateway custom URLs for the respective tenant.
 
@@ -66,7 +66,7 @@ The default URL of WSO2 API Manager Developer Portal(`https://<HostName>:9443/de
 
 ## Configure per tenant service provider creation for devportal
 
-By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom urls are enabled for a given tenant, this particular SAAS application cannot be used(Due to tenant custom callback urls) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
+By default the developer portal is acting as SAAS app, which is shared among all the tenants. But when custom urls are enabled for a given tenant, this particular SAAS application cannot be used(Due to custom callback urls) for tenant login management. Hence, below steps has to be followed in order to enable service provider creation per tenant.
 
 1.  Log in to the management console ( `https://<HostName>:9443/carbon` ) as the **tenant admin**.
 
@@ -96,7 +96,7 @@ Carry out the following steps to configure NGINX as the load balancer to support
      
 1.  Install NGINX. For more information on installing NGINX, refer [NGINX](https://nginx.org/en/) official documentation.
 
-2.  Navigate to the <API-M_HOME>/repository/resources/security directory and use the following command to add the nginx certificate to the client trust store.
+2.  Navigate to the <API-M_HOME>/repository/resources/security directory and use the following command to add the Nginx certificate to the client trust store.
 
     ```keytool -import -file /etc/nginx/ssl/nginx.crt -keystore client-truststore.jks -storepass wso2carbon -alias wso2carbon2```
 
@@ -206,5 +206,5 @@ Carry out the following steps to configure NGINX as the load balancer to support
            }
     }
     ```     
-    
       
+Now you should be able to access the developer portal and the gateways using custom URLs defined.      
