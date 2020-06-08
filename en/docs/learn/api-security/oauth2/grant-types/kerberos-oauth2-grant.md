@@ -86,11 +86,11 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
 
 1.  Download the Identity Server as the Key Manager pack from the WSO2 API Manager product page.
 
-    1. Navigate to [https://wso2.com/api-management/previous-releases/](https://wso2.com/api-management/previous-releases/).
+    1. Navigate to [https://wso2.com/api-management/](https://wso2.com/api-management/).
 
-    2. Select **Version 3.0.0**.
-
-    3. Click **Download** respective to **Identity Server as a Key Manager**.
+    2. Click **Download**.
+    
+    3. Click **Identity Server as a Key Manager Pack** under **OTHER RESOURCES**.
 
 2.  Download the [kerberos grant.jar]({{base_path}}/assets/attachments/kerberos-grant-1.0.0.jar) file.
 3.  Copy the JAR into the `<IS-KM_HOME>/repository/components/lib` directory.
