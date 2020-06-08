@@ -9,8 +9,6 @@ Only the application owner is capable of editing and deleting the application in
 !!! Note
     If there is a requirement to edit or delete an application using a different user (for example, due to a reason such as where the application owner has already left the organization etc.), you can achieve this by [transferring the ownership of the application to that user who will be the new application owner]({{base_path}}/learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application/).
 
-Furthermore, only the application owner is allowed to generate keys for a specific shared application. However, the shared users can generate access tokens; therefore, the shared users will see the **Regenerate** button which is used to regenerate the access tokens, but not the **Application** Keys button.
-
 WSO2 API Manager also provides the flexibility to change this default authentication implementation.
 
 ## Enabling application sharing
