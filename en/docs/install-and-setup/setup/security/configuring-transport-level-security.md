@@ -13,20 +13,20 @@ Do the following to enable SSL protocols and ciphers in the `ThriftAuthenticatio
 1.  Add the following configurations in the `<CARBON_SERVER>/repository/conf/identity/thrift-authentication.xml` file as sub-elements of the root `<Server>` element.
 
     ``` java
-            <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
-            <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
+    <SSLEnabledProtocols>TLSv1,TLSv1.1,TLSv1.2</SSLEnabledProtocols
+    <Ciphers>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256,TLS_DHE_RSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</Ciphers>
     ```
 
-!!! tip
-    **Tip:** You can also add the following additional cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
+    !!! tip
+        **Tip:** You can also add the following additional cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
 
-    ``` java
+        ``` java
         TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
-    ```
+        ```
 
-    If you wish to remove `TLSv1` or `TLSv1.1` , you can do so by removing them as values from the `<SSLEnabledProtocols>` property.
+        If you wish to remove `TLSv1` or `TLSv1.1` protocol support, remove then from `<SSLEnabledProtocols>` configuration.
 
-2.  Restart the server.
+2.  [Start the server]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
 
 ### Disabling weak ciphers
 
@@ -41,31 +41,32 @@ To prevent these types of security attacks, it is encouraged to disable the weak
 3.  Add the following configuration to the `deployment.toml` file by adding the list of ciphers that you want your server to support as follows: ciphers=",".
 
     ``` java
-        [transport.https.sslHostConfig.properties]
-        ciphers="SSL_RSA_WITH_RC4_128_MD5,SSL_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
+    [transport.https.sslHostConfig.properties]
+    ciphers="SSL_RSA_WITH_RC4_128_MD5,SSL_RSA_WITH_RC4_128_SHA,TLS_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA"
     ```
-    See the list of [supported cipher suites](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) .
+    See the list of [supported cipher suites]({{base_path}}/install-and-setup/setup/reference/supported-cipher-suites/) .
 
-4.  Start the server.
-5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]({{base_path}}/assets/attachments/administer/TestSSLServer.jar).
+4.  [Start the server]({{base_path}}/install-and-setup/install/running-the-product/#starting-the-server).
+
+5.  To verify that the configurations are all set correctly, download and run the [TestSSLServer.jar]({{base_path}}/assets/attachments/TestSSLServer.jar).
 
     ``` java
-        $ java -jar TestSSLServer.jar localhost 9443
+    $ java -jar TestSSLServer.jar localhost 9443
     ```
 
-!!! note
-    Note the following when you run `TestSSLServer.jar` :
+    !!! note
+        Note the following when you run `TestSSLServer.jar` :
 
-    -   The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
+        -   The "Supported cipher suites" section in the output does not contain any EXPORT ciphers.
 
-    -   When you use the supported cipher suites listed [here](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) , the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended tofixed this from the client side.
+        -   When you use the supported cipher suites listed [here](https://docs.wso2.com/display/ADMIN44x/Supported+Cipher+Suites) , the BEAST attack status will be shown as vulnerable. Note that this is a client-side vulnerability caused by the TLSv1 protocol. You can make the BEAST status protected by removing TLSv1, which will make clients with TLSv1 unusable. Therefore, it is recommended tofixed this from the client side.
 
 !!! info
     From **Firefox** 39.0 onwards, the browser does not allow to access Web sites that support DHE with keys less than 1023 bits (not just DHE\_EXPORT). 768/1024 bits are considered to be too small and vulnerable to attacks if the hacker has enough computing resources.
+    
 !!! tip
-    To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index) .
-!!! tip
-    From Java 7, you must set the `jdk.certpath.disabledAlgorithms` property in the `<JAVA_HOME>/jre/lib/security/java.security` file to `jdk.certpath.disabledAlgorithms=MD2, DSA, RSA keySize < 2048` . It rejects all algorithms that have key sizes less than 2048 for MD2, DSA and RSA.
+    -   To use AES-256, the Java JCE Unlimited Strength Jurisdiction Policy files need to be installed. Download them from [http://www.oracle.com/technetwork/java/javase/downloads/index.html](index), if your java installation does not have it installed.
+
 
 ### Changing the server name in HTTP response headers
 
@@ -74,15 +75,12 @@ By default, all WSO2 products pass "WSO2 Carbon Server" as the server value in H
 1.  Open the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 2.  Add a new server name using the `server` property (under the relevant Tomcat connector configuration):
 
-    ``` java
-        [transport.https.properties]
-        server="WSO2 Carbon Server"
-        
-        [transport.http.properties]
-        server="WSO2 Carbon Server"
+    ``` toml
+    [transport.https.properties]
+    server="WSO2 Carbon Server"
     ```
 
 !!! info
-    See the [Security Guidelines for Production Deployment](https://docs.wso2.com/display/ADMIN44x/Security+Guidelines+for+Production+Deployment) for the full list of security-related recommendations for WSO2 products.
+    See the [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/) for the full list of security-related recommendations for WSO2 products.
 
 
