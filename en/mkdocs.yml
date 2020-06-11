@@ -324,6 +324,7 @@ nav:
         - Installation Guide:
             - Installation Prerequisites: install-and-setup/installation-guide/installation-prerequisites.md
             - Installing the Product:
+                - Overview: install-and-setup/install/installing-the-product/installing-the-product.md
                 - Installing via the Installer: install-and-setup/installation-guide/installing-the-product/installing-via-the-installer.md
                 - Installing the Binary:
                     - Installing on Linux or OS X: install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md
