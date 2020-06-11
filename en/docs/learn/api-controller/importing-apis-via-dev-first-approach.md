@@ -124,19 +124,26 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                     components: 
                     securitySchemes: 
                         default: 
-                            type: "oauth2"
-                            flows: 
-                                implicit: 
-                                authorizationUrl: "https://test.com"
-                                scopes: 
-                                    products:read: ""
-                                x-scopes-bindings: 
-                                    products:read: "admin"
-                    ```
+                            - "read"
+                    responses:
+                        "200":
+                        description: successful operation
+                components: 
+                securitySchemes: 
+                    default: 
+                        type: "oauth2"
+                        flows: 
+                            implicit: 
+                            authorizationUrl: "https://test.com"
+                            scopes: 
+                                read: ""
+                            x-scopes-bindings: 
+                                read: "admin"
+                ```
 
-                First you need to define the scope name (products:read) under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section.
+            First you need to define the scope name ("read") under `security > default` section inside the required resource and then define the role binding under the `securitySchemes` section. You can use any preferred name as the security scheme.
 
-                Make sure to set the security name as **`default`** when defining the scopes.
+            Make sure to set the security type as **`oauth2`** when defining the scopes. Also when defining the roles under a particular scope, put them under **x-scopes-bindings:**  as a scope name and roles mapping.  
 
             
             <div class="admonition note">
