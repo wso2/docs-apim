@@ -7,7 +7,7 @@ You would need to create an API prototype for the purpose of early promotion and
 !!! note
 
     The example described in the following steps uses the `PizzaShackAPI 2.0.0` API. For more information on creating this API, see 
-    [Create a New API Version]({{base_path}}//learn/design-api/api-versioning/create-a-new-api-version/).
+    [Create a New API Version]({{base_path}}/learn/design-api/api-versioning/create-a-new-api-version/).
 
 1.  Sign in to the WSO2 API Publisher `https://<hostname>:9443/publisher` and click on the API (e.g., `PizzaShackAPI 2.0.0`) that you want to prototype.
      

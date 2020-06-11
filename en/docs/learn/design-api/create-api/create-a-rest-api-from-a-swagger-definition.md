@@ -94,6 +94,17 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
+   <html><div class="admonition note">
+     <p class="admonition-title">Note</p>
+        <p> Transport Level Security defines the transport protocol on which the API is exposed. When creating a new API by using a Swagger or Open API definition, these transport security schemes can be defined using  <b>“x-wso2- transports”</b>and <b>"x-wso2-mutual-ssl”</b>extensions.</p>
+            ```yaml
+            x-wso2-mutual-ssl: "optional"
+            x-wso2-transports: 
+                - "https"
+                - “http”
+            ```
+    </div></html>
+
 ## Subscriptions
    Navigate to **Subscriptions** page and select **Gold** and **Silver** as the Bussiness plans. After Click **SAVE**
 

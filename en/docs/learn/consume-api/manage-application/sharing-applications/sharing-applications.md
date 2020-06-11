@@ -1,8 +1,15 @@
 # Sharing Applications
 
-WSO2 API Manager provides the facility for users to share their applications and subscriptions with a specific logical group/groups such as an organization. As a result of application sharing, users can view and modify applications and subscriptions belonging to other users in the same group or a different group.
+WSO2 API Manager provides the facility for users to share their applications and subscriptions with a specific logical group or groups such as an organization. As a result of application sharing, users in the group can view such shared applications.
 
-WSO2 API Manager considers the organization name you enter when signing up to the Developer Portal as the group ID. All the users that have the same organization name belong to the same group. Therefore, such users that belong to a single group can view each others' subscriptions and applications provided that you have [enabled group sharing](#enabling-application-sharing). WSO2 API Manager also provides the flexibility to change this default authentication implementation.
+WSO2 API Manager considers the organization name you enter when signing up to the API Store as the group ID. All the users specifying the same organization name belong to the same group. Therefore, such users that belong to a single group can view each others' subscriptions and applications provided that you have [enabled group sharing](#enabling-application-sharing).
+
+Only the application owner is capable of editing and deleting the application in the shared group.
+
+!!! Note
+    If there is a requirement to edit or delete an application using a different user (for example, due to a reason such as where the application owner has already left the organization etc.), you can achieve this by [transferring the ownership of the application to that user who will be the new application owner]({{base_path}}/learn/consume-api/manage-application/advanced-topics/changing-the-owner-of-an-application/).
+
+WSO2 API Manager also provides the flexibility to change this default authentication implementation.
 
 ## Enabling application sharing
 
