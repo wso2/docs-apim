@@ -10,7 +10,7 @@ The following are the available methods to install WSO2 API Manager via the [WSO
 </td>
 <td> 
 <a href="{{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-via-the-installer">
-<img src="{{base_path}}/assets/img/setup-and-install/installer.jpg" width="380" height="80" />
+<img src="{{base_path}}/assets/img/setup-and-install/installer.jpg" width="400" height="80" />
 </td>
 
 </tr>
@@ -38,7 +38,7 @@ The following are the available methods to install WSO2 API Manager via the [WSO
 
 <td>
 <a href="{{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x">
-<img src="{{base_path}}/assets/img/setup-and-install/binary.png" width="380" height="80" /></a>
+<img src="{{base_path}}/assets/img/setup-and-install/binary.png" width="400" height="80" /></a>
 </td>
 <tr>
 </table>
