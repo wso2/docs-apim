@@ -47,11 +47,11 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 <a name="A"></a>
 ### (A.) - Prepare the environments
 
-1.  Download and install WSO2 API Manager 3.1.0 in your environments.
+1.  Download and install WSO2 API Manager 3.2.0 in your environments.
      
      For more information, see [installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
-2.  Download and setup WSO2 API Controller 3.1.0 version, `apictl`. 
+2.  Download and setup WSO2 API Controller 3.2.0 version, `apictl`. 
 
      For more information, see [Download and initialize the ctl tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
