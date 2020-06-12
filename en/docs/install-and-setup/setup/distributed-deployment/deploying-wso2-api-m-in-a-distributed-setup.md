@@ -64,10 +64,13 @@ You will now configure the inter-component relationships of the distributed setu
 
 #### Step 6.1 - Configure the common configurations
 
-The common configurations can be done automatically when starting up the server. For instructions, see [Starting an API-M profile]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/).
+The common configurations can be done automatically when starting up the server. For instructions, see [Starting an API-M profile]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/#starting-an-api-m-profile).
 
 !!! tip
     When a node starts, it starts all the components and featured bundled with it. If you are concerned about resource utilization, you can run the product on a specific profile, so that only the components and features that are required for that node and common features start up.
+
+!!! note
+    Be sure to run the optimizer before or while starting the server
 
 **Example**
 
