@@ -269,11 +269,11 @@ You can use the API archive exported from the previous section (or you can extra
         
     After importing, if the APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Shut down the API Manager 3.1.0, backup and delete the `<API-M_3.1.0_HOME>/solr` directory.
+    1.  Shut down the API Manager 3.2.0, backup and delete the `<API-M_3.2.0_HOME>/solr` directory.
         
-    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.1.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.2.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-    3.  Restart API Manager 3.1.0 server.
+    3.  Restart API Manager 3.2.0 server.
 
 !!! warning
     If you have enabled Secure Endpoint (Refer [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters) for more information), the endpoint password will be removed when exporting an API causing an error when you try to import the same API to an environment. There are 2 solutions for this.
