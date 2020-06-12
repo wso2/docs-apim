@@ -60,18 +60,16 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
     !!! example
         ``` bash tab="Linux/Unix"
         apictl add-env -e dev \
-                    --apim https://localhost:9443 \
-                    --token https://localhost:8243/token
+                    --apim https://localhost:9443 
 
         apictl add-env -e prod \
-                    --apim https://localhost:9444 \
-                    --token https://localhost:8244/token
+                    --apim https://localhost:9444 
         ```
 
-        ``` bash tab="Mac"
-        apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
+        ``` bash tab="Mac/Windows""
+        apictl add-env -e dev --apim https://localhost:9443 
 
-        apictl add-env -e prod --apim https://localhost:9444 --token https://localhost:8244/token
+        apictl add-env -e prod --apim https://localhost:9444 
         ```    
 
     For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
@@ -270,7 +268,11 @@ Run any of the following CTL commands to get keys for the API/API Product.
 
     !!! example
         ```bash
-        apictl get-keys -n PizzaShackAPI -v 1.0.0 -r admin -e dev -k
+        apictl get-keys -n PizzaShackAPI -e dev -k
+        ```
+    !!! example
+        ```bash
+        apictl get-keys -n PizzaShackAPI -v 1.0.0 -e dev -k -r admin -t https://localhost:8243/token
         ```
     !!! info
         **Flags:**  
@@ -279,8 +281,13 @@ Run any of the following CTL commands to get keys for the API/API Product.
             `--environment` or `-e` : Key generation environment  
             `--name` or `-n` : API or API Product to enerate keys for   
         -   Optional :  
+            `--token` or `-t` : New token endpoint URL of Environment (Which overrides previously provided token endpoint with add-env command)       
             `--provider` or `-r` : Provider of the API or API Product  
             `--version` or `-v` : Version of the API or API Product (Currently API Products do not have versions)
+
+    !!! note
+        NOTE: Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.
+        You can override the given token endpoint or default token endpoint using `--token` (`-t`) optional flag and providing the new token endpoint
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
