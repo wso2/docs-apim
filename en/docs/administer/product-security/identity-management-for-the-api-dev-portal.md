@@ -13,14 +13,14 @@ Password recovery feature does not work by default because an email server is no
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add a mail server configuration as shown below. See [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.9.0/setup/configuring-email-sending/) for more information.
 
     ``` java
-        [output_adapter.email]
-        from_address = "wso2am@gmail.com"
-        username = "wso2amtest"
-        password = "Wso2@am70"
-        hostname = "smtp.gmail.com"
-        port = "587"
-        enable_start_tls = true
-        enable_authentication = true
+     [output_adapter.email]
+     from_address = "abcd@gmail.com"
+     username = "abcd@gmail.com"
+     password = "xxxxxx"
+     hostname = "smtp.gmail.com"
+     port = "587"
+     enable_start_tls = true
+     enable_authentication = true
     ```
 
 2.  After the mail server is configured, the user can click on the **Forgot Password** link on the Sign In page of the API Developer Portal and request a password change.
