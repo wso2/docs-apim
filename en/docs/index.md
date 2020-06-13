@@ -32,7 +32,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content" >
                 <p class="title">5-min Quick Start</p>
-                <p class="hint">Create, Publish, and Consume an API in 5 minutes</p>
+                <p class="hint">Create, publish, and consume an API in 5 minutes</p>
             </div>
         </div>
         <!-- end card -->
@@ -44,7 +44,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">Design API</p>
-                <p class="hint">Develop, Publish, Manage, and Monitor APIs</p>
+                <p class="hint">Develop, publish, manage, and monitor APIs</p>
             </div>
         </div>
         <!-- end card -->
@@ -56,7 +56,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">Consume API</p>
-                <p class="hint">Find, Explore, Subscribe, Consume, and Evaluate APIs</p>
+                <p class="hint">Find, explore, subscribe, consume, and evaluate APIs</p>
             </div>
         </div>
         <!-- end card -->
@@ -68,7 +68,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">API Gateway</p>
-                <p class="hint">Intercept API Requests, Apply Policies, and Manage API Statistics</p>
+                <p class="hint">Intercept API requests, apply policies, and manage API statistics</p>
             </div>
         </div>
         <!-- end card -->
@@ -82,7 +82,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">API Microgateway</p>
-                <p class="hint">A Cloud-Native, Developer-Centric, Decentralized API Gateway for Microservices</p>
+                <p class="hint">A cloud-native, developer-centric, decentralized API gateway for microservices</p>
             </div>
         </div>
         <!-- end card -->
@@ -94,7 +94,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">API Security</p>
-                <p class="hint">Authenticate and Authorize API Requests</p>
+                <p class="hint">Authenticate and authorize API requests</p>
             </div>
         </div>
         <!-- end card -->
@@ -106,7 +106,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">Rate Limiting</p>
-                <p class="hint"> Regulate API Traffic and Secure APIs against Security Attacks</p>
+                <p class="hint"> Regulate API traffic and secure APIs against security attacks</p>
             </div>
         </div>
         <!-- end card -->
@@ -118,7 +118,7 @@ template: templates/single-column.html
             </div>
             <div class="card-content">
                 <p class="title">Analytics</p>
-                <p class="hint">Monitor System Behavior, as well as API and Application Usage</p>
+                <p class="hint">Monitor system behavior, as well as API and application usage</p>
             </div>
         </div>
         <!-- end card -->
