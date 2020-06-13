@@ -6,7 +6,7 @@ This section is a step-by-step guide to create, publish and invoke an API using 
 
 ### Before you begin...
 
-1. Install [Oracle Java SE Development Kit (JDK)]("http://java.sun.com/javase/downloads/index.jsp") version 11.\* or 1.8.\* and set the `JAVA_HOME` environment variable. For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install](../install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md)
+1. Install [Oracle Java SE Development Kit (JDK)]("http://java.sun.com/javase/downloads/index.jsp") version 11.\* or 1.8.\* and set the `JAVA_HOME` environment variable. For more information on setting the `JAVA_HOME` environment variable for different operating systems, see [Setup and Install]({{base_path}}/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x)
 2. [Download the version 3.1.0 of WSO2 API Manager](https://wso2.com/api-management/)
 3. Start WSO2 API Manager by navigating to the `<API-M_HOME>/bin` directory using the command-line and execute the following command
 
@@ -36,7 +36,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
 
 1. Navigate to the API Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
 
-    [![API Publisher home page](../assets/img/get_started/api_publisher_home.png)](../assets/img/get_started/api_publisher_home.png)
+    [![API Publisher home page]({{base_path}}/assets/img/get_started/api_publisher_home.png)]({{base_path}}/assets/img/get_started/api_publisher_home.png)
 
 2. Create an API.
 
@@ -46,7 +46,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
 
         A mock service with a JSON response `{"hello": "world"}` is provided by default on the landing page of the site. Let's use the  service URL (`http://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service. Note that we are using the HTTP protocol instead of HTTPS.
 
-        [![Mocky](../assets/img/get_started/mocky_io.png)](../assets/img/get_started/mocky_io.png)
+        [![Mocky]({{base_path}}/assets/img/get_started/mocky_io.png)]({{base_path}}/assets/img/get_started/mocky_io.png)
 
     2. Optionally, to test this service, copy the service URL [http://www.mocky.io/v2/5185415ba171ea3a00704eed](http://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
 
@@ -56,7 +56,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
 
 3. Click **Create New API** and then click **Design a new REST API**.
 
-    [![Design a new REST API](../assets/img/get_started/design_new_rest_api.png)](../assets/img/get_started/design_new_rest_api.png)
+    [![Design a new REST API]({{base_path}}/assets/img/get_started/design_new_rest_api.png)]({{base_path}}/assets/img/get_started/design_new_rest_api.png)
 
 4. Enter the API details.
 
@@ -89,7 +89,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
         </tr>
     </table>
 
-    ![[Create an API](../assets/img/get_started/api_create.png)](../assets/img/get_started/api_create.png)
+    ![[Create an API]({{base_path}}/assets/img/get_started/api_create.png)]({{base_path}}/assets/img/get_started/api_create.png)
 
 5. Click **Create & Publish**.
 
@@ -107,23 +107,23 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
     The published `HelloWorld` API is listed in the Developer Portal as shown below.
 
-    [![Developer Portal home page](../assets/img/get_started/dev_portal_landing_page.png)](../assets/img/get_started/dev_portal_landing_page.png)
+    [![Developer Portal home page]({{base_path}}/assets/img/get_started/dev_portal_landing_page.png)]({{base_path}}/assets/img/get_started/dev_portal_landing_page.png)
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 3. Click on the API thumbnail to view the overview of the API.
 
-    [![API overview](../assets/img/get_started/api_overview.png)](../assets/img/get_started/api_overview.png)
+    [![API overview]({{base_path}}/assets/img/get_started/api_overview.png)]({{base_path}}/assets/img/get_started/api_overview.png)
 
 4. Register an OAuth2.0 application.
 
     1. Click **Subscribe** on the **Subscriptions** card
-    [![Subscription Card](../assets/img/get_started/subscription_card.png)](../assets/img/get_started/subscription_card.png)
+    [![Subscription Card]({{base_path}}/assets/img/get_started/subscription_card.png)]({{base_path}}/assets/img/get_started/subscription_card.png)
 
     2. Click **Subscription & Key Generation Wizard**
 
         This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.  
 
-        [![Key generation wizard](../assets/img/get_started/key_gen_wizard.png)](../assets/img/get_started/key_gen_wizard.png)
+        [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
 
     3. Create the OAuth2.0 application.
 
@@ -144,29 +144,29 @@ Follow the instructions below to subscribe to the API and generate the keys via 
             </tr>
         </table>
 
-        [![Key Generation Wizard](../assets/img/get_started/key_gen_wizard_1.png)](../assets/img/get_started/key_gen_wizard_1.png)
+        [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)
 
     4. Subscribe the application to the API.  
 
         This subscribes the `Greetings` application to the `HelloWorld` API on the selected Business Plan. Click **Next** without changing any of the default values.
 
-        [![Key Generation Wizard Step 2](../assets/img/get_started/key_gen_wizard_2.png)](../assets/img/get_started/key_gen_wizard_2.png)
+        [![Key generation wizard step 2]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)
 
     5. Generate the credentials for the **Greetings** OAuth2.0 application.
 
         The Grant Types define the various protocols, which will be allowed by the system, from which your application will be allowed to request tokens. Click **Next** without changing any of the default values.
 
-        [![Key Generation Wizard Step 3](../assets/img/get_started/key_gen_wizard_3.png)](../assets/img/get_started/key_gen_wizard_3.png)
+        [![Key generation wizard step 3]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)
 
     6. Generate a test access token for the 'Greetings' application to access the 'HelloWorld' API.
 
         This step allows you to specify the validity period for the token and its permissions (scopes). Click **Next** without changing any of the default values.
 
-        [![Key Generation Wizard Step 4](../assets/img/get_started/key_gen_wizard_4.png)](../assets/img/get_started/key_gen_wizard_4.png)
+        [![Key generation wizard step 4]({{base_path}}/assets/img/get_started/key_gen_wizard_4.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_4.png)
 
     7. Click copy, as shown below, to copy the generated test access token to the clipboard.
 
-        [![Key Generation Wizard Step 5](../assets/img/get_started/key_gen_wizard_5.png)](../assets/img/get_started/key_gen_wizard_5.png)
+        [![Key generation wizard step 5]({{base_path}}/assets/img/get_started/key_gen_wizard_5.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_5.png)
 
     8. Click **Finish**.
 
@@ -184,7 +184,7 @@ Follow the instructions below to invoke the previously created API with the gene
 
 2. Paste the access token that you previously copied in the **Access Token** field.  
 
-    [![Test API](../assets/img/get_started/test_api.png)](../assets/img/get_started/test_api.png)
+    [![Test API]({{base_path}}/assets/img/get_started/test_api.png)]({{base_path}}/assets/img/get_started/test_api.png)
 
 3. __If this is the first time you are using the API test console__ from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
 
@@ -196,11 +196,11 @@ Follow the instructions below to invoke the previously created API with the gene
 4. Click on the `GET` resource of the API to expand the resource.
 5. Click **Try It Out**, which is the button on the right. Then click **Execute**.  
 
-    [![Try-Out API](../assets/img/get_started/try_api.png)](../assets/img/get_started/try_api.png)
+    [![Try-out API]({{base_path}}/assets/img/get_started/try_api.png)]({{base_path}}/assets/img/get_started/try_api.png)
 
     You should see the `{"hello" : "world"}` response from the API.  
 
-    [![Success Response](../assets/img/get_started/try_it_success.png)](../assets/img/get_started/try_it_success.png)
+    [![Success response]({{base_path}}/assets/img/get_started/try_it_success.png)]({{base_path}}/assets/img/get_started/try_it_success.png)
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.  
 

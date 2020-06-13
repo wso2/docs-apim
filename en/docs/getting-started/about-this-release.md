@@ -10,35 +10,35 @@ WSO2 API Manager comprises of the following modules:
 * **API Key Manager**: Performs key generation and key validation functionalities.
 * **API Traffic Manager**: Performs rate limiting of API requests.
 
-For more information on WSO2 API Manager, see the [Overview in the WSO2 API Manager 3.1.0 Documentation](overview.md) and go to the [Product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
+For more information on WSO2 API Manager, see the [Overview in the WSO2 API Manager 3.1.0 documentation]({{base_path}}/getting-started/overview/) and go to the [Product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
 
-## What's New
+## What is new
 
 The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.0.0**. It contains the following new features and enhancements:
 
-### WSO2 API-M Related New Features
+### WSO2 API-M related new features
 
-* **[Integrating AWS Lambda with APIM](../learn/tutorials/create-and-publish-awslambda-api.md)**
+* **[Integrating AWS Lambda with APIM]({{base_path}}/learn/tutorials/create-and-publish-awslambda-api)**
 
     When using AWS Lambda to create and publish APIs, you can execute your code without having to manage or provision servers.
 
-* **[API Security Audit Integration](../learn/api-security/configuring-api-security-audit.md)**
+* **[API Security Audit Integration]({{base_path}}/learn/api-security/configuring-api-security-audit)**
 
     WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), which is the only enterprise API security platform, in order to be able to conduct a security audit on the OpenAPI Specification definition and to obtain an audit report.
 
-* **[API Categories](../develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md)**
+* **[API Categories]({{base_path}}/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping)**
 
     API categories are similar to Tag wise grouping. However, admins need to define API categories that Publishers can use when creating APIs. Furthermore, unlike Tag wise grouping API categories do not use a naming convention. Therefore, with the introduction of this feature, WSO2 has deprecated the Tag wise grouping feature.
 
-* **[AI-based recommendations for the Developer Portal](../learn/consume-api/discover-apis/api-recommendations.md)**
+* **[AI-based recommendations for the Developer Portal]({{base_path}}/learn/consume-api/discover-apis/api-recommendations)**
 
     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations.
 
-* [**API Mocking**](../learn/design-api/mock-api/create-a-mock-api-with-an-inline-script.md)
+* **[API Mocking]({{base_path}}/learn/design-api/mock-api/create-a-mock-api-with-an-inline-script)**
 
     Ability to create a prototype API using a mock payload that is generated for inline scripts.
 
-### WSO2 API-M Analytics Related New Features
+### WSO2 API-M Analytics related new features
 
 * PDF Report Generation
 
@@ -56,13 +56,13 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** an
 
 ## What has changed in this release
 
-### Improvements to Existing WSO2 API-M Features
+### Improvements to existing WSO2 API-M features
 
-* [Language Switch](../learn/consume-api/customizations/adding-internationalization.md#enabling-the-language-switch)
+* [Language Switch]({{base_path}}/develop/customizations/adding-internationalization/#enabling-the-language-switch)
 
     A language switch allows the Developer Portal users to select the language in which they want to read the content. The Developer Portal theming architecture lets developers to add a language switch in different ways.
 
-* [Changing the layout direction in the Developer Portal](../learn/consume-api/customizations/adding-internationalization.md#changing-the-layout-direction)
+* [Changing the layout direction in the Developer Portal]({{base_path}}/develop/customizations/adding-internationalization/#changing-the-direction-of-the-ui)
 
     You can switch the Developer Portal layout direction from its default LTR to RTL using a single configuration.
 
@@ -77,7 +77,7 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** an
 
     This feature  provides the system admins an easier approach to white label the analytics dashboard by changing the logo image and the favicon. The system admin does not need to have React, CSS, or HTML knowledge to do this customization. All you need to do is to place the required images inside the respective tenant folder and update the directives in the configuration file so that the server will pick those directives and display the respective images based on the tenant who is currently logged in to the system.
 
-### Deprecated Features and Functionalities
+### Deprecated features and functionalities
 
 * Tag wise grouping
 
@@ -92,19 +92,19 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** an
 
     This feature was removed due to low usage of the feature.
 
-## Compatible WSO2 Product Versions
+## Compatible WSO2 product versions
 
-WSO2 API-M 3.1.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager](../install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.1.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.1.0, see [Installation Prerequisites](../install-and-setup/install/installation-prerequisites.md).
+WSO2 API-M 3.1.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.1.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.1.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites).
 
 For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
-## Fixed Issues
+## Fixed issues
 
 * [WSO2 API Manager 3.1.0 - Fixed Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12+label%3A3.1.0+)
 * [WSO2 API Manager 3.1.0 - Fixed Issues in the carbon-apim GitHub repository](https://github.com/wso2/carbon-apimgt/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12)
 * [WSO2 API Manager 3.1.0 - Fixed Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/milestone/18?closed=1)
 
-## Known Issues
+## Known issues
 
 * [WSO2 API Manager 3.1.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A3.1.0)
 * [WSO2 API Manager 3.1.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
