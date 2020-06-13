@@ -83,10 +83,9 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** an
 
     API categories are used for API grouping, similar to Tag wise grouping. However, the user does not have to go through the hassle of following a naming convention when creating API categories. Therefore, with the introduction of the API categories, Tag wise grouping has been deprecated, and WSO2 recommends users to use the API Categories feature for API Grouping.
 
-<!-- FIXME: fix the devportal and publisher 0.15 URLs below -->
 * [Developer Portal]({{base_path}}/develop/product-apis/devportal-v0.15/) and [Publisher]({{base_path}}/develop/product-apis/publisher-v0.15) v0.15 based REST APIs.
 
-### Removed Features and Functionalities
+### Removed features and functionalities
 
 * [Monitoring message flows](https://apim.docs.wso2.com/en/3.0.0/administer/product-administration/monitoring/monitoring-message-flows/)
 
