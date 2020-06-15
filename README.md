@@ -1,8 +1,8 @@
 # WSO2 API Manager Documentation
 
-[![BUILD STATUS](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim/badge/icon)](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim)
+[![Jenkins](https://img.shields.io/badge/jenkins-docs--apim-green)](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim)
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-wso2am-orange)](https://stackoverflow.com/tags/wso2-am/)
-[![slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?src=sidebar)
+[![Slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?src=sidebar)
 
 ---
 
@@ -10,7 +10,7 @@ This is the documentation for the upcoming release of WSO2 API Manager (WSO2 API
 
 To see the **latest released documentation** for the WSO2 API Manager, go to: [https://apim.docs.wso2.com/en/latest/](https://apim.docs.wso2.com/en/latest/)
 
-## Contributing to WSO2 API-M Documentation
+## Contributing to WSO2 API-M documentation
 
 As an open source project, WSO2 API-M welcomes contributions from the community. To start contributing, read these contribution guidelines for information on how you should go about contributing to our project.
 
@@ -30,7 +30,7 @@ As an open source project, WSO2 API-M welcomes contributions from the community.
 
 Check the issue tracker for open issues that interest you. We look forward to receiving your contributions.
 
-## Development & Run
+## Run the project locally
 
 ### Step 1 - Install Python
 
@@ -47,9 +47,9 @@ Once you are done, you will have two versions of Python on your machine; a versi
 
 ### Step 2 - Install Pip
 
-> INFO
+> **INFO**
 >
-> If pip is not already installed on your machine, download get-pip.py to install pip for the first time. Then run the following command to install it:
+> If pip is not already installed on your machine, download `get-pip.py` to install pip for the first time. Then run the following command to install it:
 
 ```shell
 $ python get-pip.py
