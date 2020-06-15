@@ -127,9 +127,9 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         !!! note
             The `--environment (-e)` flag is mandatory.
-            You can either provide only the 1 flags `--apim` , or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
+            You can either provide only the flag `--apim` , or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
-            In both these  cases `--token`  flag is optional and can be used to provide user preferred token endpoint.
+            In both of the above cases `--token`  flag is optional and can be used to provide an user preferred token endpoint.
 
         !!! example
 

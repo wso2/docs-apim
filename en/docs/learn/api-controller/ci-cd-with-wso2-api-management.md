@@ -281,13 +281,13 @@ Run any of the following CTL commands to get keys for the API/API Product.
             `--environment` or `-e` : Key generation environment  
             `--name` or `-n` : API or API Product to enerate keys for   
         -   Optional :  
-            `--token` or `-t` : New token endpoint URL of Environment (Which overrides previously provided token endpoint with add-env command)       
+            `--token` or `-t` : New token endpoint of the environment (which overrides previously provided token endpoint with add-env command)       
             `--provider` or `-r` : Provider of the API or API Product  
             `--version` or `-v` : Version of the API or API Product (Currently API Products do not have versions)
 
     !!! note
         NOTE: Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.
-        You can override the given token endpoint or default token endpoint using `--token` (`-t`) optional flag and providing the new token endpoint
+        You can override the given token endpoint or the default token endpoint using `--token` (`-t`) optional flag providing a new token endpoint
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
