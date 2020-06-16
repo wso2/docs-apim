@@ -8,8 +8,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
 !!! note
     -   You can follow the below information in either one of the following situations:
         -   You are currently using a WSO2 IS 5.9.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
-        -   You are currently using a pre-packaged WSO2 Identity Server 5.9.0 distribution.
-
+       
     -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 3.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-300-to-310.md) to upgrade your APIM environment from API-M 3.0.0 to 3.1.0.
 
 Before executing the IS migration client, keep in mind to follow the below steps.
