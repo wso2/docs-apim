@@ -9,11 +9,11 @@ Follow the instructions below to configure and deploy API-M by using an Active-A
 -   [Step 1 - Create a SSL Certificate](#step-1-create-a-ssl-certificate)
 -   [Step 2 - Configure the Load Balancer](#step-2-configure-the-load-balancer)
 -   [Step 3 - Configure the Databases](#step-3-configure-the-databases)
--   [Step 4 - Configure the Artifact Synchronization](#step-4-configure-the-artifact-synchronization)
--   [Step 5 - Configure Publisher with the Gateway](#step-5-configure-publisher-with-the-gateway)
--   [Step 6 - Configure Gateway URLs to Expose APIs](#step-6-configure-gateway-urls-to-expose-apis)
--   [Step 7 - Configure Throttling](#step-7-configure-throttling)
--   [Step 8 - Configure the Second WSO2 API-M Node](#step-8-configure-the-second-wso2-api-m-node)
+-   [Step 4 - Configure the Second WSO2 API-M Node](#step-4-configure-the-second-wso2-api-m-node)
+-   [Step 5 - Configure the Artifact Synchronization](#step-5-configure-the-artifact-synchronization)
+-   [Step 6 - Configure Publisher with the Gateway](#step-6-configure-publisher-with-the-gateway)
+-   [Step 7 - Configure Gateway URLs to Expose APIs](#step-7-configure-gateway-urls-to-expose-apis)
+-   [Step 8 - Configure Throttling](#step-8-configure-throttling)
 -   [Step 9 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
 -   [Step 10 - Configure Production Hardening](#step-10-configure-production-hardening)
 -   [Step 11 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
@@ -83,7 +83,16 @@ information on default databases and changing them into RDBMS databases, see [Wo
     driver="com.mysql.cj.jdbc.Driver"
     ```
 
-## Step 4 - Configure the Artifact Synchronization 
+## Step 4 - Configure the Second WSO2 API-M Node
+
+Make a copy of the active instance configured above and use this copy as the second active instance.
+
+!!! info
+    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 
+    in [step 1]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores).
+
+
+## Step 5 - Configure the Artifact Synchronization 
 
 To enable synchronization for runtime artifacts of the two all in one WSO2 API-M instances, it is recommended to have a
 shared file system. Configure a shared file system as the content synchronization mechanism. You can use a common shared file 
@@ -103,7 +112,7 @@ in order to share all APIs and throttling policies between all the nodes.
         because APIs and throttling decisions can be published to any of the nodes; thereby, avoiding the  vulnerability 
         of a single point of failure that is present when using remote synchronization (rsync).
     
-## Step 5 - Configure Publisher with the Gateway
+## Step 6 - Configure Publisher with the Gateway
 
 When **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
 can publish the API artifacts to their own nodes. Therefore, you can point the `service_url` to `localhost` in the
@@ -143,7 +152,7 @@ service_url = "https://localhost:${mgt.transport.https.port}/services/"
         ```
         Note that `<node-1-mgt-transport-port>` is the management transport port, which is by default 9443.
 
-## Step 6 - Configure Gateway URLs to Expose APIs
+## Step 7 - Configure Gateway URLs to Expose APIs
 
 You need to configure the environment URLs which are used to expose the deployed APIs in the Gateways of both nodes. 
 Add the Gateway hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file in both
@@ -160,48 +169,115 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
     https_endpoint = "https://gw.am.wso2.com:${https.nio.port}"
     ```            
 
-## Step 7 - Configure Throttling
+## Step 8 - Configure Throttling
 
-1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
-    You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node 
-    and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
-    The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver 
-    and processes the data to come up with Throttling decisions.
+    1.  You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
 
-    ``` tab="Format"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
-    traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
-    type = "loadbalance"
+        The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and processes the data to come up with Throttling decisions.
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
-    traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
-    type = "loadbalance"
-    ```
+        ``` tab="Format"
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+        traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+        type = "loadbalance"
 
-    ``` tab="Example"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://127.0.0.1:9611"]
-    traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
-    type = "loadbalance"
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+        traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+        type = "loadbalance"
+        ```
 
-    [[apim.throttling.url_group]]
-    traffic_manager_urls = ["tcp://127.0.0.1:9612"]
-    traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
-    type = "loadbalance"
-    ```
+        ``` tab="Example"
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+        type = "loadbalance"
 
-2.  Save your changes.
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+        type = "loadbalance"
+        ```
 
-## Step 8 - Configure the Second WSO2 API-M Node
+    2.  Save your changes.
 
-Make a copy of the active instance configured above and use this copy as the second active instance.
 
-!!! info
-    When making a copy of the node, you need to also make a copy of the SSL certificate that you created for node 1 
-    in [step 1]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores).
+2. Configure the Traffic Manager of each node to be able to publish events to the Traffic Manager node of the other node by following the below steps.
+
+    1.  Create an additional JNDI config file, namely `jndi2.properties`, in the `<API-M_HOME>/repository/conf` 
+    location of both nodes.  
+
+    2.  Add the configuration given below to the `jndi2.properties` file that you just created for Node 1 and 2.
+
+        **Node 1**
+
+        ``` tab="Format"
+        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://<node2-hostname>:<node2-JMS-port>'
+        topic.throttleData = throttleData
+        ```
+
+        ``` tab="Example"
+        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://127.0.0.1:5673'
+        topic.throttleData = throttleData
+        ```
+
+        **Node 2**
+
+        ``` tab="Format"
+        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://<node1-hostname>:<node1-JMS-port>'
+        topic.throttleData = throttleData
+        ```
+
+        ``` tab="Example"
+        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://127.0.0.1:5672'
+        topic.throttleData = throttleData
+        ```
+
+    3.  Create two new JMS Event Publishers by creating two XML files with names, `jmsEventPublisher-2.xml` and `jmsEventPublisher_1.10.0-2.xml` in the `<API-M_HOME>/repository/deployment/server/eventpublishers` directory of each of the two nodes.
+
+    4.  Add the configurations given below to the JMSEventPublisher files created above in both of the nodes. Note that you refer to the JNDI properties file that you created in Step 1 in the configurations shown below.
+
+        **jmsEventPublisher-2.xml**
+
+        ``` xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <eventPublisher name="jmsEventPublisher2" statistics="disable"
+        trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+        <from streamName="org.wso2.throttle.globalThrottle.stream" version="1.0.0"/>
+        <mapping customMapping="disable" type="map"/>
+        <to eventAdapterType="jms">
+            <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+            <property name="java.naming.provider.url">repository/conf/jndi2.properties</property>
+            <property name="transport.jms.DestinationType">topic</property>
+            <property name="transport.jms.Destination">throttleData</property>
+            <property name="transport.jms.ConcurrentPublishers">allow</property>
+            <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+        </to>
+        </eventPublisher>
+        ```
+
+        **jmsEventPublisher_1.10.0-2.xml**
+
+        ``` xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <eventPublisher name="jmsEventPublisher-1.0.0-2" statistics="disable"
+        trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
+        <from streamName="org.wso2.throttle.globalThrottle.stream" version="1.1.0"/>
+        <mapping customMapping="disable" type="map"/>
+        <to eventAdapterType="jms">
+            <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
+            <property name="java.naming.provider.url">repository/conf/jndi2.properties</property>
+            <property name="transport.jms.DestinationType">topic</property>
+            <property name="transport.jms.Destination">throttleData</property>
+            <property name="transport.jms.ConcurrentPublishers">allow</property>
+            <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
+        </to>
+        </eventPublisher>
+        ```
+
+    5.  Save your changes.
 
 ## Step 9 - Configure API-M Analytics
 
