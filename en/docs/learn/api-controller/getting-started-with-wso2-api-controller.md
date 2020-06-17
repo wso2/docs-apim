@@ -111,7 +111,6 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             -    Required :  
 
                 `--environment` or `-e` : Name of the environment to be added   
-                `--token` : Token endpoint for the environment
                 AND (either)
                 `--apim` : API Manager endpoint for the environments
                 OR (the following 4)
@@ -119,25 +118,28 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 `--admin` : Admin endpoint for the environment  
                 `--publisher` : Publisher endpoint for the environment  
                 `--devportal` : DevPortal endpoint for the environment 
+            -   Optional :
+
+                `--token` : Token endpoint for the environment
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
 
         !!! note
-            The flags `--environment (-e)` and `--token` are mandatory.
-            You can either provide only the 2 flags `--apim` and `--token`, or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
+            The `--environment (-e)` flag is mandatory.
+            You can either provide only the flag `--apim` , or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
+            In both of the above cases `--token`  flag is optional and can be used to provide an user preferred token endpoint.
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --apim https://localhost:9443 \
-                        --token https://localhost:8243/token
+                        --apim https://localhost:9443 
             ``` 
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
+            apictl add-env -e dev --apim https://localhost:9443 
             ```               
 
         !!! example
@@ -145,14 +147,14 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
                         --registration https://idp.com:9444 \
-                        --token https://gw.com:8244/token \
                         --admin https://apim.com:9444 \
                         --publisher https://apim.com:9444 \
-                        --devportal https://apps.com:9444
+                        --devportal https://apps.com:9444 \
+                        --token https://gw.com:8244/token                        
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e production --registration https://idp.com:9444 --token https://gw.com:8244/token --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444
+            apictl add-env -e production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
             ```  
     
         !!! example
