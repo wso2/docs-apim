@@ -7,7 +7,7 @@ deployment, which has all the API-M components in one instance, would be simple 
  iteratively build up a robust API Management Platform.
 
 -   [Single node deployment](#single-node-deployment)
--   [Active - active deployment](#activeactive-deployment)
+-   [Active - active deployment](#active-active-deployment)
 
 ### Single node deployment
 
