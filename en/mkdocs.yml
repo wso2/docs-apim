@@ -495,7 +495,7 @@ nav:
           - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
           - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
   - Reference:
-      - Configuration Catalog: reference/ConfigCatalog.md
+      - Configuration Catalog: reference/config-catalog.md
       - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
       - FAQ: reference/faq.md
       - Guides:
