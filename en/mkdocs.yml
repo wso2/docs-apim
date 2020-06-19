@@ -461,7 +461,7 @@ nav:
             - Multi Factor Authentication (MFA) for Publisher and Developer Portals: administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
             - Identity Management for the API Developer Portal: administer/product-security/identity-management-for-the-api-dev-portal.md
     - Reference:
-        - Configuration Catalog: reference/ConfigCatalog.md
+        - Configuration Catalog: reference/config-catalog.md
         - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
         - FAQ: reference/faq.md
         - Guides:
