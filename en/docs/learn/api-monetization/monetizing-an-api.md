@@ -728,7 +728,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
      After you save the policy, a plan gets created in the Stripe account of the Tenant Admin.  
 
-     ![Stripe account after creating a paid business plan]({{base_path}}/assets/img/learn/Stripe-account-after-creating-a-commercial-tier.png)  
+     ![Stripe account after creating a paid business plan]({{base_path}}/assets/img/learn/stripe-account-after-creating-a-commercial-tier.png)
      
      When you update the details of this business plan, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete a business plan, the plan in Stripe will get deleted.
 
@@ -843,7 +843,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 ### Step 5 - Monitor usage of a monetized API
 
-Two types of business plans are available for monetized APIs namely, the fixed business plan and the dynamic business plan. Dynamic business plans are based on the subscribers' API usage. However, users who are on fixed business plans are changed a fixed price irrespective of their API usage. When deciding on a business plan, the Publisher takes into account the type of the API, the value that the API creates, and its organization business model.
+Two types of business plans are available for monetized APIs namely, the fixed business plan and the dynamic business plan. Dynamic business plans are based on the subscribers' API usage. However, users who are on fixed business plans are charged a fixed price irrespective of their API usage. When deciding on a business plan, the Publisher takes into account the type of the API, the value that the API creates, and its organization business model.
 
 The monitoring of API usage is only done for APIs associated with dynamic business plans (metered billing). When an API request is initiated, the API Gateway publishes the analytics related to that request. The successful API calls are recorded in the database, and this data is used to calculate the API usage and charge the subscriber.
 
