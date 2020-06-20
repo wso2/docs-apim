@@ -15,9 +15,9 @@ Basic health checks can be performed on an API Manager node by connecting to re
 | Traffic Manager     | 5672 (TCP), 9611 (TCP)       |
 | Key Manager         | 9673 (HTTP), 9443 (HTTPS)                |
 
-For more information on each profile, see [API Manager Profiles]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles).
+For more information on each profile, see [API Manager Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
 
-There can be scenarios where even though the ports are responding, the Services are not properly started. It is advisable to use Service level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `Version` . This service returns the version of the API Manager instance that is running currently.
+There can be scenarios where even though the ports are responding, the Services are not properly started. It is advisable to use Service level health checks to ensure that the services are started. For example, API Manager by default is shipped with the simple axis2 service named `Version`. This service returns the version of the API Manager instance that is running currently.
 
 A sample cURL command and the response from the `Version` service are given below.
 
