@@ -665,7 +665,10 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
-7.  Configure the workflows.  
+7.  Configure the workflows.
+
+    !!! note
+        It is mandatory to comment out or delete the existing default workflow executors.
 
      You need to do this to ensure that the correct workflows are engaged when a subscription is added or removed.
 
@@ -682,7 +685,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
          `/_system/governance/apimgt/applicationdata/workflow-extensions.xml`
 
      3.  Edit the workflow executors in the `workflow-extensions.xml` file.
-        
+
          ``` xml tab="Format"
          <SubscriptionCreation executor="<billing-engine-related-SubscriptionCreationWorkflowExecutor>"/>
          <SubscriptionDeletion executor="<billing-engine-related-StripeSubscriptionDeletionWorkflowExecutor>"/> 
@@ -744,7 +747,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 ### Step 3 - Subscribe to a monetized API
 
-[Subscribe to an API](/learn/tutorials/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
+[Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
 
 When subscribing to an API, simultaneously a customer is created in the Stripe platform account (e.g., the Stripe account is created for the Tenant Admin). The following screenshot shows the customer record in the platform Stripe account.
 
