@@ -276,6 +276,7 @@ nav:
                       - Creating Custom Users to Perform API Controller Operations: learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                       - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                      - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
           - Kubernetes Operators:
                 - K8s API Operator: learn/kubernetes-operators/k8s-api-operator.md
                 - K8s WSO2 API Manager Operator: learn/kubernetes-operators/k8s-wso2am-operator.md
