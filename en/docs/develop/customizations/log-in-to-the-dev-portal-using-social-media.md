@@ -100,9 +100,19 @@ We need to acquire the identity information by configuring claims to use Authent
 
 4.  Select the **Define Custom Claim Dialect** option under **Select Claim mapping Dialect** and click **Add Claim Mapping** to add custom claim mappings as follows.
 
+     Identity Provider Claim URI                Local Claim URI
+     email                                      http://wso2.org/claims/emailaddress
+     name_format                                http://wso2.org/claims/role
+     
+     Select **User ID Claim URL** as **email** from dropdown.
+
     ![Claim configuration for Facebook Login]({{base_path}}/assets/img/learn/claim-configuration-facebook.png)
 
     If you prefer to use the User ID as your first name of Facebook account, configure `first_name` claim as above. You need to select the same claim as **UserID Claim URI**.
+5. Add **Identitity Provide Roles** under **Role Configurations** as follows
+
+    Identity Provider Role                      Local Role
+    {first}{last}                               Internal/subscriber
 
 5.  The following are some common attribute names. You can map these names to any suitable **Local Claim URI**. (Local Claim is a set of standard claim values which are local to the WSO2 Identity Server)
     - `id`
