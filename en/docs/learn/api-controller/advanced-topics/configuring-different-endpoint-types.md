@@ -14,7 +14,7 @@ API Manager supports four (4) main types of endpoints as follows.
     
     -   **endpointType**
         
-        To specify the type of the endpoint. Values can be `rest`, `soap`, `dynamic` or `aws`. (For HTTP/REST Endpoints, you can specify the type as `rest`. But even if you did not specify the field `endpointType` at all in the `api_params.yaml` file, by default it will take the type as `rest`)
+        To specify the type of the endpoint. Values can be `rest`, `soap`, `dynamic` or `aws`. (For HTTP/REST Endpoints, you can specify the type as `rest`. But even if you do not specify the field `endpointType` at all in the `api_params.yaml` file, by default it takes the type as `rest`)
     
     -   **endpointRoutingPolicy**
     
@@ -24,7 +24,7 @@ API Manager supports four (4) main types of endpoints as follows.
 
         - `production`: An array which consists the multiple production endpoints
         - `sandbox`: An array which consists the multiple sandbox endpoints
-        - `sessionManagement` (Optional): Values can be `none`, `transport`, `soap`, `simpleClientSession` and if not specified the default value would be `transport`
+        - `sessionManagement` (Optional): Values can be `none`, `transport`, `soap`, `simpleClientSession` and if not specified the default value is `transport`
         - `sessionTimeout` (Optional): The number of milliseconds after which the session would time out
 
     -   **failoverEndpoints** field should be specified if the `endpointRoutingPolicy` is `failover`. This field contains the following.
@@ -49,7 +49,7 @@ This can be subdivided into three (3) main scenarios.
 
 #### 1. HTTP/REST Endpoint - Without load balancing or failover
 
-The following is an example `api_params.yaml` file for this scenario. (Note that you can ignore specifying the `endpointType` field if you want, because by default it will contain the value as `rest`.)
+The following is an example `api_params.yaml` file for this scenario. (Note that you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
 
 !!! example
     ```go   
@@ -69,7 +69,7 @@ The following is an example `api_params.yaml` file for this scenario. (Note that
 
 #### 2. HTTP/REST Endpoint - With load balancing
 
-The following is an example `api_params.yaml` file for this scenario. (Note that, as mentioned in the above section, you can ignore specifying the `endpointType` field if you want, because by default it will contain the value as `rest`.)
+The following is an example `api_params.yaml` file for this scenario. (Note that, as mentioned in the above section, you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
 
 !!! example
     ```go   
@@ -94,7 +94,7 @@ The following is an example `api_params.yaml` file for this scenario. (Note that
 
 #### 3. HTTP/REST Endpoint - With failover
 
-The following is an example `api_params.yaml` file for this scenario. (Note that, as mentioned in the above sections, you can ignore specifying the `endpointType` field if you want, because by default it will contain the value as `rest`.)
+The following is an example `api_params.yaml` file for this scenario. (Note that, as mentioned in the above sections, you can ignore specifying the `endpointType` field if you want, because by default it contains the value as `rest`.)
 
 !!! example
     ```go   
