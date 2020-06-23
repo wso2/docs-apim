@@ -163,8 +163,7 @@ console. See [Securing Carbon Applications](https://docs.wso2.com/display/ADMIN4
 recommended system parameters, which are validated against your system when the server starts. See [Configuring 
 config-validation.xml](https://docs.wso2.com/display/ADMIN44x/Configuring+config-validation.xml) for details on 
 modifying these parameters before starting the server.
--   The Management Console uses the default [HTTP-NIO transport](https://docs.wso2
-.com/display/ADMIN44x/HTTP-NIO+Transport), of which the configurations are reflected in the `catalina-server.xml` 
+-   The Management Console uses the default [HTTP-NIO transport](https://docs.wso2.com/display/ADMIN44x/HTTP-NIO+Transport), of which the configurations are reflected in the `catalina-server.xml` 
 file in the `<PRODUCT_HOME>/repository/conf/tomcat` directory. According to the new depolyment.toml based configuration model, to
  change the configurations in this file, please add the below configurations with appropriate values in 
  `<PRODUCT_HOME>/repository/conf/deployment.toml` file.

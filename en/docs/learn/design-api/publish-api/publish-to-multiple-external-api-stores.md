@@ -4,7 +4,9 @@ You can share an API with application developers who are subscribed to the Devel
 
 The following diagram illustrates the process involved when an API Publisher publishes to multiple Developer Portals.
 
-[![Publish to Multiple Developer Portals]({{base_path}}/assets/img/learn/publish-to-multiple-developer-portals.png)]({{base_path}}/assets/img/learn/publish-to-multiple-developer-portals.png)
+<img src="{{base_path}}/assets/img/learn/publish-to-multiple-developer-portals.png" alt="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" title="Illustrates the process involved when an API Publisher publishes to multiple Developer Portals" width="75%" />
+
+<a name="step8"> </a>
 
 The API Publisher of Tenant\_1, that is located in Node\_1, publishes an API to it's API Developer Portal. In addition, the API Publisher publishes the API to the following three external Developer Portals.
 

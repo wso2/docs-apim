@@ -665,7 +665,10 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
         * `sk_test_wBMSreyjGQoczL9uIw6YPYRq00kcHcQqDi` - This is the [secret key that corresponds to the Tenant Admin's Stripe account](#tenantSK).
 
-7.  Configure the workflows.  
+7.  Configure the workflows.
+
+    !!! note
+        It is mandatory to comment out or delete the existing default workflow executors.
 
      You need to do this to ensure that the correct workflows are engaged when a subscription is added or removed.
 
@@ -682,7 +685,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
          `/_system/governance/apimgt/applicationdata/workflow-extensions.xml`
 
      3.  Edit the workflow executors in the `workflow-extensions.xml` file.
-        
+
          ``` xml tab="Format"
          <SubscriptionCreation executor="<billing-engine-related-SubscriptionCreationWorkflowExecutor>"/>
          <SubscriptionDeletion executor="<billing-engine-related-StripeSubscriptionDeletionWorkflowExecutor>"/> 
@@ -721,7 +724,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
      After you save the policy, a plan gets created in the Stripe account of the Tenant Admin.  
 
-     ![Stripe account after creating a paid business plan]({{base_path}}/assets/img/learn/Stripe-account-after-creating-a-commercial-tier.png)  
+     ![Stripe account after creating a paid business plan]({{base_path}}/assets/img/learn/stripe-account-after-creating-a-commercial-tier.png)
      
      When you update the details of this business plan, the plan in Stripe will get updated with the corresponding details. Likewise, when you delete a business plan, the plan in Stripe will get deleted.
 
@@ -744,7 +747,7 @@ When working with API Monetization that involves dynamic business plans (usage-b
 
 ### Step 3 - Subscribe to a monetized API
 
-[Subscribe to an API](/learn/tutorials/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
+[Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api) and invoke the API. The price of the business plan appears when subscribing to an API. Therefore, the Subscriber can select an appropriate plan and subscribe to it. 
 
 When subscribing to an API, simultaneously a customer is created in the Stripe platform account (e.g., the Stripe account is created for the Tenant Admin). The following screenshot shows the customer record in the platform Stripe account.
 
@@ -836,7 +839,7 @@ You can use the admin REST API, which is available in WSO2 API Manager, to publi
 
 ### Step 5 - Monitor usage of a monetized API
 
-Two types of business plans are available for monetized APIs namely, the fixed business plan and the dynamic business plan. Dynamic business plans are based on the subscribers' API usage. However, users who are on fixed business plans are changed a fixed price irrespective of their API usage. When deciding on a business plan, the Publisher takes into account the type of the API, the value that the API creates, and its organization business model.
+Two types of business plans are available for monetized APIs namely, the fixed business plan and the dynamic business plan. Dynamic business plans are based on the subscribers' API usage. However, users who are on fixed business plans are charged a fixed price irrespective of their API usage. When deciding on a business plan, the Publisher takes into account the type of the API, the value that the API creates, and its organization business model.
 
 The monitoring of API usage is only done for APIs associated with dynamic business plans (metered billing). When an API request is initiated, the API Gateway publishes the analytics related to that request. The successful API calls are recorded in the database, and this data is used to calculate the API usage and charge the subscriber.
 
