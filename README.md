@@ -1,8 +1,8 @@
 # WSO2 API Manager Documentation
 
-[![Jenkins](https://img.shields.io/badge/jenkins-docs--apim-green)](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim)
+[![slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?)
 [![StackOverflow](https://img.shields.io/badge/stackoverflow-wso2am-orange)](https://stackoverflow.com/tags/wso2-am/)
-[![slack](https://img.shields.io/badge/slack-wso2--apim-blueviolet)](https://join.slack.com/t/wso2-apim/shared_invite/enQtNzEzMzk5Njc5MzM0LTgwODI3NmQ1MjI0ZDQyMGNmZGI4ZjdkZmI1ZWZmMjNkY2E0NmY3ZmExYjkxYThjNzNkOTU2NWJmYzM4YzZiOWU?src=sidebar)
+[![Jenkins](https://img.shields.io/badge/jenkins-docs--apim-green)](https://wso2.org/jenkins/view/docs/job/docs/job/docs-apim)
 
 ---
 
@@ -46,14 +46,14 @@ If your version of Python is Python 2.x.x, you also need to install Python3. Thi
 Once you are done, you will have two versions of Python on your machine; a version of python2 and a version of python3.
 
 ### Step 2 - Install Pip
-
+>
 > **INFO**
 >
 > If pip is not already installed on your machine, download `get-pip.py` to install pip for the first time. Then run the following command to install it:
-
-```shell
-$ python get-pip.py
-```
+> ```shell
+> $ python get-pip.py
+> ```
+>
 
 Pip is most likely installed by default. However, you may need to upgrade pip to the latest version:
 
@@ -63,7 +63,7 @@ $ pip install --upgrade pip
 
 ### Step 3 - Install the pip packages
 
-1. Navigate to the `<Language-folder>/` folder.
+1. Navigate to the `<language-folder>/` folder.
 
     ```shell
     $ cd docs-apim/en
@@ -118,11 +118,26 @@ Follow the steps below to clone the API-M documentation GitHub repository and to
 
     > **NOTE:**
     >
-    > If you are making changes and want to see them on the fly, running the server with `mkdocs serve --dirtyreload` option will make the server load only the changed items and display the changes faster.
+    > If you are making changes and want to see them on the fly, run the following command to start the server and view the site on your local server.
+    > 1. Navigate to the `mkdocs.yml` file.
+    > 2. Change the following configuration to `false` as shown below. 
+    >     ```
+    >     #Breaks build if there's a warning
+    >     strict: false
+    >     ```
+    > 3. Run the following command to start the server and to make the server load only the changed items and display the changes faster. 
+    >
+    >    `mkdocs serve --dirtyreload`
   
 5. Open the following URL on a new browser window to view the API-M documentation site locally.
 
     [http://localhost:8000/getting-started/overview/](http://localhost:8000/getting-started/overview/)
+
+> **NOTE:**
+>
+> If you were running the `mkdocs serve --dirtyreload` command to run the MkDocs server, make sure to change the configuration in the `mkdocs.yml` file as follows before sending a pull request.
+>
+> `strict: true` 
 
 ## License
 
