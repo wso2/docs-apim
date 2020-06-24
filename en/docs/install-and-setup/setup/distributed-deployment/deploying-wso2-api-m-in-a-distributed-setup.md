@@ -8,10 +8,10 @@ Follow the instructions below to deploy WSO2 API Manager in a distributed enviro
 
 1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) zip archive into each of the five servers in the cluster for the distributed deployment.
 2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories in the five servers as Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager.
-    Each of these unzipped directories are referred to as `<API-M_HOME>` or `<PRODUCT_HOME>` in this document.
+    Each of these unzipped directories are referred to as `<API-M_HOME>` in this document.
 3.  Optimize the distribution for the required profile. 
     
-    When a node starts, it starts all the components and features bundled with it. If you are concerned about resource utilization, you can run the product on a specific profile, so that only the components and features that are required for that profile and common features start up.
+    When a node starts, it starts all the components and features bundled with it. If you are concerned about resource utilization, you can run the product on a specific profile, so that apart from the common features, only the components and features that are required for that particular profile start up.
       
     !!! note
           You can either run the profile optimizer before starting the server or while starting the server. 
@@ -53,12 +53,12 @@ You will now configure the inter-component relationships of the distributed setu
 
 !!! note
     In a clustered environment, you use session affinity (sticky sessions) to ensure that requests from the same client always get routed to the same server.
+ 
+    When an API is published from the API Publisher, a file with its synapse configuration is puhsed to the API Gateway.Therefore in order to ensure that Basic Auth authentication for the respective admin service call and subsequent synapse artifact deployment requests are sent to the same Gateway node, we need to enable sticky sessions for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Gateway nodes.
     
-    It is mandatory to set up Session Affinity in the load balancers that front the Gateway and Traffic Manager clusters when there are multiple Gateway nodes or Traffic Manager nodes in a High Availability (HA) deployment.
+    Similarly when a throttle policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in Traffic Manager via an admin service call and therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Traffic Manager nodes.
     
-    When an API is published from the API Publisher, a file with its synapse configuration is puhsed to the API Gateway.Therefore in order to ensure that Basic Auth authentication for the respective admin service call and subsequent synapse artifact deployment requests are sent to the same node, we need to enable sticky sessions for the servlet transport ports ( i.e 9443 if no port offsert is configured )
-    
-    Similarly when a throttle policy is created from the Admin dashboard a Siddhi execution plan is created and deployed in Traffic Manager and therefore sticky sessions needs to be enabled for the servlet transport ports in Traffic Manager as well.
+    Key validation requests sent from the Gateway node to the Key Manager nodes also happen via an admin service call, therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Key Manager nodes.
     
 -   [Step 6.1 - Configure and start the Key Manager](#step-62-configure-and-start-the-key-manager)
 -   [Step 6.2 - Configure and start the Traffic Manager](#step-63-configure-and-start-the-traffic-manager)
@@ -72,30 +72,31 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
 !!! warning
     **Skip** this step if you are using **WSO2 Identity Server as the Key Manager** and follow the instructions mentioned in [Configuring WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/) to configure and start the Key Manager.
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Key Manager node and change value of the `service_url` under the `apim.gateway.environment` section to point to the API Manager Gateway.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Key Manager node and change `[apim.throttling]` section to point to the Traffic Manager nodes.
  
-        
-       ```toml
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        service_url = "https://$[GATEWAY_SERVER_HOST]:[port]/services/"
-       ```
-       
-      -  If you are working with a single Gateway in distributed set up, you need to replace \[ `GATEWAY_SERVER_HOST]` with the host of the Gateway node.
-      -  If you are working with Gateways in a High Availability (HA) setup, you need to replace \[ `GATEWAY_SERVER_HOST]` with the host of the Gateway load balancer node.
-      -  You need to replace `[port]` with the management transport port. For more information, see [Default Product Ports]({{base_path}}/administer/product-configurations/default-product-ports/).
+ 
+     ``` toml tab="Traffic Manager with HA"
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
+     
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
+     ```
+
+     ``` toml tab="Single Traffic Manager"
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
+     ```
    
 2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
-3.  Optionally, follow below steps if you need to configure High Availability (HA) for the Key Manager. 
+3.  If you need to configure High Availability (HA) for the Key Manager, use a copy of the active instance configured above as the second Key Manager active instance and configure a load balancer fronting the two Key Manager instances.
     
-      -  Make a copy of the active instance configured above and use this copy as the second Key Manager active instance.
-      -  Configure a load balancer to front the two Key Manager instances.
-        
-        For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
+    For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
 4.  Start the WSO2 API-M Key Manager node(s) by running the below command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
@@ -153,15 +154,6 @@ This section involves setting up the Key Manager node and enabling it to work wi
     type = "JKS"
     password = "wso2carbon"
     
-    [[apim.gateway.environment]]
-    name = "Production and Sandbox"
-    type = "hybrid"
-    display_in_api_console= true
-    description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-    service_url = "https://gw.wso2.com:9447/services/"
-    username= "${admin.username}"
-    password= "${admin.password}"
-    
     [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://tm.wso2.com:9614"]
     traffic_manager_auth_urls=["ssl://tm.wso2.com:9714"]
@@ -172,13 +164,11 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
 This section involves setting up the Traffic Manager node(s) and enabling it to work with the other components in a distributed deployment.
 
-3.  Optionally, follow below steps if you need to configure High Availability (HA) for the Traffic Manager.
-    
-      -  Make a copy of the active instance configured above and use this copy as the second active Traffic Manager instance.
-      -  In-order to share all the Throttling policies between Traffic Manager nodes,mount the `<API-M_HOME>/repository/deployment/server` directory of all the Traffic Manager nodes to the shared file system as a content synchronization mechanism.
+1.  If you need to configure High Availability (HA) for the Traffic Manager, use a copy of the existing Traffic Manager instance as the second Traffic Manager active instance and configure a load balancer fronting the two Traffic Manager instances.
 
-
-6.  Start the WSO2 API-M Traffic Manager node(s) by running the below command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+2.  Mount the `<API-M_HOME>/repository/deployment/server/executionplans` directory of all the Traffic Manager nodes to a shared file system as a content synchronization mechanism in-order to share the throttling policies between Traffic Manager nodes.
+  
+3.  Start the WSO2 API-M Traffic Manager node(s) by running the below command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
@@ -190,24 +180,6 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
     wso2server.bat --run -Dprofile=traffic-manager
     ```
 
-    !!! warning
-        Always start the Traffic Manager with the `-Dprofile=traffic-manager` option to avoid FATAL errors such as the following.
-        ``` java
-          FATAL - ServiceBusInitializer Couldn't initialize the ESB...
-          org.apache.synapse.SynapseException: The synapse.xml location ./././repository/deployment/server/synapse-configs/default doesn't exist
-        ```
-
-
-    !!! note      
-            
-        If you have a firewall between the Traffic Manager and the Gateway, you need to configure the heartbeat value to keep the JMS connection alive. To configure this, open the `<APIM_HOME>/repository/conf/advanced/qpid-config.xml` file and set the heartbeat to a non-zero value as shown below.
-
-        ``` java
-        <heartbeat>    
-            <delay>60</delay>
-            <timeoutFactor>2.0</timeoutFactor>
-        </heartbeat>
-        ```
 
     ??? info "Click here to view sample configuration for the Traffic Manager"
         ``` toml
@@ -255,6 +227,20 @@ This section involves setting up the API Publisher node and enabling it to work 
     1.  Configure the Publisher with the Traffic Manager.
         This configuration enables publishing of throttling policies, custom templates, and block conditions to the Traffic Manager node.
 
+        ``` toml tab="Traffic Manager with HA"
+        [apim.throttling]
+        service_url = "https://[Traffic-Manager-LB-Host]/services/"
+        throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
+        
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
+        traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
+        
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
+        traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
+        ```
+        
         ``` toml tab="Single Traffic Manager"
         [apim.throttling]
         service_url = "https://Traffic-Manager-host:${mgt.transport.https.port}/services/"
@@ -263,20 +249,6 @@ This section involves setting up the API Publisher node and enabling it to work 
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
         traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
-        ```
-
-        ``` toml tab="Traffic Manager with HA"
-        [apim.throttling]
-        service_url = "https://[Traffic-Manager-LB-Host]:${mgt.transport.https.port}/services/"
-        throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
-
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
-        
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
         ```
 
     2.  Configure the Publisher with the Gateway.
@@ -309,13 +281,13 @@ This section involves setting up the API Publisher node and enabling it to work 
             display_in_api_console = true
             description = "This is a hybrid gateway that handles both production and sandbox token traffic."
             show_as_token_endpoint_url = true
-            service_url = "https://[API-Gateway-LB-Host-or-IP]:${mgt.transport.https.port}/services/"
+            service_url = "https://[API-Gateway-LB-Host]/services/"
             username= "${admin.username}"
             password= "${admin.password}"
             ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
             wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
-            http_endpoint = "http://[API-Gateway-LB-Host-or-IP]:${http.nio.port}"
-            https_endpoint = "https://[API-Gateway-LB-Host-or-IP]:${https.nio.port}"
+            http_endpoint = "http://[API-Gateway-LB-Host]"
+            https_endpoint = "https://[API-Gateway-LB-Host]"
             ```
 
             ``` tab="With rsync"
@@ -325,33 +297,30 @@ This section involves setting up the API Publisher node and enabling it to work 
             display_in_api_console = true
             description = "This is a hybrid gateway that handles both production and sandbox token traffic."
             show_as_token_endpoint_url = true
-            service_url = "https://[API-Gateway-LB-Host]:${mgt.transport.https.port}/services/"
+            service_url = "https://[API-Gateway-LB-Host]/services/"
             username= "${admin.username}"
             password= "${admin.password}"
             ws_endpoint = "ws://[API-Gateway-LB-Host]:9099"
             wss_endpoint = "wss://[API-Gateway-LB-Host]:8099"
-            http_endpoint = "http://[API-Gateway-LB-Host]:${http.nio.port}"
-            https_endpoint = "https://[API-Gateway-LB-Host]:${https.nio.port}"
+            http_endpoint = "http://[API-Gateway-LB-Host]"
+            https_endpoint = "https://[API-Gateway-LB-Host]"
             ```
 
     3.  Configure the Developer Portal URL to appear in the Publisher UI.
 
+        ``` toml tab="Developer Portal with HA"
+        [apim.devportal]
+        url = "https://[devportal-LB-hostname]/devportal"        
+        ```
+        
         ``` toml tab="Single Developer Portal"
         [apim.devportal]
         url = "https://[devportal-hostname]:${mgt.transport.https.port}/devportal"
         ```
 
-        ``` toml tab="Developer Portal with HA"
-        [apim.devportal]
-        url = "https://[devportal-LB-hostname]:${mgt.transport.https.port}/devportal"        
-        ```
-
-4.  Optionally, follow below steps if you need to configure High Availability (HA) for the Publisher.
-    
-      -  Make a copy of the active Publisher instance configured above and use this copy as the second active Publisher instance.
-      -  Configure a load balancer to front the two Publisher instances.
-        
-        For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
+4.  If you need to configure High Availability (HA) for the Api Publisher nodes, use a copy of the active instance configured above as the second active Publisher instance and configure a load balancer fronting the two Publisher instances.
+           
+    For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
 5.  Start the WSO2 API-M Publisher node(s) by running the below command in the command prompt.
     For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
@@ -443,6 +412,14 @@ This section involves setting up the Developer Portal node and enabling it to wo
 
     1.  Configure the Developer Portal with the Key Manager.
 
+        
+        ``` toml tab="Key Manager with HA"
+        [apim.key_manager]
+        service_url = "https://[Key-Manager-LB-host]/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"
+        ```
+        
         ``` toml tab="Single Key Manager"
         [apim.key_manager]
         service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
@@ -450,15 +427,24 @@ This section involves setting up the Developer Portal node and enabling it to wo
         password = "$ref{super_admin.password}"
         ```
 
-        ``` toml tab="Key Manager with HA"
-        [apim.key_manager]
-        service_url = "https://[Key-Manager-LB-host]:${mgt.transport.https.port}/services/"
-        username = "$ref{super_admin.username}"
-        password = "$ref{super_admin.password}"
-        ```
-
     2.  Configure the Developer Portal with the Gateway.
 
+        ``` toml tab="Gateway with HA"
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        type = "hybrid"
+        display_in_api_console = true
+        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+        show_as_token_endpoint_url = true
+        service_url = "https://[API-Gateway-LB-Host]/services/"
+        username= "${admin.username}"
+        password= "${admin.password}"
+        ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
+        wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
+        http_endpoint = "http://[API-Gateway-LB-Host]"
+        https_endpoint = "https://[API-Gateway-LB]"
+        ```
+                 
         ``` toml tab="Single Gateway"
         [[apim.gateway.environment]]
         name = "Production and Sandbox"
@@ -474,41 +460,23 @@ This section involves setting up the Developer Portal node and enabling it to wo
         http_endpoint = "http://[API-Gateway-host-or-IP]:${http.nio.port}"
         https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
         ```
+
+    3.  Configure the Token Revoke endpoint to point to Key Manager.
+
         
         ``` toml tab="Multiple Gateways"
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        service_url = "https://[API-Gateway-LB-Host-or-IP]:${mgt.transport.https.port}/services/"
-        username= "${admin.username}"
-        password= "${admin.password}"
-        ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
-        wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
-        http_endpoint = "http://[API-Gateway-LB-Host-or-IP]:${http.nio.port}"
-        https_endpoint = "https://[API-Gateway-LB-Host-or-IP]:${https.nio.port}"
+        [apim.oauth_config]
+        revoke_endpoint = "https://[API-Key-Manager-LB-Host]/oauth2/revoke"
         ```
-
-    3.  Configure the Token Revoke endpoint to point to Gateway.
-
+        
         ``` toml tab="Single Gateway"
         [apim.oauth_config]
-        revoke_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}/revoke"
+        revoke_endpoint = "https://[API-Key-Manager-host-or-IP]:${mgt.transport.https.port}/oauth2/revoke"
         ```
 
-        ``` toml tab="Multiple Gateways"
-        [apim.oauth_config]
-        revoke_endpoint = "https://[API-Gateway-LB-Host-or-IP]:${https.nio.port}/revoke"
-        ```
-
-3.  Optionally, follow below steps if you need to configure High Availability (HA) for the Developer Portal.
-
-      -  Make a copy of the active Developer Portal instance configured above and use this copy as the second active Developer Portal instance.
-      -  Configure a load balancer to front the two Developer Portal instances.
-        
-        For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
+3.  If you need to configure High Availability (HA) for the Developer Portal nodes, use a copy of the active instance configured above as the second active Developer Portal instance and configure a load balancer fronting the two Developer Portal instances.
+            
+    For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
         
 4.  Start the Developer Portal node(s) by running the below command in the command prompt. 
     For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
@@ -587,7 +555,7 @@ This section involves setting up the Developer Portal node and enabling it to wo
         password= "$ref{super_admin.password}"
         
         [apim.oauth_config]
-        revoke_endpoint = "https://gw.wso2.com:8247/revoke"
+        revoke_endpoint = "https://km.wso2.com:9443/revoke"
         
         ```
 
@@ -600,18 +568,19 @@ This section involves setting up the Gateway node and enabling it to work with t
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node.
 2.  Modify the `deployment.toml` file as follows. This configures the connection to the Key Manager component.
 
+
+    ``` toml tab="Key Managers with HA"
+    [apim.key_manager]
+    service_url = "https://[Key-Manager-LB-host]/services/"
+    username = "$ref{super_admin.username}"
+    password = "$ref{super_admin.password}"                
+    ```
+    
     ``` toml tab="Single Key Manager"
     [apim.key_manager]
     service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
     username = "$ref{super_admin.username}"
     password = "$ref{super_admin.password}"
-    ```
-
-    ``` toml tab="Key Managers with HA"
-    [apim.key_manager]
-    service_url = "https://[Key-Manager-LB-host]:${mgt.transport.https.port}/services/"
-    username = "$ref{super_admin.username}"
-    password = "$ref{super_admin.password}"                
     ```
 
 3.  If you need to enable JSON Web Token (JWT), you have to enable it in all Gateway and Key Manager components.
