@@ -352,6 +352,8 @@ hostname = "test.wso2.com"
 <p>See <a href="http://wso2.org/library/tutorials/2010/04/sharing-registry-space-across-multiple-product-instances">here</a> for more information on sharing a registry space across multiple WSO2 product instances.</p>
 </div>
 </div>
+<strong>Solr based indexing</strong>
+<p>API Manager has a Solr based indexing mechanism and it is not recommended to share the Solr directory <code>&lt;PRODUCT_HOME&gt;/solr/data/</code> between the Developer Portal and Publisher servers. You need to have seperate Solr directories for each of the servers.</p>
 </div></td>
 </tr>
 <tr class="even">
