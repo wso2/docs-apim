@@ -474,6 +474,18 @@ are reflected in the below mentioned config files, according to the new configur
 <p>See <a href="{{base_path}}/administer/product-configurations/default-product-ports/">Default Product Ports</a> for
  a list of common and product-specific ports used by WSO2 products.</p>
 </div>
+<div class="panelHeader" style="border-bottom-width: 1px;">
+<strong>Firewall between Traffic Manager and Gateway</strong>
+</div>
+<p>If you have a firewall between the Traffic Manager and the Gateway, you need to configure the heartbeat value to keep the JMS connection alive. To configure this open the <code>&lt;PRODUCT_HOME&gt;/repository/conf/advanced/qpid-config.xml</code> file and set the heartbeat value to a non zero value as shown below.</p>
+<div class="codeContent panelContent pdl">
+```
+<heartbeat>
+  <delay>60</delay>
+  <timeoutFactor>2.0</timeoutFactor>
+</heartbeat>
+```
+</div>
 </div>
 </div></td>
 </tr>
