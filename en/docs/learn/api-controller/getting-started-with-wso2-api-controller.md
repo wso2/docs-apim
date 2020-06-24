@@ -1,6 +1,6 @@
 # Getting Started with WSO2 API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs and applications, creating API projects, importing and exporting APIs and applications, generating tokens for testing purposes, etc.  
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.  
 
 ## Download and initialize the CTL Tool
 
