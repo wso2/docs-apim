@@ -1,6 +1,6 @@
 # Configuring Keystores in API-M Analytics
 
-WSO2 products use asymmetric cryptography by default for authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept unique. For more information about keystores and its concepts, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography).
+WSO2 products use asymmetric cryptography by default for authentication and data encryption. In asymmetric cryptography, keystores (with key pairs and certificates) are created and stored for the product. Keystore is a repository where private keys and certificates can be stored. It is possible to have multiple keystores so that the keys used for different use cases are kept separately. For more information about keystores and its concepts, see [About Asymmetric Cryptography]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography).
 
 In WSO2 API-M Analytics a set of keystores can be configured and used for different use cases in both dashboard and worker profiles.
 
@@ -93,7 +93,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
 
 1. Update the databridge configurations.
 
-    This is used for authenticating communication over SSL/TLS between API Manager and API-M Analytics. Handles thrift and binary transports.
+    This is used for authenticating the communication over SSL/TLS between API Manager and API-M Analytics. Handles thrift and binary transports.
 
     ```yaml
     databridge.config:
@@ -156,7 +156,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
      2. Provide the keystore and private key password in the Base64 encoded format in the `<ANALYTICS_HOME>/conf/worker/master-keys.yaml` file.
 
         ??? info "Click here for more info on the `master-keys.yaml` file"
-            The base64 encoded plaintext keystore password and the base64 encoded plaintext private password of the keystore used for Secure Vault is defined in the master-keys.yaml file. WSO2 Carbon Server reads this file to obtain these two passwords, so that it can decrypt the passwords in the `secrets.properties` file in order to start the server.
+            The keystore password and private password used for Secure Vault, which is in plain text is base64 encoded and stored in the `master-keys.yaml` file. WSO2 Carbon Server reads this file to obtain these two passwords, so that it can decrypt the passwords in the `secrets.properties` file in order to start the server.
 
 4. Set the new keystore details when you change the keystore.
 
