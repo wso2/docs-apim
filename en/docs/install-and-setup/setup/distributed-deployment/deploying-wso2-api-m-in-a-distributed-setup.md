@@ -563,10 +563,51 @@ This section involves setting up the Developer Portal node and enabling it to wo
 
 This section involves setting up the Gateway node and enabling it to work with the other components in the distributed deployment.
 
-!!! note
-    If your deployment contains more than one Gateway nodes for high availability (HA), first follow the instructions that are available in the [Configure Gateway For High Availability]({{base_path}}/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/) before carrying out below instructions.
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node.
-2.  Modify the `deployment.toml` file as follows. This configures the connection to the Key Manager component.
+1.  If you need to configure High Availability (HA) for the Gateway nodes, follow below steps.
+
+      1.  Open `<API-M_HOME>/repository/conf/deployment.toml` and locate the `<HostName>` tag to add the cluster hostname. 
+          
+          For an example, if the hostname is `gw.am.wso2.com` :
+    
+          ``` toml
+          [server]
+          hostname = "gw.wso2.com"
+          ```
+          
+      2.  Specify the following incoming connection configurations in the same `deployment.toml` file.
+      
+          ``` toml
+          [transport.http]
+          properties.port = 9763
+          properties.proxyPort = 80
+          
+          [transport.https]
+          properties.port = 9443
+          properties.proxyPort = 443
+          ```
+      
+      3.  Open the server's `/etc/hosts` file and map the hostnames to IPs.
+      
+          ```java tab="Format"
+          <GATEWAY-IP> gw.wso2.com
+          ```
+      
+          ``` java tab="Example"
+          xxx.xxx.xxx.xx4 gw.wso2.com
+          ```
+
+      4.  Mount the `<API-M_HOME>/repository/deployment/server` directory of all the Gateway nodes to the shared file system to share all APIs between the Gateway nodes.
+ 
+        !!! note
+              WSO2 recommends using a shared file system as the content synchronization mechanism to synchronize the artifacts among the WSO2 API-M Gateway nodes, because a shared file system does not require a specific node to act as a Gateway Manager, instead all the nodes have the worker manager capabilities.
+              For this purpose you can use a common shared file system such as Network File System ( NFS ) or any other shared file system.
+              
+              **What if I am unable to use a shared file system?**
+              
+              If you are unable to have a shared file system, you can use remote synchronization (rsync) instead, but note that when using rsync there is the vulnerability of a single point of failure, because rsync needs one node to act as the Gateway Manager as it only provides write permission to one node. For more information, see [Configuring rsync for Deployment Synchronization]({{base_path}}/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/).
+              
+                                                                
+2.  Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to configure the connection to the Key Manager component.
 
 
     ``` toml tab="Key Managers with HA"
@@ -583,47 +624,38 @@ This section involves setting up the Gateway node and enabling it to work with t
     password = "$ref{super_admin.password}"
     ```
 
-3.  If you need to enable JSON Web Token (JWT), you have to enable it in all Gateway and Key Manager components.
+4.  If you need to enable JSON Web Token (JWT), you have to enable it in all Gateway and Key Manager components.
     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
 
-4.  Configure the Gateway to communicate with the Traffic Manager.
-
-
-    1.  If there is a single Traffic Manager in the deployment, do the following configuration.
+5.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to communicate with the Traffic Manager node(s).
      
-         ``` toml
-         [[apim.throttling.url_group]]
-         traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
-         traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
-         
-         [apim.throttling]
-         throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
-         ```
-    
-    2.  If Traffic Manager is configured for High Availability i.e there are multiple Traffic Manager nodes in the deployment, do the following configuration.
-    
-        Configure `[[apim.throttling.url_group]]` element groups for each Traffic Manager node.
+     ``` toml tab="Traffic Manager with HA"
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
+     
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
+     
+     [apim.throttling]
+      throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
+     ```
+     
+     ``` toml tab="Single Traffic Manager"
+     [[apim.throttling.url_group]]
+     traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
+     traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
+     
+     [apim.throttling]
+     throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
+     ```
+     
+6.  If Gateways are configured for High Availability (HA), use a copy of the active instance configured above as the second active Gateway instance and configure a load balancer fronting the two Gateway instances.
+                
+    For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
         
-        This is required when you have more than one Traffic Manager instance, and you are publishing to all of them as per the deployment pattern selected. 
-        
-        As an example, if you are using two Traffic Manager instances and data should be published to both of them, the `traffic_manager_urls` and `traffic_manager_auth_urls` should be configured as follows:
-
-        ``` toml
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
-        
-        [[apim.throttling.url_group]]
-        traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
-        traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
-        
-        [apim.throttling]
-        throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
-        ```
-
-        `[Traffic-Manager-1-host]` and \[`Traffic-Manager-2-host]` are the IPs/hostnames of two Traffic Manager nodes.
-
-5.  Start the Gateway node(s) by running the below command in the command prompt. 
+7.  Start the Gateway node(s) by running the below command in the command prompt. 
     For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
     ``` java tab="Linux/Mac OS"
