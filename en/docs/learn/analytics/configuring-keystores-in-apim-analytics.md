@@ -11,7 +11,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
 !!! note
     Other than explicitly mentioned, you need to do all the following configuration updates related to the dashboard profile in the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
 
-1. Update the Databridge configurations.
+1. Update the DataBridge configurations.
 
     This is used for authenticating communication over SSL/TLS between API Manager and API-M Analytics. Handles thrift and binary transports.  
 
