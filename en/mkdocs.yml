@@ -383,9 +383,7 @@ nav:
               - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
               - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
               - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-              - Configure Gateway for High Availability:
-                  - Clustering WSO2 API-M Gateway for HA Using Shared File System: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system.md
-                  - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
+              - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
               - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
           - Configure Key Manager:
               - Configure a Third Party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
@@ -594,8 +592,6 @@ plugins:
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-        'install-and-setup/deploying-wso2-api-manager/distributed-deployment/distributed-deployment-of-the-gateway.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/'
-        'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-shared-file-system.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
         'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
         'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
