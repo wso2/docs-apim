@@ -29,9 +29,9 @@ Now, you have created a new REST API successfully.
 
     [![Select AWS Lambda endpoint]({{base_path}}/assets/img/learn/endpoint-select-awslambda-endpoint.png)]({{base_path}}/assets/img/learn/endpoint-select-awslambda-endpoint.png)
 
-3. Select **Access Method**
+3. Select the preferred **Access Method**
 
-    AWS SDK needs AWS credentials to invoke AWS Lambda functions. The access method defines as to how you provide those AWS credentials. You can provide AWS credentials manually by selecting the **Using stored AWS credentials** method. But if WSO2 API Manager is running on an Amazon EC2 instance, you can select the **Using IAM role-supplied temporary AWS credentials** method.
+    AWS SDK needs AWS credentials including the AWS region to invoke AWS Lambda functions. The access method defines as to how you provide those AWS credentials. You can provide AWS credentials and the AWS region manually by selecting the **Using stored AWS credentials** method. But if WSO2 API Manager is running on an Amazon EC2 instance, you can select the **Using IAM role-supplied temporary AWS credentials** method.
 
     !!!note
          When using the **IAM role-supplied temporary AWS credentials** method, you need to attach an IAM role so that it can grant permission to applications running on the Amazon EC2 instance.

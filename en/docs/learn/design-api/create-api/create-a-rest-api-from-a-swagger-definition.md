@@ -15,6 +15,7 @@ Follow the instructions below to create a REST API using a Open API definition f
     ![]({{base_path}}/assets/img/learn/create-a-rest-api-using-existing-swagger-def.jpg)
 
 3.  Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT** .
+
     ![]({{base_path}}/assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
 
 4.  Edit the information as given below and Click **CREATE**
@@ -96,17 +97,14 @@ Follow the instructions below to create a REST API using a Open API definition f
 
    <html><div class="admonition note">
      <p class="admonition-title">Note</p>
-        <p> Transport Level Security defines the transport protocol on which the API is exposed. When creating a new API by using a swagger or open API definition, these transport security schemes can be defined using  <b>“x-wso2- transports”</b>and <b>"x-wso2-mutual-ssl”</b>extensions.</p>
-        <div>
+        <p> Transport Level Security defines the transport protocol on which the API is exposed. When creating a new API by using a Swagger or Open API definition, these transport security schemes can be defined using  <b>“x-wso2- transports”</b>and <b>"x-wso2-mutual-ssl”</b>extensions.</p>
             ```yaml
             x-wso2-mutual-ssl: "optional"
             x-wso2-transports: 
                 - "https"
                 - “http”
             ```
-        </div>
     </div></html>
-    
 ## Subscriptions
    Navigate to **Subscriptions** page and select **Gold** and **Silver** as the Bussiness plans. After Click **SAVE**
 
@@ -116,9 +114,7 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
-   ![]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.jpg )
+   ![]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.jpg)
 
 
-Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API]({{base_path}}/learn/design-api/publish-api/publish-an-ap)  to get details of publishing API.
-
-
+Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API]({{base_path}}/learn/design-api/publish-api/publish-an-ap) to get details of publishing API.

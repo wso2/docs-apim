@@ -16,11 +16,11 @@ in your Jenkins server.
 
      [![install node-npm-jenkins]({{base_path}}/assets/img/learn/api-controller/install-node-npm-jenkins.png)]({{base_path}}/assets/img/learn/api-controller/install-node-npm-jenkins.png)   
 
-3.  Download and setup [WSO2 API-M 3.1.0](https://wso2.com/api-management/) in Development and Production environment servers. 
+3.  Download and setup [WSO2 API-M 3.2.0](https://wso2.com/api-management/) in Development and Production environment servers. 
      
      For more information, see [installation-prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
-4. Download and setup [WSO2 API Controller 3.1.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
+4. Download and setup [WSO2 API Controller 3.2.0 version](https://wso2.com/api-management/tooling/) to the Jenkins server and the
 developer machines. 
      
      For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  

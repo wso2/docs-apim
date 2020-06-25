@@ -1,7 +1,7 @@
 # Transforming API Message Payload
 
 When a request comes to the API Manager, it sends the response in the same format of the request. For example, 
-the API Manager handles JSON to JSON transformations out of the box. If the backend does not accept messages of the 
+the API Manager handles JSON to JSON transformations out of the box. If the backend does not accept messages of the 
 same content type of the request message, it must be transformed to a different format. The API Gateway of the 
 API Manager handles these transformations using message builders and formatters.
 
@@ -316,7 +316,7 @@ construct an array.
 
 #### Special characters
 
-When building XML elements,  the ‘\$’ character and digits are handled in a special manner when they appear as the 
+When building XML elements,  the ‘\$’ character and digits are handled in a special manner when they appear as the 
 first character of a JSON key. Following are examples of two such occurrences. Note the addition of the 
 `_JsonReader_PS_` and `_JsonReader_PD_` prefixes in place of the ‘\$’ and digit characters, respectively.
 

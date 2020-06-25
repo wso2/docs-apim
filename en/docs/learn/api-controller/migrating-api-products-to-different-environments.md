@@ -225,11 +225,11 @@ You can use the API Product archive exported from the previous section (or you c
         
     After importing, if the API Products or the dependent APIs are not visible in the API Publisher UI, do the following to re-index the artifacts in the registry.
 
-    1.  Shut down the API Manager 3.1.0, backup and delete the `<API-M_3.1.0_HOME>/solr` directory.
+    1.  Shut down the API Manager 3.2.0, backup and delete the `<API-M_3.2.0_HOME>/solr` directory.
         
-    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.1.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
+    2.  Rename the `<lastAccessTimeLocation>` element in the `<API-M_3.2.0_HOME>/repository/conf/registry.xml` file. If you use a **distributed API Manager setup**, change the file in the API Publisher node. For example, change the `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime` registry path to `/_system/local/repository/components/org.wso2.carbon.registry/indexing/lastaccesstime_1 `
 
-    3.  Restart API Manager 3.1.0 server.
+    3.  Restart API Manager 3.2.0 server.
 
 ### Import/Export API Products in Tenanted Environments 
 The environments that you create will be common to the admin and the tenants. Therefore, you do not need to create environments again when exporting and importing API Products between tenanted environments.

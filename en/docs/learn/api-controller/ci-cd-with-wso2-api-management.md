@@ -47,11 +47,11 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 <a name="A"></a>
 ### (A.) - Prepare the environments
 
-1.  Download and install WSO2 API Manager 3.1.0 in your environments.
+1.  Download and install WSO2 API Manager 3.2.0 in your environments.
      
      For more information, see [installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/).
 
-2.  Download and setup WSO2 API Controller 3.1.0 version, `apictl`. 
+2.  Download and setup WSO2 API Controller 3.2.0 version, `apictl`. 
 
      For more information, see [Download and initialize the ctl tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
@@ -60,18 +60,16 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
     !!! example
         ``` bash tab="Linux/Unix"
         apictl add-env -e dev \
-                    --apim https://localhost:9443 \
-                    --token https://localhost:8243/token
+                    --apim https://localhost:9443 
 
         apictl add-env -e prod \
-                    --apim https://localhost:9444 \
-                    --token https://localhost:8244/token
+                    --apim https://localhost:9444 
         ```
 
-        ``` bash tab="Mac"
-        apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
+        ``` bash tab="Mac/Windows""
+        apictl add-env -e dev --apim https://localhost:9443 
 
-        apictl add-env -e prod --apim https://localhost:9444 --token https://localhost:8244/token
+        apictl add-env -e prod --apim https://localhost:9444 
         ```    
 
     For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
@@ -270,7 +268,11 @@ Run any of the following CTL commands to get keys for the API/API Product.
 
     !!! example
         ```bash
-        apictl get-keys -n PizzaShackAPI -v 1.0.0 -r admin -e dev -k
+        apictl get-keys -n PizzaShackAPI -e dev -k
+        ```
+    !!! example
+        ```bash
+        apictl get-keys -n PizzaShackAPI -v 1.0.0 -e dev -k -r admin -t https://localhost:8243/token
         ```
     !!! info
         **Flags:**  
@@ -279,8 +281,13 @@ Run any of the following CTL commands to get keys for the API/API Product.
             `--environment` or `-e` : Key generation environment  
             `--name` or `-n` : API or API Product to enerate keys for   
         -   Optional :  
+            `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the add-env command)       
             `--provider` or `-r` : Provider of the API or API Product  
             `--version` or `-v` : Version of the API or API Product (Currently API Products do not have versions)
+
+    !!! note
+        Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.
+        You can override the given token endpoint or the default token endpoint using the `--token` (`-t`) optional flag together with the new token endpoint.
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
