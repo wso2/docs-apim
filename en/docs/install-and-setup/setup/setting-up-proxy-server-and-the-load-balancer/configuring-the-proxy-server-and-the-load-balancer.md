@@ -172,10 +172,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name api.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -193,10 +192,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name gw.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -236,10 +234,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name api.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -257,10 +254,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name gw.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -279,8 +275,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     ```
 
     ```tab="HA for Gateway"
-    upstream mgtgw.am.wso2.com {
-        server {gwm-ip-address}:9443;
+    upstream gw.am.wso2.com {
+        server {gw-1-ip-address}.1:9443;
+        server {gw-2-ip-address}:9443 backup;
     }
     
     upstream sslgw.am.wso2.com {
@@ -290,15 +287,14 @@ Carry out the following steps to configure the load balancer to front multiple 
     
     server {
         listen 80;
-        server_name mgtgw.am.wso2.com;
-        rewrite ^/(.*) https://mgtgw.am.wso2.com/$1 permanent;
+        server_name gw.am.wso2.com;
+        rewrite ^/(.*) https://gw.am.wso2.com/$1 permanent;
     }
     
     server {
-        listen 443;
-        server_name mgtgw.am.wso2.com;
+        listen 443 ssl;
+        server_name gwm.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -308,7 +304,7 @@ Carry out the following steps to configure the load balancer to front multiple 
                 proxy_set_header Host $http_host;
                 proxy_read_timeout 5m;
                 proxy_send_timeout 5m;
-                proxy_pass https://mgtgw.am.wso2.com;
+                proxy_pass https://gw.am.wso2.com;
             }
     
             access_log /etc/nginx/log/gwm/https/access.log;
@@ -316,10 +312,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name gw.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -354,10 +349,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name publisher.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -392,10 +386,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name store.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
@@ -430,10 +423,9 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     
     server {
-        listen 443;
+        listen 443 ssl;
         server_name km.am.wso2.com;
         proxy_set_header X-Forwarded-Port 443;
-        ssl on;
         ssl_certificate /etc/nginx/ssl/{cert_name};
         ssl_certificate_key /etc/nginx/ssl/{key_name};
         location / {
