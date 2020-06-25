@@ -27,14 +27,14 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.1.0.
 
-Therefore, when migrating to API Manager 3.1.0, it is **required** to turn off the registry versioning in your
-current API Manager 2.1.0 version and run the below scripts against **the database that is used by the registry**.
+Therefore, if registry versioning was enabled in WSO2 API-M 2.1.0 setup, it is **required** to turn off the registry 
+versioning in the migrated 3.1.0 setup. Please follow the below steps to achieve this.
 
 !!! note "NOTE"
     Alternatively, it is possible to turn on registry versioning in API Manager 3.1.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Turning off registry versioning in your current API-M and running the scripts"
+!!! info "Turning off registry versioning"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
@@ -50,8 +50,7 @@ current API Manager 2.1.0 version and run the below scripts against **the databa
     !!! warning
         If the above configurations are already set as `false` you should not run the below scripts.
     
-    From API-M 3.0.0 version onwards, those configurations are set to false and when the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.
-    
+    From API-M 3.0.0 version onwards, those configurations are set to false by-default and since these configurations are now getting changed from old setup to new setup, you need to remove the versioning details from the database in order for the registry resources to work properly. For that, choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.    
     ??? info "DB Scripts"
         ```tab="H2"
         -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
