@@ -25,7 +25,7 @@ API Manager supports four (4) main types of endpoints as follows.
         - `production`: An array which consists the multiple production endpoints
         - `sandbox`: An array which consists the multiple sandbox endpoints
         - `sessionManagement` (Optional): Values can be `none`, `transport`, `soap`, `simpleClientSession` and if not specified the default value is `transport`
-        - `sessionTimeout` (Optional): The number of milliseconds after which the session would time out
+        - `sessionTimeOut` (Optional): The number of milliseconds after which the session would time out
 
     -   **failoverEndpoints** field should be specified if the `endpointRoutingPolicy` is `failover`. This field contains the following.
 
@@ -89,7 +89,7 @@ The following is an example `api_params.yaml` file for this scenario. (Note that
                 - url: https://dev1.sandbox.wso2.com
                 - url: https://dev2.sandbox.wso2.com
             sessionManagement: transport
-            sessionTimeout: 5000
+            sessionTimeOut: 5000
     ```
 
 #### 3. HTTP/REST Endpoint - With failover
@@ -165,7 +165,7 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
                 - url: https://dev1.sandbox.wso2.com
                 - url: https://dev2.sandbox.wso2.com
             sessionManagement: soap
-            sessionTimeout: 5000
+            sessionTimeOut: 5000
     ```
 
 #### 3. HTTP/SOAP Endpoint - With failover
@@ -201,7 +201,7 @@ The following is an example `api_params.yaml` file for this scenario. (Make sure
 
 !!! example
     ```go   
-      environments:
+    environments:
         - name: test
           endpoints:
               production:

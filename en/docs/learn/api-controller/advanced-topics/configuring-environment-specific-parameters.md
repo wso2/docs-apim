@@ -23,16 +23,16 @@ environments:
                   retryDelay: <retry_delay_in_ms>
                   factor: <suspension_factor>
       security:
-        - enabled: <whether_security_is_enabled>
+          enabled: <whether_security_is_enabled>
           type: <endpoint_authentication_type_basic_or_digest>
           username: <endpoint_username>
           password: <endpoint_password>
       gatewayEnvironments:
-        - <gateway_environment_name>           
+          - <gateway_environment_name>           
       certs:
-        - hostName: <endpoint_url>
-          alias: <certificate_alias>
-          path: <certificate_file_path>
+          - hostName: <endpoint_url>
+            alias: <certificate_alias>
+            path: <certificate_file_path>
 ```
 The following code snippet contains sample configuration of the parameter file.
 
@@ -41,29 +41,29 @@ The following code snippet contains sample configuration of the parameter file.
     environments:
         - name: dev
           endpoints:
-            production:
-              url: 'https://dev.wso2.com'
+              production:
+                  url: 'https://dev.wso2.com'
           security:
-            - enabled: true
+              enabled: true
               type: basic
               username: admin
               password: admin
           certs:
-            - hostName: 'https://dev.wso2.com'
-              alias: Dev
-              path: ~/.certs/dev.pem 
+              - hostName: 'https://dev.wso2.com'
+                alias: Dev
+                path: ~/.certs/dev.pem 
           gatewayEnvironments:
-            - Production and Sandbox    
+              - Production and Sandbox    
         - name: test
           endpoints:
-            production:
-              url: 'https://test.wso2.com'
-              config:
-                retryTimeOut: $RETRY
-            sandbox:
-              url: 'https://test.sandbox.wso2.com'
+              production:
+                  url: 'https://test.wso2.com'
+                  config:
+                      retryTimeOut: $RETRY
+              sandbox:
+                  url: 'https://test.sandbox.wso2.com'
           security:
-            - enabled: true
+              enabled: true
               type: digest
               username: admin
               password: admin
