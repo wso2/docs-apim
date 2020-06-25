@@ -1,26 +1,30 @@
 # Disabling Message Chunking
 
+
 When processing large messages, message chunking facilitates sending the message as multiple independent chunks. 
 Message chunking is set using the `Transfer-Encoding: chunked` header. However, some legacy backends might not support 
 chunked messages. To disable sending chunked messages to the backend for a specific API, follow the steps below:
 
-1.  Create an `XML` file with the following content.
+1.  Go to the created API and from the Left Menu, go to **Runtime Configurations**.
+2.  Click [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-button.png) button in the **Message Mediation** under the **Request** section.      
+  
+    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/edit-mediation.png)  
 
-    !!! example
-        ``` xml
-        <sequence xmlns="http://ws.apache.org/ns/synapse" name="disableChunkingSeq">
-            <property name="DISABLE_CHUNKING" value="true" scope="axis2"/>
-        </sequence>
-        ```
+3.  In the **Select a Mediation Policy** popup you can select **Common Policies** radio button and then select disable-chunking raio button.  
 
-2.  Use the same sequence and apply it as a mediation extension to the inflow of this particular API.       
-You can copy the content of the above sequence to an XML file and upload it to an API using Publisher Portal UI. For more information, visit [Creating and Uploading Manually in API Publisher]({{base_path}}/learn/api-gateway/message-mediation/changing-the-default-mediation-flow-of-api-requests#creating-and-uploading-manually-in-api-publisher)
+    [![]({{base_path}}/assets/img/learn/api-gateway/message-mediation/disable-chunking.png)]({{base_path}}/assets/img/learn/api-gateway/message-mediation/disable-chunking.png)
+
+4.  Press select button and then save the API.
 
 Once the API is published, chunking is disabled for the message that is sent to the backend.
 
 !!! tip
-    To stop chunked messages from being sent to the client, you can apply the same mediation extension to the 
-    out sequence as well.
+    To stop chunked messages from being sent to the client, you can apply the same mediation policy in the response section as well.
+        
+
+
+
+
         
 
 
