@@ -1,8 +1,6 @@
 # Deploying WSO2 API-M in a Distributed Setup
 
-Follow the instructions below to deploy WSO2 API Manager in a distributed environment with its five main components namely Key Manager, Gateway, Publisher, Developer Portal and Traffic Manager, as depicted in the deployment diagram below.
-
-[![API-M in a distributed setup]({{base_path}}/assets/img/setup-and-install/distributed_deployment.png)]({{base_path}}/assets/img/setup-and-install/distributed_deployment.png)
+Follow the instructions below to deploy WSO2 API Manager in a distributed environment with its five main components namely Key Manager, Gateway, Publisher, Developer Portal and Traffic Manager.
 
 ### Step 1 - Install and configure WSO2 API-M
 
@@ -70,12 +68,18 @@ You will now configure the inter-component relationships of the distributed setu
 
 This section involves setting up the Key Manager node and enabling it to work with the other components in a distributed deployment.
 
+[![Key Manager Connections]({{base_path}}/assets/img/setup-and-install/key-manager-connections.png)]({{base_path}}/assets/img/setup-and-install/key-manager-connections.png)
+
+
 !!! warning
     **Skip** this step if you are using **WSO2 Identity Server as the Key Manager** and follow the instructions mentioned in [Configuring WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/) to configure and start the Key Manager.
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Key Manager node and change `[apim.throttling]` section to point to the Traffic Manager nodes.
  
  
      ``` toml tab="Traffic Manager with HA"
+     [apim.throttling]
+     throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
+     
      [[apim.throttling.url_group]]
      traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
@@ -86,6 +90,9 @@ This section involves setting up the Key Manager node and enabling it to work wi
      ```
 
      ``` toml tab="Single Traffic Manager"
+     [apim.throttling]
+     throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
+          
      [[apim.throttling.url_group]]
      traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
@@ -154,6 +161,9 @@ This section involves setting up the Key Manager node and enabling it to work wi
     type = "JKS"
     password = "wso2carbon"
     
+    [apim.throttling]
+    throttle_decision_endpoints = ["tcp://tm.wso2.com:5675"]
+    
     [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://tm.wso2.com:9614"]
     traffic_manager_auth_urls=["ssl://tm.wso2.com:9714"]
@@ -163,6 +173,8 @@ This section involves setting up the Key Manager node and enabling it to work wi
 #### Step 6.2 - Configure and start the Traffic Manager
 
 This section involves setting up the Traffic Manager node(s) and enabling it to work with the other components in a distributed deployment.
+
+[![Traffic Manager Connections]({{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png)]({{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png)
 
 1.  If you need to configure High Availability (HA) for the Traffic Manager, use a copy of the existing Traffic Manager instance as the second Traffic Manager active instance and configure a load balancer fronting the two Traffic Manager instances.
 
@@ -221,6 +233,8 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 #### Step 6.3 - Configure and start the API Publisher
 
 This section involves setting up the API Publisher node and enabling it to work with the other components in the distributed deployment.
+
+[![Publisher Connections]({{base_path}}/assets/img/setup-and-install/publisher-connections.png)]({{base_path}}/assets/img/setup-and-install/publisher-connections.png)
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the API Publisher node and make the following changes.
 
@@ -408,6 +422,8 @@ This section involves setting up the API Publisher node and enabling it to work 
 
 This section involves setting up the Developer Portal node and enabling it to work with the other components in the distributed deployment.
 
+[![Developer Portal Connections]({{base_path}}/assets/img/setup-and-install/dev-portal-connections.png)]({{base_path}}/assets/img/setup-and-install/dev-portal-connections.png)
+
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Developer Portal node and make the following changes.
 
     1.  Configure the Developer Portal with the Key Manager.
@@ -427,38 +443,28 @@ This section involves setting up the Developer Portal node and enabling it to wo
         password = "$ref{super_admin.password}"
         ```
 
-    2.  Configure the Developer Portal with the Gateway.
+    2.  Configure the Developer Portal with the Traffic Manager.
 
-        ``` toml tab="Gateway with HA"
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        service_url = "https://[API-Gateway-LB-Host]/services/"
-        username= "${admin.username}"
-        password= "${admin.password}"
-        ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
-        wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
-        http_endpoint = "http://[API-Gateway-LB-Host]"
-        https_endpoint = "https://[API-Gateway-LB]"
+        ``` toml tab="Traffic Manager with HA"
+        [apim.throttling]
+        throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
+        
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
+        traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
+        
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
+        traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
         ```
-                 
-        ``` toml tab="Single Gateway"
-        [[apim.gateway.environment]]
-        name = "Production and Sandbox"
-        type = "hybrid"
-        display_in_api_console = true
-        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
-        show_as_token_endpoint_url = true
-        service_url = "https://[API-Gateway-host-or-IP]:${mgt.transport.https.port}/services/"
-        username= "${admin.username}"
-        password= "${admin.password}"
-        ws_endpoint = "ws://[API-Gateway-host-or-IP]:9099"
-        wss_endpoint = "wss://[API-Gateway-host-or-IP]:8099"
-        http_endpoint = "http://[API-Gateway-host-or-IP]:${http.nio.port}"
-        https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
+        
+        ``` toml tab="Single Traffic Manager"
+        [apim.throttling]
+        throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
+             
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
+        traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
         ```
 
     3.  Configure the Token Revoke endpoint to point to Key Manager.
@@ -557,11 +563,20 @@ This section involves setting up the Developer Portal node and enabling it to wo
         [apim.oauth_config]
         revoke_endpoint = "https://km.wso2.com:9443/revoke"
         
+        [apim.throttling]
+        throttle_decision_endpoints = ["tcp://tm.wso2.com:5675"]
+        
+        [[apim.throttling.url_group]]
+        traffic_manager_urls=["tcp://tm.wso2.com:9614"]
+        traffic_manager_auth_urls=["ssl://tm.wso2.com:9714"]
+        
         ```
 
 #### Step 6.5 - Configure and start the Gateway
 
 This section involves setting up the Gateway node and enabling it to work with the other components in the distributed deployment.
+
+[![Gateway Connections]({{base_path}}/assets/img/setup-and-install/gateway-connections.png)]({{base_path}}/assets/img/setup-and-install/gateway-connections.png)
 
 1.  If you need to configure High Availability (HA) for the Gateway nodes, follow below steps.
 
@@ -639,7 +654,7 @@ This section involves setting up the Gateway node and enabling it to work with t
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
      
      [apim.throttling]
-      throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
+     throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
      ```
      
      ``` toml tab="Single Traffic Manager"
