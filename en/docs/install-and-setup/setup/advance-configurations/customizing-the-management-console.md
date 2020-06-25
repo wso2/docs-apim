@@ -14,7 +14,7 @@ The User Interface of the Management Console (
 
     Each Carbon product (that is built on Carbon kernel) has another style bundle. 
     `org.wso2.<product-name>.styles_<version-number>.jar` contains all the styles and images that 
-    override the ones in core Carbon platform. 
+    override the ones in the core Carbon platform. 
     This bundle is stored in `<PRODUCT_HOME>/repository/components/plugins/` folder and the 
     `<version-number>` is the version of the product.
 
@@ -76,7 +76,7 @@ Alternatively, you can apply a completely new stylesheet to your framework inste
         String mainCSS = "";
     ```
 
-### Changing the product specific styles and images
+### Changing the product-specific styles and images
 
 The styles and images unique to your product are located in the `org.wso2.am.styles_<version_number>.jar`.
 
@@ -109,7 +109,7 @@ Follow the steps below to modify product specific styles and images:
     
     **Example**: If the height of the product logo image
     exceeds 28 pixels, you must adjust the `main.css`
-    file, which is in the `org.wso2.am.styles_<version-name>.jar/web/styles/css/` directory to ensure that the other UI elements of your product aligns with the product logo.
+    file, which is in the `org.wso2.am.styles_<version-name>.jar/web/styles/css/` directory to ensure that the other UI elements of your product align with the product logo.
     
 
 ## Starting the server
