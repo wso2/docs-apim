@@ -26,7 +26,7 @@ The `wso2carbon.jks` keystore file, which is shipped with all WSO2 products, is 
        
     | Element                | Description                                                      |
     |------------------------|------------------------------------------------------------------|
-    | **keyStoreLocation**   | Name of the keystore file. **The file must be located in the `<API-M_ANALYTICS_HOME>/resources/security` directory.** |
+    | **keyStoreLocation**   | Name of the keystore file. **The file must be located in the `<API-M_ANALYTICS_HOME>/resources/security` directory.** The supported keystore file format is .jks |
     | **keyStorePassword**   | Keystore password                                                |
 
 2. Update the HTTP transport configurations.
