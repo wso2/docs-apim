@@ -352,6 +352,8 @@ hostname = "test.wso2.com"
 <p>See <a href="http://wso2.org/library/tutorials/2010/04/sharing-registry-space-across-multiple-product-instances">here</a> for more information on sharing a registry space across multiple WSO2 product instances.</p>
 </div>
 </div>
+<strong>Solr based indexing</strong>
+<p>API Manager has a Solr based indexing mechanism and it is not recommended to share the Solr directory <code>&lt;PRODUCT_HOME&gt;/solr/data/</code> between the Developer Portal and Publisher servers. You need to have seperate Solr directories for each of the servers.</p>
 </div></td>
 </tr>
 <tr class="even">
@@ -473,6 +475,18 @@ are reflected in the below mentioned config files, according to the new configur
 <div class="panelContent">
 <p>See <a href="{{base_path}}/administer/product-configurations/default-product-ports/">Default Product Ports</a> for
  a list of common and product-specific ports used by WSO2 products.</p>
+</div>
+<div class="panelHeader" style="border-bottom-width: 1px;">
+<strong>Firewall between Traffic Manager and Gateway</strong>
+</div>
+<p>If you have a firewall between the Traffic Manager and the Gateway, you need to configure the heartbeat value to keep the JMS connection alive. To configure this open the <code>&lt;PRODUCT_HOME&gt;/repository/conf/advanced/qpid-config.xml</code> file and set the heartbeat value to a non zero value as shown below.</p>
+<div class="codeContent panelContent pdl">
+```
+<heartbeat>
+  <delay>60</delay>
+  <timeoutFactor>2.0</timeoutFactor>
+</heartbeat>
+```
 </div>
 </div>
 </div></td>
