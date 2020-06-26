@@ -11,8 +11,19 @@ Follow the instructions below to create a REST API using a Open API definition f
       </div>
     </html>
 
-2.  Go to **CREATE API** and Click **I Have an Existing API**.
-    ![]({{base_path}}/assets/img/learn/create-a-rest-api-using-existing-swagger-def.jpg)
+2. Select one of the following options:
+
+	* OpenAPI URL - If you select this option, you need to provide an endpoint URL.
+	* OpenAPI Archive/File - If you select this option, click Browse and upload either an individual Open API definition, or an archive with Open API definition with external <a href="https://swagger.io/docs/specification/using-ref/" target="_blank">file references</a>.
+
+    <html><div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>You need to upload an archive if you have remote references in your API definition. When uploading an OpenAPI archive, the master swagger file should be named as **swagger.yaml**/**swagger.json**. If not, the validation will fail at the point of API creation. Referenced files can be named independently. </p>
+    </div>
+    </html>
+
+	As an example, Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL.
+	Click **NEXT** . ![]({{base_path}}/assets/img/Learn/create-rest-api-using-swagger-def-form1.jpg)
 
 3.  Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT** .
 
