@@ -1,4 +1,3 @@
-# TODO
 # Adding a User Signup Workflow
 
 This section explains how to attach a custom workflow to the user signup operation in the API Manager. 

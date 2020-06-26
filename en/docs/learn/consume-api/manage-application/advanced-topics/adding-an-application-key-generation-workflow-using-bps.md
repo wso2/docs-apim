@@ -1,4 +1,3 @@
-# TODO
 # Adding an Application Key Generation Workflow
 
 This section explains as to how you can attach a custom workflow to the **application registration** operation in the API Manager. 

@@ -1,4 +1,3 @@
-# TODO
 # Adding an API Subscription Workflow
 
 This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.

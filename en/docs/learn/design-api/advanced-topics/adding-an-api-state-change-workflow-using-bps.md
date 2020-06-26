@@ -1,4 +1,3 @@
-# TODO
 # Adding an API State Change Workflow
 
 This section explains how to add a custom workflow to control the API state changes in the API Manager. Before you begin, see [Workflow Extensions]({{base_path}}/learn/extensions/managing-workflow-extension/invoking-the-api-manager-from-the-bpel-engine) for more information on the different types of workflow executors, and also, see [API Lifecycle]({{base_path}}/getting-started/key-concepts#api-lifecycle) to get a better understanding on the API states.
