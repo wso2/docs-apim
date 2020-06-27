@@ -106,7 +106,7 @@ Go to `<API-M_HOME>/repository/conf/api-manager.xml`. In the `DataPublisher` sec
 <Username>admin@wso2.com@carbon.super</Username>
 ```
 
-For more details, see [Using Email Address as the Username](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/).
+For more details, see [Using Email Address as the Username](https://is.docs.wso2.com/en/5.9.0/learn/using-email-address-as-the-username/).
 
 ------------------------------------------------------------------------
 
@@ -194,7 +194,7 @@ To disable the self signup capability, open the API-M management console and cli
 
 ##### Is there a way to lock a user's account after a certain number of failed login attempts to the Developer Portal?
 
-If your identity provider is WSO2 Identity Server, this facility comes out of the box. If not, install the **Account Recovery and Credentials Management** feature (available under the User Management category) to the API Manager and configure it. For more information, see [User Account Locking and Account Disabling](https://is.docs.wso2.com/en/5.10.0/learn/user-account-locking-and-account-disabling/) in the Identity Server documentation. For more information on installing features, see [Working with features](https://docs.wso2.com/display/ADMIN44x/Installing+Features+using+pom+Files) in the Admin Guide.
+If your identity provider is WSO2 Identity Server, this facility comes out of the box. If not, install the **Account Recovery and Credentials Management** feature (available under the User Management category) to the API Manager and configure it. For more information, see [User Account Locking and Account Disabling](https://is.docs.wso2.com/en/5.9.0/learn/user-account-locking-and-account-disabling/) in the Identity Server documentation. For more information on installing features, see [Working with features](https://docs.wso2.com/display/ADMIN44x/Installing+Features+using+pom+Files) in the Admin Guide.
 
 ##### How do I change the default admin password and what files should I edit after changing it?
 
