@@ -24,7 +24,7 @@ The API Manager is built on top of [WSO2 Carbon](http://wso2.com/products/carbon
 
 ##### Can I get involved in API-M development activities?
 
-Not only are you allowed, but also encouraged. You can start by subscribing to the <dev@wso2.org> and <architecture@wso2.org> mailing lists. Feel free to provide ideas, feedback and help make our code better. For more information on contacts, mailing lists and forums, see [our community page](https://wso2.com/community).
+Not only are you allowed, but also encouraged. You can start by subscribing to the `dev@wso2.org` and `architecture@wso2.org` mailing lists. Feel free to provide ideas, feedback and help make our code better. For more information on contacts, mailing lists and forums, see [our community page](https://wso2.com/community).
 
 ##### What is the default communication protocol of the API Manager?
 
