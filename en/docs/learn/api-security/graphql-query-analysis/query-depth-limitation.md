@@ -48,9 +48,9 @@ Let's see how **GraphQL Query Depth Limitation** can be managed with your GraphQ
 1.  Sign in to the Admin Portal using the URL `https://localhost:9443/admin` and your admin credentials 
 (admin/admin by default).
 2.  Click **Subscription Policies** under the **Rate Limiting Policies** section to see the set of existing 
-subscription tiers.
-3.  To add a new tier, click **Add Policy** .
-
+subscription policies.
+3.  To add a new Subscription Policy, click **Add Policy** .
+[![Add new Subscription Policy]({{base_path}}/assets/img/learn/add-new-subscription-policy-graphql-query-complexity.png)]({{base_path}}/assets/img/learn/add-new-subscription-policy-graphql-query-complexity.png)
 4.  Fill in the required details and click **Save** .
 
 ### Design a GraphQL API
@@ -81,7 +81,7 @@ Enter the following sample query. Then click on execute button as follows.
         query{							
             allFilms{						
                 id							
-                Species{
+                species{
                     id						
                     films{
                         title					
@@ -102,6 +102,8 @@ Enter the following sample query. Then click on execute button as follows.
 
 
    ```
+
+   [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation-query.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation-query.png)
 
 You have now **successfully blocked a requested GraphQL query** using the **Max Depth** value that you assigned before.
 
