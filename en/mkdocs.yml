@@ -283,7 +283,7 @@ nav:
                 - Create and Publish an AWS Lambda API: learn/tutorials/create-and-publish-awslambda-api.md
                 - Expose a SOAP Service as a REST API: learn/tutorials/expose-a-soap-service-as-a-rest-api.md
                 - Create and Publish WebSocket API: learn/tutorials/create-and-publish-websocket-api.md
-                - Edit and Consume APIs using Swagger Tools: learn/tutorials/edit-and-consume-apis-using-swagger-tools.md
+                - Edit an API by Modifying the API Definition: learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md
     - Develop:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
@@ -671,6 +671,7 @@ plugins:
               'administer/product-security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/identity-management-for-the-api-dev-portal/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider/'
+              'learn/tutorials/edit-and-consume-apis-using-swagger-tools.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/tutorials/edit-an-api-by-modifyng-the-api-definition/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
