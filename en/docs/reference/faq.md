@@ -124,7 +124,7 @@ If you have multiple versions of an API published, only the latest version is sh
 
 ```
 [apim.devportal]
-display_multiple_versions= true
+display_multiple_versions = true
 ```
 
 ##### When editing an API's resource parameters, how can I add multiple options to the **Response Content Type parameter** ?
@@ -238,7 +238,7 @@ Set the `enable_outbound_auth_header` value to `true` in the `<API-M_HOME>/repos
 
 ```
 [apim.oauth_config]
-enable_outbound_auth_header= true
+enable_outbound_auth_header = true
 ```
 
 ##### Can I give special characters in the passwords that appear in the configuration files?
