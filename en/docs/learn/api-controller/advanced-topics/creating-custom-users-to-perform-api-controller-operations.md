@@ -1,6 +1,6 @@
 #  Creating Custom Users to Perform API Controller Operations
 
-To perform tasks using the API Controller, a particular user must have required permissions and scopes. From API Manager 3.2.0 onwards, a new role named `Internal/devops` has been introduced who has the ability to perform all the API Controller related operations. You just need to create a user (Refer [Adding a new User]({{base_path}}/administer/managing-users-and-roles/managing-users/#adding-a-new-user) to learn about adding new users), assign the role `Internal/devops` and use that user to perform the API Controller operations.
+To perform tasks using the API Controller, a particular user must have required permissions and scopes. From API Manager 3.2.0 onwards, a new role named `Internal/devops` has been introduced who has the ability to perform all the API Controller related operations. You just need to create a new user (Refer [Adding a new User]({{base_path}}/administer/managing-users-and-roles/managing-users/#adding-a-new-user) to learn about adding new users), assign the role `Internal/devops` and use that user to perform the API Controller operations.
 
 ## Minimal Permissions and Scopes Required to Perform API Controller Operations
 
