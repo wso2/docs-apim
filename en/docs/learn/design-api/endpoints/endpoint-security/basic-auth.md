@@ -22,7 +22,7 @@ Follow the instructions below to use Basic Auth as the endpoint authentication t
 
 3. Select **Basic Auth** as the endpoint authentication type from the drop-down menu.
 
-     ![digest-auth-dropdown]({{base_path}}/assets/img/learn/basic-auth-dropdown.png)
+     ![basic-auth-dropdown]({{base_path}}/assets/img/learn/basic-auth-dropdown.png)
 
 4. After entering your credentials, click on the **Submit** button to confirm the details of the respective endpoint and then click on the **Save** button in the Endpoints page to save all the changes made in the **Endpoints** page.
 
