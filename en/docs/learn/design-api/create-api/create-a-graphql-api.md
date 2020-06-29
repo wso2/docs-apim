@@ -156,7 +156,7 @@ Follow the instructions below to design a GraphQL API
 
              4. Click **SAVE**.
 
-                [![List of added scopes]({{base_path}}/assets/img/learn/starwars-scope-list.png)]({{base_path}}/assets/img/learn/starwars-scope-list.png) 
+                 [![List of added scopes]({{base_path}}/assets/img/learn/starwars-scope-list.png)]({{base_path}}/assets/img/learn/starwars-scope-list.png) 
 
          2. Define the operation level configurations.
 

@@ -3,7 +3,7 @@
 !!! info
     The **Single Sign-On with openID Connect** feature is enabled by default in the API Manager.  
     
-The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented according to the SAML 2.0 browser-based SSO support that is facilitated by WSO2 Identity Server (WSO2 IS). This feature is available in any WSO2 IS version from 4.1.0 onwards. We use **WSO2 IS 5.9.0** in this guide. WSO2 Identity Server acts as an identity service provider of systems enabled with single sign-on, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or API Publisher in a single authentication attempt.
+The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented according to the SAML 2.0 browser-based SSO support that is facilitated by WSO2 Identity Server (WSO2 IS). This feature is available in any WSO2 IS version from 4.1.0 onwards. We use **WSO2 IS 5.10.0** in this guide. WSO2 Identity Server acts as an identity service provider of systems enabled with single sign-on, while the Web applications act as SSO service providers. Using this feature, you can configure SSO with SAML 2.0 across the API Publisher and Developer Portal. After configuring, you can access the Developer Portal or API Publisher in a single authentication attempt.
 
 The topics below explain the configurations.
 
@@ -28,9 +28,9 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 1.  Download WSO2 API Manager from [here](https://wso2.com/api-management/) and unzip it. `<API-M_HOME>` refers to the root folder where WSO2 API-M was unzipped.
 
     !!! tip
-        To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.9.0 as a Key Manager** pack, with pre-packaged Key Manager features, from [here](https://wso2.com/identity-and-access-management).
+        To use WSO2 IS as the Key Manager, download the **WSO2 Identity Server 5.10.0 as a Key Manager** pack, with pre-packaged Key Manager features, from [here](https://wso2.com/identity-and-access-management).
 
-2.  Download WSO2 Identity Server (WSO2 IS) 5.9.0 from [here](https://wso2.com/identity-and-access-management) and unzip it. `<IS_HOME>` refers to the root folder where WSO2 IS was unzipped.
+2.  Download WSO2 Identity Server (WSO2 IS) 5.10.0 from [here](https://wso2.com/identity-and-access-management) and unzip it. `<IS_HOME>` refers to the root folder where WSO2 IS was unzipped.
 
 3.  Create a MySQL database (e.g., 410\_um\_db) and run the `<API-M_HOME>/dbscripts/mysql.sql` script on it to create the required tables.
 
@@ -54,7 +54,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
 
 5.  Add the same datasource configuration above to `<IS_HOME>/repository/conf/deployment.toml` file.
 
-7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default, to change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.9.0/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead. 
+7.  The Identity Server has an embedded LDAP user store by default. As this is enabled by default, to change this to database user store, add the following to the `<IS_HOME>/repository/conf/deployment.toml`, follow the instructions in [Internal JDBC User Store Configuration](https://is.docs.wso2.com/en/5.10.0/setup/configuring-a-jdbc-user-store/) to disable the default LDAP and enable the JDBC user store instead. 
   
     ``` toml
        [user_store]
@@ -116,7 +116,7 @@ For example, let's share a JDBC user store (MySQL) with both the WSO2 Identity S
    ![inbound-authentication-config]({{base_path}}/assets/img/learn/extensions/saml2-sso/inbound-authentication-config.png)
   
     !!! note
-        To enable tenant-specific SSO with IS 5.9.0 for `API Publisher` and `Developer Portal`, enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
+        To enable tenant-specific SSO with IS 5.10.0 for `API Publisher` and `Developer Portal`, enable **Use tenant domain in local subject identifier** under the Local & Outbound Authentication Configuration section.
 
         ![enable-tenant-domain]({{base_path}}/assets/img/learn/extensions/saml2-sso/enable-tenant-domain.png)
 
@@ -215,7 +215,7 @@ Similarly, add Identity Server as an identity provider configurations in `https:
     Even with SSO enabled, if the user doesn't have sufficient privileges to access API Publisher/Developer Portal or any other application, s/he will not be authorized to access them.
 
 !!! info
-    To learn more about Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.9.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
+    To learn more about Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.10.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
 
 
 

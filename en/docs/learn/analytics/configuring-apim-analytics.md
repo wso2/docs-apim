@@ -12,20 +12,20 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
 
-### Quick Setup
+## Quick Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for quick demos and to try-out scenarios.
 
 1.  Download and install WSO2 API-M.
 
-    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
-    
+    WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md).
+   
     ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
 2.  Download and install WSO2 API-M Analytics.
 
-    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options. Navigate to the **Other Resources** section, and click **Analytics**. 
-    As the process of installing API-M Analytics is identical to installing WSO2 Streaming Integrator (WSO2 SI), which is part of WSO2 Enterprise Integrator 7.0.x, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
+    As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
 
     ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
@@ -79,7 +79,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
-###Standard Setup
+## Standard Setup
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
@@ -89,24 +89,24 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 -   [Step 4 - Configure databases](#step-4-configure-databases)
 -   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
 -   [Step 6 - Configure keystores](#step-6-configure-keystores)
+-   [Step 7 - Configure User-Agent Parser](#step-7-configure-user-agent-parser)
 
-#### Step 1 - Download and install WSO2 API-M
+### Step 1 - Download and install WSO2 API-M
 
  Download and install WSO2 API-M via the [WSO2 API Manager page](https://wso2.com/api-management/install/). Click **DOWNLOAD** and go to **INSTALLATION OPTIONS**.
- 
- For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites.md).
+ <br/>For more information on installing WSO2 API-M, see the [Installation Guide]({{base_path}}/install-and-setup/install/installation-prerequisites.md).
     
  ![]({{base_path}}/assets/img/learn/apim-download-page.png)
     
-#### Step 2 - Download and install WSO2 API-M Analytics
+### Step 2 - Download and install WSO2 API-M Analytics
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
 
-As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator (WSO2 SI), for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+<br/>As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator (WSO2 SI), for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm)
 
   ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
-#### Step 3 - Configure WSO2 API Manager to publish statistics
+### Step 3 - Configure WSO2 API Manager to publish statistics
 
 Follow the instructions below to do the required configurations for WSO2 API-M to publish statistics in the WSO2 API-M Analytics server.
 
@@ -145,8 +145,8 @@ The server URL of the remote WSO2 API-M Analytics server used to collect statist
 <html><div class="admonition warning">
 <p class="admonition-title">From DAS to SI</p>
 <p>
-Previously, when WSO2 API-M Analytics was powered by WSO2 Data Analytics Server 3.1.0, you had to add a comma to separate the DAS URLs so that the analytics events were published to both nodes. 
-However, when using WSO2 API-M Analytics 3.1.0, which is based on WSO2 Enterprise Integrator 7.0.x Streaming Integrator, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+
+When using WSO2 API-M Analytics 3.1.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
 <br/>e.g.,
 <br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
 </p>
@@ -233,7 +233,7 @@ Please note that if the <code>username</code> and <code>password</code> are unco
 
 Save the changes.
 
-#### Step 4 - Configure databases
+### Step 4 - Configure databases
 
 Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
 
@@ -313,94 +313,6 @@ Configuring databases allow you to persist data relating to APIs, process them a
                   validationTimeout: 30000
                   isAutoCommit: false
           ```
-         
-    !!! Info
-          If your deployment does not consist of any Microgateways, you do not need to configure the WSO2AM_MGW_ANALYTICS_DB to an external database as you can use the default embedded H2 database.
-
-      3. Configure `WSO2AM_MGW_ANALYTICS_DB` to the same database as `APIM_ANALYTICS_DB` in the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file.
-         
-         ``` java
-           - name: WSO2AM_MGW_ANALYTICS_DB
-               description: "The datasource used for APIM MGW analytics data."
-               jndiConfig:
-                 name: jdbc/WSO2AM_MGW_ANALYTICS_DB
-               definition:
-                 type: RDBMS
-                 configuration:
-                   jdbcUrl: 'jdbc:mysql://localhost:3306/stats_db'
-                   username: 'root'
-                   password: '123'
-                   driverClassName: com.mysql.jdbc.Driver
-                 maxPoolSize: 50
-                 idleTimeout: 60000
-                 connectionTestQuery: SELECT 1
-                 validationTimeout: 30000
-                 isAutoCommit: false
-         ```
-         
-      4. Create the AM_USAGE_UPLOADED_FILES table in the APIM_ANALYTICS_DB database. 
-      
-         ```tab="MySQL"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED tinyint(1) DEFAULT 0,
-            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
-               
-         ```
-         
-         ```tab="MSSQL"
-            CREATE TABLE AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP DATETIME2(0) DEFAULT GETDATE(),
-            FILE_PROCESSED smallint DEFAULT 0,
-            FILE_CONTENT VARBINARY(max) DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
-         ```
-         
-         ```tab="Oracle"
-            CREATE TABLE AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar2(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT SYSTIMESTAMP,
-            FILE_PROCESSED number(3) DEFAULT 0,
-            FILE_CONTENT BLOB DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
-         ```
-         
-         ```tab="Postgres"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED smallint DEFAULT 0,
-            FILE_CONTENT BYTEA DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
-         ```
-         
-         ```tab="DB2"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-            FILE_PROCESSED SMALLINT DEFAULT 0,
-            FILE_CONTENT BLOB(16777215) DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
-         ```
-         
-         ```tab="Informix"
-            CREATE TABLE IF NOT EXISTS AM_USAGE_UPLOADED_FILES (
-            FILE_NAME varchar(255) NOT NULL,
-            FILE_TIMESTAMP TIMESTAMP(0) DEFAULT CURRENT_TIMESTAMP,
-            FILE_PROCESSED tinyint DEFAULT 0,
-            FILE_CONTENT MEDIUMBLOB DEFAULT NULL,
-            PRIMARY KEY (FILE_NAME, FILE_TIMESTAMP)
-            );
-         ```
-   
        
 4.  Point the following data sources to external databases. 
        None of the following databases need DB scripts. The tables will be automatically created.
@@ -415,7 +327,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
       <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
       For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/learn/analytics/adding-third-party-non-osgi-libraries/).
 
-#### Step 5 - Configure APIM IdP Client
+### Step 5 - Configure APIM IdP Client
 
 APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
 
@@ -428,52 +340,71 @@ auth.configs:
   properties:
     adminScope: apim_analytics:admin_carbon.super
     allScopes: apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe
-    adminServiceBaseUrl: https://localhost:9443
     adminUsername: admin
     adminPassword: admin
-    kmDcrUrl: https://localhost:9443/client-registration/v0.15/register
+    kmDcrUrl: https://localhost:9443/client-registration/v0.16/register
     kmTokenUrlForRedirection: https://localhost:9443/oauth2
     kmTokenUrl: https://localhost:9443/oauth2
     kmUsername: admin
     kmPassword: admin
     portalAppContext: analytics-dashboard
     businessRulesAppContext : business-rules
-    cacheTimeout: 900
+    cacheTimeout: 30
     baseUrl: https://localhost:9643
     grantType: authorization_code
     publisherUrl: https://localhost:9443
-    #storeUrl: https://localhost:9443
+    devPortalUrl: https://localhost:9443
     externalLogoutUrl: https://localhost:9443/oidc/logout
 ```
-#####Details of the properties in APIM IdP Client
+
+#### Details of the properties in APIM IdP Client
 
 
 |**Property**                                           |**Default Value**                    |**Description**                 |
 |-------------------------------------------------------|-------------------------------------|--------------------------------|
 | `adminScope`| apim_analytics:admin_carbon.super | Admin scope which is used for permissions in dashboards.|
 | `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
-| `adminServiceBaseUrl`| https://localhost:9443 | Url which the WSO2 admin services are running.(API Manager node URL)|
 | `adminUsername`| admin | The username for the admin services.|
 | `adminPassword`| admin | The password for the admin services.|
-| `kmDcrUrl`| https://localhost:9443/client-registration/v0.15/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP.|
-| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirections.|
-| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP.|
+| `kmDcrUrl`| https://localhost:9443/client-registration/v0.16/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node url.|
+| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirection. This should be pointed to the API Manager Publisher node url.|
+| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node url.|
 | `kmUsername`| admin | The username for the key manager in the IdP.|
 | `kmPassword`| admin | The password for the key manager in the IdP.|
 | `portalAppContext`| analytics-dashboard | The application context of the Analytics Dashboard application.|
 | `businessRulesAppContext`| business-rules| The application context of the Business Rules application.|
-| `cacheTimeout`| 900 | The cache timeout for the validity period of the token in seconds.|
-| `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token.|
+| `cacheTimeout`| 30 | The cache timeout for the validity period of the token in seconds.|
+| `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token. This is the URL where the API-M Analytics Dashboard server is running.|
 | `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
-| `publisherUrl`| https://localhost:9443 | Url which the API Manager publisher is running.|
-| `storeUrl`| https://localhost:9443 | Url which the API Manager store is running. Add this config if the Developer Portal and Publihser are running in two seperate nodes.|
-| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO.|
+| `publisherUrl`| https://localhost:9443 | Url which the API Manager Publisher is running.|
+| `devPortalUrl`| https://localhost:9443 | Url which the API Manager Developer Portal  is running.|
+| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. This should be pointed to the API Manager Publisher node url.|
 
 
-#### Step 6 - Configure keystores
+### Step 6 - Configure keystores
 
 In the SSL handshake between the API Manager and API Manager Analytics servers, the client (i.e. API Manager) needs to verify the certificate presented by the server (i.e. API Manager Analytics). For this purpose, the client stores the trusted certificate of the server in the `client-truststore.jks` keystore.
 
 If you use a custom keystore in API Manager and/or API Manager Analytics, import the public key certificate of API Manager Analytics into the `client-truststore.jks` file of the API Manager. To export the public key from the server and import it into the client's trust store, follow the steps given in [Adding CA-signed certificates to keystores]({{base_path}}/administer/product-security/General/UsingAsymmetricEncryption/admin-creating-new-keystores/#step-1-generating-a-ca-signed-certificate) in the Administration Guide.
 
+For more information follow [Configuring Keystores in APIM Analytics]({{base_path}}/learn/analytics/configuring-keystores-in-apim-analytics/).
 
+### Step 7 - Configure User-Agent Parser
+
+The User-Agent and Operating System information is extracted from the User-Agent header of the API requests for the purpose of analytics. This process requires a set of regular expressions to parse the header and extract the information. By default, it is configured to use the `<API-M_ANALYTICS_HOME>/conf/worker/regexs.yaml` file for this purpose as shown below.
+
+```
+siddhi:
+  extensions:
+    # Provides the regular expression collection to parse the user-agent header
+    -
+      extension:
+        name: 'getUserAgentProperty'
+        namespace: 'env'
+        properties:
+          regexFilePath : ${sys:carbon.home}/conf/worker/regexes.yaml
+```
+However, if you need to use your own regular expressions to extract the information in detail, then you can replace the `regexFilePath` property with your own file.
+
+!!! warning
+    The regular expressions configured above is reduced to provide the optimal performance, while identifying common User-Agents and Operating Systems. However, if you completely remove the latter mentioned configuration, you will end-up by using a standard regular expression set, which is packed inside the parser library, and it will extract almost every User-Agents and Operating Systems, but might provide lower performance throughput.

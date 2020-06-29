@@ -11,10 +11,22 @@ Follow the instructions below to create a REST API using a Open API definition f
       </div>
     </html>
 
-2.  Go to **CREATE API** and Click **I Have an Existing API**.
-    ![]({{base_path}}/assets/img/learn/create-a-rest-api-using-existing-swagger-def.jpg)
+2. Select one of the following options:
+
+	* OpenAPI URL - If you select this option, you need to provide an endpoint URL.
+	* OpenAPI Archive/File - If you select this option, click Browse and upload either an individual Open API definition, or an archive with Open API definition with external <a href="https://swagger.io/docs/specification/using-ref/" target="_blank">file references</a>.
+
+    <html><div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>You need to upload an archive if you have remote references in your API definition. When uploading an OpenAPI archive, the master swagger file should be named as **swagger.yaml**/**swagger.json**. If not, the validation will fail at the point of API creation. Referenced files can be named independently. </p>
+    </div>
+    </html>
+
+	As an example, Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL.
+	Click **NEXT** . ![]({{base_path}}/assets/img/Learn/create-rest-api-using-swagger-def-form1.jpg)
 
 3.  Select **OpenAPI URL** and provide `http://petstore.swagger.io/v2/swagger.json` as the URL. Click **NEXT** .
+
     ![]({{base_path}}/assets/img/learn/create-rest-api-using-swagger-def-form1.jpg)
 
 4.  Edit the information as given below and Click **CREATE**
@@ -94,6 +106,16 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
+   <html><div class="admonition note">
+     <p class="admonition-title">Note</p>
+        <p> Transport Level Security defines the transport protocol on which the API is exposed. When creating a new API by using a Swagger or Open API definition, these transport security schemes can be defined using  <b>“x-wso2- transports”</b>and <b>"x-wso2-mutual-ssl”</b>extensions.</p>
+            ```yaml
+            x-wso2-mutual-ssl: "optional"
+            x-wso2-transports: 
+                - "https"
+                - “http”
+            ```
+    </div></html>
 ## Subscriptions
    Navigate to **Subscriptions** page and select **Gold** and **Silver** as the Bussiness plans. After Click **SAVE**
 
@@ -103,9 +125,7 @@ Follow the instructions below to create a REST API using a Open API definition f
      </div>
      </html>
 
-   ![]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.jpg )
+   ![]({{base_path}}/assets/img/learn/add-bussiness-plans-for-pet-store-api.jpg)
 
 
-Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API]({{base_path}}/learn/design-api/publish-api/publish-an-ap)  to get details of publishing API.
-
-
+Now, a REST API from open API Definition has been created and configured successfully. Refer [Publish API]({{base_path}}/learn/design-api/publish-api/publish-an-ap) to get details of publishing API.
