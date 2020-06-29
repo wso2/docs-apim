@@ -22,11 +22,11 @@ within the policy definition.
    - [Query Complexity Limitation]({{base_path}}/learn/api-security/graphql-query-analysis/query-complexity-limitation)
 
 
-In order to implement this **Fine Grained Access Control-Static Query Analyser**, we introduce two new alternative fields 
+In order to implement **Fine Grained Access Control-Static Query Analyser**, two optional fields have been introduced 
 to the Subscription Policy: **GraphQL Max Depth** and  **GraphQL Max Complexity**.
 
-So Through the Subscription Policy UI in the admin portal, we can set the GraphQL Max Depth value and GraphQL Max Complexity 
-values. Selecting Business Plans, you can allocate the GraphQL Max Depth and GraphQL Max Complexity values for your APIs.
+Through the Subscription Policy UI in the admin portal, GraphQL Max Depth value and GraphQL Max Complexity values can be set
+Once done, the corresponding subscription plan can be chosen via the business plans to engage these validations to an API.
 
 Also, the policy for the custom complexity values would be as follows;
 

@@ -19,12 +19,11 @@ the **complexity should be at a low level**. If **no complexity defined** for a 
 </div> 
 </html>
 
-In run time, we calculate the requested query complexity value. When it exceeds the max complexity, 
-then the query will be **rejected.**
+In run time, requested query complexity value will be calculated and blocked it exceeds the max complexity.
 
-Here is a simple example in which you can understand how to calculate query complexity values before request the query.
+Following is a simple example which can be used to understand how the calculation happens.
 
-If there is, no arguments provides in your requested query, can calculate complexity value simply 
+If there are, no arguments provides in your requested query, can calculate complexity value simply by
 adding all the complexity values.
 
    ```
@@ -42,7 +41,7 @@ adding all the complexity values.
 
    ```
 
-With arguments, you can calculate complexity values as follows.
+With arguments, complexity can be calculated values as follows.
 
    ```
         query {
@@ -88,7 +87,11 @@ Let's see how **GraphQL Query Complexity Limitation** can be managed with your G
 subscription policies.
 3.  To add a new Subscription Policy, click **Add Policy** .
 [![Add new Subscription Policy]({{base_path}}/assets/img/learn/add-new-subscription-policy-graphql-query-complexity.png)]({{base_path}}/assets/img/learn/add-new-subscription-policy-graphql-query-complexity.png)
-4.  Fill in the required details and click **Save** .
+4.  Fill in the required details.
+[![Add new Subscription Policy]({{base_path}}/assets/img/learn/create-subscription-policy-with-graphql-complexity.png)]({{base_path}}/assets/img/learn/create-subscription-policy-with-graphql-complexity.png)
+5.  click **Save** Button.
+[![Add new Subscription Policy]({{base_path}}/assets/img/learn/save-subscription-policy-graphql-query-analysis.png)]({{base_path}}/assets/img/learn/save-subscription-policy-graphql-query-analysis.png)
+
 
 ### Design a GraphQL API
 

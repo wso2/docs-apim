@@ -224,6 +224,10 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+                - GraphQL Query Analysis:
+                      - Fine Grained Access Control for GraphQL APIs: learn/api-security/graphql-query-analysis/graphql-query-analysis.md
+                      - Query Depth Limitation: learn/api-security/graphql-query-analysis/query-depth-limitation.md
+                      - Query Complexity Limitation: learn/api-security/graphql-query-analysis/query-complexity-limitation.md
           - Rate Limiting:
                 - Throttling Use-Cases: learn/rate-limiting/introducing-throttling-use-cases.md
                 - Adding New Throttling Policies: learn/rate-limiting/adding-new-throttling-policies.md

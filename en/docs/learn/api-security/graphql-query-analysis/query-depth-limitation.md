@@ -1,5 +1,5 @@
-Since GraphQL schemas often have circular relationships, the depth can grow till no end. 
-this means a client could craft a query like this:
+Since GraphQL schemas often have circular relationships, the depth can grow without bounds. 
+this means a client could craft a query as follows:
 
   [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation.png)
 
@@ -51,7 +51,11 @@ Let's see how **GraphQL Query Depth Limitation** can be managed with your GraphQ
 subscription policies.
 3.  To add a new Subscription Policy, click **Add Policy** .
 [![Add new Subscription Policy]({{base_path}}/assets/img/learn/add-new-subscription-policy-graphql-query-complexity.png)]({{base_path}}/assets/img/learn/add-new-subscription-policy-graphql-query-complexity.png)
-4.  Fill in the required details and click **Save** .
+4.  Fill in the required details.
+[![Add new Subscription Policy with Max Depth]({{base_path}}/assets/img/learn/create-subscription-policy-with-graphql-depth.png)]({{base_path}}/assets/img/learn/create-subscription-policy-with-graphql-depth.png)
+5. click **Save** Button
+[![Add Subscription Policy]({{base_path}}/assets/img/learn/save-subscription-policy-graphql-query-analysis.png)]({{base_path}}/assets/img/learn/save-subscription-policy-graphql-query-analysis.png)
+
 
 ### Design a GraphQL API
 
@@ -105,5 +109,5 @@ Enter the following sample query. Then click on execute button as follows.
 
    [![GraphQL Depth Limitation]({{base_path}}/assets/img/learn/graphql-depth-limitation-query.png)]({{base_path}}/assets/img/learn/graphql-depth-limitation-query.png)
 
-You have now **successfully blocked a requested GraphQL query** using the **Max Depth** value that you assigned before.
+You have now successfully blocked a GraphQL API query using the **Max Depth** value that you assigned before.
 
