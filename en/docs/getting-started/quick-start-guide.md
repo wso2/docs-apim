@@ -256,7 +256,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     ``` bash
         ./apictl add-env -e dev \
              --registration https://localhost:9443 \
-             --token https://localhost:8243/token \
+             --token https://localhost:9443/oauth2/token \
              --admin https://localhost:9443 \
              --publisher https://localhost:9443 \
              --devportal https://localhost:9443
