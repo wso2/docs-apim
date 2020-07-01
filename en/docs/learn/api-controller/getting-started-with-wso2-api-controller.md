@@ -4,8 +4,8 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 
 ## Download and initialize the CTL Tool
 
-1.  Navigate to the API Management Tooling page - <https://wso2.com/api-management/tooling/>
-2.  Under **Dev-Ops Tooling**, click **Download** based on your preferred platform (i.e., Mac, Windows, Linux).
+1.  Navigate to the API Management Tooling page - <https://wso2.com/api-management/tooling/>, click on **PREVIOUS RELEASES** and select **Version 3.0.0** as the API Manager version.
+2.  Under **Tooling** -> **CLI**, click on your preferred platform (i.e., Mac, Windows, Linux) to download the archive.
 3.  Extract the downloaded archive of the CTL Tool to the desired location.
 
 4.  Navigate to the working directory where the executable CTL Tool resides.
