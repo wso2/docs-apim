@@ -120,7 +120,12 @@ See [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-a
 
 ##### Why can't I see all the APIs that I published on the Developer Portal ?
 
-If you have multiple versions of an API published, only the latest version is shown in the Developer Portal. To display multiple versions, set the `<DisplayMultipleVersions>` element to `true` in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
+If you have multiple versions of an API published, only the latest version is shown in the Developer Portal. To display multiple versions, set the `display_multiple_versions` value to `true` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+```
+[apim.devportal]
+display_multiple_versions = true
+```
 
 ##### When editing an API's resource parameters, how can I add multiple options to the **Response Content Type parameter** ?
 
@@ -229,7 +234,12 @@ To configure session timeouts, see [Configuring the session time-out]({{base_pat
 
 ##### How can I add authentication headers to messages going out of the API Gateway to the backend?
 
-Uncomment the `<RemoveOAuthHeadersFromOutMessage>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file and set its value to `false`.
+Set the `enable_outbound_auth_header` value to `true` in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+```
+[apim.oauth_config]
+enable_outbound_auth_header = true
+```
 
 ##### Can I give special characters in the passwords that appear in the configuration files?
 
