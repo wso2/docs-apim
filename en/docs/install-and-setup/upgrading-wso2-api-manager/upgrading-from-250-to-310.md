@@ -1757,7 +1757,7 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.1.0
 
 5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version from `<OLD_API-M_ANALYTICS_HOME>/repository/resources/security` and replace the existing keystores in the `<NEW_API-M_ANALYTICS_HOME>/resources/security` directory.
 
-    - If the truststore used in the previous setup was changed (for e.g. the name of the truststore file or the password was changed), copy the truststore to the `<API-M_3.1.0_HOME>/repository/resources/security` directory and update `<API-M_3.1configure the credentials in the.0_HOME>/repository/conf/deployment.toml` as follows.  
+    - If the truststore used in the previous setup was changed (for e.g. the name of the truststore file or the password was changed), copy the truststore to the `<API-M_3.1.0_HOME>/repository/resources/security` directory and update the credentials in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` as follows.
        ```toml
        [truststore]
        type= “JKS”
