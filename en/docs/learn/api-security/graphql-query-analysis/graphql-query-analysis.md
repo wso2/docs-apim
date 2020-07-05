@@ -35,13 +35,13 @@ Also, the policy for the custom complexity values would be as follows;
 
 The following model shows how to use a given policy during run time:
 
-  [![Model of the GraphQL Query Analysis]({{base_path}}/assets/img/learn/graphql-query-complexity-model.png)]({{base_path}}/assets/img/learn/graphql-query-complexity-model.png)
+  [![Model of the GraphQL Query Analysis]({{base_path}}/assets/img/learn/graphql-query-complexity-model.jpg)]({{base_path}}/assets/img/learn/graphql-query-complexity-model.jpg)
 
 
 Figure given below depicts the overall flow of API invocation - from the request made by the client to the response 
 which is given back to the client.
  
-  [![Flow of the GraphQL Query Analysis]({{base_path}}/assets/img/learn/graphql-query-analysis-flow.png)]({{base_path}}/assets/img/learn/graphql-query-analysis-flow.png)
+  [![Flow of the GraphQL Query Analysis]({{base_path}}/assets/img/learn/graphql-query-analysis-flow.jpg)]({{base_path}}/assets/img/learn/graphql-query-analysis-flow.jpg)
 
 
 
