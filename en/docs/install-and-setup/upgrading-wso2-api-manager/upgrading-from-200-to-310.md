@@ -2003,7 +2003,14 @@ Follow the instructions below to move all the existing API Manager configuration
         ```tab="Windows"
         ./ciphertool.bat -Dconfigure
         ```
-
+    - If the truststore used in the previous setup was changed (for e.g. the name of the truststore file or the password was changed), copy the truststore to the `<API-M_3.1.0_HOME>/repository/resources/security` directory and update `<API-M_3.1configure the credentials in the.0_HOME>/repository/conf/deployment.toml` as follows.  
+       ```toml
+       [truststore]
+       type= “JKS”
+       file = “modified-client-truststore.jks”
+       password= “modified_password”
+       ```
+    
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.2.0 to 5.10.0.
 
     !!! note
