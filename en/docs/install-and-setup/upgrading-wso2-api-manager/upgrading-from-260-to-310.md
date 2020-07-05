@@ -412,7 +412,7 @@ Follow the instructions below to move all the existing API Manager configuration
         validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
         ```
 
-4.  Update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
+4. If you have used separate DB for user management in your previous setup and you have defined the `[database.user]` as mentioned in the above step, then you need to update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes. **Note** that the data_source name cannot be changed and it should be **WSO2USER_DB**.
 
     ```
     [realm_manager]
