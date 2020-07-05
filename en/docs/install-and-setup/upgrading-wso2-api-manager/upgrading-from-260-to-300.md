@@ -327,7 +327,14 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
 
-    SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
+    - Datasource confgurations in the previous versions could be mapped to the new confguration model as follows. 
+        
+        - **SHARED_DB** should point to the previous API-M version's `WSO2REG_DB`.
+        - **APIM_DB** should point to the previous API-M version's `WSO2AM_DB`.
+        - **CONFIG** should point to prevous APIM-M version's `WSO2CONFIG_DB`.
+        - **USER** should point to prevous APIM-M version's ` WSO2USER_DB`
+     
+    This example shows to configure MySQL database configurations.  
 
     ```
     [database.apim_db]
