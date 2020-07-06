@@ -30,7 +30,7 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 			<p class="hint"> Create, publish  and consume an API in 5 minutes.</p>
       		</div>
 		</div>
-      <!-- card -->
+      <!-- card This is test commiit --> 
       <div class="card" onclick="location.href='learn/design-api/create-api/create-a-rest-api';">
             <div class="line"></div>
             <div class="card-icon"><i class="material-icons md-36">create</i></div>
@@ -92,7 +92,6 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 		    <p class="hint"> Regulate API traffic and secure APIs against security attacks</p>
             </div>
       </div>
-        <!-- end card -->
       <!-- card -->
       <div class="card" onclick="location.href='learn/analytics/overview-of-api-analytics';">
 	    <div class="line"></div>
@@ -102,7 +101,6 @@ Get a head start with our 5-minute quick start or dive straight into our learnin
 		    <p class="hint">Monitor system behavior, as well as API and application usage</p>
             </div>
       </div>
-      <!-- end card -->
   </div>
 </div>
 
