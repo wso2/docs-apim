@@ -179,6 +179,7 @@ nav:
                       - Mutual SSL Between API Gateway and Backend: learn/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
           - API Microgateway:
                 - Grouping APIs with Labels: learn/api-microgateway/grouping-apis-with-labels.md
+                - Deploy APIs in PrivateJet mode: learn/api-microgateway/deploy-apis-in-privatejet-mode.md
           - API Security:
                 - Authentication:
                       - Overview: learn/api-security/api-authentication/api-authentication-overview.md
