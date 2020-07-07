@@ -27,14 +27,14 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.1.0.
 
-Therefore, when migrating to API Manager 3.1.0, it is **required** to turn off the registry versioning in your
-current API Manager 2.5.0 version and run the below scripts against **the registry database**.
+Therefore, if registry versioning was enabled in WSO2 API-M 2.5.0 setup, it is **required** to turn off the registry 
+versioning in the migrated 3.1.0 setup. Please follow the below steps to achieve this.
 
-!!! note
+!!! note "NOTE"
     Alternatively, it is possible to turn on registry versioning in API Manager 3.1.0 and continue. But this is
     highly **NOT RECOMMENDED** and these configurations should only be changed once.
 
-!!! info "Turning off registry versioning in your current API-M and running the scripts"
+!!! info "Turning off registry versioning"
     Open the `registry.xml` file in the `<OLD_API-M_HOME>/repository/conf` directory.
     Check whether `versioningProperties`, `versioningComments`, `versioningTags` and `versioningRatings` configurations are true.
     
@@ -50,8 +50,7 @@ current API Manager 2.5.0 version and run the below scripts against **the regist
     !!! warning
         If the above configurations are already set as `false` you should not run the below scripts.
     
-    From API-M 3.0.0 version onwards, those configurations are set to false and when the above configurations are turned off, you need to remove the versioning details from the database in order for the registry resources to work properly. Choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.
-    
+    From API-M 3.0.0 version onwards, those configurations are set to false by-default and since these configurations are now getting changed from old setup to new setup, you need to remove the versioning details from the database in order for the registry resources to work properly. For that, choose the relevant DB type and run the script against the DB that the registry resides in, to remove the registry versioning details.    
     ??? info "DB Scripts"
         ```tab="H2"
         -- Update the REG_PATH_ID column mapped with the REG_RESOURCE table --
@@ -1631,7 +1630,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-3.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -1645,7 +1644,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.1.0-2.jar` file, which is in the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
@@ -2005,14 +2004,3 @@ This concludes the upgrade process.
     If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.1.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.
-
-!!! Important
-    In API Manager 3.1.0, login flow is changed with role base access control where user should have respective roles to access Publisher and Developer Portal. Since 3.1.0 UI depends completely on REST APIs, authentication to access different components solely depends on the scope-role mapping defined in registry file `tenant-conf.json`. 
-
-    By default, the scope-role mapping is added only for the internal roles such as `Internal/publisher`, `Internal/creator` and `Internal/subscriber`. If there are any custom roles defined for API Creator, API Publisher, API Subscriber and Admin, those roles should be configured under relevant scopes. To edit the `tenant-conf.json` in order to assign custom roles to the scopes, follow the steps given below:
-
-    1. Log in to the Management Console and click **Main > Resource > Browse**.
-
-    2. Browse to the **/_system/config/apimgt/applicationdata/tenant-conf.json** file and click **Edit as Text**.
-    
-    Scopes required to invoke each APIs can be found under `OAuth2Security` section for each resources. The swagger definition for the Publisher RESTful APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher.v1/src/main/resources/publisher-api.yaml) and the swagger definition for the Developer Portal REST APIs can be found [here](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/store-api.yaml). 

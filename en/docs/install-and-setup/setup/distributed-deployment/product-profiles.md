@@ -80,10 +80,10 @@ You can start an API Manager profile in the following methods, based on your req
 !!! note
     It is recommended to start the components in the following order: 
 
-    1. Key Manager
-    2. Publisher
-    3. Developer Portal
-    4. Traffic Manager
+    1. Traffic Manager
+    2. Key Manager
+    3. Publisher
+    4. Developer Portal
     5. Gateway
     
 #### Method 1- Optimizing before starting the server
@@ -104,7 +104,39 @@ Create an optimized distribution for a particular API-M profile.
     <PRODUCT_HOME>/bin/profileSetup.bat -Dprofile=api-publisher
     ```
     
-2.  Start the server with the specified profile. 
+2. Copy the respective databasee connector JAR to `/lib` directory.
+   
+     For example, if you are using a MySQL database,
+
+     1. Download the MySQL connector JAR file and extract it.
+     
+     2. Copy it to the `<API-M_HOME>/repository/components/lib/` directory.
+
+3. Create the required databases, namely the API-M database (`apimgtdb` also known as `WSO2_AM_DB`) and the shared database (`WSO2_SHARED_DB` also known as `shareddb`).
+
+4. Update the default DB configurations to match your environment.
+
+     Change the following DB configurations, which is in the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+     ```
+     [database.apim_db]
+     type = "mysql"
+     hostname = "localhost"
+     name = "apimgt_db"
+     port = "3306"
+     username = "root"
+     password = "root"
+
+     [database.shared_db]
+     type = "mysql"
+     hostname = "localhost"
+     name = "shared_db"
+     port = "3306"
+     username = "root"
+     password = "root"
+     ```
+
+5.  Start the server with the specified profile. 
     
     ``` tab="Sample Format"
     sh <API-M_HOME>/bin/wso2server.sh -Dprofile=<preferred-profile>

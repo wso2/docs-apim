@@ -1,26 +1,25 @@
 # Advanced Customization
 
-### prerequisites
+### Prerequisites
 
-#### NodeJS and NPM
+- NodeJS
+- NPM
 
-NodeJS is the platform needed for the ReactJS development. 
+NodeJS is a platform required for ReactJS development. 
 
-The devportal user interface can be customized simply without touching the React codebase or CSS for most common cases. But for advanced use cases, it's required to modify the react code base.
+The user interface of the Developer Portal can be customized simply without editing the React codebase or  the CSS in most cases. You will be required to modify the react code base, if you need to do advanced customizations.
 
-1. Navigate to <API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/  in a terminal and run the following command.
+1. Navigate to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/`  in a terminal and run the following command.
+    ```js
+    npm ci
+    ```
+2. Run the command given below, to start the npm build. Note that it will continuously watch for any changes and rebuild the project.  
+    ```js
+    npm run build:dev
+    ```
+3. If you are required to rewrite the UI completely, you can make changes in the `devportal/source` folder. If you want to override a specific React Component or a File from the `source/src/` folder, you need to do it in the `devportal/override/src` folder by only copying the desired file/files.
 
-```js
-npm ci
-```
-2. Run the following to start the npm build. Note that it will continuously watch for any changes and rebuild the project.  
-```
-npm run build:dev
-```
-3. If you are planning to completely rewrite the UI, then it's OK to start making changes for devportal/source/. But if you want to override a certain React Component / File from source/src/ folder, you need to do it in devportal/override/src folder. You do not have to copy the entire directory, only copy the desired file/files.
-
-#### Example
-Following will override the API Documentation component and Overview components.
+#### Overriding the API Documentation and Overview components
 ```sh
 override
 └── src
@@ -49,24 +48,23 @@ override
                     └── NewFile.jsx
                     
 ```
-If we try to import the **NewFile.jsx** from **Overview.jsx** as follows it will give a compilation error.
-
-```sh
-import NewFile from './NewFile.jsx';
-```
-
-The correct way is to add the **AppOverride** prefix to the import and provide the full path relative to the override folder.
+You can import the **NewFile.jsx** by adding the **AppOverride** prefix to the import and provide the full path relative to the override folder.
 ```sh
 import NewFile from 'AppOverride/src/app/components/Apis/Details/NewFile.jsx';
 ```
 
+A compilation error will show up if you try to import the **NewFile.jsx** from **Overview.jsx** as follows.
+```sh
+import NewFile from './NewFile.jsx';
+```
+
 ### Development
 
-When you are doing active development, the watch mode is working with the overridden files. But adding new files and directories will not trigger a new webpack build.
+During an active development, the watch mode works with the overridden files. Adding new files and directories will not trigger a new webpack build.
 
 ### Production Build
 
-When you finish your development, it's required to do a production build. The output of the production build has minified javascript files optimized for web browsers.
+Make sure you do a production build after you finish development with the command given below. The output of the production build contains minified javascript files optimized for web browsers.
 
 ```
 npm run build:prod

@@ -1,6 +1,6 @@
 # Getting Started with WSO2 API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs and applications, creating API projects, importing and exporting APIs and applications, generating tokens for testing purposes, etc.  
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.  
 
 ## Download and initialize the CTL Tool
 
@@ -13,7 +13,7 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 5.  Execute the following command to start the CTL Tool.
 
     !!! Warn
-        From API Manager Tooling 3.1.0 version onwards, the names of the endpoints have been modified and this causes changing the syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If you have an older file, you'll get an error while executing the apictl commands due to this. To avoid that, backup and remove `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure the environments using new commands as explained below in [Add an environment](#add-an-environment) section.
+        From API Manager Tooling 3.2.0 version onwards, the names of the endpoints have been modified and this causes changing the syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If you have an older file, you'll get an error while executing the apictl commands due to this. To avoid that, backup and remove `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure the environments using new commands as explained below in [Add an environment](#add-an-environment) section.
 
     ``` go
     ./apictl
@@ -54,8 +54,8 @@ Run the following CTL command to check the version of the CTL.
 -   **Response**
 
     ```bash
-    Version: 3.1.0
-    Build Date: 2020-03-31 13:22:12 UTC
+    Version: 3.2.0
+    Build Date: 2020-06-12 13:22:12 UTC
     ```
 
 ## Set mode of the CTL
@@ -85,7 +85,7 @@ You can add environments by either manually editing the `<USER_HOME>/.wso2apictl
 apictl add-env
 ```
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.     
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.     
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to add an environment.
 
@@ -111,7 +111,6 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             -    Required :  
 
                 `--environment` or `-e` : Name of the environment to be added   
-                `--token` : Token endpoint for the environment
                 AND (either)
                 `--apim` : API Manager endpoint for the environments
                 OR (the following 4)
@@ -119,25 +118,28 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 `--admin` : Admin endpoint for the environment  
                 `--publisher` : Publisher endpoint for the environment  
                 `--devportal` : DevPortal endpoint for the environment 
+            -   Optional :
+
+                `--token` : Token endpoint for the environment
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
 
         !!! note
-            The flags `--environment (-e)` and `--token` are mandatory.
-            You can either provide only the 2 flags `--apim` and `--token`, or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
+            The `--environment (-e)` flag is mandatory.
+            You can either provide only the flag `--apim` , or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
+            In both of the above cases `--token`  flag is optional and can be used to provide an user preferred token endpoint.
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --apim https://localhost:9443 \
-                        --token https://localhost:8243/token
+                        --apim https://localhost:9443 
             ``` 
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
+            apictl add-env -e dev --apim https://localhost:9443 
             ```               
 
         !!! example
@@ -145,14 +147,14 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
                         --registration https://idp.com:9444 \
-                        --token https://gw.com:8244/token \
                         --admin https://apim.com:9444 \
                         --publisher https://apim.com:9444 \
-                        --devportal https://apps.com:9444
+                        --devportal https://apps.com:9444 \
+                        --token https://gw.com:8244/token                        
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e production --registration https://idp.com:9444 --token https://gw.com:8244/token --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444
+            apictl add-env -e production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
             ```  
     
         !!! example
@@ -180,7 +182,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Remove an environment
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.  
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.  
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to remove an environment.
 
@@ -209,7 +211,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## List environments
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.    
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.    
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run the following CTL command to list the environments.  
 
@@ -243,7 +245,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 After adding an environment, you can log in to the API Manager instance in that environment using credentials.
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Run any of the following CTL commands to log in to the environment.
 
@@ -303,7 +305,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
 ## Logout from an environment
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 
 2.  Run the following command to log out from the current session of the API Manager environment.
@@ -322,7 +324,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## List APIs/API Products/Applications in an environment
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to list APIs/API Products/Applications in an environment.
@@ -477,7 +479,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Delete an API/API Product/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to delete an API/API Product/Application in an environment.
@@ -603,7 +605,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 ## Change status of an API in an environment
 Follow the instructions below to change the status of an API in an environment using CTL:
 
-1.  Make sure that the WSO2 API Manager 3.1.0 version is started and that the 3.1.0 version of APTCTL is running.   
+1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.   
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
 3.  Run the corresponding CTL command below to change the status of an API in an environment.

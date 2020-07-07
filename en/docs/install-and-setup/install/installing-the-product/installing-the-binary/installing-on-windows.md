@@ -26,7 +26,7 @@ Follow the instructions below to install API Manager on Windows.
 
 ## Setting up JAVA\_HOME
 
-You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk1.8.0_xx` . If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
+You must set your `JAVA_HOME` environment variable to point to the directory where the Java Development Kit (JDK) is installed on the computer. Typically, the JDK is installed in a directory under `C:/Program Files/Java` , such as `C:/Program Files/Java/jdk1.8.0_xx`. If you have multiple versions installed, choose the latest one, which you can find by sorting by date.
 
 !!! info
 
@@ -50,10 +50,10 @@ You set up `JAVA_HOME` using the System Properties, as described below. Alternat
     ![]({{base_path}}/assets/attachments/thumbnails/26838941/27042154)
 
 4.  Enter the following information:
-    -   In the **Variable name** field, enter: `JAVA_HOME           `
-    -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Javajdk1.8.0_xx           `
+    -   In the **Variable name** field, enter: `JAVA_HOME`
+    -   In the **Variable value** field, enter the installation path of the Java Development Kit, such as: `c:/Program Files/Java/jdk1.8.0_xx           `
 
-The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `JAVA_HOME` variable to take effect, or manually set the `JAVA_HOME` variable in those command prompt windows as described in the next section. To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter** ) and execute the following command:
+The `JAVA_HOME` variable is now set and will apply to any subsequent command prompt windows you open. If you have existing command prompt windows running, you must close and reopen them for the `JAVA_HOME` variable to take effect, or manually set the `JAVA_HOME` variable in those command prompt windows as described in the next section. To verify that the `JAVA_HOME` variable is set correctly, open a command window (from the **Start** menu, click **Run**, and then type `CMD` and click **Enter**) and execute the following command:
 
 `set JAVA_HOME`
 

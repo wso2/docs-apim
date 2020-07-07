@@ -15,15 +15,15 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 3.1.0
+site_name: WSO2 API Manager Documentation 3.2.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/latest/
+site_url: https://apim.docs.wso2.com/en/next/
 
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/3.1.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/3.2.0/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -224,6 +224,10 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+                - GraphQL Query Analysis:
+                      - Fine Grained Access Control for GraphQL APIs: learn/api-security/graphql-query-analysis/graphql-query-analysis.md
+                      - Query Depth Limitation: learn/api-security/graphql-query-analysis/query-depth-limitation.md
+                      - Query Complexity Limitation: learn/api-security/graphql-query-analysis/query-complexity-limitation.md
           - Rate Limiting:
                 - Throttling Use-Cases: learn/rate-limiting/introducing-throttling-use-cases.md
                 - Adding New Throttling Policies: learn/rate-limiting/adding-new-throttling-policies.md
@@ -268,6 +272,7 @@ nav:
                 - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
                 - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
                 - Migrating APIs to Different Environments: learn/api-controller/migrating-apis-to-different-environments.md
+                - Migrating API Products (with or without dependent APIs) to Different Environments: learn/api-controller/migrating-api-products-to-different-environments.md
                 - Migrating Apps to Different Environments: learn/api-controller/migrating-applications-to-different-environments.md
                 - CI/CD with WSO2 API Manager: learn/api-controller/ci-cd-with-wso2-api-management.md
                 - Building a Jenkins CI/CD Pipeline for Dev First Approach: learn/api-controller/building-jenkins-ci-cd-pipeline-for-dev-first-approach.md
@@ -275,6 +280,7 @@ nav:
                       - Creating Custom Users to Perform API Controller Operations: learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations.md
                       - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
+                      - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
           - Kubernetes Operators:
                 - K8s API Operator: learn/kubernetes-operators/k8s-api-operator.md
                 - K8s WSO2 API Manager Operator: learn/kubernetes-operators/k8s-wso2am-operator.md
@@ -325,9 +331,9 @@ nav:
                       - Changing the Default User Role in Workflows: develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
                       - Cleaning Up Workflow Tasks: develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
                 - SAML2 SSO:
+                      - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
                       - Configuring External IDP Through Identity Server for SSO: develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
                       - Configure Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-                      - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
                       - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
           - Customizations:
                 - Customizing the Developer Portal:
@@ -362,6 +368,7 @@ nav:
           - Install:
                 - Installation Prerequisites: install-and-setup/install/installation-prerequisites.md
                 - Installing the Product:
+                      - Overview: install-and-setup/install/installing-the-product/installing-the-product.md
                       - Installing via the Installer: install-and-setup/install/installing-the-product/installing-via-the-installer.md
                       - Installing the Binary:
                             - Installing on Linux or OS X: install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md
@@ -381,9 +388,7 @@ nav:
                       - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                       - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                       - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-                      - Configure Gateway for High Availability:
-                            - Clustering WSO2 API-M Gateway for HA Using Shared File System: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system.md
-                            - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
+                      - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
                       - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
                 - Configure Key Manager:
                       - Configure a Third Party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
@@ -492,7 +497,7 @@ nav:
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
     - Reference:
-          - Configuration Catalog: reference/ConfigCatalog.md
+          - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
           - FAQ: reference/faq.md
           - Guides:
@@ -591,8 +596,6 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/distributed-deployment-of-the-gateway.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/'
-              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-shared-file-system.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-shared-file-system/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
               'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
@@ -691,5 +694,5 @@ extra:
           link: https://twitter.com/wso2
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
-    site_version: 3.1.0
-    base_path: https://apim.docs.wso2.com/en/latest
+    site_version: 3.2.0
+    base_path: https://apim.docs.wso2.com/en/next
