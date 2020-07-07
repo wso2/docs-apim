@@ -98,7 +98,7 @@ Yes, you can do this using the management console. The API Manager already has f
 
 ### How can I continue to use my email address as the username in a distributed API-M deployment?
 
-To enable using your email (e.g., `admin@wso2.com`) as your username when deploying WSO2 API-M and WSO2 Identity Server (WSO2 IS), while doing master configurations, do the following in the `<API-M_HOME>/repository/conf/deployment toml` file. 
+To enable using your email (e.g., `admin@wso2.com`) as your username when deploying WSO2 API-M and WSO2 Identity Server (WSO2 IS) configure the following in the `<API-M_HOME>/repository/conf/deployment.toml` file. 
 
 ```
 [apim.throttling.jms]
