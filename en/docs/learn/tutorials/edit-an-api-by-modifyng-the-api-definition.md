@@ -43,10 +43,9 @@ In this tutorial, let's see how you can add interactive documentation to an API 
         !!! tip
             In the code below, note that you have a resource defined with the URL pattern `/order/{orderId}` under the `paths` object. This is followed by the HTTP methods GET and PUT. For each HTTP method, the following parameters are defined.
             
-            -   **responses:** An object to hold responses that can be used across operations. See the Swagger specification for details. **
-            **
-            -   **x-auth-type** : WSO2-specific object to define the authentication type of the method.
-            -   **x-throttling-tier** : WSO2-specific object to define the throttling tier of the method.
+            -  **responses:** An object to hold responses that can be used across operations. See the Swagger specification for details. 
+            -  **x-auth-type** : WSO2-specific object to define the authentication type of the method.
+            -  **x-throttling-tier** : WSO2-specific object to define the throttling tier of the method.
     
         ``` java
         /order/{orderId}: 
@@ -194,15 +193,15 @@ In this tutorial, let's see how you can add interactive documentation to an API 
         ```
 
         ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-change-api-title.png)
-        You can see how this change is reflected in the Developer Portal in step 15.
+        You can see how this change is reflected in the Developer Portal in step 12.
 
     2.  Click **Apply Changes** and complete the API creation process.
 
 10. Complete the rest of the API creation process.
     For more information, see step 7 onwards under [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api/) section.
 
-11. Click **Go to APIStore** and the API you just published appears.
-12. Click **API Console** .
+11. Click **View in Dev Portal** and the API you just published appears.
+12. Click **Try Out** .
     Note that the changes that you made earlier now appear in the Developer Portal for consumers.
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-get-dev-portal.png)
     ![]({{base_path}}/assets/img/learn/tutorials/pizza-shack-api-put-dev-portal.png)
