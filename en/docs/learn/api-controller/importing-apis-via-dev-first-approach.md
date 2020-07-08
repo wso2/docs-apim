@@ -90,7 +90,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                 You can define scopes for a resource when defining a Swagger2 or OpenAPI3 specification to generate an API.
 
                 !!! example
-                    ```yaml
+                ```yaml
                     openapi: 3.0.0
                     info:
                     title: Online-Store
@@ -382,7 +382,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
     | `productionUrl` | Production endpoint for API.                            |
     | `sandboxUrl`| Sandbox endpoint for API.                               |
 
-    For more information about the configurations, see the [api.yaml](https://gist.github.com/kasvith/01e704611b6c301f470ab0e3b5cb0607).
+    For more information about the configurations, see the [Sample_Api.yaml](https://github.com/wso2/product-apim-tooling/blob/master/import-export-cli/box/resources/init/sample_api.yaml).
 
     **api.yaml**
 
