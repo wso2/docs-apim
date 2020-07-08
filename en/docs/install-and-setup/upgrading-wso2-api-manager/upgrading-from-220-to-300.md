@@ -293,7 +293,7 @@ current API Manager 2.2.0 version and run the below scripts against **the databa
     ```
     
     !!! note "NOTE"
-        Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
+        Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 !!! note
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-590).
@@ -327,7 +327,7 @@ Follow the instructions below to move all the existing API Manager configuration
     -   API Manager databases
 
     !!! note
-        In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
+        In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the user-related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
 
     SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
 
@@ -428,7 +428,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/tenants` directory with the copied contents.
 
     !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.0.0 version.
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modification in API-M 3.0.0 version.
 
         -   /api/\_RevokeAPI_.xml
         -   /sequences/\_cors_request_handler_.xml
@@ -1677,7 +1677,7 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and wants to consume it via an application that supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.
      

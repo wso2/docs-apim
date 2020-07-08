@@ -325,7 +325,7 @@ Follow the instructions below to move all the existing API Manager configuration
     -   API Manager databases
 
     !!! note
-        In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
+        In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the use-related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
 
     SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
 
@@ -426,7 +426,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.0.0_HOME>/repository/tenants` directory with the copied contents.
 
     !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.0.0 version.
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modification in API-M 3.0.0 version.
 
         -   /api/\_RevokeAPI_.xml
         -   /sequences/\_cors_request_handler_.xml
