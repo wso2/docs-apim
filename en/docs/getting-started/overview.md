@@ -10,12 +10,12 @@ WSO2 API Manager is the only 100% open-source product that addresses all aspects
 
 In brief, the WSO2 API Manager consists of 6 main components,
 
-* [API Publisher](#api-publisher)
-* [API Developer Portal](#api-developer-portal)
-* [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://docs.wso2.com/display/MG300/API+Microgateway+Documentation) as well)
-* [Key Manager](#key-manager)
-* [Traffic Manager](#traffic-manager)
-* [API Analytics](#analytics)
+- [API Publisher](#api-publisher)
+- [API Developer Portal](#api-developer-portal)
+- [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://docs.wso2.com/display/MG300/API+Microgateway+Documentation) as well)
+- [Key Manager](#key-manager)
+- [Traffic Manager](#traffic-manager)
+- [API Analytics](#analytics)
 
 For more information on these components see [Basic Architecture and Key Components](#basic-architecture-and-key-components).
 
@@ -23,27 +23,27 @@ The key features of the product are listed below.
 
 ## Key Features
 
-* Design and Prototype APIs
-* Publish API Products and Govern the Use of APIs
-* Control Access and Enforce Security
-* Developer Portal
-* Manage Developer Community
-* Manage and Scale API Traffic
-* Monitor and Monetize
-* Pluggable, Extensible, and Themeable
-* Easily Deployable in Your Enterprise
-* WSO2 Platform Multi-Tenancy Support
+- Design and Prototype APIs
+- Publish API Products and Govern the Use of APIs
+- Control Access and Enforce Security
+- Developer Portal
+- Manage Developer Community
+- Manage and Scale API Traffic
+- Monitor and Monetize
+- Pluggable, Extensible, and Themeable
+- Easily Deployable in Your Enterprise
+- WSO2 Platform Multi-Tenancy Support
 
 ## Basic Architecture and Key Components
 
 The WSO2 API Manager consists of 6 main components,
 
-* [API Publisher](#api-publisher)
-* [API Developer Portal](#api-developer-portal)
-* [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://docs.wso2.com/display/MG300/API+Microgateway+Documentation) as well)
-* [Key Manager](#key-manager)
-* [Traffic Manager](#traffic-manager)
-* [API Analytics](#analytics)
+- [API Publisher](#api-publisher)
+- [API Developer Portal](#api-developer-portal)
+- [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://docs.wso2.com/display/MG300/API+Microgateway+Documentation) as well)
+- [Key Manager](#key-manager)
+- [Traffic Manager](#traffic-manager)
+- [API Analytics](#analytics)
 
 A component is made up of one or more [OSGi](http://www.osgi.org/Technology/Home) bundles. A bundle is the modularization unit in OSGi, similar to a JAR file in Java.
 
@@ -92,13 +92,13 @@ Similarly, to validate a token, the API Gateway calls the Key Manager, which fet
 
 You can avoid making the Gateway connect with the Key Manager every time it receives an API invocation call, by enabling [API Gateway Caching]({{base_path}}/install-and-setup/setup/advance-configurations/configuring-caching). When caching is not enabled, a verification call happens every time the Gateway receives an API invocation call. For this verification, the Gateway passes an access token, the API, and API version to the Key Manager. Communication between the API Gateway and the Key Manager happens in either of the following ways:
 
-* Through a Web service call
+- Through a Web service call
 
 The Key Manager properly decouples the operations for creating OAuth applications and validating access tokens so that you can even plug in a third party-authorization server for key validations. In a typical production environment, you can configure one of the following setups:
 
-* Configure a WSO2 API Manager instance as the Key Manager in a separate server. See [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
-* Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager).
-* Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager).
+- Configure a WSO2 API Manager instance as the Key Manager in a separate server. See [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles).
+- Configure an instance of WSO2 Identity Server as the Key Manager. See [Configuring WSO2 Identity Server as the Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager).
+- Configure a third-party authorization server for key validations and an API Manager instance for the rest of the key management operations. See [Configuring a Third-Party Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager).
 
 #### Traffic Manager
 
