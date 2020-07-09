@@ -136,8 +136,10 @@ nav:
                             - Adding an Application Key Generation Workflow: learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
                 - Manage Subscriptions:
                       - Subscribe to an API: learn/consume-api/manage-subscription/subscribe-to-an-api.md
+                      - Update Subscription Tier: learn/consume-api/manage-subscription/update-api-subscription-tier.md
                       - Advanced Topics:
                             - Adding an API Subscription Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
+                            - Adding an API Subscription Tier Update Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
                 - Invoke APIs:
                       - Invoke an API Using the Integrated API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
                       - Invoke an GraphQL API using the Integrated GraphQL Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
