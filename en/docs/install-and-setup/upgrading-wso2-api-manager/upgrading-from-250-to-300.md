@@ -1425,9 +1425,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
     You have to run the following migration client to update the registry artifacts.
     
-    1. Download and extract the [migration-resources.zip](../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
+    1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.0-4.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.0-4.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -1444,12 +1444,12 @@ Follow the instructions below to move all the existing API Manager configuration
 7.  Re-index the artifacts in the registry.
 
 
-    1.  Run the [reg-index.sql](../../assets/attachments/install-and-setup/reg-index.sql) script against the configured `SHARED_DB` database.
+    1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the configured `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
@@ -1621,7 +1621,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         validationQuery = "SELECT 1"
         ```
 
-2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-3.jar](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.0-3.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.0.x-3.jar]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.0-4.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.0.0_HOME>/repository/components/lib` folder.
 
