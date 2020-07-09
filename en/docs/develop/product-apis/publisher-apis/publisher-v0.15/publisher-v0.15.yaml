@@ -9,7 +9,7 @@ info:
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - Publisher.
 
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.176/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API.
+    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API.
     This is written using [swagger 2.0](http://swagger.io/) specification.
   contact:
     name: "WSO2"
