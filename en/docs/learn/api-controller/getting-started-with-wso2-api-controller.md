@@ -20,6 +20,13 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
     ```
     The directory structure for the configuration files ( `<USER_HOME>/.wso2apictl` ) will be created upon the execution of the `apictl` command.
 
+    !!! Tip
+        If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
+
+        ```
+        export APICTL_CONFIG_DIR="/home/wso2user/CLI"
+        ```
+
 6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
 
