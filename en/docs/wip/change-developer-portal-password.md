@@ -51,13 +51,14 @@ Alternatively, you can display a list of policy guidelines on the password chang
    1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.  
      
    2. Edit the configuration as follows:  
-      ```  
- const Settings = { ... passwordChange: { guidelinesEnabled: true, ... }, }; ```  
+      ``
+ const Settings = { ... passwordChange: { guidelinesEnabled: true, ... }, }; 
+      ``  
 2. List your custom guidelines under `Settings.passwordChange.policyList`.  
   
-  ```  
+ ``
  const Settings = { ... passwordChange: { guidelinesEnabled: true, policyList: [ 'Policy 1', 'Policy 2', 'Policy 3', ], }, }; 
- ```  
+ ``
  
   <html>    
    <div class="admonition note">    
