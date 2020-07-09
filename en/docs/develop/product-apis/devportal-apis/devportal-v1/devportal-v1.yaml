@@ -19,9 +19,9 @@ swagger: '2.0'
 ######################################################
 info:
   version: "v1.0"
-  title: "WSO2 API Manager - Store"
+  title: "WSO2 API Manager - Developer Portal"
   description: |
-    This document specifies a **RESTful API** for WSO2 **API Manager** - Store.
+    This document specifies a **RESTful API** for WSO2 **API Manager** - Developer Portal.
 
     It is written with [swagger 2](http://swagger.io/).
 
