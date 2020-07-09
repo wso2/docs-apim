@@ -13,10 +13,10 @@ WSO2 analytics-apim consists a widget generator tool to automatically generate t
 
 Let’s assume that APIMApiTraffic widget is a subscriber widget and uses SiddhiDataProvider to retrieve the data. Follow the instructions mentioned below to create the widget.
 
-1. Navigate to the `<HOME>/wso2/tools/generator-widget` directory and issue the following command to install dependencies.
+1. Navigate to the `<HOME>/wso2/tools/generator-widget` directory and issue the following command to initialize the widget generator.
 
     ```
-       sudo npm install    
+       npm run init    
     ```
    Hereafter, above directory will be referred as `<TOOL_HOME>`.
    
