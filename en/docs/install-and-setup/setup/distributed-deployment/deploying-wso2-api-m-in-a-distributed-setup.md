@@ -479,6 +479,35 @@ This section involves setting up the Developer Portal node and enabling it to wo
         [apim.oauth_config]
         revoke_endpoint = "https://[API-Key-Manager-host-or-IP]:${mgt.transport.https.port}/oauth2/revoke"
         ```
+        
+    4.  Configure the Developer Portal with the Gateway.
+    
+            
+        ``` toml tab="Gateway with HA"
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        type = "hybrid"
+        display_in_api_console = true
+        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+        show_as_token_endpoint_url = true
+        ws_endpoint = "ws://[API-Gateway-LB-Host-or-IP]:9099"
+        wss_endpoint = "wss://[API-Gateway-LB-Host-or-IP]:8099"
+        http_endpoint = "http://[API-Gateway-LB-Host]"
+        https_endpoint = "https://[API-Gateway-LB]"
+        ```
+        
+        ``` toml tab="Single Gateway"
+        [[apim.gateway.environment]]
+        name = "Production and Sandbox"
+        type = "hybrid"
+        display_in_api_console = true
+        description = "This is a hybrid gateway that handles both production and sandbox token traffic."
+        show_as_token_endpoint_url = true
+        ws_endpoint = "ws://[API-Gateway-host-or-IP]:9099"
+        wss_endpoint = "wss://[API-Gateway-host-or-IP]:8099"
+        http_endpoint = "http://[API-Gateway-host-or-IP]:${http.nio.port}"
+        https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
+        ```
 
 3.  If you need to configure High Availability (HA) for the Developer Portal nodes, use a copy of the active instance configured above as the second active Developer Portal instance and configure a load balancer fronting the two Developer Portal instances.
             
@@ -547,9 +576,6 @@ This section involves setting up the Developer Portal node and enabling it to wo
         type= "hybrid"
         display_in_api_console= true
         description= "This is a hybrid gateway that handles both production and sandbox token traffic."
-        service_url= "https://gw.wso2.com:9447/services/"
-        username= "${admin.username}"
-        password= "${admin.password}"
         ws_endpoint= "ws://gw.wso2.com:9099"
         http_endpoint = "http://gw.wso2.com:8284"
         https_endpoint = "https://gw.wso2.com:8247"
