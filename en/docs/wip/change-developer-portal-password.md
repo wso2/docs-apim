@@ -21,25 +21,34 @@ Follow the instructions below to change your password:
   
 ## Use custom password policy
 You can define your custom password policy by defining one or both of the followings. 
-1. User store password regex
+    
+1. [User store password regex](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store/#configuring-a-jdbc-user-store)  
+Example:
+```toml
+[user_store]
+type = "database_unique_id"
+
+[user_store.properties]
+PasswordJavaRegEx = "^[\\S]{6,30}$"
+```
 2. [Identity management  password policies](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/security/identity-management-for-the-api-dev-portal/#password-policies)
 
 <html>    
-   <div class="admonition note">    
-   <p class="admonition-title">Note</p>    
-   <p>The password policy set by identity management password policies can be overridden by Management console for each tenant.
-</p>    
-   </div>    
-   </html>
-
+    <div class="admonition note">    
+        <p class="admonition-title">Note</p>    
+        <p>
+            The password policy set by identity management password policies can be overridden by Management console for each tenant.
+        </p>    
+    </div>
+</html>
 <html>    
-   <div class="admonition note">    
-   <p class="admonition-title">Note</p>    
-   <p>When changing the password, new password will be validated against all custom password policies. If the password policies are set to be in conflict of each other you may not be able to change your password.
-</p>    
-   </div>    
-   </html>
-
+    <div class="admonition note">    
+        <p class="admonition-title">Note</p>    
+        <p>
+            When changing the password, new password will be validated against all custom password policies. If the password policies are set to be in conflict of each other you may not be able to change your password.
+        </p>    
+    </div>
+</html>
 
 ## Display password policy guidelines
   
@@ -48,17 +57,35 @@ Alternatively, you can display a list of policy guidelines on the password chang
 [![DevPortal password policy guideline displaying]({{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png)]({{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png)  
   
 1. Enable Password changing guidelines in the `settings.js` file.  
-   1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.  
+
+    a. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.  
      
-   2. Edit the configuration as follows:  
-      ``
- const Settings = { ... passwordChange: { guidelinesEnabled: true, ... }, }; 
-      ``  
+    b. Edit the configuration as follows:  
+   
+ ```javascript
+ const Settings = { 
+    ...
+    passwordChange: { 
+        guidelinesEnabled: true, 
+        ... 
+    },
+ };
+ ```
 2. List your custom guidelines under `Settings.passwordChange.policyList`.  
-  
- ``
- const Settings = { ... passwordChange: { guidelinesEnabled: true, policyList: [ 'Policy 1', 'Policy 2', 'Policy 3', ], }, }; 
- ``
+ 
+  ```javascript
+  const Settings = { 
+     ...
+     passwordChange: { 
+         guidelinesEnabled: true, 
+         policyList: [
+             'Policy 1',
+             'Policy 2',
+             'Policy 3',
+         ],
+     },
+  };
+  ```
  
   <html>    
    <div class="admonition note">    
