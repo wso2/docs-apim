@@ -15,7 +15,7 @@ Follow the instructions below to change your password:
   
      [![Change Developer Portal password User Menu]({{base_path}}/assets/img/learn/change-devportal-password-user-menu-click.png)]({{base_path}}/assets/img/learn/change-devportal-password-user-menu-click.png)      
   
-3. Enter your old password, a new password, re-enter the new password, and thereafter click **SAVE** to submit changes.  
+3. Enter your old password, a new password, re-enter the new password, and thereafter click **SAVE** to submit changes. The new password should adhere to the custom password policies as described below.
   
      [![Developer portal password change submit]({{base_path}}/assets/img/learn/change-devportal-password-submiting.png)]({{base_path}}/assets/img/learn/change-devportal-password-submiting.png)  
   
@@ -45,7 +45,7 @@ PasswordJavaRegEx = "^[\\S]{6,30}$"
     <div class="admonition note">    
         <p class="admonition-title">Note</p>    
         <p>
-            When changing the password, new password will be validated against all custom password policies. If the password policies are set to be in conflict of each other you may not be able to change your password.
+            When changing the password, new password will be validated against user store password regex and identity management password policies. If the password policies are set to be in conflict of each other you may not be able to change your password.
         </p>    
     </div>
 </html>
