@@ -4051,7 +4051,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ""
+        example: []
       subscriptionCount:
         type: integer
       keys:
@@ -4063,7 +4063,7 @@ definitions:
         type: object
         additionalProperties:
           type: string
-        example: External Reference ID, Billing Tier
+        example: { "External Reference ID" : "12345" }
       subscriptionScopes:
         type: array
         items:
@@ -4108,7 +4108,7 @@ definitions:
         type: integer
       attributes:
         type: object
-        example: External Reference ID, Billing Tier
+        example: { "External Reference ID" : "12345" }
       owner:
         type: string
         example: admin
@@ -4341,6 +4341,9 @@ definitions:
           - ON_HOLD
           - REJECTED
         example: UNBLOCKED
+      redirectionParams:
+        type: string
+        description: A url & other parameters the subscriber can be redirected.
 
 
 #-----------------------------------------------------
@@ -4642,6 +4645,7 @@ definitions:
         items:
           type: string
         description: Grant types that should be supported by the application
+        example: ["refresh_token","urn:ietf:params:oauth:grant-type:saml2-bearer","password","client_credentials","iwa:ntlm","urn:ietf:params:oauth:grant-type:jwt-bearer"]
       callbackUrl:
         type: string
         description: Callback URL
@@ -5062,6 +5066,9 @@ definitions:
         default: false
       apiGatewayEndpoint:
         type: string
+      enableEmailUsername:
+        type: boolean
+        default: false
 #-----------------------------------------------------
 # The Application Attribute resource
 #-----------------------------------------------------
