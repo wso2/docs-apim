@@ -1,3 +1,4 @@
+# Admin API v0.15
 ---
 template: templates/swagger.html
 ---

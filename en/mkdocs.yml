@@ -309,25 +309,25 @@ nav:
         - Product REST APIs:
             - RESTful APIs: develop/product-apis/restful-apis.md
             - Getting Started:
-                - Publisher v1: develop/product-apis/getting-started/guide-publisher-v1.md
-                - Developer Portal v1: develop/product-apis/getting-started/guide-devportal-v1.md
-                - Publisher v0.15: develop/product-apis/getting-started/guide-publisher-v0.15.md
-                - Developer Portal v0.15: develop/product-apis/getting-started/guide-devportal-v0.15.md
-                - Admin Portal v0.15: develop/product-apis/getting-started/guide-admin-v0.15.md
+                - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
+                - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
+                - Publisher API v0.15: develop/product-apis/getting-started/guide-publisher-v0.15.md
+                - Developer Portal API v0.15: develop/product-apis/getting-started/guide-devportal-v0.15.md
+                - Admin API v0.15: develop/product-apis/getting-started/guide-admin-v0.15.md
             - Configuring the REST API: develop/product-apis/configuring-rest-api.md
-            - WSO2 Publisher APIs:
-                - WSO2 Publisher v1:              
-                    - WSO2 Publisher API v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-                - WSO2 Publisher v0.15:
-                    - WSO2 Publisher API v0.15: develop/product-apis/publisher-apis/publisher-v0.15/publisher-v0.15.md
-            - WSO2 Developer Portal APIs:
-                - WSO2 Developer Portal v1:
-                    - WSO2 Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-                - WSO2 Developer Portal v0.15:
-                    - WSO2 Developer Portal API v0.15: develop/product-apis/devportal-apis/devportal-v0.15/devportal-v0.15.md
-            - WSO2 Admin Portal APIs:
-                - WSO2 Admin Portal API v0.15:
-                    - WSO2 Admin Portal API v0.15: develop/product-apis/admin-apis/admin-v0.15/admin-v0.15.md
+            - Publisher APIs:
+                - Publisher v1:              
+                    - Publisher API v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                - Publisher v0.15:
+                    - Publisher API v0.15: develop/product-apis/publisher-apis/publisher-v0.15/publisher-v0.15.md
+            - Developer Portal APIs:
+                - Developer Portal v1:
+                    - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+                - Developer Portal v0.15:
+                    - Developer Portal API v0.15: develop/product-apis/devportal-apis/devportal-v0.15/devportal-v0.15.md
+            - Admin APIs:
+                - Admin API v0.15:
+                    - Admin API v0.15: develop/product-apis/admin-apis/admin-v0.15/admin-v0.15.md
         - Admin Services: develop/wso2-admin-services.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
