@@ -45,7 +45,7 @@ PasswordJavaRegEx = "^[\\S]{6,30}$"
     <div class="admonition note">    
         <p class="admonition-title">Note</p>    
         <p>
-            When changing the password, new password will be validated against user store password regex and identity management password policies. If the password policies are set to be in conflict of each other you may not be able to change your password.
+            When changing the password, new password will be validated against user store password regex and conditions enforced by identity management password policy. If these conditions/regex patterns are set to be in conflict with each other, you may not be able to change your password.
         </p>    
     </div>
 </html>
