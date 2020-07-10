@@ -1,5 +1,3 @@
-# Developer Portal v1
-
 ---
 template: templates/swagger.html
 ---

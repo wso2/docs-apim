@@ -1,4 +1,3 @@
-# Publisher API v1
 ---
 template: templates/swagger.html
 ---
