@@ -9,7 +9,7 @@ Thus, a solution with an extension point which can be configurable to store thes
 
 ###API Publish/ Update / Remove when the API Gateway is running
 
-  [![Lifecycle tab]({{base_path}}/assets/img/learn/sam.png)]({{base_path}}/assets/img/learn/sam.png)
+  [![]({{base_path}}/assets/img/learn/sam.png)]({{base_path}}/assets/img/learn/sam.png)
 
 1. When an API gets Published, Edited, or removed, the synapse artifacts corresponding to that API will be Stored or
  updated  in the extension point. 
@@ -27,7 +27,7 @@ There will be an extension in the publisher profile to store the synapse artifac
 ###API Gateway at the startup
 
 
-  [![Lifecycle tab]({{base_path}}/assets/img/learn/gateway-startup.png)]({{base_path}}/assets/img/learn/gateway-startup.png)
+  [![]({{base_path}}/assets/img/learn/gateway-startup.png)]({{base_path}}/assets/img/learn/gateway-startup.png)
   
 At startup, the gateway will look on the APIs with labels which it is subscribed to, in the extension, and fetch the synapse artifacts of those APIs. Those synapse artifacts will get deployed in the gateway.
 
@@ -38,12 +38,16 @@ Gateways are subscribed to the traffic manager. There is an extension in the gat
 You need to configure Gateway and Publisher node as given below to save artifacts and retrieve artifacts through
 corresponding extensions
 
-##Publisher Profile Configuration
+##Publisher Profile 
+
+Update `<API-M_HOME>/repository/conf/deployment.toml` file as follows, and change the default values according to your
+ need. 
+
 
 ```
 [apim.sync_runtime_artifacts.publisher]
 artifact_saver = "DBSaver"
-publish_directly_to_gateway = 
+publish_directly_to_gateway = "true"
 ```
 
  - Through artifact_saver we can specify the extension point. The default is `DBSaver` where the artifacts are saved in
@@ -56,6 +60,9 @@ publish_directly_to_gateway =
 
 
 ##Gateway Profile Configuration
+
+Update `<API-M_HOME>/repository/conf/deployment.toml` file as follows, and change the default values according to your
+ need. 
 
 ```
 [apim.sync_runtime_artifacts.gateway]
