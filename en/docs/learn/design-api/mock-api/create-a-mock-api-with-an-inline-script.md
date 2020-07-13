@@ -1,6 +1,6 @@
 # Creating a Prototype API with Mock Payload Generated Inline Scripts
 
-Thee prototype implementation in WSO2 API Manager gives users the ability to prototype APIs with inline scripts for testing purposes and as an early promotion. This allows subscribers to try out and test APIs without subscriptions or monetizations, allowing them to provide feedback to improve APIs. Publishers can use this to make changes to the APIs requested by users. The WSO2 API Manager prototype implementation allows you to generate a mock payload based on an API definition. You can prototype an API using the inbuilt JavaScript engine without having to manually write the JavaScript implementation for each resource.
+The prototype implementation in WSO2 API Manager gives users the ability to prototype APIs with inline scripts for testing purposes and as an early promotion. This allows subscribers to try out and test APIs without subscriptions or monetizations, allowing them to provide feedback to improve APIs. Publishers can use this to make changes to the APIs requested by users. The WSO2 API Manager prototype implementation allows you to generate a mock payload based on an API definition. You can prototype an API using the inbuilt JavaScript engine without having to manually write the JavaScript implementation for each resource.
 
 Let's create a prototyped API with mock response payloads, deploy it as a prototype, and invoke it using the API Console, which is integrated into the Developer Portal.
 
@@ -14,12 +14,12 @@ For this let's use the following OpenAPI URL: `https://petstore.swagger.io/v2/sw
 
 2. Upload the OpenAPI URL or OpenAPI File and click **NEXT**.
 
-     [![Filled create api form]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)
-    
+     [![Filled create api form for existing]({{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png)]({{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png)
+             
 3. Provide the API name, context, and version. Thereafter, click **CREATE**.
 
-     [![Filled create api form for existing]({{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png)]({{base_path}}/assets/img/learn/create-api-using-openapi-url-filled.png)
-    
+     [![Filled create api form]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)
+         
       You are directed to the API overview page.
 
 4. Click **Endpoints** to navigate to the Endpoints page.
