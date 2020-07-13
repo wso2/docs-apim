@@ -26,6 +26,9 @@ There are two versions of REST APIs available for the API Publisher and Develope
   <tr>
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/admin-apis/admin-v0.16/guide/">WSO2 Admin API v0.16</a></td>
     <td> <b>WSO2 recommends that you use the Admin v0.16 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features with regard to the Admin Portal.</td>
+  
+  <tr>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/gateway-apis/gateway-v1/guide/">WSO2 Gateway API v1</a></td>
   </tr>
 
 </table>

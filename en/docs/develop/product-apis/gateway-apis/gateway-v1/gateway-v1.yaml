@@ -231,7 +231,7 @@ paths:
           type: string
 
       tags:
-        - Get API Artifact
+        - Get API Artifacts
       responses:
         200:
           description: |
@@ -297,7 +297,7 @@ paths:
         - $ref: '#/parameters/apiId-Q'
 
       tags:
-        - Get API Artifact
+        - Get API Artifacts
       responses:
         200:
           description: |
@@ -331,7 +331,6 @@ paths:
             $ref: '#/definitions/Error'
 
   /sequence:
-
     #-----------------------------------------------------
     # Get sequence for the API
     #-----------------------------------------------------
@@ -363,7 +362,7 @@ paths:
         - $ref: '#/parameters/apiId-Q'
 
       tags:
-        - Get API Sequences
+        - Get API Artifacts
       responses:
         200:
           description: |
@@ -429,7 +428,7 @@ paths:
         - $ref: '#/parameters/apiId-Q'
 
       tags:
-        - Get API Artifact
+        - Get API Artifacts
       responses:
         200:
           description: |
@@ -513,11 +512,15 @@ definitions:
       deployedEndpoints:
         description: |
           The end points which has been deployed in the gateway
-        type: string
+        type: array
+        items:
+          type: string
       UnDeployedEndpoints:
         description: |
           The end points which has not been deployed in the gateway
-        type:
+        type: array
+        items:
+          type: string
 
   #-----------------------------------------------------
   # The Sequence response resource
@@ -528,11 +531,17 @@ definitions:
       deployedSequences:
         description: |
           The sequences which has been deployed in the gateway
-        type: string
+        type: array
+        items:
+          type: string
+          example: "<sequence xmlns=\"http://ws.apache.org/ns/synapse\" name=\"PizzaShackAPI--v1.0.0_APIproductionEndpoint\"><http uri-template=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"><timeout><responseAction>fault</responseAction></timeout></http><property name=\"ENDPOINT_ADDRESS\" value=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"/></sequnce>"
       UnDeployedSequences:
         description: |
           The sequences which has not been deployed in the gateway
-        type: string
+        type: array
+        items:
+          type: string
+          example: "<sequence xmlns=\"http://ws.apache.org/ns/synapse\" name=\"PizzaShackAPI--v1.0.0_APIproductionEndpoint\"><http uri-template=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"><timeout><responseAction>fault</responseAction></timeout></http><property name=\"ENDPOINT_ADDRESS\" value=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"/></sequnce>"
 
   #-----------------------------------------------------
   # The Local Entry response resource
@@ -543,11 +552,17 @@ definitions:
       deployedLocalEntries:
         description: |
           The local entries which has been deployed in the gateway
-        type: string
+        type: array
+        items:
+          type : string
+          example : "localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\"ga-config-key\" type=\"1\"><GoogleAnalyticsTracking xmlns=\"\">\n\t<!--Enable/Disable Google Analytics Tracking -->\n\t<Enabled>false</Enabled>\n\n\t<!-- Google Analytics Tracking ID -->\n\t<TrackingID>UA-XXXXXXXX-X</TrackingID>\n\n</GoogleAnalyticsTracking></localEntry>"
       UnDeployedLocalEntries:
         description: |
           The local entries which has not been deployed in the gateway
-        type: string
+        type: array
+        items:
+          type : string
+          example: "localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\"ga-config-key\" type=\"1\"><GoogleAnalyticsTracking xmlns=\"\">\n\t<!--Enable/Disable Google Analytics Tracking -->\n\t<Enabled>false</Enabled>\n\n\t<!-- Google Analytics Tracking ID -->\n\t<TrackingID>UA-XXXXXXXX-X</TrackingID>\n\n</GoogleAnalyticsTracking></localEntry>"
 
   #-----------------------------------------------------
   # The API Artifact response resource
