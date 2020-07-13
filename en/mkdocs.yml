@@ -66,7 +66,7 @@ nav:
                       - Change the Thumbnail of an API : learn/design-api/create-api/change-api-thumbnail.md
                 - Publish APIs:
                       - Publish an API: learn/design-api/publish-api/publish-an-api.md
-                      - Publish an API with artifact synchrnization: learn/design-api/publish-api/publish-an-api-with-artifact-synchronization.md
+                      - Publish an API with artifact synchronization: learn/design-api/publish-api/publish-an-api-with-artifact-synchronization.md
                       - Publish through Multiple API Gateways: learn/design-api/publish-api/publish-through-multiple-api-gateways.md
                       - Publish to Multiple External API Developer Portals: learn/design-api/publish-api/publish-to-multiple-external-api-stores.md
                 - Prototype APIs:
@@ -695,5 +695,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
-    base_path: https://apim.docs.wso2.com/en/next
-the same
+    base_path: http://localhost:8000

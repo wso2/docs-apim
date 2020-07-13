@@ -26,7 +26,8 @@ There will be an extension in the publisher profile to store the synapse artifac
 
 ###API Gateway at the startup
 
-![](../../assets/img/learn/gateway-startup.png)
+
+  [![Lifecycle tab]({{base_path}}/assets/img/learn/gateway-startup.png)]({{base_path}}/assets/img/learn/gateway-startup.png)
   
 At startup, the gateway will look on the APIs with labels which it is subscribed to, in the extension, and fetch the synapse artifacts of those APIs. Those synapse artifacts will get deployed in the gateway.
 
