@@ -19,9 +19,9 @@ swagger: '2.0'
 ######################################################
 info:
   version: "v1.1"
-  title: "WSO2 API Manager - Developer Portal"
+  title: "WSO2 API Manager - Store"
   description: |
-    This document specifies a **RESTful API** for WSO2 **API Manager** - Developer Portal.
+    This document specifies a **RESTful API** for WSO2 **API Manager** - Store.
 
     It is written with [swagger 2](http://swagger.io/).
 
@@ -3842,7 +3842,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ""
+        example: []
       subscriptionCount:
         type: integer
       keys:
@@ -3854,7 +3854,7 @@ definitions:
         type: object
         additionalProperties:
           type: string
-        example: External Reference ID, Billing Tier
+        example: { "External Reference ID" : "12345" }
       subscriptionScopes:
         type: array
         items:
@@ -4434,6 +4434,7 @@ definitions:
         items:
           type: string
         description: Grant types that should be supported by the application
+        example: ["refresh_token","urn:ietf:params:oauth:grant-type:saml2-bearer","password","client_credentials","iwa:ntlm","urn:ietf:params:oauth:grant-type:jwt-bearer"]
       callbackUrl:
         type: string
         description: Callback URL
@@ -4866,6 +4867,10 @@ definitions:
       IsUnlimitedTierPaid:
         type: boolean
         default: false
+      allowedAppTokenTypes:
+        type: array
+        items:
+          type: string
 #-----------------------------------------------------
 # The Application Attribute resource
 #-----------------------------------------------------
