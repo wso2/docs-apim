@@ -311,6 +311,10 @@ nav:
                       - Admin Portal APIs v0.16:
                             - Getting Started: develop/product-apis/admin-apis/admin-v0.16/guide.md
                             - Admin Portal v0.16: develop/product-apis/admin-apis/admin-v0.16/admin-v1.md
+                - Gateway APIs:
+                        - Gateway APIs v1:
+                                - Getting Started: develop/product-apis/gateway-apis/gateway-v1/guide.md
+                                - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
           - Using the Registry REST API: develop/using-the-registry-rest-api.md
           - Using the Siddhi Store REST API: develop/analytics-rest-api.md
           - Extending WSO2 API Manager:
