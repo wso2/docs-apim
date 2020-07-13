@@ -695,4 +695,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
-    base_path: http://localhost:8000
+    base_path: https://apim.docs.wso2.com/en/next

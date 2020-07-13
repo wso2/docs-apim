@@ -35,7 +35,8 @@ Gateways are subscribed to the traffic manager. There is an extension in the gat
 
 ###Configuration Related to Artifact Synchronizer
 
-We need to configure Publisher and gateway Seperately to acheive the intended behaviour
+You need to configure Gateway and Publisher node as given below to save artifacts and retrieve artifacts through
+corresponding extensions
 
 ##Publisher Profile Configuration
 
@@ -45,13 +46,12 @@ artifact_saver = "DBSaver"
 publish_directly_to_gateway = 
 ```
 
-
-
- - Through artifact_saver we can specify the extension point. The default is DBSaver where the artifacts are saved in
+ - Through artifact_saver we can specify the extension point. The default is `DBSaver` where the artifacts are saved in
  the database.
- - If publish_directly_to_gateway = true then the artifacts will be published to the gateway directly. If
- publish_directly_to_gateway = false then the published API details will be notified to TM through events.
- - If we have apim.sync_runtime_artifacts.publisher config header then all the artifacts will be saved in the extension
+ - If `publish_directly_to_gateway = true` then the artifacts will be published to the gateway directly. If
+ `publish_directly_to_gateway = false` then the published API details will be notified to TM through events.
+ - If we have **apim.sync_runtime_artifacts.publisher** config header then all the artifacts will be saved in the
+  extension
  point.
 
 
@@ -67,14 +67,25 @@ save_artifacts_locally = false
 ```
 
 
- - Through artifact_retriever we can specify the extension point. The default is DBRetriever where the artifacts are
+ - Through artifact_retriever we can specify the extension point. The default is `DBRetriever` where the artifacts are
   pulled from the database.
+  
  - In gateway_labels we can specify the labels which the gateway is going to subscribe to. Only the APIs with these
   labels will be pulled from the extension point and deployed.
+  
  - We can specify the retry duration in milliseconds to deploy artifacts if there is a failure in pulling them from the
-  extension through deployment_retry_duartion. The retry duration specified here will be exponentially increased by a progression factor of 2. That means the duration will be progressed as 15s, 30s, 60s, 120s……. if there are continuous failures. And retry duration is bounded with 1 hr.
- - When save_artifacts_locally = false  then the artifacts from extension point will not be stored in the file system
- .  If save_artifacts_locally = true then synapse artifacts will be stored in the file system. (Saved in <APIM_HOME>/repository/deployment/server/synapse-configs/default/ )
- - Through data_retrieval_mode = “sync”  we can specify the mode of deployment of artifacts from the extension point
- . By default gateway Startup will be in a Synchronous manner. Here the server will wait until all the APIs have been deployed. If there is any failure in the deployment, it will again be triggered for n times where n is the maximum retry count. If the APIs are not deployed even in n retries then the server will start with un deployed API artifacts.
-If the user wants to switch the startup mode to an Asynchronous mode then he needs to specify it in the configs as data_retrieval_mode = "async". Here the server will be up, independent of the deployment of synapse artifacts in gateway.
+  extension through deployment_retry_duartion. The retry duration specified here will be exponentially increased by a 
+  progression factor of 2. That means the duration will be progressed as 15s, 30s, 60s, 120s……. if there are continuous
+  failures. And retry duration is bounded with 1 hr.
+   
+ - When `save_artifacts_locally = false`  then the artifacts from extension point will not be stored in the file
+  system. If `save_artifacts_locally = true` then synapse artifacts will be stored in the file system. (Saved in
+   `<APIM_HOME>/repository/deployment/server/synapse-configs/default/`)
+   
+ - Through `data_retrieval_mode = “sync” ` we can specify the mode of deployment of artifacts from the extension point
+ . By default gateway Startup will be in a Synchronous manner. Here the server will wait until all the APIs have been
+  deployed. If there is any failure in the deployment, it will again be triggered for n times where n is the maximum
+   retry count. If the APIs are not deployed even in n retries then the server will start with un deployed API artifacts.
+   If the user wants to switch the startup mode to an Asynchronous mode then he needs to specify it in the configs as
+  `data_retrieval_mode = "async"`. Here the server will be up, independent of the deployment of synapse artifacts in
+   gateway.
