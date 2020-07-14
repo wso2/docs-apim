@@ -23,7 +23,7 @@ site_url: https://apim.docs.wso2.com/en/next/
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/3.2.0/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -293,26 +293,23 @@ nav:
     - Develop:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
+                - Getting Started:
+                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v0.16.md 
+                    - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
+                    - Publisher API v0.16: develop/product-apis/getting-started/guide-publisher-v0.16.md
+                    - Developer Portal API v0.16: develop/product-apis/getting-started/guide-devportal-v0.16.md
+                    - Admin API v0.16: develop/product-apis/getting-started/guide-admin-v1.md
+                - Configuring the REST API: develop/product-apis/configuring-rest-api.md
                 - Publisher APIs:
-                      - Publisher v1:
-                            - Getting Started: develop/product-apis/publisher-apis/publisher-v1/guide.md
-                            - Publisher API v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-                      - Publisher v0.16:
-                            - Getting Started: develop/product-apis/publisher-apis/publisher-v0.16/guide.md
-                            - Publisher API v0.16: develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16.md
+                    - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                    - Publisher v0.16: develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16.md
                 - Developer Portal APIs:
-                      - Developer Portal API v1:
-                            - Getting Started: develop/product-apis/devportal-apis/devportal-v1/guide.md
-                            - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-                      - Developer Portal API v0.16:
-                            - Getting Started: develop/product-apis/devportal-apis/devportal-v0.16/guide.md
-                            - Developer Portal API v0.16: develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16.md
-                - Admin Portal APIs:
-                      - Admin Portal APIs v0.16:
-                            - Getting Started: develop/product-apis/admin-apis/admin-v0.16/guide.md
-                            - Admin Portal v0.16: develop/product-apis/admin-apis/admin-v0.16/admin-v1.md
-          - Using the Registry REST API: develop/using-the-registry-rest-api.md
-          - Using the Siddhi Store REST API: develop/analytics-rest-api.md
+                    - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+                    - Developer Portal API v0.16: develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16.md
+                - Admin APIs:
+                    - Admin APIs v0.16: develop/product-apis/admin-apis/admin-v0.16/admin-v0.16.md
+                - Using the Registry REST API: develop/using-the-registry-rest-api.md
+                - Using the Siddhi Store REST API: develop/analytics-rest-api.md
           - Extending WSO2 API Manager:
                 - Extending Key Management:
                       - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
@@ -675,6 +672,12 @@ plugins:
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics/'
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider/'
               'learn/tutorials/edit-and-consume-apis-using-swagger-tools.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/tutorials/edit-an-api-by-modifyng-the-api-definition/'
+              'develop/product-apis/admin-apis/admin-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-admin-v1/'
+              'develop/product-apis/admin-apis/publisher-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-publisher-v0.16/'
+              'develop/product-apis/admin-apis/publisher-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-publisher-v1/'
+              'develop/product-apis/admin-apis/devportal-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v1/'
+              'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
+              'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
