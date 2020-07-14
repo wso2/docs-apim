@@ -16,20 +16,20 @@ Follow the instructions below to use Basic Auth as the endpoint authentication t
 
 1. Click **Endpoints** in API Publisher.
 
-2. Click the Endpoint Security symbol (highlighted in red below) of the endpoint you want to secure with Basic Auth.
+2. Click the Endpoint Security symbol of the endpoint that you want to secure with Basic Auth.
 
-     ![endpoint-security-symbol]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
+      [![endpoint security symbol]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
 
 3. Select **Basic Auth** as the endpoint authentication type from the drop-down menu.
 
-     ![basic-auth-dropdown]({{base_path}}/assets/img/learn/basic-auth-dropdown.png)
+     [![basic auth dropdown]({{base_path}}/assets/img/learn/basic-auth-dropdown.png)]({{base_path}}/assets/img/learn/basic-auth-dropdown.png)
 
-4. After entering your credentials, click on the **Submit** button to confirm the details of the respective endpoint and then click on the **Save** button in the Endpoints page to save all the changes made in the **Endpoints** page.
+4. After entering your credentials, click **Submit** to confirm the details of the respective endpoint and then click **Save** in the Endpoints page to save all the changes made in the **Endpoints** page.
 
-     ![basic-auth-submit-button]({{base_path}}/assets/img/learn/basic-auth-submit-button.png)
+     [![basic auth submit button]({{base_path}}/assets/img/learn/basic-auth-submit-button.png)]({{base_path}}/assets/img/learn/basic-auth-submit-button.png)
 
-     ![endpoints-save-button]({{base_path}}/assets/img/learn/endpoints-save-button.png)
+     [![endpoints save button]({{base_path}}/assets/img/learn/endpoints-save-button.png)]({{base_path}}/assets/img/learn/endpoints-save-button.png)
 
 !!! info
     The Endpoint Auth Type selected should match with the authentication mechanism supported by the secured endpoint.
-
+    
