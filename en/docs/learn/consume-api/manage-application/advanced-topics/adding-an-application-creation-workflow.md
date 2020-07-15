@@ -1,8 +1,8 @@
 # Adding an Application Creation Workflow
 
-This section explains as to how you can attach a custom workflow to the application creation operation in WSO2 API Manager (WSO2 API-M).
+This section explains as to how you can enable a simple approval workflow to the application creation operation in WSO2 API Manager (WSO2 API-M).
 
-Attaching a custom workflow to application creation allows you to control the creation of applications within the Developer Portal by allowing to approve or reject the request for application creation. An application is the entity that holds a set of subscribed  API's that would be accessed by a authorization key specified for that particular application. Therefore, controlling the creation of these applications would be a decision based on the organization's requirements. 
+Attaching a custom workflow to application creation provides the ability to control the creation of applications (approve or reject the request for application creation) in the Developer Portal. An application is an entity that holds a set of subscribed APIs, accessed by an authorization key generated for that particular application.Therefore, controlling the creation of these applications would be a decision based on the organization's requirements. 
 
 Example usecase:
 
@@ -21,7 +21,7 @@ First enable the approve workflow executor for application creation.
 
     <a href="{{base_path}}/assets/img/learn/wf-extensions-browse.png"><img src="{{base_path}}/assets/img/learn/wf-extensions-browse.png" width="250" height="100"/></a>
     
-3.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor, and enable **Approval Workflow Executor** for application creation.
+3.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, click on `Edit as text` to edit the file, disable the Simple Workflow Executor, and enable **Approval Workflow Executor** for application creation.
 
     ``` xml
     <WorkFlowExtensions>
@@ -30,7 +30,7 @@ First enable the approve workflow executor for application creation.
     </WorkFlowExtensions>
     ```
 
-    The application creation Approve Workflow Executor is now engaged.
+    Once the changes are done, click on `Save Content` .The application creation Approve Workflow Executor is now engaged.
 
 4.  Create an application via the Developer Portal.
     
@@ -42,28 +42,12 @@ First enable the approve workflow executor for application creation.
                   
          Note that the **Status** field of the application states **INACTIVE** (Waiting for approval)
 
-         [![Application status is INACTIVE - Waiting for approval]({{base_path}}/assets/img/learn/application-creation-inactive.png) ]({{base_path}}/assets/img/learn/application-creation-inactive.png)
+    [![Application status is INACTIVE - Waiting for approval]({{base_path}}/assets/img/learn/application-creation-inactive.png)]({{base_path}}/assets/img/learn/application-creation-inactive.png)
 
-4.  Sign in to the Admin Portal (`https://localhost:9443/admin`), list all the tasks for application creation  from **Tasks** --> **Application Creation** and approve or reject the task. 
+5.  Sign in to the Admin Portal (`https://localhost:9443/admin`), list all the tasks for application creation  from **Tasks** --> **Application Creation** and approve or reject the task. 
      
-     [![Approve tasks]({{base_path}}/assets/img/learn/application-creation-pending-request.png)]({{base_path}}/assets/img/learn/application-creation-pending-request.png)
+    [![Approve tasks]({{base_path}}/assets/img/learn/application-creation-pending-request.png)]({{base_path}}/assets/img/learn/application-creation-pending-request.png)
 
-
-5.  Go back to the **Applications** page in the WSO2 Developer Portal and see the created application.
+6.  Go back to the **Applications** page in the WSO2 Developer Portal and see the created application.
 
     Check whether the status is updated to **ACTIVE** or **REJECTED**.
-
-    Elements of the above configuration are described below:
-
-    | Element                                                           | Description                                                                                                                                                                                                                       |
-    |-------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | applicationName                                                   | Name of the application the user creates.                                                                                                                                                                                         |
-    | applicationTier                                                   | Throttling tier of the application.                                                                                                                                                                                               |
-    | applicationCallbackUrl                                            | When the OAuth2 Authorization Code grant type is applied, this is the endpoint on which the callback needs to happen after the user is authenticated. This is an attribute of the actual application registered on the Developer Portal. |
-    | applicationDescription                                            | Description of the application                                                                                                                                                                                                    |
-    | tenantDomain                                                      | Tenant domain associated with the application (domain of the user creating the application).                                                                                                                                      |
-    | userName                                                          | Username of the user creating the application.                                                                                                                                                                                    |
-    | `workflowExternalRef` | The unique reference against which a workflow is tracked. This needs to be sent back from the workflow engine to the API Manager at the time of workflow completion.                                                              |
-    | callBackURL                                                       | This property is configured in the `<callBackURL>` element in the `workflow-extensions.xml` registry file.                                                          |
-
-

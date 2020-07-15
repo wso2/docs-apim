@@ -1,6 +1,6 @@
 # Adding a User Signup Workflow
 
-This section explains how to attach a custom workflow to the user signup operation in the API Manager. 
+This section explains how to enable a simple approval workflow to the user signup operation in the API Manager. 
 
 
 #### Engaging the Approval Workflow Executor in the API Manager
@@ -41,12 +41,3 @@ This section explains how to attach a custom workflow to the user signup operati
 
 7.  Go back to the Developer Portal and see that the user is now registered. If the user is successfully registered then user can login to devportal successfully with that account.
 
-
-Elements of the above configuration are described below:
-
-| Element                                              | Description                                                                                                      |                                                                                                                                                                              
-|----------------------------------------------------  |-------------------------------------------------------------------------------------------------------------------|
-|`userName`                                            | The user name requested by the user                                                                               |
-|`tenantDomain`                                        | Domain to which the user belongs to                                                                               |
-|`workflowExternalRef`                                 | The unique reference against which a workflow is tracked. This needs to be sent from the workflow engine to the API Manager at the time of workflow completion.                                                                                                                                |
-|`callBackURL`                                         | The URL to which the workflow completion request is sent by the workflow engine, at the time of workflow completion. This property is configured under the `callBackURL` property in the `workflow-extensions.xml registry` file.                                                               |

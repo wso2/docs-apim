@@ -1,6 +1,6 @@
 # Adding an API State Change Workflow
 
-This section explains how to add a custom workflow to control the API state changes in the API Manager. Before you begin, see [Workflow Extensions]({{base_path}}/learn/extensions/managing-workflow-extension/invoking-the-api-manager-from-the-bpel-engine) for more information on the different types of workflow executors, and also, see [API Lifecycle]({{base_path}}/getting-started/key-concepts#api-lifecycle) to get a better understanding on the API states.
+This section explains how to add a simple approval workflow to control the API state changes in the API Manager. Before you begin, see [Workflow Extensions]({{base_path}}/learn/extensions/managing-workflow-extension/invoking-the-api-manager-from-the-bpel-engine) for more information on the different types of workflow executors, and also, see [API Lifecycle]({{base_path}}/getting-started/key-concepts#api-lifecycle) to get a better understanding on the API states.
 
 
 ### Engaging the Approval Workflow Executor in the API Manager
@@ -63,17 +63,7 @@ First, enable the API state change workflow for **Approval Workflow Executor**.
 The elements of the above configuration are explained below.
 
 | Element name                                       | Description                                                                                                                                               |
-|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Enabled`| Enables the Admin Portal to approve state change tasks.                                                                                                   |
-| `ServerUrl`| The URL of the BPMN server.                                                                                                                               |
-| `ServerUser`| User accessing the BPMN REST API.                                                                                                                         |
-| `ServerPassword`| Password of the user accessing the BPMN REST API.                                                                                                         |
-| `WorkflowCallbackAPI` | The REST API invoked by the BPMN to complete the workflow.                                                                                                |
-| `TokenEndPoint`| The API call to generate the access token is passed to the BPMN process. Once the access token is received, it is used to call the workflow callback API. |
-| `DCREndPoint`| Endpoint to generate OAuth application. This application is used by the BPMN process to generate the token.                                               |
-| `DCREndPointUser`| Endpoint user.                                                                                                                                            |
-| `DCREndPointPassword` | Endpoint password.                                                                      f                                                                  |
+|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|                                                                f                                                                  |
 | `stateList`| Mandatory          | This is a comma separated list of the current state and intended action. For example, Created:Publish,Published:Block 
 
-The elements of the above configuration are explained below.
                                                                 |
