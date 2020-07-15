@@ -6860,12 +6860,16 @@ definitions:
         type: array
         items:
           type: string
-        example: ["Pizzashack", "Petstore"]
+        example: "Pizzashack", "Petstore"
       mediationPolicies:
         type: array
         items:
           $ref: '#/definitions/MediationPolicy'
-        example:  [ {"name": "json_to_xml_in_message","type": "in"}, {"name": "xml_to_json_out_message","type": "out"}, {"name": "json_fault","type": "fault"} ]
+          example: [
+            {"name": "json_to_xml_in_message","type": "in"},
+            {"name": "xml_to_json_out_message","type": "out"},
+            {"name": "json_fault","type": "fault"}
+          ]
       subscriptionAvailability:
         type: string
         description: The subscription availability. Accepts one of the following. current_tenant, all_tenants or specific_tenants.
@@ -6920,10 +6924,10 @@ definitions:
         example: APPROVED
       createdTime:
         type: string
-        example: "2017-02-20T13:57:16.229"
+        example: '2017-02-20T13:57:16.229'
       lastUpdatedTime:
         type: string
-        example: "2017-02-20T13:57:16.229"
+        example: '2017-02-20T13:57:16.229'
       endpointConfig:
         type: object
         description: |
