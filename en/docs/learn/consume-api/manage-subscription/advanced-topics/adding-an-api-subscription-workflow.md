@@ -1,6 +1,6 @@
 # Adding an API Subscription Workflow
 
-This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.
+This section explains how to attach a simple approval workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.
 
 Attaching a custom workflow to API subscription enables you to add throttling tiers to an API that consumers cannot choose at the time of subscribing. Only admins can set these tiers to APIs. When a consumer subscribes to an API, he/she has to subscribe to an application in order to get access to the API. However, when API subscription workflow is enabled, when the consumer subscribes to an application, it initially is in the `On Hold` state, and he/she can not use the API, using its production or sandbox keys, until their subscription is approved.
 
@@ -40,20 +40,3 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
     ![]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
 
 5.  Go back to the API Devportal and see that the user is now subscribed to the API.
-
-
-    Elements of the above configuration are described below:
-
-    | Element                                            | Description                                                                                                                                                                                                                                                                                     |
-    |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | apiName                                            | Name of the API to which subscription is requested.                                                                                                                                                                                                                                             |
-    | apiVersion                                         | Version of the API the user subscribes to.                                                                                                                                                                                                                                                      |
-    | apiContext                                         | Context in which the requested API is to be accessed.                                                                                                                                                                                                                                           |
-    | apiProvider                                        | Provider of the API.                                                                                                                                                                                                                                                                            |
-    | subscriber                                         | Name of the user requesting subscription.                                                                                                                                                                                                                                                       |
-    | applicationName                                    | Name of the application through which the user subscribes to the API.                                                                                                                                                                                                                           |
-    | tierName                                           | Throttling tiers specified for the application.                                                                                                                                                                                                                                                 |
-    | `workflowExternalRef` | The unique reference against which a workflow is tracked. This needs to be sent back from the workflow engine to the API Manager at the time of workflow completion.                                                                                                                            |
-    | callBackURL                                        | The URL to which the Workflow completion request is sent to by the workflow engine, at the time of workflow completion. This property is configured in the `<callBackURL>` element in the `workflow-extensions.xml` registry file |
-
-
