@@ -11,7 +11,7 @@ First, enable the API state change workflow for **Approval Workflow Executor**.
 
 2. Click **Resources** --> **Browse**.
      
-     [![Resources Browse Menu]({{base_path}}/assets/img/learn/wf-extensions-browse.png)]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
+     ![Resources Browse Menu]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
 
 3.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable Approval Workflow Executor.
 

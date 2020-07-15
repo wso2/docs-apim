@@ -40,11 +40,11 @@ First enable the approve workflow executor for application creation.
                   
          Note that the **Status** field of the application states **INACTIVE** (Waiting for approval)
 
-    [![Application status is INACTIVE - Waiting for approval]({{base_path}}/assets/img/learn/application-creation-inactive.png)]({{base_path}}/assets/img/learn/application-creation-inactive.png)
+    ![Application status is INACTIVE - Waiting for approval]({{base_path}}/assets/img/learn/application-creation-inactive.png)
 
 5.  Sign in to the Admin Portal (`https://localhost:9443/admin`), list all the tasks for application creation  from **Tasks** --> **Application Creation** and approve or reject the task. 
      
-    [![Approve tasks]({{base_path}}/assets/img/learn/application-creation-pending-request.png)]({{base_path}}/assets/img/learn/application-creation-pending-request.png)
+    ![Approve tasks]({{base_path}}/assets/img/learn/application-creation-pending-request.png)
 
 6.  Go back to the **Applications** page in the WSO2 Developer Portal and see the created application.
 
