@@ -6,7 +6,7 @@
 
     ![Browse resources]({{base_path}}/assets/img/learn/wf-extensions-browse.png)
 
-2.  Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the **Simple Workflow Executor** and enable **Approval Workflow Executor** for user self sign up.
+2.  Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the **UserSignUpSimpleWorkflowExecutor** and enable **UserSignUpApprovalWorkflowExecutor** for user self sign up.
 
     ```
     <WorkFlowExtensions>
@@ -21,7 +21,7 @@
    
     ![Create new  Account]({{base_path}}/assets/img/learn/devportal-create-account.png)
 
-4.  Note the message that appears if the Approval Workflow Executor is invoked correctly, saying that the request is successfully submitted.
+4.  Note that a message "User registration completed successfully " appears if the Approval Workflow Executor is invoked correctly
 
     ![Browse resources]({{base_path}}/assets/img/learn/user-registration-success.png)
 
