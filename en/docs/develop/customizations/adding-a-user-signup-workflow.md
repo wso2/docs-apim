@@ -1,8 +1,5 @@
 # Adding a User Signup Workflow
 
-This section explains how to enable a simple approval workflow to the user signup operation in the API Manager. 
-
-
 #### Engaging the Approval Workflow Executor in the API Manager
 
 1.  Log in to API-M management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
