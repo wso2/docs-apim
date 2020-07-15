@@ -19,19 +19,19 @@ Follow the instructions below to use Digest Auth as the endpoint authentication 
 
 1. Click **Endpoints** in the API Publisher.
 
-2. Click the Endpoint Security symbol (highlighted in red below) of the endpoint you want to secure with Digest Auth.
+2. Click the Endpoint Security symbol of the endpoint you want to secure with Digest Auth.
 
-     ![endpoint-security-symbol]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
+     [![endpoint-security-symbol]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)]({{base_path}}/assets/img/learn/endpoint-security-symbol.png)
 
 3. Select **Digest Auth** as the endpoint authentication type from the drop-down menu.
 
-     ![digest-auth-dropdown]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)
+     [![digest-auth-dropdown]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)]({{base_path}}/assets/img/learn/digest-auth-dropdown.png)
 
-4. After entering your credentials, click on the **Submit** button to confirm the details of the respective endpoint and then click on the **Save** button in the Endpoints page to save all the changes made in the **Endpoints** page.
+4. After entering your credentials, click **Submit** to confirm the details of the respective endpoint and then click **Save** in the Endpoints page to save all the changes made in the **Endpoints** page.
 
-     ![digest-auth-submit-button]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)
+      [![digest-auth-submit-button]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)]({{base_path}}/assets/img/learn/digest-auth-submit-button.png)
 
-     ![endpoints-save-button]({{base_path}}/assets/img/learn/endpoints-save-button.png)
+      [![endpoints-save-button]({{base_path}}/assets/img/learn/endpoints-save-button.png)]({{base_path}}/assets/img/learn/endpoints-save-button.png)
 
 !!! info
      The selected Endpoint Auth Type should match with the authentication mechanism supported by the secured endpoint.
