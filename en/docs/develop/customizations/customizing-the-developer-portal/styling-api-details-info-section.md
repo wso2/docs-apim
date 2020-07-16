@@ -2,7 +2,7 @@
 
 The "API Details Info" section shown below, can be customized according to your design needs.
 
- [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)
+ [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)
 
 Edit the attributes in `themes.light.custom.infoBar` to change the styling "API Details Info" section and the "Application Details Info" section.
 
@@ -53,8 +53,8 @@ const Configurations = {
 
 ```
 
- ![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)
-
+ [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)
+ 
 ### Attribute options
 
 | Option | type | Description |
