@@ -69,13 +69,13 @@ const Configurations = {
 | listGridSelectedColor | string | Define the color of a selected icon (Grid/List) view of the API listing page. |
 | tagChipBackground | string | Change the background color of the tags. |
 
-With these configurations, we tried to handle most of the use cases for rebranding. But if someone wants to do a change that is not supported by defaultTheme.js then they need to override the relevant React component. Refer to the [Advanced Customization](advanced-customization.md) for more information.
+You can handle most of the use cases with regard to rebranding using these configurations. However, if you need to make a change that is not supported by the defaultTheme.js file, then you need to override the relevant React component. Refer to the [Advanced Customization]({{base_path}}/develop/customizations/customizing-the-developer-portal/advanced-customization/) for more information.
 
 ### Known issues and workarounds
 
 The API details page tags are not visible- [https://github.com/wso2/product-apim/issues/7849](https://github.com/wso2/product-apim/issues/7849).
 
-As a workaround, add the following to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js`.
+As a workaround, add the following to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/defaultTheme.js` file.
 
 ```js
 const Configurations = {
