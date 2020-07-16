@@ -1,10 +1,10 @@
-# Styling API Details Info Section
+# Styling API and Application Details Info Section
 
 The "API Details Info" section shown below, can be customized according to your design needs.
 
- ![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section1.png)
+ [![styling api details info section]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)]({{base_path}}/assets/img/learn/styling-api-details-info-section2.png)
 
-Edit the attributes in `themes.light.custom.infoBar` to change the styling "API Details Info" section. Note these changes will effect the same way to application details info section.
+Edit the attributes in `themes.light.custom.infoBar` to change the styling "API Details Info" section and the "Application Details Info" section.
 
 1. Go to the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/` directory.
 
@@ -69,7 +69,7 @@ const Configurations = {
 | listGridSelectedColor | string | Define the color of a selected icon (Grid/List) view of the API listing page. |
 | tagChipBackground | string | Change the background color of the tags. |
 
-You can handle most of the use cases with regard to rebranding using these configurations. However, if you need to make a change that is not supported by the defaultTheme.js file, then you need to override the relevant React component. Refer to the [Advanced Customization]({{base_path}}/develop/customizations/customizing-the-developer-portal/advanced-customization/) for more information.
+You can handle most of the use cases with regard to rebranding using these configurations. However, if you need to make a change that is not supported by the defaultTheme.js file, then you need to override the relevant React component. For more information, see [Advanced Customization]({{base_path}}/develop/customizations/customizing-the-developer-portal/advanced-customization/) for more information.
 
 ### Known issues and workarounds
 
