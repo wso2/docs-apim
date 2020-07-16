@@ -6860,7 +6860,7 @@ definitions:
         type: array
         items:
           type: string
-        example: "Pizzashack", "Petstore"
+        example: ["MicroGW1", "MicroGW2"]
       mediationPolicies:
         type: array
         items:
