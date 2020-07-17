@@ -329,12 +329,12 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
         
-    - Datasource confgurations in the previous versions could be mapped to the new confguration model as follows. 
+    - Datasource configurations in the previous versions could be mapped to the new configuration model as follows. 
         
         - **SHARED_DB** should point to the previous API-M version's `WSO2REG_DB`.
         - **APIM_DB** should point to the previous API-M version's `WSO2AM_DB`.
-        - **CONFIG** should point to prevous APIM-M version's `WSO2CONFIG_DB`.
-        - **USER** should point to prevous APIM-M version's ` WSO2USER_DB`
+        - **CONFIG** should point to the previous API-M version's `WSO2CONFIG_DB`.
+        - **USER** should point to the previous API-M version's ` WSO2USER_DB`
      
     This example shows to configure MySQL database configurations.    
 
@@ -1705,9 +1705,9 @@ Follow the instructions below to move all the existing API Manager configuration
     **Note:** From API Manager 3.0.0 onwards, keystores could be configured as follows.
     
     ```toml
-    - keystore.primary - the default keystore. If only primary is configured, the primary keystore will be used for internal and SSL related encryption and decryption tasks. 
-    - keystore.internal - the keystore used for internal encryption/decrypton
-    - keystore.tls - the keystore used for SSL encryption
+    - keystore.primary - The default keystore. If only primary is configured, the primary keystore will be used for internal and SSL related encryption and decryption tasks. 
+    - keystore.internal - The keystore used for internal encryption/decrypton
+    - keystore.tls - The keystore used for SSL encryption
     ```
       
     !!! Attention
@@ -1742,9 +1742,9 @@ Follow the instructions below to move all the existing API Manager configuration
     - If the truststore used in the previous setup was changed (for e.g. the name of the truststore file or the password was changed), copy the truststore to the `<API-M_3.0.0_HOME>/repository/resources/security` directory and configure the credentials in the`<API-M_3.0.0_HOME>/repository/conf/deployment.toml` as follows.  
        ```toml
        [truststore]
-       type= “JKS”
-       file = “modified-client-truststore.jks”
-       password= “modified_password”
+       type= "JKS"
+       file = "modified-client-truststore.jks"
+       password= "modified_password"
        ```
 
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.9.0.

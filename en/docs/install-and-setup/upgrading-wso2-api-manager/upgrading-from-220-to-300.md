@@ -1,6 +1,6 @@
 # Upgrading API Manager from 2.2.0 to 3.0.0
 
-The following information describes how to upgrade your API Manager server **from APIM 2.2.0 to 3.0.0**.
+The following information describes how to upgrade your API Manager server **from API-M 2.2.0 to 3.0.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/upgrading-wso2-api-manager/upgrading-process) for more information.
@@ -333,8 +333,8 @@ Follow the instructions below to move all the existing API Manager configuration
         
         - **SHARED_DB** should point to the previous API-M version's `WSO2REG_DB`.
         - **APIM_DB** should point to the previous API-M version's `WSO2AM_DB`.
-        - **CONFIG** should point to prevous APIM-M version's `WSO2CONFIG_DB`.
-        - **USER** should point to prevous APIM-M version's ` WSO2USER_DB`
+        - **CONFIG** should point to the previous API-M version's `WSO2CONFIG_DB`.
+        - **USER** should point to the previous API-M version's ` WSO2USER_DB`
      
     This example shows to configure MySQL database configurations.  
 
@@ -1471,9 +1471,9 @@ Follow the instructions below to move all the existing API Manager configuration
     **Note:** From API Manager 3.0.0 onwards, keystores could be configured as follows.
     
     ```toml
-    - keystore.primary - the default keystore. If only primary is configured, the primary keystore will be used for internal and SSL related encryption and decryption tasks. 
-    - keystore.internal - the keystore used for internal encryption/decrypton
-    - keystore.tls - the keystore used for SSL encryption
+    - keystore.primary - The default keystore. If only primary is configured, the primary keystore will be used for internal and SSL related encryption and decryption tasks. 
+    - keystore.internal - The keystore used for internal encryption/decrypton
+    - keystore.tls - The keystore used for SSL encryption
     ```
 
     !!! note "If you have enabled Secure Vault"
@@ -1489,9 +1489,9 @@ Follow the instructions below to move all the existing API Manager configuration
     - If the truststore used in the previous setup was changed (for e.g. the name of the truststore file or the password was changed), copy the truststore to the `<API-M_3.0.0_HOME>/repository/resources/security` directory and configure the credentials in the`<API-M_3.0.0_HOME>/repository/conf/deployment.toml` as follows.  
        ```toml
        [truststore]
-       type= “JKS”
-       file = “modified-client-truststore.jks”
-       password= “modified_password”
+       type= "JKS"
+       file = "modified-client-truststore.jks"
+       password= "modified_password"
        ```
     
 
