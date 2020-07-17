@@ -96,3 +96,28 @@ save_artifacts_locally = false
    If the user wants to switch the startup mode to an Asynchronous mode then he needs to specify it in the configs as
   `data_retrieval_mode = "async"`. Here the server will be up, independent of the deployment of synapse artifacts in
    gateway.
+   
+```
+[apim.event_hub] 
+enable = true
+service_url = "https://traffic-manager:9443"
+```
+
+ - If you are not running gateway as an all in one pack and it runs with a port offset, or when it's in a different
+  node, we have to specify event_hub service_url as well .
+
+##Database Configurations
+
+By default, the data related to synapse artifacts will be stored in WSO2AM_DB. But you can specify a separate database 
+for this feature. Only the data related to the synapse artifacts will be saved in this database.
+
+```
+[database.sync_runtime_artifacts_db]
+type = "h2"
+url = "jdbc:h2:./repository/database/WSO2AS_DB;DB_CLOSE_ON_EXIT=FALSE"
+username = "wso2carbon"
+password = "wso2carbon"
+```
+
+Add the tables of *AM_GW_API_ARTIFACTS* and *AM_GW_PUBLISHED_API_DETAILS* to this new database that you are specifying. 
+The scripts to create these tables are in `<APIM_HOME>/dbscripts/apimgt/`  folder
