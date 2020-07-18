@@ -9,7 +9,7 @@ Thus, a solution with an extension point which can be configurable to store thes
 
 ###API Publish/ Update / Remove when the API Gateway is running
 
-  [![]({{base_path}}/assets/img/learn/sam.png)]({{base_path}}/assets/img/learn/sam.png)
+  [![]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)
 
 1. When an API gets Published, Edited, or removed, the synapse artifacts corresponding to that API will be Stored or
  updated  in the extension point. 
@@ -120,4 +120,4 @@ password = "wso2carbon"
 ```
 
 Add the tables of *AM_GW_API_ARTIFACTS* and *AM_GW_PUBLISHED_API_DETAILS* to this new database that you are specifying. 
-The scripts to create these tables are in `<APIM_HOME>/dbscripts/apimgt/`  folder
+The scripts to create these tables are in `<APIM_HOME>/dbscripts/apimgt/`  folder.
