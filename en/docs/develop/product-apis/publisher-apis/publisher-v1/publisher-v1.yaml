@@ -23,7 +23,7 @@ info:
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - Publisher.
 
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.0.4/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
+    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.6.163/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -1539,6 +1539,11 @@ paths:
           description: Additional attributes specified as a stringified JSON with API's schema
           type: string
           required: false
+        - in: formData
+          name: inlineAPIDefinition
+          description: Inline content of the swagger file
+          type: string
+          required: false
       x-examples:
         $ref: docs/examples/apis/import_openapi_post.yaml
       tags:
@@ -1768,6 +1773,11 @@ paths:
           name: file
           description: OpenAPI definition as a file
           type: file
+          required: false
+        - in: formData
+          name: inlineAPIDefinition
+          description: Inline content of the swagger file
+          type: string
           required: false
         - in: query
           name: returnContent
@@ -7286,16 +7296,12 @@ definitions:
         type: array
         items:
           type: string
-        example: ["Pizzashack, Petstore"]
+        example: ["Pizzashack", "Petstore"]
       mediationPolicies:
         type: array
         items:
           $ref: '#/definitions/MediationPolicy'
-        example: [
-            {"name": "json_to_xml_in_message","type": "in"},
-            {"name": "xml_to_json_out_message","type": "out"},
-            {"name": "json_fault","type": "fault"}
-          ]
+        example:  [ {"name": "json_to_xml_in_message","type": "in"}, {"name": "xml_to_json_out_message","type": "out"}, {"name": "json_fault","type": "fault"} ]
       subscriptionAvailability:
         type: string
         description: The subscription availability. Accepts one of the following. current_tenant, all_tenants or specific_tenants.
@@ -7350,10 +7356,10 @@ definitions:
         example: APPROVED
       createdTime:
         type: string
-        example: '2017-02-20T13:57:16.229'
+        example: "2017-02-20T13:57:16.229"
       lastUpdatedTime:
         type: string
-        example: '2017-02-20T13:57:16.229'
+        example: "2017-02-20T13:57:16.229"
         x-otherScopes:
           - apim:api_publish
       endpointConfig:
@@ -7481,7 +7487,7 @@ definitions:
         type: array
         items:
           type: string
-          example: ["Finance"]
+        example: []
 
   #-----------------------------------------------------
   # The Audit Report resource
@@ -8594,10 +8600,12 @@ definitions:
             type: string
             description: |
               Type of binding role / permission
+            example: "role"
           values:
             type: array
             items:
               type: string
+            example: ["admin"]
 
   APIOperations :
     title: Operation
@@ -8609,6 +8617,7 @@ definitions:
         type: string
       verb:
         type: string
+        example: "POST"
       authType:
         type: string
         default: "Any"
@@ -9215,6 +9224,10 @@ definitions:
             type: string
             description: A string that represents the context of the user's request
             example: CalculatorAPI
+          version:
+            type: string
+            description: The version of the API Product
+            example: 1.0.0
           provider:
             description: |
               If the provider value is not given, the user invoking the API will be used as the provider.

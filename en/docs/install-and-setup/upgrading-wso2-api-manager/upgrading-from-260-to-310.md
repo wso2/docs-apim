@@ -2043,7 +2043,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.1.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-2.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-3.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -2137,7 +2137,95 @@ Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.
     ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
     ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
     ```
-
+!!! note
+    Type and name of a column of few tables were changed through WUM in version 2.6. It is important to add the above
+    change into your database prior to migration. So execute the below query to 
+    confirm whether the above change is already available in your system.
+    
+    ```
+    select AGG_COUNT from GEOLOCATIONAGG_SECONDS;
+    ```
+    If the above query returns an error indicating that the intended column can not be found, then please execute the 
+    below queries according to your db type to add the above change.
+    
+    ```tab="H2"
+    ALTER TABLE GeoLocationAgg_DAYS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_HOURS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_MINUTES CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_MONTHS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_SECONDS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_YEARS CHANGE totalCount AGG_COUNT bigint(20);           
+    ```
+    
+    ```tab="MSSQL"
+    ALTER TABLE GeoLocationAgg_SECONDS ALTER COLUMN totalCount BIGINT;
+    EXEC sp_RENAME 'GeoLocationAgg_SECONDS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    ALTER TABLE GeoLocationAgg_MINUTES ALTER COLUMN totalCount BIGINT;
+    EXEC sp_RENAME 'GeoLocationAgg_MINUTES.totalCount' , 'AGG_COUNT', 'COLUMN';
+    ALTER TABLE GeoLocationAgg_HOURS ALTER COLUMN totalCount BIGINT;
+    EXEC sp_RENAME 'GeoLocationAgg_HOURS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    ALTER TABLE GeoLocationAgg_DAYS ALTER COLUMN totalCount BIGINT;
+    EXEC sp_RENAME 'GeoLocationAgg_DAYS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    ALTER TABLE GeoLocationAgg_MONTHS ALTER COLUMN totalCount BIGINT;
+    EXEC sp_RENAME 'GeoLocationAgg_MONTHS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    ALTER TABLE GeoLocationAgg_YEARS ALTER COLUMN totalCount BIGINT;
+    EXEC sp_RENAME 'GeoLocationAgg_YEARS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    ```
+    
+    ```tab="MySQL"
+    ALTER TABLE GeoLocationAgg_DAYS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_HOURS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_MINUTES CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_MONTHS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_SECONDS CHANGE totalCount AGG_COUNT bigint(20);
+    ALTER TABLE GeoLocationAgg_YEARS CHANGE totalCount AGG_COUNT bigint(20);
+    ```
+    
+    ```tab="Oracle"
+    ALTER TABLE GeoLocationAgg_SECONDS modify (totalCount INTEGER DEFAULT 0);
+    ALTER TABLE GeoLocationAgg_SECONDS RENAME COLUMN totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_MINUTES modify (totalCount INTEGER DEFAULT 0);
+    ALTER TABLE GeoLocationAgg_MINUTES RENAME COLUMN totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_HOURS modify (totalCount INTEGER DEFAULT 0);
+    ALTER TABLE GeoLocationAgg_HOURS RENAME COLUMN totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_DAYS modify (totalCount INTEGER DEFAULT 0);
+    ALTER TABLE GeoLocationAgg_DAYS RENAME COLUMN totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_MONTHS modify (totalCount INTEGER DEFAULT 0);
+    ALTER TABLE GeoLocationAgg_MONTHS RENAME COLUMN totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_YEARS modify (totalCount INTEGER DEFAULT 0);
+    ALTER TABLE GeoLocationAgg_YEARS RENAME COLUMN totalCount to AGG_COUNT;
+    ```
+        
+    ```tab="PostgreSQL"
+    ALTER TABLE GeoLocationAgg_SECONDS ALTER COLUMN totalCount TYPE INTEGER;
+    ALTER TABLE GeoLocationAgg_SECONDS rename totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_MINUTES ALTER COLUMN totalCount TYPE INTEGER;
+    ALTER TABLE GeoLocationAgg_MINUTES rename totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_HOURS ALTER COLUMN totalCount TYPE INTEGER;
+    ALTER TABLE GeoLocationAgg_HOURS rename totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_DAYS ALTER COLUMN totalCount TYPE INTEGER;
+    ALTER TABLE GeoLocationAgg_DAYS rename totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_MONTHS ALTER COLUMN totalCount TYPE INTEGER;
+    ALTER TABLE GeoLocationAgg_MONTHS rename totalCount to AGG_COUNT;
+    ALTER TABLE GeoLocationAgg_YEARS ALTER COLUMN totalCount TYPE INTEGER;
+    ALTER TABLE GeoLocationAgg_YEARS rename totalCount to AGG_COUNT;
+    ```
+    
+    ```tab="db2"
+    ALTER TABLE GEOLOCATIONAGG_SECONDS ALTER COLUMN TOTALCOUNT SET DATA type INTEGER;
+    ALTER TABLE GEOLOCATIONAGG_SECONDS RENAME COLUMN TOTALCOUNT TO AGG_COUNT;
+    ALTER TABLE GEOLOCATIONAGG_MINUTES ALTER COLUMN TOTALCOUNT SET DATA type INTEGER;
+    ALTER TABLE GEOLOCATIONAGG_MINUTES RENAME COLUMN TOTALCOUNT TO AGG_COUNT;
+    ALTER TABLE GEOLOCATIONAGG_HOURS ALTER COLUMN TOTALCOUNT SET DATA type INTEGER;
+    ALTER TABLE GEOLOCATIONAGG_HOURS RENAME COLUMN TOTALCOUNT TO AGG_COUNT;
+    ALTER TABLE GEOLOCATIONAGG_DAYS ALTER COLUMN TOTALCOUNT SET DATA type INTEGER;
+    ALTER TABLE GEOLOCATIONAGG_DAYS RENAME COLUMN TOTALCOUNT TO AGG_COUNT;
+    ALTER TABLE GEOLOCATIONAGG_MONTHS ALTER COLUMN TOTALCOUNT SET DATA type INTEGER;
+    ALTER TABLE GEOLOCATIONAGG_MONTHS RENAME COLUMN TOTALCOUNT TO AGG_COUNT
+    ALTER TABLE GEOLOCATIONAGG_YEARS ALTER COLUMN TOTALCOUNT SET DATA type INTEGER;
+    ALTER TABLE GEOLOCATIONAGG_YEARS RENAME COLUMN TOTALCOUNT TO AGG_COUNT;
+    ```    
+    
 #### Step 3.2 - Configure WSO2 API-M Analytics 3.1.0
 
 !!! note
