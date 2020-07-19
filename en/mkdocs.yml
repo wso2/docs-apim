@@ -257,6 +257,7 @@ nav:
             - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
             - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md 
             - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
+            - Configuring Keystores in API-M Analytics: learn/analytics/configuring-keystores-in-apim-analytics.md
             - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
             - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
             - Alerts for APIs:
@@ -307,11 +308,26 @@ nav:
     - Develop:
         - Product REST APIs:
             - RESTful APIs: develop/product-apis/restful-apis.md
-            - WSO2 Publisher API v1: develop/product-apis/publisher-v1.md
-            - WSO2 Publisher API v0.15: develop/product-apis/publisher-v0.15.md
-            - WSO2 Developer Portal API v1: develop/product-apis/devportal-v1.md
-            - WSO2 Developer Portal API v0.15: develop/product-apis/devportal-v0.15.md
-            - WSO2 Admin Portal: develop/product-apis/admin-v1.md
+            - Getting Started:
+                - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
+                - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
+                - Publisher API v0.15: develop/product-apis/getting-started/guide-publisher-v0.15.md
+                - Developer Portal API v0.15: develop/product-apis/getting-started/guide-devportal-v0.15.md
+                - Admin API v0.15: develop/product-apis/getting-started/guide-admin-v0.15.md
+            - Configuring the REST API: develop/product-apis/configuring-rest-api.md
+            - Publisher APIs:
+                - Publisher v1:              
+                    - Publisher API v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                - Publisher v0.15:
+                    - Publisher API v0.15: develop/product-apis/publisher-apis/publisher-v0.15/publisher-v0.15.md
+            - Developer Portal APIs:
+                - Developer Portal v1:
+                    - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+                - Developer Portal v0.15:
+                    - Developer Portal API v0.15: develop/product-apis/devportal-apis/devportal-v0.15/devportal-v0.15.md
+            - Admin APIs:
+                - Admin API v0.15:
+                    - Admin API v0.15: develop/product-apis/admin-apis/admin-v0.15/admin-v0.15.md
         - Admin Services: develop/wso2-admin-services.md
         - Working with the Source Code: develop/working-with-the-source-code.md
         - Java Documentation: develop/java-documentation.md
@@ -519,6 +535,11 @@ plugins:
   - redirects:
       redirect_maps:
         'learn/tutorials/edit-and-consume-apis-using-swagger-tools.md': 'https://apim.docs.wso2.com/en/3.0.0/learn/tutorials/edit-an-api-by-modifyng-the-api-definition/'
+        'develop/product-apis/publisher-v1.md': 'https://apim.docs.wso2.com/en/3.0.0/develop/product-apis/publisher-apis/publisher-v1/publisher-v1/'
+        'develop/product-apis/publisher-v0.15.md': 'https://apim.docs.wso2.com/en/3.0.0/develop/product-apis/publisher-apis/publisher-v0.15/publisher-v0.15/'
+        'develop/product-apis/devportal-v1.md': 'https://apim.docs.wso2.com/en/3.0.0/develop/product-apis/devportal-apis/devportal-v1/devportal-v1/'
+        'develop/product-apis/devportal-v0.15.md': 'https://apim.docs.wso2.com/en/3.0.0/develop/product-apis/devportal-apis/devportal-v0.15/devportal-v0.15/'
+        'develop/product-apis/admin-v1.md': 'https://apim.docs.wso2.com/en/3.0.0/develop/product-apis/admin-apis/admin-v0.15/admin-v0.15/'
 # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css

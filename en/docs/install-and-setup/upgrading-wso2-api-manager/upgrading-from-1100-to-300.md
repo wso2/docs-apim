@@ -3,7 +3,7 @@
 The following information describes how to upgrade your API Manager server **from APIM 1.10.0 to 3.0.0**.
 
 !!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/upgrading-wso2-api-manager/upgrading-process) for more information.
+    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! attention "Before you Begin"
     1.  This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
@@ -15,7 +15,7 @@ The following information describes how to upgrade your API Manager server **fro
 Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.10.0 to 3.0.0** .
 
 !!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0]({{base_path}}/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-590).
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-590).
 
 -   [Step 1 - Upgrade WSO2 API Manager to 2.6.0](#step-1-upgrade-wso2-api-manager-to-260)
 -   [Step 2 - Upgrade WSO2 API Manager to 3.0.0](#step-2-upgrade-wso2-api-manager-to-300)
@@ -29,7 +29,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from API
 
 ### Step 2 - Upgrade WSO2 API Manager to 3.0.0
 
-After you have successfully migrated your current WSO2 API-M version to 2.6.0, upgrade from API-M 2.6.0 to API-M 3.0.0. For more information, see [Upgrading API Manager from 2.6.0 to 3.0.0]({{base_path}}/upgrading-wso2-api-manager/upgrading-from-260-to-300).
+After you have successfully migrated your current WSO2 API-M version to 2.6.0, upgrade from API-M 2.6.0 to API-M 3.0.0. For more information, see [Upgrading API Manager from 2.6.0 to 3.0.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-300).
 
 This concludes the upgrade process.
 
@@ -37,6 +37,6 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and want to consume it via an application that supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.

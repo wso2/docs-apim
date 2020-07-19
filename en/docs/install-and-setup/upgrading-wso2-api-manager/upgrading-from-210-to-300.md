@@ -3,7 +3,7 @@
 The following information describes how to upgrade your API Manager server **from APIM 2.1.0 to 3.0.0**.
 
 !!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/upgrading-wso2-api-manager/upgrading-process) for more information.
+    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
 !!! attention "Before you Begin"
     1.  This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
@@ -293,10 +293,10 @@ current API Manager 2.1.0 version and run the below scripts against **the databa
     ```
     
     !!! note "NOTE"
-        Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
+        Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 !!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0]({{base_path}}/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-590).
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.9.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-590).
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.0.0](#step-2-upgrade-api-manager-to-300)
@@ -306,7 +306,7 @@ current API Manager 2.1.0 version and run the below scripts against **the databa
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
-    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog]({{base_path}}/reference/ConfigCatalog).
+    Do not copy entire configuration files from the current version of WSO2 API Manager to the new one, as the configuration modal has been changed and now all the configurations are being done via a single file (deployment.toml). Instead, redo the configuration changes in the new configuration file. For more information refer [Configuration Catalog]({{base_path}}/reference/config-catalog).
 
 Follow the instructions below to move all the existing API Manager configurations from the current environment to the new one.
 
@@ -456,10 +456,10 @@ Follow the instructions below to move all the existing API Manager configuration
 
 9.  If you manually added any JAR files to the `<API-M_2.1.0_HOME>/repository/components/lib` directory, copy those and paste them in the `<API-M_3.0.0_HOME>/repository/components/lib` directory.
 
-10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
+10. WSO2 API Manager 3.0.0 has been upgraded to log4j2 (from log4j). You will notice that there is a log4j2.properties file in the `<API-M_3.0.0_HOME>/repository/conf/` directory instead of the log4j.properties file. Follow [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to migrate your existing log4j.properties file to log4j2.properties file.
 
     !!! warning
-        Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
+        Taking the log4j.properties file from your old WSO2 API-M Server and adding it to WSO2 API-M Server 3.0.0 will no longer work. Refer [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the log4j2.properties file.
 
     !!! note
         Log4j2 has hot deployment support, and **Managing Logs** section has been removed from the Management Console. You can now use the log4j2.properties file to modify logging configurations without restarting the server.
@@ -473,7 +473,7 @@ Follow the instructions below to move all the existing API Manager configuration
 3.  To start the migration process, run the respective migration script based on your environment.
 
     ??? note "Linux/Mac OS"
-        Run the [apim210_to_apim300_gateway_artifact_migrator.sh]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0. 
+        Run the [apim210_to_apim300_gateway_artifact_migrator.sh]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator.sh) script, as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0.
         ```
         ./apim210_to_apim300_gateway_artifact_migrator.sh <API-definitions-path>
         ```
@@ -516,7 +516,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Where `<API-M_3.0.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.0.0`, which is the **full path** to the particular location.
 
         !!! note "Windows - Tenants"
-            Run the PowerShell script [apim210_to_apim300_gateway_artifact_migrator_for_tenants.ps1](../../assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0.
+            Run the PowerShell script [apim210_to_apim300_gateway_artifact_migrator_for_tenants.ps1]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim300_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.1.0 to 3.0.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
@@ -1711,7 +1711,7 @@ Follow the instructions below to move all the existing API Manager configuration
     ```
       
     !!! Attention
-        In API Manager 3.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in previous version, you need to add the following configuration to `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.1.0 and primary keystore can be pointed to a keystore with a ceritificate, which has strong RSA key. 
+        In API Manager 3.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.1.0 and primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key. 
 
         ``` java
         [keystore.primary]
@@ -1730,7 +1730,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/administer/product-security/logins-and-passwords/working-with-encrypted-passwords) for more details.
+        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer to [Encrypting Passwords in Configuration files]({{base_path}}/administer/product-security/logins-and-passwords/working-with-encrypted-passwords) for more details.
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -1750,10 +1750,10 @@ Follow the instructions below to move all the existing API Manager configuration
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.9.0.
 
     !!! note
-        As WSO2 API-M shares identity components with WSO2 Identity Sever (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
+        As WSO2 API-M shares identity components with WSO2 Identity Server (WSO2 IS), this step is necessary to upgrade those components (even if you are not using WSO2 IS as a Key Manager).
 
     ??? note "If you are using DB2"
-        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
+        Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
 
         SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table.    
 
@@ -1795,7 +1795,7 @@ Follow the instructions below to move all the existing API Manager configuration
             <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
             ```
 
-        If you recieve an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
+        If you get an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
         spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html) in the IBM documentation.          
         ``` java
         CREATE TABLESPACE SYSTOOLSPACE IN IBMCATGROUP
@@ -1881,9 +1881,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
     You have to run the following migration client to update the registry artifacts.
     
-    1. Download and extract the [migration-resources.zip](../../assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
+    1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.0.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client](../../assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.0-3.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder. 
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.0.0-4.jar) to the `<API-M_3.0.0_HOME>/repository/components/dropins` folder. 
 
     3.  Start the API-M server as follows.
 
@@ -1899,18 +1899,18 @@ Follow the instructions below to move all the existing API Manager configuration
 
 8.  Re-index the artifacts in the registry.
 
-    1.  Run the [reg-index.sql](../../assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
+    1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
             Please note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
 
-    2.  Add the [tenantloader-1.0.jar](../../assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
+    2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.0.0_HOME>/repository/components/dropins` directory.
 
         !!! attention
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
 
         !!! note
-            You need to do this step, if you have **multiple tenants** only.
+            You need to do this step if you have **multiple tenants** only.
 
     3.  Rename the **<lastAccessTimeLocation>** element by adding the following configuration in `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file.
         
@@ -1934,7 +1934,7 @@ Follow the instructions below to move all the existing API Manager configuration
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
 !!! info
-    As you are upgrading from WSO2 API-M Analytics 2.1.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.0.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.0.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
+    As you are upgrading from WSO2 API-M Analytics 2.1.0, in order to migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.0.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.0.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-300/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
 
 ### Step 4 - Restart the WSO2 API-M 3.0.0 server
 
@@ -1960,6 +1960,6 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and want to consume it via an application that supports JWT authentication (default type in API-M 3.0.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry that will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.

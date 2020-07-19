@@ -23,7 +23,7 @@ info:
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - Publisher.
 
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.0.4/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
+    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.5.349/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -6747,6 +6747,9 @@ definitions:
             enum:
               - WSDL
               - ZIP
+      wsdlUrl:
+        type: string
+        example: /apimgt/applicationdata/wsdls/admin--soap1.wsdl
       responseCachingEnabled:
         type: boolean
         example: true
@@ -6857,12 +6860,12 @@ definitions:
         type: array
         items:
           type: string
-        example: ["Pizzashack, Petstore"]
+        example: ["MicroGW1", "MicroGW2"]
       mediationPolicies:
         type: array
         items:
           $ref: '#/definitions/MediationPolicy'
-        example: [
+          example: [
             {"name": "json_to_xml_in_message","type": "in"},
             {"name": "xml_to_json_out_message","type": "out"},
             {"name": "json_fault","type": "fault"}
@@ -8093,10 +8096,12 @@ definitions:
             type: string
             description: |
               Type of binding role / permission
+            example: role
           values:
             type: array
             items:
               type: string
+            example: [ "admin" ]
 
   APIOperations :
     title: Operation
@@ -8108,9 +8113,11 @@ definitions:
         type: string
       verb:
         type: string
+        example: "POST"
       authType:
         type: string
         default: "Any"
+        example: "Any"
       throttlingPolicy:
         type: string
         example: "Unlimited"
@@ -8122,6 +8129,7 @@ definitions:
         type: array
         items:
           type: string
+        example: []
 
 
 #-----------------------------------------------------
