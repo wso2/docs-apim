@@ -53,7 +53,7 @@ publish_directly_to_gateway = "true"
  the database.
  - If `publish_directly_to_gateway = true` then the artifacts will be published to the gateway directly. If
  `publish_directly_to_gateway = false` then the published API details will be notified to TM through events.
- - If we have **apim.sync_runtime_artifacts.publisher** configuration element then all the artifacts will be saved to
+ - If we have `[apim.sync_runtime_artifacts.publisher]` configuration element then all the artifacts will be saved to
   the storage via the extension point. In default they will get stored in Database.
   
   We can add the gateways as environments. For more information see 
@@ -134,6 +134,7 @@ Sample configuration for MYSQL is shown below. If you are using any other Databa
 accordingly:
 
 ``` tab="Format"
+[database.sync_runtime_artifacts_db]
 type = "mysql"
 url = "jdbc:mysql://localhost:3306/<DATABASE_NAME>"
 username = "<USER_NAME>"
