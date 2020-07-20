@@ -78,7 +78,7 @@ paths:
       x-wso2-response: "HTTP/1.1 200 OK"
       summary: Deploy the API in the gateway
       description: |
-        This operation is used to deploy and API in the gateway.
+        This operation is used to deploy an API in the gateway.
       parameters:
         - name: apiName
           description: |
@@ -197,7 +197,7 @@ paths:
   /api-artifact:
 
     #-----------------------------------------------------
-    # Get API Artifact
+    # Get API Artifacts
     #-----------------------------------------------------
     get:
       security:
@@ -210,7 +210,7 @@ paths:
       x-wso2-response: "HTTP/1.1 200 OK"
       summary: Get API artifact from the storage
       description: |
-        This operation is used to get the API artifact from the storage
+        This operation is used to get the local entries, sequences and endpoints from the storage.
       parameters:
         - name: apiName
           description: |
