@@ -22,7 +22,7 @@ The diagram below illustrates the resource owner password credentials grant flow
 
 ``` java
 [apim.key_manager]
-configuration.ServerURL = "<key-manager-server-url>"
+service_url = "<key-manager-server-url>"
 
 ```
 If you have multiple Carbon servers running on the same computer, [change the port with an offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset/#changing-the-default-ports-with-offset) to avoid port conflicts.
