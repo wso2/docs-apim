@@ -247,3 +247,7 @@ If you can't satisfy the above requirements but still need subscription validati
 
 1. Navigate to the `deployment.toml` under the `<API-M_HOME>/repository/conf/` folder.
 2. Add the **subscription_validation_via_km** configuration under the `[apim.jwt_authenitcation]`.
+  ```
+[apim.jwt_authenitcation]
+subscription_validation_via_km = true
+  ```
