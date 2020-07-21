@@ -64,6 +64,8 @@ nav:
                             - Generate REST API from SOAP Backend: learn/design-api/create-api/generate-rest-api-from-soap-backend.md
                       - Adding Custom Properties to APIs: learn/design-api/create-api/adding-custom-properties-to-apis.md
                       - Change the Thumbnail of an API : learn/design-api/create-api/change-api-thumbnail.md
+                - Test APIs:
+                      - Test through the test console: learn/design-api/test-api/test-an-api.md
                 - Publish APIs:
                       - Publish an API: learn/design-api/publish-api/publish-an-api.md
                       - Publish through Multiple API Gateways: learn/design-api/publish-api/publish-through-multiple-api-gateways.md
