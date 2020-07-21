@@ -1,4 +1,4 @@
-# Customize Developer Portal Credentials
+# Customize Developer Portal Credential Preferences
   
 You can change your WSO2 API Manager Developer Portal password, customize the default Developer Portal password policy, and enable or disable the Developer Portal password policy guidelines based on your requirement.
 
