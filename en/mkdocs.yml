@@ -335,6 +335,7 @@ nav:
                       - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
           - Customizations:
                 - Customizing the Developer Portal:
+                      - Customize Developer Portal Credential Preferences: develop/customizations/customizing-the-developer-portal/customize-developer-portal-credentials.md
                       - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                       - Customize API Listing:
                             - Categorizing and Grouping APIs:
