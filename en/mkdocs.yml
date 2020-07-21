@@ -300,7 +300,7 @@ nav:
                     - Publisher API v0.16: develop/product-apis/getting-started/guide-publisher-v0.16.md
                     - Developer Portal API v0.16: develop/product-apis/getting-started/guide-devportal-v0.16.md
                     - Admin API v0.16: develop/product-apis/getting-started/guide-admin-v1.md
-                    - Gateway API v1 : develop/product-apis/gateway-apis/gateway-v1/guide.md
+                    - Gateway API v1 : develop/product-apis/getting-started/guide-gateway-v1.md
                 - Configuring the REST API: develop/product-apis/configuring-rest-api.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
