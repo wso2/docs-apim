@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started - Admin API v0.16
 
 !!! warning
     **WSO2 recommends that you use the Admin v0.16 REST APIs** as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features with regard to the Admin Portal.

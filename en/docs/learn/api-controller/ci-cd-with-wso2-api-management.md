@@ -259,11 +259,11 @@ Run any of the following CTL commands to get keys for the API/API Product.
 - **Command**
 
     ```bash
-    apictl get-keys -n <API or API Product name> -v <API or API Product version> -r <API or API Product provider> -e <environment> -k
+    apictl get-keys -n <API or API Product name> -v <API version> -r <API or API Product provider> -e <environment> -k
     ```  
 
     ```bash
-    apictl get-keys --name <API or API Product name> --version <API or API Product version> --provider <API or API Product provider> --environment <environment> -k
+    apictl get-keys --name <API or API Product name> --version <API version> --provider <API or API Product provider> --environment <environment> -k
     ```
 
     !!! example
@@ -283,7 +283,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
         -   Optional :  
             `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the add-env command)       
             `--provider` or `-r` : Provider of the API or API Product  
-            `--version` or `-v` : Version of the API or API Product (Currently API Products do not have versions)
+            `--version` or `-v` : Version of the API (Currently API Products do not have versions)
 
     !!! note
         Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.

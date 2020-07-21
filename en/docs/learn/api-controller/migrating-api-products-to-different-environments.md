@@ -31,14 +31,14 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
     -   **Command**
      
         ```go
-        apictl export api-product -n <API Product-name> -v <version> -r <provider> -e <environment> -k 
+        apictl export api-product -n <API Product-name> -r <provider> -e <environment> -k 
         ``` 
         ```go
-        apictl export api-product --name <API Product-name> --version <version> --provider <provider> --environment <environment> -k 
+        apictl export api-product --name <API Product-name> --provider <provider> --environment <environment> -k 
         ```
 
         ```go
-        apictl export api-product -n <API Product-name> -v <version> -r <provider> -e <environment> --format <export-format> -k 
+        apictl export api-product -n <API Product-name> -r <provider> -e <environment> --format <export-format> -k 
         ``` 
 
         !!! info
@@ -47,8 +47,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             -    Required :  
                 `--name` or `-n` : Name of the API Product to be exported      
                 `--environment` or `-e` : Environment from which the API Product should be exported  
-            -    Optional :  
-                `--version` or `-v` : Version of the API Product to be exported (Since currently we do not have versioning for API Products, you do not need to specify this.)      
+            -    Optional :      
                 `--provider` or `-r` : Provider of the API Product    
                 `--format` : File format of exported archive (JSON or YAML). The default value is YAML.
             
@@ -57,7 +56,7 @@ WSO2 API Controller, **apictl** allows you to maintain multiple environments run
             apictl export api-product -n LeasingAPIProduct -e dev -k
             ```
             ```go
-            apictl export api-product -n CreditAPIProduct -v 1.0.0 -r admin -e production --format JSON -k
+            apictl export api-product -n CreditAPIProduct -r admin -e production --format JSON -k
             ```            
 
     -   **Response**
@@ -83,8 +82,7 @@ The exported ZIP file has the following structure:
 |    └── <NthAPIName>_version
 ├── Meta-information
 │    ├── api.yaml
-│    |── swagger.yaml
-|    └── endpoint_certificates.yaml
+|    └── swagger.yaml
 ├── Docs
 |    |── FileContents
 │    |── InlineContents
@@ -98,25 +96,13 @@ The structure of an exported API Product ZIP file is explained below:
 | Sub Directory/File | Description                                                                                                                                                                                                                                                                                                                                                                       |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | APIs   | Dependent APIs (the APIs which the resources of the API Product belong to) will be exported into subfolders with the name format <APIName\>_version. |
-| Meta-information   | **api.yaml**: It contains all the basic information required for an API Product to be imported to another environment. <br/> **swagger.yaml**: It contains the API Product Swagger definition. <br/> **endpoint_certificates.yaml**: If the API Product is secured using backend certificates, this file contains all endpoint certificates information. |
+| Meta-information   | **api.yaml**: It contains all the basic information required for an API Product to be imported to another environment. <br/> **swagger.yaml**: It contains the API Product Swagger definition. |
 | Docs               | **docs.yaml**: It contains the summary of all the documents available for the API Product <br/> **FileContents**: It contains the uploaded file type documents available for the API Product <br/> **InlineContents**: It contains inline and Markdown type documents available for the API Product.                                                                                                                                        |
 | Image              | Thumbnail image of the API Product                                                                                                                                                                                                   |    
 
 ### Import an API Product
 
-You can use the API Product archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API Product, you can either **deploy the API Product as a new API Product** or **seamlessly update an existing API Product** in the environment with it.   
-
-!!! warning
-    **For Secure Endpoint Enabled API Products:**
-
-    If you have enabled secure endpoints when creating the API and your username or/and password differs in the two environments, please follow the steps below before importing the API.    
-
-    1. Unzip the .zip archive created in the previous section.
-    2. Go to the `<API Product-name-version>/Meta-information` directory and open the `api.<json/yaml>` file.  
-    For example, go to `LeasingAPIProduct_1.0.0/Meta-information` directory and open the `api.yaml` file.  
-    3. Modify the `endpointUTPassword` with your endpoint password and save the `api.yaml` file.
-    4. Compress the `<API Product-name-version>` directory. (or you can import the extracted folder)
-    For example, compress the `PhoneVerification_1.0.0` directory.
+You can use the API Product archive exported from the previous section (or you can extract it and use the extracted folder) and import it to the API Manager instance in the target environment. When importing the API Product, you can either **deploy the API Product as a new API Product** or **seamlessly update an existing API Product** in the environment with it.
 
 1.  Log in to the API Manager in the importing environment by following steps in [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller#login-to-an-environment).
     
