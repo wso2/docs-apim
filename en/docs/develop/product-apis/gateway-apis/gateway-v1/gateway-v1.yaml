@@ -273,9 +273,9 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/local-entry?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&apiName=PizzaAPI&label=Food\""
+      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/local-entry?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com\""
       x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/gateway/v1/local-entry?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&apiName=PizzaAPI&label=Food
+        GET https://127.0.0.1:9443/api/am/gateway/v1/local-entry?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       summary: Get Local Entry from the storage
@@ -288,13 +288,17 @@ paths:
           in: query
           type: string
           required: true
-        - name: label
+        - name: version
           description: |
-            Label of the API Gateway
+            version of the API Gateway
           in: query
           type: string
           required: true
-        - $ref: '#/parameters/apiId-Q'
+        - name: tenantDomain
+          description: |
+            tenantDomain of the API Gateway
+          in: query
+          type: string
 
       tags:
         - Get API Artifacts
@@ -338,9 +342,9 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/sequence?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&apiName=PizzaAPI&label=Food\""
+      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/sequence?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com\""
       x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/gateway/v1/sequence?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&apiName=PizzaAPI&label=Food
+        GET https://127.0.0.1:9443/api/am/gateway/v1/sequence?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       summary: Get sequences from the storage
@@ -353,13 +357,17 @@ paths:
           in: query
           type: string
           required: true
-        - name: label
+        - name: version
           description: |
-            Label of the API Gateway
+            version of the API Gateway
           in: query
           type: string
           required: true
-        - $ref: '#/parameters/apiId-Q'
+        - name: tenantDomain
+          description: |
+            tenantDomain of the API Gateway
+          in: query
+          type: string
 
       tags:
         - Get API Artifacts
@@ -404,9 +412,9 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/end-points?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&apiName=PizzaAPI&label=Food\""
+      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/end-points?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com\""
       x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/gateway/v1/end-points?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&apiName=PizzaAPI&label=Food
+        GET https://127.0.0.1:9443/api/am/gateway/v1/end-points?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       summary: Get end-points from the storage for the API
@@ -419,13 +427,17 @@ paths:
           in: query
           type: string
           required: true
-        - name: label
+        - name: version
           description: |
-            Label of the API Gateway
+            version of the API Gateway
           in: query
           type: string
           required: true
-        - $ref: '#/parameters/apiId-Q'
+        - name: tenantDomain
+          description: |
+            tenantDomain of the API Gateway
+          in: query
+          type: string
 
       tags:
         - Get API Artifacts
