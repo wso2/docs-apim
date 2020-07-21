@@ -42,7 +42,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
     !!! tip
             **test-key token**
 
-            If API developer initiate a test, then the swagger console will be automatically populated with the generated **test-key**. If you try the test api call through the terminal or command line, make sure you copy the generated test-key.
+            If API developer initiate a test, the swagger console will be automatically populated with the generated **test-key**. If you try the test api call through the terminal or command line, make sure you copy the generated test-key.
 
 
 You have now successfully test an API using the publisher test Console and publish the API to the gateway.
