@@ -7,7 +7,7 @@ After creating a new version, you typically deploy it as a prototype for early p
 A prototype can be used for testing, without a subscription, along with the published versions of the API. After a period of time of using the new version of the API in parallel with the older versions, you can publish the prototyped API and deprecate the older versions.
 
 !!! note
-    The example here uses the PhoneVerification API, which you created in the
+    The example here uses PizzaShack API, which you created in the
     [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) section and Published in the [Publish an API]({{base_path}}/learn/design-api/publish-api/publish-an-api/) section.
 
 Follow the instructions below to create a new version of an existing API:

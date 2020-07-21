@@ -10,7 +10,7 @@ The following information describes how to upgrade your API Manager server **fro
 
         -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.0.0. For more information on how to do this, see [Updating WSO2 Products](https://docs.wso2.com/display/updates/Using+WSO2+Update+Manager).
 
-    2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/administer/product-administration/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
+    2.  Before starting the upgrade, run the [token and session cleanup scripts](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures) in the databases of the environment, if you are not doing regular cleanups. [Removing Unused Tokens from the Database]({{base_path}}/administer/product-administration/removing-unused-tokens-from-the-database) document includes detailed information and instructions on how to run these scripts.
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.1.0 to 3.0.0**.
 
@@ -325,11 +325,18 @@ Follow the instructions below to move all the existing API Manager configuration
     -   User Store
     -   Registry database/s
     -   API Manager databases
-
+    
     !!! note
         In API-M 3.0.0, a combined SHARED_DB has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.0.0 to avoid any issues.
-
-    SHARED_DB should point to the previous API-M version's `WSO2REG_DB`. This example shows to configure MySQL database configurations.
+        
+    - Datasource configurations in the previous versions could be mapped to the new configuration model as follows. 
+        
+        - **SHARED_DB** should point to the previous API-M version's `WSO2REG_DB`.
+        - **APIM_DB** should point to the previous API-M version's `WSO2AM_DB`.
+        - **CONFIG** should point to the previous API-M version's `WSO2CONFIG_DB`.
+        - **USER** should point to the previous API-M version's ` WSO2USER_DB`
+     
+    This example shows to configure MySQL database configurations.    
 
     ```
     [database.apim_db]
@@ -412,8 +419,7 @@ Follow the instructions below to move all the existing API Manager configuration
     !!! note
         It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. So do **not** migrate `WSO2_MB_STORE_DB` database from API-M 2.1.0 version to API-M 3.0.0 version, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.0.0 version.
 
-4.  Update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes.
-
+4. If you have used separate DB for user management in your previous setup and you have defined the `[database.user]` as mentioned in the above step, then you need to update `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the correct database for user management purposes. **Note** that the data_source name cannot be changed and it should be **WSO2USER_DB**.
     ```
     [realm_manager]
     data_source = "WSO2USER_DB"
@@ -1695,7 +1701,15 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.0.0_HOME>/repository/resources/security` directory.
-
+    
+    **Note:** From API Manager 3.0.0 onwards, keystores could be configured as follows.
+    
+    ```toml
+    - keystore.primary - The default keystore. If only primary is configured, the primary keystore will be used for internal and SSL related encryption and decryption tasks. 
+    - keystore.internal - The keystore used for internal encryption/decrypton
+    - keystore.tls - The keystore used for SSL encryption
+    ```
+      
     !!! Attention
         In API Manager 3.0.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_3.0.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.1.0 and primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key. 
 
@@ -1725,6 +1739,13 @@ Follow the instructions below to move all the existing API Manager configuration
         ```tab="Windows"
         ./ciphertool.bat -Dconfigure
         ```
+    - If the truststore used in the previous setup was changed (for e.g. the name of the truststore file or the password was changed), copy the truststore to the `<API-M_3.0.0_HOME>/repository/resources/security` directory and configure the credentials in the`<API-M_3.0.0_HOME>/repository/conf/deployment.toml` as follows.  
+       ```toml
+       [truststore]
+       type= "JKS"
+       file = "modified-client-truststore.jks"
+       password= "modified_password"
+       ```
 
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.9.0.
 
