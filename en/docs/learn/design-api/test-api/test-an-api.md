@@ -5,7 +5,7 @@
 Only the API developers (creator, publisher) are allowed to test the APIs through the test console. The developers can do the basic functional tests such as the mediation policies, make sure whether the request goes as expected to the back-end
 and the proper responses are received, request/response schema validation and check whether the API resources are defined as expected.
 
-The **Test Console** menu/option in the Publisher portal's API details page can be used to test the API at the design phase. Once the developer initiates the test by clicking on the initialize test button, the API is transformed to the prototype(testing)
+The **Test Console** menu/option in the Publisher portal's API details page can be used to initialize the test at the design phase. Once the developer initiates the test by clicking on the initialize test button, the API is transformed to the prototype(testing)
 state and the swagger console is populated with a test-key(token) which prevents the unauthorized users accessing the particular API.
 
 If the API is in the created lifecycle state, the developer can initialize the test.
@@ -45,7 +45,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
             If API developer initiate a test, the swagger console will be automatically populated with the generated **test-key**. If you try the test api call through the terminal or command line, make sure you copy the generated test-key.
 
 
-You have now successfully test an API using the publisher test Console and publish the API to the gateway.
+You have now successfully test an API using the publisher test Console. Now you can publish the API to the gateway.
 
 
 
