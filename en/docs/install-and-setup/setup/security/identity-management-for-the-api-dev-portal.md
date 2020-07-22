@@ -6,7 +6,7 @@ Identity management for the API developer portal includes the following features
 -   [Account locking]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#account-locking)
 -   [Password policies]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#Password-policies)
 
-### Password Recovery
+## Password Recovery
 
 Password recovery feature does not work by default because an email server is not configured to send the password recovery email. Follow the steps below to enable password recovery feature for the API Developer Portal.
 
@@ -36,14 +36,14 @@ Password recovery feature does not work by default because an email server is no
     !!! note
         You can change the the template of this email (E.g., email link, message body, etc.). To edit the mail template, open the `<API-M_HOME>/repository/conf/email/email-admin-config.xml` file and make the changes.
 
-### Account locking
+## Account locking
 
 You can lock user accounts with the Account recovery and credential management feature, pre-installed in WSO2 API Manager.
 
 -   [Account locking by failed login attempts]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#account-locking-by-failed-login-attempts)
 -   [Account locking by an administrative user]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#account-locking-by-an-administrative-user)
 
-#### Account locking by failed login attempts
+### Account locking by failed login attempts
 
 The following steps show how to enable account locking. See [Account Locking by Failed Login Attempts](https://is.docs.wso2.com/en/5.10.0/learn/account-locking-by-failed-login-attempts/) for more information. 
 
@@ -65,7 +65,7 @@ The following steps show how to enable account locking. See [Account Locking by 
     ```
 
 
-#### Account locking by an administrative user
+### Account locking by an administrative user
 
 An administrative user can lock and unlock a particular user's account through the management console. See [Locking a Specific User Account](https://is.docs.wso2.com/en/5.10.0/learn/locking-a-specific-user-account/) for more information. 
 
@@ -87,7 +87,27 @@ An administrative user can lock and unlock a particular user's account through t
    
     ![profile-account-lock]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/account-lock-checkbox.png)
 
-### Password policies
+## Password policies
+
+### Change Developer Portal password policy
+
+You can define your custom password policy by defining one or both of the followings
+    
+#### User store password RegEx
+
+For more information, see [Configuring a JDBC User Store]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store/#configuring-a-jdbc-user-store)  
+
+     Example:
+
+     ```toml
+     [user_store]
+     type = "database_unique_id"
+
+     [user_store.properties]
+     PasswordJavaRegEx = "^[\\S]{6,30}$"
+     ```
+
+#### Identity management password policies
 
 You can define custom password policies for API developer portal user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
 
@@ -102,3 +122,64 @@ You can define custom password policies for API developer portal user signup. Op
     passwordPolicy.properties.'class.PasswordNamePolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordNamePolicy"
     passwordPolicy.properties.'class.PasswordPatternPolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordPatternPolicy"
 ```
+
+<html>    
+<div class="admonition note">    
+<p class="admonition-title">Note</p>    
+<p>
+<ul><li><p>
+The password policy set by the identity management password policies via the configuration file can be overridden using the Management Console for each tenant.
+</p></li>
+<li>
+<p>
+When changing the password, the new password will be validated against the user store password RegEx and conditions enforced by the Identity Management password policy. Therefore, you will not be able to change your password, if these conditions/RegEx patterns are set in a way that they conflict with each other.
+</p>
+</li>
+</ul></p>
+</div>
+</html>
+
+### Display password policy guidelines
+  
+Alternatively, you can display a list of policy guidelines in the password changing UI.  
+  
+<img src="{{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png" alt="Displaying Developer Portal password policy guidelines" width="700"/>
+  
+1. Enable password changing guidelines in the `settings.js` file.  
+
+     1. Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.  
+     
+     2. Edit the configuration as follows:  
+   
+        ```javascript
+         const Settings = {
+            ...
+            passwordChange: {
+                guidelinesEnabled: true,
+                ...
+            },
+         };
+        ```
+
+2. List your custom guidelines under `policyList`.
+
+    ```javascript
+     const Settings = {
+        ...
+        passwordChange: {
+            guidelinesEnabled: true,
+            policyList: [
+                'Policy 1',
+                'Policy 2',
+                'Policy 3',
+            ],
+        },
+     };
+    ```
+
+    <html>
+    <div class="admonition note">
+    <p class="admonition-title">Note</p>
+    <p>If the guideline list is empty, the change password UI will not show the Password Policy guidelines section.</p>
+    </div>
+    </html>

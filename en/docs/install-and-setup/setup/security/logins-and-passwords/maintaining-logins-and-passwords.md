@@ -1,14 +1,8 @@
 # Maintaining Logins and Passwords
 
-This section covers the following topics:
+The following section explains how you can change your credentials, recover your password, and customize your login.
 
--   [Changing the super admin credentials](#changing-the-super-admin-credentials)
--   [Recovering a password](#recovering-a-password)
--   [Login in via multiple user attributes in API Developer-portal](#login-in-via-multiple-user-attributes-in-developer-portal)
--   [Setting up an e-mail login](#login-in-via-multiple-user-attributes-in-developer-portal)
--   [Setting up a social media login](#setting-up-a-social-media-login)
-
-### Changing the super admin credentials
+## Change the super admin credentials
 
 Follow the instructions below to change the default admin password:
 
@@ -57,18 +51,14 @@ Follow the instructions below to change the default admin password:
       
     To change the password from Management Console ( <https://localhost:9443/carbon> ), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
 
-### Recovering a password
+## Recover a password
 
 Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 !!! note
     If you encountered an error similar to `ant: command not found`, Please install [ant](https://ant.apache.org/) before running the above script
 
-### Login in via multiple user attributes in Developer Portal
-
-See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager. 
-
-### Setting up an e-mail login
+## Setup an e-mail login
 
 For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
 
@@ -83,9 +73,37 @@ For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/l
     username="admin!wso2.com!carbon.super"
    ```
 
-### Setting up a social media login
+## Developer Portal
 
-You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. Refer [Log in to the API Developer Portal using Social Media]({{base_path}}/learn/consume-api/customizations/log-in-to-the-api-store-using-social-media/) for more information.
+### Change the Developer Portal password
+
+Follow the instructions below to change your password:
+
+1. Sign in to the Developer Portal.
+
+     `https://<hostname>:9443/devportal`
+
+     Example: `https://localhost:9443/devportal`
+
+     Use your username and password to sign in
+  
+2. Click on your username that appears at the top right corner and select **Change Password**.
+  
+     <img src="{{base_path}}/assets/img/learn/change-devportal-password-user-menu-click.png" alt="Change Developer Portal password User Menu" width="300px"/>
+  
+3. Enter your current password, a new password, re-enter the new password, and thereafter click **SAVE** to submit the changes. 
+
+     The new password should adhere to the custom password policies as described below.
+
+     <img src="{{base_path}}/assets/img/learn/change-devportal-password-submiting.png" alt="Developer portal password change submit" width="700"/>
+
+### Sign in via multiple user attributes in Developer Portal
+
+See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager.
+
+### Setup a social media login
+
+You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/learn/consume-api/customizations/log-in-to-the-api-store-using-social-media/).
 
 !!! note
     Note that auto-provision users based on a social network login are not supported in a **multi-tenant environment**.
@@ -97,6 +115,3 @@ To overcome this limitation, you can write a custom authenticator to retrieve th
 
 -   For information on writing a custom authenticator, see [Creating Custom Authenticators](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-local-authenticator/) in the WSO2 IS documentation.
 -   For information on writing a custom login page, see [Customizing Login Pages](https://is.docs.wso2.com/en/5.10.0/develop/customizing-login-pages-for-service-providers/) in the WSO2 IS documentation.
-
-
-
