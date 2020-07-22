@@ -335,7 +335,6 @@ nav:
                       - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
           - Customizations:
                 - Customizing the Developer Portal:
-                      - Customize Developer Portal Credential Preferences: develop/customizations/customizing-the-developer-portal/customize-developer-portal-credentials.md
                       - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                       - Customize API Listing:
                             - Categorizing and Grouping APIs:
@@ -409,18 +408,18 @@ nav:
                       - Configuring the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
                       - Adding a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
                 - Security:
+                      - Logins and Passwords:
+                            - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
+                            - Securing Passwords:
+                                - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
+                                - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
+                                - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                       - Configuring Keystores:
                             - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                             - Keystore Basics:
                                   - Creating a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
                                   - Renewing a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
                                   - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
-                            - Logins and Passwords:
-                                  - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
-                                  - Securing Passwords:
-                                        - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
-                                        - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
-                                        - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                       - Enabling HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
                       - Enabling Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
@@ -436,7 +435,7 @@ nav:
           - SSO:
                 - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
                 - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-          - Advance Configuration:
+          - Advanced Configuration:
                 - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
                 - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
                 - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
