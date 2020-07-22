@@ -23,7 +23,7 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
 2.  Click on an API that is in the **CREATED** state.
 
-     ![]({{base_path}}/assets/img/learn/select-created-api.png)
+     <img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" />
 
 3.  Click **Test Console** on the left navigation menu.
 
