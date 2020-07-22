@@ -9,9 +9,9 @@ Follow the instructions below to change the default admin password:
 1.  Go to `<API-M_HOME>/repository/conf/deployment.toml` and change the user credentials as below.
 
    ``` toml
-       [super_admin]
-       username = "your-name"
-       password = "your-password"
+    [super_admin]
+    username = "your-name"
+    password = "your-password"
    ```
   
 !!! note
@@ -49,7 +49,7 @@ Follow the instructions below to change the default admin password:
     Therefore, if you need to change the admin password stored in the user store, you cannot simply change the credentials as above.
     To change the super admin password, you must use the **Change Password** option from the management console.
       
-    To change the password from Management Console ( <https://localhost:9443/carbon> ), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
+    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
 
 ## Recover a password
 
@@ -75,35 +75,13 @@ For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/l
 
 ## Developer Portal
 
-### Change the Developer Portal password
-
-Follow the instructions below to change your password:
-
-1. Sign in to the Developer Portal.
-
-     `https://<hostname>:9443/devportal`
-
-     Example: `https://localhost:9443/devportal`
-
-     Use your username and password to sign in
-  
-2. Click on your username that appears at the top right corner and select **Change Password**.
-  
-     <img src="{{base_path}}/assets/img/learn/change-devportal-password-user-menu-click.png" alt="Change Developer Portal password User Menu" width="300px"/>
-  
-3. Enter your current password, a new password, re-enter the new password, and thereafter click **SAVE** to submit the changes. 
-
-     The new password should adhere to the custom password policies as described below.
-
-     <img src="{{base_path}}/assets/img/learn/change-devportal-password-submiting.png" alt="Developer portal password change submit" width="700"/>
-
-### Sign in via multiple user attributes in Developer Portal
+### Sign in via multiple user attributes
 
 See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager.
 
 ### Setup a social media login
 
-You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/learn/consume-api/customizations/log-in-to-the-api-store-using-social-media/).
+You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/develop/customizations/log-in-to-the-dev-portal-using-social-media).
 
 !!! note
     Note that auto-provision users based on a social network login are not supported in a **multi-tenant environment**.

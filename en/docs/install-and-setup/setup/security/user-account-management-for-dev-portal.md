@@ -1,16 +1,20 @@
-# Identity Management for the API Developer Portal
+# User Account Management for the Developer Portal
 
-Identity management for the API developer portal includes the following features.
+The following sections explain how to manage Developer Portal related user accounts.
 
--   [Password Recovery]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#password-recovery)
--   [Account locking]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#account-locking)
--   [Password policies]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#Password-policies)
+## Password recovery
 
-## Password Recovery
+The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. 
 
-Password recovery feature does not work by default because an email server is not configured to send the password recovery email. Follow the steps below to enable password recovery feature for the API Developer Portal.
+Follow the steps below to enable the password recovery feature for the Developer Portal:
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add a mail server configuration as shown below. See [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/) for more information.
+1. Shut down the server if it is running.
+
+2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+3. Add the following properties to configure the a e-mail server. 
+
+     For more information, see [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/).
 
     ``` java
     [output_adapter.email]
@@ -23,31 +27,20 @@ Password recovery feature does not work by default because an email server is no
     enable_authentication = true
     ```
 
-2.  After the mail server is configured, the user can click on the **Forgot Password** link on the Sign In page of the API Developer Portal and request a password change.
-    
-    ![signin-forgot-password-link]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/forgot-password.png)
-
-3.  Enter the username you are trying to recover the password of and click **Submit**.
-   
-    ![password-recovery-page]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/password-recovery-form.png )
-
-4.  You will receive an email with instructions to reset your password. Note that this is email is sent to the email address stored during user sign up.
-
-    !!! note
-        You can change the the template of this email (E.g., email link, message body, etc.). To edit the mail template, open the `<API-M_HOME>/repository/conf/email/email-admin-config.xml` file and make the changes.
+4. Re-start the server.
 
 ## Account locking
 
 You can lock user accounts with the Account recovery and credential management feature, pre-installed in WSO2 API Manager.
 
--   [Account locking by failed login attempts]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#account-locking-by-failed-login-attempts)
--   [Account locking by an administrative user]({{base_path}}/administer/product-security/identity-management-for-the-api-dev-portal/#account-locking-by-an-administrative-user)
+-   [Account locking by failed login attempts](#account-locking-by-failed-login-attempts)
+-   [Account locking by an administrative user](#account-locking-by-an-administrative-user)
 
 ### Account locking by failed login attempts
 
 The following steps show how to enable account locking. See [Account Locking by Failed Login Attempts](https://is.docs.wso2.com/en/5.10.0/learn/account-locking-by-failed-login-attempts/) for more information. 
 
-1.  Log into the Management Console( `https://<API-M_HOST>:<API-M_PORT>/carbon` ) using admin credentials..
+1.  Sign in to the Management Console (`https://<API-M_HOST>:<API-M_PORT>/carbon`) using admin credentials.
 
 2.  Click **Resident** under **Identity Providers** found in the **Main** tab.
 
@@ -69,11 +62,11 @@ The following steps show how to enable account locking. See [Account Locking by 
 
 An administrative user can lock and unlock a particular user's account through the management console. See [Locking a Specific User Account](https://is.docs.wso2.com/en/5.10.0/learn/locking-a-specific-user-account/) for more information. 
 
-1.  Log in to the Management Console( `https://<API-M_HOST>:<API-M_PORT>/carbon` ) using admin credentials.
+1.  Sign in to the Management Console (`https://<API-M_HOST>:<API-M_PORT>/carbon`) using admin credentials.
 
 2.  Go to **Claims &gt; List** on the **Main** tab and select the `http://wso2.org/claims` claim dialect.
 
-3.  Expand the **Account Locked** claim and click **Edit** .
+3.  Expand the **Account Locked** claim and click **Edit**.
    
     ![account-lock-claim]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/account-lock-claim-edit.png)
 
