@@ -62,7 +62,7 @@ nav:
                             - Create a WebSocket API: learn/design-api/create-api/create-a-websocket-api.md
                             - Expose a SOAP Service as a REST API: learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md
                             - Generate REST API from SOAP Backend: learn/design-api/create-api/generate-rest-api-from-soap-backend.md
-                            - Testing an API in the design phase: learn/design-api/create-api/test-an-api.md
+                            - Test an API in the design phase: learn/design-api/create-api/test-an-api-in-the-design-phase.md
                       - Adding Custom Properties to APIs: learn/design-api/create-api/adding-custom-properties-to-apis.md
                       - Change the Thumbnail of an API : learn/design-api/create-api/change-api-thumbnail.md
                 - Publish APIs:

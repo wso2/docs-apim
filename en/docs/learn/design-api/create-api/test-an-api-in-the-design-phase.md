@@ -1,4 +1,4 @@
-# Testing an API in the design phase
+# Test an API in the design phase
 
 **Testing APIs** is trying out the APIs at the publisher itself and make sure whether the functionalities and behaviours are  met before publishing to the gateway for subscribers to access.
 
