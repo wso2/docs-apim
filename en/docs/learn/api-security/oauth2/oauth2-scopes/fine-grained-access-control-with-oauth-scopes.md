@@ -4,90 +4,209 @@ Scopes enable fine-grained access control to API resources based on user roles. 
 
 For example, there can be requirements such as restricting the access to a given API resource to admin users only, while other resources of the same API access should be allowed to consumers with less privileges. Let's see how this kind of role based access control can be managed with the use of OAuth2 scopes.
 
+## Shared Scopes
 
-## Creating a Scope
+In WSO2 API-M, you can create OAuth scopes before the API creation time and share them across multiple APIs of the same
+tenant. The API-M Publisher portal provides a scope management UI to view, create, edit and delete these shared scopes. 
 
-The scopes can be created and applied to an API resources at API create time. Please follow below steps to create a scope.
+!!! info
+     Shared scopes can be viewed by any Publisher portal user with a role associated with `apim:api_view` Publisher 
+     REST API scope. Shared scope create, update and delete operations are only allowed for user roles associated with 
+     `apim:shared_scope_manage` Publisher REST API scope. 
+     
+     By default, only an `admin` user can perform create, update and delete operations of shared scopes.
+
+### Creating a Shared Scope
+
+The shared scope need to be created before API creation/update time. Follow below steps to create a new shared scope.
+
+1. Login to API Publisher (https://localhost:9443/publisher). 
+
+2. Navigate to **Scopes** from the top menu and click on **Create a new scope** button.
+
+     [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)
+
+3. In **Create New Scope** wizard, you will be prompted to enter a scope name, scope display name and optionally, 
+scope description and allowed roles. Fill in required details of the scope and click **Save** button.
+
+     [![Create New Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)
+
+    <table>
+     <tbody>
+          <tr class="odd">
+               <td><strong>Scope Name</strong></td>
+               <td>A unique key for identifying the scope.</td>
+          </tr>
+          <tr class="even">
+               <td><strong>Scope Display Name</strong></td>
+               <td>A human-readable name for the scope. It typically says what the scope does. This is used for consent
+               screens.</td>
+          </tr>
+          <tr class="odd">
+               <td><strong>Scope Description</strong></td>
+               <td>The description for the scope.</td>
+          </tr>          
+          <tr class="even">
+               <td><strong>Roles</strong></td>
+               <td><div class="content-wrapper">
+                    <p>The user role(s) that are allowed to obtain a token against this scope. E.g., manager, employee.</p>
+                    <p>Note that the role name is <strong>case sensitive</strong> in the DBMSs that are case sensitive, such as PostgreSQL.</p>
+                    <p>When the role you specify is in a secondary user store, you have to give the role as <code>&lt;userstore name&gt;/&lt;role name&gt;</code>.</p>
+              </div></td>
+          </tr>
+     </tbody>
+    </table>     
+
+### Applying a Shared Scope to an API Resource
+
+A shared scope has to be applied to a resource, in order to restrict the access to a user group/groups. A shared scope
+can be attached to more than one APIs of the same tenant. Follow below steps to apply a shared scope to a resource.
+
+1. Go to API **Resources** section and click on the resource you would like to apply the scope.
+
+    <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" alt="Select Resource" 
+         title="Select Resource" width="70%" /></a>
+
+2. Select the created scope from the dropdown. The created shared scope will be listed under **Shared Scopes** in the drop down.
+
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/attach-shared-scope.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/attach-shared-scope.png" alt="Select Shared Scope" 
+          title="Select Shared Scope" width="70%" /></a>
+
+     Once you select the scope from dropdown, it will be shown as follows.
+
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/shared-scope-attached.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/shared-scope-attached.png" alt="Attched Shared Scope" 
+          title="Attached Shared Scope" width="70%" /></a>         
+
+
+3. Click on **Save** button to save changes.         
+
+4. Publish the API.
+
+!!! info
+
+     Once a shared scope is created and attached to an API, you are restricted to delete the shared scope. In order to
+     delete a shared scope, first you need to remove its resource attachments from relevant APIs.
+
+## API Scopes 
+
+!!! warning
+     
+    This feature is **DEPRECATED** from **WSO2 API-M 3.2 onwards** and, it is recommended to use 
+    [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes).
+
+In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. 
+These scopes are local and unique to the relevant API. 
+
+### Creating an API Scope
+
+An API Scope can be created and applied to a resource at API creation time by following below steps.
 
 1. Login to API Publisher (https://localhost:9443/publisher) 
 
-2. Start creating an API as described [here]({{base_path}}learn/design-api/create-api/create-a-rest-api).
+2. Start creating an API as described [here]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 
-3. Navigate to Scope section and click on create scope button.
+3. Navigate to **Scopes** section and click on **CREATE SCOPES** button.
 
-    <a href="../../../../../assets/img/learn/start-creating-scope.png" ><img src="../../../.
-    ./../assets/img/learn/start-creating-scope.png" alt="Start Creating a Scope" 
-         title="Start Creating a Scope" width="70%" /></a>
+     [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)
 
-4. In scope creation wizard, you will be prompted to enter a scope name, scope description and optionally, allowed roles and a description. Fill in required details of the scope and click **Save** button.
- Click **Save**.
+4. In **Create New Scope** wizard, you will be prompted to enter a scope name and optionally, allowed roles and a description. 
+Fill in required details of the scope and click **Save** button.
 
     <table>
-    <tbody>
-    <tr class="odd">
-    <td><strong>Scope Key</strong></td>
-    <td>A unique key for identifying the scope. Typically, it is prefixed by part of the API's name for uniqueness, but is not necessarily reader-friendly.</td>
-    </tr>
-    <tr class="even">
-    <td><strong>Scope Name</strong></td>
-    <td>A human-readable name for the scope. It typically says what the scope does.</td>
-    </tr>
-    <tr class="odd">
-    <td><strong>Roles</strong></td>
-    <td><div class="content-wrapper">
-    <p>The user role(s) that are allowed to obtain a token against this scope. E.g., manager, employee.</p>
-    <p>Note that the role name is <strong>case sensitive</strong> in the DBMSs that are case sensitive, such as PostgreSQL.</p>
-    <p>When the role you specify is in a secondary user store, you have to give the role as <code>&lt;userstore name&gt;/&lt;role name&gt;</code>.</p>
-    
-    </div></td>
-    </tr>
-    </tbody>
+     <tbody>
+          <tr class="odd">
+               <td><strong>Scope Name</strong></td>
+               <td>A unique key for identifying the scope. This should be unique across all the APIs of the tenant.</td>
+          </tr>
+          <tr class="even">
+               <td><strong>Scope Description</strong></td>
+               <td>The description for the scope.</td>
+          </tr>          
+          <tr class="odd">
+               <td><strong>Roles</strong></td>
+               <td><div class="content-wrapper">
+                    <p>The user role(s) that are allowed to obtain a token against this scope. E.g., manager, employee.</p>
+                    <p>Note that the role name is <strong>case sensitive</strong> in the DBMSs that are case sensitive, such as PostgreSQL.</p>
+                    <p>When the role you specify is in a secondary user store, you have to give the role as <code>&lt;userstore name&gt;/&lt;role name&gt;</code>.</p>
+              </div></td>
+          </tr>
+     </tbody>
     </table>
 
-    <a href="../../../../../assets/img/learn/create-a-new-scope.png" ><img src="../../../../../assets/img/learn/create-a-new-scope.png" alt="Create a Scope" 
+    <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/create-a-new-scope.png" >
+    <img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/create-a-new-scope.png" alt="Create a Scope" 
          title="Create a Scope" width="70%" /></a>
 
-## Applying a Scope to an API Resource
+### Applying an API Scope to a Resource
 
-A scopes has be applied to a resource, in order to restrict the access to a user group/groups. Please follow below steps to apply a scope to a resource.
+An API scope has be applied to a resource, in order to restrict the access to a user group/groups. An API Scope can only be
+attached to the relevant API in which it is created under. Follow below steps to apply an API Scope to a resource.
 
-1. Go to API Resource section and click on the resource you would like to apply the scope.
+1. Go to API **Resources** section and click on the resource you would like to apply the scope.
 
-    <a href="../../../../../assets/img/learn/select-resource.png" ><img src="../../../../../assets/img/learn/select-resource.png" alt="Select Resource" 
+    <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" alt="Select Resource" 
          title="Select Resource" width="70%" /></a>
 
-2. Select the created scope from the drop down and click on **Save** button to save changes.
+2. Select the created API Scope from the dropdown. The created shared scope will be listed under **API Scopes** in the 
+dropdown.
 
-    <a href="../../../../../assets/img/learn/apply-scope.png" ><img src="../../../../../assets/img/learn/apply-scope.png" alt="Apply Scope" 
+    <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/apply-scope.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/apply-scope.png" alt="Apply Scope" 
          title="Apply Scope" width="70%" /></a>
 
-3. Publish the API.
+3. Click on **Save** button to save changes.         
+
+4. Publish the API.
+
+## Applying Multiple Scopes Per Resource
+
+From API-M Publisher Portal, you can attach multiple scopes to each API resource including combinations of both 
+[Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) 
+and [API Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#api-scopes).
+
+[![Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)
+
+Once you attach multiple scopes per resource, the resource will look as follows.
+
+[![After Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/after-attaching-multiple-scopes.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/after-attaching-multiple-scopes.png)
+
+## Defining OAuth Scopes in API Definition
+
+Both [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) 
+and [API Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#api-scopes) should be defined in same way in the OpenAPI definition as follows.
+
+<a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" alt="Resource Scopes API Definition" 
+     title="Resource Scopes API Definition" width="50%" /></a>
+
+[![Scopes Security Definition API Definition]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/scopes-api-definition.png)
+
 
 ## Obtaining Tokens with Scopes
 
-When a scope has been assigned to an API resource, the access is getting restricted to the users who has the role/roles specified in the scope. Hence, the API consumers has to specifically request for the relevant scope when generating an access token to invoke the API resource. Please follow below steps to obtain an access token specifying the requested scopes.
+When a scope has been assigned to an API resource, the access is getting restricted to the users who has the role/roles specified in the scope. Hence, the API consumers has to specifically request for the relevant scope when generating an access token to invoke the API resource. Follow below steps to obtain an access token specifying the requested scopes.
 
-1. Login to API Portal(https://localhost:9443/devportal/)
+1. Login to API Developer Portal (https://localhost:9443/devportal/).
 
-2. Navigate to the API which has the scope protected API resource and go to Credential section to subscribe to an application.
+2. Navigate to the API which has the scope protected API resource and go to **Subscription** section to subscribe to an application.
 
-    <a href="../../../../../assets/img/learn/subscribe-weatherapi.png" ><img src="../../../../../assets/img/learn/subscribe-weatherapi.png" alt="Subscribe" 
-         title="Subscribe" width="50%" /></a>
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/subscribe-api.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/subscribe-api.png" alt="Subscribe" 
+          title="Subscribe" width="50%" /></a>
          
-3. Generate production keys for the application.
+3. Generate PRODUCTION or SANDBOX keys for the application.
 
-    <a href="../../../../../assets/img/learn/generate-app-keys.png" ><img src="../../../../../assets/img/learn/generate-app-keys.png" alt="Generate App Keys" 
-         title="Generate App Keys" width="60%" /></a>
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/generate-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/generate-keys.png" alt="Generate App Keys" 
+          title="Generate App Keys" width="60%" /></a>
 
-4. Click on **GENERATE ACCESS TOKEN** button. Then select the scope from the prompted window and generate the access token.
+4. Click on **GENERATE ACCESS TOKEN** button. Then select the scope from dropdown in the prompted window and click **GENERATE** button 
+to generate the access token.
 
-    <a href="../../../../../assets/img/learn/generate-access-token-with-scopes.png" ><img src="../../../../../assets/img/learn/generate-access-token-with-scopes.png" alt="Generate App Keys" 
-         title="Generate App Keys" width="50%" /></a>
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/generate-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes.png" alt="Select Token Scopes" 
+          title="Select Token Scopes" width="60%" /></a>
 
-5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Unless, only the default scopes will be returned with the access token.
+5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Unless,
+only the default scopes will be returned with the access token.
  
-    <a href="../../../../../assets/img/learn/token-scopes.png" ><img src="../../../../../assets/img/learn/token-scopes.png" alt="Token scopes" 
-         title="Token Scopes" width="40%" /></a>   
+      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" alt="Token Scopes" 
+          title="Token Scopes" width="60%" /></a>
          
 6. Invoke the API resource with the above generated access token. If the user is assigned with the authorized roles, the API invocation will be successful. An API resource access by an unauthorized user will be failed giving 403 Forbidden error.
 
