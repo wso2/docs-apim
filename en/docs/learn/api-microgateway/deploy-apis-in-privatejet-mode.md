@@ -37,21 +37,18 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
     Follow the steps below to regulate access to the resources in the cluster.
 
     i.  Create a service account
-
-        kubectl create serviceaccount <service-account name> -n <namespace>
-        
-        kubectl create serviceaccount wso2am-privatejet
-        
-        ``` json tab="Format"
-        kubectl create serviceaccount wso2am-privatejet
-        ```  
-       
-        ``` json tab="Example"
-        Kubernetes = "org.wso2.carbon.apimgt.impl.containermgt.K8sManager_CustomClass"
-        ```
-
+    
+    ``` json tab="Format"
+    kubectl create serviceaccount <service-account name> -n <namespace>
+    ```  
+   
+    ``` json tab="Example"
+    kubectl create serviceaccount wso2am-privatejet
+    ```
+   
     ii. Create a clusterRole
 
+        cat <<EOF | kubectl apply -f -
         apiVersion: rbac.authorization.k8s.io/v1
         kind: ClusterRole
         metadata:
@@ -60,32 +57,47 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
         - apiGroups: ["","apiextensions.k8s.io","wso2.com"]
           resources: ["configmaps","customresourcedefinitions","apis"]
           verbs: ["get", "post", "create", "delete", "put", "list","update"]
+        EOF
      
     iii. Create a  clusterRoleBinding
 
+        cat <<EOF | kubectl apply -f -
         apiVersion: rbac.authorization.k8s.io/v1
         kind: ClusterRoleBinding
         metadata:
-          name: clusterrolebinding-privatejet
+         name: clusterrolebinding-privatejet
         subjects:
         - kind: ServiceAccount
-          name: wso2am-privatejet # Name is case sensitive
+          name: wso2sa # Name is case sensitive
           apiGroup: ""
           namespace: default
         roleRef:
           kind: ClusterRole
           name: clusterrole-privatejet
           apiGroup: rbac.authorization.k8s.io
-                                                                                                                      
+        EOF
+                                                                                                                   
     iv. Obtaining service account token
 
     First you need to get the secret name for your service account. This can be done by executing,
-
-        kubectl get secrets -n <serviceaccount-namespace>
+    
+    ``` json tab="Format"
+    kubectl get secrets -n <serviceaccount-namespace>
+    ```  
+   
+    ``` json tab="Example"
+    kubectl get secrets 
+    ```
      
     Then, get the service account token by executing the following command,
-
-        kubectl describe secrets -n <serviceaccount-namespace> <secret-namespace>
+    
+    ``` json tab="Format"
+    kubectl describe secret <secret-name> -n <serviceaccount-namespace> 
+    ```  
+   
+    ``` json tab="Example"
+    kubectl describe secret wso2am-privatejet-token-rsf7q
+    ```
 
     v. Obtaining the master URL
 
@@ -325,9 +337,9 @@ In order to secure APIs with above mechanisms,
            "SAToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2UlYySEFkaVBOVG4zZ3FhWERXQUxQVUQ0bjlzOXE3dFhpbUZNZlFiRjQifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ3c28yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6IndzbzJhbS1wYXR0ZXJuLTEtc3ZjLWFjY291bnQtdG9rZW4tZGR0OTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoid3NvMmFtLXBhdHRlcm4tMS1zdmMtYWNjb3VudCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6Ijc3NmRmMjFkLTA3NjItNDM2Zi05ZDIwLTZlYzFkODMxYzc1NSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp3c28yOndzbzJhbS1wYXR0ZXJuLTEtc3ZjLWFjY291bnQifQ.YwlSgnSnwS7BNP0q0iDHsjlq_r3RhobG-SrduuEi35VXNfipPsK3UVJcCBmDKQOzKAxRG9415h2pr3cS-QsM6PR_UU2UWlXiUO-3UtSMqVY48Ek_1wdfmfCkiE7IOeua_58CV15tXtMLom0Oh27nkmWGfTHVvImQnqho4nv26BKZH4vKWgkw0HpMt73KHdN6SlVMK0cynktO5H-2A4V2rh-uL-OUXCLON_sBypVoPc9PAMxHo-bUe0SqBPiM0SiALu-0-J6dBcwbzPb5g-yUZmHmtuw3O32C304Hgfr-4Dui3X5DSKBSeqlrjjjfrvMVNug0J4JKk3bJ56h0OgujFw",
            "Namespace": "default",
            "Replicas": 1,
-           "BasicSecurityCustomResourceName": "",
-           "OauthSecurityCustomResourceName": "",
-           "JWTSecurityCustomResourceName": ""
+           "BasicSecurityCustomResourceName": "securitybasic",
+           "OauthSecurityCustomResourceName": "securityoauth",
+           "JWTSecurityCustomResourceName": "securityjwt"
             }
           }
         ]
