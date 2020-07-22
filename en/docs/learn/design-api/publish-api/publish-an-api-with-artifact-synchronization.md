@@ -9,7 +9,7 @@ Thus, a solution with an extension point which can be configurable to store thes
 
 ##API Publish/ Update / Remove when the API Gateway is running
 
-  [![]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)
+  [![Artifact SYnchronizer Architecture]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)
 
 1. When an API gets Published, Edited, or removed, the synapse artifacts corresponding to that API will be Stored or
  updated  in the extension point. 
@@ -26,8 +26,7 @@ There will be an extension in the publisher profile to store the synapse artifac
 
 ##API Gateway at the startup
 
-
-  [![]({{base_path}}/assets/img/learn/gateway-startup.png)]({{base_path}}/assets/img/learn/gateway-startup.png)
+  [![Gateway Startup]({{base_path}}/assets/img/learn/gateway-startup.png)]({{base_path}}/assets/img/learn/gateway-startup.png)
   
 At startup, the gateway will look on the APIs with labels which it is subscribed to, in the extension, and fetch the synapse artifacts of those APIs. Those synapse artifacts will get deployed in the gateway.
 
