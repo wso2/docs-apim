@@ -18,7 +18,7 @@ Follow the instructions below to change your password:
   
      <img src="{{base_path}}/assets/img/learn/change-devportal-password-user-menu-click.png" alt="Change Developer Portal password User Menu" width="300px"/>
   
-3. Enter your old password, a new password, re-enter the new password, and thereafter click **SAVE** to submit the changes. 
+3. Enter your current password, a new password, re-enter the new password, and thereafter click **SAVE** to submit the changes. 
 
      The new password should adhere to the custom password policies as described below.
 
@@ -46,7 +46,7 @@ You can define your custom password policy by defining one or both of the follow
      <p class="admonition-title">Note</p>    
      <p>
      <ul><li><p>
-     The password policy set by the Identity Management password policies can be overridden by the Management console for each tenant.
+     The password policy set by the identity management password policies via the configuration file can be overridden using the Management Console for each tenant.
      </p></li>
      <li>
      <p>
