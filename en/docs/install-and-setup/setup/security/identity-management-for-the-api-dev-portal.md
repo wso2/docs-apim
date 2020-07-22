@@ -13,14 +13,14 @@ Password recovery feature does not work by default because an email server is no
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add a mail server configuration as shown below. See [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/) for more information.
 
     ``` java
-        [output_adapter.email]
-        from_address = "wso2am@gmail.com"
-        username = "wso2amtest"
-        password = "Wso2@am70"
-        hostname = "smtp.gmail.com"
-        port = "587"
-        enable_start_tls = true
-        enable_authentication = true
+    [output_adapter.email]
+    from_address = "wso2am@gmail.com"
+    username = "wso2amtest"
+    password = "Wso2@am70"
+    hostname = "smtp.gmail.com"
+    port = "587"
+    enable_start_tls = true
+    enable_authentication = true
     ```
 
 2.  After the mail server is configured, the user can click on the **Forgot Password** link on the Sign In page of the API Developer Portal and request a password change.
@@ -61,7 +61,7 @@ The following steps show how to enable account locking. See [Account Locking by 
     An error message similar to the following will be logged in wso2carbon.log when the account is locked.
     
     ``` java
-        ERROR - Account is locked for user alex in user store PRIMARY in tenant carbon.super. Cannot login until the account is unlocked.
+    ERROR - Account is locked for user alex in user store PRIMARY in tenant carbon.super. Cannot login until the account is unlocked.
     ```
 
 
@@ -83,7 +83,7 @@ An administrative user can lock and unlock a particular user's account through t
 
 5.  Go to **Users and Roles &gt; List &gt; Users** on the **Main** menu and click on **User Profile** of the user you want to lock.
 
-6.  Tick the checkbox in front of the **Account Locked** field to lock the account for the user and click **Update** .
+6.  Tick the checkbox in front of the **Account Locked** field to lock the account for the user and click **Update**.
    
     ![profile-account-lock]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/account-lock-checkbox.png)
 
@@ -97,30 +97,30 @@ You can define your custom password policy by defining one or both of the follow
 
 For more information, see [Configuring a JDBC User Store]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store/#configuring-a-jdbc-user-store)  
 
-     Example:
+Example:
 
-     ```toml
-     [user_store]
-     type = "database_unique_id"
+```toml
+[user_store]
+type = "database_unique_id"
 
-     [user_store.properties]
-     PasswordJavaRegEx = "^[\\S]{6,30}$"
-     ```
+[user_store.properties]
+PasswordJavaRegEx = "^[\\S]{6,30}$"
+```
 
 #### Identity management password policies
 
 You can define custom password policies for API developer portal user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
 
 ``` java
-    [identity_mgt.events.schemes]
-    passwordPolicy.properties.enable = true
-    passwordPolicy.properties.'min.length' = 4
-    passwordPolicy.properties.'max.length' = 10
-    passwordPolicy.properties.pattern = "^((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&*])).{0,100}$"
-    passwordPolicy.properties.errorMsg = "Password pattern policy violated. Password should contain a digit[0-9], a lower case letter[a-z], an upper case letter[A-Z], one of !@#$%&* characters"
-    passwordPolicy.properties.'class.PasswordLengthPolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordLengthPolicy"
-    passwordPolicy.properties.'class.PasswordNamePolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordNamePolicy"
-    passwordPolicy.properties.'class.PasswordPatternPolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordPatternPolicy"
+[identity_mgt.events.schemes]
+passwordPolicy.properties.enable = true
+passwordPolicy.properties.'min.length' = 4
+passwordPolicy.properties.'max.length' = 10
+passwordPolicy.properties.pattern = "^((?=.*\\\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%&*])).{0,100}$"
+passwordPolicy.properties.errorMsg = "Password pattern policy violated. Password should contain a digit[0-9], a lower case letter[a-z], an upper case letter[A-Z], one of !@#$%&* characters"
+passwordPolicy.properties.'class.PasswordLengthPolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordLengthPolicy"
+passwordPolicy.properties.'class.PasswordNamePolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordNamePolicy"
+passwordPolicy.properties.'class.PasswordPatternPolicy' = "org.wso2.carbon.identity.mgt.policy.password.DefaultPasswordPatternPolicy"
 ```
 
 <html>    
