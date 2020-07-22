@@ -2140,8 +2140,8 @@ Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.
 !!! note
     Type and name of a column of few tables were changed through WUM in analytics version 2.6. It is important to 
     add the above change into your database prior to migration. So execute the below queries which checks whether 
-    the above change is already available in your DB and if not it will add the relevant change. Ensure to replace 
-    "<Enter Analytics DB name here>" with the correct DB name in the scripts.   .
+    the above change is already available in your DB and if not, it will add the relevant change. Ensure to replace 
+    "<Enter Analytics DB name here>" with the correct DB name in the scripts.
     
     ```tab="MSSQL"
     CREATE PROCEDURE dbo.alter_geolocation_table_if_coloumn_not_exist
