@@ -235,8 +235,8 @@ nav:
                 - Enforce Throttling and Resource Access Policies: learn/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Setting Maximum Backend Throughput Limits: learn/rate-limiting/setting-maximum-backend-throughput-limits.md
                 - Engaging a New Throttling Policy at Runtime: learn/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
-                - Apply Query Limits for GraphQL API:
-                        - Overview: learn/rate-limiting/graphql-api/overview-rate-limiting-for-graphql-apis.md
+                - Query Limits for GraphQL:
+                        - Overview: learn/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
                         - Query Depth Limit: learn/rate-limiting/graphql-api/query-depth-limitation.md
                         - Query Complexity Limit: learn/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
