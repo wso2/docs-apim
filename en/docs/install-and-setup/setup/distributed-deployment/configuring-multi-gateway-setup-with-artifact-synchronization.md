@@ -35,7 +35,7 @@ Gateways are subscribed to the traffic manager. There is an extension in the gat
 ##Configuration Related to Artifact Synchronizer
 
 You need to configure Gateway and Publisher node as given below to save and retrieve artifacts through
-corresponding extensions
+corresponding extensions.
 
 ###Publisher Profile 
 
