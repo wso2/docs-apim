@@ -2,10 +2,11 @@
 
 The following sections provide information on how to troubleshoot various problems that may arise for deployment in production environments.
 
--   [Analyzing a stack trace](#analyzing-a-stack-trace)
--   [Capturing the state of the system](#capturing-the-state-of-the-system)
--   [Viewing process threads in Solaris](#viewing-process-threads-in-solaris)
--   [Checking the health of a cluster](#checking-the-health-of-a-cluster)
+- [Troubleshooting in Production Environments](#troubleshooting-in-production-environments)
+    - [Analyzing a stack trace](#analyzing-a-stack-trace)
+    - [Capturing the state of the system](#capturing-the-state-of-the-system)
+    - [Viewing process threads in Solaris](#viewing-process-threads-in-solaris)
+    - [Checking the health of a cluster](#checking-the-health-of-a-cluster)
 
 ### Analyzing a stack trace
 
@@ -71,8 +72,8 @@ sh carbondump.sh [-carbonHome path] [-pid of the carbon instance]
 For example,
 
 ``` java
-In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.1.0/ -pid 5151
-In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.1.0\ -pid 5151
+In Linux: sh carbondump.sh -carbonHome /home/user/wso2carbon-3.2.0/ -pid 5151
+In Windows: carbondump.bat -carbonHome c:\wso2carbon-3.2.0\ -pid 5151
 ```
 The tool captures the following information about the system:
 

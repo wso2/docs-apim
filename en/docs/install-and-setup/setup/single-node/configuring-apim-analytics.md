@@ -78,12 +78,13 @@ You can now start using the WSO2 API Manager for its usual operations and the re
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
--   [Step 1 - Download and install WSO2 API-M](#step-1-download-and-install-wso2-api-m)
--   [Step 2 - Download and install WSO2 API-M Analytics](#step-2-download-and-install-wso2-api-m-analytics)
--   [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3-configure-wso2-api-manager-to-publish-statistics)
--   [Step 4 - Configure databases](#step-4-configure-databases)
--   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
--   [Step 6 - Configure keystores](#step-6-configure-keystores)
+- [Configuring APIM Analytics](#configuring-apim-analytics)
+      - [Step 1 - Download and install WSO2 API-M](#step-1---download-and-install-wso2-api-m)
+      - [Step 2 - Download and install WSO2 API-M Analytics](#step-2---download-and-install-wso2-api-m-analytics)
+      - [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3---configure-wso2-api-manager-to-publish-statistics)
+      - [Step 4 - Configure databases](#step-4---configure-databases)
+      - [Step 5 - Configure APIM IdP Client](#step-5---configure-apim-idp-client)
+      - [Step 6 - Configure keystores](#step-6---configure-keystores)
 
 #### Step 1 - Download and install WSO2 API-M
 
@@ -138,7 +139,7 @@ The server URL of the remote WSO2 API-M Analytics server used to collect statist
 <html><div class="admonition warning">
 <p class="admonition-title">From DAS to SI</p>
 <p>
-When using WSO2 API-M Analytics 3.1.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+When using WSO2 API-M Analytics 3.2.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
 <br/>e.g.,
 <br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
 </p>
