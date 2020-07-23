@@ -80,8 +80,8 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
     Note the new theme is applied.
     
 !!!Note
-    From APIM 3.1.0 onwards defaultTheme.json can contain only the custom modifications done to the default theme. 
-    Therefore the following are valid defaultTheme.json files.
+    From API-M 3.1.0 onwards, defaultTheme.json can contain only the custom modifications done to the default theme. 
+    Therefore the following are valid `defaultTheme.json` files.
     
     ```
         Ex1:

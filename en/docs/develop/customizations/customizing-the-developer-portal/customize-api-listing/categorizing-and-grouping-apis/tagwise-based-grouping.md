@@ -2,7 +2,7 @@
 
 !!! note
 
-    The Tag wise grouping feature has been deprecated with the introduction of the [API categories feature]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping) in WSO2 API Manager 3.1.0. Therefore, WSO2 recommends all users to use API categories instead of tag wise grouping.
+    The Tag wise grouping feature has been deprecated with the introduction of the [API categories feature]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping) in WSO2 API Manager 3.1.0. WSO2 recommends all users to use API categories instead of tag wise grouping.
 
 API providers add tags to APIs when designing them using the API Publisher. Tags allow API providers to categorize APIs that have similar attributes. When a tagged API gets published to the Developer Portal, its tags appear as clickable links to the API consumers, who can use them to quickly jump to a category of interest. The font size of the tag in the Developer Portal varies based on the number of APIs that are assigned to it. Therefore, for example the font size of a tag which has 10 APIs assigned to it will be bigger than the font size of a tag that has only 2 APIs assigned to it.
 
@@ -20,11 +20,11 @@ If you want to see the APIs grouped according to different topics in the Develop
     1.  Go to the API Publisher ( `https://<HostName>:9443/publisher` ).
     2.  Click on the respective API and go to `Design Configurations`.
     [ ![]({{base_path}}/assets/img/learn/categorizing-and-grouping-apis-publisher.png) ]({{base_path}}/assets/img/learn/categorizing-and-grouping-apis-publisher.png)
-    3.  Add a group name to the APIs that you wish to group.
+    1.  Add a group name to the APIs that you wish to group.
 
         For example add the "Technology-group".
 
-    4.  Save the API for the tag to appear in the Devloper Portal.
+    2.  Save the API for the tag to appear in the Devloper Portal.
 
 
     Sign in to the API Devloper Portal and note the API groups.

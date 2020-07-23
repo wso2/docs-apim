@@ -104,7 +104,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
     !!! warning
 
-            In WSO2 API Manager 3.1.0, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
+            In WSO2 API Manager 3.2.0, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
 
             By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
 
@@ -134,7 +134,7 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 ### Adding Role Mappings
 
 In the above example we mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There we had to update each and every entry that contained the `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated.
-Therefore from APIM 3.1.0 onwards we are introducing a `Role Mapping` feature to enable users to easily map new roles to existing scopes.
+From APIM 3.1.0 onwards, we have introduced a `Role Mapping` feature to enable users to easily map new roles to existing scopes.
 
 1. Log in to the admin portal ( `https://<APIM_Host>:<APIM_Port>/admin` ) if you have not done already.
 
