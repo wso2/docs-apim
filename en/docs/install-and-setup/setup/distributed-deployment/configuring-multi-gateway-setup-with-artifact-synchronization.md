@@ -1,4 +1,4 @@
-#Publish an API with Artifact Synchronization
+#Configuring Multi Gateway Setup with Artifact Synchronization.
 
 Currently, in a Multi Gateway setup, synapse artifacts such as sequences, local entries, endpoints are saved in
 ` <APIM_HOME>/repository/deployment/server/synapse-configs/default` directory as XMLs and have to be synced between all the gateway nodes using NFS or rsync. 
@@ -7,14 +7,14 @@ When using NFS we need to manage additional components that result in a consider
 Thus, a solution with an extension point which can be configurable to store these synapse artifacts is introduced.
 
 
-##API Publish/ Update / Remove when the API Gateway is running
+##Understanding the Artifact Synchronization with Extension
 
-  [![Artifact SYnchronizer Architecture]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)
+  [![Artifact Synchronizer Architecture]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)
 
-1. When an API gets Published, Edited, or removed, the synapse artifacts corresponding to that API will be Stored or
- updated  in the extension point. 
-2. Then an event will be sent to Traffic Manager(TM) using Event Notifiers with API Name, UUID, and the gateway label
- for the API.
+1. When an API gets Published, Edited, or removed, the synapse artifacts corresponding to that API will be stored, 
+updated or removed in the extension point. 
+2. Then an event will be sent to the Traffic Manager(TM) using Event Notifiers with API UUID, TenantID, Gateway 
+Instruction (Published / Removed) and the set of gateway labels for the API.
 3. Gateways are subscribed to the TM. Gateway will filter out the events by the Gateway label and APIs that have the
  gateway's label will be sorted. 
 4. Then it will fetch the artifacts associated with the API from the storage (Database or Github) and load it to the
@@ -24,7 +24,7 @@ Thus, a solution with an extension point which can be configurable to store thes
 There will be an extension in the publisher profile to store the synapse artifacts in a persistence storage. The default implementation uses the API Manager Database itself. Once the API is Published, Edited, or removed, an event will be sent to Traffic Manager using Event Notifiers with API Name, UUID, and the gateway label for the API. 
 
 
-##API Gateway at the startup
+##API Gateway Startup
 
   [![Gateway Startup]({{base_path}}/assets/img/learn/gateway-startup.png)]({{base_path}}/assets/img/learn/gateway-startup.png)
   
@@ -34,7 +34,7 @@ Gateways are subscribed to the traffic manager. There is an extension in the gat
 
 ##Configuration Related to Artifact Synchronizer
 
-You need to configure Gateway and Publisher node as given below to save artifacts and retrieve artifacts through
+You need to configure Gateway and Publisher node as given below to save and retrieve artifacts through
 corresponding extensions
 
 ###Publisher Profile 
@@ -53,7 +53,7 @@ publish_directly_to_gateway = "true"
  - If `publish_directly_to_gateway = true` then the artifacts will be published to the gateway directly. If
  `publish_directly_to_gateway = false` then the published API details will be notified to TM through events.
  - If we have `[apim.sync_runtime_artifacts.publisher]` configuration element then all the artifacts will be saved to
-  the storage via the extension point. In default they will get stored in Database.
+  the storage via the extension point. In default they will get stored in the Database.
   
   We can add the gateways as environments. For more information see 
    [Adding gateways as Environments]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
@@ -67,21 +67,19 @@ Update `<API-M_HOME>/repository/conf/deployment.toml` file as follows, and chang
 [apim.sync_runtime_artifacts.gateway]
 gateway_labels =["Production and Sandbox","Label1","Label2"]
 artifact_retriever = "DBRetriever"
-deployment_retry_duartion = 15000
+deployment_retry_duration = 15000
 data_retrieval_mode = "sync"
-save_artifacts_locally = false
+event_waiting_time = 5000
 ```
 
- - Through artifact_retriever we can specify the extension point. The default is `DBRetriever` where the artifacts are
+ - If we add the `[apim.sync_runtime_artifacts.gateway]` configuration element, then synapse artifacts will not be 
+ stored in the file system. 
+ 
+ - Through `artifact_retriever` we can specify the extension point. The default is *DBRetriever* where the artifacts are
   pulled from the database.
   
- - In gateway_labels we can specify the labels which the gateway is going to subscribe to. Only the APIs with these
+ - In `gateway_labels` we can specify the labels which the gateway is going to subscribe to. Only the APIs with these
   labels will be pulled from the extension point and deployed.
-  
- - If we add the config `save_artifacts_locally = true` or remove `save_artifacts_locally` config  then synapse
-  artifacts will be stored in the file system. (Saved in
-   `<APIM_HOME>/repository/deployment/server/synapse-configs/default/`) . When `save_artifacts_locally = false`  
-   then the artifacts from extension point will not be stored in the file system.
    
  - Through `data_retrieval_mode = “sync” ` we can specify the mode of deployment of artifacts from the extension point
  . By default gateway Startup will be in a Synchronous manner. Here the server will wait until all the APIs have been
@@ -103,6 +101,10 @@ save_artifacts_locally = false
    where the server will try to deploy the artifacts after it is started. </p>
   </div>
   </html>
+  
+ -  We can specify an event waiting time in milliseconds for gateway through `event_waiting_time` . Gateway will wait for the time 
+ specified in this config after receiving an event. This is to ensure that artifact retrieval is not ahead of 
+ artifact updates in publisher, thereby avoiding inconsistencies. Default waiting time will be 1 ms.
    
 ```
 [apim.event_hub] 
