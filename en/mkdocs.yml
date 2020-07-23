@@ -62,7 +62,7 @@ nav:
                             - Create a WebSocket API: learn/design-api/create-api/create-a-websocket-api.md
                             - Expose a SOAP Service as a REST API: learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md
                             - Generate REST API from SOAP Backend: learn/design-api/create-api/generate-rest-api-from-soap-backend.md
-                            - Test an API in the design phase: learn/design-api/create-api/test-an-api-in-the-design-phase.md
+                            - Test a REST API: learn/design-api/create-api/test-a-rest-api.md
                       - Adding Custom Properties to APIs: learn/design-api/create-api/adding-custom-properties-to-apis.md
                       - Change the Thumbnail of an API : learn/design-api/create-api/change-api-thumbnail.md
                 - Publish APIs:
@@ -137,7 +137,6 @@ nav:
                             - Adding an Application Key Generation Workflow: learn/consume-api/manage-application/advanced-topics/adding-an-application-key-generation-workflow.md
                 - Manage Subscriptions:
                       - Subscribe to an API: learn/consume-api/manage-subscription/subscribe-to-an-api.md
-                      - Update Subscription Tier: learn/consume-api/manage-subscription/update-api-subscription-tier.md
                       - Advanced Topics:
                             - Adding an API Subscription Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
                             - Adding an API Subscription Tier Update Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
@@ -228,10 +227,6 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-                - GraphQL Query Analysis:
-                      - Fine Grained Access Control for GraphQL APIs: learn/api-security/graphql-query-analysis/graphql-query-analysis.md
-                      - Query Depth Limitation: learn/api-security/graphql-query-analysis/query-depth-limitation.md
-                      - Query Complexity Limitation: learn/api-security/graphql-query-analysis/query-complexity-limitation.md
           - Rate Limiting:
                 - Throttling Use-Cases: learn/rate-limiting/introducing-throttling-use-cases.md
                 - Adding New Throttling Policies: learn/rate-limiting/adding-new-throttling-policies.md
@@ -240,6 +235,10 @@ nav:
                 - Enforce Throttling and Resource Access Policies: learn/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Setting Maximum Backend Throughput Limits: learn/rate-limiting/setting-maximum-backend-throughput-limits.md
                 - Engaging a New Throttling Policy at Runtime: learn/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
+                - Apply Query Limits for GraphQL API:
+                        - Overview: learn/rate-limiting/graphql-api/overview-rate-limiting-for-graphql-apis.md
+                        - Query Depth Limit: learn/rate-limiting/graphql-api/query-depth-limitation.md
+                        - Query Complexity Limit: learn/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
                       - Custom Throttling: learn/rate-limiting/advanced-topics/custom-throttling.md
           - API Monetization:
