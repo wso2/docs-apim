@@ -41,7 +41,7 @@ When the API subscription update workflow is enabled, when the subscription tier
 
     ![subscription_update_before_approval]({{base_path}}/assets/img/learn/subscription-update-before-approval.png)
     
-7.  (Optional) if the consumer need to update the requested tier to a different tier, click **EDIT** icon and select the new requested tier and click **Update** button.
+7.  (Optional) if the consumer need to update the requested tier to a different tier, click **EDIT** icon and select the new requested tier and click **Update**.
     
     ![subscription_update_new_tier_request]({{base_path}}/assets/img/learn/subscription-update-new-tier-request.png)
     
