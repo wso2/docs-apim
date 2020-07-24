@@ -191,10 +191,10 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 
     !!! info
         - The tool reduces the pipeline’s complexity and provides a simple and powerful mechanism to handle environment-specific configurations.
-        - You can define both production and sandbox backend endpoints and additional configurations for the environments such as retry/suspend timeouts, gateway environments etc. in the `api_params.yaml` file.  
+        - You can define both production and sandbox backend endpoints and additional configurations for the environments such as retry/suspend timeouts, gateway environments, etc. in the `api_params.yaml` file.  
         - Backend certificates for each URL can be configured. For certificates, a valid path to the certificate file is 
         required. These paths can be stored in the Automation Server.
-        - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. In addition, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
+        - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. Also, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
         - It is recommended to store API and environment-specific parameters in separate repositories.
         - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
 
@@ -256,7 +256,7 @@ The repository (Version Control System) needs to be cloned into the instance tha
     !!! tip
         If you have multiple APIs to promote through CI/CD, you can commit those API projects as well to same repository. The rest of the process will be the same as above.
  
-        If you have export (or initiallized) and commited another API **Pizzashack-1.0.0** to the same repository and then run `vcs status` and `vcs deploy` commands, you will be able to see the below outputs. 
+        If you have export (or initialized) and committed another API **Pizzashack-1.0.0** to the same repository and then run `vcs status` and `vcs deploy` commands, you will be able to see the below outputs. 
 
         ```bash
         $ apictl vcs status -e prod
@@ -279,7 +279,7 @@ The repository (Version Control System) needs to be cloned into the instance tha
         For deploying an API using `vcs deploy` command: 
         
         -   It is mandatory to have your API projects in a GIT based version control system.
-        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you exported an API using `export-api` or initiallized an API Project using `init`. In `api_params.yaml`. The below configuration section is used to deploy the API.
+        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you exported an API using `export-api` or initialized an API Project using `init`. In `api_params.yaml`. The below configuration section is used to deploy the API.
 
         ```bash
         vcs:
@@ -513,7 +513,7 @@ Let's consider there is an Application **PetsApp** in development environment wh
         | skipKeys          | Specifies whether to import the credentials of the application                              |
 
     !!! tip
-        If you have multiple application to promote through CI/CD, you can commit those applications projects as well to same repository similar to the APIs and API Products. The rest of the process will be the same as above.
+        If you have multiple applications to promote through CI/CD, you can commit those applications projects as well to the same repository similar to the APIs and API Products. The rest of the process will be the same as above.
 
 
 Now, you know the building blocks of creating a CI/CD pipeline using **apictl**. By using the above, you can create 
