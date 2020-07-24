@@ -75,15 +75,19 @@ If you already have an existing application, follow the instructions below to su
 
 ## Update the subscription tier
 
-1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`). Click on **Applications** and select the relevant application. From the left navigational menu click on the **Subscriptions** tab.
+1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`). Click on **Applications** and select the relevant application. 
+
+    ![[applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)]
+
+2.  Click **Subscriptions** to list the subscriptions of the application.
 
     ![Subscriptions overview_tab]({{base_path}}/assets/img/learn/subscriptions-overview-tab.png)
  
-2.  click the **EDIT** icon  of the subscription whose tier needs to be changed, to open the subscription update popup.
+3.  Click the **EDIT** icon  of the subscription whose tier needs to be changed, to open the subscription update popup.
 
     ![Subscriptions update_popup]({{base_path}}/assets/img/learn/subscription-update-popup-start.png)
 
-3.  Select the throttling tier that needs to be updated and click **Update**. This will update the existing subscription with the newly selected throttling tier.
+4.  Select the throttling tier that needs to be updated and click **Update**. This will update the existing subscription with the newly selected throttling tier.
     
     ![Subscription_update_completed]({{base_path}}/assets/img/learn/subscription-update-completed.png)
 
