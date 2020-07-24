@@ -1,6 +1,6 @@
 # Create an API from a Open API Definition
 
-A Swagger definition is a format that describes REST APIs. 
+An OpenAPI definition is a format that describes REST APIs. 
 Follow the instructions below to create a REST API using a Open API definition for an existing API.
 
 ## Create an API using basic flow
@@ -43,19 +43,19 @@ Follow the instructions below to create a REST API using a Open API definition f
  [![]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.jpg)]({{base_path}}/assets/img/learn/overviewpage-rest-api-creating-by-swagger-def.jpg)
 
 ## Resources
-   Navigate to **Resources** tab and notice that all the **API resources** are created automatically when the Swagger URL is specified.
+   Navigate to **Resources** tab and notice that all the **API resources** are created automatically when the OpenAPI URL is specified.
    
    [![]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)]({{base_path}}/assets/img/learn/resource-of-pet-store-api.jpg)
 
 ## API Definition
-1. Navigate to **API Definition** and Click **Edit** to remove the security headers. This is required to invoke the API in the developer portal using the Swagger UI.
+1. Navigate to **API Definition** and Click **Edit** to remove the security headers. This is required to invoke the API in the developer portal using the OpenAPI UI.
     
     ![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.jpg)
 
 
 2. Remove the security tag from the `/pet` POST resource given below.
 
-    **Swagger - Post resource**
+    **OpenAPI - Post resource**
 
     ``` java
         //remove the following code snippet
@@ -67,7 +67,7 @@ Follow the instructions below to create a REST API using a Open API definition f
 
 3.  Remove the security `pet/{petId}` GET resource given below:
 
-    **Swagger - Get resource**
+    **OpenAPI - Get resource**
 
     ``` java
             //remove the following code snippet

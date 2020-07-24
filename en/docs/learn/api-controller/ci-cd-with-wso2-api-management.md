@@ -7,7 +7,7 @@ tedious, error-prone, and time-consuming task. This drastically reduces an organ
 
 WSO2 API Manager addresses the issue of API automation by providing a platform-agnostic, developer-centric solution. 
 **WSO2 API Controller**,  **apictl** tool plays a key role in the automation pipeline. It can seamlessly integrate 
-environment-related configurations and also create API Projects from Swagger/OpenAPI specifications, opening a gate to 
+environment-related configurations and also create API Projects from OpenAPI specifications, opening a gate to 
 fully automated API deployment with only a few steps. With the power of flexible tooling, WSO2 API Manager is ready to 
 address modern requirements for automating API deployments.
 
