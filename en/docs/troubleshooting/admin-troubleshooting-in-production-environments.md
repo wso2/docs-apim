@@ -1,8 +1,6 @@
 # Troubleshooting in Production Environments
 
 The following sections provide information on how to troubleshoot various problems that may arise for deployment in production environments.
-
-- [Troubleshooting in Production Environments](#troubleshooting-in-production-environments)
     - [Analyzing a stack trace](#analyzing-a-stack-trace)
     - [Capturing the state of the system](#capturing-the-state-of-the-system)
     - [Viewing process threads in Solaris](#viewing-process-threads-in-solaris)
