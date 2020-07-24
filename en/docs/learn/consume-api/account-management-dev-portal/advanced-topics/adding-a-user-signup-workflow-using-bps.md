@@ -89,11 +89,11 @@ This section explains how to attach a custom workflow to the user signup operati
 
 6.  Select **BPEL** under the **Processes** > **Add** menu and upload the `<API-M_HOME>/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0.zip` file to EI. This is the business process archive file.
 
-    ![Add BPEL to EI](../../assets/img/learn/bpel-upload-signup-workflow.png)
+    ![Add BPEL to EI]({{base_path}}/assets/img/learn/bpel-upload-signup-workflow.png)
     
 7. Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
 
-    ![Add Human Task to EI](../../assets/img/learn/add-human-task-signup.png)
+    ![Add Human Task to EI]({{base_path}}/assets/img/learn/add-human-task-signup.png)
 
 #### Configuring the Business Process Server
 
@@ -161,11 +161,11 @@ This section explains how to attach a custom workflow to the user signup operati
 
 6.  Select **BPEL** under the **Processes** > **Add** menu and upload the `<API-M_HOME>/business-processes/user-signup/BPEL/UserSignupApprovalProcess_1.0.0.zip` file to BPS. This is the business process archive file.
 
-    ![Add BPEL to BPS](../../assets/img/learn/bpel-upload-signup-workflow.png)
+    ![Add BPEL to BPS]({{base_path}}/assets/img/learn/bpel-upload-signup-workflow.png)
     
 7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/user-signup/HumanTask/UserApprovalTask-1.0.0.zip` file to BPS. This is the human task archived file.
 
-    ![Add Human Task to BPS](../../assets/img/learn/add-human-task-signup.png)
+    ![Add Human Task to BPS]({{base_path}}/assets/img/learn/add-human-task-signup.png)
 
 #### Configuring the API Manager
 
@@ -184,7 +184,7 @@ This section explains how to attach a custom workflow to the user signup operati
 
 1.  Log in to API-M management console ( `https://<Server-Host>:9443/carbon` ) and select **Browse** under **Resources**.
 
-    ![Browse resources](../../assets/img/learn/browse-resources.png)
+    ![Browse resources]({{base_path}}/assets/img/learn/browse-resources.png)
 
 2.  Go to `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the **Simple Workflow Executor** and enable **WS Workflow Executor**. Also specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
 
@@ -207,7 +207,7 @@ This section explains how to attach a custom workflow to the user signup operati
 <html>
     <body>
         <div>
-            <img src="../../../../assets/img/learn/register-now.png" alt="Register now option" width="600"/>
+            <img src="{{base_path}}/assets/img/learn/register-now.png" alt="Register now option" width="600"/>
         </div>
     </body>
 </html>
