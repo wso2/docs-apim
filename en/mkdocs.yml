@@ -110,6 +110,8 @@ nav:
                 - Account Management for Developer Portal:
                       - Recover Password : learn/consume-api/account-management-dev-portal/recover-dev-portal-password.md
                       - Change Password : learn/consume-api/account-management-dev-portal/change-dev-portal-password.md
+                      - Advanced Topics:
+                            - Adding a User Signup Workflow: learn/consume-api/account-management-dev-portal/advanced-topics/adding-a-user-signup-workflow.md
                 - Discover APIs:
                       - Search: learn/consume-api/discover-apis/search.md
                       - AI-based Recommendations for the Developer Portal : learn/consume-api/discover-apis/api-recommendations.md
@@ -359,7 +361,6 @@ nav:
                       - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
                       - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
                 - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
-                - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
                 - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
@@ -577,7 +578,6 @@ plugins:
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/'
               'learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/advanced-customization/'
               'learn/consume-api/customizations/log-in-to-the-dev-portal-using-social-media.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/log-in-to-the-dev-portal-using-social-media/'
-              'learn/consume-api/customizations/adding-a-user-signup-workflow.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/adding-a-user-signup-workflow/'
               'learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/directing-the-root-context-to-the-developer-portal/'
               'learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-user-signup-in-developer-portal/'
               'learn/consume-api/customizations/customizing-login-pages-for-dev-portal-and-publisher.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-login-pages-for-dev-portal-and-publisher/'
@@ -685,6 +685,7 @@ plugins:
               'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
               'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
               'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management-for-dev-portal/'
+              'develop/customizations/adding-a-user-signup-workflow.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/consume-api/account-management-dev-portal/advanced-topics/adding-a-user-signup-workflow/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
