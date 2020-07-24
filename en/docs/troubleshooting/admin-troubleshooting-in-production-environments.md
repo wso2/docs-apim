@@ -133,5 +133,3 @@ Do the following steps to configure the maximum time between heartbeats.
 `hazelcast.max.no.heartbeat.seconds=300         `
 2.  Place this file in the `<PRODUCT_HOME>/repository/conf/` directory in all the nodes in your cluster.
 3.  Restart the servers.
-
-
