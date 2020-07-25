@@ -209,11 +209,15 @@ The DevOps team can develop this pipeline further to include automated tests, wo
 
 The **apictl** tool should be installed in the automation servers to begin the process. As the tool supports a variety of platforms, including Linux/Windows and macOS, this can be done easily. 
 
-#### a. Promoting API project(s) in a GIT repository using a unified approach
+#### a. Promoting APIs in a GIT repository to upper environments via CI/CD
 
-The repository (Version Control System) needs to be cloned into the instance that is executing the CI/CD process. From 3.2.0, **apictl** has the inbuilt support to integrate with a GIT based version control system. It gives a unified command `vcs deploy` to deploy any type of project (APIs, API Products and Apps).
+The repository that you committed the project in the above step <a href="#E">E</a> needs to be cloned into the instance that is executing the CI/CD process. From 3.2.0 onwards, **apictl** has the inbuilt support to integrate with a GIT based version control system. It gives a unified command `vcs deploy` to deploy any type of project (APIs, API Products and Apps).
 
 1.  Change your working directory (`cd`) into the cloned git repository.
+    ```bash
+    $ cd <cloned-repository-name>
+    ```
+
 2.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
 
     !!! example
@@ -243,7 +247,7 @@ The repository (Version Control System) needs to be cloned into the instance tha
         Successfully imported API
         ```
 
-    Now the tool will automatically detect the target environment and prepare a new artifact containing environment-related details. 
+    The above command will detect the target environment and provision the API to it.
 
     If you run `vcs deploy` command again, you will see the below output indicating that the deployment is already up-to-date.
 
@@ -253,10 +257,15 @@ The repository (Version Control System) needs to be cloned into the instance tha
         Everything is up-to-date
         ```
 
-    !!! tip
-        If you have multiple APIs to promote through CI/CD, you can commit those API projects as well to same repository. The rest of the process will be the same as above.
- 
-        If you have export (or initialized) and committed another API **Pizzashack-1.0.0** to the same repository and then run `vcs status` and `vcs deploy` commands, you will be able to see the below outputs. 
+4.  Adding a new API to the GIT repository
+
+    Multiple APIs could be promoted through CI/CD by committing the respective API projects to the repository.
+
+    1.  Create another API Project (**Pizzashack-1.0.0**) by following the steps (<a href="#B">B</a>,<a href="#C">C</a>) OR <a href="#D">D</a>.
+    
+    2.  Commit the project to the GIT repository.
+
+    3.  Run `vcs status` command to verify the new project addition.
 
         ```bash
         $ apictl vcs status -e prod
@@ -264,7 +273,11 @@ The repository (Version Control System) needs to be cloned into the instance tha
 
         APIs (1) ...
         1: [save]		Pizzashack-1.0.0: (Pizzashack-1.0.0)
+        ```
 
+    4.  Run `vcs deploy` command to deploy the new API to the production environment.
+
+        ```bash
         $ apictl vcs deploy -e prod
         Deploying Projects (1)...
 
@@ -273,13 +286,13 @@ The repository (Version Control System) needs to be cloned into the instance tha
         Successfully imported API
         ```
 
-        Here, **apictl** detects that there's a new API project is available to deploy. Without re-deploying the other unchanged API **SwaggerPetstore-1.0.0**, it will deploy only the new API.
+        Here, **apictl** will deploy only the new API **Pizzashack-1.0.0** without re-deploying the other unchanged API **SwaggerPetstore-1.0.0**.
 
     !!! important
         For deploying an API using `vcs deploy` command: 
         
         -   It is mandatory to have your API projects in a GIT based version control system.
-        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you exported an API using `export-api` or initialized an API Project using `init`. In `api_params.yaml`. The below configuration section is used to deploy the API.
+        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you export an API using `export-api` or initialized an API Project using `init`. In `api_params.yaml`. The below configuration section is used to deploy the API.
 
         ```bash
         vcs:
@@ -296,9 +309,9 @@ The repository (Version Control System) needs to be cloned into the instance tha
         | preserveProvider| Preserve existing provider of API after importing it                                     |
         
 
-#### b. An alternative approach for importing a single API
+#### b. Promoting a single API via CI/CD to upper environments
 
-If you only have a single API to promote to upper environments through CI/CD, you can also follow the below alternative approach using the `import-api` command. This method is ideal if your CI/CD pipeline is not built based on GIT.
+To promote a single API via CI/CD, the below alternative approach could be used. This method is ideal if your CI/CD pipeline is not built based on GIT.
 
 1.  Import the **SwaggerPetstore** API into the production environment and test the API by running the following sample command.
 
@@ -314,7 +327,7 @@ If you only have a single API to promote to upper environments through CI/CD, yo
 
         - For more information on importing an API to an environment, see [Import an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#import-an-api).
 
-     Now the tool will automatically detect the target environment and prepare a new artifact containing environment-related details. 
+    The above command will detect the target environment and provision the API to it.
 
 3. Sign in to the API Publisher.
 
@@ -381,7 +394,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
 
 ### (H.) - Extending a CI/CD pipeline to support API Products
 
-For example, let's consider there is an API Product **PetsInfo** in development environment with a subset of operations of **SwaggerPetstore** API.
+For example, let's consider there is an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
 
 1.  Export the API Product using `export api-product` command from the development environment (dev).
 
@@ -419,13 +432,13 @@ For example, let's consider there is an API Product **PetsInfo** in development 
         Successfully imported API Product
         ```
 
-    Now the tool will automatically detect the target environment and create the **PetsInfo** Product in the target environment.
+    The above command will detect the target environment and create the **PetsInfo** Product in the target environment.
     
     !!! important
         For deploying an API Product using `vcs deploy` command: 
         
         -   It is mandatory to have your API Product projects in a GIT based version control system.
-        -   It is mandatory to have `api_product_params.yaml` file inside each API Product Project. This is created by default when you exported an API Product using `export api-product`. In `api_product_params.yaml`. The below configuration section is used to deploy the API Product.
+        -   It is mandatory to have `api_product_params.yaml` file inside each API Product Project. This is created by default when you export an API Product using `export api-product`. In `api_product_params.yaml`. The below configuration section is used to deploy the API Product.
 
         ```bash
         vcs:
@@ -446,11 +459,11 @@ For example, let's consider there is an API Product **PetsInfo** in development 
         | updateApis      | Update the dependant API(s) in the target environment                                       |
 
     !!! tip
-        If you have multiple API Projects to promote through CI/CD, you can commit those API Product projects as well to same repository. The rest of the process will be the same as above.
+        Multiple API product projects could be promoted through CI/CD by committing them to the same repository.
 
 ### (I.) - Extending a CI/CD pipeline to support applications
 
-Let's consider there is an Application **PetsApp** in development environment which is already subscribed to the **SwaggerPetstore** API.
+Let's consider there is an Application **PetsApp** in the development environment which is already subscribed to the **SwaggerPetstore** API.
 
 1.  Export the Application using `export app` command from the development environment (dev). Note that `--withKeys` option is used to export the subscriptions and keys (if any) of the application.
 
@@ -486,13 +499,13 @@ Let's consider there is an Application **PetsApp** in development environment wh
         Successfully imported Application
         ```
 
-    Now the tool will automatically detect the target environment and create the application in the target environment.
+    The above command will detect the target environment and create the application in the target environment.
 
     !!! important
         For deploying an application using `vcs deploy` command:
         
         -   It is mandatory to have your Application projects in a GIT based version control system.
-        -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you exported an Application using `export-app`. In `application_params.yaml`. The below configuration section is used to deploy the application.
+        -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you export an Application using `export-app`. In `application_params.yaml`. The below configuration section is used to deploy the application.
 
         ```bash
         vcs:
@@ -513,7 +526,7 @@ Let's consider there is an Application **PetsApp** in development environment wh
         | skipKeys          | Specifies whether to import the credentials of the application                              |
 
     !!! tip
-        If you have multiple applications to promote through CI/CD, you can commit those applications projects as well to the same repository similar to the APIs and API Products. The rest of the process will be the same as above.
+        Multiple applications could be promoted through CI/CD by committing those application projects to the same repository.
 
 
 Now, you know the building blocks of creating a CI/CD pipeline using **apictl**. By using the above, you can create 
