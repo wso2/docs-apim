@@ -41,19 +41,20 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M Analytics related new features
 
-- PDF Report Generation
+- Monitoring dashboard
 
-     Many users have constantly requested for the feature that enables reported based on statistical data to be generated. The first cut of the implementation of this feature has been included in this release, and it enables users to generate the Monthly API Usage Report. 
+      Identifying errors in the system and take the necessary action by monitoring is vital in API Management. Dev-Ops, Managers can identify the API's and Application's traffic patterns,
+      errors, latencies, etc. Drill down, and interactive widgets support to identify and isolate issues.     
 
-     Users can select the year and month of their choice and generate the Monthly API Usage Report via the API-M Admin dashboard. Furthermore, the default implementation of this feature can be extended if the organization that the user is attached to requires different data than the ones provided by the default report. 
-
-- Widget generator tool
-
-     In addition to the default widgets that are shipped with the analytics dashboards, the Widget generator tool makes it easier to implement your own custom widget and use them across the dashboards. The widget generator tool automatically generates the widget skeleton by taking into account the user preferences via a command-line tool and guides the user until the widget is deployed in the dashboard.
-
-- GraphQL Analytics
+- Reorganize Analytics dashboards
+        
+      Organize dashboards to reflect the type of information. New personas introduced as Manager, API developers, Application developers, and by default allowed to view respective dashboards.
+      Publisher Dashboard is separated as API and Business dashboards. Developer Portal Dashboard is renamed to Application analytics, and the Admin dashboard is renamed to Reports.
+                                                                         
+- Support exporting analytics data 
     
-     GraphQL Analytics requirements differ from standard API analytics. The existing charts have been improved to be able to view statistics for GraphQL operations. A single API call for a GraphQL API can have multiple operations associated with it. In this release, analytics charts will have the in-built capability to filter these API calls by GraphQL operation. 
+      This new feature is introduced to widgets to export data as a CSV or PDF. It supports all the widgets with tabular data. Users can export the current view and can be share, analyze,
+      or compare with different views. It helps to export custom or selected data sets.
 
 
 ## What has changed in this release
