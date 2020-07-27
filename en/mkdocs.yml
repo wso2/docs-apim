@@ -297,7 +297,7 @@ nav:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
                 - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v0.16.md
+                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
                     - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
                     - Publisher API v0.16: develop/product-apis/getting-started/guide-publisher-v0.16.md
                     - Developer Portal API v0.16: develop/product-apis/getting-started/guide-devportal-v0.16.md
