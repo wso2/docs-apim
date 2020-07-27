@@ -83,17 +83,14 @@ You can now start using the WSO2 API Manager for its usual operations and the re
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
-- [Configuring APIM Analytics](#configuring-apim-analytics)
-  - [Quick Setup](#quick-setup)
-  - [Standard Setup](#standard-setup)
-    - [Step 1 - Download and install WSO2 API-M](#step-1---download-and-install-wso2-api-m)
-    - [Step 2 - Download and install WSO2 API-M Analytics](#step-2---download-and-install-wso2-api-m-analytics)
-    - [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3---configure-wso2-api-manager-to-publish-statistics)
-    - [Step 4 - Configure databases](#step-4---configure-databases)
-    - [Step 5 - Configure APIM IdP Client](#step-5---configure-apim-idp-client)
-      - [Details of the properties in APIM IdP Client](#details-of-the-properties-in-apim-idp-client)
-    - [Step 6 - Configure keystores](#step-6---configure-keystores)
-    - [Step 7 - Configure User-Agent Parser](#step-7---configure-user-agent-parser)
+- [Step 1 - Download and install WSO2 API-M](#step-1---download-and-install-wso2-api-m)
+- [Step 2 - Download and install WSO2 API-M Analytics](#step-2---download-and-install-wso2-api-m-analytics)
+- [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3---configure-wso2-api-manager-to-publish-statistics)
+- [Step 4 - Configure databases](#step-4---configure-databases)
+- [Step 5 - Configure APIM IdP Client](#step-5---configure-apim-idp-client)
+  - [Details of the properties in APIM IdP Client](#details-of-the-properties-in-apim-idp-client)
+- [Step 6 - Configure keystores](#step-6---configure-keystores)
+- [Step 7 - Configure User-Agent Parser](#step-7---configure-user-agent-parser)
 
 ### Step 1 - Download and install WSO2 API-M
 
