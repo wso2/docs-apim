@@ -2,6 +2,8 @@
 
 ## Engaging the Approval Workflow Executor in API Manager
 
+Follow the instructions below to add a user sign-up workflow with regard to the Developer Portal.
+
 1. Sign in to the API-M Management Console.
 
      `https://<Server-Host>:9443/carbon`
@@ -23,8 +25,7 @@
     </WorkFlowExtensions>
     ```
 
-4.  Navigate to the Developer Portal. 
-
+4.  Navigate to the Developer Portal.
 
 5.  Sign up/register as a new user. 
 
