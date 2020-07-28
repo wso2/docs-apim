@@ -1,7 +1,7 @@
 # Recover Password for the Developer Portal
 
 !!! note
-    The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. For more information, see Enable Password Recovery for the Developer Portal.
+    The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. For more information, see [Enable Password Recovery]({{base_path}}/install-and-setup/setup/security/user-account-management/#enable-password-recovery).
 
 1.  Click **Forgot Password** on the Sign In page of the Developer Portal and request a password change.
 
