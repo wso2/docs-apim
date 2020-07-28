@@ -1,7 +1,6 @@
 # Scope Mapping
 
-Internal REST API scopes and their role mappings are stored in the `tenant-conf.json` file. In earlier versions of WSO2 API Manager, users had to manually update the `tenant-conf.json` file in order to modify the scope to role mappings. From API Manager 3.1.0
-onwards you can easily achieve the latter mentioned task via the Admin Portal.
+Internal REST API scopes and their role mappings are stored in the `tenant-conf.json` file. In earlier versions of WSO2 API Manager, users had to manually update the `tenant-conf.json` file in order to modify the scope to role mappings. You can easily achieve the latter mentioned task via the Admin Portal.
 
 ## Modify an Existing Scope Mapping
 

@@ -10,11 +10,11 @@ WSO2 API Manager comprises of the following modules:
 -   **API Key Manager**: Performs key generation and key validation functionalities.
 -   **API Traffic Manager**: Performs rate limiting of API requests.
 
-For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 3.1.0 documentation]({{base_path}}/getting-started/overview/) and go to the [product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
+For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 3.2.0 documentation]({{base_path}}/getting-started/overview/) and go to the [product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
 
 ## What is new in this release
 
-The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.0.0**. It contains the following new features and enhancements:
+The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.1.0**. It contains the following new features and enhancements:
 
 ### WSO2 API-M related new features
 
@@ -100,15 +100,15 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ## Compatible WSO2 product versions
 
-WSO2 API-M 3.1.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.1.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.1.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
 ## Fixed issues
 
--   [WSO2 API Manager 3.1.0 - Fixed Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12+label%3A3.1.0+)
--   [WSO2 API Manager 3.1.0 - Fixed Issues in the carbon-apim GitHub repository](https://github.com/wso2/carbon-apimgt/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12)
--   [WSO2 API Manager 3.1.0 - Fixed Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/milestone/18?closed=1)
+-   [WSO2 API Manager 3.2.0 - Fixed Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12+label%3A3.1.0+)
+-   [WSO2 API Manager 3.2.0 - Fixed Issues in the carbon-apim GitHub repository](https://github.com/wso2/carbon-apimgt/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12)
+-   [WSO2 API Manager 3.2.0 - Fixed Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/milestone/18?closed=1)
 
 ## Known issues
 
--   [WSO2 API Manager 3.1.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A3.1.0)
--   [WSO2 API Manager 3.1.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
+-   [WSO2 API Manager 3.2.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A3.1.0)
+-   [WSO2 API Manager 3.2.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
