@@ -1,12 +1,12 @@
-# User Account Management for the Developer Portal
+# User Account Management
 
-The following sections explain how to manage Developer Portal related user accounts.
+The following sections explain how to manage Developer Portal, Publisher, and the Admin Portal related user accounts.
 
-## Password recovery
+## Enable password recovery
 
 The password recovery feature does not work out-of-the-box because an email server needs to be configured to be able to send the password recovery email. 
 
-Follow the steps below to enable the password recovery feature for the Developer Portal:
+Follow the steps below to enable the password recovery feature for the Developer Portal, Publisher, and the Admin Portal:
 
 1. Shut down the server if it is running.
 
@@ -31,7 +31,7 @@ Follow the steps below to enable the password recovery feature for the Developer
 
 ## Account locking
 
-You can lock user accounts with the Account recovery and credential management feature, pre-installed in WSO2 API Manager.
+You can lock user accounts with the Account recovery and credential management feature, pre-installed in WSO2 API Manager. Account locking is applicable to the user accounts related to the Developer Portal, Publisher, and the Admin Portal.
 
 -   [Account locking by failed login attempts](#account-locking-by-failed-login-attempts)
 -   [Account locking by an administrative user](#account-locking-by-an-administrative-user)
@@ -57,7 +57,6 @@ The following steps show how to enable account locking. See [Account Locking by 
     ERROR - Account is locked for user alex in user store PRIMARY in tenant carbon.super. Cannot login until the account is unlocked.
     ```
 
-
 ### Account locking by an administrative user
 
 An administrative user can lock and unlock a particular user's account through the management console. See [Locking a Specific User Account](https://is.docs.wso2.com/en/5.10.0/learn/locking-a-specific-user-account/) for more information. 
@@ -82,9 +81,9 @@ An administrative user can lock and unlock a particular user's account through t
 
 ## Password policies
 
-### Change Developer Portal password policy
+### Change the password policy
 
-You can define your custom password policy by defining one or both of the followings
+You can define your custom password policy for the Developer Portal, Publisher and Admin Portal by defining one or both of the followings.
     
 #### User store password RegEx
 
@@ -102,7 +101,7 @@ PasswordJavaRegEx = "^[\\S]{6,30}$"
 
 #### Identity management password policies
 
-You can define custom password policies for API developer portal user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
+You can define custom password policies for the Developer portal, Publisher user signup. Open the `<API-M_HOME>/repository/conf/deployment.toml` file and add the password policy configuration based on your preference as shown below. See [Writing a Custom Password Validator](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-password-validator/) for more information.
 
 ``` java
 [identity_mgt.events.schemes]
@@ -132,9 +131,9 @@ When changing the password, the new password will be validated against the user 
 </div>
 </html>
 
-### Display password policy guidelines
+### Display password policy guidelines in the Developer Portal
   
-Alternatively, you can display a list of policy guidelines in the password changing UI.  
+You can display a list of policy guidelines in the change password page that appears in the Developer Portal.  
   
 <img src="{{base_path}}/assets/img/learn/change-devportal-password-policy-guideline-display.png" alt="Displaying Developer Portal password policy guidelines" width="700"/>
   

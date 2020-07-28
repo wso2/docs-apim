@@ -15,4 +15,4 @@
 
      <img src="{{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/password-recovery-email-sent.png" alt="Password recovery email confirmation" width="450px"/>
 
-     The password recovery email is sent to the email address that is stored during the Developer Portal user sign up process.
+     The password recovery email is sent to the email address that is provided during the Developer Portal user sign up process.
