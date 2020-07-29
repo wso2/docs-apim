@@ -10,17 +10,17 @@ A dashboard has three levels of permissions.
 + **Owners** - Owners of a dashboard are the most privileged users of the dashboard. Only they have access to settings page once access control is set. They also can edit or view the dashboard.
 + **Editors** - Editors of a dashboard can either edit the dashboard or view the dashboard. Editing the dashboard includes adding / removing widgets, add / remove pages to the dashboard, changing the layout of the dashboard etc. 
 But they don’t have access to the dashboard settings page.
-+ **Viewers** - Viewers of a dashboard are the least privileged users of a dashboard. The can only view the dashboard and cannot edit or change the settings of a dashboard.
++ **Viewers** - Viewers of a dashboard are the least privileged users of a dashboard. They can only view the dashboard and cannot edit or change the settings of a dashboard.
 
 ## Configuring Dashboard Permissions
 Now let's see how we can change the default permissions that is set for each of these dashboards.
 
 + Log in to the Analytics Dashboard by accessing `<Protocol>://<Host>:<Port>/analytics-dashboard` (ex: [https://localhost:9643/analytics-dashboard](https://localhost:9643/analytics-dashboard)). 
-+ After login in, you will see the **APIM Publisher** and the **APIM Developer Portal** dashboards listed.
++ After login in, you will see the **API Analytics**, **Application Analytics**, **Business Analytics** and the **Monitoring** dashboards listed.
   
        ![]({{base_path}}/assets/img/learn/analytics-dashboard-listing.png)
 
-+ Click on the three dots at the bottom right corner of the preferred dashboard card and select **Settings**
++ Click on the three dots at the lower right corner of the preferred dashboard card and select **Settings**
 
        ![]({{base_path}}/assets/img/learn/dashboard-settings.png)
      
@@ -29,7 +29,7 @@ Now let's see how we can change the default permissions that is set for each of 
       
 + The Dashboard Settings page opens and you can assign scopes for different permission levels.
 
-      ![]({{base_path}}/assets/img/learn/dashboard-settings-dev-portal.png)
+      ![]({{base_path}}/assets/img/learn/dashboard-settings-application-analytics.png)
       
 !!! Info
       List of available scopes will be populated for each permission level. Dashboard owners can set the required scopes for each of those permission levels. Each permission level can have multiple scopes.
@@ -38,10 +38,11 @@ Now let's see how we can change the default permissions that is set for each of 
 
 Following table illustrates the default mapping between the permission level for each analytics dashboard and user role. This table can be referred to assign a role to a user in order to provide the required permissions. 
 
-| **User role**       | **APIM Admin**    | **APIM Publisher**  | **APIM Developer Portal** |
-|---------------------|-------------------|---------------------|---------------------------|
-| admin               | Owner / Editor    | Owner / Editor      | Owner / Editor            |
-| Internal/analytics  | Not allowed       | Viewer              | Not allowed               |
-| Internal/creator    | Not allowed       | Viewer              | Not allowed               |
-| Internal/publisher  | Not allowed       | Viewer              | Not allowed               |
-| Internal/subscriber | Not allowed       | Not allowed         | Viewer                    |
+| **User role**       | **Application Analytics** | **Business Analytics** | **API Analytics** | **Monitoring** |  **Reports**   |
+|---------------------|---------------------------|------------------------|-------------------|----------------|----------------|
+| admin               | Owner / Editor            | Owner / Editor         | Owner / Editor    | Owner / Editor | Owner / Editor |
+| Internal/analytics  | Not allowed               | Viewer                 | Not allowed       | Viewer         | Not allowed    |    
+| Internal/creator    | Not allowed               | Not allowed            | Viewer            | Not allowed    | Not allowed    |
+| Internal/publisher  | Not allowed               | Not allowed            | Viewer            | Not allowed    | Not allowed    |
+| Internal/subscriber | Viewer                    | Not allowed            | Not allowed       | Not allowed    | Not allowed    |
+
