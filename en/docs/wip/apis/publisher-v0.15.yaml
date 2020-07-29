@@ -430,12 +430,12 @@ paths:
             $ref: '#/definitions/Error'
 
   ################################################################
-  # The swagger resource of "Individual API" resource APIs
+  # The OpenAPI resource of "Individual API" resource APIs
   ################################################################
 
   /apis/{apiId}/swagger:
     #-----------------------------------------------------
-    # Retrieve the API swagger definition
+    # Retrieve the APIs OpenAPI definition
     #-----------------------------------------------------
     get:
       x-scope: apim:api_view
@@ -444,9 +444,9 @@ paths:
         GET https://localhost:9443/api/am/publisher/v0.15/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/swagger
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 329\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-tier\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"x-wso2-security\": {\"apim\": {\"x-wso2-scopes\": []}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
-      summary: Get swagger definition
+      summary: Get OpenAPI definition
       description: |
-        This operation can be used to retrieve the swagger definition of an API.
+        This operation can be used to retrieve the OpenAPI definition of an API.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/Accept'
@@ -458,7 +458,7 @@ paths:
         200:
           description: |
             OK.
-            Requested swagger document of the API is returned
+            Requested OpenAPI document of the API is returned
           headers:
             Content-Type:
               description: |
@@ -491,7 +491,7 @@ paths:
             $ref: '#/definitions/Error'
 
     #-----------------------------------------------------
-    # Update the API swagger definition
+    # Update the APIs OpenAPI definition
     #-----------------------------------------------------
     put:
       consumes:
@@ -510,14 +510,14 @@ paths:
         {"paths":{"\/*":{"get":{"x-auth-type":"Application","x-throttling-tier":"Unlimited","responses":{"200":{"description":"OK"}}}}},"x-wso2-security":{"apim":{"x-wso2-scopes":[]}},"swagger":"2.0","info":{"title":"PhoneVerification","description":"Verify a phone number","contact":{"email":"xx@ee.com","name":"xx"},"version":"1.0.0"}}
         --------------------------4f51e636c0003d99--
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-tier\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"x-wso2-security\": {\"apim\": {\"x-wso2-scopes\": []}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
-      summary: Update swagger definition
+      summary: Update OpenAPI definition
       description: |
-        This operation can be used to update the swagger definition of an existing API. Swagger definition to be updated is passed as a form data parameter `apiDefinition`.
+        This operation can be used to update the OpenAPI definition of an existing API. OpenAPI definition to be updated is passed as a form data parameter `apiDefinition`.
       parameters:
         - $ref: '#/parameters/apiId'
         - in: formData
           name: apiDefinition
-          description: Swagger definition of the API
+          description: OpenAPI definition of the API
           type: string
           required: true
         - $ref: '#/parameters/Content-Type'
@@ -529,7 +529,7 @@ paths:
         200:
           description: |
             OK.
-            Successful response with updated Swagger definition
+            Successful response with updated OpenAPI definition
           headers:
             Location:
               description: |
@@ -3983,7 +3983,7 @@ definitions:
       - properties:
           apiDefinition:
             description: |
-              Swagger definition of the API which contains details about URI templates and scopes
+              OpenAPI definition of the API which contains details about URI templates and scopes
             type: string
             example: "{\"paths\":{\"/substract\":{\"get\":{\"x-auth-type\":\"Application & Application User\",\"x-throttling-tier\":\"Unlimited\",\"parameters\":[{\"name\":\"x\",\"required\":true,\"type\":\"string\",\"in\":\"query\"},{\"name\":\"y\",\"required\":true,\"type\":\"string\",\"in\":\"query\"}],\"responses\":{\"200\":{}}}},\"/add\":{\"get\":{\"x-auth-type\":\"Application & Application User\",\"x-throttling-tier\":\"Unlimited\",\"parameters\":[{\"name\":\"x\",\"required\":true,\"type\":\"string\",\"in\":\"query\"},{\"name\":\"y\",\"required\":true,\"type\":\"string\",\"in\":\"query\"}],\"responses\":{\"200\":{}}}}},\"swagger\":\"2.0\",\"info\":{\"title\":\"CalculatorAPI\",\"version\":\"1.0.0\"}}"
           wsdlUri:

@@ -60,7 +60,7 @@ nav:
                 - Create APIs:
                       - Create a New API:
                             - Create a REST API: learn/design-api/create-api/create-a-rest-api.md
-                            - Create a REST API from a Swagger Definition: learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md
+                            - Create a REST API from an OpenAPI Definition: learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition.md
                             - Create a GraphQL API: learn/design-api/create-api/create-a-graphql-api.md
                             - Create a WebSocket API: learn/design-api/create-api/create-a-websocket-api.md
                             - Expose a SOAP Service as a REST API: learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md
@@ -684,6 +684,7 @@ plugins:
               'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
               'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
               'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/'
+              'learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/design-api/create-api/create-a-rest-api-from-a-openapi-definition/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css

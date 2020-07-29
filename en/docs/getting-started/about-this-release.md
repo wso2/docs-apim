@@ -33,7 +33,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **[AI-based recommendations for the Developer Portal]({{base_path}}/learn/consume-api/discover-apis/api-recommendations)**
 
-     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations. 
+     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations.
 
 - [**API Mocking**]({{base_path}}/learn/design-api/mock-api/create-a-mock-api-with-an-inline-script)
 
@@ -41,19 +41,19 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M Analytics related new features
 
-- PDF Report Generation
+- Monitoring dashboard
 
-     Many users have constantly requested for the feature that enables reported based on statistical data to be generated. The first cut of the implementation of this feature has been included in this release, and it enables users to generate the Monthly API Usage Report. 
+      Identifying errors in the system and taking the necessary action by monitoring it is vital in API Management. The Dev-Ops and managers can use the interactive widgets support to identify and drill down information related to the API's and the application's traffic patterns, errors, latencies, etc., and isolate the issues.
 
-     Users can select the year and month of their choice and generate the Monthly API Usage Report via the API-M Admin dashboard. Furthermore, the default implementation of this feature can be extended if the organization that the user is attached to requires different data than the ones provided by the default report. 
-
-- Widget generator tool
-
-     In addition to the default widgets that are shipped with the analytics dashboards, the Widget generator tool makes it easier to implement your own custom widget and use them across the dashboards. The widget generator tool automatically generates the widget skeleton by taking into account the user preferences via a command-line tool and guides the user until the widget is deployed in the dashboard.
-
-- GraphQL Analytics
+- Reorganize Analytics dashboards
+        
+      The Analytics dashboards are reorganized to reflect the type of information. New personas are introduced as Manager, API developers, and Application developers. The users who have a specific persona that corresponds to a specific dashboard are allowed to view that respective dashboard by default.
+      
+      The Publisher dashboard is separated as API and Business dashboards. The Developer Portal dashboard is renamed to Application Analytics, and the Admin dashboard is renamed to Reports.
+                                                                         
+- Support for exporting analytics data 
     
-     GraphQL Analytics requirements differ from standard API analytics. The existing charts have been improved to be able to view statistics for GraphQL operations. A single API call for a GraphQL API can have multiple operations associated with it. In this release, analytics charts will have the in-built capability to filter these API calls by GraphQL operation. 
+      It is possible to use Widgets that contain tabular data to export data as a CSV or PDF. Users can export the current view and also share, analyze, or compare the current view with different views. As a result, it is possible to export custom or selected data sets.
 
 
 ## What has changed in this release
