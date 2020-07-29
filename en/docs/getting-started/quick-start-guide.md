@@ -2,30 +2,28 @@
 
 ## Design Your First API
 
-This section is a step-by-step guide to create, publish and invoke an API using the WSO2 API Manager's publisher and store user interfaces.
+This section is a step-by-step guide to create, publish, and invoke an API using the WSO2 API Manager's publisher and store user interfaces.
 
 ### Before you begin...
 
 <p>   <ol><li>Install <a href="http://java.sun.com/javase/downloads/index.jsp">Oracle Java SE Development Kit (JDK)</a> version 11.\* or 1.8.\* and set the <code>JAVA_HOME</code> environment variable. For more information on setting the <code>JAVA_HOME</code> environment variable for different operating systems, see <a href="{{base_path}}/install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/">Setup and Install</a>.</li>
-<li><a href="https://wso2.com/api-management/">Download the version 3.1.0 of WSO2 API Manager</a>.</li>
+<li><a href="https://wso2.com/api-management/">Download the version 3.2.0 of WSO2 API Manager</a>.</li>
 <li>Start WSO2 API Manager by navigating to the <code><API-M_HOME>/bin</code> directory using the command-line and execute the following command <code>wso2server.bat --run</code> (for Windows) or <code>sh wso2server.sh</code> (for Linux.)</li></ol>
 </p>
 
 ### Objectives
 
-1. Creating and publishing an API via the API Publisher Portal.
+1. Creating and publishing an API via the API Publisher.
 2. Subscribing to the API via the Developer Portal and generating keys.
 3. Invoking the API with the generated keys.
-
-
 
  Let's get started...
 
 ### Step 1 - Create and publish an API
 
-Follow the instructions below to create a publish an API via the API Publisher Portal.
+Follow the instructions below to create a publish an API via the API Publisher.
 
-1. Navigate to the API Publisher Portal [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
+1. Navigate to the API Publisher [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
                                                  
     [![API Publisher home page]({{base_path}}/assets/img/get_started/api_publisher_home.png)]({{base_path}}/assets/img/get_started/api_publisher_home.png)
 
@@ -33,13 +31,9 @@ Follow the instructions below to create a publish an API via the API Publisher P
 
      Let's use a mock REST service to create the API from scratch.
  
-     1. Navigate to [https://www.mocky.io/](https://www.mocky.io/) on your web browser. 
-             
-         A mock service with a JSON response `{"hello": "world"}`  is provided by default on the landing page of the site. Let's use the  service URL (`http://www.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the mock service. Note that we are using the HTTP protocol instead of HTTPS.
-
-        [![]({{base_path}}/assets/img/get_started/mocky_io.png)]({{base_path}}/assets/img/get_started/mocky_io.png)
+     A mock service with a JSON response `{"hello": "world"}`  is provided by default when you use the service URL as (`http://run.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Note that we are using the HTTP protocol instead of HTTPS.
          
-     2. Optionally, to test this service, copy the service URL [http://www.mocky.io/v2/5185415ba171ea3a00704eed](http://www.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
+     - Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
          `{"hello": "world"}`
     
@@ -74,7 +68,7 @@ Follow the instructions below to create a publish an API via the API Publisher P
      <tr> 
      <th>Endpoint
      </th>
-     <td><code>http://www.mocky.io/v2/5185415ba171ea3a00704eed</code>
+     <td><code>http://run.mocky.io/v2/5185415ba171ea3a00704eed</code>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
       <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the <code>mocky.io</code> certificate into WSO2 API Manager</p>
@@ -117,14 +111,14 @@ Follow the instructions below to subscribe to the API and generate the keys via 
  
 4. Register an OAuth2.0 application.
 
-    1. Click **Subscribe** on the **Subscriptions** card
+    1. Click **Subscribe** on the **Subscriptions** card.
     [![Subscription Card]({{base_path}}/assets/img/get_started/subscription_card.png)]({{base_path}}/assets/img/get_started/subscription_card.png)
     
     2. Click **Subscription & Key Generation Wizard**
     
          This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.  
 
-    [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
+         [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
 
     3.  Create the OAuth2.0 application.
     
@@ -153,29 +147,29 @@ Follow the instructions below to subscribe to the API and generate the keys via 
          </tr>
          </table>
 
-         [![]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)
+         [![Wizard - Create application]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)
 
      3. Subscribe the application to the API.  
         
          This subscribes the `Greetings` application to the `HelloWorld` API on the selected Business Plan. Click **Next** without changing any of the default values.
 
-         [![]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)
+         [![Wizard - Subscribe to new application]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)
 
      4. Generate the credentials for the **Greetings** OAuth2.0 application. 
      
-         The Grant Types define the various protocols, which will be allowed by the system, from which your application will be allowed to request tokens. Click **Next** without changing any of the default values.
+         The Grant Types define the various protocols, which will be allowed by the system, from which your application will be allowed to request tokens. Click **Next**.
 
-         [![]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)
+         [![Wizard - Generate Keys]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)
 
      5. Generate a test access token for the 'Greetings' application to access the 'HelloWorld' API. 
      
          This step allows you to specify the validity period for the token and its permissions (scopes). Click **Next** without changing any of the default values.
 
-         [![]({{base_path}}/assets/img/get_started/key_gen_wizard_4.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_4.png)
+         [![Wizard - Generate Access Token]({{base_path}}/assets/img/get_started/key_gen_wizard_4.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_4.png)
 
      6. Click copy, as shown below, to copy the generated test access token to the clipboard.
 
-         [![]({{base_path}}/assets/img/get_started/key_gen_wizard_5.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_5.png)
+         [![Wizard - Copy Access Token]({{base_path}}/assets/img/get_started/key_gen_wizard_5.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_5.png)
     
      7.  Click **Finish**.
 
@@ -193,9 +187,9 @@ Follow the instructions below to invoke the previously created API with the gene
 
 2. Paste the access token that you previously copied in the **Access Token** field.  
 
-    [![]({{base_path}}/assets/img/get_started/test_api.png)]({{base_path}}/assets/img/get_started/test_api.png) 
+    [![Paste the access token]({{base_path}}/assets/img/get_started/test_api.png)]({{base_path}}/assets/img/get_started/test_api.png) 
 
-3. __If this is the first time you are using the API test console__ from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL. 
+3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL. 
 
      This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers. 
     
@@ -205,13 +199,13 @@ Follow the instructions below to invoke the previously created API with the gene
 
 4. Click on the `GET` resource of the API to expand the resource. 
 
-5. Click **Try It Out**, which is the button on the right. Then click **Execute**.  
+5. Click **Try It Out** and then click **Execute**.  
 
-     [![]({{base_path}}/assets/img/get_started/try_api.png)]({{base_path}}/assets/img/get_started/try_api.png)
+     [![GET resource]({{base_path}}/assets/img/get_started/try_api.png)]({{base_path}}/assets/img/get_started/try_api.png)
 
      You should see the `{"hello" : "world"}` response from the API.  
 
-     [![]({{base_path}}/assets/img/get_started/try_it_success.png)]({{base_path}}/assets/img/get_started/try_it_success.png)
+     [![Successful response]({{base_path}}/assets/img/get_started/try_it_success.png)]({{base_path}}/assets/img/get_started/try_it_success.png)
 
 __Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.  
  
