@@ -71,7 +71,7 @@ Follow the instructions below to create a publish an API via the API Publisher.
      <td><code>http://run.mocky.io/v2/5185415ba171ea3a00704eed</code>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the <code>mocky.io</code> certificate into WSO2 API Manager</p>
+      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the [https://designer.mocky.io/](https://designer.mocky.io/) certificate into WSO2 API Manager.</p>
       </div> 
      </td>
      </tr>
