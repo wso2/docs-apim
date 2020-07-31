@@ -9,7 +9,7 @@ Follow the steps below to create and publish an AWS Lambda API:
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
 2. Click **CREATE API** and then click **Design a New REST API**.
-f
+
     [![Create a new REST API]({{base_path}}/assets/img/learn/create-api-design-rest-api-link.png)]({{base_path}}/assets/img/learn/create-a-rest-api.jpg)
 
 3. Enter the API details and click **CREATE**.  
