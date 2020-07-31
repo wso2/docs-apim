@@ -818,13 +818,15 @@ Run the following CTL command to change the default location of the export direc
 ## Import SSL Certificate for Secure HTTP Communication with API Manager
 
 Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
-certificate of WSO2 API Manager is a self signed certificate and in production environments it is advised to use a
-different certificate than default.   
+certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a
+different certificate than the default.   
 
-If the certificate is the default WSO2 certificate or a CA signed certificate of a CA trusted by the OS, these
-certificates will be imported by default to the controller. If the CA or the certificate is new, you can add the
-certificate to the ```/home/.wso2apictl/certs``` directory. The certificates added to this directory will be imported 
-whenever an action is performed with the controller. Any DER or PEM encoded certificate can be used with controller.
+If the certificate is the default WSO2 certificate or a CA-signed certificate of a CA (Certificate Authority) trusted by
+the OS, these certificates will be imported by default to the controller. If the CA or the certificate is new or does
+not get imported by default, you can add the certificate to the ```/home/.wso2apictl/certs``` directory. The
+certificates added to this directory will be imported whenever an action is performed with the controller. Any DER or 
+PEM encoded certificate with file extensions of ```*.pem```, ```*.crt``` or ```*.cer``` can be used with the
+controller. 
 
 !!! Info
     If you are using windows, CA certs will not be imported by default and has to be added to the ```/home/.wso2apictl
