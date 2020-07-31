@@ -9,7 +9,7 @@ Follow the steps below to create and publish an AWS Lambda API:
 1. Sign in to the API Publisher Portal `https://<hostname>:9443/publisher`.
 
 2. Click **CREATE API** and then click **Design a New REST API**.
-
+f
     [![Create a new REST API]({{base_path}}/assets/img/learn/create-api-design-rest-api-link.png)]({{base_path}}/assets/img/learn/create-a-rest-api.jpg)
 
 3. Enter the API details and click **CREATE**.  
@@ -32,6 +32,8 @@ Now, you have created a new REST API successfully.
 3. Select the preferred **Access Method**
 
     AWS SDK needs AWS credentials including the AWS region to invoke AWS Lambda functions. The access method defines as to how you provide those AWS credentials. You can provide AWS credentials and the AWS region manually by selecting the **Using stored AWS credentials** method. But if WSO2 API Manager is running on an Amazon EC2 instance, you can select the **Using IAM role-supplied temporary AWS credentials** method.
+
+    Note that this option can **only** be used if the API-M instance and the Lambda function belong to the **same AWS account.**
 
     !!!note
          When using the **IAM role-supplied temporary AWS credentials** method, you need to attach an IAM role so that it can grant permission to applications running on the Amazon EC2 instance.
