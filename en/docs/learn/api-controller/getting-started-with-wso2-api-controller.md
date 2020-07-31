@@ -823,12 +823,13 @@ different certificate than the default.
 
 If the certificate is the default WSO2 certificate or a CA-signed certificate of a CA (Certificate Authority) trusted by
 the OS, these certificates will be imported by default to the controller. If the CA or the certificate is new or does
-not get imported by default, you can add the certificate to the ```/home/.wso2apictl/certs``` directory. The
-certificates added to this directory will be imported whenever an action is performed with the controller. Any DER or 
-PEM encoded certificate with file extensions of ```*.pem```, ```*.crt``` or ```*.cer``` can be used with the
+not get imported by default, you can add the certificate to the ```certs``` directory found in```<APICTL_CONFIG_DIR>```. 
+(Default location of the certs directory is ```/home/.wso2apictl/certs```)  
+
+The certificates added to this directory will be imported whenever an action is performed with the controller. Any
+DER or PEM encoded certificate with the file extensions of ```*.pem```, ```*.crt``` or ```*.cer``` can be used with the
 controller. 
 
 !!! Info
-    If you are using windows, CA certs will not be imported by default and has to be added to the ```/home/.wso2apictl
-    /certs``` directory.
+    If you are using windows, CA certs will not be imported by default and has to be added to the ```certs``` directory.
 
