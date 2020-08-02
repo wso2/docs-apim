@@ -32,7 +32,7 @@ Follow the instructions below to create a publish an API via the API Publisher.
      Let's use a mock REST service to create the API from scratch.
  
      A mock service with a JSON response `{"hello": "world"}`  is provided by default when you use the service URL as (`http://run.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Note that we are using the HTTP protocol instead of HTTPS.
-     
+
      - Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
          `{"hello": "world"}`
@@ -283,7 +283,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://raw.githubusercontent.com/OAI/OpenAPI-Specification/master/examples/v3.0/petstore.json
+       ./apictl init PetstoreAPI --oas https://gist.githubusercontent.com/danielflower/5c5ae8a46a0a49aee508690c19b33ada/raw/b06ff4d9764b5800424f6a21a40158c35277ee65/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.
@@ -301,22 +301,28 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
         ./apictl init --help
         ```
 
-2. Open the `api.yaml` file.
+2. Update the `api.yaml` file.
 
-     Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). Navigate to the `Meta-information` directory and open the `api.yaml` file.
+     1. Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). 
+     
+     2. Navigate to the `Meta-information` directory and open the `api.yaml` file.
 
     !!! tip
 
         Alternatively, You can use a text editor to open this file as well.
    
-     Change the value of the attribute `status` as shown below and save the file.
-       
-     `status: PUBLISHED`
+     3. Change the value of the following attribute and save the file.
 
-    !!! Note
+        ```   
+        status: PUBLISHED
+        sandboxUrl: http://petstore.swagger.io/v2
+        ```
 
-        - Changing the default lifecycle status of the API from `CREATED` to `PUBLISHED`, will deploy the API directly to the Developer Portal and API Gateway, when you push this API to WSO2 API Manager in the following step.
-        - If you want to push this API to the Publisher only, the status should be `CREATED`.
+        !!! Note
+
+            - Make sure that there are no spaces in-between the values that correspond to the `context` and `contextTemplate` attributes in the `api.yaml` file.
+            - Changing the default lifecycle status of the API from `CREATED` to `PUBLISHED`, will deploy the API directly to the Developer Portal and API Gateway, when you push this API to WSO2 API Manager in the following step.
+            - If you want to push this API to the Publisher only, the status should be `CREATED`.
 
 ### Step 2 - Publish the API
 
@@ -355,3 +361,6 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     <a href="#invoke">Invoke the API with the generated keys</a> </li>
     </ul>
     </div> 
+
+   [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
+   
