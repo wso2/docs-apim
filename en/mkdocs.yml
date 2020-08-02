@@ -53,9 +53,6 @@ nav:
           - Quick Start Guide: getting-started/quick-start-guide.md
           - About this Release: getting-started/about-this-release.md
     - Learn:
-          - User Account Management:
-                - Recover Password : learn/user-account-management/recover-password.md
-                - Change Password : learn/user-account-management/change-dev-portal-password.md
           - Design APIs:
                 - Create APIs:
                       - Create a New API:
@@ -230,6 +227,9 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+          - User Account Management:
+                - Recover Password : learn/user-account-management/recover-password.md
+                - Change Password : learn/user-account-management/change-dev-portal-password.md
           - Rate Limiting:
                 - Throttling Use-Cases: learn/rate-limiting/introducing-throttling-use-cases.md
                 - Adding New Throttling Policies: learn/rate-limiting/adding-new-throttling-policies.md
