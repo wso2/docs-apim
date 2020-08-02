@@ -283,7 +283,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://gist.githubusercontent.com/danielflower/5c5ae8a46a0a49aee508690c19b33ada/raw/b06ff4d9764b5800424f6a21a40158c35277ee65/petstore.json
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/3.2.0/assets/attachments/get_started/petstore.json
        ```
 
      On successfully executing this command, you should see the following message.
@@ -363,4 +363,3 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     </div> 
 
    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
-   
