@@ -21,7 +21,10 @@ Instruction (Published / Removed) and the set of gateway labels for the API.
  memory.
 
 
-There will be an extension in the publisher profile to store the synapse artifacts in a persistence storage. The default implementation uses the API Manager Database itself. Once the API is Published, Edited, or removed, an event will be sent to Traffic Manager using Event Notifiers with API Name, UUID, and the gateway label for the API. 
+There will be an extension in the publisher profile to store the synapse artifacts in a persistence storage. 
+The default implementation uses the API Manager Database itself. Once the API is Published, Edited, or removed, an event
+will be sent to Traffic Manager using Event Notifiers with API Name, UUID, and the gateway label for the API. 
+Labels are defined from the admin portal and Publishers can select the labels when publishing an API.
 
 
 ##API Gateway Startup
