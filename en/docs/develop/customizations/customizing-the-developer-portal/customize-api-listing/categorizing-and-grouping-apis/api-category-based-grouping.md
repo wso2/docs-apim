@@ -5,7 +5,7 @@ You can use API categories to group APIs. In previous versions of WSO2 API Manag
 
 !!! note
 
-    The [tag wise grouping feature]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping) has been deprecated with the introduction of the API categories feature in WSO2 API Manager 3.1.0. Therfore, WSO2 recommends all users to use API categories instead of tag wise grouping.
+    The [tag wise grouping feature]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping) has been deprecated with the introduction of the API categories feature in WSO2 API Manager 3.1.0. WSO2 recommends all users to use API categories instead of tag wise grouping.
 
 Initially, the Admins will define API categories. Thereafter, API providers will add API categories to APIs when designing them via the API Publisher. API categories allow API providers to categorize APIs that have similar attributes. When a categorized API gets published to the Developer Portal, its categories appear as clickable links to the API consumers. The API consumers can use the available API categories to quickly jump to a category of interest.
 
