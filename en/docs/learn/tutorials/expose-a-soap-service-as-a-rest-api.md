@@ -42,7 +42,25 @@ This tutorial will explain the steps to design, publish and invoke a SOAP servic
 4.  The created API appears in the publisher as follows.
     ![]({{base_path}}/assets/img/learn/created-soap-api.jpg)
 
-5.  API definiton of the Created schema has been displayed at **API Definiton** tab.
+5.  Add below API definiton manually for Created schema by clicking on **Edit** button under **API Definiton** tab.
+
+        consumes: 
+          - "text/xml"
+        parameters: 
+          - 
+            in: "body"
+            name: "SOAP Request"
+            description: "Description of SOAP Request"
+            required: true
+            schema: 
+              type: "string"
+          - 
+            name: "SOAPAction"
+            in: "header"
+            description: "Description of SOAP Action"
+            required: false
+            type: "string"          
+     
      [![]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)]({{base_path}}/assets/img/learn/api-definition-of-soap-api-created-by-passthrough-mode.jpg)
   
     <html><div class="admonition note"><p class="admonition-title">Note</p>
