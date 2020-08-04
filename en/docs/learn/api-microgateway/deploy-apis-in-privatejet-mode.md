@@ -233,7 +233,7 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
    
 8. Invoking the API
     
-    i. Sign in to the Developer Portal ( `https://<hostname>:9443/carbon` ). Subscribe to the API and obtain an access token required to invoke the API.
+    i. Sign in to the Developer Portal ( `https://<hostname>:9443/devportal` ). Subscribe to the API and obtain an access token required to invoke the API.
     
     ii. Click **Try Out** to navigate to the API Console.
     
