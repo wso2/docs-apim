@@ -225,7 +225,7 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
     
      ![API LifeCycle]({{base_path}}/assets/img/learn/privatejet-mode/lifecycle_publish.png)
      
-7. Go to the Developer Portal ( `https://<hostname>:9443/carbon` ) or click **View in Dev Portal** in the API Publisher and navigate to the Overview tab by clicking on the `Overview` in the navigation bar, and get the accessURL to access the deployed API Log in to the Management Console 
+7. Go to the Developer Portal ( `https://<hostname>:9443/devportal` ) or click **View in Dev Portal** in the API Publisher and navigate to the Overview tab by clicking on the `Overview` in the navigation bar, and get the accessURL to access the deployed API Log in to the Management Console 
    
     To obtain the accessURL configured, Sign in to the WSO2 Developer Portal overview page. The accessURL can be seen under Gateway Environments.
    
