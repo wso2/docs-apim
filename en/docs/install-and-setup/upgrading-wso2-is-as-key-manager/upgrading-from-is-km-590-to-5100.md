@@ -1,16 +1,16 @@
 # Upgrading WSO2 IS as Key Manager to 5.10.0
 
-The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 3.0.0 to 3.1.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
+The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 3.0.0 to 3.2.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
 
 !!! tip
-    You can download the **pre-packaged WSO2 Identity Server 5.10.0, which is also known as Identity Server as the Key Manager 5.10.0** from [here](https://wso2.com/api-management/install/key-manager/). Make sure you are using the latest [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack.
+    You can download the **pre-packaged WSO2 Identity Server 5.10.0, which is also known as Identity Server as the Key Manager 5.10.0** from [here](https://wso2.com/api-management/install/key-manager/). 
 
 !!! note
     -   You can follow the below information in either one of the following situations:
         -   You are currently using a WSO2 IS 5.9.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server 5.9.0 distribution.
 
-    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 3.0.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-300-to-310.md) to upgrade your APIM environment from API-M 3.0.0 to 3.1.0.
+    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 3.0.0 to 3.2.0](../upgrading-wso2-api-manager/upgrading-from-300-to-320.md) to upgrade your APIM environment from API-M 3.0.0 to 3.2.0.
 
 Before executing the IS migration client, keep in mind to follow the below steps.
 
@@ -42,7 +42,7 @@ Now, Follow the WSO2 Identity Server 5.10.0 documentation [Migrate the WSO2 Iden
 
 !!! note
     
-    Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    Please note that if you want to use the latest user store, please update the <API-M_3.2.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
         ```
         [user_store]
         type = "database_unique_id"
