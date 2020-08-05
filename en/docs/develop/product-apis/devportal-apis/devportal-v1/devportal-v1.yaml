@@ -19,11 +19,11 @@ swagger: '2.0'
 ######################################################
 info:
   version: "v1.1"
-  title: "WSO2 API Manager - Store"
+  title: "WSO2 API Manager - Developer Portal"
   description: |
-    This document specifies a **RESTful API** for WSO2 **API Manager** - Store.
+    This document specifies a **RESTful API** for WSO2 **API Manager** - Developer Portal.
 
-    It is written with [swagger 2](http://swagger.io/).
+    It is written with [OpenAPI Specification 3.0](http://swagger.io/).
 
   contact:
     name: "WSO2"
@@ -363,7 +363,7 @@ paths:
       summary: |
         Generate a SDK for an API
       description: |
-        This operation can be used to generate SDKs (System Development Kits), for the APIs available in the API Store, for a requested development language.
+        This operation can be used to generate SDKs (System Development Kits), for the APIs available in the API Developer Portal, for a requested development language.
       parameters:
         - in : path
           name: apiId
@@ -3087,7 +3087,7 @@ paths:
       summary:  |
         Get a list of supported SDK languages
       description:  |
-        This operation will provide a list of programming languages that are supported by the swagger codegen library for generating System Development Kits (SDKs) for APIs available in the API Manager Store
+        This operation will provide a list of programming languages that are supported by the swagger codegen library for generating System Development Kits (SDKs) for APIs available in the API Manager Developer Portal
       tags:
         - SDKs
       responses:
@@ -3109,7 +3109,7 @@ paths:
             $ref: '#/definitions/Error'
 
   ######################################################
-  # The Store settings List
+  # The Developer Portal settings List
   ######################################################
   /settings:
     #-----------------------------------------------------
@@ -3285,7 +3285,7 @@ paths:
             $ref: '#/definitions/Error'
 
   ####################################################
-  # Store Alerts management REST API
+  # Developer Portal Alerts management REST API
   ####################################################
   '/alert-types':
     #--------------------------------------------------
@@ -3299,7 +3299,7 @@ paths:
         $ref: docs/examples/alerts/alerts.yaml#/get
       operationId: getStoreAlertTypes
       summary: |
-        Get the list of API Store alert types.
+        Get the list of API Developer Portal alert types.
       description: |
         This operation is used to get the list of supportd alert types for the 'subscriber' agent.
       tags:
@@ -3334,7 +3334,7 @@ paths:
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
       summary: |
-        Get the list of API Store alert types subscribed by the user.
+        Get the list of API Developer Portal alert types subscribed by the user.
       operationId: getSubscribedAlertTypes
       description: |
         This operation is used to get the list of subscribed alert types by the user.

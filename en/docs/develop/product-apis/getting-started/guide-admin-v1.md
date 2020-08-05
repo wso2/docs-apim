@@ -4,7 +4,7 @@ WSO2 API Manager is a complete API Management solution that addresses all aspect
 
 The REST API is implemented based on the REST specification and best practices as a CXF REST web application running on WSO2 API Manager. A contract-first approach could be utilized for API development starting with a OpenAPI specification. 
 
-For more information, see the Publisher APIs [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.177/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin.v1/src/main/resources/admin-api.yaml) that are written using OpenAPI 3.0.
+For more information, see the Publisher APIs [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.177/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin.v1/src/main/resources/admin-api.yaml) that are written using OpenAPI Specification 3.0.
 
 Before invoking the API with the access token, obtain the consumer key/secret key pair by calling the dynamic client registration endpoint. You can request an access token with the preferred grant type. An example is shown below,
 
