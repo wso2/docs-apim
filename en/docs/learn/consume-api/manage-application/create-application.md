@@ -1,12 +1,12 @@
 # Create Applications
 
-An application is a logical representation of a physical application such as a mobile app, webapp, device, etc. If an application needs to consume an API, it should subscribe to the required API over a selected business plan, which determined the usage quota the application is allowed. A single application can have multiple API subscriptions. Each application has a consumer key and consumer secret pair. The requests to the subscribed APIs are authenticated via the tokens generated using the latter mentioned security credentials. 
+An application is a logical representation of a physical application such as a mobile app, webapp, device, etc. If an application needs to consume an API, it should subscribe to the required API over a selected business plan, which determined the usage quota the application is allowed. A single application can have multiple API subscriptions. Each application has a consumer key and consumer secret pair. The requests to the subscribed APIs are authenticated via the tokens generated using the latter mentioned security credentials.
 
 Applications allow you to:
 
--   Generate and use a single key for multiple APIs
+-   Generate and use a single key for multiple APIs.
 -   Subscribe multiple times to a single API with different Service Level Agreements (SLAs)/business plans which 
-operate on per access token basis
+operate on per access token basis.
 
 WSO2 API Manager comes with a pre-created default application, which allows unlimited access by default. You can also [create]({{base_path}}/learn/consume-api/manage-application/create-application/#create-a-new-application) your own.
 
@@ -18,7 +18,7 @@ WSO2 API Manager comes with a pre-created default application, which allows unli
 
 3.  Click **ADD NEW APPLICATION**.
 
-    ![Add new application option]({{base_path}}/assets/img/learn/add-new-application-option.png)   
+    [![Add new application option]({{base_path}}/assets/img/learn/add-new-application-option.png)]({{base_path}}/assets/img/learn/add-new-application-option.png)
 
 4.  Enter the application details and click **SAVE** to create the application.
    
@@ -47,5 +47,3 @@ WSO2 API Manager comes with a pre-created default application, which allows unli
     You will find the PizzaShack application listed with the other applications. The application can be edited or deleted by the application owner.
 
     [![Application listing]({{base_path}}/assets/img/learn/applications-listing.png)]({{base_path}}/assets/img/learn/applications-listing.png)
-
-    
