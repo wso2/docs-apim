@@ -8,9 +8,7 @@ Applications allow you to:
 -   Subscribe multiple times to a single API with different Service Level Agreements (SLAs)/business plans which 
 operate on per access token basis
 
-
-
-The API Manager comes with a pre-created default application, which allows unlimited access by default. You can also [create](#create-a-new-applications) your own.
+WSO2 API Manager comes with a pre-created default application, which allows unlimited access by default. You can also [create]({{base_path}}/learn/consume-api/manage-application/create-application/#create-a-new-application) your own.
 
 ## Create a new application
 
@@ -31,21 +29,22 @@ The API Manager comes with a pre-created default application, which allows unlim
         <th>Field</th><th>Value</th>
         <tr><td>Application Name</td><td>PizzaShackApp</td></tr>
         <tr><td>Per Token Quota</td><td>10PerMin</td></tr>
-        <tr><td>Token Type</td><td>JWT</td></tr>
         <tr><td>Description</td><td>PizzaShack Application</td></tr>
         </table>
      </html>
 
-        
-       [![create a new application]({{base_path}}/assets/img/learn/create-new-application.png)]({{base_path}}/assets/img/learn/create-new-application.png)
+    !!! note
+        From API-M 3.1.0 onwards the options to select key types and multiple key managers have been removed.
+
+       [![Create a new application]({{base_path}}/assets/img/learn/create-new-application.png)]({{base_path}}/assets/img/learn/create-new-application.png)
       
        If the application creation is successful, you will be redirected to the application overview page.
 
        [![Application overview]({{base_path}}/assets/img/learn/application-overview.png)]({{base_path}}/assets/img/learn/application-overview.png)
     
-5.  Click **BACK TO LISTING** to navigate to Applications listing page.
+5.  Click **Applications** to navigate to Applications listing page.
     
-    You will find the PizzaShack application listed with other applications. The application can be edited or deleted by the application owner.
+    You will find the PizzaShack application listed with the other applications. The application can be edited or deleted by the application owner.
 
     [![Application listing]({{base_path}}/assets/img/learn/applications-listing.png)]({{base_path}}/assets/img/learn/applications-listing.png)
 
