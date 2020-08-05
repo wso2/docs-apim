@@ -34,14 +34,14 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
     !!! tip
         **JWT vs Oauth tokens**
 
-        If the application you are using for this example is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. If the application is of oauth type, then the swagger console will be automatically populated with the generated token in the authorization field. 
+        If the application you are using for this example is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. If the application is of oauth type, then the OpenAPI console will be automatically populated with the generated token in the authorization field. 
 
 
 4.  On the **APIs** menu, select the API that you want to invoke. When the API opens, click on **Test** button under resources section.
 
     ![]({{base_path}}/assets/img/learn/api-console-test-button.png)
 
-5. This will open the swagger UI(API Console) to test the PizzaShack API. Copy the generated access token to the Authorization field as depicted in the following figure.
+5. This will open the OpenAPI UI(API Console) to test the PizzaShack API. Copy the generated access token to the Authorization field as depicted in the following figure.
 
     ![]({{base_path}}/assets/img/learn/copy-access-token.png)
 
@@ -63,4 +63,4 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
     ![]({{base_path}}/assets/img/learn/api-response.png)
 
-You have now succesfully invoked an API using the Swagger API Console.
+You have now succesfully invoked an API using the Open API Console.

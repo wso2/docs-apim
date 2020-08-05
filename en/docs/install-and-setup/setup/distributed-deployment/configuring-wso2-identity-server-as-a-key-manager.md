@@ -5,21 +5,21 @@ Please follow below steps to configure the prepackaged WSO2 Identity Server as t
 !!! warning
     Before you begin check the product compatibility for [WSO2 IS as Key Manager]({{base_path}}/install-and-setup/ProductCompatibility/#compatible-wso2-identity-server-as-the-key-managers).
 
--   [Step 1 - Download WSO2 IS as a Key Manager (WSO2 IS-KM)](#step-1-download-prepackaged-wso2-is-as-a-key-manager-wso2-is-km)
--   [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2-optionally-configure-port-offset-for-wso2-is)
--   [Step 3 - Install and configure the databases](#step-3-install-and-configure-the-databases)
--   [Step 4 - Configure the Key Manager (WSO2 IS) with WSO2 API-M](#step-4-configure-the-wso2-is-as-key-manager-with-wso2-api-manager)
--   [Step 5 - Configure WSO2 API-M with the Key Manager (WSO2 IS)](#step-5-configure-wso2-api-m-with-the-wso2-is-as-key-manager)
--   [Step 6 - Optionally, configure High Availability (HA) for the Key Manager](#step-6-optionally-configure-high-availability-ha-for-the-key-manager)
--   [Step 7 - Start the Key Manager(s)](#step-7-start-the-key-managers)
--   [Step 8 - Configure the other API-M components](#step-8-configure-the-other-api-m-components)
+- [Step 1 - Download Prepackaged WSO2 IS as a Key Manager (WSO2 IS-KM)](#step-1---downloadprepackaged-wso2-is-as-a-key-manager-wso2-is-km)
+- [Step 2 - Optionally, configure port offset for WSO2 IS](#step-2---optionally-configure-port-offset-for-wso2-is)
+- [Step 3 - Install and configure the databases](#step-3---install-and-configure-the-databases)
+- [Step 4 - Configure the WSO2 IS as Key Manager with WSO2 API Manager](#step-4---configure-the-wso2-is-as-key-manager-with-wso2-api-manager)
+- [Step 5 - Configure WSO2 API-M with the WSO2 IS as Key Manager](#step-5---configure-wso2-api-m-with-the-wso2-is-as-key-manager)
+- [Step 6 - Optionally, configure High Availability (HA) for the Key Manager](#step-6---optionallyconfigure-high-availability-ha-for-the-key-manager)
+- [Step 7 - Start the Key Manager(s)](#step-7---start-the-key-managers)
+- [Step 8 - Configure the other API-M components](#step-8---configure-the-other-api-m-components)
 
 ### Step 1 - Download Prepackaged WSO2 IS as a Key Manager (WSO2 IS-KM)
 
 !!! Info
     What is referred to as the prepackaged WSO2 Identity Server as a Key Manager?
 
-    The **prepackaged WSO2 Identity Server as a Key Manager 5.10.0** comes with the necessary configurations already installed in order to connect it with WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.10.0. The prepackaged WSO2 Identity Server as a Key Manager 5.10.0 is compatible with WSO2 API Manager 3.1.0 and is available as  by [WUM](https://wso2.com/updates).
+    The **prepackaged WSO2 Identity Server as a Key Manager 5.10.0** comes with the necessary configurations already installed in order to connect it with WSO2 API Manager, and is therefore different to the default version (vanilla pack) of WSO2 Identity Server 5.10.0. The prepackaged WSO2 Identity Server as a Key Manager 5.10.0 is compatible with WSO2 API Manager 3.2.0 and is available as  by [WUM](https://wso2.com/updates).
     
 Download the prepackaged WSO2 Identity Server from [here](https://wso2.com/api-management/install/key-manager/) or get the [wum updated distribution](https://wso2.com/updates) and unzip it. `<IS_KM_HOME>` will refer to the root folder of the unzipped WSO2 IS pack. It is assumed that you have already downloaded WSO2 API Manager. `<APIM_HOME>` will refer to the root folder of the unzipped WSO2 API-M pack.
 
