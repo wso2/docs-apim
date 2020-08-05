@@ -43,17 +43,25 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - Monitoring dashboard
 
-      Identifying errors in the system and taking the necessary action by monitoring it is vital in API Management. The Dev-Ops and managers can use the interactive widgets support to identify and drill down information related to the API's and the application's traffic patterns, errors, latencies, etc., and isolate the issues.
+      Having an idea about the overall health status of APIs and Services is essential for the proper functioning of an API-driven business. Monitoring Dashboard helps to achieve this objective by showing contextual information on APIs such as Latency, Throughput, Errors, and Traffic Volume. Operational and Management users can use this dashboard to identify operational errors, narrow down the root cause, or to identify common traffic trends. The overview page provides a holistic view by aggregating different views on APIs, and by following the drill-downs user can get a detailed picture of different perspectives. 
 
-- Reorganize Analytics dashboards
+- Re-organized Analytics dashboards
         
-      The Analytics dashboards are reorganized to reflect the type of information. New personas are introduced as Manager, API developers, and Application developers. The users who have a specific persona that corresponds to a specific dashboard are allowed to view that respective dashboard by default.
-      
-      The Publisher dashboard is separated as API and Business dashboards. The Developer Portal dashboard is renamed to Application Analytics, and the Admin dashboard is renamed to Reports.
+      Significant changes have been done on the Publisher Analytics dashboard to better suit it to different audiences. A new dashboard named Business Analytics has been created by combining several new widgets with those which initially existed in Publisher Analytics Dashboard to provide an unrestricted view on the APIs for Managerial users. A user with an internal/analytics role can access the new Dashboard to see Statistics for all APIs irrespective of whether those are access-controlled or not. Further, a specific set of Widgets chosen from Publisher Analytics has been used to create an API Analytics Dashboard, which now shows a limited set of Statistics relevant to a Publisher. A Publisher can use this Dashboard to view statistics for both APIs created by them or visible to them.
+      The Developer Portal Dashboard has been renamed to Application Analytics and Admin Dashboard to Reports, to reflect their functionality better.
                                                                          
-- Support for exporting analytics data 
+- Exporting data in CSV, PDF formats 
     
-      It is possible to use Widgets that contain tabular data to export data as a CSV or PDF. Users can export the current view and also share, analyze, or compare the current view with different views. As a result, it is possible to export custom or selected data sets.
+      This new feature is introduced to widgets to export data as a CSV or PDF. It supports all the widgets with tabular data. Users can export the current view and can be share, analyze, or compare with different views. It helps to export custom or selected data sets.
+      
+- New Alert Page in Monitoring Dashboards
+
+      API Availability and Alert listing capabilities implemented in Monitoring dashboards. Since this information is more related to analytics, moved to the monitoring dashboard from the API Manager admin portal. It provides an overview of the API availability and filtering based on the availability status. 
+      Additional improvements are made to the alert listing widgets to provide filtering and better API wise comparison. Interactive widgets are provided and support narrow down alerts. 
+
+- New Summary Charts for Monitoring Dashboards
+
+      Summarised information of the API requests is present in these widgets. There are 4 summary widgets to show total API invocation count, faulty count, throttled out request count, and highest API latency time within the last 24 hours. These widgets help to identify the above parameters of the system and support drill down to appropriate widgets for narrow down issues.         
 
 
 ## What has changed in this release
