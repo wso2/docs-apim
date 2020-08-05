@@ -74,7 +74,7 @@ The memory allocation settings are stored in the `<API-M_HOME>/bin/wso2server.sh
 
 ### How do I start up only selected components of the API Manager?
 
-Even though the API Manager bundles all components together, you can select which component(s) you want to start by using the `-Dprofile` command at product startup. For more information, see [Product Profiles]({{base_path}}/en/latest/install-and-setup/setup/distributed-deployment/product-profiles/).
+Even though the API Manager bundles all components together, you can select which component(s) you want to start by using the `-Dprofile` command at product startup. For more information, see [Product Profiles]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles/).
 
 ------------------------------------------------------------------------
 
