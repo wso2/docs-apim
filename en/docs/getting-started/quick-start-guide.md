@@ -32,7 +32,7 @@ Follow the instructions below to create a publish an API via the API Publisher.
      Let's use a mock REST service to create the API from scratch.
  
      A mock service with a JSON response `{"hello": "world"}`  is provided by default when you use the service URL as (`http://run.mocky.io/v2/5185415ba171ea3a00704eed`) that appears in the [https://designer.mocky.io/](https://designer.mocky.io/) mock service. Note that we are using the HTTP protocol instead of HTTPS.
-         
+
      - Optionally, to test this service, copy the service URL [http://run.mocky.io/v2/5185415ba171ea3a00704eed](http://run.mocky.io/v2/5185415ba171ea3a00704eed) and navigate to it on a new browser. You should see the following JSON message.
             
          `{"hello": "world"}`
@@ -71,7 +71,7 @@ Follow the instructions below to create a publish an API via the API Publisher.
      <td><code>http://run.mocky.io/v2/5185415ba171ea3a00704eed</code>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the <code>mocky.io</code> certificate into WSO2 API Manager</p>
+      <p><b>Use the HTTP protocol</b> because to use HTTPS you need to import the [https://designer.mocky.io/](https://designer.mocky.io/) certificate into WSO2 API Manager.</p>
       </div> 
      </td>
      </tr>
@@ -85,7 +85,7 @@ Follow the instructions below to create a publish an API via the API Publisher.
      
      ![[Create an API]({{base_path}}/assets/img/get_started/api_create.png)]({{base_path}}/assets/img/get_started/api_create.png)
         
-6. Click **Create & Publish**. 
+6. Click **Create & Publish**.
 
      This will publish your first API on the Developer Portal as well as deploy it on the API Gateway. You now have an OAuth2.0 secured REST API that is ready to be consumed.
 
@@ -105,7 +105,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 2. Click **Sign-In** and enter **`admin/admin`** as your credentials to sign in to the Developer Portal.
 
-3. Click on the API thumbnail to view the overview of the API. 
+3. Click on the API thumbnail to view the overview of the API.
 
      [![API overview]({{base_path}}/assets/img/get_started/api_overview.png)]({{base_path}}/assets/img/get_started/api_overview.png)
  
@@ -116,13 +116,13 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
     2. Click **Subscription & Key Generation Wizard**
     
-         This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.  
+         This wizard walks you through 5 steps that will register an OAuth2.0 application which you will use to consume the `HelloWorld` API.
 
          [![Key generation wizard]({{base_path}}/assets/img/get_started/key_gen_wizard.png)]({{base_path}}/assets/img/get_started/key_gen_wizard.png)
 
     3.  Create the OAuth2.0 application.
     
-         Enter the application name, and click **Next** without changing any of the other default values.   
+         Enter the application name, and click **Next** without changing any of the other default values. 
 
          <table>
          <tr> 
@@ -149,19 +149,19 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
          [![Wizard - Create application]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_1.png)
 
-     3. Subscribe the application to the API.  
+     3. Subscribe the application to the API.
         
          This subscribes the `Greetings` application to the `HelloWorld` API on the selected Business Plan. Click **Next** without changing any of the default values.
 
          [![Wizard - Subscribe to new application]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_2.png)
 
-     4. Generate the credentials for the **Greetings** OAuth2.0 application. 
+     4. Generate the credentials for the **Greetings** OAuth2.0 application.
      
          The Grant Types define the various protocols, which will be allowed by the system, from which your application will be allowed to request tokens. Click **Next**.
 
          [![Wizard - Generate Keys]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)]({{base_path}}/assets/img/get_started/key_gen_wizard_3.png)
 
-     5. Generate a test access token for the 'Greetings' application to access the 'HelloWorld' API. 
+     5. Generate a test access token for the 'Greetings' application to access the 'HelloWorld' API.
      
          This step allows you to specify the validity period for the token and its permissions (scopes). Click **Next** without changing any of the default values.
 
@@ -173,7 +173,7 @@ Follow the instructions below to subscribe to the API and generate the keys via 
     
      7.  Click **Finish**.
 
- **Voila!!!** You can now test the 'HelloWorld' API with the OAuth2.0 token that you just generated. 
+ **Voila!!!** You can now test the 'HelloWorld' API with the OAuth2.0 token that you just generated.
 
 <a name="invoke"></a>
 
@@ -181,45 +181,45 @@ Follow the instructions below to subscribe to the API and generate the keys via 
 
 Follow the instructions below to invoke the previously created API with the generated keys.
 
-1. Click **Try Out**. 
+1. Click **Try Out**.
 
-     The resources of the API are listed. 
+     The resources of the API are listed.
 
-2. Paste the access token that you previously copied in the **Access Token** field.  
+2. Paste the access token that you previously copied in the **Access Token** field.
 
-    [![Paste the access token]({{base_path}}/assets/img/get_started/test_api.png)]({{base_path}}/assets/img/get_started/test_api.png) 
+    [![Paste the access token]({{base_path}}/assets/img/get_started/test_api.png)]({{base_path}}/assets/img/get_started/test_api.png)
 
-3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL. 
+3. **If this is the first time you are using the API test console** from your browser,  open a new tab and navigate to the [https://localhost:8243/](https://localhost:8243/) URL.
 
-     This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers. 
+     This will prompt your browser to accept the certificate used by the API Gateway. This is required because by default the API Gateway uses a self-signed certificate that is not trusted by web browsers.
     
     !!! note
 
         This certificate that is used by the API Gateway is replaced when deploying the system in production.
 
-4. Click on the `GET` resource of the API to expand the resource. 
+4. Click on the `GET` resource of the API to expand the resource.
 
-5. Click **Try It Out** and then click **Execute**.  
+5. Click **Try It Out** and then click **Execute**.
 
      [![GET resource]({{base_path}}/assets/img/get_started/try_api.png)]({{base_path}}/assets/img/get_started/try_api.png)
 
-     You should see the `{"hello" : "world"}` response from the API.  
+     You should see the `{"hello" : "world"}` response from the API. 
 
      [![Successful response]({{base_path}}/assets/img/get_started/try_it_success.png)]({{base_path}}/assets/img/get_started/try_it_success.png)
 
-__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.  
+__Congratulations!__ You have successfully created your first API, subscribed to it through an OAuth2.0 application, obtained an access token for testing, and invoked your API with the access token.
  
 ## Automate API Development and Deployment
 
-Let's look at how you can use the CI/CD command line tool for APIs (API Controller) to develop and deploy an API on WSO2 API Manager.   
+Let's look at how you can use the CI/CD command line tool for APIs (API Controller) to develop and deploy an API on WSO2 API Manager.
 
 ### Before you Begin...
 
-1. Download the latest version of the API Controller based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/). 
+1. Download the latest version of the API Controller based your operating system from [https://wso2.com/api-management/tooling/](https://wso2.com/api-management/tooling/) from under the **Dev-Ops Tooling** section.
 
-2. Extract the ZIP to a preferred location. 
+2. Extract the ZIP to a preferred location.
 
-     This location will be referred to as the `apictl` directory.   
+     This location will be referred to as the `apictl` directory.
 
 3. Use the command line tool to navigate to the `apictl` directory.
 
@@ -230,7 +230,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
         you have an older file, you'll get an error while executing the 
         apictl commands due to this. To avoid that, backup and remove 
         `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure 
-        the environments using new commands as explained below. 
+        the environments using new commands as explained below.
 
      Execute the following command to view the available operations.
 
@@ -239,101 +239,116 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
      ```   
 
 4. Point the API Controller to the instance of API Manager in which you 
-    want to deploy APIs. 
+    want to deploy APIs.
 
-    Execute the following command to add an environment. 
+    Execute the following command to add an environment.
      
     !!!note
         It is assumed that WSO2 API Manager is run locally 
          (localhost) using the default ports.
     
     ``` bash
-        ./apictl add-env -e dev \
-             --registration https://localhost:9443 \
-             --token https://localhost:9443/oauth2/token \
-             --admin https://localhost:9443 \
-             --publisher https://localhost:9443 \
-             --devportal https://localhost:9443
+    ./apictl add-env -e dev \
+            --registration https://localhost:9443 \
+            --token https://localhost:9443/oauth2/token \
+            --admin https://localhost:9443 \
+            --publisher https://localhost:9443 \
+            --devportal https://localhost:9443
 
     ```
      
     !!!info
          **Flags:**
 
-             -Required :     
-                `--environment` or `-e` : Name of the environment to be added   
-                `--apim` : API Manager endpoint for the environments  
-     
-             -   Optional :      
-                 `--admin` : Admin endpoint for the environment 
-                 `--token` : Token endpoint for the environment 
-                 `--registration` : Registration endpoint for the environment                   
-                 `--publisher` : Publisher endpoint for the environment 
-                 `--devportal` : DevPortal endpoint for the environment
-   
+        - Required :     
+        `--environment` or `-e` : Name of the environment to be added   
+        `--apim` : API Manager endpoint for the environments  
 
-     
-  
+        - Optional :      
+            `--admin` : Admin endpoint for the environment 
+            `--token` : Token endpoint for the environment 
+            `--registration` : Registration endpoint for the environment                   
+            `--publisher` : Publisher endpoint for the environment 
+            `--devportal` : DevPortal endpoint for the environment
+   
 
      On successfully executing this command, you should see the following message.
      
      `Successfully added environment 'dev'`
 
 ### Step 1 - Create an API
-       
-1. Initialize an API project by providing a name for the project. 
 
-     Let's use the command below to create an API named `PetstoreAPI`.  This creates a folder named `PetstoreAPI` in your current directory.
+1. Initialize an API project by providing a name for the project.
+
+     Let's use the command below to create an API named `PetstoreAPI`. This creates a folder named `PetstoreAPI` in your current directory.
 
        ```bash
-       ./apictl init PetstoreAPI --oas https://petstore.swagger.io/v2/swagger.json
-       ``` 
+       ./apictl init PetstoreAPI --oas https://apim.docs.wso2.com/en/3.2.0/assets/attachments/get_started/petstore.json
+       ```
+
+     On successfully executing this command, you should see the following message.
+
+     ``` text
+     Project initialized
+     Open README file to learn more
+     ```   
     
     !!! note
 
-        Use the following command to view the various options related to initializing a project. 
+        Use the following command to view the various options related to initializing a project.
 
         ```bash
         ./apictl init --help
         ```
 
-2. Open the `api.yaml` file. 
+2. Update the `api.yaml` file.
 
-     Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). Navigate to the `Meta-information` directory and open the `api.yaml` file.
+     1. Open and explore the `PetstoreAPI` folder with an IDE (e.g., VSCode). 
+     
+     2. Navigate to the `Meta-information` directory and open the `api.yaml` file.
 
     !!! tip
 
         Alternatively, You can use a text editor to open this file as well.
    
-     Change the values of the attributes `status` and `productionUrl` as shown below and save the file. 
-       
-     `status: PUBLISHED`  
-     `productionUrl: http://petstore.swagger.io/v2`  
-           
-    !!! Note
+     3. Change the value of the following attribute and save the file.
 
-        - Changing the default lifecycle status of the API from `CREATED` to `PUBLISHED`, will deploy    
-        the API directly to the Developer Portal and API Gateway, when you push this API to WSO2 API Manager in 
-        the following step. 
-        - If you want to push this API to the Publisher Portal only, the status should be `CREATED`.    
+        ```   
+        status: PUBLISHED
+        sandboxUrl: http://petstore.swagger.io/v2
+        ```
+
+        !!! Note
+
+            - Make sure that there are no spaces in-between the values that correspond to the `context` and `contextTemplate` attributes in the `api.yaml` file.
+            - Changing the default lifecycle status of the API from `CREATED` to `PUBLISHED`, will deploy the API directly to the Developer Portal and API Gateway, when you push this API to WSO2 API Manager in the following step.
+            - If you want to push this API to the Publisher only, the status should be `CREATED`.
 
 ### Step 2 - Publish the API
 
-1. Push the API to WSO2 API Manager. 
+1. Push the API to WSO2 API Manager.
 
-     Navigate back to the `apictl` directory and execute the following command: 
+     Navigate back to the `apictl` directory and execute the following command:
 
     !!! Info
 
-        If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on API Manager. You can use the default admin credentials as **`admin/admin`**. 
+        If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on WSO2 API Manager. You can use the default admin credentials as **`admin/admin`**.
 
      ``` bash
      ./apictl import-api --file ./PetstoreAPI --environment dev -k 
      ```
 
-     You should now see your API deployed successfully on WSO2 API Manager. 
+     You should now see your API deployed successfully on WSO2 API Manager.
 
-2. Browse the Developer Portal or the Publisher Portal to view the API details. 
+2. Browse the API Publisher and the Developer Portal to view the API details.
+
+     - [https://localhost:9443/publisher](https://localhost:9443/publisher)
+
+         [![API in the Publisher]({{base_path}}/assets/img/get_started/qsg-publisher.png)]({{base_path}}/assets/img/get_started/qsg-publisher.png)
+
+     - [https://localhost:9443/devportal](https://localhost:9443/devportal)
+
+         [![API in the Developer Portal]({{base_path}}/assets/img/get_started/qsg-devportal.png)]({{base_path}}/assets/img/get_started/qsg-devportal.png)
 
     <div class="admonition note">
     <p class="admonition-title">Note</p>
@@ -346,3 +361,5 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     <a href="#invoke">Invoke the API with the generated keys</a> </li>
     </ul>
     </div> 
+
+   [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
