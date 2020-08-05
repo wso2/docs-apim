@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: true
+strict: false
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -499,6 +499,9 @@ nav:
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+          - Key Managers:
+                - Configuring WSO2 IAM as A Key Manager: administer/key-managers/how-to-configure-wso2is-connector.md
+
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
