@@ -312,7 +312,7 @@ nav:
                     - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
                 - Admin APIs:
                     - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
-                    - Admin APIs v0.16: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
+                    - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
                 - Using the Registry REST API: develop/using-the-registry-rest-api.md
                 - Using the Siddhi Store REST API: develop/analytics-rest-api.md
           - Extending WSO2 API Manager:
