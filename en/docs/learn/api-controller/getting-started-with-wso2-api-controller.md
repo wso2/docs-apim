@@ -744,30 +744,6 @@ Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted 
     </tbody>
 </table>
 
-
-## Set token type
-
-Run the following CTL command to set the token type of the default apictl application.
-
--   **Command**
-        ```go
-        apictl set --token-type <token type>
-        ```
-
-    !!! example
-        ```bash
-        apictl set --token-type JWT
-        ```
-        ```bash
-        apictl set --token-type OAuth
-        ```
-    
-    !!! info
-        **Flags:** 
-
-        -   Required :   
-            `--token-type` or `-t` : Type of the token to be generated
-
 ## Set HTTP request timeout
 
 Run the following CTL command to set the HTTP request timeout.
