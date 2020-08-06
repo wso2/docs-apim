@@ -1,12 +1,16 @@
-# Getting Started - Admin API v1
+# Getting Started - Admin API v0.17
+
+!!! warning
+    - The Admin v0.17 REST APIs will be deprecated in the next WSO2 API Manager release.
+    - **[WSO2 recommends that you use the Admin v1 REST APIs]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1)** as it is up to date and has support for the latest WSO2 API Manager 3.2.0 features with regard to the Admin Portal.
 
 WSO2 API Manager is a complete API Management solution that addresses all aspects of API management including API development, productization, consumption, security, rate limitation, monetization and analytics.
 
 The REST API is implemented based on the REST specification and best practices as a CXF REST web application running on WSO2 API Manager. A contract-first approach could be utilized for API development starting with a OpenAPI specification. 
 
-For more information, see the Publisher APIs [OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.177/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin.v1/src/main/resources/admin-api.yaml) that are written using OpenAPI Specification 3.0. Alternatively, you can access this API definition using the product URL as well `https://<host-name[:port]>/api/am/admin/v1/swagger.yaml`.
+For more information, see the Publisher APIs [OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.177/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin/src/main/resources/admin-api.yaml) that are written using OpenAPI Specification 3.0. Alternatively, you can access this API definition using the product URL as well `https://<host-name[:port]>/api/am/admin/v0.17/swagger.json`.
 
-Before invoking the API with the access token, obtain the consumer key/secret key pair by calling the dynamic client registration endpoint. You can request an access token with the preferred grant type. An example is shown below,
+Before invoking the API with the access token, obtain the consumer key/secret key pair by calling the dynamic client registration endpoint. You can request an access token with the preferred grant type. An example is shown below:
 
 ```
 curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register

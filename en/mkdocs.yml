@@ -301,20 +301,18 @@ nav:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
                 - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v0.16.md 
+                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md 
                     - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
-                    - Publisher API v0.16: develop/product-apis/getting-started/guide-publisher-v0.16.md
-                    - Developer Portal API v0.16: develop/product-apis/getting-started/guide-devportal-v0.16.md
-                    - Admin API v0.16: develop/product-apis/getting-started/guide-admin-v1.md
+                    - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
+                    - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
                 - Configuring the REST API: develop/product-apis/configuring-rest-api.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-                    - Publisher v0.16: develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16.md
                 - Developer Portal APIs:
                     - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-                    - Developer Portal API v0.16: develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16.md
                 - Admin APIs:
-                    - Admin APIs v0.16: develop/product-apis/admin-apis/admin-v0.16/admin-v0.16.md
+                    - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
+                    - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
                 - Using the Registry REST API: develop/using-the-registry-rest-api.md
                 - Using the Siddhi Store REST API: develop/analytics-rest-api.md
           - Extending WSO2 API Manager:
