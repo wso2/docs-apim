@@ -18,7 +18,7 @@ Do the following to enable SSL protocols and ciphers in the `ThriftAuthenticatio
     ```
 
 !!! tip
-    **Tip:** You can also add the following additional cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
+    You can also add the following additional cipher suites to the `<Ciphers>` property if JCE Unlimited Strength Jurisdiction Policy is enabled in Java.
 
     ``` java
     TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_DHE_RSA_WIT
@@ -74,7 +74,7 @@ By default, all WSO2 products pass "WSO2 Carbon Server" as the server value in H
 1.  Open the `<PRODUCT_HOME>/repository/conf/deployment.toml` file.
 2.  Add a new server name using the `server` property (under the relevant Tomcat connector configuration):
 
-    ``` java
+    ``` toml
     [transport.https.properties]
     server="WSO2 Carbon Server"
     
