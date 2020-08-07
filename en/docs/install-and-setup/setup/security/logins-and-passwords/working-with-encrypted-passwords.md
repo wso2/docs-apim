@@ -13,7 +13,8 @@ The instructions below explain how plain text passwords in configuration files c
 
 1.  Open the `<APIM_HOME>/repository/conf/deployment.toml` file. 
 
-2.  Add the `[secrets]` configuration section and include the passwords which you need to protect. Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
+2.  Add the `[secrets]` configuration section to the **bottom** of the `deployment.toml` file and include the passwords
+ which you need to protect. Use the `<alias>="[<actual_password>]"` format, under `[secrets]` as shown below. The most commonly used passwords in configuration files are listed in the example configuration.
    
        
        ``` tab="Format"
@@ -30,6 +31,10 @@ The instructions below explain how plain text passwords in configuration files c
        truststrore_password = "[wso2carbon]"
        ```    
 
+    !!! Note
+        The `[secrets]` element must be added only at the bottom of the `deployment.toml` file or else this will
+         cause errors in server startup.
+    
 3.  Locate the configurations with the plain text passwords in the `<APIM_HOME>/repository/conf/deployment.toml` configuration file, and replace them with `$secret(<alias>)` in order to refer to the encrypted password instead of the plain text password. 
 
      Note that the `alias` has to be the alias value that you configured in the above step as the mapping of the actual password. 
