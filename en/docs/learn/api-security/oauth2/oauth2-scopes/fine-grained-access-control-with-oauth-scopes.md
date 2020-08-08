@@ -6,8 +6,7 @@ For example, there can be requirements such as restricting the access to a given
 
 ## Shared Scopes
 
-In WSO2 API-M, you can create OAuth scopes before the API creation time and share them across multiple APIs of the same
-tenant. The API-M Publisher portal provides a scope management UI to view, create, edit and delete these shared scopes. 
+In WSO2 API-M, an OAuth scope can be created before the API is created and shared across multiple APIs of the same tenant. The API-M Publisher portal provides a scope management UI to view, create, edit and delete these shared scopes. 
 
 !!! info
      Shared scopes can be viewed by any Publisher portal user with a role associated with `apim:api_view` Publisher 
@@ -59,8 +58,7 @@ scope description and allowed roles. Fill in required details of the scope and c
 
 ### Applying a Shared Scope to an API Resource
 
-A shared scope has to be applied to a resource, in order to restrict the access to a user group/groups. A shared scope
-can be attached to more than one APIs of the same tenant. Follow below steps to apply a shared scope to a resource.
+A shared scope has to be applied to a resource, in order to restrict the access to a user group/groups. A shared scope can be attached to more than one APIs of the same tenant. Follow below steps to apply a shared scope to a resource.
 
 1. Go to API **Resources** section and click on the resource you would like to apply the scope.
 
@@ -87,7 +85,7 @@ can be attached to more than one APIs of the same tenant. Follow below steps to 
      Once a shared scope is created and attached to an API, you are restricted to delete the shared scope. In order to
      delete a shared scope, first you need to remove its resource attachments from relevant APIs.
 
-## API Scopes 
+## Local Scopes 
 
 !!! warning
      
@@ -97,9 +95,9 @@ can be attached to more than one APIs of the same tenant. Follow below steps to 
 In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. 
 These scopes are local and unique to the relevant API. 
 
-### Creating an API Scope
+### Creating a Local Scope
 
-An API Scope can be created and applied to a resource at API creation time by following below steps.
+A local scope can be created and applied to a resource at API creation time by following below steps.
 
 1. Login to API Publisher (https://localhost:9443/publisher) 
 
@@ -137,17 +135,17 @@ Fill in required details of the scope and click **Save** button.
     <img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/create-a-new-scope.png" alt="Create a Scope" 
          title="Create a Scope" width="70%" /></a>
 
-### Applying an API Scope to a Resource
+### Applying a Local Scope to a Resource
 
-An API scope has be applied to a resource, in order to restrict the access to a user group/groups. An API Scope can only be
-attached to the relevant API in which it is created under. Follow below steps to apply an API Scope to a resource.
+A Local scope has be applied to a resource, in order to restrict the access to a user group/groups. A Local Scope can only be
+attached to the relevant API in which it is created under. Follow below steps to apply a Local Scope to a resource.
 
 1. Go to API **Resources** section and click on the resource you would like to apply the scope.
 
     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" alt="Select Resource" 
          title="Select Resource" width="70%" /></a>
 
-2. Select the created API Scope from the dropdown. The created shared scope will be listed under **API Scopes** in the 
+2. Select the created Local Scope from the dropdown. The created local scope will be listed under **API Scopes** in the 
 dropdown.
 
     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/apply-scope.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/apply-scope.png" alt="Apply Scope" 
@@ -159,9 +157,7 @@ dropdown.
 
 ## Applying Multiple Scopes Per Resource
 
-From API-M Publisher Portal, you can attach multiple scopes to each API resource including combinations of both 
-[Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) 
-and [API Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#api-scopes).
+From API-M Publisher Portal, you can attach multiple scopes to each API resource.
 
 [![Attaching Multiple Scopes per Resource]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/multiple-scopes-per-resource.png)
 
@@ -172,7 +168,7 @@ Once you attach multiple scopes per resource, the resource will look as follows.
 ## Defining OAuth Scopes in API Definition
 
 Both [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) 
-and [API Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#api-scopes) should be defined in same way in the OpenAPI definition as follows.
+and [Local Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#local-scopes) should be defined in same way in the OpenAPI definition as follows.
 
 <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/resource-scope-api-definition.png" alt="Resource Scopes API Definition" 
      title="Resource Scopes API Definition" width="50%" /></a>
@@ -182,7 +178,7 @@ and [API Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grai
 
 ## Obtaining Tokens with Scopes
 
-When a scope has been assigned to an API resource, the access is getting restricted to the users who has the role/roles specified in the scope. Hence, the API consumers has to specifically request for the relevant scope when generating an access token to invoke the API resource. Follow below steps to obtain an access token specifying the requested scopes.
+When a scope is attached to an API resource, access to it gets restricted based on the role(s) that is specified in the scope. In order to invoke the API resource, the API consumer has to generate an access token bound to the scope that is attached to the API resource. Follow below steps to obtain an access token specifying the requested scopes.
 
 1. Login to API Developer Portal (https://localhost:9443/devportal/).
 
@@ -196,22 +192,28 @@ When a scope has been assigned to an API resource, the access is getting restric
      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/generate-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/generate-keys.png" alt="Generate App Keys" 
           title="Generate App Keys" width="60%" /></a>
 
-4. Click on **GENERATE ACCESS TOKEN** button. Then select the scope from dropdown in the prompted window and click **GENERATE** button 
-to generate the access token.
+4. Click **GENERATE ACCESS TOKEN** button. Then select the scope from dropdown in the prompted window and click **GENERATE** button to generate the access token.
 
      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/generate-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes.png" alt="Select Token Scopes" 
           title="Select Token Scopes" width="60%" /></a>
 
-5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Unless,
-only the default scopes will be returned with the access token.
- 
-      <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" alt="Token Scopes" 
+5. If the user has the roles specified in the scope, the access token will be issued with the requested scope. Otherwise, only the default scopes will be returned with the access token.            
+
+    ??? info
+        By default in WSO2 API-M, if no scopes are requested or if none of requested scopes are allowed, the token will be issued with `default` scope.
+        In addition, a token obtained using client credentials grant will be issued with `am_application_scope`.     
+
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/token-scopes-output.png" alt="Token Scopes" 
           title="Token Scopes" width="60%" /></a>
-         
+
 6. Invoke the API resource with the above generated access token. If the user is assigned with the authorized roles, the API invocation will be successful. An API resource access by an unauthorized user will be failed giving 403 Forbidden error.
 
      <a href="../../../../../assets/img/learn/unauthorized-access.png" ><img src="../../../../../assets/img/learn/unauthorized-access.png" alt="Token scopes" 
          title="Token Scopes" width="50%" /></a>
+
+!!! info
+
+     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from Local Scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both Local and Shared Scopes. Hence, we recommend you to use Shared Scopes only from 3.2 onwards. Local Scopes are deprecated and will be removed in future release.
 
 
 
