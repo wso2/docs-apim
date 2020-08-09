@@ -1282,7 +1282,11 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
-         Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets. Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
+        Navigate to the [v1.0.103 tag](https://github.com/wso2-extensions/identity-migration-resources/releases/tag/v1.0.103) and download the `wso2is-migration-1.0.103.zip` under Assets.    
+
+         <!-- Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets. -->
+         
+         Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.2.0_HOME>` directory.
 
