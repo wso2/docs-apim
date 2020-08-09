@@ -1,5 +1,8 @@
 # Upgrading API Manager from 2.0.0 to 3.2.0
 
+!!! Important
+    This migration guide is in the process of restructuring, and is NOT yet ready for use.
+
 The following information describes how to upgrade your API Manager server **from APIM 2.0.0 to 3.2.0**.
 
 !!! note
