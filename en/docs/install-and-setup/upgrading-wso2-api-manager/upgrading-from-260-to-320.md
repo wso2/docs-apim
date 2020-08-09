@@ -426,7 +426,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/tenants` directory with the copied contents.
 
     !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.1.0 version.
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.2.0 version.
 
         -   /api/\_RevokeAPI_.xml
         -   /sequences/\_cors_request_handler_.xml
@@ -676,13 +676,13 @@ Follow the instructions below to move all the existing API Manager configuration
         WHERE TABLE_NAME = 'AM_APPLICATION_KEY_MAPPING' AND COLUMN_LIST  = 'APPLICATION_ID,KEY_TYPE'));
         DROP ALIAS IF EXISTS DROP_FK;
         
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(512) NULL;
         UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = random_uuid() WHERE UUID IS NULL;
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(512) NOT NULL DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(512) NOT NULL DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB;
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD PRIMARY KEY(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
         
@@ -1623,7 +1623,7 @@ Follow the instructions below to move all the existing API Manager configuration
         WHERE TABLE_SCHEMA = database() AND TABLE_NAME = "AM_APPLICATION_REGISTRATION"
         AND constraint_type='UNIQUE';
         
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         PREPARE stmt FROM @sqlst;
@@ -1633,7 +1633,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50);
         UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = UUID() WHERE UUID IS NULL;
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB;
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY;
@@ -2122,7 +2122,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = SYS_GUID() WHERE UUID IS NULL
         /
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) DEFAULT 'Default' NOT NULL
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) DEFAULT 'Resident Key Manager' NOT NULL
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB
         /
@@ -2389,13 +2389,13 @@ Follow the instructions below to move all the existing API Manager configuration
         END $$;
         
         ALTER TABLE AM_APPLICATION_REGISTRATION
-            ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Default',
+            ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager',
             ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
         ALTER TABLE AM_APPLICATION_KEY_MAPPING
             ADD UUID VARCHAR(50) NOT NULL DEFAULT uuid_generate_v1(),
-            ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Default',
+            ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager',
             ADD APP_INFO BYTEA NULL,
             ADD CONSTRAINT application_key_unique UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
         
@@ -2689,11 +2689,11 @@ Follow the instructions below to move all the existing API Manager configuration
 !!! warning
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
-Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.1.0
+Follow the steps below to migrate APIM Analytics 2.6.0 to APIM Analytics 3.2.0
 
 #### Step 3.1 - Migrating the Analytics Database
 
-Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
+Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.2.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
 
 ??? info "DB Scripts"
     ```tab="H2"
@@ -2731,7 +2731,7 @@ Upgrade the WSO2 API Manager Analytics database from version 3.0.0 to version 3.
     ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
     ```
 
-#### Step 3.2 - Configure WSO2 API-M Analytics 3.1.0
+#### Step 3.2 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! note
     -   In API-M 2.6.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.

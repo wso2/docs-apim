@@ -424,7 +424,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Copy the contents in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the contents in the `<API-M_3.2.0_HOME>/repository/tenants` directory with the copied contents.
 
     !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.1.0 version.
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.2.0 version.
 
         -   /proxy-services/WorkflowCallbackService.xml
 
@@ -494,13 +494,13 @@ Follow the instructions below to move all the existing API Manager configuration
         WHERE TABLE_NAME = 'AM_APPLICATION_KEY_MAPPING' AND COLUMN_LIST  = 'APPLICATION_ID,KEY_TYPE'));
         DROP ALIAS IF EXISTS DROP_FK;
         
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(512) NULL;
         UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = random_uuid() WHERE UUID IS NULL;
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(512) NOT NULL DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(512) NOT NULL DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB;
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD PRIMARY KEY(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
         
@@ -780,7 +780,7 @@ Follow the instructions below to move all the existing API Manager configuration
         WHERE TABLE_SCHEMA = database() AND TABLE_NAME = "AM_APPLICATION_REGISTRATION"
         AND constraint_type='UNIQUE';
         
-        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         PREPARE stmt FROM @sqlst;
@@ -790,7 +790,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50);
         UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = UUID() WHERE UUID IS NULL;
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Default';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB;
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY;
@@ -945,7 +945,7 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = SYS_GUID() WHERE UUID IS NULL
         /
-        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) DEFAULT 'Default' NOT NULL
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) DEFAULT 'Resident Key Manager' NOT NULL
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB
         /
@@ -1012,13 +1012,13 @@ Follow the instructions below to move all the existing API Manager configuration
         END $$;
         
         ALTER TABLE AM_APPLICATION_REGISTRATION
-            ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Default',
+            ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager',
             ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);
         
         CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
         ALTER TABLE AM_APPLICATION_KEY_MAPPING
             ADD UUID VARCHAR(50) NOT NULL DEFAULT uuid_generate_v1(),
-            ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Default',
+            ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager',
             ADD APP_INFO BYTEA NULL,
             ADD CONSTRAINT application_key_unique UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
         
