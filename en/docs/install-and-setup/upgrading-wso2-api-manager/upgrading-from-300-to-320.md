@@ -820,7 +820,7 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
         ```tab="MySQL"
@@ -1257,7 +1257,7 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
