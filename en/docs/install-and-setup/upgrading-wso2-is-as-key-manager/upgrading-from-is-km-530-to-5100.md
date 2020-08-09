@@ -1,5 +1,8 @@
 # Upgrading WSO2 IS as Key Manager to 5.10.0
 
+!!! Important
+    This migration guide is in the process of restructuring, and is NOT yet ready for use.
+
 The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.1.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
 
 !!! tip
