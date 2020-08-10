@@ -8,11 +8,11 @@ Follow the procedure below in order to create a Geo Location dataset to use when
 #### Prepare the database entries
 
 1.  Unzip the latest CSV file and the geoip-2-csv-converter you have downloaded in the steps above.
-2.  Run [update-geolocation-data.sh]({{base_path}}/assets/attachments/103335136/update-geolocation-data.sh) file using the command below.
+2.  Run `update-geolocation-data.sh` file using the command below.
 
-    For Linux  : [update-geolocation-data.sh]({{base_path}}/assets/attachments/103335136/linux/update-geolocation-data.sh)
+    For Linux  : [update-geolocation-data.sh]({{base_path}}/assets/attachments/learn/analytics/geo-location/linux/update-geolocation-data.sh)
     
-    For Mac: [update-geolocation-data.sh]({{base_path}}/assets/attachments/103335136/mac/update-geolocation-data.sh)
+    For Mac: [update-geolocation-data.sh]({{base_path}}/assets/attachments/learn/analytics/geo-location/mac/update-geolocation-data.sh)
 
     ```shell
     sh update-geolocation-data.sh
