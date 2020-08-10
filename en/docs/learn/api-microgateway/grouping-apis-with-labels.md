@@ -5,7 +5,7 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WSO2 API Microgateway, see <a href="https://docs.wso2.com/display/MG300/API+Microgateway+Documentation">API Microgateway Documentation</a>.</p>
+<p>For more information on WSO2 API Microgateway, see <a href="https://docs.wso2.com/display/MG310/API+Microgateway+Documentation">API Microgateway Documentation</a>.</p>
 </div> 
 </html>
 
@@ -21,11 +21,11 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
 2.  Add a new Microgateway label.
 
-     Click **LABELS** under **MICROGATEWAY**, and then click **ADD MICROGATEWAY**.
+     Click **Gateways**, and then click **Add Gateway Label**.
 
      [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)
 
-3.  Create a new label, add a host, and click **Save.**
+     Enter a **Name** and a **Host**, then click **Save.**
 
      <table>
      <tr>
@@ -42,6 +42,8 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
      </td>
      </tr>
      </table>
+     
+     Optionally, you may enter a **Description**, and add multiple hosts by clicking **Add Host** button.
 
      [![Add a Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label.png)]({{base_path}}/assets/img/learn/add-microgateway-label.png)
 
