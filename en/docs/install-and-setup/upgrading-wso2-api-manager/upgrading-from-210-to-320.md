@@ -1427,7 +1427,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (UUID)
         );
         
-        
         DECLARE @SQL VARCHAR(4000);
         SET @SQL = 'ALTER TABLE |TABLE_NAME| DROP CONSTRAINT |CONSTRAINT_NAME|';
         
@@ -1493,7 +1492,6 @@ Follow the instructions below to move all the existing API Manager configuration
         SCOPE_TYPE VARCHAR(255) NOT NULL,
         PRIMARY KEY (SCOPE_ID)
         );
-
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE_BINDING]') AND TYPE IN (N'U'))
         CREATE TABLE AM_SCOPE_BINDING (
