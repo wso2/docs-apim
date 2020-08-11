@@ -5,7 +5,7 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For more information on WSO2 API Microgateway, see <a href="https://docs.wso2.com/display/MG310/API+Microgateway+Documentation">API Microgateway Documentation</a>.</p>
+<p>For more information on WSO2 API Microgateway, see <a href="https://mg.docs.wso2.com/en/latest/">API Microgateway Documentation</a>.</p>
 </div> 
 </html>
 
