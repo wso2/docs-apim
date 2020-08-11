@@ -60,7 +60,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_primary-data-store.toml"
+            "exampleFile": "primary-data-store.toml"
         },
         {
             "title": "Enabling the H2 database console",
@@ -81,7 +81,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_enable_h2_console.toml"
+            "exampleFile": "enable_h2_console.toml"
         },
         {
             "title": "Database configurations",
@@ -180,7 +180,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_database_apim_db.toml"
+            "exampleFile": "database_apim_db.toml"
         },
         {
             "title": "Shared database configurations",
@@ -222,7 +222,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_database_shared_db.toml"
+            "exampleFile": "database_shared_db.toml"
         },
         {
             "title": "JWT Configurations",
@@ -306,7 +306,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_apim_jwt.toml"
+            "exampleFile": "apim_jwt.toml"
         },
         {
             "title": "API-M gateway environment configurations",
@@ -460,7 +460,7 @@
             "exampleFile": "apim.cache.resource.toml"
         },
         {
-            "title": "Cache Keymanager token",
+            "title": "Cache Key Manager token",
             "options": [
                 {
                     "name": "apim.cache.km_token",
@@ -528,7 +528,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "cache-scopes.toml"
         },
         {
             "title": "Cache publisher roles",
@@ -549,28 +549,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
-        },
-        {
-            "title": "Cache publisher roles",
-            "options": [
-                {
-                    "name": "apim.cache.publisher_roles",
-                    "required": true,
-                    "description": "",
-                    "params": [
-                        {
-                            "name": "enable",
-                            "type": "string",
-                            "required": false,
-                            "default": "TRUE",
-                            "possible": "",
-                            "description": "Enable cache for publisher roles. Expires in 15 minutes by default"
-                        }
-                    ]
-                }
-            ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "cache.publisher_roles.toml"
         },
         {
             "title": "Cache JWT claims",
@@ -599,7 +578,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "cache.jwt_claim.toml"
         },
         {
             "title": "Cache tags",
@@ -620,7 +599,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "cache.tags.toml"
         },
         {
             "title": "API-M Analytics related configurations",
@@ -713,7 +692,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "apim.analytics.toml"
         },
         {
             "title": "API-M Analytics - URL group",
@@ -758,7 +737,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "apim.analytics.url_group.toml"
         },
         {
             "title": "API-M Key Manager related configurations",
@@ -827,7 +806,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "apim.key_manager.toml"
         },
         {
             "title": "API-M OAuth configurations",
@@ -888,7 +867,7 @@
                     ]
                 }
             ],
-            "exampleFile": "_super-admin.toml"
+            "exampleFile": "apim.oauth_config.toml"
         },
         {
             "title": "API-M Store configurations",
@@ -1096,6 +1075,14 @@
                             "default": "",
                             "possible": "",
                             "description": "Define array of traffic manager connections"
+                        },
+                        {
+                            "name": "enable_decision_connection",
+                            "type": "string",
+                            "required": false,
+                            "default": "",
+                            "possible": "",
+                            "description": "Enable the JMS Message retrieval connection."
                         }
                     ]
                 }
