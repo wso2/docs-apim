@@ -21,31 +21,33 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
 
 2.  Add a new Microgateway label.
 
-     Click **Gateways**, and then click **Add Gateway Label**.
+     1. Click **Gateways**, and then click **Add Gateway Label**.
 
-     [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)
+         [![Menu to add Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)]({{base_path}}/assets/img/learn/add-microgateway-label-menu.png)
 
-     Enter a **Name** and a **Host**, then click **Save.**
+     2. Enter a name, which will be used as the Microgateway label and a host.
 
-     <table>
-     <tr>
-     <td>Label
-     </td>
-      <td>
-     MARKETING_STORE
-     </td>
-     </tr>
-     <tr>
-     <td>Host
-     </td>
-     <td><code>https://localhost:9095</code>
-     </td>
-     </tr>
-     </table>
+        <table>
+        <tr>
+        <td>Label
+        </td>
+        <td>
+        MARKETING_STORE
+        </td>
+        </tr>
+        <tr>
+        <td>Host
+        </td>
+        <td><code>https://localhost:9095</code>
+        </td>
+        </tr>
+        </table>
      
-     Optionally, you may enter a **Description**, and add multiple hosts by clicking **Add Host** button.
+     3. Optionally, to add multiple hosts click **Add Host** and add another host.
 
-     [![Add a Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label.png)]({{base_path}}/assets/img/learn/add-microgateway-label.png)
+     4. Click **Save**.
+
+         [![Add a Microgateway label]({{base_path}}/assets/img/learn/add-microgateway-label.png)]({{base_path}}/assets/img/learn/add-microgateway-label.png)
 
 ## Step 2 - Assign the Microgateway label to an API
 
@@ -63,32 +65,35 @@ If required, you can create a [WSO2 API Microgateway](https://wso2.com/api-manag
      Example: `https://localhost:9443/publisher`
 
 2.  Create a new API or skip this step if you wish to use an existing API.
+     
      Let's deploy the sample Pizzashack API by clicking **Deploy Sample API** (If you have not done so already).
 
 3.  Click on the API to edit its configurations.
 
-    [![Edit the API]({{base_path}}/assets/img/learn/select-api.png)]({{base_path}}/assets/img/learn/select-api.png)
+     [![Edit the API]({{base_path}}/assets/img/learn/select-api.png)]({{base_path}}/assets/img/learn/select-api.png)
 
 4.  Click **Environments**.
 
 5.  Select the newly created Microgateway label.
 
-    [![Microgateway label in the Publisher]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)
+     [![Microgateway label in the Publisher]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)]({{base_path}}/assets/img/learn/microgateway-label-publisher.png)
 
-6.  Click **Save** to attach it to the Pizzashack API.
-
-7. Similarly, you can assign the `MARKETING_STORE` Microgateway label for other APIs as well.
+6. Click **Save** to attach it to the Pizzashack API.
+   
+     Similarly, you can assign the `MARKETING_STORE` Microgateway label for other APIs as well.
 
 ## Step 3 - View the Microgateway labels
 
-Sign in to the Developer Portal using `admin` as the username and password.
+1. Sign in to the Developer Portal using `admin` as the username and password.
 
-`https://<hostname>:9443/devportal` 
+     `https://<hostname>:9443/devportal` 
    
-Example: `https://localhost:9443/devportal`
+     Example: `https://localhost:9443/devportal`
 
-The attached Microgateways appear in the **Overview** tab of the API.
+2. Click on the specific API.
 
-[![Microgateway label in the Developer Portal]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)
+3. Click **Overview**.
 
+     The Microgateways, which are attached to the API, appear.
 
+     [![Microgateway label in the Developer Portal]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)]({{base_path}}/assets/img/learn/microgateway-label-devportal.png)
