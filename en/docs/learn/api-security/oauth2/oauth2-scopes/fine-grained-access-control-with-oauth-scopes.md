@@ -25,8 +25,7 @@ The shared scope need to be created before API creation/update time. Follow belo
 
      [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-shared-scope.png)
 
-3. In **Create New Scope** wizard, you will be prompted to enter a scope name, scope display name and optionally, 
-scope description and allowed roles. Fill in required details of the scope and click **Save** button.
+3. In **Create New Scope** wizard, you will be prompted to enter a scope name, scope display name and optionally, scope description and allowed roles. Fill in required details of the scope and click **Save** button.
 
      [![Create New Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/create-op-shared-scope.png)
 
@@ -92,8 +91,7 @@ A shared scope has to be applied to a resource, in order to restrict the access 
     This feature is **DEPRECATED** from **WSO2 API-M 3.2 onwards** and, it is recommended to use 
     [Shared Scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes).
 
-In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. 
-These scopes are local and unique to the relevant API. 
+In WSO2 API-M, API developers can also create OAuth scopes during the API creation time and attach them locally to the API. These scopes are local and unique to the relevant API. 
 
 ### Creating a Local Scope
 
@@ -107,8 +105,7 @@ A local scope can be created and applied to a resource at API creation time by f
 
      [![Start Creating a Scope]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)]({{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/start-creating-scope.png)
 
-4. In **Create New Scope** wizard, you will be prompted to enter a scope name and optionally, allowed roles and a description. 
-Fill in required details of the scope and click **Save** button.
+4. In **Create New Scope** wizard, you will be prompted to enter a scope name and optionally, allowed roles and a description. Fill in required details of the scope and click **Save** button.
 
     <table>
      <tbody>
@@ -137,15 +134,14 @@ Fill in required details of the scope and click **Save** button.
 
 ### Applying a Local Scope to a Resource
 
-A Local scope has be applied to a resource, in order to restrict the access to a user group/groups. A Local Scope can only be
-attached to the relevant API in which it is created under. Follow below steps to apply a Local Scope to a resource.
+A local scope, when applied to a resource, will restrict access for a user group(s). A local scope can only be attached to the relevant API in which it is created under. Follow below steps to apply a local scope to a resource.
 
 1. Go to API **Resources** section and click on the resource you would like to apply the scope.
 
     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/select-resource.png" alt="Select Resource" 
          title="Select Resource" width="70%" /></a>
 
-2. Select the created Local Scope from the dropdown. The created local scope will be listed under **API Scopes** in the 
+2. Select the created local scope from the dropdown. The created local scope will be listed under **API Scopes** in the 
 dropdown.
 
     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/apply-scope.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/oauth2-scopes/api-scopes/apply-scope.png" alt="Apply Scope" 
@@ -213,7 +209,7 @@ When a scope is attached to an API resource, access to it gets restricted based 
 
 !!! info
 
-     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from Local Scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both Local and Shared Scopes. Hence, we recommend you to use Shared Scopes only from 3.2 onwards. Local Scopes are deprecated and will be removed in future release.
+     If you first create a local scope and then create a shared scope with same scope name before attaching the local scope to any API resource, the local scope will removed from local scope UI. However, it will not be reflected in the API Definition, unless you save the API. This is an identified limitation in supporting both local and shared scopes. Hence, we recommend you to use Shared Scopes only from 3.2 onwards. Local scopes are deprecated and will be removed in future release.
 
 
 
