@@ -1,15 +1,9 @@
 # CI/CD with WSO2 API Manager
 
-APIs have become a defacto for connecting apps, services, and data. An organization can have multiple environments, such 
-as development, testing, QA, staging, and production, each with its own instance of API Managers. Therefore, the APIs need to be 
-available in each environment after developers specify the required conditions. Manually promoting APIs between environments is a 
-tedious, error-prone, and time-consuming task. This drastically reduces an organization’s productivity.
+APIs have become a defacto for connecting apps, services, and data. An organization can have multiple environments, such as development, testing, QA, staging, and production, each with its own instance of API Managers. Therefore, the APIs need to be available in each environment after developers specify the required conditions. Manually promoting APIs between environments is a tedious, error-prone, and time-consuming task. This drastically reduces an organization’s productivity.
 
-WSO2 API Manager addresses the issue of API automation by providing a platform-agnostic, developer-centric solution. 
-**WSO2 API Controller**,  **apictl** tool plays a key role in the automation pipeline. It can seamlessly integrate 
-environment-related configurations and also create API Projects from Swagger/OpenAPI specifications, opening a gate to 
-fully automated API deployment with only a few steps. With the power of flexible tooling, WSO2 API Manager is ready to 
-address modern requirements for automating API deployments.
+WSO2 API Manager addresses the issue of API automation by providing a platform-agnostic, developer-centric solution. **WSO2 API Controller**,  **apictl** tool plays a key role in the automation pipeline. It can seamlessly integrate 
+environment-related configurations and also create API Projects from OpenAPI specifications, opening a gate to fully automated API deployment with only a few steps. With the power of flexible tooling, WSO2 API Manager is ready to address modern requirements for automating API deployments.
 
 [![]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)]({{base_path}}/assets/img/learn/api-controller/ci-cd-pipeline-for-apis-with-wso2-apim.png)
 
@@ -143,14 +137,10 @@ Execute the following command to directly generate the `PetstoreAPI` project usi
     apictl init PetstoreAPI --oas path/to/petstore.yaml
     ```
 
-- This generates an API project in the `PetstoreAPI` directory using the provided specification. This project can be directly 
-imported into the API Manager.
+- This generates an API project in the `PetstoreAPI` directory using the provided specification. This project can be directly imported into the API Manager.
 - The **apictl** allows further customization to the project initialization using a template file. Organization-specific common details can be added into this template file and shared across developers to increase productivity.
-- To further finetune API creation, an additional API Definition file can be used. This definition file supports detecting environment variables during the creation process. It can be combined with scripting to develop powerful tools for 
-automating API Project creation.
-- Using this method, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By combining 
-templating and the definition file, the automation servers can be configured to initialize API Projects from Swagger/OpenAPI 
-specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
+- To further finetune API creation, an additional API Definition file can be used. This definition file supports detecting environment variables during the creation process. It can be combined with scripting to develop powerful tools for automating API Project creation.
+- Using this method, the Swagger/OpenAPI specification becomes a single source of truth for API deployment. By combining templating and the definition file, the automation servers can be configured to initialize API Projects from Swagger/OpenAPI specifications and also have custom parameter files. This reduces human intervention and boosts productivity.
 - For example, when an organization depends on a microservices architecture, this method can be utilized to create an automated pipeline to move Swagger/OpenAPI specifications to upper environments.
 
 For more information on initializing an API Project using OpenAPI/Swagger Specification, see 
@@ -159,12 +149,12 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 <a name="E"></a>
 ### (E.) - Prepare an API project for CI/CD
 
-2.  Copy this directory into your Version Control Repository.
+1. Copy this directory into your Version Control Repository.
     
     - If you are using the Dev First approach - Copy the initialized project directory.
     - If you are using the Publisher based approach - Copy the extracted project directory.
 
-3.  Define the environment-specific details in the `api_params.yaml` parameter file.
+2. Define the environment-specific details in the `api_params.yaml` parameter file.
 
      Define the *prod.wso2.com* and *prod.sandbox.wso2.com* as the backend URLs in this file.
      
@@ -191,15 +181,14 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 
     !!! info
         - The tool reduces the pipeline’s complexity and provides a simple and powerful mechanism to handle environment-specific configurations.
-        - You can define both production and sandbox backend endpoints and additional configurations for the environments such as retry/suspend timeouts, gateway environments etc. in the `api_params.yaml` file.  
-        - Backend certificates for each URL can be configured. For certificates, a valid path to the certificate file is 
-        required. These paths can be stored in the Automation Server.
-        - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. In addition, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
+        - You can define both production and sandbox backend endpoints and additional configurations for the environments such as retry/suspend timeouts, gateway environments, etc. in the `api_params.yaml` file.  
+        - Backend certificates for each URL can be configured. For certificates, a valid path to the certificate file is required. These paths can be stored in the Automation Server.
+        - The **apictl** supports detecting environment variables defined in usual notation. If an environment variable is not set, the tool will fail. Also, the system will request the user for a set of required environment variables to ensure that information is not missing during the migration process.
         - It is recommended to store API and environment-specific parameters in separate repositories.
         - For more information on using an environment parameter file, see [Configuring Environment Specific Parameters]({{base_path}}/learn/api-controller/advanced-topics/configuring-environment-specific-parameters).
 
 
-4.  Commit the project to the version control system.        
+3.  Commit the project to the version control system.        
 
 <a name="F"></a>
 ### (F.) - Import the API to an upper environment
@@ -207,29 +196,126 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 The Automation Server can be configured to run a specific pipeline for promoting artifacts to other environments. 
 The DevOps team can develop this pipeline further to include automated tests, workflow approvals, and other tasks.  
 
-The **apictl** tool should be installed in the automation servers to begin the process. As the tool supports a variety of platforms, including Linux/Windows and macOS, this can be done easily. The **apictl** tool supports the process of importing API Projects via the `import-api` command. This command is mainly used in the pipeline to migrate to different environments.
+The **apictl** tool should be installed in the automation servers to begin the process. As the tool supports a variety of platforms, including Linux/Windows and macOS, this can be done easily. 
 
-1.  Import the `SwaggerPetstore` API into the production environment and test the API by running the following sample command.
+#### a. Promoting APIs in a Git repository to upper environments via CI/CD
+
+The repository that you committed the project in the above step <a href="#E">E</a> needs to be cloned into the instance that is executing the CI/CD process. From 3.2.0 onwards, **apictl** has the inbuilt support to integrate with a Git based version control system. It gives a unified command `vcs deploy` to deploy any type of project (e.g., APIs, API Products, and Apps).
+
+1.  Navigate to the directory that has the cloned Git repository.
+    ```bash
+    $ cd <cloned-repository-name>
+    ```
+
+2.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
+
+    !!! example
+        ```bash
+        $ apictl vcs status -e prod
+        Projects to Deploy (1)
+
+        APIs (1) ...
+        1: [save]		SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
+        ```
+
+3.  Import the **SwaggerPetstore** API into the production environment by running the following sample command.
 
     !!! tip
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
         [Login to an Environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#login-to-an-environment).
 
-        - A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
+        - A user with `admin` role is allowed to import APIs. To create a custom user who can import APIs, see [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#minimal-permissions-and-scopes-required-to-perform-api-controller-operations).
+
+    !!! example
+        ```bash
+        $ apictl vcs deploy -e prod
+        Deploying Projects (1)...
+
+        APIs (1) ...
+        1: SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
+        Successfully imported API
+        ```
+
+    The above command will detect the target environment and provision the API to it.
+
+    If you run `vcs deploy` command again, you will see the following output indicating that the deployment is already up-to-date.
+
+    !!! example
+        ```bash
+        $ apictl vcs deploy -e prod
+        Everything is up-to-date
+        ```
+
+4.  Adding a new API to the Git repository
+
+    Multiple APIs can be promoted through CI/CD by committing the respective API projects to the repository.
+
+    1.  Create another API Project (**Pizzashack-1.0.0**) by following the steps (<a href="#B">B</a>,<a href="#C">C</a>) OR <a href="#D">D</a>.
+    
+    2.  Commit the project to the Git repository.
+
+    3.  Run `vcs status` command to verify the new project addition.
+
+        ```bash
+        $ apictl vcs status -e prod
+        Projects to Deploy (1)
+
+        APIs (1) ...
+        1: [save]		Pizzashack-1.0.0: (Pizzashack-1.0.0)
+        ```
+
+    4.  Run `vcs deploy` command to deploy the new API to the production environment.
+
+        ```bash
+        $ apictl vcs deploy -e prod
+        Deploying Projects (1)...
+
+        APIs (1) ...
+        1: Pizzashack-1.0.0: (Pizzashack-1.0.0)
+        Successfully imported API
+        ```
+
+        Here, **apictl** will deploy only the new API **Pizzashack-1.0.0** without re-deploying the other unchanged API **SwaggerPetstore-1.0.0**.
+
+    !!! important
+        For deploying an API using `vcs deploy` command: 
+        
+        -   It is mandatory to have your API projects in a Git based version control system.
+        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you export an API using `export-api` or initialized an API Project using `init`. The following configuration section in the `api_params.yaml` file is used to deploy the API.
+
+        ```bash
+        vcs:
+            import:
+                update: true
+                preserveProvider: true
+        ```
+
+        You can change the above fields accordingly.
+
+        | Field           | Description                                                                              |
+        |-----------------|------------------------------------------------------------------------------------------|
+        | update          | Used to specify whether to update the API if it already exists during the deployment     |
+        | preserveProvider| Preserve existing provider of API after importing it                                     |
+        
+
+#### b. Promoting a single API via CI/CD to upper environments
+
+You can use the following alternative approach to promote a single API via CI/CD. This method is ideal if your CI/CD pipeline is not built based on Git.
+
+1.  Import the **SwaggerPetstore** API into the production environment and test the API by running the following sample command.
 
     !!! example
         ```bash
         apictl import-api -f ./SwaggerPetstore -e prod --preserve-provider=false --update=true
         ```
     !!! note
-        -   When the update flag is present, WSO2 API Manager will attempt to seamlessly update if an existing API is found 
-        with the same name and version. 
+        -   When the update flag is present, WSO2 API Manager will attempt to seamlessly update if an existing API is found with the same name and version. 
         
         - The import command prepares an API Project for WSO2 API Manager by processing the parameter file. It determines which configuration should be processed to create an API Project by detecting the environment that has been used to import it.
 
         - For more information on importing an API to an environment, see [Import an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#import-an-api).
 
-     Now the tool will automatically detect the target environment and prepare a new artifact containing environment-related details. 
+    The above command will detect the target environment and provision the API to it.
 
 3. Sign in to the API Publisher.
 
@@ -237,18 +323,19 @@ The **apictl** tool should be installed in the automation servers to begin the p
 
 4. Check the details of the API.
      
-     You will see that the API has been imported with correct environment-specific details that you defined. Also, If you have followed, <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, and <a href="#F">F</a>, you can see that the API is in the `PUBLISHED` state and if you have followed <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a>, then your API will be in `CREATED` state.
+     You will see that the API has been imported with correct environment-specific details that you defined. 
+     - If you have followed, <a href="#A">A</a>, <a href="#B">B</a>, <a href="#C">C</a>, <a href="#E">E</a>, and <a href="#F">F</a>, then you can see that your API is in the `PUBLISHED` state.
+     - If you have followed <a href="#A">A</a>, <a href="#D">D</a>, <a href="#E">E</a>, and <a href="#F">F</a>, then you can see that your API is in the `CREATED` state.
 
 !!! info  
     -   When exporting an API, the **apictl** tool will also export the API’s lifecycle status. When importing to another environment, this lifecycle status will be preserved. This ensures that the API has the same state across environments. 
     
-    -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state 
-    in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
+    -   For example, if an API is in the `PUBLISHED` state in the development environment, it will also be in the same state in the testing environment. This default behavior can be changed via the **apictl** tool, which assigns APIs the `CREATED` state after importing. 
 
 <a name="G"></a>
 ### (G.) - Get keys for an API/API Product
 
-Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API or an API Product by subscribing to it using a new application created by CTL:
+Follow the instructions below to generate a JWT/OAuth token for testing purposes using CTL in order to invoke an API or an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) by subscribing to it using a new application created by CTL:
 
 !!! tip
     - Make sure that WSO2 API Manager is started and the CTL tool is running. For more information, see [Download and Initialize the CTL Tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool). 
@@ -259,11 +346,11 @@ Run any of the following CTL commands to get keys for the API/API Product.
 - **Command**
 
     ```bash
-    apictl get-keys -n <API or API Product name> -v <API or API Product version> -r <API or API Product provider> -e <environment> -k
+    apictl get-keys -n <API or API Product name> -v <API version> -r <API or API Product provider> -e <environment> -k
     ```  
 
     ```bash
-    apictl get-keys --name <API or API Product name> --version <API or API Product version> --provider <API or API Product provider> --environment <environment> -k
+    apictl get-keys --name <API or API Product name> --version <API version> --provider <API or API Product provider> --environment <environment> -k
     ```
 
     !!! example
@@ -283,7 +370,7 @@ Run any of the following CTL commands to get keys for the API/API Product.
         -   Optional :  
             `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the add-env command)       
             `--provider` or `-r` : Provider of the API or API Product  
-            `--version` or `-v` : Version of the API or API Product (Currently API Products do not have versions)
+            `--version` or `-v` : Version of the API (Currently API Products do not have versions)
 
     !!! note
         Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.
@@ -291,8 +378,145 @@ Run any of the following CTL commands to get keys for the API/API Product.
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
-    - Using apictl tool the token type , HTTP request timeout, and export directory can be set up and changed. For more information on changing the token type, see [Set token type]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-token-type), [Set HTTP request timeout]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
+    - Using apictl tool the HTTP request timeout, and export directory can be set up and changed. For more information on changing the HTTP request timeout, see [Set HTTP request timeout]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#set-http-request-timeout) and [Set export directory]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/##set-export-directory) accordingly. 
     - When running the above command, if you have not specified the --version (-v), the tool will consider the version as 1.0.0 by default. If you have specified the version, then that value will be considered.
+
+### (H.) - Extending a CI/CD pipeline to support API Products
+
+For example, let's consider there is an [API Product]({{base_path}}/learn/design-api/create-api-product/api-product-overview) **PetsInfo** in the development environment with a subset of operations of **SwaggerPetstore** API.
+
+1.  Export the API Product using `export api-product` command from the development environment (dev).
+
+    ```bash
+    $ apictl export api-product -n PetsInfo -e dev
+    
+    Successfully exported API Product!
+    Find the exported API Product at /home/wso2user/.wso2apictl/exported/api-products/dev/PetsInfo_1.0.0.zip
+    ```
+
+2.  Extract the exported API Product Project.
+
+3.  Commit the project to the Git repository.
+
+4.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
+
+    !!! example
+        ```bash
+        $ apictl vcs status -e prod
+        Projects to Deploy (1)
+
+        API Products (1) ...
+        1: [save]		PetsInfo-1.0.0: (PetsInfo-1.0.0)
+        ```
+
+3.  Import the **PetsInfo** Product into the production environment by running the following sample command.
+
+    !!! example
+        ```bash
+        $ apictl vcs deploy -e prod
+        Deploying Projects (1)...
+
+        API Products (1) ...
+        1: PetsInfo-1.0.0: (PetsInfo-1.0.0)
+        Successfully imported API Product
+        ```
+
+    The above command will detect the target environment and create the **PetsInfo** Product in the target environment.
+    
+    !!! important
+        For deploying an API Product using `vcs deploy` command: 
+        
+        -   It is mandatory to have your API Product projects in a Git based version control system.
+        -   It is mandatory to have `api_product_params.yaml` file inside each API Product Project. This is created by default when you export an API Product using `export api-product`. The following configuration section in the `api_product_params.yaml` file is used to deploy the API Product.
+
+        ```bash
+        vcs:
+            import:
+                updateApiProduct: true
+                preserveProvider: true
+                importApis: true
+                updateApis: false
+        ```
+
+        You can change the above fields accordingly.
+
+        | Field           | Description                                                                                 |
+        |-----------------|---------------------------------------------------------------------------------------------|
+        | updateApiProduct| Used to specify whether to update the API Product if it already exists during deployment|
+        | preserveProvider| Preserve the existing provider of the API Product after importing it                            |
+        | importApis      | Import the dependant API(s) along with the API Product if the dependant API(s) are not available in the target environment|
+        | updateApis      | Update the dependant API(s) in the target environment                                       |
+
+    !!! tip
+        Multiple API product projects can be promoted through CI/CD by committing them to the same repository.
+
+### (I.) - Extending a CI/CD pipeline to support applications
+
+Let's assume that the **PetsApp** application is in the development environment which is already subscribed to the **SwaggerPetstore** API.
+
+1.  Export the Application using the `export app` command from the development environment (dev). Note that `--withKeys` option is used to export the subscriptions and keys (if any) of the application.
+
+    ```bash
+    $ apictl export-app --name PetsApp --owner david -e dev --withKeys
+
+    Successfully exported Application!
+    Find the exported Application at /home/wso2user/.wso2apictl/exported/apps/dev/david_PetsApp.zip
+    ```
+
+2.  Extract the exported Application Project.
+3.  Commit the project to the same git repository.
+4.  Run the `vcs status` command to see the available changes that need to be deployed to the production environment.
+
+    !!! example
+        ```bash
+        $ apictl vcs status -e prod
+        Projects to Deploy (1)
+
+        Applications (1) ...
+        1: [save]		PetsApp: (PetsApp)
+        ```
+
+3.  Import the **PetsApp** Application into the production environment by running the following sample command.
+
+    !!! example
+        ```bash
+        $ apictl vcs deploy -e prod
+        Deploying Projects (1)...
+
+        Applications (1) ...
+        1: PetsApp: (PetsApp)
+        Successfully imported Application
+        ```
+
+    The above command will detect the target environment and create the application in the target environment.
+
+    !!! important
+        For deploying an application using `vcs deploy` command:
+        
+        -   It is mandatory to have your Application projects in a Git based version control system.
+        -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you export an Application using `export-app`. The following configuration section in the `application_params.yaml` file is used to deploy the application.
+
+        ```bash
+        vcs:
+            import:
+                update: true
+                preserveOwner: true
+                skipSubscriptions: false
+                skipKeys: true
+        ```
+
+        You can change the above fields accordingly.
+
+        | Field             | Description                                                                                 |
+        |-------------------|---------------------------------------------------------------------------------------------|
+        | update            | Used to specify whether to update the application if it already exists during the deployment|
+        | preserveOwner     | Preserve existing owner of the application after importing it                               |
+        | skipSubscriptions | Specifies whether to import the subscriptions of the application                            |
+        | skipKeys          | Specifies whether to import the credentials of the application                              |
+
+    !!! tip
+        Multiple applications could be promoted through CI/CD by committing those application projects to the same repository.
+
 
 Now, you know the building blocks of creating a CI/CD pipeline using **apictl**. By using the above, you can create 
 an automated pipeline for API promotion between environments using either one of the latter mentioned approaches. 
