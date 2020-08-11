@@ -43,20 +43,20 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - Monitoring dashboard
 
-      Having an idea about the overall health status of APIs and Services is essential for the proper functioning of an API-driven business. Monitoring Dashboard helps to achieve this objective by showing contextual information on APIs such as Latency, Throughput, Errors, and Traffic Volume. Operational and Management users can use this dashboard to identify operational errors, narrow down the root cause, or to identify common traffic trends. The overview page provides a holistic view by aggregating different views on APIs, and by following the drill-downs user can get a detailed picture of different perspectives. 
+      Having an idea about the overall health status of APIs and Services is essential for the proper functioning of an API-driven business. Monitoring dashboard helps to achieve this objective by showing contextual information on APIs such as latency, throughput, errors, and traffic volume. Operational and Management users can use this dashboard to identify operational errors, narrow down the root cause, or to identify common traffic trends. The overview page provides a holistic view by aggregating different views on APIs, and by following the drill-downs user can get a detailed picture of different perspectives. 
 
 - Re-organized Analytics dashboards
         
-      Significant changes have been done on the Publisher Analytics dashboard to better suit it to different audiences. A new dashboard named Business Analytics has been created by combining several new widgets with those which initially existed in Publisher Analytics Dashboard to provide an unrestricted view on the APIs for Managerial users. A user with an internal/analytics role can access the new Dashboard to see Statistics for all APIs irrespective of whether those are access-controlled or not. Further, a specific set of Widgets chosen from Publisher Analytics has been used to create an API Analytics Dashboard, which now shows a limited set of Statistics relevant to a Publisher. A Publisher can use this Dashboard to view statistics for both APIs created by them or visible to them.
-      The Developer Portal Dashboard has been renamed to Application Analytics and Admin Dashboard to Reports, to reflect their functionality better.
+      Significant changes have been done on the Publisher Analytics dashboard to better suit it to different audiences. A new dashboard named Business Analytics has been created by combining several new widgets with those which initially existed in Publisher Analytics dashboard to provide an unrestricted view on the APIs for Managerial users. A user with an internal/analytics role can access the new dashboard to see Statistics for all APIs irrespective of whether those are access-controlled or not. Further, a specific set of widgets chosen from Publisher Analytics has been used to create an API Analytics dashboard, which now shows a limited set of Statistics relevant to a Publisher. A Publisher can use this dashboard to view statistics for both APIs created by them or visible to them.
+      The Developer portal dashboard has been renamed to Application Analytics and the Admin dashboard has been renamed to Reports, to reflect their functionality better.
                                                                          
 - Exporting data in CSV, PDF formats 
     
-      This new feature is introduced to widgets to export data as a CSV or PDF. It supports all the widgets with tabular data. Users can export the current view and can be share, analyze, or compare with different views. It helps to export custom or selected data sets.
+      This new feature is introduced to widgets to export data as a CSV or PDF. It supports all the widgets with tabular data. Users can be export the current view and can be share, analyze, or compare with different views. It helps to export custom or selected data sets.
       
 - New Alert Page in Monitoring Dashboards
 
-      API Availability and Alert listing capabilities implemented in Monitoring dashboards. Since this information is more related to analytics, moved to the monitoring dashboard from the API Manager admin portal. It provides an overview of the API availability and filtering based on the availability status. 
+      API Availability and Alert listing capabilities implemented in Monitoring dashboards. Since this information is more related to analytics, it has been moved to the montoring dashboard from the API Manager admin portal. It provides an overview of the API availability and filtering based on the availability status. 
       Additional improvements are made to the alert listing widgets to provide filtering and better API wise comparison. Interactive widgets are provided and support narrow down alerts. 
 
 - New Summary Charts for Monitoring Dashboards
