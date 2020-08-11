@@ -1,44 +1,36 @@
-# Multiple Key Manager support in WSO2 API Manager
+# Multiple Key Manager Support in WSO2 API Manager
 
-Wso2 API Manager provides an admin functionality for admins/tenant admins to configure different authorization servers as key managers.
-This brings the capability of supporting multiple key managers for a given API.
+WSO2 API Manager provides an admin functionality for admins/tenant admins to configure different authorization servers as Key Managers.
+This brings the capability of supporting multiple Key Managers for a given API.
 
-When a key manager is added from the admin portal, it is persisted in the APIM DB as well as an event is triggered to the Traffic Manager.
-So the gateway will receive the event and register the key manager in the gateway.
-Hence, the key manager will be registered as another key manager and it will be available for the APIs that are created within the tenant.
+When a Key Manager is added via the Admin Portal, it is persisted in the APIM DB as well as an event is triggered to the Traffic Manager. As a result, the Gateway will receive the event and register the Key Manager in the Gateway.
+Therefore, the Key Manager will be registered as another Key Manager and it will be available for the APIs that are created within the tenant.
 
-![Add new Key Manager]({{base_path}}/assets/img/administer/add-km-overview.png)
+[![Add new Key Manager]({{base_path}}/assets/img/administer/add-km-overview.png)]({{base_path}}/assets/img/administer/add-km-overview.png)
 
+The Key Manager configuration initialization at server startup takes place through an internal API. However, the UI components in Publisher, developer Portal, and Admin Portals populate Key Manager details from the database.
 
-Key Manager configuration initialization at server startup happens through an internal API.
-However, the UI components in publisher/devportal/admin portals populate key manager details from the Database.
+When generating keys for a selected Key Manager, it checks if the Key Manager configurations have the consumer app creation enabled. If it is enabled, it generates the consumer App upon validation of the required parameters.
 
+## Token validation
 
-For a selected key manager when generation keys, it checks if the Key manager configurations have the consumer app creation enabled.
-If it is enabled it generates consumer App upon validation of the required parameters.
+[![multiple km token validation]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)
 
-### Token Validation
+If the token is a JWT token, it retrieves the Issuer details from the JWT and obtains the relevant Key Manager. If the Key Manager is not enabled for the API, token validation fails.
+If the Key Manager is enabled, the token is validated through the JWT validator.
 
-![alt text]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)
+For non JWT tokens, the token is validated based on the token handling options provided in the Key Manager configurations of the intended Key Manager.
 
-If the token is a JWT token, it retrieves Issuer from the JWT and obtain the relevant key manager. If the key manager is not enabled for the API, token validation fails.
-If the key manager is enabled, token is validated through the JWT validator.
+After token validation takes place by retrieveing the consumer key, subscription validation takes place at the Gateway.
 
-For non JWT tokens, token is validated according to the token handling options provided in the key manager configurations of the intended key manager.
+If the subscription validation is successful, the scope validation takes place.
 
-Upon token validation by the retrieved consumer key, subscription validation happens at the gateway.
-If the subscription validation is successful, the scope validation happens.
+Finally if the backend JWT generation is enabled, it generates the JWT.
 
-Finally if the back end JWT generation is enabled, it generates the JWT.
+## Configuring Key Managers with WSO2 API-M
 
-[Configuring WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-wso2is-connector/)
+- [Configuring WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-wso2is-connector/)
 
-[Configuring Key Cloak as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-key-cloak-connector/)
+- [Configuring Key Cloak as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-key-cloak-connector/)
 
-[Configuring Okta as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-okta-connector/)
-
-
-
-
-
-
+- [Configuring Okta as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-okta-connector/)
