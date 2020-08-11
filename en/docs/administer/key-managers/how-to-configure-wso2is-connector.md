@@ -13,6 +13,7 @@ Follow the steps given below to configure WSO2 IS as a third party Key Manager c
 2. Add following configurations in `<IS_HOME>/repository/conf/deployment.toml`
 
 ```toml
+
     [[event_listener]]
     id = "token_revocation"
     type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
