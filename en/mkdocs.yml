@@ -499,6 +499,12 @@ nav:
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+          - Key Managers:
+                - Overview: administer/key-managers/overview.md
+                - Configuring WSO2 IS as A Key Manager: administer/key-managers/how-to-configure-wso2is-connector.md
+                - Configuring Key Cloak as A Key Manager: administer/key-managers/how-to-configure-key-cloak-connector.md
+                - Configuring Okta as A Key Manager: administer/key-managers/how-to-configure-okta-connector.md
+
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md

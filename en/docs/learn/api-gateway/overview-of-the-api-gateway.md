@@ -2,7 +2,7 @@
 
 [![API-M overview](../../assets/img/learn/apim-overview.png)](../../assets/img/learn/apim-overview.png)
 
-**WSO2 API Gateway** which is powered by [WSO2 EI](https://docs.wso2.com/display/EI650/WSO2+Enterprise+Integrator+Documentation) provides a runtime, backend component (an API proxy) for API calls.
+**WSO2 API Gateway** provides a runtime, backend component (an API proxy) for API calls.
 It secures, protects, manages, and scales API calls by intercepting API requests and applying policies such as throttling and security using handlers and managing API statistics.
 Upon validation of a policy, the Gateway passes Web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the Key Manager.
 
@@ -14,7 +14,7 @@ When the API Manager is running, you can access the Gateway using the URL [https
 **Gateway Architecture**
 [![Gateway overview](../../assets/img/learn/gateway-overview.png)](../../assets/img/learn/gateway-overview.png)
 
-When an API request first hit to the WSO2 API Gateway it is received by the HTTP/HTTPS `transports`.The transport is responsible for carrying messages that are in a specific format.
+When a request hits the API Gateway it is received by the `HTTP/HTTPS transports`.The transport is responsible for carrying messages that are in a specific format.
 Transport provides a receiver, which is used to receive messages, and a sender, which is used to send messages.
 
 Then the receiving transport selects a message builder based on the message's content type. It uses the builder to process the message's raw payload data and convert it into a common XML, which the Gateway mediation engine can then read and understand. The Gateway includes message builders for text-based and binary content.
@@ -31,6 +31,8 @@ Conversely, before transport sends a message out from the Gateway, a message for
 The Gateway supports the below features to control access and enforce security.
 
 * Supports JWT, OAuth2.0, Basic Auth, API Key, Mutual TLS, and more.
+* Supports in-memory subscription validation, that decouples runtime dependency on the key manager
+* Provides multiple key manager support for authentication
 * Restrict API access tokens to domains/IPs.
 * Validate APIs payload contents against schemas.
 * Apply additional security policies to APIs (authentication and authorization).
