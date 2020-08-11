@@ -98,7 +98,7 @@ Follow the instructions below to configure Kerberos Grant using the Identity Se
     `deployment.toml` file in the `<IS-KM_HOME>/repository/conf/` folder.
 
     ``` toml
-    [oauth.grant_type.kerberos_grant]
+    [oauth.grant_type.kerberos]
     enable = true
     ```
 
