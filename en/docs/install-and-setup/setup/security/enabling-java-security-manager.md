@@ -1,9 +1,5 @@
 # Enabling Java Security Manager
 
-!!! warning
-    **Please note that this document is currently under review. Currently, WSO2 does not recommend Java security manager for production environments due to some known issues.**
-
-
 The Java Security Manager is used to define various security policies that prevent untrusted code from manipulating your system. Enabling the Java Security Manager for WSO2 products activates the Java permissions that are in the `<API-M_HOME>/repository/conf/sec.policy` file. You modify this file to change the Java security permissions as required.
 
 !!! info
