@@ -19,15 +19,30 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
     
     i. First install the [Nginx-ingress controller](https://kubernetes.github.io/ingress-nginx/deploy/)
     
-    ii. Navigate to the `api-operator/controller-artifacts` directory and set the operatorMode to `ingress` in the **controler_conf.yaml** file.
+    ii. Change operator mode to `ingress` and set ingress hostname to `"internal.wso2.com"`.
+
+      ```sh
+      kubectl patch configmap controller-config -n wso2-system \
+          -p '{"data":{"operatorMode":"ingress"}}'
+      kubectl patch configmap ingress-configs -n wso2-system \
+          -p '{"data":{"ingressHostName":"internal.wso2.com"}}'
+      ```
         
-        operatorMode: "ingress"
-        
-    iii. If you have already deployed the operator you have to update operatorMode to `ingress` and apply the changes using following command.
-    
+    !!! info "More Info"
+
+        You can find all configs related to ingress mode in the file **controler_conf.yaml**.
+        Navigate to the directory `api-operator/controller-artifacts` to find the configuration file.
+        You can set the `operatorMode`, `ingressHostName` and other configurations in the file.
+        ```yaml
+        operatorMode:    "ingress"
+        ingressHostName: "internal.wso2.com"
+        ```
+        Finally apply the changes using apictl.
+        ```sh
         apictl apply -f api-operator/controller-artifacts/controler_conf.yaml
+        ```
         
-2. Deploying cluster configurations
+3. Deploying cluster configurations
  
     Processes in containers inside pods are authenticated when contacting the apiserver and accessing resources. In order to regulate access to the resources need to establish the RBAC Authorization with at least permissions to, 
     Create, Delete, Update, Get , List, Post the customresourcedefinitions, apis and configmaps.
@@ -118,7 +133,7 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
       </div>
     </html>
     
-3. Configuring the cluster details.
+4. Configuring the cluster details.
 
     The cluster configurations carried out in the above step, should be added in the `<API-M_HOME>/repository/conf/deployment.toml` file or in the `tenant-conf.json` file respect to the user.
 
@@ -129,7 +144,7 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
     type = "<cloud-environment-type>"
     clusterName = "<cluster-name>"
     displayName = "<cluster-name-to_display>"
-    properties.Replicas = "<number-of-replicas>"
+    properties.Replicas = <number-of-replicas>
     properties.AccessURL = "<access-URL>"
     properties.MasterURL = "<Master-URL-of-clsuter>"
     properties.SAToken = "<serviceacccount-token>"
@@ -209,29 +224,29 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
       </div>
       </html>
          
-4. Start the server and create an API in publisher
+5. Start the server and create an API in publisher
     
     After setting up configurations go to the <API-M-HOME>/bin directory and start the server. Then Sign in to the WSO2 API Publisher and [create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api.md).
     
-5. Select the clusters from environment tab
+6. Select the clusters from environment tab
 
     Navigate to the environment tab by clicking on the `Environments` in the navigation bar, and select the clusters to deploy the API.
     
      ![Environments]({{base_path}}/assets/img/learn/privatejet-mode/environment.png)
     
-6. Go to lifecycle tab by clicking on the `Lifecycle` in the navigation bar, and publish the API.
+7. Go to lifecycle tab by clicking on the `Lifecycle` in the navigation bar, and publish the API.
 
     Navigate to the lifecycle tab and publish the API. This will expose microservices as managed APIs in selected clusters.
     
      ![API LifeCycle]({{base_path}}/assets/img/learn/privatejet-mode/lifecycle_publish.png)
      
-7. Go to the Developer Portal ( `https://<hostname>:9443/devportal` ) or click **View in Dev Portal** in the API Publisher and navigate to the Overview tab by clicking on the `Overview` in the navigation bar, and get the accessURL to access the deployed API Log in to the Management Console 
+8. Go to the Developer Portal ( `https://<hostname>:9443/devportal` ) or click **View in Dev Portal** in the API Publisher and navigate to the Overview tab by clicking on the `Overview` in the navigation bar, and get the accessURL to access the deployed API Log in to the Management Console 
    
     To obtain the accessURL configured, Sign in to the WSO2 Developer Portal overview page. The accessURL can be seen under Gateway Environments.
    
     ![Developer portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
    
-8. Invoking the API
+9. Invoking the API
     
     i. Sign in to the Developer Portal ( `https://<hostname>:9443/devportal` ). Subscribe to the API and obtain an access token required to invoke the API.
     
