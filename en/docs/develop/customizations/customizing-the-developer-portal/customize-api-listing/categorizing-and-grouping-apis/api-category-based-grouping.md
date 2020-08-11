@@ -24,25 +24,30 @@ You can add an API category using any of the following methods:
 
 2. Click **API Category** and then click **API Categories**.
     
-    [![Add categories page]({{base_path}}/assets/img/learn/api_category_left_tag.png)]({{base_path}}/assets/img/learn/api_category_left_tag.png)
+    [![Add categories page]({{base_path}}/assets/img/learn/new_api_category_left_tag.png)]({{base_path}}/assets/img/learn/new_api_category_left_tag.png)
 
 2. Click **Add New Category**.
 
-    [![Add API category page]({{base_path}}/assets/img/learn/click_add_category.png)]({{base_path}}/assets/img/learn/click_add_category.png)
+    [![Add API category page]({{base_path}}/assets/img/learn/new_click_add_category.png)]({{base_path}}/assets/img/learn/new_click_add_category.png)
 
 3. Enter a name and a description for the category.
 
-    [![Add API categories]({{base_path}}/assets/img/learn/add_category.png)]({{base_path}}/assets/img/learn/add_category.png)
+    [![Add API categories]({{base_path}}/assets/img/learn/new_add_category.png)]({{base_path}}/assets/img/learn/new_add_category.png)
 
 4. Click **Save**.
 
 ### Add an API Category using the Admin REST API
 
-```
-curl -k -X POST -H "Authorization: Bearer <ACCESS_TOKEN>" -H "Content-Type: application/json" https://localhost:9443/api/am/admin/v0.16/api-categories -d @category-data.json
+``` java tab="Format"
+curl -k -X POST -H "Authorization: Bearer <ACCESS_TOKEN>" -H "Content-Type: application/json" "https://localhost:9443/api/am/admin/v1/api-categories" -d @category-data.json
 ```
 
-NOTE : ACCESS_TOKEN should have admin_operations scope
+``` java tab="Sample"
+curl -k -X POST -H "Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122" -H "Content-Type: application/json" "https://localhost:9443/api/am/admin/v1/api-categories" -d '{ "name":"Finance", "description":"Finance related APIS" }'
+```
+
+!!!Note
+    ACCESS_TOKEN should have **admin_operations** scope.
 
 **Sample payload**
 
