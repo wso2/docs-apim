@@ -6,7 +6,7 @@ Follow the steps given below to configure WSO2 IS as a third party Key Manager c
 
 ### Step 1 : Configuring WSO2 IS
 
-1. Download and install latest WSO2 Identity Server from [here](https://wso2.com/identity-and-access-management/install/download/?type=downloader).
+1. Download and install latest WSO2 Identity Server from [here](https://wso2.com/identity-and-access-management/).
    If you downloaded the archive, extract it.
    `<IS_HOME>` will refer to the root folder of the extracted WSO2 IS.
 
@@ -84,16 +84,16 @@ Follow the steps given below to configure WSO2 IS as a third party Key Manager c
 
 7. Start WSO2 IS
 
-8. Start WSO2 API Manager Server.
+### Step 2 : Configuring WSO2 API Manager
 
     `<APIM_HOME>` will refer to the root folder of the extracted WSO2 APIM.
 
-9. Sign in to [admin portal](https://localhost:9443/admin)
+1. Sign in to [admin portal](https://localhost:9443/admin)
 
-10. Navigate to key Managers tab in the left panel and Click on Add Key Manager button to add a new key manager configuration.
+2. Navigate to key Managers tab in the left panel and Click on Add Key Manager button to add a new key manager configuration.
  ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
 
-11. Add  key manager configurations as below.
+3. Add  key manager configurations as below.
  ![Add wso2is configurations]({{base_path}}/assets/img/administer/wso2is-km-configuration.png)
   Below table provides definitions for each configuration.
 
