@@ -1500,7 +1500,10 @@ Follow the instructions below to move all the existing API Manager configuration
         BINDING_TYPE VARCHAR(255) NOT NULL,
         FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );
-        
+        DECLARE @am_appreg as VARCHAR(8000);
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
+        drop CONSTRAINT ' + @am_appreg);
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);        
         ```
