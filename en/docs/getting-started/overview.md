@@ -37,7 +37,7 @@ The component architecture of the WSO2 API Manager is illustrated in the diagram
 
 API development is usually done by someone who understands the technical aspects of the API, interfaces, documentation, versions etc., while API management is typically carried out by someone who understands the business aspects of the APIs. In most business environments, API development is a responsibility that is distinct from API publication and management.
 
-WSO2 API Manager provides a state-of-the-art web interface called **WSO2 API Publisher** for API development and management. It is a structured GUI designed for API creators to develop, document, scale and version APIs, while also facilitating more API management-related tasks such as publishing API, monetizating APIs, and promoting.
+WSO2 API Manager provides a state-of-the-art web interface called **WSO2 API Publisher** for API development and management. It is a structured GUI designed for API creators to develop, document, scale and version APIs, while also facilitating more API management-related tasks such as publishing API, monetizing APIs, and promoting.
 
 The diagram above shows the common lifecycle activities of an API developer/manager.
 
@@ -69,7 +69,7 @@ When WSO2 API Manager is running, you can access the Gateway using the following
 The Key Manager manages all clients, security and access token-related operations. The Gateway connects with the Key Manager to check the validity of access tokens, subscriptions and API invocations. The Key Manager also provides a token API to generate access tokens that can be accessed via the Gateway. The Key Manager supports OAuth 2.0, JWT, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms. 
 
 
- To generate an access token, a Subscriber first creates an application on the Developer Portal and generates an access token for the application. Behind the scenes, the Developer Portal makes a token generation request to the API Gateway. The API Gateway then, requests for an access token from the Key Manager. Upon recieving the request, the Key Manager creates an OAuth client and generates an access token. This access token is sent back to the Developer Portal via the API Gateway. 
+ To generate an access token, a Subscriber first creates an application on the Developer Portal and generates an access token for the application. Behind the scenes, the Developer Portal makes a token generation request to the API Gateway. The API Gateway then, requests for an access token from the Key Manager. Upon receiving the request, the Key Manager creates an OAuth client and generates an access token. This access token is sent back to the Developer Portal via the API Gateway. 
  
  Similarly, to validate a token, the API Gateway calls the Key Manager, which fetches and validates the token details from the database.
 
