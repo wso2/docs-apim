@@ -22,7 +22,7 @@ template: templates/swagger.html
 window.onload = function() {
   // Begin Swagger UI call region
   const ui = SwaggerUIBundle({
-    url: "{{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1.yaml",
+    url: "{{base_path}}/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.yaml",
     dom_id: '#swagger-ui',
     deepLinking: true,
     validatorUrl: null,
