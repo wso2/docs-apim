@@ -1,58 +1,72 @@
-# Configuring Okta as a Key Manager
+# Configure Okta as a Key Manager
 
-In this guide, we explain how to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Okta OAuth Authorization Server
-to manage the OAuth clients and tokens required by WSO2 API Manager. WSO2 API Manager has the inbuilt support to consume APIs exposed by Okta OAuth.
+It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Okta OAuth Authorization Server to manage the OAuth clients and tokens required by WSO2 API Manager. WSO2 API Manager has the inbuilt support to consume APIs exposed by Okta OAuth.
 
-Follow the instructions below to configure Okta as a third-party Key Manager
+Follow the instructions below to configure Okta as a third-party Key Manager:
 
-### Step 1 : Configuring Okta
+# Step 1 - Configure Okta
 
-Create an Okta developer account. Get the Instance URL, authorization server ID, API Key, and configure the access policy and the rule.
+Create an Okta developer account. Get the instance URL, authorization server ID, API Key, and configure the access policy and the rule.
 
-1. Go to the [Okta sign up page](https://developer.okta.com/signup/).
+1. Navigate to the [Okta sign up page](https://developer.okta.com/signup/).
 
-    ![alt text]({{base_path}}/assets/img/administer/okta-signup.png)
+    [![Okta signup]({{base_path}}/assets/img/administer/okta-signup.png)]({{base_path}}/assets/img/administer/okta-signup.png)
 
     Create an Okta account and get the Okta instance URL.
     E.g., [https://dev-735404.okta.com](https://dev-735404.okta.com)
 
-2. Get the authorization server ID by following the steps below :
+2. Obtain the authorization server ID.
 
-    1. Go to the **Authorization Servers** section in the **API** tab.
+    1. Click **API** and then click **Authorization Servers**.
     2. Create a new authorization server. Alternatively, you can use the default server.
-        ![alt text]({{base_path}}/assets/img/administer/okta-authorization-server.png)
+        [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
 
-    3. Add a default scope. For that select the authorization server (ex: default) and go to the **Scopes** tab and create a new scope (say default). Select the default tick.
-        ![alt text]({{base_path}}/assets/img/administer/okta-default-scope.png)
+    3. Add a default scope. 
+    
+       1. Select the authorization server (e.g., default) and click **Scopes** to navigate to the Scopes section.
+       
+       2. Create a new scope (e.g., default). 
+       
+       3. Select **Default Scope**.
 
-        ![alt text]({{base_path}}/assets/img/administer/okta-scope-list.png)
+           [![Okta default scope]({{base_path}}/assets/img/administer/okta-default-scope.png)]({{base_path}}/assets/img/administer/okta-default-scope.png)
 
-3. Get the API key :
+           [![Okta scope list]({{base_path}}/assets/img/administer/okta-scope-list.png)]({{base_path}}/assets/img/administer/okta-scope-list.png)
 
-    1. Go to the **Authorization Servers** section in the **API** tab and select the **Tokens** tab.
+3. Get the API key.
+
+    1. Click **API** and then click **Tokens**.
     2. Click **Create Token** and provide the name for the token.
-    3. After successful token creation, copy the Token value for the further use.
+    3. After successfully creating the token, copy the Token value for future use.
 
-    ![alt text]({{base_path}}/assets/img/administer/okta-token.png)
+       [![Okta token]({{base_path}}/assets/img/administer/okta-token.png)]({{base_path}}/assets/img/administer/okta-token.png)
 
-4. Create Access Policies : If you already have at least one access policy in your authorization server, skip the following steps and go to `step 1: (5)`.
+4. Create access policies.
+
+     If you already have at least one access policy in your authorization server, skip the following steps and go to <a href="#step15">Step 1 - (5)</a>.
 
     1. In the Okta Developer Dashboard, navigate to **API > Authorization Servers**.
-    2. Choose the name of an Authorization Server.
-    3. Choose **Access Policies > Add Policy**
+    2. Select an Authorization Server.
+    3. Click **Access Policies** and then click **Add New Access Policy**
     4. Provide the requested information.
-        ![alt text]({{base_path}}/assets/img/administer/okta-access-policy.png)
+        
+        [![Okta access policy]({{base_path}}/assets/img/administer/okta-access-policy.png)]({{base_path}}/assets/img/administer/okta-access-policy.png)
+
     5. Click **Create Policy** to save the policy.
 
-5. Create Rules for Access Policy : If you already have at least one rule in your access policy,  skip the following steps and go to `step 1: (6)`.
+<a name="step15"></a>
+5. Create Rules for the Access Policy.
 
-    1. In the Okta Developer Dashboard, navigate to **API > Authorization Servers**.
-    2. Choose the name of an authorization server, and select **Access Policies**.
-    3. Choose the name of an access policy, and select **Add Rule**.
+     If you already have at least one rule in your access policy, skip the following steps and go to <a href="#step16">Step 1 - (6)</a>.
+
+    1. Click **API** and then click **Authorization Servers** in the Okta Developer Dashboard.
+    2. Select the name of an authorization server, and select **Access Policies**.
+    3. Select the name of an access policy, and select **Add Rule**.
         ![alt text]({{base_path}}/assets/img/administer/okta-rule.png)
     4. Enter the requested information.
     5. Click **Create Rule** to save the rule.
 
+<a name="step16"></a>
 6. Create OAuth application to get credentials to access the introspect api:
 
     1. Go to the **Applications** tab and select **Add Application** button.
@@ -66,7 +80,7 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
     ![alt text]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)
 
 
-### Step 2: Configure WSO2 API Manager
+## Step 2 - Configure WSO2 API Manager
 
 1. Start **WSO2 API Manager**.
 2. Sign in to the [admin portal](https://localhost:9443/admin)
@@ -185,12 +199,12 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         </tr>
         <tr class="even">
           <td>Consumer Key Claim URI</td>
-          <td>Claim URI for consumer key ex: cid</td>
+          <td>Claim URI for consumer key e.g., cid</td>
           <td>Mandatory</td>
         </tr>
         <tr class="odd">
           <td>Scopes Claim URI</td>
-          <td>Claim URI for scopes ex: scp</td>
+          <td>Claim URI for scopes e.g., scp</td>
           <td>Mandatory</td>
         </tr>
         <tr class="even">
@@ -277,9 +291,9 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
       </tbody>
       </table>
 
-### Step 3: Generate keys using Okta key manager
+## Step 3 - Generate keys using the Okta Key Manager
 
-1. Login to Developer Portal.
+1. Sign in to the Developer Portal.
 2. Go to Applications
 3. Create a new application ou use the default application
 4. Go to Sandbox Keys menu from the Left menu.

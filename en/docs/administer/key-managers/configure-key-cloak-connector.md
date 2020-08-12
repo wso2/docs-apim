@@ -1,4 +1,4 @@
-# Configuring Key Cloak as a Key Manager
+# Configure Key Cloak as a Key Manager
 
 With the introduction of multiple key managers support for WSO2 API Manager(since v3.2.0), WSO2 API Manager is prepacked with an inbuilt resident key manager and is capable of supporting any authorization server as a key manager by using connectors.
 It enables connecting Key Cloak out of the box with the [WSO2 APIM Keycloak Connector](https://github.com/wso2-extensions/apim-keymanager-keycloak).
