@@ -341,9 +341,7 @@ nav:
                 - Customizing the Developer Portal:
                       - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                       - Customize API Listing:
-                            - Categorizing and Grouping APIs:
-                                  - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md
-                                  - Tagwise based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md
+                            - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
                             - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
                       - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
                       - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
