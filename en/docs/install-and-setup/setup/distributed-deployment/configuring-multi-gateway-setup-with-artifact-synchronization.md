@@ -7,24 +7,22 @@ When using NFS we need to manage additional components that result in a consider
 Thus, a solution with an extension point which can be configurable to store these synapse artifacts is introduced.
 
 
-##Understanding the Artifact Synchronization with Extension
+##Artifact synchronization when the API Gateway is running
 
   [![Artifact Synchronizer Architecture]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)]({{base_path}}/assets/img/learn/artifact-synchronizer-architecture.png)
 
-1. When an API gets Published, Edited, or removed, the synapse artifacts corresponding to that API will be stored, 
-updated or removed in the extension point. 
-2. Then an event will be sent to the Traffic Manager(TM) using Event Notifiers with API UUID, TenantID, Gateway 
+1. In the event an API is published, edited, or removed, the synapse artifact corresponding to the API will be 
+stored, updated or removed in the configured extension point.
+2. Then an event will be sent to the Traffic Manager(TM) using event Notifiers with API UUID, TenantID, Gateway 
 Instruction (Published / Removed) and the set of gateway labels for the API.
-3. Gateways are subscribed to the TM. Gateway will filter out the events by the Gateway label and APIs that have the
- gateway's label will be sorted. 
+3. In a distributed deployment, gateways are subscribed to the Traffic Manager topics. API Gateway will filter out the 
+events by the Gateway label. It will also sort the APIs that has the gateway label.
 4. Then it will fetch the artifacts associated with the API from the storage (Database or Github) and load it to the
  memory.
 
 
 There will be an extension in the publisher profile to store the synapse artifacts in a persistence storage. 
-The default implementation uses the API Manager Database itself. Once the API is Published, Edited, or removed, an event
-will be sent to Traffic Manager using Event Notifiers with API Name, UUID, and the gateway label for the API. 
-Labels are defined from the admin portal and Publishers can select the labels when publishing an API.
+The default implementation uses the default API-M database. When an API is published, edited, or removed, an event will be sent to Traffic Manager using Event Notifiers with API Name, UUID, and the gateway label for the API.
 
 
 ##API Gateway Startup
@@ -118,10 +116,10 @@ service_url = "https://traffic-manager:9443"
  - If you are not running gateway as an all in one pack and it runs with a port offset, or when it's in a different
   node, we have to specify event_hub service_url as well .
 
-###Database Configurations
+###Configuring the database for Artifact synchronization
 
-By default, the data related to synapse artifacts will be stored in WSO2AM_DB. But you can specify a separate database 
-for this feature. Only the data related to the synapse artifacts will be saved in this database.
+By default, the data related to the synapse artifacts will be stored in WSO2AM_DB. This is configurable. 
+Follow the steps below to configure a new database to store the synapse artifacts
 
 First you need to add a configuration element of `[database.sync_runtime_artifacts_db]` . And simply have to update
 the URL pointing to your database, the username, and password required to access the 
