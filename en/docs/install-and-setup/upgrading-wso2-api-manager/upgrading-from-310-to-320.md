@@ -2,7 +2,8 @@
 
 !!! Important
     This migration guide is in the process of restructuring, and is NOT yet ready for use.
-
+    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
+    
 The following information describes how to upgrade your API Manager server **from APIM 3.1.0 to 3.2.0**.
 
 !!! note
