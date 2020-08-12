@@ -2313,10 +2313,8 @@ Follow the steps below to migrate APIM Analytics 2.5.0 to APIM Analytics 3.2.0
 #### Step 3.1 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! note
-    -   In API-M 2.5.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
     -   In API-M 3.2.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
-
 
 1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
 
@@ -2473,22 +2471,22 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
  **if you had enabled Geo Location Based Statistics** in the old version setup.
 
     ``` tab="Linux / Mac OS"
-    sh wso2server.sh -DmigrateStats=true
+    sh wso2server.sh -DmigrateStats=true -DmigrateFromVersion=2.5.0
     ```
 
     ``` tab="Windows"
-    wso2server.bat -DmigrateStats=true
+    wso2server.bat -DmigrateStats=true -DmigrateFromVersion=2.5.0
     ```
     
     If you had not enabled Geo Location Based Statistics in the old version setup, you have to start up the WSO2 
     API-M 3.2.0 server with the following command to do the table-wise migration. (this will migrate all the tables except GeoLocationAgg table)
 
     ``` tab="Linux / Mac OS"
-    sh wso2server.sh -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
+    sh wso2server.sh -DmigrateStats=true -DmigrateFromVersion=2.5.0 -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
     ```
 
     ``` tab="Windows"
-    wso2server.bat -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
+    wso2server.bat -DmigrateStats=true -DmigrateFromVersion=2.5.0 -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp,ApiVersionPerAppAgg,ApiLastAccessSummary,ApiFaultyInvocationAgg,ApiUserBrowserAgg,ApiExeTimeDay,ApiExeTimeHour,ApiExeTimeMinute,ApiThrottledOutAgg,APIM_ReqCountAgg,ApiUserPerAppAgg
     ```
 
     !!! info "Table-wise Migration"
@@ -2519,7 +2517,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
 
 
         ``` java
-        sh wso2server.sh -DmigrateStats=true -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp
+        sh wso2server.sh -DmigrateStats=true -DmigrateFromVersion=2.5.0 -DstatTable=ApiPerDestinationAgg,ApiResPathPerApp
         ```
 
     !!! info
