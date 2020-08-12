@@ -39,7 +39,7 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 ```
 ### Tenant Theming 
 
-#### Uploading/Downloading Devportal theme via the Admin Portal (Tenants Only)
+#### Uploading Devportal theme via the Admin Portal (Tenants Only)
 
 **If you do not have access to the file system** , you can upload/download the Devportal theme via the Admin Portal as shown below:
 
@@ -79,9 +79,6 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 5.  Access the API Developer Portal (`https://<server-host>:<server-port>/devportal`) using your tenant username and password.
 
     Note the new theme is applied.
-    
-!!!Note
-    From API-M 3.2.0 onwards, the uploaded tenant theme ZIP file can be downloaded with the same user interface.
     
 !!!Note
     From API-M 3.1.0 onwards, defaultTheme.json can contain only the custom modifications done to the default theme. 
