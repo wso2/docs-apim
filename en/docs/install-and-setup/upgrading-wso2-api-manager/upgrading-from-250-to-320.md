@@ -319,7 +319,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download (https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
