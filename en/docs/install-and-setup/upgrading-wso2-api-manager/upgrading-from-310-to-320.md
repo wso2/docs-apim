@@ -1248,10 +1248,7 @@ columns
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
-
-    !!! note
-        It is **mandatory** to use a WUM updated WSO2 API Manager Analytics 3.2.0 pack when migrating the configurations for WSO2 API-M Analytics.
+1.  Download [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
 
 2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
 
