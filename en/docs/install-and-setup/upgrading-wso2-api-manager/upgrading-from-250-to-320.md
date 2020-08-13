@@ -939,9 +939,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         ```tab="MSSQL"
-        IF EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_ALERT_TYPES') AND TYPE IN (N'U'))
-        DROP TABLE AM_ALERT_TYPES;
-        GO
+        DROP IF EXISTS TABLE AM_ALERT_TYPES;
         CREATE TABLE  AM_ALERT_TYPES (
                 ALERT_TYPE_ID INTEGER NOT NULL IDENTITY,
                 ALERT_TYPE_NAME VARCHAR(255) NOT NULL,
