@@ -29,8 +29,8 @@ When requests to an API are to be permitted from a set of known/trusted IPs only
     | Property            | Value                                                                                                          |
     |---------------------|----------------------------------------------------------------------------------------------------------------|
     | IP Condition Type   | Specific IP                                                                                                    |
-    | IP Address          | <IP_Address_to_be_allowed> E.g. 193.100.3.106                                                              |
-    | Invert Condition    | Checked (If Invert Condition check then condition only apply to the IPs which not mention in IP Address above) |
+    | IP Address          | <IP_Address_to_be_allowed> E.g. 193.100.3.106                                                                  |
+    | Invert Condition    | Checked (If the 'Invert Condition' is checked, then the condition applies only to the IPs not mentioned in the 'IP Address'.) |
     | Request Count       | 0                                                                                                              |
 
     Following is an example configuration.
