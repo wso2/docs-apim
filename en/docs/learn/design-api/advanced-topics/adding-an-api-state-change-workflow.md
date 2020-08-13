@@ -62,8 +62,10 @@ First, enable the API state change workflow for **Approval Workflow Executor**.
 
 The elements of the above configuration are explained below.
 
-| Element name                                       | Description                                                                                                                                               |
-|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|                                                                f                                                                  |
-| `stateList`| Mandatory          | This is a comma separated list of the current state and intended action. For example, Created:Publish,Published:Block 
-
-                                                                |
+| Element Name               | Mandatory/Optional | Description                                                                                                                                                                                         |
+|----------------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `processDefinitionKey`     | Mandatory          | BPMN process definition ID.  BPMN process provided with AM as default has `APIStateChangeApprovalProcess` as the ID                                                                                 |
+| `stateList`                | Mandatory          | This is a comma separated list of the current state and intended action. For example, Created:Publish,Published:Block                                                                               |
+| `serviceEndpoint`          | Optional           | The URL of the BPMN process engine. This overrides the global `<ServerUrl>` value from the `api-manager.xml` file. This can be used to connect a separate workflow engine for a tenant.             |
+| `username`                 | Optional           | Username for the external BPMN process engine. This overrides `<ServerUser>` defined in the `api-manager.xml` file for the tenant.                                                                  |
+| `password`                 | Optional           | Password for the external BPMN process engine. This overrides `<ServerPassword>` defined in the `api-manager.xml` file for the tenant.                                                              |
