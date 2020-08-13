@@ -9,13 +9,6 @@ The following information describes how to upgrade your API Manager server **fro
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
-!!! attention "Before you Begin"
-    1.  This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
-
-        -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.2.0. For more information on how to do this, see [Updating API Manager]({{base_path}}/administer/updating-wso2-api-manager/#wso2-update-manager-wum).
-
-    2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/troubleshooting/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
-
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
@@ -326,7 +319,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -2750,7 +2743,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.2.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -2764,7 +2757,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 
@@ -2798,15 +2791,6 @@ Follow the instructions below to move all the existing API Manager configuration
     5.  Start the WSO2 API-M server.
 
     6.  Stop the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
-    
-    !!! warning "Troubleshooting"
-        If you encounter below error while trying to login to publisher portal as a tenant user, please restart the server, access the devportal first and then try to login to the publisher.
-        
-        ```
-        ERROR - WebAppAuthenticatorImpl You cannot access API as scope validation failed
-        
-        ```
-
 
 ### Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics
 
