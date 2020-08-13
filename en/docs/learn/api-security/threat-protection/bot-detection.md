@@ -62,7 +62,7 @@ Follow the instructions below to enable email notifications for bot detection:
 
      ```
 
-3. [Enable Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts/#enable-alerts).
+3. [Enable Alerts]({{base_path}}/learn/analytics/configuring-alerts/#enable-alerts).
 
 4. Follow the instructions below to configure an email address to send email alerts to subscribers.
 
