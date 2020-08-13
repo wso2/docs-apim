@@ -1,4 +1,4 @@
-# Business Analytics dashboard
+# Business analytics
 
 ## Overview
 

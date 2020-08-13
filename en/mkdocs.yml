@@ -251,7 +251,8 @@ nav:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
                 - Viewing API Statistics:
                       - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring.md
-                      - Business Analytics dashboard: learn/analytics/viewing-api-statistics/business.md
+                      - Business analytics: learn/analytics/viewing-api-statistics/business.md
+                      - Application analytics: learn/analytics/viewing-api-statistics/application.md
                       - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
