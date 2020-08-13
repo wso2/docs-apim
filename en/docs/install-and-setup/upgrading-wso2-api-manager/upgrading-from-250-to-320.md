@@ -1731,6 +1731,7 @@ Follow the instructions below to move all the existing API Manager configuration
         BEGIN
             :NEW.TIME_STAMP := systimestamp;
         END;
+        /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
         /
