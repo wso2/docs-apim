@@ -73,7 +73,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
 
 !!! warning
     **Skip** this step if you are using **WSO2 Identity Server as the Key Manager** and follow the instructions mentioned in [Configuring WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/) to configure and start the Key Manager.
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Key Manager node and change `[apim.throttling]` section to point to the Traffic Manager nodes.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Key Manager node and change as following to point to traffic manager nodes.
  
  
      ``` toml tab="Traffic Manager with HA"
@@ -87,6 +87,17 @@ This section involves setting up the Key Manager node and enabling it to work wi
      [[apim.throttling.url_group]]
      traffic_manager_urls = ["tcp://Traffic-Manager-2-host:9611"]
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
+
+     [[event_listener]]
+     id = "token_revocation"
+     type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+     name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+     order = 1
+     [event_listener.properties]
+     notification_endpoint = "https://[Traffic-Manager-LB-Host]/internal/data/v1/notify"
+     username = "${admin.username}"
+     password = "${admin.password}"
+     'header.X-WSO2-KEY-MANAGER' = "default"
      ```
 
      ``` toml tab="Single Traffic Manager"
@@ -96,8 +107,21 @@ This section involves setting up the Key Manager node and enabling it to work wi
      [[apim.throttling.url_group]]
      traffic_manager_urls = ["tcp://Traffic-Manager-host:9611"]
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
+
+     [[event_listener]]
+     id = "token_revocation"
+     type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+     name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+     order = 1
+     [event_listener.properties]
+     notification_endpoint = "https://Traffic-Manager-host:${mgt.transport.https.port}/internal/data/v1/notify"
+     username = "${admin.username}"
+     password = "${admin.password}"
+     'header.X-WSO2-KEY-MANAGER' = "default"
+
+
      ```
-   
+
 2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
@@ -163,11 +187,21 @@ This section involves setting up the Key Manager node and enabling it to work wi
     
     [apim.throttling]
     throttle_decision_endpoints = ["tcp://tm.wso2.com:5675"]
-    
+
     [[apim.throttling.url_group]]
     traffic_manager_urls=["tcp://tm.wso2.com:9614"]
     traffic_manager_auth_urls=["ssl://tm.wso2.com:9714"]
 
+    [[event_listener]]
+    id = "token_revocation"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.is.notification.ApimOauthEventInterceptor"
+    order = 1
+    [event_listener.properties]
+    notification_endpoint = "https://tm.wso2.com:9446/internal/data/v1/notify"
+    username = "${admin.username}"
+    password = "${admin.password}"
+    'header.X-WSO2-KEY-MANAGER' = "default"
     ```
 
 #### Step 6.2 - Configure and start the Traffic Manager
@@ -176,11 +210,42 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
 [![Traffic Manager Connections]({{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png)]({{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png)
 
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and change as following to point to Key manager nodes.
+
+    ``` toml tab="Key Manager with HA"
+        [apim.key_manager]
+        service_url = "https://[Key-Manager-LB-host]/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"
+    ```
+        
+    ``` toml tab="Single Key Manager"
+        [apim.key_manager]
+        service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"
+    ```
+##### Configuring High Availability (HA) for the Traffic Manager.
+
 1.  If you need to configure High Availability (HA) for the Traffic Manager, use a copy of the existing Traffic Manager instance as the second Traffic Manager active instance and configure a load balancer fronting the two Traffic Manager instances.
 
-2.  Mount the `<API-M_HOME>/repository/deployment/server/executionplans` directory of all the Traffic Manager nodes to a shared file system as a content synchronization mechanism in-order to share the throttling policies between Traffic Manager nodes.
+2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and add the following configuration to publish events into other node.
+
+ 
+``` toml tab="Node1"
+[apim.throttling]
+event_duplicate_url = ["tcp://Traffic-Manager-2-host:5672"]
+```
+
+``` toml tab="Node2"
+[apim.throttling]
+event_duplicate_url = ["tcp://Traffic-Manager-1-host:5672"]
+```
+
+
+3.  Mount the `<API-M_HOME>/repository/deployment/server/executionplans` directory of all the Traffic Manager nodes to a shared file system as a content synchronization mechanism in-order to share the throttling policies between Traffic Manager nodes.
   
-3.  Start the WSO2 API-M Traffic Manager node(s) by running the below command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
+4.  Start the WSO2 API-M Traffic Manager node(s) by running the below command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
     ``` java tab="Linux/Mac OS"
     cd <API-M_HOME>/bin/
@@ -209,12 +274,22 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
         password = "admin"
         create_admin_account = true
         
+        [database.apim_db]
+        type = "mysql"
+        hostname = "db.wso2.com"
+        name = "apim_db"
+        port = "3306"
+        username = "root"
+        password = "root"
+
         [database.shared_db]
-        type = "h2"
-        url = "jdbc:h2:./repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE"
-        username = "wso2carbon"
-        password = "wso2carbon"
-        
+        type = "mysql"
+        hostname = "db.wso2.com"
+        name = "shared_db"
+        port = "3306"
+        username = "root"
+        password = "root"
+
         [keystore.tls]
         file_name =  "wso2carbon.jks"
         type =  "JKS"
@@ -226,6 +301,11 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
         file_name = "client-truststore.jks"
         type = "JKS"
         password = "wso2carbon"
+
+        [apim.key_manager]
+        service_url = "https://km.wso2.com:9443/services/"
+        username= "$ref{super_admin.username}"
+        password= "$ref{super_admin.password}"
         ```
 
 
@@ -239,13 +319,13 @@ This section involves setting up the API Publisher node and enabling it to work 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the API Publisher node and make the following changes.
 
     1.  Configure the Publisher with the Traffic Manager.
-        This configuration enables publishing of throttling policies, custom templates, and block conditions to the Traffic Manager node.
+        This configuration enables publishing of throttling policies, custom templates, and block conditions,API Events to the Traffic Manager node.
 
         ``` toml tab="Traffic Manager with HA"
         [apim.throttling]
         service_url = "https://[Traffic-Manager-LB-Host]/services/"
         throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672","tcp://Traffic-Manager-2-host:5672"]
-        
+
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://Traffic-Manager-1-host:9611"]
         traffic_manager_auth_urls = ["ssl://Traffic-Manager-1-host:9711"]
@@ -332,7 +412,23 @@ This section involves setting up the API Publisher node and enabling it to work 
         url = "https://[devportal-hostname]:${mgt.transport.https.port}/devportal"
         ```
 
-4.  If you need to configure High Availability (HA) for the Api Publisher nodes, use a copy of the active instance configured above as the second active Publisher instance and configure a load balancer fronting the two Publisher instances.
+    4.  Configure the Publisher with the Key Manager.
+    
+    ``` toml tab="Key Manager with HA"
+        [apim.key_manager]
+        service_url = "https://[Key-Manager-LB-host]/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"
+    ```
+        
+    ``` toml tab="Single Key Manager"
+        [apim.key_manager]
+        service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
+        username = "$ref{super_admin.username}"
+        password = "$ref{super_admin.password}"
+    ```
+
+2.  If you need to configure High Availability (HA) for the Api Publisher nodes, use a copy of the active instance configured above as the second active Publisher instance and configure a load balancer fronting the two Publisher instances.
            
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
@@ -416,6 +512,11 @@ This section involves setting up the API Publisher node and enabling it to work 
     
     [apim.devportal]
     url = "https://store.wso2.com:9445/devportal"
+
+    [apim.key_manager]
+    service_url = "https://km.wso2.com:9443/services/"
+    username = "$ref{super_admin.username}"
+    password = "$ref{super_admin.password}"
 
     ```
 #### Step 6.4 - Configure and start the Developer Portal
@@ -665,7 +766,7 @@ This section involves setting up the Gateway node and enabling it to work with t
     password = "$ref{super_admin.password}"
     ```
 
-4.  If you need to enable JSON Web Token (JWT), you have to enable it in all Gateway and Key Manager components.
+4.  If you need to enable JSON Web Token (JWT), you have to enable it in all Gateway components.
     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
 
 5.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to communicate with the Traffic Manager node(s).
@@ -680,6 +781,7 @@ This section involves setting up the Gateway node and enabling it to work with t
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-2-host:9711"]
      
      [apim.throttling]
+     service_url = "https://[Traffic-Manager-LB-Host]/services/"
      throttle_decision_endpoints = ["tcp://Traffic-Manager-1-host:5672", "tcp://Traffic-Manager-2-host:5672"]
      ```
      
@@ -689,6 +791,7 @@ This section involves setting up the Gateway node and enabling it to work with t
      traffic_manager_auth_urls = ["ssl://Traffic-Manager-host:9711"]
      
      [apim.throttling]
+     service_url = "https://Traffic-Manager-host:${mgt.transport.https.port}/services/"
      throttle_decision_endpoints = ["tcp://Traffic-Manager-host:5672"]
      ```
      
@@ -750,6 +853,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         service_url = "https://km.wso2.com:9443/services/"
         
         [apim.throttling]
+        service_url = "https://tm.wso2.com:9446/services/"
         throttle_decision_endpoints = ["tcp://tm.wso2.com:5675"]
         
         [[apim.throttling.url_group]]
