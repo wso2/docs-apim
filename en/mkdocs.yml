@@ -249,7 +249,10 @@ nav:
                 - Monetizing an API: learn/api-monetization/monetizing-an-api.md
           - Analytics:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
-                - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
+                - Viewing API Statistics:
+                      - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring.md
+                      - Business Analytics dashboard: learn/analytics/viewing-api-statistics/business.md
+                      - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
                       - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
@@ -301,7 +304,7 @@ nav:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
                 - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md 
+                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
                     - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
                     - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
                     - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
