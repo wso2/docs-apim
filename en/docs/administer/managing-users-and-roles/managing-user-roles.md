@@ -108,15 +108,15 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
             By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
 
-7. Log in to admin portal ( `https://<APIM_Host>:<APIM_Port>/admin`) and navigate to Settings > Scope Mapping in admin portal. 
+7. Log in to admin portal ( `https://<APIM_Host>:<APIM_Port>/admin`) and navigate to Settings > Role Permissions in admin portal. 
 
 8. Update mappings and add the new role created above(creator) under Roles of all scopes that it should be assigned to as follows.  
 
     **For example**, if the new role has the API Creator permission, add it under every scope that has `Internal/creator` role specified.
 
-    If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, add the new role under `apim:api_create` scope.
+    If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, click the new scope `apim:api_create` under **custom permissions**.
     
-    ![Add Scope Mapping]({{base_path}}/assets/img/administer/scope-mapping.png) 
+    ![Add Scope Mapping]({{base_path}}/assets/img/administer/new-scope-mapping.png) 
 
 !!! info
     **Application Roles**
@@ -138,11 +138,15 @@ From APIM 3.1.0 onwards, we have introduced a `Role Mapping` feature to enable u
 
 1. Log in to the admin portal ( `https://<APIM_Host>:<APIM_Port>/admin` ) if you have not done already.
 
-2. Navigate to Settings > Scope Mapping in admin portal.
+2. Navigate to Settings > Role Permissions in admin portal.
 
-3. Under Role Mappings define a mapping as follows.
+3. Click **Add role permission** and provide a role name created in a carbon console. Then click **Next** to proceed.
 
-![Add Role Mapping]({{base_path}}/assets/img/administer/role-mapping.png)
+    ![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
+
+4. Under Select Permissions, click Role alias to define a mapping.
+
+    ![Add Role Mapping]({{base_path}}/assets/img/administer/new-role-mapping.png)
 
 This will update all scope mappings in tenant-conf.json with Internal/creator as an allowed role resulting the new creator role too be allowed for all scopes allowed for Internal/creator role.
 
