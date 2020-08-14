@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: true
+strict: false
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -68,6 +68,7 @@ nav:
                 - Publish APIs:
                       - Publish an API: learn/design-api/publish-api/publish-an-api.md
                       - Publish through Multiple API Gateways: learn/design-api/publish-api/publish-through-multiple-api-gateways.md
+                      - Publish an API to a Cloud Cluster in PrivateJet Mode: learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                       - Publish to Multiple External API Developer Portals: learn/design-api/publish-api/publish-to-multiple-external-api-stores.md
                 - Prototype APIs:
                       - Create a Prototype API with an Inline Script: learn/design-api/mock-api/create-a-mock-api-with-an-inline-script.md
@@ -179,7 +180,6 @@ nav:
                       - Mutual SSL Between API Gateway and Backend: learn/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
           - API Microgateway:
                 - Grouping APIs with Labels: learn/api-microgateway/grouping-apis-with-labels.md
-                - Deploy APIs in PrivateJet mode: learn/api-microgateway/deploy-apis-in-privatejet-mode.md
           - API Security:
                 - Authentication:
                       - Overview: learn/api-security/api-authentication/api-authentication-overview.md
@@ -187,6 +187,7 @@ nav:
                       - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
                       - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                       - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                      - Securing APIs deployed in cloud clusters: learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md 
                       - Federating OAuth Applications: learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
                       - Overview: learn/api-security/authorization/api-authorization.md
@@ -291,7 +292,9 @@ nav:
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                       - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
           - Kubernetes Operators:
-                - K8s API Operator: learn/kubernetes-operators/k8s-api-operator.md
+                - K8s API Operator:
+                    - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator.md
+                    - Enabling PrivateJet Mode to Deploy APIs: learn/kubernetes-operators/K8s API Operator/enabling-privatejet-mode-to-deploy-apis.md
                 - K8s WSO2 API Manager Operator: learn/kubernetes-operators/k8s-wso2am-operator.md
           - Tutorials:
                 - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
