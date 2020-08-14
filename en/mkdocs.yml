@@ -57,11 +57,12 @@ nav:
                 - Create APIs:
                       - Create a New API:
                             - Create a REST API: learn/design-api/create-api/create-a-rest-api.md
-                            - Create a REST API from a Swagger Definition: learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md
+                            - Create a REST API from an OpenAPI Definition: learn/design-api/create-api/create-a-rest-api-from-an-openapi-definition.md
                             - Create a GraphQL API: learn/design-api/create-api/create-a-graphql-api.md
                             - Create a WebSocket API: learn/design-api/create-api/create-a-websocket-api.md
                             - Expose a SOAP Service as a REST API: learn/design-api/create-api/expose-a-soap-service-as-a-rest-api.md
                             - Generate REST API from SOAP Backend: learn/design-api/create-api/generate-rest-api-from-soap-backend.md
+                            - Test a REST API: learn/design-api/create-api/test-a-rest-api.md
                       - Adding Custom Properties to APIs: learn/design-api/create-api/adding-custom-properties-to-apis.md
                       - Change the Thumbnail of an API : learn/design-api/create-api/change-api-thumbnail.md
                 - Publish APIs:
@@ -138,6 +139,7 @@ nav:
                       - Subscribe to an API: learn/consume-api/manage-subscription/subscribe-to-an-api.md
                       - Advanced Topics:
                             - Adding an API Subscription Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-workflow.md
+                            - Adding an API Subscription Tier Update Workflow: learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow.md
                 - Invoke APIs:
                       - Invoke an API Using the Integrated API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console.md
                       - Invoke an GraphQL API using the Integrated GraphQL Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
@@ -177,6 +179,7 @@ nav:
                       - Mutual SSL Between API Gateway and Backend: learn/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
           - API Microgateway:
                 - Grouping APIs with Labels: learn/api-microgateway/grouping-apis-with-labels.md
+                - Deploy APIs in PrivateJet mode: learn/api-microgateway/deploy-apis-in-privatejet-mode.md
           - API Security:
                 - Authentication:
                       - Overview: learn/api-security/api-authentication/api-authentication-overview.md
@@ -225,10 +228,9 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
-                - GraphQL Query Analysis:
-                      - Fine Grained Access Control for GraphQL APIs: learn/api-security/graphql-query-analysis/graphql-query-analysis.md
-                      - Query Depth Limitation: learn/api-security/graphql-query-analysis/query-depth-limitation.md
-                      - Query Complexity Limitation: learn/api-security/graphql-query-analysis/query-complexity-limitation.md
+          - User Account Management:
+                - Recover Password : learn/user-account-management/recover-password.md
+                - Change Password : learn/user-account-management/change-dev-portal-password.md
           - Rate Limiting:
                 - Throttling Use-Cases: learn/rate-limiting/introducing-throttling-use-cases.md
                 - Adding New Throttling Policies: learn/rate-limiting/adding-new-throttling-policies.md
@@ -237,27 +239,33 @@ nav:
                 - Enforce Throttling and Resource Access Policies: learn/rate-limiting/enforce-throttling-and-resource-access-policies.md
                 - Setting Maximum Backend Throughput Limits: learn/rate-limiting/setting-maximum-backend-throughput-limits.md
                 - Engaging a New Throttling Policy at Runtime: learn/rate-limiting/engaging-a-new-throttling-policy-at-runtime.md
+                - Query Limits for GraphQL:
+                        - Overview: learn/rate-limiting/graphql-api/overview-query-limits-for-graphql.md
+                        - Query Depth Limit: learn/rate-limiting/graphql-api/query-depth-limitation.md
+                        - Query Complexity Limit: learn/rate-limiting/graphql-api/query-complexity-limitation.md
                 - Advanced Topics:
                       - Custom Throttling: learn/rate-limiting/advanced-topics/custom-throttling.md
           - API Monetization:
                 - Monetizing an API: learn/api-monetization/monetizing-an-api.md
           - Analytics:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
-                - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
+                - Viewing API Statistics:
+                      - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring-dashboard.md
+                      - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
+                      - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
+                      - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
                       - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
                       - Configuring Geo Location Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
                       - Writing a Custom Geo Location Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
-                - Alerts for APIs:
-                      - Alert Types: learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md
-                      - Configuring Alerts: learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md
-                      - Subscribing for Alerts: learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md
-                      - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
+                - Alert Types: learn/analytics/alert-types.md
                 - Setup & Configuration:
                       - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
                       - Configuring Keystores in APIM Analytics : learn/analytics/configuring-keystores-in-apim-analytics.md
                       - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
+                      - Configuring Alerts: learn/analytics/configuring-alerts.md
+                      - Subscribing for Alerts: learn/analytics/subscribing-for-alerts.md
                       - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
                       - Purging Analytics Data: learn/analytics/purging-analytics-data.md
                       - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
@@ -295,20 +303,18 @@ nav:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
                 - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v0.16.md 
+                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
                     - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
-                    - Publisher API v0.16: develop/product-apis/getting-started/guide-publisher-v0.16.md
-                    - Developer Portal API v0.16: develop/product-apis/getting-started/guide-devportal-v0.16.md
-                    - Admin API v0.16: develop/product-apis/getting-started/guide-admin-v1.md
+                    - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
+                    - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
                 - Configuring the REST API: develop/product-apis/configuring-rest-api.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-                    - Publisher v0.16: develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16.md
                 - Developer Portal APIs:
                     - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-                    - Developer Portal API v0.16: develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16.md
                 - Admin APIs:
-                    - Admin APIs v0.16: develop/product-apis/admin-apis/admin-v0.16/admin-v0.16.md
+                    - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
+                    - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
                 - Using the Registry REST API: develop/using-the-registry-rest-api.md
                 - Using the Siddhi Store REST API: develop/analytics-rest-api.md
           - Extending WSO2 API Manager:
@@ -337,9 +343,7 @@ nav:
                 - Customizing the Developer Portal:
                       - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                       - Customize API Listing:
-                            - Categorizing and Grouping APIs:
-                                  - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md
-                                  - Tagwise based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md
+                            - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
                             - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
                       - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
                       - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
@@ -354,10 +358,10 @@ nav:
                       - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
                       - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
                 - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
-                - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
                 - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
                 - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
                 - Adding internationalization: develop/customizations/adding-internationalization.md
           - Admin Services: develop/wso2-admin-services.md
           - Working with the Source Code: develop/working-with-the-source-code.md
@@ -408,23 +412,23 @@ nav:
                       - Configuring the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
                       - Adding a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
                 - Security:
+                      - Logins and Passwords:
+                            - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
+                            - Securing Passwords:
+                                - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
+                                - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
+                                - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                       - Configuring Keystores:
                             - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
                             - Keystore Basics:
                                   - Creating a New Keystore: install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores.md
                                   - Renewing a CA Signed Certificate: install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md
                                   - About Asymetric Cryptography: install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md
-                            - Logins and Passwords:
-                                  - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
-                                  - Securing Passwords:
-                                        - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
-                                        - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
-                                        - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                       - Enabling HostName Verification: install-and-setup/setup/security/enabling-hostname-verification.md
                       - Enabling Java Security Manager: install-and-setup/setup/security/enabling-java-security-manager.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager: install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md
                       - Configuring Transport Level Security: install-and-setup/setup/security/configuring-transport-level-security.md
-                      - Identity Management for the API Developer Portal: install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md
+                      - User Account Management : install-and-setup/setup/security/user-account-management.md
           - Deployment Best Practices:
                 - Basic Health Checks: install-and-setup/setup/deployment-best-practices/basic-health-checks.md
                 - Changing the Hostname: install-and-setup/setup/deployment-best-practices/changing-the-hostname.md
@@ -435,7 +439,7 @@ nav:
           - SSO:
                 - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
                 - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-          - Advance Configuration:
+          - Advanced Configuration:
                 - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
                 - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
                 - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
@@ -445,24 +449,25 @@ nav:
                 - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
           - Upgrading WSO2 API Manager:
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
-                - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-310.md
-                - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-310.md
-                - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310.md
-                - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-310.md
-                - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-310.md
-                - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-310.md
-                - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310.md
-                - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-310.md
+                - 3.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-320.md
+                - 3.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-300-to-320.md
+                - 2.6.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-320.md
+                - 2.5.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-320.md
+                - 2.2.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-220-to-320.md
+                - 2.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-210-to-320.md
+                - 2.0.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-200-to-320.md
+                - 1.10.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-320.md
+                - 1.8.0/1.9.0/1.9.1 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-191-to-320.md
                 - Upgrading to Log4j2: install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2.md
           - Upgrading WSO2 IS as KM:
-                - 3.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
-                - 2.6.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md
-                - 2.5.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md
-                - 2.2.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md
-                - 2.1.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md
-                - 2.0.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md
-                - 1.10.0 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md
-                - 1.8.0/1.9.0/1.9.1 to 3.1.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md
+                - 3.0.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-590-to-5100.md
+                - 2.6.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-570-to-5100.md
+                - 2.5.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-560-to-5100.md
+                - 2.2.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100.md
+                - 2.1.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100.md
+                - 2.0.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100.md
+                - 1.10.0 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100.md
+                - 1.8.0/1.9.0/1.9.1 to 3.2.0: install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-500-to-5100.md
     - Administer:
           - Updating WSO2 API Manager: administer/updating-wso2-api-manager.md
           - Managing Users and Roles:
@@ -494,6 +499,12 @@ nav:
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+          - Key Managers:
+                - Overview: administer/key-managers/overview.md
+                - Configuring WSO2 IS as A Key Manager: administer/key-managers/how-to-configure-wso2is-connector.md
+                - Configuring Key Cloak as A Key Manager: administer/key-managers/how-to-configure-key-cloak-connector.md
+                - Configuring Okta as A Key Manager: administer/key-managers/how-to-configure-okta-connector.md
+
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
@@ -556,8 +567,7 @@ plugins:
               - wip/*
     - redirects:
           redirect_maps:
-              'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/'
-              'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping/'
+              'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
               'learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/'
@@ -572,7 +582,6 @@ plugins:
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup/'
               'learn/consume-api/customizations/customizing-the-developer-portal/advanced-customization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/advanced-customization/'
               'learn/consume-api/customizations/log-in-to-the-dev-portal-using-social-media.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/log-in-to-the-dev-portal-using-social-media/'
-              'learn/consume-api/customizations/adding-a-user-signup-workflow.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/adding-a-user-signup-workflow/'
               'learn/consume-api/customizations/directing-the-root-context-to-the-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/directing-the-root-context-to-the-developer-portal/'
               'learn/consume-api/customizations/customizing-user-signup-in-developer-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-user-signup-in-developer-portal/'
               'learn/consume-api/customizations/customizing-login-pages-for-dev-portal-and-publisher.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-login-pages-for-dev-portal-and-publisher/'
@@ -679,6 +688,8 @@ plugins:
               'develop/product-apis/admin-apis/devportal-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v1/'
               'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
               'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
+              'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/'
+              'learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/design-api/create-api/create-a-rest-api-from-a-openapi-definition/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css

@@ -1,5 +1,8 @@
 # Upgrading WSO2 IS as Key Manager to 5.10.0
 
+!!! Important
+    This migration guide is in the process of restructuring, and is NOT yet ready for use.
+
 The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 2.5.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
 
 !!! tip
@@ -10,7 +13,7 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         -   You are currently using a WSO2 IS 5.6.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server 5.6.0 distribution.
 
-    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 2.5.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-250-to-310.md) to upgrade your APIM environment from API-M 2.5.0 to 3.1.0.
+    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 2.5.0 to 3.2.0](../upgrading-wso2-api-manager/upgrading-from-250-to-320.md) to upgrade your APIM environment from API-M 2.5.0 to 3.2.0.
 
 Before executing the IS migration client, keep in mind to follow the below steps.
 
@@ -40,7 +43,7 @@ Before executing the IS migration client, keep in mind to follow the below steps
 
 !!! note
     
-    Please note that if you want to use the latest user store, please update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+    Please note that if you want to use the latest user store, please update the <API-M_3.2.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
         ```
         [user_store]
         type = "database_unique_id"

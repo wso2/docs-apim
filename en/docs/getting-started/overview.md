@@ -23,6 +23,7 @@ The key features of the product are listed below.
 -  Pluggable, Extensible, and Themeable
 -  Easily Deployable in Your Enterprise
 -  WSO2 Platform Multi-Tenancy Support
+-  Multiple Key Manager Suuport
 
 
 ## Basic Architecture and Key Components

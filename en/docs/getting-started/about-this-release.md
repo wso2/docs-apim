@@ -10,11 +10,11 @@ WSO2 API Manager comprises of the following modules:
 -   **API Key Manager**: Performs key generation and key validation functionalities.
 -   **API Traffic Manager**: Performs rate limiting of API requests.
 
-For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 3.1.0 documentation]({{base_path}}/getting-started/overview/) and go to the [product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
+For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 3.2.0 documentation]({{base_path}}/getting-started/overview/) and go to the [product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
 
 ## What is new in this release
 
-The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.0.0**. It contains the following new features and enhancements:
+The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release** and is the successor of **WSO2 API Manager 3.1.0**. It contains the following new features and enhancements:
 
 ### WSO2 API-M related new features
 
@@ -27,13 +27,9 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
      WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), which is the only enterprise API security platform, in order to be able to conduct a security audit on the OpenAPI Specification definition and to obtain an audit report.
 
-- **[API Categories]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping)**
-
-     API categories are similar to Tag wise grouping. However, admins need to define API categories that Publishers can use when creating APIs. Furthermore, unlike Tag wise grouping API categories do not use a naming convention. Therefore, with the introduction of this feature, WSO2 has deprecated the Tag wise grouping feature.
-
 - **[AI-based recommendations for the Developer Portal]({{base_path}}/learn/consume-api/discover-apis/api-recommendations)**
 
-     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations. 
+     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations.
 
 - [**API Mocking**]({{base_path}}/learn/design-api/mock-api/create-a-mock-api-with-an-inline-script)
 
@@ -41,19 +37,27 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M Analytics related new features
 
-- PDF Report Generation
+- Monitoring dashboard
 
-     Many users have constantly requested for the feature that enables reported based on statistical data to be generated. The first cut of the implementation of this feature has been included in this release, and it enables users to generate the Monthly API Usage Report. 
+      Having an idea about the overall health status of APIs and Services is essential for the proper functioning of an API-driven business. Monitoring dashboard helps to achieve this objective by showing contextual information on APIs such as latency, throughput, errors, and traffic volume. Operational and Management users can use this dashboard to identify operational errors, narrow down the root cause, or to identify common traffic trends. The overview page provides a holistic view by aggregating different views on APIs, and by following the drill-downs user can get a detailed picture of different perspectives. 
 
-     Users can select the year and month of their choice and generate the Monthly API Usage Report via the API-M Admin dashboard. Furthermore, the default implementation of this feature can be extended if the organization that the user is attached to requires different data than the ones provided by the default report. 
-
-- Widget generator tool
-
-     In addition to the default widgets that are shipped with the analytics dashboards, the Widget generator tool makes it easier to implement your own custom widget and use them across the dashboards. The widget generator tool automatically generates the widget skeleton by taking into account the user preferences via a command-line tool and guides the user until the widget is deployed in the dashboard.
-
-- GraphQL Analytics
+- Re-organized Analytics dashboards
+        
+      Significant changes have been done on the Publisher Analytics dashboard to better suit it to different audiences. A new dashboard named Business Analytics has been created by combining several new widgets with those which initially existed in Publisher Analytics dashboard to provide an unrestricted view on the APIs for Managerial users. A user with an internal/analytics role can access the new dashboard to see Statistics for all APIs irrespective of whether those are access-controlled or not. Further, a specific set of widgets chosen from Publisher Analytics has been used to create an API Analytics dashboard, which now shows a limited set of Statistics relevant to a Publisher. A Publisher can use this dashboard to view statistics for both APIs created by them or visible to them.
+      The Developer portal dashboard has been renamed to Application Analytics and the Admin dashboard has been renamed to Reports, to reflect their functionality better.
+                                                                         
+- Exporting data in CSV, PDF formats 
     
-     GraphQL Analytics requirements differ from standard API analytics. The existing charts have been improved to be able to view statistics for GraphQL operations. A single API call for a GraphQL API can have multiple operations associated with it. In this release, analytics charts will have the in-built capability to filter these API calls by GraphQL operation. 
+      This new feature is introduced to widgets to export data as a CSV or PDF. It supports all the widgets with tabular data. Users can be export the current view and can be share, analyze, or compare with different views. It helps to export custom or selected data sets.
+      
+- New Alert Page in Monitoring Dashboards
+
+      API Availability and Alert listing capabilities implemented in Monitoring dashboards. Since this information is more related to analytics, it has been moved to the montoring dashboard from the API Manager admin portal. It provides an overview of the API availability and filtering based on the availability status. 
+      Additional improvements are made to the alert listing widgets to provide filtering and better API wise comparison. Interactive widgets are provided and support narrow down alerts. 
+
+- New Summary Charts for Monitoring Dashboards
+
+      Summarised information of the API requests is present in these widgets. There are 4 summary widgets to show total API invocation count, faulty count, throttled out request count, and highest API latency time within the last 24 hours. These widgets help to identify the above parameters of the system and support drill down to appropriate widgets for narrow down issues.         
 
 
 ## What has changed in this release
@@ -100,15 +104,15 @@ The **WSO2 API Manager 3.1.0** is the **latest** **WSO2 API Manager release*
 
 ## Compatible WSO2 product versions
 
-WSO2 API-M 3.1.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.1.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.1.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
 ## Fixed issues
 
--   [WSO2 API Manager 3.1.0 - Fixed Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12+label%3A3.1.0+)
--   [WSO2 API Manager 3.1.0 - Fixed Issues in the carbon-apim GitHub repository](https://github.com/wso2/carbon-apimgt/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12)
--   [WSO2 API Manager 3.1.0 - Fixed Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/milestone/18?closed=1)
+-   [WSO2 API Manager 3.2.0 - Fixed Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12+label%3A3.1.0+)
+-   [WSO2 API Manager 3.2.0 - Fixed Issues in the carbon-apim GitHub repository](https://github.com/wso2/carbon-apimgt/issues?q=is%3Aissue+is%3Aclosed+closed%3A2019-11-01..2020-03-12)
+-   [WSO2 API Manager 3.2.0 - Fixed Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/milestone/18?closed=1)
 
 ## Known issues
 
--   [WSO2 API Manager 3.1.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A3.1.0)
--   [WSO2 API Manager 3.1.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
+-   [WSO2 API Manager 3.2.0 - Known Issues in the product-apim GitHub repository](https://github.com/wso2/product-apim/issues?q=is%3Aopen+is%3Aissue+label%3A3.1.0)
+-   [WSO2 API Manager 3.2.0 - Known Issues in the analytics-apim GitHub repository](https://github.com/wso2/analytics-apim/issues)
