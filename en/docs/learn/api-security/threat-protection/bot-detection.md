@@ -111,13 +111,12 @@ Follow the instructions below to enable email notifications for bot detection:
 
      `https://<IP_Address>:9443/admin`
 
-8. Click **BOT DETECTION**.
-
-9. Click **CONFIGURE EMAILS**.
+8. Click **Configure Emails** under **Bot Detection** category and Click **Add Email**.
   
-    ![Add email recipients]({{base_path}}/assets/img/learn/bot-email-notification.png)
+    ![Add email Menu]({{base_path}}/assets/img/learn/bot-email-notification-menu.png)
 
-10. Add the recipient's email address and click **Add**.
+9. Enter recipient email address and click **Save**.
+    ![Add email Recipient]({{base_path}}/assets/img/learn/bot-email-notification-recipient-adding.png)
 
     If a hacker (e.g., bot attacker) tries to invoke an open service API, WSO2 API Manager will send emails to the email alert recipients. The following is a sample email notification.
 
@@ -213,8 +212,8 @@ Follow the instructions below to view the bot detection data for the unauthorize
 
      `https://<IP_Address>:9443/admin`
 
-8. Click **BOT DETECTION DATA**.
+8. Click **Bot Detection Data**.
 
      ![Bot detection data details for unauthorized API calls]({{base_path}}/assets/img/learn/bot-data.png)
 
-    If a hacker (e.g., bot attacker) tries to invoke an open service API, the Bot detection data details, which appear in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log` trace log, will appear.
+    If a hacker (e.g., bot attacker) tries to invoke an open service API, the Bot detection data details will appear in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log` file.
