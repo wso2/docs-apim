@@ -1,13 +1,39 @@
 # Business Analytics
-
+The business analytics dashboard provides business insights on APIs enabling users to take proactive actions to improve profitability and the quality of the service provided. 
 
 !!! note
     During drill downs across dashboard pages, the date range selection will be preserved. 
     
 ## Overview
+The overview page comprises 4 summary widgets that shows an overview of the APIs during the past 30 days. These widgets consist of the following:
+
+- [Usage of the top 10 most used APIs]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#top-10-api-usage-during-past-30-days)
+- [Performance of the top 10 most used APIs]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#top-10-apis-performance-summary)
+- [Top 10 most throttled out APIs]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#top-10-throttle-out-apis-during-past-30-days)
+- [Errors incurred during innovations]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#faults-during-past-30-days)
+
+### Top 10 API usage during past 30 days
+This widget shows an overtime breakdown of the usage of the top 10 most used API over the past 30 days. Upon clicking on this widget, it will be redirected to the API usage over time page with the top 10 APIs selected and the time range set to 1 month. 
+
+![Top 10 API usage during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_api_usage_during_past_30_days.png)
+
+### Top 10 API’s performance summary
+This widget shows an overtime breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the Performance summary page with the top 10 APIs selected and the time perioranged set to 1 month.
+
+![Top 10 API’s performance summary]({{base_path}}/assets/img/learn/analytics/analytics_top_10_apis_performance_during_past_30_days.png)
+
+### Top 10 throttle out APIs during past 30 days
+This widget shows an overtime breakdown of the throttle count of the top 10 most throttled out APIs during the past 30 day. Upon clicking on this, it will be redirected to the Throttle summary widget with the top 10 throttled APIs selected and the time range set to 1 month.
+
+![Top 10 throttle out APIs during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_throttled_out_apis_during_past_30_days.png)
+
+### Faults during past 30 days
+This widget shows an overtime breakdown of the total number of faults(of all APIs) during the past 30 day. Upon clicking this, it will be redirected to the Error summary page with the time range set to 1 month.
+
+![Faults during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_error_during_past_30_days.png)
 
 ## API usage analysis
-API usage related data is represented through overall and over time graphs in the business dashboard. Information related to API usage can be found in the following 2 pages of the Business Analytics dashboard:
+API usage related data is represented through overall and over time graphs in the business dashboard. Information related to API usage can be found in the following 2 pages of the business analytics dashboard:
 
 -   [Usage summary]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#usage-summary)
 -   [API usage]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#api-usage)
@@ -66,7 +92,7 @@ This graph can also be used to view the usage of the selected API(s) by a specif
 ![API usage over time by app]({{base_path}}/assets/img/learn/analytics/analytics_api_usage_overtime_by_app_widget.png)
 
 ## Viewing API Performance
-Analyzing performance of APIs will help identify problematic APIs. Information related to API performance can be found in the following 2 pages of the Business Analytics dashboard:
+Analyzing performance of APIs will help identify problematic APIs. Information related to API performance can be found in the following 2 pages of the business analytics dashboard:
 
 - [Performance summary]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#performance-summary)
 - [API performance]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#api-performance)
