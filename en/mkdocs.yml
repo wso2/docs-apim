@@ -502,7 +502,7 @@ nav:
           - Key Managers:
                 - Overview: administer/key-managers/overview.md
                 - Configuring WSO2 IS as A Key Manager: administer/key-managers/how-to-configure-wso2is-connector.md
-                - Configuring Key Cloak as A Key Manager: administer/key-managers/how-to-configure-key-cloak-connector.md
+                - Configuring Keycloak as A Key Manager: administer/key-managers/how-to-configure-key-cloak-connector.md
                 - Configuring Okta as A Key Manager: administer/key-managers/how-to-configure-okta-connector.md
 
     - Reference:
