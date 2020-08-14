@@ -18,17 +18,17 @@ This widget shows an overtime breakdown of the usage of the top 10 most used API
 ![Top 10 API usage during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_api_usage_during_past_30_days.png)
 
 ### Top 10 API’s performance summary
-This widget shows an overtime breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the Performance summary page with the top 10 APIs selected and the time perioranged set to 1 month.
+This widget shows an overtime breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the performance summary page with the top 10 APIs selected and the time perioranged set to 1 month.
 
 ![Top 10 API’s performance summary]({{base_path}}/assets/img/learn/analytics/analytics_top_10_apis_performance_during_past_30_days.png)
 
 ### Top 10 throttle out APIs during past 30 days
-This widget shows an overtime breakdown of the throttle count of the top 10 most throttled out APIs during the past 30 day. Upon clicking on this, it will be redirected to the Throttle summary widget with the top 10 throttled APIs selected and the time range set to 1 month.
+This widget shows an overtime breakdown of the throttle count of the top 10 most throttled out APIs during the past 30 day. Upon clicking on this, it will be redirected to the throttle summary widget with the top 10 throttled APIs selected and the time range set to 1 month.
 
 ![Top 10 throttle out APIs during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_throttled_out_apis_during_past_30_days.png)
 
 ### Faults during past 30 days
-This widget shows an overtime breakdown of the total number of faults(of all APIs) during the past 30 day. Upon clicking this, it will be redirected to the Error summary page with the time range set to 1 month.
+This widget shows an overtime breakdown of the total number of faults(of all APIs) during the past 30 day. Upon clicking this, it will be redirected to the error summary page with the time range set to 1 month.
 
 ![Faults during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_error_during_past_30_days.png)
 
@@ -52,13 +52,13 @@ The default view of these graphs will be;
 - The scatter plot points will be ordered from left to right by the API name in ascending order
 - The table will be ordered by the usage count in descending order
 
-Upon clicking on a specific API entry in the table, it will be redirected to the API usage over time page so that the user can view the breakdown of the usage count over time.
+Upon clicking on a specific API entry in the table, it will be redirected to the API usage over time page which shows a breakdown of the usage count over time.
 
 ![Usage summary]({{base_path}}/assets/img/learn/analytics/analytics_overall_api_usage_widget.png)
 
 
 #### API usage by application
-The API usage by application graph shows an application wise breakdown of the usage count of the selected API(s) for the specified time period. The default view will be ordered by the usage count in descending order. Upon clicking on a specific entry in the table, it will be redirected to the API usage over time page so that the user can view the breakdown of the usage of the selected API over time by the selected application.
+The API usage by application graph shows an application wise breakdown of the usage count of the selected API(s) for the specified time period. The default view will be ordered by the usage count in descending order. Upon clicking on a specific entry in the table, it will be redirected to the API usage over time page which shows a breakdown of the usage of the selected API over time by the selected application.
 
 ![API usage by application]({{base_path}}/assets/img/learn/analytics/analytics_api_usage_by_app_widget.png)
 
@@ -100,7 +100,7 @@ Analyzing performance of APIs will help identify problematic APIs. Information r
 ### Performance summary
 
 #### Performance summary
-The performance summary widget displays the performance of selected API(s) over time for the specified time period. In this widget the average response time is taken as the performance of an API. Upon clicking on a data point in this graph, it will be redirected to the API latency time widget for the selected API.
+The performance summary widget displays the performance of selected API(s) over time for the specified time period. In this widget the average response time is taken as the performance of an API. Upon clicking on a data point in this graph, it will be redirected to the API latency time widget for the selected API which shows the latency of the API over time.
 
 ![Performance summary]({{base_path}}/assets/img/learn/analytics/analytics_performance_summary_widget.png)
 
@@ -138,6 +138,36 @@ The API  latency time graph shows the latency breakdown of the selected resource
     Time taken to process tasks other than mentioned above
 
 ![API latency time]({{base_path}}/assets/img/learn/analytics/analytics_api_latency_widget.png)
+
+## Error analysis
+Error analysis will help identify problematic APIs so that proactive measures could be taken to improve these APIs. API error related data are displayed in the following 2 pages in the business analytics dashboard:
+
+- [Error Summary]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#error-summary)
+- [API Errors]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#api-errors) 
+
+### Error summary
+The error summary page provides information about the APIs with the highest throttled out request(refer analysing throttled out API requests section for more details) and faulty request counts. The top faulty APIs widget available in this page helps identify the APIs with the most faulty invocations.
+
+#### Top faulty APIs
+The top faulty APIs widget displays the APIs with the highest faulty request count within the specified time range. This widget comprises of 2 representations:
+
+- A pie chart which shows a percentage wise comparison of the faulty requests of the APIs 
+- A table which shows the faulty request count of the APIs
+
+Upon clicking on an API on the pie chart or the table, it will be redirected to the API errors page which provides an overtime representation of the faulty invocations of the selected API.
+
+![Top faulty APIs]({{base_path}}/assets/img/learn/analytics/analytics_top_faulty_apis_widget.png)
+
+### API errors
+The API errors page provides information about the throttled out requests(refer analysing throttled out API requests section for more details) and faulty requests of a selected API. The API faults over time widget provides an overtime representation of the faulty invocations of the selected API.
+
+#### API faults over time
+API faults over time widget shows the faulty invocations of the selected API overtime for the specified time range. This widget contains 2 representations;
+A timeline graph which shows the faulty request count over time
+A table which shows an application wise breakdown of the faulty request count 
+
+![API faults over time]({{base_path}}/assets/img/learn/analytics/analytics_api_fault_analytics_widget.png)
+
 
 ## Devices and User agent analysis
 
