@@ -110,12 +110,14 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         <tr class="odd">
           <td>Well-known-url</td>
           <td><p>Well known URL of the Authorization Server(Key Manager)
-           If the Well known URL is provided, other endpoints can be imported. Ex: https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p></td>
+           If the Well known URL is provided, other endpoints can be imported.
+           Ex: https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p></td>
           <td>Optional</td>
         </tr>
         <tr class="even">
           <td>Issuer</td>
-          <td>Issuer that consume/validate access tokens Ex: https://dev-599740.okta.com/oauth2/default</td>
+          <td>Issuer that consume/validate access tokens
+          Ex: https://dev-599740.okta.com/oauth2/default</td>
           <td>Optional</td>
         </tr>
         <tr class="odd">
@@ -136,12 +138,12 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         <tr class="even">
            <td>Token Endpoint</td>
            <td>Endpoint that issue access tokens</td>
-           <td>Optional</td>
+           <td>Optional if the well-known URI is provided</td>
          </tr>
          <tr class="odd">
            <td>Revoke Endpoint</td>
            <td>Endpoint that revoke access tokens</td>
-           <td>Optional</td>
+           <td>Optional if the well-known URI is provided</td>
         </tr>
         <tr class="even">
            <td>Userinfo Endpoint</td>
@@ -161,22 +163,22 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         <tr class="odd">
           <td><b>Connector Configurations</b></td>
           <td></td>
-          <td>Mandatory</td>
+          <td></td>
         </tr>
         <tr class="even">
           <td>API Key</td>
           <td>API key generated from section 6</td>
-          <td></td>
+          <td>Mandatory</td>
         </tr>
         <tr class="odd">
           <td>Client ID</td>
           <td>Client ID generated from section 6</td>
-          <td></td>
+          <td>Mandatory</td>
         </tr>
         <tr class="even">
           <td>Client Secrete</td>
           <td>Client Secret Client secret generated from section 6</td>
-          <td></td>
+          <td>Mandatory</td>
         </tr>
         <tr class="odd">
           <td><b>Claim URIs</b></td>
@@ -185,12 +187,12 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         </tr>
         <tr class="even">
           <td>Consumer Key Claim URI</td>
-          <td>Claim URI for consumer key ex: cid</td>
+          <td>Claim URI for consumer key Ex: cid</td>
           <td>Mandatory</td>
         </tr>
         <tr class="odd">
           <td>Scopes Claim URI</td>
-          <td>Claim URI for scopes ex: scp</td>
+          <td>Claim URI for scopes Ex: scp</td>
           <td>Mandatory</td>
         </tr>
         <tr class="even">
@@ -201,22 +203,23 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         <tr class="odd">
           <td><b>Certificates</b></td>
           <td></td>
-          <td>Optional</td>
+          <td></td>
         </tr>
         <tr class="even">
           <td>PEM</td>
           <td>Either Copy and Paste the certificate in PEM format or upload the PEM file</td>
-          <td></td>
+          <td>Optional</td>
         </tr>
         <tr class="odd">
           <td>JWKS</td>
           <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This url returns the Okta's public key set in Json web key set format.
-          This contains the signing key(s) the RP uses to validate signatures from the Okta.</td>
-          <td><td/>
+          This contains the signing key(s) the RP uses to validate signatures from the Okta.
+          Ex: https://dev-599740.okta.com/oauth2/default/v1/keys</td>
+          <td>Optional<td/>
         </tr>
         <tr class="even">
           <td><b>Advanced Configurations</b></td>
-          <td>Token Generation</td>
+          <td></td>
           <td></td>
         </tr>
         <tr class="odd">
@@ -241,7 +244,7 @@ Create an Okta developer account. Get the Instance URL, authorization server ID,
         </tr>
         <tr class="even">
           <td>Self Validate JWT</td>
-          <td>JWT token signature validation happens by the kid value. If the kid value is not present, gateway_certificate_alias is used.</td>
+          <td>JWT token signature validation happens by the `kid` value. If the kid value is not present, `gateway_certificate_alias` is used.</td>
           <td>Optional</td>
         </tr>
         <tr class="odd">
