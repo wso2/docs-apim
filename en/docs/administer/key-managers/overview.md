@@ -14,7 +14,7 @@ When generating keys for a selected Key Manager, it checks if the Key Manager co
 
 ## Token validation
 
-[![multiple km token validation]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)
+[![multiple KM token validation]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)]({{base_path}}/assets/img/administer/multiple-km-token-validation.png)
 
 If the token is a JWT token, it retrieves the Issuer details from the JWT and obtains the relevant Key Manager. If the Key Manager is not enabled for the API, token validation fails.
 If the Key Manager is enabled, the token is validated through the JWT validator.
@@ -29,8 +29,8 @@ Finally if the backend JWT generation is enabled, it generates the JWT.
 
 ## Configuring Key Managers with WSO2 API-M
 
-- [Configuring WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-wso2is-connector/)
+- [Configure WSO2 IS as a Key Manager]({{base_path}}/administer/key-managers/configure-wso2is-connector/)
 
-- [Configuring Key Cloak as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-key-cloak-connector/)
+- [Configure Keycloak as a Key Manager]({{base_path}}/administer/key-managers/configure-keycloak-connector/)
 
-- [Configuring Okta as a Key Manager]({{base_path}}/administer/key-managers/how-to-configure-okta-connector/)
+- [Configure Okta as a Key Manager]({{base_path}}/administer/key-managers/configure-okta-connector/)
