@@ -1,5 +1,9 @@
 # Business Analytics
 
+
+!!! note
+    During drill downs across dashboard pages, the date range selection will be preserved. 
+    
 ## Overview
 
 ## API usage analysis
@@ -22,13 +26,13 @@ The default view of these graphs will be;
 - The scatter plot points will be ordered from left to right by the API name in ascending order
 - The table will be ordered by the usage count in descending order
 
-Upon clicking on a specific API entry in the table, it will be redirected to the API usage over time page while preserving the selected time range so that the user can view the breakdown of the usage count over time.
+Upon clicking on a specific API entry in the table, it will be redirected to the API usage over time page so that the user can view the breakdown of the usage count over time.
 
 ![Usage summary]({{base_path}}/assets/img/learn/analytics/analytics_overall_api_usage_widget.png)
 
 
 #### API usage by application
-The API usage by application graph shows an application wise breakdown of the usage count of the selected API(s) for the specified time period. The default view will be ordered by the usage count in descending order. Upon clicking on a specific entry in the table, it will be redirected to the API usage over time page while preserving the selected time range so that the user can view the breakdown of the usage of the selected API over time by the selected application.
+The API usage by application graph shows an application wise breakdown of the usage count of the selected API(s) for the specified time period. The default view will be ordered by the usage count in descending order. Upon clicking on a specific entry in the table, it will be redirected to the API usage over time page so that the user can view the breakdown of the usage of the selected API over time by the selected application.
 
 ![API usage by application]({{base_path}}/assets/img/learn/analytics/analytics_api_usage_by_app_widget.png)
 
@@ -70,7 +74,7 @@ Analyzing performance of APIs will help identify problematic APIs. Information r
 ### Performance summary
 
 #### Performance summary
-The performance summary widget displays the performance of selected API(s) over time for the specified time period. In this widget the average response time is taken as the performance of an API. Upon clicking on a data point in this graph, it will be redirected to the API latency time widget while preserving the selected time range and API.
+The performance summary widget displays the performance of selected API(s) over time for the specified time period. In this widget the average response time is taken as the performance of an API. Upon clicking on a data point in this graph, it will be redirected to the API latency time widget for the selected API.
 
 ![Performance summary]({{base_path}}/assets/img/learn/analytics/analytics_performance_summary_widget.png)
 
