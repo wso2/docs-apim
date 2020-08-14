@@ -216,4 +216,4 @@ Follow the instructions below to view the bot detection data for the unauthorize
 
      ![Bot detection data details for unauthorized API calls]({{base_path}}/assets/img/learn/bot-data.png)
 
-    If a hacker (e.g., bot attacker) tries to invoke an open service API, the Bot detection data details, which appear in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log`.
+    If a hacker (e.g., bot attacker) tries to invoke an open service API, the Bot detection data details will appear in the `<API-M_HOME>/repository/logs/wso2-BotDetectedData.log` file.
