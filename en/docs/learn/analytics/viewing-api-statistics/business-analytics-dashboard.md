@@ -61,6 +61,54 @@ This graph can also be used to view the usage of the selected API(s) by a specif
 
 ![API usage over time by app]({{base_path}}/assets/img/learn/analytics/analytics_api_usage_overtime_by_app_widget.png)
 
+## Viewing API Performance
+Analyzing performance of APIs will help identify problematic APIs. Information related to API performance can be found in the following 2 pages of the Business Analytics dashboard:
+
+- [Performance summary]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#performance-summary)
+- [API performance]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#api-performance)
+
+### Performance summary
+
+#### Performance summary
+The performance summary widget displays the performance of selected API(s) over time for the specified time period. In this widget the average response time is taken as the performance of an API. Upon clicking on a data point in this graph, it will be redirected to the API latency time widget while preserving the selected time range and API.
+
+![Performance summary]({{base_path}}/assets/img/learn/analytics/analytics_performance_summary_widget.png)
+
+### API performance
+
+#### API latency time
+The API  latency time graph shows the latency breakdown of the selected resource of the selected API for the specified time period. The latencies displayed in this widget are
+
+- Response time
+
+    Total time taken for request/response flow
+    
+- Security latency
+
+    Time taken for authentication
+    
+- Throttling latency
+
+    Time taken for throttling the request/response
+    
+- Request mediation latency
+
+    Time taken to mediate the request
+    
+- Response mediation latency
+
+    Time taken to mediate the response
+    
+- Backend latency
+
+    Time taken by the backend to return the response
+    
+- Other latency
+
+    Time taken to process tasks other than mentioned above
+
+![API latency time]({{base_path}}/assets/img/learn/analytics/analytics_api_latency_widget.png)
+
 ## Devices and User agent analysis
 
 Platforms(OS) and User agent-based analytics are presented on the devices page in the business analytics dashboard. There are two widgets to show Platforms and User agent-based API Invocations. API Dimension selector is available to filter multiple APIs and aggregated results will display in both widgets. The day time range is also applicable here to get data within a selected time range. 
