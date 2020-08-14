@@ -1,304 +1,339 @@
 # Configure Okta as a Key Manager
 
-It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Okta OAuth Authorization Server to manage the OAuth clients and tokens required by WSO2 API Manager. WSO2 API Manager has the inbuilt support to consume APIs exposed by Okta OAuth.
+It is possible to integrate the WSO2 API Manager with an external Identity and Access Management server (IAM) using the Okta OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. WSO2 API Manager has inbuilt support to consume APIs exposed by Okta OAuth.
 
 Follow the instructions below to configure Okta as a third-party Key Manager:
 
-# Step 1 - Configure Okta
-
-Create an Okta developer account. Get the instance URL, authorization server ID, API Key, and configure the access policy and the rule.
+## Step 1 - Configure Okta
 
 1. Navigate to the [Okta sign up page](https://developer.okta.com/signup/).
 
-    [![Okta signup]({{base_path}}/assets/img/administer/okta-signup.png)]({{base_path}}/assets/img/administer/okta-signup.png)
+     [![Okta signup]({{base_path}}/assets/img/administer/okta-signup.png)]({{base_path}}/assets/img/administer/okta-signup.png)
 
-    Create an Okta account and get the Okta instance URL.
-    E.g., [https://dev-735404.okta.com](https://dev-735404.okta.com)
+     Create an Okta account and get the Okta instance URL.
+
+     Example:
+    
+     [https://dev-735404.okta.com](https://dev-735404.okta.com)
 
 2. Obtain the authorization server ID.
 
-    1. Click **API** and then click **Authorization Servers**.
-    2. Create a new authorization server. Alternatively, you can use the default server.
-        [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
+    1. Click **API** and then click **Authorization Servers** in the Okta Developer Dashboard.
+    2. Create a new authorization server.
+    
+         Alternatively, you can use the default server.
+       
+         [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
 
     3. Add a default scope. 
     
-       1. Select the authorization server (e.g., default) and click **Scopes** to navigate to the Scopes section.
+         1. Select the authorization server (e.g., default) and click **Scopes** to navigate to the Scopes section.
        
-       2. Create a new scope (e.g., default). 
+         2. Create a new scope (e.g., default). 
        
-       3. Select **Default Scope**.
+         3. Select **Default Scope**.
 
-           [![Okta default scope]({{base_path}}/assets/img/administer/okta-default-scope.png)]({{base_path}}/assets/img/administer/okta-default-scope.png)
+             [![Okta default scope]({{base_path}}/assets/img/administer/okta-default-scope.png)]({{base_path}}/assets/img/administer/okta-default-scope.png)
 
-           [![Okta scope list]({{base_path}}/assets/img/administer/okta-scope-list.png)]({{base_path}}/assets/img/administer/okta-scope-list.png)
+             [![Okta scope list]({{base_path}}/assets/img/administer/okta-scope-list.png)]({{base_path}}/assets/img/administer/okta-scope-list.png)
 
 3. Get the API key.
 
-    1. Click **API** and then click **Tokens**.
-    2. Click **Create Token** and provide the name for the token.
-    3. After successfully creating the token, copy the Token value for future use.
+    1. Click **API** and then click **Tokens** in the Okta Developer Dashboard.
+    2. Click **Create Token** and enter a name for the token.
+    3. Copy the token value and keep it for future use.
 
-       [![Okta token]({{base_path}}/assets/img/administer/okta-token.png)]({{base_path}}/assets/img/administer/okta-token.png)
+         [![Okta token]({{base_path}}/assets/img/administer/okta-token.png)]({{base_path}}/assets/img/administer/okta-token.png)
 
 4. Create access policies.
 
      If you already have at least one access policy in your authorization server, skip the following steps and go to <a href="#step15">Step 1 - (5)</a>.
 
-    1. In the Okta Developer Dashboard, navigate to **API > Authorization Servers**.
+    1. Click **API** and then click **Authorization Servers** in the Okta Developer Dashboard.
     2. Select an Authorization Server.
     3. Click **Access Policies** and then click **Add New Access Policy**
-    4. Provide the requested information.
+    4. Enter the required information.
         
         [![Okta access policy]({{base_path}}/assets/img/administer/okta-access-policy.png)]({{base_path}}/assets/img/administer/okta-access-policy.png)
 
     5. Click **Create Policy** to save the policy.
 
-<a name="step15"></a>
+     <a name="step15"></a>
+
 5. Create Rules for the Access Policy.
 
      If you already have at least one rule in your access policy, skip the following steps and go to <a href="#step16">Step 1 - (6)</a>.
 
-    1. Click **API** and then click **Authorization Servers** in the Okta Developer Dashboard.
-    2. Select the name of an authorization server, and select **Access Policies**.
-    3. Select the name of an access policy, and select **Add Rule**.
-        ![alt text]({{base_path}}/assets/img/administer/okta-rule.png)
+     1. Click **API** and then click **Authorization Servers** in the Okta Developer Dashboard.
+     2. Select the name of an authorization server, and select **Access Policies**.
+     3. Select the name of an access policy, and click **Add Rule**.
+
+         [![Okta rule]({{base_path}}/assets/img/administer/okta-rule.png)]({{base_path}}/assets/img/administer/okta-rule.png)
+
     4. Enter the requested information.
     5. Click **Create Rule** to save the rule.
 
-<a name="step16"></a>
-6. Create OAuth application to get credentials to access the introspect api:
+       <a name="step16"></a>
 
-    1. Go to the **Applications** tab and select **Add Application** button.
-    2. Select **Web** type in the list and select next
-        ![alt text]({{base_path}}/assets/img/administer/okta-add-application-intro.png)
-    3. Under the **Grant type allowed** section, tick **Client Credentials**
-    4. Once app is created, note down the **Client ID** and **Client secret** under **Client Credentials** section.
+6. Create an OAuth application to get the credentials to access the introspect API:
 
-7. Note down the Authorization server's setting by navigating to  **API > Authorization Servers**. Select the authorization server.
+    1. Click **Applications** and then click **Add Application**.
+    2. Click **Web** and then click **Next**.
 
-    ![alt text]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)
+         [![okta add application introduction]({{base_path}}/assets/img/administer/okta-add-application-intro.png)]({{base_path}}/assets/img/administer/okta-add-application-intro.png)
+
+         <a name="section6"></a>
+
+    3. Navigate to the **Grant type allowed** section and select **Client Credentials**.
+    4. After the application is created, note down the **Client ID** and **Client secret** that appears under the **Client Credentials** section.
+
+7. Note down the Authorization server's settings.
+
+   1. Click **API** and then click **Authorization Servers**.
+   2. Select the authorization server.
+   3. Note down the settings related to the Authorization server.
+
+     [![Okta authorization server settings]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)]({{base_path}}/assets/img/administer/okta-authorization-server-settings.png)
 
 
 ## Step 2 - Configure WSO2 API Manager
 
-1. Start **WSO2 API Manager**.
-2. Sign in to the [admin portal](https://localhost:9443/admin)
-3. Navigate to keymanagers tab in the left panel and Click on Add Keymanager button to add a new key manager configuration.
-    ![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)
+1. Start WSO2 API Manager.
 
-4. Add  key manager configurations as below.
-    ![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
+2. Sign in to the Admin Portal.
 
-    Below table provides definitions for each configuration.
+     `https://<hostname>:9443/admin`
+     
+     `https://localhost:9443/admin`
 
-    <table>
-      <thead>
-        <tr class="header">
+3. Add a new Key Manager.
+
+     1. Click **Key Managers** and then click **Add Key Manager**.
+
+         [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+
+     2. Add the following Key Manager configurations.
+
+         [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
+
+         The following table provides definitions for each of the Key Manager configurations.
+
+          <table>
+          <tr class="header">
           <th>Configuration</th>
           <th>Description</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="odd">
+          <th> </th>
+          </tr>
+        
+          <tr class="odd">
           <td>Name</td>
-          <td>Name of the Authorization Server</td>
+          <td>The name of the authorization server.</td>
           <td>Mandatory</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Display Name</td>
-          <td>A Name to display on the UI</td>
+          <td>A name to display in the UI.</td>
           <td>Mandatory</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>Description</td>
-          <td>A brief description of the key manager</td>
+          <td>A brief description of the Key Manager.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Key Manager Type</td>
-          <td>Type of the Key Manager to be selected</td>
+          <td>The type of the Key Manager to be selected.</td>
           <td>Mandatory</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>Well-known-url</td>
-          <td><p>Well known URL of the Authorization Server(Key Manager)
-           If the Well known URL is provided, other endpoints can be imported. Ex: https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p></td>
+          <td><p>The well-known URL of the Authorization Server (Key Manager).
+          <br/>
+          If the well-known URL is provided, other endpoints can be imported. 
+          <br/> e.g., https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p>
+          </td>
           <td>Optional</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Issuer</td>
-          <td>Issuer that consume/validate access tokens Ex: https://dev-599740.okta.com/oauth2/default</td>
+          <td>The issuer that consumes or validates access tokens. <br/>e.g., https://dev-599740.okta.com/oauth2/default</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td><b>Key Manager Endpoints</b></td>
           <td></td>
           <td></td>
-        </tr>
-        <tr class="even">
-           <td>Client Registration Endpoint </td>
-           <td><p>Endpoint to verify the identity and obtain profile information of the end user based on the authentication performed by an authorization server</p></td>
-           <td>Optional if the well-known URI is provided</td>
-        </tr>
-        <tr class="odd">
-           <td>Introspection Endpoint</td>
-           <td><p>Endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth Client</p>
-           <td>Optional if the well-known URI is provided</td>
-        </tr>
-        <tr class="even">
-           <td>Token Endpoint</td>
-           <td>Endpoint that issue access tokens</td>
-           <td>Optional</td>
-         </tr>
-         <tr class="odd">
-           <td>Revoke Endpoint</td>
-           <td>Endpoint that revoke access tokens</td>
-           <td>Optional</td>
-        </tr>
-        <tr class="even">
-           <td>Userinfo Endpoint</td>
-          <td>Endpoint That allow clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user
+          </tr>
+          <tr class="even">
+          <td>Client Registration Endpoint </td>
+          <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</p></td>
+          <td>Optional if the well-known URI is provided.</td>
+          </tr>
+          <tr class="odd">
+          <td>Introspection Endpoint</td>
+          <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.</td>
+          <td>Optional if the well-known URI is provided.</td>
+          </tr>
+          <tr class="even">
+          <td>Token Endpoint</td>
+          <td>The endpoint that issues the access tokens.</td>
+          <td>Optional if the well-known URI is provided.</td>
+          </tr>
+          <tr class="odd">
+          <td>Revoke Endpoint</td>
+          <td>The endpoint that revokes the access tokens.</td>
+          <td>Optional if the well-known URI is provided.</td>
+          </tr>
+          <tr class="even">
+          <td>Userinfo Endpoint</td>
+          <td>The endpoint that allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>Authorize Endpoint</td>
-          <td>Endpoint to obtain an authorization grant from the resource owner via user-agent redirection.</td>
+          <td>The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Scope Management Endpoint </td>
-          <td>Endpoint for the management of scopes</td>
+          <td>The endpoint used to manage the scopes.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td><b>Connector Configurations</b></td>
           <td></td>
-          <td>Mandatory</td>
-        </tr>
-        <tr class="even">
+          <td></td>
+          </tr>
+          <tr class="even">
           <td>API Key</td>
-          <td>API key generated from section 6</td>
-          <td></td>
-        </tr>
-        <tr class="odd">
+          <td>The API key generated from <a href="#section6">section 6</a>.</td>
+          <td>Mandatory</td>
+          </tr>
+          <tr class="odd">
           <td>Client ID</td>
-          <td>Client ID generated from section 6</td>
-          <td></td>
-        </tr>
-        <tr class="even">
-          <td>Client Secrete</td>
-          <td>Client Secret Client secret generated from section 6</td>
-          <td></td>
-        </tr>
-        <tr class="odd">
+          <td>The client ID generated from <a href="#section6">section 6</a>.</td>
+          <td>Mandatory</td>
+          </tr>
+          <tr class="even">
+          <td>Client Secret</td>
+          <td>The client secret generated from <a href="#section6">section 6</a>.</td>
+          <td>Mandatory</td>
+          </tr>
+          <tr class="odd">
           <td><b>Claim URIs</b></td>
-          <td>Provide claim URIs for consumer key and scopes.</td>
+          <td>This provides claim URIs for the consumer key and the scopes.</td>
           <td>Mandatory</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Consumer Key Claim URI</td>
-          <td>Claim URI for consumer key e.g., cid</td>
+          <td>The claim URI for consumer key e.g., cid</td>
           <td>Mandatory</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>Scopes Claim URI</td>
-          <td>Claim URI for scopes e.g., scp</td>
+          <td>The claim URI for scopes e.g., scp</td>
           <td>Mandatory</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Grant Types</td>
-          <td>Supported grant types </td>
+          <td>The supported grant types.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td><b>Certificates</b></td>
           <td></td>
-          <td>Optional</td>
-        </tr>
-        <tr class="even">
+          <td></td>
+          </tr>
+          <tr class="even">
           <td>PEM</td>
-          <td>Either Copy and Paste the certificate in PEM format or upload the PEM file</td>
-          <td></td>
-        </tr>
-        <tr class="odd">
+          <td>Either copy and paste the certificate in PEM format or upload the PEM file.</td>
+          <td>Optional</td>
+          </tr>
+          <tr class="odd">
           <td>JWKS</td>
-          <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This url returns the Okta's public key set in Json web key set format.
-          This contains the signing key(s) the RP uses to validate signatures from the Okta.</td>
-          <td><td/>
-        </tr>
-        <tr class="even">
+          <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Okta's public key set in JSON web key set format.
+          This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Okta.
+          </br>
+          e.g., https://dev-599740.okta.com/oauth2/default/v1/keys
+          </td>
+          <td>Optional</td>
+          </tr>
+          <tr class="even">
           <td><b>Advanced Configurations</b></td>
-          <td>Token Generation</td>
           <td></td>
-        </tr>
-        <tr class="odd">
+          <td></td>
+          </tr>
+          <tr class="odd">
           <td>Token Generation</td>
-          <td>Enables the token generation from the authorization server</td>
+          <td>This enables token generation via the authorization server.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Out Of Band Provisioning</td>
-          <td>Enables provisioning auth clients created outside the developer portal such as previously created once</td>
+          <td>This enables the provisioning of Auth clients that have been created without the use of the Developer Portal, such as previously created Auth clients.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="even">
-          <td>Oauth App Creation</td>
-          <td>Enables creating of auth clients</td>
+          </tr>
+          <tr class="even">
+          <td>OAuth App Creation</td>
+          <td>This enables the creation of Auth clients.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td><b>Token Validation Method</b></td>
-          <td>Method to validate JWT signature</td>
+          <td>The method used to validate the JWT signature.</td>
           <td></td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>Self Validate JWT</td>
-          <td>JWT token signature validation happens by the kid value. If the kid value is not present, gateway_certificate_alias is used.</td>
+          <td>The <code>kid</code> value is used to validate the JWT token signature. If the `<code>kid</code> value is not present, the <code>gateway_certificate_alias</code> is used.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>Use introspect</td>
-          <td>JWT token signature validation happens by the JWKS endpoint</td>
+          <td>The JWKS endpoint is used to validate the JWT token signature.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td><b>Token Handling Options</b></td>
-          <td>Enables to provide a mean of validating the token for this particular Authorization Server</td>
+          <td>This provides a means of validating the token for this particular authorization server.</td>
           <td>Optional</td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>REFERENCE</td>
-          <td>tokens matching to a specific regular expression is validated.</td>
+          <td>The tokens that match a specific regular expression (regEx) are validated.</td>
           <td></td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td>JWT</td>
-          <td>tokens matching to a specific JWT is validated.</td>
+          <td>The tokens that match a specific JWT is validated.</td>
           <td></td>
-        </tr>
-        <tr class="odd">
+          </tr>
+          <tr class="odd">
           <td>CUSTOM</td>
-          <td>Token matching to a custom pattern is validated.</td>
+          <td>The tokens that match a custom pattern are validated.</td>
           <td></td>
-        </tr>
-        <tr class="even">
+          </tr>
+          <tr class="even">
           <td><b>Claim Mappings</b></td>
-          <td>Local and Remote claim mapping</td>
+          <td>Local and remote claim mapping.</td>
           <td>Optional</td>
-        </tr>
-      </tbody>
-      </table>
+          </tr>
+        </table>
 
 ## Step 3 - Generate keys using the Okta Key Manager
 
 1. Sign in to the Developer Portal.
-2. Go to Applications
-3. Create a new application ou use the default application
-4. Go to Sandbox Keys menu from the Left menu.
 
-   ![alt text]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)
+    `https://<hostname>:9443/devportal`
+     
+    `https://localhost:9443/devportal`
 
-   !!!
-      Response Type need to be selected from the drop down menu.
+2. Click **Applications**.
+3. Create a new application or use the default application.
+4. Click **Sandbox Keys**.
+
+     ![Okta Developer Portal generate keys]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)
+
+5. Select the **Response Type**.
+
+6. Click **Generate Keys**.
