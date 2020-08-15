@@ -45,3 +45,29 @@ Follow the instructions below to generate/renew application keys:
 !!! tip
     When you generate access tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and thereafter, generate the token for it.
   
+## Generate application keys Using Okta Key Manager
+
+Similarly, to generate keys using Okta Key Manager,
+
+1. Select **Okta** tab from the **Production Keys** Menu.
+
+2. Click **Generate Keys** to create an application access token.
+
+     [![Generate Application Keys]({{base_path}}/assets/img/learn/okta-application-key-generation.png)]({{base_path}}/assets/img/learn/okta-application-key-generation.png)
+
+!!! tip
+    Client application properties to be set are described in [Okta documentation](https://developer.okta.com/docs/reference/api/oauth-clients/#client-application-properties)
+
+!!! tip
+    To get an Access Token with scopes, scopes should have been created in Okta side in advance.
+
+## Generate application keys Using Keycloak Key Manager
+
+Similarly, to generate keys using Keycloak Key Manager,
+
+1. Select **Keycloak** tab from the **Production Keys** Menu.
+
+2. Click **Generate Keys** to create an application access token.
+
+     [![Generate Keycloak Application Keys]({{base_path}}/assets/img/learn/keycloak-generate-keys.png)]({{base_path}}/assets/img/learn/keycloak-generate-keys.png)
+
