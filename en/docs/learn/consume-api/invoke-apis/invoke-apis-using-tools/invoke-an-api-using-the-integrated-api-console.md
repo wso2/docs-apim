@@ -64,3 +64,43 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
     ![]({{base_path}}/assets/img/learn/api-response.png)
 
 You have now succesfully invoked an API using the Open API Console.
+
+
+## Invoke an API deployed on a cloud cluster
+
+!!! attention "Before You Begin"
+    1. You need to have an API published to a cloud cluster in order to invoke the API as follows. Follow the document [Publish an API to a Cloud Clouster in PrivateJet Mode](learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/) to learn how to publish an API to a cloud cluster in privatejet mode.
+
+1. Sign in to the WSO2 Develeoper Portal (`https://<hostname>:9443/devportal`) and click an API which was deployed on a cloud cluster. **Note**  that the accessURL of the API can be found under Gateway Environments..
+   
+    ![Developer portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
+   
+2.  Subscribe to the API using an application and an available tier.
+
+    ![]({{base_path}}/assets/img/learn/subscribe-to-api.png)
+
+3.  On the **Applications** menu, open the application you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
+
+    ![]({{base_path}}/assets/img/learn/generate-keys-production.png)
+
+    !!! tip
+        **Production and Sandbox Tokens**
+
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+
+    !!! tip
+        **JWT vs Oauth tokens**
+
+        If the application you are using for this example is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. If the application is of oauth type, then the OpenAPI console will be automatically populated with the generated token in the authorization field. 
+    
+4. Click **Try Out** to navigate to the API Console.
+    
+5. Select the gateway as **configured container management cluster**.
+    
+    ![Developer portal - Try Out gateway selection]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)
+    
+6. Expand a method and click Try it out. Then click on execute as follows.
+    
+    ![]({{base_path}}/assets/img/learn/api-console-execute.png)
+        
+    

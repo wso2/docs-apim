@@ -2,6 +2,7 @@
 
 !!! Important
     This migration guide is in the process of restructuring, and is NOT yet ready for use.
+    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
 
 The following information describes how to upgrade your API Manager server **from APIM 2.0.0 to 3.2.0**.
 
@@ -318,7 +319,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -1170,7 +1171,12 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         ```tab="MSSQL"
-        ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING ALTER COLUMN ACCESS_TOKEN VARCHAR(512);
+        DECLARE @sub_map as VARCHAR(8000);
+        SET @sub_map = (SELECT name from sys.objects where parent_object_id=object_id('AM_SUBSCRIPTION_KEY_MAPPING') AND type='PK');
+        EXEC('ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
+        DROP CONSTRAINT ' + @sub_map);
+        ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING ALTER COLUMN ACCESS_TOKEN VARCHAR(512) NOT NULL;
+        ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING ADD CONSTRAINT PK_CONS_AM_SUBS_KEY_MAPPING PRIMARY KEY (SUBSCRIPTION_ID,ACCESS_TOKEN)
 
         ALTER TABLE AM_APPLICATION_REGISTRATION ALTER COLUMN TOKEN_SCOPE VARCHAR(1500);
 
@@ -1182,7 +1188,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         DROP TABLE IF EXISTS AM_ALERT_TYPES;
 
-        CREATE TABLE  AM_ALERT_TYPES (
+        CREATE TABLE AM_ALERT_TYPES (
             ALERT_TYPE_ID INTEGER NOT NULL IDENTITY,
             ALERT_TYPE_NAME VARCHAR(255) NOT NULL,
             STAKE_HOLDER VARCHAR(10) NOT NULL,
@@ -1203,7 +1209,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         INSERT INTO AM_ALERT_TYPES (ALERT_TYPE_NAME, STAKE_HOLDER) VALUES ('ApiHealthMonitor', 'publisher');
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_CERTIFICATE_METADATA]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_CERTIFICATE_METADATA]') AND TYPE IN (N'U'))
         CREATE TABLE AM_CERTIFICATE_METADATA (
             TENANT_ID INTEGER NOT NULL,
             ALIAS VARCHAR(45) NOT NULL,
@@ -1212,7 +1218,7 @@ Follow the instructions below to move all the existing API Manager configuration
             CONSTRAINT END_POINT_CONSTRAINT UNIQUE (END_POINT)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_APPLICATION_GROUP_MAPPING]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_APPLICATION_GROUP_MAPPING]') AND TYPE IN (N'U'))
         CREATE TABLE AM_APPLICATION_GROUP_MAPPING (
             APPLICATION_ID INTEGER NOT NULL,
             GROUP_ID VARCHAR(512),
@@ -1221,7 +1227,7 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION(APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_USAGE_UPLOADED_FILES]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_USAGE_UPLOADED_FILES]') AND TYPE IN (N'U'))
         CREATE TABLE AM_USAGE_UPLOADED_FILES (
             TENANT_DOMAIN VARCHAR(255) NOT NULL,
             FILE_NAME VARCHAR(255) NOT NULL,
@@ -1231,7 +1237,7 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (TENANT_DOMAIN, FILE_NAME, FILE_TIMESTAMP)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_LC_PUBLISH_EVENTS]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_LC_PUBLISH_EVENTS]') AND TYPE IN (N'U'))
         CREATE TABLE AM_API_LC_PUBLISH_EVENTS (
             ID INTEGER NOT NULL IDENTITY,
             TENANT_DOMAIN VARCHAR(255) NOT NULL,
@@ -1240,7 +1246,7 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_APPLICATION_ATTRIBUTES]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_APPLICATION_ATTRIBUTES]') AND TYPE IN (N'U'))
         CREATE TABLE AM_APPLICATION_ATTRIBUTES (
             APPLICATION_ID INTEGER NOT NULL,
             NAME VARCHAR(255) NOT NULL,
@@ -1250,7 +1256,7 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (APPLICATION_ID) REFERENCES AM_APPLICATION (APPLICATION_ID) ON DELETE CASCADE ON UPDATE CASCADE
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_LABELS]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_LABELS]') AND TYPE IN (N'U'))
         CREATE TABLE AM_LABELS (
             LABEL_ID VARCHAR(50),
             NAME VARCHAR(255),
@@ -1260,7 +1266,7 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (LABEL_ID)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_LABEL_URLS]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_LABEL_URLS]') AND TYPE IN (N'U'))
         CREATE TABLE AM_LABEL_URLS (
             LABEL_ID VARCHAR(50),
             ACCESS_URL VARCHAR(255),
@@ -1270,7 +1276,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         CREATE INDEX IDX_AUTHORIZATION_CODE ON IDN_OAUTH2_AUTHORIZATION_CODE (AUTHORIZATION_CODE,CONSUMER_KEY_ID);
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_SYSTEM_APPS') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'AM_SYSTEM_APPS') AND TYPE IN (N'U'))
         CREATE TABLE AM_SYSTEM_APPS (
             ID INTEGER IDENTITY,
             NAME VARCHAR(50) NOT NULL,
@@ -1282,7 +1288,7 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (ID)
         );
 
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_CLIENT_CERTIFICATE]') AND TYPE IN (N'U'))
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_CLIENT_CERTIFICATE]') AND TYPE IN (N'U'))
         CREATE TABLE AM_API_CLIENT_CERTIFICATE (
             TENANT_ID INTEGER NOT NULL,
             ALIAS VARCHAR(45) NOT NULL,
@@ -1303,7 +1309,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ;
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_MONETIZATION_USAGE]') AND TYPE IN (N'U'))
-
         CREATE TABLE AM_MONETIZATION_USAGE (
             ID VARCHAR(100) NOT NULL,
             STATE VARCHAR(50) NOT NULL,
@@ -1351,7 +1356,6 @@ Follow the instructions below to move all the existing API Manager configuration
             ADD API_TYPE VARCHAR(10) NULL DEFAULT NULL;
 
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_PRODUCT_MAPPING]') AND TYPE IN (N'U'))
-
         CREATE TABLE AM_API_PRODUCT_MAPPING (
             API_PRODUCT_MAPPING_ID INTEGER IDENTITY(1,1),
             API_ID INTEGER,
@@ -1396,100 +1400,100 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
             API_ID INTEGER NOT NULL,
             AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARYśKEY (API_ID),
+            PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
-        
+
         ALTER TABLE AM_WORKFLOWS ADD
-         WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
-         WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
+        WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
+        WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
         ;
-        
+
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_PUBLISHED_API_DETAILS (
-          API_ID varchar(255) NOT NULL,
-          TENANT_DOMAIN varchar(255),
-          API_PROVIDER varchar(255),
-          API_NAME varchar(255),
-          API_VERSION varchar(255),
-          PRIMARY KEY (API_ID)
+        API_ID varchar(255) NOT NULL,
+        TENANT_DOMAIN varchar(255),
+        API_PROVIDER varchar(255),
+        API_NAME varchar(255),
+        API_VERSION varchar(255),
+        PRIMARY KEY (API_ID)
         );
-        
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
-        CREATE TABLE  AM_GW_API_ARTIFACTS (
-          API_ID varchar(255) NOT NULL,
-          ARTIFACT VARBINARY(MAX),
-          GATEWAY_INSTRUCTION varchar(20),
-          GATEWAY_LABEL varchar(255),
-          TIMESTAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-          PRIMARY KEY (GATEWAY_LABEL, API_ID),
-          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_GW_API_ARTIFACTS (
+        API_ID varchar(255) NOT NULL,
+        ARTIFACT VARBINARY(MAX),
+        GATEWAY_INSTRUCTION varchar(20),
+        GATEWAY_LABEL varchar(255),
+        TIMESTAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (GATEWAY_LABEL, API_ID),
+        FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         );
-        
+
         GO
         CREATE TRIGGER dbo.TIMESTAMP ON dbo.AM_GW_API_ARTIFACTS
         AFTER INSERT, UPDATE
         AS
-          UPDATE f set TIMESTAMP=GETDATE()
-          FROM
-          dbo.[AM_GW_API_ARTIFACTSFG] AS f
-          INNER JOIN inserted
-          AS i
-          ON f.TIMESTAMP = i.TIMESTAMP;
+        UPDATE f set TIMESTAMP=GETDATE()
+        FROM
+        dbo.[AM_GW_API_ARTIFACTS] AS f
+        INNER JOIN inserted
+        AS i
+        ON f.TIMESTAMP = i.TIMESTAMP;
         GO
-        
+
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
+
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-          MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-          MAX_DEPTH INTEGER NOT NULL DEFAULT 0
+        MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+        MAX_DEPTH INTEGER NOT NULL DEFAULT 0
         ;
-        
-        CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_RESOURCE_SCOPE_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
             TENANT_ID INTEGER NOT NULL,
             FOREIGN KEY (URL_MAPPING_ID) REFERENCES   AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
             PRIMARY KEY(SCOPE_NAME, URL_MAPPING_ID)
         );
-        
-        
-        CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
-             NAME VARCHAR(255),
-             UUID VARCHAR (256),
-             TENANT_ID INTEGER,
-             PRIMARY KEY (UUID)
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SHARED_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SHARED_SCOPE (
+            NAME VARCHAR(255),
+            UUID VARCHAR (256),
+            TENANT_ID INTEGER,
+            PRIMARY KEY (UUID)
         );
-        
-        
+
         DECLARE @SQL VARCHAR(4000);
         SET @SQL = 'ALTER TABLE |TABLE_NAME| DROP CONSTRAINT |CONSTRAINT_NAME|';
-        
+
         SET @SQL = REPLACE(@SQL, '|CONSTRAINT_NAME|',( SELECT name FROM sysobjects WHERE xtype = 'PK' AND parent_obj = OBJECT_ID('IDN_OAUTH2_RESOURCE_SCOPE')));
         SET @SQL = REPLACE(@SQL,'|TABLE_NAME|','IDN_OAUTH2_RESOURCE_SCOPE');
         EXEC (@SQL);
-        
+
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_KEY_MANAGER]') AND TYPE IN (N'U'))
         CREATE TABLE AM_KEY_MANAGER (
-          UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NULL,
-          DISPLAY_NAME VARCHAR(100) NULL,
-          DESCRIPTION VARCHAR(256) NULL,
-          TYPE VARCHAR(45) NULL,
-          CONFIGURATION VARBINARY(MAX) NULL,
-          ENABLED BIT DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
-          PRIMARY KEY (UUID),
-          UNIQUE (NAME,TENANT_DOMAIN)
-          );
-        
+        UUID VARCHAR(50) NOT NULL,
+        NAME VARCHAR(100) NULL,
+        DISPLAY_NAME VARCHAR(100) NULL,
+        DESCRIPTION VARCHAR(256) NULL,
+        TYPE VARCHAR(45) NULL,
+        CONFIGURATION VARBINARY(MAX) NULL,
+        ENABLED BIT DEFAULT 1,
+        TENANT_DOMAIN VARCHAR(100) NULL,
+        PRIMARY KEY (UUID),
+        UNIQUE (NAME,TENANT_DOMAIN)
+        );
+
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_TENANT_THEMES]') AND TYPE IN (N'U'))
         CREATE TABLE AM_TENANT_THEMES (
-          TENANT_ID INTEGER NOT NULL,
-          THEME VARBINARY(MAX) NOT NULL,
-          PRIMARY KEY (TENANT_ID)
+        TENANT_ID INTEGER NOT NULL,
+        THEME VARBINARY(MAX) NOT NULL,
+        PRIMARY KEY (TENANT_ID)
         );
-        
+
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GRAPHQL_COMPLEXITY]') AND TYPE IN (N'U'))
         CREATE TABLE AM_GRAPHQL_COMPLEXITY (
             UUID VARCHAR(256),
@@ -1501,8 +1505,47 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(UUID),
             UNIQUE (API_ID,TYPE,FIELD)
         );
-        
+
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
+
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50);
+        GO
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = NEWID() WHERE UUID IS NULL;
+        GO
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO VARBINARY(MAX);
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT app_key_unique_cns UNIQUE (APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
+        DECLARE @ap_keymap as VARCHAR(8000);
+        SET @ap_keymap = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_KEY_MAPPING') AND type='PK');
+        EXEC('ALTER TABLE AM_APPLICATION_KEY_MAPPING
+        drop CONSTRAINT ' + @ap_keymap);
+
+        DECLARE @am_appreg as VARCHAR(8000);
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
+        drop CONSTRAINT ' + @am_appreg);
+
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER); 
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE (
+        SCOPE_ID INTEGER IDENTITY,
+        NAME VARCHAR(255) NOT NULL,
+        DISPLAY_NAME VARCHAR(255) NOT NULL,
+        DESCRIPTION VARCHAR(512),
+        TENANT_ID INTEGER NOT NULL DEFAULT -1,
+        SCOPE_TYPE VARCHAR(255) NOT NULL,
+        PRIMARY KEY (SCOPE_ID)
+        );
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE_BINDING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE_BINDING (
+        SCOPE_ID INTEGER NOT NULL,
+        SCOPE_BINDING VARCHAR(255) NOT NULL,
+        BINDING_TYPE VARCHAR(255) NOT NULL,
+        FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );        
         ```
 
         ```tab="MySQL"
@@ -2138,6 +2181,7 @@ Follow the instructions below to move all the existing API Manager configuration
         BEGIN
             :NEW.TIME_STAMP := systimestamp;
         END;
+        /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
         /
@@ -2689,10 +2733,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     1.  Download the identity component migration resources and unzip it in a local directory.
-
-        Navigate to the [v1.0.103 tag](https://github.com/wso2-extensions/identity-migration-resources/releases/tag/v1.0.103) and download the `wso2is-migration-1.0.103.zip` under Assets.    
-
-         <!-- Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets. -->
+        
+        Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.2.0_HOME>` directory.
 
@@ -2802,7 +2844,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.2.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -2816,7 +2858,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 
