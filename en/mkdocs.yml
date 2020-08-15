@@ -43,7 +43,7 @@ theme:
         tabs: true
     language: 'en'
 #Breaks build if there's a warning
-strict: false
+strict: true
 # Navigation
 nav:
     - Welcome to WSO2 API Manager Documentation: index.md
@@ -293,8 +293,8 @@ nav:
                       - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
           - Kubernetes Operators:
                 - K8s API Operator:
-                    - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator.md
-                    - Enabling PrivateJet Mode to Deploy APIs: learn/kubernetes-operators/K8s API Operator/enabling-privatejet-mode-to-deploy-apis.md
+                    - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
+                    - Enabling PrivateJet Mode to Deploy APIs: learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
                 - K8s WSO2 API Manager Operator: learn/kubernetes-operators/k8s-wso2am-operator.md
           - Tutorials:
                 - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md

@@ -1,16 +1,14 @@
-
 # Enabling PrivateJet Mode to Deploy APIs
 
 In an age where more and more applications are adopting the microservice architecture, it is obvious that container-orchestration systems such as Kubernetes have gained popularity due to the attractive functionalities they offer to simplify a number of complex management tasks.
 Automating computer application deployment, scaling, and management are a few of such functionalities to name. WSO2 API Manager provides cloud-native API management, where a user is able to expose microservices as managed APIs in cloud environment such as Kubernetes. 
 This could be done with the support of WSO2-Kubernetes API Operator. 
 
- ![Architecture](https://github.com/wso2/k8s-api-operator/blob/master/docs/HowToGuide/working-with-deployment-modes.md#private-jet-mode)
+ ![Architecture](https://raw.githubusercontent.com/wso2/k8s-api-operator/master/docs/images/privatejet-mode.png)
  
-Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet mode. Here, each microservice wll have a dedicated [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/). This will provide maximum security and guaranteed resource allocation for API execution. As depicted in the above diagram, When the APIs published via API-Manager in cloud environments,
-deployment, scaling, and management tasks will handle by the WSO2 -Kubernetes API Operator itself.
+Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet mode. Here, each microservice will have a dedicated [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/). This will provide maximum security and guaranteed resource allocation for API execution. As depicted in the above diagram, when the APIs published via API-Manager in cloud environments, deployment, scaling, and management tasks will handle by the WSO2 -Kubernetes API Operator itself.
 
-## Enabling PrivateJet mode 
+## Enabling PrivateJet mode
 
 Follow the steps below to enable PrivateJet mode to deploy APIs as managed APIs in cloud clusters. (Ex: Kubernetes)
 
@@ -119,7 +117,7 @@ Follow the steps below to enable PrivateJet mode to deploy APIs as managed APIs 
 
     v. Obtaining the master URL
 
-    In order to establish the connection with the cluster need to obtain the Master URL. this be done by executing following command.
+    Execute the following command to obtain the Master URL for the purpose of establishing a connection with the cluster.
     
         kubectl cluster-info
         
