@@ -1,18 +1,19 @@
-# PrivateJet mode for Microgateways
+# Enabling PrivateJet Mode to Deploy APIs
+
 In an age where more and more applications are adopting the microservice architecture, it is obvious that container-orchestration systems such as Kubernetes have gained popularity due to the attractive functionalities they offer to simplify a number of complex management tasks.
 Automating computer application deployment, scaling, and management are a few of such functionalities to name. WSO2 API Manager provides cloud-native API management, where a user is able to expose microservices as managed APIs in cloud environment such as Kubernetes. 
-This could be done with the support of [WSO2-Kubernetes API Operator]({{base_path}}/learn/kubernetes-operators/k8s-api-operator.md). 
+This could be done with the support of WSO2-Kubernetes API Operator. 
 
- ![Architecture]({{base_path}}/assets/img/learn/privatejet-mode/architecture.png)
+ ![Architecture](https://raw.githubusercontent.com/wso2/k8s-api-operator/master/docs/images/privatejet-mode.png)
  
-Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet mode. Here, each microservice wll have a dedicated [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/). This will provide maximum security and guaranteed resource allocation for API execution. As depicted in the above diagram, When the APIs published via API-Manager in cloud environments,
-deployment, scaling, and management tasks will handle by the [WSO2 -Kubernetes API Operator]({{base_path}}/learn/kubernetes-operators/k8s-api-operator.md) itself.
+Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet mode. Here, each microservice will have a dedicated [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/). This will provide maximum security and guaranteed resource allocation for API execution. As depicted in the above diagram, when the APIs published via API-Manager in cloud environments, deployment, scaling, and management tasks will handle by the WSO2 -Kubernetes API Operator itself.
 
 ## Enabling PrivateJet mode
 
-Follow the steps below to enable PrivateJet mode for Microgateways in API Manager to deploy APIs as managed APIs in cloud clusters. (Ex: Kubernetes)
+Follow the steps below to enable PrivateJet mode to deploy APIs as managed APIs in cloud clusters. (Ex: Kubernetes)
 
-1. Install and setup [Kubernetes API Operator]({{base_path}}/learn/kubernetes-operators/k8s-api-operator.md). 
+1. Install and setup [Kubernetes API Operator](https://github.com/wso2/k8s-api-operator/blob/master/docs/GettingStarted/quick-start-guide.md#step-3-install-api-operator). 
+
 2. Follow the prerequisites given below in order to expose APIs using ingress controller.  Go to the README guide of [Expose an API using Ingress](https://github.com/wso2/k8s-api-operator/tree/v1.2.0-alpha/scenarios/scenario-17) for scenarios. 
 
     **Prerequisites:**
@@ -116,7 +117,7 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
 
     v. Obtaining the master URL
 
-    In order to establish the connection with the cluster need to obtain the Master URL. this be done by executing following command.
+    Execute the following command to obtain the Master URL for the purpose of establishing a connection with the cluster.
     
         kubectl cluster-info
         
@@ -223,147 +224,3 @@ Follow the steps below to enable PrivateJet mode for Microgateways in API Manage
   
       </div>
       </html>
-         
-5. Start the server and create an API in publisher
-    
-    After setting up configurations go to the <API-M-HOME>/bin directory and start the server. Then Sign in to the WSO2 API Publisher and [create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api.md).
-    
-6. Select the clusters from environment tab
-
-    Navigate to the environment tab by clicking on the `Environments` in the navigation bar, and select the clusters to deploy the API.
-    
-     ![Environments]({{base_path}}/assets/img/learn/privatejet-mode/environment.png)
-    
-7. Go to lifecycle tab by clicking on the `Lifecycle` in the navigation bar, and publish the API.
-
-    Navigate to the lifecycle tab and publish the API. This will expose microservices as managed APIs in selected clusters.
-    
-     ![API LifeCycle]({{base_path}}/assets/img/learn/privatejet-mode/lifecycle_publish.png)
-     
-8. Go to the Developer Portal ( `https://<hostname>:9443/devportal` ) or click **View in Dev Portal** in the API Publisher and navigate to the Overview tab by clicking on the `Overview` in the navigation bar, and get the accessURL to access the deployed API Log in to the Management Console 
-   
-    To obtain the accessURL configured, Sign in to the WSO2 Developer Portal overview page. The accessURL can be seen under Gateway Environments.
-   
-    ![Developer portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
-   
-9. Invoking the API
-    
-    i. Sign in to the Developer Portal ( `https://<hostname>:9443/devportal` ). Subscribe to the API and obtain an access token required to invoke the API.
-    
-    ii. Click **Try Out** to navigate to the API Console.
-    
-    iii. Select the gateway as configured container management cluster.
-    
-    ![Developer portal - Try Out gateway selection]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)
-    
-    iv. Expand any method and click **Try it out**.
-    
-     [![Tryout click]({{base_path}}/assets/img/learn/create-api-prototype-tryout-click.png)]({{base_path}}/assets/img/learn/create-api-prototype-tryout-click.png)
-
-    v. Enter the value for the parameter and click **Execute** to invoke the API.
-   
-      ![Developer portal - Try Out Execute for petid1]({{base_path}}/assets/img/learn/privatejet-mode/tryout-Execute.png)
-     
-       The response payload :
-                
-      ![Developer portal - Try Out Response for petid1]({{base_path}}/assets/img/learn/privatejet-mode/tryout-response.png)
-        
-### Securing APIs deployed in privateJet mode
-
-By default the APIs deployed in cloud clusters with k8s-api-operator are secured with JWT authentication. Hence the APIs deployed in privateJet mode are secured with JWT authentication.
-
-WSO2 API-Manager offers [authentication mechanisms](https://github.com/wso2/k8s-api-operator/blob/v1.2.0-alpha/docs/HowToGuide/OverviewOfCrds/apply-security-to-api.md) to secure APIs from unauthenticated access in cloud-native API management. JWT authentication, Oauth2 authentication and Basic authentication are the mechanisms provided to secure APIs.
-
-In order to secure APIs with above mechanisms,
-
-   1. First need to create the security custom resources and secrets for the selected authentication mechanisms. Follow the steps in the document [Applying security for APIs](https://github.com/wso2/k8s-api-operator/blob/v1.2.0-alpha/docs/HowToGuide/OverviewOfCrds/apply-security-to-api.md) and create the security custom resources and secrets.
-    
-   2. Refer the names of the security custom resources created in step 1, in the configurations as follows.
-
-    For the super tenant users the cluster configurations should be added to the deployment.toml file in <API-M_HOME>/repository/conf path as follows.
-        
-    ``` json tab="Format"
-    [[ContainerMgtClusterConfig]]
-    type = "<cloud-environment-type>"
-    clusterName = "<cluster-name>"
-    displayName = "<cluster-name-to_display>"
-    properties.Replicas = "<number-of-replicas>"
-    properties.AccessURL = "<access-URL>"
-    properties.MasterURL = "<Master-URL-of-clsuter>"
-    properties.SAToken = "<serviceacccount-token>"
-    properties.Namespace = "<namespcae>"
-    properties.BasicSecurityCustomResourceName = "<basic-security-CR-name>"
-    properties.OauthSecurityCustomResourceName = "<Oauth-security-CR-name>"
-    properties.JWTSecurityCustomResourceName = "<JWT-security-CR-name>"
-    ```
-            
-    ``` json tab="Example"
-    [[ContainerMgtClusterConfig]]
-    type = "Kubernetes"
-    clusterName = "docker-desktop"
-    displayName = "cluster-1"
-    properties.Replicas = 1
-    properties.AccessURL = "https://internal.wso2.com"
-    properties.MasterURL = "https://kubernetes.docker.internal:6443"
-    properties.SAToken = "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2UlYySEFkaVBOVG4zZ3FhWERXQUxQVUQ0bjlzOXE3dFhpbUZNZlFiRjQifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ3c28yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6IndzbzJhbS1wYXR0ZXJuLTEtc3ZjLWFjY291bnQtdG9rZW4tZGR0OTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoid3NvMmFtLXBhdHRlcm4tMS1zdmMtYWNjb3VudCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6Ijc3NmRmMjFkLTA3NjItNDM2Zi05ZDIwLTZlYzFkODMxYzc1NSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp3c28yOndzbzJhbS1wYXR0ZXJuLTEtc3ZjLWFjY291bnQifQ.YwlSgnSnwS7BNP0q0iDHsjlq_r3RhobG-SrduuEi35VXNfipPsK3UVJcCBmDKQOzKAxRG9415h2pr3cS-QsM6PR_UU2UWlXiUO-3UtSMqVY48Ek_1wdfmfCkiE7IOeua_58CV15tXtMLom0Oh27nkmWGfTHVvImQnqho4nv26BKZH4vKWgkw0HpMt73KHdN6SlVMK0cynktO5H-2A4V2rh-uL-OUXCLON_sBypVoPc9PAMxHo-bUe0SqBPiM0SiALu-0-J6dBcwbzPb5g-yUZmHmtuw3O32C304Hgfr-4Dui3X5DSKBSeqlrjjjfrvMVNug0J4JKk3bJ56h0OgujFw"
-    properties.Namespace = "default"
-    properties.BasicSecurityCustomResourceName = "securitybasic"
-    properties.OauthSecurityCustomResourceName = "securityoauth"
-    properties.JWTSecurityCustomResourceName = "securityjwt"
-    ```
-
-    For the tenant users the cluster configurations should be added to the `tenant-conf.json` file. Go to the carbon console and edit the tenant-conf.json file in `/_system/config/apimgt/applicationdata/` path.
-      
-    ``` json tab="Format"
-    "ContainerMgt": [
-      {
-        "Type": "Kubernetes",
-        "ContainerMgtInfo": [
-        {
-          "ClusterName": "",
-          "DisplayName": "",
-          "Properties": {
-            "MasterURL": "",
-            "AccessURL": "",
-            "SAToken": "",
-            "Namespace": "default",
-            "Replicas": 1,
-            "BasicSecurityCustomResourceName": "",
-            "OauthSecurityCustomResourceName": "",
-            "JWTSecurityCustomResourceName": ""
-            }
-          }
-        ]
-      }
-    ]
-    ```
-    
-    ``` json tab="Example"
-    "ContainerMgt": [
-      {
-        "Type": "Kubernetes",
-        "ContainerMgtInfo": [
-         {
-           "ClusterName": "docker-desktop",
-           "DisplayName": "cluster-1",
-           "Properties": {
-           "MasterURL": "https://kubernetes.docker.internal:6443",
-           "AccessURL": "https://internal.wso2.com",
-           "SAToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijg2UlYySEFkaVBOVG4zZ3FhWERXQUxQVUQ0bjlzOXE3dFhpbUZNZlFiRjQifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJ3c28yIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZWNyZXQubmFtZSI6IndzbzJhbS1wYXR0ZXJuLTEtc3ZjLWFjY291bnQtdG9rZW4tZGR0OTkiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC5uYW1lIjoid3NvMmFtLXBhdHRlcm4tMS1zdmMtYWNjb3VudCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6Ijc3NmRmMjFkLTA3NjItNDM2Zi05ZDIwLTZlYzFkODMxYzc1NSIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDp3c28yOndzbzJhbS1wYXR0ZXJuLTEtc3ZjLWFjY291bnQifQ.YwlSgnSnwS7BNP0q0iDHsjlq_r3RhobG-SrduuEi35VXNfipPsK3UVJcCBmDKQOzKAxRG9415h2pr3cS-QsM6PR_UU2UWlXiUO-3UtSMqVY48Ek_1wdfmfCkiE7IOeua_58CV15tXtMLom0Oh27nkmWGfTHVvImQnqho4nv26BKZH4vKWgkw0HpMt73KHdN6SlVMK0cynktO5H-2A4V2rh-uL-OUXCLON_sBypVoPc9PAMxHo-bUe0SqBPiM0SiALu-0-J6dBcwbzPb5g-yUZmHmtuw3O32C304Hgfr-4Dui3X5DSKBSeqlrjjjfrvMVNug0J4JKk3bJ56h0OgujFw",
-           "Namespace": "default",
-           "Replicas": 1,
-           "BasicSecurityCustomResourceName": "securitybasic",
-           "OauthSecurityCustomResourceName": "securityoauth",
-           "JWTSecurityCustomResourceName": "securityjwt"
-            }
-          }
-        ]
-      }
-    ]
-    ```
-
-    <html><div class="admonition note">
-      <p class="admonition-title">Note</p>
-      <p>Configuring `BasicSecurityCustomResourceName`, `OauthSecurityCustomResourceName` and `JWTSecurityCustomResourceName` are only required when applying security for APIs. </p>
-      </div>
-    </html>
