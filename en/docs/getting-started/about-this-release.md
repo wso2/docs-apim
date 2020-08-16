@@ -130,7 +130,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      API categories are used for API grouping, similar to Tag wise grouping. However, the user does not have to go through the hassle of following a naming convention when creating API categories. Therefore, with the introduction of the API categories, Tag wise grouping has been deprecated, and WSO2 recommends users to use the 
 
-- [Developer Portal]({{base_path}}/develop/product-apis/devportal-v0.15/) and [Publisher]({{base_path}}/develop/product-apis/publisher-v0.15) v0.15 based REST APIs.
+- [Developer Portal]({{base_path}}develop/product-apis/devportal-apis/devportal-v1/devportal-v1) and [Publisher]({{base_path}}/develop/product-apis/publisher-apis/publisher-v1/publisher-v1) v1 based REST APIs.
 
 ### Removed features and functionalities
 
