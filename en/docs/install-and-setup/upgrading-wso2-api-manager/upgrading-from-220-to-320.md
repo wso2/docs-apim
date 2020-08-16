@@ -2270,7 +2270,7 @@ Follow the instructions below to move all the existing API Manager configuration
         FROM information_schema.table_constraints AS tc
         JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name
         JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name
-        WHERE constraint_type = 'PRIMARY KEY' AND tc.table_name = 'IDN_OAUTH2_RESOURCE_SCOPE';
+        WHERE constraint_type = 'PRIMARY KEY' AND tc.table_name = 'idn_oauth2_resource_scope';
         EXECUTE con_name;
         END $$;
         
