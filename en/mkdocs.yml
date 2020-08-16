@@ -692,6 +692,9 @@ plugins:
               'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
               'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/'
               'learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/design-api/create-api/create-a-rest-api-from-a-openapi-definition/'
+              'learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/alert-types/'
+              'learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/configuring-alerts/'
+              'learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/subscribing-for-alert/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
