@@ -18,22 +18,58 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M related new features
 
-- **[Integrating AWS Lambda with APIM]({{base_path}}/learn/tutorials/create-and-publish-awslambda-api)**
+- **[Third-Party Key Manager Support]({{base_path}}/administer/key-managers/overview/)**
 
-     When using AWS Lambda to create and publish APIs, you can execute your code without having to manage or provision servers.
+     WSO2 API Manager provides an admin functionality for admins/tenant admins to configure different authorization servers as Key Managers. This brings the capability of supporting multiple Key Managers for a given API.
 
+- **[Approval Workflow Executor to API Manager]({{base_path}}/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow/)**
 
-- **[API Security Audit Integration]({{base_path}}/learn/api-security/configuring-api-security-audit)**
+     The Approval Workflow Executor can be enabled for application creation, subscription creation, application key generation, user self sign up, and API state change.
 
-     WSO2 API-M has partnered with [42Crunch](https://42crunch.com/), which is the only enterprise API security platform, in order to be able to conduct a security audit on the OpenAPI Specification definition and to obtain an audit report.
+- **[API Publisher Test Console]({{base_path}}/learn/design-api/create-api/test-a-rest-api/)**
 
-- **[AI-based recommendations for the Developer Portal]({{base_path}}/learn/consume-api/discover-apis/api-recommendations)**
+     The new Test Console in the API Publisher allows you to try out APIs from the publisher itself and verify functions and behaviors before publishing them to the gateway for subscribers.
 
-     The AI-based recommendations for the Developer Portal use a specialized recommendation engine to process recommendation related events and produce recommendations.
+- **GraphQL Query Complexity Analysis**
 
-- [**API Mocking**]({{base_path}}/learn/design-api/mock-api/create-a-mock-api-with-an-inline-script)
+     You can request more data with increased flexibility using GraphQL queries. WSO2 API Manager introduces the Static Query Analyser to handle complex queries. 
 
-     Ability to create a prototype API using a mock payload that is generated for inline scripts.
+- **OAuth 2.0 Endpoint Security**
+
+     APIs created in WSO2 API Manager can directly access OAuth 2.0-protected endpoints without any extension to WSO2 API Manager.
+
+- **Horizontal Pod Auto-Scaling with Custom-Metrics in the K8s API-Operator**
+
+     You can now auto-scale backend or managed API horizontally based on custom metrics. A [sample scenario (v1.2.0)](https://github.com/wso2/k8s-api-operator/tree/master/scenarios/scenario-20) with detailed configurations can be found in the GitHub page of the K8s API-Operator.
+
+- **[Private Jet mode for Micro Gateways]({{base_path}}/learn/api-microgateway/deploy-apis-in-privatejet-mode/)**
+
+     WSO2 API Manager now provides cloud-native API management, where users can expose microservices as managed APIs in cloud environments with the support of the K8s API-Operator.
+
+- **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-multi-gateway-setup-with-artifact-synchronization)**
+
+     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup using NFS with an extension point which can be configurable to store these synapse artifacts. 
+
+- **[GIT Integration Support for API Controller]({{base_path}}/learn/api-controller/ci-cd-with-wso2-api-management/)**
+
+     From API Manager 3.2 onwards, the API Controller can operate on top of a Git repository and identify all the APIs/API Products and Application Projects that are committed to it. And it gives a single command to detect and deploy all the projects to the given environment.
+
+- **Support for API Products from API Controller**
+
+     WSO2 API Manager enables users to utilize not only HTTP/REST endpoints but also HTTP/SOAP endpoints with endpoint routing policies such as load balancing and failover. Also, this incorporates support for dynamic endpoints and AWS Lambda endpoints as well.
+
+- **API Lifecycle Status Change Support**
+
+     API lifecycle status change support in WSO2 API Controller 3.2 provides users the ability to modify the lifecycle status of an API easily without accessing the Publisher UI. 
+
+- **API/Application Delete Support for Controller**
+
+     WSO2 API Controller 3.2 provides the ability to delete an API/application using a single command, allowing users to easily remove an unwanted API or application in an environment without login into the Publisher or Developer Portal.
+
+- **[API Key Authentication Support for API Operator]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#api-key-restriction-for-ip-address-and-http-referer)**
+
+- **[API Key Restriction for IP and Referrer]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#api-key-restriction-for-ip-address-and-http-referer)**
+
 
 ### WSO2 API-M Analytics related new features
 
