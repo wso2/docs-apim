@@ -9,6 +9,9 @@ The following information describes how to upgrade your API Manager server **fro
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
+!!! Attention
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100) instead of below steps.    
+
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
@@ -2328,11 +2331,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.5.0 to 5.10.0.
-
-    !!! note
-        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-550-to-5100) instead of below steps.
-
-        But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
 
     ??? note "If you are using DB2"
         Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.

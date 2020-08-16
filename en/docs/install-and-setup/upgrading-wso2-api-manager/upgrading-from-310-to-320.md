@@ -9,6 +9,9 @@ The following information describes how to upgrade your API Manager server **fro
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
+!!! Attention
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-5100-to-is-5100).    
+
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
     ```
