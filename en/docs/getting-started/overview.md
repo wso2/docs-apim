@@ -47,19 +47,18 @@ The diagram above shows the common lifecycle activities of an API developer/man
 
 The Developer Portal is a state-of-the-art web interface that allows API publishers to host and advertise their APIs while allowing API consumers to [self-register]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup), discover, evaluate, subscribe to and consume APIs.
 
-
 The diagram above shows common API consumer lifecycle activities:
 
 #### API Gateway
 
-The API Gateway is a runtime, backend component (an [API proxy](https://docs.wso2.com/display/EI611/Working+with+APIs) ) developed using [WSO2 ESB]{{base_path}}/getting-started/about-this-release/). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics. Upon validation of a policy, the Gateway passes web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the [Key Manager](#key-manager).
+The API Gateway is a runtime, backend component (an [API proxy](https://docs.wso2.com/display/EI660/Working+with+APIs)) developed using [WSO2 EI](https://docs.wso2.com/display/EI660). API Gateway secures, protects, manages, and scales API calls. It intercepts API requests, applies policies such as throttling and security using handlers, and manages API statistics. Upon validation of a policy, the Gateway passes web service calls to the actual backend. If the service call is a token request, the Gateway passes it directly to the [Key Manager](#key-manager).
 
 The API Gateway supports OAuth 2.0, JWT, Basic Auth, Mutual SSL as well as API-Key based authentication mechanisms the above-mentioned authentication mechanisms and enables IT organizations to enforce rate limits and throttling policies.
 
 When WSO2 API Manager is running, you can access the API-M Managment Console in the Gateway node using the following URL: <https://localhost:9443/carbon>. You can integrate a monitoring and analytics component to the API Manager by [configuring WSO2 API Manager Analytics]({{base_path}}/learn/analytics/configuring-apim-analytics.md). This component provides reports, statistics and graphs on the APIs deployed in WSO2 API Manager. You can also configure alerts to monitor these APIs and detect unusual activity, manage locations via geo location statistics and, carry out detailed analysis of the logs.
 
 !!! note
-    Although the API Gateway contains ESB features, it is recommended not to use it for ESB-specific tasks. Its intended to be used only for Gateway functionality related to API invocations. For example, if you want to call external services like SAP, use a separate [ESB cluster](https://docs.wso2.com/display/EI650/Clustering+the+ESB+Profile) for that purpose.
+    Although the API Gateway contains WSO2 EI features, it is recommended not to use it for EI-specific tasks. Its intended to be used only for Gateway functionality related to API invocations. For example, if you want to call external services like SAP, use a separate [EI cluster](https://docs.wso2.com/display/EI660/Clustering+the+ESB+Profile) for that purpose.
 
 #### Key Manager
 
