@@ -2,7 +2,8 @@
 
 !!! Important
     This migration guide is in the process of restructuring, and is NOT yet ready for use.
-
+    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
+    
 The following information describes how to upgrade your API Manager server **from APIM 3.1.0 to 3.2.0**.
 
 !!! note
@@ -23,7 +24,7 @@ Follow the instructions below to upgrade your WSO2 API Manager server **from WSO
 
 If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default from API Manager 3.0.0 onwards.
 
-But, if registry versioning was enabled by you in WSO2 API-M 3.2.0 setup, it is **required** to turn off the 
+But, if registry versioning was enabled by you in WSO2 API-M 3.1.0 setup, it is **required** to turn off the 
 registry versioning in the migrated 3.2.0 setup. Please follow the below steps to achieve this.
 
 !!! note "NOTE"
@@ -319,7 +320,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download (https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -640,96 +641,96 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ```tab="MSSQL"
         ALTER TABLE AM_WORKFLOWS ADD
-         WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
-         WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
+        WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
+        WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
         ;
-        
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_PUBLISHED_API_DETAILS (
-          API_ID varchar(255) NOT NULL,
-          TENANT_DOMAIN varchar(255),
-          API_PROVIDER varchar(255),
-          API_NAME varchar(255),
-          API_VERSION varchar(255),
-          PRIMARY KEY (API_ID)
+        API_ID varchar(255) NOT NULL,
+        TENANT_DOMAIN varchar(255),
+        API_PROVIDER varchar(255),
+        API_NAME varchar(255),
+        API_VERSION varchar(255),
+        PRIMARY KEY (API_ID)
         );
-        
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_API_ARTIFACTS (
-          API_ID varchar(255) NOT NULL,
-          ARTIFACT VARBINARY(MAX),
-          GATEWAY_INSTRUCTION varchar(20),
-          GATEWAY_LABEL varchar(255),
-          TIMESTAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-          PRIMARY KEY (GATEWAY_LABEL, API_ID),
-          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        API_ID varchar(255) NOT NULL,
+        ARTIFACT VARBINARY(MAX),
+        GATEWAY_INSTRUCTION varchar(20),
+        GATEWAY_LABEL varchar(255),
+        TIMESTAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (GATEWAY_LABEL, API_ID),
+        FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         );
-        
+
         GO
         CREATE TRIGGER dbo.TIMESTAMP ON dbo.AM_GW_API_ARTIFACTS
         AFTER INSERT, UPDATE
         AS
-          UPDATE f set TIMESTAMP=GETDATE()
-          FROM
-          dbo.[AM_GW_API_ARTIFACTSFG] AS f
-          INNER JOIN inserted
-          AS i
-          ON f.TIMESTAMP = i.TIMESTAMP;
+        UPDATE f set TIMESTAMP=GETDATE()
+        FROM
+        dbo.[AM_GW_API_ARTIFACTS] AS f
+        INNER JOIN inserted
+        AS i
+        ON f.TIMESTAMP = i.TIMESTAMP;
         GO
-        
+
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
+
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-          MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-          MAX_DEPTH INTEGER NOT NULL DEFAULT 0
+        MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+        MAX_DEPTH INTEGER NOT NULL DEFAULT 0
         ;
-        
-        CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_RESOURCE_SCOPE_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
             TENANT_ID INTEGER NOT NULL,
             FOREIGN KEY (URL_MAPPING_ID) REFERENCES   AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
             PRIMARY KEY(SCOPE_NAME, URL_MAPPING_ID)
         );
-        
-        
-        CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
-             NAME VARCHAR(255),
-             UUID VARCHAR (256),
-             TENANT_ID INTEGER,
-             PRIMARY KEY (UUID)
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SHARED_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SHARED_SCOPE (
+            NAME VARCHAR(255),
+            UUID VARCHAR (256),
+            TENANT_ID INTEGER,
+            PRIMARY KEY (UUID)
         );
-        
-        
+
         DECLARE @SQL VARCHAR(4000);
         SET @SQL = 'ALTER TABLE |TABLE_NAME| DROP CONSTRAINT |CONSTRAINT_NAME|';
-        
+
         SET @SQL = REPLACE(@SQL, '|CONSTRAINT_NAME|',( SELECT name FROM sysobjects WHERE xtype = 'PK' AND parent_obj = OBJECT_ID('IDN_OAUTH2_RESOURCE_SCOPE')));
         SET @SQL = REPLACE(@SQL,'|TABLE_NAME|','IDN_OAUTH2_RESOURCE_SCOPE');
         EXEC (@SQL);
-        
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_KEY_MANAGER]') AND TYPE IN (N'U'))
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_KEY_MANAGER]') AND TYPE IN (N'U'))
         CREATE TABLE AM_KEY_MANAGER (
-          UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NULL,
-          DISPLAY_NAME VARCHAR(100) NULL,
-          DESCRIPTION VARCHAR(256) NULL,
-          TYPE VARCHAR(45) NULL,
-          CONFIGURATION VARBINARY(MAX) NULL,
-          ENABLED BIT DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
-          PRIMARY KEY (UUID),
-          UNIQUE (NAME,TENANT_DOMAIN)
-          );
-        
+        UUID VARCHAR(50) NOT NULL,
+        NAME VARCHAR(100) NULL,
+        DISPLAY_NAME VARCHAR(100) NULL,
+        DESCRIPTION VARCHAR(256) NULL,
+        TYPE VARCHAR(45) NULL,
+        CONFIGURATION VARBINARY(MAX) NULL,
+        ENABLED BIT DEFAULT 1,
+        TENANT_DOMAIN VARCHAR(100) NULL,
+        PRIMARY KEY (UUID),
+        UNIQUE (NAME,TENANT_DOMAIN)
+        );
+
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_TENANT_THEMES]') AND TYPE IN (N'U'))
         CREATE TABLE AM_TENANT_THEMES (
-          TENANT_ID INTEGER NOT NULL,
-          THEME VARBINARY(MAX) NOT NULL,
-          PRIMARY KEY (TENANT_ID)
+        TENANT_ID INTEGER NOT NULL,
+        THEME VARBINARY(MAX) NOT NULL,
+        PRIMARY KEY (TENANT_ID)
         );
-        
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GRAPHQL_COMPLEXITY]') AND TYPE IN (N'U'))
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GRAPHQL_COMPLEXITY]') AND TYPE IN (N'U'))
         CREATE TABLE AM_GRAPHQL_COMPLEXITY (
             UUID VARCHAR(256),
             API_ID INTEGER NOT NULL,
@@ -740,8 +741,47 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(UUID),
             UNIQUE (API_ID,TYPE,FIELD)
         );
-        
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
+
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50);
+        GO
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = NEWID() WHERE UUID IS NULL;
+        GO
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO VARBINARY(MAX);
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT app_key_unique_cns UNIQUE (APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
+        DECLARE @ap_keymap as VARCHAR(8000);
+        SET @ap_keymap = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_KEY_MAPPING') AND type='PK');
+        EXEC('ALTER TABLE AM_APPLICATION_KEY_MAPPING
+        drop CONSTRAINT ' + @ap_keymap);
+
+        DECLARE @am_appreg as VARCHAR(8000);
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
+        drop CONSTRAINT ' + @am_appreg);
+
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER); 
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE (
+        SCOPE_ID INTEGER IDENTITY,
+        NAME VARCHAR(255) NOT NULL,
+        DISPLAY_NAME VARCHAR(255) NOT NULL,
+        DESCRIPTION VARCHAR(512),
+        TENANT_ID INTEGER NOT NULL DEFAULT -1,
+        SCOPE_TYPE VARCHAR(255) NOT NULL,
+        PRIMARY KEY (SCOPE_ID)
+        );
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE_BINDING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE_BINDING (
+        SCOPE_ID INTEGER NOT NULL,
+        SCOPE_BINDING VARCHAR(255) NOT NULL,
+        BINDING_TYPE VARCHAR(255) NOT NULL,
+        FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );        
         ```
 
         ```tab="MySQL"
@@ -878,6 +918,7 @@ Follow the instructions below to move all the existing API Manager configuration
         BEGIN
             :NEW.TIME_STAMP := systimestamp;
         END;
+        /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
         /
@@ -1086,7 +1127,7 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
@@ -1165,42 +1206,77 @@ Follow the steps below to migrate APIM Analytics 3.1.0 to APIM Analytics 3.2.0
 
 #### Step 3.1 - Migrating the Analytics Database
 
-Upgrade the WSO2 API Manager Analytics database from version 3.1.0 to version 3.2.0 by executing the relevant database script, from the scripts that are provided below, on the `APIM_ANALYTICS_DB` database.
+The schema for table APIMALLALERT is changed in analytics version 3.2. So it is recommended to drop the above table
+prior to the migration so that it will be recreated at the server startup using the new script. 
+If you think that you require the already available data in the above table you can take a backup of it. But the above 
+table is just used to maintain a summary of all types of alerts in a single place. As 
+these alerts are persisted individually as well in tables specific for the type of the alert, you will not loose any
+data related to alerts by dropping this table.
 
 ??? info "DB Scripts"
-    ```tab="H2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);           
-    ```
-    
-    ```tab="DB2"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APIVERSION,APICREATOR,APICREATORTENANTDOMAIN);
+     DROP TABLE APIMALLALERT;
+     
+The GRAPHQL operations stored in analytics database are persisted in a sorted way from 3.2 onwards due to a performance 
+improvement. If you use GRAPHQL APIs please follow the instruction below to sort the already existing data on above
+columns
+
+1.  Configure the datasource used for WSO2 API Manager Analytics in the 
+`<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file of WSO2 API Manager.
+
+    The following in an example of how the configurations should be defined when using MySQL.
+
+   
+    -   The datasource points to the analytics datasource configured in the version 3.1
+
+        ``` java
+        [[datasource]]
+        id = "APIM_ANALYTICS_DB"
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/analytics_db"
+        driver = "com.mysql.jdbc.Driver"
+        validationQuery = "SELECT 1"
+        username = "username"
+        password = "password"
+        pool_options.defaultAutoCommit = true
+        ```
+
+    !!! note
+        When performing Analytics migration in WSO2 API-M Analytics 3.2.0, you need to set the **defaultAutoCommit** 
+        value to **true** in the `APIM_ANALYTICS_DB` 
+
+    ??? attention "If you are using another DB type"
+        If you are using another DB type other than **H2** or **MySQL** or **Oracle**, when defining the DB related configurations in the `deployment.toml` file for API Manager database, you need to add the `driver` and `validationQuery` parameters optionally. For example MSSQL database configuration is as follows for the API Manager database.
+ 
+        ```
+        [database.apim_db]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=mig_am_db;SendStringParametersAsUnicode=false"
+        username = "username"
+        password = "password"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
+
+2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+
+3.  Copy the relevant JDBC driver to the `<API-M_3.2.0_HOME>/repository/components/lib` folder.
+
+4.  Make sure that WSO2 API-M Analytics is disabled in the `<API-M_3.2.0_HOME>/repository/conf/ deployment.toml` file.
+
+    ``` java
+    [apim.analytics]
+    enable = false
     ```
 
-    ```tab="MSSQL"
-    DECLARE @con_com as VARCHAR(8000);
-    SET @con_com = (SELECT name from sys.objects where parent_object_id=object_id('APILASTACCESSSUMMARY') AND type='PK');
-    EXEC('ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT ' + @con_com);
-    ALTER TABLE APILASTACCESSSUMMARY ALTER COLUMN APIVERSION VARCHAR(254) NOT NULL;
-    ALTER TABLE APILASTACCESSSUMMARYADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+5.  After setting the above configurations in place, start up the WSO2 API-M 3.2.0 server with the following command,
+ **if you had enabled Geo Location Based Statistics** in the old version setup.
+
+    ``` tab="Linux / Mac OS"
+    sh wso2server.sh -DmigrateStats=true -DmigrateFromVersion=3.1.0
     ```
 
-    ```tab="MySQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-    
-    ```tab="Oracle"
-    ALTER TABLE APILASTACCESSSUMMARY DROP PRIMARY KEY;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
-    ```
-        
-    ```tab="PostgreSQL"
-    ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
-    ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
+    ``` tab="Windows"
+    wso2server.bat -DmigrateStats=true -DmigrateFromVersion=3.1.0
     ```
 
 #### Step 3.2 - Configure WSO2 API-M Analytics 3.2.0
@@ -1212,12 +1288,9 @@ Upgrade the WSO2 API Manager Analytics database from version 3.1.0 to version 3.
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.1.0](http://wso2.com/api-management/).
+1.  Download [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
 
-    !!! note
-        It is **mandatory** to use a WUM updated WSO2 API Manager Analytics 3.1.0 pack when migrating the configurations for WSO2 API-M Analytics.
-
-2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.1.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
+2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
 
     ``` java
     #Data source for APIM Analytics
@@ -1257,7 +1330,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
             isAutoCommit: false
     ```
 
-3.  Configure the following datasource in the `<API-M_ANALYTICS_3.1.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
+3.  Configure the following datasource in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
 
     ``` java
     #Data source for APIM Analytics
@@ -1279,7 +1352,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
           isAutoCommit: false
     ```
 
-4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.1.0_HOME>/lib` folder.
+4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.2.0_HOME>/lib` folder.
 
     !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
         1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
@@ -1289,7 +1362,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
         ./jartobundle.sh <PATH_TO_NON-OSGi_JAR> ../lib
         ```
 
-5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.1.0_HOME>/bin` location.
+5.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.2.0_HOME>/bin` location.
     
     ```tab="Worker"
     sh worker.sh
@@ -1306,7 +1379,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
 
 Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Configure the following datasources in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+1.  Configure the following datasources in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
     The following is an example of how the configurations should be defined when using MySQL.
 
@@ -1320,7 +1393,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     password = "password"
     ```
 
-2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
     [apim.analytics]

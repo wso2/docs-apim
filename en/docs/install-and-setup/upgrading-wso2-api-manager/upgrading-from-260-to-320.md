@@ -1,8 +1,9 @@
 # Upgrading API Manager from 2.6.0 to 3.2.0
 
 !!! Important
-    This migration guide is in the process of restructuring, and is NOT yet ready for use.
-
+    This migration guide is in the process of restructuring, and is NOT yet ready for use. 
+    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
+ 
 The following information describes how to upgrade your API Manager server **from APIM 2.6.0 to 3.2.0**.
 
 !!! note
@@ -303,7 +304,7 @@ versioning in the migrated 3.2.0 setup. Please follow the below steps to achieve
 -   [Step 2 - Upgrade API Manager to 3.2.0](#step-2-upgrade-api-manager-to-320)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
 -   [Step 4 - Restart the WSO2 API-M 3.2.0 server](#step-4-restart-the-wso2-api-m-320-server)
-s
+
 ### Step 1 - Migrate the API Manager configurations
 
 !!! warning
@@ -319,7 +320,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -1210,7 +1211,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_RID' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
         CREATE INDEX IDX_RID ON IDN_UMA_RESOURCE(RESOURCE_ID);
-        
+
         IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_USER' and object_id = OBJECT_ID('IDN_UMA_RESOURCE'))
         CREATE INDEX IDX_USER ON IDN_UMA_RESOURCE(RESOURCE_OWNER_NAME, USER_DOMAIN);
 
@@ -1246,10 +1247,10 @@ Follow the instructions below to move all the existing API Manager configuration
             TENANT_ID INTEGER     DEFAULT -1234,
             PRIMARY KEY (ID)
         );
-
+        GO
         IF NOT EXISTS (SELECT * FROM SYS.indexes WHERE name = 'IDX_PT' and object_id = OBJECT_ID('IDN_UMA_PERMISSION_TICKET'))
-        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET(NAME, PT);
-
+        CREATE INDEX IDX_PT ON IDN_UMA_PERMISSION_TICKET(PT);
+        GO
         IF NOT EXISTS ( SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[IDN_UMA_PT_RESOURCE]') AND TYPE IN (N'U'))
         CREATE TABLE IDN_UMA_PT_RESOURCE (
             ID INTEGER IDENTITY NOT NULL,
@@ -1297,97 +1298,97 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
-        
+
         ALTER TABLE AM_WORKFLOWS ADD
-         WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
-         WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
+        WF_METADATA VARBINARY(MAX) NULL DEFAULT NULL,
+        WF_PROPERTIES VARBINARY(MAX) NULL DEFAULT NULL
         ;
-        
+
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_PUBLISHED_API_DETAILS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_PUBLISHED_API_DETAILS (
-          API_ID varchar(255) NOT NULL,
-          TENANT_DOMAIN varchar(255),
-          API_PROVIDER varchar(255),
-          API_NAME varchar(255),
-          API_VERSION varchar(255),
-          PRIMARY KEY (API_ID)
+        API_ID varchar(255) NOT NULL,
+        TENANT_DOMAIN varchar(255),
+        API_PROVIDER varchar(255),
+        API_NAME varchar(255),
+        API_VERSION varchar(255),
+        PRIMARY KEY (API_ID)
         );
-        
-        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GW_API_ARTIFACTS]') AND TYPE IN (N'U'))
         CREATE TABLE  AM_GW_API_ARTIFACTS (
-          API_ID varchar(255) NOT NULL,
-          ARTIFACT VARBINARY(MAX),
-          GATEWAY_INSTRUCTION varchar(20),
-          GATEWAY_LABEL varchar(255),
-          TIMESTAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-          PRIMARY KEY (GATEWAY_LABEL, API_ID),
-          FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
+        API_ID varchar(255) NOT NULL,
+        ARTIFACT VARBINARY(MAX),
+        GATEWAY_INSTRUCTION varchar(20),
+        GATEWAY_LABEL varchar(255),
+        TIMESTAMP DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+        PRIMARY KEY (GATEWAY_LABEL, API_ID),
+        FOREIGN KEY (API_ID) REFERENCES AM_GW_PUBLISHED_API_DETAILS(API_ID) ON UPDATE CASCADE ON DELETE NO ACTION
         );
-        
+
         GO
         CREATE TRIGGER dbo.TIMESTAMP ON dbo.AM_GW_API_ARTIFACTS
         AFTER INSERT, UPDATE
         AS
-          UPDATE f set TIMESTAMP=GETDATE()
-          FROM
-          dbo.[AM_GW_API_ARTIFACTSFG] AS f
-          INNER JOIN inserted
-          AS i
-          ON f.TIMESTAMP = i.TIMESTAMP;
+        UPDATE f set TIMESTAMP=GETDATE()
+        FROM
+        dbo.[AM_GW_API_ARTIFACTS] AS f
+        INNER JOIN inserted
+        AS i
+        ON f.TIMESTAMP = i.TIMESTAMP;
         GO
-        
+
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR(50);
-        
+
         ALTER TABLE AM_POLICY_SUBSCRIPTION ADD
-          MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
-          MAX_DEPTH INTEGER NOT NULL DEFAULT 0
+        MAX_COMPLEXITY INTEGER NOT NULL DEFAULT 0,
+        MAX_DEPTH INTEGER NOT NULL DEFAULT 0
         ;
-        
-        CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_RESOURCE_SCOPE_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
             TENANT_ID INTEGER NOT NULL,
             FOREIGN KEY (URL_MAPPING_ID) REFERENCES   AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
             PRIMARY KEY(SCOPE_NAME, URL_MAPPING_ID)
         );
-        
-        
-        CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
-             NAME VARCHAR(255),
-             UUID VARCHAR (256),
-             TENANT_ID INTEGER,
-             PRIMARY KEY (UUID)
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SHARED_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SHARED_SCOPE (
+            NAME VARCHAR(255),
+            UUID VARCHAR (256),
+            TENANT_ID INTEGER,
+            PRIMARY KEY (UUID)
         );
-        
-        
+
         DECLARE @SQL VARCHAR(4000);
         SET @SQL = 'ALTER TABLE |TABLE_NAME| DROP CONSTRAINT |CONSTRAINT_NAME|';
-        
+
         SET @SQL = REPLACE(@SQL, '|CONSTRAINT_NAME|',( SELECT name FROM sysobjects WHERE xtype = 'PK' AND parent_obj = OBJECT_ID('IDN_OAUTH2_RESOURCE_SCOPE')));
         SET @SQL = REPLACE(@SQL,'|TABLE_NAME|','IDN_OAUTH2_RESOURCE_SCOPE');
         EXEC (@SQL);
-        
+
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_KEY_MANAGER]') AND TYPE IN (N'U'))
         CREATE TABLE AM_KEY_MANAGER (
-          UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NULL,
-          DISPLAY_NAME VARCHAR(100) NULL,
-          DESCRIPTION VARCHAR(256) NULL,
-          TYPE VARCHAR(45) NULL,
-          CONFIGURATION VARBINARY(MAX) NULL,
-          ENABLED BIT DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
-          PRIMARY KEY (UUID),
-          UNIQUE (NAME,TENANT_DOMAIN)
-          );
-        
+        UUID VARCHAR(50) NOT NULL,
+        NAME VARCHAR(100) NULL,
+        DISPLAY_NAME VARCHAR(100) NULL,
+        DESCRIPTION VARCHAR(256) NULL,
+        TYPE VARCHAR(45) NULL,
+        CONFIGURATION VARBINARY(MAX) NULL,
+        ENABLED BIT DEFAULT 1,
+        TENANT_DOMAIN VARCHAR(100) NULL,
+        PRIMARY KEY (UUID),
+        UNIQUE (NAME,TENANT_DOMAIN)
+        );
+
         IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_TENANT_THEMES]') AND TYPE IN (N'U'))
         CREATE TABLE AM_TENANT_THEMES (
-          TENANT_ID INTEGER NOT NULL,
-          THEME VARBINARY(MAX) NOT NULL,
-          PRIMARY KEY (TENANT_ID)
+        TENANT_ID INTEGER NOT NULL,
+        THEME VARBINARY(MAX) NOT NULL,
+        PRIMARY KEY (TENANT_ID)
         );
-        
+
         IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_GRAPHQL_COMPLEXITY]') AND TYPE IN (N'U'))
         CREATE TABLE AM_GRAPHQL_COMPLEXITY (
             UUID VARCHAR(256),
@@ -1399,8 +1400,47 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY(UUID),
             UNIQUE (API_ID,TYPE,FIELD)
         );
-        
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
+
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50);
+        GO
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = NEWID() WHERE UUID IS NULL;
+        GO
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO VARBINARY(MAX);
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT app_key_unique_cns UNIQUE (APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
+        DECLARE @ap_keymap as VARCHAR(8000);
+        SET @ap_keymap = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_KEY_MAPPING') AND type='PK');
+        EXEC('ALTER TABLE AM_APPLICATION_KEY_MAPPING
+        drop CONSTRAINT ' + @ap_keymap);
+
+        DECLARE @am_appreg as VARCHAR(8000);
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
+        drop CONSTRAINT ' + @am_appreg);
+
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER); 
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE (
+        SCOPE_ID INTEGER IDENTITY,
+        NAME VARCHAR(255) NOT NULL,
+        DISPLAY_NAME VARCHAR(255) NOT NULL,
+        DESCRIPTION VARCHAR(512),
+        TENANT_ID INTEGER NOT NULL DEFAULT -1,
+        SCOPE_TYPE VARCHAR(255) NOT NULL,
+        PRIMARY KEY (SCOPE_ID)
+        );
+
+        IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE_BINDING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE_BINDING (
+        SCOPE_ID INTEGER NOT NULL,
+        SCOPE_BINDING VARCHAR(255) NOT NULL,
+        BINDING_TYPE VARCHAR(255) NOT NULL,
+        FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );
         ```
 
         ```tab="MySQL"
@@ -2055,6 +2095,7 @@ Follow the instructions below to move all the existing API Manager configuration
         BEGIN
             :NEW.TIME_STAMP := systimestamp;
         END;
+        /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
         /
@@ -2463,10 +2504,29 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
 4.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
+
+    !!! Attention
+        In API Manager 3.2.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate tha   t has a weak RSA key (key size less than 2048) in previous version, you need to add the following configuration to `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.6.0 and primary keystore can be pointed to a keystore with a ceritificate, which has strong RSA key. 
+
+        ``` java
+        [keystore.primary]
+        file_name = "primary.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        alias = "wso2carbon"
+        key_password = "wso2carbon"
+
+        [keystore.internal]
+        file_name = "internal.jks"
+        type = "JKS"
+        password = "wso2carbon"
+        alias = "wso2carbon"
+        key_password = "wso2carbon"
+        ```
 
     !!! note "If you have enabled Secure Vault"
         If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new config modal and run the script as below. Please refer [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords) for more details.
@@ -2544,11 +2604,9 @@ Follow the instructions below to move all the existing API Manager configuration
 
     1.  Download the identity component migration resources and unzip it in a local directory.
 
-        Navigate to the [v1.0.103 tag](https://github.com/wso2-extensions/identity-migration-resources/releases/tag/v1.0.103) and download the `wso2is-migration-1.0.103.zip` under Assets.    
-
-         <!-- Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets. -->
+        Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
          
-         Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
+        Let's refer to this directory that you downloaded and extracted as `<IS_MIGRATION_TOOL_HOME>`. 
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.2.0_HOME>` directory.
 
@@ -2737,22 +2795,173 @@ Upgrade the WSO2 API Manager Analytics database from version 2.6.0 to version 3.
     ALTER TABLE APILASTACCESSSUMMARY DROP CONSTRAINT APILASTACCESSSUMMARY_pkey;
     ALTER TABLE APILASTACCESSSUMMARY ADD PRIMARY KEY (APINAME,APICREATOR,APIVERSION,APICREATORTENANTDOMAIN);
     ```
+The schema for table APIMALLALERT is changed in analytics version 3.2. So it is recommended to drop the above table
+prior to the migration so that it will be recreated at the server startup using the new script. 
+If you think that you require the already available data in the above table you can take a backup of it. But the above 
+table is just used to maintain a summary of all types of alerts in a single place. As 
+these alerts are persisted individually as well in tables specific for the type of the alert, you will not loose any
+data related to alerts by dropping this table.
+
+??? info "DB Scripts"
+     DROP TABLE APIMALLALERT;
+
+!!! note
+    Type and name of a column of few tables were changed through WUM in analytics version 2.6. It is important to 
+    add the above change into your database prior to migration. So execute the below queries which checks whether 
+    the above change is already available in your DB and if not, it will add the relevant change. Ensure to replace 
+    "Enter Analytics DB name here" with the correct DB name in the scripts.
+    
+    ```tab="MSSQL"
+    CREATE PROCEDURE dbo.alter_geolocation_table_if_coloumn_not_exist
+    AS
+    BEGIN
+    IF NOT EXISTS(
+    	SELECT name  FROM SYS.COLUMNS
+        	WHERE OBJECT_ID = OBJECT_ID('geolocationagg_seconds') AND NAME = 'agg_count')
+    	BEGIN
+    		ALTER TABLE GeoLocationAgg_SECONDS ALTER COLUMN totalCount BIGINT;
+    		EXEC sp_RENAME 'GeoLocationAgg_SECONDS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    		ALTER TABLE GeoLocationAgg_MINUTES ALTER COLUMN totalCount BIGINT;
+    		EXEC sp_RENAME 'GeoLocationAgg_MINUTES.totalCount' , 'AGG_COUNT', 'COLUMN';
+    		ALTER TABLE GeoLocationAgg_HOURS ALTER COLUMN totalCount BIGINT;
+    		EXEC sp_RENAME 'GeoLocationAgg_HOURS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    		ALTER TABLE GeoLocationAgg_DAYS ALTER COLUMN totalCount BIGINT;
+    		EXEC sp_RENAME 'GeoLocationAgg_DAYS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    		ALTER TABLE GeoLocationAgg_MONTHS ALTER COLUMN totalCount BIGINT;
+    		EXEC sp_RENAME 'GeoLocationAgg_MONTHS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    		ALTER TABLE GeoLocationAgg_YEARS ALTER COLUMN totalCount BIGINT;
+    		EXEC sp_RENAME 'GeoLocationAgg_YEARS.totalCount' , 'AGG_COUNT', 'COLUMN';
+    	END 	
+    END
+    GO
+    
+    USE <Enter Analytics DB name here>;
+    EXEC dbo.alter_geolocation_table_if_coloumn_not_exist;
+    DROP PROCEDURE dbo.alter_geolocation_table_if_coloumn_not_exist;
+    ```
+    
+    ```tab="MySQL"
+    DROP PROCEDURE IF EXISTS alter_geolocation_table_if_coloumn_not_exist;
+    
+    DELIMITER $$
+    
+    CREATE DEFINER=CURRENT_USER PROCEDURE alter_geolocation_table_if_coloumn_not_exist (IN dbName varchar(50)) 
+    BEGIN
+    	DECLARE colName TEXT;
+    	SELECT column_name INTO colName
+    	FROM information_schema.columns WHERE table_schema = dbName AND table_name = 'GeoLocationAgg_SECONDS'
+    	AND column_name = 'AGG_COUNT'; 
+    	IF colName is null THEN 
+    		ALTER TABLE GeoLocationAgg_SECONDS CHANGE totalCount AGG_COUNT bigint(20);
+    		ALTER TABLE GeoLocationAgg_MINUTES CHANGE totalCount AGG_COUNT bigint(20);
+    		ALTER TABLE GeoLocationAgg_HOURS CHANGE totalCount AGG_COUNT bigint(20);
+    		ALTER TABLE GeoLocationAgg_DAYS CHANGE totalCount AGG_COUNT bigint(20);
+    		ALTER TABLE GeoLocationAgg_MONTHS CHANGE totalCount AGG_COUNT bigint(20);
+    		ALTER TABLE GeoLocationAgg_YEARS CHANGE totalCount AGG_COUNT bigint(20);
+    	END IF; 
+    END$$
+    
+    DELIMITER ;
+    CALL alter_geolocation_table_if_coloumn_not_exist('<Enter Analytics DB name here>');
+    ```
+    
+    ```tab="Oracle"
+    DECLARE
+      column_exists number := 0;  
+    BEGIN
+      Select count(*) into column_exists
+      from user_tab_cols
+      where upper(column_name) = 'AGG_COUNT'
+      and upper(table_name) = 'GEOLOCATIONAGG_SECONDS';
+          
+      IF (column_exists = 0) then
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_SECONDS modify (totalCount INTEGER DEFAULT 0)';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_SECONDS RENAME COLUMN totalCount to AGG_COUNT';           
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_MINUTES modify (totalCount INTEGER DEFAULT 0)';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_MINUTES RENAME COLUMN totalCount to AGG_COUNT';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_HOURS modify (totalCount INTEGER DEFAULT 0)';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_HOURS RENAME COLUMN totalCount to AGG_COUNT';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_DAYS modify (totalCount INTEGER DEFAULT 0)';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_DAYS RENAME COLUMN totalCount to AGG_COUNT';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_MONTHS modify (totalCount INTEGER DEFAULT 0)';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_MONTHS RENAME COLUMN totalCount to AGG_COUNT';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_YEARS modify (totalCount INTEGER DEFAULT 0)';
+           EXECUTE IMMEDIATE 'ALTER TABLE GeoLocationAgg_YEARS RENAME COLUMN totalCount to AGG_COUNT';   
+      END IF;
+    END;
+    /
+    ```
+    
+    ```tab="PostgreSQL"
+    CREATE OR REPLACE FUNCTION alter_geolocation_table_if_coloumn_not_exist(IN dbName varchar(50))
+      returns void AS $$
+      declare
+       tableName VARCHAR(50) := 'geolocationagg_seconds';
+       tableColumn VARCHAR(50) := 'agg_count'; 
+       colName VARCHAR(50);
+      begin
+    	  select column_name into colName FROM information_schema.columns where table_catalog = dbName and 
+    	  table_name = tableName and column_name = tableColumn;
+    	  if colName is null then
+    	  	ALTER TABLE GeoLocationAgg_SECONDS ALTER COLUMN totalCount TYPE INTEGER;
+    		ALTER TABLE GeoLocationAgg_SECONDS rename totalCount to AGG_COUNT;
+    		ALTER TABLE GeoLocationAgg_MINUTES ALTER COLUMN totalCount TYPE INTEGER;
+    		ALTER TABLE GeoLocationAgg_MINUTES rename totalCount to AGG_COUNT;
+    		ALTER TABLE GeoLocationAgg_HOURS ALTER COLUMN totalCount TYPE INTEGER;
+    		ALTER TABLE GeoLocationAgg_HOURS rename totalCount to AGG_COUNT;
+    		ALTER TABLE GeoLocationAgg_DAYS ALTER COLUMN totalCount TYPE INTEGER;
+    		ALTER TABLE GeoLocationAgg_DAYS rename totalCount to AGG_COUNT;
+    		ALTER TABLE GeoLocationAgg_MONTHS ALTER COLUMN totalCount TYPE INTEGER;
+    		ALTER TABLE GeoLocationAgg_MONTHS rename totalCount to AGG_COUNT;
+    		ALTER TABLE GeoLocationAgg_YEARS ALTER COLUMN totalCount TYPE INTEGER;
+    		ALTER TABLE GeoLocationAgg_YEARS rename totalCount to AGG_COUNT;
+    	 end if;
+      END; $$
+      LANGUAGE plpgsql;
+    select alter_geolocation_table_if_coloumn_not_exist(<Enter Analytics DB name here>);
+    ```
+    
+    ```tab="db2"
+    CREATE OR REPLACE PROCEDURE alter_geolocation_table_if_coloumn_not_exist ()
+         MODIFIES SQL DATA
+         LANGUAGE SQL
+    BEGIN
+        IF (NOT EXISTS(SELECT 1 FROM SYSCAT.COLUMNS WHERE TABNAME = 'GEOLOCATIONAGG_SECONDS' AND COLNAME = 'AGG_COUNT'))
+        THEN
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_SECONDS ALTER COLUMN TOTALCOUNT SET DATA TYPE INTEGER';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_SECONDS RENAME COLUMN totalCount TO AGG_COUNT';   
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_MINUTES ALTER COLUMN TOTALCOUNT SET DATA TYPE INTEGER';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_MINUTES RENAME COLUMN totalCount TO AGG_COUNT';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_HOURS ALTER COLUMN TOTALCOUNT SET DATA TYPE INTEGER';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_HOURS RENAME COLUMN totalCount TO AGG_COUNT';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_DAYS ALTER COLUMN TOTALCOUNT SET DATA TYPE INTEGER';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_DAYS RENAME COLUMN totalCount TO AGG_COUNT';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_MONTHS ALTER COLUMN TOTALCOUNT SET DATA TYPE INTEGER';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_MONTHS RENAME COLUMN totalCount TO AGG_COUNT';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_YEARS ALTER COLUMN TOTALCOUNT SET DATA TYPE INTEGER';
+            EXECUTE IMMEDIATE 'ALTER TABLE GEOLOCATIONAGG_YEARS RENAME COLUMN totalCount TO AGG_COUNT';
+        END IF;
+    END
+    /
+    
+    CALL alter_geolocation_table_if_coloumn_not_exist()
+    /
+
+    ```    
+
 
 #### Step 3.2 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! note
     -   In API-M 2.6.0, when working with API-M Analytics, only the worker profile has been used by default and dashboard profile is used only when there are custom dashboards.
-    -   Now with API-M 3.1.0, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
+    -   Now with API-M 3.1.0 onwards, both the worker and dashboard profiles are being used. The default Store and Publisher dashboards are now being moved to the Analytics dashboard server side and they have been removed from the API-M side.
     -   The same set of DBs will be used in the Analytics side and additionally you need to share the WSO2AM_DB with the dashboard server node.
 
 Follow the instructions below to configure WSO2 API Manager Analytics for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager Analytics 3.1.0](http://wso2.com/api-management/).
+1.  Download [WSO2 API Manager Analytics 3.2.0](http://wso2.com/api-management/).
 
-    !!! note
-        It is **mandatory** to use a WUM updated WSO2 API Manager Analytics 3.1.0 pack when migrating the configurations for WSO2 API-M Analytics.
-
-2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.1.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
+2.  Configure the following 2 datasources in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/dashboard/deployment.yaml` file by pointing to the **old** `WSO2AM_DB` and `APIM_ANALYTICS_DB`.
 
     ``` java
     #Data source for APIM Analytics
@@ -2792,7 +3001,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
             isAutoCommit: false
     ```
 
-3.  Configure the following datasource in the `<API-M_ANALYTICS_3.1.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
+3.  Configure the following datasource in the `<API-M_ANALYTICS_3.2.0_HOME>/conf/worker/deployment.yaml` file by pointing to the **old** `APIM_ANALYTICS_DB`.
 
     ``` java
     #Data source for APIM Analytics
@@ -2814,7 +3023,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
           isAutoCommit: false
     ```
 
-4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.1.0_HOME>/lib` folder.
+4.  Copy the relevant JDBC driver OSGI bundle to the `<APIM_ANALYTICS_3.2.0_HOME>/lib` folder.
 
     !!! info "To convert the jar files to OSGi bundles, follow the steps given below."
         1. Download the non-OSGi jar for the required third party product, and save it in a preferred directory in your machine.
@@ -2825,7 +3034,7 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
         ```
 5.  Copy the keystores (i.e., `client-truststore.jks` , `wso2cabon.jks` and any other custom JKS) used in the previous version from `<OLD_API-M_ANALYTICS_HOME>/repository/resources/security` and replace the existing keystores in the `<NEW_API-M_ANALYTICS_HOME>/resources/security` directory.
 
-6.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.1.0_HOME>/bin` location.
+6.  Start the Worker and Dashboard profiles as below by navigating to `<API-M_ANALYTICS_3.2.0_HOME>/bin` location.
     
     ```tab="Worker"
     sh worker.sh
@@ -2836,13 +3045,13 @@ Follow the instructions below to configure WSO2 API Manager Analytics for the WS
     ```
 
 !!! note
-    If you have developed any custom dashboards in API-M 2.6.0 Analytics using Stream Processor, you will be able to use the same in API-M Anaytics 3.1.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
+    If you have developed any custom dashboards in API-M 2.6.0 Analytics using Stream Processor, you will be able to use the same in API-M Anaytics 3.2.0 as well. If you require any guidance regarding this, you can contact [WSO2 Support](https://support.wso2.com/jira/secure/Dashboard.jspa).
 
-#### Step 3.3 - Configure WSO2 API-M 3.1.0 for Analytics
+#### Step 3.3 - Configure WSO2 API-M 3.2.0 for Analytics
 
 Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M Analytics migration in order to migrate the statistics related data.
 
-1.  Configure the following datasources in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+1.  Configure the following datasources in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
     The following is an example of how the configurations should be defined when using MySQL.
 
@@ -2856,7 +3065,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     password = "password"
     ```
 
-2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
+2.  Enable analytics in WSO2 API-M by setting the following configuration to true in the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
     ``` java
     [apim.analytics]
@@ -2876,7 +3085,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
     ```
 
     !!! note "If you have enabled Analytics"
-        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.1.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
+        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.2.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
 
         !!! warning
             Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.

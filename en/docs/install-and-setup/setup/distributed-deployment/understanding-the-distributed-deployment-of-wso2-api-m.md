@@ -12,7 +12,7 @@ WSO2 API Manager uses the following main components:
 | **Developer Portal**           | Enables consumers to self-register, discover API functionality, subscribe to APIs, evaluate them, and interact with API publishers.                   |
 | **Key Manager**     | Responsible for all security and key-related operations.                                                                                              |
 | **Gateway**         | Responsible for securing, protecting, managing, and scaling API calls.                                                                                |
-| **Traffic Manager** | Used to make a decision on throttling.                                                                                                                |
+| **Traffic Manager** | Used to make a decision on throttling. Also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, api events, api policy events, application events application policy events, application keys events, subscription events, subsciption policy events.                                                                                                               |
 
 For more information on the above, see the main components of a distributed system.
 
@@ -74,8 +74,8 @@ database</strong></p>
 </tr>
 <tr class="odd">
 <td><strong>Traffic Manager</strong></td>
-<td>Not used</td>
-<td>Not used</td>
+<td>Used</td>
+<td>Used</td>
 
 </tr>
 </tbody>

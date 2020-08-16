@@ -15,6 +15,20 @@ WSO2 API offers following authentication mechanisms to secure your API from unau
 [Secure APIs Using Basic Authentication]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-basic-authentication)
 
 
+WSO2 API Manager supports enabling multiple key managers for authentication.
+
+Tenant admin can configure preferred key managers from the admin console. Please refer
+[Configuring Key Managers]({{base_path}}/administer/key-managers/overview) for details.
+
+These enabled key managers can be disabled for a given API from the publisher portal by navigating to
+`Runtime Configurations -> Application Level Security -> Key Managers`
+
+![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-publisher.png)
+
+Application users are able to generate keys for an application using a preferred key manager as shown below.
+
+![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-devportal.png)
+
 
 
 

@@ -68,6 +68,7 @@ nav:
                 - Publish APIs:
                       - Publish an API: learn/design-api/publish-api/publish-an-api.md
                       - Publish through Multiple API Gateways: learn/design-api/publish-api/publish-through-multiple-api-gateways.md
+                      - Publish an API to a Cloud Cluster in PrivateJet Mode: learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode.md
                       - Publish to Multiple External API Developer Portals: learn/design-api/publish-api/publish-to-multiple-external-api-stores.md
                 - Prototype APIs:
                       - Create a Prototype API with an Inline Script: learn/design-api/mock-api/create-a-mock-api-with-an-inline-script.md
@@ -179,7 +180,6 @@ nav:
                       - Mutual SSL Between API Gateway and Backend: learn/api-gateway/mutual-ssl-between-api-gateway-and-backend.md
           - API Microgateway:
                 - Grouping APIs with Labels: learn/api-microgateway/grouping-apis-with-labels.md
-                - Deploy APIs in PrivateJet mode: learn/api-microgateway/deploy-apis-in-privatejet-mode.md
           - API Security:
                 - Authentication:
                       - Overview: learn/api-security/api-authentication/api-authentication-overview.md
@@ -187,6 +187,7 @@ nav:
                       - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
                       - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
                       - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                      - Securing APIs deployed in cloud clusters: learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md 
                       - Federating OAuth Applications: learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
                       - Overview: learn/api-security/authorization/api-authorization.md
@@ -249,21 +250,23 @@ nav:
                 - Monetizing an API: learn/api-monetization/monetizing-an-api.md
           - Analytics:
                 - Overview of API Analytics: learn/analytics/overview-of-api-analytics.md
-                - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
+                - Viewing API Statistics:
+                      - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring-dashboard.md
+                      - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
+                      - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
+                      - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
                       - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
                       - Configuring Geo Location Based Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics.md
                       - Writing a Custom Geo Location Provider: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider.md
-                - Alerts for APIs:
-                      - Alert Types: learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md
-                      - Configuring Alerts: learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md
-                      - Subscribing for Alerts: learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md
-                      - Viewing Alerts: learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts.md
+                - Alert Types: learn/analytics/alert-types.md
                 - Setup & Configuration:
                       - Configuring APIM Analytics: learn/analytics/configuring-apim-analytics.md
                       - Configuring Keystores in APIM Analytics : learn/analytics/configuring-keystores-in-apim-analytics.md
                       - Managing Analytics Dashboard Permissions: learn/analytics/managing-dashboard-permissions.md
+                      - Configuring Alerts: learn/analytics/configuring-alerts.md
+                      - Subscribing for Alerts: learn/analytics/subscribing-for-alerts.md
                       - Integrating with Google Analytics: learn/analytics/integrating-with-google-analytics.md
                       - Purging Analytics Data: learn/analytics/purging-analytics-data.md
                       - Default Ports of WSO2 API-M Analytics: learn/analytics/default-ports-of-wso2-api-m-analytics.md
@@ -289,7 +292,9 @@ nav:
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                       - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
           - Kubernetes Operators:
-                - K8s API Operator: learn/kubernetes-operators/k8s-api-operator.md
+                - K8s API Operator:
+                    - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
+                    - Enabling PrivateJet Mode to Deploy APIs: learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis.md
                 - K8s WSO2 API Manager Operator: learn/kubernetes-operators/k8s-wso2am-operator.md
           - Tutorials:
                 - Create and Publish a GraphQL API: learn/tutorials/create-and-publish-a-graphql-api.md
@@ -301,7 +306,7 @@ nav:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/restful-apis.md
                 - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md 
+                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
                     - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
                     - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
                     - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
@@ -341,9 +346,7 @@ nav:
                 - Customizing the Developer Portal:
                       - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
                       - Customize API Listing:
-                            - Categorizing and Grouping APIs:
-                                  - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md
-                                  - Tagwise based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md
+                            - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
                             - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
                       - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
                       - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
@@ -499,6 +502,11 @@ nav:
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+          - Key Managers:
+                - Overview: administer/key-managers/overview.md
+                - Configure WSO2 IS as A Key Manager: administer/key-managers/configure-wso2is-connector.md
+                - Configure Keycloak as A Key Manager: administer/key-managers/configure-keycloak-connector.md
+                - Configure Okta as A Key Manager: administer/key-managers/configure-okta-connector.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
@@ -561,8 +569,7 @@ plugins:
               - wip/*
     - redirects:
           redirect_maps:
-              'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/api-category-based-grouping/'
-              'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/categorizing-and-grouping-apis/tagwise-based-grouping/'
+              'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/'
               'learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view/'
               'learn/consume-api/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs/'
               'learn/consume-api/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api/'

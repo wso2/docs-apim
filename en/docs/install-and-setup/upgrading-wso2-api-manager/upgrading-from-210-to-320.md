@@ -2,18 +2,12 @@
 
 !!! Important
     This migration guide is in the process of restructuring, and is NOT yet ready for use.
+    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
 
 The following information describes how to upgrade your API Manager server **from APIM 2.1.0 to 3.2.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
-
-!!! attention "Before you Begin"
-    1.  This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
-
-        -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.2.0. For more information on how to do this, see [Updating API Manager]({{base_path}}/administer/updating-wso2-api-manager/#wso2-update-manager-wum).
-
-    2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/troubleshooting/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
 
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
@@ -325,7 +319,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -1144,6 +1138,10 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         ```tab="MSSQL"
+        DECLARE @subs_key as VARCHAR(8000);
+        SET @subs_key = (SELECT name from sys.objects where parent_object_id=object_id('AM_SUBSCRIPTION_KEY_MAPPING') AND type='PK');
+        EXEC('ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
+        drop CONSTRAINT ' + @subs_key);
         ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING ALTER COLUMN ACCESS_TOKEN VARCHAR(512);
         ALTER TABLE AM_APPLICATION_REGISTRATION ALTER COLUMN TOKEN_SCOPE VARCHAR(1500);
         ALTER TABLE AM_APPLICATION ADD TOKEN_TYPE VARCHAR(10);
@@ -1393,7 +1391,7 @@ Follow the instructions below to move all the existing API Manager configuration
         AS
           UPDATE f set TIMESTAMP=GETDATE()
           FROM
-          dbo.[AM_GW_API_ARTIFACTSFG] AS f
+          dbo.[AM_GW_API_ARTIFACTS] AS f
           INNER JOIN inserted
           AS i
           ON f.TIMESTAMP = i.TIMESTAMP;
@@ -1406,22 +1404,22 @@ Follow the instructions below to move all the existing API Manager configuration
           MAX_DEPTH INTEGER NOT NULL DEFAULT 0
         ;
         
-        CREATE TABLE IF NOT EXISTS AM_API_RESOURCE_SCOPE_MAPPING (
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_API_RESOURCE_SCOPE_MAPPING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_API_RESOURCE_SCOPE_MAPPING (
             SCOPE_NAME VARCHAR(255) NOT NULL,
             URL_MAPPING_ID INTEGER NOT NULL,
             TENANT_ID INTEGER NOT NULL,
             FOREIGN KEY (URL_MAPPING_ID) REFERENCES   AM_API_URL_MAPPING(URL_MAPPING_ID) ON DELETE CASCADE,
             PRIMARY KEY(SCOPE_NAME, URL_MAPPING_ID)
         );
-        
-        
-        CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
-             NAME VARCHAR(255),
-             UUID VARCHAR (256),
-             TENANT_ID INTEGER,
-             PRIMARY KEY (UUID)
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SHARED_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SHARED_SCOPE (
+            NAME VARCHAR(255),
+            UUID VARCHAR (256),
+            TENANT_ID INTEGER,
+            PRIMARY KEY (UUID)
         );
-        
         
         DECLARE @SQL VARCHAR(4000);
         SET @SQL = 'ALTER TABLE |TABLE_NAME| DROP CONSTRAINT |CONSTRAINT_NAME|';
@@ -1463,7 +1461,45 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50);
+        GO
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = NEWID() WHERE UUID IS NULL;
+        GO
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO VARBINARY(MAX);
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD CONSTRAINT app_key_unique_cns UNIQUE (APPLICATION_ID,KEY_TYPE,KEY_MANAGER);
+
+        DECLARE @ap_keymap as VARCHAR(8000);
+        SET @ap_keymap = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_KEY_MAPPING') AND type='PK');
+        EXEC('ALTER TABLE AM_APPLICATION_KEY_MAPPING
+        drop CONSTRAINT ' + @ap_keymap);
+
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
+        
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE (
+        SCOPE_ID INTEGER IDENTITY,
+        NAME VARCHAR(255) NOT NULL,
+        DISPLAY_NAME VARCHAR(255) NOT NULL,
+        DESCRIPTION VARCHAR(512),
+        TENANT_ID INTEGER NOT NULL DEFAULT -1,
+        SCOPE_TYPE VARCHAR(255) NOT NULL,
+        PRIMARY KEY (SCOPE_ID)
+        );
+
+        IF NOT  EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[AM_SCOPE_BINDING]') AND TYPE IN (N'U'))
+        CREATE TABLE AM_SCOPE_BINDING (
+        SCOPE_ID INTEGER NOT NULL,
+        SCOPE_BINDING VARCHAR(255) NOT NULL,
+        BINDING_TYPE VARCHAR(255) NOT NULL,
+        FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );
+        DECLARE @am_appreg as VARCHAR(8000);
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
+        drop CONSTRAINT ' + @am_appreg);
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);        
         ```
 
         ```tab="MySQL"
@@ -2064,6 +2100,7 @@ Follow the instructions below to move all the existing API Manager configuration
         BEGIN
             :NEW.TIME_STAMP := systimestamp;
         END;
+        /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
         /
@@ -2505,7 +2542,7 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         );
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
@@ -2603,10 +2640,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     1.  Download the identity component migration resources and unzip it in a local directory.
-
-        Navigate to the [v1.0.103 tag](https://github.com/wso2-extensions/identity-migration-resources/releases/tag/v1.0.103) and download the `wso2is-migration-1.0.103.zip` under Assets.    
-
-         <!-- Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets. -->
+  
+        Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.2.0_HOME>` directory.
 
@@ -2709,7 +2744,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.2.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-3.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -2723,7 +2758,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 
