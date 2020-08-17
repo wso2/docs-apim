@@ -72,7 +72,27 @@ If you already have an existing application, follow the instructions below to su
      You can see the subscriptions list in API credentials section.
 
      [![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)]({{base_path}}/assets/img/learn/subscription-list.png)
+
+## Update the subscription tier
+
+1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`). Click on **Applications** and select the relevant application. 
+
+    ![[applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)]
+
+2.  Click **Subscriptions** to list the subscriptions of the application.
+
+    ![Subscriptions overview_tab]({{base_path}}/assets/img/learn/subscriptions-overview-tab.png)
+ 
+3.  Click the **EDIT** icon  of the subscription whose tier needs to be changed, to open the subscription update popup.
+
+    ![Subscriptions update_popup]({{base_path}}/assets/img/learn/subscription-update-popup-start.png)
+
+4.  Select the throttling tier that needs to be updated and click **Update**. This will update the existing subscription with the newly selected throttling tier.
     
+    ![Subscription_update_completed]({{base_path}}/assets/img/learn/subscription-update-completed.png)
+
+Follow the steps mentioned in [Adding an API Subscription Update Workflow]({{base_path}}/learn/consume-api/manage-subscription/advanced-topics/adding-an-api-subscription-tier-update-workflow) if you need to configure an approval process to update the subscription tier. 
+
 ## Unsubscribe from an API
 
 Follow the instructions below to delete the API subscription:

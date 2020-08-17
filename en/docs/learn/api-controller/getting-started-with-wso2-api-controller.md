@@ -1,6 +1,6 @@
 # Getting Started with WSO2 API Controller
 
-WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs and applications, creating API projects, importing and exporting APIs and applications, generating tokens for testing purposes, etc.  
+WSO2 API Controller(CTL) is a command-line tool for managing API Manager environments, listing APIs, API products and applications, creating API projects, importing and exporting APIs, API products and applications, generating tokens for APIs and API products for testing purposes, etc.  
 
 ## Download and initialize the CTL Tool
 
@@ -19,6 +19,13 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
     ./apictl
     ```
     The directory structure for the configuration files ( `<USER_HOME>/.wso2apictl` ) will be created upon the execution of the `apictl` command.
+
+    !!! Tip
+        If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
+
+        ```
+        export APICTL_CONFIG_DIR="/home/wso2user/CLI"
+        ```
 
 6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
@@ -111,7 +118,6 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             -    Required :  
 
                 `--environment` or `-e` : Name of the environment to be added   
-                `--token` : Token endpoint for the environment
                 AND (either)
                 `--apim` : API Manager endpoint for the environments
                 OR (the following 4)
@@ -119,25 +125,28 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 `--admin` : Admin endpoint for the environment  
                 `--publisher` : Publisher endpoint for the environment  
                 `--devportal` : DevPortal endpoint for the environment 
+            -   Optional :
+
+                `--token` : Token endpoint for the environment
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
 
         !!! note
-            The flags `--environment (-e)` and `--token` are mandatory.
-            You can either provide only the 2 flags `--apim` and `--token`, or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
+            The `--environment (-e)` flag is mandatory.
+            You can either provide only the flag `--apim` , or all the other 5 flags (`--registration`, `--publisher`, `--devportal`, `--admin`, `--token`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
+            In both of the above cases `--token`  flag is optional and can be used to provide an user preferred token endpoint.
 
         !!! example
 
             ``` bash tab="Linux/Unix"
             apictl add-env -e dev \
-                        --apim https://localhost:9443 \
-                        --token https://localhost:8243/token
+                        --apim https://localhost:9443 
             ``` 
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e dev --apim https://localhost:9443 --token https://localhost:8243/token
+            apictl add-env -e dev --apim https://localhost:9443 
             ```               
 
         !!! example
@@ -145,14 +154,14 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ``` bash tab="Linux/Unix"
             apictl add-env -e production \
                         --registration https://idp.com:9444 \
-                        --token https://gw.com:8244/token \
                         --admin https://apim.com:9444 \
                         --publisher https://apim.com:9444 \
-                        --devportal https://apps.com:9444
+                        --devportal https://apps.com:9444 \
+                        --token https://gw.com:8244/token                        
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add-env -e production --registration https://idp.com:9444 --token https://gw.com:8244/token --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444
+            apictl add-env -e production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
             ```  
     
         !!! example
@@ -735,30 +744,6 @@ Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted 
     </tbody>
 </table>
 
-
-## Set token type
-
-Run the following CTL command to set the token type of the default apictl application.
-
--   **Command**
-        ```go
-        apictl set --token-type <token type>
-        ```
-
-    !!! example
-        ```bash
-        apictl set --token-type JWT
-        ```
-        ```bash
-        apictl set --token-type OAuth
-        ```
-    
-    !!! info
-        **Flags:** 
-
-        -   Required :   
-            `--token-type` or `-t` : Type of the token to be generated
-
 ## Set HTTP request timeout
 
 Run the following CTL command to set the HTTP request timeout.
@@ -804,4 +789,24 @@ Run the following CTL command to change the default location of the export direc
         - Required :   
             `--export-directory`: Path to directory where APIs should be saved.   
             Default : `/home/.wso2apictl/exported`
+            
+            
+## Import SSL Certificate for Secure HTTP Communication with API Manager
+
+Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
+certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a
+different certificate than the default.   
+
+If the certificate is the default WSO2 certificate or a CA-signed certificate of a CA (Certificate Authority) trusted by
+the OS, these certificates will be imported by default to the controller. If the CA or the certificate is new or does
+not get imported by default, you can add the certificate to the ```certs``` directory found in 
+```APICTL_CONFIG_DIR/.wso2apictl```. 
+(Default location of the certs directory is ```/home/.wso2apictl/certs```)  
+
+The certificates added to this directory will be imported whenever an action is performed with the controller. Any
+DER or PEM encoded certificate with the file extensions of ```*.pem```, ```*.crt``` or ```*.cer``` can be used with the
+controller. 
+
+!!! Info
+    If you are using windows, CA certs will not be imported by default and has to be added to the ```certs``` directory.
 
