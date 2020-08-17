@@ -147,9 +147,9 @@ Therefore from APIM 3.1.0 onwards we are introducing a `Role Mapping` feature to
 This will update all scope mappings in tenant-conf.json with Internal/creator as an allowed role resulting the new creator role too be allowed for all scopes allowed for Internal/creator role.
 
 !!! info 
-    Under default configurations following are the scopes allowed for each deafult Internal role.
+    Under default configurations following are the scopes allowed for each default Internal role.
     
-    | Role                                          | admin   | Internal/publisher   | Internal/creator   | Internal/subscriber   | Internal/analytics   | Internal/everyone   |
+    | Scope                                         | admin   | Internal/publisher   | Internal/creator   | Internal/subscriber   | Internal/analytics   | Internal/everyone   |
     | --------------------------------------------- | ------- | -------------------- | ------------------ | --------------------- | -------------------- | ----------------- --|
     | apim:api_publish                              | &check; | &check;              |                    |                       |                      |                     |
     | apim:api_create                               | &check; |                      | &check;            |                       |                      |                     |
