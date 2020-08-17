@@ -10,8 +10,8 @@ The following information describes how to upgrade your API Manager server **fro
 
 Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.10.0 to 3.2.0** .
 
-!!! note
-    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100).
+!!! Attention
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100).
 
 -   [Step 1 - Upgrade WSO2 API Manager to 2.6.0](#step-1-upgrade-wso2-api-manager-to-260)
 -   [Step 2 - Upgrade WSO2 API Manager to 3.2.0](#step-2-upgrade-wso2-api-manager-to-320)
