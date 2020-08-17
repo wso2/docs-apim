@@ -1,6 +1,6 @@
 # Managing Analytics Dashboard Permissions
 
-You can view the API statistics related to both the API Publisher and the Developer Portal using the **dashboard** runtime of the WSO2 API Manager Analytics server.
+You can view the API statistics related to both the API Publisher and the Developer Portal using the **Analytics Dashboard** of the WSO2 API Manager Analytics.
 
 ## Permission levels of a dashboard
 
@@ -12,7 +12,7 @@ A dashboard has the following three levels of permissions.
 
 ## Configuring Dashboard Permissions
 
-To support fine-grained access and permission control, WSO2 API Manager Analytics uses a set of scopes. Those scopes are assigned to each dashboard, mapping to different permission levels described above. The following table illustrates the default mapping between scopes and permission levels for each dashboard.
+To support fine-grained access and permission control, WSO2 API Manager Analytics makes use of a set of scopes. Those scopes are assigned to each dashboard, mapping to different permission levels described above. The following table illustrates the default mapping between scopes and permission levels for each dashboard.
 
 <table>
     <thead>
@@ -133,7 +133,7 @@ Follow the instructions below to change the default permissions that are set for
 
 ## Permission level and user role mapping
 
-As described above the permission level of a logged-in user is decided based on the available scopes. The logged-in user possesses a user role, and scopes are mapped to that user role. You can find the mapping between default scopes and default user roles in the [role mapping table]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#adding-role-mappings).
+As described above the permission level of a logged-in user is decided based on the assigned scopes for that user. The logged-in user possesses a user role, and scopes are mapped to that user role. You can find the mapping between default scopes and default user roles in the [role mapping table]({{base_path}}/administer/managing-users-and-roles/managing-user-roles/#adding-role-mappings).
 
 The following table illustrates the default mapping between the permission level for each analytics dashboard and user role. You can refer to this table when assigning a role to a user in order to provide the required permissions. 
 
@@ -146,29 +146,35 @@ The following table illustrates the default mapping between the permission level
 | Internal/subscriber | Viewer                    | Not allowed            | Not allowed       | Not allowed    | Not allowed    |
 
 
-Further, you can add custom scopes for WSO2 API Manager Analytics. In order to do that, you have to add the custom scope and role mapping to `RESTAPIScopes` value of `APIM_HOME/repository/resources/tenant-conf.json` file and configure that in `ANALYTICS_HOME/conf/dashboard/deployment.yaml`.
+Further, you can add custom scopes for WSO2 API Manager Analytics. Follow the instructions below to add custom scopes.
 
-For example if you need to create a custom scope `apim_analytics:reports:view`,  and map with `Internal/analytics` and `Internal/creator` role, then you have to add  the following entry to `RESTAPIScopes` value.
+1. Add the custom scope and role mapping to `RESTAPIScopes` value of `APIM_HOME/repository/resources/tenant-conf.json` file. This file contains the mapping between scopes and roles. The custom scope and the roles that need the scope should be listed as key-value pairs.
 
-``` toml
-    "Scope": [
-       ...,
-       {
-              "Name": "apim_analytics:reports:view",
-              "Roles": "Internal/analytics, Internal/creator"
-       },
-       ... 
-    ]
-```
-
-Then, you have to append the custom scope, `apim_analytics:reports:view` to the space-separated `allScopes` property in the `ANALYTICS_HOME/conf/dashboard/deployment.yaml` as follows.
+    For example, if you need to create a custom scope `apim_analytics:reports:view`, and map with `Internal/analytics` and `Internal/creator` role, then you have to add the following entry to `RESTAPIScopes` value.
     
-``` java
-auth.configs:
-  type: apim
-  ssoEnabled: true
-  properties:
-    adminScope: apim_analytics:admin_carbon.super
-    allScopes: apim_analytics:admin openid apim:api_view apim:subscribe apim_analytics:monitoring_dashboard:own apim_analytics:monitoring_dashboard:edit apim_analytics:monitoring_dashboard:view apim_analytics:business_analytics:own apim_analytics:business_analytics:edit apim_analytics:business_analytics:view apim_analytics:api_analytics:own apim_analytics:api_analytics:edit apim_analytics:api_analytics:view apim_analytics:application_analytics:own apim_analytics:application_analytics:edit apim_analytics:application_analytics:view apim_analytics:reports:view
-```
+    ``` toml
+        "RESTAPIScopes": {
+            "Scope": [
+               ...,
+               {
+                      "Name": "apim_analytics:reports:view",
+                      "Roles": "Internal/analytics, Internal/creator"
+               },
+               ... 
+            ]
+        }
+    ```
+   
+2. Append the custom scope to the `allScopes` property under `auth.configs` configuration in `ANALYTICS_HOME/conf/dashboard/deployment.yaml`.
+
+    For the example mentioned in the previous step, append the custom scope, `apim_analytics:reports:view` to the space-separated `allScopes` property in the `ANALYTICS_HOME/conf/dashboard/deployment.yaml` as follows.
+    
+    ``` java
+    auth.configs:
+      type: apim
+      ssoEnabled: true
+      properties:
+        adminScope: apim_analytics:admin_carbon.super
+        allScopes: apim_analytics:admin openid apim:api_view apim:subscribe apim_analytics:monitoring_dashboard:own apim_analytics:monitoring_dashboard:edit apim_analytics:monitoring_dashboard:view apim_analytics:business_analytics:own apim_analytics:business_analytics:edit apim_analytics:business_analytics:view apim_analytics:api_analytics:own apim_analytics:api_analytics:edit apim_analytics:api_analytics:view apim_analytics:application_analytics:own apim_analytics:application_analytics:edit apim_analytics:application_analytics:view apim_analytics:reports:view
+    ```
     
