@@ -60,6 +60,8 @@ First, enable the API state change workflow for **Approval Workflow Executor**.
         Changes of the API state can be easily viewed through **Lifecycle**. 
         ![Lifecycle State]({{base_path}}/assets/img/learn/api-lifecycle-state.png)
 
+###  Advanced Configurations
+
 The elements of the above configuration are explained below.
 
 | Element Name               | Mandatory/Optional | Description                                                                                                                                                                                         |
