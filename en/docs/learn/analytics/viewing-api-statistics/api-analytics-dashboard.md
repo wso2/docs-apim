@@ -111,8 +111,9 @@ The API faults page provides information about the throttled out requests and fa
 
 #### API faults over time
 API faults over time widget shows the faulty invocations of the selected API overtime for the specified time range. This widget contains 2 representations;
-A timeline graph which shows the faulty request count over time
-A table which shows an application wise breakdown of the faulty request count 
+
+- A timeline graph which shows the faulty request count over time
+- A table which shows an application wise breakdown of the faulty request count 
 
 ![API faults over time]({{base_path}}/assets/img/learn/analytics/analytics_api_fault_analytics_widget.png)
 
