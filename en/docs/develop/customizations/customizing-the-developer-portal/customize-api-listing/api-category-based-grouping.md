@@ -10,7 +10,7 @@ Initially, the Admins will define API categories. Thereafter, API providers will
 You can add an API category using any of the following methods:
 
 - [Add an API Category using the Admin Portal UI]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/#add-an-api-category-using-the-admin-portal-ui)
-- [Add an API Category using the Admin REST API]({{base_path}}/learn/consume-api/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping/#add-an-api-category-using-the-admin-rest-api)
+- Add an API Category using the Admin REST API. (You can use the POST resource in the **API Category (Individual)** section [here]({{base_path}}/develop/product-apis/admin-apis/admin-v1/admin-v1))
 
 ### Add an API Category using the Admin Portal UI
 
@@ -31,28 +31,6 @@ You can add an API category using any of the following methods:
     [![Add API categories]({{base_path}}/assets/img/learn/new_add_category.png)]({{base_path}}/assets/img/learn/new_add_category.png)
 
 4. Click **Save**.
-
-### Add an API Category using the Admin REST API
-
-``` java tab="Format"
-curl -k -X POST -H "Authorization: Bearer <ACCESS_TOKEN>" -H "Content-Type: application/json" "https://localhost:9443/api/am/admin/v1/api-categories" -d @category-data.json
-```
-
-``` java tab="Sample"
-curl -k -X POST -H "Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122" -H "Content-Type: application/json" "https://localhost:9443/api/am/admin/v1/api-categories" -d '{ "name":"Finance", "description":"Finance related APIS" }'
-```
-
-!!!Note
-    ACCESS_TOKEN should have **admin_operations** scope.
-
-**Sample payload**
-
-```
-{
-"name": "Sales",
-"description": "Sales category"
-}
-```
 
 ## Step 2 - Attach the API Category to an API
 
