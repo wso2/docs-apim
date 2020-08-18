@@ -70,6 +70,8 @@ You need to add the API Token and Collection ID properties inside the configurat
     !!! tip
         Set the **global** property to **false** to disable the feature for all other tenants except the super tenant.
 
+3.  Restart the WSO2 API Manager 3.2.0 server.
+
 #### Enable Audit API for a single tenant
 
 !!! tip
@@ -104,6 +106,8 @@ You need to add the API Token and Collection ID properties inside the configurat
     ```
 
      [![tenant conf properties]({{base_path}}/assets/img/learn/tenant-conf-properties.png)]({{base_path}}/assets/img/learn/tenant-conf-properties.png)
+
+6.  Restart the WSO2 API Manager 3.2.0 server.
 
     !!! note
         If you define a value for the **overrideGlobal** property, it will override the **global** property value, which is under the [security_audit] section in the `<API-M_HOME>/repository/conf/deployment.toml` file.  
