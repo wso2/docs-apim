@@ -20,20 +20,20 @@ You can add an API category using any of the following methods:
 
 2. Click **API Category** and then click **API Categories**.
     
-    <img src="{{base_path}}/assets/img/learn/new_api_category_left_tag.png" width="300" alt="API categories menu">
+    <img src="{{base_path}}/assets/img/develop/new_api_category_left_tag.png" width="250" alt="API categories menu">
     
 3. Click **Add New Category**.
 
-    [![Add API category page]({{base_path}}/assets/img/learn/new_click_add_category.png)]({{base_path}}/assets/img/learn/new_click_add_category.png)
+    [![Add API category page]({{base_path}}/assets/img/develop/new_click_add_category.png)]({{base_path}}/assets/img/develop/new_click_add_category.png)
 
 4. Enter a name and a description for the API category.
 
      | Field          |  Value                 |
      |----------------|------------------------|
-     |  Name          |  Finance               |
-     |  Description   |  Finance related APIs  |
+     |  Name          |  Food                  |
+     |  Description   |  Fast food related APIs     |
 
-    <img src="{{base_path}}/assets/img/learn/new_add_category.png" width="500" alt="Add API category">
+    <img src="{{base_path}}/assets/img/develop/new_add_category.png" width="500" alt="Add API category">
 
 5. Click **Save**.
 
@@ -47,11 +47,11 @@ You can add an API category using any of the following methods:
 
 3. Click **Design Configurations**. 
 
-     [![API categories option]({{base_path}}/assets/img/learn/api_categories_dropdown.png)]({{base_path}}/assets/img/learn/api_categories_dropdown.png)
+     <img src="{{base_path}}/assets/img/develop/api_categories_dropdown.png" width="250" alt="Add API category">
 
 4. Select the API category.
 
-     [![Add API categories]({{base_path}}/assets/img/learn/attach_category.png)]({{base_path}}/assets/img/learn/attach_category.png)
+     [![Add API categories]({{base_path}}/assets/img/develop/attach_category.png)]({{base_path}}/assets/img/develop/attach_category.png)
 
 5. Click **Save**.
 
@@ -67,4 +67,4 @@ You can add an API category using any of the following methods:
 
      All APIs that belong to the selected category appear.
 
-     [![APIs categorised based on API category]({{base_path}}/assets/img/learn/devportal_listing.png)]({{base_path}}/assets/img/learn/devportal_listing.png)
+     [![APIs categorised based on API category]({{base_path}}/assets/img/develop/devportal_listing.png)]({{base_path}}/assets/img/develop/devportal_listing.png)
