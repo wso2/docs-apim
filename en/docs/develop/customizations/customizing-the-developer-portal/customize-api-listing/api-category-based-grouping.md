@@ -1,7 +1,7 @@
 
 # API Category based Grouping
 
-You can use API categories to group APIs. In previous versions of WSO2 API Manager, the process of grouping APIs was carried out by using tag wise groups. Unlike tag wise grouping API categories do not use a naming convention. Therefore, the admin does not need to take into consideration any naming conventions when using API category based grouping.
+You can use API categories to group APIs. API categories do not use a naming convention. Therefore, the admin does not need to take into consideration any naming conventions when using API category based grouping.
 
 Initially, the Admins will define API categories. Thereafter, API providers will add API categories to APIs when designing them via the API Publisher. API categories allow API providers to categorize APIs that have similar attributes. When a categorized API gets published to the Developer Portal, its categories appear as clickable links to the API consumers. The API consumers can use the available API categories to quickly jump to a category of interest.
 
@@ -20,17 +20,22 @@ You can add an API category using any of the following methods:
 
 2. Click **API Category** and then click **API Categories**.
     
-    [![Add categories page]({{base_path}}/assets/img/learn/new_api_category_left_tag.png)]({{base_path}}/assets/img/learn/new_api_category_left_tag.png)
-
-2. Click **Add New Category**.
+    <img src="{{base_path}}/assets/img/learn/new_api_category_left_tag.png" width="300" alt="API categories menu">
+    
+3. Click **Add New Category**.
 
     [![Add API category page]({{base_path}}/assets/img/learn/new_click_add_category.png)]({{base_path}}/assets/img/learn/new_click_add_category.png)
 
-3. Enter a name and a description for the category.
+4. Enter a name and a description for the API category.
 
-    [![Add API categories]({{base_path}}/assets/img/learn/new_add_category.png)]({{base_path}}/assets/img/learn/new_add_category.png)
+     | Field          |  Value                 |
+     |----------------|------------------------|
+     |  Name          |  Finance               |
+     |  Description   |  Finance related APIs  |
 
-4. Click **Save**.
+    <img src="{{base_path}}/assets/img/learn/new_add_category.png" width="500" alt="Add API category">
+
+5. Click **Save**.
 
 ## Step 2 - Attach the API Category to an API
 
