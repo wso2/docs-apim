@@ -280,7 +280,8 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           </tr>
           <tr class="odd">
           <td><b>Token Validation Method</b></td>
-          <td>The method used to validate the JWT signature.</td>
+          <td>The method used to validate the JWT signature.
+          This is mandatory if the Token Validation Method is *introspect*</td>
           <td></td>
           </tr>
           <tr class="even">
