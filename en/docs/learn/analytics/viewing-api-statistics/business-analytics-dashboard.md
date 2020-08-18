@@ -18,7 +18,7 @@ This widget shows an overtime breakdown of the usage of the top 10 most used API
 ![Top 10 API usage during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_api_usage_during_past_30_days.png)
 
 ### Top 10 API’s performance summary
-This widget shows an overtime breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the performance summary page with the top 10 APIs selected and the time perioranged set to 1 month.
+This widget shows an overtime breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the performance summary page with the top 10 APIs selected and the time range set to 1 month.
 
 ![Top 10 API’s performance summary]({{base_path}}/assets/img/learn/analytics/analytics_top_10_apis_performance_during_past_30_days.png)
 
