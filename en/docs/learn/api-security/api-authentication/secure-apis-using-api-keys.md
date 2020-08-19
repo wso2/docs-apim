@@ -86,8 +86,6 @@ Create and publish an API that is secured with the API key security scheme as th
 
     1. When you click **Generate Keys,** uncheck the **API Key with infinite validity period** option in the pop-up.
 
-          ![Generate API key]({{base_path}}/assets/img/learn/generate-api-key2.png)
-
     2. Enter the expiry time in seconds.
      
 9. Copy the API key.
