@@ -280,13 +280,13 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <tr class="even">
       <td><b>Token Handling Options</b></td>
       <td>This provides a way to validate the token for this particular authorization server.
-      This is mandatory if the Token Validation Method is **introspect**</td>
+      This is mandatory if the Token Validation Method is <b>introspect</b></td>
       <td></td>
       </tr>
       <tr class="odd">
       <td>REFERENCE</td>
       <td>The tokens that match a specific regular expression (regEx) are validated.
-      Ex: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</td>
+      e.g., <code>[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-5][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}</code></td>
       <td>Optional</td>
       </tr>
       <tr class="even">
