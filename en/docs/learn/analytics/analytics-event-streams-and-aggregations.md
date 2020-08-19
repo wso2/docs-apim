@@ -1,4 +1,4 @@
-# Introducing the WSO2 API Manager Statistics Model
+# Analytics event streams and aggregations
 
 ## Introduction
 
@@ -8,15 +8,15 @@ This section describes and illustrates the API Manager statistic publishing and
 
 The internal API Manager component listens to the API Manager invocations and its behavior. Based on the request and responses, the event is generated and published to all the event receivers. This publisher publishes the following event streams,
 
-- `org.wso2.apimgt.statistics.request`
-- `org.wso2.apimgt.statistics.fault`
-- `org.wso2.apimgt.statistics.throttle`
+- `org.wso2.apimgt.statistics.request:3.2.0`
+- `org.wso2.apimgt.statistics.fault:3.2.0`
+- `org.wso2.apimgt.statistics.throttle:3.2.0`
 
 ## API Manager event streams
 
 API-M provides the following types of event streams as listed below.
 
-### **org.wso2.apimgt.statistics.request**
+### **org.wso2.apimgt.statistics.request:3.2.0**
 
 This stream tracks information for the API request.
 
@@ -53,14 +53,15 @@ This stream tracks information for the API request.
 | `destination`| string | URL of the endpoint|
 | `securityLatency`| long| Time taken for authentication|
 | `throttlingLatency`| long| Time taken for throttling the request/response|
-| `requestMediationLatency`| long| Time taken to mediate the request|
-| `responseMediationLatency` | long| Time taken to mediate the response|
+| `requestMedLat`| long| Time taken to mediate the request|
+| `responseMedLat` | long| Time taken to mediate the response|
 | `backendLatency`| long| Time taken by the backend to return the response|
 | `otherLatency`| long| Time taken to process tasks other than mentioned above|
 | `gatewayType`| string | The gateway type (Synapse/Micro)|
 | `label`| string | The label of the API (if specified)|
+| `properties`| string | JSON string with custom attributes (if specified)|
 
-### **org.wso2.apimgt.statistics.fault**
+### **org.wso2.apimgt.statistics.fault:3.2.0**
 
 This stream contains the fault API invocations. It includes the API with back end errors, timeout etc.
 
@@ -72,6 +73,7 @@ This stream contains the fault API invocations. It includes the API with back en
 | `apiVersion`| string | API Version|
 | `apiContext`| string | API context depending on the user's request|
 | `apiResourcePath`| string | API resource path of the API request|
+| `apiResourceTemplate`| string | API resource URL pattern of API request|
 | `apiMethod`| string | HTTP Verb of API request [e.g.,GET/POST]|
 | `apiCreator`| string | Creator of the API|
 | `username`| string | Enduser of the API request|
@@ -80,12 +82,14 @@ This stream contains the fault API invocations. It includes the API with back en
 | `hostname`| string | Hostname or Datacenter ID (if specified)|
 | `applicationId`| string | ID of the client application|
 | `applicationName`| string | Name of the client application|
+| `applicationOwner`| string | Name of the Owner of the Application|
 | `protocol`| string | Protocol used to send the response (HTTP/HTTPS) and the port |
 | `errorCode`| string | Synapse error code|
 | `errorMessage`| string | Description of the synapse error message|
 | `requestTimestamp`| long| Timestamp of the API request when received to the gateway|
+| `properties`| string | JSON string with custom attributes (if specified)|
 
-### **org.wso2.apimgt.statistics.throttle**
+### **org.wso2.apimgt.statistics.throttle:3.2.0**
 
 This stream contains the API invocation with throttle information. Throttling can happen due to any of the following reasons:
 
@@ -104,12 +108,16 @@ This stream contains the API invocation with throttle information. Throttling ca
 | `apiContext`| string | API context depending on the user's request|
 | `apiCreator`| string | Creator of the API|
 | `apiCreatorTenantDomain` | string | Tenant domain of the API creator|
+| `apiResourceTemplate`| string | API resource URL pattern of API request|
+| `apiMethod`| string | HTTP Verb of API request [e.g.,GET/POST]|
 | `applicationId`| string | ID of the client application|
 | `applicationName`| string | Name of the client application|
 | `subscriber`| string | Name of the subscriber of the Application|
 | `throttledOutReason`| string | The reason describing why the request has been throttled out |
 | `gatewayType`| string | The gateway type (Synapse/Micro)|
 | `throttledOutTimestamp`| long| Timestamp when the request is throttled out|
+| `hostname`| string | Hostname or Datacenter ID (if specified)|
+| `properties`| string | JSON string with custom attributes (if specified)|
 
 ## API Manager aggregate tables
 
@@ -124,6 +132,7 @@ Siddhi Apps, which are deployed in the Worker profile of API Manager Analytics i
 - APIM_ACCESS_SUMMARY.siddhi
 - APIM_FAULT_SUMMARY.siddhi
 - APIM_THROTTLED_OUT_SUMMARY.siddhi
+- APIM_ERROR_SUMMARY.siddhi
 
 The following subsections describe the table schema of each of the Aggregate tables that are present in the Statistics DB.
 
@@ -138,11 +147,10 @@ CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
   `AGG_TIMESTAMP` bigint(20) NOT NULL,
   `AGG_EVENT_TIMESTAMP` bigint(20) NOT NULL,
   `apiContext` varchar(254) NOT NULL,
-  `apiHostname` varchar(254) NOT NULL,
-  `applicationId` varchar(254) NOT NULL,
-  `username` varchar(254) NOT NULL,
-  `userTenantDomain` varchar(254) NOT NULL,
-  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
+  `apiHostname` varchar(200) NOT NULL,
+  `applicationId` varchar(40) NOT NULL,
+  `username` varchar(150) NOT NULL,
+  `userTenantDomain` varchar(150) NOT NULL,
   `apiName` varchar(254) DEFAULT NULL,
   `apiVersion` varchar(254) DEFAULT NULL,
   `apiCreator` varchar(254) DEFAULT NULL,
@@ -151,7 +159,8 @@ CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
   `applicationOwner` varchar(254) DEFAULT NULL,
   `gatewayType` varchar(254) DEFAULT NULL,
   `label` varchar(254) DEFAULT NULL,
-  `regionalID` varchar(254) DEFAULT NULL,
+  `regionalID` varchar(20) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
   `AGG_COUNT` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`apiHostname`,`applicationId`,`username`,`userTenantDomain`)
 )
@@ -176,7 +185,7 @@ CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
     | `gatewayType` |	Type of the gateway (Synapse/Micro) |
     | `label` | The label of the API (if specified) |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
 
 ###**ApiResPathPerApp**
 This aggregation contains summarized data about API usage by resources and it is also derived from the request event stream.
@@ -189,11 +198,10 @@ CREATE TABLE `ApiResPathPerApp_<granularity>` (
   `AGG_TIMESTAMP` bigint(20) NOT NULL,
   `AGG_EVENT_TIMESTAMP` bigint(20) NOT NULL,
   `apiContext` varchar(254) NOT NULL,
-  `apiHostname` varchar(254) NOT NULL,
-  `applicationId` varchar(254) NOT NULL,
+  `apiHostname` varchar(200) NOT NULL,
+  `applicationId` varchar(40) NOT NULL,
   `apiResourceTemplate` varchar(254) NOT NULL,
-  `apiMethod` varchar(254) NOT NULL,
-  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
+  `apiMethod` varchar(20) NOT NULL,
   `apiName` varchar(254) DEFAULT NULL,
   `apiVersion` varchar(254) DEFAULT NULL,
   `apiCreator` varchar(254) DEFAULT NULL,
@@ -201,7 +209,8 @@ CREATE TABLE `ApiResPathPerApp_<granularity>` (
   `applicationName` varchar(254) DEFAULT NULL,
   `gatewayType` varchar(254) DEFAULT NULL,
   `label` varchar(254) DEFAULT NULL,
-  `regionalID` varchar(254) DEFAULT NULL,
+  `regionalID` varchar(20) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
   `AGG_COUNT` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`apiHostname`,`applicationId`,`apiResourceTemplate`,`apiMethod`)
 )
@@ -226,7 +235,7 @@ CREATE TABLE `ApiResPathPerApp_<granularity>` (
     | `gatewayType` |	Type of the gateway (Synapse/Micro) |
     | `label` | The label of the API (if specified) |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
 
 ###**ApiPerDestinationAgg**
 This aggregation contains summarized data of API destinations and is derived from the request event stream.
@@ -270,7 +279,7 @@ CREATE TABLE `ApiPerDestinationAgg_<granularity>` (
     | `gatewayType` |	Type of the gateway (Synapse/Micro) |
     | `label` | The label of the API (if specified) |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
 
 ###**ApiVersionPerAppAgg**
 This aggregation contains summarized data about API usage and is also derived from the request event stream.
@@ -285,7 +294,6 @@ CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
   `apiContext` varchar(254) NOT NULL,
   `apiHostname` varchar(254) NOT NULL,
   `applicationId` varchar(254) NOT NULL,
-  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
   `apiName` varchar(254) DEFAULT NULL,
   `apiVersion` varchar(254) DEFAULT NULL,
   `apiCreator` varchar(254) DEFAULT NULL,
@@ -294,6 +302,7 @@ CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
   `gatewayType` varchar(254) DEFAULT NULL,
   `label` varchar(254) DEFAULT NULL,
   `regionalID` varchar(254) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
   `AGG_COUNT` bigint(20) DEFAULT NULL,
   `AGG_SUM_quotaExceededValue` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`apiHostname`,`applicationId`)
@@ -317,7 +326,7 @@ CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
     | `gatewayType` |	Type of the gateway (Synapse/Micro) |
     | `label` | The label of the API (if specified) |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
     | `AGG_SUM_quotaExceededValue` | A binary value (0 or 1) to indicate whether the request is throttled(1) or not(0). |
 
 
@@ -371,7 +380,7 @@ CREATE TABLE `ApiExeTime_<granularity>` (
     | `apiCreatorTenantDomain` | Tenant domain of the API creator |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
     | `AGG_SUM_responseTime` | Average time of the API response when received to the gateway |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
     | `AGG_SUM_serviceTime` | Average time taken to serve the API request at the API-M server end |
     | `AGG_SUM_backendTime` | Average time taken to process the request at the backend |
     | `AGG_SUM_securityLatency` | Average time taken for authentication |
@@ -393,16 +402,16 @@ CREATE TABLE `ApiUserBrowserAgg_<granularity>` (
   `AGG_TIMESTAMP` bigint(20) NOT NULL,
   `AGG_EVENT_TIMESTAMP` bigint(20) NOT NULL,
   `apiContext` varchar(254) NOT NULL,
-  `apiCreator` varchar(254) NOT NULL,
-  `apiCreatorTenantDomain` varchar(254) NOT NULL,
-  `operatingSystem` varchar(254) NOT NULL,
-  `browser` varchar(254) NOT NULL,
-  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
+  `apiCreator` varchar(150) NOT NULL,
+  `apiCreatorTenantDomain` varchar(150) NOT NULL,
+  `operatingSystem` varchar(100) NOT NULL,
+  `browser` varchar(100) NOT NULL,
   `apiName` varchar(254) DEFAULT NULL,
   `apiVersion` varchar(254) DEFAULT NULL,
   `gatewayType` varchar(254) DEFAULT NULL,
   `label` varchar(254) DEFAULT NULL,
-  `regionalID` varchar(254) DEFAULT NULL,
+  `regionalID` varchar(20) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
   `AGG_COUNT` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`apiCreator`,`apiCreatorTenantDomain`,`operatingSystem`,`browser`)
 )
@@ -424,7 +433,7 @@ CREATE TABLE `ApiUserBrowserAgg_<granularity>` (
     | `gatewayType` | Type of the gateway (Synapse/Micro) |
     | `label` | The label of the API (if specified) |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
 
 ###**APIM_ReqCountAgg**
 
@@ -436,13 +445,13 @@ This aggregation is derived from the throttle event stream and the request event
 CREATE TABLE `APIM_ReqCountAgg_<granularity>` (
   `AGG_TIMESTAMP` bigint(20) NOT NULL,
   `AGG_EVENT_TIMESTAMP` bigint(20) NOT NULL,
-  `apiName` varchar(254) NOT NULL,
-  `apiVersion` varchar(254) NOT NULL,
-  `apiCreator` varchar(254) NOT NULL,
-  `apiCreatorTenantDomain` varchar(254) NOT NULL,
-  `applicationName` varchar(254) NOT NULL,
+  `apiName` varchar(200) NOT NULL,
+  `apiVersion` varchar(30) NOT NULL,
+  `apiCreator` varchar(150) NOT NULL,
+  `apiCreatorTenantDomain` varchar(100) NOT NULL,
+  `applicationName` varchar(100) NOT NULL,
+  `regionalID` varchar(20) DEFAULT NULL,
   `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
-  `regionalID` varchar(254) DEFAULT NULL,
   `AGG_SUM_successCount` bigint(20) DEFAULT NULL,
   `AGG_SUM_throttleCount` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiName`,`apiVersion`,`apiCreator`,`apiCreatorTenantDomain`,`applicationName`)
@@ -511,15 +520,15 @@ CREATE TABLE `GeoLocationAgg_<granularity>` (
   `apiContext` varchar(254) NOT NULL,
   `country` varchar(254) NOT NULL,
   `city` varchar(254) NOT NULL,
-  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
   `apiName` varchar(254) DEFAULT NULL,
   `apiVersion` varchar(254) DEFAULT NULL,
   `apiCreator` varchar(254) DEFAULT NULL,
   `apiCreatorTenantDomain` varchar(254) DEFAULT NULL,
   `username` varchar(254) DEFAULT NULL,
   `userTenantDomain` varchar(254) DEFAULT NULL,
-  `totalCount` bigint(20) DEFAULT NULL,
   `regionalID` varchar(254) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
+  `AGG_COUNT` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`country`,`city`)
 )
 ```
@@ -539,7 +548,7 @@ CREATE TABLE `GeoLocationAgg_<granularity>` (
     | `apiCreatorTenantDomain` | Tenant domain of the API creator |
     | `username` | End user of the API request |
     | `userTenantDomain` | Tenant domain of the user associated with the request |
-    | `totalCount` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `totalCount` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
 
 
@@ -589,10 +598,121 @@ CREATE TABLE `ApiFaultyInvocationAgg_<granularity>` (
     | `applicationName` | Name of the client application used to invoke the API |
     | `requestTimestamp` | Timestamp of the API request when received to the gateway |
     | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occured within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
 
 ---
 
-## API Manager statistics
 
-API statistics are provided for both the API Publisher and the API Developer Portal. For information on the available statistics and how to view them, see [Viewing API Statistics](../viewing-api-statistics).
+###**ApiThrottledOutAgg**
+
+This aggregation contains summarized data of the throttled out API invocations and is derived from the throttled event stream.
+
+####ApiThrottledOutAgg Table Schema
+
+
+```sql
+CREATE TABLE `ApiThrottledOutAgg_<granularity>` (
+  `AGG_TIMESTAMP` bigint(20) NOT NULL,
+  `AGG_EVENT_TIMESTAMP` bigint(20) NOT NULL,
+  `apiContext` varchar(254) NOT NULL,
+  `applicationId` varchar(40) NOT NULL,
+  `hostname` varchar(254) NOT NULL,
+  `apiName` varchar(254) DEFAULT NULL,
+  `apiVersion` varchar(254) DEFAULT NULL,
+  `apiCreator` varchar(254) DEFAULT NULL,
+  `apiCreatorTenantDomain` varchar(254) DEFAULT NULL,
+  `username` varchar(254) DEFAULT NULL,
+  `userTenantDomain` varchar(254) DEFAULT NULL,
+  `applicationName` varchar(254) DEFAULT NULL,
+  `subscriber` varchar(254) DEFAULT NULL,
+  `throttledOutReason` varchar(254) DEFAULT NULL,
+  `gatewayType` varchar(254) DEFAULT NULL,
+  `regionalID` varchar(20) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
+  `AGG_COUNT` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`applicationId`,`hostname`)
+)
+```
+
+??? note "Click here for detailed descriptions on the ApiThrottledOutAgg Table Schema."
+    |**Field Name**                                     |**Description**                      |
+    |---------------------------------------------------|-------------------------------------|
+    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
+    | `apiContext` | API context depending on the user's request |
+    | `applicationId` | ID of the client application |
+    | `hostname` | Hostname or Datacenter ID (if specified) |
+    | `apiName` | API Name |
+    | `apiVersion` | API Version |
+    | `apiCreator` | API Creator |
+    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
+    | `username` | End user of the API request |
+    | `userTenantDomain` | Tenant domain of the user associated with the request |
+    | `applicationName` | Name of the client application used to invoke the API |
+    | `subscriber`| Name of the subscriber of the Application|
+    | `throttledOutReason`| The reason describing why the request has been throttled out |
+    | `gatewayType` | Type of the gateway (Synapse/Micro) |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+
+---
+
+
+###**ApiErrorAnalysisAgg**
+
+This aggregation contains summarized data of the api errors and is derived from the request, throttled and faulty event streams.
+
+####ApiErrorAnalysisAgg Table Schema
+
+
+```sql
+CREATE TABLE `ApiErrorAnalysisAgg_<granularity>` (
+  `AGG_TIMESTAMP` bigint(20) NOT NULL,
+  `AGG_EVENT_TIMESTAMP` bigint(20) NOT NULL,
+  `apiName` varchar(254) NOT NULL,
+  `apiVersion` varchar(254) NOT NULL,
+  `responseCode` int(11) NOT NULL,
+  `apiResourceTemplate` varchar(254) NOT NULL,
+  `applicationId` varchar(40) NOT NULL,
+  `apiMethod` varchar(40) DEFAULT NULL,
+  `applicationName` varchar(254) DEFAULT NULL,
+  `applicationOwner` varchar(254) DEFAULT NULL,
+  `apiCreator` varchar(254) DEFAULT NULL,
+  `apiCreatorTenantDomain` varchar(254) DEFAULT NULL,
+  `AGG_LAST_EVENT_TIMESTAMP` bigint(20) DEFAULT NULL,
+  `AGG_SUM__2xx` bigint(20) DEFAULT NULL,
+  `AGG_SUM__4xx` bigint(20) DEFAULT NULL,
+  `AGG_SUM__5xx` bigint(20) DEFAULT NULL,
+  `AGG_SUM_responseCount` bigint(20) DEFAULT NULL,
+  `AGG_SUM_faultCount` bigint(20) DEFAULT NULL,
+  `AGG_SUM_throttledCount` bigint(20) DEFAULT NULL,
+  PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiName`,`apiVersion`,`responseCode`,`apiResourceTemplate`,`applicationId`)
+)
+```
+
+??? note "Click here for detailed descriptions on the ApiErrorAnalysisAgg Table Schema."
+    |**Field Name**                                     |**Description**                      |
+    |---------------------------------------------------|-------------------------------------|
+    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
+    | `apiName` | API Name |
+    | `apiVersion` | API Version |
+    | `responseCode`| HTTP Response Code |
+    | `apiResourceTemplate` | API resource URL pattern of API request |
+    | `applicationId` | ID of the client application |
+    | `apiMethod` | HTTP Verb of API request [e.g.,GET/POST] |
+    | `applicationName` | Name of the client application used to invoke the API |
+    | `applicationOwner` | Name of the owner of the client application |
+    | `apiCreator` | API Creator |
+    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
+    | `AGG_SUM__2xx` | The number of 2xx response code that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_SUM__4xx` | The number of 4xx response code that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_SUM__5xx` | The number of 5xx response code that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_SUM_responseCount` | The number of responses received from the backend within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_SUM_faultCount` | The number of faulty invocation that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_SUM_throttledCount` | The number of throttled out requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+
+---
