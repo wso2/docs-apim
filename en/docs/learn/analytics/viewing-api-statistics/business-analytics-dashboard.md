@@ -227,3 +227,14 @@ This is also a pie chart and shows the top agents this API is accessed. It shows
 Platforms and user agents are extracts from the information in the API request. X-forwarded-for Header is used in this case and this header needs to be there in the request headers to make these widgets work correctly. There are some scenarios this header values can be injected into the request when it flows through the network hops. But it is required to send this header by the actual end-user or device to make with the chart populate correctly. 
 
 A library is used to extract this information from the header. By default API Analytics defined limited platforms and user agents to identify in a header. This is to improve performance and having too many could increase the searching time. Values to be identified can be configured by defining in the <Analytics_HOME>/conf/worker/regexes.yaml as a set of regular expressions. Dev-ops or administrators can define possible values as per the expected environment. As an example, if the applications are developed only for the android and IOS platforms it is unnecessary to search the “Windows” platform. If the user agent or platform not defined in the configurations these requests are counts as “other” and widgets will be labeled them as others. 
+
+## Geo location based invocations
+
+Geo location based invocations widget shows the number of invocations made for a particular API for a given Geolocation for a given time period. 
+Using this widget, the user will be able to identify the key locations where the APIs are invoked and act accordingly to improve the API usage(i.e., load balancing) 
+
+Here, Geolocation based statistics are used to carry out detailed monitoring of geographic locations. 
+Geographic location is identified from X-Forwarded-For header with the relevant IP in the API request. 
+For more information, see [Using Geolocation Based Statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/).
+
+![Geo location based invocations]({{base_path}}/assets/img/learn/analytics/geo-location-stats.png)
