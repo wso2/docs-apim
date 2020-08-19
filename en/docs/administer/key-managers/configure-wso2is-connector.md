@@ -279,8 +279,8 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       </tr>
       <tr class="even">
       <td><b>Token Handling Options</b></td>
-      <td>This provides a means of validating the token for this particular authorization server.
-      This is mandatory if the Token Validation Method is *introspect*</td>
+      <td>This provides a way to validate the token for this particular authorization server.
+      This is mandatory if the Token Validation Method is **introspect**</td>
       <td></td>
       </tr>
       <tr class="odd">
