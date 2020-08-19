@@ -79,7 +79,7 @@ $ pip install mssql-cli
     `<API-M_HOME>/dbscripts/mb-store/mssql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MSSQL, then you need to have seperate databases for each API-M Traffic Manager node.
 
 
-## Changing the Carbon database to MSSQL
+## Changing the database to MSSQL
 
 -   [Creating the datasource connection to MSSQL](#creating-the-datasource-connection-to-mssql)
 
@@ -190,6 +190,22 @@ Follow the steps below to change the type of the default datasource.
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+
+    !!! note
+        **Changing WSO2CARBON_DB to MSSQL**
+            
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mssql.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MSSQL database, the username, and password required to access the database and the MSSQL driver details similarly as explained before.
+        
+        ``` tab="Example"
+        [database.local]
+        type = "mssql"
+        url = "jdbc:sqlserver://localhost:1433;databaseName=carbon_db;SendStringParametersAsUnicode=false"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        validationQuery = "SELECT 1"
+        ```
 
 1.  Restart the server.
 

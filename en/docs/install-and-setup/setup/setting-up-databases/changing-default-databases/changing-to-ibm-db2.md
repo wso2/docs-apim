@@ -60,7 +60,7 @@ Follow the instructions below to set up a IBM DB2 database:
    $ db2 -td/ -vmf '<API-M_HOME>/dbscripts/apimgt/db2.sql';
    ```
 
-## Changing the Carbon database to IBM DB2
+## Changing the database to IBM DB2
 
 - [Creating the datasource connection to IBM DB2](#creating-the-datasource-connection-to-ibm-db2)
 
@@ -168,6 +168,22 @@ Follow the instructions below to change the type of the default datasource.
     
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+
+    !!! note
+        **Changing WSO2CARBON_DB to IBM DB2**
+            
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/db2.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your IBM DB2 database, the username, and password required to access the database and the IBM DB2 driver details similarly as explained before.
+        
+        ``` tab="Example"
+        [database.local]
+        type = "db2"
+        url = "jdbc:db2://localhost:50000/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        validationQuery = "SELECT 1 FROM SYSIBM.SYSDUMMY1"
+        ```
 
 1.  Restart the server.
 

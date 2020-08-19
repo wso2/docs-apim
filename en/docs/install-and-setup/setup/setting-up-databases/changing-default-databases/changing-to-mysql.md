@@ -146,7 +146,7 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     In the sample commands above, its assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
 
-## Changing the Carbon database to MySQL
+## Changing the database to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
 
@@ -248,6 +248,21 @@ Follow the  instructions below to change the type of the default datasources.
 
     !!! info
         For more information on other parameters that can be defined in the `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC Connection Pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
+
+    !!! note
+        **Changing WSO2CARBON_DB to MySQL**
+            
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mysql.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details similarly as explained before.
+        
+        ``` tab="Example"
+        [database.local]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.mysql.cj.jdbc.Driver"
+        ```
 
 1.  Restart the server.
 
