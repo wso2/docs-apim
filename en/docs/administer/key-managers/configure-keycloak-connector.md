@@ -273,8 +273,8 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
             <td>The JWKS endpoint is used to validate the JWT token signature.
             If this option is used to validate the tokens it is mandatory to add a Token Handling Option
             For the Okta it should be **JWT** and it is required to specify a claim mapping as a unique identifier.
-            e.g.,; Claim Key : iss
-            Claim Value : https://localhost:8443/auth/realms/master </td>
+            </br>e.g.,; Claim Key : iss
+            </br>Claim Value : https://localhost:8443/auth/realms/master </td>
             <td>Optional</td>
           </tr>
           <tr class="even">
