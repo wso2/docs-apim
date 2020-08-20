@@ -52,7 +52,7 @@ Separate APIs are required for the following scenario:
 
 -   API developers must get notifications when a specific API is promoted to published state. This point is by subscribing to the lifecycle state change notification. How to subscribe will be explained below.
 
-For delails on how to enable notifications, see [Enabling Notifications](https://docs.wso2.com/display/AM260/Enabling+Notifications) .
+For delails on how to enable notifications, see [Enabling Notifications]({{base_path}}/learn/design-api/api-versioning/enabling-notifications) .
 
 Follow the steps below to configure API lifecycle state notifications.
 

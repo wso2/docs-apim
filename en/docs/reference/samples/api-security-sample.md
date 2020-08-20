@@ -34,7 +34,7 @@ ABC organization is a mobile phone manufacturing company that has to expose thei
 -   We need to create and API to get the salary details of the employees
 -   We need to have separate tenants to manage their APIs through tenants. For more details, see Managing Public, Partner vs Private APIs
 -   We need to enable audit logs to trace the API creations and API invocations.
-    For example, to enable custom security algorithms we can use the [Kerberos OAuth2 Grant.](https://docs.wso2.com/display/AM260/Kerberos+OAuth2+Grant)
+    For example, to enable custom security algorithms we can use the [Kerberos OAuth2 Grant.]({{base_path}}/learn/api-security/oauth2/grant-types/kerberos-oauth2-grant)
 -   We can authorize the users through API Manager access tokens and we can use scopes to authorise the API consumers when consuming the APIS.
 
 The audit logs are printed in the `<API-M_HOME>/repository/logs/audit.log` file, when you run the sample.
