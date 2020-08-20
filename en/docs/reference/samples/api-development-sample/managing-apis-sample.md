@@ -55,7 +55,6 @@ The following user cases are related to the above mentioned sample business scen
 Run the sample as follows to populate the sample data:
 
 1.  Download the WSO2 API Manager sample scenarios.
-
 2.  Unzip the sample-scenarios ZIP file and rename the unzipped folder to `sample-scenarios`.
 3.  Copy the sample-scenarios folder to the `<API-M_HOME>` folder.
 4.  Start the WSO2 API Manager Server.
@@ -63,7 +62,7 @@ Run the sample as follows to populate the sample data:
 5.  Go to `<API-M_HOME>/sample-scenarios` directory and execute the `run.sh` file.
 
     ``` java
-        ./run.sh
+    ./run.sh
     ```
 
 6.  Enter the scenario number as 1, when prompted.
@@ -86,11 +85,13 @@ You need to do the following in WSO2 API Manager.
     The screen shot below illustrates the tenants in the system.
     ![Screen Shot 2017-11-06 at 12.44.52 PM.png](https://lh4.googleusercontent.com/oMiEmHvzB4_da7u73NFndYy9jX4kb-xPd9RGZTFvWDNELFgy3n6E5PucZGPdMLQ7g8XsB5g05JFPBAfWFqbnUjfbrkrO2vgrmWraM4QILWk20fwbcpCETr5GLi0aSPdtpDUjyL3Y)    The following screen shot depicts the created APIs.
     ![Screen Shot 2017-11-06 at 12.44.27 PM.png](https://lh5.googleusercontent.com/QP3OUsHtC5wzTRgm2NXF-xSWFDVO4P83D-e4o-7iCSK5QpkjTqbDubD0A8KB64veigzut2H1g0zU6yQ8NF6nlsUPw1GhuhmMCTLVmrDnRd5WwD3NiS4XLoj4DC9jtMyQr1VTuqQm)
+
 2.  Create an API that is visible only to the tenant who is part of the finance department, in order to get the employee salary details.
 
     The screen shot below illustrates that John can subscribe to the `Salary_details_API` as John belongs to the finance department.
 
     ![](https://lh4.googleusercontent.com/qNWQwd8rGZtB60_-35Kvl-_pSbr6b1v-HV5xpNisC6hSmuhzwuxS7yqJ9nvGAmixiyG4yPQkKNq3-Vh8XLpWtCdCgvJLZxx-DHBwvQ2SS7DSokNedNQwAI7yqCgNeP7b0YElEs2R)
+    
     The screen shot below illustrates that John can not subscribe to the `Mobile_stock_API,` because John does not belong to the core manufacturing department.
 
     ![](https://lh4.googleusercontent.com/4CJqeBTVFNIvpO4ru51Bmau4xKAQBfWUmSajJW9Q1lmakjliRN6CGqM42G8_s8LoIx15TL2Ik19PZEAKDpTlraD92lWzp2zka2L03wZ25p9A7lLJfqC5L0XNjXQPL94ZQmuZIiU5)

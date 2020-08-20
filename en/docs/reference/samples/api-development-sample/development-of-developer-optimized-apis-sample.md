@@ -59,11 +59,11 @@ API developers can use the headers sent by the client to detect the type of the 
 If the API developer needs to restrict sending the address element of the bank account details to the mobile device clients.
 
 ``` java
-    <xml>
+<xml>
     <name>Chris Smith</name>
     <address>No 4, Street One, San Francisco.</address>
     <mobile>0718123456</mobile>
-    </xml>
+</xml>
 ```
 
 The API developer can add the following custom sequences to the API definition to achieve the latter mentioned scenario.
@@ -73,10 +73,10 @@ The API developer can add the following custom sequences to the API definition t
 In the following custom IN-sequence, it reads the User-Agent header and stores it in a custom property in WSO2 API Manager.
 
 ``` java
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="custom-in">
-        <description> Description</description>
-        <property name="ClientAccessDevice" expression="$trp:User-Agent" />
-    </sequence>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="custom-in">
+    <description> Description</description>
+    <property name="ClientAccessDevice" expression="$trp:User-Agent" />
+</sequence>
 ```
 
 **Out-sequence**
@@ -84,24 +84,24 @@ In the following custom IN-sequence, it reads the User-Agent header and stores i
 In the following custom OUT-sequence, a filter is introduced to read the latter mentioned custom property and send the custom payload to the backend as follows:
 
 ``` java
-    <sequence xmlns="http://ws.apache.org/ns/synapse" name="custom-out">
-        <description>Custom out sequence to remove Address element</description>
-        <filter source="get-property('ClientAccessDevice')" regex="iphone">
-          <then>
-           <log level="custom">
-             <property name="ClientAccessDevice" value="then" />
-           </log>
-            <script language="js">
-               var payload = mc.getPayloadXML();
-               delete payload.address;
-               mc.setPayloadXML(payload);
-           </script>
-          </then>
-          <else>
-          </else>
-        </filter>
-        <property name="Client user device" expression="$trp:User-Agent" />
-    </sequence>
+<sequence xmlns="http://ws.apache.org/ns/synapse" name="custom-out">
+    <description>Custom out sequence to remove Address element</description>
+    <filter source="get-property('ClientAccessDevice')" regex="iphone">
+        <then>
+        <log level="custom">
+            <property name="ClientAccessDevice" value="then" />
+        </log>
+        <script language="js">
+            var payload = mc.getPayloadXML();
+            delete payload.address;
+            mc.setPayloadXML(payload);
+        </script>
+        </then>
+        <else>
+        </else>
+    </filter>
+    <property name="Client user device" expression="$trp:User-Agent" />
+</sequence>
 ```
 
 Test the above APIs using the following cURL command.
@@ -119,10 +119,10 @@ Test the above APIs using the following cURL command.
 Output for the mobile devices is as follows
 
 ``` java
-    <xml>
+<xml>
     <name>Chris Smith</name>
     <mobile>0718123456</mobile>
-    </xml>
+</xml>
 ```
 
 #### Desktop Device Client
@@ -130,7 +130,7 @@ Output for the mobile devices is as follows
 - **cURL**
 
 ``` java
-    curl -X GET --header 'User-Agent: chrome 'Accept: application/json' --header 'Authorization: Bearer <key>' 'https://10.100.5.168:8243/information/1.0.0/getCustomerInfo'
+curl -X GET --header 'User-Agent: chrome 'Accept: application/json' --header 'Authorization: Bearer <key>' 'https://10.100.5.168:8243/information/1.0.0/getCustomerInfo'
 ```
 
 - **Output**
@@ -138,11 +138,11 @@ Output for the mobile devices is as follows
 Output for the desktop devices is as follows:
 
 ``` java
-    <xml>
+<xml>
     <name>Chris Smith</name>
     <address>No 4, Street One, San Francisco.</address>
     <mobile>0718123456</mobile>
-    </xml>
+</xml>
 ```
 
 ### Optimization can be a composition of multiple backends or stripdown
