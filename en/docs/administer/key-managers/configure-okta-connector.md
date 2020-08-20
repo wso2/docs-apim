@@ -281,7 +281,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <tr class="odd">
           <td><b>Token Validation Method</b></td>
           <td>The method used to validate the JWT signature.
-               This is mandatory if the Token Validation Method is <b>introspect</b></td>
+              This is mandatory if the Token Validation Method is <b>introspect</b></td>
           <td></td>
           </tr>
           <tr class="even">
@@ -294,8 +294,8 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td>The JWKS endpoint is used to validate the JWT token signature.
           If this option is used to validate the tokens it is mandatory to add a Token Handling Option
                For Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
-          e.g., <code>Claim Key : iss
-              Claim Value : https://dev-599740.okta.com/oauth2/default</code>
+          </b>e.g., Claim Key : iss
+          </b>Claim Value : https://dev-599740.okta.com/oauth2/default
           </td>
           <td>Optional</td>
           </tr>
