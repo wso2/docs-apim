@@ -82,7 +82,7 @@ After users start invoking APIs, statistics appear in the Publisher, as shown be
 
 -   Start the wso2am-analytics-2.2.0-updateX distribution.
 -   Start wso2am-2.2.0-updateX, after starting the APIM analytics node.
--   Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 9, when prompted.
+-   Go to `<API-M_HOME>/sample-scenarios`. Execute the `run.sh` file. Enter the scenario number as 9, when prompted.
 
 ### User credentials needed for log in
 

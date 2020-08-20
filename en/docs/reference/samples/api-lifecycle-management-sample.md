@@ -19,7 +19,7 @@ The API lifecycle is one of the key factors in API development. An API lifecycle
 
 | State      | Description                                                                                                                                                                                                                                                    |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| PUBLISHED  | The API is ready to be used by users in the Developer Portal .                                                                                                                                                                                                         |
+| PUBLISHED  | The API is ready to be used by users in the Developer Portal.                                                                                                                                                                                                         |
 | CREATED    | The API has been created, but it is not available for usage.                                                                                                                                                                                                   |
 | PROTOTYPED | An API prototype is created for the purpose of early promotion and testing. You can deploy a new API or a new version of an existing API as a prototype. It gives subscribers an early implementation of the API that they can try out without a subscription. |
 | BLOCKED    | The API is temporarily blocked from being used. A publisher can publish the API from the BLOCKED state.                                                                                                                                                        |
@@ -52,7 +52,7 @@ Separate APIs are required for the following scenario:
 
 -   API developers must get notifications when a specific API is promoted to published state. This point is by subscribing to the lifecycle state change notification. How to subscribe will be explained below.
 
-For delails on how to enable notifications, see [Enabling Notifications]({{base_path}}/learn/design-api/api-versioning/enabling-notifications) .
+For delails on how to enable notifications, see [Enabling Notifications]({{base_path}}/learn/design-api/api-versioning/enabling-notifications).
 
 Follow the steps below to configure API lifecycle state notifications.
 
@@ -65,7 +65,7 @@ Follow the steps below to configure API lifecycle state notifications.
 
 ### Running the sample to populate the sample data
 
-1.  Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 7, when prompted.
+1.  Go to `<API-M_HOME>/sample-scenarios`. Execute the `run.sh` file. Enter the scenario number as 7, when prompted.
 
 After running the sample two APIs in different states (PUBLISHED and BLOCKED) will be created. Note that both APIs have the same name.
 

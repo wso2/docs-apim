@@ -16,14 +16,14 @@ As a result of the latter mentioned use case, it should facilitate the developme
 
 -   Enable partners to connect with your APIs
 
-Expose some of the APIs as public APIs to expand the business operations .
+Expose some of the APIs as public APIs to expand the business operations.
 Maintain a further subset of the APIs so that it can be exposed as public APIs. Many of the APIs that are used internally and with partners can be used as public APIs in order to drive additional business and help obtain new customers.
 
 ### Business story
 
 -   ABC organization is an organization that has separate departments for finance and operations other than their core business department which is mobile phone manufacturing.
 
--   The core business, finance, and operations departments are named `department_core` , `department_finance,` and `department_operations` respectively .
+-   The core business, finance, and operations departments are named `department_core` , `department_finance,` and `department_operations` respectively.
 
 -   The finance department handles the salaries of employees. The core department is responsible for maintaining the mobile phone manufacturing stock. The operations department handles maintenance work of the organization.
 
@@ -56,7 +56,7 @@ Run the sample as follows to populate the sample data:
 
 1.  Download the WSO2 API Manager sample scenarios.
 
-2.  Unzip the sample-scenarios ZIP file and rename the unzipped folder to `sample-scenarios` .
+2.  Unzip the sample-scenarios ZIP file and rename the unzipped folder to `sample-scenarios`.
 3.  Copy the sample-scenarios folder to the `<API-M_HOME>` folder.
 4.  Start the WSO2 API Manager Server.
 

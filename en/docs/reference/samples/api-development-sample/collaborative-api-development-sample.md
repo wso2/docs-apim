@@ -14,7 +14,7 @@ This sample scenario elaborates as to how you can develop APIs in a collaborativ
 
 -   ABC organization has separate departments for finance and for operations other than their core business department, which is mobile phone manufacturing (manufacturing department).
 
--   The core business department is named `department_core` , the finance department is named `department_finance` , and the operations department is named `department_operations` .
+-   The core business department is named `department_core` , the finance department is named `department_finance` , and the operations department is named `department_operations`.
 
 -   The finance department handles the salaries of the employees. The core department is responsible for maintaining the mobile phone manufacturing stock. The operations department handles the maintenance work of the organization.
 
@@ -24,14 +24,14 @@ Run the sample as follows to populate the sample data:
 
 1.  Download the WSO2 API Manager sample scenarios.
 
-2.  Unzip the sample-scenarios ZIP file and rename the unzipped folder to `sample-scenarios` .
+2.  Unzip the sample-scenarios ZIP file and rename the unzipped folder to `sample-scenarios`.
 3.  Copy the sample-scenarios folder to the `<API-M_HOME>` folder.
 4.  Start the WSO2 API Manager Server.
 
 5.  Go to `<API-M_HOME>/sample-scenarios` directory and execute the `run.sh` file.
 
     ``` java
-        ./run.sh
+       ./run.sh
     ```
 
 6.  Enter the scenario number as 2, when prompted.
@@ -50,7 +50,7 @@ The following are the user credentials that you need to use when signing in to t
 
 Follow the instructions below to implement the latter mentioned business scenario using WSO2 API Manger.
 
-1.  Create three [different tenants]({{base_path}}/administer/multitenancy/managing-tenants) ( `finance.abc.com, core.abc.com,` and `operations.abc.com` ) for the three departments, with [users]({{base_path}}/administer/managing-users-and-roles/introduction-to-user-management) (John, Tom, and Bob respectively) who can [create APIs]({{base_path}}/getting-started/quick-start-guide/#step-1-create-and-publish-an-api) .
+1.  Create three [different tenants]({{base_path}}/administer/multitenancy/managing-tenants) (`finance.abc.com, core.abc.com,` and `operations.abc.com`) for the three departments, with [users]({{base_path}}/administer/managing-users-and-roles/introduction-to-user-management) (John, Tom, and Bob respectively) who can [create APIs]({{base_path}}/getting-started/quick-start-guide/#step-1-create-and-publish-an-api).
 
 2.  Sign in as a finance department user, [subscribe]({{base_path}}/getting-started/quick-start-guide/#step-2-subscribe-to-the-api) to the `Salary_details_API` API to get the employee salary details.
     The screen shot below shows that user John can subscribe to the `Salary_details_API` API as John belongs to the finance department.
