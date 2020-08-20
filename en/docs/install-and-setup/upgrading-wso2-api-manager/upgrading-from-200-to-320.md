@@ -9,6 +9,9 @@ The following information describes how to upgrade your API Manager server **fro
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
+!!! Attention
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100) instead of below steps.    
+
 Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 2.0.0 to 3.2.0**.
 
 !!! note "If you are using PostgreSQL"
@@ -1129,7 +1132,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
              NAME varchar(255),
-             UUID varchar(256),
+             UUID varchar(256) NOT NULL,
              TENANT_ID INTEGER,
              PRIMARY KEY (UUID)
         ) /
@@ -1138,13 +1141,13 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE AM_KEY_MANAGER (
           UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NULL,
+          NAME VARCHAR(100) NOT NULL,
           DISPLAY_NAME VARCHAR(100) NULL,
           DESCRIPTION VARCHAR(256) NULL,
           TYPE VARCHAR(45) NULL,
           CONFIGURATION BLOB NULL,
           ENABLED SMALLINT DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
+          TENANT_DOMAIN VARCHAR(100) NOT NULL,
           PRIMARY KEY (UUID),
           UNIQUE (NAME,TENANT_DOMAIN)
         )
@@ -1167,7 +1170,27 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         )/
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL /
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL /
+        
+        BEGIN
+        DECLARE const_name VARCHAR(128);
+        DECLARE STMT VARCHAR(200);
+        select CONSTNAME into const_name from SYSCAT.TABCONST WHERE TABNAME='AM_APPLICATION_REGISTRATION' AND TYPE = 'U';
+        SET STMT = 'ALTER TABLE AM_APPLICATION_REGISTRATION DROP UNIQUE ' ||  const_name;
+        PREPARE S1 FROM STMT;
+        EXECUTE S1;
+        END
+        /
+        
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager'/
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)/
+        
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50)/
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = (VARCHAR(HEX(GENERATE_UNIQUE()))) WHERE UUID IS NULL;
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager'/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
         ```
 
         ```tab="MSSQL"
@@ -2612,7 +2635,7 @@ Follow the instructions below to move all the existing API Manager configuration
         FROM information_schema.table_constraints AS tc
         JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name
         JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name
-        WHERE constraint_type = 'PRIMARY KEY' AND tc.table_name = 'IDN_OAUTH2_RESOURCE_SCOPE';
+        WHERE constraint_type = 'PRIMARY KEY' AND tc.table_name = 'idn_oauth2_resource_scope';
         EXECUTE con_name;
         END $$;
         
@@ -2670,11 +2693,6 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.2.0 to 5.10.0.
-
-    !!! note
-        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-520-to-5100) instead of below steps.
-
-        But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
 
     ??? note "If you are using DB2"
         Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.

@@ -77,7 +77,7 @@ Follow the instructions below to create a REST API using a Open API definition f
 4.  After removing the security tags, click **Update Contents** to save the changes.
  ![]({{base_path}}/assets/img/learn/update-content-pet-store.jpg)
 
-## Enpoints
+## Endpoints
 1. Navigate to the **Endpoints** page. Enter the information shown below and click **SAVE**.
 
     | Field               | Sample value                                          |

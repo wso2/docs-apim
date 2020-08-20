@@ -1,6 +1,6 @@
 # Application Keys
 
-An API Access Token/Key is a string that is being passed as a HTTP header of an API request. WSO2 APIM provides OAuth2.0 bearer token based authentication for API access and the API key has to be submitted alongside the API request in order to authenticate the access.
+An API Access Token/Key is a string that is being passed as an HTTP header of an API request. WSO2 APIM provides OAuth2.0 bearer token-based authentication for API access and the API key has to be submitted alongside the API request in order to authenticate the access.
 
 When an Application Developer registers an Application in the Developer Portal, a consumer-key 
 and consumer-secret pair is generated, which represents the credentials of the Application that is 
@@ -21,7 +21,7 @@ Follow the instructions below to generate/renew application keys:
  
 3.  Click **Production Keys** and click **Generate Keys** to create an application access token. 
 
-     The access token will be generated along with application consumer key and secret.
+     The access token will be generated along with the application consumer key and secret.
 
      [![Generate Application Keys]({{base_path}}/assets/img/learn/application-key-generation.png)]({{base_path}}/assets/img/learn/application-key-generation.png)
     
@@ -45,29 +45,34 @@ Follow the instructions below to generate/renew application keys:
 !!! tip
     When you generate access tokens for APIs that are protected by scopes, you can select the respective [scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) and thereafter, generate the token for it.
   
-## Generate application keys Using Okta Key Manager
+## Generate application keys using Okta Key Manager
 
-Similarly, to generate keys using Okta Key Manager,
+Follow the instructions below to generate keys using the Okta Key Manager:
 
-1. Select **Okta** tab from the **Production Keys** Menu.
+Let's assume that you are working in a production environment.
 
-2. Click **Generate Keys** to create an application access token.
+1. Sign in to WSO2 API Developer Portal (`https://<hostname>:9443/devportal`).
 
-     [![Generate Application Keys]({{base_path}}/assets/img/learn/okta-application-key-generation.png)]({{base_path}}/assets/img/learn/okta-application-key-generation.png)
+2. Click **Production Keys** and then click **Okta**.
 
-!!! tip
-    Client application properties to be set are described in [Okta documentation](https://developer.okta.com/docs/reference/api/oauth-clients/#client-application-properties)
+3. Click **Generate Keys** to create an application access token.
 
-!!! tip
-    To get an Access Token with scopes, scopes should have been created in Okta side in advance.
+     [![Generate Okta application keys]({{base_path}}/assets/img/learn/okta-application-key-generation.png)]({{base_path}}/assets/img/learn/okta-application-key-generation.png)
 
-## Generate application keys Using Keycloak Key Manager
+!!! info
+    For more information on the client application properties that need to be set, see the [Okta documentation](https://developer.okta.com/docs/reference/api/oauth-clients/#client-application-properties).
 
-Similarly, to generate keys using Keycloak Key Manager,
+!!! note
+    If you need an Access Token with scopes, make sure that you have created the scopes in advance on the Okta side.
 
-1. Select **Keycloak** tab from the **Production Keys** Menu.
+## Generate application keys using Keycloak Key Manager
 
-2. Click **Generate Keys** to create an application access token.
+Follow the instructions below to generate keys using the Keycloak Key Manager:
 
-     [![Generate Keycloak Application Keys]({{base_path}}/assets/img/learn/keycloak-generate-keys.png)]({{base_path}}/assets/img/learn/keycloak-generate-keys.png)
+1. Sign in to WSO2 API Developer Portal (`https://<hostname>:9443/devportal`).
 
+2. Click **Production Keys** and then click **Keycloak**.
+
+3. Click **Generate Keys** to create an application access token.
+
+     [![Generate Keycloak application keys]({{base_path}}/assets/img/learn/keycloak-generate-keys.png)]({{base_path}}/assets/img/learn/keycloak-generate-keys.png)

@@ -280,7 +280,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           <tr class="even">
             <td><b>Token Handling Options</b></td>
             <td>Provides a way to validate the token for this particular authorization server.
-            This is mandatory if the Token Validation Method is **introspect**</td>
+            This is mandatory if the Token Validation Method is <b>introspect</b></td>
             <td></td>
           </tr>
           <tr class="odd">

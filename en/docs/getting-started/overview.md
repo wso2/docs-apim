@@ -7,7 +7,7 @@ WSO2 API Manager is a fully open-source solution for end to end API Management i
 WSO2 API Manager is the only 100% open-source product that addresses all aspects of API management including API development, productization, consumption, security, rate limitation, monetization and analytics.
 
 ![]({{base_path}}/assets/attachments/103327648/103346653.png)
-In brief, the WSO2 API Manager consists of 6 main components, the [API Publisher,](#api-publisher) the [API developer Portal,](#developer-portal) [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://docs.wso2.com/display/MG300/API+Microgateway+Documentation) as well ), [Key Manager,](#key-manager) [Traffic Manager](#traffic-manager) and the [API Analytics](#analytics). For more information on these components see [Basic Architecture and Key Components]().
+In brief, the WSO2 API Manager consists of 6 main components, the [API Publisher,](#api-publisher) the [API developer Portal,](#developer-portal) [API Gateway](#api-gateway) (now comes as a [API Microgateway](https://mg.docs.wso2.com/en/3.2.0/) as well ), [Key Manager,](#key-manager) [Traffic Manager](#traffic-manager) and the [API Analytics](#analytics). For more information on these components see [Basic Architecture and Key Components]().
 
 The key features of the product are listed below.
 
@@ -23,12 +23,11 @@ The key features of the product are listed below.
 -  Pluggable, Extensible, and Themeable
 -  Easily Deployable in Your Enterprise
 -  WSO2 Platform Multi-Tenancy Support
--  Multiple Key Manager Suuport
-
+-  Multiple Key Manager Support
 
 ## Basic Architecture and Key Components
 
-The WSO2 API Manager consists of 6 main components, the [API Publisher,](#api-publisher) the [API Developer Portal,](#developer-portal) [API Gateway](#api-gateway) (now comes as an [API Microgateway](https://docs.wso2.com/display/MG310/API+Microgateway+Documentation) as well ), [Key Manager,](#key-manager) [Traffic Manager](#traffic-manager) and the [API Analytics](#analytics). A component is made up of one or more [OSGi](http://www.osgi.org/Technology/Home) bundles. A bundle is the modularization unit in OSGi, similar to a JAR file in Java.
+The WSO2 API Manager consists of 6 main components, the [API Publisher,](#api-publisher) the [API Developer Portal,](#developer-portal) [API Gateway](#api-gateway) (now comes as an [API Microgateway](https://mg.docs.wso2.com/en/3.2.0/) as well ), [Key Manager,](#key-manager) [Traffic Manager](#traffic-manager) and the [API Analytics](#analytics). A component is made up of one or more [OSGi](http://www.osgi.org/Technology/Home) bundles. A bundle is the modularization unit in OSGi, similar to a JAR file in Java.
 
 The component architecture of the WSO2 API Manager is illustrated in the diagram below.
 

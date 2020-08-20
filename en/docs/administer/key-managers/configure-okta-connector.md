@@ -281,7 +281,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <tr class="odd">
           <td><b>Token Validation Method</b></td>
           <td>The method used to validate the JWT signature.
-          This is mandatory if the Token Validation Method is *introspect*</td>
+          This is mandatory if the Token Validation Method is **introspect**</td>
           <td></td>
           </tr>
           <tr class="even">
@@ -303,7 +303,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td><b>Token Handling Options</b></td>
           <td>This provides a way to validate the token for this particular authorization server.</td>
           <td>Optional
-              This is mandatory if the Token Validation Method is **introspect**</td>
+              This is mandatory if the Token Validation Method is <b>introspect</b></td>
           </tr>
           <tr class="odd">
           <td>REFERENCE</td>
