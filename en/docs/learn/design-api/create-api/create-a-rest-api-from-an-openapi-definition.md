@@ -29,12 +29,19 @@ Follow the instructions below to create a REST API using a Open API definition f
     !!! tip
         Swagger Definitions should be placed under one root folder and zipped.    
    
-        **Sample Folder Structure**
+        **Sample Folder Structures**
     
         ```
             -masterFolder
               ---Swagger.json
               ---reference.json
+              ---add.json
+        ```
+        ```
+            -masterFolder
+              ---Swagger.json
+              ---schemes
+                 ---pet.json
               ---add.json
         ```
 
