@@ -161,8 +161,10 @@ Follow the steps below to customize them.
 
     You can choose from `product-title.jsp`, `header.jsp`, `product-footer.jsp`, `cookie-policy-content.jsp` and `privacy-policy-content.jsp`. If you copy the **header.jsp**, please make sure to copy the **product-title.jsp** file as well.
 
-    In order to copy any logos or images, create a folder named **customAssets** inside the extensions folder with your asset files.
-
+    !!! info
+         In order to copy any logos or images, create a folder named **customAssets** inside the extensions folder with your asset files. 
+         The mentioned feature is available only as a **WUM** update and is effective from 30th July 2020 (2020-07-30).
+      
     !!! note
           If you are creating your own pages instead of copying from the **includes** folder, make sure to name the respective files as `product-title.jsp`, `header.jsp`, `product-footer.jsp`, `cookie-policy-content.jsp` and `privacy-policy-content.jsp`.
 
