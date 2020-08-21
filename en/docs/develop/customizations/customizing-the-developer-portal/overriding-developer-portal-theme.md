@@ -521,7 +521,7 @@ The following is the Devportal app theme object merging with the React Material 
 
 ## Publisher
 
-The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/theme/` directory. 
+The default theme is located in the `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/` directory. 
 
 The `defaultTheme.js` file has all the parameters defining the look and feel of the Publisher app.
 
