@@ -1,13 +1,8 @@
 # Configuring APIM Analytics
 
-This section explains how to configure analytics for WSO2 API Manager (WSO2 API-M). The API Manager integrates with the [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) to provide reports, statistics and graphs on the APIs deployed in WSO2 API Manager. You can then configure alerts to monitor these APIs and detect unusual activity, manage locations via geo location statistics and carry out detailed analysis of the logs. WSO2 API Manager has an enhanced distribution of Analytics to cater to API Manager specific scenarios which is used here to configure APIM Analytics.
+This section explains how to configure analytics for WSO2 API Manager (WSO2 API-M). The API Manager analytics to provide reports, statistics and graphs on the APIs deployed in WSO2 API Manager. You can then configure alerts to monitor these APIs and detect unusual activity, manage locations via geo location statistics and carry out detailed analysis of the logs. WSO2 API Manager has an enhanced distribution of Analytics to cater to API Manager specific scenarios which is used here to configure APIM Analytics.
 
 Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics for quick demos and try-out scenarios, or refer the [**Standard Setup**](#standard-setup) section to set up analytics for a production environment.
-
-!!! note
-      -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Enterprise Integrator 7.0.x - Streaming Integrator](https://wso2.com/integration/streaming-integrator)) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/).
-      -   It is not recommended to configure the Gateway node as an analytics server.
-
 
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
@@ -24,8 +19,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     
 2.  Download and install WSO2 API-M Analytics.
 
-    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
-    As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator, for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm).
+    To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options. Navigate to the **Other Resources** section, and click **Analytics**. 
 
     ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
@@ -46,30 +40,29 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
       enable = true
     ```
 
-    !!! note
-          If you are working on a distributed (clustered) setup of WSO2 API Manager, do the configurations instructed to be done in API Manager in the Publisher, Store, and Gateway nodes as well.
-
-
 4.  Start the Worker profile of the Analytics Server.
     
     Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
     -   On Windows: `worker.bat --run              `
     -   On Linux/Mac OS: `sh worker.sh               `
 
 5.  Start the API Manager server.
     
     Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
-    -   On Windows: `wso2server.bat --run`
-    -   On Linux/Mac OS: `sh wso2server.sh` 
+    
+    - On Windows: `wso2server.bat --run`
+    - On Linux/Mac OS: `sh wso2server.sh` 
     
         !!! info
-                  If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
+              If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
             
-                    INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
+                INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
                     
 6.  Start the Dashboard profile of the Analytics Server.
     
     Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+    
     -   On Windows: `dashboard.bat --run`  
     -   On Linux/Mac OS: `sh dashboard.sh`    
     
@@ -103,8 +96,6 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **Download** to expand the installation options.Navigate to the **Other Resources** section, and click **Analytics**. 
 
-<br/>As the process of installing API-M Analytics is identical to installing WSO2 Enterprise Integrator 7.0.x - Streaming Integrator (WSO2 SI), for more information go to the [WSO2 SI documentation](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/installing-si-in-vm)
-
   ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
     
 ### Step 3 - Configure WSO2 API Manager to publish statistics
@@ -123,264 +114,280 @@ Open the `<API-M_HOME>/repository/conf/deployment.toml` file and uncomment the f
 Configure the following parameters under the `[apim.analytics]` section if required.
 
 <table>
-<thead>
-<tr class="header">
-<th>Parameter</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td width="10%"><code>receiver_urls</code></td>
-<td width="30%">
-<code>
-&lt;protocol&gt;://&lt;hostname&gt;:&lt;port&gt;/
-</code>
-</td>
-<td>
-The server URL of the remote WSO2 API-M Analytics server used to collect statistics from WSO2 API Manager. Use this configuration if there is only one group with either one or many receivers.
-<p> e.g., Three receivers within a single group can be specified as follows.
-<br/><code>receiver_urls = tcp://localhost:7612,tcp://localhost:7613,tcp://localhost:7614</code>
-</p>
-<html><div class="admonition warning">
-<p class="admonition-title">From DAS to SI</p>
-<p>
+    <thead>
+        <tr class="header">
+            <th style="width:200px">Parameter</th>
+            <th>Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="even">
+            <td><code>store_api_url</code></td>
+            <td><code>https://&lt;host&gt;:&lt;port&gt;</code></td>
+            <td>The WSO2 API-M Analytics REST API URL. The WSO2 API-M Analytics REST API connection information, which are
+                included under the REST API-M connection information, are defined as global properties, as they are common
+                to all the WSO2 API-M analytics.
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>username</code></td>
+            <td>A valid administrator username</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>The administrator username to log into the remote WSO2 API-M Analytics server that can publish events and query data</p>
+                    <p>If username is not defined, admin username defined under [super_admin] will be used.</p>
+                </div>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>password</code></td>
+            <td>A valid administrator password</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>The administrator password for the user to log into the remote WSO2 API-M Analytics server that can publish events and query data</p>
+                    <p>If password is not defined, admin password defined under [super_admin] will be used.</p>
+                </div>
+            </td>
+        </tr>
+        <tr class="even">
+                <td><code>receiver_username</code></td>
+                <td>A valid administrator username</td>
+                <td>
+                    <div class="content-wrapper">
+                        <p>The administrator username to log into the remote WSO2 API-M Analytics server that can publish events</p>
+                        <p>This need to be configure if event receiver user is different from the <code>username</code>. </p>
+                    </div>
+                </td>
+            </tr>
+        <tr class="odd">
+            <td><code>receiver_password</code></td>
+            <td>The password of the receiver_username specified.</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>The administrator password to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
+                    <p>This need to be configure if event receiver user is different from the <code>username</code>. </p>
+                </div>
+            </td>
+        </tr>
+        <tr class="odd">
+            <td><code>store_api_username </code></td>
+            <td>A valid administrator username</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>The administrator username to log into the remote WSO2 API-M Analytics server that can query data</p>
+                    <p>This need to be configure if store rest api user is different from the <code>username</code></p>
+                </div>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>store_api_password</code></td>
+            <td>The password of the username specified.</td>
+            <td>
+                <div class="content-wrapper">
+                    <p>The administrator password to log into the remote WSO2 API-M Analytics server.</p>
+                    <p>This need to be configure if store rest api user is different from the <code>username</code></p>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-When using WSO2 API-M Analytics 3.2.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
-<br/>e.g.,
-<br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
-</p>
-</div>
-</html>
-</td>
-</tr>
-<tr class="odd">
-<td><code>[[apim.analytics.url_group]]
-<br/>analytics_url</code></td>
-<td><code>&lt;protocol&gt;://&lt;hostname&gt;:&lt;port&gt;/</code></td>
-<td>
-An event can also be published to multiple receiver groups, where each group has one or more receivers. 
-For each receiver groups we need to repeat the above section, whereas receivers are delimited by commas.
-<p>
-e.g., Two receiver groups with two load balanced receivers in each can be specified as follows.
-<br />
-<code>
-<br/>[[apim.analytics.url_group]]
-<br/>analytics_url =["tcp://localhost:7612","tcp://localhost:7613"]
-<br/>type = "loadbalance"
-<br/>
-<br />[[apim.analytics.url_group]]
-<br />analytics_url =["tcp://localhost:7712","tcp://localhost:7713"]
-<br/>type = "loadbalance"
-</code>
-<br/>If the type is not specified it defaults to the fail over.
-</p>
-</td>
-</tr>
-<tr class="even">
-<td><code>receiver_username</code></td>
-<td>A valid administrator username</td>
-<td><div class="content-wrapper">
-<p>The administrator user name to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
-<p>If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. 
-<br/>e.g., If the username of the API-M Analytics admin user is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com@carbon.super</code> once you have enabled email user.</li>
-</p>
-<html><div class="admonition info">
-<p class="admonition-title">Note</p>
-<p>If the username and password of the API-M Analytics node is same as that of API-M node, you can uncomment 
-   <code>username = "$ref{super_admin.username}"</code> and <code>password = "$ref{super_admin.password}"</code> under 
-   [apim.analytics].
-   <br/>
-   <br/>The default value <code>$ref{super_admin.username}</code> and <code>$ref{super_admin.password}</code> 
-   retrieve the admin user and password respectively from the current API-M node and set those for <code>receiver_username</code> 
-   and <code>receiver_password</code>. 
-</div>
-</html>
-<html><div class="admonition warning">
-<p class="admonition-title">username and password parameters</p>
-<ul>
-Please note that if the <code>username</code> and <code>password</code> are uncommented, then those values will be assigned to all the usernames and passwords that are under the [apim.analytics] section.
-<li>For example if <code>store_api_username</code> is not defined, then it takes the value of <code>username</code> when <code>username</code> is uncommented.</li>
-</ul>
-</div>
-</html>
-</div></td>
-</tr>
-<tr class="odd">
-<td><code>receiver_password</code></td>
-<td>The password of the username specified.</td>
-<td><div class="content-wrapper">
-<p>The administrator password to log into the remote WSO2 API-M Analytics server that collects statistics from WSO2 API Manager.</p>
-</div></td>
-</tr>
-<tr class="even">
-<td><code>store_api_url</code></td>
-<td><code>https://&lt;host&gt;:&lt;port&gt;</code></td>
-<td>The WSO2 API-M Analytics REST API URL. The WSO2 API-M Analytics REST API connection information, which are included under the REST API-M connection information, are defined as global properties, as they are common to all the WSO2 API-M analytics.</td>
-</tr>
-<tr class="odd">
-<td><code>store_api_username </code></td>
-<td>A valid administrator username</td>
-<td>The administrator username to log into the remote WSO2 API-M Analytics server.</td>
-</tr>
-<tr class="even">
-<td><code>store_api_password</code></td>
-<td>The password of the username specified.</td>
-<td>The administrator password to log into the remote WSO2 API-M Analytics server.</td>
-</tr>
-</tbody>
+!!! note
+    If you enable email user, you need to configure <code>@carbon.super</code> to the username of the API-M Analytics admin user. e.g., If
+    the username of the API-M Analytics admin user is <code>demo@wso2.com</code>, it must be <code>demo@wso2.com@carbon.super</code> once you
+    have enabled email user.
+    
+Configure the following event receiver configuration groups.
+   ``` toml
+   [[apim.analytics.url_group]]
+   analytics_url =["tcp://analytics1:7611","tcp://analytics2:7611"]
+   analytics_auth_url =["ssl://analytics1:7711","ssl://analytics2:7711"]
+   type = "loadbalance"
+   ```
+<table>
+    <thead>
+        <tr class="header">
+            <th style="width:200px">Parameter</th>
+            <th style="width:200px">Value</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="even">
+            <td><code>analytics_url</code></td>
+            <td><code>https://&lt;host&gt;:&lt;port&gt;</code></td>
+            <td>
+                <p>Array of event receiver urls.</p>
+            </td>
+        </tr>
+        <tr class="even">
+            <td><code>analytics_auth_url</code></td>
+            <td><code>https://&lt;host&gt;:&lt;port&gt;</code></td>
+            <td>
+                <p>Array of event receiver auth urls.</p>
+            </td>
+        </tr>   
+        <tr class="even">
+            <td><code>type</code></td>
+            <td>Event publishing mechanism</td>
+            <td>
+                <p>It support clinet side load balance or failover event publishing. By default is suppoer failover event publishing</p>
+                <p>Setting <code>type=loadbalance</code> can change it to publishing in failover manner.</p>
+                <p>If the analytics worker is active-active deployement loadbalance can be used and in active-passive setup, need to use failover publishing.</p>
+            </td>
+        </tr>        
+    </tbody>
 </table>
 
 Save the changes.
 
-### Step 4 - Configure databases
+### Step 4 - Configure analytics
 
-Configuring databases allow you to persist data relating to APIs, process them and analyze. Follow the procedure below to configure databases. 
+  APIM analytics contain two runtime as worker and dashboard. Worker is responsible for summarization collect data and dashboard is responsible for represent summarised 
+  data in dashboards. Hence two separate JVM is required. As a best practice worker and dashboard runtime can have same analytics binary. It is helps when managing the deployment 
+  and when appliying WUM updates. But it is upto the dev-ops engineer decide whether it used same binary(pack) or two binary for both runtimes.
+  
+  Wroker support [active-active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active) deployment and [active-passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive) deployment. Since dashboard is used only to render the data there is no active-active or active-passive concepet. But 
+  Based on the High-availability requirement it can be configured as active-active or active-passive based by defining loadbalancer.
+      
+#### Configure analytics worker
 
-!!! note
-    If you are configuring APIM Analytics related databases in **Oracle**, apart from the below mentioned configurations, 
-    you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to each analytics related 
-    database(either in worker or dashboard) you configure with Oracle.
+  1. Open the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file 
+  1. Edit the `APIM_ANALYTICS_DB` section.
+    ``` yaml
+    A sample for MySQL is shown below.
     
-    In the following example `APIM_ANALYTICS_DB` is configured with Oracle.
-    ``` java
     - name: APIM_ANALYTICS_DB
-      description: "The datasource used for APIM statistics aggregated data."
-      jndiConfig:
-        name: jdbc/APIM_ANALYTICS_DB
-        definition:
-          type: RDBMS
-          configuration:
-            jdbcUrl: 'jdbc:oracle:thin:@localhost:1521:XE'
-            username: 'root'
-            password: '123'
-            driverClassName: oracle.jdbc.OracleDriver
-            maxPoolSize: 50
-            idleTimeout: 60000
-            connectionTestQuery: SELECT 1 FROM DUAL
-            connectionInitSql: alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'
-            validationTimeout: 30000
-            isAutoCommit: false
+         description: "The datasource used for APIM statistics aggregated data."
+         jndiConfig:
+           name: jdbc/APIM_ANALYTICS_DB
+         definition:
+           type: RDBMS
+           configuration:
+             jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
+             username: 'root'
+             password: '123'
+             driverClassName: com.mysql.jdbc.Driver
+             maxPoolSize: 50
+             idleTimeout: 60000
+          connectionTestQuery: SELECT 1
+          validationTimeout: 30000
+          isAutoCommit: false
     ```
+  1. Point the following data sources to external databases. None of the following databases need DB scripts. The tables will be automatically created.
+    - GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
 
-1.  Stop the WSO2 API-M Analytics server if it is running already.
-2.  Configure the dashboard profile.
-    1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
-    2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database. 
-       <br/>A sample for MySQL is shown below.
-       
-         ``` java
-           - name: AM_DB
-               description: Main datasource used by API Manager
-               jndiConfig:
-                 name: jdbc/AM_DB
-               definition:
-                 type: RDBMS
-                 configuration:
-                   jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
-                   username: wso2carbon
-                   password: wso2carbon
-                   driverClassName: com.mysql.jdbc.Driver
-                   maxPoolSize: 10
-                   idleTimeout: 60000
-                   connectionTestQuery: SELECT 1
-                   validationTimeout: 30000
-                   isAutoCommit: false
+#### Configure analytics dashboard
 
-         ```
+  1. Open the `<API-M_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file.
+  2. Edit the `APIM_ANALYTICS_DB` and `AM_DB` sections and point to your desired type of database.
+   
+    !!! note
+        If you are configuring AM_DB databases in **Oracle**, apart from the below mentioned configurations, 
+        you need to add the `alter session set NLS_DATE_FORMAT='YYYY-MM-DD HH24:MI:SS'` section to AM_DB datasource you configure with Oracle.
     
-3.  Configure the worker profile. 
+    ``` yaml
+     A sample for MySQL is shown below.
+     
+    - name: AM_DB
+        description: Main datasource used by API Manager
+        jndiConfig:
+         name: jdbc/AM_DB
+        definition:
+         type: RDBMS
+         configuration:
+           jdbcUrl: "jdbc:mysql://localhost:3306/am_db"
+           username: wso2carbon
+           password: wso2carbon
+           driverClassName: com.mysql.jdbc.Driver
+           maxPoolSize: 10
+           idleTimeout: 60000
+           connectionTestQuery: SELECT 1
+           validationTimeout: 30000
+           isAutoCommit: false
+
+    - name: APIM_ANALYTICS_DB
+         description: "The datasource used for APIM statistics aggregated data."
+         jndiConfig:
+           name: jdbc/APIM_ANALYTICS_DB
+         definition:
+           type: RDBMS
+           configuration:
+             jdbcUrl: 'jdbc:mysql://localhost:3306/analytics_db'
+             username: 'root'
+             password: '123'
+             driverClassName: com.mysql.jdbc.Driver
+             maxPoolSize: 50
+             idleTimeout: 60000
+          connectionTestQuery: SELECT 1
+          validationTimeout: 30000
+          isAutoCommit: false           
+    ```
     
-      1. Open the `<API-M_ANALYTICS_HOME>/conf/worker/deployment.yaml` file 
-      2. Edit the `APIM_ANALYTICS_DB` section. 
-       <br/>A sample for MySQL is shown below.
+  1. Point the following data sources to external databases. None of the following databases need DB scripts. The tables will be automatically created.
+      - WSO2_DASHBOARD_DB
+      - BUSINESS_RULES_DB
+      - WSO2_PERMISSIONS_DB    
+         
+  1. Configure dashboard IDP configurations
+  
+    Dashboard IDP configuration is used to point same user store and STS API Manager support. With that same users and roles can be used to login to the dashboards. Same as APIM portals OAuth2 Authorization code flow is used to login to the dashboard portal. By default SSO(Single Sign On) is enabled for analytics dashboards.
+  
+    - Furthermore, these configurations are done under the auth.configs namespace as shown below and need to be changed according to the APIM deployement. 
+      ```
+      auth.configs:
+      type: apim
+      ssoEnabled: true
+      properties:
+        adminScope: apim_analytics:admin_carbon.super
+        allScopes: apim_analytics:admin openid apim:api_view apim:subscribe apim_analytics:monitoring_dashboard:own apim_analytics:monitoring_dashboard:edit apim_analytics:monitoring_dashboard:view apim_analytics:business_analytics:own apim_analytics:business_analytics:edit apim_analytics:business_analytics:view apim_analytics:api_analytics:own apim_analytics:api_analytics:edit apim_analytics:api_analytics:view apim_analytics:application_analytics:own apim_analytics:application_analytics:edit apim_analytics:application_analytics:view
+        adminUsername: admin
+        adminPassword: admin
+        kmDcrUrl: https://localhost:9443/client-registration/v0.17/register
+        kmTokenUrlForRedirection: https://localhost:9443/oauth2
+        kmTokenUrl: https://localhost:9443/oauth2
+        kmUsername: admin
+        kmPassword: admin
+        portalAppContext: analytics-dashboard
+        businessRulesAppContext : business-rules
+        cacheTimeout: 30
+        baseUrl: https://localhost:9643
+        grantType: authorization_code
+        publisherUrl: https://localhost:9443
+        devPortalUrl: https://localhost:9443
+        externalLogoutUrl: https://localhost:9443/oidc/logout
+      ```
+  
+    - Details of the properties in IdP configuration
+  
+      |<div style="width:170px">**Property**</div>            |**Default Value**                    |**Description**                 |
+      |-------------------------------------------------------|-------------------------------------|--------------------------------|
+      | `adminScope` | apim_analytics:admin_carbon.super | Admin scope which is used for permissions in dashboards.|
+      | `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
+      | `adminUsername`| admin | The username for the admin services.|
+      | `adminPassword`| admin | The password for the admin services.|
+      | `kmDcrUrl`| https://localhost:9443/client-registration/v0.17/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node url.|
+      | `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirection. This should be pointed to the API Manager Publisher node url.|
+      | `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node url.|
+      | `kmUsername`| admin | The username for the key manager in the IdP.|
+      | `kmPassword`| admin | The password for the key manager in the IdP.|
+      | `portalAppContext`| analytics-dashboard | The application context of the Analytics Dashboard application.|
+      | `businessRulesAppContext`| business-rules| The application context of the Business Rules application.|
+      | `cacheTimeout`| 30 | The cache timeout for the validity period of the token in seconds.|
+      | `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token. This is the URL where the API-M Analytics Dashboard server is running.|
+      | `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
+      | `publisherUrl`| https://localhost:9443 | Url which the API Manager Publisher is running.|
+      | `devPortalUrl`| https://localhost:9443 | Url which the API Manager Developer Portal  is running.|
+      | `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. This should be pointed to the API Manager Publisher node url.|
+         
+### Step 5 - Include third party libraries and database drivers 
 
-          ``` java
-            - name: APIM_ANALYTICS_DB
-                 description: "The datasource used for APIM statistics aggregated data."
-                 jndiConfig:
-                   name: jdbc/APIM_ANALYTICS_DB
-                 definition:
-                   type: RDBMS
-                   configuration:
-                     jdbcUrl: 'jdbc:mysql://localhost:3306/stats_db'
-                     username: 'root'
-                     password: '123'
-                     driverClassName: com.mysql.jdbc.Driver
-                     maxPoolSize: 50
-                     idleTimeout: 60000
-                  connectionTestQuery: SELECT 1
-                  validationTimeout: 30000
-                  isAutoCommit: false
-          ```
-       
-4.  Point the following data sources to external databases. 
-       None of the following databases need DB scripts. The tables will be automatically created.
-      1. WSO2_DASHBOARD_DB (dashboard profile)
-      2. BUSINESS_RULES_DB (dashboard profile)
-      3. WSO2_PERMISSIONS_DB (worker + dashboard)
-      4. GEO_LOCATION_DATA (Only if you need geo-location based statistics.)
-5.  Start the WSO2 API-M Analytics server.
-
-!!! Info
-      **Do the following to integrate third party products when configuring databases.**
-      <br/>WSO2 API Manager Analytics is a OSGi-based product. Therefore, when you integrate third party products such as Oracle with WSO2 API-M Analytics, you need to check whether the libraries you need to add are OSGi based. If they are not, you need to convert them to OSGi bundles before adding them to the `<API-M_ANALYTICS_HOME>/lib` directory.
-      For detailed instructions, see [Adding Third Party Non OSGi Libraries]({{base_path}}/learn/analytics/adding-third-party-non-osgi-libraries/).
-
-### Step 5 - Configure APIM IdP Client
-
-APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
-
-Furthermore, APIM IdP client functionality can be controlled via the properties defined in the <APIM_ANALYTICS_HOME>/conf/dashboard/deployment.yaml file under the auth.configs namespace as shown below.
-
-```
-auth.configs:
-  type: apim
-  ssoEnabled: true
-  properties:
-    adminScope: apim_analytics:admin_carbon.super
-    allScopes: apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe
-    adminUsername: admin
-    adminPassword: admin
-    kmDcrUrl: https://localhost:9443/client-registration/v0.16/register
-    kmTokenUrlForRedirection: https://localhost:9443/oauth2
-    kmTokenUrl: https://localhost:9443/oauth2
-    kmUsername: admin
-    kmPassword: admin
-    portalAppContext: analytics-dashboard
-    businessRulesAppContext : business-rules
-    cacheTimeout: 30
-    baseUrl: https://localhost:9643
-    grantType: authorization_code
-    publisherUrl: https://localhost:9443
-    devPortalUrl: https://localhost:9443
-    externalLogoutUrl: https://localhost:9443/oidc/logout
-```
-
-#### Details of the properties in APIM IdP Client
-
-
-|**Property**                                           |**Default Value**                    |**Description**                 |
-|-------------------------------------------------------|-------------------------------------|--------------------------------|
-| `adminScope`| apim_analytics:admin_carbon.super | Admin scope which is used for permissions in dashboards.|
-| `allScopes`| apim_analytics:admin apim_analytics:product_manager apim_analytics:api_developer apim_analytics:app_developer apim_analytics:devops_engineer apim_analytics:analytics_viewer apim_analytics:everyone openid apim:api_view apim:subscribe | All the scopes used for permissions in the dashboards.|
-| `adminUsername`| admin | The username for the admin services.|
-| `adminPassword`| admin | The password for the admin services.|
-| `kmDcrUrl`| https://localhost:9443/client-registration/v0.16/register | The Dynamic Client Registration (DCR) endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node url.|
-| `kmTokenUrlForRedirection`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP which is used for browser redirection. This should be pointed to the API Manager Publisher node url.|
-| `kmTokenUrl`| https://localhost:9443/oauth2 | The token endpoint of the key manager in the IdP. This should be pointed to the API Manager Publisher node url.|
-| `kmUsername`| admin | The username for the key manager in the IdP.|
-| `kmPassword`| admin | The password for the key manager in the IdP.|
-| `portalAppContext`| analytics-dashboard | The application context of the Analytics Dashboard application.|
-| `businessRulesAppContext`| business-rules| The application context of the Business Rules application.|
-| `cacheTimeout`| 30 | The cache timeout for the validity period of the token in seconds.|
-| `baseUrl`| https://localhost:9643 | The base URL to which the token should be redirected after the code returned from the Authorization Code grant type is used to get the token. This is the URL where the API-M Analytics Dashboard server is running.|
-| `grantType`| authorization_code | 	The grant type used in the OAuth application token request.|
-| `publisherUrl`| https://localhost:9443 | Url which the API Manager Publisher is running.|
-| `devPortalUrl`| https://localhost:9443 | Url which the API Manager Developer Portal  is running.|
-| `externalLogoutUrl`| https://localhost:9443/oidc/logout | The URL via which you can log out from the external IDP provider(API Manager) side in the SSO. This should be pointed to the API Manager Publisher node url.|
-
+  1. APIM analytics support both OSGI and Non-Osgi libraries
+  1. When integrating third party library or DB driver need to include it to the appropriate location.
+  1. If they library is,
+    1. osgi - Add it to `<API-M_ANALYTICS_HOME>/lib` directory and restart  
+    1. non osgi - Add it to `<API-M_ANALYTICS_HOME>/jars` directory and restart  
 
 ### Step 6 - Configure keystores
 
