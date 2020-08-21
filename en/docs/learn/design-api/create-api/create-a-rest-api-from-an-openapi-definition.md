@@ -93,16 +93,21 @@ You will notice that all the API resources are created automatically when the Op
      [![]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)]({{base_path}}/assets/img/learn/edit-api-definition-pet-store.png)
 
 
-2. Remove the security tag from the `/pet` POST resource given below.
+2. Remove the `petstore_auth` tag related configuration that appears under the `security` tag from the `/pet` POST resource given below. 
+
+    !!! note
+        Do not remove the `default` tag related configuration that appears under the `security` tag.
 
      **OpenAPI - Post resource**
 
     ``` java
-    //remove the following code snippet
     security:
-            - petstore_auth:
-                - 'write:pets'
-                - 'read:pets'
+        - petstore_auth:
+            - 'write:pets'
+            - 'read:pets'
+        - default:
+            - 'write:pets'
+            - 'read:pets'
     ```
 
 3.  Remove the security `pet/{petId}` GET resource given below:
