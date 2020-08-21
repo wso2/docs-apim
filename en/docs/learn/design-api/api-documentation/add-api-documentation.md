@@ -151,7 +151,7 @@ Follow the instructions below to add documentation to an API:
         | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
-        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
+        | Source  | You can provide only these file formats.(`.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
 
         [![Add file based API documentation]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)
 
