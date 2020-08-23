@@ -8,7 +8,7 @@ Validating the role of a requester does not make much sense in some scenarios. F
 
 ### Skipping role validation for scopes
 
-When scopes which cannot be associated to roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Scopewhitelisting) through configuration. Patterns of the allowed scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
+When scopes which cannot be associated to roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope](https://apim.docs.wso2.com/en/3.0.0/learn/api-security/oauth2/oauth2-scopes/scope-whitelisting/#scope-whitelisting) through configuration. Patterns of the allowed scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
 
 The following steps show a demonstration:
 
@@ -41,11 +41,11 @@ The following steps show a demonstration:
             {"scope":"default","token_type":"bearer","expires_in":3600,"refresh_token":"23fac44e9b7e1ae95a33b85f4f26decd","access_token":"9474fa104ccb196303f41c8a5ee6f48"}
     ```
 
-    You may not see the scope you requested for in this response as it has not been whitelisted yet.
+    You may not see the scope you requested for in this response as it has not been allowlisted yet.
 
 5.  Shut down the server.
 
-6.  To whitelist the scope, add the following under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file and restart the server.
+6.  To allowlist the scope, add the following under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file and restart the server.
 
     ``` xml
             <ScopeWhitelist>
@@ -60,6 +60,6 @@ The following steps show a demonstration:
             {"scope":"some_random_scope","token_type":"bearer","expires_in":3600,"refresh_token":"59e6676db0addca46e68991e44f2b8b8","access_token":"48855d444db883171c347fa21ba77e8"}
     ```
 
-    You see a successful response along with the whitelisted scope for which you requested.
+    You see a successful response along with the allowlisted scope for which you requested.
 
 
