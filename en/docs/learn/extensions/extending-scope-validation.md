@@ -8,7 +8,7 @@ Validating the role of a requester does not make much sense in some scenarios. F
 
 ### Skipping role validation for scopes
 
-When scopes which cannot be associated to roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [whitelisting the scope](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Scopewhitelisting) through configuration. Patterns of the whitelisted scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
+When scopes which cannot be associated to roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope](https://docs.wso2.com/display/AM260/Key+Concepts#KeyConcepts-Scopewhitelisting) through configuration. Patterns of the allowed scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
 
 The following steps show a demonstration:
 
