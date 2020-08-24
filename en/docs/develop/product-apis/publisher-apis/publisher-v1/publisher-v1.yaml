@@ -289,6 +289,13 @@ paths:
         There is a special capability for a user who has `APIM Admin` permission such that he can create APIs on behalf of other users. For that he can to specify `"provider" : "some_other_user"` in the payload so that the API's creator will be shown as `some_other_user` in the UI.
       x-examples:
         $ref: docs/examples/apis/apis_post.yaml
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" https://127.0.0.1:9443/api/am/publisher/v1/apis"
+      - lang: JavaScript
+        source: |-
+          console.log('hellof')           
       parameters:
         - in: body
           name: body
@@ -308,6 +315,12 @@ paths:
         - APIs
       responses:
         201:
+          examples:
+            application/json:
+              id: 38
+              title: T-shirt
+              image:
+                url: images/38.png
           description: |
             Created.
             Successful response with the newly created object as entity in the body.

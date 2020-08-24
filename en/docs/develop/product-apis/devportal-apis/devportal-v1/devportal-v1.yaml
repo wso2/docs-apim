@@ -35,7 +35,7 @@ info:
     ```
       {
       "callbackUrl":"www.google.lk",
-      "clientName":"rest_api_publisher",
+      "clientName":"rest_api_devportal",
       "owner":"admin",
       "grantType":"client_credentials password refresh_token",
       "saasApp":true
@@ -65,7 +65,7 @@ info:
     "clientSecret": "a4FwHlq0iCIKVs2MPIIDnepZnYMa",
     "isSaasApplication": true,
     "appOwner": "admin",
-    "jsonString": "{\"grant_types\":\"client_credentials password refresh_token\",\"redirect_uris\":\"www.google.lk\",\"client_name\":\"rest_api123\"}",
+    "jsonString": "{\"grant_types\":\"client_credentials password refresh_token\",\"redirect_uris\":\"www.google.lk\",\"client_name\":\"rest_api_devportal\"}",
     "jsonAppAttribute": "{}",
     "tokenType": null
     }
