@@ -1302,6 +1302,17 @@ columns
     wso2server.bat -DmigrateStats=true -DmigrateFromVersion=3.1.0
     ```
 
+    Note:  If cross tenant API subscriptions exist, the migration will be aborted. 
+    To ignore this, Please set the flag ``ignoreCrossTenantSubscriptions`` to true as below.
+
+    ``` tab="Linux / Mac OS"
+    sh wso2server.sh -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=3.1.0
+    ```
+
+    ``` tab="Windows"
+    wso2server.bat -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=3.1.0
+    ```
+
 #### Step 3.2 - Configure WSO2 API-M Analytics 3.2.0
 
 !!! note
