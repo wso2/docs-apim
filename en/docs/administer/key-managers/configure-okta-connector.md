@@ -25,6 +25,8 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
        
          [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
 
+         <a name="step12c"></a>
+
     3. Add a default scope. 
     
          1. Select the authorization server (e.g., default) and click **Scopes** to navigate to the Scopes section.
@@ -344,3 +346,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 5. Select the **Response Type**.
 
 6. Click **Generate Keys**.
+
+!!! tip
+     If you want to generate the tokens with scopes, those scopes should have been defined in Okta as mentioned in the <a href="#step12c">Step 1 - (2) c</a>.
+
