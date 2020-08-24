@@ -159,14 +159,38 @@ Follow the steps below to customize them.
 
 2. Copy the files that you need to customize, into the new **extensions** folder from the **includes** folder which is available in `<API-M_HOME>/repository/deployment/server/webapps/authenticationendpoint` directory.
 
-    You can choose from `title.jsp`, `header.jsp`, `footer.jsp`, `cookie-policy-content.jsp` and `privacy-policy-content.jsp`.
+    You can choose from `product-title.jsp`, `header.jsp`, `product-footer.jsp`, `cookie-policy-content.jsp` and `privacy-policy-content.jsp`. If you copy the **header.jsp**, please make sure to copy the **product-title.jsp** file as well.
 
+    !!! info
+         In order to copy any logos or images, create a folder named **customAssets** inside the extensions folder with your asset files. 
+         The mentioned feature is available only as a **WUM** update and is effective from 30th July 2020 (2020-07-30).
+      
     !!! note
-          If you are creating your own pages instead of copying from the **includes** folder, make sure to name the respective files as `title.jsp`, `header.jsp`, `footer.jsp`, `cookie-policy-content.jsp` and `privacy-policy-content.jsp`.
+          If you are creating your own pages instead of copying from the **includes** folder, make sure to name the respective files as `product-title.jsp`, `header.jsp`, `product-footer.jsp`, `cookie-policy-content.jsp` and `privacy-policy-content.jsp`.
 
 3. Customize those copied files with your content.
+
+    For example, if you want to customize the header, footer and title sections of the login and signup pages of WSO2 API Manager, change or edit the **headerTitle**, **pageTitle** and **footerText** in the following lines in `header.jsp` file with your content. If you are doing this, please make sure to add the `product-title.jsp` file to the extensions folder along with the `header.jsp` file.
+
+    ``` tab="Example"
+        String headerTitle = "API Manager";
+        String pageTitle = "WSO2 API Manager";
+        String footerText = "WSO2 API Manager";
+        String faviconSrc = "libs/theme/assets/images/favicon.ico";
+        String logoSrc = null;
+        String logoHeight = "50";
+        String logoWidth = "50";
+        String logoAltText = "";
+        File customCSSFile = null;
+        String customCSS = "";
+        String tenantThemeDirectoryName = "";
+        boolean showCookiePolicy = true;
+        boolean showPrivacyPolicy = true;
+        String cookiePolicyText = null;
+        String privacyPolicyText = null;
+    ```  
 
 4. The changes will be applied during the **API Manager server startup**.
 
 !!! info      
-      If a particular file is not present in the `<API-M_HOME>/repository/resources/extensions` folder, the relevant file from the `<API-M_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes` folder will be used. 
+      If a particular file is not present in the `<API-M_HOME>/repository/resources/extensions` folder, the relevant file from the `<API-M_HOME>/repository/deployment/server/webapps/authenticationendpoint/includes`  or `<API-M_HOME>/repository/deployment/server/webapps/accountrecoveryendpoint/includes` folder will be used. 
