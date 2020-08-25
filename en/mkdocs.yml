@@ -186,7 +186,7 @@ nav:
                       - Secure APIs using OAuth2 Access Tokens: learn/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
                       - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
                       - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.m
                       - Securing APIs Deployed in Cloud Clusters: learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                       - Federating OAuth Applications: learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
@@ -253,6 +253,7 @@ nav:
                 - Viewing API Statistics:
                       - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring-dashboard.md
                       - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
+                      - API analytics: learn/analytics/viewing-api-statistics/api-analytics-dashboard.md
                       - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
                       - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
