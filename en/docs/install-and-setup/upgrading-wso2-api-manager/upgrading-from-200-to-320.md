@@ -2873,6 +2873,17 @@ Follow the instructions below to move all the existing API Manager configuration
         ``` tab="Windows"
         wso2server.bat -DmigrateFromVersion=2.0.0
         ```
+        
+        Note:  If cross tenant API subscriptions exist, the migration will be aborted. 
+        To ignore this, Please set the flag ``ignoreCrossTenantSubscriptions`` to true as below.
+                    
+        ``` tab="Linux / Mac OS"
+        sh wso2server.sh -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=2.0.0
+        ```
+                    
+        ``` tab="Windows"
+        wso2server.bat -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=2.0.0
+        ```
 
     4. Shutdown the API-M server.
     
