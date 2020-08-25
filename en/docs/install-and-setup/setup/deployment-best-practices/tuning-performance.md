@@ -2,12 +2,6 @@
 
 This section describes some recommended performance tuning configurations to optimize WSO2 API Manager. It assumes that you have set up the API Manager on Unix/Linux, which is recommended for a production deployment.
 
--   [OS-level settings](#os-level-settings)
--   [JVM-level settings](#jvm-level-settings)
--   [WSO2 Carbon platform-level settings](#wso2-carbon-platform-level-settings)
--   [APIM-level settings](#apim-level-settings)
--   [Rate limit data and Analytics-related settings](#rate-limit-data-and-analytics-related-settings)
-
 !!! warning
     Performance tuning requires you to modify important system files, which affect all programs running on the server. WSO2 recommends that you familiarize yourself with these files using Unix/Linux documentation before editing them.
 
@@ -92,11 +86,6 @@ In multi-tenant mode, the WSO2 Carbon runtime limits the thread execution time. 
 
 ## APIM-level settings
 
--   [Timeout configurations for an API call](#timeout-configurations-for-an-api-call)
--   [General APIM-level recommendations](#general-apim-level-recommendations)
--   [Registry indexing configurations](#registry-indexing-configurations)
--   [Tuning data-agent parameters](#tuning-data-agent-parameters)
-
 ### Timeout configurations for an API call
 
 The following diagram shows the communication/network paths that occur when an API is called. The timeout configurations for each network call are explained below.
@@ -111,9 +100,9 @@ The following diagram shows the communication/network paths that occur when an A
     Key validation occurs via a Servlet HTTP call and the connection timeout can be configured by changing the following configuration details in the `<API-M_HOME>/repository/conf/deployment.toml` file. All timeout values are in milliseconds.
 
             ``` java
-            [transport.client.http.properties]
-            SO_TIMEOUT = 6000
-            CONNECTION_TIMEOUT = 6000
+                [transport.client.http.properties]
+                SO_TIMEOUT = 6000
+                CONNECTION_TIMEOUT = 6000
             ```
 
     If the Key Manager caching is enabled, the calls between the API Gateway and Key Manager are cached. As a result, the Key Manager is not invoked for each API call.
