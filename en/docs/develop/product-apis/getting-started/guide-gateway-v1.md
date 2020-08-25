@@ -4,8 +4,12 @@ WSO2 API Manager is a complete API Management solution that addresses all aspect
 
 The REST API is implemented based on the REST specification and best practices as a CXF REST web application running on WSO2 API Manager. A contract-first approach could be utilized for API development starting with an OpenAPI specification.  
 
-See the Gateway API's [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.6.163/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway.v1/src/main/resources/gateway-api.yaml) , which is written using Open API 3.0.
+See the Gateway API's [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.8.8/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway.v1/src/main/resources/gateway-api.yaml) , which is written using Open API 3.0.
 Alternatively, this API definition can be accessed using the product URL as well `https://<host-name[:port]>/api/am/gateway/v1/swagger.json`.
+In the default flow, when an API is invoked with an access token, first the CXF handler gets engaged and calls an introspection API to validate the token.
+Follow the instructions below to generate keys and obtain a token to invoke an API
+
+##Generate an access token
 
 Obtain the application keys (consumer key/consumer secret) by invoking the dynamic client registration endpoint. Refer to the sample below to obtain application keys via cURL. The generated keys can then be used to obtain an access token to invoke an API.
 
@@ -64,4 +68,4 @@ Token response:
 }
 ```
 
-Now, you have a valid access token, which you can use to invoke an API. Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. If you use a different authentication mechanism, this process may change.
+Now, you have a valid access token which you can use to invoke an API. If you wish to use a different grant type refer to the [Grant types] (https://apim.docs.wso2.com/en/next/learn/api-security/oauth2/grant-types/overview/) document to learn more.
