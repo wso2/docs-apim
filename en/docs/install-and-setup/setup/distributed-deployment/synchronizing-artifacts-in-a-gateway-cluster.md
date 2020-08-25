@@ -80,7 +80,7 @@ Configure the Gateway and Publisher profiles as explained below to enable artifa
      [apim.sync_runtime_artifacts.gateway]
      gateway_labels =["Production and Sandbox","Label1","Label2"]
      artifact_retriever = "DBRetriever"
-     deployment_retry_duartion = 15000
+     deployment_retry_duration = 15000
      data_retrieval_mode = "sync"
      save_artifacts_locally = false
      ```
@@ -89,7 +89,7 @@ Configure the Gateway and Publisher profiles as explained below to enable artifa
     |--------------------------------------------------|------------------------------------------------|
     |gateway_labels|Specify the labels that the Gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed.|
     |artifact_retriever|  Specify the extension point. The default is `DBRetriever` where the artifacts are pulled from the database.|
-    |deployment_retry_duartion| Specify the retry duration in milliseconds to deploy artifacts if there is a failure in pulling them from the  extension through `deployment_retry_duartion`. The retry duration specified here will be exponentially increased by a progression factor of 2. Thereby, the duration will be progressed as 15s, 30s, 60s, 120s and so on if there are continuous failures. The retry duration is bounded by 1 hr.<html><div class="admonition note"><p class="admonition-title">Note</p><p> This`deployment_retry_duartion` is  applicable only in Asynchronous deployment (`data_retrieval_mode ="async"`) where the server will try to deploy the artifacts after it is started. </p></div></html>|
+    |deployment_retry_duration| Specify the retry duration in milliseconds to deploy artifacts if there is a failure in pulling them from the  extension through `deployment_retry_duration`. The retry duration specified here will be exponentially increased by a progression factor of 2. Thereby, the duration will be progressed as 15s, 30s, 60s, 120s and so on if there are continuous failures. The retry duration is bounded by 1 hr.<html><div class="admonition note"><p class="admonition-title">Note</p><p> This`deployment_retry_duration` is  applicable only in Asynchronous deployment (`data_retrieval_mode ="async"`) where the server will try to deploy the artifacts after it is started. </p></div></html>|
     |data_retrieval_mode| You can use the `data_retrieval_mode = “sync” ` element to specify the mode of deployment of artifacts from the extension point. By default, Gateway Startup will be in a Synchronous manner where the server will wait until all the APIs have been deployed. If there are any failures in the deployment process, it will be triggered again for "n" times where "n" is the maximum retry count. If the APIs are not deployed even in "n" retries, then the server will start with undeployed API artifacts. 
     If you need to switch the startup mode to an Asynchronous mode, then you need to specify it in the configuration as `data_retrieval_mode = "async"`. In an Asynchronous mode, the server will be up and independent of the deployment of the Synapse artifacts in the Gateway.|
      |save_artifacts_locally|If you add the config `save_artifacts_locally = true` or remove the `save_artifacts_locally` configuration then the Synapse artifacts will be stored in the file system by being saved in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/` directory). When `save_artifacts_locally = false`, then the artifacts from extension points will not be stored in the file system.|
