@@ -7,30 +7,22 @@ There are two versions of REST APIs available for the API Publisher and Develope
 <table>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-publisher-v1/">WSO2 Publisher v1</a></td>
-    <td rowspan="2"><b>WSO2 recommends that you use the v1 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.2.0 features with regard to the Publisher and the Developer Portal.
+    <td rowspan="3"><b>WSO2 recommends that you use the v1 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.2.0 features with regard to the Publisher, Developer Portal, and Admin Portal.
     </td>
   </tr>
   <tr>
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v1/">WSO2 Developer Portal v1</a></td>
   </tr>
-  
-
-  <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-publisher-v0.16/">WSO2 Publisher v0.16</a></td>
-    <td rowspan="2">The <b>v0.16 REST APIs</b> will be deprecated in the next WSO2 API Manager release.</b></td>
-  </tr>
-  <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v0.16/">WSO2 Developer Portal v0.16</a></td>
+   <tr>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v1/">WSO2 Admin Portal v1</a></td>
   </tr>
 
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-admin-v1/">WSO2 Admin API v0.16</a></td>
-    <td> <b>WSO2 recommends that you use the Admin v0.16 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.2.0 features with regard to the Admin Portal.</td>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/">WSO2 Admin API v0.16</a></td>
-    <td> <b>WSO2 recommends that you use the Admin v0.16 REST APIs</b> as it is up to date and has support for the latest WSO2 API Manager 3.1.0 features with regard to the Admin Portal.</td>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-admin-v0.17/">WSO2 Admin v0.17</a></td>
+    <td rowspan="1">The <b>v0.17 REST APIs</b> will be deprecated in the next WSO2 API Manager release.</b></td>
+  </tr>
   
   <tr>
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/gateway-apis/gateway-v1/guide/">WSO2 Gateway API v1</a></td>
   </tr>
-
 </table>
