@@ -9,7 +9,7 @@ Alternatively, this API definition can be accessed using the product URL as well
 In the default flow, when an API is invoked with an access token, first the CXF handler gets engaged and calls an introspection API to validate the token.
 Follow the instructions below to generate keys and obtain a token to invoke an API
 
-##Generate an access token
+##Generate Keys
 
 Obtain the application keys (consumer key/consumer secret) by invoking the dynamic client registration endpoint. Refer to the sample below to obtain application keys via cURL. The generated keys can then be used to obtain an access token to invoke an API.
 
