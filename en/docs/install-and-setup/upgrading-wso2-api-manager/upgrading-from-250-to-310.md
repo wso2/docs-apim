@@ -1878,7 +1878,7 @@ Follow the instructions below to configure WSO2 API Manager for the WSO2 API-M A
         validationQuery = "SELECT 1"
         ```
 
-2.  Download and copy the [org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-1.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
+2.  Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.1.0-3.jar) to the `<API-M_3.1.0_HOME>/repository/components/dropins` folder.
 
 3.  Copy the relevant JDBC driver to the `<API-M_3.1.0_HOME>/repository/components/lib` folder.
 
