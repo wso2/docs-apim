@@ -2,17 +2,17 @@
 
 ### Usecase
 
-Prevent misuse or abuse of information or of any application resources exposed by an API
+-   Prevent misuse or abuse of information or of any application resources exposed by an API
 
-Have the ability to distinguish between internal, partner and public use of APIs via security controls and audits
+-   Ability to distinguish between internal, partner and public use of APIs via security controls and audits
 
-Ability to trace back which apps are using what APIs (hence data or resources) with which user credentials, permissions and roles
+-   Ability to trace back which apps are using what APIs (hence data or resources) with which user credentials, permissions and roles
 
-Ability to support multiple security standards and protocols
+-   Ability to support multiple security standards and protocols
 
 -   Embed custom security algorithms globally or for selected services
 
-Ability to enforce both authentication (are you a valid user) and authorization (are you permitted to perform this action) on APIs
+-   Ability to enforce both authentication (are you a valid user) and authorization (are you permitted to perform this action) on APIs
 
 ### Business Story
 
@@ -21,7 +21,7 @@ ABC organization is a mobile phone manufacturing company that has to expose thei
 ### Running the sample
 
 -   Start wso2am-2.2.0-updateX.
--   Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 4, when prompted.
+-   Go to `<API-M_HOME>/sample-scenarios`. Execute the `run.sh` file. Enter the scenario number as 4, when prompted.
 
 ### User credentials
 
@@ -34,7 +34,7 @@ ABC organization is a mobile phone manufacturing company that has to expose thei
 -   We need to create and API to get the salary details of the employees
 -   We need to have separate tenants to manage their APIs through tenants. For more details, see Managing Public, Partner vs Private APIs
 -   We need to enable audit logs to trace the API creations and API invocations.
-    For example, to enable custom security algorithms we can use the [Kerberos OAuth2 Grant.](https://docs.wso2.com/display/AM260/Kerberos+OAuth2+Grant)
+    For example, to enable custom security algorithms we can use the [Kerberos OAuth2 Grant.]({{base_path}}/learn/api-security/oauth2/grant-types/kerberos-oauth2-grant)
 -   We can authorize the users through API Manager access tokens and we can use scopes to authorise the API consumers when consuming the APIS.
 
 The audit logs are printed in the `<API-M_HOME>/repository/logs/audit.log` file, when you run the sample.
@@ -100,35 +100,42 @@ When analysing the audit logs
 -   This log show that a user has been created
 
     ``` java
-            [2017-12-22 11:48:09,398]  INFO -  Initiator : admin@carbon.super | Action : Add User | Target : tom | Data : { Roles :Internal/subscriber, } | Result : Success
+    [2017-12-22 11:48:09,398]  INFO -  Initiator : admin@carbon.super | Action : Add User | Target : tom | Data : { Roles :Internal/subscriber, } | Result : Success
     ```
 
 -   This log show that an application has been created
 
     ``` java
-            [2017-12-22 11:48:10,819] Chris@finance.abc.com [1] [AM] INFO -  Initiator : Chris | Action : create | Target : 0 | Data : { Chris_Integration_Test_App } | Result : Success
+    [2017-12-22 11:48:10,819] Chris@finance.abc.com [1] [AM] INFO -  Initiator : Chris | Action : create | Target : 0 | Data : { Chris_Integration_Test_App } | Result : Success
     ```
-
-<!-- -->
 
 -   This log show the API creation of the Salary details API
 
     ``` java
-            [2017-12-22 11:48:14,449] Chris@finance.abc.com@finance.abc.com [1] [AM] INFO -  {"performedBy":"Chris","action":"created","typ":"API","info":"{\"provider\":\"Chris-AT-finance.abc.com\",\"name\":\"Salary_details_API\",\"context\":\"\\\/t\\\/finance.abc.com\\\/salaries\\\/1.0.0\",\"version\":\"1.0.0\"}"}
+    [2017-12-22 11:48:14,449] Chris@finance.abc.com@finance.abc.com [1] [AM] INFO -  {"performedBy":"Chris","action":"created","typ":"API","info":"{\"provider\":\"Chris-AT-finance.abc.com\",\"name\":\"Salary_details_API\",\"context\":\"\\\/t\\\/finance.abc.com\\\/salaries\\\/1.0.0\",\"version\":\"1.0.0\"}"}
     ```
 
-These data can be viewed via WSO2 API Manager Analytics server. For more details, see copy\_API Governance .
+These data can be viewed via WSO2 API Manager Analytics server. For more details, see copy\_API Governance.
 
 Assume that the `GET` resource in the Salary API should be restricted for admin role users. Follow the steps below to restrict the resource for a particular role.
 
-1.  Create a scope named `new_scope.` Assign scope to the admin role. ![](https://lh6.googleusercontent.com/P4ixhA2IooMGlCyw1S0_QnmCFjcI8dPwk3LzArNRIr8rP5hC8FNr3IxkvAPUcYP36fQHWxWPHXysqGUqyea2z1_1gxxV6vAD57Wec6PNvfDZ0tHGM9oe1xypil9nnyrsRXBEL5yt)2.  When you execute the sample, it invokes the API without this scope. ![](https://lh3.googleusercontent.com/xZnDwHf4dbw4ynxUyOBEjYuG87X3nJ2DWsuApHWhW1KKTSbKHLP3YCDEIrqkD3oCezEjuJS4KtbDnbguTyOeTNTs9_YQ1wT5UXFS_BuEaTepB-wvdh8qz9rTEASBvtG6Y8-PSJ4p)
-        !!! note
-    You will see the following error in the audit log if the access token does not allow you to access the requested resource.
+1.  Create a scope named `new_scope.` Assign scope to the admin role. 
 
-    ``` java
-        WARN - APIAuthenticationHandler API authentication failure
-    ```
+    ![](https://lh6.googleusercontent.com/P4ixhA2IooMGlCyw1S0_QnmCFjcI8dPwk3LzArNRIr8rP5hC8FNr3IxkvAPUcYP36fQHWxWPHXysqGUqyea2z1_1gxxV6vAD57Wec6PNvfDZ0tHGM9oe1xypil9nnyrsRXBEL5yt)
+
+2.  When you execute the sample, it invokes the API without this scope. 
+
+    ![](https://lh3.googleusercontent.com/xZnDwHf4dbw4ynxUyOBEjYuG87X3nJ2DWsuApHWhW1KKTSbKHLP3YCDEIrqkD3oCezEjuJS4KtbDnbguTyOeTNTs9_YQ1wT5UXFS_BuEaTepB-wvdh8qz9rTEASBvtG6Y8-PSJ4p)
+
+    !!! note
+        You will see the following error in the audit log if the access token does not allow you to access the requested resource.
+
+        ``` java
+            WARN - APIAuthenticationHandler API authentication failure
+        ```
 
 
-3.  Executing the sample also invokes the `GET` resource and return the response as shown below. ![](https://lh4.googleusercontent.com/a9GVqIUs62NnynUA9HpIy6WqU3xEW4Pr9kl_veTTrt89OquS4YHqHLMxBDUMy3o9qKCQwy90U3JjcRFcepETVejA7W9QJibEINQHPmRhuZdY97bTO4iFZLwhC7148fpXMjxcPgr8)
+3.  Executing the sample also invokes the `GET` resource and return the response as shown below. 
+
+    ![](https://lh4.googleusercontent.com/a9GVqIUs62NnynUA9HpIy6WqU3xEW4Pr9kl_veTTrt89OquS4YHqHLMxBDUMy3o9qKCQwy90U3JjcRFcepETVejA7W9QJibEINQHPmRhuZdY97bTO4iFZLwhC7148fpXMjxcPgr8)
 

@@ -186,7 +186,7 @@ nav:
                       - Secure APIs using OAuth2 Access Tokens: learn/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
                       - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
                       - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
+                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.m
                       - Securing APIs Deployed in Cloud Clusters: learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                       - Federating OAuth Applications: learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
@@ -253,6 +253,7 @@ nav:
                 - Viewing API Statistics:
                       - Monitoring dashboard: learn/analytics/viewing-api-statistics/monitoring-dashboard.md
                       - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
+                      - API analytics: learn/analytics/viewing-api-statistics/api-analytics-dashboard.md
                       - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
                       - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
@@ -340,7 +341,7 @@ nav:
                 - SAML2 SSO:
                       - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
                       - Configuring External IDP Through Identity Server for SSO: develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-                      - Configure Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
+                      - Configuring Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
                       - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
           - Customizations:
                 - Customizing the Developer Portal:

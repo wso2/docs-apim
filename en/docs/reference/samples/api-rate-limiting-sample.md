@@ -49,7 +49,7 @@ In WSO2 API Manager we need to,
 ### Running the sample to populate the sample data
 
 -   Start wso2am-2.2.0-updateX.
--   Go to `<API-M_HOME>/sample-scenarios` . Execute the `run.sh` file. Enter the scenario number as 10, when prompted.
+-   Go to `<API-M_HOME>/sample-scenarios`. Execute the `run.sh` file. Enter the scenario number as 10, when prompted.
 
 ### User credentials needed for log in
 
