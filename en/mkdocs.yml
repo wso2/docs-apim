@@ -186,7 +186,7 @@ nav:
                       - Secure APIs using OAuth2 Access Tokens: learn/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
                       - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
                       - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.m
+                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
                       - Securing APIs Deployed in Cloud Clusters: learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                       - Federating OAuth Applications: learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
