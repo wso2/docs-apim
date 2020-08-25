@@ -6,6 +6,7 @@ The REST API is implemented based on the REST specification and best practices a
 
 See the Gateway API's [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.8.8/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway.v1/src/main/resources/gateway-api.yaml) , which is written using Open API 3.0.
 Alternatively, this API definition can be accessed using the product URL as well `https://<host-name[:port]>/api/am/gateway/v1/swagger.json`.
+The API comes with a pluggable security mechanism. Since API security is implemented as a CXF handler, if you need to plug a custom security mechanism, you can write your own handler and add it to the web service.
 In the default flow, when an API is invoked with an access token, first the CXF handler gets engaged and calls an introspection API to validate the token.
 Follow the instructions below to generate keys and obtain a token to invoke an API
 
