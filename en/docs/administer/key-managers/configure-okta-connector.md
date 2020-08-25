@@ -23,7 +23,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     
          Alternatively, you can use the default server.
        
-         [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
+         [![Okta authorization mserver]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
 
     3. Add a default scope. 
     

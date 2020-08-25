@@ -47,14 +47,15 @@ If you wish to view reports, statistics, and graphs related to the APIs deployed
 
 ### Step 6 - Configure the connections among the components and start the servers
 
-You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. Once the required configuration is done in each component, it is recommended to start the them in the following order:Key Manager, Traffic Manager, Publisher, Developer Portal, and Gateway.
+You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. Once the required configuration is done in each component, it is recommended to start them in the following order:
+Key Manager, Traffic Manager, Publisher, Developer Portal, and Gateway.
 
 !!! note
     In a clustered environment, you use session affinity (sticky sessions) to ensure that requests from the same client always get routed to the same server.
  
     When an API is published from the API Publisher, a file with its synapse configuration is puhsed to the API Gateway.Therefore in order to ensure that Basic Auth authentication for the respective admin service call and subsequent synapse artifact deployment requests are sent to the same Gateway node, we need to enable sticky sessions for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Gateway nodes.
     
-    Similarly when a throttle policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in Traffic Manager via an admin service call and therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Traffic Manager nodes.
+    Similarly when a throttle policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in Traffic Manager via an admin service call and therefore sticky sessions need to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Traffic Manager nodes.
     
     Key validation requests sent from the Gateway node to the Key Manager nodes also happen via an admin service call, therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Key Manager nodes.
     
