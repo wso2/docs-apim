@@ -396,6 +396,7 @@ nav:
                       - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
                       - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
                       - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
+                      - Configuring Gateway with Artifact Synchronization: install-and-setup/setup/distributed-deployment/configuring-multi-gateway-setup-with-artifact-synchronization.md
                 - Configure a Key Manager:
                       - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                       - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
