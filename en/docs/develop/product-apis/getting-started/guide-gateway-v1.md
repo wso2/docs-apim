@@ -7,7 +7,7 @@ The REST API is implemented based on the REST specification and best practices a
 See the Gateway API's [Swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.6.163/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway.v1/src/main/resources/gateway-api.yaml) , which is written using Open API 3.0.
 Alternatively, this API definition can be accessed using the product URL as well `https://<host-name[:port]>/api/am/gateway/v1/swagger.json`.
 
-Before invoking the API with the access token, obtain the consumer key/secret key pair by calling the dynamic client registration endpoint. You can request an access token with the preferred grant type. An example is shown below,
+Obtain the application keys (consumer key/consumer secret) by invoking the dynamic client registration endpoint. Refer to the sample below to obtain application keys via cURL. The generated keys can then be used to obtain an access token to invoke an API.
 
 ```
 curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -37,10 +37,18 @@ Sample response:
 }
 ```
 
-During the API invocation process request, click the CXF handler first, which calls an introspection API to validate the token. Generate the access token using the already created OAuth application. A sample call to generate the access token is shown below.
+##Generate an access token
+
+Generate an access token using the keys obtained from the step above. Refer to the sample below to invoke the token endpoint.
 
 Note: Access token must be generated using correct scope for the resource. Scope for each resource is given in resource documentation.
+
+
+``` tab="Format"
+curl -k -d "grant_type=password&username=<username>&password=<password>&scope=<scope>" -H "Authorization: Basic base64encode(consumer_key:consumer_secret)" https://localhost:8243/token
 ```
+
+``` tab="Example"
 curl -k -d "grant_type=password&username=admin&password=admin&scope=apim:tier_view" -H "Authorization: Basic SGZFbDFqSlBkZzV0YnRyeGhBd3liTjA1UUdvYTpsNmMwYW9MY1dSM2Z3ZXpIaGM3WG9HT2h0NUFh" https://localhost:8243/token
 ```
 
