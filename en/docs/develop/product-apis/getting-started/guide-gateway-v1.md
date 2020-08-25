@@ -8,16 +8,15 @@ See the Gateway API's [Swagger definition](https://raw.githubusercontent.com/wso
 Alternatively, this API definition can be accessed using the product URL as well `https://<host-name[:port]>/api/am/gateway/v1/swagger.json`.
 The API comes with a pluggable security mechanism. Since API security is implemented as a CXF handler, if you need to plug a custom security mechanism, you can write your own handler and add it to the web service.
 In the default flow, when an API is invoked with an access token, first the CXF handler gets engaged and calls an introspection API to validate the token.
-Follow the instructions below to generate keys and obtain a token to invoke an API
+Follow the instructions below to generate keys and obtain a token to invoke an API.
 
 ##Generate Keys
 
 Obtain the application keys (consumer key/consumer secret) by invoking the dynamic client registration endpoint. Refer to the sample below to obtain application keys via cURL. The generated keys can then be used to obtain an access token to invoke an API.
 
-```
+```tab="Example"
 curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
 ```
-
 Sample request:
 
 ```
@@ -69,4 +68,4 @@ Token response:
 }
 ```
 
-Now, you have a valid access token which you can use to invoke an API. If you wish to use a different grant type refer to the [Grant types] (https://apim.docs.wso2.com/en/next/learn/api-security/oauth2/grant-types/overview/) document to learn more.
+Now, you have a valid access token which you can use to invoke an API. If you wish to use a different grant type refer to the [Grant types](https://apim.docs.wso2.com/en/next/learn/api-security/oauth2/grant-types/overview/) document to learn more.
