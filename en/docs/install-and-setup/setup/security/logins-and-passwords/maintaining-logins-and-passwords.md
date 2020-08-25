@@ -1,23 +1,17 @@
 # Maintaining Logins and Passwords
 
-This section covers the following topics:
+The following section explains how you can change your credentials, recover your password, and customize your login.
 
--   [Changing the super admin credentials](#changing-the-super-admin-credentials)
--   [Recovering a password](#recovering-a-password)
--   [Login in via multiple user attributes in API Developer-portal](#login-in-via-multiple-user-attributes-in-developer-portal)
--   [Setting up an e-mail login](#login-in-via-multiple-user-attributes-in-developer-portal)
--   [Setting up a social media login](#setting-up-a-social-media-login)
-
-### Changing the super admin credentials
+## Change the super admin credentials
 
 Follow the instructions below to change the default admin password:
 
 1.  Go to `<API-M_HOME>/repository/conf/deployment.toml` and change the user credentials as below.
 
    ``` toml
-       [super_admin]
-       username = "your-name"
-       password = "your-password"
+    [super_admin]
+    username = "your-name"
+    password = "your-password"
    ```
   
 !!! note
@@ -55,37 +49,66 @@ Follow the instructions below to change the default admin password:
     Therefore, if you need to change the admin password stored in the user store, you cannot simply change the credentials as above.
     To change the super admin password, you must use the **Change Password** option from the management console.
       
-    To change the password from Management Console ( <https://localhost:9443/carbon> ), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
+    To change the password from Management Console (<https://localhost:9443/carbon>), follow the steps in [Changing a Password](https://docs.wso2.com/display/ADMIN44x/Changing+a+Password) corresponding to API Manager.
 
-### Recovering a password
+## Recover a password
 
 Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 !!! note
     If you encountered an error similar to `ant: command not found`, Please install [ant](https://ant.apache.org/) before running the above script
 
-### Login in via multiple user attributes in Developer Portal
+## Setup an e-mail login
 
-See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager. 
+1. First, follow the steps from Step 1 to Step 5 given in [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
 
-### Setting up an e-mail login
+2. Specify the complete username with tenant domain for `apim.throttling.username` section in `<API-M_HOME>/repository/conf/deployment.toml`.
 
-For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
+    If you are in the super tenant mode the username should be as in the format of `<email>@carbon.super`.
+    ``` toml
+    [apim.throttling]
+    username = "admin@wso2.com@carbon.super"
+    ```
 
--   When setting up email login, specify the complete username with tenant domain. If you are in the super tenant mode the username should be as follows. `<email>@carbon.super`
-  
-    Example: `admin@wso2.com@carbon.super`
+3. The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specify the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<API-M_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
 
--   The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specifying the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
-
-   ``` toml
+    ``` toml
     [apim.throttling.jms]
     username="admin!wso2.com!carbon.super"
-   ```
+    ```
+4. Restart the server.
 
-### Setting up a social media login
+??? info "sample deployment.toml configs"
+    ```
+    [tenant_mgt]
+    enable_email_domain= true
 
-You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. Refer [Log in to the API Developer Portal using Social Media]({{base_path}}/learn/consume-api/customizations/log-in-to-the-api-store-using-social-media/) for more information.
+    [super_admin]
+    username = "admin@wso2.com"
+    password = "admin"
+    create_admin_account = true
+
+    [apim.throttling]
+    username = "admin@wso2.com@carbon.super"
+
+    [apim.throttling.jms]
+    username = "admin!wso2.com!carbon.super"
+
+    [user_store]
+    type = "database_unique_id"
+    username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
+    username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
+    ```   
+
+## Developer Portal
+
+### Sign in via multiple user attributes
+
+See [Authentication using multiple Attributes](https://is.docs.wso2.com/en/5.10.0/learn/managing-user-attributes/#authentication-using-multiple-attributes) in the WSO2 IS documentation. Follow those instructions on setting up similarly in API Manager.
+
+### Setup a social media login
+
+You can auto-provision users based on a social network login by integrating the API Manager with WSO2 Identity Server. For more information, see [Log in to the API Developer Portal using Social Media]({{base_path}}/develop/customizations/log-in-to-the-dev-portal-using-social-media).
 
 !!! note
     Note that auto-provision users based on a social network login are not supported in a **multi-tenant environment**.
@@ -97,6 +120,3 @@ To overcome this limitation, you can write a custom authenticator to retrieve th
 
 -   For information on writing a custom authenticator, see [Creating Custom Authenticators](https://is.docs.wso2.com/en/5.10.0/develop/writing-a-custom-local-authenticator/) in the WSO2 IS documentation.
 -   For information on writing a custom login page, see [Customizing Login Pages](https://is.docs.wso2.com/en/5.10.0/develop/customizing-login-pages-for-service-providers/) in the WSO2 IS documentation.
-
-
-

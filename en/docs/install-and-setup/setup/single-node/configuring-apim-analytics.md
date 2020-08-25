@@ -8,7 +8,6 @@ Please refer the  [**Quick Setup**](#quick-setup) section to set up analytics fo
       -   WSO2 recommends using the API-M Analytics (powered by [WSO2 Streaming Integrator](https://wso2.com/integration/streaming-integrator) ) distribution to set up the minimum high availability deployment with API Manager. For configuration details, see [Minimum High Availability Deployment for Streaming Integrator](https://ei.docs.wso2.com/en/next/streaming-integrator/setup/deploying-si-as-minimum-ha-cluster/) .
       -   It is not recommended to configure the Gateway node as an analytics server.
 
-
 -   [**Quick Setup**](#quick-setup)
 -   [**Standard Setup**](#standard-setup)
 
@@ -57,20 +56,18 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
     <br/>Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `wso2server.bat --run`
     -   On Linux/Mac OS: `sh wso2server.sh` 
-    
-        !!! info
-                  If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
+
+    !!! Info
+          If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
             
-                    INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
+          INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
                     
 6.  Start the Dashboard profile of the Analytics Server.
     <br/>Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     -   On Windows: `dashboard.bat --run`  
-    -   On Linux/Mac OS: `sh dashboard.sh`    
-    
-    
+    -   On Linux/Mac OS: `sh dashboard.sh`
 
-7.  Optionally, if you wish to access the business rules via the Dashboard node, you can use the dashboard profile that we started in the previous step.            
+7.  Optionally, if you wish to access the business rules via the Dashboard node, you can use the dashboard profile that we started in the previous step.
 
 You can now start using the WSO2 API Manager for its usual operations and the required Analytics functionality.
 
@@ -78,12 +75,12 @@ You can now start using the WSO2 API Manager for its usual operations and the re
 
 Follow the instructions below if you wish to set up API-M Analytics for a production environment.
 
--   [Step 1 - Download and install WSO2 API-M](#step-1-download-and-install-wso2-api-m)
--   [Step 2 - Download and install WSO2 API-M Analytics](#step-2-download-and-install-wso2-api-m-analytics)
--   [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3-configure-wso2-api-manager-to-publish-statistics)
--   [Step 4 - Configure databases](#step-4-configure-databases)
--   [Step 5 - Configure APIM IdP Client](#step-5-configure-apim-idp-client)
--   [Step 6 - Configure keystores](#step-6-configure-keystores)
+  - [Step 1 - Download and install WSO2 API-M](#step-1---download-and-install-wso2-api-m)
+  - [Step 2 - Download and install WSO2 API-M Analytics](#step-2---download-and-install-wso2-api-m-analytics)
+  - [Step 3 - Configure WSO2 API Manager to publish statistics](#step-3---configure-wso2-api-manager-to-publish-statistics)
+  - [Step 4 - Configure databases](#step-4---configure-databases)
+  - [Step 5 - Configure APIM IdP Client](#step-5---configure-apim-idp-client)
+  - [Step 6 - Configure keystores](#step-6---configure-keystores)
 
 #### Step 1 - Download and install WSO2 API-M
 
@@ -138,7 +135,7 @@ The server URL of the remote WSO2 API-M Analytics server used to collect statist
 <html><div class="admonition warning">
 <p class="admonition-title">From DAS to SI</p>
 <p>
-When using WSO2 API-M Analytics 3.1.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
+When using WSO2 API-M Analytics 3.2.0, when publishing to an HA setup of APIM analytics, you need to separate the Receiver URLs by the pipe symbol (|) because the analytics events are published in a failover manner where only one node handles the processing at any given time.
 <br/>e.g.,
 <br/><code>receiver_urls = "tcp://localhost:7612 | tcp://localhost:7613"</code>
 </p>
@@ -297,7 +294,7 @@ Configuring databases allow you to persist data relating to APIs, process them a
 
 APIM IdP Client authenticates users by interacting with the identity provider of API Manager via OAuth2. The APIM Manager user store is used to provide the access to APIM Analytics as well. WSO2 APIM Analytics server authenticates by requesting an access token from the identity provider in API Manager using the authentication code grant type. This APIM IdP client enables SSO(Single Sign On). 
 
-Furthermore, APIM IdP client functionality can be controlled via the properties defined in the <APIM_ANALYTICS_HOME>/conf/dashboard/deployment.yaml file under the auth.configs namespace as shown below.
+Furthermore, APIM IdP client functionality can be controlled via the properties defined in the `<APIM_ANALYTICS_HOME>/conf/dashboard/deployment.yaml` file under the auth.configs namespace as shown below.
 
 ```
 auth.configs:

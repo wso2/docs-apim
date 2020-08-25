@@ -13,12 +13,19 @@ WSO2 API Controller(CTL) is a command-line tool for managing API Manager environ
 5.  Execute the following command to start the CTL Tool.
 
     !!! Warn
-        From API Manager Tooling 3.2.0 version onwards, the names of the endpoints have been modified and this causes changing the syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If you have an older file, you'll get an error while executing the apictl commands due to this. To avoid that, backup and remove `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure the environments using new commands as explained below in [Add an environment](#add-an-environment) section.
+        From API Manager Tooling 3.1.0 version onwards, the names of the endpoints have been modified and this causes changing the syntax in `/home/<user>/.wso2apictl/main_config.yaml` file. If you have an older file, you'll get an error while executing the apictl commands due to this. To avoid that, backup and remove `/home/<user>/.wso2apictl/main_config.yaml` file and reconfigure the environments using new commands as explained below in [Add an environment](#add-an-environment) section.
 
     ``` go
     ./apictl
     ```
     The directory structure for the configuration files ( `<USER_HOME>/.wso2apictl` ) will be created upon the execution of the `apictl` command.
+
+    !!! Tip
+        If you want to change the default location for the .wso2apictl directory, set an environment variable (**APICTL_CONFIG_DIR**) as follows with the path for the desired location.
+
+        ```
+        export APICTL_CONFIG_DIR="/home/wso2user/CLI"
+        ```
 
 6.  Add the location of the extracted folder to your system's `$PATH` variable to be able to access the executable from anywhere.
 
@@ -737,30 +744,6 @@ Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted 
     </tbody>
 </table>
 
-
-## Set token type
-
-Run the following CTL command to set the token type of the default apictl application.
-
--   **Command**
-        ```go
-        apictl set --token-type <token type>
-        ```
-
-    !!! example
-        ```bash
-        apictl set --token-type JWT
-        ```
-        ```bash
-        apictl set --token-type OAuth
-        ```
-    
-    !!! info
-        **Flags:** 
-
-        -   Required :   
-            `--token-type` or `-t` : Type of the token to be generated
-
 ## Set HTTP request timeout
 
 Run the following CTL command to set the HTTP request timeout.
@@ -806,4 +789,24 @@ Run the following CTL command to change the default location of the export direc
         - Required :   
             `--export-directory`: Path to directory where APIs should be saved.   
             Default : `/home/.wso2apictl/exported`
+            
+            
+## Import SSL Certificate for Secure HTTP Communication with API Manager
+
+Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
+certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a
+different certificate than the default.   
+
+If the certificate is the default WSO2 certificate or a CA-signed certificate of a CA (Certificate Authority) trusted by
+the OS, these certificates will be imported by default to the controller. If the CA or the certificate is new or does
+not get imported by default, you can add the certificate to the ```certs``` directory found in 
+```APICTL_CONFIG_DIR/.wso2apictl```. 
+(Default location of the certs directory is ```/home/.wso2apictl/certs```)  
+
+The certificates added to this directory will be imported whenever an action is performed with the controller. Any
+DER or PEM encoded certificate with the file extensions of ```*.pem```, ```*.crt``` or ```*.cer``` can be used with the
+controller. 
+
+!!! Info
+    If you are using windows, CA certs will not be imported by default and has to be added to the ```certs``` directory.
 

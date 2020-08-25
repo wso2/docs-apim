@@ -23,7 +23,7 @@ info:
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - Publisher.
 
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.0.4/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
+    Please see [full OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.177/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [OpenAPI Specification 3.0](http://swagger.io/).
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -95,7 +95,11 @@ securityDefinitions:
       apim:ep_certificates_add: Add backend endpoint certificates
       apim:ep_certificates_update: Update and delete backend endpoint certificates
       apim:publisher_settings: Retrieve store settings
-      apim:pub_alert_manage: Get/ subscribe/ configure publisher alerts.
+      apim:pub_alert_manage: Get/ subscribe/ configure publisher alerts
+      apim:shared_scope_manage: Manage shared scopes
+      apim:app_import_export: Import and export applications related operations
+      apim:api_import_export: Import and export APIs related operations
+      apim:api_product_import_export: Import and export API Products related operations
 
 security:
   - OAuth2Security:
@@ -120,6 +124,7 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
+            - apim:api_import_export
       x-examples:
         $ref: docs/examples/apis/apis_get.yaml
       parameters:
@@ -276,6 +281,8 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
+            - apim:api_import_export
+            - apim:api_product_import_export
       tags:
         - APIs
       responses:
@@ -411,6 +418,7 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_delete
+            - apim:api_import_export
       summary: Delete an API
       description: |
         This operation can be used to delete an existing API proving the Id of the API.
@@ -1240,6 +1248,7 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
+          - apim:api_import_export
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X POST \"https://127.0.0.1:9443/api/am/publisher/v1/apis/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish\""
       x-wso2-request: |
         POST https://127.0.0.1:9443/api/am/publisher/v1/apis/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish
@@ -1686,7 +1695,7 @@ paths:
             - apim:api_create
       summary: Import API Definition
       description: |
-        This operation can be used to create api from api definition.
+        This operation can be used to create api from api definition.APIMgtDAOTest
 
         API definition is GraphQL Schema
       parameters:
@@ -3448,35 +3457,104 @@ paths:
             $ref: '#/definitions/Error'
 
   ######################################################
-  # Check scope existence
+  # GraphQL "Query Complexity" resource APIs
   ######################################################
-  /scopes/{name}:
+  /apis/{apiId}/graphql-policies/complexity:
+
     #-----------------------------------------------------
-    # The scope name existence check resource
+    # Retrieve Custom Complexity Info of a given API
     #-----------------------------------------------------
-    head:
+    get:
+      summary: Get the complexity related details of an API
       security:
         - OAuth2Security:
             - apim:api_create
             - apim:api_publish
-      operationId: validateScope
-      summary:
-        Check given scope name is already exist
       description: |
-        Using this operation, user can check a given scope name exists or not.
+        This operation can be used to retrieve complexity related details belonging to an API by providing the API id.
       parameters:
-        - $ref : '#/parameters/scopeName'
+        - $ref: '#/parameters/apiId'
       tags:
-        - scope
+        - GraphQL Policies
       responses:
         200:
-          description:
+          description: |
             OK.
-            Requested scope name exists.
+            Requested complexity details returned.
         404:
-          description:
+          description: |
             Not Found.
-            Requested scope name does not exist.
+            Requested API does not contain any complexity details.
+
+    #-----------------------------------------------------
+    # Update API specific Custom Complexity Info
+    #-----------------------------------------------------
+    put:
+      summary: Update complexity related details of an API
+      security:
+        - OAuth2Security:
+            - apim:api_create
+      description: |
+        This operation can be used to update complexity details belonging to an API by providing the id of the API.
+      parameters:
+        - $ref: '#/parameters/apiId'
+        - in: body
+          name: body
+          description: |
+            Role-depth mapping that needs to be added
+          required: true
+          schema:
+            $ref: '#/definitions/GraphQLQueryComplexityInfo'
+      tags:
+        - GraphQL Policies
+      responses:
+        200:
+          description: |
+            Created.
+            Complexity details created successfully.
+        404:
+          description: |
+            Bad Request.
+            Complexity detail addition failed.
+
+  ######################################################
+  # GraphQL Schema "Types and Fields" resource API
+  ######################################################
+  /apis/{apiId}/graphql-policies/complexity/types:
+
+    #-----------------------------------------------------
+    # Retrieve all types and fields of a GraphQL Schema
+    #-----------------------------------------------------
+    get:
+      summary: Retrieve types and fields of a GraphQL Schema
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      description: |
+        This operation can be used to retrieve all types and fields of the GraphQL Schema by providing the API id.
+      parameters:
+        - $ref: '#/parameters/apiId'
+      tags:
+        - GraphQL Policies
+      responses:
+        200:
+          description: |
+            OK.
+            Types and fields returned successfully.
+          headers:
+            Content-Type:
+              description: |
+                The content of the body.
+              default: application/json
+              type: string
+          schema:
+            $ref: '#/definitions/GraphQLSchemaTypeList'
+        404:
+          description: |
+            Not Found.
+            Retrieving types and fields failed.
+
 
   ######################################################
   # The "Resource Paths" resource
@@ -3806,7 +3884,7 @@ paths:
         2. Retrieving subscriptions for a specific API.
         `GET https://127.0.0.1:9443/api/am/publisher/v1/subscriptions?apiId=c43a325c-260b-4302-81cb-768eafaa3aed`
       parameters:
-        - $ref: '#/parameters/apiId-Q'
+        - $ref: '#/parameters/apiId-Q-Opt'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/offset'
         - $ref: '#/parameters/If-None-Match'
@@ -5078,6 +5156,8 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
+            - apim:api_import_export
+            - apim:api_product_import_export
       produces:
         - application/json
       x-examples:
@@ -5244,6 +5324,7 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
+            - apim:api_product_import_export
       summary: Delete an API Product
       description: |
         This operation can be used to delete an existing API Product proving the Id of the API Product.
@@ -6730,6 +6811,397 @@ paths:
             $ref: '#/definitions/APICategoryList'
 
 ######################################################
+# The "Scopes" resource APIs
+######################################################
+  /scopes:
+
+  #-------------------------------------------------------------
+  # Retrieve the Shared Scopes list
+  #-------------------------------------------------------------
+    get:
+      security:
+        - OAuth2Security:
+            - apim:api_view
+      description: |
+        This operation can be used to get all the available Shared Scopes.
+      summary: Get all available Shared Scopes
+      operationId: getSharedScopes
+      parameters:
+        - $ref: '#/parameters/limit'
+        - $ref: '#/parameters/offset'
+      tags:
+        - Scopes
+      responses:
+        200:
+          description: |
+            OK.
+            Shared Scope list is returned.
+          schema:
+            $ref: '#/definitions/ScopeList'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        500:
+          description: Internal server error while retrieving shared scope list
+          schema:
+            $ref: '#/definitions/Error'
+
+  #-------------------------------------------------------------
+  # Create a new Shared Scope
+  #-------------------------------------------------------------
+    post:
+      security:
+        - OAuth2Security:
+            - apim:shared_scope_manage
+      summary: Add a new Shared Scope
+      description: |
+        This operation can be used to add a new Shared Scope.
+      operationId: addSharedScope
+      tags:
+        - Scopes
+      parameters:
+        - in: body
+          name: body
+          description: |
+            Scope object that needs to be added
+          required: true
+          schema:
+            $ref: '#/definitions/Scope'
+      responses:
+        201:
+          description: |
+            Created.
+            Successful response with the newly created Scope object as an entity in the body.
+          schema:
+            $ref: '#/definitions/Scope'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
+          schema:
+            $ref: '#/definitions/Error'
+        415:
+          description: |
+            Unsupported media type.
+            The entity of the request was in a not supported format.
+
+######################################################
+# The "Individual Shared Scope" resource APIs
+######################################################
+  /scopes/{scopeId}:
+
+  #-------------------------------------------------------------
+  # Retrieve the details of a Shared Scope
+  #-------------------------------------------------------------
+    get:
+      security:
+        - OAuth2Security:
+            - apim:api_view
+      summary: Get a Shared Scope by Scope Id
+      description: |
+        This operation can be used to retrieve details of a Shared Scope by a given scope Id.
+      operationId: getSharedScope
+      tags:
+        - Scopes
+      parameters:
+        - $ref: '#/parameters/scopeId'
+      responses:
+        200:
+          description: |
+            OK.
+            Requested Shared Scope is returned.
+          schema:
+            $ref: '#/definitions/Scope'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        404:
+          description: |
+            Not Found.
+            Requested Shared Scope does not exist.
+          schema:
+            $ref: '#/definitions/Error'
+
+  #-------------------------------------------------------------
+  # Update a shared scope
+  #-------------------------------------------------------------
+    put:
+      security:
+        - OAuth2Security:
+            - apim:shared_scope_manage
+      summary: Update a Shared Scope
+      description: |
+        This operation can be used to update a Shared Scope by a given scope Id.
+      operationId: updateSharedScope
+      tags:
+        - Scopes
+      parameters:
+        - $ref: '#/parameters/scopeId'
+        - in: body
+          name: body
+          description: |
+            Scope object that needs to be updated
+          required: true
+          schema:
+            $ref: '#/definitions/Scope'
+      responses:
+        200:
+          description: |
+            OK.
+            Successful response with updated Scope object
+          schema:
+            $ref: '#/definitions/Scope'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
+          schema:
+            $ref: '#/definitions/Error'
+        404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
+          schema:
+            $ref: '#/definitions/Error'
+
+  #-----------------------------------------------------
+  # Delete the shared scope
+  #-----------------------------------------------------
+    delete:
+      security:
+        - OAuth2Security:
+            - apim:shared_scope_manage
+      summary: Delete a Shared Scope
+      description: |
+        This operation can be used to delete a Shared Scope proving the Id of the scope.
+      operationId: deleteSharedScope
+      tags:
+        - Scopes
+      parameters:
+        - $ref: '#/parameters/scopeId'
+      responses:
+        200:
+          description: |
+            OK.
+            Resource successfully deleted.
+        404:
+          description: |
+            Not Found.
+            The resource to be deleted does not exist.
+          schema:
+            $ref: '#/definitions/Error'
+
+  #-----------------------------------------------------
+  # The scope name existence check resource
+  #-----------------------------------------------------
+    head:
+      security:
+        - OAuth2Security:
+            - apim:api_create
+            - apim:api_publish
+      operationId: validateScope
+      summary:
+        Check given scope name is already exist
+      description: |
+        Using this operation, user can check a given scope name exists or not.
+      parameters:
+        - $ref : '#/parameters/scopeName'
+      tags:
+        - Scopes
+      responses:
+        200:
+          description:
+            OK.
+            Requested scope name exists.
+        404:
+          description:
+            Not Found.
+            Requested scope name does not exist.
+
+  /scopes/{scopeId}/usage:
+
+  #-------------------------------------------------------------
+  # Retrieve the usages of a Shared Scope
+  #-------------------------------------------------------------
+    get:
+      security:
+        - OAuth2Security:
+            - apim:api_view
+      summary: Get usages of a Shared Scope by Scope Id
+      description: |
+        This operation can be used to retrieve usages of a Shared Scope by a given scope Id.
+      operationId: getSharedScopeUsages
+      tags:
+        - Scopes
+      parameters:
+        - $ref: '#/parameters/scopeId'
+      responses:
+        200:
+          description: |
+            OK.
+            Usages of the shared scope is returned.
+          schema:
+            $ref: '#/definitions/SharedScopeUsage'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        404:
+          description: |
+            Not Found.
+            Usages for the shared scope does not exist.
+          schema:
+            $ref: '#/definitions/Error'
+  ######################################################
+  # The "KEY MANAGER" resource API
+  ######################################################
+  /key-managers:
+
+    #-----------------------------------------------------
+    # Retrieve all Key Managers
+    #-----------------------------------------------------
+    get:
+      security:
+        - OAuth2Security:
+            - apim:api_create
+      summary: Get all Key Managers
+      description: |
+        Get all Key managers
+      tags:
+        - Key Managers (Collection)
+      responses:
+        200:
+          description: |
+            OK.
+            Categories returned
+          schema:
+            $ref: '#/definitions/KeyManagerList'
+
+######################################################
+# The "Deployments" resource APIs
+######################################################
+
+  /deployments:
+    #----------------------------------------------------------
+    # Retrieving the deployments details from tenant-conf.json
+    #----------------------------------------------------------
+    get:
+      security:
+        - OAuth2Security:
+            - apim:api_view
+      produces:
+        - application/json
+      x-wso2-curl: "curl -X GET -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" \"https://localhost:9443/api/am/publisher/v1/deployments\""
+      x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/deployments"
+      x-wso2-response: "HTTP/1.1 200 OK"
+      summary: Retrieve deployment environments details
+      operationId: deploymentsGet
+      description: |
+        This operation can be used to retrieve cloud clusters information defines in tenant-conf.json file.
+
+        With that you can deploy an API to selected cloud environments.
+      tags:
+        - Deployments
+      responses:
+        '200':
+          description: >
+            OK. Successful response with the list of deployment environments
+            information in the body.
+          schema:
+            $ref: '#/definitions/DeploymentList'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        '400':
+          description: |
+            Bad Request.
+            Invalid request or validation error.
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |
+            Not Found.
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |
+            Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+
+######################################################
+# The "deployments status per API" resource APIs
+######################################################
+  /apis/{apiId}/deployments:
+#-----------------------------------------------------
+# Retrieve the deployment details of an API
+#-----------------------------------------------------
+    get:
+      security:
+        - OAuth2Security:
+            - apim:api_view
+      produces:
+        - application/json
+      x-wso2-curl: "curl -X GET -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" \"https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments"
+      x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments"
+      x-wso2-response: "HTTP/1.1 200 OK"
+      summary: Retrieve deployment status details
+      operationId: deploymentsGetStatus
+      description: |
+        This operation can be used to retrieve the status of deployments in cloud clusters.
+
+        With that you can get the status of the deployed APIs in cloud environments.
+      parameters:
+        - $ref: '#/parameters/apiId'
+      tags:
+        - DeploymentStatus
+      responses:
+        '200':
+          description: >
+            OK. Successful response with the list of deployment environments
+            information in the body.
+          schema:
+            $ref: '#/definitions/DeploymentStatusList'
+          headers:
+            Content-Type:
+              description: |
+                The content type of the body.
+              type: string
+        '400':
+          description: |
+            Bad Request.
+            Invalid request or validation error.
+          schema:
+            $ref: '#/definitions/Error'
+        '404':
+          description: |
+            Not Found.
+          schema:
+            $ref: '#/definitions/Error'
+        '500':
+          description: |
+            Internal Server Error
+          schema:
+            $ref: '#/definitions/Error'
+
+######################################################
 # Parameters - required by some of the APIs above
 ######################################################
 parameters:
@@ -6762,6 +7234,18 @@ parameters:
       The combination of the provider of the API, name of the API and the version is also accepted as a valid API I.
       Should be formatted as **provider-name-version**.
     required: true
+    type: string
+
+  # API Identifier
+  # Specified as part of the query string
+  apiId-Q-Opt:
+    name: apiId
+    in: query
+    description: |
+      **API ID** consisting of the **UUID** of the API.
+      The combination of the provider of the API, name of the API and the version is also accepted as a valid API I.
+      Should be formatted as **provider-name-version**.
+    required: false
     type: string
 
   # Label Type
@@ -6953,10 +7437,19 @@ parameters:
 
   # Scope Name
   scopeName:
-    name: name
+    name: scopeId
     in: path
     description: |
       Scope name
+    required: true
+    type: string
+
+# Shared Scope Id
+  scopeId:
+    name: scopeId
+    in: path
+    description: |
+      Scope Id consisting the UUID of the shared scope
     required: true
     type: string
 
@@ -7171,11 +7664,16 @@ definitions:
       lifeCycleStatus:  # NEED TO RENAME AS lifeCycleState
         type: string
         example: CREATED
+        x-otherScopes:
+        - apim:api_publish
       wsdlInfo:
         $ref: '#/definitions/WSDLInfo'
       wsdlUrl:
         type: string
         example: /apimgt/applicationdata/wsdls/admin--soap1.wsdl
+      testKey:
+        type: string
+        example: 8swdwj9080edejhj
       responseCachingEnabled:
         type: boolean
         example: true
@@ -7194,6 +7692,11 @@ definitions:
       enableSchemaValidation:
         type: boolean
         example: false
+      enableStore:
+        type: boolean
+        example: true
+        x-otherScopes:
+          - apim:api_publish
       type:
         type: string
         description: The api creation type to be used. Accepted values are HTTP, WS, SOAPTOREST, GRAPHQL
@@ -7280,31 +7783,40 @@ definitions:
         example: ["Production and Sandbox"]
         x-otherScopes:
           - apim:api_publish
+      deploymentEnvironments:
+        description: |
+          List of selected deployment environments and clusters
+        type: array
+        items:
+          $ref: '#/definitions/DeploymentEnvironments'
+        x-otherScopes:
+          - apim:api_publish
       labels:
         description: |
           Labels of micro-gateway environments attached to the API.
         type: array
         items:
           type: string
-        example: ["Pizzashack, Petstore"]
+          example: ["Pizzashack, Petstore"]
       mediationPolicies:
         type: array
         items:
           $ref: '#/definitions/MediationPolicy'
-        example: [
-            {"name": "json_to_xml_in_message","type": "in"},
-            {"name": "xml_to_json_out_message","type": "out"},
-            {"name": "json_fault","type": "fault"}
-          ]
+        example: "\"mediationPolicies\":
+          [
+            {\"name\": \"json_to_xml_in_message\",\"type\": \"in\"},
+            {\"name\": \"xml_to_json_out_message\",\"type\": \"out\"},
+            {\"name\": \"json_fault\",\"type\": \"fault\"}
+          ],"
       subscriptionAvailability:
         type: string
-        description: The subscription availability. Accepts one of the following. current_tenant, all_tenants or specific_tenants.
+        description: The subscription availability. Accepts one of the following. CURRENT_TENANT, ALL_TENANTS or SPECIFIC_TENANTS.
         enum:
-          - current_tenant
-          - all_tenants
-          - specific_tenants
+          - CURRENT_TENANT
+          - ALL_TENANTS
+          - SPECIFIC_TENANTS
         example: CURRENT_TENANT
-        default: all_tenants
+        default: CURRENT_TENANT
         x-otherScopes:
           - apim:api_publish
       subscriptionAvailableTenants:
@@ -7350,10 +7862,10 @@ definitions:
         example: APPROVED
       createdTime:
         type: string
-        example: '2017-02-20T13:57:16.229'
+        example: 2017-02-20T13:57:16.229
       lastUpdatedTime:
         type: string
-        example: '2017-02-20T13:57:16.229'
+        example: 2017-02-20T13:57:16.229
         x-otherScopes:
           - apim:api_publish
       endpointConfig:
@@ -7440,6 +7952,12 @@ definitions:
               }
             }
 
+          `Endpoint from Endpoint Registry`
+            {
+              "endpoint_type": "Registry",
+              "endpoint_id": "{registry-name:entry-name:version}",
+            }
+
         example:
           {
             "endpoint_type": "http",
@@ -7460,7 +7978,7 @@ definitions:
       scopes:
         type: array
         items:
-          $ref: '#/definitions/Scope'
+          $ref: '#/definitions/APIScope'
       operations:
         type: array
         items:
@@ -7482,6 +8000,10 @@ definitions:
         items:
           type: string
           example: ["Finance"]
+      keyManagers:
+        description: |
+          API Key Managers
+        type: object
 
   #-----------------------------------------------------
   # The Audit Report resource
@@ -7614,6 +8136,12 @@ definitions:
       enableSchemaValidation:
         type: boolean
         example: false
+      enableStore:
+        type: boolean
+        example: true
+      testKey:
+        type: string
+        example: 8swdwj9080edejhj
       responseCachingEnabled:
         type: boolean
         example: true
@@ -7702,13 +8230,13 @@ definitions:
           type: string
       subscriptionAvailability:
         type: string
-        description: The subscription availability. Accepts one of the following. current_tenant, all_tenants or specific_tenants.
+        description: The subscription availability. Accepts one of the following. CURRENT_TENANT, ALL_TENANTS or SPECIFIC_TENANTS.
         enum:
-          - current_tenant
-          - all_tenants
-          - specific_tenants
-        example: current_tenant
-        default: all_tenants
+          - CURRENT_TENANT
+          - ALL_TENANTS
+          - SPECIFIC_TENANTS
+        example: CURRENT_TENANT
+        default: ALL_TENANTS
       subscriptionAvailableTenants:
         type: array
         items:
@@ -7742,7 +8270,7 @@ definitions:
       scopes:
         type: array
         items:
-          $ref: '#/definitions/Scope'
+          $ref: '#/definitions/APIScope'
       categories:
         description: |
           API categories
@@ -7764,6 +8292,9 @@ definitions:
       apiId:
         type: string
         example: 01234567-0123-0123-0123-012345678901
+      version:
+        type: string
+        example: 1.0
       operations:
         type: array
         items:
@@ -8016,6 +8547,72 @@ definitions:
         example: "admin--HackerNewsAPI.graphql"
       schemaDefinition:
         type: string
+  #-----------------------------------------------------
+  # The GraphQL Query Complexity Info resource
+  #-----------------------------------------------------
+  GraphQLQueryComplexityInfo:
+    title: GraphQL Query Complexity Info
+    properties:
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/GraphQLCustomComplexityInfo'
+
+  #-----------------------------------------------------
+  # The GraphQL Custom Complexity Info resource
+  #-----------------------------------------------------
+  GraphQLCustomComplexityInfo:
+    title: GraphQL Custom Complexity Info
+    required:
+      - type
+      - field
+      - complexityValue
+    properties:
+      type:
+        type: string
+        description: |
+          The type found within the schema of the API
+        example: "Country"
+      field:
+        type: string
+        description: |
+          The field which is found under the type within the schema of the API
+        example: "name"
+      complexityValue:
+        type: integer
+        description: |
+          The complexity value allocated for the associated field under the specified type
+        example: 1
+
+  #-----------------------------------------------------
+  # The GraphQL Schema Type List resource
+  #-----------------------------------------------------
+  GraphQLSchemaTypeList:
+    title: List of types and corresponding fields of the GraphQL Schema
+    properties:
+      typeList:
+        type: array
+        items:
+          $ref: '#/definitions/GraphQLSchemaType'
+
+  #-----------------------------------------------------
+  # The GraphQL Schema Type resource
+  #-----------------------------------------------------
+  GraphQLSchemaType:
+    title: Single type and corresponding fields found within the GraphQL Schema
+    properties:
+      type:
+        type: string
+        description: |
+          Type found within the GraphQL Schema
+        example: "Country"
+      fieldList:
+        type: array
+        description: |
+          Array of fields under current type
+        items:
+          type: string
+        example: ["code","name"]
 
 
   #-----------------------------------------------------
@@ -8422,7 +9019,7 @@ definitions:
     properties:
       type:
         type: string
-        example: BASIC
+        example: basic
         description: Accepts one of the following, basic or digest.
         enum:
           - BASIC
@@ -8572,33 +9169,137 @@ definitions:
         items:
           $ref: '#/definitions/Endpoint'
 
-  #-----------------------------------------------------
-  # The Environment Endpoint resource
-  #-----------------------------------------------------
+#-----------------------------------------------------
+# The Scope resource
+#-----------------------------------------------------
   Scope :
     title: Scope
+    required:
+      - name
     properties:
+      id:
+        type: string
+        description: |
+          UUID of the Scope. Valid only for shared scopes.
+        example: 01234567-0123-0123-0123-012345678901
       name:
         type: string
         description: |
           name of Scope
         example: apim:api_view
+      displayName:
+        type: string
+        description: |
+          display name of Scope
+        example: api_view
       description:
         type: string
         description: |
           description of Scope
         example: 'This Scope can used to view Apis'
       bindings:
-        properties:
-          type:
-            type: string
-            description: |
-              Type of binding role / permission
-          values:
-            type: array
-            items:
-              type: string
+        description: |
+          role bindings list of the Scope
+        type: array
+        items:
+          type: string
+        example: ['admin','Internal/creator','Internal/publisher']
+      usageCount:
+        type: integer
+        description: |
+          usage count of Scope
+        example: 3
 
+#-----------------------------------------------------
+# The Shared Scope Usage resource
+#-----------------------------------------------------
+  SharedScopeUsage:
+    title: SharedScopeUsage
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: string
+        description: |
+          UUID of the Scope. Valid only for shared scopes.
+        example: 01234567-0123-0123-0123-012345678901
+      name:
+        type: string
+        description: |
+          name of Scope
+        example: apim:api_view
+      usedApiList:
+        description: |
+          API list which have used the shared scope
+        type: array
+        items:
+          $ref: '#/definitions/SharedScopeUsedAPIInfo'
+
+#-----------------------------------------------------
+# The API object where the shared scope is used
+#-----------------------------------------------------
+  SharedScopeUsedAPIInfo:
+    title: API object using shared scope
+    required:
+      - name
+      - context
+      - version
+    properties:
+      name:
+        type: string
+        example: CalculatorAPI
+      context:
+        type: string
+        example: CalculatorAPI
+      version:
+        type: string
+        example: 1.0.0
+      provider:
+        description: |
+          If the provider value is not given user invoking the api will be used as the provider.
+        type: string
+        example: admin
+      usedResourceList:
+        description: |
+          Resource list which have used the shared scope within this API
+        type: array
+        items:
+          $ref: '#/definitions/SharedScopeUsedAPIResourceInfo'
+
+  #-----------------------------------------------------
+  # The API resource object where the shared scope is used
+  #-----------------------------------------------------
+  SharedScopeUsedAPIResourceInfo:
+    title: API resource object using shared scope
+    properties:
+      target:
+        type: string
+        example: "/add"
+      verb:
+        type: string
+        example: "POST"
+
+#-----------------------------------------------------
+# The APIScope resource
+#-----------------------------------------------------
+  APIScope :
+    title: APIScope
+    required:
+      - scope
+    properties:
+       scope:
+         $ref: '#/definitions/Scope'
+       shared:
+          type: boolean
+          description: |
+              States whether scope is shared. This will not be honored when updating/adding scopes to APIs or when
+              adding/updating Shared Scopes.
+          example: true
+
+#-----------------------------------------------------
+# The APIOperations resource
+#-----------------------------------------------------
   APIOperations :
     title: Operation
     properties:
@@ -8629,9 +9330,9 @@ definitions:
         type: integer
 
 
-  #-----------------------------------------------------
-  # The Scope List resource
-  #-----------------------------------------------------
+#-----------------------------------------------------
+# The Scope List resource
+#-----------------------------------------------------
   ScopeList:
     title: Scope List
     properties:
@@ -8643,13 +9344,9 @@ definitions:
       list:
         type: array
         items:
-          properties:
-            name:
-              type: string
-              example: "apim:api_view"
-            description:
-              type: string
-              example: "Scope for Api view"
+          $ref: '#/definitions/Scope'
+      pagination:
+        $ref: '#/definitions/Pagination'
 
   #-----------------------------------------------------
   # The External-Store resource
@@ -8995,6 +9692,13 @@ definitions:
           openAPIVersion:
             type: string
             example: "3.0.0"
+          endpoints:
+            type: array
+            description: |
+              contains host/servers specified in the OpenAPI file/URL
+            items:
+              type: string
+              example: "https://localhost:9443/am/sample/pizzashack/v1/api/"
       errors:
         type: array
         description: |
@@ -9215,6 +9919,10 @@ definitions:
             type: string
             description: A string that represents the context of the user's request
             example: CalculatorAPI
+          version:
+            type: string
+            description: The version of the API Product
+            example: 1.0.0
           provider:
             description: |
               If the provider value is not given, the user invoking the API will be used as the provider.
@@ -9399,6 +10107,21 @@ definitions:
         description: |
           Is External Stores configuration enabled
         example: true
+      docVisibilityEnabled:
+        type: boolean
+        description: |
+          Is Document Visibility configuration enabled
+        example: false
+      crossTenantSubscriptionEnabled:
+        type: boolean
+        description: |
+          Is Cross Tenant Subscriptions Enabled
+        example: false
+        default: false
+      deployments:
+        type: array
+        items:
+          $ref: '#/definitions/Deployments'
 
   #-----------------------------------------------------
   # The SecurityAuditAttribute resource
@@ -9687,6 +10410,210 @@ definitions:
         items:
           $ref: '#/definitions/APICategory'
 
+  #-----------------------------------------------------
+  # The KeyManager resource
+  #-----------------------------------------------------
+  KeyManagerInfo:
+    title: Key Manager Info
+    required:
+      - name
+      - type
+    properties:
+      id:
+        type: string
+        example: "01234567-0123-0123-0123-012345678901"
+      name:
+        type: string
+        example: "WSO2 IS"
+      displayName:
+        type: string
+        description: |
+          display name of Keymanager
+        example: Keymanager1
+      type:
+        type: string
+        example: "IS"
+      description:
+        type: string
+        example: "This is a key manager for Developers"
+      enabled:
+        type: boolean
+        example: true
+      additionalProperties:
+        type: array
+        items:
+          type: object
+
+  #-----------------------------------------------------
+  # The KeyManager List resource
+  #-----------------------------------------------------
+  KeyManagerList:
+    title: Key Manager List
+    properties:
+      count:
+        type: integer
+        description: |
+          Number of Key managers returned.
+        example: 1
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/KeyManagerInfo'
+
+  #-----------------------------------------------------
+  # The Deployment List resource
+  #-----------------------------------------------------
+  DeploymentList:
+    title: Deployment List
+    properties:
+      count:
+        type: integer
+        description: |
+          Number of deployment clusters returned.
+        example: 1
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/Deployments'
+
+  #-----------------------------------------------------
+  # The Deployment resource
+  #-----------------------------------------------------
+  Deployments:
+    title: Deployments
+    required:
+      - name
+      - clusters
+    properties:
+      name:
+        type: string
+        example: Kubernetes
+      clusters:
+        type: array
+        items:
+          $ref: '#/definitions/DeploymentClusterInfo'
+
+  #-----------------------------------------------------
+  # The DeploymentClusterInfo resource
+  #-----------------------------------------------------
+  DeploymentClusterInfo:
+    title: DeploymentClusterInfo
+    required:
+      - clusterName
+      - displayName
+      - accessURL
+      - properties
+    properties:
+      clusterName:
+        type: string
+        example: minikube
+      accessURL:
+        type: string
+        example: "https://api.com"
+      displayName:
+        type: string
+        example: "kubernetes-minikube"
+      properties:
+        type: object
+        additionalProperties:
+          type: string
+
+
+  #-----------------------------------------------------
+  # The DeploymentStatus List resource
+  #-----------------------------------------------------
+  DeploymentStatusList:
+    title: DeploymentStatus List
+    properties:
+      count:
+        type: integer
+        description: |
+          Status of the deployments returned.
+        example: 1
+      list:
+        type: array
+        items:
+          $ref: '#/definitions/DeploymentStatus'
+
+  #-----------------------------------------------------
+  # The DeploymentStatus resource
+  #-----------------------------------------------------
+  DeploymentStatus:
+    title: DeploymentStatus
+    required:
+      - type
+      - clusters
+    properties:
+      type:
+        type: string
+        example: Kubernetes
+      clusters:
+        type: array
+        items:
+          $ref: '#/definitions/DeploymentClusterStatus'
+
+  #-----------------------------------------------------
+  # The DeploymentClusterStatus resource
+  #-----------------------------------------------------
+  DeploymentClusterStatus:
+    title: DeploymentClusterStatus
+    required:
+      - clusterName
+      - podsRunning
+      - healthStatus
+    properties:
+      clusterName:
+        type: string
+        example: Minikube
+      podsRunning:
+        type: integer
+        default: 0
+      healthStatus:
+        type: array
+        items:
+          $ref: '#/definitions/PodStatus'
+
+  #-----------------------------------------------------
+  # The DeploymentEnvironments resource
+  #-----------------------------------------------------
+  DeploymentEnvironments:
+    title: DeploymentEnvironments
+    required:
+      - type
+      - clusterName
+    properties:
+      type:
+        type: string
+        example: Kubernetes
+      clusterName:
+        type: array
+        items:
+          type: string
+        example: ["minikube"]
+
+  #-----------------------------------------------------
+  # The PodStatus resource
+  #-----------------------------------------------------
+  PodStatus:
+    title: PodStatus
+    required:
+      - name
+      - ready
+      - status
+      - age
+    properties:
+      name:
+        type: string
+        example: petStore-677bb7cc65-shb2f
+      ready:
+        type: string
+        example: 1/1
+      status:
+        type: string
+        example: running
+      creationTimestamp:
+        type: string
+        example: 2020-05-12T06:12:00Z
 #-----------------------------------------------------
 # END-OF-FILE
 #-----------------------------------------------------

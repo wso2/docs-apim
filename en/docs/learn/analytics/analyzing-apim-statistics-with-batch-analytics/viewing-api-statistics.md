@@ -116,7 +116,7 @@ This widget displays a percentage of API availability for the logged in users's 
 !!! Note
       In order to view statistics of **API Availability** widget, it is required to enable alerts as described in [Configuring Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts).
       
-  The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
+  The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type. 
   
 <html>
 <body>
@@ -408,10 +408,7 @@ This widget displays a percentage of throttled out request counts for each API a
 
 Geolocation based statistics are used to carryout detailed monitoring of geographic locations. 
 You need to pass an x-forwarded-for header with the relevant IP in the API request in order to generate Geolocation based statistics. 
-For more information, see [Using Geolocation Based Statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics/). 
-
-The data script that updates statistics related to geo locations is executed once a day. 
-Therefore, at a given time, some statistics generated within the last 24 hours may not be displayed in this widget.
+For more information, see [Using Geolocation Based Statistics]({{base_path}}/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics/).
 
 <html>
 <body>
@@ -528,21 +525,14 @@ The status of the APIs (all API versions) represented in a tabular view.
 </div>
 </html>
 
-<html><p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring), the API status changes to <strong>Limited</strong>.</p></html>
-
-<html><div class="admonition info">
-<p class="admonition-title">Note</p>
-<p>For more information on how to view the generated alerts, see [Viewing Alerts]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/viewing-alerts/)</p>
-</div>
-</html>
-
+<html><p><strong>Limited</strong> - If an API receives an alert due to one of the reasons indicated in [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/alert-types/#availability-of-apis-api-health-monitoring), the API status changes to <strong>Limited</strong>.</p></html>
 </div></td>
 </tr>
 </tbody>
 </table>
 </html>
 
-The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/managing-alerts-with-real-time-analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type.
+The availability of APIs statistics is directly related to the [Availability of APIs (health monitoring)]({{base_path}}/learn/analytics/alert-types/#availability-of-apis-api-health-monitoring) alert type.
 
 ## Date Range Picker
 

@@ -4,27 +4,37 @@ Custom throttling allows system administrators to define dynamic rules for speci
 
 `resourceKey, userId, apiContext, apiVersion, appTenant, apiTenant, appId, clientIp`
 
-For example, the following sample custom policy allows the admin user to send 5 requests per minute to the Pizza Shack API. Login to the admin portal at (https://&lt;ip\_address&gt;:&lt;port&gt;/admin) and navigate to **THROTTLING POLICIES** tab and click **CUSTOM POLICES** tab to define a custom policy
+For example, the following sample custom policy allows the admin user to send 5 requests per minute to the Pizza Shack API. 
 
-**Key Template**
+1.  Sign in to the Admin Portal using the URL (https://&lt;ip\_address&gt;:&lt;port&gt;/admin) and your admin credentials (admin/admin by default).
+2.  Click **Rate Limiting Policies** tab and click **Custom Policies** tab.
 
-``` java
-    $userId:$apiContext:$apiVersion
-```
+    [![Add Custom policy page]({{base_path}}/assets/img/learn/custom_policy_left_tag.png)]({{base_path}}/assets/img/learn/custom_policy_left_tag.png)
 
-**Siddhi query**
+3.  To add a new policy, click **Define Policy**.
 
-``` java
-    FROM RequestStream
-    SELECT userId, ( userId == 'admin@carbon.super'  and apiContext == '/pizzashack/1.0.0' and apiVersion == '1.0.0') AS isEligible ,
-    str:concat('admin@carbon.super',':','/pizzashack/1.0.0:1.0.0') as throttleKey
-     
-    INSERT INTO EligibilityStream;
-    FROM EligibilityStream[isEligible==true]#window.time(1 min)
-    SELECT throttleKey, (count(throttleKey) >= 5) as isThrottled group by throttleKey
-    INSERT ALL EVENTS into ResultStream;
-```
+    [![Add Custom policy page]({{base_path}}/assets/img/learn/click_custom_policy.png)]({{base_path}}/assets/img/learn/click_custom_policy.png)
 
-![](../../../assets/img/learn/learn-throttling-custom-policy.png)
+4.  Fill in the required details and click **Save**.
+    
+    **Key Template**
+
+    ``` java
+        $userId:$apiContext:$apiVersion
+    ```
+
+    **Siddhi query**
+
+    ``` java
+        FROM RequestStream
+        SELECT userId, ( userId == 'admin@carbon.super'  and apiContext == '/pizzashack/1.0.0' and apiVersion == '1.0.0') AS isEligible ,
+        str:concat('admin@carbon.super',':','/pizzashack/1.0.0:1.0.0') as throttleKey
+         
+        INSERT INTO EligibilityStream;
+        FROM EligibilityStream[isEligible==true]#window.time(1 min)
+        SELECT throttleKey, (count(throttleKey) >= 5) as isThrottled group by throttleKey
+        INSERT ALL EVENTS into ResultStream;
+    ```
+    [![Add Custom policy page]({{base_path}}/assets/img/learn/throttling-custom-policy.png)]({{base_path}}/assets/img/learn/throttling-custom-policy.png)
 
 As shown in the above Siddhi query, the throttle key must match the key template format. If there is a mismatch between the key template format and the throttle key, requests will not be throttled.

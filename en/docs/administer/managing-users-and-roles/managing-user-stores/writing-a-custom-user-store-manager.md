@@ -252,7 +252,7 @@ To set up this implementation, do the following.
         Note that the version number of the carbon dependencies
         seen below have to be updated according to the carbon kernel version
         that the particular product version is compatible with. For example,
-        WSO2 API-M 3.1.0 is built on top of carbon kernel version **4.6.0**
+        WSO2 API-M 3.2.0 is built on top of carbon kernel version **4.6.0**
         therefore, the version given in the sample POM file below is
         **4.6.0**. Change this value accordingly based on the relevant
         carbon kernel version of the product you are using by referring to
