@@ -62,7 +62,7 @@ This graph can also be used to view the usage of the selected API(s) by a specif
 [![API usage overtime by app]({{base_path}}/assets/img/learn/analytics/analytics_api_usage_overtime_by_app_widget.png)]({{base_path}}/assets/img/learn/analytics/analytics_api_usage_overtime_by_app_widget.png)
 
 ## Viewing API performance
-Analyzing the performance of APIs will help identify problematic APIs. Information related to API performance can be found in the following 2 pages of the API Analytics Dashboard:
+Analyzing the performance of APIs will help identify problematic APIs. Information related to API performance can be found in the following page of the API Analytics Dashboard:
 
 - [API performance]({{base_path}}/learn/analytics/viewing-api-statistics/api-analytics-dashboard/#api-performance)
 
