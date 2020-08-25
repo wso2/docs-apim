@@ -41,13 +41,13 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
 
 #### Uploading Devportal theme via the Admin Portal (Tenants Only)
 
-**If you do not have access to the file system** , you can upload the Devportal theme via the Admin Portal as shown below:
+**If you do not have access to the file system** , you can upload/download the Devportal theme via the Admin Portal as shown below:
 
 1.  Download the sample theme here [sample-theme.zip]({{base_path}}/assets/attachments/learn/sample-theme.zip). 
 2.  The `sample-theme.zip` file contains the following folder structure. 
 
      You can make the changes required to `defaultTheme.json` file and archive it back. The name of the archive does not matter, but the name of the JSON file (`defaultTheme.json`) does.
-     Uses of resources in `login` folder will be discussed in ## Applying thems for tenant login pages section.
+     Uses of resources in `login` folder will be discussed in [Applying thems for tenant login pages]({{base_path}}/develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme/#applying-themes-for-tenant-login-pages) section.
 
       ```
       └──apim
@@ -69,13 +69,14 @@ Ex: Enable landing page. **defaultTheme.json** ( Teant theming ).
                  └── favicon.ico
       ```
 
-3.  Sign in to the WSO2 Admin Portal ([https://server-host:9443/admin](https://server-host:9443/admin)) with your tenant username (format `<username>@<domain>.com kim@testorg.com`) and password.
+3.  Sign in to the WSO2 Admin Portal (`https://<server-host>:<server-port>/admin`) with your tenant username (format: `<username>@<domain>.com`) and password.
 
-4.  Expand the **Settings** menu, click **Upload Tenant Theme** and upload your ZIP file. 
+4.  Click **Tenant Theme** under **Settings** category and click **Browse File to Upload** to upload your ZIP file.
+    Alternatively, you can drag and drop your ZIP file to upload. 
 
     ![Upload tenant theme]({{base_path}}/assets/img/learn/upload-tenant-theme.png)
 
-5.  Access the API Developer Portal (`https://<server-host>:9443/devportal`) using your tenant username and password.
+5.  Access the API Developer Portal (`https://<server-host>:<server-port>/devportal`) using your tenant username and password.
 
     Note the new theme is applied.
     

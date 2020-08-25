@@ -151,7 +151,7 @@ Follow the instructions below to add documentation to an API:
         | Name    | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Summary | API Manager Samples                                                                                                                                                                                                                                                                                                          |
         | Type    | Samples & SDK                                                                                                                                                                                                                                                                                                                |
-        | Source  | You can provide any file format (common formats are `.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
+        | Source  | You can provide only these file formats.(`.pdf` , `.html` , `.doc` , `.txt` ) of any size. For example, use the sample PDF file [here]({{base_path}}/assets/attachments/learn/api-docs-sample.pdf). |
 
         [![Add file based API documentation]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)]({{base_path}}/assets/img/learn/add-docs-pdf-file.png)
 
@@ -206,3 +206,32 @@ Follow the instructions below to add documentation to an API:
      [![View API related documentation]({{base_path}}/assets/img/learn/view-docs-api.png)]({{base_path}}/assets/img/learn/view-docs-api.png)
 
 You have created documentation using the API Publisher and viewed the documentation as a subscriber in the Developer Portal.
+
+### Control API Document Visibility in Developer Portal
+
+   By default, any document associated with an API has the same visibility level of the API. That is, if the API is
+    public, its documentation is also visible to all users (registered and anonymous).
+!!! note
+    This feature has been disabled in the default setup.
+#### Enabling document visibility in Developer Portal
+   To enable other visibility levels to the documentation, go to the  
+   `<API-M_HOME>/repository/conf/deployment.toml`, 
+   add the following configuration.
+   ``` toml
+   [apim.publisher]
+   enable_api_doc_visibility = "true"
+   ```
+   Document visibility levels can be one of the following options:
+   - **Same as API visibility:** visible to the same user roles who can see the API. For example, if the API's visibility is public, its documentation is visible to all users.
+   - **Visible to My Domain:** visible to all registered users in the API's tenant domain.
+   - **Publishers Only:** visible only to the users who have permission to log in to the API Publisher web interface and
+    create and/or publish APIs to the Developer Portal.
+#### Control API document visibility using the API Publisher
+1.  Sign in to the API Publisher as an API creator using the following URL: 
+     `https://<localhost>:9443/publisher`
+2.  [Create a new API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or edit an existing API.
+3.  In the **Documents** tab, Click **Add New Document**, to see a new drop-down list added to select visibility from.
+     [ ![API document visibility selector]({{base_path}}/assets/img/learn/api-doc-visibility-selector.png) ](/{{base_path}}/assets/img/learn/api-doc-visibility-selector.png)
+4.  Select the desired visibility level for the document. 
+     [ ![API document visibility selector dropdown]({{base_path}}/assets/img/learn/api-doc-visibility-dropdown.png) ](/{{base_path}}/assets/img/learn/api-doc-visibility-dropdown.png)
+5.  Add the Document.
