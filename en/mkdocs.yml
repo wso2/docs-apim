@@ -186,7 +186,7 @@ nav:
                       - Secure APIs using OAuth2 Access Tokens: learn/api-security/api-authentication/secure-apis-using-oauth2-tokens.md
                       - Secure APIs using API Keys: learn/api-security/api-authentication/secure-apis-using-api-keys.md
                       - Secure APIs using Mutual SSL: learn/api-security/api-authentication/secure-apis-using-mutual-ssl.md
-                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.m
+                      - Secure APIs using Basic Authentication: learn/api-security/api-authentication/secure-apis-using-basic-authentication.md
                       - Securing APIs Deployed in Cloud Clusters: learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md
                       - Federating OAuth Applications: learn/api-security/api-authentication/advanced-topics/federating-oauth-applications.md
                 - Authorization:
@@ -394,7 +394,7 @@ nav:
                       - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                       - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                       - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
-                      - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
+                      - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
                       - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
                 - Configure a Key Manager:
                       - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
@@ -607,8 +607,8 @@ plugins:
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-the-gateway-in-a-distributed-environment-with-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
-              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
+              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
+              'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md/':'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
               'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
@@ -717,4 +717,4 @@ extra:
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
     site_version: 3.2.0
-    base_path: https://apim.docs.wso2.com/en/next
+    base_path: https://apim.docs.wso2.com/en/3.2.0
