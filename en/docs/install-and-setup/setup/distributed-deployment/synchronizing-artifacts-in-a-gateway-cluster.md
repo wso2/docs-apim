@@ -47,11 +47,11 @@ At startup, the gateway will look for the APIs with labels which it is subscribe
 
 Gateways are subscribed to the traffic manager. There is an extension in the gateway to get the synapse artifacts and deploy them in the memory. Gateways can subscribe to multiple labels.
 
-##Configuring the Inbuilt Artifact Synchronizer
+###Configuring the Inbuilt Artifact Synchronizer
 
 Configure the Gateway and Publisher profiles as below to enable artifact synchronization and retrieval from confgured extension points.
 
-###Publisher Profile 
+####Publisher Profile 
 
 1. Stop the Publisher node if it running.
 2. Open the file  `<API-M_HOME>/repository/conf/deployment.toml` and update as follows.
@@ -71,7 +71,7 @@ Configure the Gateway and Publisher profiles as below to enable artifact synchro
     We can add the gateways as environments. For more information see 
    [Adding gateways as Environments]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/).
 
-###Gateway Profile Configuration
+####Gateway Profile Configuration
 
 1. Stop the Gateway node(s) if it is running.
 2. Open the file  `<API-M_HOME>/repository/conf/deployment.toml` and update as follows.
@@ -103,7 +103,7 @@ Configure the Gateway and Publisher profiles as below to enable artifact synchro
      - If you are not running gateway as an all in one pack and it runs with a port offset, or when it's in a different
   node, we have to specify event_hub service_url as well .
 
-###Database Configurations
+####Database Configurations
 
 By default, the data related to the synapse artifacts will be stored in WSO2AM_DB. This is configurable. Follow the steps below to configure a database to store the synapse artifacts.
  Only the data related to the synapse artifacts will be saved in this database.
