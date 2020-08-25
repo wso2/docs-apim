@@ -652,7 +652,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
              NAME varchar(255),
-             UUID varchar(256),
+             UUID varchar(256) NOT NULL,
              TENANT_ID INTEGER,
              PRIMARY KEY (UUID)
         ) /
@@ -661,13 +661,13 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE AM_KEY_MANAGER (
           UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NULL,
+          NAME VARCHAR(100) NOT NULL,
           DISPLAY_NAME VARCHAR(100) NULL,
           DESCRIPTION VARCHAR(256) NULL,
           TYPE VARCHAR(45) NULL,
           CONFIGURATION BLOB NULL,
           ENABLED SMALLINT DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
+          TENANT_DOMAIN VARCHAR(100) NOT NULL,
           PRIMARY KEY (UUID),
           UNIQUE (NAME,TENANT_DOMAIN)
         )
@@ -690,7 +690,27 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         )/
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL /
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL /
+        
+        BEGIN
+        DECLARE const_name VARCHAR(128);
+        DECLARE STMT VARCHAR(200);
+        select CONSTNAME into const_name from SYSCAT.TABCONST WHERE TABNAME='AM_APPLICATION_REGISTRATION' AND TYPE = 'U';
+        SET STMT = 'ALTER TABLE AM_APPLICATION_REGISTRATION DROP UNIQUE ' ||  const_name;
+        PREPARE S1 FROM STMT;
+        EXECUTE S1;
+        END
+        /
+        
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager'/
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)/
+        
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50)/
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = (VARCHAR(HEX(GENERATE_UNIQUE()))) WHERE UUID IS NULL;
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager'/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
         ```
 
         ```tab="MSSQL"
@@ -1428,6 +1448,17 @@ Follow the instructions below to move all the existing API Manager configuration
 
         ``` tab="Windows"
         wso2server.bat -DmigrateFromVersion=3.0.0
+        ```
+        
+        Note:  If cross tenant API subscriptions exist, the migration will be aborted. 
+        To ignore this, Please set the flag ``ignoreCrossTenantSubscriptions`` to true as below.
+    
+        ``` tab="Linux / Mac OS"
+        sh wso2server.sh -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=3.0.0
+        ```
+    
+        ``` tab="Windows"
+        wso2server.bat -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=3.0.0
         ```
 
     4. Shutdown the API-M server.

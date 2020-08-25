@@ -51,11 +51,8 @@ The following steps show how to enable account locking. See [Account Locking by 
     ![enable-account-lock]({{base_path}}/assets/img/administer/product-security/identity-management-for-the-api-dev-portal/account-lock-config.png)
 
 !!! info
-    An error message similar to the following will be logged in wso2carbon.log when the account is locked.
-    
-    ``` java
-    ERROR - Account is locked for user alex in user store PRIMARY in tenant carbon.super. Cannot login until the account is unlocked.
-    ```
+    - If you have configured the email sending module as mentioned in [Configuring the Email Sending Module](https://is.docs.wso2.com/en/5.10.0/setup/configuring-email-sending/) and if the particular locked user's email address is correct in his profile, he/she will receive an email stating that the account is locked.
+    - Again another email will be sent when the account is unlocked.
 
 ### Account locking by an administrative user
 

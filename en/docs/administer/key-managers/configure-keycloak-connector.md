@@ -163,7 +163,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
             </br>
             e.g.,
             http://localhost:8080/auth/realms/master/protocol/openid-connect/token</br>
-                   https://localhost:8443/auth/realms/master/protocol/openid-connect/token
+            https://localhost:8443/auth/realms/master/protocol/openid-connect/token
             </td>
             <td>Mandatory</td>
           </tr>
@@ -270,12 +270,17 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
           </tr>
           <tr class="odd">
             <td>Use introspect</td>
-            <td>The JWKS endpoint is used to validate the JWT token signature.</td>
+            <td>The JWKS endpoint is used to validate the JWT token signature.
+            If this option is used to validate the tokens it is mandatory to add a Token Handling Option.
+                For the Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
+            </br>e.g.,; Claim Key : iss
+            </br>Claim Value : https://localhost:8443/auth/realms/master </td>
             <td>Optional</td>
           </tr>
           <tr class="even">
             <td><b>Token Handling Options</b></td>
-            <td>Provides a means of validating the token for this particular authorization server.</td>
+            <td>Provides a way to validate the token for this particular authorization server.
+            This is mandatory if the Token Validation Method is <b>introspect</b></td>
             <td></td>
           </tr>
           <tr class="odd">
