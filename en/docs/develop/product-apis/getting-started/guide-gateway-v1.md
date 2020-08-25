@@ -14,7 +14,7 @@ Follow the instructions below to generate keys and obtain a token to invoke an A
 
 Obtain the application keys (consumer key/consumer secret) by invoking the dynamic client registration endpoint. Refer to the sample below to obtain application keys via cURL. The generated keys can then be used to obtain an access token to invoke an API.
 
-```tab="Example"
+```
 curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" -d @payload.json https://localhost:9443/client-registration/v0.17/register
 ```
 Sample request:
@@ -45,8 +45,12 @@ Sample response:
 
 Generate an access token using the keys obtained from the step above. Refer to the sample below to invoke the token endpoint.
 
-Note: Access token must be generated using correct scope for the resource. Scope for each resource is given in resource documentation.
-
+  <html><div class="admonition note">
+  <p class="admonition-title">Note</p>
+  <p> Access token must be generated using correct scope for the resource. Scope for each resource is given in resource documentation. 
+  </p>
+  </div>
+  </html>
 
 ``` tab="Format"
 curl -k -d "grant_type=password&username=<username>&password=<password>&scope=<scope>" -H "Authorization: Basic base64encode(consumer_key:consumer_secret)" https://localhost:8243/token
