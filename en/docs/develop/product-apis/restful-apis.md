@@ -23,6 +23,6 @@ There are two versions of REST APIs available for the API Publisher and Develope
   </tr>
   
   <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/gateway-apis/gateway-v1/guide/">WSO2 Gateway API v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-gateway-v1/">WSO2 Gateway API v1</a></td>
   </tr>
 </table>
