@@ -64,8 +64,8 @@ Sample configuration which is required to be applied in `<IS_HOME>/repository/co
      [database.shared_db]
      type = "mysql"
      url = "jdbc:mysql://localhost:3306/shared_db"
-     username = "umadmin"
-     password = "umadmin"
+     username = "regadmin"
+     password = "regadmin"
     ```
 2. If multi tenancy is used, it is required to share the `WSO2AM_DB` with the Identity Server.
     Sample configuration which is required to be applied in `<IS_HOME>/repository/conf/deployment.toml` for MySQL is given below.
@@ -119,7 +119,7 @@ Sample configuration which is required to be applied in `<IS_HOME>/repository/co
 
 4.  Add following configuration to `<IS_HOME>/repository/conf/deployment.toml` file and configure the traffic manager endpoints as follows.
 
-Configure event listener endpoint to publish controller events to traffic manager.`
+Configure event listener endpoint to publish controller events to traffic manager.
 
     ``` tab="Format"
      [[event_listener]]
