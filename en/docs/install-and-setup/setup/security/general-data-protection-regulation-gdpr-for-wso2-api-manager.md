@@ -1,6 +1,6 @@
 # General Data Protection Regulation (GDPR) for WSO2 API Manager
 
-The Forget-Me tool pre-packed with API-M 2.2.0 can be used to remove identities of an **external user** who is deleted according to the system administrator's request. This tool removes user identities stored in the database and also in log files in order to meet GDPR requirements. The following sections guide you through configuring and running this tool in WSO2 API Manager.
+The Forget-Me tool pre-packed with API-M 3.2.0 can be used to remove identities of an **external user** who is deleted according to the system administrator's request. This tool removes user identities stored in the database and also in log files in order to meet GDPR requirements. The following sections guide you through configuring and running this tool in WSO2 API Manager.
 
 -   [Changing the default configurations of the tool.](#GeneralDataProtectionRegulation(GDPR)forWSO2APIManager-Changingthedefaultconfigurationsofthetool.)
 -   [Changing the default configurations location](#GeneralDataProtectionRegulation(GDPR)forWSO2APIManager-Changingthedefaultconfigurationslocation)
@@ -21,7 +21,7 @@ All configurations related to this tool can be found inside the `<API-M_HOME>/re
 -   Log file name regex: `(.)*(log|out)`
 
 #### Configuring the master configuration file
-The master configuration file of the Identity Anonymization tool is the config.json file. Following is a sample config.json file:
+This is the master configuration file. You can configure this file depending on the metadata database tables, access logs, audit logs, or any other log files on which you want the Identity Anonymization tool to run.Following is a sample config.json file:
 
 ``` js
 {
@@ -119,28 +119,23 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
     </tr>
     <tr class="even">
     <td>d</td>
-    <td><p>The configuration directory to use when the tool is run.</p>
-    <p>If you do not specify a value for this option, the default conf directory will be used.</p></td>
+    <td><p>The configuration directory to use when the tool is run.</p></td>
     <td>No</td>
-    <td><br />
-    </td>
+    <td> <code>  APIM_HOME/repository/components/tools/forget-me/conf </code></td>
     <td><code>               -d /users/alex/forgetme/config              </code></td>
     </tr>
     <tr class="odd">
     <td>T</td>
-    <td>The tenant domain</td>
+    <td>The tenant domain of the user whose identity references you want to remove</td>
     <td>No</td>
     <td><code>               carbon.super              </code></td>
     <td><p><code>                -T example-company               </code></p></td>
     </tr>
     <tr class="even">
     <td>TID</td>
-    <td><div class="content-wrapper">
-    <p>The tenant ID</p>
-        !!! note
-        <p>Note</p>
-
-    </div></td>
+    <td>
+    <p>The tenant ID of the user whose identity references you want to remove.</p>
+    </td>
     <td>No</td>
     <td><br />
     </td>
@@ -155,7 +150,7 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
     </tr>
     <tr class="even">
     <td>pu</td>
-    <td>The pseudonym with which the username should be replaced.</td>
+    <td>The pseudonym with which the username should be replaced.<html><div class="admonition note"><p class="admonition-title">Note</p><p> Let's say you run the tool to replace all references to a particular deleted user’s identity, and then you add the same user back to the system for some reason, and later you want to delete the user again and replace all references to the user with the same pseudonym that was used the first time. To do this you need to specify a pseudonym when you run the tool the first time and ensure that you use that same pseudonym when you run the tool the second time. </p></div></html></td>
     <td>No</td>
     <td>A random UUID value is generated as the pseudonym.</td>
     <td><p><code>                -pu “123-343-435-545-dfd-4”               </code></p></td>
@@ -169,7 +164,7 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
     <td>No</td>
     <td><br />
     </td>
-    <td><code>               -carbon “usr/bin/wso2am/wso2am2.2.0”              </code></td>
+    <td><code>               -carbon “usr/bin/wso2am/wso2am3.2.0”              </code></td>
     </tr>
     </tbody>
     </table>
