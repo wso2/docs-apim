@@ -130,7 +130,7 @@ For example, consider we need to send a special header to the backend when calli
 
     ```xml
     <sequence xmlns="http://ws.apache.org/ns/synapse" name="custom-header-in">
-        <header name="X-ENV-KEY" value="${ENV_KEY}" scope="transport"
+        <header name="X-ENV-KEY" value="${ENV_KEY}" scope="transport" />
         <log level="custom">
             <property name="Sent header(X-ENV-KEY)" value="${ENV_KEY}"/>
         </log>
