@@ -23,7 +23,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
     
          Alternatively, you can use the default server.
        
-         [![Okta authorization mserver]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
+         [![Okta authorization server]({{base_path}}/assets/img/administer/okta-authorization-server.png)]({{base_path}}/assets/img/administer/okta-authorization-server.png)
 
          <a name="step12c"></a>
 

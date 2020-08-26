@@ -213,13 +213,13 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       </tr>
       <tr class="odd">
       <td>Consumer Key Claim URI</td>
-      <td>The claim URI for the consumer key. e.g., cid</td>
-      <td>Mandatory</td>
+      <td>The claim URI for the consumer key.</td>
+      <td>Optional</td>
       </tr>
       <tr class="even">
       <td>Scopes Claim URI</td>
-      <td>The claim URI for the scopes. e.g., scp</td>
-      <td>Mandatory</td>
+      <td>The claim URI for the scopes.</td>
+      <td>Optional</td>
       </tr>
       <tr class="odd">
       <td>Grant Types</td>
@@ -239,8 +239,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <tr class="even">
       <td>JWKS</td>
       <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format.
-      This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server.
-      e.g., https://localhost:9444/oauth2/jwks</td>
+      This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server.</td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
@@ -281,7 +280,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <tr class="even">
       <td><b>Token Handling Options</b></td>
       <td>This provides a way to validate the token for this particular authorization server.
-      This is mandatory if the Token Validation Method is **introspect**</td>
+      This is mandatory if the Token Validation Method is <b>introspect</b></td>
       <td></td>
       </tr>
       <tr class="odd">
