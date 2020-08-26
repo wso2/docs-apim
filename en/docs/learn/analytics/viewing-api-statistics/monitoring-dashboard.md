@@ -4,7 +4,7 @@
 
 ## API Error Analysis 
 
-Error page allows users to identify faulty and erroneous API(s) and isolate the cause for their behavior. API Errors or Faulty behaviors include the throttled counts, 4xx, and 5xx responses from the API backend. Widgets on this page are helpful to identify the API(s) and Application(s) with the most errors for each mentioned type. Further, provide the summary of those errors per API and Application, and show how it varied historically.
+Error page allows users to identify faulty and erroneous API(s) and isolate the cause. API Errors or Faulty behaviors include the throttled counts, 4xx, and 5xx responses from the API backend. Widgets on this page are helpful to identify the API(s) and Application(s) with the most errors for each mentioned type. A historical summary could also be viewed per API or per Application.
 
 ### Top Error Summary
 
