@@ -2,13 +2,13 @@
 
 APIs published on WSO2 API Gateway can be secured by OAuth 2.0, which is the de facto standard for access delegation in REST API world. Any client application invoking a OAuth2 secured API needs to have a valid subscription to that particular API and present a valid OAuth2.0 Access Token when invoking it. Please refer [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) for more information on how to subscribe an application to an API and generate credentials for it.
 
-Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain an access tokens to invoke APIs which are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the trust relationship with the application. Please see [OAuth2 Grant Types]
-({{base_path}}/learn/api-security/oauth2/grant-types/overview/) to understand more about the OAuth2 grant types.
+Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain an access tokens to invoke APIs which are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the trust relationship with the application.
+See [OAuth2 Grant Types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/) to understand more about the OAuth2 grant types.
 
 ## OAuth 2.0 Access Token Types
 
 OAuth 2.0 access tokens come in two different flavors
-
+learn/api-security/oauth2/grant-types/overview/
    - [JWT Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens)
     
    - [Opaque Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/opaque-tokens)
@@ -219,13 +219,6 @@ Follow the instructions below to add a customized authorization header for an AP
     [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
 
 3.  Save and Publish the API.
-   
-    !!! note
-        When creating an API by importing a Swagger or Open API definition, the user can define the customized authorization header in the OAS definition using the **“x-wso2-auth-header”** extension.
-      
-         ```yaml
-         x-wso2-auth-header: "CustomAuthorizationHeader"
-         ```
 
 !!! note
        When creating an API by importing a swagger or open API definition, the user can define the customized authorization header in the OAS definition using the **“x-wso2-auth-header”** extension.
