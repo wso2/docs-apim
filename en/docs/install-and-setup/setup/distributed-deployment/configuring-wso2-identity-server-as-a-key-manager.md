@@ -190,49 +190,7 @@ Configure event listener endpoint to publish controller events to traffic manage
     'header.X-WSO2-KEY-MANAGER' = "WSO2IS"
     ```
 
-Configure throttling url groups as below.
-
-    ``` tab="Format"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://<traffic-manager-ip>:<binary-data-publishing-port>"]
-    traffic_manager_auth_urls=["ssl://<traffic-manager-ip>:<binary-data-publishing-authentication-port>"]
-    ```
-         
-    ``` tab="Example"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://tm.wso2.com:9611"]
-    traffic_manager_auth_urls=["ssl://tm.wso2.com:9711"]
-    ```
-    
-If the traffic Manager deployment with High Availability(HA), the endpoints of both nodes has to be configured as follows.
-    
-    ``` tab="Format"        
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://<traffic-manager-1-ip>:<binary-data-publishing-port>"]
-    traffic_manager_auth_urls=["ssl://<traffic-manager-1-ip>:<binary-data-publishing-authentication-port>"]
-    
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://<traffic-manager-2-ip>:<binary-data-publishing-port>"]
-    traffic_manager_auth_urls=["ssl://<traffic-manager-2-ip>:<binary-data-publishing-authentication-port>"]
-    ```
-         
-    ``` tab="Example"
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://tm1.wso2.com:9611"]
-    traffic_manager_auth_urls=["ssl://tm1.wso2.com:9711"]
-    
-    [[apim.throttling.url_group]]
-    traffic_manager_urls=["tcp://tm2.wso2.com:9611"]
-    traffic_manager_auth_urls=["ssl://tm2.wso2.com:9711"]    
-    ```
-    
-    !!!Info
-            
-        -   This particular configuration should be applied in Key Manager nodes to establish the connection with traffic manager node/nodes in order to immediately notify the access token revocations to gateways through traffic manager. 
-        -   If you are having an [All-in-One Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/single-node/all-in-one-deployment-overview), the `traffic_manager_urls` and `traffic_manager_auth_urls` has to be pointed to all in one node's data publishing endpoints(Replace the `<traffic-manager-ip>` placeholder with all in one node's IP or a DNS mapping and `<binary-data-publishing-port>`, `<binary-data-publishing-authentication-port>` with releavant ports with offset). 
-        -   If you are working with a [Distributed Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m) the `traffic_manager_urls` and `traffic_manager_auth_urls` should be pointed to traffic manager node's data publishing endpoints(Replace the `<traffic-manager-ip>` placeholder with traffic manager node's IP or a DNS mapping and `<binary-data-publishing-port>`, `<binary-data-publishing-authentication-port>` with releavant ports with offset).
-        
-4.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/latest/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption) and apply relevant configurations in `Identity Server` file to enable the feature.
+5.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/latest/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption) and apply relevant configurations in `Identity Server` file to enable the feature.
 
 
 ### Step 5 - Configure WSO2 API-M with the WSO2 IS.
