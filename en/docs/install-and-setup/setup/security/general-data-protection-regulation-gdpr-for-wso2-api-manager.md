@@ -169,7 +169,8 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
     </tbody>
     </table>
 
-4.  All references to the user are removed from WSO2 API Manager. You can view the generated reports inside the `<API-M_HOME>/repository/components/tools/forget-me/conf` directory.
+4.  All references to the user are removed from WSO2 API Manager. You can view the generated reports inside the `<API-M_HOME>/repository/components/tools/forget-me/conf` directory. Reports will be generated with the naming convention of `Report-<PROCESSOR>-<TIMESTAMP>.txt`  in your current working directory.
+    eg: Report-log-file-1598483873677.txt
 
 #### Running the toolkit in standalone mode
 
