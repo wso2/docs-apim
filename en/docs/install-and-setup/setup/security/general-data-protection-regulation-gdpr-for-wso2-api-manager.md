@@ -1,6 +1,7 @@
 # General Data Protection Regulation (GDPR) for WSO2 API Manager
 
-The Forget-Me tool pre-packed with API-M 3.2.0 can be used to remove identities of an **external user** who is deleted according to the system administrator's request. This tool removes user identities stored in the database and also in log files in order to meet GDPR requirements. The following sections guide you through configuring and running this tool in WSO2 API Manager.
+The Forget-Me tool pre-packed with API-M 3.2.0 can be used to 
+obfuscate the identities of an **external user** who is deleted according to the system administrator's request. This tool removes user identities stored in the database and also in log files in order to meet GDPR requirements. The following sections guide you through configuring and running this tool in WSO2 API Manager.
 
 -   [Changing the default configurations of the tool.](#GeneralDataProtectionRegulation(GDPR)forWSO2APIManager-Changingthedefaultconfigurationsofthetool.)
 -   [Changing the default configurations location](#GeneralDataProtectionRegulation(GDPR)forWSO2APIManager-Changingthedefaultconfigurationslocation)
@@ -83,6 +84,7 @@ This tool is packaged with WSO2 API Manager by default. Follow the steps below t
 
     -   Note that this tool is designed to run in offline mode (i.e., the server should be shut down or run on another machine) in order to prevent unnecessary load to the server. If this tool runs in online mode (i.e., when the server is running), DB lock situations on the H2 databases may occur. This DB lock may happen if at least one of your databases point to H2. Let's say you have User, REG and AM databases pointed to Mysql but your Carbon DB is in H2, then also you can get this DB lock error when running in online mode.
     -   If you have configured a database other than the default H2 database, copy the relevant driver to the `<API-M_HOME>/repository/components/tools/forget-me/lib` directory.
+    -   The tool is designed to replace all references to a deleted user's identity with either a randomly generated UUID value, or a pseudonym that you specify when you run the tool. Thus you need to manually delete the user and then use this tool to clear the residuals in tables.
 
 
 1.  Open a new terminal window and navigate to the `<API-M_HOME>/bin` directory.
