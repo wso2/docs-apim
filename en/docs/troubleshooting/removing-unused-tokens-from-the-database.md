@@ -46,9 +46,7 @@ retain_access_tokens_for_auditing = true
 <td>retain_access_tokens_for_auditing</td>
 <td>Set this property to true to move the old, invalid tokens to the Audit table when token cleaning is enabled.Set it to false if you do not wish to store old tokens in the Audit table.</td>
 </tr>
-</table>
-
-### Using stored procedures for token cleanup
+</table>### Using stored procedures for token cleanup
 
 Alternatively, you can also use the stored procedures provided below, to run a token cleanup task periodically. This will remove the old and invalid tokens, sessions and auth codes, which cannot be cleaned by the products inbuilt cleanup process.
 
