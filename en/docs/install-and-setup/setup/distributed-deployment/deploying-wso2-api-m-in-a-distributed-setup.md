@@ -93,6 +93,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
      type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
      name = "org.wso2.is.notification.ApimOauthEventInterceptor"
      order = 1
+
      [event_listener.properties]
      notification_endpoint = "https://[Traffic-Manager-LB-Host]/internal/data/v1/notify"
      username = "${admin.username}"
@@ -113,6 +114,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
      type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
      name = "org.wso2.is.notification.ApimOauthEventInterceptor"
      order = 1
+
      [event_listener.properties]
      notification_endpoint = "https://Traffic-Manager-host:${mgt.transport.https.port}/internal/data/v1/notify"
      username = "${admin.username}"
@@ -197,6 +199,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
     type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
     name = "org.wso2.is.notification.ApimOauthEventInterceptor"
     order = 1
+
     [event_listener.properties]
     notification_endpoint = "https://tm.wso2.com:9446/internal/data/v1/notify"
     username = "${admin.username}"
@@ -210,7 +213,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
 [![Traffic Manager Connections]({{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png)]({{base_path}}/assets/img/setup-and-install/traffic-manager-connections.png)
 
-1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and change as following to point to Key manager nodes.
+1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and change as following to point to Key Manager nodes.
 
     ``` toml tab="Key Manager with HA"
         [apim.key_manager]
@@ -229,22 +232,21 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
 
 1.  If you need to configure High Availability (HA) for the Traffic Manager, use a copy of the existing Traffic Manager instance as the second Traffic Manager active instance and configure a load balancer fronting the two Traffic Manager instances.
 
-2. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and add the following configuration to publish events into other node.
+2.  Mount the <API-M_HOME>/repository/deployment/server/executionplans directory of all Traffic Manager nodes to a shared file system. This will synchronize the content among nodes allowing the throttling policies to be shared among them.
+
+3. Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the Traffic Manager node and add the following configuration to publish events to other node.
 
  
-``` toml tab="Node1"
-[apim.throttling]
-event_duplicate_url = ["tcp://Traffic-Manager-2-host:5672"]
-```
+    ``` toml tab="Node1"
+    [apim.throttling]
+    event_duplicate_url = ["tcp://Traffic-Manager-2-host:5672"]
+    ```
 
-``` toml tab="Node2"
-[apim.throttling]
-event_duplicate_url = ["tcp://Traffic-Manager-1-host:5672"]
-```
+    ``` toml tab="Node2"
+    [apim.throttling]
+    event_duplicate_url = ["tcp://Traffic-Manager-1-host:5672"]
+    ```
 
-
-3.  Mount the `<API-M_HOME>/repository/deployment/server/executionplans` directory of all the Traffic Manager nodes to a shared file system as a content synchronization mechanism in-order to share the throttling policies between Traffic Manager nodes.
-  
 4.  Start the WSO2 API-M Traffic Manager node(s) by running the below command in the command prompt. For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
     ``` java tab="Linux/Mac OS"
@@ -319,7 +321,7 @@ This section involves setting up the API Publisher node and enabling it to work 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the API Publisher node and make the following changes.
 
     1.  Configure the Publisher with the Traffic Manager.
-        This configuration enables publishing of throttling policies, custom templates, and block conditions,API Events to the Traffic Manager node.
+        This configuration enables publishing of throttling policies, custom templates, block conditions, API events to the Traffic Manager node.
 
         ``` toml tab="Traffic Manager with HA"
         [apim.throttling]
@@ -428,7 +430,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         password = "$ref{super_admin.password}"
     ```
 
-2.  If you need to configure High Availability (HA) for the Api Publisher nodes, use a copy of the active instance configured above as the second active Publisher instance and configure a load balancer fronting the two Publisher instances.
+2.  If you need to configure High Availability (HA) for the API Publisher nodes, use a copy of the instance configured above as the second active Publisher instance. Thereafter, configure a load balancer fronting the two Publisher instances.
            
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
@@ -766,7 +768,7 @@ This section involves setting up the Gateway node and enabling it to work with t
     password = "$ref{super_admin.password}"
     ```
 
-4.  If you need to enable JSON Web Token (JWT), you have to enable it in all Gateway components.
+4.  If you need to enable JSON Web Token (JWT), you have to enable it in all the Gateway nodes.
     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
 
 5.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to communicate with the Traffic Manager node(s).
