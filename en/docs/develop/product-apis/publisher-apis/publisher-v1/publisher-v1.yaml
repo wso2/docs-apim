@@ -208,7 +208,7 @@ paths:
       x-code-samples:
       - lang: Shell
         source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis111"
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis"
       parameters:
         - $ref : '#/parameters/limit'
         - $ref : '#/parameters/offset'
