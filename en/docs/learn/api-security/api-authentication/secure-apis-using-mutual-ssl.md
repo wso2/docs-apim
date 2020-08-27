@@ -56,7 +56,7 @@ When SSL Termination of API requests happens at the loadbalancer/reverse proxy, 
 
 The below diagram shows how MutualSSL works in such environment.
 
-![]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
+    [![]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
 
 By default, the WSO2 API Manager retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header. In order to change the header,
 
