@@ -46,3 +46,29 @@ Listed below are the known limitations for this feature.
 -   Resource-level security will not be applicable to the APIs that are only protected with Mutual SSL.
 
 -   Scope-level security will not be applicable to the APIs that are only protected with Mutual SSL.
+
+### Handling MTLS when SSL is terminated by the loadbalancer/reverse proxy.
+
+When SSL Termination of API requests happens at the loadbalancer/reverse proxy, the following prerequisites need to be met from the load balancer.
+
+-   Terminate the mutual SSL connection from client
+-   Pass the client SSL certificate to the Gateway in an HTTP Header. You may refer [nginx documentation](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate)
+
+The below diagram shows how MutualSSL works in such environment.
+
+![]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
+
+By default, the WSO2 API Manager retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header. In order to change the header,
+
+-  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file.
+-  Configure the *certificate_header* under the [apimgt.mutual_ssl] configuration.
+
+     ```
+     [apimgt.mutual_ssl]
+     certificate_header = "<Header Name>"
+     # This property need to be true if MutualSSL connection established between load balancer and gateway.
+     enable_client_validation = false
+     ```
+
+-  Start the Server.
+
