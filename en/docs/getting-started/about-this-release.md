@@ -18,6 +18,10 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M related new features
 
+- **[API Traffic Manager]({{base_path}}/getting-started/overview/#traffic-manager)**
+
+     In addition to rate limiting, the Traffic Manager also works as an event hub for broadcasting controller events such as throttling events, block conditions, revoke token retrieval events, API events, API policy events, application events, application policy events, application keys events, subscription events, and subscription policy events.
+
 - **[Third-party Key Manager support]({{base_path}}/administer/key-managers/overview/)**
 
      WSO2 API Manager provides an admin functionality for admins or tenant admins to configure different authorization servers as Key Managers. This brings the capability of supporting multiple Key Managers for a given API.
@@ -118,9 +122,9 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      The subscription tier upgrade feature provides the capability to change the subscription tier of an already existing subscription without having to delete the subscription and resubscribe to the same API.
 
-- **In-Memory Subscription**
+- **In-Memory subscription validation**
 
-     The In-Memory Subscription provides validation support to remove runtime dependencies between the Gateway and the Key Manager node and validates the request by accessing the metadata in the In-Memory data store. As a result, WSO2 API Manager can serve the request even in a situation where the database is inaccessible.
+     The In-Memory subscription validation provides  support to remove runtime dependencies between the Gateway and the Key Manager node and validates the request by accessing the metadata in the In-Memory data store. As a result, WSO2 API Manager can serve the request even in a situation where the database is inaccessible.
 
 - **Mock Response Payload Generation for API Prototyping**
  
