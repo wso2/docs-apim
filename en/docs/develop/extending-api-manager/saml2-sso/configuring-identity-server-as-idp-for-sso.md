@@ -189,12 +189,12 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 
 1.  Sign in to the WSO2 API Management Console UI ( `https://localhost:9443/carbon)`.
 
-2.  List service providers and select edit on API Publisher application.
+2.  List service providers and select edit on relevant application for publisher or developer portal or admin portal.
 
-    ![listed-sp]({{base_path}}/assets/img/learn/extensions/saml2-sso/listed-sp.png)
+    ![listed-sp]({{base_path}}/assets/img/develop/extensions/listed-sp.png)
   
     !!! note
-        Please note that the publisher and developer portal service providers will be listed under service providers after you have logged in to the publisher and the developer portal at least once. 
+        Please note that the publisher, developer portal, and admin portal service providers will be listed under service providers after you have logged in to each of the portals at least once.
          
 3.  Go to **Local and Outbound Authentication Configuration** and select Identity Provider as the **Federated Authentication**.
 
@@ -202,17 +202,19 @@ Similarly, add Identity Server as an identity provider configurations in `https:
   
 4.  Click **update** once done.
 
-5.  Repeat the above steps (Step 2 to Step 4) to the Developer Portal Application as well.
+5.  Repeat the above steps (Step 2 to Step 4) to configure SAML2 SSO for any of the Publisher, Developer Portal or Admin Portal Applications.
 
 4.  Access the API Publisher: `https://localhost:<PORT>/publisher` (e.g., `https://localhost:9443/publisher` ). Observe the request redirect to the WSO2 IS SAML2.0 based SSO login page. For example,
     ![login-page]({{base_path}}/assets/img/learn/extensions/saml2-sso/login-page.png)
-  
-5.  Enter user credentials. If the user authentication is successful against WSO2 IS, it will redirect to the API Publisher Web application with the user already authenticated.
 
-6.  Access the Developer Portal application, click its **Login** link (top, right-hand corner) and verify that the same user is already authenticated in Developer Portal.
+    Similarly for Developer Portal access  `https://localhost:<PORT>/devportal` (e.g., `https://localhost:9443/devportal` ) and for the Admin Portal access `https://localhost:<PORT>/admin` (e.g., `https://localhost:9443/admin` )
+  
+5.  Enter user credentials. If the user authentication is successful against WSO2 IS, it will redirect to the particular Web application with the user already authenticated.
+
+6.  If you login to the Publisher Portal, then access the Developer Portal application, click its **Login** link (top, right-hand corner) and verify that the same user is already authenticated in Developer Portal.
 
 !!! note
-    Even with SSO enabled, if the user doesn't have sufficient privileges to access API Publisher/Developer Portal or any other application, s/he will not be authorized to access them.
+    Even with SSO enabled, if the user doesn't have sufficient privileges to access API Publisher/Developer Portal/Admin Portal or any other application, s/he will not be authorized to access them.
 
 !!! info
     To learn more about Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.10.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
