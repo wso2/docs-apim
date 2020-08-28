@@ -1,13 +1,13 @@
 # Adding an API Subscription Workflow
 
-This section explains how to attach a custom workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.
+This section explains how to attach a custom workflow to the API subscription operation in the API Manager.
 
 Attaching a custom workflow to API subscription enables you to add throttling tiers to an API that consumers cannot choose at the time of subscribing. Only admins can set these tiers to APIs. When a consumer subscribes to an API, he/she has to subscribe to an application in order to get access to the API. However, when API subscription workflow is enabled, when the consumer subscribes to an application, it initially is in the `On Hold` state, and he/she can not use the API, using its production or sandbox keys, until their subscription is approved.
 
 !!! Note
     You will only need to configure either  **WSO2 EI** or **WSO2 BPS**. The WSO2 API Manager configuration will be common for both.
 
-##Configuring WSO2 EI
+## Configuring WSO2 EI
 
 !!! tip
     **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
@@ -16,9 +16,9 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
     -   Unzip the `<API-M>/business-processes/subscription-creation/HumanTask/SubscriptionsApprovalTask-1.0.0.zip` file, update the role as follows in the `SubscriptionsApprovalTask.ht` file, and ZIP the `SubscriptionsApprovalTask-1.0.0` folder.
 
     ``` xml
-            <htd:argument name="role">
-                [new-role-name]
-            </htd:argument>
+        <htd:argument name="role">
+            [new-role-name]
+        </htd:argument>
     ```
 
 1.  Download [WSO2 Enterprise Integrator](https://wso2.com/integration) .
@@ -49,13 +49,13 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
     -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionCallbackService.epr` file according to API Manager.
 
         ``` java
-                <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
+            <wsa:Address>https://localhost:8243/services/WorkflowCallbackService</wsa:Address>
         ```
 
     -   Update the `<API-M_HOME>/business-processes/epr/SubscriptionService.epr` file according to EI.
 
         ``` java
-                    <wsa:Address>http://localhost:9765/services/SubscriptionService/ </wsa:Address>
+            <wsa:Address>http://localhost:9765/services/SubscriptionService/ </wsa:Address>
         ```
 
 5.  Start the EI server and sign in to its management console ( `https://<Server Host>:9443+<port offset>/carbon` ).
@@ -75,8 +75,9 @@ Attaching a custom workflow to API subscription enables you to add throttling ti
 
 7.  Select **Add** under the **Human Tasks** menu and upload the `<API-M_HOME>/business-processes/subscription-creation/HumanTask/SubscriptionsApprovalTask-1.0.0.zip` file to EI. This is the human task archived file.
 
+For instructions on how to customize workflow extensions, see [Customizing a Workflow Extension]({{base_path}}/develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension/)
 
-##Configuring WSO2 BPS
+## Configuring WSO2 BPS
 
 !!! tip
     **Before you begin** , if you have changed the API Manager's default user and role, make sure you do the following changes:
@@ -157,7 +158,7 @@ First, enable the API subscription workflow **.**
 2.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` resource, disable the Simple Workflow Executor and enable WS Workflow Executor. Also specify the service endpoint where the workflow engine is hosted and the credentials required to access the said service via basic authentication (i.e., username/password based authentication).
 
     ``` 
-        <WorkFlowExtensions>
+    <WorkFlowExtensions>
         ...
             <SubscriptionCreation executor="org.wso2.carbon.apimgt.impl.workflow.SubscriptionCreationWSWorkflowExecutor">
                  <Property name="serviceEndpoint">http://localhost:9765/services/SubscriptionApprovalWorkFlowProcess/</Property>
@@ -193,22 +194,22 @@ First, enable the API subscription workflow **.**
     Whenever a user tries to subscribe to an API, a request of the following format is sent to the workflow endpoint:
 
     ```
-        <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"xmlns:wor="http://workflow.subscription.apimgt.carbon.wso2.org">
-           <soapenv:Header/>
-           <soapenv:Body>
-              <wor:createSubscription>
-                 <wor:apiName>sampleAPI</wor:apiName>
-                 <wor:apiVersion>1.0.0</wor:apiVersion>
-                 <wor:apiContext>/sample</wor:apiContext>
-                 <wor:apiProvider>admin</wor:apiProvider>
-                 <wor:subscriber>subscriber1</wor:subscriber>
-                 <wor:applicationName>application1</wor:applicationName>
-                 <wor:tierName>gold</wor:tierName>
-                 <wor:workflowExternalRef></wor:workflowExternalRef>
-                 <wor:callBackURL>?</wor:callBackURL>
-              </wor:createSubscription>
-           </soapenv:Body>
-        </soapenv:Envelope>
+    <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"xmlns:wor="http://workflow.subscription.apimgt.carbon.wso2.org">
+        <soapenv:Header/>
+        <soapenv:Body>
+            <wor:createSubscription>
+                <wor:apiName>sampleAPI</wor:apiName>
+                <wor:apiVersion>1.0.0</wor:apiVersion>
+                <wor:apiContext>/sample</wor:apiContext>
+                <wor:apiProvider>admin</wor:apiProvider>
+                <wor:subscriber>subscriber1</wor:subscriber>
+                <wor:applicationName>application1</wor:applicationName>
+                <wor:tierName>gold</wor:tierName>
+                <wor:workflowExternalRef></wor:workflowExternalRef>
+                <wor:callBackURL>?</wor:callBackURL>
+            </wor:createSubscription>
+        </soapenv:Body>
+    </soapenv:Envelope>
     ```
 
     Elements of the above configuration are described below:
