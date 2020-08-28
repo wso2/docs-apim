@@ -42,11 +42,11 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      You can now auto-scale backend or managed API horizontally based on custom metrics. For more information, see the [sample scenario (v1.2.0)](https://github.com/wso2/k8s-api-operator/tree/master/scenarios/scenario-20) with detailed configurations in the GitHub page of the K8s API-Operator.
 
-- **[Private Jet mode for Microgateways]({{base_path}}/learn/api-microgateway/deploy-apis-in-privatejet-mode/)**
+- **[Private Jet mode for Microgateways]({{base_path}}/learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis/)**
 
      WSO2 API Manager now provides cloud-native API management, where users can expose microservices as managed APIs in cloud environments with the support of the K8s API-Operator.
 
-- **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-multi-gateway-setup-with-artifact-synchronization)**
+- **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/)**
 
      This feature allows you to sync nodes seamlessly in a Multi-Gateway setup using NFS with an extension point that can be configured to store these Synapse artifacts. 
 
@@ -158,7 +158,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 ## Compatible WSO2 product versions
 
-WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
 ## Fixed issues
 
