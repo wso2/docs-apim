@@ -399,6 +399,7 @@ nav:
                   - Changing to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                   - Changing to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                   - Changing to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
+              - Managing Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
           - Setting up Proxy Server and the Load Balancer:
               - Configuring the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
               - Adding a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
@@ -515,7 +516,7 @@ nav:
       - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
       - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
       - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
-      - Removing Unused Tokens from the Database: troubleshooting/removing-unused-tokens-from-the-database.md
+      - Removing Unused Tokens from the Database: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
 
 # Extensions
 markdown_extensions:
@@ -675,7 +676,9 @@ plugins:
         'develop/product-apis/publisher-apis/publisher-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-publisher-v0.16/'
         'develop/product-apis/devportal-apis/devportal-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v1/'
         'develop/product-apis/devportal-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
-  # Extra
+        'troubleshooting/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/'
+
+    # Extra
 extra_css:
   - assets/lib/highlightjs/default.min.css
   - assets/css/theme.css
