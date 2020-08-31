@@ -217,5 +217,53 @@ Similarly, add Identity Server as an identity provider configurations in `https:
 !!! info
     To learn more about Single Sign-On with WSO2 Identity Server, see [SAML 2.0 Web SSO](https://is.docs.wso2.com/en/5.10.0/learn/saml-2.0-web-sso/) in the WSO2 Identity Server documentation.
 
+## Configuring WSO2 API Manager Admin Portal as SAML 2.0 SSO service provider
+
+1. Open <API-M_Home>/repository/deployment/server/jaggeryapps/admin/site/conf/site.json and modify the following configurations found under ssoConfiguration.
+
+
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><pre><code>enabled</code></pre></td>
+<td>Set this value to true to enable SSO in the application</td>
+</tr>
+<tr class="even">
+<td><pre><code>issuer</code></pre></td>
+<td>ADMIN_PORTAL. This value can change depending on the Issuer value defined in WSO2 IS SSO configuration above.</td>
+</tr>
+<tr class="odd">
+<td><pre><code>identityProviderURL</code></pre></td>
+<td>https://localhost:9444/samlsso. Change the IP and port accordingly. This is the redirecting SSO URL in your running WSO2 IS server instance.</td>
+</tr>
+<tr class="odd">
+<td><pre><code>keyStoreName</code></pre></td>
+<td>The keystore of the running IDP. As you use a remote instance of WSO2 IS here, you can import the public certificate of the IS keystore to the APIM and then point to the APIM keystore. The default keystore of the APIM is <API-M_HOME>/repository/resources/security/wso2carbon.jks. Be sure to give the full path of the keystore here.</td>
+</tr>
+<tr class="even">
+<td><pre><code>keyStorePassword</code></pre></td>
+<td>Password for the above keystore. The default keyStorePassword is wso2carbon</td>
+</tr>
+<tr class="odd">
+<td><pre><code>identityAlias</code></pre></td>
+<td>wso2carbon</td>
+</tr>
+</tbody>
+</table>
+
+   ![Admin Portal SSO Configuration]({{base_path}}/assets/img/develop/extensions/admin-portal-sso-config.png)
+
+    ![Admin SSO configuration]({{base_path}}/assets/img/develop/extensions/admin-portal-sso-config.png)
 
 
