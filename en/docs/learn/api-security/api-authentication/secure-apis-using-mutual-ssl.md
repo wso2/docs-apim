@@ -52,7 +52,7 @@ Listed below are the known limitations for this feature.
 
 -   Scope-level security will not be applicable to the APIs that are only protected with Mutual SSL.
 
-### Handling MTLS when SSL is terminated by the Load Balancer or Reverse Proxy
+### Handling Mutual TLS when SSL is terminated by the Load Balancer or Reverse Proxy
 
 When SSL termination of API requests takes place at the Load Balancer or Reverse Proxy, the following prerequisites need to be met by the Load Balancer.
 
@@ -63,7 +63,7 @@ When SSL termination of API requests takes place at the Load Balancer or Reverse
 
 The following diagram illustrates how Mutual SSL works in such an environment.
 
-[![MTLS Load Balancer]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
+[![MTLS Load Balancer]({{base_path}}/assets/img/learn/mutual-tls-loadbalancer.png)]({{base_path}}/assets/img/learn/mutual-tls-loadbalancer.png)
 
 By default, the WSO2 API Manager retrieves the client certificate from the **X-WSO2-CLIENT-CERTIFICATE** HTTP header. In order to change the header,
 
