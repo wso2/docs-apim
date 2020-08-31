@@ -66,6 +66,34 @@ Please follow below steps to enable logs for a given service component available
     loggers = org-wso2-carbon-user-core, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
+
+###Enable Logs for a Component via UI
+
+!!! note
+    Enabling logs via UI is only available after the WUM update with the timestamp "12734484848484"
+
+Please follow below steps to enable logs for a given service component available in WSO2 API Manager.
+
+1.  Navigate to the carbon console [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with **`admin/admin`** as the credentials.
+Go to "Configure" -> "Logging"
+                                                 
+    [![Logger Carbon UI]({{base_path}}/../../../../assets/img/administer/logging.png)]({{base_path}}/../../../../assets/img/administer/logging.png)
+
+
+1.  Add a new logger specifying the logger name, logger class name and log level that you need to enable logs as shown below and click on "Update" button.
+
+    [![Add Logger Carbon UI]({{base_path}}/../../../../assets/img/administer/add-logger.png)]({{base_path}}/../../../../assets/img/administer/add-logger.png)
+
+
+2.  Once you add the logger, it will be shown in the logger page as shown below.
+    [![List Logger Carbon UI]({{base_path}}/../../../../assets/img/administer/list-logger.png)]({{base_path}}/../../../../assets/img/administer/list-logger.png)
+
+3. To update the log level OR to disable the logs, you need to navigate to the specific logger and change the log level as shown below.
+
+
+    [![Update Logger Carbon UI]({{base_path}}/../../../../assets/img/administer/update-logger.png)]({{base_path}}/../../../../assets/img/administer/update-logger.png)
+
+
 ###Setting the Log levels
 
 The log level can be set specifically for each appender in the `log4j2.properties` file by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
