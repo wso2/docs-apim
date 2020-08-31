@@ -1,15 +1,14 @@
 # Deploying WSO2 API-M in a Distributed Setup
 
-Follow the instructions below to deploy WSO2 API Manager in a distributed environment with its five main components namely Key Manager, Gateway, Publisher, Developer Portal and Traffic Manager.
+Follow the instructions below to deploy WSO2 API Managers five main components (Key Manager, Gateway, Publisher, Developer Portal and Traffic Manager) in a distributed environment.
 
 ### Step 1 - Install and configure WSO2 API-M
 
-1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) zip archive into each of the five servers in the cluster for the distributed deployment.
-2.  Unzip the WSO2 API Manager zipped archive, and rename each of those directories in the five servers as Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager.
-    Each of these unzipped directories are referred to as `<API-M_HOME>` in this document.
-3.  Optimize the distribution for the required profile. 
+1.  Download the [WSO2 API Manager](http://wso2.com/products/api-manager/) into the designated servers for the distributed deployment.
+2.  Unzip the WSO2 API Manager zipped archive, and rename the directory to reflect the component. For e.g., Key Manager, Gateway, Publisher, Developer Portal, and Traffic Manager. This unzipped directory is referred to as the `<API-M_HOME>` in this document.
+3.  Follow the instructions below to optimize the distribution for the relavant server profile. 
     
-    When a node starts, it starts all the components and features bundled with it. If you are concerned about resource utilization, you can run the product on a specific profile, so that apart from the common features, only the components and features that are required for that particular profile start up.
+    When a node starts, it starts all the components and features bundled with it. If resource utilization is a concern, the product can be run on a specific profile, so that apart from the common features, only the components and features that are required for that particular profile start up.
       
     !!! note
           You can either run the profile optimizer before starting the server or while starting the server. 
@@ -18,9 +17,9 @@ Follow the instructions below to deploy WSO2 API Manager in a distributed enviro
     
      For more information on using profile optimizer support, see [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/).
     
-4.  Replace the default certificates (where `CN=localhost`) in each of the five servers, with new certificates generated with proper common name (CN) values to ensure that hostname mismatch issues in the certificates will not occur.
+4.  Replace the default certificates (where `CN=localhost`) in each of the five servers, with the new certificates generated with proper common name (CN) values. This will ensure that hostname mismatch issues in the certificates will not occur.
     
-    You should use the same primary keystore for all the API Manager instances here in order to decrypt the registry resources. For more information, see [Configuring Primary Keystores]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-primary-keystore).
+    The same primary keystore should be used for all API Manager instances in order to decrypt the registry resources. For more information, see [Configuring Primary Keystores]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-primary-keystore).
     
     !!! Tip
            When creating the keystore, always use a longer validity period so that it will avoid the need of migration on the registry data when shifting to a new keystore.
@@ -47,16 +46,15 @@ If you wish to view reports, statistics, and graphs related to the APIs deployed
 
 ### Step 6 - Configure the connections among the components and start the servers
 
-You will now configure the inter-component relationships of the distributed setup by modifying their `<API-M_HOME>/repository/conf/deployment.toml` files. Once the required configuration is done in each component, it is recommended to start the them in the following order:Key Manager, Traffic Manager, Publisher, Developer Portal, and Gateway.
+Let's configure the inter-component relationships of the distributed setup by modifying the `<API-M_HOME>/repository/conf/deployment.toml` file of the respective servers. Once the required configuration is done in each component, it is recommended to start the them in the following order:Key Manager, Traffic Manager, Publisher, Developer Portal, and Gateway.
 
 !!! note
-    In a clustered environment, you use session affinity (sticky sessions) to ensure that requests from the same client always get routed to the same server.
- 
-    When an API is published from the API Publisher, a file with its synapse configuration is puhsed to the API Gateway.Therefore in order to ensure that Basic Auth authentication for the respective admin service call and subsequent synapse artifact deployment requests are sent to the same Gateway node, we need to enable sticky sessions for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Gateway nodes.
-    
-    Similarly when a throttle policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in Traffic Manager via an admin service call and therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Traffic Manager nodes.
-    
-    Key validation requests sent from the Gateway node to the Key Manager nodes also happen via an admin service call, therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Key Manager nodes.
+    In a clustered environment, you use session affinity (sticky sessions) to ensure that requests from the same client always get routed to the same server. For more information on see More info on session affinity in API Manager below.
+
+??? More info on session affinity in API Manager
+    In the API Publisher, when a request is made to deploy an API, sticky sessions make sure that the authentication call to obtain the session and the request to deploy the API is made to the same server. Sticky sessions need to be enabled the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Gateway nodes.
+    Similarly when a throttle policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in the Traffic Manager .Therefore sticky sessions needs to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Traffic Manager nodes.
+    Key validation requests sent from the Gateway node to the Key Manager nodes also require sticky sessions to be enabled for the servlet transport ports ( i.e 9443 if no port offsert is configured ) in the load balancer that is fronting the Key Manager nodes.
     
 -   [Step 6.1 - Configure and start the Key Manager](#step-62-configure-and-start-the-key-manager)
 -   [Step 6.2 - Configure and start the Traffic Manager](#step-63-configure-and-start-the-traffic-manager)
