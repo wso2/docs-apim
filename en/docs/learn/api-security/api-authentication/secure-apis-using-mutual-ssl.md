@@ -61,7 +61,7 @@ When SSL termination of API requests takes place at the Load Balancer or Reverse
 
      For more information, see the [Nginx documentation](https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_client_certificate).
 
-The following diagram illustrates how MutualSSL works in such an environment.
+The following diagram illustrates how Mutual SSL works in such an environment.
 
 [![MTLS Load Balancer]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)]({{base_path}}/assets/img/learn/mtls-loadbalancer.png)
 
