@@ -158,7 +158,7 @@ Please refer [JWT claims Caching]({{base_path}}/learn/api-gateway/passing-end-us
 
 ### Publisher cache
 
--   **Publisher-roles cache:** This indicates whether the role cache need to be enabled in the publisher. If this is disabled, there will be a call to key manager to all the calls to API publisher APIs. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state, where the role addition and deletion happens seamlessly, the cache will be in invalid state.
+-   **Publisher-roles cache:** This indicates whether the role cache needs to be enabled in the publisher. It is disabled by default. If this is disabled, for all API publisher calls, there will be a call to Key Manager. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state, where the role addition and deletion happen seamlessly, the caching will not happen as expected.
 
     ``` java
         [apim.cache.publisher_roles]
