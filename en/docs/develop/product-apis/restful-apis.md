@@ -14,7 +14,7 @@ There are two versions of REST APIs available for the API Publisher and Develope
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v1/">WSO2 Developer Portal v1</a></td>
   </tr>
    <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v1/">WSO2 Admin Portal v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-admin-v1/">WSO2 Admin Portal v1</a></td>
   </tr>
 
   <tr>
