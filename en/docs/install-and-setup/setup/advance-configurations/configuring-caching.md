@@ -176,7 +176,7 @@ The Developer Portal has several caches to reduce the page-load times and increa
         expiry_time = "2m"
     ```
 
--   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default.If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+-   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
     ``` java
         [apim.cache.recent_apis]
         enable = true
