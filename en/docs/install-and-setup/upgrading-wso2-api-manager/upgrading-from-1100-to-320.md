@@ -415,7 +415,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
     
     !!! note
-        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. Therefore, ** do not** migrate the e`WSO2_MB_STORE_DB` database from API-M 2.0.0 to API-M 3.2.0, and use the **default H2** `WSO2_MB_STORE_DB` database available in API-M 3.2.0.
+        It is recommended to use the default H2 database for the `WSO2_MB_STORE_DB` database in API-Manager. Therefore, ** do not** migrate the `WSO2_MB_STORE_DB` database from API-M 2.0.0 to API-M 3.2.0. Just use the **default H2** `WSO2_MB_STORE_DB` database that is available in API-M 3.2.0.
 
 4.  Point to the correct database for user management purposes by updating the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows:
 
@@ -456,7 +456,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 9. Migrate your existing log4j.properties file to the log4j2.properties file. For more information, see [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2).
 
-     WSO2 API Manager 3.2.0 has been upgraded to log4j2 (from log4j). You will notice that there is a `log4j2.properties` file in the `<API-M_3.2.0_HOME>/repository/conf/` directory instead of the `log4j.properties` file. Therefore, you need to upgrade to Log4j2.
+     WSO2 API Manager 3.2.0 has been upgraded to log4j2 (from log4j). You will notice that there is a `log4j2.properties` file in the `<API-M_3.2.0_HOME>/repository/conf/` directory instead of the `log4j.properties` file. Therefore, you need to upgrade to log4j2.
 
     !!! warning
         Taking the `log4j.properties` file from your old WSO2 API-M Server and adding it to the WSO2 API-M 3.2.0 Server will no longer work. Refer to [Upgrading to Log4j2]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-to-log4j2) to see how to add a log appender or a logger to the `log4j2.properties` file.
@@ -4279,7 +4279,7 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     !!! note "If you have enabled Secure Vault"
-        If you have enabled secure vault in the previous API-M version, you need to add the property values again according to the new configuration model and run the following script. For more information, see [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords).
+        If you have enabled Secure Vault in the previous API-M version, you need to add the property values again according to the new configuration model and run the following script. For more information, see [Encrypting Passwords in Configuration files]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords).
 
         ```tab="Linux"
         ./ciphertool.sh -Dconfigure
@@ -4403,11 +4403,12 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
         [user_store]
         type = "database"
-        ```    
+        ```
+
     7.  Start WSO2 API Manager 3.2.0 as follows to carry out the complete Identity component migration.
         
         !!! note
-            If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) before moving to the next step.
+            If you are migrating your user stores to the new user store managers with the unique ID capabilities, follow the guidelines given in the [Migrating User Store Managers](https://is.docs.wso2.com/en/latest/setup/migrating-userstore-managers/) section before moving to the next step.
 
         ```tab="Linux / Mac OS"
         sh wso2server.sh -Dmigrate -Dcomponent=identity
@@ -4421,7 +4422,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and please wait until the migration process finishes completely and the server gets started.
         
         !!! note
-            Note that if you want to use the latest user store, please update the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` as follows after the identity migration.
+            Note that if you want to use the latest user store, you need to update the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file as follows after the identity migration.
 
             ```
             [user_store]
@@ -4431,19 +4432,20 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! warning "Troubleshooting"
             When running the above step if you encounter the following error message, follow the steps in this section. Note that the following error can occur only if the identity tables contain a huge volume of data.
 
-            Sample exception stack trace is given below.
+            The following is a sample stack trace that contains the exception.
             ```
             ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
             ```
-
+             <a name="stepT1"></a>
              1.  Add the following property in the `<API-M_HOME>/repository/conf/deployment.toml` file to a higher value (e.g., 10).
                  ```
                  [indexing]
                  frequency= 10
                  ```
+
              2.  Re-run the command above.
 
-            **Make sure to revert the change done in Step 1 , after the migration is complete.**
+            **Make sure to revert the change done in <a href="#stepT1">Step 1</a>, after the migration is complete.**
     
     8.  After you have successfully completed the migration, stop the server, and remove the following files and folders.
 
