@@ -17,6 +17,8 @@ This section covers the following:
 -   [Resource cache](#resource-cache)
 -   [Key Manager cache](#key-manager-cache)
 -   [Response cache](#response-cache)
+-   [JWT Claims cache](#jwt-claims-cache)
+-   [Publisher cache](#publisher-cache)
 -   [Developer Portal cache](#developer-portal-cache)
 
 !!! tip
@@ -150,6 +152,19 @@ The OAuth token is saved in this cache, which is enabled by default. Whenever a 
 
 Please refer [Response Caching]({{base_path}}/learn/api-gateway/response-caching/) to see how to enable response caching for a given API.
 
+### JWT claims cache
+
+Please refer [JWT claims Caching]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/#expiry-time-of-the-jwt) to see how to enable JWT claims caching.
+
+### Publisher cache
+
+-   **Publisher-roles cache:** This indicates whether the role cache need to be enabled in the publisher. If this is disabled, there will be a call to key manager to all the calls to API publisher APIs. It expires in 15 minutes by default. It is highly recommended to enable this cache. However, if the system is in a state, where the role addition and deletion happens seamlessly, the cache will be in invalid state.
+
+    ``` java
+        [apim.cache.publisher_roles]
+        enable = true
+    ```
+
 ### Developer Portal cache
 
 The Developer Portal has several caches to reduce the page-load times and increase its responsiveness when multiple users access it simultaneously.
@@ -161,10 +176,15 @@ The Developer Portal has several caches to reduce the page-load times and increa
         expiry_time = "2m"
     ```
 
--   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default. If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+-   **Recently-added-API cache:** This cache saves the five most recently added APIs. It is disabled by default.If you have multiple API modifications during a short time period, it is recommended to not enable this cache. To enable it, uncomment following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
     ``` java
         [apim.cache.recent_apis]
         enable = true
     ```
-
+    
+-   **Scopes cache:** This specifies whether scopes are taken from cache or not. It is disabled by default. If you are modifying application subscriptions frequently, modifying the user roles frequently or updating the subscribed APIs frequently, it is recommended to not enable this cache. To enable it, uncomment following section in `<APIM_HOME>/repository/conf/deployment.toml` file and set enable to `true`.
+    ``` java
+        [apim.cache.scopes]
+        enable = true
+    ```
 
