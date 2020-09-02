@@ -81,7 +81,9 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
-6. Start WSO2 Identity Server.
+6. Start WSO2 Identity Server with a port offset.
+
+      `sh wso2server.sh --DportOffset=1`
 
 ## Step 2 - Configure WSO2 API Manager
 
@@ -131,7 +133,8 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       </tr>
       <tr class="even">
       <td>Key Manager Type</td>
-      <td>The type of the Key Manager to be selected.</td>
+      <td>The type of the Key Manager to be selected.</br>
+       e.g., WSO2 Identity Server</td>
       <td>Mandatory</td>
       </tr>
       <tr class="odd">
@@ -223,7 +226,8 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       </tr>
       <tr class="odd">
       <td>Grant Types</td>
-      <td>The supported grant types.</td>
+      <td>The supported grant types. Add multiple grant types by adding a grant type press Enter.</br>
+       e.g., refresh_token, password, client_credentials, authorization_code</td>
       <td>Optional</td>
       </tr>
       <tr class="even">
@@ -239,7 +243,8 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <tr class="even">
       <td>JWKS</td>
       <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Identity Server's public key set in JSON web key set format.
-      This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server.</td>
+      This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Identity Server. </br>
+      e.g., https://localhost:9443/oauth2/jwks</td>
       <td>Optional</td>
       </tr>
       <tr class="odd">
