@@ -84,7 +84,7 @@ Follow the steps below to enable PrivateJet mode to deploy APIs as managed APIs 
          name: clusterrolebinding-privatejet
         subjects:
         - kind: ServiceAccount
-          name: wso2sa # Name is case sensitive
+          name: wso2am-privatejet # Name is case sensitive
           apiGroup: ""
           namespace: default
         roleRef:

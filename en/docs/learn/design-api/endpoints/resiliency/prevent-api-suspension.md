@@ -40,7 +40,7 @@ Follow the instructions below to prevent or turn off API suspension:
 !!! info
     To avoid backend endpoint suspension:
 
-    1. Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/api` directory. 
+    1. Navigate to the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/endpoints` directory. 
     
     2. Open the configuration file of the API that has to be prevented from being suspended. 
     
@@ -68,4 +68,4 @@ Follow the instructions below to prevent or turn off API suspension:
         </endpoint>
         ```
 
-For more details on configuring different timeouts, see [Timeout configurations for an API call]({{base_path}}/install-and-setup/perfromance-tuning-and-test-results/tuning-performance) in the Performance Tuning guide.
+For more details on configuring different timeouts, see [Timeout configurations for an API call]({{base_path}}/install-and-setup/setup/deployment-best-practices/tuning-performance/) in the Performance Tuning guide.

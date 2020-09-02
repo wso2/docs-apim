@@ -38,25 +38,29 @@ Follow the instructions below to use API key Authentication in WSO2 API Manager.
 
 Create and publish an API that is secured with the API key security scheme as the application-level security. Let's work with the sample app for this purpose.
 
-1. Sign in to the Publisher Portal.  
+1. Sign in to the Publisher.  
     
      `https://<hostname>:9443/publisher`
 
 2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
 
-     ![Configure API key authentication](../../../assets/img/learn/api-key-option.png)
-
-3. Click **Runtime Configurations**.
+3. Click **Runtime Configurations** and select **Application Level Security**.
 
 4. Select **API Key** and click **SAVE**.
 
+     [![Configure API key authentication]({{base_path}}/assets/img/learn/api-key-option.png)]({{base_path}}/assets/img/learn/api-key-option.png)
+
 ### Step 2 - Generate the API Key
 
-1. Click **APIs** and click on the respective API (`PizzaShackAPI`).
+1. Sign in to the Developer Portal.  
+    
+     `https://<hostname>:9443/devportal`
 
-2. Click **Credentials**.
+2. Click **APIs** and click on the respective API (e.g., `PizzaShackAPI`).
 
-3. Select an application and select a throttling policy.
+3. Click **Subscriptions**.
+
+4. Select an application and select a throttling policy.
 
       <html>
       <div class="admonition note">
@@ -65,36 +69,36 @@ Create and publish an API that is secured with the API key security scheme as th
       </div> 
      </html>
 
-4. Click **Subscribe**.
-     ![Subscribe to the API](../../../assets/img/learn/subscribe-to-api.png)
+5. Click **Subscribe**.
+     [![Subscribe to the API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
-5. Click **MANAGE APP**, which corresponds to the application that you used to subscribe to the API.
+6. Click **MANAGE APP**, corresponding to the application that you used to subscribe to the API.
 
-     ![View list of credentials](../../../assets/img/learn/view-credentials-manage-app.png)
+     [![View list of credentials]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)
 
-6. Click **APIKEY** and click **GENERATE KEY**.
+7. Click **API KEY** and click **GENERATE KEY**.
 
-     ![Generate API key](../../../assets/img/learn/generate-api-key.png)
+     [![Generate API key]({{base_path}}/assets/img/learn/generate-api-key.png)]({{base_path}}/assets/img/learn/generate-api-key.png)
 
-7. Optionally, define a validity period for the token.
+8. Optionally, define a validity period for the token.
 
      By default, the API Key does not expire. However, optionally, you can define a validity period for the token as follows:
 
-    1. Uncheck **Api Key with infinite validity period**.
+    1. When you click **Generate Keys,** uncheck the **API Key with infinite validity period** option in the pop-up.
 
     2. Enter the expiry time in seconds.
      
-8. Copy the API key.
+9. Copy the API key.
 
-     ![Copy API key](../../../assets/img/learn/copy-api-key.png)
+     [![Copy API key]({{base_path}}/assets/img/learn/copy-api-key.png)]({{base_path}}/assets/img/learn/copy-api-key.png)
 
-### Step 4 - Invoke the API
+### Step 3 - Invoke the API
 
 Invoke the API using the API key. 
 
 You can use any one of the following methods to invoke the API.
 
-- Specify the API Key in the `apikey` header 
+- Specify the API Key in the `apikey` header.
 
      ``` bash tab="Format"
      curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: application/json" -H "apikey: <API_key_value>"
@@ -132,7 +136,7 @@ You can use any one of the following methods to invoke the API.
 <html>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Make sure to import the Developer Portal certificate to the APIM gateway client-truststore under the same alias. </p>
+<p>Make sure to import the Developer Portal certificate to the APIM Gateway client-truststore under the same alias. </p>
 </div> 
 </html>
      
@@ -169,15 +173,15 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
      api_key_alias = "<alias-name>"
      ```
 
-### API key restriction for IP address and HTTP referer
+### API key restriction for IP address and HTTP referrer
 
-After issuing an API key for an application, it can be used by anyone to invoke an API subscribed to the application. However, if an unauthorized party gets hold of the token, they can create unnecessary invocations to the APIs. To prevent this issue, we can define the authorized parties when generating a token. 
+After issuing an API key for an application, it can be used by anyone to invoke an API subscribed to the application. However, if an unauthorized party gets hold of the token, they can create unnecessary invocations to the APIs. To prevent this issue, you can define the authorized parties when generating a token. 
 
 WSO2 API Manager allows API keys to be restricted based on two approaches.
 
 #### 1) IP address restriction
 
-With this restriction, only the clients with specific IP addresses can use the token. The IP addresses can be specificed 
+The IP address restriction allows only the clients with specific IP addresses can use the token. The IP addresses can be specificed 
 in the following formats.
 
 - IPv4 (e.g., `192.168.1.2`)
@@ -190,7 +194,7 @@ in the following formats.
 
 2. Select `IP Addresses`, add the IP addresses in the text input as shown below, and generate the key.
 
-    ![IP Restricted API key]({{base_path}}/assets/img/learn/ip-api-key.png)
+    [![IP Restricted API key]({{base_path}}/assets/img/learn/ip-api-key.png)]({{base_path}}/assets/img/learn/ip-api-key.png)
 
 #### 2) HTTP referer restriction
 
@@ -204,6 +208,6 @@ When the HTTP referer restriction has been enabled, only the specific HTTP refer
 
 1. Navigate to API key generation window of that specific application in the Developer Portal.
 
-2. Select `HTTP Referrers (Web Sites)` and add the referrers in the text input as shown below and generate the key
+2. Select `HTTP Referrers (Web Sites)` and add the referrers in the text input as shown below and generate the key.
 
-    ![HTTP Referer Restricted API key]({{base_path}}/assets/img/learn/http-referer-api-key.png)
+    [![HTTP Referer Restricted API key]({{base_path}}/assets/img/learn/http-referer-api-key.png)]({{base_path}}/assets/img/learn/http-referer-api-key.png)

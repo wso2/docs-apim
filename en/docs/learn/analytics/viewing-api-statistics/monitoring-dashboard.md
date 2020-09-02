@@ -2,6 +2,62 @@
 
 ## Overview
 
+## API Error Analysis 
+
+Error page allows users to identify faulty and erroneous API(s) and isolate the cause. API Errors or Faulty behaviors include the throttled counts, 4xx, and 5xx responses from the API backend. Widgets on this page are helpful to identify the API(s) and Application(s) with the most errors for each mentioned type. A historical summary could also be viewed per API or per Application.
+
+### Top Error Summary
+
+A pie chart is dedicated to each of the error types namely, 4xx, 5xx, faulty, and throttled count to represent the top APIs or Applications along with the error hit percentage out of total hits. Here you can toggle between APIs and Applications using the selection panel. Also, you can limit the number of APIs or Applications, adjusting the limit selector. Clicking on the APIs or Applications share on the pie chart will navigate to the [Error Summary]({{base_path}}/learn/analytics/viewing-api-statistics/monitoring-dashboard/#error-summary) widget.
+
+The following image shows the information can be found from this widget.
+
+![Top Error Summary]({{base_path}}/assets/img/learn/analytics/monitoring_top_error_summary.png)
+
+!!! note
+    Here the No of Errors represents the number of occurrences of that particular error type and Error Percentage represents the percentage of particular error hits out of the total API requests for any API during the selected time period.
+    
+### Error Summary
+
+Provides the break down of total hits into each of the error types namely 4xx, 5xx, faulty, throttled, and success count for each of the APIs. You can view these statistics, either per API wise or Application and API pairwise by selecting the preferred type in View Selection Panel. Further, you can set the granularity for statistics choosing between API, Version, and Resource in Granularity Selection Panel. Also, you can view the statistics in terms of count or percentage by choosing the preferred option in View Type Selection Panel.
+
+Once you set the required options you have to select the values for the above option keys. For example, if you select API View, Percentage, and Resource in the selection panels above then you have to select a specific API, Version, and Operation in the corresponding drop-down. Also, you can limit the number of results by adjusting the limit selector.
+
+As a default, this table shows the results per API. When you click on an API, the table would render the statistics for available versions of that API, thereafter when you click on a version, the table would render the statistics for available resources of that specific API version. Finally, when you click on one of the resources, you would be navigated to the [Error Summary Over Time]({{base_path}}/learn/analytics/viewing-api-statistics/monitoring-dashboard/#error-summary-over-time) widget where you can find the historical variation of error count for that particular resource.
+
+The following image shows the information can be found from this widget.
+
+![Error Summary]({{base_path}}/assets/img/learn/analytics/monitoring_error_summary.png)
+
+### Error Summary Over Time
+
+A line chart showing the overtime error count variation of selected API or set of APIs. As a default, it shows the aggregated error count variation among all the APIs. You can use the available drop-downs to select the specific API with different granularity levels of Version and Resource. Using the interactive legend, users can select the error components they need to compare. For example, disabling the Response Hit would reveal the finer variation between other types of errors.
+
+The following image shows the information can be found from this widget.
+
+![Error Summary Over Time]({{base_path}}/assets/img/learn/analytics/monitoring_error_summary_overtime.png)
+
+## API Latency Analysis
+
+Latency page allows users to identify slow APIs and isolate the cause for their slowness. A single API has different stages of processing like applying security, Throttling, executing Mediation sequences, and executing the backend logic where each stage adds up to the latency of the overall API call. Charts on this page help to identify where the delay is coming from and how it varied historically.
+
+### API Latency Summary
+
+A stacked bar chart showing the latencies of the slowest resources arranged in descending order. Different latencies of a single API call like backend latency, security latency, Throttling latency, Mediation latencies, are shown in bars with different colors. Using the interactive legend, users can select the Latency components they need to compare.
+
+For example, disabling one Backend Latency would reveal the finer variation between other types of Latencies. The input filters can be used to limit the bars according to the APIs, Versions, and Resources. The limit selector can be used to change the number of bars being displayed. Clicking on a bar would take to the [API Latency Over Time]({{base_path}}/learn/analytics/viewing-api-statistics/monitoring-dashboard/#api-latency-over-time) chart.
+
+The following image shows the information can be found from this widget.
+
+![API Latency Summary]({{base_path}}/assets/img/learn/analytics/monitoring_latency_summary.png)
+
+### API Latency Over Time
+A stacked line chart showing the overtime latency variation of a selected API resource. You can use the available different drop-downs to select the specific API resource and limit the data points to be visualized. Similar to the previous widget, the interactive legend allows a comparison between specific latency components.
+
+The following image shows the information can be found from this widget.
+
+![API Latency Over Time]({{base_path}}/assets/img/learn/analytics/monitoring_latency_overtime.png)
+
 ## API usage analysis
 
 ### API usage summary

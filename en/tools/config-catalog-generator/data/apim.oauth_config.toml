@@ -1,0 +1,6 @@
+[apim.oauth_config]
+enable_outbound_auth_header = false
+auth_header = "Authorization"
+revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
+enable_token_encryption = false
+enable_token_hashing = false
