@@ -1,11 +1,11 @@
 # Business Analytics
-The business analytics dashboard provides business insights on APIs enabling users to take proactive actions to improve profitability and the quality of the service provided. 
+The business analytics dashboard provides business insights on APIs. This enables businesses to take proactive action to improve profitability and the quality of the service provided. 
 
 !!! note
     During drill downs across dashboard pages, the date range selection will be preserved. 
     
 ## Overview
-The overview page comprises 4 summary widgets that shows an overview of the APIs during the past 30 days. These widgets consist of the following:
+The overview page comprises of 4 summary widgets that shows an overview of the APIs during the past 30 days. These widgets consist of the following:
 
 - [Usage of the top 10 most used APIs]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#top-10-api-usage-during-past-30-days)
 - [Performance of the top 10 most used APIs]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#top-10-apis-performance-summary)
@@ -13,22 +13,22 @@ The overview page comprises 4 summary widgets that shows an overview of the APIs
 - [Errors incurred during innovations]({{base_path}}/learn/analytics/viewing-api-statistics/business-analytics-dashboard/#faults-during-past-30-days)
 
 ### Top 10 API usage during past 30 days
-This widget shows an overtime breakdown of the usage of the top 10 most used API over the past 30 days. Upon clicking on this widget, it will be redirected to the API usage over time page with the top 10 APIs selected and the time range set to 1 month. 
+This widget shows a breakdown of the usage of the top 10 most used API over the past 30 days. Upon clicking on this widget, it will be redirected to the API usage over time page with the top 10 APIs selected and the time range set to 1 month. 
 
 ![Top 10 API usage during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_api_usage_during_past_30_days.png)
 
 ### Top 10 API’s performance summary
-This widget shows an overtime breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the performance summary page with the top 10 APIs selected and the time range set to 1 month.
+This widget shows a breakdown of the performance of the top 10 most used APIs during the past 30 days. Upon clicking on this, it will be redirected to the performance summary page with the top 10 APIs selected and the time range set to 1 month.
 
 ![Top 10 API’s performance summary]({{base_path}}/assets/img/learn/analytics/analytics_top_10_apis_performance_during_past_30_days.png)
 
 ### Top 10 throttle out APIs during past 30 days
-This widget shows an overtime breakdown of the throttle count of the top 10 most throttled out APIs during the past 30 day. Upon clicking on this, it will be redirected to the throttle summary widget with the top 10 throttled APIs selected and the time range set to 1 month.
+This widget shows a breakdown of the throttle count of the top 10 most throttled out APIs during the past 30 days. Upon clicking on this, it will be redirected to the throttle summary widget with the top 10 throttled APIs selected and the time range set to 1 month.
 
 ![Top 10 throttle out APIs during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_top_10_throttled_out_apis_during_past_30_days.png)
 
 ### Faults during past 30 days
-This widget shows an overtime breakdown of the total number of faults(of all APIs) during the past 30 day. Upon clicking this, it will be redirected to the error summary page with the time range set to 1 month.
+This widget shows a breakdown of the total number of faults(of all APIs) during the past 30 days. Upon clicking this, it will be redirected to the error summary page with the time range set to 1 month.
 
 ![Faults during past 30 days]({{base_path}}/assets/img/learn/analytics/analytics_error_during_past_30_days.png)
 
@@ -42,7 +42,7 @@ API usage related data is represented through overall and over time graphs in th
 The usage summary page provides a summarized view of the usage of the selected API(s) for the specified time period.
 
 #### Overall API usage
-This graph shows the usage count of the selected API(s) for the specified time period along with their subscription count. This widget contains 2 graphs;
+This graph shows the useage count of the selected API(s) for the specified time period along with their subscription count. This widget contains 2 graphs;
 
 - A 3D scatter plot matrix which shows the API, usage count and the subscription count. The API name is taken as the X axis and the subscription count is shown in the Y axis while the size of the data point indicates the usage count.
 - A table which shows the usage count of each API.
@@ -107,7 +107,7 @@ The performance summary widget displays the performance of selected API(s) over 
 ### API performance
 
 #### API latency time
-The API  latency time graph shows the latency breakdown of the selected resource of the selected API for the specified time period. The latencies displayed in this widget are
+The API latency time graph shows the latency breakdown of the selected resource of the selected API for the specified time period. The latencies displayed in this widget are
 
 - Response time
 
@@ -160,7 +160,7 @@ The error summary page provides information about the APIs with the highest thro
 #### Top throttled out APIs
 The top throttled out APIs widget displays the APIs with the highest throttled out request count within the specified time range. This widget comprises of 2 representations:
 
-- A pie chart which shows  a percentage wise comparison of the throttled out requests of the APIs 
+- A pie chart which shows a percentage wise comparison of the throttled out requests of the APIs 
 - A table which shows the throttled out request count of the API
 
 Upon clicking on an API on the pie chart or the table, it will be redirected to the API error page which provides a breakdown of the selected API's throttled request over time and by application.
@@ -230,7 +230,7 @@ A library is used to extract this information from the header. By default API An
 
 ## Geo location based invocations
 
-Geo location based invocations widget shows the number of invocations made for a particular API for a given Geolocation for a given time period. 
+Geo location based invocations widget shows the number of invocations made for a particular API for a given Geolocation over a given time period. 
 Using this widget, the user will be able to identify the key locations where the APIs are invoked and act accordingly to improve the API usage(i.e., load balancing) 
 
 Here, Geolocation based statistics are used to carry out detailed monitoring of geographic locations. 
