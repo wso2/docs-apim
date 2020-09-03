@@ -146,7 +146,7 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     In the sample commands above, its assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
 
-## Changing the Carbon database to MySQL
+## Changing the database to MySQL
 
 -   [Creating the datasource connection to MySQL](#creating-the-datasource-connection-to-mysql)
 
@@ -253,3 +253,20 @@ Follow the  instructions below to change the type of the default datasources.
 
     !!! note
         To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
+
+    !!! info
+        **Changing WSO2CARBON_DB to MySQL**
+        
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+        
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mysql.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details similarly as explained before.
+        
+        ``` tab="Example"
+        [database.local]
+        type = "mysql"
+        url = "jdbc:mysql://localhost:3306/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "com.mysql.cj.jdbc.Driver"
+        ```

@@ -20,11 +20,11 @@ In this example, let's use a standalone API Manager instance and carry out this 
 
 3.  Enter the name of the service provider and click **Register**.
 
-     [![Add Service Provider]({{base_path}}/assets/img/learn/create-external-sp.png)]({{base_path}}/assets/img/learn/create-external-sp.png)
+     [![Add Service Provider]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/create-external-sp.png)
              
 4.  Click **OAuth/OpenId Connect Configuration** --> **Inbound Authentication Configuration** --> **Configure** to add a new OAuth2 client.
 
-     [![Add Oauth app]({{base_path}}/assets/img/learn/add-oauth-app.png)]({{base_path}}/assets/img/learn/add-oauth-app.png)
+     [![Add Oauth app]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/add-oauth-app.png)
 
      <a name="step5"></a>
 
@@ -32,12 +32,12 @@ In this example, let's use a standalone API Manager instance and carry out this 
     
      If you do not have a callback URL, you can clear the **Code** and **Implicit** authorization grant types and add the OAuth2 client.
     
-     <a href="{{base_path}}/assets/img/learn/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/register-oauth-app.png" alt="Register Oauth app" 
-          title="Register Oauth app" width="90%" /></a>  
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/register-oauth-app.png" alt="Register Oauth app" 
+          title="Register Oauth app"/></a>  
     
     Now you have successfully created an OAuth2 client and generated a consumer key and consumer secret for it. 
    
-    [![Oauth app credentials]({{base_path}}/assets/img/learn/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/external-oauthapp-credentials.png)
+    [![Oauth app credentials]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/external-oauthapp-credentials.png)
     
 ## Step 2 - Provision the out-of-band OAuth2 client
 
@@ -72,18 +72,18 @@ Follow the instructions below to provision the out-of-band OAuth2 client that yo
     
      [![App listing]({{base_path}}/assets/img/learn/application-select.png)]({{base_path}}/assets/img/learn/application-select.png)   
     
-7.  Click **Production Keys**.
+7.  Click **OAuth2 Tokens** under **Production Keys** tab.
 
-      The **Provide Existing OAuth Keys** section appears below the Production Key and Secret section.
+      The **PROVIDE EXISTING OAUTH KEYS** button appears under the **Production OAuth2 Keys** section.
 
     !!! Note
         Out-of-band OAuth2 client can be provisioned either for production or sandbox environment. If you wish to generate keys for your sandbox, you can follow the same instructions in the **Sandbox Keys** tab.
 
-     [![Provide Keys]({{base_path}}/assets/img/learn/provide-keys-section.png)]({{base_path}}/assets/img/learn/provide-keys-section.png)
+     [![Provide Keys]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)]({{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/provide-keys-section.png)
 
 8.  Paste the consumer key and consumer secret pair, which you derived in [Step 5 in Creating an external OAuth client](#step5).
 
-     <a href="{{base_path}}/assets/img/learn/update-keys.png" ><img src="{{base_path}}/assets/img/learn/update-keys.png" alt="update-keys" title="update-keys" width="80%" /></a>
+     <a href="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/update-keys.png" ><img src="{{base_path}}/assets/img/learn/api-security/oauth2/provisioning-out-of-band-oauth-clients/update-keys.png" alt="update-keys" title="update-keys" width="80%" /></a>
 
 9. Click **Provide**.
 
