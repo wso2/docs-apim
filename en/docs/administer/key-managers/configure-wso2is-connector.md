@@ -82,6 +82,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
 5. Add `keymanager-operations.war` to the `<IS_HOME>/repository/deployment/server/webapps` directory.
 
 6. Start WSO2 Identity Server with a port offset.
+   portOffset is required only if you are running both API-m and ID in the same JVM.
 
       `sh wso2server.sh --DportOffset=1`
 
