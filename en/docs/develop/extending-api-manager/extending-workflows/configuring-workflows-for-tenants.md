@@ -10,13 +10,13 @@ The topics below explain how to deploy a BPEL/human task using WSO2 EI and how t
 
 ### **Deploying a BPEL and a HumanTask for a tenant**
 
-Only the users registered in the EI can deploy BPELs and human tasks in it. Registration adds you to the user store in the EI. In this guide, the API Manager and EI use the same user store and all the users present in the EI are visible to the API Manager as well. This is depicted by the diagram below:
+In this guide, the API Manager and EI use the same user store and all the users present are visible to both EI and API Manager. This is depicted by the diagram below:
 ![]({{base_path}}/assets/attachments/103334719/103334720.png)**Figure** : API Manager and EI share the same user and permission store
 
 !!! warning
-**If you are using WSO2 BPS3.2.0** , please copy the `<APIM_HOME>                  /repository/components/patches/patch0009` folder to the `<BPS_HOME>                  /repository/components/patches` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
+    **If you are using WSO2 BPS3.2.0** , please copy the `<APIM_HOME>                  /repository/components/patches/patch0009` folder to the `<BPS_HOME>                  /repository/components/patches` folder and restart the BPS server for the patch to be applied. This patch has a fix to a bug that causes the workflow configurations to fail in multi-tenant environments.
 
-This patch is built into the BPS version 3.5.0 onwards.
+    This patch is built into the BPS version 3.5.0 onwards.
 
 
 Follow the steps below to deploy a BPEL and a human task for a tenant in the API Manager:
@@ -30,115 +30,68 @@ Follow the steps below to deploy a BPEL and a human task for a tenant in the API
 
 #### Sharing the user/permission stores with the EI and API Manager
 
-1.  Create a database for the shared user and permission store as follows:
-
-    ``` sql
-        mysql> create database workflow_ustore;
-        Query OK, 1 row affected (0.00 sec)
-    ```
-
-        !!! tip
-    Make sure you copy the database driver (in this case, mysql driver) to the /repository/components/lib folder before starting each server.
-
-
-2.  Run the `<APIM_HOME>/dbscripts/mysql.sql` script (the script may vary depending on your database type) on the database to create the required tables.
-
-        !!! note
-    From WSO2 Carbon Kernel 4.4.6 onwards there are two MySQL DB scripts available in the product distribution. Click [here](https://docs.wso2.com/display/AM200/FAQ#FAQ-WhichMySQLdatabasescriptshouldIuse?) to identify as to which version of the MySQL script to use.
-
-
-3.  Open the `<APIM_HOME>/repository/conf/datasources/master-datasources.xml` and create a datasource pointing to the newly created database. For example,
+1. Identify the permission store used by API Manager by refering to the `<Configuration>` tag in `<APIM_HOME>/repository/conf/user-mgt.xml`. Below is an example of this configuration.
 
     ``` xml
-        <datasource>
-            <name>USTORE</name>
-            <description>The datasource used for API Manager database</description>
-            <jndiConfig>
-                <name>jdbc/ustore</name>
-            </jndiConfig>
-            <definition type="RDBMS">
-                <configuration>
-                    <url>jdbc:mysql://127.0.0.1:3306/workflow_ustore?autoReconnect=true&amp;relaxAutoCommit=true</url>
-                    <username>root</username>
-                    <password>root</password>
-                    <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                    <maxActive>50</maxActive>
-                    <maxWait>60000</maxWait>
-                    <testOnBorrow>true</testOnBorrow>
-                    <validationQuery>SELECT 1</validationQuery>
-                    <validationInterval>30000</validationInterval>
-                </configuration>
-            </definition>
-        </datasource>
+            <Configuration>
+                <AddAdmin>true</AddAdmin>
+                <AdminRole>admin</AdminRole>
+                    <AdminUser>
+                        <UserName>admin</UserName>
+                        <Password>admin</Password>
+                    </AdminUser>
+                <EveryOneRoleName>everyone</EveryOneRoleName> <!-- By default users in this role sees the registry root -->
+                <Property name="dataSource">jdbc/SHARED_DB</Property>
+            </Configuration>
+    ```
+Do the same configuration in `<EI_HOME>/wso2/business-process/conf/user-mgt.xml` so that both API Manager and EI are pointing to the same datasource.
+
+2. Identify the user store used by by API Manager by refering to the `<UserStoreManager>` tag in `<APIM_HOME>/repository/conf/user-mgt.xml`. By default both API Manager and EI use a JDBC based Userstore manager, so no changes are required. But if API Manager uses a different user store such as LDAP or Active Directory, the same `<UserStoreManager>` configuration needs to be done in `<EI_HOME>/wso2/business-process/conf/user-mgt.xml`.
+
+3. Do the same permission store JDBC configuration(mentioned in step 1) found in `<APIM_HOME>/repository/conf/datasources/master-datasources.xml`, in `<EI_HOME>/wso2/business-process/conf/datasources/master-datasources.xml`. Below is an example of this configuration.
+
+	``` xml
+            <datasource>
+                <name>WSO2_SHARED_DB</name>
+                <description>Shared Database for user and registry data</description>
+                <jndiConfig>
+                    <name>jdbc/SHARED_DB</name>
+                </jndiConfig>
+                <definition type="RDBMS">
+                    <configuration>
+                        <url>jdbc:mysql://localhost:3306/WSO2SHARED_DB</url>
+                        <username>root</username>
+                        <password>root</password>
+                        <driverClassName>com.mysql.jdbc.Driver</driverClassName>
+                        <validationQuery>SELECT 1</validationQuery>
+                        <testOnBorrow>true</testOnBorrow>
+                        <maxWait>60000</maxWait>
+                        <defaultAutoCommit>true</defaultAutoCommit>
+                        <validationInterval>30000</validationInterval>
+                        <maxActive>50</maxActive>
+                    </configuration>
+                </definition>
+            </datasource>
+
     ```
 
-4.  Repeat step 3 in the EI as well.
-5.  Point the datasource name in `<APIM_HOME>/repository/conf/user-mgt.xml` to the new datasource. (note that the user store is configured using the `<UserStoreManager>` element).
+    !!! tip
+        Make sure you copy the database driver (in this case, mysql driver) to the /repository/components/lib folder before starting each server.
 
-        !!! tip
-    If you already have a user store such as the lDAP in your environment, you can point to it from the `user-mgt.xml` file, instead of the user store that we created in step1.
+    !!! info
+        In the case the default JDBC Userstore is being used, the above mentioned datasource will act as both the permission and user store.
 
 
-    In the following example, the same JDBC user store (that is shared by both the API Manager and the EI) is used as the permission store as well:
-
-    ``` xml
-        <Configuration>
-            <AddAdmin>true</AddAdmin>
-            <AdminRole>admin</AdminRole>
-                <AdminUser>
-                    <UserName>admin</UserName>
-                    <Password>admin</Password>
-                </AdminUser>
-            <EveryOneRoleName>everyone</EveryOneRoleName> <!-- By default users in this role sees the registry root -->
-            <Property name="dataSource">jdbc/ustore</Property>
-        </Configuration>
-    ```
-
-6.  Repeat step 5 in the EI as well.
 
 #### Sharing the data in the registry with the EI and API Manager
 
 To deploy BPELs in an API Manager tenant space, the tenant space should be accessible by both the EI and API Manager, and certain tenant-specific data such as key stores needs to be shared with both products. Follow the steps below to create a registry mount to share the data stored in the registry:
 
-1.  Create a separate database for the registry:
-
-    ``` sql
-            mysql> create database workflow_regdb;
-            Query OK, 1 row affected (0.00 sec)
-    ```
-
-2.  Run the `<APIM_HOME>/dbscripts/mysql.sql` script (the script may vary depending on your database type) on the database to create the required tables.
-
-3.  Create a new datasource in `<APIM_HOME>/repository/conf/datasources/master-datasources.xml` as done before:
-
-    ``` xml
-            <datasource>
-                <name>REG_DB</name>
-                <description>The datasource used for API Manager database</description>
-                <jndiConfig>
-                    <name>jdbc/regdb</name>
-                </jndiConfig>
-                <definition type="RDBMS">
-                    <configuration>
-                        <url>jdbc:mysql://127.0.0.1:3306/workflow_regdb?autoReconnect=true&amp;relaxAutoCommit=true</url>
-                        <username>root</username>
-                        <password>root</password>
-                        <driverClassName>com.mysql.jdbc.Driver</driverClassName>
-                        <maxActive>50</maxActive>
-                        <maxWait>60000</maxWait>
-                        <testOnBorrow>true</testOnBorrow>
-                        <validationQuery>SELECT 1</validationQuery>
-                        <validationInterval>30000</validationInterval>
-                    </configuration>
-                </definition>
-            </datasource>
-    ```
-
-4.  Add the following entries to `<APIM_HOME>/repository/conf/registry.xml` :
+1.  The registry data of API Manager is stored in the above mentioned `jdbc/SHARED_DB` which has already been added to the EI master-datasources.xml in the previous steps. Add the following entries to `<EI_HOME>/wso2/business-process/conf/registry.xml` to share the same registry with EI:
 
     ``` xml
              <dbConfig name="sharedregistry">
-                    <dataSource>jdbc/regdb</dataSource>
+                    <dataSource>jdbc/SHARED_DB</dataSource>
              </dbConfig>
              
              <remoteInstance url="https://localhost:9443/registry">
@@ -159,7 +112,6 @@ To deploy BPELs in an API Manager tenant space, the tenant space should be acces
                 </mount>
     ```
 
-5.  Repeat the above three steps in the EI as well.
 
 #### Creating a BPEL
 
@@ -177,24 +129,25 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 
 6.  Open `ApplicationService-Tenant.epr` and change the `wsa:Address` to `http://localhost:9765/services/t/           domain>/ApplicationService` and add the tenant admin credentials.
 
-        !!! info
-    In a distributed setup, the ApplicationService-Tenant.epr's wsa:Address should point to the proxy/load balancer of Enterprise Integrator(EI cluster) `(                       http:///services/t/           domain>/ApplicationService` ). Also, the ApplicationCallbackService-Tenant.epr's wsa:Address should point to APIM cluster's Workflow Callback service endpoint. This is normally deployed at the gateway nodes. The wsa:Address should point to the gateway nodes. ( https:///services/WorkflowCallbackService ) and the user credentials which grant access to that service should be used.
+    !!! info
+        In a distributed setup, the ApplicationService-Tenant.epr's wsa:Address should point to the proxy/load balancer of Enterprise Integrator(EI cluster) `(                       http:///services/t/           domain>/ApplicationService` ). Also, the ApplicationCallbackService-Tenant.epr's wsa:Address should point to APIM cluster's Workflow Callback service endpoint. This is normally deployed at the gateway nodes. The wsa:Address should point to the gateway nodes. ( https:///services/WorkflowCallbackService ) and the user credentials which grant access to that service should be used.
 
 
 7.  Point the `deploy.xml` file of the extracted folder to the new .epr files provided in the BPEL archive. For example,
 
     ``` xml
-        <invoke partnerLink="AAPL">
-           <service name="applications:ApplicationService" port="ApplicationPort">
-              <endpoint xmlns="http://wso2.org/bps/bpel/endpoint/config" endpointReference="ApplicationService-Tenant.epr"></endpoint>
-           </service>
+    <invoke partnerLink="AAPL">
+        <service name="applications:ApplicationService" port="ApplicationPort">
+            <endpoint xmlns="http://wso2.org/bps/bpel/endpoint/config" endpointReference="ApplicationService-Tenant.epr"></endpoint>
+        </service>
         </invoke>
     <invoke partnerLink="CBPL">
-       <service name="callback.workflow.apimgt.carbon.wso2.org:WorkflowCallbackService" port="WorkflowCallbackServiceHttpsSoap11Endpoint">
-          <endpoint xmlns="http://wso2.org/bps/bpel/endpoint/config" endpointReference="ApplicationCallbackService-Tenant.epr"></endpoint>
-       </service>
+    <service name="callback.workflow.apimgt.carbon.wso2.org:WorkflowCallbackService" port="WorkflowCallbackServiceHttpsSoap11Endpoint">
+        <endpoint xmlns="http://wso2.org/bps/bpel/endpoint/config" endpointReference="ApplicationCallbackService-Tenant.epr"></endpoint>
+    </service>
     </invoke>
     ```
+
 8.  Zip the content and create a BPEL archive in the following format:
 
     ``` java
@@ -211,8 +164,8 @@ In this section, you create a BPEL that has service endpoints pointing to servic
 
 9.  Log into the EI as the tenant admin and upload the BPEL.
 
-        !!! warning
-    If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
+    !!! warning
+        If you are using Mac OS with High Sierra, you may encounter following warning when login into the Management console due to a compression issue exists in High Sierra SDK.
 
     ``` java
         WARN {org.owasp.csrfguard.log.JavaLogger} -  potential cross-site request forgery (CSRF) attack thwarted (user:<anonymous>, ip:xxx.xxx.xx.xx, method:POST, uri:/carbon/admin/login_action.jsp, error:required token is missing from the request)
@@ -280,8 +233,8 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
            
     ```
 
-        !!! info
-    In a distributed setup, the above addresses should be changed to point to the EI proxy/loadbalancer. A sample is shown below.
+    !!! info
+        In a distributed setup, the above addresses should be changed to point to the EI proxy/loadbalancer. A sample is shown below.
 
 `<soap:address location="                       http:///services/t//ApplicationServiceCB                      "/>          `
 
@@ -294,8 +247,9 @@ Similar to creating a BPEL, create a HumaTask that has service endpoints pointin
 
 6.  Go to the `/_system/governance/apimgt/applicationdata/workflow-extensions.xml` in the registry and change the **service endpoint** as a **tenant-aware service URL** (e.g., `http://localhost:9765/services/t//ApplicationApprovalWorkFlowProcess` ). Also set the **credentials** as the **tenant admin's credentials** of the `ApplicationCreationWSWorkflowExecutor` file. For example,
     ![]({{base_path}}/assets/attachments/103334719/103334728.png)
-        !!! note
-    Be sure to disable the `SimpleWorkflowExecutor` and enable the `ApplicationCreationWSWorkflowExecutor.          `
+    
+    !!! note
+        Be sure to disable the `SimpleWorkflowExecutor` and enable the `ApplicationCreationWSWorkflowExecutor.          `
 
 
 #### **Testing the workflow**
