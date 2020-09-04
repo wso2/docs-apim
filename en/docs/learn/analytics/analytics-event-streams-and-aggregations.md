@@ -1,12 +1,12 @@
-# Analytics event streams and aggregations
+# Analytics Event Streams and Aggregations
 
 ## Introduction
 
-This section describes and illustrates the API Manager statistic publishing and generating model. It describes the internal components of API Manager, external analyzer information and other data retrieval components. API Manager generates events based on the API Manager invocation pattern and publishes them to all the listening event analyzers. The analyzer is responsible for the accumulation of all events and generates summary data based on the defined summarisation logic. After the summarized data is generated, the API Manager Analytics Dashboard can retrieve statistics from the analyzer data-source to the UI.
+WSO2 API Manager has a statistic publishing and generating model that comprises of internal components of API Manager, external analyzers, and other data retrieval components. API Manager generates events based on the API Manager invocation pattern and publishes them to all the listening event analyzers. The analyzer is responsible for the accumulation of all the events and generates summarized data based on the defined summarization logic. After the summarized data is generated, the API Manager Analytics Dashboard can retrieve and display the respective statistics, from the analyzer data-source, via its UI.
 
-## API Manager usage publisher
+## API Manager usage Publisher
 
-The internal API Manager component listens to the API Manager invocations and its behavior. Based on the request and responses, the event is generated and published to all the event receivers. This publisher publishes the following event streams,
+The internal API Manager component listens to the API Manager invocations and its behavior. Based on the request and responses, the event is generated and published to all the event receivers. This publisher publishes the following event streams.
 
 - `org.wso2.apimgt.statistics.request:3.2.0`
 - `org.wso2.apimgt.statistics.fault:3.2.0`
@@ -14,82 +14,82 @@ The internal API Manager component listens to the API Manager invocations and it
 
 ## API Manager event streams
 
-API-M provides the following types of event streams as listed below.
+API-M provides the following types of event streams.
 
-### **org.wso2.apimgt.statistics.request:3.2.0**
+### org.wso2.apimgt.statistics.request:3.2.0
 
 This stream tracks information for the API request.
 
 |**Attribute**                                             |**Type**                             |**Description**                 |
 |----------------------------------------------------------|-------------------------------------|--------------------------------|
-| `meta_clientType`| string | Meta information of Client type|
-| `applicationConsumerKey`| string | Consumer key of API invoked client application|
-| `applicationName`| string | Name of the client application|
-| `applicationId`| string | ID of the client application|
-| `applicationOwner`| string | Name of the Owner of the Application|
-| `apiContext`| string | API context depending on the user's request|
-| `apiName`| string | API Name|
-| `apiVersion`| string | API version|
-| `apiResourcePath`| string | API resource path of the API request|
-| `apiResourceTemplate`| string | API resource URL pattern of API request|
-| `apiMethod`| string | HTTP Verb of API request [e.g.,GET/POST]|
-| `apiCreator`| string| Creator of the API|
-| `apiCreatorTenantDomain`| string | Tenant domain of the API creator|
-| `apiTier`| string | Subscription tier associated with the API request|
-| `apiHostname`| string | Hostname or Datacenter ID (if specified)|
-| `username`| string | Enduser of the API request|
-| `userTenantDomain`| string | Tenant domain of the user associated with the request|
-| `userIp`| string | IP address of the client|
-| `userAgent`| string | User agent of the user|
-| `requestTimestamp`| long| Timestamp of the API request when received to the gateway|
-| `throttledOut`| bool| Describes whether the request was allowed after hitting the throttle tier |
-| `responseTime`| long| Timestamp of the API response when received to the gateway|
-| `serviceTime`| long| Time taken to serve the API request in APIM side|
-| `backendTime`| long| Time taken to process the request at the backend|
-| `responseCacheHit`| bool| Describes if response caching is enabled or not|
-| `responseSize`| long| Response message size in bytes|
-| `protocol`| string | Protocol used to send the response (HTTP/HTTPS) and the port|
-| `responseCode`| int| HTTP Response Code|
-| `destination`| string | URL of the endpoint|
-| `securityLatency`| long| Time taken for authentication|
-| `throttlingLatency`| long| Time taken for throttling the request/response|
-| `requestMedLat`| long| Time taken to mediate the request|
-| `responseMedLat` | long| Time taken to mediate the response|
-| `backendLatency`| long| Time taken by the backend to return the response|
-| `otherLatency`| long| Time taken to process tasks other than mentioned above|
-| `gatewayType`| string | The gateway type (Synapse/Micro)|
-| `label`| string | The label of the API (if specified)|
-| `properties`| string | JSON string with custom attributes (if specified)|
+| `meta_clientType`| string | The meta information of client type.|
+| `applicationConsumerKey`| string | The consumer key of the API invoked client application.|
+| `applicationName`| string | The name of the client application.|
+| `applicationId`| string | The ID of the client application.|
+| `applicationOwner`| string | The name of the owner of the application.|
+| `apiContext`| string | The API context depending on the user's request.|
+| `apiName`| string | The API name.|
+| `apiVersion`| string | The API version.|
+| `apiResourcePath`| string | The API resource path of the API request.|
+| `apiResourceTemplate`| string | The API resource URL pattern of the API request.|
+| `apiMethod`| string | The HTTP verb of the API request [e.g.,GET/POST].|
+| `apiCreator`| string| The creator of the API.|
+| `apiCreatorTenantDomain`| string | The tenant domain of the API creator.|
+| `apiTier`| string | The subscription tier associated with the API request.|
+| `apiHostname`| string | The hostname or Datacenter ID (if specified).|
+| `username`| string | The end-user of the API request.|
+| `userTenantDomain`| string | The tenant domain of the user that is associated with the request.|
+| `userIp`| string | The IP address of the client.|
+| `userAgent`| string | The user agent of the user.|
+| `requestTimestamp`| long| The timestamp of the API request when received at the Gateway.|
+| `throttledOut`| bool| This describes whether the request was allowed after hitting the throttle tier. |
+| `responseTime`| long| The timestamp of the API response when received at the Gateway.|
+| `serviceTime`| long| The time that is taken to serve the API request at the API-M side.|
+| `backendTime`| long| The time taken to process the request at the backend.|
+| `responseCacheHit`| bool| This describes if response caching is enabled or not.|
+| `responseSize`| long| The response message size in bytes.|
+| `protocol`| string | The protocol used to send the response (HTTP/HTTPS) and the port.|
+| `responseCode`| int| The HTTP response code.|
+| `destination`| string | The URL of the endpoint.|
+| `securityLatency`| long| The time taken for authentication.|
+| `throttlingLatency`| long| The time taken for throttling the request/response.|
+| `requestMedLat`| long| The time taken to mediate the request.|
+| `responseMedLat` | long| The time taken to mediate the response.|
+| `backendLatency`| long| The time taken by the backend to return the response.|
+| `otherLatency`| long| The time taken to process tasks other than mentioned above.|
+| `gatewayType`| string | The Gateway type (Synapse/Micro).|
+| `label`| string | The label of the API (if specified).|
+| `properties`| string | The JSON string with custom attributes (if specified).|
 
-### **org.wso2.apimgt.statistics.fault:3.2.0**
+### org.wso2.apimgt.statistics.fault:3.2.0
 
 This stream contains the fault API invocations. It includes the API with back end errors, timeout etc.
 
 |**Attribute**                                      |**Type**                             | **Description**                                                                               |
 |---------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------------------------|
-| `meta_clientType`| string | Meta information of Client type|
-| `applicationConsumerKey` | string | Consumer key of API invoked client application|
-| `apiName`| string | API Name|
-| `apiVersion`| string | API Version|
-| `apiContext`| string | API context depending on the user's request|
-| `apiResourcePath`| string | API resource path of the API request|
-| `apiResourceTemplate`| string | API resource URL pattern of API request|
-| `apiMethod`| string | HTTP Verb of API request [e.g.,GET/POST]|
-| `apiCreator`| string | Creator of the API|
-| `username`| string | Enduser of the API request|
-| `userTenantDomain`| string | Tenant domain of the user associated with the request|
-| `apiCreatorTenantDomain` | string | Tenant domain of the API creator|
-| `hostname`| string | Hostname or Datacenter ID (if specified)|
-| `applicationId`| string | ID of the client application|
-| `applicationName`| string | Name of the client application|
-| `applicationOwner`| string | Name of the Owner of the Application|
-| `protocol`| string | Protocol used to send the response (HTTP/HTTPS) and the port |
-| `errorCode`| string | Synapse error code|
-| `errorMessage`| string | Description of the synapse error message|
-| `requestTimestamp`| long| Timestamp of the API request when received to the gateway|
-| `properties`| string | JSON string with custom attributes (if specified)|
+| `meta_clientType`| string | The meta information of client type.|
+| `applicationConsumerKey` | string | The consumer key of the API invoked client application.|
+| `apiName`| string | The API name.|
+| `apiVersion`| string | The API version.|
+| `apiContext`| string | The API context depending on the user's request.|
+| `apiResourcePath`| string | The API resource path of the API request.|
+| `apiResourceTemplate`| string | The API resource URL pattern of the API request.|
+| `apiMethod`| string | The HTTP verb of API request [e.g.,GET/POST].|
+| `apiCreator`| string | The creator of the API.|
+| `username`| string | The end-user of the API request.|
+| `userTenantDomain`| string | The tenant domain of the user that is associated with the request.|
+| `apiCreatorTenantDomain` | string | The tenant domain of the API creator.|
+| `hostname`| string | The hostname or datacenter ID (if specified).|
+| `applicationId`| string | The ID of the client application.|
+| `applicationName`| string | The name of the client application.|
+| `applicationOwner`| string | The name of the owner of the application.|
+| `protocol`| string | The protocol used to send the response (HTTP/HTTPS) and the port. |
+| `errorCode`| string | The Synapse error code.|
+| `errorMessage`| string | The description of the Synapse error message.|
+| `requestTimestamp`| long | The timestamp of the API request when received at the Gateway.|
+| `properties`| string | The JSON string with custom attributes (if specified).|
 
-### **org.wso2.apimgt.statistics.throttle:3.2.0**
+### org.wso2.apimgt.statistics.throttle:3.2.0
 
 This stream contains the API invocation with throttle information. Throttling can happen due to any of the following reasons:
 
@@ -100,47 +100,47 @@ This stream contains the API invocation with throttle information. Throttling ca
 
 |**Attribute**                                      |**Type**                             |**Description**                                                                                |
 |---------------------------------------------------|-------------------------------------|-------------------------------------------------------------------------------------------|
-| `meta_clientType`| string | Meta information of Client type|
-| `username`| string | Enduser of the API request|
-| `userTenantDomain`| string | Tenant domain of the user associated with the request|
-| `apiName`| string | API Name|
-| `apiVersion`| string | API Version|
-| `apiContext`| string | API context depending on the user's request|
-| `apiCreator`| string | Creator of the API|
-| `apiCreatorTenantDomain` | string | Tenant domain of the API creator|
-| `apiResourceTemplate`| string | API resource URL pattern of API request|
-| `apiMethod`| string | HTTP Verb of API request [e.g.,GET/POST]|
-| `applicationId`| string | ID of the client application|
-| `applicationName`| string | Name of the client application|
-| `subscriber`| string | Name of the subscriber of the Application|
-| `throttledOutReason`| string | The reason describing why the request has been throttled out |
-| `gatewayType`| string | The gateway type (Synapse/Micro)|
-| `throttledOutTimestamp`| long| Timestamp when the request is throttled out|
-| `hostname`| string | Hostname or Datacenter ID (if specified)|
-| `properties`| string | JSON string with custom attributes (if specified)|
+| `meta_clientType`| string | The meta information of client type.|
+| `username`| string | The end-user of the API request.|
+| `userTenantDomain`| string | The tenant domain of the user that is associated with the request.|
+| `apiName`| string | The API name.|
+| `apiVersion`| string | The APIversion.|
+| `apiContext`| string | The API context depending on the user's request.|
+| `apiCreator`| string | The creator of the API.|
+| `apiCreatorTenantDomain` | string | The tenant domain of the API creator.|
+| `apiResourceTemplate`| string | The API resource URL pattern of the API request.|
+| `apiMethod`| string | The HTTP verb of API request [e.g.,GET/POST].|
+| `applicationId`| string | The ID of the client application.|
+| `applicationName`| string | The name of the client application.|
+| `subscriber`| string | The name of the subscriber of the application.|
+| `throttledOutReason`| string | The reason describing why the request has been throttled out. |
+| `gatewayType`| string | The Gateway type (Synapse/Micro).|
+| `throttledOutTimestamp`| long| The timestamp when the request is throttled out.|
+| `hostname`| string | The hostname or datacenter ID (if specified).|
+| `properties`| string | The JSON string with custom attributes (if specified).|
 
 ## API Manager aggregate tables
 
-The summarized tables are stored in the APIM Analytics internal storage. All events are stored in tables based on granularity (`SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, `YEARS`). Each such table contains the aggregation of stream data per granularity level. For example, each record of the `_HOURS` table contains the aggregate of the events that arrived each hour.
+The summarized tables are stored in the API-M Analytics internal storage. All events are stored in tables based on granularity (`SECONDS`, `MINUTES`, `HOURS`, `DAYS`, `MONTHS`, and `YEARS`). Each such table contains the aggregation of stream data per granularity level. For example, each record of the `_HOURS` table contains the aggregate of the events that arrived each hour.
 
 It is important to note that directly querying the tables is not recommended and instead you can use the [WSO2 Streaming Integrator REST APIs](https://ei.docs.wso2.com/en/latest/streaming-integrator/setup/setting-up-physical-databases/#managing-stored-data-via-rest-apis) for retrieving data from aggregations.
 
-The reason for this recommendation is, because of the granular level aggregations that are present for a single event use case. Events are processed in-memory before adding them to the granular level tables. Therefore, if queried directly from the database, and if there are any aggregate data related to an ongoing operation, such aggregated data will not be taken into consideration. Furthermore, retrieving information directly from the tables will result in complex queries. Therefore, you can use the Streaming Integrator REST APIs for querying the tables in order to easily obtain accurate information, because all workings are handled internally by the Streaming Integrator REST APIs.
+The reason for this recommendation is because of the granular level aggregations that are present for a single event use case. Events are processed in-memory before adding them to the granular level tables. Therefore, if queried directly from the database, and if there are any aggregate data related to an ongoing operation, such aggregated data will not be taken into consideration. Furthermore, retrieving information directly from the tables will result in complex queries. Therefore, you can use the Streaming Integrator REST APIs for querying the tables in order to easily obtain accurate information, because all workings are handled internally by the Streaming Integrator REST APIs.
 
-Siddhi Apps, which are deployed in the Worker profile of API Manager Analytics instance, are used in order to populate data to the aggregate tables. The latter mentioned Siddhi Apps are available in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory. The following are the Siddhi Apps that are used for storing data required for charts and graphs:
+The Siddhi applications, which are deployed in the Worker profile of API Manager Analytics instance, are used in order to populate data to the aggregate tables. The latter mentioned Siddhi applications are available in the `<API-M_ANALYTICS_HOME>/wso2/worker/deployment/siddhi-files` directory. The following are the Siddhi applications that are used for storing the data required for charts and graphs.
 
 - APIM_ACCESS_SUMMARY.siddhi
 - APIM_FAULT_SUMMARY.siddhi
 - APIM_THROTTLED_OUT_SUMMARY.siddhi
 - APIM_ERROR_SUMMARY.siddhi
 
-The following subsections describe the table schema of each of the Aggregate tables that are present in the Statistics DB.
+The following subsections describe the table schema of each of the aggregate tables that are present in the Statistics DB.
 
-###**ApiUserPerAppAgg**
+### ApiUserPerAppAgg
 This aggregation contains summary data from the request event stream and you can use it to obtain information about each API request.
 
-####ApiUserPerAppAgg Table Schema
-This schema resembles the API_REQUEST_SUMMARY table from the previous Stat DB schema.
+#### ApiUserPerAppAgg table schema
+This schema resembles the `API_REQUEST_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
@@ -165,33 +165,34 @@ CREATE TABLE `ApiUserPerAppAgg_<granularity>` (
   PRIMARY KEY (`AGG_TIMESTAMP`,`AGG_EVENT_TIMESTAMP`,`apiContext`,`apiHostname`,`applicationId`,`username`,`userTenantDomain`)
 )
 ```
-??? note "Click here for detailed descriptions on the ApiUserPerAppAgg Table Schema."
+
+??? note "Click here for detailed descriptions on the ApiUserPerAppAgg table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `apiHostname` | Hostname or Datacenter ID (if specified) |
-    | `applicationId` | ID of the client application which is used to invoke the API |
-    | `username` | End user of the API request |
-    | `userTenantDomain` | Tenant domain of the user associated with the request |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `applicationOwner` | Name of the owner of the client application |
-    | `gatewayType` |	Type of the gateway (Synapse/Micro) |
-    | `label` | The label of the API (if specified) |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for the hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request. |
+    | `apiHostname` | The hostname or datacenter ID (if specified). |
+    | `applicationId` | The ID of the client application that is used to invoke the API. |
+    | `username` | The end-user of the API request.|
+    | `userTenantDomain` | The tenant domain of the user that is associated with the request. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request (event) belonging to the respective time range starting from when the `AGG_TIMESTAMP` was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `applicationOwner` | The name of the owner of the client application. |
+    | `gatewayType` | The type of the Gateway (Synapse/Micro). |
+    | `label` | The label of the API (if specified). |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
 
-###**ApiResPathPerApp**
+### ApiResPathPerApp
 This aggregation contains summarized data about API usage by resources and it is also derived from the request event stream.
 
-####ApiResPathPerApp Table Schema
-This schema resembles the API_Resource_USAGE_SUMMARY table from the previous Stat DB schema.
+#### ApiResPathPerApp table schema
+This schema resembles the `API_Resource_USAGE_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiResPathPerApp_<granularity>` (
@@ -216,32 +217,32 @@ CREATE TABLE `ApiResPathPerApp_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiResPathPerApp Table Schema."
+??? note "Click here for detailed descriptions on the ApiResPathPerApp table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `apiHostname` | Hostname or Datacenter ID (if specified) |
-    | `applicationId` | ID of the client application which is used to invoke the API |
-    | `apiResourceTemplate` | API resource URL pattern of API request |
-    | `apiMethod` | HTTP Verb of API request [e.g.,GET/POST] |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `gatewayType` |	Type of the gateway (Synapse/Micro) |
-    | `label` | The label of the API (if specified) |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request. |
+    | `apiHostname` | The hostname or datacenter ID (if specified). |
+    | `applicationId` | The ID of the client application which is used to invoke the API. |
+    | `apiResourceTemplate` | The API resource URL pattern of the API request. |
+    | `apiMethod` | The HTTP verb of API request [e.g.,GET/POST]. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `gatewayType` | The type of the Gateway (Synapse/Micro). |
+    | `label` | The label of the API (if specified). |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
 
-###**ApiPerDestinationAgg**
+### **ApiPerDestinationAgg**
 This aggregation contains summarized data of API destinations and is derived from the request event stream.
 
-####ApiPerDestinationAgg Table Schema
-This schema resembles the API_DESTINATION_SUMMARY table from the previous Stat DB schema.
+#### ApiPerDestinationAgg table schema
+This schema resembles the `API_DESTINATION_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiPerDestinationAgg_<granularity>` (
@@ -263,29 +264,29 @@ CREATE TABLE `ApiPerDestinationAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiPerDestinationAgg Table Schema."
+??? note "Click here for detailed descriptions on the ApiPerDestinationAgg table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `apiHostname` | Hostname or Datacenter ID (if specified) |
-    | `destination` | URL of the endpoint |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `gatewayType` |	Type of the gateway (Synapse/Micro) |
-    | `label` | The label of the API (if specified) |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request. |
+    | `apiHostname` | The hostname or Datacenter ID (if specified). |
+    | `destination` | The URL of the endpoint. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request (event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `gatewayType` | The type of the Gateway (Synapse/Micro). |
+    | `label` | The label of the API (if specified). |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
 
-###**ApiVersionPerAppAgg**
+### **ApiVersionPerAppAgg**
 This aggregation contains summarized data about API usage and is also derived from the request event stream.
 
-####ApiVersionPerAppAgg Table Schema
-This schema resembles the API_VERSION_USAGE_SUMMARY table from the previous Stat DB schema.
+#### ApiVersionPerAppAgg table schema
+This schema resembles the `API_VERSION_USAGE_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
@@ -309,32 +310,32 @@ CREATE TABLE `ApiVersionPerAppAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiVersionPerAppAgg Table Schema."
+??? note "Click here for detailed descriptions on the ApiVersionPerAppAgg table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `apiHostname` | Hostname or Datacenter ID (if specified) |
-    | `applicationId` | ID of the client application which is used to invoke the API |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `gatewayType` |	Type of the gateway (Synapse/Micro) |
-    | `label` | The label of the API (if specified) |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM_quotaExceededValue` | A binary value (0 or 1) to indicate whether the request is throttled(1) or not(0). |
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request. |
+    | `apiHostname` | The hostname or datacenter ID (if specified). |
+    | `applicationId` | The ID of the client application which is used to invoke the API. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request (event) belonging to the respective time range starting from when the `AGG_TIMESTAMP` was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `gatewayType` | The type of the gateway (Synapse/Micro). |
+    | `label` | The label of the API (if specified). |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM_quotaExceededValue` | A binary value (0 or 1) to indicate whether the request is throttled (1) or not (0). |
 
 
-###**ApiExeTime**
+### ApiExeTime
 This aggregation contains information related to API invocation including timestamps and the time taken by the API at different stages of invocation such as service time, backend time etc. This is also derived from the request event stream.
 
-####ApiExeTime Table Schema
-This schema resembles the API_EXE_TIME_`<time>`_SUMMARY table from the previous Stat DB schema.
+#### ApiExeTime table schema
+This schema resembles the `API_EXE_TIME_<time>_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiExeTime_<granularity>` (
@@ -364,38 +365,38 @@ CREATE TABLE `ApiExeTime_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiExeTime Table Schema."
+??? note "Click here for detailed descriptions on the ApiExeTime table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `apiHostname` | Hostname or Datacenter ID (if specified) |
-    | `apiResourceTemplate` | API resource URL pattern of API request |
-    | `apiMethod` | HTTP Verb of API request [e.g.,GET/POST] |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_SUM_responseTime` | Average time of the API response when received to the gateway |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM_serviceTime` | Average time taken to serve the API request at the API-M server end |
-    | `AGG_SUM_backendTime` | Average time taken to process the request at the backend |
-    | `AGG_SUM_securityLatency` | Average time taken for authentication |
-    | `AGG_SUM_throttlingLatency` | Average time taken for throttling the request/response |
-    | `AGG_SUM_requestMedLat` | Average time taken to mediate the request |
-    | `AGG_SUM_responseMedLat` | Average time taken to mediate the response |
-    | `AGG_SUM_backendLatency` | Average time taken by the backend to return the response |
-    | `AGG_SUM_otherLatency` | Average time taken to process tasks other than those mentioned above | 
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request. |
+    | `apiHostname` | The hostname or Datacenter ID (if specified). |
+    | `apiResourceTemplate` | The API resource URL pattern of the API request.|
+    | `apiMethod` | The HTTP Verb of API request [e.g.,GET/POST]. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_SUM_responseTime` | The average time of the API response when received to the gateway. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM_serviceTime` | The average time taken to serve the API request at the API-M server end. |
+    | `AGG_SUM_backendTime` | The average time taken to process the request at the backend. |
+    | `AGG_SUM_securityLatency` | The average time taken for authentication. |
+    | `AGG_SUM_throttlingLatency` | The average time taken for throttling the request/response. |
+    | `AGG_SUM_requestMedLat` | The average time taken to mediate the request. |
+    | `AGG_SUM_responseMedLat` | The average time taken to mediate the response. |
+    | `AGG_SUM_backendLatency` | The average time taken by the backend to return the response. |
+    | `AGG_SUM_otherLatency` | The average time taken to process tasks other than those mentioned above. | 
 
-###**ApiUserBrowserAgg**
+### ApiUserBrowserAgg
 
 This aggregation contains information regarding the user browser summary derived from the request event stream.
 
-####ApiUserBrowserAgg Table Schema
-This schema resembles the API_REQ_USER_BROW_SUMMARY table from the previous Stat DB schema.
+#### ApiUserBrowserAgg table schema
+This schema resembles the `API_REQ_USER_BROW_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiUserBrowserAgg_<granularity>` (
@@ -417,29 +418,29 @@ CREATE TABLE `ApiUserBrowserAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiUserBrowserAgg Table Schema."
+??? note "Click here for detailed descriptions on the ApiUserBrowserAgg table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `operatingSystem` | Operating system |
-    | `browser` | Browser |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `gatewayType` | Type of the gateway (Synapse/Micro) |
-    | `label` | The label of the API (if specified) |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request.|
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `operatingSystem` | The operating system. |
+    | `browser` | The browser. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request (event) belonging to the respective time range starting from when the `AGG_TIMESTAMP` was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `gatewayType` | The type of the gateway (Synapse/Micro). |
+    | `label` | The label of the API (if specified). |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
 
-###**APIM_ReqCountAgg**
+### APIM_ReqCountAgg
 
-This aggregation is derived from the throttle event stream and the request event stream and provides information regarding the throttled out counts and success counts for a particular API.
+This aggregation is derived from the throttle event stream and the request event stream and it provides information regarding the throttled out counts and success counts for a particular API.
 
-####APIM_ReqCountAgg Table Schema
+#### APIM_ReqCountAgg table schema
 
 ```sql
 CREATE TABLE `APIM_ReqCountAgg_<granularity>` (
@@ -458,28 +459,28 @@ CREATE TABLE `APIM_ReqCountAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the APIM_ReqCountAgg Table Schema."
+??? note "Click here for detailed descriptions on the APIM_ReqCountAgg Table Schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_SUM_successCount` | Total successful API request count for the particular API |
-    | `AGG_SUM_throttleCount` | Total throttled out API request count for the particular API |
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request (event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_SUM_successCount` | The total successful API request count for the particular API. |
+    | `AGG_SUM_throttleCount` | The total throttled out API request count for the particular API. |
 
-###**ApiLastAccessSummary**
+### ApiLastAccessSummary
 
 This table is not an aggregation. It contains information regarding the last access times of the APIs and is derived from the request event stream.
 
-###ApiLastAccessSummary Table Schema
+### ApiLastAccessSummary table schema
 
-This schema resembles the API_LAST_ACCESS_TIME_SUMMARY table from the previous Stat DB schema.
+This schema resembles the `API_LAST_ACCESS_TIME_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiLastAccessSummary` (
@@ -494,24 +495,24 @@ CREATE TABLE `ApiLastAccessSummary` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiLastAccessSummary Table Schema."
+??? note "Click here for detailed descriptions on the ApiLastAccessSummary table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `apiContext` | API context depending on the user's request |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `applicationOwner` | Name of the owner of the client application |
-    | `lastAccessTime` | Timestamp of the latest API request occurrence |
+    | `apiContext` | The API context depending on the user's request. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `applicationOwner` | The name of the owner of the client application. |
+    | `lastAccessTime` | The timestamp of the latest API request occurrence. |
 
-###**GeoLocationAgg**
+### GeoLocationAgg
 
 This aggregation contains summarized information regarding the geolocation statistics of API requests and is derived from the request event stream.
 
-####GeoLocationAgg Table Schema
+#### GeoLocationAgg table schema
 
-This schema resembles the API_REQ_GEO_LOC_SUMMARY table from the previous Stat DB schema.
+This schema resembles the `API_REQ_GEO_LOC_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `GeoLocationAgg_<granularity>` (
@@ -533,32 +534,32 @@ CREATE TABLE `GeoLocationAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the GeoLocationAgg Table Schema."
+??? note "Click here for detailed descriptions on the GeoLocationAgg Table Schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
     | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table (e.g., the start timestamp of the hour in the table with the _HOURS granularity). |
-    | `AGG_EVENT_TIMESTAMP` | The time at which the event is received at the event receiver |
-    | `apiContext` | API context depending on the user's request |
-    | `country` | Country |
-    | `city` | City |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `username` | End user of the API request |
-    | `userTenantDomain` | Tenant domain of the user associated with the request |
-    | `totalCount` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
+    | `AGG_EVENT_TIMESTAMP` | The time at which the event is received at the event receiver. |
+    | `apiContext` | The API context depending on the user's request. |
+    | `country` | The country. |
+    | `city` | The city. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `username` | The end-user of the API request. |
+    | `userTenantDomain` | The tenant domain of the user that is associated with the request. |
+    | `totalCount` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on granularity. |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
 
 
-###**ApiFaultyInvocationAgg**
+### ApiFaultyInvocationAgg
 
 This aggregation contains summarized data of the faulty API invocations and is derived from the fault event stream.
 
-####ApiFaultyInvocationAgg Table Schema
+#### ApiFaultyInvocationAgg table schema
 
-This schema resembles the API_FAULT_SUMMARY table from the previous Stat DB schema.
+This schema resembles the `API_FAULT_SUMMARY` table from the previous Stat DB schema.
 
 ```sql
 CREATE TABLE `ApiFaultyInvocationAgg_<granularity>` (
@@ -581,34 +582,31 @@ CREATE TABLE `ApiFaultyInvocationAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiFaultyInvocationAgg Table Schema."
+??? note "Click here for detailed descriptions on the ApiFaultyInvocationAgg table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `applicationId` | ID of the client application |
-    | `hostname` | Hostname or Datacenter ID (if specified) |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `applicationConsumerKey` | Consumer key of API invoking client application |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `requestTimestamp` | Timestamp of the API request when received to the gateway |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-
----
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with `_HOURS` granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request. |
+    | `applicationId` | The ID of the client application. |
+    | `hostname` | The hostname or datacenter ID (if specified). |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | Tenant domain of the API creator. |
+    | `applicationConsumerKey` | The consumer key of API invoking client application. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `requestTimestamp` | The timestamp of the API request when received to the gateway. |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on granularity. |
 
 
-###**ApiThrottledOutAgg**
+### ApiThrottledOutAgg
 
 This aggregation contains summarized data of the throttled out API invocations and is derived from the throttled event stream.
 
-####ApiThrottledOutAgg Table Schema
-
+#### ApiThrottledOutAgg table schema
 
 ```sql
 CREATE TABLE `ApiThrottledOutAgg_<granularity>` (
@@ -634,36 +632,34 @@ CREATE TABLE `ApiThrottledOutAgg_<granularity>` (
 )
 ```
 
-??? note "Click here for detailed descriptions on the ApiThrottledOutAgg Table Schema."
+??? note "Click here for detailed descriptions on the ApiThrottledOutAgg table schema"
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiContext` | API context depending on the user's request |
-    | `applicationId` | ID of the client application |
-    | `hostname` | Hostname or Datacenter ID (if specified) |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `username` | End user of the API request |
-    | `userTenantDomain` | Tenant domain of the user associated with the request |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `subscriber`| Name of the subscriber of the Application|
-    | `throttledOutReason`| The reason describing why the request has been throttled out |
-    | `gatewayType` | Type of the gateway (Synapse/Micro) |
-    | `regionalID` | The region ID if multi-data centers are configured for analytics |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-
----
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00). |
+    | `apiContext` | The API context depending on the user's request.|
+    | `applicationId` | The ID of the client application. |
+    | `hostname` | The hostname or Datacenter ID (if specified). |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `username` | The end-user of the API request. |
+    | `userTenantDomain` | The tenant domain of the user that is associated with the request. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `subscriber`| The name of the subscriber of the Application.|
+    | `throttledOutReason`| The reason describing why the request has been throttled out. |
+    | `gatewayType` | The type of the gateway (Synapse/Micro). |
+    | `regionalID` | The region ID if multi-data centers are configured for analytics. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by `AGG_TIMESTAMP` based on granularity. |
 
 
-###**ApiErrorAnalysisAgg**
+### ApiErrorAnalysisAgg
 
-This aggregation contains summarized data of the api errors and is derived from the request, throttled and faulty event streams.
+This aggregation contains summarized data of the API errors and is derived from the request, throttled, and faulty event streams.
 
-####ApiErrorAnalysisAgg Table Schema
+#### ApiErrorAnalysisAgg Table Schema
 
 
 ```sql
@@ -694,25 +690,23 @@ CREATE TABLE `ApiErrorAnalysisAgg_<granularity>` (
 ??? note "Click here for detailed descriptions on the ApiErrorAnalysisAgg Table Schema."
     |**Field Name**                                     |**Description**                      |
     |---------------------------------------------------|-------------------------------------|
-    | `AGG_TIMESTAMP` | The start timestamp of the time range based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity) |
-    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the agg_event_timestamp for hour granularity is 11:00:00) |
-    | `apiName` | API Name |
-    | `apiVersion` | API Version |
-    | `responseCode`| HTTP Response Code |
-    | `apiResourceTemplate` | API resource URL pattern of API request |
-    | `applicationId` | ID of the client application |
-    | `apiMethod` | HTTP Verb of API request [e.g.,GET/POST] |
-    | `applicationName` | Name of the client application used to invoke the API |
-    | `applicationOwner` | Name of the owner of the client application |
-    | `apiCreator` | API Creator |
-    | `apiCreatorTenantDomain` | Tenant domain of the API creator |
-    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request(event) belonging to the respective time range starting from when the AGG_TIMESTAMP was made |
-    | `AGG_SUM__2xx` | The number of 2xx response code that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM__4xx` | The number of 4xx response code that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM__5xx` | The number of 5xx response code that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM_responseCount` | The number of responses received from the backend within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM_faultCount` | The number of faulty invocation that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_SUM_throttledCount` | The number of throttled out requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by AGG_TIMESTAMP based on granularity |
-
----
+    | `AGG_TIMESTAMP` | The start timestamp of the time range that is based on the granularity of the table. (e.g., start timestamp of the hour in the table with _HOURS granularity). |
+    | `AGG_EVENT_TIMESTAMP` | The start timestamp of the time range based in the granularity for the event timestamp (For instance if the event is generated at 11:30:21, the `agg_event_timestamp` for hour granularity is 11:00:00). |
+    | `apiName` | The API name. |
+    | `apiVersion` | The API version. |
+    | `responseCode`| The HTTP response code |
+    | `apiResourceTemplate` | The API resource URL pattern of the API request. |
+    | `applicationId` | The ID of the client application. |
+    | `apiMethod` | The HTTP verb of API request [e.g.,GET/POST]. |
+    | `applicationName` | The name of the client application used to invoke the API. |
+    | `applicationOwner` | The name of the owner of the client application. |
+    | `apiCreator` | The API creator. |
+    | `apiCreatorTenantDomain` | The tenant domain of the API creator. |
+    | `AGG_LAST_EVENT_TIMESTAMP` | The timestamp at which the latest API request (event) belonging to the respective time range starting from when the `AGG_TIMESTAMP` was made. |
+    | `AGG_SUM__2xx` | The number of 2xx response codes that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM__4xx` | The number of 4xx response codes that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM__5xx` | The number of 5xx response codes that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM_responseCount` | The number of responses received from the backend within the relevant time interval specified by `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM_faultCount` | The number of faulty invocation that occurred within the relevant time interval specified by th`AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_SUM_throttledCount` | The number of throttled out requests that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on the granularity. |
+    | `AGG_COUNT` | The number of API requests that occurred within the relevant time interval specified by the `AGG_TIMESTAMP` based on granularity. |
