@@ -277,7 +277,7 @@ nav:
                       - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
                       - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
-                - Analytics event streams and aggregations: learn/analytics/analytics-event-streams-and-aggregations.md
+                - Analytics Event Streams and Aggregations: learn/analytics/analytics-event-streams-and-aggregations.md
           - API Controller:
                 - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
                 - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
