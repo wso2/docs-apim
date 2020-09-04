@@ -109,7 +109,7 @@ info:
     * If you want to use Oauth2 Bearer authentication scheme, please update the `access-token` parameter with the access-token received in above step. Then under the request headers, enable `Authorization: Bearer xxxx` header and disable `Authorization: Basic xxxx` header.
     * Update the `basepath` parameter to match the hostname and port.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/f977e492be1290c9b6de)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f977e492be1290c9b6de)
 
   contact:
     name: "WSO2"
