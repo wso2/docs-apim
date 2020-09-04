@@ -3309,7 +3309,7 @@ parameters:
     name: policyId
     in: path
     description: |
-      Policy Id represented as a UUID
+      The name of the policy
     required: true
     type: string
 
@@ -3487,6 +3487,7 @@ definitions:
 # The Standard API Info resource
 #-----------------------------------------------------
   APIInfo:
+    readOnly: true
     title: API Info object with basic API details.
     properties:
       id:
@@ -3873,6 +3874,7 @@ definitions:
 #-----------------------------------------------------
   ApplicationInfo:
     title: Application info object with basic application details
+    readOnly: true
     properties:
       applicationId:
         type: string
@@ -4102,6 +4104,7 @@ definitions:
     properties:
       subscriptionId:
         type: string
+        readOnly: true
         description: The UUID of the subscription
         example: faae5fcc-cbae-40c4-bf43-89931630d313
       applicationId:
@@ -4111,6 +4114,7 @@ definitions:
       apiId:
         type: string
         description: The unique identifier of the API.
+        example: 2962f3bb-8330-438e-baee-0ee1d6434ba4
       apiInfo:
         $ref: '#/definitions/APIInfo'
       applicationInfo:
@@ -4126,8 +4130,10 @@ definitions:
           - UNBLOCKED
           - ON_HOLD
           - REJECTED
+        readOnly: true
         example: UNBLOCKED
       redirectionParams:
+        readOnly: true
         type: string
         description: A url and other parameters the subscriber can be redirected.
 
