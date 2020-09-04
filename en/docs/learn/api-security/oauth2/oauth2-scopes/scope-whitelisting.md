@@ -1,6 +1,6 @@
 # Scope Allowlisting
 
-A scope is not always used for controlling access to a resource. You can also use it to simply mark an access token. There are scopes that cannot be associated to roles (e.g., openid, device\_). Such scopes do not have to have roles associated with them. Skipping role validation for scopes is called scope aloowlisting.
+A scope is not always used for controlling access to a resource. You can also use it to simply mark an access token. There are scopes that cannot be associated to roles (e.g., openid, device\_). Such scopes do not have to have roles associated with them. Skipping role validation for scopes is called scope allowlisting.
 
 If you do not want a role validation for a scope in an API's request, add the scope as `allowed_scopes` in the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server. It will be allowlisted. For example,
 
