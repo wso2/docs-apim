@@ -1,8 +1,61 @@
 # Extending Key Validation
 
-In WSO2 API Manager (WSO2 API-M) versions prior to 1.9.0, the components were tightly coupled with the [Key Manager](https://docs.wso2.com/display/AM200/Key+Concepts#KeyConcepts-KeyManager) and token validation was done by directly accessing the databases. However, from WSO2 API-M 1.9.0 onwards, you can [plug different OAuth2 providers](https://docs.wso2.com/display/AM260/Configuring+a+Third-Party+Key+Manager) to the key validation. When you call an API providing an access token, the execution flows through the handlers specified in the API. Among them, the API authentication handler extracts the token from the header and calls `APIKeyValidationService` to get the token validated. Upon validating the token, the API Gateway receives `APIKeyValidationInforDTO` as the response, using which the rest of the operations are performed.
+In WSO2 API Manager (WSO2 API-M) versions prior to 3.2.0, the key manager was loosely coupled with other components and could [plug different OAuth2 providers](https://docs.wso2.com/display/AM260/Configuring+a+Third-Party+Key+Manager) for the key validation. However, since API-M 3.2.0 further improving this functionality it has removed the key manager call altogether for key validation at runtime by making the default token type to JWT(JSON Web Token). JWT Token validation happens at the gateway itself and the subsequent subscription validation also happens in the gateway as required meta information is available in the gateway memory. 
 
-Before decoupling was done, the entire key validation process was executed inside a single method named `validateKey()` , which performed all the operations by running a single query. After decoupling, that single query was broken down into smaller parts by introducing `KeyValidationHandler` , which runs inside the `validateKey()` operation, providing a way to extend each step.
+When you call an API providing an access token, the execution flows through the handlers specified in the API. Among them, the API authentication handler extracts the token from the header and determines whether the token is a JWT. If so it validates through  `JWTValidator`. 
+
+
+### Extending JWTValidator Interface
+
+
+When you need to write your own JWT Validation logic , you should implement org.wso2.carbon.apimgt.impl.jwt.JWTValidator Interface
+
+
+The following are the methods that the `JWTValidator` interface uses to carry out operations.
+
+<table>
+<colgroup>
+<col width="30%" />
+<col width="70%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>validateToken</strong></td>
+<td><p>Provide the way to validate JWT token in Self mode.</p></td>
+</tr>
+<tr class="even">
+<td><strong>loadTokenIssuerConfiguration</strong></td>
+<td><p>Provide the way to load JWT related configurations.</p></td>
+</tr>
+</tbody>
+</table>
+
+You can implement this JWTValidator inside a custom the key manager connector.
+You may refer [writing custom key manager connector]({{base_path}}/administer/key-managers/configure-custom-connector).
+Once you implement the JWTValidator interface the eimplementation class can be instantiated using the KeyManagerConnectorConfiguration Interface.
+
+```java
+    @Override
+    public String getJWTValidator() {
+
+        // If you need to implement a custom JWT validation logic you need to implement
+        // org.wso2.carbon.apimgt.impl.jwt.JWTValidator interface and instantiate it in here.
+        return null;
+    }
+
+```
+
+### Extending KeyValidationHandler Interface
+
+If you still using reference tokens and need to extend the key validation according to the way that was presented prior to 3.2.0, you can do it by implementing the `org.wso2.carbon.apimgt.keymgt.handlers.KeyValidationHandler` 
+
+Upon validating the token, the API Gateway receives `APIKeyValidationInforDTO` as the response, using which the rest of the operations are performed.
 
 The `KeyValidationHandler` has four main operations that are executed in the following order:
 
