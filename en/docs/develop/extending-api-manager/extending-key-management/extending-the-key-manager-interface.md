@@ -12,21 +12,15 @@ For instance,
 
 -   At this point, the Developer Portal talks to the **KeyManager** to create an *OAuth client* and get the *Consumer Key/Secret* and the *Application Access token*.
 
--   When the Gateway receives a request, it talks to **KeyManager** and get the token validated. The **KeyManager** checks if the token is active, and whether the token is usable to invoke the resource being accessed. If the token is valid, the **KeyManager** sends additional details about the token (i.e., the Throttling Tier for the subscription and Consumer key) to the Gateway in the response. In turn the Gateway uses these details to determine if the request should be passed to the backend or not.
+-   When the Gateway receives a request, it talks to **KeyManager** and get the token validated. The **KeyManager** checks if the token is active, and whether the token is usable to invoke the resource being accessed. If the token is valid, the Gateway uses additional details about the token (i.e., the Throttling Tier for the subscription and Consumer key) to determine if the request should be passed to the backend or not.
 
 Therefore, the **KeyManager** interface acts as the bridge between the OAuth Provider and WSO2 API Manager (WSO2 API-M).
 
 ### Extending the Key Manager Interface
 
-When you need to write your own implementation to plug an external OAuth2 authorization server which will act as the Key Manager, you should implement the [**KeyManager** interface](https://github.com/wso2/carbon-apimgt/blob/master/components/apimgt/org.wso2.carbon.apimgt.api/src/main/java/org/wso2/carbon/apimgt/api/model/KeyManager.java) which is a Java extension point in WSO2 API-M.
+When you need to write your own implementation to plug an external OAuth2 authorization server which will act as the Key Manager, you should implement a third party Key Manager Connector as explain in 
+[Configure a Custom Key Manger]({base_path}/administer/key-managers/configure-custom-connector/)
 
-For this purpose uncomment and update the API Key Manager details under `[apim.key_manager]` and add the custom class implementation as follows in the `<API-M_Home>/repository/conf/deployment.toml` file.
-
-``` toml
-[apim.key_manager]
-...
-key_manager_client_impl="org.wso2.carbon.mit.OpenIDClientImpl"
-```
 
 The following are the methods that the `KeyManager` interface uses to carry out operations.
 
@@ -111,6 +105,58 @@ from a Key Manager and you need to map the key and secret with the existing API-
 <tr class="odd">
 <td><strong>getAccessTokenByConsumerKey</strong></td>
 <td><p>Provides details of the Access Token that is displayed on the Developer Portal.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>updateApplicationOwner</strong></td>
+<td><p>Provide capability to update application owner of Oauth Application.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>deleteApplication</strong></td>
+<td><p>Provide capability to remove Oauth Application according to consumer key.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>buildFromJSON</strong></td>
+<td><p>Provide capability to build Model object to OAuth application creation.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>registerScope</strong></td>
+<td><p>Provide capability to register scope in Oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>getScopeByName</strong></td>
+<td><p>Provide capability to get the scope by name from Oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>attachResourceScopes</strong></td>
+<td><p>Provide capability to attach scope to resources in Resource server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>updateResourceScopes</strong></td>
+<td><p>Provide capability to update resources to scope mapping in Oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>detachResourceScopes</strong></td>
+<td><p>Provide capability to delete resources to scope mapping in Oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>deleteScope</strong></td>
+<td><p>Provide capability to delete scope by name in oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>updateScope</strong></td>
+<td><p>Provide capability to update scope in Oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>isScopeExists</strong></td>
+<td><p>Provide capability to check existence of scope.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>validateScopes</strong></td>
+<td><p>Provide capability to validate scopes from oauth server.</p></td>
+</tr>
+<tr class="odd">
+<td><strong>getUserClaims</strong></td>
+<td><p>Provide capability to retrieve user claims from Oauth server respective to access token or user.</p></td>
 </tr>
 </tbody>
 </table>
