@@ -2,18 +2,15 @@
 
 !!! Important
     This migration guide is in the process of restructuring, and is NOT yet ready for use.
+    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
 
 The following information describes how to upgrade your API Manager server **from APIM 2.1.0 to 3.2.0**.
 
 !!! note
     Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for more information.
 
-!!! attention "Before you Begin"
-    1.  This release is a WUM-only release. This means that there are no manual patches. Any further fixes or latest updates for this release can be updated through the WSO2 Update Manager (WUM).
-
-        -   **If you are upgrading to this version, in order to use this version in your production environment** , use the WSO2 Update Manager and get the latest available updates for WSO2 API Manager 3.2.0. For more information on how to do this, see [Updating API Manager]({{base_path}}/administer/updating-wso2-api-manager/#wso2-update-manager-wum).
-
-    2.  Before starting the upgrade, run the [token and session cleanup scripts]({{base_path}}/troubleshooting/removing-unused-tokens-from-the-database) in the databases of the environment, if you are not doing regular cleanups.
+!!! Attention
+    If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100) instead of below steps.    
 
 !!! note "If you are using PostgreSQL"
     The DB user needs to have superuser role to run the migration client and the relevant scripts
@@ -325,7 +322,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     -   If you use a **clustered/distributed API Manager setup** , back up the available configurations in the **API Gateway** node.
 
-2.  Download [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack for [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
+2.  Download [WSO2 API Manager 3.2.0](http://wso2.com/api-management/).
 
 3.  Open the `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file and provide the datasource configurations for the following databases.
 
@@ -1102,7 +1099,7 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE IF NOT EXISTS AM_SHARED_SCOPE (
              NAME varchar(255),
-             UUID varchar(256),
+             UUID varchar(256) NOT NULL,
              TENANT_ID INTEGER,
              PRIMARY KEY (UUID)
         ) /
@@ -1111,13 +1108,13 @@ Follow the instructions below to move all the existing API Manager configuration
         
         CREATE TABLE AM_KEY_MANAGER (
           UUID VARCHAR(50) NOT NULL,
-          NAME VARCHAR(100) NULL,
+          NAME VARCHAR(100) NOT NULL,
           DISPLAY_NAME VARCHAR(100) NULL,
           DESCRIPTION VARCHAR(256) NULL,
           TYPE VARCHAR(45) NULL,
           CONFIGURATION BLOB NULL,
           ENABLED SMALLINT DEFAULT 1,
-          TENANT_DOMAIN VARCHAR(100) NULL,
+          TENANT_DOMAIN VARCHAR(100) NOT NULL,
           PRIMARY KEY (UUID),
           UNIQUE (NAME,TENANT_DOMAIN)
         )
@@ -1140,7 +1137,27 @@ Follow the instructions below to move all the existing API Manager configuration
             UNIQUE (API_ID,TYPE,FIELD)
         )/
         
-        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL /
+        UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL /
+        
+        BEGIN
+        DECLARE const_name VARCHAR(128);
+        DECLARE STMT VARCHAR(200);
+        select CONSTNAME into const_name from SYSCAT.TABCONST WHERE TABNAME='AM_APPLICATION_REGISTRATION' AND TYPE = 'U';
+        SET STMT = 'ALTER TABLE AM_APPLICATION_REGISTRATION DROP UNIQUE ' ||  const_name;
+        PREPARE S1 FROM STMT;
+        EXECUTE S1;
+        END
+        /
+        
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager'/
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)/
+        
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UUID VARCHAR(50)/
+        UPDATE AM_APPLICATION_KEY_MAPPING SET UUID = (VARCHAR(HEX(GENERATE_UNIQUE()))) WHERE UUID IS NULL;
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD KEY_MANAGER VARCHAR(50) NOT NULL DEFAULT 'Resident Key Manager'/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
+        ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
         ```
 
         ```tab="MSSQL"
@@ -1500,7 +1517,10 @@ Follow the instructions below to move all the existing API Manager configuration
         BINDING_TYPE VARCHAR(255) NOT NULL,
         FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );
-        
+        DECLARE @am_appreg as VARCHAR(8000);
+        SET @am_appreg = (SELECT name from sys.objects where parent_object_id=object_id('AM_APPLICATION_REGISTRATION') AND type='UQ');
+        EXEC('ALTER TABLE AM_APPLICATION_REGISTRATION
+        drop CONSTRAINT ' + @am_appreg);
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);        
         ```
@@ -2103,6 +2123,7 @@ Follow the instructions below to move all the existing API Manager configuration
         BEGIN
             :NEW.TIME_STAMP := systimestamp;
         END;
+        /
         
         ALTER TABLE AM_SUBSCRIPTION ADD TIER_ID_PENDING VARCHAR2(50)
         /
@@ -2522,7 +2543,7 @@ Follow the instructions below to move all the existing API Manager configuration
         FROM information_schema.table_constraints AS tc
         JOIN information_schema.key_column_usage AS kcu ON tc.constraint_name = kcu.constraint_name
         JOIN information_schema.constraint_column_usage AS ccu ON ccu.constraint_name = tc.constraint_name
-        WHERE constraint_type = 'PRIMARY KEY' AND tc.table_name = 'IDN_OAUTH2_RESOURCE_SCOPE';
+        WHERE constraint_type = 'PRIMARY KEY' AND tc.table_name = 'idn_oauth2_resource_scope';
         EXECUTE con_name;
         END $$;
         
@@ -2581,11 +2602,6 @@ Follow the instructions below to move all the existing API Manager configuration
 
 6.  Upgrade the Identity component in WSO2 API Manager from version 5.3.0 to 5.10.0.
 
-    !!! note
-        If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, you have to follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-530-to-5100) instead of below steps.
-
-        But, if you are not using WSO2 IS as a Key Manager, you have to follow the below steps in order to upgrade identity components which have been shared with WSO2 API-M.
-
     ??? note "If you are using DB2"
         Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support newly added table indexes.
 
@@ -2642,10 +2658,8 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
     1.  Download the identity component migration resources and unzip it in a local directory.
-
-        Navigate to the [v1.0.103 tag](https://github.com/wso2-extensions/identity-migration-resources/releases/tag/v1.0.103) and download the `wso2is-migration-1.0.103.zip` under Assets.    
-
-         <!-- Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets. -->
+  
+        Navigate to the [latest release tag](https://github.com/wso2-extensions/identity-migration-resources/releases/latest) and download the `wso2is-migration-x.x.x.zip` under Assets.
 
     2.  Copy the `migration-resources` folder from the extracted folder to the `<API-M_3.2.0_HOME>` directory.
 
@@ -2748,7 +2762,7 @@ Follow the instructions below to move all the existing API Manager configuration
     
     1. Download and extract the [migration-resources.zip]({{base_path}}/assets/attachments/install-and-setup/migration-resources.zip). Copy the extracted `migration-resources`  to the `<API-M_3.2.0_HOME>` folder.
 
-    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
+    2. Download and copy the [API Manager Migration Client]({{base_path}}/assets/attachments/install-and-setup/org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar) to the `<API-M_3.2.0_HOME>/repository/components/dropins` folder.
 
     3.  Start the API-M server as follows.
 
@@ -2759,10 +2773,21 @@ Follow the instructions below to move all the existing API Manager configuration
         ``` tab="Windows"
         wso2server.bat -DmigrateFromVersion=2.1.0
         ```
+        
+        Note:  If cross tenant API subscriptions exist, the migration will be aborted. 
+        To ignore this, Please set the flag ``ignoreCrossTenantSubscriptions`` to true as below.
+            
+        ``` tab="Linux / Mac OS"
+        sh wso2server.sh -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=2.1.0
+        ```
+            
+        ``` tab="Windows"
+        wso2server.bat -DignoreCrossTenantSubscriptions=true -DmigrateFromVersion=2.1.0
+        ```        
 
     4. Shutdown the API-M server.
     
-       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-2.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
+       -   Remove the `org.wso2.carbon.apimgt.migrate.client-3.2.0-1.jar` file, which is in the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
        -   Remove the `migration-resources` directory, which is in the `<API-M_3.2.0_HOME>` directory.
 

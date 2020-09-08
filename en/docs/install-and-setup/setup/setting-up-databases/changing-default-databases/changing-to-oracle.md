@@ -62,7 +62,7 @@ Follow the instructions below to set up an Oracle database.
 !!! note
     `<API-M_HOME>/dbscripts/mb-store/oracle-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to Oracle, then you need to have seperate databases for each API-M Traffic Manager node.
 
-## Changing the Carbon database to Oracle
+## Changing the database to Oracle
 
 - [Creating the datasource connection to Oracle](#creating-the-datasource-connection-to-oracle)
 
@@ -172,3 +172,21 @@ Follow the instructions below to change the type of the default datasource.
 
     !!! note
         To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
+
+    !!! info
+        **Changing WSO2CARBON_DB to Oracle**
+
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+            
+        - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/oracle.sql`.
+        -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your Oracle database, the username, and password required to access the database and the Oracle driver details similarly as explained before.
+        
+        ``` tab="Example"
+        [database.local]
+        type = "oracle"
+        url = "jdbc:oracle:thin:@localhost:1521/carbon_db"
+        username = "carbonadmin"
+        password = "carbonadmin"
+        driver = "oracle.jdbc.driver.OracleDriver"
+        validationQuery = "SELECT 1 FROM DUAL"
+        ```

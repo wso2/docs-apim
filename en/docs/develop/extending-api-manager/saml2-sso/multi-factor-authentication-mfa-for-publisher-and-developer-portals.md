@@ -6,7 +6,7 @@ Follow the steps below to configure MFA for the Publisher and Developer Portal w
 
 1.  Configure Single Sign-On (SSO) with WSO2 Identity Server. 
 
-     For more information, see [Configuring Identity Server as IDP for SSO]({{base_path}}/learn/extensions/saml2-sso/configuring-identity-server-as-idp-for-sso).
+     For more information, see [Configuring Identity Server as IDP for SSO]({{base_path}}/develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso).
 
 2.  Configure Multi-factor Authentication in WSO2 Identity Server. 
 

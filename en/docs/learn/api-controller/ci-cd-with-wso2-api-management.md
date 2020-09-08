@@ -206,8 +206,22 @@ The repository that you committed the project in the above step <a href="#E">E</
     ```bash
     $ cd <cloned-repository-name>
     ```
+2.  As this is the first time that the repository is used for Git Integration functionality of API Controller, run `vcs init` command to initialize the repository with API Controller. This needs to run only once for the repository.
 
-2.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
+    !!! example
+        ```bash
+        $ apictl vcs init
+        Successfully initialized GIT repository
+        ```
+
+    Once `vcs init` command is executed, a new file `vcs.yaml` will be created in the root location of the repository. 
+    
+    Make sure to commit this file to the repository.   
+
+    !!! tip
+        `vcs.yaml` will contain a unique identifier for the repository which is used to store deployed commits related meta-information.
+
+3.  Run `vcs status` command to see the available changes that needs to be deployed to the production environment.
 
     !!! example
         ```bash
@@ -218,7 +232,7 @@ The repository that you committed the project in the above step <a href="#E">E</
         1: [save]		SwaggerPetstore-1.0.0: (SwaggerPetstore-1.0.0)
         ```
 
-3.  Import the **SwaggerPetstore** API into the production environment by running the following sample command.
+4.  Import the **SwaggerPetstore** API into the production environment by running the following sample command.
 
     !!! tip
         - Make sure you have already logged-in to the `prod` environment. For more information, see 
@@ -246,7 +260,7 @@ The repository that you committed the project in the above step <a href="#E">E</
         Everything is up-to-date
         ```
 
-4.  Adding a new API to the Git repository
+5.  Adding a new API to the Git repository
 
     Multiple APIs can be promoted through CI/CD by committing the respective API projects to the repository.
 
@@ -284,7 +298,7 @@ The repository that you committed the project in the above step <a href="#E">E</
         -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you export an API using `export-api` or initialized an API Project using `init`. The following configuration section in the `api_params.yaml` file is used to deploy the API.
 
         ```bash
-        vcs:
+        deploy:
             import:
                 update: true
                 preserveProvider: true
@@ -409,6 +423,17 @@ For example, let's consider there is an [API Product]({{base_path}}/learn/design
         1: [save]		PetsInfo-1.0.0: (PetsInfo-1.0.0)
         ```
 
+    !!! important
+        If you haven't initialized the repository with API Controller, you will get the below error.
+        
+        ```bash
+        $ apictl vcs status -e prod
+        apictl: The repository info: vcs.yaml is not found in the repository root. If this is the first time you are using this repo, please initialize it with 'vcs init'.
+        Exit status 1
+        ```
+
+        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
+
 3.  Import the **PetsInfo** Product into the production environment by running the following sample command.
 
     !!! example
@@ -430,7 +455,7 @@ For example, let's consider there is an [API Product]({{base_path}}/learn/design
         -   It is mandatory to have `api_product_params.yaml` file inside each API Product Project. This is created by default when you export an API Product using `export api-product`. The following configuration section in the `api_product_params.yaml` file is used to deploy the API Product.
 
         ```bash
-        vcs:
+        deploy:
             import:
                 updateApiProduct: true
                 preserveProvider: true
@@ -476,6 +501,17 @@ Let's assume that the **PetsApp** application is in the development environment 
         1: [save]		PetsApp: (PetsApp)
         ```
 
+    !!! important
+        If you haven't initialized the repository with API Controller, you will get the below error.
+        
+        ```bash
+        $ apictl vcs status -e prod
+        apictl: The repository info: vcs.yaml is not found in the repository root. If this is the first time you are using this repo, please initialize it with 'vcs init'.
+        Exit status 1
+        ```
+
+        make sure to follow [Promoting APIs in a Git repository to upper environments via CI/CD](#a-promoting-apis-in-a-git-repository-to-upper-environments-via-cicd) - *Step 2* to initialize the repository.
+
 3.  Import the **PetsApp** Application into the production environment by running the following sample command.
 
     !!! example
@@ -497,7 +533,7 @@ Let's assume that the **PetsApp** application is in the development environment 
         -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you export an Application using `export-app`. The following configuration section in the `application_params.yaml` file is used to deploy the application.
 
         ```bash
-        vcs:
+        deploy:
             import:
                 update: true
                 preserveOwner: true

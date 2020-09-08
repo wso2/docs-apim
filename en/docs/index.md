@@ -75,7 +75,7 @@ template: templates/single-column.html
     </div>
     <div class="content">
         <!-- card -->
-        <div class="card" onclick="location.href='https://docs.wso2.com/display/MG310';">
+        <div class="card" onclick="location.href='https://mg.docs.wso2.com/en/3.2.0/';">
             <div class="line"></div>
             <div class="card-icon">
                 <i class="material-icons md-36">input</i>

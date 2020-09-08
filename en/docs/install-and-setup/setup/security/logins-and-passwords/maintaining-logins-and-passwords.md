@@ -60,18 +60,45 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
 ## Setup an e-mail login
 
-For information, see [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
+1. First, follow the steps from Step 1 to Step 5 given in [Email Authentication](https://is.docs.wso2.com/en/5.10.0/learn/using-email-address-as-the-username/) in the WSO2 IS documentation.
 
--   When setting up email login, specify the complete username with tenant domain. If you are in the super tenant mode the username should be as follows. `<email>@carbon.super`
-  
-    Example: `admin@wso2.com@carbon.super`
+2. Specify the complete username with tenant domain for `apim.throttling.username` section in `<API-M_HOME>/repository/conf/deployment.toml`.
 
--   The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specifying the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
+    If you are in the super tenant mode the username should be as in the format of `<email>@carbon.super`.
+    ``` toml
+    [apim.throttling]
+    username = "admin@wso2.com@carbon.super"
+    ```
 
-   ``` toml
+3. The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specify the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<API-M_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
+
+    ``` toml
     [apim.throttling.jms]
     username="admin!wso2.com!carbon.super"
-   ```
+    ```
+4. Restart the server.
+
+??? info "sample deployment.toml configs"
+    ```
+    [tenant_mgt]
+    enable_email_domain= true
+
+    [super_admin]
+    username = "admin@wso2.com"
+    password = "admin"
+    create_admin_account = true
+
+    [apim.throttling]
+    username = "admin@wso2.com@carbon.super"
+
+    [apim.throttling.jms]
+    username = "admin!wso2.com!carbon.super"
+
+    [user_store]
+    type = "database_unique_id"
+    username_java_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
+    username_java_script_regex = '^[a-zA-Z0-9.-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
+    ```   
 
 ## Developer Portal
 

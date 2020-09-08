@@ -66,7 +66,7 @@ You can add advanced throttling policies to both APIs and resources.
     </div>
 
 
-5.  Turn on the required condition and enter a condition and value.
+5.  Enter a condition and value.
 6.  Header condition and JWT claim condition values allow regex patterns to be defined.
     You can configure it to make either an exact match or a pattern match for the value using the regex values. For example,
     
