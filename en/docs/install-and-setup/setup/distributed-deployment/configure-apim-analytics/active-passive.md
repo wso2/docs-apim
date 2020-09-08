@@ -49,8 +49,7 @@ In order to configure a minimum HA cluster, the following prerequisites must be 
     `<APIM_ANALYTICS_HOME>/lib` directory of both nodes. 
   - In order to retrieve the state of the Siddhi Applications deployed in the system in case of a scenario where both the 
     nodes fail, state persistence must be enabled for both nodes by specifying the same datasource/file location. 
-    For detailed instructions, see <a target="_blank" href="configuring-Database-and-File-System-State-Persistence">
-    Configuring Database and File System State Persistence</a> for more information.
+    For detailed instructions, see [Configuring Database and File System State Persistence]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-the-file-system-state-persistence).
   - A load balancer or some other client-side data publishing mechanism that works in a failover manner must be available 
     to publish events to one of the available nodes (i.e., to the active node). 
     
