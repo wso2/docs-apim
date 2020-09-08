@@ -97,6 +97,18 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 !!! info
      To perform **role mapping** or **scope mapping**, follow [Adding role permissions]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-permissions/#adding-role-based-permissions)
 
+!!! info
+    **Application Roles**
+    When a user creates an application and generates application keys, a role is created automatically in the following format.
+
+    ``` java
+    "Application/<username>_<applicationName>_PRODUCTION"
+    ```
+
+    This is a special case of internal role that is created for a particular service provider application. Only users who are assigned the application role permission can manage the corresponding service provider application.
+
+    These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
+
 ### Editing or deleting a role
 
 1. Log in to the management console ( `https://<APIM_Host>:<APIM_Port>/carbon` ) if you have not done already.
