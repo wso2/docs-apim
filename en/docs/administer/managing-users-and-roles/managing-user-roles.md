@@ -7,23 +7,9 @@ Throughout this documentation, we use the following roles that are typically use
 -   <a name="admin-role">**admin:**</a> The API management provider who hosts and manages the [API Gateway]({{base_path}}/getting-started/overview/#api-gateway) and is responsible for creating users in the system, assigning them roles, managing databases, security, etc. The Admin role is also used to access the WSO2 Admin Portal ( `https://<APIM_Host>:<APIM_Port>/admin` ), where you can define workflow tasks, throttling policies, analytics configurations, etc. The Admin role is available by default with the credentials admin/admin. By default, this role contains all the permissions (including super admin permissions) in the permission tree.
 -   <a name="creator-role">**creator:**</a> A creator is typically a person in a technical role who understands the technical aspects of the API (interfaces, documentation, versions etc.) and uses the [API publisher]({{base_path}}/getting-started/overview/#api-publisher) to provision APIs into the Developer Portal. The creator uses the Developer Portal to consult ratings and feedback provided by API users. Creator can add APIs to the Developer Portal but cannot manage their lifecycle. Governance permission gives a creator permission to govern, manage and configure the API artifacts.
 -   <a name="publisher-role">**publisher:**</a> A person in a managerial role and overlooks a set of APIs across the enterprise and controls the API lifecycle, subscriptions and monetization aspects. The publisher is also interested in usage patterns for APIs and has access to all API statistics.
--   <a name="subscriber-role">**subscriber:**</a> A user or an application developer who searches the [Developer Portal]({{base_path}}/getting-started/overview/#developer-portal) to discover APIs and use them. S/he reads the documentation and forums, ratings/comments on the APIs, subscribes to APIs, obtains access tokens and invokes the APIs.
+-   <a name="subscriber-role">**subscriber:**</a> A user or an application developer who searches the [Developer Portal]({{base_path}}/getting-started/overview/#developer-portal) to discover APIs and use them. She/he reads the documentation and forums, ratings/comments on the APIs, subscribes to APIs, obtains access tokens and invokes the APIs.
 
 Follow the instructions below to create the `creator` , `publisher` and `subscriber` roles in the API Manager for example.
-
-!!! info
-        By default, all WSO2 products have the following roles configured: 
-
-        -   **admin** - Provides full access to all features and controls. By default, the admin user is assigned to both the admin and the Internal/everyone roles.
-        -   **Internal/everyone** - This is a pre defined role that is used to group all the users (across the user stores) together. When you create a new user, automatically the user belongs to the `Internal/everyone` role. It does not include any permissions. This role can be used to identify all logged in users.
-        -   **Internal/system** - This is another pre defined role which does not include any permissions. Unlike the `Internal/everyone` role, this role is **not assigned** to a user by default.
-        -   **Internal/analytics** - This role can be assigned to users who do not have the publisher or subscriber roles assigned but need permission to view the analytics dashboards.
-
-        In addition to the above, the following roles exist by default.
-
-        1.  [Internal/creator](#creator-role)
-        2.  [Internal/publisher](#publisher-role)
-        3.  [Internal/subscriber](#subscriber-role)
 
 ### Create user roles
 
@@ -106,103 +92,10 @@ Follow the instructions below to create the `creator` , `publisher` and `subscri
 
             In WSO2 API Manager 3.2.0, Developer Portal and Publisher Web Application UIs are populated by API-M REST APIs and all the authentication and authorization to access the different components in the UI solely depend on the scope role mapping defined in `/_system/config/apimgt/applicationdata/tenant-conf.json` that can be accessed through the [Management Console](`https://localhost:9443/carbon`) from **Resources** > **Browse**.
 
-            By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
-
-7. Log in to admin portal ( `https://<APIM_Host>:<APIM_Port>/admin`) and navigate to Settings > Role Permissions in admin portal. 
-
-8. Update mappings and add the new role created above(creator) under Roles of all scopes that it should be assigned to as follows.  
-
-    **For example**, if the new role has the API Creator permission, add it under every scope that has `Internal/creator` role specified.
-
-    If you create a custom role that has different permissions, add that role under the required scopes based on the functionality or permissions you need to give to a user carrying this role. For example, if you need to allow the user to create apis, click the new scope `apim:api_create` under **custom permissions**.
-    
-    ![Add Scope Mapping]({{base_path}}/assets/img/administer/new-scope-mapping.png) 
+            By default, the scope-role mapping contains Internal/creator, Internal/publisher, Internal/subscriber, Internal/analytics and Internal/devops as the default roles. If there are custom roles defined with API creator, API publisher, admin and API subscriber permissions, those roles have to be configured in `tenant-conf.json` under relevant scopes.
 
 !!! info
-    **Application Roles**
-    
-    When a user creates an application and generates application keys, a role is created automatically in the following format.
-
-    ``` java
-    "Application/<username>_<applicationName>_PRODUCTION"
-    ```
-
-    This is a special case of internal role that is created for a particular service provider application. Only users who are assigned the application role permission can manage the corresponding service provider application.
-
-    These roles do not have any permissions assigned to it, but it is used to manage the visibility of the corresponding service provider that is created in the format of `'<username>_<applicationName>_PRODUCTION'` within the Key Manager. The created service provider is only visible to users with the latter mentioned role that has been generated automatically. Only if a user with admin privileges assigns the latter mentioned role to a user, will that user be able to view the details of the service provider that is created per application.
-
-### Adding Role Mappings
-
-In the above example we mapped the new `creator` role to allow all operations allowed for `Internal/creator`. There we had to update each and every entry that contained the `Internal/creator` role. This can be a tedious task when there are multiple scope mapping entries to be updated.
-From APIM 3.1.0 onwards, we have introduced a `Role Mapping` feature to enable users to easily map new roles to existing scopes.
-
-1. Log in to the admin portal ( `https://<APIM_Host>:<APIM_Port>/admin` ) if you have not done already.
-
-2. Navigate to Settings > Role Permissions in admin portal.
-
-3. Click **Add role permission** and provide a role name created in a carbon console. Then click **Next** to proceed.
-
-    ![Add Role Mapping]({{base_path}}/assets/img/administer/add-new-role-mapping.png)
-
-4. Under Select Permissions, click Role alias to define a mapping.
-
-    ![Add Role Mapping]({{base_path}}/assets/img/administer/new-role-mapping.png)
-
-This will update all scope mappings in tenant-conf.json with Internal/creator as an allowed role resulting the new creator role too be allowed for all scopes allowed for Internal/creator role.
-
-!!! info 
-    Under default configurations following are the scopes allowed for each deafult Internal role.
-    
-    | Role                                   | admin   | Internal/publisher   | Internal/creator   | Internal/subscriber   | Internal/analytics   | Internal/everyone   |
-    |-- ------------------------------------ | ------- | -------------------- | ------------------ | --------------------- | -------------------- | ----------------- --|
-    | apim:api_publish                       | &check; | &check;              |                    |                       |                      |                     |
-    | apim:api_create                        | &check; |                      | &check;            |                       |                      |                     |
-    | apim:api_view                          | &check; | &check;              | &check;            |                       | &check;              |                     |
-    | apim:api_delete                        | &check; |                      | &check;            |                       |                      |                     |
-    | apim:subscribe                         | &check; |                      |                    | &check;               |                      |                     |
-    | apim:tier_view                         | &check; | &check;              | &check;            |                       |                      |                     |
-    | apim:tier_manage                       | &check; |                      |                    |                       |                      |                     |
-    | apim:bl_view                           | &check; |                      |                    |                       |                      |                     |
-    | apim:subscription_view                 | &check; | &check;              | &check;            |                       |                      |                     |
-    | apim:subscription_block                | &check; | &check;              |                    |                       |                      |                     |
-    | apim:mediation_policy_view             | &check; |                      | &check;            |                       |                      |                     |
-    | apim:mediation_policy_create           | &check; |                      | &check;            |                       |                      |                     |
-    | apim:api_workflow                      | &check; |                      |                    |                       |                      |                     |
-    | apim:app_owner_change                  | &check; |                      |                    |                       |                      |                     |
-    | apim:app_import_export                 | &check; |                      |                    |                       |                      |                     |
-    | apim:api_import_export                 | &check; |                      |                    |                       |                      |                     |
-    | apim:label_manage                      | &check; |                      |                    |                       |                      |                     |
-    | apim:label_read                        | &check; |                      |                    |                       |                      |                     |
-    | apim:app_update                        | &check; |                      |                    | &check;               |                      |                     |
-    | apim:app_manage                        | &check; |                      |                    | &check;               |                      |                     |
-    | apim:sub_manage                        | &check; |                      |                    | &check;               |                      |                     |
-    | apim:monetization_usage_publish        | &check; | &check;              |                    |                       |                      |                     |
-    | apim:document_create                   | &check; | &check;              | &check;            |                       |                      |                     |
-    | apim:ep_certificates_update            | &check; |                      | &check;            |                       |                      |                     |
-    | apim:client_certificates_update        | &check; |                      | &check;            |                       |                      |                     |
-    | apim:threat_protection_policy_manage   | &check; |                      | &check;            |                       |                      |                     |
-    | apim:document_manage                   | &check; | &check;              | &check;            |                       |                      |                     |
-    | apim:client_certificates_add           | &check; |                      | &check;            |                       |                      |                     |
-    | apim:publisher_settings                | &check; | &check;              | &check;            |                       |                      |                     |
-    | apim:store_settings                    | &check; |                      |                    | &check;               |                      |                     |
-    | apim:client_certificates_view          | &check; |                      | &check;            |                       |                      |                     |
-    | apim:mediation_policy_manage           | &check; |                      | &check;            |                       |                      |                     |
-    | apim:threat_protection_policy_create   | &check; |                      | &check;            |                       |                      |                     |
-    | apim:ep_certificates_add               | &check; |                      | &check;            |                       |                      |                     |
-    | apim:ep_certificates_view              | &check; |                      | &check;            |                       |                      |                     |
-    | apim:api_key                           | &check; |                      | &check;            |                       |                      |                     |
-    | apim_analytics:admin                   | &check; |                      |                    |                       |                      |                     |
-    | apim_analytics:product_manager         | &check; | &check;              | &check;            | &check;               |                      |                     |
-    | apim_analytics:api_developer           | &check; | &check;              | &check;            |                       |                      |                     |
-    | apim_analytics:app_developer           | &check; |                      |                    | &check;               |                      |                     |
-    | apim_analytics:devops_engineer         | &check; | &check;              | &check;            | &check;               |                      |                     |
-    | apim_analytics:analytics_viewer        | &check; |                      |                    |                       | &check;              |                     |
-    | apim_analytics:everyone                |         |                      |                    |                       |                      | &check;             |
-    | apim:pub_alert_manage                  | &check; |                      | &check;            |                       |                      |                     |
-    | apim:sub_alert_manage                  | &check; |                      |                    | &check;               |                      |                     |
-    | apim:tenantInfo                        | &check; |                      |                    |                       |                      |                     |
-    | apim:admin_operations                  | &check; |                      |                    |                       |                      |                     |
-
+     To perform **role mapping** or **scope mapping**, follow [Adding role permissions]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-permissions/#adding-role-based-permissions)
 
 ### Editing or deleting a role
 
@@ -232,7 +125,6 @@ This will update all scope mappings in tenant-conf.json with Internal/creator as
 
 !!! info
         If the role is in an external user store to which you are connected in read-only mode, you will be able to view the existing roles but not edit or delete them. However, you can still create new editable roles.
-
 
 #### Update before the first startup (recommended)
 
