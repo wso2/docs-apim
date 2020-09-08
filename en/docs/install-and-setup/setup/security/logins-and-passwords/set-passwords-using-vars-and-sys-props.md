@@ -48,7 +48,7 @@ The instructions on this page explain how you can set the passwords of system us
         * On Linux: `./wso2server.sh -Dadmin.password=admin`
         * On Windows: `./wso2server.bat -Dadmin.password=admin`
       
-    -   Configure the system property in `<APIM_HOME>/bin/wso2carbon.sh` .
+    -   Configure the system property in `<APIM_HOME>/bin/wso2server.sh` .
         
         ```bash
         -Dadmin.password=admin \
