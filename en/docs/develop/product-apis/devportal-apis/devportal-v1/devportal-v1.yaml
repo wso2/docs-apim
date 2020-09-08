@@ -102,6 +102,18 @@ info:
     Now you have a valid access token, which you can use to invoke an API. 
     Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. 
     If you use a different authentication mechanism, this process may change.
+
+    # Try out in Postman
+
+    If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
+
+    * All of the collection resources are configured to work with both Oauth2 Bearer and basic authentication schemes, with basic authentication scheme enabled by default.
+    Default credentials for Basic Authentication are `admin:admin`. If you want to use a different user credential please update the `base64(username:password)` parameter in the postman collection.
+    * If you want to use Oauth2 Bearer authentication scheme, please update the `access-token` parameter with the access-token received in above step. Then under the request headers, enable `Authorization: Bearer xxxx` header and disable `Authorization: Basic xxxx` header.
+    * Update the `basepath` parameter to match the hostname and port.
+
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5bc0161b8aa7e701d7bf)
+
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -5035,7 +5047,6 @@ definitions:
         readOnly: true
         description: The UUID of the subscription
         example: faae5fcc-cbae-40c4-bf43-89931630d313
-        readOnly: true
       applicationId:
         type: string
         description: The UUID of the application
