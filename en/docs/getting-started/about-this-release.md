@@ -4,17 +4,17 @@ WSO2 API Manager is a platform for creating, managing, consuming, and monitoring
 
 WSO2 API Manager comprises of the following modules:
 
-- **API Publisher**: Allows API creators to design, implement and document APIs and allows API product managers to manage the lifecycle of APIs and create API products by using one or more APIs.
+- **API Publisher**: Allows API creators to design, implement, and document APIs and allows API product managers to manage the lifecycle of APIs and create API products by using one or more APIs.
 
 - **Developer Portal**: A portal for onboarding application creators. It allows application creators to discover, subscribe, test and consume APIs through their applications.
 
--**API Gateway**: Allows access to APIs/services by routing application traffic to the relevant endpoints. The API Gateway is the component that enforces security, rate-limiting and transformations on API requests while feeding valuable information of these requests to API Analytics.
+- **API Gateway**: Allows access to APIs/services by routing application traffic to the relevant endpoints. The API Gateway is the component that enforces security, rate-limiting and transformations on API requests while feeding valuable information of these requests to API Analytics.
 
--** Key Manager**: The security token service of the API Manager which is responsible for handling everything related to authentication and authorization of API requests. It supports a wide variety of security protocols such as OAuth2.0/OIDC, Basic Auth, API Key, SAML based single-sign-on.
+- **Key Manager**: The security token service of the API Manager which is responsible for handling everything related to authentication and authorization of API requests. It supports a wide variety of security protocols such as OAuth2.0/OIDC, Basic Auth, API Key, SAML based single-sign-on.
 
--**Traffic Manager**: Controls the traffic flow of the API gateway. This is used to apply request quotas on APIs for monetization, access control or security-related matters. In addition to configuring the available policies, users can deploy their own policies on the traffic manager which will control the rate of traffic on the API gateways.
+- **Traffic Manager**: Controls the traffic flow of the API gateway. This is used to apply request quotas on APIs for monetization, access control or security-related matters. In addition to configuring the available policies, users can deploy their own policies on the traffic manager which will control the rate of traffic on the API gateways.
 
--**API Analytics**: Monitors all traffic that's routed through the API gateways to analyze usage patterns, SLA violations, consumer behaviours, to provide business insights and so on.
+- **API Analytics**: Monitors all traffic that's routed through the API gateways to analyze usage patterns, SLA violations, consumer behaviors, to provide business insights and so on.
 
 
 For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 3.2.0 documentation]({{base_path}}/getting-started/overview/) and go to the [product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
@@ -166,17 +166,17 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **Cross tenant Subscription**
 
-- [Admin Portal](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/) v0.17 based REST APIs.
+- **[Admin Portal](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/) v0.17 based REST APIs**.
 
 ### Removed features and functionalities
 
-- Tag wise grouping
+- **Tag wise grouping**
 
      API categories are used for API grouping, similar to Tag wise grouping. However, the user does not have to go through the hassle of following a naming convention when creating API categories. Therefore, with the introduction of the API categories, the Tag wise grouping feature has been removed. 
 
-- [Developer Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16/), [Publisher](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16/), and [Admin Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/) v0.16 based REST APIs.
+- **[Developer Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16/), [Publisher](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16/), and [Admin Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/) v0.16 based REST APIs**.
 
-- Developer Portal and Publisher v0.17 based REST APIs.
+- **Developer Portal and Publisher v0.17 based REST APIs**.
 
 ## Compatible WSO2 product versions
 
