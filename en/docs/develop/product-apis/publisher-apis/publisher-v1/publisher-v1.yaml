@@ -218,7 +218,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/apis_get.yaml
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis"
       parameters:
@@ -299,7 +299,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/apis_post.yaml
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis"
       parameters:
@@ -368,7 +368,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"endpointId\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created.\\\"}}}},\\\"/menu\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Return a list of available menu items\\\",\\\"parameters\\\":[],\\\"responses\\\":{\\\"200\\\":{\\\"headers\\\":{},\\\"schema\\\":{\\\"title\\\":\\\"Menu\\\",\\\"properties\\\":{\\\"list\\\":{\\\"items\\\":{\\\"$ref\\\":\\\"#/definitions/MenuItem\\\"},\\\"type\\\":\\\"array\\\"}},\\\"type\\\":\\\"object\\\"},\\\"description\\\":\\\"OK.\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"MenuItem\\\":{\\\"title\\\":\\\"Pizza menu Item\\\",\\\"properties\\\":{\\\"price\\\":{\\\"type\\\":\\\"string\\\"},\\\"description\\\":{\\\"type\\\":\\\"string\\\"},\\\"name\\\":{\\\"type\\\":\\\"string\\\"},\\\"image\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"name\\\"]},\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"integer\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\":    [\r\n      \"http\",\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\"],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 5000,\r\n      \"production\": 1000\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       summary: Get Details of an API
@@ -433,7 +433,7 @@ paths:
       x-wso2-request: "PUT https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"endpointId\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created.\\\"}}}},\\\"/menu\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Return a list of available menu items\\\",\\\"parameters\\\":[],\\\"responses\\\":{\\\"200\\\":{\\\"headers\\\":{},\\\"schema\\\":{\\\"title\\\":\\\"Menu\\\",\\\"properties\\\":{\\\"list\\\":{\\\"items\\\":{\\\"$ref\\\":\\\"#/definitions/MenuItem\\\"},\\\"type\\\":\\\"array\\\"}},\\\"type\\\":\\\"object\\\"},\\\"description\\\":\\\"OK.\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"MenuItem\\\":{\\\"title\\\":\\\"Pizza menu Item\\\",\\\"properties\\\":{\\\"price\\\":{\\\"type\\\":\\\"string\\\"},\\\"description\\\":{\\\"type\\\":\\\"string\\\"},\\\"name\\\":{\\\"type\\\":\\\"string\\\"},\\\"image\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"name\\\"]},\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"integer\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\":    [\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\",\"chicken\"],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 500,\r\n      \"production\": 100\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"endpointId\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created.\\\"}}}},\\\"/menu\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Return a list of available menu items\\\",\\\"parameters\\\":[],\\\"responses\\\":{\\\"200\\\":{\\\"headers\\\":{},\\\"schema\\\":{\\\"title\\\":\\\"Menu\\\",\\\"properties\\\":{\\\"list\\\":{\\\"items\\\":{\\\"$ref\\\":\\\"#/definitions/MenuItem\\\"},\\\"type\\\":\\\"array\\\"}},\\\"type\\\":\\\"object\\\"},\\\"description\\\":\\\"OK.\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"MenuItem\\\":{\\\"title\\\":\\\"Pizza menu Item\\\",\\\"properties\\\":{\\\"price\\\":{\\\"type\\\":\\\"string\\\"},\\\"description\\\":{\\\"type\\\":\\\"string\\\"},\\\"name\\\":{\\\"type\\\":\\\"string\\\"},\\\"image\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"name\\\"]},\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"integer\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\": [\"https\"],\r\n   \"tags\":    [\r\n      \"chicken\",\r\n      \"pizza\"\r\n   ],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 500,\r\n      \"production\": 100\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       security:
@@ -522,7 +522,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       security:
@@ -582,7 +582,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 329\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-policy\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/swagger"
       summary: Get API Swagger Definition
@@ -657,7 +657,7 @@ paths:
         --------------------------4f51e636c0003d99--
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-policy\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F apiDefinition=@swagger.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/swagger"
       security:
@@ -747,7 +747,7 @@ paths:
       operationId: generateMockScripts
       summary: Generate Mock Response Payloads
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/generate-mock-scripts"
       description: |
@@ -811,7 +811,7 @@ paths:
       operationId: getGeneratedMockScriptsOfAPI
       summary: Fetch Generated Mock Response Payloads
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/generated-mock-scripts"
       description: |
@@ -877,7 +877,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n    \"list\": [\r\n        {\r\n            \"id\": \"1990b54c-6685-4058-a08c-8fd5353056a6\",\r\n            \"httpVerb\": \"get\",\r\n            \"resourcePath\": \"checkPhoneNumbers\",\r\n            \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\"\r\n        }\r\n    ],\r\n    \"count\": 1\r\n}"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies?resourcePath=checkPhoneNumber&verb=post&sequenceType=in"
       summary: Get Conversion Policy Definitions of API
@@ -960,7 +960,7 @@ paths:
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n            \"id\": \"6c735e1d-8041-4f1e-b246-d28edaa650b0\",\r\n            \"httpVerb\": \"post\",\r\n            \"resourcePath\": \"checkPhoneNumbers\",\r\n            \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\"\r\n}"
       summary: Get Resource Policy (inflow/outflow) Definition by Id
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies/8efc32a4-c7f1-4bee-b860-b7566e2bc0d5"
       description: |
@@ -1038,7 +1038,7 @@ paths:
         --------------------------4f51e636c0003d99--
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n            \"id\": \"6c735e1d-8041-4f1e-b246-d28edaa650b0\",\r\n            \"httpVerb\": \"post\",\r\n            \"resourcePath\": \"checkPhoneNumbers\",\r\n            \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\"\r\n}"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies/8efc32a4-c7f1-4bee-b860-b7566e2bc0d5"
       summary: Update Resource Policy(inflow/outflow) Definition
@@ -1121,7 +1121,7 @@ paths:
         Authorization: Bearer d34baf74-3f02-3929-814e-88b27f750ba9
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n\r\n[image content]"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"
       summary: Get Thumbnail Image
@@ -1198,7 +1198,7 @@ paths:
         --------------------------5e542e0e5b50e1e4--
       x-wso2-response: "HTTP/1.1 201 Created\r\nLocation: https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/thumbnail\r\nContent-Type: application/json\r\n\r\n{\r\n   \"relativePath\": \"/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/thumbnail\",\r\n   \"mediaType\": \"image/jpeg\"\r\n}"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=image.jpeg "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"
       summary: Upload a Thumbnail Image
@@ -1279,7 +1279,7 @@ paths:
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/publisher/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n[{\n   \"unitTime\": 60000,\n   \"tierPlan\": \"FREE\",\n   \"stopOnQuotaReach\": true,\n   \"policyLevel\": \"api\",\n   \"requestCount\": 1,\n   \"description\": \"Allows 1 request(s) per minute.\",\n   \"name\": \"Bronze\",\n   \"attributes\": {}\n}]"
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/subscription-policies"
       summary: |
@@ -1344,7 +1344,7 @@ paths:
             - apim:api_create
       summary: Create a New API Version
       x-code-samples:
-      - lang: Shell
+      - lang: Curl
         source: |-
           curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/copy-api?newVersion=2.0&defaultVersion=false&apiId=2fd14eb8-b828-4013-b448-0739d2e76bf7"
       description: |
@@ -1409,7 +1409,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish"
       summary: Change API Status
@@ -1524,7 +1524,7 @@ paths:
       \"admin\"\n  },\n { \"postState\" : \"Published\",\n    \"previousState\" : \"Created\",\n    \"updatedTime\" :
       \"Feb 23, 2017 5:17:17 PM\",\n    \"user\" : \"admin\"\n }\n]"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-history"
       summary: Get Lifecycle State Change History of the API
@@ -1582,7 +1582,7 @@ paths:
       x-wso2-response: "HTTP/1.1 200 OK\n Content-Type: application/json \n Content-Encoding: gzip \n Transfer-Encoding:
       chunked \n\n {  \n   \"lcName\":\"API_LIFECYCLE\",\n   \"state\":\"Published\",\n   \"lifecycleId\":\"2febf145f07e457c9643100b6ec60679\",\n   \"checkItemBeanList\":[  \n\n   ],\n   \"inputBeanList\":[  \n\n   ],\n   \"customCodeBeanList\":[  \n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Maintenance\"\n      },\n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Deprecated\"\n      },\n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Created\"\n      },\n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Prototyped\"\n      }\n   ],\n   \"availableTransitionBeanList\":[  \n      {  \n         \"event\":\"Move to Maintenance\",\n         \"targetState\":\"Maintenance\"\n      },\n      {  \n         \"event\":\"Deploy as a Prototype\",\n         \"targetState\":\"Prototyped\"\n      },\n      {  \n         \"event\":\"Demote to Created\",\n         \"targetState\":\"Created\"\n      },\n      {  \n         \"event\":\"Deprecate\",\n         \"targetState\":\"Deprecated\"\n      },\n      {  \n         \"event\":\"Publish\",\n         \"targetState\":\"Published\"\n      }\n   ],\n   \"permissionBeanList\":[  \n\n   ]\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-state"
       summary: Get Lifecycle State Data of the API
@@ -1650,7 +1650,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-state/pending-tasks"
       summary: Delete Pending Lifecycle State Change Tasks
@@ -1696,7 +1696,7 @@ paths:
             - apim:api_create
       summary: Import an OpenAPI Definition
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@openapi.json -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-openapi"
       description: |
@@ -1776,7 +1776,7 @@ paths:
             - apim:api_create
       summary: Import a WSDL Definition
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
       operationId: importWSDLDefinition
@@ -1871,7 +1871,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@schema.graphql -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-graphql-schema"
       summary: Import GraphQL Schema Definition
@@ -1942,7 +1942,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@openapi.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate-openapi"
       summary: Validate an OpenAPI Definition
@@ -2008,7 +2008,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate-endpoint?apiId=e0824883-3e86-403a-aec1-22bbc454eb7c&endpointUrl=https%3A%2F%2Flocalhost%3A9443%2Fam%2Fsample%2Fpizzashack%2Fv1%2Fapi%2F"
       summary: Check whether Given Endpoint URL is Valid
@@ -2063,7 +2063,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/apis_validate.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate?query=name%3Awso2"
       security:
@@ -2128,7 +2128,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate-wsdl"
       summary: Validate a WSDL Definition
@@ -2188,7 +2188,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@schema.graphql "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate-graphql-schema"
       summary: Validate GraphQL Schema Definition
@@ -2245,7 +2245,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n{\r\n   \"name\": \"admin--hello1.0.0.graphql\",\r\n   \"schemaDefinition\": \"schema {\r\n  \r\n  # The query root of HackerNews GraphQL interface.\r\n  query: Query\r\n\r\n  # The root query for implementing GraphQL mutations.\r\n  mutation: Mutation\r\n}\r\n\r\ntype Link {\r\n\r\n  # ID of the link\r\n  id: ID!\r\n\r\n  # URL of the link\r\n  url: String!\r\n\r\n  # Description of the link\r\n  description: String\r\n}\r\n\r\ninput LinkFilter {\r\n\r\n  # Value to be checked whether it contains in the description\r\n  description_contains: String\r\n\r\n  # Value to be checked whether it contains in the URL\r\n  url_contains: String\r\n}\r\n\r\ntype Query {\r\n\r\n  # Fetches all the links\r\n  #\r\n  # Arguments\r\n  # filter: To filter the links according a specific criteria\r\n  # skip: Skip to a specific index in the list (default value is 0)\r\n  # first: Index of the link first to display (default value is 0)\r\n  allLinks(filter: LinkFilter, skip: Int = 0, first: Int = 0): [Link]\r\n}\r\n\r\ntype Mutation {\r\n\r\n  # Creates a new link\r\n  #\r\n  # Arguments\r\n  # url: URL of the link\r\n  # description: Description about the link\r\n  createLink(url: String!, description: String!): Link\r\n}\r\n\"\r\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/graphql-schema"
       summary: Get the Schema of a GraphQL API
@@ -2308,7 +2308,7 @@ paths:
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n{\r\n   \"name\": \"admin--HackerNewsAPI1.0.0.graphql\",\r\n   \"schemaDefinition\": \"schema {\r\n  \r\n  # The query root of HackerNews GraphQL interface.\r\n  query: Query\r\n\r\n  # The root query for implementing GraphQL mutations.\r\n  mutation: Mutation\r\n}\r\n\r\ntype Link {\r\n\r\n  # ID of the link\r\n  id: ID!\r\n\r\n  # URL of the link\r\n  url: String!\r\n\r\n  # Description of the link\r\n  description: String\r\n}\r\n\r\ninput LinkFilter {\r\n\r\n  # Value to be checked whether it contains in the description\r\n  description_contains: String\r\n\r\n  # Value to be checked whether it contains in the URL\r\n  url_contains: String\r\n}\r\n\r\ntype Query {\r\n\r\n  # Fetches all the links\r\n  #\r\n  # Arguments\r\n  # filter: To filter the links according a specific criteria\r\n  # skip: Skip to a specific index in the list (default value is 0)\r\n  # first: Index of the link first to display (default value is 0)\r\n  allLinks(filter: LinkFilter, skip: Int = 0, first: Int = 0): [Link]\r\n}\r\n\r\ntype Mutation {\r\n\r\n  # Creates a new link\r\n  #\r\n  # Arguments\r\n  # url: URL of the link\r\n  # description: Description about the link\r\n  createLink(url: String!, description: String!): Link\r\n}\r\n\"\r\n}"
       summary: Add a Schema to a GraphQL API
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F schemaDefinition=@schema.graphql "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/graphql-schema"
       description: |
@@ -2392,7 +2392,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"count\": \"2\",\n   \"list\": [\n      \"arn:aws:lambda:us-west-2:123456789012:function:my-function1\",\n      \"arn:aws:lambda:us-west-2:123456789012:function:my-function2\"\n   ]\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/amznResourceNames"
       summary: Retrieve the ARNs of AWS Lambda Functions
@@ -2437,7 +2437,7 @@ paths:
       x-wso2-request: "POST https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n{\r\n   \"enabled\":\"true\",\r\n   \"properties\":{\r\n      \"vendor\":\"test\",\r\n      \"type\":\"postpaid\"\r\n   }\r\n}"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n{\r\n   \"enabled\":\"true\",\r\n   \"properties\":{\r\n      \"vendor\":\"test\",\r\n      \"type\":\"postpaid\"\r\n   }\r\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize
       summary: Configure Monetization for a Given API
@@ -2493,7 +2493,7 @@ paths:
       x-wso2-request: "GET https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetization\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n{\r\n   \"enabled\":\"true\",\r\n   \"monetizedTiers\":{\r\n      \"tier1\":\"enabled\",\r\n      \"tier2\":\"disabled\"\r\n   }\r\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize"
       summary: Get Monetization Status for Each Tier in a Given API
@@ -2538,7 +2538,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"object\": \"invoice\",\n   \"account_country\": \"US\",\n   \"account_name\": \"test.com\",\n   \"amount_due\": \"0\",\n   \"amount_paid\": \"0\"\n  \"amount_remaining\": \"0\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/revenue"
       security:
@@ -2597,7 +2597,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"INLINE\",\n         \"sourceUrl\": null,\n         \"otherTypeName\": null,\n         \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n         \"summary\": \"This is a sample documentation for v1.0\",\n         \"name\": \"PhoneVerification API Documentation\",\n         \"type\": \"HOWTO\"\n      },\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"URL\",\n         \"sourceUrl\": \"http://wiki.cdyne.com/index.php/Phone_Verification\",\n         \"otherTypeName\": null,\n         \"documentId\": \"4145df31-04f1-440c-8d08-68952874622c\",\n         \"summary\": \"This is the URL for online documentation\",\n         \"name\": \"Online Documentation\",\n         \"type\": \"SAMPLES\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/documents"
       summary: Get API Documents of an API
@@ -2655,7 +2655,7 @@ paths:
           - apim:api_create
           - apim:document_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents"
       summary: Add a New Document to an API
@@ -2724,7 +2724,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5"
       summary: Get a Document of an API
@@ -2787,7 +2787,7 @@ paths:
           - apim:api_create
           - apim:document_manage
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @doc.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5"
       summary: Update a Document of an API
@@ -2865,7 +2865,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5"
       summary: Delete a Document of an API
@@ -2916,7 +2916,7 @@ paths:
         Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Disposition: attachment; filename=\"sample.pdf\"\nContent-Type: application/octet-stream\nContent-Length: 7802\n\n%PDF-1.4\n%äüöß\n2 0 obj\n<</Length 3 0 R/Filter/FlateDecode>>\nstream\n..\n>>\nstartxref\n7279\n%%EOF"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
       summary: Get the Content of an API Document
@@ -3011,7 +3011,7 @@ paths:
         --------------------------7b9a53f1ffa452b9--
       x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/documents/b3a79270-02bb-4e39-9ac1-90ce8f6c84af/content\nContent-Type: application/json\n\n{\n    \"visibility\":\"API_LEVEL\",\n    \"sourceType\":\"FILE\",\n    \"sourceUrl\":null,\n    \"otherTypeName\":null,\n    \"documentId\":\"daf732d3-bda2-46da-b381-2c39d901ea61\",\n    \"summary\":\"This is a sample documentation pdf\",\n    \"name\":\"Introduction to PhoneVerification API PDF\",\n    \"type\":\"HOWTO\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@sample.pdf "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
       summary: Upload the Content of an API Document
@@ -3095,7 +3095,7 @@ paths:
             - apim:api_create
             - apim:document_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/validate?name=CalculatorDoc"
       summary: Check whether a Document with the Provided Name Exist
@@ -3152,7 +3152,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies"
       summary: |
@@ -3210,7 +3210,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_post.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F mediationPolicyFile=@TokenExchange.xml -F type=in "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies"
       summary: Add an API Specific Mediation Policy
@@ -3298,7 +3298,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a"
       summary: Get an API Specific Mediation Policy
@@ -3361,7 +3361,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_delete.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a"
       summary: Delete an API Specific Mediation Policy
@@ -3413,7 +3413,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_content_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"
       summary: Download an API Specific Mediation Policy
@@ -3469,7 +3469,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_content_put.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@TokenExchange.xml -F type=@type.txt "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"
       summary: Update an API Specific Mediation Policy
@@ -3569,7 +3569,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/wsdl/apiId_wsdl_info_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/wsdl-info"
       parameters:
@@ -3621,7 +3621,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/wsdl/apiId_wsdl_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/wsdl"
       parameters:
@@ -3679,7 +3679,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/wsdl/apiId_wsdl_put.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/wsdl"
       parameters:
@@ -3756,7 +3756,7 @@ paths:
     get:
       summary: Get the Complexity Details of an API
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/graphql-policies/complexity"
       security:
@@ -3785,7 +3785,7 @@ paths:
     put:
       summary: Update Complexity Details of an API
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/graphql-policies/complexity"
       security:
@@ -3825,7 +3825,7 @@ paths:
     get:
       summary: Retrieve Types and Fields of a GraphQL Schema
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/graphql-policies/complexity/types"
       security:
@@ -3873,7 +3873,7 @@ paths:
       x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/apis/40082986-6488-4b86-801a-b0b069d4588c/resource-paths\r\nAuthorization: Bearer 5aa0acc0-0ce3-3a0b-8cc8-db5ef696ee23"
       x-wso2-response: ""
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/resource-paths"
       summary: Get Resource Paths of an API
@@ -3939,7 +3939,7 @@ paths:
       x-examples:
         $ref: "docs/examples/apis/apis_id_auditapi_get.yaml"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/auditapi"
       summary: Retrieve the Security Audit Report of the Audit API
@@ -3987,7 +3987,7 @@ paths:
       x-examples:
         $ref: docs/examples/external-stores/external_stores.yaml#/getPublishedExternalStoresByAPI
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/external-stores"
       summary: Get the List of External Stores to which the API is Published
@@ -4041,7 +4041,7 @@ paths:
       x-examples:
         $ref: docs/examples/external-stores/external_stores.yaml#/publishToExternalStore
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/publish-to-external-stores?externalStoreId=Store123#"
       summary: Publish an API to External Stores
@@ -4106,7 +4106,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\n Connection: keep-alive\n  Content-Disposition: attachment; filename=\"exported-api.zip\"\n  Content-Type: application/zip"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/export?apiId=96077508-fd01-4fae-bc64-5de0e2baf43c&name=PizzaShackAPI&version=1.0&provider=admin&format=YAML" > exportAPI.zip
       summary: Export an API
@@ -4196,7 +4196,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n \n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"subscriptionId\": \"64eca60b-2e55-4c38-8603-e9e6bad7d809\",\n         \"policy\": \"Gold\",\n         \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n         \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n         \"lifeCycleStatus\": \"UNBLOCKED\"\n      },\n            {\n         \"subscriptionId\": \"7ac22c34-8745-4cfe-91e0-262c50b2f2e3\",\n         \"policy\": \"Gold\",\n         \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n         \"applicationId\": \"367a2361-8db5-4140-8133-c6c8dc7fa0c4\",\n         \"lifeCycleStatus\": \"UNBLOCKED\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions?apiId=96077508-fd01-4fae-bc64-5de0e2baf43c"
       summary: Get all Subscriptions
@@ -4258,7 +4258,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"object\": \"invoice\",\n   \"account_country\": \"US\",\n   \"account_name\": \"test.com\",\n   \"amount_due\": \"0\",\n   \"amount_paid\": \"0\"\n  \"amount_remaining\": \"0\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/64eca60b-2e55-4c38-8603-e9e6bad7d809/usage"
       security:
@@ -4308,7 +4308,7 @@ paths:
         - OAuth2Security:
             - apim:subscription_view
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/64eca60b-2e55-4c38-8603-e9e6bad7d809/subscriber-info"
       summary: Get Details of a User who has Subscribed an API
@@ -4350,7 +4350,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n \n{\n   \"subscriptionId\": \"64eca60b-2e55-4c38-8603-e9e6bad7d809\",\n   \"policy\": \"Gold\",\n   \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n   \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n   \"lifeCycleStatus\": \"PROD_ONLY_BLOCKED\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/block-subscription?subscriptionId=64eca60b-2e55-4c38-8603-e9e6bad7d809&blockState=PROD_ONLY_BLOCKED"
       summary: Block a Subscription
@@ -4426,7 +4426,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8`
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"subscriptionId\": \"64eca60b-2e55-4c38-8603-e9e6bad7d809\",\n   \"policy\": \"Gold\",\n   \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n   \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n   \"lifeCycleStatus\": \"UNBLOCKED\"\n} "
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/unblock-subscription?subscriptionId=64eca60b-2e55-4c38-8603-e9e6bad7d809"
       summary: Unblock a Subscription
@@ -4490,7 +4490,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"unitTime\": 60000,\n         \"tierPlan\": \"FREE\",\n         \"tierLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 1,\n         \"description\": \"Allows 1 request(s) per minute.\",\n         \"name\": \"Bronze\",\n         \"attributes\": {}\n      },\n            {\n         \"unitTime\": 60000,\n         \"tierPlan\": \"FREE\",\n         \"tierLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 20,\n         \"description\": \"Allows 20 request(s) per minute.\",\n         \"name\": \"Gold\",\n         \"attributes\": {}\n      },\n            {\n         \"unitTime\": 60000,\n         \"tierPlan\": \"FREE\",\n         \"tierLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 5,\n         \"description\": \"Allows 5 request(s) per minute.\",\n         \"name\": \"Silver\",\n         \"attributes\": {}\n      },\n            {\n         \"unitTime\": 0,\n         \"tierPlan\": null,\n         \"policyLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 0,\n         \"description\": \"Allows unlimited requests\",\n         \"name\": \"Unlimited\",\n         \"attributes\": {}\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 4\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/throttling-policies/api"
       summary: Get All Throttling Policies for the Given Type
@@ -4551,7 +4551,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"unitTime\": 60000,\n   \"tierPlan\": \"FREE\",\n   \"policyLevel\": \"api\",\n   \"stopOnQuotaReach\": true,\n   \"requestCount\": 1,\n   \"description\": \"Allows 1 request(s) per minute.\",\n   \"name\": \"Bronze\",\n   \"attributes\": {}\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/throttling-policies/api/Platinum"
       summary: Get Details of a Policy
@@ -4624,7 +4624,7 @@ paths:
       x-examples:
         $ref: docs/examples/mediation-policies/mediation_policies_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/mediation-policies"
       summary: |
@@ -4682,7 +4682,7 @@ paths:
         - apim:api_view
         - apim:mediation_policy_view
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/mediation-policies/d48a3412-1b85-49be-99f4-b81a3722ae73/content" > mediation.xml
       summary: Download a Global Mediation Policy
@@ -4750,7 +4750,7 @@ paths:
                          \"apiId\":\"admin-mesting12da1-1.0.0\",\"tier\":\"Bronze\"}],\"pagination\":{\"total\":1,
                          \"offset\":0,\"limit\":25}}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates?alias=wso2carbon"
       summary: Retrieve/Search Uploaded Client Certificates
@@ -4828,7 +4828,7 @@ paths:
                         Server: WSO2 Carbon Server \
                         {\"alias\":\"alias\",\"apiId\":\"fea749dd-d548-4a8b-b308-34903b39a34b\",\"tier\":\"Gold\"}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=wso2carbon -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b -F tier=Gold "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates"
       summary: Upload a New Certificate
@@ -4907,7 +4907,7 @@ paths:
                         {\r\n\"alias\":\"newtest1\",\r\n\"apiId\":\"fea749dd-d548-4a8b-b308-34903b39a34b\",\r\n
                          \"tier\":\"Gold\"\r\n}\r\n"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=wso2carbon -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b -F tier=Gold "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon"
       summary: Update a Certificate
@@ -4987,7 +4987,7 @@ paths:
                                          -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'"
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon"
       summary: Delete a Certificate
@@ -5060,7 +5060,7 @@ paths:
                          14 15:46:22 IST 2019\"},\"version\":\"3\",\"subject\":\"EMAILADDRESS=wso2@wso2.com,
                          CN=WSO2, OU=test, O=WSO2, L=colombo, ST=Some-State, C=CA\"}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon"
       summary: Get the Certificate Information
@@ -5127,7 +5127,7 @@ paths:
                          Content-Length: 997
                          Server: WSO2 Carbon Server"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon/content"
       summary: Download a Certificate
@@ -5190,7 +5190,7 @@ paths:
       x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/certificates?alias=wso2carbon&endpoint=https://www.abc.com"
       x-wso2-response: "HTTP/1.1 200 OK \n\n{\n  \"count\":1,\n  \"next\":\"\",\n  \"previous\":\"\",\n\"certificates\":[\n   {\n    \"alias\":\"wso2carbon\",\n    \"endpoint\":\"https://www.abc.com\"\n   }\n],\n  \"pagination\":{\n    \"total\":1,\n          \"offset\":0,\n          \"limit\":25\n   } \n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/endpoint-certificates?alias=wso2carbon&endpoint=www.abc.com"
       summary: Retrieve/Search Uploaded Certificates
@@ -5260,7 +5260,7 @@ paths:
                         Server: WSO2 Carbon Server
                         {\"alias\": \"newtest1\",\"apiId\": \"4624bdfb-6acd-465a-8454-bac9c4c94d88\",\"tier\": \"Gold\"}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=alias -F "endpoint=endpoint=https://www.abc.com" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates"
       summary: Upload a New Certificate
@@ -5329,7 +5329,7 @@ paths:
       x-wso2-request: "PUT https://localhost:9443/api/am/publisher/v1/certificates/wso2carbon Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8 -F  \"certificate=@/home/user/wso2carbon.cert\""
       x-wso2-response: "HTTP/1.1 200 OK\r\n {\"alias\":wso2carbon,\"endpoint\":\"https://www.abc.com\"}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates/wso2carbon"
       summary: Update a Certificate
@@ -5395,7 +5395,7 @@ paths:
       x-wso2-request: "DELETE https://localhost:9443/api/am/publisher/v1/certificates/wso2carbon Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
       x-wso2-response: HTTP/1.1 200 OK
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/endpoint-certificates/wso2carbon"
       summary: Delete a Certificate
@@ -5454,7 +5454,7 @@ paths:
       x-wso2-request: "GET https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
       x-wso2-response: "HTTP/1.1 200 OK \nContent-Type: application/json\r\n {\n  \"status\":\"Active\",\n  \"validity\":{\n    \"from\":\"Fri May 04 19:01:01 IST 2018\",\n    \"to\":\"Thu Aug 02 19:01:01 IST 2018\"\n  }\n,  \"version\":\"3\",\n  \"subject\":\"CN=wso2.com, OU=wso2, O=wso2, L=Colombo, ST=Western, C=LK\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/endpoint-certificates/wso2carbon"
       summary: Get the Certificate Information
@@ -5509,7 +5509,7 @@ paths:
       x-wso2-request: "GET https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon/content Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
       x-wso2-response: "HTTP/1.1 200 OK\r\n [content of the certificate]"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/endpoint-certificates/wso2carbon/content"
       summary: Download a Certificate
@@ -5568,7 +5568,7 @@ paths:
       x-examples:
         $ref: docs/examples/apis/search_get.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/search?query=calculator"
       summary: |
@@ -5632,7 +5632,7 @@ paths:
         - OAuth2Security:
             - apim:api_view
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products?query=CalculatorAPIProduct"
       summary: |
@@ -5686,7 +5686,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/api-products"
       summary: Create a New API Product
@@ -5743,7 +5743,7 @@ paths:
             - apim:api_publish
             - apim:api_product_import_export
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33"
       summary: Delete an API Product
@@ -5786,7 +5786,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33"
       summary: Get Details of an API Product
@@ -5844,7 +5844,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33"
       summary: Update an API product
@@ -5922,7 +5922,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/thumbnail" > image.jpeg
       summary: Get API Product Thumbnail Image
@@ -5981,7 +5981,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F file=@image.jpeg "https://127.0.0.1:9443/api/am/publisher/v1/api-products/d48a3412-1b85-49be-99f4-b81a3722ae73/thumbnail"
       summary: Upload a Thumbnail Image
@@ -6054,7 +6054,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/swagger"
       summary: Get Swagger Definition of API Product
@@ -6115,7 +6115,7 @@ paths:
         - OAuth2Security:
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/is-outdated"
       summary: Check Whether API Product is Outdated
@@ -6184,7 +6184,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"INLINE\",\n         \"sourceUrl\": null,\n         \"otherTypeName\": null,\n         \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n         \"summary\": \"This is a sample documentation for v1.0\",\n         \"name\": \"PhoneVerification API Documentation\",\n         \"type\": \"HOWTO\"\n      },\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"URL\",\n         \"sourceUrl\": \"http://wiki.cdyne.com/index.php/Phone_Verification\",\n         \"otherTypeName\": null,\n         \"documentId\": \"4145df31-04f1-440c-8d08-68952874622c\",\n         \"summary\": \"This is the URL for online documentation\",\n         \"name\": \"Online Documentation\",\n         \"type\": \"SAMPLES\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents"
       summary: Get a List of API Product Documents
@@ -6242,7 +6242,7 @@ paths:
       x-wso2-request: "POST https://localhost:9443/api/am/publisher/v1/api-products/96077508-fd01-4fae-bc64-5de0e2baf43c/documents\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n    \"visibility\": \"API_LEVEL\",\n    \"sourceType\": \"INLINE\",\n    \"sourceUrl\": null,\n    \"otherTypeName\": null,\n    \"summary\": \"This is a sample documentation\",\n    \"name\": \"Introduction to PhoneVerification API\",\n    \"type\": \"HOWTO\"\n}"
       x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"Introduction to PhoneVerification API\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents"
       summary: Add a New Document to an API Product
@@ -6310,7 +6310,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3"
       summary: Get a Document of an API
@@ -6374,7 +6374,7 @@ paths:
       x-wso2-request: "PUT https://localhost:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\nAuthorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3"
       summary: Update a Document of an API Product
@@ -6451,7 +6451,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3"
       summary: Delete a Document of an API Product
@@ -6500,7 +6500,7 @@ paths:
         Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Disposition: attachment; filename=\"sample.pdf\"\nContent-Type: application/octet-stream\nContent-Length: 7802\n\n%PDF-1.4\n%äüöß\n2 0 obj\n<</Length 3 0 R/Filter/FlateDecode>>\nstream\n..\n>>\nstartxref\n7279\n%%EOF"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3/content"
       summary: Get the Content of an API Product Document
@@ -6595,7 +6595,7 @@ paths:
         --------------------------7b9a53f1ffa452b9--
       x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/documents/b3a79270-02bb-4e39-9ac1-90ce8f6c84af/content\nContent-Type: application/json\n\n{\n    \"visibility\":\"API_LEVEL\",\n    \"sourceType\":\"FILE\",\n    \"sourceUrl\":null,\n    \"otherTypeName\":null,\n    \"documentId\":\"daf732d3-bda2-46da-b381-2c39d901ea61\",\n    \"summary\":\"This is a sample documentation pdf\",\n    \"name\":\"Introduction to PhoneVerification API PDF\",\n    \"type\":\"HOWTO\"\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F file=@sample.pdf "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3/content"
       summary: Upload Content to an API Product Document
@@ -6680,7 +6680,7 @@ paths:
             - apim:api_create
             - apim:api_publish
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"
       operationId: validateSystemRole
@@ -6714,7 +6714,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/me/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"
       operationId: validateUserRole
@@ -6751,7 +6751,7 @@ paths:
       x-examples:
         $ref: docs/examples/external-stores/external_stores.yaml#/getAllExternalStores
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/external-stores"
       summary: Retrieve List of External Stores
@@ -6781,7 +6781,7 @@ paths:
     get:
       summary: Retreive publisher settings
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/settings"
       security:
@@ -6823,7 +6823,7 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"list\": [   {\n      \"showInApiConsole\": true,\n      \"serverUrl\": \"https://localhost:9443/services/\",\n      \"endpoints\":       {\n         \"http\": \"http://localhost:8280\",\n         \"https\": \"https://localhost:8243\"\n      },\n      \"name\": \"Production and Sandbox\",\n      \"type\": \"hybrid\"\n   }],\n   \"count\": 1\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/settings/gateway-environments"
       summary: Get All Gateway Environments
@@ -6875,7 +6875,7 @@ paths:
       x-examples:
         $ref: docs/examples/tenants/tenants.yaml
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/tenants?state=active"
       summary: |
@@ -6940,7 +6940,7 @@ paths:
         $ref: docs/examples/alerts/alerts.yaml#/get
       operationId: getPublisherAlertTypes
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/alert-types"
       summary: |
@@ -6979,7 +6979,7 @@ paths:
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/alert-subscriptions"
       summary: |
@@ -7018,7 +7018,7 @@ paths:
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/put
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/alert-subscriptions"
       summary: |
@@ -7068,7 +7068,7 @@ paths:
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/delete
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/alert-subscriptions"
       summary: |
@@ -7108,7 +7108,7 @@ paths:
       x-examples:
         $ref: docs/examples/alerts/alerts_config.yaml#/get
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/alerts/{alertType}/configurations"
       summary: |
@@ -7251,7 +7251,7 @@ paths:
       summary:
         Check Whether the Given Tenant already Exists
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/tenants/wso2.com"
       description: |
@@ -7289,7 +7289,7 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/labels\""
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"count\": 1,\r\n  \"list\": [\r\n	{\r\n	\"id\":\"d7cf8523-9180-4255-84fa-6cb171c1f779\",\r\n	\"name\":\"internal\",\r\n	\"description\":\"label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n       }\r\n   ]\r\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/labels"
       summary: Get All Registered Labels
@@ -7323,7 +7323,7 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1.1/api-categories\""
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      }\r\n   ]\r\n}"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-categories"
       summary: Get all API categories
@@ -7354,7 +7354,7 @@ paths:
       description: |
         This operation can be used to get all the available Shared Scopes.
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes"
       summary: Get All Available Shared Scopes
@@ -7390,7 +7390,7 @@ paths:
             - apim:shared_scope_manage
       summary: Add a New Shared Scope
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/scopes"
       description: |
@@ -7443,7 +7443,7 @@ paths:
             - apim:api_view
       summary: Get a Shared Scope by Scope Id
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901"
       description: |
@@ -7481,7 +7481,7 @@ paths:
             - apim:shared_scope_manage
       summary: Update a Shared Scope
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901"
       description: |
@@ -7532,7 +7532,7 @@ paths:
             - apim:shared_scope_manage
       summary: Delete a Shared Scope
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901"
       description: |
@@ -7566,7 +7566,7 @@ paths:
       summary:
         Check Whether Given Scope Name Already Exists
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/YXBpbTphcGlfdmlldw"
       description: |
@@ -7598,7 +7598,7 @@ paths:
       description: |
         This operation can be used to retrieve usages of a Shared Scope by a given scope Id.
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901/usage"
       operationId: getSharedScopeUsages
@@ -7637,7 +7637,7 @@ paths:
         - OAuth2Security:
             - apim:api_create
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/key-managers"
       summary: Get All Key Managers
@@ -7671,7 +7671,7 @@ paths:
       x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/deployments"
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/deployments"
       summary: Retrieve Deployment Environments Details
@@ -7728,7 +7728,7 @@ paths:
       x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/deployments"
       x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
-        - lang: Shell
+        - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/92bc1330-1848-4fe8-b992-c792186c212e/deployments/"
       summary: Retrieve Deployment Status Details
