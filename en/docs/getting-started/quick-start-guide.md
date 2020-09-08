@@ -363,3 +363,4 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
     </div> 
 
    [![PetStore response]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)]({{base_path}}/assets/img/get_started/qsg-petstore-response.png)
+https://github.com/wso2/docs-apim/pull/1860
