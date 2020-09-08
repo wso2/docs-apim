@@ -51,13 +51,11 @@ Follow the instructions below to skip role validation for scopes:
 
 5.  Shut down the server.
 
-6.  To allowlist the scope, add the following under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/api-manager.xml` file and restart the server.
+6.  To allowlist the scope, add the following under the `<OAuthConfigurations>` element in the `<APIM_HOME>/repository/conf/deployment.toml` file and restart the server.
 
-    ``` xml
-    <ScopeWhitelist>
-        <Scope>^device_.*</Scope>
-        <Scope>some_random_scope</Scope>
-    </ScopeWhitelist>
+    ``` toml
+     [apim.oauth_config]
+     allowed_scopes = ["^device_.*", "openid", "some_random_scope"]
     ```
 
 7.  Call the token API using the same request used in step 4. 
