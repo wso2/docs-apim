@@ -23,14 +23,14 @@ info:
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - Developer Portal.
 
-    It is written with [OpenAPI Specification 3.0](http://swagger.io/).
+    It is written with [Swagger 2.0](http://swagger.io/).
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
-    the the API you need to obtain an access token with the required scopes. This guide will walk you through the steps
+    the API, you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
 
-    First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preffered grant types
+    First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
     in the payload. A Sample payload is shown below
     ```
       {
@@ -41,7 +41,7 @@ info:
       "saasApp":true
       }
     ```
-    Create a file (payload.json) with the above sameple payload, and use the curl shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
+    Create a file (payload.json) with the above sameple payload, and use the curl shown below to invoke the DCR endpoint. Authorization header of this should contain the
     base64 encoded admin username and password
 
     Format of the request
@@ -72,7 +72,7 @@ info:
     ```
     Next you must use the above client id and secrect to obtain the access token. 
     We will be using the password grant type for this, you can use any grant type you desire.
-    You also need to add the proper **scope** when getting the access token. All possible scopes for publisher rest api can be viewed in **OAuth2 security** section 
+    You also need to add the proper **scope** when getting the access token. All possible scopes for devportal rest api can be viewed in **OAuth2 security** section
     of this document and scope for each resource is given in **authorization** section of resource documentation
 
     Following is the format of the request if you are using the password grant type
@@ -178,6 +178,10 @@ paths:
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"provider\": \"admin\",\n         \"version\": \"1.0.0\",\n         \"description\": \"This API provide Account Status Validation.\",\n         \"status\": \"PUBLISHED\",\n         \"name\": \"AccountVal\",\n         \"context\": \"/account/1.0.0\",\n         \"id\": \"2e81f147-c8a8-4f68-b4f0-69e0e7510b01\"\n      },\n            {\n         \"provider\": \"admin\",\n         \"version\": \"1.0.0\",\n         \"description\": null,\n         \"status\": \"PUBLISHED\",\n         \"name\": \"api1\",\n         \"context\": \"/api1/1.0.0\",\n         \"id\": \"3e22d2fb-277a-4e9e-8c7e-1c0f7f73960e\"\n      },\n            {\n         \"provider\": \"admin\",\n         \"version\": \"2.0.0\",\n         \"description\": \"Verify a phone number\",\n         \"status\": \"PUBLISHED\",\n         \"name\": \"PhoneVerification\",\n         \"context\": \"/phoneverify/2.0.0\",\n         \"id\": \"c43a325c-260b-4302-81cb-768eafaa3aed\"\n      }\n   ],\n   \"count\": 3,\n   \"next\": \"\"\n}"
       x-examples:
         $ref: docs/examples/apis/apis.yaml#/get
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis"
       summary: |
         Retrieve/Search APIs
       description: |
@@ -185,7 +189,7 @@ paths:
 
         Each retrieved API is represented with a minimal amount of attributes. If you want to get complete details of an API, you need to use **Get details of an API** operation.
 
-        This operation supports retriving APIs of other tenants. The required tenant domain need to be specified as a header `X-WSO2-Tenant`. If not specified super tenant's APIs will be retrieved. If you used an Authorization header, the user's tenant associated with the access token will be used.
+        This operation supports retrieving APIs of other tenants. The required tenant domain need to be specified as a header `X-WSO2-Tenant`. If not specified super tenant's APIs will be retrieved. If you used an Authorization header, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * By default, this operation retrieves Published APIs. In order to retrieve Prototyped APIs, you need to use **query** parameter and specify **status:PROTOTYPED**.
@@ -248,12 +252,16 @@ paths:
       x-wso2-request: |
         GET https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n   \"thumbnailUrl\": null,\r\n   \"throttlingPolicies\": [\"Unlimited\"],\r\n   \"businessInformation\":    {\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"businessOwner\": \"Jane Roe\",\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\"\r\n   },\r\n   \"apiDefinition\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-tier\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"},\\\"Content-Type\\\":{\\\"description\\\":\\\"The content type of the body.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created. Successful response with the newly created object as entity in the body. Location header contains URL of newly created entity.\\\"}}}},\\\"/order/{orderId}\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-tier\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Get details of an Order\\\",\\\"parameters\\\":[{\\\"description\\\":\\\"Order Id\\\",\\\"name\\\":\\\"orderId\\\",\\\"format\\\":\\\"string\\\",\\\"type\\\":\\\"string\\\",\\\"required\\\":true,\\\"in\\\":\\\"path\\\"}],\\\"responses\\\":{\\\"200\\\":{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"headers\\\":{},\\\"description\\\":\\\"OK Requested Order will be returned\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"endpointURLs\": [   {\r\n      \"environmentName\": \"Production and Sandbox\",\r\n      \"environmentType\": \"hybrid\",\r\n      \"environmentURLs\":       {\r\n         \"http\": \"http://localhost:8280//pizzashack/1.0.0\",\r\n         \"https\": \"https://localhost:8243//pizzashack/1.0.0\"\r\n      }\r\n   }],\r\n   \"transport\":    [\r\n      \"http\",\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\"],\r\n   \"version\": \"1.0.0\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"provider\": \"admin\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"context\": \"/pizzashack/1.0.0\",\r\n   \"id\": \"8848faaa-7fd1-478a-baa2-48a4ebb92c98\",\r\n   \"status\": \"PUBLISHED\"\r\n}  "
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed"
       summary: |
         Get details of an API
       description: |
         Using this operation, you can retrieve complete details of a single API. You need to provide the Id of the API to retrive it.
 
-        `X-WSO2-Tenant` header can be used to retrive an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+        `X-WSO2-Tenant` header can be used to retrieve an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But if it is provided, it will be validated and checked for permissions of the user, hence you may be able to see APIs which are restricted for special permissions/roles. \n
@@ -275,7 +283,7 @@ paths:
               type: string
             Last-Modified:
               description: |
-                Date and time the resource has been modifed the last time.
+                Date and time the resource has been modified the last time.
                 Used by caches, or in conditional requests.
               type: string
           schema:
@@ -310,12 +318,16 @@ paths:
       x-wso2-curl: "curl https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-tier\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"x-wso2-security\": {\"apim\": {\"x-wso2-scopes\": []}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"2.0.0\"\n   }\n}\n"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
       summary: |
         Get swagger definition
       description: |
         You can use this operation to retrieve the swagger definition of an API.
 
-         `X-WSO2-Tenant` header can be used to retrive the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+         `X-WSO2-Tenant` header can be used to retrieve the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's swagger definition, you need to provide Authorization header.
@@ -375,12 +387,16 @@ paths:
       x-wso2-curl: "curl https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/graphql-schema"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-tier\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"x-wso2-security\": {\"apim\": {\"x-wso2-scopes\": []}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"2.0.0\"\n   }\n}\n"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/graphql-schema"
       summary: |
         Get graphQL definition
       description: |
         You can use this operation to retrieve the swagger definition of an API.
 
-         `X-WSO2-Tenant` header can be used to retrive the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
+         `X-WSO2-Tenant` header can be used to retrieve the swagger definition an API of a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
 
         **NOTE:**
         * This operation does not require an Authorization header by default. But in order to see a restricted API's swagger definition, you need to provide Authorization header.
@@ -437,6 +453,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/sdks/java
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-disposition : attachment; filename=\"Swagger Petstore_java_1.0.0.zip\"\nContent-type : application/zip"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/sdks/java" > Swagger Petstore_java_1.0.0.zip
       summary: |
         Generate a SDK for an API
       description: |
@@ -501,6 +521,10 @@ paths:
         - application/zip
       x-examples:
         $ref: docs/examples/apis/wsdl/apiId_wsdl_get.yaml
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/wsdl"
       summary: Get API WSDL definition
       description: |
         This operation can be used to retrieve the swagger definition of an API.
@@ -560,6 +584,10 @@ paths:
       x-wso2-curl: "curl https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"sourceType\": \"INLINE\",\n         \"sourceUrl\": null,\n         \"otherTypeName\": null,\n         \"documentId\": \"850a4f34-db2c-4d23-9d85-3f95fbfb082c\",\n         \"summary\": \"This is a sample documentation for v1.0\",\n         \"name\": \"PhoneVerification API Documentation\",\n         \"type\": \"HOWTO\"\n      },\n            {\n         \"sourceType\": \"URL\",\n         \"sourceUrl\": \"http://wiki.cdyne.com/index.php/Phone_Verification\",\n         \"otherTypeName\": null,\n         \"documentId\": \"98e18be8-5861-43c7-ba26-8cbbccd3a76f\",\n         \"summary\": \"This is the URL for online documentation\",\n         \"name\": \"Online Documentation\",\n         \"type\": \"SAMPLES\"\n      },\n            {\n         \"sourceType\": \"FILE\",\n         \"sourceUrl\": null,\n         \"otherTypeName\": null,\n         \"documentId\": \"b66451ff-c6c2-4f6a-b91d-3821dc119b04\",\n         \"summary\": \"This is a sample documentation pdf\",\n         \"name\": \"Introduction to PhoneVerification API PDF\",\n         \"type\": \"HOWTO\"\n      }\n   ],\n   \"count\": 3,\n   \"next\": \"\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
       summary: |
         Get a list of documents of an API
       description: |
@@ -622,6 +650,10 @@ paths:
       x-wso2-curl: "curl \"https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c\""
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"850a4f34-db2c-4d23-9d85-3f95fbfb082c\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
       summary: |
         Get a document of an API
       description: |
@@ -637,7 +669,7 @@ paths:
         - $ref: '#/parameters/requestedTenant'
         - $ref: '#/parameters/If-None-Match'
       tags:
-        - Documents
+        - API Documents
       responses:
         200:
           description: |
@@ -686,6 +718,10 @@ paths:
       x-wso2-curl: "curl \"https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content\" > sample.pdf"
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" \"https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content\" > sample.pdf"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Disposition: attachment; filename=\"sample.pdf\"\nContent-Type: application/octet-stream\nContent-Length: 7802\n\n%PDF-1.4\n%äüöß\n2 0 obj\n<</Length 3 0 R/Filter/FlateDecode>>\nstream\n..\n>>\nstartxref\n7279\n%%EOF"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
       summary: |
         Get the content of an API document
       description: |
@@ -769,6 +805,10 @@ paths:
       x-wso2-curl: "curl https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail > image.jpg"
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail > image.jpg"
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n\r\n[image content]"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail"
       summary: Get thumbnail image
       description: |
         This operation can be used to download a thumbnail image of an API.
@@ -830,6 +870,10 @@ paths:
     get:
       security:
         - OAuth2Security: []
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
       summary: Retrieve API ratings
       description: |
         This operation can be used to retrieve the list of ratings of an API.
@@ -869,6 +913,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       summary: Retrieve API rating of user
       description: |
         This operation can be used to get the user rating of an API.
@@ -924,6 +972,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X PUT -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       summary: Add or update logged in user's rating for an API
       description: |
         This operation can be used to add or update an API rating.
@@ -976,6 +1028,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       summary: Delete user API rating
       description: |
         This operation can be used to delete logged in user API rating.
@@ -1006,6 +1062,10 @@ paths:
       summary: Retrieve API comments
       security:
         - OAuth2Security: []
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
       description: |
         Get a list of Comments that are already added to APIs
       operationId: getAllCommentsOfAPI
@@ -1045,6 +1105,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
       operationId: addCommentToAPI
       parameters:
         - $ref: '#/parameters/apiId'
@@ -1109,6 +1173,10 @@ paths:
       summary: Get details of an API comment
       security:
         - OAuth2Security: []
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       description: |
         Get the individual comment given by a username for a certain API.
       operationId: getCommentOfAPI
@@ -1170,6 +1238,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       description: |
         Remove a Comment
       operationId: deleteComment
@@ -1215,6 +1287,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n[{\n   \"unitTime\": 60000,\n   \"tierPlan\": \"FREE\",\n   \"stopOnQuotaReach\": true,\n   \"policyLevel\": \"api\",\n   \"requestCount\": 1,\n   \"description\": \"Allows 1 request(s) per minute.\",\n   \"name\": \"Bronze\",\n   \"attributes\": {}\n}]"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
       summary: |
         Get details of the subscription throttling policies of an API
       description: |
@@ -1281,6 +1357,10 @@ paths:
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/store/v1/applications\""
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"groupId\": \"\",\n         \"subscriber\": \"admin\",\n         \"throttlingTier\": \"Unlimited\",\n         \"applicationId\": \"367a2361-8db5-4140-8133-c6c8dc7fa0c4\",\n         \"description\": \"\",\n         \"status\": \"APPROVED\",\n         \"name\": \"app1\"\n      },\n            {\n         \"groupId\": \"\",\n         \"subscriber\": \"admin\",\n         \"throttlingPolicy\": \"Unlimited\",\n         \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n         \"description\": null,\n         \"status\": \"APPROVED\",\n         \"name\": \"DefaultApplication\"\n      }\n   ],\n   \"count\": 2,\n   \"next\": \"\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications"
       summary: |
         Retrieve/Search applications
       description: |
@@ -1359,6 +1439,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://localhost:9443/api/am/store/v1/applications\""
       x-wso2-request: "POST https://localhost:9443/api/am/store/v1/applications\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n    \"throttlingPolicy\": \"Unlimited\",\n    \"description\": \"sample app description\",\n    \"name\": \"sampleapp\",\n    \"callbackUrl\": \"http://my.server.com/callback\"\n \"groupId\": \"org1\"\n}"
       x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/store/v1/applications/c30f3a6e-ffa4-4ae7-afce-224d1f820524\nContent-Type: application/json\n\n{\n   \"groupId\": null,\n   \"callbackUrl\": \"http://my.server.com/callback\",\n   \"subscriber\": \"admin\",\n   \"throttlingPolicy\": \"Unlimited\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"description\": \"sample app description\",\n   \"status\": \"APPROVED\",\n   \"name\": \"sampleapp\",\n   \"keys\": []\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications"
       summary: |
         Create a new application
       description: |
@@ -1438,6 +1522,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"groupId\": \"\",\n   \"callbackUrl\": null,\n   \"subscriber\": \"admin\",\n   \"throttlingPolicy\": \"Unlimited\",\n   \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n   \"description\": null,\n   \"status\": \"APPROVED\",\n   \"name\": \"DefaultApplication\",\n   \"keys\": [   {\n      \"consumerKey\": \"AVoREWiB16kY_GTIzscl40GYYZQa\",\n      \"consumerSecret\": \"KXQxmS8W3xDvvJH4AfR6xrhKIeIa\",\n      \"keyState\": \"COMPLETED\",\n      \"keyType\": \"PRODUCTION\",\n      \"supportedGrantTypes\": null,\n      \"token\":       {\n         \"validityTime\": 3600,\n         \"accessToken\": \"3887da6d111f0429c6dff47a46e87209\",\n         \"tokenScopes\":          [\n            \"am_application_scope\",\n            \"default\"\n         ]\n      }\n   }]\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
       summary: |
         Get details of an application
       description: |
@@ -1492,6 +1580,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X PUT -d @data.json \"https://localhost:9443/api/am/store/v1/applications/c30f3a6e-ffa4-4ae7-afce-224d1f820524\""
       x-wso2-request: "PUT https://localhost:9443/api/am/store/v1/applications/c30f3a6e-ffa4-4ae7-afce-224d1f820524\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n   \"callbackUrl\": \"\",\n   \"throttlingPolicy\": \"Bronze\",\n   \"description\": \"sample app description updated\",\n   \"name\": \"sampleapp\",\n    \"groupId\": \"org1\"\n}"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"groupId\": null,\n   \"callbackUrl\": \"\",\n   \"subscriber\": \"admin\",\n   \"throttlingPolicy\": \"Bronze\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"description\": \"sample app description updated\",\n   \"status\": \"APPROVED\",\n   \"name\": \"sampleapp\",\n   \"keys\": []\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
       summary: |
         Update an application
       description: |
@@ -1562,6 +1654,10 @@ paths:
         DELETE https://localhost:9443/api/am/store/v1/applications/367a2361-8db5-4140-8133-c6c8dc7fa0c4
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -X DELETE "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
       summary: |
         Remove an application
       description: |
@@ -1614,6 +1710,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/generate-keys"
       description: |
         Generate keys (Consumer key/secret) for application
       parameters:
@@ -1668,6 +1768,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/map-keys"
       description: |
         Map keys (Consumer key/secret) to an application
       parameters:
@@ -1722,6 +1826,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys"
       description: |
         Retrieve keys (Consumer key/secret) of application
       parameters:
@@ -1773,6 +1881,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n {\n      \"consumerKey\": \"QwEtRHd4NJkcFuRUfAT5af8XEEoa\",\n      \"consumerSecret\": \"7Fairfeu321ENjOR9w2xgJl3i70a\",\n       \"supportedGrantTypes\": [\n        \"refresh_token\",\n        \"urn:ietf:params:oauth:grant-type:saml2-bearer\",\n        \"password\",\n        \"client_credentials\",\n        \"iwa:ntlm\"\n      ],\n      \"callbackUrl\": \"http://sample/com/callback\",\n      \"keyState\": \"COMPLETED\",\n      \"keyType\": \"SANDBOX\"}\n"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
       summary: |
         Get key details of a given type
       description: |
@@ -1832,6 +1944,10 @@ paths:
            "callbackUrl": "http://sample/com/callback"
          }
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n {\n      \"consumerKey\": \"QwEtRHd4NJkcFuRUfAT5af8XEEoa\",\n      \"consumerSecret\": \"7Fairfeu321ENjOR9w2xgJl3i70a\",\n       \"supportedGrantTypes\": [\n        \"refresh_token\",\n        \"urn:ietf:params:oauth:grant-type:saml2-bearer\",\n        \"password\",\n        \"client_credentials\",\n        \"iwa:ntlm\"\n      ],\n      \"callbackUrl\": \"http://sample/com/callback\",\n      \"keyState\": \"COMPLETED\",\n      \"keyType\": \"PRODUCTION\"}\n"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
       summary: |
         Update grant types and callback url of an application
       description: |
@@ -1891,6 +2007,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json  \"https://localhost:9443/api/am/store/v1/applications/regenerate-consumersecret\""
       x-wso2-request: "POST https://localhost:9443/api/am/store/v1/applications/regenerate-consumersecret\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n  \"consumerKey\": \"AVoREWiB16kY_GTIzscl40GYYZQa\"\n}"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"consumerSecret\": \"8V7DDKtKGtuG_9GDjaOJ5sijdX0a\",\n   \"consumerKey\": \"LOFL8He72MSGVil4SS_bsh9O8MQa\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/regenerate-secret"
       summary: |
         Re-generate consumer secret
       description: |
@@ -1956,6 +2076,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/clean-up"
       summary: Clean up application keys
       description: |
         Clean up keys after failed key generation of an application
@@ -2005,6 +2129,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/keys/PRODUCTION/generate-token"
       summary: Generate application token
       description: |
         Generate an access token for application by client_credentials grant type
@@ -2062,6 +2190,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys"
       description: |
         Retrieve keys (Consumer key/secret) of application
       parameters:
@@ -2113,6 +2245,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n {\n      \"consumerKey\": \"QwEtRHd4NJkcFuRUfAT5af8XEEoa\",\n      \"consumerSecret\": \"7Fairfeu321ENjOR9w2xgJl3i70a\",\n       \"supportedGrantTypes\": [\n        \"refresh_token\",\n        \"urn:ietf:params:oauth:grant-type:saml2-bearer\",\n        \"password\",\n        \"client_credentials\",\n        \"iwa:ntlm\"\n      ],\n      \"callbackUrl\": \"http://sample/com/callback\",\n      \"keyState\": \"COMPLETED\",\n      \"keyType\": \"SANDBOX\"}\n"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
       summary: |
         Get key details of a given type
       description: |
@@ -2172,6 +2308,10 @@ paths:
            "callbackUrl": "http://sample/com/callback"
          }
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n {\n      \"consumerKey\": \"QwEtRHd4NJkcFuRUfAT5af8XEEoa\",\n      \"consumerSecret\": \"7Fairfeu321ENjOR9w2xgJl3i70a\",\n       \"supportedGrantTypes\": [\n        \"refresh_token\",\n        \"urn:ietf:params:oauth:grant-type:saml2-bearer\",\n        \"password\",\n        \"client_credentials\",\n        \"iwa:ntlm\"\n      ],\n      \"callbackUrl\": \"http://sample/com/callback\",\n      \"keyState\": \"COMPLETED\",\n      \"keyType\": \"PRODUCTION\"}\n"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
       summary: |
         Update grant types and callback url of an application
       description: |
@@ -2231,6 +2371,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json  \"https://localhost:9443/api/am/store/v1/applications/regenerate-consumersecret\""
       x-wso2-request: "POST https://localhost:9443/api/am/store/v1/applications/regenerate-consumersecret\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n  \"consumerKey\": \"AVoREWiB16kY_GTIzscl40GYYZQa\"\n}"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"consumerSecret\": \"8V7DDKtKGtuG_9GDjaOJ5sijdX0a\",\n   \"consumerKey\": \"LOFL8He72MSGVil4SS_bsh9O8MQa\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1//applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/regenerate-secret"
       summary: |
         Re-generate consumer secret
       description: |
@@ -2296,6 +2440,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/clean-up"
       summary: Clean up application keys
       description: |
         Clean up keys after failed key generation of an application
@@ -2345,6 +2493,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:app_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/{keyMappingId}/generate-token"
       summary: Generate application token
       description: |
         Generate an access token for application by client_credentials grant type
@@ -2403,6 +2555,10 @@ paths:
             - apim:subscribe
             - apim:app_manage
             - apim:api_key
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/generate"
       summary: Generate API Key
       description: |
         Generate a self contained API Key for the application
@@ -2458,6 +2614,10 @@ paths:
             - apim:subscribe
             - apim:app_manage
             - apim:api_key
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/revoke"
       summary: Revoke API Key
       description: |
         Revoke a self contained API Key for the application
@@ -2509,6 +2669,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/subscriptions?apiId=c43a325c-260b-4302-81cb-768eafaa3aed
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"throttlingPolicy\": \"Bronze\",\n         \"subscriptionId\": \"03b8ef2b-5ae5-41f5-968e-52fa7fbd5d33\",\n         \"apiIdentifier\": \"admin-PhoneVerification-2.0.0\",\n         \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n         \"status\": \"UNBLOCKED\"\n      },\n            {\n         \"throttlingPolicy\": \"Bronze\",\n         \"subscriptionId\": \"5ed42650-9f5e-4dd4-94f3-3f09f1b17354\",\n         \"apiIdentifier\": \"admin-PhoneVerification-2.0.0\",\n         \"applicationId\": \"846118a5-3b25-4c22-a983-2d0278936f09\",\n         \"status\": \"UNBLOCKED\"\n      }\n   ],\n   \"count\": 2,\n   \"next\": \"\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions?apiId=02e658e7-71c7-4b1d-a623-be145b789340"
       summary: |
         Get all subscriptions
       description: |
@@ -2566,6 +2730,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST  -d @data.json \"https://localhost:9443/api/am/store/v1/subscriptions\""
       x-wso2-request: "POST https://localhost:9443/api/am/store/v1/subscriptions\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n    \"throttlingPolicy\": \"Gold\",\n    \"apiIdentifier\": \"c43a325c-260b-4302-81cb-768eafaa3aed\",\n    \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\"\n}"
       x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9\nContent-Type: application/json\n\n{\n   \"throttlingPolicy\": \"Gold\",\n   \"subscriptionId\": \"5b65808c-cdf2-43e1-a695-de63e3ad0ae9\",\n   \"apiIdentifier\": \"admin-PhoneVerification-2.0.0\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"status\": \"UNBLOCKED\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions"
       summary: |
         Add a new subscription
       description: |
@@ -2636,6 +2804,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST  -d @data.json \"https://localhost:9443/api/am/store/v1/subscriptions/multiple\""
       x-wso2-request: "POST https://localhost:9443/api/am/store/v1/subscriptions/multiple\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n    \"throttlingPolicy\": \"Gold\",\n    \"apiIdentifier\": \"c43a325c-260b-4302-81cb-768eafaa3aed\",\n    \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\"\n}"
       x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9\nContent-Type: application/json\n\n{\n   \"throttlingPolicy\": \"Gold\",\n   \"subscriptionId\": \"5b65808c-cdf2-43e1-a695-de63e3ad0ae9\",\n   \"apiIdentifier\": \"admin-PhoneVerification-2.0.0\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"status\": \"UNBLOCKED\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions/multiple"
       summary: |
         Add new subscriptions
       description: |
@@ -2700,6 +2872,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"throttlingPolicy\": \"Gold\",\n   \"subscriptionId\": \"5b65808c-cdf2-43e1-a695-de63e3ad0ae9\",\n   \"apiIdentifier\": \"admin-PhoneVerification-2.0.0\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"status\": \"UNBLOCKED\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"
       summary: |
         Get details of a subscription
       description: |
@@ -2735,8 +2911,8 @@ paths:
             $ref: '#/definitions/Error'
 
     #-----------------------------------------------------
-# Update existing subscription
-#-----------------------------------------------------
+    # Update existing subscription
+    #-----------------------------------------------------
     put:
       security:
         - OAuth2Security:
@@ -2745,6 +2921,10 @@ paths:
       x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X PUT  -d @data.json \"https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9\""
       x-wso2-request: "PUT https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\n    \"throttlingPolicy\": \"Gold\",\n  \"requestedThrottlingPolicy\": \"Unlimited\",\n    \"apiId\": \"c43a325c-260b-4302-81cb-768eafaa3aed\",\n    \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\"\n    \"status\": \"UNBLOCKED\"\n}"
       x-wso2-response: "HTTP/1.1 200 Ok\nLocation: https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9\nContent-Type: application/json\n\n{\n   \"throttlingPolicy\": \"Gold\",\n   \"subscriptionId\": \"5b65808c-cdf2-43e1-a695-de63e3ad0ae9\",\n   \"apiIdentifier\": \"admin-PhoneVerification-2.0.0\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"status\": \"UNBLOCKED\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
       summary: |
         Update existing subscription
       description: |
@@ -2808,7 +2988,7 @@ paths:
             Unsupported media type.
             The entity of the request was in a not supported format.
 
-#-----------------------------------------------------
+    #-----------------------------------------------------
     # Delete a certain subscription
     #-----------------------------------------------------
     delete:
@@ -2820,6 +3000,10 @@ paths:
       x-wso2-request: |
         DELETE https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9
       x-wso2-response: "HTTP/1.1 200 OK"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X DELETE "https://localhost:9443/api/am/store/v1/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
       summary: |
         Remove a subscription
       description: |
@@ -2872,6 +3056,10 @@ paths:
         - OAuth2Security:
             - apim:subscribe
             - apim:sub_manage
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/usage"
       summary: Get details of a pending invoice for a monetized subscription with metered billing.
       description: |
         This operation can be used to get details of a pending invoice for a monetized subscription with metered billing.
@@ -2919,6 +3107,10 @@ paths:
       summary: Get all available throttling policies
       security:
         - OAuth2Security: []
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/throttling-policies/application"
       description: |
         Get available Throttling Policies
       parameters:
@@ -2971,6 +3163,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/throttling-policies/api/Bronze
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/throttling-policies/api/Bronze"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"unitTime\": 60000,\n   \"tierPlan\": \"FREE\",\n   \"stopOnQuotaReach\": true,\n   \"policyLevel\": \"api\",\n   \"requestCount\": 1,\n   \"description\": \"Allows 1 request(s) per minute.\",\n   \"name\": \"Bronze\",\n   \"attributes\": {}\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/throttling-policies/application/10PerMin"
       summary: |
         Get details of a throttling policy
       description: |
@@ -3035,6 +3231,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/tags
       x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/store/v1/tags"
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"weight\": 1,\n         \"name\": \"mobile\"\n      },\n            {\n         \"weight\": 1,\n         \"name\": \"multimedia\"\n      },\n            {\n         \"weight\": 1,\n         \"name\": \"phone\"\n      }\n   ],\n   \"count\": 3,\n   \"next\": \"\"\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/tags"
       summary: |
         Get all tags
       description: |
@@ -3097,6 +3297,10 @@ paths:
         GET https://localhost:9443/api/am/store/v0.13/search
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"provider\": \"admin\",\n         \"version\": \"1.0.0\",\n         \"description\": \"This sample API provides Account Status Validation\",\n         \"name\": \"AccountVal\",\n         \"context\": \"/account\",\n         \"id\": \"2e81f147-c8a8-4f68-b4f0-69e0e7510b01\",\n         \"status\": \"PUBLISHED\"\n      },\n            {\n         \"provider\": \"admin\",\n         \"version\": \"1.0.0\",\n         \"description\": null,\n         \"name\": \"api1\",\n         \"context\": \"/api1\",\n         \"id\": \"3e22d2fb-277a-4e9e-8c7e-1c0f7f73960e\",\n         \"status\": \"PUBLISHED\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/search?query=PizzaShackAPI"
       summary: |
         Retrieve/Search APIs and API Documents by content
       description: |
@@ -3161,6 +3365,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/sdk-gen/languages
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response:  "HTTP/1.1 200 OK\nContent-Type : application/json"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/sdk-gen/languages"
       summary:  |
         Get a list of supported SDK languages
       description:  |
@@ -3193,6 +3401,10 @@ paths:
     # Retrieve store settings
     #-----------------------------------------------------
     get:
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/settings"
       summary: Retreive store settings
       security:
         - OAuth2Security:
@@ -3234,6 +3446,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1/settings/attributes
         Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
       x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n[\n {\n \"Description\": \"Sample description of the attribute\",\n \"Required\": true,\n \"Attribute\": \"External Reference Id\",\n \"Hidden\": false\n},\n {\n \"Description\": \"Sample description of the attribute\",\n \"Required\": true,\n \"Attribute\": \"Billing Id\",\n \"Hidden\": true,\n \"Default\": \"xxxx\"\n}\n]"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/settings/application-attributes"
       summary: |
         Get all application attributes from configuration
       description: |
@@ -3279,8 +3495,12 @@ paths:
         - OAuth2Security: []
       x-examples:
         $ref: docs/examples/tenants/tenants.yaml
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/tenants"
       summary: |
-        Get get tenants by state
+        Get tenants by state
       description: |
         This operation is to get tenants by state
       parameters:
@@ -3337,6 +3557,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/recommendations"
       summary:
         Give API recommendations for a user
       description:
@@ -3374,6 +3598,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts.yaml#/get
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-types"
       operationId: getStoreAlertTypes
       summary: |
         Get the list of API Developer Portal alert types.
@@ -3410,6 +3638,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
         Get the list of API Developer Portal alert types subscribed by the user.
       operationId: getSubscribedAlertTypes
@@ -3445,6 +3677,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/put
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
         Subscribe to the selected alert types by the user.
       operationId: subscribeToAlerts
@@ -3491,6 +3727,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts_subscriptions.yaml#/delete
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
         Unsubscribe user from all the alert types.
       operationId: unsubscribeAllAlerts
@@ -3527,6 +3767,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts_config.yaml#/get
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations"
       summary: |
         Get all AbnormalRequestsPerMin alert configurations
       operationId: getAllAlertConfigs
@@ -3565,6 +3809,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts_config.yaml#/put
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations/UGV0c3RvcmUjMS4wI0FwcDE"
       summary: |
         Add AbnormalRequestsPerMin alert configurations.
       operationId: addAlertConfig
@@ -3617,6 +3865,10 @@ paths:
             - apim:sub_alert_manage
       x-examples:
         $ref: docs/examples/alerts/alerts_config.yaml#/delete
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations/UGV0c3RvcmUjMS4wI0FwcDE"
       summary: |
         Delete the selected configuration from AbnormalRequestsPerMin alert type.
       operationId: deleteAlertConfig
@@ -3666,6 +3918,10 @@ paths:
         GET https://localhost:9443/api/am/store/v1.1/api-categories
       x-wso2-curl: "curl -k \"https://localhost:9443/api/am/store/v1.1/api-categories\""
       x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      }\r\n   ]\r\n}"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/api-categories"
       summary: Get all API categories
       description: |
         Get all API categories
@@ -3692,6 +3948,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscribe
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/key-managers"
       summary: Get all Key Managers
       description: |
         Get all Key managers
@@ -3719,6 +3979,10 @@ paths:
       summary: Get the complexity related details of an API
       security:
         - OAuth2Security: []
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity"
       description: |
         This operation can be used to retrieve complexity related details belonging to an API by providing the API id.
       parameters:
@@ -3747,6 +4011,10 @@ paths:
       summary: Retrieve types and fields of a GraphQL Schema
       security:
         - OAuth2Security: []
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity/types"
       description: |
         This operation can be used to retrieve all types and fields of the GraphQL Schema by providing the API id.
       parameters:
@@ -3793,10 +4061,14 @@ paths:
           "newPassword": "54321"
         }
       x-wso2-response: "HTTP/1.1 200 OK"
+      x-code-samples:
+      - lang: Shell
+        source: |-
+          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/me/change-password"
       summary:
         Change the password of the user
       description: |
-        Using this operation, logged-in user can change his/her password.
+        Using this operation, logged-in user can change their password.
       parameters:
         - in: body
           name: body
@@ -3955,7 +4227,7 @@ parameters:
     name: policyId
     in: path
     description: |
-      Policy Id represented as a UUID
+      The name of the policy
     required: true
     type: string
 
@@ -4143,6 +4415,7 @@ definitions:
   #-----------------------------------------------------
   APIInfo:
     title: API Info object with basic API details.
+    readOnly: true
     properties:
       id:
         type: string
@@ -4483,6 +4756,7 @@ definitions:
       applicationId:
         type: string
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
         example: CalculatorApp
@@ -4500,8 +4774,8 @@ definitions:
         description: |
           Type of the access token generated for this application.
 
-          **OAUTH:** A UUID based access token which is issued by default.
-          **JWT:** A self-contained, signed JWT based access token. **Note:** This can be only used in Microgateway environments.
+          **OAUTH:** A UUID based access token.
+          **JWT:** A self-contained, signed JWT based access token which is issued by default.
         default: JWT
         example: JWT
       status:
@@ -4512,7 +4786,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ""
+        example: []
       subscriptionCount:
         type: integer
       keys:
@@ -4524,7 +4798,7 @@ definitions:
         type: object
         additionalProperties:
           type: string
-        example: External Reference ID, Billing Tier
+        example: {}
       subscriptionScopes:
         type: array
         items:
@@ -4537,12 +4811,14 @@ definitions:
         example: admin
       hashEnabled:
         type: boolean
+        example: false
 
   #-----------------------------------------------------
   # The Application Info resource
   #-----------------------------------------------------
   ApplicationInfo:
     title: Application info object with basic application details
+    readOnly: true
     properties:
       applicationId:
         type: string
@@ -4772,8 +5048,10 @@ definitions:
     properties:
       subscriptionId:
         type: string
+        readOnly: true
         description: The UUID of the subscription
         example: faae5fcc-cbae-40c4-bf43-89931630d313
+        readOnly: true
       applicationId:
         type: string
         description: The UUID of the application
@@ -4781,6 +5059,7 @@ definitions:
       apiId:
         type: string
         description: The unique identifier of the API.
+        example: 2962f3bb-8330-438e-baee-0ee1d6434ba4
       apiInfo:
         $ref: '#/definitions/APIInfo'
       applicationInfo:
@@ -4800,8 +5079,10 @@ definitions:
           - ON_HOLD
           - REJECTED
           - TIER_UPDATE_PENDING
+        readOnly: true
         example: UNBLOCKED
       redirectionParams:
+        readOnly: true
         type: string
         description: A url and other parameters the subscriber can be redirected.
 
@@ -4853,12 +5134,16 @@ definitions:
     properties:
       ratingId:
         type: string
+        readOnly: true
       apiId:
         type: string
+        example: "e93fb282-b456-48fc-8981-003fb89086ae"
       ratedBy:
         type: string
+        example: "admin"
       rating:
         type: integer
+        example: 4
 
   #-----------------------------------------------------
   # The Rating List resource
@@ -4899,13 +5184,16 @@ definitions:
     properties:
       id:
         type: string
+        readOnly: true
       content:
         type: string
+        example: "This is a comment"
       createdTime:
         type: string
         example: 2017-02-20T13:57:16.229
       createdBy:
         type: string
+        example: "admin"
 
 
   #-----------------------------------------------------
@@ -5175,18 +5463,22 @@ definitions:
       consumerSecret:
         type: string
         description: Consumer secret of the application
+        example: cV5pvyisxug5b5QZInq9cGZrMOMa
       validityPeriod:
         type: integer
         format: int64
         description: Token validity period
+        example: 3600
       scopes:
         type: array
         items:
           type: string
         description: Allowed scopes (space seperated) for the access token
+        example: ["apim:subscribe"]
       revokeToken:
         type: string
         description: Token to be revoked, if any
+        example: ""
       additionalProperties:
         type: object
         description: Additional parameters if Authorization server needs any
@@ -5201,6 +5493,7 @@ definitions:
         type: integer
         format: int32
         description: Token validity period
+        example: 3600
       additionalProperties:
         type: object
         description: Additional parameters if Authorization server needs any
@@ -5738,6 +6031,7 @@ definitions:
         type: array
         items:
           type: string
+        example: ["abc@gmail.com"]
 
   #-----------------------------------------------
   # The Alert Info Response resource definition.
@@ -5791,7 +6085,7 @@ definitions:
           apiName: 'PizzaShackAPI'
           apiVersion: '1.0.0'
           applicationName: 'DefaultApplication'
-          requestConunt: '12'
+          requestCount: 12
 
   #-----------------------------------------------
   # The Alert Config Info resource definition.
