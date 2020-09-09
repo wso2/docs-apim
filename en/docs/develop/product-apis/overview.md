@@ -1,6 +1,6 @@
-# RESTful APIs
+# Overview
 
-The following topics list the APIs exposed from the API Publisher, Developer Portal, and Admin Portal, which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL, or the [WSO2 REST client]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+The following topics list the APIs exposed from the API Publisher, Developer Portal, and Admin Portal, which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
 
 There are two versions of REST APIs available for the API Publisher and Developer Portal.
 <br>
