@@ -21,9 +21,8 @@ info:
   version: "v1.1"
   title: "WSO2 API Manager - Developer Portal"
   description: |
-    This document specifies a **RESTful API** for WSO2 **API Manager** - Developer Portal.
-
-    It is written with [Swagger 2.0](http://swagger.io/).
+    This document specifies a **RESTful API** for WSO2 **API Manager** - **Developer Portal**.
+    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/store-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -31,7 +30,7 @@ info:
     that you will need to follow to obtain an access token.
 
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
-    in the payload. A Sample payload is shown below
+    in the payload. A Sample payload is shown below.
     ```
       {
       "callbackUrl":"www.google.lk",
@@ -41,16 +40,16 @@ info:
       "saasApp":true
       }
     ```
-    Create a file (payload.json) with the above sameple payload, and use the curl shown below to invoke the DCR endpoint. Authorization header of this should contain the
+    Create a file (payload.json) with the above sample payload, and use the cURL shown below to invoke the DCR endpoint. Authorization header of this should contain the
     base64 encoded admin username and password
 
-    Format of the request
+    **Format of the request**
     ```
       curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json" 
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
 
-    Sample request
+    **Sample request**
     ```
       curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" 
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
@@ -70,19 +69,19 @@ info:
     "tokenType": null
     }
     ```
-    Next you must use the above client id and secrect to obtain the access token. 
+    Next you must use the above client id and secret to obtain the access token.
     We will be using the password grant type for this, you can use any grant type you desire.
-    You also need to add the proper **scope** when getting the access token. All possible scopes for devportal rest api can be viewed in **OAuth2 security** section
-    of this document and scope for each resource is given in **authorization** section of resource documentation
+    You also need to add the proper **scope** when getting the access token. All possible scopes for devportal REST API can be viewed in **OAuth2 Security** section
+    of this document and scope for each resource is given in **authorization** section of resource documentation.
 
     Following is the format of the request if you are using the password grant type
     ```
-    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"  
+    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_password>&scope=<scopes separated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)" 
     \ https://<host>:<gateway_port>/token
     ```
 
-    Sample request. 
+    **Sample request**
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
@@ -5189,7 +5188,6 @@ definitions:
       createdBy:
         type: string
         example: "admin"
-
 
   #-----------------------------------------------------
   # The Comments List resource
