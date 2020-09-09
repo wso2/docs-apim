@@ -21,8 +21,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
     To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **DOWNLOAD** to expand the installation options. Scroll down past the installation options to navigate to the **OTHER RESOURCES** section, and click **Analytics**. 
 
-    ![]({{base_path}}/assets/img/learn/analytics-download-page.png)
-    
+    <img src="{{base_path}}/assets/img/learn/analytics-download-page.png" width="400">
     
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
@@ -96,7 +95,7 @@ Follow the instructions below if you wish to set up API-M Analytics for a produc
 
 To download WSO2 API-M Analytics go to the [WSO2 API Manager page](https://wso2.com/api-management/install/), click **DOWNLOAD** to expand the installation options. Scroll down past the installation options to navigate to the **OTHER RESOURCES** section, and click **Analytics**.
 
-[![]({{base_path}}/assets/img/learn/analytics-download-page.png)]({{base_path}}/assets/img/learn/analytics-download-page.png)
+<img src="{{base_path}}/assets/img/learn/analytics-download-page.png" width="400">
     
 ### Step 3 - Configure WSO2 API Manager to publish statistics
 
