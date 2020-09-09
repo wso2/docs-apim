@@ -21,7 +21,7 @@ This section is a step-by-step guide to create, publish, and invoke an API using
 
 ### Step 1 - Create and publish an API
 
-Follow the instructions below to create a publish an API via the API Publisher.
+Follow the instructions below to create and publish an API via the API Publisher.
 
 1. Navigate to the API Publisher [https://localhost:9443/publisher](https://localhost:9443/publisher) and sign in with **`admin/admin`** as the credentials.
                                                  
