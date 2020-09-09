@@ -476,3 +476,37 @@ proxyPort = 443
 [server]
 hostname = "sample.com"
 ```
+
+### Step 4 - Cofiguring dynamic callback Origin
+
+When you have custom URL configured for API-M client applications(Publisher/ Developer Portal/ Admin Portal), callback origin also has to be changed dynamically according to the X-Forwarded-For header in a typical scenario.
+
+This can be done in the new configuration file for reverse proxy config in the react applications.
+
+ **For Developer Portal**
+  Open the file <API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js
+  
+ **For Publisher Portal**
+     
+  Open the file <API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/settings.js
+ 
+ **For Admin Portal**
+     
+  Open the file <API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/public/conf/settings.js
+ 
+
+  Set `customUrl.enabled` to `true`
+  
+   ```json
+      
+         customUrl: { // Dynamically set the redirect origin according to the forwardedHeader host|proxyPort combination
+            enabled: true,
+            forwardedHeader: 'X-Forwarded-For',
+        },
+   ```
+    
+
+
+    !!! Note
+        New config does not have auto as a config value for customUrl.enable property as it was in 2.x versions
+    

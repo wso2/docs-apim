@@ -375,7 +375,7 @@ monitoring options for WSO2 API Manager.
 </ul>
 <div style="background-color:#ffffff; padding: 10px;">
 <p><strong>Note     :</strong> </p>
-<p>It is recommended to use a whitelisting approach when allowing access to resources in your product from the DMZ level.</p>
+<p>It is recommended to use a allowlisting approach when allowing access to resources in your product from the DMZ level.</p>
 </div>
 </td>
 </tr>
