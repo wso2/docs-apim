@@ -26,3 +26,12 @@ There are two versions of REST APIs available for the API Publisher and Develope
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-gateway-v1/">WSO2 Gateway API v1</a></td>
   </tr>
 </table>
+
+## QuickStart
+
+Following Postman collection provides quickstart guide for WSO2 API Manager REST APIs. It can be used to,
+ 
+ * Create, publish, subscribe and invoke a sample REST API
+ * Create, subscribe and invoke a sample API Product 
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4237ff03add745fab13a)
