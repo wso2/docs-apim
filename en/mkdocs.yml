@@ -255,7 +255,6 @@ nav:
                       - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
                       - API analytics: learn/analytics/viewing-api-statistics/api-analytics-dashboard.md
                       - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
-                      - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
                       - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
