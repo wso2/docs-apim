@@ -26,7 +26,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
        <html><div class="admonition warning">
        <p class="admonition-title">Note</p>
        <p>If you are following the quick setup, make sure that both the binaries (the unzipped API-M pack and the unzipped Analytics pack) are inside the same directory, because the default configurations such as database connection URLs, etc. are configured assuming that both the packs are inside the same folder.</p>
-        [![]({{base_path}}/assets/img/learn/analytics-quick-setup.png)]({{base_path}}/assets/img/learn/analytics-quick-setup.png)
+       <img src="{{base_path}}/assets/img/learn/analytics-quick-setup.png" width="300">
        </div>
        </html>
                   
@@ -39,6 +39,7 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
         [apim.analytics]
         enable = true
         ```
+        
      3. Save the change.
 
 4.  Start the Worker profile of the Analytics Server.
@@ -50,17 +51,18 @@ Follow the instructions below if you wish to set up API-M Analytics for quick de
 
 5.  Start the API Manager server.
     
-    Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
+     Navigate to the `<API-M_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
     
-    - On Windows: `wso2server.bat --run`
-    - On Linux/Mac OS: `sh wso2server.sh` 
+     - On Windows: `wso2server.bat --run`
+     - On Linux/Mac OS: `sh wso2server.sh` 
     
-        !!! info
-              If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
+    !!! info
+        If API-M Analytics is properly configured in WSO2 API Manager, when you start up the API Manager server, which is after the WSO2 API-M Analytics server, you will see the following log message in the terminal that is running the API-M Analytics server.
             
-                INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
+        INFO {org.wso2.carbon.databridge.core.DataBridge} - user admin connected   
+ 
+     <a name="dashboard"></a>
 
-    <a name="dashboard"></a>                
 6.  Start the Dashboard profile of the Analytics Server.
     
     Navigate to the `<API-M_ANALYTICS_HOME>/bin` directory in your console and execute one of the following scripts based on your OS.
