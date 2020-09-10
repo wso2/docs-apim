@@ -40,7 +40,7 @@ No, currently WSO2 API-M does not support [HTTP pipelining](https://en.wikipedia
 
 ### What are the minimum requirements needed to run WSO2 API Manager?
 
-For a list of system requirements, environment compatibility and required applications, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites).
+For a list of system requirements, environment compatibility and required applications, see [Installation Prerequisites](https://apim.docs.wso2.com/en/latest/install-and-setup/install/installation-prerequisites/).
 
 ### Which MySQL database script should I use?
 
