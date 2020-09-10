@@ -327,6 +327,11 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```go
             apictl logout dev
             ```
+            
+##Add APIs/API Products/Applications in an environment
+
+You can add APIs/API Products/Applications through Publisher and Dev portal.
+But **apictl** allows to create and deploy APIs without using WSO2 API Publisher. For more information to add APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach)
 
 ## List APIs/API Products/Applications in an environment
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
