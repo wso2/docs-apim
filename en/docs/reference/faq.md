@@ -90,7 +90,7 @@ OpenShift, Docker, Kubernetes and Mesos are supported.
 
 ### Is it recommended to run multiple WSO2 products on a single server?
 
-This is not recommended in a production environment involving multiple transactions. If you want to start several WSO2 products on a single server, you must change their default ports to avoid port conflicts. See [Changing the Default Ports with Offset](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/).
+This is not recommended in a production environment involving multiple transactions. If you want to start several WSO2 products on a single server, you must change their default ports to avoid port conflicts. See [Changing the Default Ports with Offset]({{base_path}}/install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset/).
 
 ### Can I install features of other WSO2 products to the API Manager?
 
