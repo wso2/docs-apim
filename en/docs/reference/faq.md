@@ -58,7 +58,7 @@ Copy any third-party JARs to `<API-M_HOME>/repository/components/lib` directory 
 
 ### Can I connect the API Manager directly to an LDAP or Active Directory where corporate identities are stored?
 
-Yes, you can configure the API Manager with multiple user stores. For more details, see [Configuring User Stores](https://apim.docs.wso2.com/en/latest/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
+Yes, you can configure the API Manager with multiple user stores. For more details, see [Configuring User Stores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/).
 
 ### Can I extend the management console UI to add custom UIs?
 
