@@ -33,7 +33,77 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                 ```bash 
                 apictl init SampleAPI --definition definition.yaml --force=true                
                 ```
+            !!! note
+                Note that API definition is different from Swagger2 or OpenAPI3 specification. Following is a sample API Definition used to generate an API Project.
+    
+                !!! example
+                       ```yaml
+                       id:
+                         providerName: admin
+                         apiName: PizzaShackAPI
+                         version: 1.0.0
+                       uuid: 8d87e646-f7c5-4dc2-9f45-64903ecccca4
+                       description: This is a simple API for Pizza Shack online pizza delivery store.
+                       type: HTTP
+                       context: /pizzashack/1.0.0
+                       contextTemplate: /pizzashack/{version}
+                       tags:
+                       - pizza
+                       availableTiers:
+                       - name: Unlimited
+                         displayName: Unlimited
+                         description: Allows unlimited requests
+                         requestsPerMin: 2147483647
+                         requestCount: 2147483647
+                         timeUnit: ms
+                         tierPlan: FREE
+                         stopOnQuotaReached: true
+                       status: PUBLISHED
+                       technicalOwner: John Doe
+                       technicalOwnerEmail: architecture@pizzashack.com
+                       businessOwner: Jane Roe
+                       businessOwnerEmail: marketing@pizzashack.com
+                       visibility: public
+                       transports: http,https
+                       corsConfiguration:
+                         accessControlAllowOrigins:
+                         - '*'
+                         accessControlAllowHeaders:
+                         - authorization
+                         - Access-Control-Allow-Origin
+                         - Content-Type
+                         - SOAPAction
+                         - apikey
+                         - testKey
+                         accessControlAllowMethods:
+                         - GET
+                         - PUT
+                         - POST
+                         - DELETE
+                         - PATCH
+                         - OPTIONS
+                       productionUrl: http://localhost:8080
+                       sandboxUrl: http://localhost:8081
+                       endpointConfig: '{"endpoint_type":"http","sandbox_endpoints":{"url":"https:\/\/localhost:9443\/am\/sample\/pizzashack\/v1\/api\/"},"production_endpoints":{"url":"https:\/\/localhost:9443\/am\/sample\/pizzashack\/v1\/api\/"}}'
+                       responseCache: Disabled
+                       cacheTimeout: 300
+                       implementation: ENDPOINT
+                       authorizationHeader: Authorization
+                       environments:
+                       - Production and Sandbox
+                       createdTime: "1599638524995"
+                       environmentList:
+                       - SANDBOX
+                       - PRODUCTION
+                       apiSecurity: oauth2,oauth_basic_auth_api_key_mandatory
+                       accessControl: all
+                       isLatest: true
+                       enableStore: true
+                       keyManagers:
+                       - all
+                       ```
 
+            
         -   Response    
             ```go
             Initializing a new WSO2 API Manager project in /home/user/work/SampleAPI
