@@ -107,10 +107,9 @@ info:
 
     If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
 
-    * All of the collection resources are configured to work with both Oauth2 Bearer and basic authentication schemes, with basic authentication scheme enabled by default.
-    Default credentials for Basic Authentication are `admin:admin`. If you want to use a different user credential please update the `base64(username:password)` parameter in the postman collection.
-    * If you want to use Oauth2 Bearer authentication scheme, please update the `access-token` parameter with the access-token received in above step. Then under the request headers, enable `Authorization: Bearer xxxx` header and disable `Authorization: Basic xxxx` header.
-    * Update the `basepath` parameter to match the hostname and port.
+    * All of the Oauth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * Make sure you have an API Manager instance up and running.
+    * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a09044034b5c3c1b01a9)
 
