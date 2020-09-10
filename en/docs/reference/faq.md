@@ -16,7 +16,7 @@ It is completely supported from evaluation to production. For more details, see 
 
 ### What are the default ports opened in the API Manager?
 
-For a list of all default ports available, see [Default Ports of WSO2 Products]({{base_path}}/install-and-setup/setup/reference/default-product-ports/#api-manager).
+For a list of all default ports available, see [Default Ports of WSO2 Products](https://apim.docs.wso2.com/en/latest/install-and-setup/setup/reference/default-product-ports/#api-manager).
 
 ### What are the technologies used underneath WSO2 API Manager?
 
