@@ -43,46 +43,18 @@ By default, the API Gateway cache is enabled. This can be disabled by modifying 
 
 ##### Clearing the API Gateway cache
 
-If you wish to remove old tokens that might still remain active in the Gateway cache, you need to configure the following attribute in the `<API-M_HOME>/repository/conf/deployment.toml` file by providing the URL of the [Revoke API](https://docs.wso2.com/display/AM260/Token+API) that is deployed in the API Gateway node. 
+When a token is revoked at the key manager, a token revocation event is sent to the Traffic manager . Gateways receive this token revocation controller event and clears the cache accordingly.
+This feature is enabled by default and token revocation events are published by the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl.java` class
 
-``` java
-    [apim.oauth_config]
-    revoke_endpoint = "https://localhost:${https.nio.port}/revoke"
+If you need to change the default behavior you can implement the 'org.wso2.carbon.apimgt.notification.TokenRevocationNotifier' interface and plug new implementation using below configuration in the `deployment.toml`
+
+```toml
+        [apim.token.revocation[
+        notifier_impl="org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
 ```
 
-The revoke API invokes the cache clear handler, which extracts information from transport headers of the revoke request and clears all associated cache entries. If there's a cluster of API Gateways in your setup, provide the URL of the revoke API deployed in one node in the cluster. This way, all revoke requests route to the OAuth service through the Revoke API.
-
-Given below is how to configure this in a distributed API Manager setup.
-
-1.  In the `deployment.toml` file of the **Developer Portal node** , point the revoke endpoint as follows:
-
-    ``` java
-        [apim.oauth_config]
-        revoke_endpoint = "https://${carbon.local.ip}:${https.nio.port}/revoke"
-    ```
-
-2.  In the API Gateway, point the Revoke API to the OAuth application deployed in the key manager node. For example,
-
-    ``` xml
-        <api name="_WSO2AMRevokeAPI_" context="/revoke">
-            <resource methods="POST" url-mapping="/*" faultSequence="_token_fault_">
-                <inSequence>
-                    <send>
-                        <endpoint>
-                            <address uri="https://keymgt.wso2.com:9445/oauth2/revoke"/>
-                        </endpoint>
-                    </send>
-                </inSequence>
-                <outSequence>
-                    <send/>
-                </outSequence>
-            </resource>
-            <handlers>
-                <handler class="org.wso2.carbon.apimgt.gateway.handlers.ext.APIManagerCacheExtensionHandler"/>
-            </handlers>
-        </api>
-    ```
-
+This configuration is described in the [Config Catalog]({{base_path}}/reference/config-catalog/#api-m-token-revocation)
+    
 ### Resource cache
 
 An API's resources are HTTP methods that handle particular types of requests such as GET, POST etc. They are similar to methods of a particular class. Each resource has parameters such as its throttling level, Auth type etc.
@@ -102,45 +74,7 @@ By default, the resource cache is enabled.  This can be disabled by modifying th
 
 ### Key Manager cache
 
-The following caches are available:
-
--   [Key cache](#key-cache)
--   [OAuth cache](#oauth-cache)
-
-#### Key cache
-
-In a typical API Manager deployment, the Gateway is deployed in a DMZ while the Key Manager is in MZ. By default, caching is enabled at the Gateway. To avoid caching token-related information in a leniently secured zone, you can store the cache on the Key Manager side. If you do, for each and every API call that hits the API Gateway, the Gateway issues a Web service call to the Key Manager server. If the cache entry is available in the Key Manager server, it is returned to the Gateway. Else, the database is checked for the validity of the token.
-
-Storing the cache in the Key Manager causes lower performance than when storing it in the Gateway, but it is more secure. If you enable the key cache in a clustered environment, you should have only one Gateway per Key Manager, whereas you can have two Gateways per Key Manager when the Gateway cache is enabled instead. Note that you should always have one of the caches enabled, but we do not recommend using both caches combined. For more information, see [Clustering Gateways and Key Managers with key caching](https://docs.wso2.com/display/CLUSTER44x/API+Manager+Deployment+Patterns#APIManagerDeploymentPatterns-keycache) in the WSO2 Clustering Guide.
-
-You can configure the key cache by editing the following elements in the `<APIM_HOME>/repository/conf/deployment.toml` file:
-
-<table>
-<colgroup>
-<col width="50%" />
-<col width="50%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Purpose</th>
-<th>Configuration Elements</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Disable the API Gateway cache.</td>
-<td><p> [apim.cache.gateway_token] <br/> enable = false </p></td>
-</tr>
-<tr class="even">
-<td>Enable the Key Manager cache.</td>
-<td><p> [apim.cache.km_token] <br/> enable = true </p></td>
-</tr>
-<tr class="odd">
-<td>Change the key cache duration, which expires after 900 seconds by default.</td>
-<td><p> [apim.cache] <br/> token_expiry_time = 900 </p></td>
-</tr>
-</tbody>
-</table>
+Key Manager consists of the OAuth Cache.
 
 #### OAuth cache
 
