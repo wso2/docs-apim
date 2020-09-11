@@ -3913,7 +3913,12 @@ client_registration_password = "$ref{super_admin.password}"</code></pre>
                 <label class="tab-selector" for="_tab_27"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-                        <pre><code class="toml">#SAMPLE</code></pre>
+                        <pre><code class="toml">[apim.sdk]
+group_id = "org.wso2"
+artifact_id = "org.wso2.client"
+model_package = "org.wso2.client.model"
+api_package = "org.wso2.client.api"
+supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "groovy", "javascript"]
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -4050,7 +4055,12 @@ client_registration_password = "$ref{super_admin.password}"</code></pre>
                 <label class="tab-selector" for="_tab_28"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-                        <pre><code class="toml">#SAMPLE</code></pre>
+                        <pre><code class="toml">[apim.open_tracer]
+                        remote_tracer.enable = true
+                        remote_tracer.name = "zipkin"
+                        remote_tracer.properties.hostname = "localhost"
+                        remote_tracer.properties.port = 9411
+                        log_tracer.enable = true
                     </div>
                 </div>
                 <div class="doc-wrapper">
@@ -4172,7 +4182,6 @@ client_registration_password = "$ref{super_admin.password}"</code></pre>
         </div>
     </section>
 </div>
-
 
 ## API-M token revocation
 

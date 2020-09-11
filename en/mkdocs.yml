@@ -18,7 +18,7 @@
 site_name: WSO2 API Manager Documentation 3.2.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/next/
+site_url: https://apim.docs.wso2.com/en/latest/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -255,7 +255,6 @@ nav:
                       - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
                       - API analytics: learn/analytics/viewing-api-statistics/api-analytics-dashboard.md
                       - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
-                      - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
                       - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
@@ -276,9 +275,9 @@ nav:
                       - Customizing Analytics Dashboards: learn/analytics/customizing-analytics-dashboards.md
                       - White Labeling for Tenants: learn/analytics/white-labeling-tenants.md
                       - Adding Third Party Non OSGi Libraries: learn/analytics/adding-third-party-non-osgi-libraries.md
-                      - Introducing the WSO2 API Manager Statistics Model: learn/analytics/analyzing-apim-statistics-with-batch-analytics/introducing-the-wso2-api-manager-statistics-model.md
                       - Publishing Custom Attributes: learn/analytics/publishing-custom-data.md
                       - General Data Protection Regulation (GDPR) for WSO2 API Manager Analytics: learn/analytics/general-data-protection-regulation-gdpr-for-wso2-api-manager-analytics.md
+                - Analytics Event Streams and Aggregations: learn/analytics/analytics-event-streams-and-aggregations.md
           - API Controller:
                 - Getting Started with WSO2 API Controller: learn/api-controller/getting-started-with-wso2-api-controller.md
                 - Importing APIs Via Dev First Approach: learn/api-controller/importing-apis-via-dev-first-approach.md
@@ -311,6 +310,7 @@ nav:
                     - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
                     - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
                     - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
+                    - Gateway API v1: develop/product-apis/getting-started/guide-gateway-v1.md
                 - Configuring the REST API: develop/product-apis/configuring-rest-api.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
@@ -319,6 +319,8 @@ nav:
                 - Admin APIs:
                     - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
                     - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
+                - Gateway APIs:
+                    - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
                 - Using the Registry REST API: develop/using-the-registry-rest-api.md
                 - Using the Siddhi Store REST API: develop/analytics-rest-api.md
           - Extending WSO2 API Manager:
@@ -394,14 +396,15 @@ nav:
                       - Distributed Deployment Overview: install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md
                       - Deploying WSO2 API-M in a Distributed Setup: install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md
                       - Product Profiles: install-and-setup/setup/distributed-deployment/product-profiles.md
+                      - Clustering WSO2 API-M Gateways for HA with rsync: install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md
                       - Synchronizing Artifacts in a Gateway Cluster: install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster.md
-                      - Working with Hazelcast Clustering: install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering.md
                 - Configure a Key Manager:
                       - Configure a Third-party Key Manager: install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager.md
                       - Configure WSO2 Identity Server as a Key Manager: install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md
                 - Configure Analytics for High Availability:
                       - Active-Active Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active.md
                       - Active-Passive Deployment: install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive.md
+                      - Configuring Database and File System State Persistence: install-and-setup/setup/distributed-deployment/configure-apim-analytics/configuring-database-and-file-system-state-persistence.md
                 - Setting up Databases:
                       - Overview: install-and-setup/setup/setting-up-databases/overview.md
                       - Changing Default Databases:
@@ -420,7 +423,7 @@ nav:
                             - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
                             - Securing Passwords:
                                 - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
-                                - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
+                                - Set Passwords using Environment Variables or System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
                                 - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                       - Configuring Keystores:
                             - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
@@ -593,105 +596,105 @@ plugins:
               'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/updating-geo-location-data-set.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set/'
               'install-and-setup/installation-guide/installation-prerequisites.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installation-prerequisites/'
               'install-and-setup/installation-guide/installing-the-product/installing-via-the-installer.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-via-the-installer/'
-              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/'
-              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-solaris.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris/'
-              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-windows.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows/'
-              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-linux-service.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service/'
-              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-windows-service.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service/'
-              'install-and-setup/installation-guide/running-the-product.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/running-the-product/'
-              'install-and-setup/installation-guide/basic-health-checks.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/basic-health-checks/'
-              'install-and-setup/deploying-wso2-api-manager/deployment-patterns.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-patterns/'
-              'install-and-setup/deploying-wso2-api-manager/single-node/all-in-one-deployment-overview.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/single-node/all-in-one-deployment-overview/'
-              'install-and-setup/deploying-wso2-api-manager/single-node/configuring-a-single-node.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/single-node/configuring-a-single-node/'
-              'install-and-setup/deploying-wso2-api-manager/single-node/configuring-an-active-active-deployment.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/single-node/configuring-an-active-active-deployment/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/product-profiles/'
-              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
-              'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
-              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
-              'install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/changing-the-hostname/'
-              'install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/'
-              'install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/'
-              'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/api-gateway/message-mediation/configuring-message-builders-formatters/'
-              'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
-              'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
-              'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/'
-              'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/'
-              'install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/'
-              'install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/'
-              'install-and-setup/setting-up-databases/overview.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/overview/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql.md':    'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2/'
-              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac/'
-              'install-and-setup/product-compatibility.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/reference/product-compatibility/'
-              'install-and-setup/performance-tuning-and-test-results/tuning-performance.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/deployment-best-practices/tuning-performance/'
-              'install-and-setup/sso/okta-as-an-external-idp-using-oidc.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc/'
-              'install-and-setup/sso/okta-as-an-external-idp-using-saml.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml/'
-              'install-and-setup/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
-              'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/updating-wso2-api-manager/'
-              'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/introduction-to-user-management/'
-              'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-roles/'
-              'administer/product-administration/managing-users-and-roles/managing-users.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-users/'
-              'administer/product-administration/managing-users-and-roles/managing-permissions.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-permissions/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/'
-              'administer/product-administration/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager/'
-              'administer/product-administration/multitenancy/introduction-to-multitenancy.md' : 'https://apim.docs.wso2.com/en/3.1.0/administer/multitenancy/introduction-to-multitenancy/'
-              'administer/product-administration/multitenancy/managing-tenants.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/multitenancy/managing-tenants/'
-              'administer/product-administration/multitenancy/configuring-the-tenant-loading-policy.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/multitenancy/configuring-the-tenant-loading-policy/'
-              'administer/product-administration/monitoring/logging/setting-up-logging.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/setting-up-logging/'
-              'administer/product-administration/monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/monitoring-http-access-logs/'
-              'administer/product-administration/monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/monitoring-audit-logs/'
-              'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/logging/managing-log-growth/'
-              'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
-              'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
-              'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/capturing-system-data-in-error-situations/'
-              'administer/product-administration/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/jmx-based-monitoring/'
-              'administer/product-administration/monitoring/monitoring-tcp-based-messages.md': 'https://apim.docs.wso2.com/en/3.1.0/administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages/'
-              'administer/product-administration/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.1.0/troubleshooting/removing-unused-tokens-from-the-database/'
-              'administer/product-administration/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application/'
-              'administer/product-configurations/changing-the-default-transport.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/changing-the-default-transport/'
-              'administer/product-configurations/default-product-ports.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/reference/default-product-ports/'
-              'administer/product-configurations/configuring-caching.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/configuring-caching/'
-              'administer/product-configurations/common-runtime-and-configuration-artifacts.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/reference/common-runtime-and-configuration-artifacts/'
-              'administer/product-configurations/customizing-the-management-console.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/advance-configurations/customizing-the-management-console/'
-              'administer/product-configurations/adding-internationalization.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/customizations/adding-internationalization/'
-              'administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/'
-              'administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/'
-              'administer/product-security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/'
-              'administer/product-security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/'
-              'administer/product-security/logins-and-passwords/maintaining-logins-and-passwords.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/'
-              'administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/'
-              'administer/product-security/logins-and-passwords/carbon-secure-vault-implementation.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation/'
-              'administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props/'
-              'administer/product-security/enabling-hostname-verification.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/enabling-hostname-verification/'
-              'administer/product-security/enabling-java-security-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/enabling-java-security-manager/'
-              'administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager/'
-              'administer/product-security/configuring-transport-level-security.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/configuring-transport-level-security/'
-              'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
-              'administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals/'
-              'administer/product-security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.1.0/install-and-setup/setup/security/identity-management-for-the-api-dev-portal/'
-              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics/'
-              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider/'
-              'learn/tutorials/edit-and-consume-apis-using-swagger-tools.md': 'https://apim.docs.wso2.com/en/3.1.0/learn/tutorials/edit-an-api-by-modifyng-the-api-definition/'
-              'develop/product-apis/admin-apis/admin-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-admin-v1/'
-              'develop/product-apis/admin-apis/publisher-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-publisher-v0.16/'
-              'develop/product-apis/admin-apis/publisher-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-publisher-v1/'
-              'develop/product-apis/admin-apis/devportal-v1/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v1/'
-              'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
-              'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
+              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-linux-or-os-x.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-linux-or-os-x/'
+              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-solaris.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-solaris/'
+              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-on-windows.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-on-windows/'
+              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-linux-service.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-linux-service/'
+              'install-and-setup/installation-guide/installing-the-product/installing-the-binary/installing-as-a-windows-service.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/installing-the-product/installing-the-binary/installing-as-a-windows-service/'
+              'install-and-setup/installation-guide/running-the-product.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/running-the-product/'
+              'install-and-setup/installation-guide/basic-health-checks.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/basic-health-checks/'
+              'install-and-setup/deploying-wso2-api-manager/deployment-patterns.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-patterns/'
+              'install-and-setup/deploying-wso2-api-manager/single-node/all-in-one-deployment-overview.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/single-node/all-in-one-deployment-overview/'
+              'install-and-setup/deploying-wso2-api-manager/single-node/configuring-a-single-node.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/single-node/configuring-a-single-node/'
+              'install-and-setup/deploying-wso2-api-manager/single-node/configuring-an-active-active-deployment.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/single-node/configuring-an-active-active-deployment/'
+              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/understanding-the-distributed-deployment-of-wso2-api-m/'
+              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/deploying-wso2-api-m-in-a-distributed-setup/'
+              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/product-profiles.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/product-profiles/'
+              'install-and-setup/setup/distributed-deployment/clustering-gateway-for-HA-using-rsync.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
+              'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/'
+              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/working-with-hazelcast-clustering.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/working-with-hazelcast-clustering/'
+              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configure-a-third-party-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-a-third-party-key-manager/'
+              'install-and-setup/deploying-wso2-api-manager/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/'
+              'install-and-setup/deploying-wso2-api-manager/changing-the-hostname.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-hostname/'
+              'install-and-setup/deploying-wso2-api-manager/changing-the-default-ports-with-offset.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset/'
+              'install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer/'
+              'install-and-setup/deploying-wso2-api-manager/configuring-message-builders-formatters.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/api-gateway/message-mediation/configuring-message-builders-formatters/'
+              'install-and-setup/deploying-wso2-api-manager/configuring-rsync-for-deployment-synchronization.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/clustering-gateway-for-ha-using-rsync/'
+              'install-and-setup/deploying-wso2-api-manager/deploying-api-manager-with-kubernetes-or-openshift-resources.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/install/deploying-api-manager-with-kubernetes-or-openshift-resources/'
+              'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-active.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active/'
+              'install-and-setup/deploying-wso2-api-manager/configure-apim-analytics/configure-worker/active-passive.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive/'
+              'install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/production-deployment-guidelines/'
+              'install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment/'
+              'install-and-setup/setting-up-databases/overview.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/overview/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mysql.md':    'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mysql/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mssql.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mssql/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-postgresql.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-postgresql/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2/'
+              'install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac/'
+              'install-and-setup/product-compatibility.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/reference/product-compatibility/'
+              'install-and-setup/performance-tuning-and-test-results/tuning-performance.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/deployment-best-practices/tuning-performance/'
+              'install-and-setup/sso/okta-as-an-external-idp-using-oidc.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc/'
+              'install-and-setup/sso/okta-as-an-external-idp-using-saml.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/sso/okta-as-an-external-idp-using-saml/'
+              'install-and-setup/federating-oauth-applications.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/api-security/api-authentication/advanced-topics/federating-oauth-applications/'
+              'administer/product-administration/updating-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/updating-wso2-api-manager/'
+              'administer/product-administration/managing-users-and-roles/introduction-to-user-management.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/introduction-to-user-management/'
+              'administer/product-administration/managing-users-and-roles/managing-user-roles.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-roles/'
+              'administer/product-administration/managing-users-and-roles/managing-users.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-users/'
+              'administer/product-administration/managing-users-and-roles/managing-permissions.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-permissions/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/introduction-to-userstores.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/introduction-to-userstores/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-ldap-user-store/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-only-ldap-user-store/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-read-write-active-directory-user-store/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/configuring-secondary-user-stores/'
+              'administer/product-administration/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager/'
+              'administer/product-administration/multitenancy/introduction-to-multitenancy.md' : 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/introduction-to-multitenancy/'
+              'administer/product-administration/multitenancy/managing-tenants.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/managing-tenants/'
+              'administer/product-administration/multitenancy/configuring-the-tenant-loading-policy.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/multitenancy/configuring-the-tenant-loading-policy/'
+              'administer/product-administration/monitoring/logging/setting-up-logging.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/setting-up-logging/'
+              'administer/product-administration/monitoring/logging/monitoring-http-access-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-http-access-logs/'
+              'administer/product-administration/monitoring/logging/monitoring-audit-logs.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/monitoring-audit-logs/'
+              'administer/product-administration/monitoring/logging/managing-log-growth.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/logging/managing-log-growth/'
+              'administer/product-administration/monitoring/working-with-observability.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/working-with-observability/'
+              'administer/product-administration/monitoring/monitoring-with-opentracing.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-with-opentracing/'
+              'administer/product-administration/monitoring/capturing-system-data-in-error-situations.md': 'https://apim.docs.wso2.com/en/3.2.0/troubleshooting/capturing-system-data-in-error-situations/'
+              'administer/product-administration/monitoring/jmx-based-monitoring.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/jmx-based-monitoring/'
+              'administer/product-administration/monitoring/monitoring-tcp-based-messages.md': 'https://apim.docs.wso2.com/en/3.2.0/administer/logging-and-monitoring/monitoring/monitoring-tcp-based-messages/'
+              'administer/product-administration/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.2.0/troubleshooting/removing-unused-tokens-from-the-database/'
+              'administer/product-administration/revoke-oauth2-application.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/consume-api/manage-application/generate-keys/revoke-oauth2-application/'
+              'administer/product-configurations/changing-the-default-transport.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/advance-configurations/changing-the-default-transport/'
+              'administer/product-configurations/default-product-ports.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/reference/default-product-ports/'
+              'administer/product-configurations/configuring-caching.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/advance-configurations/configuring-caching/'
+              'administer/product-configurations/common-runtime-and-configuration-artifacts.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/reference/common-runtime-and-configuration-artifacts/'
+              'administer/product-configurations/customizing-the-management-console.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/advance-configurations/customizing-the-management-console/'
+              'administer/product-configurations/adding-internationalization.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/customizations/adding-internationalization/'
+              'administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager/'
+              'administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/'
+              'administer/product-security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/renewing-a-ca-signed-certificate-in-a-keystore/'
+              'administer/product-security/configuring-keystores/keystore-basics/about-asymetric-cryptography.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-keystores/keystore-basics/about-asymetric-cryptography/'
+              'administer/product-security/logins-and-passwords/maintaining-logins-and-passwords.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/'
+              'administer/product-security/logins-and-passwords/working-with-encrypted-passwords.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords/'
+              'administer/product-security/logins-and-passwords/carbon-secure-vault-implementation.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation/'
+              'administer/product-security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props/'
+              'administer/product-security/enabling-hostname-verification.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/enabling-hostname-verification/'
+              'administer/product-security/enabling-java-security-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/enabling-java-security-manager/'
+              'administer/product-security/general-data-protection-regulation-gdpr-for-wso2-api-manager.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/general-data-protection-regulation-gdpr-for-wso2-api-manager/'
+              'administer/product-security/configuring-transport-level-security.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/configuring-transport-level-security/'
+              'administer/product-security/mutual-ssl-between-api-gateway-and-backend.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/api-gateway/mutual-ssl-between-api-gateway-and-backend/'
+              'administer/product-security/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals/'
+              'administer/product-security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/identity-management-for-the-api-dev-portal/'
+              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geolocation-based-statistics.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/configuring-geo-location-based-statistics/'
+              'learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geolocation-provider.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/writing-a-custom-geo-location-provider/'
+              'learn/tutorials/edit-and-consume-apis-using-swagger-tools.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/tutorials/edit-an-api-by-modifyng-the-api-definition/'
+              'develop/product-apis/admin-apis/admin-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-admin-v1/'
+              'develop/product-apis/admin-apis/publisher-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-publisher-v0.16/'
+              'develop/product-apis/admin-apis/publisher-v1/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-publisher-v1/'
+              'develop/product-apis/admin-apis/devportal-v1/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-devportal-v1/'
+              'develop/product-apis/admin-apis/devportal-v0.16/guide.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/getting-started/guide-devportal-v0.16/'
+              'develop/product-apis/admin-apis/admin-v0.16/admin-v1.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/'
               'install-and-setup/setup/security/identity-management-for-the-api-dev-portal.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/security/user-account-management/'
               'learn/design-api/create-api/create-a-rest-api-from-a-swagger-definition.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/design-api/create-api/create-a-rest-api-from-a-openapi-definition/'
               'learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/alert-types/'

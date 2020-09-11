@@ -19,8 +19,10 @@ There are two versions of REST APIs available for the API Publisher and Develope
 
   <tr>
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-admin-v0.17/">WSO2 Admin v0.17</a></td>
-    <td rowspan="1">The <b>v0.17 REST APIs</b> will be deprecated in the next WSO2 API Manager release.</b></td>
+    <td rowspan="1">The <b>v0.17 REST APIs</b> will be deprecated in the next WSO2 API Manager release</td>
   </tr>
-
-
+  
+  <tr>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-gateway-v1/">WSO2 Gateway API v1</a></td>
+  </tr>
 </table>
