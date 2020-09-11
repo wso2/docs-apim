@@ -255,7 +255,6 @@ nav:
                       - Business analytics: learn/analytics/viewing-api-statistics/business-analytics-dashboard.md
                       - API analytics: learn/analytics/viewing-api-statistics/api-analytics-dashboard.md
                       - Application analytics: learn/analytics/viewing-api-statistics/application-analytics-dashboard.md
-                      - Viewing API Statistics: learn/analytics/analyzing-apim-statistics-with-batch-analytics/viewing-api-statistics.md
                 - Monthly API Usage Report: learn/analytics/monthly-api-usage-report.md
                 - Using Geolocation Based Statistics:
                       - Creating the Geo Location Data Set: learn/analytics/analyzing-apim-statistics-with-batch-analytics/using-geo-location-based-statistics/creating-geo-location-data-set.md
@@ -424,7 +423,7 @@ nav:
                             - Maintaining Logins and Passwords: install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords.md
                             - Securing Passwords:
                                 - Customizing Secure Vault: install-and-setup/setup/security/logins-and-passwords/carbon-secure-vault-implementation.md
-                                - Set Passwords using Environment Variables/System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
+                                - Set Passwords using Environment Variables or System Properties: install-and-setup/setup/security/logins-and-passwords/set-passwords-using-vars-and-sys-props.md
                                 - Working with Encrypted Passwords: install-and-setup/setup/security/logins-and-passwords/working-with-encrypted-passwords.md
                       - Configuring Keystores:
                             - Configuring Keystores in API Manager: install-and-setup/setup/security/configuring-keystores/configuring-keystores-in-wso2-api-manager.md
