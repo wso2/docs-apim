@@ -137,7 +137,6 @@ Follow the instructions below to set up and configure the databases for the WSO2
      username = "amadmin"
      password = "amadmin"
      ```
-     
 
 ## Step 4 - Configure WSO2 IS with WSO2 API-M
 
@@ -150,7 +149,6 @@ Follow the instructions below to set up and configure the databases for the WSO2
      - `wso2is.notification.event.handlers_1.0.15.jar`
 
 3. Add the `keymanager-operations.war`, which is in the `<wso2is-extensions-1.0.15>/webapps` directory, to the `<IS_HOME>/repository/deployment/server/webapps` directory.
-
 
 4.  Configure the Traffic Manager endpoints.
 
@@ -198,7 +196,6 @@ Follow the instructions below to set up and configure the databases for the WSO2
     permissions = "/permission/admin/manage/identity/applicationmgt/delete"
     scopes = "internal_application_mgt_delete"
 
-
     [tenant_context.rewrite]
     custom_webapps = ["/keymanager-operations/"]
     ```
@@ -225,7 +222,6 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 6.  If you wish to encrypt the OAuth2 Keys (access tokens, client secrets, and authorization codes) follow the steps given in [Encrypting OAuth Keys](https://is.docs.wso2.com/en/5.10.0/learn/testing-oidc-encrypted-id-token-with-is/#enable-id-token-encryption), which is in the WSO2 Identity Server 5.10.0 documentation, and apply the relevant configurations in the `<IS_HOME>/repository/conf/deployment.toml` file to enable the feature.
 
-
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
 1.  Import the Identity Server's public certificate to WSO2 API-M's truststore.
@@ -237,7 +233,6 @@ Follow the instructions below to set up and configure the databases for the WSO2
 2. By default, both API Manager and the WSO2 Identity Server comes with JDBC User Store as the primary userstore. But if you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in IS, that particular user store has to be configured in the API Manager nodes as well. 
 
      For more information, see [Configuring Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug a new user store.
-
 
 ## Step 6 - Optionally, configure High Availability (HA) for the Identity Server
 
@@ -275,7 +270,6 @@ Start WSO2 Identity Server for the changes to take effect. For more information,
         The reason for this is that the default certificates that come with the WSO2 servers are created for `localhost`. Therefore, when WSO2 API Manager boots up, it makes an HTTP call to a webapp that is in the Key Manager (throttle data at `KM_URL/internal/data/v1/keyTemplates`). Thereafter, WSO2 API Manager decides the URL of the Key Manager based on the URL that is configured in the `deployment.toml`, which is `localhost`.
 
         To overcome this issue, you need to create self-signed certificates for WSO2 API-M and WSO2 IS hostnames. Then [import the public certificates]({{base_path}}/install-and-setup/setup/security/configuring-keystores/keystore-basics/creating-new-keystores/#step-3-importing-certificates-to-the-truststore) of WSO2 API-M to the `trust-store.jks` of WSO2 IS and vice versa. This should resolve the SSL handshake failure.
-
 
 Follow the instructions below to configure the other WSO2 API-M components, namely the Publisher, Developer Portal, Traffic Manager, and Gateway:
 
