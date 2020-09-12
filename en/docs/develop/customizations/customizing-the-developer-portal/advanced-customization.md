@@ -9,12 +9,16 @@ NodeJS is a platform required for ReactJS development.
 
 The user interface of the Developer Portal can be customized simply without editing the React codebase or  the CSS in most cases. You will be required to modify the react code base, if you need to do advanced customizations.
 
-1. Navigate to `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/`  in a terminal and run the following command.
+1. Navigate to `<API-M_HOME>/repository/deployment/server/jaggeryapps`  in a terminal and run the following command.
     ```js
-    npm ci
+    lerna bootstrap
     ```
-2. Run the command given below, to start the npm build. Note that it will continuously watch for any changes and rebuild the project.  
+2. Run the command given below in the relevant app(if it is a devportal, run the npm run build:dev at the devportal folder or else run at the publisher folder ), to start the npm build. Note that it will continuously watch for any changes and rebuild the project.
     ```js
+    Example:
+    
+    Navigate to '<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal'
+
     npm run build:dev
     ```
 3. If you are required to rewrite the UI completely, you can make changes in the `devportal/source` folder. If you want to override a specific React Component or a File from the `source/src/` folder, you need to do it in the `devportal/override/src` folder by only copying the desired file/files.
