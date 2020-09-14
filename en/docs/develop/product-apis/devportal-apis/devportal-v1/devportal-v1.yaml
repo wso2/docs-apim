@@ -4353,6 +4353,7 @@ parameters:
     required: true
     description: |
       The alert configuration id.
+      Base64 encoded value of 'apiName#apiVersion#applicationName'.
 
 ######################################################
 # The resources used by some of the APIs above within the message body
