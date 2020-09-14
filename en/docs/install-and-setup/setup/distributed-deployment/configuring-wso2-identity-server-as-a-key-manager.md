@@ -9,6 +9,8 @@ Follow the instructions below to configure WSO2 Identity Server (WSO2 IS) as the
 - [Step 5 - Configure WSO2 API-M with the WSO2 IS](#step-5-configure-wso2-api-m-with-the-wso2-is)
 - [Step 6 - Optionally, configure High Availability (HA) for the Identity Server](#step-6-optionally-configure-high-availability-ha-for-the-identity-server)
 - [Step 7 - Start the Identity Server(s)](#step-7-start-the-identity-servers)
+- [Step 8 - Start the Identity Server(s)](#step-7-start-the-identity-servers)
+
 
 ## Step 1 - Download and install WSO2 IS
 
