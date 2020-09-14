@@ -224,15 +224,7 @@ Follow the instructions below to set up and configure the databases for the WSO2
 
 ## Step 5 - Configure WSO2 API-M with the WSO2 IS
 
-1.  Import the Identity Server's public certificate to WSO2 API-M's truststore.
-
-     Import the public certificate of WSO2 IS, which is used to sign the tokens, to the WSO2 API-M truststore (`client-truststore.jks`) under the `gateway_certificate_alia` alias.
-     
-     For more information, see [Import the public certificate into the client trust store]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens/#importing-the-public-certificate-into-the-client-trust-store).
-
-2. By default, both API Manager and the WSO2 Identity Server comes with JDBC User Store as the primary userstore. But if you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in IS, that particular user store has to be configured in the API Manager nodes as well. 
-
-     For more information, see [Configuring Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug a new user store.
+By default, WSO2 API Manager and WSO2 Identity Server comes with a JDBC User Store as the primary userstore. However, if you wish to use any other type of user store (e.g., LDAP, Active Directory, etc.) in WSO2 IS, that particular user store has to be configured in the API Manager nodes as well. For more information, see [Configuring the Primary User Store]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-the-primary-user-store/) and apply the relevant configs to plug in a new user store.
 
 ## Step 6 - Optionally, configure High Availability (HA) for the Identity Server
 
