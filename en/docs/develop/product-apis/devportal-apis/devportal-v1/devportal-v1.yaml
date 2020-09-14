@@ -316,7 +316,6 @@ paths:
           schema:
             $ref: '#/definitions/Error'
 
-
   /apis/{apiId}/swagger:
     #-----------------------------------------------------
     # Retrieve the API swagger definition
@@ -355,7 +354,6 @@ paths:
         200:
           schema:
             type: string
-            example: ""
           description: |
             OK.
             Requested swagger document of the API is returned
@@ -544,7 +542,7 @@ paths:
         - $ref: '#/parameters/labelName'
         - $ref: '#/parameters/environmentName'
         - $ref: '#/parameters/If-None-Match'
-        - $ref : '#/parameters/requestedTenant'
+        - $ref: '#/parameters/requestedTenant'
       tags:
         - APIs
       responses:
@@ -3515,7 +3513,7 @@ paths:
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/offset'
       tags:
-        - tenants
+        - Tenants
       responses:
         200:
           description: |
@@ -4098,7 +4096,7 @@ parameters:
     in: header
     description: |
       For cross-tenant invocations, this is used to specify the tenant domain, where the resource need to be
-        retirieved from.
+      retrieved from.
     required: false
     type: string
 
@@ -4533,11 +4531,13 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/APIOperations'
+        example: []
       authorizationHeader:
         type: string
         description: |
           Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
           in tenant or system level will be used.
+        example: "Authorization"
       securityScheme:
         type: array
         description: |
@@ -4545,6 +4545,7 @@ definitions:
           it is not set OAuth2 will be set as the security for the current API.
         items:
           type: string
+        example: ["oauth2", "oauth_basic_auth_api_key_mandatory"]
       tags:
         type: array
         description: Search keywords related to the API
@@ -4777,6 +4778,7 @@ definitions:
         type: string
         example: APPROVED
         default: ""
+        readOnly: true
       groups:
         type: array
         items:
@@ -4784,11 +4786,13 @@ definitions:
         example: []
       subscriptionCount:
         type: integer
+        readOnly: true
       keys:
         type: array
         items:
           $ref: '#/definitions/ApplicationKey'
         example: []
+        readOnly: true
       attributes:
         type: object
         additionalProperties:
@@ -4804,9 +4808,11 @@ definitions:
           Application created user
         type: string
         example: admin
+        readOnly: true
       hashEnabled:
         type: boolean
         example: false
+        readOnly: true
 
   #-----------------------------------------------------
   # The Application Info resource
@@ -5073,13 +5079,12 @@ definitions:
           - ON_HOLD
           - REJECTED
           - TIER_UPDATE_PENDING
-        readOnly: true
         example: UNBLOCKED
       redirectionParams:
         readOnly: true
         type: string
         description: A url and other parameters the subscriber can be redirected.
-
+        example: ""
 
   #-----------------------------------------------------
   # The Tag resource
@@ -5129,11 +5134,14 @@ definitions:
       ratingId:
         type: string
         readOnly: true
+        example: "32acfa7a-77f8-4fe0-bb7f-a902f36546d0"
       apiId:
         type: string
+        readOnly: true
         example: "e93fb282-b456-48fc-8981-003fb89086ae"
       ratedBy:
         type: string
+        readOnly: true
         example: "admin"
       rating:
         type: integer
@@ -5149,10 +5157,12 @@ definitions:
         type: string
         description: |
           Average Rating of the API
+        example: 4
       userRating:
         type: integer
         description: |
           Rating given by the user
+        example: 4
       count:
         type: integer
         description: |
@@ -5179,14 +5189,17 @@ definitions:
       id:
         type: string
         readOnly: true
+        example: "943d3002-000c-42d3-a1b9-d6559f8a4d49"
       content:
         type: string
         example: "This is a comment"
       createdTime:
         type: string
+        readOnly: true
         example: 2017-02-20T13:57:16.229
       createdBy:
         type: string
+        readOnly: true
         example: "admin"
 
   #-----------------------------------------------------
@@ -5272,7 +5285,7 @@ definitions:
         items:
           type: string
         description: Valid comma seperated scopes for the access token
-        example: default,read_api,write_api
+        example: ["default", "read_api", "write_api"]
       validityTime:
         type: integer
         format: int64
@@ -5303,16 +5316,21 @@ definitions:
       keyMappingId:
         type: string
         description: Key Manager Mapping UUID
+        readOnly: true
+        example: 92ab520c-8847-427a-a921-3ed19b15aad7
       keyManager:
         type: string
         description: Key Manager Name
+        example: "Resident Key Manager"
       consumerKey:
         type: string
         description: Consumer key of the application
+        readOnly: true
         example: vYDoc9s7IgAFdkSyNDaswBX7ejoa
       consumerSecret:
         type: string
         description: Consumer secret of the application
+        readOnly: true
         example: TIDlOFkpzB7WjufO3OJUhy1fsvAa
       supportedGrantTypes:
         type: array
@@ -5393,14 +5411,17 @@ definitions:
       keyManager:
         type: string
         description: key Manager to Generate Keys
+        example: "Resident Key Manager"
       grantTypesToBeSupported:
         type: array
         items:
           type: string
         description: Grant types that should be supported by the application
+        example: ["password", "client_credentials"]
       callbackUrl:
         type: string
         description: Callback URL
+        example: "http://sample.com/callback/url"
       scopes:
         type: array
         items:
@@ -5413,15 +5434,17 @@ definitions:
       clientId:
         type: string
         description: Client ID for generating access token.
-        example: ""
+        readOnly: true
+        example: "sZzoeSCI_vL2cjSXZQmsmV8JEyga"
       clientSecret:
         type: string
         description: Client secret for generating access token. This is given together with the client Id.
-        example: ""
+        readOnly: true
+        example: "nrs3YAP4htxnz_DqpvGhf9Um04oa"
       additionalProperties:
         type: object
         description: Additional properties needed.
-        example: ""
+        example: {}
 
   #-----------------------------------------------------
   # The Application Key Mapping Request schema
@@ -5435,12 +5458,15 @@ definitions:
       consumerKey:
         type: string
         description: Consumer key of the application
+        example: "oYhwZu4P2ThDmiDprBk6c0YfjR8a"
       consumerSecret:
         type: string
         description: Consumer secret of the application
+        example: "ondWGtFTCOVM4sfPyOfZ7fel610a"
       keyManager:
         type: string
         description: Key Manager Name
+        example: "Resident Key Manager"
       keyType:
         type: string
         enum:
@@ -5500,6 +5526,7 @@ definitions:
       apikey:
         type: string
         description: API Key to revoke
+        example: eyJoZWxsbyI6IndvcmxkIn0=.eyJ3c28yIjoiYXBpbSJ9.eyJ3c28yIjoic2lnbmF0dXJlIn0=
 
   #-----------------------------------------------------
   # Scope Info resource
@@ -5800,11 +5827,13 @@ definitions:
         description: |
           Link to the next subset of resources qualified.
           Empty if no more resources are to be returned.
+        example: ""
       previous:
         type: string
         description: |
           Link to the previous subset of resources qualified.
           Empty if current subset is the first subset returned.
+        example: ""
 
   #-----------------------------------------------------
   # The settings resource
@@ -5851,9 +5880,11 @@ definitions:
       userStorePasswordPattern:
         type: string
         description: The 'PasswordJavaRegEx' cofigured in the UserStoreManager
+        example: ""
       passwordPolicyPattern:
         type: string
         description:  The regex configured in the Password Policy property 'passwordPolicy.pattern'
+        example: ""
       passwordPolicyMinLength:
         type: integer
         description: If Password Policy Feature is enabled, the property 'passwordPolicy.min.length' is returned as the
@@ -5981,7 +6012,7 @@ definitions:
       id:
         type: integer
         description: The alert Id
-        example: 1
+        example: 3
       name:
         type: string
         description: The name of the alert.
@@ -6040,6 +6071,7 @@ definitions:
         type: array
         items:
           type: string
+        example: ["abc@gmail.com"]
       failedConfigurations:
         type: array
         items:
@@ -6093,7 +6125,7 @@ definitions:
       apiName: 'PizzaShackAPI'
       apiVersion: '1.0.0'
       applicationName: 'DefaultApplication'
-      requestConunt: '12'
+      requestCount: '12'
 
   #-----------------------------------------------------
   # The Category resource
@@ -6176,18 +6208,18 @@ definitions:
         example: "01234567-0123-0123-0123-012345678901"
       name:
         type: string
-        example: "WSO2 IS"
+        example: "Resident Key Manager"
       type:
         type: string
-        example: "IS"
+        example: "default"
       displayName:
         type: string
         description: |
           display name of Keymanager
-        example: Keymanager1
+        example: "Resident Key Manager"
       description:
         type: string
-        example: "This is a key manager for Developers"
+        example: "This is Resident Key Manager"
       enabled:
         type: boolean
         example: true
@@ -6198,10 +6230,13 @@ definitions:
           example: "client_credentials"
       tokenEndpoint:
         type: string
+        example: "https://localhost:9443/oauth2/token"
       revokeEndpoint:
         type: string
+        example: "https://localhost:9443/oauth2/revoke"
       userInfoEndpoint:
         type: string
+        example: ""
       enableTokenGeneration:
         type: boolean
         example: true
