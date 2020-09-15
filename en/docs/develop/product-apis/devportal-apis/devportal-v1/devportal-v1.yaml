@@ -1607,6 +1607,7 @@ paths:
     # Get all keys of an application
     #-----------------------------------------------------
     get:
+      deprecated: true
       summary: Retrieve All Application Keys
       security:
         - OAuth2Security:
@@ -1645,6 +1646,7 @@ paths:
     # Get a key of an application by key type
     #-----------------------------------------------------
     get:
+      deprecated: true
       security:
         - OAuth2Security:
             - apim:subscribe
@@ -1686,6 +1688,7 @@ paths:
     # Update grant types and callback url of an application
     #--------------------------------------------------------------------
     put:
+      deprecated: true
       security:
         - OAuth2Security:
             - apim:subscribe
@@ -1748,6 +1751,7 @@ paths:
     # Re generate consumer secret for an application
     #-----------------------------------------------------
     post:
+      deprecated: true
       security:
         - OAuth2Security:
             - apim:subscribe
@@ -1806,6 +1810,7 @@ paths:
     # clean up keys after failed key generation of an application
     #-----------------------------------------------------
     post:
+      deprecated: true
       security:
         - OAuth2Security:
             - apim:subscribe
@@ -1844,6 +1849,7 @@ paths:
     # Generate a token for an application
     #-----------------------------------------------------
     post:
+      deprecated: true
       security:
         - OAuth2Security:
             - apim:subscribe
