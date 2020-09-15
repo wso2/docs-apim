@@ -278,8 +278,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
     #-----------------------------------------------------
     # Create a new API
     #-----------------------------------------------------
@@ -343,14 +342,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported Media Type.
             The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual API" resource APIs
@@ -421,8 +418,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the definition of an API
@@ -484,8 +480,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -502,14 +497,12 @@ paths:
           description: |
             Conflict.
             The request could not be completed due to a conflict with the current state of the target resource.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Conflict'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
     # Delete the definition of an API
@@ -557,14 +550,12 @@ paths:
           description: |
             Conflict.
             The request could not be completed due to a conflict with the current state of the target resource.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Conflict'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ################################################################
   # The swagger resource of "Individual API" resource APIs
@@ -631,8 +622,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the API swagger definition
@@ -713,8 +703,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -731,8 +720,7 @@ paths:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ################################################################
   # Generates Mock/Sample Payloads from Examples in API Definition
@@ -795,8 +783,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ################################################################
   # Generated Mock/Sample Payloads from Examples in API Definition
@@ -858,8 +845,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ################################################################
   # The resource policy definitions of "Individual API" resource APIs
@@ -940,8 +926,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ################################################################
   # The "Individual Resource Policy" APIs
@@ -1002,8 +987,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
@@ -1014,8 +998,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #------------------------------------------------------------------------
     # Update the resource policy definition for the given resource identifier
@@ -1084,8 +1067,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -1102,8 +1084,7 @@ paths:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ################################################################
   # The thumbnail resource of "Individual API" resource APIs
@@ -1162,14 +1143,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a thumbnail image to a certain API
@@ -1244,20 +1223,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
 
   ######################################################
@@ -1319,14 +1295,12 @@ paths:
           description: |
             Not Found.
             Requested Throttling Policy does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
   ######################################################
@@ -1380,14 +1354,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             API to copy does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Change Lifecycle" Processing Function resource API
@@ -1482,26 +1454,22 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         409:
           description: |
             Conflict.
             Pending workflow task exists.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Conflict'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
   ######################################################
   #  The "API State Change History"  resource API
   ######################################################
@@ -1559,8 +1527,7 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
   ######################################################
   #  The "API Lifecycle State Data"  resource API
   ######################################################
@@ -1622,14 +1589,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   #  The "API Lifecycle State Data"  resource API
@@ -1668,14 +1633,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
 
   ######################################################
@@ -1749,14 +1712,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported Media Type.
             The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Import API from a WSDL Definition"  resource API
@@ -1844,14 +1805,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported Media Type.
             The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
 
   ######################################################
@@ -1920,14 +1879,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported Media Type.
             The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Validate API Definition" utility API
@@ -1988,14 +1945,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
 ######################################################
 # The "Validate Endpoint" utility API
@@ -2042,14 +1997,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Validate API" utility API.
@@ -2106,14 +2059,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Validate WSDL Definition" utility API
@@ -2166,14 +2117,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Validate GRAPH_QL API Definition" utility API
@@ -2217,14 +2166,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The GraphQL Schema Resource
@@ -2286,14 +2233,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a GraphQL schema to the registry
@@ -2351,8 +2296,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -2363,14 +2307,12 @@ paths:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   # AWS Lambda
@@ -2418,8 +2360,7 @@ paths:
           description: |
             Not Found.
             Requested resource does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   #########################################################
   # The "Configure Monetization" Processing Function resource API
@@ -2462,20 +2403,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Requested resource does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   #########################################################
   # The get monetizied policies processing function resource API
@@ -2511,20 +2449,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Requested resource does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The "Get Total Revenue" Processing Function resource API
@@ -2575,8 +2510,7 @@ paths:
           description: |
             Not Found.
             Requested Subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Document Collection" resource APIs
@@ -2633,14 +2567,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a document to a certain API
@@ -2698,8 +2630,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported media type.
@@ -2765,14 +2696,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update a particular document of a certain API
@@ -2835,20 +2764,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
     # Delete a particular document of a certain API
@@ -2885,14 +2811,12 @@ paths:
           description: |
             Not Found.
             Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ################################################################
   # The content resource of "Individual Document" resource APIs
@@ -2975,14 +2899,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a file or add inline content to a document of a certain API
@@ -3067,20 +2989,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   #----------------------------------------------------------------------------
   # API Document Name validation method.
@@ -3193,8 +3112,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload an API specific mediation policy
@@ -3266,20 +3184,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   # The "Individual API specific mediation sequence" resource
@@ -3340,14 +3255,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Delete the mediation policy
@@ -3388,14 +3301,12 @@ paths:
           description: |
             Not Found.
             Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
   ###################################################################
   # The "Individual API specific mediation sequence content" resource
   ###################################################################
@@ -3453,8 +3364,7 @@ paths:
           description: |
             Not Found.
             Requested file does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
     #-----------------------------------------------------
     # Update a mediation policy
     #-----------------------------------------------------
@@ -3525,8 +3435,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -3537,14 +3446,12 @@ paths:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ################################################################
   # The WSDL meta info resource of "APIs" resource APIs
@@ -3586,14 +3493,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist or the API is not a SOAP API.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 ################################################################
 # The WSDL resource of "Individual API" resource APIs
@@ -3651,14 +3556,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the API's WSDL
@@ -3723,8 +3626,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -3735,14 +3637,12 @@ paths:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   # GraphQL "Query Complexity" resource APIs
@@ -3915,14 +3815,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The Security Audit API List
@@ -3966,8 +3864,7 @@ paths:
           description: |
             Not Found.
             The Security Audit Report was not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
 ######################################################
 # The "ExternalStore Collection" resource APIs
@@ -4015,14 +3912,12 @@ paths:
               type: string
         500:
           description: Internal server error while getting external stores of the API.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
         404:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Publish to External Stores" resource APIs
@@ -4076,14 +3971,12 @@ paths:
               type: string
         500:
           description: Internal server error while publishing to external stores
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
         404:
           description: |
             Not Found.
             Request API resource or external store Ids not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # Export Resource API
@@ -4168,14 +4061,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         500:
           description: |
             Internal Server Error.
             Error in exporting API.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
 ######################################################
 # The "Subscription Collection" resource APIs
@@ -4243,8 +4134,7 @@ paths:
         406:
           description: |
             Not Acceptable. The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The get usage billing resource APIs
@@ -4295,8 +4185,7 @@ paths:
           description: |
             Not Found.
             Requested Subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The get subscriber information
@@ -4328,8 +4217,7 @@ paths:
           description: |
             Not Found.
             Requested Subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Block Subscription" Processing Function resource API
@@ -4392,20 +4280,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Requested subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   # The "Unblock Subscription" Processing Function resource API
@@ -4456,20 +4341,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             Requested subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   # The "Tier Collection" resource APIs
@@ -4528,8 +4410,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
   ######################################################
@@ -4593,14 +4474,12 @@ paths:
           description: |
             Not Found.
             Requested Tier does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The "Global Mediation Policy" resource APIs
@@ -4664,8 +4543,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ###################################################################
   # The "Individual Global mediation policy content" resource
@@ -4721,8 +4599,7 @@ paths:
           description: |
             Not Found.
             Requested file does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Certificate Management" resource APIs
@@ -4786,13 +4663,11 @@ paths:
           description: |
             Bad Request.
             Failure due to not providing alias or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Upload client certificate resource api.
@@ -4876,14 +4751,12 @@ paths:
           description: |
             Bad Request.
             Failures due to existing alias or expired certificate.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '500':
           description: |
             Internal Server Error
             Failed to add the Certificate due to an Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Update certificate resource.
@@ -4955,20 +4828,17 @@ paths:
           description: |
             Bad Request.
             Failure due to not providing alias.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
             Updating certificate failed. Alias not found or server is not configured to support mutual SSL
             authentication.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Delete Certificate resource
@@ -5020,20 +4890,17 @@ paths:
           description: |
             Bad Request.
             Alias not found or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found. |
             Failed to delete the certificate. Certificate could not found for
             the given alias
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Get certificate information resource.
@@ -5092,19 +4959,16 @@ paths:
           description: |
             Bad Request.
             Alias not found or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
             Alias not found
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Download the certificate which matches the alias.
@@ -5157,18 +5021,15 @@ paths:
           description: |
             Bad Request.
             Alias not provided or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found. Certificate for the Alias not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # The "Certificate Management" resource APIs
@@ -5226,18 +5087,15 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Upload certificate resource api.
@@ -5304,14 +5162,12 @@ paths:
             Bad Request.
             Invalid request or validation error.
             * Failures due to existing alias or expired certificate.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '500':
           description: |
             Internal Server Error
             * Failed to add the Certificate due to an Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Update certificate resource.
@@ -5367,19 +5223,16 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
             Updating certificate failed. Alias not found
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Delete Certificate resource
@@ -5424,20 +5277,17 @@ paths:
             Bad Request.
 
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found. |
             Failed to delete the certificate. Certificate could not found for
             the given alias
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Get certificate information resource.
@@ -5481,19 +5331,16 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
             Alias not found
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Download the certificate which matches the alias.
@@ -5535,18 +5382,15 @@ paths:
             Bad Request.
             Invalid request or validation error.
             *
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found. Certificate for the Alias not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # The "Content Search Results" resource APIs
@@ -5612,8 +5456,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
     ######################################################
@@ -5674,8 +5517,7 @@ paths:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Create a new API Product -API Product (Individual)
@@ -5726,14 +5568,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported Media Type.
             The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   /api-products/{apiProductId}:
     delete:
@@ -5768,14 +5608,12 @@ paths:
           description: |
             Not Found.
             Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
     # Retrieve the details of an API definition
@@ -5826,14 +5664,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the definition of an API product
@@ -5891,8 +5727,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -5903,14 +5738,12 @@ paths:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   /api-products/{apiProductId}/thumbnail:
     #-------------------------------------------------------------------------------------------------
@@ -5961,14 +5794,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a thumbnail image to a certain API Product
@@ -6026,20 +5857,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
   ################################################################
   # The swagger resource of "Individual API" resource APIs
   ################################################################
@@ -6092,14 +5920,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ###########################################################
   # Resource for checking if a given API Product is outdated
@@ -6155,14 +5981,12 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
   ######################################################
@@ -6221,14 +6045,12 @@ paths:
           description: |
             Not Found.
             Requested API Product does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a document to a certain API
@@ -6284,8 +6106,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported media type.
@@ -6352,14 +6173,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update a particular document of a certain API Product
@@ -6422,20 +6241,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
     # Delete a particular document of a certain API Product
@@ -6471,14 +6287,12 @@ paths:
           description: |
             Not Found.
             Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ################################################################
   # The content resource of "Individual Document" resource APIs
@@ -6560,14 +6374,12 @@ paths:
           description: |
             Not Found.
             Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a file or add inline content to a document of a certain API Product
@@ -6651,20 +6463,17 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
             The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   ######################################################
   # Check role existence in user-store
@@ -6767,8 +6576,7 @@ paths:
             $ref: '#/definitions/ExternalStore'
         500:
           description: Error retrieving external stores
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # The Publisher settings List
@@ -6801,8 +6609,7 @@ paths:
           description: |
             Not Found.
             Requested Settings does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Environment Collection" resource API
@@ -6857,8 +6664,7 @@ paths:
           description: |
             Not Found.
             Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The tenant resource APIs
@@ -6916,14 +6722,12 @@ paths:
           description: |
             Not Found.
             Requested application does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
           description: |
             Not Acceptable.
             The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
   ####################################################
   # Publisher Alerts management REST API
   ####################################################
@@ -6964,8 +6768,7 @@ paths:
           description: |
             Internal Server Error.
             An internal server error occurred while retrieving the alert types.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   '/alert-subscriptions':
     #--------------------------------------------------
@@ -7004,8 +6807,7 @@ paths:
           description: |
             Internal Server Error
             An error occurred while retrieving subscribed alert types by user.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #--------------------------------------------------
     # Subscribe to the selected alert types by the user.
@@ -7055,8 +6857,7 @@ paths:
           description: |
             Internal Server Error
             An internal server error occurred while subscribing to alerts.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
     #--------------------------------------------------
     # Unsubscribe the user from all the alerts types
     #--------------------------------------------------
@@ -7090,8 +6891,7 @@ paths:
         500:
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   ##################################################
   # Alert configuration api
@@ -7135,8 +6935,7 @@ paths:
           description: |
             Internal Server Error
             An error occurred while retrieving subscribed alert types by user.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   '/alerts/{alertType}/configurations/{configurationId}':
     #----------------------------------------------
@@ -7182,14 +6981,12 @@ paths:
           description: |
             Bad Request
             The request parameters validation failed.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         500:
           description: |
             Internal Server Error
             An error occurred while retrieving subscribed alert types by user.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
     #----------------------------------------------
     # Delete alert configuration
@@ -7219,20 +7016,17 @@ paths:
           description: |
             Bad Request
             The request parameters validation failed.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The provided alert configuration is not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         500:
           description: |
             Internal Server Error
             An error occurred while retrieving subscribed alert types by user.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # Check tenant existence
@@ -7377,8 +7171,7 @@ paths:
               type: string
         500:
           description: Internal server error while retrieving shared scope list
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------
   # Create a new Shared Scope
@@ -7421,8 +7214,7 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported media type.
@@ -7468,8 +7260,7 @@ paths:
           description: |
             Not Found.
             Requested Shared Scope does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   #-------------------------------------------------------------
   # Update a shared scope
@@ -7513,14 +7304,12 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
           description: |
             Not Found.
             The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   #-----------------------------------------------------
   # Delete the shared scope
@@ -7550,8 +7339,7 @@ paths:
           description: |
             Not Found.
             The resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   #-----------------------------------------------------
   # The scope name existence check resource
@@ -7621,8 +7409,7 @@ paths:
           description: |
             Not Found.
             Usages for the shared scope does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
   ######################################################
   # The "KEY MANAGER" resource API
   ######################################################
@@ -7697,18 +7484,15 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
 ######################################################
 # The "deployments status per API" resource APIs
@@ -7756,18 +7540,15 @@ paths:
           description: |
             Bad Request.
             Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         '404':
           description: |
             Not Found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         '500':
           description: |
             Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/InternalServerError'
 
 ######################################################
 # Parameters - required by some of the APIs above
@@ -8105,6 +7886,115 @@ parameters:
     in: path
     required: true
     description: The alert configuration id.
+
+######################################################
+# The response schemas used by the API resources
+######################################################
+responses:
+
+  # Bad Request Response Schema
+  BadRequest:
+    description: Bad Request. Invalid request or validation error.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 400
+        message: "Bad Request"
+        description: "Invalid request or validation error"
+        moreInfo: ""
+        error: []
+
+  # Unauthorized Response Schema
+  Unauthorized:
+    description: Unauthorized. The user is not authorized.
+    schema:
+      $ref: '#/definitions/Error'
+    example:
+      code: 401
+      message: "Unauthorized"
+      description: "The user is not authorized"
+      moreInfo: ""
+      error: []
+
+  # Not Found Response Schema
+  NotFound:
+    description: Not Found. The specified resource does not exist.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 404
+        message: "Not Found"
+        description: "The specified resource does not exist"
+        moreInfo: ""
+        error: []
+
+  # Not Acceptable Response Schema
+  NotAcceptable:
+    description: Not Acceptable. The requested media type is not supported.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 406
+        message: "Not Acceptable"
+        description: "The requested media type is not supported"
+        moreInfo: ""
+        error: []
+
+  # Conflict Response Schema
+  Conflict:
+    description: Conflict. Specified resource already exists.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 409
+        message: "Conflict"
+        description: "Specified resource already exists"
+        moreInfo: ""
+        error: []
+
+  # Precondition Failed Response Schema
+  PreconditionFailed:
+    description: Precondition Failed. The request has not been performed because one of the preconditions is not met.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 412
+        message: "Precondition Failed"
+        description: "The request has not been performed because one of the preconditions is not met"
+        moreInfo: ""
+        error: []
+
+  # Unsupported Media Type Response Schema
+  UnsupportedMediaType:
+    description: Unsupported Media Type. The entity of the request was not in a supported format.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 415
+        message: "Unsupported media type"
+        description: "The entity of the request was not in a supported format"
+        moreInfo: ""
+        error: []
+
+  # Internal Server Error Response Schema
+  InternalServerError:
+    description: Internal Server Error.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 500
+        message: "Internal Server Error"
+        description: "The server encountered an internal error. Please contact administrator."
+        moreInfo: ""
+        error: []
+
 ######################################################
 # The resources used by some of the APIs above within the message body
 ######################################################
