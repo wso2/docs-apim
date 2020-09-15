@@ -3,14 +3,18 @@
 The following information describes how to upgrade your **WSO2 API Manager (WSO2 API-M)** environment **from APIM 1.10.0** when **WSO2 Identity Server (WSO2 IS)** is the **Key Manager**.
 
 !!! tip
-    You can download the **pre-packaged WSO2 Identity Server 5.10.0, which is also known as Identity Server as the Key Manager 5.10.0** from [here](https://wso2.com/api-management/install/key-manager/). Make sure you are using the latest [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack.
+    - Download the **pre-packaged WSO2 Identity Server 5.10.0, which is also known as Identity Server as the Key Manager 5.10.0**.
+    
+         Navigate to the [WSO2 API Manager page](https://wso2.com/api-management/), click **DOWNLOAD** to expand the installation options; thereafter, scroll down past the installation options to navigate to the **OTHER RESOURCES** section, and click **Identity Server as a Key Manager Pack**.  
+    
+    - Make sure you are using the latest [WUM updated](https://docs.wso2.com/display/updates/Getting+Started) pack.
 
 !!! note
     -   You can use the following steps in either one of the following situations:
         -   You are currently using a WSO2 IS 5.1.0 vanilla distribution that has WSO2 API Management related Key Manager features installed on top of it.
         -   You are currently using a pre-packaged WSO2 Identity Server 5.1.0 distribution.
 
-    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 1.10.0 to 3.1.0](../upgrading-wso2-api-manager/upgrading-from-1100-to-310.md) to upgrade your APIM environment from API-M 1.10.0 to 3.1.0.
+    -   Prior to upgrade the **WSO2 Identity Server (WSO2 IS) AS Key Manager**, you have to follow the steps mentioned in [Upgrading API-M from 1.10.0 to 3.1.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-1100-to-310) to upgrade your APIM environment from API-M 1.10.0 to 3.1.0.
 
 Before executing the IS migration client, keep in mind to follow the below steps.
 
