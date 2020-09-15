@@ -515,6 +515,7 @@ nav:
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
+          - Accessibility Compliance: reference/accessibility-compliance.md
           - FAQ: reference/faq.md
           - Guides:
                 - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
