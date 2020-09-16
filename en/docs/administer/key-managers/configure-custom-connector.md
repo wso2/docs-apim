@@ -15,7 +15,7 @@ You need to write a custom Key Manager connector as explained below.
 
 1. Create a Maven project.
 
-      Let's download the sample project from [here]({{base_path}}/attachments/administer/custom.auth.client.zip).
+      Let's download the sample project from [here]({{base_path}}/assets/attachments/administer/custom.auth.client.zip).
    
       However, when manually creating a Maven project, you will need to follow the following steps.
 
