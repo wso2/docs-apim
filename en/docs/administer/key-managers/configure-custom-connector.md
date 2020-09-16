@@ -1,8 +1,8 @@
 # Configure a Custom Key Manager
 
-WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. This can be achieved by writing a custom Key Manager connector as explained below.
+WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. For this purpose you need to write a custom Key Manager connector as explained below.
 
-You can use the following out-of-the-box connectors as a reference.
+The following are some out-of-the-box connectors that you can use as a reference.
    
 - [Okta Connector](https://github.com/wso2-extensions/apim-km-okta/)
    
@@ -204,17 +204,17 @@ You can use the following out-of-the-box connectors as a reference.
           </tr>
           <tr class="even">
           <td>API Key</td>
-          <td>The API key that was generated from <a href="#section6">section 6</a>.</td>
+          <td>The API key that was generated from the Authorization Server.</td>
           <td>Mandatory</td>
           </tr>
           <tr class="odd">
           <td>Client ID</td>
-          <td>The client ID that was generated from <a href="#section6">section 6</a>.</td>
+          <td>The client ID that was generated from the Authorization Server.</td>
           <td>Mandatory</td>
           </tr>
           <tr class="even">
           <td>Client Secret</td>
-          <td>The client secret that was generated from <a href="#section6">section 6</a>.</td>
+          <td>The client secret that was generated from the Authorization Server.</td>
           <td>Mandatory</td>
           </tr>
           <tr class="odd">
@@ -263,7 +263,7 @@ You can use the following out-of-the-box connectors as a reference.
           </tr>
           <tr class="odd">
           <td>Token Generation</td>
-          <td>This enables the token generation process via the authorization server.</td>
+          <td>This enables the token generation process via the Authorization Server.</td>
           <td>Optional</td>
           </tr>
           <tr class="even">
@@ -299,7 +299,7 @@ You can use the following out-of-the-box connectors as a reference.
           </tr>
           <tr class="even">
           <td><b>Token Handling Options</b></td>
-          <td>This provides a way to validate the token for this particular authorization server.</td>
+          <td>This provides a way to validate the token for this particular Authorization Server.</td>
           <td>Optional
               </br>This is mandatory if the token validation method is <b>introspect</b></td>
           </tr>
@@ -341,4 +341,3 @@ You can use the following out-of-the-box connectors as a reference.
 
     !!! tip
         If you want to generate the tokens with scopes, make sure that those scopes are defined in the Authorization Server.
-
