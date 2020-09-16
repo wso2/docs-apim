@@ -1,15 +1,17 @@
 # Configure a Custom Key Manager
 
-WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. For this purpose you need to write a custom Key Manager connector as explained below.
-
-The following are some out-of-the-box connectors that you can use as a reference.
-   
-- [Okta Connector](https://github.com/wso2-extensions/apim-km-okta/)
-   
-- [Keycloak Connector](https://github.com/wso2-extensions/apim-keymanager-keycloak/)
-
+WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. Therefore, you need to use a custom Key Manager connector for this purpose. 
 
 ## Step 1 - Create a Key Manager connector bundle 
+
+You need to write a custom Key Manager connector as explained below.
+
+!!! tip
+    The following are some out-of-the-box connectors that you can use as references.
+   
+      - [Okta Connector](https://github.com/wso2-extensions/apim-km-okta/)
+   
+      - [Keycloak Connector](https://github.com/wso2-extensions/apim-keymanager-keycloak/)
 
 1. Create a Maven project.
 
@@ -89,6 +91,8 @@ The following are some out-of-the-box connectors that you can use as a reference
       Navigate to the `<PROJECT_HOME>` directory and execute the following command.
       
       `mvn clean install`
+
+      This will create a custom Key Manager connector JAR.
      
 ## Step 2 - Deploy the bundle in the WSO2 API-M Server
 
@@ -341,3 +345,4 @@ The following are some out-of-the-box connectors that you can use as a reference
 
     !!! tip
         If you want to generate the tokens with scopes, make sure that those scopes are defined in the Authorization Server.
+
