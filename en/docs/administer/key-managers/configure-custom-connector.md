@@ -1,119 +1,120 @@
 # Configure a Custom Key Manager
 
-WSO2 API Manager is capable of intigrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. This can be achieved by writing a custom key manager connector as explained below.
+WSO2 API Manager is capable of integrating with any external OAuth Authorization Server to manage the OAuth clients and tokens that are required by WSO2 API Manager. This can be achieved by writing a custom Key Manager connector as explained below.
 
-   You may use below out of the box connectors as a reference.
+You can use the following out-of-the-box connectors as a reference.
    
-  1. [Okta Connector](https://github.com/wso2-extensions/apim-km-okta/)
+- [Okta Connector](https://github.com/wso2-extensions/apim-km-okta/)
    
-  2. [Keycloak Connector](https://github.com/wso2-extensions/apim-keymanager-keycloak/)
+- [Keycloak Connector](https://github.com/wso2-extensions/apim-keymanager-keycloak/)
 
 
-## Step 1 - Create Key Manager Connector Bundle 
+## Step 1 - Create a Key Manager connector bundle 
 
-1. First You need to create a maven project. 
+1. Create a Maven project.
 
-   This needs 
+      Let's download the sample project from [here]({{base_path}}/attachments/administer/custom.auth.client.zip).
    
-   i. A class that implements `KeyManagerConnectorConfiguration` interface which is responsible for managing configurations related to the Authorization Server. 
+      However, when manually creating a Maven project, you will need to follow the following steps.
+
+      1. Define a class that implements the `KeyManagerConnectorConfiguration` interface that is responsible for managing the configurations related to the Authorization Server. 
    
-   ii. A class that extends `AbstractKeyManager` abstract class which is responsible for managing OAuth clients and Tokens needed by WSO2 API Manager.
-   
-   Alternatively you may download the sample project from [here]({{base_path}}/attachments/administer/custom.auth.client.zip).
+      2. Define a class that extends the `AbstractKeyManager` abstract class which is responsible for managing OAuth clients and the tokens that are needed by WSO2 API Manager.
 
 2. Implement `KeyManagerConnectorConfiguration`.
 
-  In the sample project this has been implemented in `org.wso2.custom.client.CustomOAuthClient.java` class
+      In the sample project, this has been implemented in the `org.wso2.custom.client.CustomOAuthClient.java` class.
 
-  Following are the methods that the `KeyManagerConnectorConfiguration` interface uses to carry out operations.
+      The following are the methods that the `KeyManagerConnectorConfiguration` interface uses to carry out various related operations.
 
-  <table>
-  <colgroup>
-  <col width="30%" />
-  <col width="70%" />
-  </colgroup>
-  <thead>
-  <tr class="header">
-  <th>Method</th>
-  <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr class="odd">
-  <td><strong>getImplementation</strong></td>
-  <td><p>Provides fully Qualified class name of implementation of KeyManager.</p></td>
-  </tr>
-  <tr class="even">
-  <td><strong>getJWTValidator</strong></td>
-  <td><p>Provides fully Qualified class name of implementation of JWTValidator.</p></td>
-  </tr>
-  <tr class="odd">
-  <td><strong>getConnectionConfigurations</strong></td>
-  <td><p>Provides list of Configurations that need to show in Admin portal in order to connect with KeyManager.</p></td>
-  </tr>
-  <tr class="even">
-  <td><strong>getApplicationConfigurations</strong></td>
-  <td><p>Provides list of configurations need to create Oauth applications in Oauth server in Devportal.
-  </p></td>
-  </tr>
-  <tr class="odd">
-  <td><strong>getType</strong></td>
-  <td><p>Type of Connector ex: Okta.</p></td>
-  </tr>
-  <tr class="even">
-  <td><strong>getDisplayName</strong></td>
-  <td><p>Display name to show in Admin portal.</p></td>
-  </tr>
-  <tr class="odd">
-  <td><strong>getDefaultScopesClaim</strong></td>
-  <td><p>Default scope claim available in jwt if different than <b>scope</b>.</p></td>
-  </tr>
-  <tr class="even">
-  <td><strong>getDefaultConsumerKeyClaim</strong></td>
-  <td><p>Default Consumer Key Claim available in JWT if different than <b>azp</b>.</p></td>
-  </tr>
-  </tbody>
-</table>  
+     <table>
+     <colgroup>
+     <col width="30%" />
+     <col width="70%" />
+     </colgroup>
+     <thead>
+     <tr class="header">
+     <th><b>Method</b></th>
+     <th><b>Description</b></th>
+     </tr>
+     </thead>
+     <tbody>
+     <tr class="odd">
+     <td><strong>getImplementation</strong></td>
+     <td><p>Provides the fully qualified class name of the implementation that corresponds to the `KeyManager` interface.</p></td>
+     </tr>
+     <tr class="even">
+     <td><strong>getJWTValidator</strong></td>
+     <td><p>Provides the fully qualified class name of the implementation that corresponds to the `JWTValidator`.</p></td>
+     </tr>
+     <tr class="odd">
+     <td><strong>getConnectionConfigurations</strong></td>
+     <td><p>Provides the list of configurations that need to appear in the Admin Portal in order to connect with the Key Manager.</p></td>
+     </tr>
+     <tr class="even">
+     <td><strong>getApplicationConfigurations</strong></td>
+     <td><p>Provides the list of configurations that are needed to create OAuth applications in the OAuth server in the Developer Portal.
+     </p></td>
+     </tr>
+     <tr class="odd">
+     <td><strong>getType</strong></td>
+     <td><p>Type of connector. For example, Okta.</p></td>
+     </tr>
+     <tr class="even">
+     <td><strong>getDisplayName</strong></td>
+     <td><p>Display name to show in the Admin Portal.</p></td>
+     </tr>
+     <tr class="odd">
+     <td><strong>getDefaultScopesClaim</strong></td>
+     <td><p>The default scope claim available in JWT if it is different than the <b>scope</b>.</p></td>
+     </tr>
+     <tr class="even">
+     <td><strong>getDefaultConsumerKeyClaim</strong></td>
+     <td><p>The default consumer key claim available in JWT if it is different to <b>azp</b>, which is the Authorized party - the party to which the ID token was issued.</p></td>
+     </tr>
+     </tbody>
+     </table>  
   
 3. Extend `AbstractKeyManager`.
 
-`AbstractKeyManager` implements `KeyManager` interface.
-To learn about the KeyManager interface operation please refer [Extending KeyManager Interface]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface) documentation.
+      The `AbstractKeyManager` implements the `KeyManager` interface. For more information on the operations carried out on the `KeyManager` interface, see [Extending the KeyManager Interface]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface).
 
 
-  In the sample project `AbstractKeyManager` has been extended by the `org.wso2.custom.client.CustomOAuthClient.java` class
+      In the sample project, the `AbstractKeyManager` interface has been extended using the `org.wso2.custom.client.CustomOAuthClient.java` class.
 
-4. If you need to customize the JWTValidation, it is required to [extend JWTValidator]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-key-validation)
-5. Build the project by navigating to <PROJECT_HOME> and issue below command.
-     
+4. If you need to customize the `JWTValidation` interface, you need to [extend the JWTValidator]({{base_path}}/develop/extending-api-manager/extending-key-management/extending-key-validation).
+
+5. Build the project.
+
+      Navigate to the `<PROJECT_HOME>` directory and execute the following command.
       
-      mvn clean install
+      `mvn clean install`
      
-     
+## Step 2 - Deploy the bundle in the WSO2 API-M Server
 
-## Step 2 - Deploy the bundle in API-M Server
+1. Stop the API-M server if it is already running. 
 
-1. Stop the API-M server if it is already running. And copy the jar file generated in `custom.key.manager` component target directory into <API-M Server>/repository/components/dropins
+2. Copy the JAR file that is generated in the `custom.key.manager` component target directory, and add it in to the `<API-M Server>/repository/components/dropins/` directory.
 
-2. Start the Server
+3. Start the Server
 
-## Step 3 - Configure the Connector using Admin Portal
+## Step 3 - Configure the connector using the Admin Portal
 
 1. Sign in to the Admin Portal.
 
-     `https://<hostname>:9443/admin`
+      `https://<hostname>:9443/admin`
      
-     `https://localhost:9443/admin`
+      `https://localhost:9443/admin`
 
-3. Add a new Key Manager.
+2. Add a new Key Manager.
 
      1. Click **Key Managers** and then click **Add Key Manager**.
 
-         [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
+           [![Add new Key Manager]({{base_path}}/assets/img/administer/add-key-manager.png)]({{base_path}}/assets/img/administer/add-key-manager.png)
 
      2. Add the following Key Manager configurations.
 
-         The following table provides definitions for each of the Key Manager configurations.
+           The following table provides definitions for each of the Key Manager configurations.
 
           <table>
           <tr class="header">
@@ -147,13 +148,13 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           <td><p>The well-known URL of the Authorization Server (Key Manager).
           <br/>
           If the well-known URL is provided, other endpoints can be imported. 
-          <br/> e.g., https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p>
+          <br/> e.g., <code>https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</code></p>
           </td>
           <td>Optional</td>
           </tr>
           <tr class="even">
           <td>Issuer</td>
-          <td>The issuer that consumes or validates access tokens. <br/>e.g., https://dev-599740.okta.com/oauth2/default</td>
+          <td>The issuer that consumes or validates access tokens. <br/>e.g., <code>https://dev-599740.okta.com/oauth2/default</code></td>
           <td>Optional</td>
           </tr>
           <tr class="odd">
@@ -163,7 +164,7 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           </tr>
           <tr class="even">
           <td>Client Registration Endpoint </td>
-          <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</p></td>
+          <td><p>The endpoint that verifies the identity and obtains profile information of the end-user based on the authentication performed by an authorization server.</p></td>
           <td>Optional if the well-known URI is provided.</td>
           </tr>
           <tr class="odd">
@@ -188,12 +189,12 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           </tr>
           <tr class="odd">
           <td>Authorize Endpoint</td>
-          <td>The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection.</td>
+          <td>The endpoint is used to obtain an authorization grant from the resource owner via the user-agent redirection.</td>
           <td>Optional</td>
           </tr>
           <tr class="even">
           <td>Scope Management Endpoint </td>
-          <td>The endpoint used to manage the scopes.</td>
+          <td>The endpoint is used to manage the scopes.</td>
           <td>Optional</td>
           </tr>
           <tr class="odd">
@@ -203,17 +204,17 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           </tr>
           <tr class="even">
           <td>API Key</td>
-          <td>The API key generated from <a href="#section6">section 6</a>.</td>
+          <td>The API key that was generated from <a href="#section6">section 6</a>.</td>
           <td>Mandatory</td>
           </tr>
           <tr class="odd">
           <td>Client ID</td>
-          <td>The client ID generated from <a href="#section6">section 6</a>.</td>
+          <td>The client ID that was generated from <a href="#section6">section 6</a>.</td>
           <td>Mandatory</td>
           </tr>
           <tr class="even">
           <td>Client Secret</td>
-          <td>The client secret generated from <a href="#section6">section 6</a>.</td>
+          <td>The client secret that was generated from <a href="#section6">section 6</a>.</td>
           <td>Mandatory</td>
           </tr>
           <tr class="odd">
@@ -249,7 +250,7 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           <tr class="odd">
           <td>JWKS</td>
           <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Okta's public key set in JSON web key set format.
-          This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Okta.
+          This contains the signing key(s) that the Relying Party (RP) uses to validate signatures from Okta.
           </br>
           e.g., https://dev-599740.okta.com/oauth2/default/v1/keys
           </td>
@@ -262,7 +263,7 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           </tr>
           <tr class="odd">
           <td>Token Generation</td>
-          <td>This enables token generation via the authorization server.</td>
+          <td>This enables the token generation process via the authorization server.</td>
           <td>Optional</td>
           </tr>
           <tr class="even">
@@ -290,8 +291,8 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           <td>Use introspect</td>
           <td>The JWKS endpoint is used to validate the JWT token signature.
           If this option is used to validate the tokens it is mandatory to add a Token Handling Option
-               For Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
-          </b>e.g., Claim Key : iss
+               For Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.</br>
+          </b>e.g., </br>Claim Key : iss</br>
           </b>Claim Value : https://dev-599740.okta.com/oauth2/default
           </td>
           <td>Optional</td>
@@ -300,7 +301,7 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           <td><b>Token Handling Options</b></td>
           <td>This provides a way to validate the token for this particular authorization server.</td>
           <td>Optional
-              This is mandatory if the Token Validation Method is <b>introspect</b></td>
+              </br>This is mandatory if the token validation method is <b>introspect</b></td>
           </tr>
           <tr class="odd">
           <td>REFERENCE</td>
@@ -309,7 +310,7 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           </tr>
           <tr class="even">
           <td>JWT</td>
-          <td>The tokens that match a specific JWT is validated.</td>
+          <td>The tokens that match a specific JWT are validated.</td>
           <td></td>
           </tr>
           <tr class="odd">
@@ -324,7 +325,7 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
           </tr>
         </table>
 
-## Step 4 - Generate keys using the Custom Key Manager
+## Step 4 - Generate the keys using the custom Key Manager
 
 1. Sign in to the Developer Portal.
 
@@ -338,6 +339,6 @@ To learn about the KeyManager interface operation please refer [Extending KeyMan
 
 5. Click **Generate Keys**.
 
-!!! tip
-     If you want to generate the tokens with scopes, those scopes should have been defined in the Authorization Server side.
+    !!! tip
+        If you want to generate the tokens with scopes, make sure that those scopes are defined in the Authorization Server.
 
