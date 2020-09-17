@@ -215,10 +215,10 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                             <p><span style="font-weight: 400;">x-wso2-disable-security</span></p>
                         </td>
                         <td>
-                            <p><span style="font-weight: 400;">The resource can be invoked without any authentication</span></p>
+                            <p><span style="font-weight: 400;">When the value of this extension specified as true, the resources can be invoked without any authentication</span></p>
                         </td>
                         <td>
-                            <p><span style="font-weight: 400;">Resource level</span></p>
+                            <p><span style="font-weight: 400;">API level/ Resource level</span></p>
                         </td>
                     </tr>
                     <tr>
@@ -237,7 +237,7 @@ WSO2 API Controller, **apictl** allows to create and deploy APIs without using W
                             <p><span style="font-weight: 400;">x-wso2-mutual-ssl</span></p>
                         </td>
                         <td>
-                            <p><span style="font-weight: 400;">Enable mutual ssl for API</span></p>
+                            <p><span style="font-weight: 400;">Enable mutual SSL for API (With optional and mandatory keywords as values)</span></p>
                         </td>
                         <td>
                             <p><span style="font-weight: 400;">API level</span></p>
