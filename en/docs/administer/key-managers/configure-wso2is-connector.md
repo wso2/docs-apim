@@ -193,7 +193,7 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
       <td>Scope Management Endpoint </td>
       <td>The endpoint used to manage the scopes.</br>
       e.g., https://wso2is.com:9444/api/identity/oauth2/v1.0/scopes</td>
-      <td>Optional</td>
+      <td>Mandatory</td>
       </tr>
       <tr class="odd">
       <td><b>Connector Configurations</b></td>
