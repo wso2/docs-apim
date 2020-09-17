@@ -107,7 +107,7 @@ info:
 
     If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
 
-    * All of the Oauth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
