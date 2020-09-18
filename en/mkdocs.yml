@@ -512,6 +512,7 @@ nav:
                 - Configure WSO2 IS as A Key Manager: administer/key-managers/configure-wso2is-connector.md
                 - Configure Keycloak as A Key Manager: administer/key-managers/configure-keycloak-connector.md
                 - Configure Okta as A Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
