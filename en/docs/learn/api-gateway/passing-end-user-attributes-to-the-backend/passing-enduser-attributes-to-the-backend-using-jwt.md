@@ -92,6 +92,20 @@ custom claims into JWT when invocation token in opaque mode.
 <td>http://wso2.org/claims</td>
 </tr>
 <tr class="even">
+<td><pre><code>apim.jwt.convert_dialect</code></pre></td>
+<td><div class="content-wrapper">
+<p>In the Authorization code grant flow, backend JWT token contains claims from OIDC dialect even though
+ <code>apim.jwt.claim_dialect</code> has been configured with the value <code>http://wso2.org/claims</code>. The
+  reason is that claims are taken from AuthorizationGrantCache, which contains the OIDC claim dialect values. And
+   this is happening due to a modification done to avoid the getUserClaimValues call to WSO2 user store during JWT
+    generation. So, AuthorizationGrantCache is used for retrieving user claims.</p>
+<p>In order to remap the OIDC claims into the configured dialect (by <code>apim.jwt.claim_dialect</code> value
+), <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
+</div>
+</td>
+<td>false</td>
+</tr>
+<tr class="even">
 <td><pre><code>apim.jwt.signing_algorithm</code></pre></td>
 <td><p>The signing algorithm used to sign the JWT. The general format of the JWT is <code>              {token infor}.{claims list}.{signature}</code>. When NONE is specified as the algorithm, signing is turned off and the JWT looks as <code>{token infor}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
 <p>This element can have only two values - the default values are `SHA256withRSA` or `NONE`.</p></td>
