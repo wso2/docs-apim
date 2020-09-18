@@ -4,11 +4,18 @@ WSO2 API Manager is a platform for creating, managing, consuming, and monitoring
 
 WSO2 API Manager comprises of the following modules:
 
--   **API Publisher**: Define new APIs and manage them.
--   **Developer Portal**: Browse published APIs and subscribe to them.
--   **API Gateway**: The underlying API runtime based on [WSO2 Enterprise Integrator (WSO2 EI) 6.6.0](https://docs.wso2.com/display/EI660)
--   **API Key Manager**: Performs key generation and key validation functionalities.
--   **API Traffic Manager**: Performs rate-limiting of API requests.
+- **API Publisher**: Allows API creators to design, implement, and document APIs and allows API product managers to manage the lifecycle of APIs and create API products by using one or more APIs.
+
+- **Developer Portal**: A portal for onboarding application creators. It allows application creators to discover, subscribe, test and consume APIs through their applications.
+
+- **API Gateway**: Allows access to APIs/services by routing application traffic to the relevant endpoints. The API Gateway is the component that enforces security, rate-limiting and transformations on API requests while feeding valuable information of these requests to API Analytics.
+
+- **Key Manager**: The security token service of the API Manager which is responsible for handling everything related to authentication and authorization of API requests. It supports a wide variety of security protocols such as OAuth2.0/OIDC, Basic Auth, API Key, SAML based single-sign-on.
+
+- **Traffic Manager**: Controls the traffic flow of the API gateway. This is used to apply request quotas on APIs for monetization, access control or security-related matters. In addition to configuring the available policies, users can deploy their own policies on the traffic manager which will control the rate of traffic on the API gateways.
+
+- **API Analytics**: Monitors all traffic that's routed through the API gateways to analyze usage patterns, SLA violations, consumer behaviors, to provide business insights and so on.
+
 
 For more information on WSO2 API Manager, see the [overview in the WSO2 API Manager 3.2.0 documentation]({{base_path}}/getting-started/overview/) and go to the [product page on WSO2 API Manager on the WSO2 website.](https://wso2.com/api-management/)
 
@@ -18,37 +25,39 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 ### WSO2 API-M related new features
 
-- **[Third-party Key Manager support]({{base_path}}/administer/key-managers/overview/)**
+- **[Multiple Third-party Key Manager support]({{base_path}}/administer/key-managers/overview/)**
 
-     WSO2 API Manager provides an admin functionality for admins or tenant admins to configure different authorization servers as Key Managers. This brings the capability of supporting multiple Key Managers for a given API.
+    Until API Manager 3.1.0, the only possible way to extend the key management functionality was to configure WSO2 Identity Server. But with this new feature, WSO2 API Manager supports multiple third-party key managers such as Okta and Keycloak. This offers more flexibility when integrating with third-party identity management systems. All tokens and keys will be managed by the respective third-party key manager.
 
-- **[Approval Workflow Executor to API Manager]({{base_path}}/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow/)**
+- **[Inbuilt workflow support]({{base_path}}/learn/consume-api/manage-application/advanced-topics/adding-an-application-creation-workflow/)**
 
-     The Approval Workflow Executor can be enabled for application creation, subscription creation, application key generation, user self sign up, and API state change.
+     API Manager 3.2.0 supports in-built workflow approvals. It is specifically designed to facilitate a simple approval/rejection process without integrating with a business process server. The Approval Workflow Executor can be enabled for application creation, subscription creation, application key generation, user self sign up, and API state change.
 
-- **[API Publisher Test Console]({{base_path}}/learn/design-api/create-api/test-a-rest-api/)**
+- **[Test console for API Publisher]({{base_path}}/learn/design-api/create-api/test-a-rest-api/)**
 
-     The new Test Console in the API Publisher allows you to try out APIs from the Publisher itself and verify functions and behaviors before publishing them to the Gateway for subscribers.
+     The new test Console in the API Publisher allows you to try out APIs from the API Publisher. API creators and publishers can verify functions and behaviors and fix issues  before publishing them to the Gateway and making it available for subscribers.
 
-- **[GraphQL query complexity analysis]({{base_path}}/learn/rate-limiting/graphql-api/query-complexity-limitation/#adding-a-new-subscription-policy-with-graphql-max-complexity-value)**
+- **[Query complexity analysis for GraphQL APIs]({{base_path}}/learn/rate-limiting/graphql-api/query-complexity-limitation/#adding-a-new-subscription-policy-with-graphql-max-complexity-value)**
 
-     You can request more data with increased flexibility using GraphQL queries. WSO2 API Manager introduces the Static Query Analyser to handle complex queries. 
+    WSO2 API Manager introduces the Static Query Analyser to which can be used to protect the backend endpoint from GraphQL queries that are more complex than a specified depth limit. Since GraphQL APIs offer the flexibility to fetch data using expensive queries, users might send requests with complex queries. Sometimes, this will create a significant workload for the backend and make it vulnerable to DOS attacks (in the worst case). With this feature, the API Manager server will analyze the complexity of the query before sending it to the backend and will make sure that the backend is safe from complex queries.
 
-- **OAuth 2.0 endpoint security**
+    
 
-     APIs created in WSO2 API Manager can directly access OAuth 2.0-protected endpoints without any extension to WSO2 API Manager.
+- **[Support for exposing OAuth 2.0 secure endpoints]({{base_path}}/learn/design-api/endpoints/endpoint-security/oauth-2.0/)**
 
-- **Horizontal pod auto-scaling with custom-metrics in the K8s API-Operator**
+     WSO2 API Manager 3.2.0 supports OAuth 2.0 Endpoint Security out-of-the-box. An API can be created to access a backend protected using OAuth 2.0 security standards. The required parameters can be specified via the UI.
+
+- **Horizontal Pod Auto-Scaling with Custom-Metrics in the Kubernetes API-Operator**
 
      You can now auto-scale backend or managed API horizontally based on custom metrics. For more information, see the [sample scenario (v1.2.0)](https://github.com/wso2/k8s-api-operator/tree/master/scenarios/scenario-20) with detailed configurations in the GitHub page of the K8s API-Operator.
 
-- **[Private Jet mode for Microgateways]({{base_path}}/learn/api-microgateway/deploy-apis-in-privatejet-mode/)**
+- **[Private Jet mode for Microgateways]({{base_path}}/learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis/)**
 
-     WSO2 API Manager now provides cloud-native API management, where users can expose microservices as managed APIs in cloud environments with the support of the K8s API-Operator.
+     WSO2 API Manager now provides cloud-native API management, where users can expose microservices as secure managed APIs in cloud environments with the support of the K8s API-Operator. 
 
-- **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-multi-gateway-setup-with-artifact-synchronization)**
+- **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/)**
 
-     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup using NFS with an extension point that can be configured to store these Synapse artifacts. 
+     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup using NFS with an extension point that can be configured to store these Synapse artifacts in a pre-configured storage location. 
 
 - **[Git integration support for API Controller]({{base_path}}/learn/api-controller/ci-cd-with-wso2-api-management/)**
 
@@ -56,34 +65,41 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **Support for API products from API Controller**
 
-     WSO2 API Manager enables users to utilize not only HTTP/REST endpoints but also HTTP/SOAP endpoints with endpoint routing policies such as load balancing and failover. In addition, this incorporates support for dynamic endpoints and AWS Lambda endpoints as well.
+     The API Controller now supports handling API products in addition to APIs. With this new feature, a CI/CD pipeline can be implemented using API products (a package of APIs or selected resources from multiple APIs).
+ 
+- **Support for Different Endpoint Types from API Controller**   
+    The API controller supports a wide range of endpoint types in addition to HTTP/REST endpoints. This feature, gives the API controller the ability to not only support HTTP/SOAP endpoints but to also support load balancing, failover, dynamic endpoints, and AWS lambda endpoints.
+   
 
-- **API lifecycle status change support**
+- **API Lifecycle Status Change Support from API Controller**
 
      API lifecycle status change support in WSO2 API Controller 3.2 provides users the ability to modify the lifecycle status of an API easily without accessing the Publisher UI. 
 
-- **API/application delete support for controller**
+- **API/Application delete support using the API Controller**
 
-     WSO2 API Controller 3.2 provides the ability to delete an API/application using a single command, allowing users to easily remove an unwanted API or application in an environment without signing in to the Publisher or Developer Portal.
+     WSO2 API Controller 3.2 provides the ability to delete an API/application using a single command, allowing users to easily remove an unwanted API or an application in an environment without signing in to the Publisher or Developer Portal.
 
-- **[API key authentication support for API Operator]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#api-key-restriction-for-ip-address-and-http-referer)**
+- **[API Key Authentication support for API Operator]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#api-key-restriction-for-ip-address-and-http-referer)**
 
      API key authentication support in API Operator provides a simple authentication scheme that accepts a valid self-contained JWT token issued for accessing APIs.
 
-- **[API key restriction for IP and referrer]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#api-key-restriction-for-ip-address-and-http-referer)**
+- **[APIKey Restriction for IP and Referrer]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#api-key-restriction-for-ip-address-and-http-referer)**
 
      Ability to define authorized parties when generating a token using an IP address restriction or a HTTP referer restriction.
 
 ### WSO2 API-M Analytics related new features
 
-- **Monitoring Dashboard**
+- **Monitoring dashboard for operational statistics**
 
       Having an idea about the overall health status of APIs and services is essential for the proper functioning of an API-driven business. The Monitoring Dashboard helps to achieve this objective by showing contextual information on APIs such as latency, throughput, errors, and traffic volume. Operational and management users can use this dashboard to identify operational errors, narrow down the root cause, or to identify common traffic trends. The overview page provides a holistic view by aggregating different views on APIs, and by using the drill-downs user can get a detailed picture of different perspectives. 
 
-- **Re-organized Analytics dashboards**
+- **Dashboard for business analytics**
         
       Significant changes have been done on the Publisher Analytics Dashboard to improve the experience of different audiences. The newly available Business Analytics Dashboard has been created by combining several new widgets with the widgets that initially existed in the Publisher Analytics Dashboard to provide an unrestricted view on the APIs for Managerial users. A user with an *internal/analytics* role can access the new dashboard to view the statistics for all APIs irrespective of whether those APIs are access-controlled or not. Further, a specific set of widgets chosen from the Publisher Analytics Dashboard has been used to create an API Analytics Dashboard, which now shows a limited set of Statistics relevant to a Publisher. A Publisher can use this dashboard to view the statistics of APIs created by them or visible to them.
       The Developer portal Dashboard has been renamed to the Application Analytics Dashboard and the Admin Dashboard has been renamed to Reports Dashboard, to reflect their functionality better.
+     
+- **API Usage Comparison**    
+  Users can compare multiple APIs on a single screen and get a clear idea about those APIs in various matrices such as the number of API hits
                                                                          
 - **Exporting data in CSV, PDF formats**
     
@@ -102,11 +118,11 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 ### Improvements to existing WSO2 API-M features
 
-- **Scope management**
+- **Shared scopes within the tenant**
 
-     Adds more improvements for this by supporting shared scopes per tenant and allowing multiple scopes to be attached to each API resource.
+     Adds more improvements for this by supporting shared scopes per tenant and allowing multiple scopes to be attached to each API resource. This feature ensures that only privileged users can create, modify, and manage the shared scopes in a particular tenant space
 
-- **Revamped Admin Portal UI**
+- **Re-skinned admin portal UI**
 
      WSO2 API Manager’s Admin Portal has got a whole new and exciting look with the use of ReactJS, which is a popular JavaScript library for building user interfaces. The new Admin Portal UI clearly defines the administrative tasks that can be performed, and it also makes the workflows of API administrators simple and more efficient. It has a dashboard view that shows the summary of the administrative tasks and any pending workflow approvals. This makes it easier for administrators to keep track of pending or already-performed tasks. Similar to the Publisher and Developer Portal, the Admin Portal is a OAuth2.0 client application, which authenticates to the WSO2 API Manager’s backend via Open ID Connect. Users now have the ability to customize and enhance the look and feel of the Admin Portal by extending the React components in the portal. 
 
@@ -118,9 +134,9 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      The subscription tier upgrade feature provides the capability to change the subscription tier of an already existing subscription without having to delete the subscription and resubscribe to the same API.
 
-- **In-Memory Subscription**
+- **In-Memory subscription validation**
 
-     The In-Memory Subscription provides validation support to remove runtime dependencies between the Gateway and the Key Manager node and validates the request by accessing the metadata in the In-Memory data store. As a result, WSO2 API Manager can serve the request even in a situation where the database is inaccessible.
+     The In-Memory subscription validation provides  support to remove runtime dependencies between the Gateway and the Key Manager node and validates the request by accessing the metadata in the In-Memory data store. As a result, WSO2 API Manager can serve the request even in a situation where the database is inaccessible.
 
 - **Mock Response Payload Generation for API Prototyping**
  
@@ -133,32 +149,38 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 - **Improve Search for an API / Application in Controller**
 
      WSO2 API Controller 3.2 allows users to search for APIs, applications, or API products during the listing process, which can be searched by name, version, provider, context, status, description, subcontext, doc, and label with `-q` or `--query` optional flag.
+     
+### Improvements to existing WSO2 API-M Analytics features
 
+- **Improved charts for interactive presentations**
+    The new API Manager 3.2.0 is powered with a collection of interactive charts. These charts allow users to have a detailed view of a specific aspect of the analytics. Moreover, it provides the option to export data in CSV format as well.
+
+     
 ### Deprecated features and functionalities
 
-- Local scopes
+- **Local scopes**
 
      The local scopes feature allows users to create per API scopes locally. Even though the local scope usage is limited to the API that it belongs to, the same scope key cannot be used for a local scope of any other API. Local scopes are created and updated in the Key Manager; thereby, making the number of Key Manager calls comparatively high. Therefore, this feature provides inferior support during scope update and scope validation when used across multiple versions of the same API. 
      
      From API Manager 3.2 onwards, it is recommended to use the [shared scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/#shared-scopes) feature to create scopes per tenant and share them across multiple APIs in the tenant. Shared scopes will address these limitations by sharing the same scope across multiple APIs (including multiple versions of the same API) while making the management of scopes separate from API creation/update.
 
-- Cross tenant Subscription
+- **Cross tenant Subscription**
 
-- [Admin Portal](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/) v0.17 based REST APIs.
+- **[Admin Portal](https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/admin-apis/admin-v0.17/admin-v0.17/) v0.17 based REST APIs**.
 
 ### Removed features and functionalities
 
-- Tag wise grouping
+- **Tag wise grouping**
 
      API categories are used for API grouping, similar to Tag wise grouping. However, the user does not have to go through the hassle of following a naming convention when creating API categories. Therefore, with the introduction of the API categories, the Tag wise grouping feature has been removed. 
 
-- [Developer Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16/), [Publisher](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16/), and [Admin Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/) v0.16 based REST APIs.
+- **[Developer Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16/), [Publisher](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16/), and [Admin Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/) v0.16 based REST APIs**.
 
-- Developer Portal and Publisher v0.17 based REST APIs.
+- **Developer Portal and Publisher v0.17 based REST APIs**.
 
 ## Compatible WSO2 product versions
 
-WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/deploying-wso2-api-manager/ThirdPartyKeyManager/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
+WSO2 API-M 3.2.0 is based on WSO2 Carbon 4.6.0 and is expected to be compatible with any of the WSO2 products that are based on any Carbon 4.6.x version, except when using [WSO2 Identity Server as a Key Manager]({{base_path}}/install-and-setup/setup/distributed-deployment/configuring-wso2-identity-server-as-a-key-manager/), you need to specifically use WSO2 Identity Server 5.10.0 when working with WSO2 API-M 3.2.0. If you get any compatibility issues, please [contact team WSO2](http://wso2.com/support/). For information on the third-party software required with API-M 3.2.0, see [Installation Prerequisites]({{base_path}}/install-and-setup/installation-guide/installation-prerequisites/). For more information on the products in each Carbon platform release, see the [Release Matrix](http://wso2.com/products/carbon/release-matrix/).
 
 ## Fixed issues
 

@@ -243,7 +243,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
          [apim.throttling]
          event_duplicate_url = ["tcp://Traffic-Manager-2-host:5672"]
          ```
-
+         
          ``` toml tab="Node2"
          [apim.throttling]
          event_duplicate_url = ["tcp://Traffic-Manager-1-host:5672"]
@@ -425,6 +425,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         ```
             
         ``` toml tab="Single Key Manager"
+
         [apim.key_manager]
         service_url = "https://[Key-Manager-host]:${mgt.transport.https.port}/services/"
         username = "$ref{super_admin.username}"
@@ -750,7 +751,6 @@ This section involves setting up the Gateway node and enabling it to work with t
                                                                 
 2.  Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to configure the connection to the Key Manager component.
 
-
     ``` toml tab="Key Managers with HA"
     [apim.key_manager]
     service_url = "https://[Key-Manager-LB-host]/services/"
@@ -766,7 +766,8 @@ This section involves setting up the Gateway node and enabling it to work with t
     ```
 
 3.  If you need to enable JSON Web Token (JWT), you have to enable it in all the Gateway nodes.
-    For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
+
+     For more information on configuring JWT, see [Generating JSON Web Token]({{base_path}}/learn/api-gateway/passing-end-user-attributes-to-the-backend/passing-enduser-attributes-to-the-backend-using-jwt/).
 
 4.   Modify the `<API-M_HOME>/repository/conf/deployment.toml` file in the Gateway node to communicate with the Traffic Manager node(s).
      

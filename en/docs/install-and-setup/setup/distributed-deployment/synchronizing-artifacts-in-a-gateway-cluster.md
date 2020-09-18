@@ -82,7 +82,7 @@ Configure the Gateway and Publisher profiles as explained below to enable artifa
      artifact_retriever = "DBRetriever"
      deployment_retry_duration = 15000
      data_retrieval_mode = "sync"
-     save_artifacts_locally = false
+     event_waiting_time = 5000
      ```
  
     |**Configuration**| **Description**|
@@ -90,9 +90,8 @@ Configure the Gateway and Publisher profiles as explained below to enable artifa
     |gateway_labels|Specify the labels that the Gateway is going to subscribe to. Only the APIs with these labels will be pulled from the extension point and deployed.|
     |artifact_retriever|  Specify the extension point. The default is `DBRetriever` where the artifacts are pulled from the database.|
     |deployment_retry_duration| Specify the retry duration in milliseconds to deploy artifacts if there is a failure in pulling them from the  extension through `deployment_retry_duration`. The retry duration specified here will be exponentially increased by a progression factor of 2. Thereby, the duration will be progressed as 15s, 30s, 60s, 120s and so on if there are continuous failures. The retry duration is bounded by 1 hr.<html><div class="admonition note"><p class="admonition-title">Note</p><p> This`deployment_retry_duration` is  applicable only in Asynchronous deployment (`data_retrieval_mode ="async"`) where the server will try to deploy the artifacts after it is started. </p></div></html>|
-    |data_retrieval_mode| You can use the `data_retrieval_mode = “sync” ` element to specify the mode of deployment of artifacts from the extension point. By default, Gateway Startup will be in a Synchronous manner where the server will wait until all the APIs have been deployed. If there are any failures in the deployment process, it will be triggered again for "n" times where "n" is the maximum retry count. If the APIs are not deployed even in "n" retries, then the server will start with undeployed API artifacts. 
-    If you need to switch the startup mode to an Asynchronous mode, then you need to specify it in the configuration as `data_retrieval_mode = "async"`. In an Asynchronous mode, the server will be up and independent of the deployment of the Synapse artifacts in the Gateway.|
-     |save_artifacts_locally|If you add the config `save_artifacts_locally = true` or remove the `save_artifacts_locally` configuration then the Synapse artifacts will be stored in the file system by being saved in the `<API-M_HOME>/repository/deployment/server/synapse-configs/default/` directory). When `save_artifacts_locally = false`, then the artifacts from extension points will not be stored in the file system.|
+    |data_retrieval_mode| You can use the `data_retrieval_mode = “sync” ` element to specify the mode of deployment of artifacts from the extension point. By default, Gateway Startup will be in a Synchronous manner where the server will wait until all the APIs have been deployed. If there are any failures in the deployment process, it will be triggered again for "n" times where "n" is the maximum retry count. If the APIs are not deployed even in "n" retries, then the server will start with undeployed API artifacts. <br/>If you need to switch the startup mode to an Asynchronous mode, then you need to specify it in the configuration as `data_retrieval_mode = "async"`. In an Asynchronous mode, the server will be up and independent of the deployment of the Synapse artifacts in the Gateway.|
+     |event_waiting_time| You can use this  element to specify an event waiting time in milliseconds (ms) for Gateway. The Gateway will wait for the time specified in this configuration after receiving an event. This ensures that artifact retrieval is not ahead of artifact updates in the Publisher; thereby, avoiding inconsistencies. The default waiting time will be 1 ms.|
     
  3. If the Gateway profile is running with a port offset, add the following configuration.
      
@@ -145,7 +144,7 @@ password = "wso2carbon"
     For more information on the other parameters that can be defined in the 
     `<API-M_HOME>/repository/conf/deployment.toml` file, see [Tomcat JDBC connection pool](http://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html#Tomcat_JDBC_Enhanced_Attributes).
 
-Add the tables of the *AM_GW_API_ARTIFACTS* and *AM_GW_PUBLISHED_API_DETAILS* to this new database that you are specifying. 
+Add the tables of the `AM_GW_API_ARTIFACTS` and `AM_GW_PUBLISHED_API_DETAILS` to this new database that you are specifying. 
 The scripts to create these tables are in the `<API-M_HOME>/dbscripts/apimgt/` directory.
 
 ## Artifact synchronization with rsync
@@ -217,12 +216,11 @@ Deployment synchronization can be done using [rsync](https://download.samba.org/
     done
     ```
 
-3.  Create a cron job that executes the above file every minute for deployment synchronization. Do this by running the following command in your command line.
+3. Create a cron job that executes the above file every minute for deployment synchronization. Do this by running the following command in your command line.
 
     !!! note
         You can only run the cron job on one given node (master) at a given time. If you switch the cron job to another node, you must stop the cron job on the existing node and start a new cron job on the new node after updating it with the latest files.
 
-
-    ``` java
+    `
     *   *  *   *   *     /home/ubuntu/setup/rsync-for-depsync/rsync-for-depsync.sh
-    ```
+    `

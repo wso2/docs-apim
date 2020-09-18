@@ -177,7 +177,12 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
         The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and processes the data to come up with Throttling decisions.
 
+        Node1
+
         ``` tab="Format"
+        [[apim.throttling]]
+        event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
+
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
         traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
@@ -190,6 +195,41 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ```
 
         ``` tab="Example"
+        [[apim.throttling]]
+        event_duplicate_url = ["tcp://127.0.0.1:5673"]
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9611"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
+        type = "loadbalance"
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://127.0.0.1:9612"]
+        traffic_manager_auth_urls = ["ssl://127.0.0.1:9712"]
+        type = "loadbalance"
+        ```
+
+        Node2
+        
+        ``` tab="Format"
+        [[apim.throttling]]
+        event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node1-hostname>:<node1-port>"]
+        traffic_manager_auth_urls = ["ssl://<node1-hostname>:<node1-port>"]
+        type = "loadbalance"
+
+        [[apim.throttling.url_group]]
+        traffic_manager_urls = ["tcp://<node2-hostname>:<node2-port>"]
+        traffic_manager_auth_urls = ["ssl://<node2-hostname>:<node2-port>"]
+        type = "loadbalance"
+        ```
+
+        ``` tab="Example"
+        [[apim.throttling]]
+        event_duplicate_url = ["tcp://127.0.0.1:5672"]
+
         [[apim.throttling.url_group]]
         traffic_manager_urls = ["tcp://127.0.0.1:9611"]
         traffic_manager_auth_urls = ["ssl://127.0.0.1:9711"]
@@ -202,82 +242,6 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ```
 
     2.  Save your changes.
-
-
-2. Configure the Traffic Manager of each node to be able to publish events to the Traffic Manager node of the other node by following the below steps.
-
-    1.  Create an additional JNDI config file, namely `jndi2.properties`, in the `<API-M_HOME>/repository/conf` 
-    location of both nodes.  
-
-    2.  Add the configuration given below to the `jndi2.properties` file that you just created for Node 1 and 2.
-
-        **Node 1**
-
-        ``` tab="Format"
-        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://<node2-hostname>:<node2-JMS-port>'
-        topic.throttleData = throttleData
-        ```
-
-        ``` tab="Example"
-        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://127.0.0.1:5673'
-        topic.throttleData = throttleData
-        ```
-
-        **Node 2**
-
-        ``` tab="Format"
-        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://<node1-hostname>:<node1-JMS-port>'
-        topic.throttleData = throttleData
-        ```
-
-        ``` tab="Example"
-        connectionfactory.TopicConnectionFactory = amqp://admin:admin@clientid/carbon?brokerlist='tcp://127.0.0.1:5672'
-        topic.throttleData = throttleData
-        ```
-
-    3.  Create two new JMS Event Publishers by creating two XML files with names, `jmsEventPublisher-2.xml` and `jmsEventPublisher_1.10.0-2.xml` in the `<API-M_HOME>/repository/deployment/server/eventpublishers` directory of each of the two nodes.
-
-    4.  Add the configurations given below to the JMSEventPublisher files created above in both of the nodes. Note that you refer to the JNDI properties file that you created in Step 1 in the configurations shown below.
-
-        **jmsEventPublisher-2.xml**
-
-        ``` xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <eventPublisher name="jmsEventPublisher2" statistics="disable"
-        trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
-        <from streamName="org.wso2.throttle.globalThrottle.stream" version="1.0.0"/>
-        <mapping customMapping="disable" type="map"/>
-        <to eventAdapterType="jms">
-            <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
-            <property name="java.naming.provider.url">repository/conf/jndi2.properties</property>
-            <property name="transport.jms.DestinationType">topic</property>
-            <property name="transport.jms.Destination">throttleData</property>
-            <property name="transport.jms.ConcurrentPublishers">allow</property>
-            <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
-        </to>
-        </eventPublisher>
-        ```
-
-        **jmsEventPublisher_1.10.0-2.xml**
-
-        ``` xml
-        <?xml version="1.0" encoding="UTF-8"?>
-        <eventPublisher name="jmsEventPublisher-1.0.0-2" statistics="disable"
-        trace="disable" xmlns="http://wso2.org/carbon/eventpublisher">
-        <from streamName="org.wso2.throttle.globalThrottle.stream" version="1.1.0"/>
-        <mapping customMapping="disable" type="map"/>
-        <to eventAdapterType="jms">
-            <property name="java.naming.factory.initial">org.wso2.andes.jndi.PropertiesFileInitialContextFactory</property>
-            <property name="java.naming.provider.url">repository/conf/jndi2.properties</property>
-            <property name="transport.jms.DestinationType">topic</property>
-            <property name="transport.jms.Destination">throttleData</property>
-            <property name="transport.jms.ConcurrentPublishers">allow</property>
-            <property name="transport.jms.ConnectionFactoryJNDIName">TopicConnectionFactory</property>
-        </to>
-        </eventPublisher>
-        ```
-
-    5.  Save your changes.
 
 ## Step 9 - Configure API-M Analytics
 
