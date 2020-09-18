@@ -100,7 +100,7 @@ custom claims into JWT when invocation token in opaque mode.
    this is happening due to a modification done to avoid the getUserClaimValues call to WSO2 user store during JWT
     generation. So, AuthorizationGrantCache is used for retrieving user claims.</p>
 <p>In order to remap the OIDC claims into the configured dialect (by <code>apim.jwt.claim_dialect</code> value
-), <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code></p>
+), <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
 </div>
 </td>
 <td>false</td>
