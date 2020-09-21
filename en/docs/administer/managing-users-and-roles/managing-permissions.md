@@ -31,7 +31,7 @@ By default, every WSO2 product comes with the following Users, Roles and Permiss
             <Password>admin</Password>
         </AdminUser>
         ```
-        These properties can be customized by configuring the `<PRODUCT_HOME>/repository/conf/deployment.toml` file. For more information, see [Configuring the System Administrator]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configuring-the-system-administrator) 
+        These properties can be customized by configuring the `<PRODUCT_HOME>/repository/conf/deployment.toml` file. For more information, see [Change the super admin credentials]({{base_path}}/install-and-setup/setup/security/logins-and-passwords/maintaining-logins-and-passwords/#change-the-super-admin-credentials). 
 
     -   The **admin** role has all the permissions in the system enabled by default. Therefore, this is a super tenant, with all permissions enabled.
 
@@ -150,7 +150,7 @@ The following table describes the permissions at **Tenant** level. These are als
 <td>Admin/Monitor</td>
 <td>When the <strong>Admin/Monitor</strong> permission node is selected, system monitoring related features including the following menus are enabled in the management console:
 
-<ul><li><strong>Monitor</strong> menu <strong>/System Statistics:</strong> For more information, see the topic on <a href="{{base_path}}/administer/product-administration/monitoring/monitoring-performance-statistics">system statistics</a>.</li>
+<ul><li><strong>Monitor</strong> menu <strong>/System Statistics:</strong>.</li>
 <li>
 Additionally, all permissions listed under <strong>Admin/Monitor</strong> in the permissions navigator will be enabled automatically.</li></ul></td>
 </tr>
