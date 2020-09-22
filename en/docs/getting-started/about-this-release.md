@@ -57,7 +57,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/)**
 
-     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup using NFS with an extension point that can be configured to store these Synapse artifacts in a pre-configured storage location. 
+     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup with an extension point that can be configured to store these Synapse artifacts in a pre-configured storage location. 
 
 - **[Git integration support for API Controller]({{base_path}}/learn/api-controller/ci-cd-with-wso2-api-management/)**
 
