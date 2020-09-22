@@ -4,11 +4,11 @@ template: templates/swagger.html
 # Setting up logging per API in API Manager
 
 !!! note
-    Enabling logs per API is only available after the WUM update with the timestamp "1600491803101"
+    The mentioned feature is available only as a WUM update and is effective from 19th September 2020 (2020-09-19).
 
-In a production envrionment, having the feasbility to monitor HTTP message flow for a given API is important in identifying issues in the HTTP message flow.
+In a production envrionment, having the feasbility to monitor the HTTP message flow for a given API is important in identifying issues in the HTTP message flow.
 
-This feature enables API requests logging at four levels.
+This feature enables logging API requests at four levels.
 
 
 1. Request coming to the gateway from client (request-in>>)
@@ -18,10 +18,7 @@ This feature enables API requests logging at four levels.
 
 Depending on the nature of the request, you can chose only to log headers, body or both.
 
-A REST API secured with basic authentication is provided to enable/disable API logs at the run time. Only a user with admin role has priviledges to invoke the API.
-
-
-
+A REST API secured with basic authentication is provided to enable/disable API logs at the run time. Only a user with admin priviledges is able to invoke the API.
 
 ??? info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager.
@@ -35,6 +32,11 @@ A REST API secured with basic authentication is provided to enable/disable API l
        3. Input the header `Authorization: Basic {base64encoded(username:passwd)}`. Here the username and passwd should be a user with admin priviledges. 
            
        4. Add a `-k` header to the curl command and run the curl command on the terminal with a running instance of WSO2 API-M.
+
+      Example curl command format is shown below for user with username **admin** & password **admin** retrieving the API logging details. You can find more details in the documentaion below.
+      ```
+      curl -X GET "https://localhost:9443/api/am/gateway/v0.9/api-logging" -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
+      ```
 
 
 <div id="swagger-ui"></div>

@@ -21,7 +21,7 @@ paths:
       summary: |
         POST logging data of the API with its context template and version
       description: |
-        This operation enables you to provide the API context template(context/version) with the log level (headers, body or all). You should either provide a payload or context and logLevel as query parameters with this API request.
+        This operation enables you to provide the API context template(context/version) with the log level (headers, body or all). You should ***either provide a payload or context and logLevel as query parameters*** with this API request.
       parameters:
         - name: Payload
           description: |

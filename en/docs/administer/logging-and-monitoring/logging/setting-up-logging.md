@@ -69,24 +69,25 @@ Please follow below steps to enable logs for a given service component available
 ###Enable Logs for a Component via UI
 
 !!! note
-    Enabling logs via UI is only available after the WUM update with the timestamp "1600491803101"
+    The mentioned feature is available only as a WUM update and is effective from 19th September 2020 (2020-09-19).
 
 Please follow below steps to enable logs for a given service component available in WSO2 API Manager.
 
 1.  Navigate to the carbon console [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with **`admin/admin`** as the credentials.
 Go to "Configure" -> "Logging"
                                                  
-    ![Logger Carbon UI](../../../assets/img/administer/logging.png)
+    ![Logger Carbon UI]({{base_path}}/assets/img/administer/logging.png)
 
 1.  Add a new logger specifying the logger name, logger class name and log level that you need to enable logs as shown below and click on "Update" button.
 
-    ![Add Logger Carbon UI](../../../assets/img/administer/add-logger.png)
+    ![Add Logger Carbon UI]({{base_path}}/assets/img/administer/add-logger.png)
 
 2.  Once you add the logger, it will be shown in the logger page as shown below.
-    ![List Logger Carbon UI](../../../assets/img/administer/list-logger.png)
+    ![List Logger Carbon UI]({{base_path}}/assets/img/administer/list-logger.png)
 
 3. To update the log level OR to disable the logs, you need to navigate to the specific logger and change the log level as shown below.
-    ![Update Logger Carbon UI](../../../assets/img/administer/update-logger.png)
+
+    ![Update Logger Carbon UI]({{base_path}}/assets/img/administer/update-logger.png)
 
 
 ###Setting the Log levels
