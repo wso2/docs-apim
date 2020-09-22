@@ -208,23 +208,6 @@ Following is a sample of gateway wire log for an API request.
     ```
 4.  Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/logs/wso2carbon.log` file.
 
-
-##Enable Logs for Specific API
-In a production envrionment, having the feasbility to monitor HTTP message flow for a given API is important in identifying issues in the HTTP message flow.
-
-This feature enables API requests logging at four levels.
-
-
-1. Request coming to the gateway from client (request-in>>)
-2. Request leaving the gateway to backend (request-out<<)
-3. Request coming to the gateway from backend (response-in>>)
-4. Request leaving to the client from gateway (response-out<<)
-
-Depending on the nature of the request, you can chose only to log headers, body or both.
-
-A REST API secured with basic authentication is provided to enable/disable API logs at the run time. Only a user with admin role has priviledges to invoke the API.
-
-
 ##HTTP Access Logs
 HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. Please see [Monitoring HTTP Access Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-http-access-logs/) for instructions on how to configure and use HTTP access logs in WSO2 API Manager.
 
