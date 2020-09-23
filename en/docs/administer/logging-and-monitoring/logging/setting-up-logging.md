@@ -1,54 +1,54 @@
-# Setting up logging in API Manager
+# Setting up Logging in API Manager
 
 Logging is one of the most important aspects of a production-grade server. A properly configured logging system is vital for identifying errors, security threats, and usage patterns.
 
-WSO2 API Manager uses various types of logs to track realtime internal and external activities. Separate log files are created for each of those log types in the `<APIM_HOME>/repository/logs` directory. Following illustrates the log types supported by the APIM and how those logs can be configured.
+WSO2 API Manager uses various types of logs to track real-time internal and external activities. Separate log files are created for each of those log types in the `<APIM_HOME>/repository/logs` directory. The following illustrates the log types supported by the WSO2 API-M and how those logs can be configured.
 
-##Carbon Logs
+## Carbon Logs
 
-WSO2 API Manager is shipped with log4j2 logging capabilities which generate logs for administrative and server-side activities. By default, carbon logs are persisted in `wso2carbon.log` which is located in `<APIM_HOME>/repository/logs` directory. You can configure the details that are captured in this log file by configuring the `<APIM_HOME>/repository/conf/log4j2.properties`.
+WSO2 API Manager is shipped with the log4j2 logging capabilities that generate logs for administrative and server-side activities. By default, Carbon Logs are persisted in the `wso2carbon.log` file, which is located in thee `<APIM_HOME>/repository/logs` directory. You can configure the details that are captured in this log file by configuring the `<APIM_HOME>/repository/conf/log4j2.properties` file.
 
-!!!Java logging and Log4j integration
+!!! text "Java Logging and Log4j integration"
     In addition to the logs from libraries that use Log4j, all logs from libraries such as, Tomcat and Hazelcast that use Java logging framework are also visible in the same log files. That is, when Java logging is enabled in Carbon, only the Log4j appenders will write to the log files. If the Java Logging Handlers have logs, these logs will be delegated to the log events of the corresponding Log4j appenders. A Pub/Sub registry pattern implementation has been used in the latter mentioned scenario to plug the handlers and appenders. 
     
-###Configuring Carbon logs
+### Configuring Carbon Logs
 
-Following is the default configuration for carbon logs and the default values can be changed by manually updating log4j2.properties file.
+The following is the default configuration for Carbon Logs and the default values can be changed by manually updating the log4j2.properties file.
 
-     ```
-     appender.CARBON_LOGFILE.type = RollingFile
-     appender.CARBON_LOGFILE.name = CARBON_LOGFILE
-     appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
-     appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
-     appender.CARBON_LOGFILE.layout.type = PatternLayout
-     appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
-     appender.CARBON_LOGFILE.policies.type = Policies
-     appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
-     appender.CARBON_LOGFILE.policies.time.interval = 1
-     appender.CARBON_LOGFILE.policies.time.modulate = true
-     appender.CARBON_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
-     appender.CARBON_LOGFILE.policies.size.size=10MB
-     appender.CARBON_LOGFILE.strategy.type = DefaultRolloverStrategy
-     appender.CARBON_LOGFILE.strategy.max = 20
-     appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
-     appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
+```
+appender.CARBON_LOGFILE.type = RollingFile
+appender.CARBON_LOGFILE.name = CARBON_LOGFILE
+appender.CARBON_LOGFILE.fileName = ${sys:carbon.home}/repository/logs/wso2carbon.log
+appender.CARBON_LOGFILE.filePattern = ${sys:carbon.home}/repository/logs/wso2carbon-%d{MM-dd-yyyy}.log
+appender.CARBON_LOGFILE.layout.type = PatternLayout
+appender.CARBON_LOGFILE.layout.pattern = TID: [%tenantId] [%appName] [%d] %5p {% raw %}{%c}{% endraw %} - %m%ex%n
+appender.CARBON_LOGFILE.policies.type = Policies
+appender.CARBON_LOGFILE.policies.time.type = TimeBasedTriggeringPolicy
+appender.CARBON_LOGFILE.policies.time.interval = 1
+appender.CARBON_LOGFILE.policies.time.modulate = true
+appender.CARBON_LOGFILE.policies.size.type = SizeBasedTriggeringPolicy
+appender.CARBON_LOGFILE.policies.size.size=10MB
+appender.CARBON_LOGFILE.strategy.type = DefaultRolloverStrategy
+appender.CARBON_LOGFILE.strategy.max = 20
+appender.CARBON_LOGFILE.filter.threshold.type = ThresholdFilter
+appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 
-     appenders = CARBON_LOGFILE, CARBON_CONSOLE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CARBON_TRACE_LOGFILE, CARBON_MEMORY, 
-     DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
-     ```
+appenders = CARBON_LOGFILE, CARBON_CONSOLE, AUDIT_LOGFILE, ATOMIKOS_LOGFILE, CARBON_TRACE_LOGFILE, CARBON_MEMORY, 
+DELETE_EVENT_LOGFILE, TRANSACTION_LOGFILE
+```
    
-   The log growth of carbon logs can be managed by the configurations discussed in [Managing log growth]({{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth) guide.
+The log growth of Carbon Logs can be managed using the configurations mentioned in the [Managing log growth]({{base_path}}/administer/product-administration/monitoring/logging/managing-log-growth) guide.
    
-###Enable Logs for a Component
+### Enable logs for a component
 
-Please follow below steps to enable logs for a given service component available in WSO2 API Manager.
+Follow the instructions below to enable logs for a given service component available in WSO2 API Manager.
 
-1.  Open `APIM_HOME>/repository/conf/log4j2.properties` file.
-2.  Add a new logger specifying the component name that you need to enable logs and the [log level](#setting-the-log-levels) as shown below.
+1. Open the `APIM_HOME>/repository/conf/log4j2.properties` file.
+2. Add a new logger specifying the component name that you need to enable logs and the [log level](#setting-the-log-levels) as shown below.
 
     ``` tab="Format"
-    logger.<Logger_Name>.name = <Component_name>
-    logger.<Logger_Name>.level = <Log_level>
+    logger.<logger_name>.name = <component_name>
+    logger.<logger_name>.level = <log_level>
     ```
 
     ``` tab="Example"
@@ -56,43 +56,50 @@ Please follow below steps to enable logs for a given service component available
     logger.org-wso2-carbon-user-core.level = DEBUG
     ```
 
-3.  Append the newly added logger name to `loggers` configuration which is a comma separated list of all active loggers.
+3.  Append the newly added logger name to the `loggers` configuration, which is a comma separated list of all active loggers.
 
     ``` tab="Format"
-    loggers = <Logger_Name>, trace-messages, org-apache-coyote,com-hazelcast
+    loggers = <logger_name>, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
     ``` tab="Example"
     loggers = org-wso2-carbon-user-core, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
-###Enable Logs for a Component via UI
+### Enable logs for a component via the UI
 
 !!! note
-    The mentioned feature is available only as a WUM update and is effective from 19th September 2020 (2020-09-19).
+    You need to get the [latest product updates for your product]({{base_path}}/administer/updating-wso2-api-manager/) to use this feature in the current version of WSO2 API-M. This feature is available as a product update in WSO2 API-M 3.1.0 from September 19, 2020 onwards.
 
-Please follow below steps to enable logs for a given service component available in WSO2 API Manager.
+    !!! warning
+        Note that you can deploy updates in a production environment only if you have a valid subscription with WSO2. Read more about [WSO2 Updates](https://wso2.com/updates).
 
-1.  Navigate to the carbon console [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with **`admin/admin`** as the credentials.
-Go to "Configure" -> "Logging"
+Follow the instructions below to enable logs for a given service component available in WSO2 API Manager.
+
+1. Navigate to the Carbon console [https://localhost:9443/carbon](https://localhost:9443/carbon) and sign in with **`admin/admin`** as the credentials.
+
+2. Go to **Configure** -> **Logging**
                                                  
-    ![Logger Carbon UI]({{base_path}}/assets/img/administer/logging.png)
+     [![Logger Carbon UI]({{base_path}}/assets/img/administer/logging.png)]({{base_path}}/assets/img/administer/logging.png)
 
-1.  Add a new logger specifying the logger name, logger class name and log level that you need to enable logs as shown below and click on "Update" button.
+3. Add a new logger specifying the logger name, logger class name, and log level that you need to enable logs as shown below and click **Update**.
 
-    ![Add Logger Carbon UI]({{base_path}}/assets/img/administer/add-logger.png)
+     [![Add Logger Carbon UI]({{base_path}}/assets/img/administer/add-logger.png)]({{base_path}}/assets/img/administer/add-logger.png)
 
-2.  Once you add the logger, it will be shown in the logger page as shown below.
-    ![List Logger Carbon UI]({{base_path}}/assets/img/administer/list-logger.png)
+     After you add the logger, it will be shown on the logger page as shown below.
+     
+     [![List Logger Carbon UI]({{base_path}}/assets/img/administer/list-logger.png)]({{base_path}}/assets/img/administer/list-logger.png)
 
-3. To update the log level OR to disable the logs, you need to navigate to the specific logger and change the log level as shown below.
+4. Optionally, update the log level OR disable the logs.
 
-    ![Update Logger Carbon UI]({{base_path}}/assets/img/administer/update-logger.png)
+     Navigate to the specific logger and change the log level as shown below.
+
+     [![Update Logger Carbon UI]({{base_path}}/assets/img/administer/update-logger.png)]({{base_path}}/assets/img/administer/update-logger.png)
 
 
-###Setting the Log levels
+### Setting the log levels
 
-The log level can be set specifically for each appender in the `log4j2.properties` file by setting the threshold value. If a log level is not specifically given for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
+The log level can be set specifically for each appender in the `log4j2.properties` file by setting the threshold value. If a log level is not specifically defined for an appender as explained below, the root log level (INFO) will apply to all appenders by default.
 
 For example, shown below is how the log level is set to DEBUG for the `CARBON_LOGFILE` appender:
 
@@ -102,24 +109,24 @@ appender.CARBON_LOGFILE.filter.threshold.level = DEBUG
 
 Listed below are the log levels that can be configured:
 
-| Level | Description                                                                                                                                                                                                                                                                     |
+| **Level** | **Description**                                                                                                                                                                                                                                                                     |
 |-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | OFF   | The highest possible log level. This is intended for disabling logging.                                                                                                                                                                                                         |
 | FATAL | Indicates server errors that cause premature termination. These logs are expected to be immediately visible on the command line that you used for starting the server.                                                                                                          |
 | ERROR | Indicates other runtime errors or unexpected conditions. These logs are expected to be immediately visible on the command line that you used for starting the server.                                                                                                           |
 | WARN  | Indicates the use of deprecated APIs, poor use of API, possible errors, and other runtime situations that are undesirable or unexpected but not necessarily wrong. These logs are expected to be immediately visible on the command line that you used for starting the server. |
-| INFO  | Indicates important runtime events, such as server startup/shutdown. These logs are expected to be immediately visible on the command line that you used for starting the server . It is recommended to keep these logs to a minimum.                                           |
+| INFO  | Indicates important runtime events, such as server startup/shutdown. These logs are expected to be immediately visible on the command line that you used for starting the server. It is recommended to keep these logs to a minimum.                                           |
 | DEBUG | Provides detailed information on the flow through the system. This information is expected to be written to logs only. Generally, most lines logged by your application should be written as DEBUG logs.                                                                        |
 | TRACE | Provides additional details on the behavior of events and services. This information is expected to be written to logs only.          
 
-##Gateway Wire Logs
+## Gateway Wire Logs
 
-Gateway wire logs can be configure to monitor the HTTP message flow through API Gateway. Wire logs allow you to track the request headers, request payloads, response headers, response payloads etc of incoming and outgoing http traffic. 
+Gateway Wire Logs can be configured to monitor the HTTP message flow through the API Gateway. Wire logs allow you to track the request headers, request payloads, response headers, response payloads, etc. of incoming and outgoing HTTP traffic. 
 
 !!!Warning
     Please note that wire logs should be enabled for troubleshooting purposes only. It is not recommended to run production systems with wire logs enabled.
     
-In order to read the wire logs, you must first identify message direction.
+In order to read the wire logs, you must first identify the message direction.
 
 <table>
     <tr>
@@ -132,14 +139,14 @@ In order to read the wire logs, you must first identify message direction.
     </tr>
 </table>  
 
-In a single roundtrip of a API request/response, you can observe following message flows via the wire log.
+In a single roundtrip of an API request/response, you can observe the following message flows via the wire log.
 
--   Incoming request to API gateway from API client (>>).
--   Outgoing request from API gateway to actual backend (<<).
--   Incoming response from actual backend to API gateway (>>).
--   Outgoing response from API gateway to API client (<<).
+-   Incoming request to the API Gateway from the API client (>>).
+-   Outgoing request from the API Gateway to the actual backend (<<).
+-   Incoming response from the actual backend to the API Gateway (>>).
+-   Outgoing response from the API Gateway to the API client (<<).
 
-Following is a sample of gateway wire log for an API request. 
+The following is a sample Gateway Wire Log for an API request. 
 
 ```yaml
 [2019-12-12 17:30:08,091] DEBUG - wire HTTPS-Listener I/O dispatcher-5 >> "GET /helloWorld/1.0.0 HTTP/1.1[\r][\n]"
@@ -179,10 +186,11 @@ Following is a sample of gateway wire log for an API request.
 [2019-12-12 17:30:08,293] DEBUG - wire HTTPS-Listener I/O dispatcher-5 << "[\r][\n]"
 ```
 
-###Enable Gateway wire logs
+### Enable Gateway wire logs
 
-1.  Open `APIM_HOME>/repository/conf/log4j2.properties` file.
-2.  You will be able to find `synapse-wire` logger which is already defined in default `log4j2.properties` file.
+1. Open the `<APIM_HOME>/repository/conf/log4j2.properties` file.
+
+     The `synapse-wire` logger which is already defined by default will appear in the `log4j2.properties` file.
 
     ``` 
     logger.synapse-wire.name = org.apache.synapse.transport.http.wire
@@ -196,22 +204,24 @@ Following is a sample of gateway wire log for an API request.
     logger.synapse-headers.level = DEBUG
     ```
  
-3.  Append the `synapse-wire` logger name to `loggers` configuration which is a comma separated list of all active loggers. 
+2. Append the `synapse-wire` logger name to the `loggers` configuration, which is a comma-separated list of all the active loggers. 
 
     ```
     loggers = synapse-wire, trace-messages, org-apache-coyote,com-hazelcast
     ```
 
-    If you want to activate the wire logs only for message headers, you can activate `synapse-headers` logger.
+    If you want to activate the wire logs only for message headers, you can activate the `synapse-headers` logger.
 
     ```
     loggers = synapse-headers, trace-messages, org-apache-coyote,com-hazelcast
     ```
-4.  Observe the logs for incoming and outgoing traffic in `<APIM_HOME>/repository/logs/wso2carbon.log` file.
 
-##HTTP Access Logs
-HTTP requests/responses are logged in access logs to monitor the activities related to an application's usage. Please see [Monitoring HTTP Access Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-http-access-logs/) for instructions on how to configure and use HTTP access logs in WSO2 API Manager.
+3.  Observe the logs for incoming and outgoing traffic in the `<APIM_HOME>/repository/logs/wso2carbon.log` file.
 
-##Audit Logs
-Audit logs are used for tracking the sequence of actions that affect a particular task carried out on the server. Please see [Monitoring Audit Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-audit-logs/) for instructions on how to configure and use audit logs in WSO2 API Manager.
+## HTTP Access Logs
 
+HTTP requests/responses are logged in Access Logs to monitor the activities related to an application's usage. For instructions on how to configure and use the HTTP access logs in WSO2 API Manager, see [Monitoring HTTP Access Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-http-access-logs/). 
+
+## Audit Logs
+
+Audit Logs are used for tracking the sequence of actions that affect a particular task carried out on the server. For instructions on how to configure and use the audit logs in WSO2 API Manager, see [Monitoring Audit Logs]({{base_path}}/administer/product-administration/monitoring/logging/monitoring-audit-logs/).
