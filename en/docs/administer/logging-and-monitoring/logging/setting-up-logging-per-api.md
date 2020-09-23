@@ -25,7 +25,7 @@ A REST API secured with basic authentication is provided to enable/disable API l
 ??? info "Click here to see how to try out the APIs"
     Do the following to try out the REST APIs with your local instance of WSO2 API Manager.
 
-       1. Expand the relevant API operation and click the **Try It Out** button.
+       1. Expand the relevant API operation and click **Try It Out**.
 
        2. Fill in relevant sample values for the input parameters and click **Execute**.
 
@@ -33,7 +33,7 @@ A REST API secured with basic authentication is provided to enable/disable API l
 
        3. Input the header `Authorization: Basic {base64encoded(username:password)}`. 
        
-         Here the username and password should be a user with admin privileges. 
+           Here the username and password should be a user with admin privileges. 
            
        4. Add a `-k` header to the cURL command and run the cURL command on the terminal with a running instance of WSO2 API-M.
 
