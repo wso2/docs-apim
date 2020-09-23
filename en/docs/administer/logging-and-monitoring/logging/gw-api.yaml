@@ -19,13 +19,13 @@ paths:
   /api-logging:
     post:
       summary: |
-        POST logging data of the API with its context template and version
+        POST logging data of the API with its context template and version.
       description: |
-        This operation enables you to provide the API context template(context/version) with the log level (headers, body or all). You should ***either provide a payload or context and logLevel as query parameters*** with this API request.
+        This operation enables you to provide the API context template (context/version) with the log level (headers, body, or all). You should ***either provide a payload or context, and the logLevel as the query parameters*** with this API request.
       parameters:
         - name: Payload
           description: |
-            context and the logLevel can be provided as a payload. This is useful if you want to enable logs for multiple APIs at once.
+            The context and the logLevel can be provided as a payload. This is useful if you want to enable logs for multiple APIs at once.
           required: false
           in: body
           schema:
@@ -33,13 +33,13 @@ paths:
         - name: context
           in: query
           description: |
-            API context ( context/version eg: pizzashack/1.0.0)
+            The API context (context/version e.g., pizzashack/1.0.0)
           required: false
           type: string
         - name: logLevel
           in: query
           description: |
-            logLevel of the API. "all","headers" or "body"
+            The logLevel of the API. "all","headers" or "body"
           required: false
           type: string
           enum:
@@ -48,17 +48,17 @@ paths:
             - body
       responses:
         '200':
-          description: 'Successfully Enabled the logs for the API'
+          description: 'Successfully enabled the logs for the API'
           schema:
             $ref: '#/definitions/APIList'
         '404':
           description: |
             Not Found.
-            Request API resource or external store Ids not found.
+            Requested API resource or external store IDs not found.
           schema:
             $ref: '#/definitions/Error'
         '500':
-          description: Internal server error while configuring API to be logged
+          description: Internal server error while configuring the API to be logged.
           schema:
             $ref: '#/definitions/Error'
     get:
@@ -70,18 +70,18 @@ paths:
         '404':
           description: |
             Not Found.
-            Request API resource or external store Ids not found.
+            Requested API resource or external store IDs not found.
           schema:
             $ref: '#/definitions/Error'
         '500':
-          description: Internal server error while retrieving API data to be logged
+          description: Internal server error while retrieving API data to be logged.
           schema:
             $ref: '#/definitions/Error'
       parameters:
         - name: context
           in: query
           description: |
-            API context with the version (eg: pizzashack/1.0.0). If this is not provided, then it will retrieve all logs enabled APIs with log levels.
+            The API context with the version (e.g., pizzashack/1.0.0). If this is not provided, then it will retrieve details of all the APIs that have logs enabled with log levels.
           required: false
           type: string
     delete:
@@ -91,11 +91,11 @@ paths:
         '404':
           description: |
             Not Found.
-            Request API context is not found.
+            Requested API context is not found.
           schema:
             $ref: '#/definitions/Error'
         '500':
-          description: Internal server error while deleting API details
+          description: Internal server error while deleting API details.
           schema:
             $ref: '#/definitions/Error'
       parameters:
@@ -104,7 +104,7 @@ paths:
           required: false
           type: string
           description: |
-            API context with the version (eg :pizzashack/1.0.0). If this is not provided all API details will be deleted.
+            API context with the version (e.g., pizzashack/1.0.0). If this is not provided, all the API details will be deleted.
 definitions:
   APIList:
     title: apis
@@ -137,15 +137,15 @@ definitions:
       description:
         type: string
         description: |
-          A detail description about the error message.
+          A detailed description of the error message.
       moreInfo:
         type: string
         description: |
-          Preferably an url with more details about the error.
+          Preferably an URL with more details about the error.
       error:
         type: array
         description: |
-          If there are more than one error list them out.
+          If there is more than one error, list them out.
           For example, list out validation errors by each field.
         items:
           $ref: '#/definitions/ErrorListItem'
@@ -160,8 +160,8 @@ definitions:
       message:
         type: string
         description: |
-          Description about individual errors occurred
+          A description of the individual errors that occurred.
       description:
         type: string
         description: |
-          A detail description about the error message.
+          A detailed description of the error message.
