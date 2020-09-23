@@ -485,6 +485,7 @@ nav:
       - Monitoring:
           - Monitoring Logs:
               - Setting up logging: administer/logging-and-monitoring/logging/setting-up-logging.md
+              - Setting up logging per API: administer/logging-and-monitoring/logging/setting-up-logging-per-api.md
               - Monitoring HTTP access logs: administer/logging-and-monitoring/logging/monitoring-http-access-logs.md
               - Monitoring audit Logs: administer/logging-and-monitoring/logging/monitoring-audit-logs.md
               - Managing log growth: administer/logging-and-monitoring/logging/managing-log-growth.md
