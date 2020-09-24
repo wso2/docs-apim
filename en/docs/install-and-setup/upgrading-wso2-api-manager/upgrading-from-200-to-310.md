@@ -1225,7 +1225,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
             API_ID INTEGER NOT NULL,
             AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARYśKEY (API_ID),
+            PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
         ```
