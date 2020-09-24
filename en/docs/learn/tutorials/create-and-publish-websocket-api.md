@@ -142,11 +142,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
       2.  Invoke the API by using an authorization header by executing the following command.
         
            ``` java tab="WS"
-           wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+           wscat -c ws://localhost:9099/echowebsocket/1.0 -H "Authorization: Bearer [accesstoken]" 
            ```
 
            ``` java tab="WSS"
-           wscat -c -n wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
+           wscat -n -c wss://localhost:8099/echowebsocket/1.0 -H "Authorization: Bearer [accesstoken]"
            ```
 
           <html>
@@ -156,11 +156,11 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
               There are clients (especially browsers) that do not allow to add headers to the WebSocket handshake. In such cases, you can send the access token for the WebSocket API invocation as a query parameter named `access_token` by using the command below:</p>
 
            ``` java tab="WS"
-           wscat -c "ws://localhost:9099/echowebsocket/1.0.0?access_token=[accesstoken]" 
+           wscat -c "ws://localhost:9099/echowebsocket/1.0?access_token=[accesstoken]" 
            ```
   
            ``` java tab="WSS"
-           wscat -c -n "wss://localhost:8099/echowebsocket/1.0.0?access_token=[accesstoken]"
+           wscat -n -c "wss://localhost:8099/echowebsocket/1.0?access_token=[accesstoken]"
            ```
 
       <html>
