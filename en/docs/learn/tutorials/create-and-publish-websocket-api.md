@@ -49,7 +49,7 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
     </tr>
     <tr>
     <td>Version</td>
-    <td>1.0</td>
+    <td>1.0.o</td>
     </tr>
     <tr>
     <td>Endpoint</td>
