@@ -525,9 +525,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:mediation_policy_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 36a1644d-16c8-3f10-af2a-cedac82a6f21\" https://localhost:9443/api/am/admin/v1/policies/mediation"
-      x-wso2-request: "GET https://localhost:9443/api/am/admin/v1/policies/mediation\r\nAuthorization: Bearer 36a1644d-16c8-3f10-af2a-cedac82a6f21"
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\": 13,\r\n   \"next\": null,\r\n   \"previous\": null,\r\n   \"list\":    [\r\n            {\r\n         \"name\": \"debug_json_fault\",\r\n         \"id\": \"563de8f3-dd1d-4ec7-afc2-d158c663ed34\",\r\n         \"type\": \"fault\"\r\n      },\r\n            {\r\n         \"name\": \"json_fault\",\r\n         \"id\": \"f9c36f4d-a2b6-41e7-b311-d358a47916be\",\r\n         \"type\": \"fault\"\r\n      },\r\n            {\r\n         \"name\": \"debug_json_fault2\",\r\n         \"id\": \"378169d3-6fd2-427f-b0db-0f378e89ccea\",\r\n         \"type\": \"fault\"\r\n      },\r\n            {\r\n         \"name\": \"json_to_xml_in_message\",\r\n         \"id\": \"3921225b-7918-4b95-a851-22c4e4e3e911\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"debug_in_flow\",\r\n         \"id\": \"2bc15f93-4455-4763-89b8-83600fb9d731\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"log_in_message\",\r\n         \"id\": \"4d287cca-76ab-44ca-b22e-919fc27c50e3\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"preserve_accept_header\",\r\n         \"id\": \"3776b215-b3bc-40b6-bdcb-06efa7de64be\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"xml_to_json_in_message\",\r\n         \"id\": \"50ac2002-769e-4f90-8549-6d0248dff7d2\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"xml_to_json_out_message\",\r\n         \"id\": \"2af75853-ed75-4d25-81aa-0ebbeca691ea\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"json_to_xml_out_message\",\r\n         \"id\": \"d9fa3ffc-f6b6-4171-ab97-eb44196cb66e\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"debug_out_flow\",\r\n         \"id\": \"260b7701-4071-46bd-9b66-900ac6fffed6\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"apply_accept_header\",\r\n         \"id\": \"15c17c2f-33e3-4c37-a262-04dfa49983a4\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"log_out_message\",\r\n         \"id\": \"d37dca41-c048-492a-82cf-9a2292c6fff0\",\r\n         \"type\": \"out\"\r\n      }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -581,9 +578,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:mediation_policy_create
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 45c1e774-7d5a-3e2a-b76c-53f786efac6b\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://localhost:9443/api/am/admin/v1/policies/mediation\""
-      x-wso2-request: "POST https://localhost:9443/api/am/admin/v1/policies/mediation\r\nContent-Type: application/json\r\nAuthorization: Bearer 45c1e774-7d5a-3e2a-b76c-53f786efac6b\r\n\r\n{\r\n   \"name\": \"add_custom_header_fault\",\r\n   \"type\": \"fault\",\r\n   \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"add_custom_header_fault\\\">\\n    <property name=\\\"CustomHeader\\\" scope=\\\"transport\\\" value=\\\"example\\\"/>\\n<\\/sequence>\\n\"\r\n}"
-      x-wso2-response: "HTTP/1.1 201 Created\r\nLocation: https://localhost:9443/api/am/admin/v1/registry/resource/_system/governance/apimgt/customsequences/fault/add_custom_header_fault.xml\r\nContent-Type: application/json\r\n\r\n{\r\n   \"id\": \"2e5cebbb-e48c-4345-a912-1f0a2058aa05\",\r\n   \"name\": \"add_custom_header_fault\",\r\n   \"type\": \"fault\",\r\n   \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"add_custom_header_fault\\\">\\n    <property name=\\\"CustomHeader\\\" scope=\\\"transport\\\" value=\\\"example\\\"/>\\n<\\/sequence>\\n\"\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -658,9 +652,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:mediation_policy_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer da3b0521-5adb-3edc-8ab9-295b4c34c809\" https://localhost:9443/api/am/admin/v1/policies/mediation/2e5cebbb-e48c-4345-a912-1f0a2058aa05"
-      x-wso2-request: "GET https://localhost:9443/api/am/admin/v1/policies/mediation/2e5cebbb-e48c-4345-a912-1f0a2058aa05\nAuthorization: Bearer da3b0521-5adb-3edc-8ab9-295b4c34c809"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"id\": \"2e5cebbb-e48c-4345-a912-1f0a2058aa05\",\n   \"name\": \"add_custom_header_fault\",\n   \"type\": \"fault\",\n   \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"add_custom_header_fault\\\">\\n    <property name=\\\"CustomHeader\\\" scope=\\\"transport\\\" value=\\\"example\\\"/>\\n<\\/sequence>\\n\"\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -720,9 +711,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:mediation_policy_create
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer fb2a0784-f60c-3276-8fde-5b0f70e61ecc\" -X DELETE https://localhost:9443/api/am/admin/v1/policies/mediation/2c85844c-588f-4000-9ce5-f4cdc422cc8b"
-      x-wso2-request: "DELETE https://localhost:9443/api/am/admin/v1/policies/mediation/2c85844c-588f-4000-9ce5-f4cdc422cc8b\nContent-Type: application/json\nAuthorization: Bearer 58b3b072-74bb-3381-a213-ce1ca2857c2f"
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -766,9 +754,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:mediation_policy_create
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 58b3b072-74bb-3381-a213-ce1ca2857c2f\" -H \"Content-Type: application/json\" -X PUT -d @data.json https://localhost:9443/api/am/admin/v1/policies/mediation/8242d72c-b7d7-4b51-9098-d24bd4a5ea3a"
-      x-wso2-request: "PUT https://localhost:9443/api/am/admin/v1/policies/mediation/76cc38e4-f41a-457a-a987-3a677c290dc6\nContent-Type: application/json\nAuthorization: Bearer 58b3b072-74bb-3381-a213-ce1ca2857c2f\n\n{\n   \"name\": \"add_custom_header_fault\",\n   \"type\": \"fault\",\n   \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"add_custom_header_fault\\\">\\n    <property name=\\\"CustomHeader\\\" scope=\\\"transport\\\" value=\\\"example\\\"/>\\n<\\/sequence>\\n\"\n}\n"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"id\": \"8242d72c-b7d7-4b51-9098-d24bd4a5ea3a\",\n   \"name\": \"add_custom_header_fault\",\n   \"type\": \"fault\",\n   \"config\": \"<sequence xmlns=\\\"http://ws.apache.org/ns/synapse\\\" name=\\\"add_custom_header_fault\\\">\\n    <property name=\\\"CustomHeader\\\" scope=\\\"transport\\\" value=\\\"example\\\"/>\\n<\\/sequence>\\n\"\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1198,11 +1183,6 @@ paths:
     # Retrieve all Custom Rules
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" https://localhost:9443/api/am/admin/v1/throttling/policies/custom"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/throttling/policies/custom
-        Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"count\": 1,\r\n  \"list\": [\r\n    {\r\n      \"policyId\": \"33662a62-8db1-4d75-af08-afd63c6bd0b4\",\r\n      \"policyName\": \"custom1\",\r\n      \"displayName\": null,\r\n      \"description\": \"Allow 10 requests per minute for admin user\",\r\n      \"isDeployed\": true,\r\n      \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\r\n      \"keyTemplate\": \"$userId\"\r\n    }\r\n  ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1259,9 +1239,6 @@ paths:
     # Add a Custom Rule
     #-----------------------------------------------------
     post:
-      x-wso2-curl: "curl -k -X POST -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/throttling/policies/custom -d @data.json"
-      x-wso2-request: "POST https://localhost:9443/api/am/admin/v1/throttling/policies/custom\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n{\r\n  \"policyName\": \"custom1\",\r\n  \"description\": \"Allow 10 requests per minute for admin user\",\r\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\r\n  \"keyTemplate\": \"$userId\"\r\n}"
-      x-wso2-response: "HTTP/1.1 201 Created\r\nLocation: https://localhost:9443/api/am/admin/v1/throttling/policies/custom/22c71b7d-7013-4b80-bf7a-e86b471fb575\r\nContent-Type: application/json\r\n\r\n{\r\n  \"policyId\": \"22c71b7d-7013-4b80-bf7a-e86b471fb575\",\r\n  \"policyName\": \"custom1\",\r\n  \"displayName\": null,\r\n  \"description\": \"Allow 10 requests per minute for admin user\",\r\n  \"isDeployed\": true,\r\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\r\n  \"keyTemplate\": \"$userId\"\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1341,11 +1318,6 @@ paths:
     # Retrieve a certain Custom Rule
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" https://localhost:9443/api/am/admin/v1/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4
-        Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"policyId\": \"33662a62-8db1-4d75-af08-afd63c6bd0b4\",\r\n  \"policyName\": \"custom1\",\r\n  \"displayName\": null,\r\n  \"description\": \"Allow 10 requests per minute for admin user\",\r\n  \"isDeployed\": true,\r\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\r\n  \"keyTemplate\": \"$userId\"\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1420,11 +1392,6 @@ paths:
     # Delete a Custom Rule
     #-----------------------------------------------------
     delete:
-      x-wso2-curl: "curl -k -X DELETE -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" https://localhost:9443/api/am/admin/v1/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4"
-      x-wso2-request: |
-        DELETE https://localhost:9443/api/am/admin/v1/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4
-        Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1465,9 +1432,6 @@ paths:
     # Update a Custom Rule
     #-----------------------------------------------------
     put:
-      x-wso2-curl: "curl -k -X PUT -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4 -d @data.json"
-      x-wso2-request: "PUT https://localhost:9443/api/am/admin/v1/throttling/policies/custom/33662a62-8db1-4d75-af08-afd63c6bd0b4\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n{\r\n  \"policyName\": \"custom1\",\r\n  \"description\": \"Allow 10 requests per minute for admin user\",\r\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\r\n  \"keyTemplate\": \"$userId\"\r\n}"
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"policyId\": \"33662a62-8db1-4d75-af08-afd63c6bd0b4\",\r\n  \"policyName\": \"custom1\",\r\n  \"displayName\": null,\r\n  \"description\": \"Allow 10 requests per minute for admin user\",\r\n  \"isDeployed\": true,\r\n  \"siddhiQuery\": \"FROM RequestStream\\nSELECT userId, ( userId == 'admin@carbon.super' ) AS isEligible , str:concat('admin@carbon.super','') as throttleKey\\nINSERT INTO EligibilityStream; \\n\\nFROM EligibilityStream[isEligible==true]#throttler:timeBatch(1 min) \\nSELECT throttleKey, (count(userId) >= 10) as isThrottled, expiryTimeStamp group by throttleKey \\nINSERT ALL EVENTS into ResultStream;\",\r\n  \"keyTemplate\": \"$userId\"\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1893,11 +1857,6 @@ paths:
     # Retrieve all Blocking conditions
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e\" https://localhost:9443/api/am/admin/v1/throttling/blacklist"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/throttling/blacklist
-        Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"count\": 3,\r\n  \"list\": [\r\n    {\r\n      \"conditionId\": \"0b65b686-841b-48eb-b4c2-427d24584d71\",\r\n      \"conditionType\": \"IP\",\r\n      \"conditionValue\": \"127.0.0.332\",\r\n      \"conditionStatus\": \"true\"\r\n    },\r\n    {\r\n      \"conditionId\": \"3baa990c-f90b-4e3e-9db7-f29ee7f46f48\",\r\n      \"conditionType\": \"IP\",\r\n      \"conditionValue\": \"localhost\",\r\n      \"conditionStatus\": \"false\"\r\n    },\r\n    {\r\n      \"conditionId\": \"b513eb68-69e8-4c32-92cf-852c101363cf\",\r\n      \"conditionType\": \"IP\",\r\n      \"conditionValue\": \"10.100.7.77\",\r\n      \"conditionStatus\": \"true\"\r\n    }\r\n  ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -1951,9 +1910,6 @@ paths:
     # Add a Custom Rule
     #-----------------------------------------------------
     post:
-      x-wso2-curl: "curl -k -X POST -H \"Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/throttling/blacklist"
-      x-wso2-request: "POST https://localhost:9443/api/am/admin/v1/throttling/blacklist\r\nAuthorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e\r\nContent-Type: application/json\r\n\r\n{\r\n   \"conditionType\": \"IP\",\r\n   \"conditionValue\": \"10.100.7.77\",\r\n      \"conditionStatus\": \"false\"\r\n    }\r\n"
-      x-wso2-response: "HTTP/1.1 201 Created\r\nLocation: https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363cf\r\nContent-Type: application/json\r\n\r\n{\r\n  \"conditionId\": \"b513eb68-69e8-4c32-92cf-852c101363cf\",\r\n  \"conditionType\": \"IP\",\r\n  \"conditionValue\": \"10.100.7.77\",\r\n      \"conditionStatus\": \"false\"\r\n    }"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2017,11 +1973,6 @@ paths:
     # Retrieve a Blocking condition
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e\" https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363c"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363c
-        Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"conditionId\": \"b513eb68-69e8-4c32-92cf-852c101363cf\",\r\n  \"conditionType\": \"IP\",\r\n  \"conditionValue\": \"10.100.7.77\"\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2080,11 +2031,6 @@ paths:
     # Delete a Blocking condition
     #-----------------------------------------------------
     delete:
-      x-wso2-curl: "curl -k -X DELETE -H \"Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363cf"
-      x-wso2-request: |
-        DELETE https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363cf
-        Authorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2126,9 +2072,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:bl_manage
-      x-wso2-curl: "curl -k -X PATCH -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363cf -d @data.json"
-      x-wso2-request: "PUT https://localhost:9443/api/am/admin/v1/throttling/blacklist/b513eb68-69e8-4c32-92cf-852c101363cf\r\nAuthorization: Bearer a1e3951b-a15c-3d79-a15b-99f1d612843e\r\nContent-Type: application/json\r\n\r\n{\r\n    \"conditionStatus\": \"true\"\r\n    }\r\n"
-      x-wso2-response: "HTTP/1.1 200 Ok\r\nContent-Type: application/json\r\n\r\n{\r\n  \"conditionId\": \"b513eb68-69e8-4c32-92cf-852c101363cf\",\r\n  \"conditionType\": \"IP\",\r\n  \"conditionValue\": \"10.100.7.77\",\r\n      \"conditionStatus\": \"true\"\r\n    }"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2182,11 +2125,6 @@ paths:
             - apim:admin
             - apim:app_owner_change
             - apim:app_import_export
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/applications
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v1/applications\""
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"groupId\": \"\",\n         \"owner\": \"admin\",\n           \"applicationId\": \"367a2361-8db5-4140-8133-c6c8dc7fa0c4\",\n         \"status\": \"APPROVED\",\n         \"name\": \"app1\"\n      },\n            {\n         \"groupId\": \"\",\n         \"owner\": \"admin\",\n             \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n          \"status\": \"APPROVED\",\n         \"name\": \"DefaultApplication\"\n      }\n   ],\n   \"count\": 2,\n   \"next\": \"\"\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2314,11 +2252,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:app_owner_change
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X POST \"https://localhost:9443/api/am/admin/v1/applications/890a4f4d-09eb-4877-a323-57f6ce2ed79b/change-owner?owner=admin\""
-      x-wso2-request: |
-        POST https://localhost:9443/api/am/admin/v1/apis/change-owner?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2371,11 +2304,6 @@ paths:
       produces:
         - application/json
         - application/zip
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET https://localhost:9443/api/am/admin/v1/export/applications?appName=sampleApp&appOwner=admin > admin_sampleApp.zip"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/export/applications?appName=sampleApp&appOwner=admin
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\n Connection: keep-alive\n  Content-Disposition: attachment; filename=\"exported-application.zip\"\n  Content-Type: application/zip"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2444,11 +2372,6 @@ paths:
             - apim:app_import_export
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -k -F \"file=@exported.zip\" -X POST -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://localhost:9443/api/am/admin/v1/import/applications"
-      x-wso2-request: |
-        POST https://localhost:9443/api/am/admin/v1/import/applications
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/admin/v1/applications/c30f3a6e-ffa4-4ae7-afce-224d1f820524\nContent-Type: application/json\n\n{\n   \"groupId\": \"\",\n   \"callbackUrl\": \"http://my.server.com/callback\",\n   \"owner\": \"admin\",\n   \"applicationId\": \"c30f3a6e-ffa4-4ae7-afce-224d1f820524\",\n   \"status\": \"APPROVED\",\n   \"name\": \"sampleapp\" \n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2535,11 +2458,6 @@ paths:
             - apim:api_import_export
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -k -F \"file=@exported.zip\" -X POST -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://localhost:9443/api/am/admin/v1/import/api?preserveProvider=false&overwrite=false"
-      x-wso2-request: |
-        POST https://localhost:9443/api/am/admin/v1/import/apis
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nAPI imported successfully."
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2607,11 +2525,6 @@ paths:
             - apim:api_import_export
       produces:
         - application/zip
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET https://localhost:9443/api/am/admin/v1/export/api?name=PizzaShackAPI&version=1.0.0&providerName=admin > exportAPI.zip"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/export/api?name=SampleAPI&version=1.0.0&providerName=admin
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\n Connection: keep-alive\n  Content-Disposition: attachment; filename=\"exported-api.zip\"\n  Content-Type: application/zip"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2690,11 +2603,6 @@ paths:
             - apim:api_product_import_export
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -k -F \"file=@exported.zip\" -X POST -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://localhost:9443/api/am/admin/v1/import/api-product?preserveProvider=false&overwriteAPIs=false&overwriteAPIProduct=false"
-      x-wso2-request: |
-        POST https://localhost:9443/api/am/admin/v1/import/api-product
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nAPI Product imported successfully."
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2774,11 +2682,6 @@ paths:
             - apim:api_product_import_export
       produces:
         - application/zip
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET https://localhost:9443/api/am/admin/v0.17/export/api-product?name=SampleAPIProduct&version=1.0.0&providerName=admin > exportAPIProduct.zip"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v0.17/export/api-product?name=SampleAPIProduct&version=1.0.0&providerName=admin
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\n Connection: keep-alive\n  Content-Disposition: attachment; filename=\"exported-api-product.zip\"\n  Content-Type: application/zip"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2858,11 +2761,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:label_read
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/labels
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v1/labels\""
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"count\": 1,\r\n  \"list\": [\r\n	{\r\n	\"id\":\"d7cf8523-9180-4255-84fa-6cb171c1f779\",\r\n	\"name\":\"internal\",\r\n	\"description\":\"label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n       }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2888,9 +2786,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:label_manage
-      x-wso2-curl: "curl -k -X POST -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://apis.wso2.com/api/am/admin/v1/labels -d @data.json"
-      x-wso2-request: "POST https://localhost:9443/api/am/admin/v1/labels\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n   {\r\n       \"name\":\"internal\",\r\n	\"description\":\"label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n     }"
-      x-wso2-response: "HTTP/1.1 201 Created\r\nContent-Type: application/json\r\n\r\n{\r\n	\"id\":\"d7cf8523-9180-4255-84fa-6cb171c1f779\",\r\n	\"name\":\"internal\",\r\n	\"description\":\"label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n       }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2906,19 +2801,6 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/Label'
-          examples:
-            test:
-              summary: summary1
-              value:
-                name: test
-                tag: tag
-                id: 0
-            test2:
-              summary: summary2
-              value:
-                name: test22
-                tag: tag
-                id: 0
       tags:
         - Label
       responses:
@@ -2992,9 +2874,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:label_manage
-      x-wso2-curl: "curl -k -X PUT -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/labels/d7cf8523-9180-4255-84fa-6cb171c1f779 -d @data.json"
-      x-wso2-request: "PUT https://localhost:9443/api/am/admin/v1/labels/d7cf8523-9180-4255-84fa-6cb171c1f779\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n   {\r\n       \"name\":\"update_internal\",\r\n	\"description\":\"Updated label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n     }"
-      x-wso2-response: "HTTP/1.1 200 Ok\r\nContent-Type: application/json\r\n\r\n{\r\n	\"id\":\"d7cf8523-9180-4255-84fa-6cb171c1f779\",\r\n	\"name\":\"updated_internal\",\r\n	\"description\":\"Updated label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n       }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3038,7 +2917,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:label_manage
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3073,9 +2951,6 @@ paths:
     # Publish monetization related usage records
     #-----------------------------------------------------
     post:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93\" -X POST -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/monetization/publish-usage"
-      x-wso2-request: "POST https://localhost:9443/api/am/admin/v1/monetization/publish-usage\r\nAuthorization: Bearer 0c6439fd-9b16-3c2e-be6e-1086e0b9aa93\r\nContent-Type: application/json"
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n\"status\":\"successfull\",\r\n\"message\":\"Records published successfully\"\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3118,11 +2993,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:monetization_usage_publish
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/monetization/publish-usage/status
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v1/monetization/publish-usage/status\""
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"state\": \"RUNNING\",\r\n ,\"status\":\"SUCCESSFULL\",\r\n, \"started time\":\"12345678056L\",\r\n, \"last published time\":\"12345678056L\",\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3153,11 +3023,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:api_workflow_view
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/workflows
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v1/workflows\""
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n    \"WF_TYPE\": \"AM_APPLICATION_CREATION\",\n         \"WF_STATUS\": \"APPROVED\",\n         \"WF_CREATED_TIME\": \"  2020-02-10 09:33:34.476\"\n    \"WF_UPDATED_TIME\": \"  2020-02-10 09:33:34.476\"\n    \"WF_STATUS_DESC\": \"  Approve workflow request\"\n   \"TENANT_ID\": \"-1234\",\n  \"TENANT_DOMAIN\": \"carbon.super\",\n  \"WF_EXTERNAL_REFERENCE\": \"5871244b-d6f3-466e-8995-8accd1e64303\",\n  \"PAYLOAD\": \"7b2263616c6c4261636b55524c22\",\n },\n  {\n         \"WF_ID\": \"\",\n         \"WF_REFERENCE\": \"ABBA\",\n           \"WF_TYPE\": \"AM_APPLICATION_CREATION\",\n         \"WF_STATUS\": \"APPROVED\",\n         \"WF_CREATED_TIME\": \"  2020-01-10 09:32:34.476\"\n    \"WF_UPDATED_TIME\": \"  2020-03-12 09:34:34.476\"\n    \"WF_STATUS_DESC\": \"  Approve workflow request\"\n   \"TENANT_ID\": \"-1234\",\n  \"TENANT_DOMAIN\": \"carbon.super\",\n  \"WF_EXTERNAL_REFERENCE\": \"5871244b-d6f3-466e-8922-8accd1e64303\",\n  \"PAYLOAD\": \"7b226170694e616d65223a2253616\",\n }          "
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3234,11 +3099,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:api_workflow_view
-      x-wso2-curl: "curl https://localhost:9443/api/am/admin/v1/workflows/c43a325c-260b-4302-81cb-768eafaa3aed"
-      x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/admin/v0.17/workflows/c43a325c-260b-4302-81cb-768eafaa3aed"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/workflows/c43a325c-260b-4302-81cb-768eafaa3aed
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n                 \"WF_TYPE\": \"AM_APPLICATION_CREATION\",\n         \"WF_STATUS\": \"APPROVED\",\n         \"WF_CREATED_TIME\": \"  2020-02-10 09:33:34.476\"\n    \"WF_UPDATED_TIME\": \"  2020-02-10 09:33:34.476\"\n    \"WF_STATUS_DESC\": \"  Approve workflow request\"\n   \"TENANT_ID\": \"-1234\",\n  \"TENANT_DOMAIN\": \"carbon.super\",\n  \"WF_EXTERNAL_REFERENCE\": \"5871244b-d6f3-466e-8995-8accd1e64303\",\n  \"PAYLOAD\": \"7b2263616c6c4261636b55524c22\",\n } "
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3293,9 +3153,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:api_workflow_approve
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://localhost:9443/api/am/publisher/v1/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1\""
-      x-wso2-request: "POST https://localhost:9443/api/am/publisher/v1/workflows/update-workflow-status?workflowReferenceId=56e3a170-a7a7-45f8-b051-7e43a58a67e1\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n   \"status\" : \"APPROVED\",\n   \"attributes\" : {\n      \"apiCurrentState\": \"Created\",\n      \"apiLCAction\": \"Publish\",\n      \"apiName\":\"APIname\",\n      \"apiVersion\" : \"1.0.0\",\n      \"apiProvider\" : \"admin\",\n      \"invoker\": \"admin\"\n   }\n}"
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3349,9 +3206,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:tenantInfo
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X GET \"https://localhost:9443/api/am/admin/v1/tenant-info/john/info\""
-      x-wso2-request: "GET https://localhost:9443/api/am/admin/v1/tenant-info/john\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n   \"tenantDomain\" : \"carbon.super\",\n   \"tenantId\" : -1234 \n}"
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3408,9 +3262,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:tenantInfo
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X GET \"https://localhost:9443/api/am/admin/v1/custom-url/foo.com\""
-      x-wso2-request: "GET https://localhost:9443/api/am/admin/v1/custom-url/foo.com\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n   \"tenantDomain\" : \"foo.com\",\n}"
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3465,11 +3316,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:admin_operations
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/admin/v1/api-categories
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/admin/v1/api-categories\""
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      \"numberOfAPIs\":1\r\n}\r\n   ]\r\n      }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3495,9 +3341,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:admin_operations
-      x-wso2-curl: "curl -k -X POST -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://apis.wso2.com/api/am/admin/v1/api-categories -d @data.json"
-      x-wso2-request: "POST https://localhost:9443/api/am/admin/v1/api-categories\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n -d  {\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n }"
-      x-wso2-response: "HTTP/1.1 201 Created\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n }"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3542,9 +3385,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:admin_operations
-      x-wso2-curl: "curl -k -X PUT -H \"Authorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\" -H \"Content-Type: application/json\" https://localhost:9443/api/am/admin/v1/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779 -d @data.json"
-      x-wso2-request: "PUT https://localhost:9443/api/am/admin/v1/api-categories/d7cf8523-9180-4255-84fa-6cb171c1f779\r\nAuthorization: Bearer 0d63e133-7ad6-3aeb-9ca9-9299e0708122\r\nContent-Type: application/json\r\n\r\n   {\r\n       \"name\":\"update_internal\",\r\n	\"description\":\"Updated label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n     }"
-      x-wso2-response: "HTTP/1.1 200 Ok\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3588,7 +3428,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:admin_operations
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Shell
           source: |-
@@ -3960,9 +3799,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:scope_manage
-      x-wso2-curl: "curl -k -X GET \"https://localhost:9443/api/am/admin/v1/system-scopes/YXBpbTpzdWJzY3JpYmU?username=john\" -H \"accept: application/json\" -H \"Authorization: Bearer 8e8edc50-4a70-3fec-af00-ce08097012ab"
-      x-wso2-request: "GET https://localhost:9443/api/am/admin/v1/system-scopes/Base64urlEncode(apim:subscribe)?username=john Authorization: Bearer 8e8edc50-4a70-3fec-af00-ce08097012ab"
-      x-wso2-response: "{\n  \"name\":\"apim:subscribe\"  \n}\n"
       operationId: systemScopesScopeNameGet
       x-code-samples:
         - lang: Shell
@@ -4704,7 +4540,7 @@ parameters:
 
 responses:
 
-  # Bad Request Response Schema
+  # Bad Request Error Response Schema
   BadRequest:
     description: Bad Request. Invalid request or validation error.
     schema:
@@ -4717,7 +4553,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Unauthorized Response Schema
+  # Unauthorized Error Response Schema
   Unauthorized:
     description: Unauthorized. The user is not authorized.
     schema:
@@ -4729,7 +4565,7 @@ responses:
       moreInfo: ""
       error: []
 
-  # Not Found Response Schema
+  # Not Found Error Response Schema
   NotFound:
     description: Not Found. The specified resource does not exist.
     schema:
@@ -4742,7 +4578,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Not Acceptable Response Schema
+  # Not Acceptable Error Response Schema
   NotAcceptable:
     description: Not Acceptable. The requested media type is not supported.
     schema:
@@ -4755,7 +4591,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Conflict Response Schema
+  # Conflict Error Response Schema
   Conflict:
     description: Conflict. Specified resource already exists.
     schema:
@@ -4768,7 +4604,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Precondition Failed Response Schema
+  # Precondition Failed Error Response Schema
   PreconditionFailed:
     description: Precondition Failed. The request has not been performed because one of the preconditions is not met.
     schema:
@@ -4781,7 +4617,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Unsupported Media Type Response Schema
+  # Unsupported Media Type Error Response Schema
   UnsupportedMediaType:
     description: Unsupported Media Type. The entity of the request was not in a supported format.
     schema:
