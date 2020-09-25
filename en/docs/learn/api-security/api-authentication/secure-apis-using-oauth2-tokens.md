@@ -7,15 +7,8 @@ For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/
 
 ## OAuth 2.0 access token types
 
-OAuth 2.0 access tokens come in two different flavors
-
-   - [JWT Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens)
-    
-   - [Opaque Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/opaque-tokens)
-   
-The token type is bound to the application and the consumer has to specify the supported token type at application creation time. After the token type is specified, all the access tokens issues under that particular application will be in the specified access token type. 
-
-For example, the **DefaultApplication** available for consumers in Developer Portal is in JSON Web Token (JWT) type, hence all the access tokens issued under the **DefaultApplication** are JWTs.
+WSO2 APIM only allows creating applications of JWT token type. See [JWT Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens).
+Hence all the access tokens issued under any application are JWTs.
 
 ## Authentication via access tokens
 
