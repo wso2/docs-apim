@@ -72,20 +72,20 @@ This will remove the old and invalid tokens, sessions and auth codes, which cann
     It is safe to run these steps in read-only mode or during a time when traffic on the server is low.  But that is not mandatory if you are evaluating or testing the product. However,  if you are running a production deployment with a high volume of traffic, It is recommended that you run this periodically as the  unused tokens, sessions count, etc. can be high
 
 1.  Take a backup of the running database.
-2.  Set up the database dump in a test environment and test it for any issues.
+2.  Optionally,set up the database dump in a test environment and test it for any issues.
 
    For more information on setting up a database dump, go to the [MySQL](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#mysqldump-syntax) , [SQL Server](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server) , and [Oracle](https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmbckba.htm#BRADV8138) official documentation.
 
 !!! tip
       We recommend testing the cleanup scripts and stored procedures before running or configuring them against your product database server.
 
-3.  Depending on your database, select the appropriate cleanup script from [here](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures) and run it on the database dump. 
+3.  Depending on your database, select the appropriate cleanup script from [here](https://github.com/wso2/carbon-identity-framework/tree/master/features/identity-core/org.wso2.carbon.identity.core.server.feature/resources/dbscripts/stored-procedures) and run it on the production database. 
 
-    This takes a backup of the necessary tables, turns off SQL updates and cleans the database of unused tokens. However, we do not always have to run the script with a backup. This can be run on production data, provided the script has been tested at least once on a lower environment.
+    This takes a backup of the necessary tables, turns off SQL updates and cleans the database of unused tokens. However, when running the script on production make sure the script has been tested at least once on a lower environment.
   
     Select the `token-cleanup` script to clean up the tokens, the `sessiondata-cleanup` script to cleanup the session data and the `registry-cleanup` script to cleanup the registry unused data.
 
-4.  Once the cleanup is over, start the API Manager pointing to the cleaned-up database dump and test thoroughly for any issues.
+4.  Once the cleanup is over, start the API Manager and test thoroughly for any issues.
    You can also schedule a cleanup task that will automatically run after a given period of time. Here's an example:
 
     -   [**MySQL**](#schedule-task-for-mysql)
