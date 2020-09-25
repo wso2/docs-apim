@@ -153,7 +153,6 @@ You can configure the following in the `config.json` file based on your requirem
         ],
         ```
 
-
 - **`processor`** - The type of processor to use to process the instructions in the corresponding directory.
 - **`extensions`** - The extensions to be initialized before starting a processor.
 
