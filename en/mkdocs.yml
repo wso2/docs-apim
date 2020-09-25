@@ -199,7 +199,6 @@ nav:
                 - OAuth2:
                       - Token types:
                             - JWT Access Tokens: learn/api-security/oauth2/access-token-types/jwt-tokens.md
-                            - Opaque Access Tokens: learn/api-security/oauth2/access-token-types/opaque-tokens.md
                       - OAuth2 Scopes:
                             - Role-Based Access Control with OAuth Scopes: learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
                             - Scope Whitelisting: learn/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
