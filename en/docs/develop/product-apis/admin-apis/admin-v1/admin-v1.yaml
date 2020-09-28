@@ -109,7 +109,7 @@ info:
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7e2ccf0ac2e10eb2b18b)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e3fd456bcae9b458cb5)
 
   contact:
     name: "WSO2"
