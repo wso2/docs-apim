@@ -220,7 +220,7 @@ Follow the steps mentioned in [Upgrading API-M from 3.0.0 to 3.2.0]({{base_path}
 
 ## Step 3 - Separate database sharing among API-M and IS
 
-From WSO2 API-M 3.2.0 onwards, you DO NOT necessarily need to share the databases among WSO2 API-M and IS. 
+From WSO2 API-M 3.2.0 onwards, it is NOT mandatory to share the databases among WSO2 API-M and IS. 
 
 -   In this case where WSO2 IS is treated as the resident key manager, API-M no longer handle the management of identity data in `WSO2AM_DB` and IS no longer handle the API management data in `WSO2AM_DB`. 
 -   The registry data in `WSO2REG_DB` can be separately managed by both WSO2 API-M and IS.
