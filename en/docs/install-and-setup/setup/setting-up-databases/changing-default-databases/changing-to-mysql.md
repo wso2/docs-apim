@@ -184,13 +184,13 @@ Follow the  instructions below to change the type of the default datasources.
     ``` tab="Example"
     [database.shared_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/shared_db"
+    url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
     username = "regadmin"
     password = "regadmin"
 
     [database.apim_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/apim_db"
+    url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
     username = "apimadmin"
     password = "apimadmin"
     ```
@@ -230,7 +230,7 @@ Follow the  instructions below to change the type of the default datasources.
     ``` tab="Example"
     [database.shared_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/shared_db"
+    url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
     username = "regadmin"
     password = "regadmin"
     pool_options.maxActive = 100
@@ -239,7 +239,7 @@ Follow the  instructions below to change the type of the default datasources.
 
     [database.apim_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/apim_db"
+    url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
     username = "apimadmin"
     password = "apimadmin"
     pool_options.maxActive = 50
