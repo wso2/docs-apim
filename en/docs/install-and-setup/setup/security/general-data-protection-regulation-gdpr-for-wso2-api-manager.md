@@ -345,9 +345,9 @@ The tenant ID of the user whose identity references you want to remove.
 </tr>
 <tr class="odd">
 <td>carbon</td>
-<td>The CARBON HOME.
+<td>Define the absolute path of the WSO2 product in which you need to remove the references of the deleted user identities.
 <br />
-<p>This should be replaced with the variable <code>$CARBON_HOME</code> in directories configured in the main configuration file.</p></td>
+<p>This value will replace the variable <code>$CARBON_HOME</code> in the directories that are configured in the main configuration file.</p></td>
 <td>No</td>
 <td><br />
 </td>
