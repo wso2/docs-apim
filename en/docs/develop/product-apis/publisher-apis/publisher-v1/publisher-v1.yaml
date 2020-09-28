@@ -23,7 +23,7 @@ info:
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - Publisher.
 
-    Please see [full OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.177/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [OpenAPI Specification 3.0](http://swagger.io/).
+    Please see [full OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [OpenAPI Specification 3.0](http://swagger.io/).
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
