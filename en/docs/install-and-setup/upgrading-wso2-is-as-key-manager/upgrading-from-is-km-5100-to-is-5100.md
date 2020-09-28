@@ -75,15 +75,6 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         [tenant_context.rewrite]
         custom_webapps = ["/keymanager-operations/"]
         ```
-        
-    !!! important
-        Open `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2` file and add the following
-        under `TenantContextsToRewrite.WebApp` configuration.
-           ```{% raw %}
-           {% for webapp in tenant_context.rewrite.custom_webapps %}
-           <Context>{{webapp}}</Context>
-           {% endfor %}{% endraw %}
-           ```
 
 3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
 
