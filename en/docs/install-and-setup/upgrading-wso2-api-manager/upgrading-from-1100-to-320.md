@@ -3,17 +3,25 @@
 The following information describes how to upgrade your API Manager server **from APIM 1.10.0 to 3.2.0**.
 
 !!! note
-    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process.md) for more information.
+    Before you follow this section, see [Upgrading Process]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-process) for detailed guidelines on how you should prepare for the upgrading process.
 
-Follow the instructions below to upgrade your WSO2 API Manager server **from APIM 1.10.0 to 3.2.0** .
+Follow the instructions below to upgrade your WSO2 API Manager server **from WSO2 API-M 1.10.0 to 3.2.0**.
 
 !!! Attention
     If you are using WSO2 Identity Server (WSO2 IS) as a Key Manager, first follow the instructions in [Upgrading WSO2 IS as the Key Manager to 5.10.0]({{base_path}}/install-and-setup/upgrading-wso2-is-as-key-manager/upgrading-from-is-km-510-to-5100).
 
--   [Step 1 - Upgrade WSO2 API Manager to 2.6.0](#step-1-upgrade-wso2-api-manager-to-260)
--   [Step 2 - Upgrade WSO2 API Manager to 3.2.0](#step-2-upgrade-wso2-api-manager-to-320)
+!!! note "If you are using PostgreSQL"
+    The DB user needs to have the `superuser` role to run the migration client and the relevant scripts.
+    ```
+    ALTER USER <user> WITH SUPERUSER;
+    ```
+!!! note "If you are using Oracle"
+    Please commit the changes after running the scripts given below.
+    
+### Preparing for Migration
+#### Disabling versioning in the registry configuration
 
-### Step 1 - Upgrade WSO2 API Manager to 2.6.0
+If there are frequently updating registry properties, having the versioning enabled for registry resources in the registry can lead to unnecessary growth in the registry related tables in the database. To avoid this, versioning has been disabled by default in API Manager 3.2.0.
 
 Therefore, if registry versioning was enabled in WSO2 API-M 1.10.0 setup, it is **required** to turn off the registry 
 versioning in the migrated 3.2.0 setup. Follow the instructions below to disable versioning in the registry configuration:
@@ -4572,18 +4580,26 @@ Follow the instructions below to move all the existing API Manager configuration
 
     3.  Add the following configuration in `<API-M_3.2.0_HOME>/repository/conf/deployment.toml` file.
 
-[Upgrade your current WSO2 API-M version (1.10.0) to WSO2 API-M 2.6.0](https://docs.wso2.com/display/AM260/Upgrading+from+the+Previous+Release#110) as expained in the WSO2 API-M 2.6.0 documentation.
+        ```
+        [indexing]
+        re_indexing= 1
+        ```
+        
+        !!! info 
+            If you use a clustered/distributed API Manager setup, do the above change in deployment.toml of Publisher and Devportal nodes
+            
+    4.  If the `<API-M_3.2.0_HOME>/solr` directory exists, take a backup and thereafter delete it.
 
-### Step 2 - Upgrade WSO2 API Manager to 3.2.0
+    5.  Start the WSO2 API-M server.
 
-After you have successfully migrated your current WSO2 API-M version to 2.6.0, upgrade from API-M 2.6.0 to API-M 3.2.0. For more information, see [Upgrading API Manager from 2.6.0 to 3.2.0]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-320).
+    6.  Shutdown the WSO2 API-M server and remove the `tenantloader-1.0.jar` from the `<API-M_3.2.0_HOME>/repository/components/dropins` directory.
 
-This concludes the upgrade process.
+This concludes the upgrading process.
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-    If you are using a migrated API and wants to consume it via an application which supports JWT authentication (default type in API-M 3.2.0), you need to republish the API. Without republishing the API, JWT authentication doesn't work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and need to consume it via an application that supports JWT authentication (default type in API-M 3.2.0), you need to republish the API. JWT authentication will not work if you do not republish the API, as it looks for a local entry that will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.

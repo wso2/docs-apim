@@ -88,6 +88,6 @@ When we consider a distributed deployment of WSO2 API Manager, we have the optio
 In the following diagram, the five components are set up in a distributed deployment, and the five databases are connected to the relevant components respectively. The entire setup is also fronted by a load balancer.
 
 
-[![Understanding the distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connection-distributed-deployment.png)]({{base_path}}/assets/img/setup-and-install/db-connection-distributed-deployment.png)
+[![Understanding the distributed deployment]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)]({{base_path}}/assets/img/setup-and-install/db-connections-distributed-deployment.png)
 
 

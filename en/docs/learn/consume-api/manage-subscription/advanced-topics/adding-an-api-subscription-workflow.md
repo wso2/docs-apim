@@ -1,6 +1,6 @@
 # Adding an API Subscription Workflow
 
-This section explains how to attach a simple approval workflow to the API subscription operation in the API Manager. First, see [Workflow Extensions](_Managing_Workflow_Extensions_) for information on different types of workflows executors.
+This section explains how to attach a simple approval workflow to the API subscription operation in the API Manager.
 
 Attaching a custom workflow to API subscription enables you to add throttling tiers to an API that consumers cannot choose at the time of subscribing. Only admins can set these tiers to APIs. When a consumer subscribes to an API, consumer has to subscribe to an application in order to get access to the API. However, when the API subscription workflow is enabled and the consumer subscribes to an applicaton, initially the API subscription is in the `On Hold` state, and he/she can not use the API. The API can be invoked using the production or sandbox keys only once the subscription is approved.
 
@@ -24,7 +24,7 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
     </WorkFlowExtensions>
     ```
 
-        The subscription creation Approval Workflow Executor is now engaged.
+    The subscription creation Approval Workflow Executor is now engaged.
 
 
 3.  Go to the API Devportal credentials page and subscribe to an API. If the approval workflow is enabled then after subscribing you will see the subscription status as **ON_HOLD**.
@@ -40,3 +40,5 @@ First, enable the API subscription workflow for **Approval Workflow Executor.**
     ![]({{base_path}}/assets/img/learn/subscription-creation-unblocked.png)
 
 5.  Go back to the API Devportal and see that the user is now subscribed to the API.
+
+For instructions on how to customize workflow extensions, see [Customizing a Workflow Extension]({{base_path}}/develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension/)
