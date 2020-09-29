@@ -303,14 +303,7 @@ nav:
                 - Edit an API by Modifying the API Definition: learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md
     - Develop:
           - Product REST APIs:
-                - RESTful APIs: develop/product-apis/restful-apis.md
-                - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
-                    - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
-                    - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
-                    - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
-                    - Gateway API v1: develop/product-apis/getting-started/guide-gateway-v1.md
-                - Configuring the REST API: develop/product-apis/configuring-rest-api.md
+                - Overview: develop/product-apis/overview.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
                 - Developer Portal APIs:
@@ -320,8 +313,7 @@ nav:
                     - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
                 - Gateway APIs:
                     - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-                - Using the Registry REST API: develop/using-the-registry-rest-api.md
-                - Using the Siddhi Store REST API: develop/analytics-rest-api.md
+                - Advanced Configurations: develop/product-apis/advanced-configurations.md
           - Extending WSO2 API Manager:
                 - Extending Key Management:
                       - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
