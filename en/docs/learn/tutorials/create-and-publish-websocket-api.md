@@ -9,9 +9,9 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
 </div> 
 </html>
 
-### Step 1 - Design a WebSocket API
+## Step 1 - Design a WebSocket API
 
-1. Sign in to the API Publisher Portal.
+1. Sign in to the API Publisher.
    
     `https://<hostname>:9443/publisher` 
    
@@ -29,13 +29,13 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
     
      [![Create WebSocket API menu]({{base_path}}/assets/img/learn/create-websocket-api.jpg)]({{base_path}}/assets/img/learn/create-websocket-api.jpg)
 
-3.  Enter the detials of the new WebSocket API.
+3.  Enter the details of the new WebSocket API.
 
     <table>
     <thead>
     <tr>
-    <th>Field</th>
-    <th>Sample value</th>
+    <th><b>Field</b></th>
+    <th><b>Sample value</b></th>
     </tr>
     </thead>
     <tbody>
@@ -98,13 +98,13 @@ Follow the instructions in this tutorial to design and publish API with a WebSoc
 
 Now, you have created and configured the WebSocket API successfully.
 
-### Step 2 - Publish the WebSocket API
+## Step 2 - Publish the WebSocket API
 
 Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to publish the API to the API Developer Portal.
 
-### Step 3 - Invoke a WebSocket API
+## Step 3 - Invoke a WebSocket API
 
-1. Sign in to the **DEVELOPER PORTAL**.
+1. Sign in to the Develepor Portal.
    
      `https://<hostname>:9443/devportal` 
    
@@ -142,31 +142,31 @@ Click **LIFECYCLE** to navigate to the API lifecycle and click **PUBLISH** to pu
       2.  Invoke the API by using an authorization header by executing the following command.
         
            ``` java tab="WS"
-           wscat -c ws://localhost:9099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]" 
+           wscat -c ws://localhost:9099/echowebsocket/1.0 -H "Authorization: Bearer [accesstoken]" 
            ```
 
            ``` java tab="WSS"
-           wscat -c -n wss://localhost:8099/echowebsocket/1.0.0 -H "Authorization: Bearer [accesstoken]"
+           wscat -n -c wss://localhost:8099/echowebsocket/1.0 -H "Authorization: Bearer [accesstoken]"
            ```
 
           <html>
           <div class="admonition note">
           <p class="admonition-title">Note</p>
           <p>
-              There are clients (specially browsers) that do not allow to add headers to the Websocket handshake. In such cases, you can send the access token for the Websocket API invocation as a query parameter named `access_token` by using the command below:</p>
+              There are clients (especially browsers) that do not allow to add headers to the WebSocket handshake. In such cases, you can send the access token for the WebSocket API invocation as a query parameter named `access_token` by using the command below:</p>
 
            ``` java tab="WS"
-           wscat -c "ws://localhost:9099/echowebsocket/1.0.0?access_token=[accesstoken]" 
+           wscat -c "ws://localhost:9099/echowebsocket/1.0?access_token=[accesstoken]" 
            ```
   
            ``` java tab="WSS"
-           wscat -c -n "wss://localhost:8099/echowebsocket/1.0.0?access_token=[accesstoken]"
+           wscat -n -c "wss://localhost:8099/echowebsocket/1.0?access_token=[accesstoken]"
            ```
 
       <html>
       <div class="admonition note">
       <p class="admonition-title">Note</p>
-      <p><b>BasicAuth</b> and <b>API Key</b> do not work for security of WebSocket APIs.</p>
+      <p><b>BasicAuth</b> and <b>API Key</b> do not work for the security of WebSocket APIs.</p>
       </div> 
       </html>
 
