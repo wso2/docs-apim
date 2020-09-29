@@ -66,9 +66,32 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
 
     If you are in the super tenant mode the username should be as in the format of `<email>@carbon.super`.
     ``` toml
+    [tenant_mgt]
+    enable_email_domain= true
+
+    [apim.throttling.policy_deploy]
+    username = "$ref{super_admin.username}@carbon.super"
+
     [apim.throttling]
-    username = "admin@wso2.com@carbon.super"
+    receiver_username = "$ref{super_admin.username}@carbon.super"
+
+    [apim.throttling.jms]
+    username="admin!wso2.com!carbon.super"
+    password = "$ref{super_admin.password}"
     ```
+    
+    !!! note
+        `[tenant_mgt]
+            enable_email_domain`: This property specifies whether the email authentication is activated or not.
+
+        `[apim.throttling]
+            receiver_username`: With the email login feature enabled, the super tenant will be attached with the username and this property will facilitate that requirement.
+
+        `[apim.throttling.policy_deploy]
+            username`: Specify the username required to deploy throttling policies.
+
+        `[apim.throttling.jms]
+            username`: Specify the username in JMS Connection URL
 
 3. The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specify the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<API-M_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
 
