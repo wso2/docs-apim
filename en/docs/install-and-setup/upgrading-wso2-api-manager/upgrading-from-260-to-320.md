@@ -2255,6 +2255,10 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY
         /
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR2(255) DEFAULT 'Resident Key Manager' NOT NULL
+        /
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE(SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)
+        /
         CREATE TABLE AM_SCOPE (
                     SCOPE_ID INTEGER NOT NULL,
                     NAME VARCHAR2(255) NOT NULL,
