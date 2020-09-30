@@ -31,3 +31,6 @@ management and registry data are stored in the `<API-M_HOME>/dbscripts` folder.
 -   [Changing to IBM DB2]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2)
 -   [Changing to MariaDB]({{base_path}}/install-and-setup/setting-up-databases/changing-default-databases/changing-to-mariadb)
 
+!!! Note
+
+    - To configure databases for Analytics, please refer the [Configuring Datasources for Analytics](https://docs.wso2.com/display/SP440/Configuring+Datasources)

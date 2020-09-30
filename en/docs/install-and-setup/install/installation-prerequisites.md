@@ -87,6 +87,53 @@ If you have difficulty in setting up any WSO2 product in a specific platform or 
 </ul>
 </td></tr></table></html>
 
+## Database Storage Requirements
+
+<html>
+<table>
+<tr>
+<th><strong>DB Type</strong></th>
+<th><strong>Minimum storage required for AM Database</strong></th>
+<th><strong>Minimum storage required for Shared Database</strong></th>
+</tr>
+<tr>
+<td><strong>MySQL</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td><strong>Oracle</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td><strong>MSSQL</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td><strong>Oracle RAC</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td><strong>IBM DB2</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+<tr>
+<td><strong>MariaDB</strong></td>
+<td>1 GB</td>
+<td>1 GB</td>
+</tr>
+</table>
+</html>
+
 ## Required applications
 
 The following applications are required for running WSO2 API Manager and its samples.
