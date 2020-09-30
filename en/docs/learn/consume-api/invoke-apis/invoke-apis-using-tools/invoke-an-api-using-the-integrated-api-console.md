@@ -16,7 +16,7 @@ Let's see how to use the API Console in the Developer Portal to invoke an API.
 
 The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) .
 
-1.  Sign in to the WSO2 Develeoper Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack` ).
+1.  Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack` ).
 
 2.  Subscribe to the API (e.g., `PizzaShack` 1.0.0) using an application and an available tier.
 
@@ -63,14 +63,15 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
     ![]({{base_path}}/assets/img/learn/api-response.png)
 
-You have now succesfully invoked an API using the Open API Console.
+You have now successfully invoked an API using the Open API Console.
+
 
 ## Invoke an API deployed on a cloud cluster
 
 !!! attention "Before You Begin"
-    1. You need to have an API published to a cloud cluster in order to invoke the API as follows. Follow the document [Publish an API to a Cloud Clouster in PrivateJet Mode](learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/) to learn how to publish an API to a cloud cluster in privatejet mode.
+    1. You need to have an API published to a cloud cluster in order to invoke the API as follows. Follow the document [Publish an API to a Cloud Cluster in PrivateJet Mode](learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/) to learn how to publish an API to a cloud cluster in privatejet mode.
 
-1. Sign in to the WSO2 Develeoper Portal (`https://<hostname>:9443/devportal`) and click an API which was deployed on a cloud cluster. **Note**  that the accessURL of the API can be found under Gateway Environments..
+1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API which was deployed on a cloud cluster. **Note**  that the accessURL of the API can be found under Gateway Environments.
    
     ![Developer portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
    
