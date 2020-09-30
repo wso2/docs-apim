@@ -102,7 +102,6 @@ The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented a
         
         The port offset feature allows you to run multiple WSO2 products, multiple instances of a WSO2 product, or multiple WSO2 product clusters on the same server or virtual machine (VM). The port offset defines the number by which all ports defined in the runtime, such as the HTTP/S ports, will be offset. For example, if the HTTPS port is defined as 9443 and the port offset is 1, the effective HTTPS port will be 9444.
 
-
 2.  Sign in to the WSO2 IS Management Console.
      
      `https://<hostname>:9443/carbon`
