@@ -216,7 +216,7 @@ Follow the instructions below to add a customized authorization header for an AP
 `https://<server-host>:9443/publisher         `
 2.  When [creating](_Create_and_Publish_an_API_) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 
-    [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
+    [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
 
 3.  Save and Publish the API.
    
@@ -259,7 +259,7 @@ curl -H "SERVER_AUTH: Bearer 3c536e3f-397c-3df9-a89c-9c40efedfa9e" -H "accept: a
 
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
-[![]({{base_path}}/assets/img/learn//auth_header.png)]({{base_path}}/assets/img/learn//auth_header.png)
+[![]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
 
 ## Sending authorization header to the backend
 
