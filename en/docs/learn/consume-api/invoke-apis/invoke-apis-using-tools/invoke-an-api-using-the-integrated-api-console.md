@@ -65,7 +65,6 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
 
 You have now succesfully invoked an API using the Open API Console.
 
-
 ## Invoke an API deployed on a cloud cluster
 
 !!! attention "Before You Begin"
@@ -103,4 +102,16 @@ You have now succesfully invoked an API using the Open API Console.
     
     ![]({{base_path}}/assets/img/learn/api-console-execute.png)
         
+## Get a test key to invoke an API
+
+When you want to test invoking an API resource, you can easily get a test key from API console rather than going 
+back to the applications page and generating a one. Once you click **Try Out** to navigate to the API Console, 
+click on the `GET TEST KEY` button to generate a test key as below.
+
+[![Get test key]({{base_path}}/assets/img/learn/get-test-key.png)]({{base_path}}/assets/img/learn/get-test-key.png)
+
+!!! tip
+
+        TEST KEY will be generated with default scopes attached to the API. If you need to generate a token with 
+        specific scopes, go to the application view and generate a token. 
     
