@@ -509,9 +509,10 @@ nav:
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
           - Key Managers:
                 - Overview: administer/key-managers/overview.md
-                - Configure WSO2 IS as A Key Manager: administer/key-managers/configure-wso2is-connector.md
-                - Configure Keycloak as A Key Manager: administer/key-managers/configure-keycloak-connector.md
-                - Configure Okta as A Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
+                - Configure Keycloak as a Key Manager: administer/key-managers/configure-keycloak-connector.md
+                - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
                 - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
