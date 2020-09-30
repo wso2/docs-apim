@@ -32,9 +32,9 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
         To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip
-        **JWT vs Oauth tokens**
+        **JWT tokens**
 
-        If the application you are using for this example is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. If the application is of oauth type, then the OpenAPI console will be automatically populated with the generated token in the authorization field. 
+        Since the application is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. 
 
 
 4.  On the **APIs** menu, select the API that you want to invoke. When the API opens, click on **Test** button under resources section.
@@ -89,9 +89,9 @@ You have now succesfully invoked an API using the Open API Console.
         To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip
-        **JWT vs Oauth tokens**
+        **JWT tokens**
 
-        If the application you are using for this example is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. If the application is of oauth type, then the OpenAPI console will be automatically populated with the generated token in the authorization field. 
+        Since the application is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. 
     
 4. Click **Try Out** to navigate to the API Console.
     
