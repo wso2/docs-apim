@@ -81,17 +81,30 @@ Use the `<API-M_HOME>/bin/chpasswd.sh` script.
     ```
     
     !!! note
-        `[tenant_mgt]
-            enable_email_domain`: This property specifies whether the email authentication is activated or not.
-
-        `[apim.throttling]
-            receiver_username`: With the email login feature enabled, the super tenant will be attached with the username and this property will facilitate that requirement.
-
-        `[apim.throttling.policy_deploy]
-            username`: Specify the username required to deploy throttling policies.
-
-        `[apim.throttling.jms]
-            username`: Specify the username in JMS Connection URL
+        <html>
+        <table>
+            <tbody>
+                <tr>
+                    <td>`[tenant_mgt] enable_email_domain`</td>
+                    <td>This property specifies whether the email authentication is activated or not.</td>
+                </tr>
+                <tr>
+                    <td>`[apim.throttling] receiver_username`</td>
+                    <td>With the email login feature enabled, the super tenant will be attached with the username and this property will facilitate that requirement.</td>
+                </tr>
+                <tr>
+                    <td>`[apim.throttling.policy_deploy]
+                    username`</td>
+                    <td>Specify the username required to deploy throttling policies.</td>
+                </tr>
+                <tr>
+                    <td> `[apim.throttling.jms]
+                    username`</td>
+                    <td>Specify the username in JMS Connection URL</td>
+                </tr>
+            </tbody>
+        </table>
+        </html>
 
 3. The "@" character is a reserved character in the WSO2 messaging component. Therefore, when specify the username in JMS Connection URL, under `apim.throttling.jms.username` section in the `<API-M_HOME>/repository/conf/deployment.toml` file, "@" characters should be replaced by "!" character. An example is shown below.
 

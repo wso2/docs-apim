@@ -53,7 +53,7 @@ There are two approaches to configure a secondary user store. It can be configur
 
 4.  Enter a unique domain name with no underscore (\_) characters, and optionally enter a description for this user store.
 
-5.  Enter values for the properties, using the descriptions in the Descriptions column for guidance. The properties that appear to vary based on the user store manager class you selected, and there may be additional properties in Optional or Advanced sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
+5.  Enter values for the properties, using the descriptions in the Descriptions column for guidance. The properties that appear vary based on the user store manager class you selected, and there may be additional properties in Optional or Advanced sections at the bottom of the screen. For information on the properties that are used when defining user stores, see [Properties of User Stores](https://docs.wso2.com/display/ADMIN44x/Working+with+Properties+of+User+Stores) .
 
     ![]({{base_path}}/assets/img/administer/secondary-user-store-definition.png)
 
