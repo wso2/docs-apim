@@ -261,18 +261,11 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
     #-----------------------------------------------------
     # Create a new API
     #-----------------------------------------------------
     post:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json https://127.0.0.1:9443/api/am/publisher/v1/apis"
-      x-wso2-request: "POST https://127.0.0.1:9443/api/am/publisher/v1/apis\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\n\n{\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"PUBLISHED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": false,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\":    [\r\n      \"http\",\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\"],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 5000,\r\n      \"production\": 1000\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
-      x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\":    [\r\n      \"http\",\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\"],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 5000,\r\n      \"production\": 1000\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
       security:
         - OAuth2Security:
             - apim:api_create
@@ -326,11 +319,7 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported Media Type.
@@ -347,11 +336,6 @@ paths:
     # Retrieve the details of an API definition
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"endpointId\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created.\\\"}}}},\\\"/menu\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Return a list of available menu items\\\",\\\"parameters\\\":[],\\\"responses\\\":{\\\"200\\\":{\\\"headers\\\":{},\\\"schema\\\":{\\\"title\\\":\\\"Menu\\\",\\\"properties\\\":{\\\"list\\\":{\\\"items\\\":{\\\"$ref\\\":\\\"#/definitions/MenuItem\\\"},\\\"type\\\":\\\"array\\\"}},\\\"type\\\":\\\"object\\\"},\\\"description\\\":\\\"OK.\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"MenuItem\\\":{\\\"title\\\":\\\"Pizza menu Item\\\",\\\"properties\\\":{\\\"price\\\":{\\\"type\\\":\\\"string\\\"},\\\"description\\\":{\\\"type\\\":\\\"string\\\"},\\\"name\\\":{\\\"type\\\":\\\"string\\\"},\\\"image\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"name\\\"]},\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"integer\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\":    [\r\n      \"http\",\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\"],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 5000,\r\n      \"production\": 1000\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -396,25 +380,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the definition of an API
     #-----------------------------------------------------
     put:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X PUT -d @data.json https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
-      x-wso2-request: "PUT https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"endpointId\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created.\\\"}}}},\\\"/menu\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Return a list of available menu items\\\",\\\"parameters\\\":[],\\\"responses\\\":{\\\"200\\\":{\\\"headers\\\":{},\\\"schema\\\":{\\\"title\\\":\\\"Menu\\\",\\\"properties\\\":{\\\"list\\\":{\\\"items\\\":{\\\"$ref\\\":\\\"#/definitions/MenuItem\\\"},\\\"type\\\":\\\"array\\\"}},\\\"type\\\":\\\"object\\\"},\\\"description\\\":\\\"OK.\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"MenuItem\\\":{\\\"title\\\":\\\"Pizza menu Item\\\",\\\"properties\\\":{\\\"price\\\":{\\\"type\\\":\\\"string\\\"},\\\"description\\\":{\\\"type\\\":\\\"string\\\"},\\\"name\\\":{\\\"type\\\":\\\"string\\\"},\\\"image\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"name\\\"]},\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"integer\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\":    [\r\n      \"https\"\r\n   ],\r\n   \"tags\": [\"pizza\",\"chicken\"],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 500,\r\n      \"production\": 100\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n   \"id\": \"7a2298c4-c905-403f-8fac-38c73301631f\",\r\n   \"name\": \"PizzaShackAPI\",\r\n   \"description\": \"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\r\\n\",\r\n   \"context\": \"/pizzashack\",\r\n   \"version\": \"1.0.0\",\r\n   \"provider\": \"admin\",\r\n   \"endpointId\": \"{\\\"paths\\\":{\\\"/order\\\":{\\\"post\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Create a new Order\\\",\\\"parameters\\\":[{\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Order object that needs to be added\\\",\\\"name\\\":\\\"body\\\",\\\"required\\\":true,\\\"in\\\":\\\"body\\\"}],\\\"responses\\\":{\\\"201\\\":{\\\"headers\\\":{\\\"Location\\\":{\\\"description\\\":\\\"The URL of the newly created resource.\\\",\\\"type\\\":\\\"string\\\"}},\\\"schema\\\":{\\\"$ref\\\":\\\"#/definitions/Order\\\"},\\\"description\\\":\\\"Created.\\\"}}}},\\\"/menu\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application & Application User\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"description\\\":\\\"Return a list of available menu items\\\",\\\"parameters\\\":[],\\\"responses\\\":{\\\"200\\\":{\\\"headers\\\":{},\\\"schema\\\":{\\\"title\\\":\\\"Menu\\\",\\\"properties\\\":{\\\"list\\\":{\\\"items\\\":{\\\"$ref\\\":\\\"#/definitions/MenuItem\\\"},\\\"type\\\":\\\"array\\\"}},\\\"type\\\":\\\"object\\\"},\\\"description\\\":\\\"OK.\\\"}}}}},\\\"schemes\\\":[\\\"https\\\"],\\\"produces\\\":[\\\"application/json\\\"],\\\"swagger\\\":\\\"2.0\\\",\\\"definitions\\\":{\\\"MenuItem\\\":{\\\"title\\\":\\\"Pizza menu Item\\\",\\\"properties\\\":{\\\"price\\\":{\\\"type\\\":\\\"string\\\"},\\\"description\\\":{\\\"type\\\":\\\"string\\\"},\\\"name\\\":{\\\"type\\\":\\\"string\\\"},\\\"image\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"name\\\"]},\\\"Order\\\":{\\\"title\\\":\\\"Pizza Order\\\",\\\"properties\\\":{\\\"customerName\\\":{\\\"type\\\":\\\"string\\\"},\\\"delivered\\\":{\\\"type\\\":\\\"boolean\\\"},\\\"address\\\":{\\\"type\\\":\\\"string\\\"},\\\"pizzaType\\\":{\\\"type\\\":\\\"string\\\"},\\\"creditCardNumber\\\":{\\\"type\\\":\\\"string\\\"},\\\"quantity\\\":{\\\"type\\\":\\\"number\\\"},\\\"orderId\\\":{\\\"type\\\":\\\"integer\\\"}},\\\"required\\\":[\\\"orderId\\\"]}},\\\"consumes\\\":[\\\"application/json\\\"],\\\"info\\\":{\\\"title\\\":\\\"PizzaShackAPI\\\",\\\"description\\\":\\\"This document describe a RESTFul API for Pizza Shack online pizza delivery store.\\\\n\\\",\\\"license\\\":{\\\"name\\\":\\\"Apache 2.0\\\",\\\"url\\\":\\\"http://www.apache.org/licenses/LICENSE-2.0.html\\\"},\\\"contact\\\":{\\\"email\\\":\\\"architecture@pizzashack.com\\\",\\\"name\\\":\\\"John Doe\\\",\\\"url\\\":\\\"http://www.pizzashack.com\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\",\r\n   \"wsdlUri\": null,\r\n   \"lifeCycleStatus\": \"CREATED\",\r\n   \"responseCachingEnabled\": false,\r\n   \"cacheTimeout\": 300,\r\n   \"destinationStatsEnabled\": null,\r\n   \"isDefaultVersion\": false,\r\n   \"transport\": [\"https\"],\r\n   \"tags\":    [\r\n      \"chicken\",\r\n      \"pizza\"\r\n   ],\r\n   \"policies\": [\"Unlimited\"],\r\n   \"maxTps\":    {\r\n      \"sandbox\": 500,\r\n      \"production\": 100\r\n   },\r\n   \"visibility\": \"PUBLIC\",\r\n   \"visibleRoles\": [],\r\n   \"visibleTenants\": [],\r\n   \"endpointConfig\": \"{\\\"production_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"sandbox_endpoints\\\":{\\\"url\\\":\\\"https://localhost:9443/am/sample/pizzashack/v1/api/\\\",\\\"config\\\":null},\\\"endpoint_type\\\":\\\"http\\\"}\",\r\n   \"endpointSecurity\":    {\r\n      \"username\": \"user\",\r\n      \"type\": \"basic\",\r\n      \"password\": \"pass\"\r\n   },\r\n   \"gatewayEnvironments\": \"Production and Sandbox\",\r\n   \"sequences\": [],\r\n   \"subscriptionAvailability\": null,\r\n   \"subscriptionAvailableTenants\": [],\r\n   \"businessInformation\":    {\r\n      \"businessOwnerEmail\": \"marketing@pizzashack.com\",\r\n      \"technicalOwnerEmail\": \"architecture@pizzashack.com\",\r\n      \"technicalOwner\": \"John Doe\",\r\n      \"businessOwner\": \"Jane Roe\"\r\n   },\r\n   \"corsConfiguration\":    {\r\n      \"accessControlAllowOrigins\": [\"*\"],\r\n      \"accessControlAllowHeaders\":       [\r\n         \"authorization\",\r\n         \"Access-Control-Allow-Origin\",\r\n         \"Content-Type\",\r\n         \"SOAPAction\"\r\n      ],\r\n      \"accessControlAllowMethods\":       [\r\n         \"GET\",\r\n         \"PUT\",\r\n         \"POST\",\r\n         \"DELETE\",\r\n         \"PATCH\",\r\n         \"OPTIONS\"\r\n      ],\r\n      \"accessControlAllowCredentials\": false,\r\n      \"corsConfigurationEnabled\": false\r\n   }\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -465,11 +438,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -477,17 +446,9 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         409:
-          description: |
-            Conflict.
-            The request could not be completed due to a conflict with the current state of the target resource.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Conflict'
         412:
           description: |
             Precondition Failed.
@@ -499,11 +460,6 @@ paths:
     # Delete the definition of an API
     #-----------------------------------------------------
     delete:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X DELETE https://127.0.0.1:9443/api/am/publisher/v1/apis/6fb74674-4ab8-4b52-9886-f9a376985060"
-      x-wso2-request: |
-        DELETE https://127.0.0.1:9443/api/am/publisher/v1/apis/6fb74674-4ab8-4b52-9886-f9a376985060
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -531,17 +487,9 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         409:
-          description: |
-            Conflict.
-            The request could not be completed due to a conflict with the current state of the target resource.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Conflict'
         412:
           description: |
             Precondition Failed.
@@ -558,11 +506,6 @@ paths:
     # Retrieve the API swagger definition
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/swagger"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/swagger
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 329\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-policy\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -605,17 +548,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the API swagger definition
@@ -623,21 +558,6 @@ paths:
     put:
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer 5311eca3-8ac8-354e-ab36-7e2fdd6a4013\" -F endpointId=\"{\\\"paths\\\":{\\\"\\/*\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application\\\",\\\"x-throttling-policy\\\":\\\"Unlimited\\\",\\\"responses\\\":{\\\"200\\\":{\\\"description\\\":\\\"OK\\\"}}}}},\\\"swagger\\\":\\\"2.0\\\",\\\"info\\\":{\\\"title\\\":\\\"PhoneVerification\\\",\\\"description\\\":\\\"Verify a phone number\\\",\\\"contact\\\":{\\\"email\\\":\\\"xx@ee.com\\\",\\\"name\\\":\\\"xx\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\" -X PUT \"https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/swagger\""
-      x-wso2-request: |
-
-       PUT https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/swagger
-       Authorization:Bearer 5311eca3-8ac8-354e-ab36-7e2fdd6a4013
-       Content-Length: 477
-       Content-Type: multipart/form-data; boundary=------------------------4f51e636c0003d99
-
-
-        --------------------------4f51e636c0003d99
-        Content-Disposition: form-data; name="apiDefinition"
-
-        {"paths":{"\/*":{"get":{"x-auth-type":"Application","x-throttling-policy":"Unlimited","responses":{"200":{"description":"OK"}}}}},"swagger":"2.0","info":{"title":"PhoneVerification","description":"Verify a phone number","contact":{"email":"xx@ee.com","name":"xx"},"version":"1.0.0"}}
-        --------------------------4f51e636c0003d99--
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"paths\": {\"/*\": {\"get\":    {\n      \"x-auth-type\": \"Application\",\n      \"x-throttling-policy\": \"Unlimited\",\n      \"responses\": {\"200\": {\"description\": \"OK\"}}\n   }}},\n   \"swagger\": \"2.0\",\n   \"info\":    {\n      \"title\": \"PhoneVerification\",\n      \"description\": \"Verify a phone number\",\n      \"contact\":       {\n         \"email\": \"xx@ee.com\",\n         \"name\": \"xx\"\n      },\n      \"version\": \"1.0.0\"\n   }\n}"
       security:
         - OAuth2Security:
             - apim:api_create
@@ -693,11 +613,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -705,11 +621,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -769,17 +681,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ################################################################
   # Generated Mock/Sample Payloads from Examples in API Definition
@@ -832,17 +736,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ################################################################
   # The resource policy definitions of "Individual API" resource APIs
@@ -853,11 +749,6 @@ paths:
     # Retrieve the resource policy definition
     #-----------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/resource-policies"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/resource-policies
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n    \"list\": [\r\n        {\r\n            \"id\": \"1990b54c-6685-4058-a08c-8fd5353056a6\",\r\n            \"httpVerb\": \"get\",\r\n            \"resourcePath\": \"checkPhoneNumbers\",\r\n            \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\"\r\n        }\r\n    ],\r\n    \"count\": 1\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -914,17 +805,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ################################################################
   # The "Individual Resource Policy" APIs
@@ -935,11 +818,6 @@ paths:
     # Retrieve the resource policy definition of a certain resource given by id
     #---------------------------------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/resource-policies/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/resource-policies/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n            \"id\": \"6c735e1d-8041-4f1e-b246-d28edaa650b0\",\r\n            \"httpVerb\": \"post\",\r\n            \"resourcePath\": \"checkPhoneNumbers\",\r\n            \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\"\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -982,23 +860,11 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #------------------------------------------------------------------------
     # Update the resource policy definition for the given resource identifier
@@ -1009,16 +875,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_create
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer 5311eca3-8ac8-354e-ab36-7e2fdd6a4013\" -F apiDefinition=\"{\\\"paths\\\":{\\\"\\/*\\\":{\\\"get\\\":{\\\"x-auth-type\\\":\\\"Application\\\",\\\"x-throttling-tier\\\":\\\"Unlimited\\\",\\\"responses\\\":{\\\"200\\\":{\\\"description\\\":\\\"OK\\\"}}}}},\\\"x-wso2-security\\\":{\\\"apim\\\":{\\\"x-wso2-scopes\\\":[]}},\\\"swagger\\\":\\\"2.0\\\",\\\"info\\\":{\\\"title\\\":\\\"PhoneVerification\\\",\\\"description\\\":\\\"Verify a phone number\\\",\\\"contact\\\":{\\\"email\\\":\\\"xx@ee.com\\\",\\\"name\\\":\\\"xx\\\"},\\\"version\\\":\\\"1.0.0\\\"}}\" -X PUT \"https://localhost:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/resource-policies/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\""
-      x-wso2-request: |
-        PUT https://localhost:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/resource-policies/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5
-        Authorization:Bearer 5311eca3-8ac8-354e-ab36-7e2fdd6a4013
-        Content-Length: 477
-        Content-Type: application/json; boundary=------------------------4f51e636c0003d99
-        --------------------------4f51e636c0003d99
-        { "content": "<header description=\"SOAPAction\" name=\"SOAPAction\" scope=\"transport\" value=\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\"/>"}
-        --------------------------4f51e636c0003d99--
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\r\n            \"id\": \"6c735e1d-8041-4f1e-b246-d28edaa650b0\",\r\n            \"httpVerb\": \"post\",\r\n            \"resourcePath\": \"checkPhoneNumbers\",\r\n            \"content\": \"<header description=\\\"SOAPAction\\\" name=\\\"SOAPAction\\\" scope=\\\"transport\\\" value=\\\"http://ws.cdyne.com/PhoneVerify/query/CheckPhoneNumber\\\"/>\"\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1064,11 +920,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -1076,11 +928,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -1097,11 +945,6 @@ paths:
     # Downloads a thumbnail image of an API
     #-------------------------------------------------------------------------------------------------
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer d34baf74-3f02-3929-814e-88b27f750ba9\" https://127.0.0.1:9443/api/am/publisher/v1/apis/29c9ec3d-f590-467e-83e6-96d43517080f/thumbnail > image.jpg"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/29c9ec3d-f590-467e-83e6-96d43517080f/thumbnail
-        Authorization: Bearer d34baf74-3f02-3929-814e-88b27f750ba9
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: image/jpeg\r\n\r\n[image content]"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1142,17 +985,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a thumbnail image to a certain API
@@ -1164,21 +999,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:api_publish
-      x-wso2-curl: "curl -X POST -H \"Authorization: Bearer d34baf74-3f02-3929-814e-88b27f750ba9\" https://127.0.0.1:9443/api/am/publisher/v1/apis/29c9ec3d-f590-467e-83e6-96d43517080f/thumbnail -F file=@image.jpg"
-      x-wso2-request: |
-        POST https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/thumbnail
-        Authorization: Bearer d34baf74-3f02-3929-814e-88b27f750ba9
-        Content-Type: multipart/form-data; boundary=------------------------5e542e0e5b50e1e4
-        Content-Length: 18333
-
-        --------------------------5e542e0e5b50e1e4
-        Content-Disposition: form-data; name="file"; filename="image.jpg"
-        Content-Type: image/jpeg
-
-        [image content]
-
-        --------------------------5e542e0e5b50e1e4--
-      x-wso2-response: "HTTP/1.1 201 Created\r\nLocation: https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/thumbnail\r\nContent-Type: application/json\r\n\r\n{\r\n   \"relativePath\": \"/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/thumbnail\",\r\n   \"mediaType\": \"image/jpeg\"\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1224,17 +1044,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -1255,11 +1067,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-wso2-curl: "curl \"https://localhost:9443/api/am/publisher/v1//apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies\""
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies
-      x-wso2-curl-tenant: "curl -k -H \"X-WSO2-Tenant:test.com\" https://localhost:9443/api/am/publisher/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n[{\n   \"unitTime\": 60000,\n   \"tierPlan\": \"FREE\",\n   \"stopOnQuotaReach\": true,\n   \"policyLevel\": \"api\",\n   \"requestCount\": 1,\n   \"description\": \"Allows 1 request(s) per minute.\",\n   \"name\": \"Bronze\",\n   \"attributes\": {}\n}]"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1299,17 +1106,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
         404:
-          description: |
-            Not Found.
-            Requested Throttling Policy does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
   ######################################################
@@ -1360,17 +1159,9 @@ paths:
                 The URL of the newly created API.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            API to copy does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Change Lifecycle" Processing Function resource API
@@ -1384,11 +1175,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X POST \"https://127.0.0.1:9443/api/am/publisher/v1/apis/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish\""
-      x-wso2-request: |
-        POST https://127.0.0.1:9443/api/am/publisher/v1/apis/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1462,17 +1248,9 @@ paths:
           schema:
             $ref: '#/definitions/WorkflowResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         409:
           description: |
             Conflict.
@@ -1497,14 +1275,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer f8828f52-175a-4cb2-b246-02b1e6054f97\" https://127.0.0.1:9443/api/am/publisher/v1/apis/0527a55e-8dcf-4ce5-bddf-c77e8418be8a/lifecycle-history"
-      x-wso2-request: |
-            GET https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-history
-            Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\n Content-Type: application/json \n Content-Encoding: gzip \n Transfer-Encoding:
-      chunked \n\n [ { \"postState\" : \"Created\",\n    \"updatedTime\" : \"Feb 23, 2017 5:17:02 PM\",\n\"user\" :
-      \"admin\"\n  },\n { \"postState\" : \"Published\",\n    \"previousState\" : \"Created\",\n    \"updatedTime\" :
-      \"Feb 23, 2017 5:17:17 PM\",\n    \"user\" : \"admin\"\n }\n]"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1539,11 +1309,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
   ######################################################
   #  The "API Lifecycle State Data"  resource API
   ######################################################
@@ -1557,12 +1323,6 @@ paths:
         - OAuth2Security:
           - apim:api_publish
           - apim:api_create
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer f8828f52-175a-4cb2-b246-02b1e6054f97\" https://127.0.0.1:9443/api/am/publisher/v1/apis/0527a55e-8dcf-4ce5-bddf-c77e8418be8a/lifecycle"
-      x-wso2-request: |
-            GET https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle
-            Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\n Content-Type: application/json \n Content-Encoding: gzip \n Transfer-Encoding:
-      chunked \n\n {  \n   \"lcName\":\"API_LIFECYCLE\",\n   \"state\":\"Published\",\n   \"lifecycleId\":\"2febf145f07e457c9643100b6ec60679\",\n   \"checkItemBeanList\":[  \n\n   ],\n   \"inputBeanList\":[  \n\n   ],\n   \"customCodeBeanList\":[  \n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Maintenance\"\n      },\n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Deprecated\"\n      },\n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Created\"\n      },\n      {  \n         \"classObject\":{  \n\n         },\n         \"targetName\":\"Prototyped\"\n      }\n   ],\n   \"availableTransitionBeanList\":[  \n      {  \n         \"event\":\"Move to Maintenance\",\n         \"targetState\":\"Maintenance\"\n      },\n      {  \n         \"event\":\"Deploy as a Prototype\",\n         \"targetState\":\"Prototyped\"\n      },\n      {  \n         \"event\":\"Demote to Created\",\n         \"targetState\":\"Created\"\n      },\n      {  \n         \"event\":\"Deprecate\",\n         \"targetState\":\"Deprecated\"\n      },\n      {  \n         \"event\":\"Publish\",\n         \"targetState\":\"Published\"\n      }\n   ],\n   \"permissionBeanList\":[  \n\n   ]\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1602,11 +1362,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -1623,11 +1379,6 @@ paths:
     # Delete API LIfecycle state change pending task
     #--------------------------------------------
     delete:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer f8828f52-175a-4cb2-b246-02b1e6054f97\" -X DELETE https://127.0.0.1:9443/api/am/publisher/v1/apis/0527a55e-8dcf-4ce5-bddf-c77e8418be8a/lifecycle/lifecycle-pending-task"
-      x-wso2-request: |
-            DELETE https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle/lifecycle-pending-task
-            Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1648,11 +1399,7 @@ paths:
             OK.
             Lifecycle state change pending task removed successfully.
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -1734,17 +1481,9 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Import API from a WSDL Definition"  resource API
@@ -1829,17 +1568,9 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
 
   ######################################################
@@ -1907,17 +1638,9 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Validate API Definition" utility API
@@ -1980,17 +1703,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   /apis/validate-endpoint:
     post:
@@ -2030,17 +1745,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Validate API" utility API.
@@ -2094,17 +1801,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Validate WSDL Definition" utility API
@@ -2154,17 +1853,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Validate GRAPH_QL API Definition" utility API
@@ -2205,17 +1896,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The GraphQL Schema Resource
@@ -2229,11 +1912,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/apis/7f82f6b0-2667-441e-af23-c0fc44cf3a17/graphql-schema\""
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/apis/7f82f6b0-2667-441e-af23-c0fc44cf3a17/graphql-schema
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n{\r\n   \"name\": \"admin--hello1.0.0.graphql\",\r\n   \"schemaDefinition\": \"schema {\r\n  \r\n  # The query root of HackerNews GraphQL interface.\r\n  query: Query\r\n\r\n  # The root query for implementing GraphQL mutations.\r\n  mutation: Mutation\r\n}\r\n\r\ntype Link {\r\n\r\n  # ID of the link\r\n  id: ID!\r\n\r\n  # URL of the link\r\n  url: String!\r\n\r\n  # Description of the link\r\n  description: String\r\n}\r\n\r\ninput LinkFilter {\r\n\r\n  # Value to be checked whether it contains in the description\r\n  description_contains: String\r\n\r\n  # Value to be checked whether it contains in the URL\r\n  url_contains: String\r\n}\r\n\r\ntype Query {\r\n\r\n  # Fetches all the links\r\n  #\r\n  # Arguments\r\n  # filter: To filter the links according a specific criteria\r\n  # skip: Skip to a specific index in the list (default value is 0)\r\n  # first: Index of the link first to display (default value is 0)\r\n  allLinks(filter: LinkFilter, skip: Int = 0, first: Int = 0): [Link]\r\n}\r\n\r\ntype Mutation {\r\n\r\n  # Creates a new link\r\n  #\r\n  # Arguments\r\n  # url: URL of the link\r\n  # description: Description about the link\r\n  createLink(url: String!, description: String!): Link\r\n}\r\n\"\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2274,17 +1952,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a GraphQL schema to the registry
@@ -2293,9 +1963,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_create
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer 5311eca3-8ac8-354e-ab36-7e2fdd6a4013\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://localhost:9443/api/am/publisher/v1/apis/af3f96da-9ccf-463f-8cee-13ec8530a9cd/graphql-schema\""
-      x-wso2-request: "PUT https://localhost:9443/api/am/publisher/v1/apis/af3f96da-9ccf-463f-8cee-13ec8530a9cd/graphql-schema\r\nContent-Type: text/plain\r\nAuthorization: Bearer 7d237cab-7011-3f81-b384-24d03e750873\r\n\r\n{\r\n   \"name\": \"admin--HackerNewsAPI1.0.0.graphql\",\r\n   \"schemaDefinition\": \"schema {\r\n  \r\n  # The query root of HackerNews GraphQL interface.\r\n  query: Query\r\n\r\n  # The root query for implementing GraphQL mutations.\r\n  mutation: Mutation\r\n}\r\n\r\ntype Link {\r\n\r\n  # ID of the link\r\n  id: ID!\r\n\r\n  # URL of the link\r\n  url: String!\r\n\r\n  # Description of the link\r\n  description: String\r\n}\r\n\r\ninput LinkFilter {\r\n\r\n  # Value to be checked whether it contains in the description\r\n  description_contains: String\r\n\r\n  # Value to be checked whether it contains in the URL\r\n  url_contains: String\r\n}\r\n\r\ntype Query {\r\n\r\n  # Fetches all the links\r\n  #\r\n  # Arguments\r\n  # filter: To filter the links according a specific criteria\r\n  # skip: Skip to a specific index in the list (default value is 0)\r\n  # first: Index of the link first to display (default value is 0)\r\n  allLinks(filter: LinkFilter, skip: Int = 0, first: Int = 0): [Link]\r\n}\r\n\r\ntype Mutation {\r\n\r\n  # Creates a new link\r\n  #\r\n  # Arguments\r\n  # url: URL of the link\r\n  # description: Description about the link\r\n  createLink(url: String!, description: String!): Link\r\n}\r\n\"\r\n}"
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\n{\r\n   \"name\": \"admin--HackerNewsAPI1.0.0.graphql\",\r\n   \"schemaDefinition\": \"schema {\r\n  \r\n  # The query root of HackerNews GraphQL interface.\r\n  query: Query\r\n\r\n  # The root query for implementing GraphQL mutations.\r\n  mutation: Mutation\r\n}\r\n\r\ntype Link {\r\n\r\n  # ID of the link\r\n  id: ID!\r\n\r\n  # URL of the link\r\n  url: String!\r\n\r\n  # Description of the link\r\n  description: String\r\n}\r\n\r\ninput LinkFilter {\r\n\r\n  # Value to be checked whether it contains in the description\r\n  description_contains: String\r\n\r\n  # Value to be checked whether it contains in the URL\r\n  url_contains: String\r\n}\r\n\r\ntype Query {\r\n\r\n  # Fetches all the links\r\n  #\r\n  # Arguments\r\n  # filter: To filter the links according a specific criteria\r\n  # skip: Skip to a specific index in the list (default value is 0)\r\n  # first: Index of the link first to display (default value is 0)\r\n  allLinks(filter: LinkFilter, skip: Int = 0, first: Int = 0): [Link]\r\n}\r\n\r\ntype Mutation {\r\n\r\n  # Creates a new link\r\n  #\r\n  # Arguments\r\n  # url: URL of the link\r\n  # description: Description about the link\r\n  createLink(url: String!, description: String!): Link\r\n}\r\n\"\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2339,11 +2006,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -2351,11 +2014,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -2376,11 +2035,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1.0/apis/64eca60b-2e55-4c38-8603-e9e6bad7d809/amznResourceNames"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1.0/apis/64eca60b-2e55-4c38-8603-e9e6bad7d809/arns
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"count\": \"2\",\n   \"list\": [\n      \"arn:aws:lambda:us-west-2:123456789012:function:my-function1\",\n      \"arn:aws:lambda:us-west-2:123456789012:function:my-function2\"\n   ]\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2406,11 +2060,7 @@ paths:
                 The content type of the body.
               type: string
         404:
-          description: |
-            Not Found.
-            Requested resource does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   #########################################################
   # The "Configure Monetization" Processing Function resource API
@@ -2423,9 +2073,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize\""
-      x-wso2-request: "POST https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n{\r\n   \"enabled\":\"true\",\r\n   \"properties\":{\r\n      \"vendor\":\"test\",\r\n      \"type\":\"postpaid\"\r\n   }\r\n}"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n{\r\n   \"enabled\":\"true\",\r\n   \"properties\":{\r\n      \"vendor\":\"test\",\r\n      \"type\":\"postpaid\"\r\n   }\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2450,23 +2097,11 @@ paths:
             OK.
             Monetization status changed successfully.
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested resource does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   #########################################################
   # The get monetizied policies processing function resource API
@@ -2479,9 +2114,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" \"https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetization\""
-      x-wso2-request: "GET https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetization\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n{\r\n   \"enabled\":\"true\",\r\n   \"monetizedTiers\":{\r\n      \"tier1\":\"enabled\",\r\n      \"tier2\":\"disabled\"\r\n   }\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2499,34 +2131,17 @@ paths:
             OK.
             Monetization status for each tier returned successfully.
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested resource does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The "Get Total Revenue" Processing Function resource API
   ######################################################
   /apis/{apiId}/revenue:
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1/apis/64eca60b-2e55-4c38-8603-e9e6bad7d809/revenue"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/64eca60b-2e55-4c38-8603-e9e6bad7d809/revenue
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"object\": \"invoice\",\n   \"account_country\": \"US\",\n   \"account_name\": \"test.com\",\n   \"amount_due\": \"0\",\n   \"amount_paid\": \"0\"\n  \"amount_remaining\": \"0\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2581,11 +2196,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents\""
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"INLINE\",\n         \"sourceUrl\": null,\n         \"otherTypeName\": null,\n         \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n         \"summary\": \"This is a sample documentation for v1.0\",\n         \"name\": \"PhoneVerification API Documentation\",\n         \"type\": \"HOWTO\"\n      },\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"URL\",\n         \"sourceUrl\": \"http://wiki.cdyne.com/index.php/Phone_Verification\",\n         \"otherTypeName\": null,\n         \"documentId\": \"4145df31-04f1-440c-8d08-68952874622c\",\n         \"summary\": \"This is the URL for online documentation\",\n         \"name\": \"Online Documentation\",\n         \"type\": \"SAMPLES\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2621,25 +2231,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a document to a certain API
     #-----------------------------------------------------
     post:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents\""
-      x-wso2-request: "POST https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n    \"visibility\": \"API_LEVEL\",\n    \"sourceType\": \"INLINE\",\n    \"sourceUrl\": null,\n    \"otherTypeName\": null,\n    \"summary\": \"This is a sample documentation\",\n    \"name\": \"Introduction to PhoneVerification API\",\n    \"type\": \"HOWTO\"\n}"
-      x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"Introduction to PhoneVerification API\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2686,11 +2285,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported media type.
@@ -2708,11 +2303,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\""
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2753,25 +2343,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update a particular document of a certain API
     #-----------------------------------------------------
     put:
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\" -H \"Content-Type: application/json\" -X PUT -d data.json \"https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\""
-      x-wso2-request: "PUT https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\nAuthorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2823,17 +2402,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -2849,11 +2420,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:document_manage
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X DELETE https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058"
-      x-wso2-request: |
-        DELETE https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2873,11 +2439,7 @@ paths:
             OK.
             Resource successfully deleted.
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -2900,11 +2462,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\" \"https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/daf732d3-bda2-46da-b381-2c39d901ea61/content\" > sample.pdf"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/daf732d3-bda2-46da-b381-2c39d901ea61/content
-        Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Disposition: attachment; filename=\"sample.pdf\"\nContent-Type: application/octet-stream\nContent-Length: 7802\n\n%PDF-1.4\n%äüöß\n2 0 obj\n<</Length 3 0 R/Filter/FlateDecode>>\nstream\n..\n>>\nstartxref\n7279\n%%EOF"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2963,17 +2520,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a file or add inline content to a document of a certain API
@@ -2985,21 +2534,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:document_create
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -F file=@\"sample.pdf\" -X POST \"https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/daf732d3-bda2-46da-b381-2c39d901ea61/content\""
-      x-wso2-request: |
-        POST https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/documents/b3a79270-02bb-4e39-9ac1-90ce8f6c84af/content
-        Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-        Content-Length: 8004
-        Content-Type: multipart/form-data; boundary=------------------------7b9a53f1ffa452b9
-
-        --------------------------7b9a53f1ffa452b9
-        Content-Disposition: form-data; name="file"; filename="sample.pdf"
-        Content-Type: application/octet-stream
-
-        [file content]
-
-        --------------------------7b9a53f1ffa452b9--
-      x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://127.0.0.1:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/documents/b3a79270-02bb-4e39-9ac1-90ce8f6c84af/content\nContent-Type: application/json\n\n{\n    \"visibility\":\"API_LEVEL\",\n    \"sourceType\":\"FILE\",\n    \"sourceUrl\":null,\n    \"otherTypeName\":null,\n    \"documentId\":\"daf732d3-bda2-46da-b381-2c39d901ea61\",\n    \"summary\":\"This is a sample documentation pdf\",\n    \"name\":\"Introduction to PhoneVerification API PDF\",\n    \"type\":\"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3055,17 +2589,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -3121,16 +2647,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Requested document not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "specific mediation policy" resource APIs
@@ -3187,11 +2706,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload an API specific mediation policy
@@ -3260,17 +2775,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -3334,17 +2841,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Delete the mediation policy
@@ -3382,11 +2881,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -3447,11 +2942,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested file does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
     #-----------------------------------------------------
     # Update a mediation policy
     #-----------------------------------------------------
@@ -3519,11 +3010,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -3531,11 +3018,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -3580,17 +3063,9 @@ paths:
           schema:
             $ref: '#/definitions/WSDLInfo'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist or the API is not a SOAP API.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 ################################################################
 # The WSDL resource of "Individual API" resource APIs
@@ -3645,17 +3120,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the API's WSDL
@@ -3717,11 +3184,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -3729,11 +3192,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -3788,9 +3247,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer 5aa0acc0-0ce3-3a0b-8cc8-db5ef696ee23\" https://localhost:9443/api/am/publisher/v1/apis/40082986-6488-4b86-801a-b0b069d4588c/resource-paths"
-      x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/apis/40082986-6488-4b86-801a-b0b069d4588c/resource-paths\r\nAuthorization: Bearer 5aa0acc0-0ce3-3a0b-8cc8-db5ef696ee23"
-      x-wso2-response: ""
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3832,17 +3288,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The Security Audit API List
@@ -3883,11 +3331,7 @@ paths:
           schema:
             $ref: '#/definitions/AuditReport'
         404:
-          description: |
-            Not Found.
-            The Security Audit Report was not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
 ######################################################
 # The "ExternalStore Collection" resource APIs
@@ -3938,11 +3382,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Publish to External Stores" resource APIs
@@ -3999,11 +3439,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            Request API resource or external store Ids not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # Export Resource API
@@ -4019,11 +3455,6 @@ paths:
             - apim:api_create
       produces:
         - application/zip
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET https://localhost:9443/api/am/publisher/v1/export/api?name=PizzaShackAPI&version=1.0.0&providerName=admin > exportAPI.zip"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/export/api?name=SampleAPI&version=1.0.0&providerName=admin
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\n Connection: keep-alive\n  Content-Disposition: attachment; filename=\"exported-api.zip\"\n  Content-Type: application/zip"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4085,11 +3516,7 @@ paths:
           schema:
             type: file
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         500:
           description: |
             Internal Server Error.
@@ -4109,11 +3536,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:subscription_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://127.0.0.1:9443/api/am/publisher/v1/subscriptions?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b\""
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/subscriptions?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n \n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"subscriptionId\": \"64eca60b-2e55-4c38-8603-e9e6bad7d809\",\n         \"policy\": \"Gold\",\n         \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n         \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n         \"lifeCycleStatus\": \"UNBLOCKED\"\n      },\n            {\n         \"subscriptionId\": \"7ac22c34-8745-4cfe-91e0-262c50b2f2e3\",\n         \"policy\": \"Gold\",\n         \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n         \"applicationId\": \"367a2361-8db5-4140-8133-c6c8dc7fa0c4\",\n         \"lifeCycleStatus\": \"UNBLOCKED\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4161,21 +3583,13 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable. The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The get usage billing resource APIs
   ######################################################
   '/subscriptions/{subscriptionId}/usage':
     get:
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/64eca60b-2e55-4c38-8603-e9e6bad7d809/usage"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/64eca60b-2e55-4c38-8603-e9e6bad7d809/usage
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"object\": \"invoice\",\n   \"account_country\": \"US\",\n   \"account_name\": \"test.com\",\n   \"amount_due\": \"0\",\n   \"amount_paid\": \"0\"\n  \"amount_remaining\": \"0\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4245,11 +3659,7 @@ paths:
           schema:
             $ref: '#/definitions/SubscriberInfo'
         404:
-          description: |
-            Not Found.
-            Requested Subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Block Subscription" Processing Function resource API
@@ -4263,11 +3673,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:subscription_block
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X POST \"https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/block-subscription?subscriptionId=64eca60b-2e55-4c38-8603-e9e6bad7d809&blockState=PROD_ONLY_BLOCKED\""
-      x-wso2-request: |
-        POST https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/block-subscription?subscriptionId=64eca60b-2e55-4c38-8603-e9e6bad7d809&blockState=PROD_ONLY_BLOCKED
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n \n{\n   \"subscriptionId\": \"64eca60b-2e55-4c38-8603-e9e6bad7d809\",\n   \"policy\": \"Gold\",\n   \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n   \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n   \"lifeCycleStatus\": \"PROD_ONLY_BLOCKED\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4309,17 +3714,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -4339,11 +3736,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:subscription_block
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X POST \"https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/unblock-subscription?subscriptionId=64eca60b-2e55-4c38-8603-e9e6bad7d809\""
-      x-wso2-request: |
-        POST https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/unblock-subscription?subscriptionId=64eca60b-2e55-4c38-8603-e9e6bad7d809
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8`
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"subscriptionId\": \"64eca60b-2e55-4c38-8603-e9e6bad7d809\",\n   \"policy\": \"Gold\",\n   \"apiIdentifier\": \"admin-PhoneVerification-1.0.0\",\n   \"applicationId\": \"896658a0-b4ee-4535-bbfa-806c894a4015\",\n   \"lifeCycleStatus\": \"UNBLOCKED\"\n} "
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4373,17 +3765,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -4403,11 +3787,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1/policies/api"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/policies/api
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"unitTime\": 60000,\n         \"tierPlan\": \"FREE\",\n         \"tierLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 1,\n         \"description\": \"Allows 1 request(s) per minute.\",\n         \"name\": \"Bronze\",\n         \"attributes\": {}\n      },\n            {\n         \"unitTime\": 60000,\n         \"tierPlan\": \"FREE\",\n         \"tierLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 20,\n         \"description\": \"Allows 20 request(s) per minute.\",\n         \"name\": \"Gold\",\n         \"attributes\": {}\n      },\n            {\n         \"unitTime\": 60000,\n         \"tierPlan\": \"FREE\",\n         \"tierLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 5,\n         \"description\": \"Allows 5 request(s) per minute.\",\n         \"name\": \"Silver\",\n         \"attributes\": {}\n      },\n            {\n         \"unitTime\": 0,\n         \"tierPlan\": null,\n         \"policyLevel\": \"api\",\n         \"stopOnQuotaReach\": true,\n         \"requestCount\": 0,\n         \"description\": \"Allows unlimited requests\",\n         \"name\": \"Unlimited\",\n         \"attributes\": {}\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 4\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4445,11 +3824,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
   ######################################################
@@ -4464,11 +3839,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://127.0.0.1:9443/api/am/publisher/v1/policies/api/Bronze"
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/publisher/v1/policies/api/Bronze
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"unitTime\": 60000,\n   \"tierPlan\": \"FREE\",\n   \"policyLevel\": \"api\",\n   \"stopOnQuotaReach\": true,\n   \"requestCount\": 1,\n   \"description\": \"Allows 1 request(s) per minute.\",\n   \"name\": \"Bronze\",\n   \"attributes\": {}\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4510,17 +3880,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Tier does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ######################################################
   # The "Global Mediation Policy" resource APIs
@@ -4535,13 +3897,6 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:mediation_policy_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" https://localhost:9443/api/am/publisher/v1/mediation-policies"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/mediation-policies
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\": 10,\r\n   \"next\": null,\r\n   \"previous\": null,\r\n   \"list\":    [\r\n            {\r\n         \"name\": \"debug_json_fault\",\r\n         \"id\": \"563de8f3-dd1d-4ec7-afc2-d158c663ed34\",\r\n         \"type\": \"fault\"\r\n      },\r\n            {\r\n         \"name\": \"json_fault\",\r\n         \"id\": \"f9c36f4d-a2b6-41e7-b311-d358a47916be\",\r\n         \"type\": \"fault\"\r\n      },\r\n            {\r\n         \"name\": \"json_to_xml_in_message\",\r\n         \"id\": \"3921225b-7918-4b95-a851-22c4e4e3e911\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"debug_in_flow\",\r\n         \"id\": \"2bc15f93-4455-4763-89b8-83600fb9d731\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"log_in_message\",\r\n         \"id\": \"4d287cca-76ab-44ca-b22e-919fc27c50e3\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"preserve_accept_header\",\r\n         \"id\": \"3776b215-b3bc-40b6-bdcb-06efa7de64be\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"xml_to_json_in_message\",\r\n         \"id\": \"50ac2002-769e-4f90-8549-6d0248dff7d2\",\r\n         \"type\": \"in\"\r\n      },\r\n            {\r\n         \"name\": \"xml_to_json_out_message\",\r\n         \"id\": \"2af75853-ed75-4d25-81aa-0ebbeca691ea\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"json_to_xml_out_message\",\r\n         \"id\": \"d9fa3ffc-f6b6-4171-ab97-eb44196cb66e\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"debug_out_flow\",\r\n         \"id\": \"260b7701-4071-46bd-9b66-900ac6fffed6\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"apply_accept_header\",\r\n         \"id\": \"15c17c2f-33e3-4c37-a262-04dfa49983a4\",\r\n         \"type\": \"out\"\r\n      },\r\n            {\r\n         \"name\": \"log_out_message\",\r\n         \"id\": \"d37dca41-c048-492a-82cf-9a2292c6fff0\",\r\n         \"type\": \"out\"\r\n      }\r\n   ]\r\n}"
-      x-examples:
-        $ref: docs/examples/mediation-policies/mediation_policies_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4581,11 +3936,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ###################################################################
   # The "Individual Global mediation policy content" resource
@@ -4638,11 +3989,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested file does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Certificate Management" resource APIs
@@ -4659,15 +4006,6 @@ paths:
           - apim:client_certificates_view
       produces:
         - application/json
-      x-wso2-curl: "curl -X GET \
-                      https://localhost:9443/api/am/publisher/v1/client-certificates \
-                      -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'"
-      x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/client-certificates \ -H 'authorization:
-      Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'"
-      x-wso2-response: "HTTP/1.1 200 OK \
-                        {\"count\":1,\"next\":\"\",\"previous\":\"\",\"certificates\":[{\"alias\":\"newtest1\",
-                         \"apiId\":\"admin-mesting12da1-1.0.0\",\"tier\":\"Bronze\"}],\"pagination\":{\"total\":1,
-                         \"offset\":0,\"limit\":25}}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4724,28 +4062,6 @@ paths:
           - apim:client_certificates_add
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -X POST \
-                      https://localhost:9443/api/am/publisher/v1/client-certificates \
-                      -H 'authorization: Bearer f2f562bd-f6d9-3fad-b48d-72ab5702c98a' \
-                      -H 'content-type: multipart/form-data' \
-                      -F certificate=@test.crt \
-                      -F alias=alias \
-                      -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b \
-                      -F tier=Gold"
-      x-wso2-request: "POST https://localhost:9443/api/am/publisher/v1/client-certificates \
-                                                  -H 'authorization: Bearer f2f562bd-f6d9-3fad-b48d-72ab5702c98a' \
-                                                  -H 'content-type: multipart/form-data' \
-                                                  -F certificate=@test.crt \
-                                                  -F alias=alias \
-                                                  -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b \
-                                                  -F tier=Gold"
-      x-wso2-response: "HTTP/1.1 201 Created \
-                        Location: https://localhost:9443/api/am/publisher/v1/client-certificates?alias=newtest1 \
-                        Date: Tue, 09 Oct 2018 16:18:10 GMT \
-                        Content-Type: application/json \
-                        Transfer-Encoding: chunked \
-                        Server: WSO2 Carbon Server \
-                        {\"alias\":\"alias\",\"apiId\":\"fea749dd-d548-4a8b-b308-34903b39a34b\",\"tier\":\"Gold\"}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4816,15 +4132,6 @@ paths:
           - apim:client_certificates_update
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -X PUT \
-                      https://localhost:9443/api/am/publisher/v1/client-certificates/newtest1 \
-                      -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c' \
-                      -F tier=Bronze"
-      x-wso2-request: "PUT https://localhost:9443/api/am/publisher/v1/client-certificates/newtest1 \
-                                      -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'\ -F tier=Bronze"
-      x-wso2-response: "HTTP/1.1 200 OK\r\n
-                        {\r\n\"alias\":\"newtest1\",\r\n\"apiId\":\"fea749dd-d548-4a8b-b308-34903b39a34b\",\r\n
-                         \"tier\":\"Gold\"\r\n}\r\n"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4898,13 +4205,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:client_certificates_update
-      x-wso2-curl:
-        "curl -X DELETE \
-           https://localhost:9443/api/am/publisher/v1/client-certificates/newtest1 \
-           -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c' "
-      x-wso2-request: "DELETE https://localhost:9443/api/am/publisher/v1/client-certificates/newtest1 \
-                                         -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'"
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -4965,19 +4265,6 @@ paths:
           - apim:client_certificates_view
       produces:
         - application/json
-      x-wso2-curl: "curl -X GET \
-                      https://localhost:9443/api/am/publisher/v1/client-certificates/newtest1 \
-                      -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'"
-      x-wso2-request: "GET https://apis.wso2.com/api/am/publisher/v1/client-certificates/newtest1 Authorization:
-      Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-      x-wso2-response: "HTTP/1.1 200 OK
-                        Date: Tue, 09 Oct 2018 16:25:43 GMT
-                        Content-Type: application/json
-                        Transfer-Encoding: chunked
-                        Server: WSO2 Carbon Server
-                        {\"status\":\"Active\",\"validity\":{\"from\":\"Fri Sep 14 15:46:22 IST 2018\",\"to\":\"Sat Sep
-                         14 15:46:22 IST 2019\"},\"version\":\"3\",\"subject\":\"EMAILADDRESS=wso2@wso2.com,
-                         CN=WSO2, OU=test, O=WSO2, L=colombo, ST=Some-State, C=CA\"}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5035,16 +4322,6 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:client_certificates_view
-      x-wso2-curl: "curl -X GET \
-                      https://localhost:9443/api/am/publisher/v1/client-certificates/newtest1/content \
-                      -H 'authorization: Bearer f80b8c34-01bc-3ac2-99b6-4873e45c861c'"
-      x-wso2-request: "GET https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon/content Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-      x-wso2-response: "HTTP/1.1 200 OK \
-                        Content-Disposition: attachment; filename=\"newtest1.crt\" \
-                         Date: Tue, 09 Oct 2018 16:21:25 GMT
-                         Content-Type: application/octet-stream
-                         Content-Length: 997
-                         Server: WSO2 Carbon Server"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5105,9 +4382,6 @@ paths:
           - apim:ep_certificates_view
       produces:
         - application/json
-      x-wso2-curl: "curl -X GET -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" \"https://localhost:9443/api/am/publisher/v1/certificates\""
-      x-wso2-request: "GET https://localhost:9443/api/am/publisher/v1/certificates?alias=wso2carbon&endpoint=https://www.abc.com"
-      x-wso2-response: "HTTP/1.1 200 OK \n\n{\n  \"count\":1,\n  \"next\":\"\",\n  \"previous\":\"\",\n\"certificates\":[\n   {\n    \"alias\":\"wso2carbon\",\n    \"endpoint\":\"https://www.abc.com\"\n   }\n],\n  \"pagination\":{\n    \"total\":1,\n          \"offset\":0,\n          \"limit\":25\n   } \n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5169,15 +4443,6 @@ paths:
           - apim:ep_certificates_add
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -X POST -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: multipart/form-data\"  -F \"certificate=@/home/user/wso2carbon.cert\" -F \"alias=wso2carbon\" -F \"endpoint=https://www.abc.com\" \"https://localhost:9443/api/am/publisher/v1/certificates/certificate\""
-      x-wso2-request: "POST https://localhost:9443/api/am/publisher/v1/certificates/certificate \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -F \"certificate=/home/user/wso2carbon.cert\" -F \"alias=wso2carbon\" -F \"endpoint=https://www.abc.com\""
-      x-wso2-response: "HTTP/1.1 201 Created
-                        Location: https://localhost:9443/api/am/publisher/v1/client-certificates?alias=newtest1
-                        Date: Fri, 05 Oct 2018 09:50:48 GMT
-                        Content-Type: application/json
-                        Transfer-Encoding: chunked
-                        Server: WSO2 Carbon Server
-                        {\"alias\": \"newtest1\",\"apiId\": \"4624bdfb-6acd-465a-8454-bac9c4c94d88\",\"tier\": \"Gold\"}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5244,9 +4509,6 @@ paths:
           - apim:ep_certificates_update
       consumes:
         - multipart/form-data
-      x-wso2-curl: "curl -X PUT -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type:multipart/form-data\" -F \"certificate=@/home/user/wso2carbon.cert\" \"https://localhost:9443/api/am/publisher/v1/certificates/wso2carbon\""
-      x-wso2-request: "PUT https://localhost:9443/api/am/publisher/v1/certificates/wso2carbon Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8 -F  \"certificate=@/home/user/wso2carbon.cert\""
-      x-wso2-response: "HTTP/1.1 200 OK\r\n {\"alias\":wso2carbon,\"endpoint\":\"https://www.abc.com\"}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5309,10 +4571,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:ep_certificates_update
-      x-wso2-curl:
-        "curl -X DELETE -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/certificates/wso2carbon\""
-      x-wso2-request: "DELETE https://localhost:9443/api/am/publisher/v1/certificates/wso2carbon Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-      x-wso2-response: HTTP/1.1 200 OK
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5369,9 +4627,6 @@ paths:
           - apim:ep_certificates_view
       produces:
         - application/json
-      x-wso2-curl: "curl -X GET \"https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon\" -H  \"accept: application/json\""
-      x-wso2-request: "GET https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-      x-wso2-response: "HTTP/1.1 200 OK \nContent-Type: application/json\r\n {\n  \"status\":\"Active\",\n  \"validity\":{\n    \"from\":\"Fri May 04 19:01:01 IST 2018\",\n    \"to\":\"Thu Aug 02 19:01:01 IST 2018\"\n  }\n,  \"version\":\"3\",\n  \"subject\":\"CN=wso2.com, OU=wso2, O=wso2, L=Colombo, ST=Western, C=LK\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5424,9 +4679,6 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:ep_certificates_view
-      x-wso2-curl: "curl -X GET \"https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon/content\" -H \"accept: application/json\""
-      x-wso2-request: "GET https://apis.wso2.com/api/am/publisher/v1/certificates/wso2carbon/content Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8"
-      x-wso2-response: "HTTP/1.1 200 OK\r\n [content of the certificate]"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5527,11 +4779,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
     ######################################################
@@ -5589,11 +4837,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Create a new API Product -API Product (Individual)
@@ -5641,17 +4885,9 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/UnsupportedMediaType'
 
   /api-products/{apiProductId}:
     delete:
@@ -5682,11 +4918,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -5740,17 +4972,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the definition of an API product
@@ -5805,11 +5029,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         403:
           description: |
             Forbidden.
@@ -5817,11 +5037,7 @@ paths:
           schema:
             $ref: '#/definitions/Error'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -5875,17 +5091,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a thumbnail image to a certain API Product
@@ -5940,17 +5148,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -6006,17 +5206,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
   ###########################################################
   # Resource for checking if a given API Product is outdated
@@ -6069,17 +5261,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
 
   ######################################################
@@ -6094,11 +5278,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents\""
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"previous\": \"\",\n   \"list\":    [\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"INLINE\",\n         \"sourceUrl\": null,\n         \"otherTypeName\": null,\n         \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n         \"summary\": \"This is a sample documentation for v1.0\",\n         \"name\": \"PhoneVerification API Documentation\",\n         \"type\": \"HOWTO\"\n      },\n            {\n         \"visibility\": \"API_LEVEL\",\n         \"sourceType\": \"URL\",\n         \"sourceUrl\": \"http://wiki.cdyne.com/index.php/Phone_Verification\",\n         \"otherTypeName\": null,\n         \"documentId\": \"4145df31-04f1-440c-8d08-68952874622c\",\n         \"summary\": \"This is the URL for online documentation\",\n         \"name\": \"Online Documentation\",\n         \"type\": \"SAMPLES\"\n      }\n   ],\n   \"next\": \"\",\n   \"count\": 2\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6135,17 +5314,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API Product does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a document to a certain API
@@ -6154,9 +5325,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -H \"Content-Type: application/json\" -X POST -d @data.json \"https://localhost:9443/api/am/publisher/v1/api-products/96077508-fd01-4fae-bc64-5de0e2baf43c/documents\""
-      x-wso2-request: "POST https://localhost:9443/api/am/publisher/v1/api-products/96077508-fd01-4fae-bc64-5de0e2baf43c/documents\nAuthorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\nContent-Type: application/json\n\n{\n    \"visibility\": \"API_LEVEL\",\n    \"sourceType\": \"INLINE\",\n    \"sourceUrl\": null,\n    \"otherTypeName\": null,\n    \"summary\": \"This is a sample documentation\",\n    \"name\": \"Introduction to PhoneVerification API\",\n    \"type\": \"HOWTO\"\n}"
-      x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"Introduction to PhoneVerification API\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6198,11 +5366,7 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         415:
           description: |
             Unsupported media type.
@@ -6220,11 +5384,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\""
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6266,17 +5425,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update a particular document of a certain API Product
@@ -6286,9 +5437,6 @@ paths:
         - OAuth2Security:
 
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\" -H \"Content-Type: application/json\" -X PUT -d data.json \"https://localhost:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\""
-      x-wso2-request: "PUT https://localhost:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\nAuthorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"visibility\": \"API_LEVEL\",\n   \"sourceType\": \"INLINE\",\n   \"sourceUrl\": null,\n   \"otherTypeName\": null,\n   \"documentId\": \"0bcb7f05-599d-4e1a-adce-5cb89bfe58d5\",\n   \"summary\": \"This is a sample documentation for v1.0\",\n   \"name\": \"PhoneVerification API Documentation\",\n   \"type\": \"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6336,17 +5484,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -6361,11 +5501,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X DELETE https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058"
-      x-wso2-request: |
-        DELETE https://localhost:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/ffd5790d-b7a9-4cb6-b76a-f8b83ecdd058
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6385,11 +5520,7 @@ paths:
             OK.
             Resource successfully deleted.
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -6410,11 +5541,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a\" \"https://localhost:9443/api/am/publisher/v1/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/daf732d3-bda2-46da-b381-2c39d901ea61/content\" > sample.pdf"
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/daf732d3-bda2-46da-b381-2c39d901ea61/content
-        Authorization:Bearer b0982cd2aacd463ff5f63cd5ebe58f4a
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Disposition: attachment; filename=\"sample.pdf\"\nContent-Type: application/octet-stream\nContent-Length: 7802\n\n%PDF-1.4\n%äüöß\n2 0 obj\n<</Length 3 0 R/Filter/FlateDecode>>\nstream\n..\n>>\nstartxref\n7279\n%%EOF"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6474,17 +5600,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
     # Upload a file or add inline content to a document of a certain API Product
@@ -6495,21 +5613,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -F file=@\"sample.pdf\" -X POST \"https://localhost:9443/api/am/publisher/v1/api-products/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/daf732d3-bda2-46da-b381-2c39d901ea61/content\""
-      x-wso2-request: |
-        POST https://localhost:9443/api/am/publisher/v1/api-products/8848faaa-7fd1-478a-baa2-48a4ebb92c98/documents/b3a79270-02bb-4e39-9ac1-90ce8f6c84af/content
-        Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-        Content-Length: 8004
-        Content-Type: multipart/form-data; boundary=------------------------7b9a53f1ffa452b9
-
-        --------------------------7b9a53f1ffa452b9
-        Content-Disposition: form-data; name="file"; filename="sample.pdf"
-        Content-Type: application/octet-stream
-
-        [file content]
-
-        --------------------------7b9a53f1ffa452b9--
-      x-wso2-response: "HTTP/1.1 201 Created\nLocation: https://localhost:9443/api/am/publisher/v1/apis/8848faaa-7fd1-478a-baa2-48a4ebb92c98/documents/b3a79270-02bb-4e39-9ac1-90ce8f6c84af/content\nContent-Type: application/json\n\n{\n    \"visibility\":\"API_LEVEL\",\n    \"sourceType\":\"FILE\",\n    \"sourceUrl\":null,\n    \"otherTypeName\":null,\n    \"documentId\":\"daf732d3-bda2-46da-b381-2c39d901ea61\",\n    \"summary\":\"This is a sample documentation pdf\",\n    \"name\":\"Introduction to PhoneVerification API PDF\",\n    \"type\":\"HOWTO\"\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6565,17 +5668,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
           description: |
             Precondition Failed.
@@ -6715,11 +5810,7 @@ paths:
           schema:
             $ref: '#/definitions/Settings'
         404:
-          description: |
-            Not Found.
-            Requested Settings does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Environment Collection" resource API
@@ -6733,11 +5824,6 @@ paths:
       security:
         - OAuth2Security:
           - apim:api_view
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/environments\""
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/environments
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n   \"list\": [   {\n      \"showInApiConsole\": true,\n      \"serverUrl\": \"https://localhost:9443/services/\",\n      \"endpoints\":       {\n         \"http\": \"http://localhost:8280\",\n         \"https\": \"https://localhost:8243\"\n      },\n      \"name\": \"Production and Sandbox\",\n      \"type\": \"hybrid\"\n   }],\n   \"count\": 1\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6771,11 +5857,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The tenant resource APIs
@@ -6830,17 +5912,9 @@ paths:
           schema:
             $ref: '#/definitions/TenantList'
         404:
-          description: |
-            Not Found.
-            Requested application does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotAcceptable'
   ####################################################
   # Publisher Alerts management REST API
   ####################################################
@@ -7096,11 +6170,7 @@ paths:
           schema:
             $ref: '#/definitions/AlertConfig'
         400:
-          description: |
-            Bad Request
-            The request parameters validation failed.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         500:
           description: |
             Internal Server Error
@@ -7133,17 +6203,9 @@ paths:
             OK.
             The alert config is deleted successfully.
         400:
-          description: |
-            Bad Request
-            The request parameters validation failed.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The provided alert configuration is not found.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         500:
           description: |
             Internal Server Error
@@ -7199,11 +6261,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-wso2-request: |
-        GET https://localhost:9443/api/am/publisher/v1/labels
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1/labels\""
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n  \"count\": 1,\r\n  \"list\": [\r\n	{\r\n	\"id\":\"d7cf8523-9180-4255-84fa-6cb171c1f779\",\r\n	\"name\":\"internal\",\r\n	\"description\":\"label used for internal purpose\",\r\n	\"accessUrls\":[\r\n	  \"https://localhost:9095\"\r\n         ]\r\n       }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -7233,11 +6290,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-wso2-request: |
-              GET https://localhost:9443/api/am/publisher/v1.1/api-categories
-              Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" \"https://localhost:9443/api/am/publisher/v1.1/api-categories\""
-      x-wso2-response: "HTTP/1.1 200 OK\r\nContent-Type: application/json\r\n\r\n{\r\n   \"count\":1,\r\n   \"list\":[\r\n      {\r\n         \"id\":\"463e2c9f-5e99-43c3-a66e-de7e0f367373\",\r\n         \"name\":\"Finance\",\r\n         \"description\":\"Finance related APIS\"\r\n      }\r\n   ]\r\n}"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -7570,6 +6622,103 @@ parameters:
     in: path
     required: true
     description: The alert configuration id.
+
+######################################################
+# The response schemas used by the API resources
+######################################################
+responses:
+
+  # Bad Request Error Response Schema
+  BadRequest:
+    description: Bad Request. Invalid request or validation error.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 400
+        message: "Bad Request"
+        description: "Invalid request or validation error"
+        moreInfo: ""
+        error: []
+
+  # Not Found Error Response Schema
+  NotFound:
+    description: Not Found. The specified resource does not exist.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 404
+        message: "Not Found"
+        description: "The specified resource does not exist"
+        moreInfo: ""
+        error: []
+
+  # Not Acceptable Error Response Schema
+  NotAcceptable:
+    description: Not Acceptable. The requested media type is not supported.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 406
+        message: "Not Acceptable"
+        description: "The requested media type is not supported"
+        moreInfo: ""
+        error: []
+
+  # Conflict Error Response Schema
+  Conflict:
+    description: Conflict. Specified resource already exists.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 409
+        message: "Conflict"
+        description: "Specified resource already exists"
+        moreInfo: ""
+        error: []
+
+  # Precondition Failed Error Response Schema
+  PreconditionFailed:
+    description: Precondition Failed. The request has not been performed because one of the preconditions is not met.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 412
+        message: "Precondition Failed"
+        description: "The request has not been performed because one of the preconditions is not met"
+        moreInfo: ""
+        error: []
+
+  # Unsupported Media Type Error Response Schema
+  UnsupportedMediaType:
+    description: Unsupported Media Type. The entity of the request was not in a supported format.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 415
+        message: "Unsupported media type"
+        description: "The entity of the request was not in a supported format"
+        moreInfo: ""
+        error: []
+
+  # Internal Server Error Response Schema
+  InternalServerError:
+    description: Internal Server Error.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 500
+        message: "Internal Server Error"
+        description: "The server encountered an internal error. Please contact administrator."
+        moreInfo: ""
+        error: []
+
 ######################################################
 # The resources used by some of the APIs above within the message body
 ######################################################
@@ -7677,15 +6826,16 @@ definitions:
         description: |
           UUID of the api registry artifact
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
-        example: CalculatorAPI
+        example: PizzaShackAPI
       description:
         type: string
-        example: A calculator API that supports basic operations
+        example: This is a simple API for Pizza Shack online pizza delivery store.
       context:
         type: string
-        example: CalculatorAPI
+        example: pizza
       version:
         type: string
         example: 1.0.0
@@ -7699,9 +6849,11 @@ definitions:
         example: CREATED
       wsdlInfo:
         $ref: '#/definitions/WSDLInfo'
+        readOnly: true
       wsdlUrl:
         type: string
         example: /apimgt/applicationdata/wsdls/admin--soap1.wsdl
+        readOnly: true
       responseCachingEnabled:
         type: boolean
         example: true
@@ -7713,7 +6865,7 @@ definitions:
         example: Disabled
       hasThumbnail:
         type: boolean
-        example: true
+        example: false
       isDefaultVersion:
         type: boolean
         example: false
@@ -7742,7 +6894,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ["substract","add"]
+        example: ["pizza","food"]
         x-otherScopes:
           - apim:api_publish
       policies:
@@ -7763,6 +6915,7 @@ definitions:
         description: |
           Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
           in tenant or system level will be used.
+        example: Authorization
       securityScheme:
         type: array
         description: |
@@ -7770,6 +6923,7 @@ definitions:
           it is not set OAuth2 will be set as the security for the current API.
         items:
           type: string
+        example: ["oauth2"]
       maxTps:
         $ref: '#/definitions/APIMaxTps'
       visibility:
@@ -7795,6 +6949,7 @@ definitions:
         type: array
         items:
           type: string
+        example: []
       endpointSecurity:
         $ref: '#/definitions/APIEndpointSecurity'
       gatewayEnvironments:
@@ -7812,12 +6967,17 @@ definitions:
         type: array
         items:
           type: string
-        example: ["Pizzashack", "Petstore"]
+        example: []
       mediationPolicies:
         type: array
         items:
           $ref: '#/definitions/MediationPolicy'
-        example:  [ {"name": "json_to_xml_in_message","type": "in"}, {"name": "xml_to_json_out_message","type": "out"}, {"name": "json_fault","type": "fault"} ]
+        example:
+          [
+            {"name": "json_to_xml_in_message","type": "in"},
+            {"name": "xml_to_json_out_message","type": "out"},
+            {"name": "json_fault","type":"fault"}
+          ]
       subscriptionAvailability:
         type: string
         description: The subscription availability. Accepts one of the following. current_tenant, all_tenants or specific_tenants.
@@ -7833,7 +6993,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ["tenant1", "tenant2"]
+        example: []
       additionalProperties:
         type: object
         additionalProperties:
@@ -7843,6 +7003,7 @@ definitions:
           - apim:api_publish
       monetization:
         $ref: '#/definitions/APIMonetizationInfo'
+        readOnly: true
       accessControl:
         type: string
         description: |
@@ -7859,7 +7020,7 @@ definitions:
         description: The user roles that are able to view/modify as API publisher or creator.
         items:
           type: string
-        example: [admin]
+        example: []
       businessInformation:
         allOf:
           - $ref: '#/definitions/APIBusinessInformation'
@@ -7872,10 +7033,12 @@ definitions:
         example: APPROVED
       createdTime:
         type: string
-        example: "2017-02-20T13:57:16.229"
+        example: 2017-02-20T13:57:16.229
+        readOnly: true
       lastUpdatedTime:
         type: string
-        example: "2017-02-20T13:57:16.229"
+        example: 2017-02-20T13:57:16.229
+        readOnly: true
         x-otherScopes:
           - apim:api_publish
       endpointConfig:
@@ -7987,6 +7150,21 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/APIOperations'
+        example:
+          [
+            {
+              "target": "/order/{orderId}",
+              "verb": "POST",
+              "authType": "Application & Application User",
+              "throttlingPolicy": "Unlimited"
+            },
+            {
+              "target": "/menu",
+              "verb": "GET",
+              "authType": "Application & Application User",
+              "throttlingPolicy": "Unlimited"
+            }
+          ]
       threatProtectionPolicies:
         properties:
           list:
@@ -8060,17 +7238,18 @@ definitions:
         description: |
           UUID of the api product
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
         description: Name of the API Product
-        example: CalculatorAPIProduct
+        example: PizzaShackAPIProduct
       context:
         type: string
-        example: CalculatorAPI
+        example: pizzaproduct
       description:
         type: string
         description: A brief description about the API
-        example: A calculator API Product that supports basic operations
+        example: This is a simple API for Pizza Shack online pizza delivery store
       provider:
         description: |
           If the provider value is not given, the user invoking the API will be used as the provider.
@@ -8093,6 +7272,7 @@ definitions:
           it is not set OAuth2 will be set as the security for the current API.
         items:
           type: string
+        example: ["oauth2"]
 
   #-----------------------------------------------------
   # The Detailed API Product resource
@@ -8107,17 +7287,18 @@ definitions:
         description: |
           UUID of the api product
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
         description: Name of the API Product
-        example: CalculatorAPIProduct
+        example: PizzaShackAPIProduct
       context:
         type: string
-        example: CalculatorAPI
+        example: pizzaproduct
       description:
         type: string
         description: A brief description about the API
-        example: A calculator API Product that supports basic operations
+        example: This is a simple API for Pizza Shack online pizza delivery store
       provider:
         description: |
           If the provider value is not given, the user invoking the API will be used as the provider.
@@ -8125,7 +7306,7 @@ definitions:
         example: admin
       hasThumbnail:
         type: boolean
-        example: true
+        example: false
       state:
         type: string
         description: |
@@ -8161,6 +7342,7 @@ definitions:
         type: array
         items:
           type: string
+        example: []
       accessControl:
         type: string
         description: |
@@ -8177,7 +7359,7 @@ definitions:
         description: The user roles that are able to view/modify as API Product publisher or creator.
         items:
           type: string
-        example: [admin]
+        example: []
       gatewayEnvironments:
         description: |
           List of gateway environments the API Product is available
@@ -8187,7 +7369,7 @@ definitions:
         example: ["Production and Sandbox"]
       apiType:
         type: string
-        description: The api type to be used. Accepted values are API, API PRODUCT
+        description: The API type to be used. Accepted values are API, APIProduct
         example: APIProduct
       transport:
         description: |
@@ -8200,7 +7382,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ["substract","add"]
+        example: ["pizza","food"]
       policies:
         type: array
         items:
@@ -8215,6 +7397,7 @@ definitions:
         description: |
           Name of the Authorization header used for invoking the API. If it is not set, Authorization header name specified
           in tenant or system level will be used.
+        example: Authorization
       securityScheme:
         type: array
         description: |
@@ -8222,6 +7405,7 @@ definitions:
           it is not set OAuth2 will be set as the security for the current API.
         items:
           type: string
+        example: ["oauth2"]
       subscriptionAvailability:
         type: string
         description: The subscription availability. Accepts one of the following. current_tenant, all_tenants or specific_tenants.
@@ -8235,7 +7419,7 @@ definitions:
         type: array
         items:
           type: string
-        example: ["tenant1", "tenant2"]
+        example: []
         x-otherScopes:
           - apim:api_publish
       additionalProperties:
@@ -8261,6 +7445,28 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/ProductAPI'
+        example:
+          [
+            {
+              "name": "PizzaShackAPI",
+              "apiId": "01234567-0123-0123-0123-012345678901",
+              "version": "1.0",
+              "operations": [
+                {
+                  "target": "/order/{orderId}",
+                  "verb": "POST",
+                  "authType": "Application & Application User",
+                  "throttlingPolicy": "Unlimited"
+                },
+                {
+                    "target": "/menu",
+                    "verb": "GET",
+                    "authType": "Application & Application User",
+                    "throttlingPolicy": "Unlimited"
+                }
+              ]
+            }
+          ]
       scopes:
         type: array
         items:
@@ -8271,7 +7477,7 @@ definitions:
         type: array
         items:
           type: string
-          example: ["Finance"]
+        example: []
   #-----------------------------------------------------
   # The API and its resources in a API Product resource
   #-----------------------------------------------------
@@ -8282,7 +7488,7 @@ definitions:
     properties:
       name:
         type: string
-        example: CalculatorAPI
+        example: PizzaShackAPI
       apiId:
         type: string
         example: 01234567-0123-0123-0123-012345678901
@@ -8472,7 +7678,7 @@ definitions:
         example: 01234567-0123-0123-0123-012345678901
       name:
         type: string
-        example: CalculatorDoc
+        example: PizzaShackDoc
       type:
         type: string
         enum:
@@ -9131,12 +8337,14 @@ definitions:
         example: "postapiresource"
       target:
         type: string
+        example: /order/{orderId}
       verb:
         type: string
-        example: "POST"
+        example: POST
       authType:
         type: string
         default: "Any"
+        example: Application & Application User
       throttlingPolicy:
         type: string
         example: "Unlimited"
@@ -9144,12 +8352,15 @@ definitions:
         type: array
         items:
           type: string
+        example: []
       usedProductIds:
         type: array
         items:
           type: string
+        example: []
       amznResourceName:
         type: string
+        example: ""
       amznResourceTimeout:
         type: integer
 
@@ -9364,12 +8575,15 @@ definitions:
     properties:
       name:
         type: string
+        example: "marketing_store"
       description:
         type: string
+        example: "Public microgateway for marketing"
       access_urls:
         type: array
         items:
           type: string
+        example: "https://localhost:9095"
 
   #-----------------------------------------------------
   # The Label List resource
@@ -9381,6 +8595,7 @@ definitions:
         type: integer
         description: |
           Number of Labels returned.
+        example: 1
       list:
         type: array
         items:
@@ -9403,7 +8618,7 @@ definitions:
           properties:
             name:
               type: string
-              example: "Deprecate old versions after publish the API"
+              example: "Deprecate old versions after publishing the API"
             value:
               type: boolean
               example: false
@@ -9411,16 +8626,17 @@ definitions:
               type: array
               items:
                 type: string
+              example: []
       availableTransitions:
         type: array
         items:
           properties:
             event:
               type: string
-              example: "Promote"
+              example: "Publish"
             targetState:
               type: string
-              example: "Created"
+              example: "Published"
 
   #-----------------------------------------------------
   # The Lifecycle history resource
@@ -9481,6 +8697,7 @@ definitions:
         description: |
           Attributes that returned after the workflow execution
         type: string
+        example: null
       lifecycleState:
         $ref: '#/definitions/LifecycleState'
 
@@ -9610,14 +8827,17 @@ definitions:
       statusCode:
         type: integer
         description: HTTP status code
+        example: 200
       statusMessage:
         type: string
         description: string
+        example: OK
       error:
         type: string
         description: |
           If an error occurs, the error message will be set to this property.
           If not, this will remain null.
+        example: null
 
   #-----------------------------------------------------
   # The Threat Protection Policy List Resource
@@ -9852,11 +9072,14 @@ definitions:
       path:
         type: string
         description: path of the resource
+        example: "/menu"
       content:
         type: string
         description: new modified code
+        example: "var accept = \"\\\"\"+mc.getProperty('AcceptHeader')+\"\\\"\";\nvar responseCode = mc.getProperty('query.param.responseCode');\nvar responseCodeStr = \"\\\"\"+responseCode+\"\\\"\";\nvar responses = [];\n\nif (!responses[200]) {\n responses [200] = [];\n}\nresponses[200][\"application/json\"] = \n[ {\n  \"price\" : \"string\",\n  \"description\" : \"string\",\n  \"name\" : \"string\",\n  \"image\" : \"string\"\n} ]\n\n/*if (!responses[304]) {\n  responses[304] = [];\n}\nresponses[304][\"application/(json or xml)\"] = {}/<>*/\n\nif (!responses[406]) {\n responses [406] = [];\n}\nresponses[406][\"application/json\"] = \n{\n  \"message\" : \"string\",\n  \"error\" : [ {\n    \"message\" : \"string\",\n    \"code\" : 0\n  } ],\n  \"description\" : \"string\",\n  \"code\" : 0,\n  \"moreInfo\" : \"string\"\n}\n\nresponses[501] = [];\nresponses[501][\"application/json\"] = {\n\"code\" : 501,\n\"description\" : \"Not Implemented\"}\nresponses[501][\"application/xml\"] = <response><code>501</code><description>Not Implemented</description></response>;\n\nif (!responses[responseCode]) {\n responseCode = 501;\n}\n\nif (responseCode == null) {\n responseCode = 200;\n responseCodeStr = \"200\";\n}\n\nif (accept == null || !responses[responseCode][accept]) {\n accept = \"application/json\";\n}\n\nif (accept === \"application/json\") {\n mc.setProperty('CONTENT_TYPE', 'application/json');\n mc.setProperty('HTTP_SC', responseCodeStr);\n mc.setPayloadJSON(responses[responseCode][\"application/json\"]);\n} else if (accept === \"application/xml\") {\n mc.setProperty('CONTENT_TYPE', 'application/xml');\n mc.setProperty('HTTP_SC', responseCodeStr);\n mc.setPayloadXML(responses[responseCode][\"application/xml\"]);\n}"
       verb:
         type: string
+        example: "POST"
 
   #-----------------------------------------------------
   # The Resource policy List resource
@@ -9892,7 +9115,7 @@ definitions:
       resourcePath:
         type: string
         description: A string that represents the resource path of the api for the related resource policy
-        example: CalculatorAPI
+        example: checkPhoneNumber
       content:
         type: string
         description: The resource policy content
@@ -9907,6 +9130,7 @@ definitions:
       storeUrl:
         type: string
         description: Store URL
+        example: "https://localhost:9443/devportal"
       environment:
         type: array
         items:
@@ -9915,10 +9139,12 @@ definitions:
         type: array
         items:
           type: string
+        example: ["apim:api_create","apim:api_publish"]
       monetizationAttributes:
         type: array
         items:
           $ref: '#/definitions/MonetizationAttribute'
+        example: []
       securityAuditProperties:
         type: object
         items:
