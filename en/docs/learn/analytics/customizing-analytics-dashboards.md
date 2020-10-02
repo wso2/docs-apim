@@ -2,9 +2,9 @@
 
 WSO2 API Manager Analytics has five different dashboards that are namely, API Analytics, Application Analytics, Business Analytics, Monitoring, and Reports.
 
-The users are not be allowed to modify the default dashboards such as, either to modify the layout of the widget or add custom widgets to a particular dashboard. If you need to modify one of the default dashboards, you need to make a copy of the dashboard and the do the modifications to the copy of the dashboard as described in step 1 to 5.
+The users are not allowed to modify the default dashboards - i.e modify the layout of the widget or add custom widgets to a particular dashboard. If you need to modify one of the default dashboards, you need to make a copy of the dashboard and do modifications to the copy of the dashboard as described in steps 1 to 5.
 
-In order to make it possible for other users to create dashboards, you need to append underscore parts to existing scopes in `deployment.yaml` file resides in `<Analytics_HOME>/conf/dashboard` directory. 
+In order to make it possible for other users to create dashboards, you need to append `_<tenant domain>` to existing scopes in the `deployment.yaml` file which resides in `<Analytics_HOME>/conf/dashboard` directory. 
 
 !!! example
     ``` bash tab="Format"
