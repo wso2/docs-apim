@@ -2197,8 +2197,6 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:app_import_export
-      x-examples:
-        $ref: docs/examples/alerts/applications.yaml#/delete
       x-code-samples:
         - lang: Shell
           source: |-
