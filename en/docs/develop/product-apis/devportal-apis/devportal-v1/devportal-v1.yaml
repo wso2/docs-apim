@@ -69,7 +69,7 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for devportal REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorization** section of resource documentation.
-    Following is the format of the request if you are using the password grant type
+    Following is the format of the request if you are using the password grant type.
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_password>&scope=<scopes separated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
