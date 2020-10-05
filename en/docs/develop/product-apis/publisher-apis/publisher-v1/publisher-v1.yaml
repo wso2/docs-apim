@@ -263,6 +263,7 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
           $ref: '#/responses/NotAcceptable'
+
     #-----------------------------------------------------
     # Create a new API
     #-----------------------------------------------------
@@ -435,11 +436,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         409:
@@ -473,11 +470,7 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         409:
@@ -603,11 +596,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -906,11 +895,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -1030,7 +1015,6 @@ paths:
         412:
           $ref: '#/responses/PreconditionFailed'
 
-
   ######################################################
   # The "API Throttling Policy" resource APIs
   ######################################################
@@ -1085,7 +1069,6 @@ paths:
           $ref: '#/responses/NotFound'
         406:
           $ref: '#/responses/NotAcceptable'
-
 
   ######################################################
   # The "Copy API" Processing Function resource API
@@ -1226,6 +1209,7 @@ paths:
           $ref: '#/responses/Conflict'
         412:
           $ref: '#/responses/PreconditionFailed'
+
   ######################################################
   #  The "API State Change History"  resource API
   ######################################################
@@ -1273,6 +1257,7 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
           $ref: '#/responses/NotFound'
+
   ######################################################
   #  The "API Lifecycle State Data"  resource API
   ######################################################
@@ -1362,9 +1347,8 @@ paths:
         412:
           $ref: '#/responses/PreconditionFailed'
 
-
   ######################################################
-  # The "Import API from OpenAPI Definition"  resource API
+  # The "Import API from OpenAPI Definition" resource API
   ######################################################
 
   /apis/import-openapi:
@@ -1517,7 +1501,6 @@ paths:
           $ref: '#/responses/BadRequest'
         415:
           $ref: '#/responses/UnsupportedMediaType'
-
 
   ######################################################
   # The "Import GraphQL API Schema from API Definition"  resource API
@@ -1943,11 +1926,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -2212,9 +2191,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -2774,15 +2751,12 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
           $ref: '#/responses/PreconditionFailed'
+
   ###################################################################
   # The "Individual API specific mediation sequence content" resource
   ###################################################################
@@ -2836,6 +2810,7 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
           $ref: '#/responses/NotFound'
+
     #-----------------------------------------------------
     # Update a mediation policy
     #-----------------------------------------------------
@@ -2903,11 +2878,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -3067,11 +3038,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -3107,9 +3074,7 @@ paths:
             OK.
             Requested complexity details returned.
         404:
-          description: |
-            Not Found.
-            Requested API does not contain any complexity details.
+          $ref: '#/responses/NotFound'
 
     #-----------------------------------------------------
     # Update API specific Custom Complexity Info
@@ -3142,9 +3107,7 @@ paths:
             Created.
             Complexity details created successfully.
         404:
-          description: |
-            Bad Request.
-            Complexity detail addition failed.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # GraphQL Schema "Types and Fields" resource API
@@ -3184,10 +3147,7 @@ paths:
           schema:
             $ref: '#/definitions/GraphQLSchemaTypeList'
         404:
-          description: |
-            Not Found.
-            Retrieving types and fields failed.
-
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Resource Paths" resource
@@ -3757,7 +3717,6 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
           $ref: '#/responses/NotAcceptable'
-
 
   ######################################################
   # The "Individual Tier" resource APIs
@@ -4587,7 +4546,6 @@ paths:
         406:
           $ref: '#/responses/NotAcceptable'
 
-
     ######################################################
     # The "API Product" resource APIs
     ######################################################
@@ -4719,11 +4677,7 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -4834,11 +4788,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -4952,6 +4902,7 @@ paths:
           $ref: '#/responses/NotFound'
         412:
           $ref: '#/responses/PreconditionFailed'
+          
   ################################################################
   # The swagger resource of "Individual API" resource APIs
   ################################################################
@@ -5056,7 +5007,6 @@ paths:
         406:
           $ref: '#/responses/NotAcceptable'
 
-
   ######################################################
   # The "Document Collection" resource API Product
   ######################################################
@@ -5159,9 +5109,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -5488,9 +5436,7 @@ paths:
             OK.
             Requested role name exists.
         404:
-          description:
-            Not Found.
-            Requested role name does not exist.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # Check role existence for the logged-in user
@@ -5522,9 +5468,7 @@ paths:
             OK.
             Requested user has the role.
         404:
-          description:
-            Not Found.
-            Requested user does not have the role.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The External Store list to publish an API
@@ -5688,6 +5632,7 @@ paths:
           $ref: '#/responses/NotFound'
         406:
           $ref: '#/responses/NotAcceptable'
+
   ####################################################
   # Publisher Alerts management REST API
   ####################################################
@@ -5798,11 +5743,10 @@ paths:
           schema:
             $ref: '#/definitions/AlertsInfoResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid Request or request validation failure.
+          $ref: '#/responses/BadRequest'
         500:
           $ref: '#/responses/InternalServerError'
+
     #--------------------------------------------------
     # Unsubscribe the user from all the alerts types
     #--------------------------------------------------
@@ -5973,11 +5917,9 @@ paths:
         200:
           description:
             OK.
-            Requested role name exists.
+            Requested tenant exists.
         404:
-          description:
-            Not Found.
-            Requested role name does not exist.
+          $ref: '#/responses/NotFound'
 
   ####################################################
   # The "Label" resource API
@@ -6117,9 +6059,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
 ######################################################
 # The "Individual Shared Scope" resource APIs
@@ -6257,9 +6197,7 @@ paths:
             OK.
             Requested scope name exists.
         404:
-          description:
-            Not Found.
-            Requested scope name does not exist.
+          $ref: '#/responses/NotFound'
 
   /scopes/{scopeId}/usage:
 
@@ -6296,6 +6234,7 @@ paths:
               type: string
         404:
           $ref: '#/responses/NotFound'
+
   ######################################################
   # The "KEY MANAGER" resource API
   ######################################################
@@ -6781,6 +6720,19 @@ responses:
         code: 401
         message: "Unauthorized"
         description: "The user is not authorized"
+        moreInfo: ""
+        error: []
+
+  # Forbidden Error Response Schema
+  Forbidden:
+    description: Forbidden. The request must be conditional but no condition has been specified.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 403
+        message: "Forbidden"
+        description: "The request must be conditional but no condition has been specified"
         moreInfo: ""
         error: []
 
