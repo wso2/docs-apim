@@ -40,7 +40,7 @@ info:
       }
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
-    base64 encoded admin username and password
+    base64 encoded admin username and password.
     **Format of the request**
     ```
       curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"

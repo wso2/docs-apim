@@ -28,7 +28,6 @@ info:
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the API, you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
-
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
     in the payload. A Sample payload is shown below.
     ```
@@ -41,21 +40,18 @@ info:
       }
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown below to invoke the DCR endpoint. Authorization header of this should contain the
-    base64 encoded admin username and password
-
+    base64 encoded admin username and password.
     **Format of the request**
     ```
-      curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json" 
+      curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
-
     **Sample request**
     ```
-      curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" 
+      curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
-
-    Following is a sample response after invoking the above curl
+    Following is a sample response after invoking the above curl.
     ```
     {
     "clientId": "fOCi4vNJ59PpHucC2CAYfYuADdMa",
@@ -73,22 +69,19 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for devportal REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorization** section of resource documentation.
-
     Following is the format of the request if you are using the password grant type
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_password>&scope=<scopes separated by space>"
-    \ -H "Authorization: Basic base64(cliet_id:client_secret)" 
+    \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<gateway_port>/token
     ```
-
     **Sample request**
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
     -d "grant_type=password&username=admin&password=admin&scope=apim:subscribe apim:api_key"
     ```
-
-    And follow is a sample response to the above request.
+    Shown below is a sample response to the above request.
     ```
     {
     "access_token": "e79bda48-3406-3178-acce-f6e4dbdcbb12",
@@ -98,20 +91,17 @@ info:
     "expires_in": 3600
     }
     ```
-    Now you have a valid access token, which you can use to invoke an API. 
-    Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. 
+    Now you have a valid access token, which you can use to invoke an API.
+    Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
     If you use a different authentication mechanism, this process may change.
 
     # Try out in Postman
-
     If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
-
-    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5bc0161b8aa7e701d7bf)
-
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -182,9 +172,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis"
       summary: |
         Retrieve/Search APIs
       description: |
@@ -247,9 +237,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed"
       summary: |
         Get Details of an API
       description: |
@@ -299,9 +289,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/swagger"
       summary: |
         Get Swagger Definition
       description: |
@@ -355,9 +345,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/graphql-schema"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/graphql-schema"
       summary: |
         Get GraphQL Definition
       description: |
@@ -408,9 +398,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/sdks/java" > Swagger Petstore_java_1.0.0.zip
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/sdks/java" > Swagger Petstore_java_1.0.0.zip
       summary: |
         Generate a SDK for an API
       description: |
@@ -463,9 +453,9 @@ paths:
         - application/wsdl
         - application/zip
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/wsdl"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/wsdl"
       summary: Get API WSDL definition
       description: |
         This operation can be used to retrieve the swagger definition of an API.
@@ -513,9 +503,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents"
       summary: |
         Get a List of Documents of an API
       description: |
@@ -566,9 +556,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/c43a325c-260b-4302-81cb-768eafaa3aed/documents/850a4f34-db2c-4d23-9d85-3f95fbfb082c"
       summary: |
         Get a Document of an API
       description: |
@@ -621,9 +611,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
       summary: |
         Get the Content of an API Document
       description: |
@@ -695,9 +685,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/thumbnail"
       summary: Get Thumbnail Image
       description: |
         This operation can be used to download a thumbnail image of an API.
@@ -752,9 +742,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/ratings"
       summary: Retrieve API Ratings
       description: |
         This operation can be used to retrieve the list of ratings of an API.
@@ -789,9 +779,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       summary: Retrieve API Rating of User
       description: |
         This operation can be used to get the user rating of an API.
@@ -838,9 +828,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X PUT -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+        - lang: Curl
+          source: |-
+            curl -k -X PUT -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       summary: Add or Update Logged in User's Rating for an API
       description: |
         This operation can be used to add or update an API rating.
@@ -884,9 +874,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
+        - lang: Curl
+          source: |-
+            curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/user-rating"
       summary: Delete User API Rating
       description: |
         This operation can be used to delete logged in user API rating.
@@ -916,9 +906,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
       description: |
         Get a list of Comments that are already added to APIs
       operationId: getAllCommentsOfAPI
@@ -950,9 +940,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
+        - lang: Curl
+          source: |-
+            curl -k -X POST -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments"
       operationId: addCommentToAPI
       parameters:
         - $ref: '#/parameters/apiId'
@@ -1002,9 +992,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       description: |
         Get the individual comment given by a username for a certain API.
       operationId: getCommentOfAPI
@@ -1053,9 +1043,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
+        - lang: Curl
+          source: |-
+            curl -k -X DELETE -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/comments/d4cf1704-5d09-491c-bc48-4d19ce6ea9b4"
       description: |
         Remove a Comment
       operationId: deleteComment
@@ -1087,9 +1077,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/268c9e55-3dc1-4f47-82e7-977e5343d077/subscription-policies"
       summary: |
         Get Details of the Subscription Throttling Policies of an API
       description: |
@@ -1144,9 +1134,9 @@ paths:
             - apim:app_manage
             - apim:app_import_export
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications"
       summary: |
         Retrieve/Search Applications
       description: |
@@ -1214,9 +1204,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications"
       summary: |
         Create a New Application
       description: |
@@ -1280,9 +1270,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
       summary: |
         Get Details of an Application
       description: |
@@ -1327,9 +1317,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
       summary: |
         Update an Application
       description: |
@@ -1384,9 +1374,9 @@ paths:
             - apim:app_manage
             - apim:app_import_export
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -X DELETE "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -X DELETE "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015"
       summary: |
         Remove an Application
       description: |
@@ -1432,9 +1422,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/generate-keys"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/generate-keys"
       description: |
         Generate keys (Consumer key/secret) for application
       parameters:
@@ -1477,9 +1467,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/map-keys"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/map-keys"
       description: |
         Map keys (Consumer key/secret) to an application
       parameters:
@@ -1523,9 +1513,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys"
       description: |
         Retrieve keys (Consumer key/secret) of application
       parameters:
@@ -1561,9 +1551,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
       summary: |
         Get Key Details of a Given Type
       description: |
@@ -1598,9 +1588,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION"
       summary: |
         Update Grant Types and Callback URL of an Application
       description: |
@@ -1646,9 +1636,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/regenerate-secret"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/regenerate-secret"
       summary: |
         Re-Generate Consumer Secret
       description: |
@@ -1702,9 +1692,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/clean-up"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/896658a0-b4ee-4535-bbfa-806c894a4015/keys/PRODUCTION/clean-up"
       summary: Clean-Up Application Keys
       description: |
         Clean up keys after failed key generation of an application
@@ -1741,9 +1731,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/keys/PRODUCTION/generate-token"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/keys/PRODUCTION/generate-token"
       summary: Generate Application Token
       description: |
         Generate an access token for application by client_credentials grant type
@@ -1789,9 +1779,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys"
       description: |
         Retrieve keys (Consumer key/secret) of application
       parameters:
@@ -1826,9 +1816,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
       summary: |
         Get Key Details of a Given Type
       description: |
@@ -1862,9 +1852,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584"
       summary: |
         Update Grant Types and Callback URL of an Application
       description: |
@@ -1909,9 +1899,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1//applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/regenerate-secret"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1//applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/regenerate-secret"
       summary: |
         Re-Generate Consumer Secret
       description: |
@@ -1964,9 +1954,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/clean-up"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/df972173-c957-46d4-96ac-99be8e303584/clean-up"
       summary: Clean-Up Application Keys
       description: |
         Clean up keys after failed key generation of an application
@@ -2002,9 +1992,9 @@ paths:
             - apim:subscribe
             - apim:app_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/{keyMappingId}/generate-token"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/oauth-keys/{keyMappingId}/generate-token"
       summary: Generate Application Token
       description: |
         Generate an access token for application by client_credentials grant type
@@ -2050,9 +2040,9 @@ paths:
             - apim:app_manage
             - apim:api_key
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/generate"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/generate"
       summary: Generate API Key
       description: |
         Generate a self contained API Key for the application
@@ -2097,9 +2087,9 @@ paths:
             - apim:app_manage
             - apim:api_key
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/revoke"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/applications/16cd2684-9657-4a01-a956-4efd89e96077/api-keys/PRODUCTION/revoke"
       summary: Revoke API Key
       description: |
         Revoke a self contained API Key for the application
@@ -2139,9 +2129,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions?apiId=02e658e7-71c7-4b1d-a623-be145b789340"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions?apiId=02e658e7-71c7-4b1d-a623-be145b789340"
       summary: |
         Get All Subscriptions
       description: |
@@ -2194,9 +2184,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions"
       summary: |
         Add a New Subscription
       description: |
@@ -2260,9 +2250,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions/multiple"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions/multiple"
       summary: |
         Add New Subscriptions
       description: |
@@ -2319,9 +2309,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9"
       summary: |
         Get Details of a Subscription
       description: |
@@ -2361,9 +2351,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X PUT -d @data.json "https://localhost:9443/api/am/store/v1/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
       summary: |
         Update Existing Subscription
       description: |
@@ -2432,9 +2422,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X DELETE "https://localhost:9443/api/am/store/v1/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X DELETE "https://localhost:9443/api/am/store/v1/subscriptions/80369180-7d90-4ee8-99a1-19fa68512aa5"
       summary: |
         Remove a Subscription
       description: |
@@ -2475,9 +2465,9 @@ paths:
             - apim:subscribe
             - apim:sub_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/usage"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/subscriptions/5b65808c-cdf2-43e1-a695-de63e3ad0ae9/usage"
       summary: Get Details of a Pending Invoice for a Monetized Subscription with Metered Billing.
       description: |
         This operation can be used to get details of a pending invoice for a monetized subscription with metered billing.
@@ -2522,9 +2512,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/throttling-policies/application"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/throttling-policies/application"
       description: |
         Get available Throttling Policies
       parameters:
@@ -2569,9 +2559,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/throttling-policies/application/10PerMin"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/throttling-policies/application/10PerMin"
       summary: |
         Get Details of a Throttling Policy
       description: |
@@ -2624,9 +2614,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/tags"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/tags"
       summary: |
         Get All Tags
       description: |
@@ -2679,9 +2669,9 @@ paths:
       produces:
         - application/json
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/search?query=PizzaShackAPI"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/search?query=PizzaShackAPI"
       summary: |
         Retrieve/Search APIs and API Documents by Content
       description: |
@@ -2737,9 +2727,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/sdk-gen/languages"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization:Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/sdk-gen/languages"
       summary:  |
         Get a List of Supported SDK Languages
       description:  |
@@ -2765,9 +2755,9 @@ paths:
     #-----------------------------------------------------
     get:
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/settings"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/settings"
       summary: Retrieve Store Settings
       security:
         - OAuth2Security:
@@ -2801,9 +2791,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/settings/application-attributes"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/settings/application-attributes"
       summary: |
         Get All Application Attributes from Configuration
       description: |
@@ -2840,9 +2830,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/tenants"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/tenants"
       summary: |
         Get Tenants by State
       description: |
@@ -2894,9 +2884,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/recommendations"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/recommendations"
       summary:
         Give API Recommendations for a User
       description:
@@ -2930,9 +2920,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-types"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-types"
       operationId: getStoreAlertTypes
       summary: |
         Get the List of API Developer Portal Alert Types
@@ -2964,9 +2954,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
         Get the List of API Developer Portal Alert Types Subscribed by the User
       operationId: getSubscribedAlertTypes
@@ -2997,9 +2987,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/alert-subscriptions"
+        - lang: Curl
+          source: |-
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
         Subscribe to the Selected Alert Types by the User
       operationId: subscribeToAlerts
@@ -3042,9 +3032,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
+        - lang: Curl
+          source: |-
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alert-subscriptions"
       summary: |
         Unsubscribe User from All the Alert Types
       operationId: unsubscribeAllAlerts
@@ -3077,9 +3067,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations"
       summary: |
         Get All AbnormalRequestsPerMin Alert Configurations
       operationId: getAllAlertConfigs
@@ -3113,9 +3103,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations/UGV0c3RvcmUjMS4wI0FwcDE"
+        - lang: Curl
+          source: |-
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations/UGV0c3RvcmUjMS4wI0FwcDE"
       summary: |
         Add AbnormalRequestsPerMin Alert Configurations
       operationId: addAlertConfig
@@ -3159,9 +3149,9 @@ paths:
         - OAuth2Security:
             - apim:sub_alert_manage
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations/UGV0c3RvcmUjMS4wI0FwcDE"
+        - lang: Curl
+          source: |-
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/alerts/AbnormalRequestsPerMin/configurations/UGV0c3RvcmUjMS4wI0FwcDE"
       summary: |
         Delete the Selected Configuration from AbnormalRequestsPerMin Alert Type
       operationId: deleteAlertConfig
@@ -3196,9 +3186,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/api-categories"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/api-categories"
       summary: Get All API Categories
       description: |
         Get all API categories
@@ -3227,9 +3217,9 @@ paths:
         - OAuth2Security:
             - apim:subscribe
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/key-managers"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://localhost:9443/api/am/store/v1/key-managers"
       summary: Get All Key Managers
       description: |
         Get all Key managers
@@ -3258,9 +3248,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity"
       description: |
         This operation can be used to retrieve complexity related details belonging to an API by providing the API id.
       parameters:
@@ -3290,9 +3280,9 @@ paths:
       security:
         - OAuth2Security: []
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity/types"
+        - lang: Curl
+          source: |-
+            curl -k "https://localhost:9443/api/am/store/v1/apis/e93fb282-b456-48fc-8981-003fb89086ae/graphql-policies/complexity/types"
       description: |
         This operation can be used to retrieve all types and fields of the GraphQL Schema by providing the API id.
       parameters:
@@ -3331,9 +3321,9 @@ paths:
             - apim:subscribe
       operationId: changeUserPassword
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/me/change-password"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -X POST -d @data.json "https://localhost:9443/api/am/store/v1/me/change-password"
       summary:
         Change the Password of the user
       description: |
@@ -3633,7 +3623,7 @@ parameters:
 ######################################################
 responses:
 
-  # Bad Request Response Schema
+  # Bad Request Error Response Schema
   BadRequest:
     description: Bad Request. Invalid request or validation error.
     schema:
@@ -3646,19 +3636,20 @@ responses:
         moreInfo: ""
         error: []
 
-  # Unauthorized Response Schema
+  # Unauthorized Error Response Schema
   Unauthorized:
     description: Unauthorized. The user is not authorized.
     schema:
       $ref: '#/definitions/Error'
-    example:
-      code: 401
-      message: "Unauthorized"
-      description: "The user is not authorized"
-      moreInfo: ""
-      error: []
+    examples:
+      application/json:
+        code: 401
+        message: "Unauthorized"
+        description: "The user is not authorized"
+        moreInfo: ""
+        error: []
 
-  # Not Found Response Schema
+  # Not Found Error Response Schema
   NotFound:
     description: Not Found. The specified resource does not exist.
     schema:
@@ -3671,7 +3662,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Not Acceptable Response Schema
+  # Not Acceptable Error Response Schema
   NotAcceptable:
     description: Not Acceptable. The requested media type is not supported.
     schema:
@@ -3684,7 +3675,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Conflict Response Schema
+  # Conflict Error Response Schema
   Conflict:
     description: Conflict. Specified resource already exists.
     schema:
@@ -3697,7 +3688,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Precondition Failed Response Schema
+  # Precondition Failed Error Response Schema
   PreconditionFailed:
     description: Precondition Failed. The request has not been performed because one of the preconditions is not met.
     schema:
@@ -3710,7 +3701,7 @@ responses:
         moreInfo: ""
         error: []
 
-  # Unsupported Media Type Response Schema
+  # Unsupported Media Type Error Response Schema
   UnsupportedMediaType:
     description: Unsupported Media Type. The entity of the request was not in a supported format.
     schema:
