@@ -4443,3 +4443,860 @@ enable_email_domain = true</code></pre>
         </div>
     </section>
 </div>
+
+## Multi tenancy monetization configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo]
+name = "Demo"
+subscription_charge = 0
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes multi-tenancy monetization configurations related to the "Demo" package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">name: <code>"Demo"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the name of the billing package is being used</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>subscription_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type int"> int </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Subscription charge value of the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo.users]
+limit= "1"
+charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo.users]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the users' configurations related to the "Demo" billing package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">limit: <code>"1"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the number of users can be attched to the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Subscription charge value of the billing package per user</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo.resource_volume]
+limit= "20"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo.resource_volume]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the resource volume configurations related to the "Demo" billing package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of resources can be charged with the given billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Over usage charge value of the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo.bandwidth]
+limit= "50"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo.bandwidth]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the bandwidth configurations related to the "Demo" billing package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Highest bandwidth value that can be allocated with the billing package </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Over usage charge value of the billing package </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb]
+name = "SMB"
+subscription_charge = "100"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes multi-tenancy monetization configurations related to the "SMB" package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">name: <code>"SMB"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the name of the billing package is being used</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>subscription_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type int"> int </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Subscription charge value of the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb.users]
+limit= "unlimited"
+charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb.users]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the users' configurations related to the "SMB" billing package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">limit: <code>"1"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the number of users can be attched to the "SMB" billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Subscription charge value of the "SMB" billing package per user</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb.resource_volume]
+limit= "50"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb.resource_volume]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the resource volume configurations related to the "SMB" billing package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of resources can be charged with the given billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Over usage charge value of the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb.bandwidth]
+limit= "150"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb.bandwidth]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the bandwidth configurations related to the "SMB" billing package
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Highest bandwidth value that can be allocated with the "SMB" billing package </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Over usage charge value of the billing package </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[multi_tenancy.billing.package.custom]]
+name = "Professional"
+subscription_charge = "500"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes multi-tenancy monetization configurations related to the custom packages
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">name: <code>"SMB"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the custom billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>subscription_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type int"> int </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Subscription charge value of the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom.users]
+limit= "unlimited"
+charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom.users]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the users' configurations related to custom billing packages
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">limit: <code>"1"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the number of users can be attched to the custom billing packages</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Subscription charge value of the custom billing package per user</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom.resource_volume]
+limit = "1536"
+overuse_charge = "0.03"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom.resource_volume]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the resource volume configurations related to the custom billing packages
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of resources can be charged with the given billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Over usage charge value of the billing package</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom.bandwidth]
+limit= "50"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom.bandwidth]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the bandwidth configurations related to the custom billing packages
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Highest bandwidth value that can be allocated with the custom billing package </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Over usage charge value of the billing package </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
