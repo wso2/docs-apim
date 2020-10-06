@@ -203,8 +203,6 @@ paths:
         - OAuth2Security:
             - apim:api_view
             - apim:api_import_export
-      x-examples:
-        $ref: docs/examples/apis/apis_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -277,8 +275,6 @@ paths:
         This operation can be used to create a new API specifying the details of the API in the payload. The new API will be in `CREATED` state.
 
         There is a special capability for a user who has `APIM Admin` permission such that he can create APIs on behalf of other users. For that he can to specify `"provider" : "some_other_user"` in the payload so that the API's creator will be shown as `some_other_user` in the UI.
-      x-examples:
-        $ref: docs/examples/apis/apis_post.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -342,8 +338,6 @@ paths:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/requestedTenant'
         - $ref: '#/parameters/If-None-Match'
-      x-examples:
-        $ref: docs/examples/apis/apis_id_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1124,8 +1118,6 @@ paths:
           default: false
           in: query
         - $ref: '#/parameters/apiId-Q'
-      x-examples:
-        $ref: docs/examples/apis/apis_copyapi.yaml#/post
       tags:
         - APIs
       responses:
@@ -1413,8 +1405,6 @@ paths:
           description: Additional attributes specified as a stringified JSON with API's schema
           type: string
           required: false
-      x-examples:
-        $ref: docs/examples/apis/import_openapi_post.yaml
       tags:
         - APIs
       responses:
@@ -1470,8 +1460,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
-      x-examples:
-        $ref: docs/examples/apis/wsdl/import_wsdl_post.yaml
       parameters:
         - in: formData
           name: file
@@ -1641,8 +1629,6 @@ paths:
           required: false
       tags:
         - Validation
-      x-examples:
-        $ref: docs/examples/apis/validate_openapi_post.yaml
       responses:
         200:
           description: |
@@ -1710,8 +1696,6 @@ paths:
 
   /apis/validate:
     post:
-      x-examples:
-        $ref: docs/examples/apis/apis_validate.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1791,8 +1775,6 @@ paths:
           required: false
       tags:
         - Validation
-      x-examples:
-        $ref: docs/examples/apis/wsdl/validate_wsdl_post.yaml
       responses:
         200:
           description: |
@@ -1979,8 +1961,6 @@ paths:
     # Retrieve the ARNs of AWS Lambda functions
     #-----------------------------------------------------
     get:
-      x-examples:
-        $ref: docs/examples/apis/apis_id_amznresourcenames_get.yaml
       security:
         - OAuth2Security:
             - apim:api_view
@@ -2541,8 +2521,6 @@ paths:
   #----------------------------------------------------------------------------
   /apis/{apiId}/documents/validate:
     post:
-      x-examples:
-        $ref: docs/examples/apis/apis_id_document_validate.yaml
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2605,8 +2583,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies"
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_get.yaml
       summary: |
         Get All Mediation Policies of an API
       operationId:  apisApiIdMediationPoliciesGet
@@ -2659,8 +2635,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F mediationPolicyFile=@TokenExchange.xml -F type=in "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies"
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_post.yaml
       summary: Add an API Specific Mediation Policy
       operationId: apisApiIdMediationPoliciesPost
       description: |
@@ -2731,8 +2705,6 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:mediation_policy_view
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2786,8 +2758,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:mediation_policy_manage
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_delete.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2830,8 +2800,6 @@ paths:
       - OAuth2Security:
         - apim:api_view
         - apim:mediation_policy_view
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_content_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2882,8 +2850,6 @@ paths:
       - OAuth2Security:
         - apim:api_create
         - apim:mediation_policy_manage
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_content_put.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2974,8 +2940,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/wsdl-info"
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_info_get.yaml
       parameters:
         - $ref: '#/parameters/apiId'
       tags:
@@ -3014,8 +2978,6 @@ paths:
         This operation can be used to retrieve the WSDL definition of an API. It can be either a single WSDL file or a WSDL archive.
 
         The type of the WSDL of the API is indicated at the "wsdlInfo" element of the API payload definition.
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3064,8 +3026,6 @@ paths:
         This operation can be used to update the WSDL definition of an existing API. WSDL to be updated can be passed as either "url" or "file".
         Only one of "url" or "file" can be used at the same time. "file" can be specified as a single WSDL file or as a zip file which has a WSDL
         and its dependencies (eg: XSDs)
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_put.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3301,8 +3261,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: "docs/examples/apis/apis_id_auditapi_get.yaml"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3345,8 +3303,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/external-stores/external_stores.yaml#/getPublishedExternalStoresByAPI
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3393,8 +3349,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-examples:
-        $ref: docs/examples/external-stores/external_stores.yaml#/publishToExternalStore
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3883,8 +3837,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/mediation-policies"
-      x-examples:
-        $ref: docs/examples/mediation-policies/mediation_policies_get.yaml
       summary: |
         Get all global level mediation policies
       operationId: getAllGlobalMediationPolicies
@@ -4724,8 +4676,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/search?query=pizza"
-      x-examples:
-        $ref: docs/examples/apis/search_get.yaml
       summary: |
         Retrieve/Search APIs and API Documents by Content
       description: |
@@ -5717,8 +5667,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/external-stores/external_stores.yaml#/getAllExternalStores
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5826,8 +5774,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/tenants/tenants.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5882,8 +5828,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5918,8 +5862,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5953,8 +5895,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/put
       x-code-samples:
         - lang: Curl
           source: |-
@@ -5999,8 +5939,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/delete
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6036,8 +5974,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6074,8 +6010,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/put
       summary: |
         Add AbnormalRequestsPerMin Alert Configurations.
       operationId: addAlertConfig
@@ -6118,8 +6052,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/delete
       summary: |
         Delete the Selected Configuration from AbnormalRequestsPerMin Alert Type.
       operationId: deleteAlertConfig
@@ -6157,8 +6089,6 @@ paths:
         - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/tenants/wso2.com"
-      x-examples:
-        $ref: docs/examples/tenants/tenants.yaml
       summary:
         Check Whether the Given Tenant already Exists
       description: |
