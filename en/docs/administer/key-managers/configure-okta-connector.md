@@ -330,7 +330,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
         </table>
 
 !!! tip
-     Once the authorization URL that generates when you create an application in Okta is provided as **"Well-known-url"** and click the **Import** button set of the required information in the key-manager configurations will be filled automatically.
+     Once the authorization URL that generates when you create an application in Okta is provided as **"Well-known-url"** that can be found under the parameter **Metadata URI** in the settings related to the Authorization server and click the **Import** button, and set of the required information in the key-manager configurations will be filled automatically.
 
 ## Step 3 - Generate keys using the Okta Key Manager
 
