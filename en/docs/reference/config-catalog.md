@@ -921,6 +921,108 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                             </div>
                         </div>
                     </div>
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer]</code>
+                            <p>
+                                To specify the issuers of JWT tokens if third party keymanagers are used.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Issuer name of the JWT</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer.jwks]</code>
+                            <p>
+                                To specify the JWKS endpoint of the issuer.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>JWKS endpoint URL of the issuer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer.claim_mapping]</code>
+                            <p>
+                                To specify the claim mappings if remote claims need to mapped for local claims.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>remote_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Remote claim name</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>local_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Local claim name which the remote claim needs to be mapped for</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
