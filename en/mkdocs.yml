@@ -428,7 +428,9 @@ nav:
           - Changing the Default Ports with Offset: install-and-setup/setup/deployment-best-practices/changing-the-default-ports-with-offset.md
           - Production Deployment Guidelines: install-and-setup/setup/deployment-best-practices/production-deployment-guidelines.md
           - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
-          - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+          - Performance Tuning and Test Results:  
+            - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
+            - Performance Test Results: install-and-setup/setup/deployment-best-practices/performance-test-results.md
       - SSO:
           - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
           - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
