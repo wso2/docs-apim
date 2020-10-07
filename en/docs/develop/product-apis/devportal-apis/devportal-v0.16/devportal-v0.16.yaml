@@ -23,7 +23,6 @@ info:
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - Developer Portal.
 
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.6.163/components/apimgt/org.wso2.carbon.apimgt.rest.api.store/src/main/resources/store-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
