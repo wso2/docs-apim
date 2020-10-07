@@ -22,7 +22,6 @@ info:
   title: "WSO2 API Manager - Developer Portal"
   description: |
     This specifies a **RESTful API** for WSO2 **API Manager** - **Developer Portal**.
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.6.163/components/apimgt/org.wso2.carbon.apimgt.rest.api.store.v1/src/main/resources/store-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -172,8 +171,6 @@ paths:
     get:
       security:
         - OAuth2Security: []
-      x-examples:
-        $ref: docs/examples/apis/apis.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -454,8 +451,6 @@ paths:
         - application/json
         - application/wsdl
         - application/zip
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -754,8 +749,6 @@ paths:
         This operation can be used to retrieve the list of ratings of an API.
 
         `X-WSO2-Tenant` header can be used to retrieve ratings of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
-      x-examples:
-        $ref: docs/examples/apis/apis_id_ratings_get.yaml
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/limit'
@@ -793,8 +786,6 @@ paths:
         This operation can be used to get the user rating of an API.
 
         `X-WSO2-Tenant` header can be used to retrieve the logged in user rating of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
-      x-examples:
-        $ref: docs/examples/apis/apis_id_user-rating.yaml#/get
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/requestedTenant'
@@ -844,8 +835,6 @@ paths:
         This operation can be used to add or update an API rating.
 
         `X-WSO2-Tenant` header can be used to add or update the logged in user rating of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
-      x-examples:
-        $ref: docs/examples/apis/apis_id_user-rating.yaml#/put
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/requestedTenant'
@@ -892,8 +881,6 @@ paths:
         This operation can be used to delete logged in user API rating.
 
         `X-WSO2-Tenant` header can be used to delete the logged in user rating of an API that belongs to a different tenant domain. If not specified super tenant will be used. If Authorization header is present in the request, the user's tenant associated with the access token will be used.
-      x-examples:
-        $ref: docs/examples/apis/apis_id_user-rating.yaml#/delete
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/requestedTenant'
@@ -929,8 +916,6 @@ paths:
         - $ref: '#/parameters/requestedTenant'
         - $ref: '#/parameters/limit'
         - $ref: '#/parameters/offset'
-      x-examples:
-        $ref: docs/examples/apis/comments.yaml#/get
       tags:
         - Comments
       responses:
@@ -967,8 +952,6 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/Comment'
-      x-examples:
-        $ref: docs/examples/apis/comments.yaml#/post
       tags:
         - Comments
       responses:
@@ -1021,8 +1004,6 @@ paths:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/requestedTenant'
         - $ref: '#/parameters/If-None-Match'
-      x-examples:
-        $ref: docs/examples/apis/comment_id-comments.yaml#/get
       tags:
         - Comments
       responses:
@@ -1073,8 +1054,6 @@ paths:
         - $ref: '#/parameters/commentId'
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/If-Match'
-      x-examples:
-        $ref: docs/examples/apis/comment_id-comments.yaml#/delete
       tags:
         - Comments
       responses:
@@ -2514,8 +2493,6 @@ paths:
     get:
       security:
         - OAuth2Security: []
-      x-examples:
-        $ref: docs/examples/tenants/tenants.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2606,8 +2583,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts.yaml#/get
       operationId: getStoreAlertTypes
       x-code-samples:
         - lang: Curl
@@ -2642,8 +2617,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2677,8 +2650,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/put
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2721,8 +2692,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/delete
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2758,8 +2727,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2796,8 +2763,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/put
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2844,8 +2809,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:sub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/delete
       x-code-samples:
         - lang: Curl
           source: |-
