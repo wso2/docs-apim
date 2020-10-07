@@ -5054,6 +5054,137 @@ delay = "60"
     </section>
 </div>
 
+## Multi tenancy cloud services
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="9" type="checkbox" id="_tab_9">
+                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.cloud_services]
+name = "WSO2 API Manager"
+default = true
+key = "AM"
+label = "API Manager"
+link = "https://am.cloud.wso2.com"
+description = "API Manager in the cloud"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.cloud_services]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the multi tenant cloud services.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Name of the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>default</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use as the default cloud service or not. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Key-value that represents the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>label</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Label value that represents the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>link</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>URL link to the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>description</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Description of the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 
 ## Multi tenancy monetization configurations
 
@@ -5061,7 +5192,6 @@ delay = "60"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-
                 <input name="9" type="checkbox" id="_tab_9">
                 <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
@@ -5090,12 +5220,10 @@ subscription_charge = 0
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"Demo"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Provides the name of the billing package is being used</p>
@@ -5110,12 +5238,10 @@ subscription_charge = 0
                                     <div>
                                         <p>
                                             <span class="param-type string"> int </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>0</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Subscription charge value of the billing package</p>
@@ -5163,12 +5289,10 @@ charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"1"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Provides the number of users can be attched to the billing package</p>
@@ -5183,12 +5307,10 @@ charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Subscription charge value of the billing package per user</p>
@@ -5202,7 +5324,6 @@ charge= "0"
         </div>
     </section>
 </div>
-
 
 <div class="mb-config-catalog">
     <section>
@@ -5237,7 +5358,6 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                     </div>
                                     <div class="param-description">
@@ -5253,12 +5373,10 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Over usage charge value of the billing package</p>
@@ -5306,7 +5424,6 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                     </div>
                                     <div class="param-description">
@@ -5322,12 +5439,10 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p> Over usage charge value of the billing package </p>
@@ -5375,12 +5490,10 @@ subscription_charge = "100"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"SMB"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Provides the name of the billing package is being used</p>
@@ -5395,12 +5508,10 @@ subscription_charge = "100"
                                     <div>
                                         <p>
                                             <span class="param-type string"> int </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>0</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Subscription charge value of the billing package</p>
@@ -5448,12 +5559,10 @@ charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value"> Default: <code>"1"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Provides the number of users can be attched to the "SMB" billing package</p>
@@ -5468,12 +5577,10 @@ charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Subscription charge value of the "SMB" billing package per user</p>
@@ -5522,7 +5629,6 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                     </div>
                                     <div class="param-description">
@@ -5538,12 +5644,10 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Over usage charge value of the billing package</p>
@@ -5591,7 +5695,6 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                     </div>
                                     <div class="param-description">
@@ -5607,12 +5710,10 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p> Over usage charge value of the billing package </p>
@@ -5660,12 +5761,10 @@ subscription_charge = "500"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value"> Default: <code>"SMB"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>The name of the custom billing package</p>
@@ -5680,12 +5779,10 @@ subscription_charge = "500"
                                     <div>
                                         <p>
                                             <span class="param-type string"> int </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>0</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Subscription charge value of the billing package</p>
@@ -5733,12 +5830,10 @@ charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value"> Default: <code>"1"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Provides the number of users can be attched to the custom billing packages</p>
@@ -5753,12 +5848,10 @@ charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Subscription charge value of the custom billing package per user</p>
@@ -5807,7 +5900,6 @@ overuse_charge = "0.03"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                     </div>
                                     <div class="param-description">
@@ -5823,12 +5915,10 @@ overuse_charge = "0.03"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
                                         <p>Over usage charge value of the billing package</p>
@@ -5876,7 +5966,6 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                     </div>
                                     <div class="param-description">
@@ -5892,7 +5981,6 @@ overuse_charge= "0"
                                     <div>
                                         <p>
                                             <span class="param-type string"> string </span>
-
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
