@@ -390,8 +390,9 @@ nav:
                 - Changing to IBM DB2: install-and-setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                 - Changing to Oracle RAC: install-and-setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
         - Product Compatibility: install-and-setup/product-compatibility.md
-        - Performance Tuning:
+        - Performance Tuning and Test Results:
               - Tuning Performance: install-and-setup/performance-tuning-and-test-results/tuning-performance.md
+              - Performance Test Results: install-and-setup/performance-tuning-and-test-results/performance-test-results.md
         - Upgrading WSO2 API Manager:
               - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
               - 2.6.0 to 3.0.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-260-to-300.md
