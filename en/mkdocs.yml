@@ -693,6 +693,8 @@ plugins:
               'learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/configuring-alerts/'
               'learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/subscribing-for-alert/'
               'troubleshooting/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/'
+              'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
+
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
