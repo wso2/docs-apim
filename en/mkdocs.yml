@@ -364,6 +364,7 @@ nav:
                 - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
                 - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
+                - Customizing the Developer Portal and Gateway URLs for Tenants: develop/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
                 - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
                 - Adding internationalization: develop/customizations/adding-internationalization.md
