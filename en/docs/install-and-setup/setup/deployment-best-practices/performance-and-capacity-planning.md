@@ -4,7 +4,7 @@ The following sections analyze the results of WSO2 API Manager performance tests
 ### Summary 
 During each release, we execute various automated performance test scenarios and publish the results.
 
-|   Test Scenarios | Description                                                              |
+| **Test Scenarios** | **Description**                                                      |
 |------------------|--------------------------------------------------------------------------|
 | Passthrough      |   A secured API, which directly invokes the back\-end service\.          |
 | Transformation   |   A secured API, which has a mediation extension to modify the message\. |
@@ -45,7 +45,7 @@ A [c5.large Amazon EC2 instance](https://aws.amazon.com/ec2/instance-types/) was
    </td>
    <td>The name of the test scenario.
    </td>
-   <td>Refer to the above table.
+   <td> - 
    </td>
   </tr>
   <tr>
@@ -88,10 +88,10 @@ Following are the measurements collected from each performance test conducted fo
 
 <table>
   <tr>
-   <td><strong>Measurement</strong>
-   </td>
-   <td><strong>Description</strong>
-   </td>
+   <th><strong>Measurement</strong>
+   </th>
+   <th><strong>Description</strong>
+   </th>
   </tr>
   <tr>
    <td>Error %
@@ -132,34 +132,32 @@ Following are the measurements collected from each performance test conducted fo
 </table>
 
 
-For a detailed analysis, see [API-M 3.2.0 Performance graphs on Github](https://github.com/wso2/performance-apim/tree/performance-test-276-2020-08-03_08-47-25/performance/benchmarks/3.2.0%20graphs-all)
+For a detailed analysis on the performance of API-M 3.2.0, see [API-M 3.2.0 Performance graphs on Github](https://github.com/wso2/performance-apim/tree/performance-test-276-2020-08-03_08-47-25/performance/benchmarks/3.2.0%20graphs-all)
 
 ### Observations from all results
 
 There are key observations for the average user scenario of accessing APIs with 1KiB messages and the back-end service having 30ms delay.
 
-The following are the key observations from the all performance tests done with different message sizes and different backend delays. (See [Comparison of results](https://docs.wso2.com/display/AM260/WSO2+API-M+Performance+and+Capacity+Planning#WSO2API-MPerformanceandCapacityPlanning-comparison) for all charts used to derive the pointed mentioned below)
+The following are the key observations from the all performance tests done with different message sizes and different backend delays. (See **Comparison of results** for all charts used to derive the pointed mentioned below)
 
 
-##### Key observations related to throughput:
+##### Throughput comparison:
 
-*   Throughput increases up to a certain limit when the number of concurrent users increase. Mediation API throughput increase rate is much lower than the Echo API.
-*   Throughput decreases when the message sizes increase. The Mediation API throughput decrease rate is much higher than the Echo API.
-*   Throughput decreases when the backend sleep time increase. This observation is similar to both APIs. This means that if the backend takes more time, the request processing rate at the API Manager gateway will be less.
+Throughput increase is observed in the transformation scenario in API-M 3.2.0, in comparison to API-M 3.1.0
+
+Throughput increases up to a certain limit when the number of concurrent users increase. Mediation API throughput increase rate is much lower than the Echo API. Throughput decreases when the message sizes increase. Throughput decreases when the backend sleep time increase. This observation is similar to both APIs. This means that if the backend takes more time, the request processing rate at the API Manager gateway will be less.
 
 
 ##### Key observations related to response time:
 
-*   Average response time increases when the number of concurrent users increase. The increasing rate of average response time for Mediation API is much higher than the Echo API.
-*   Average response time increases considerably for Mediation API when the message sizes increase due to the message processing. The average response time of Echo API is not increasing as much as the Mediation API.
-*   Average Response Time increases when the backend sleep time increases. This observation is similar to both APIs.
+Average response time increases when the number of concurrent users increase. The increasing rate of average response time for both API-M 3.2.0 and API-M 3.1.0 is similar
+
+Average response time increases when the number of concurrent users increase. Average response time increases considerably for Mediation API when the message sizes increase due to the message processing. The average response time of Echo API is not increasing as much as the Mediation API. Average Response Time increases when the backend sleep time increases. This observation is similar to both APIs.
 
 
 ##### Key observations related to GC Throughput:
 
-*   The GC throughput decreases when the number of concurrent users increase. When there are more concurrent users, the object allocation rate increases.
-*   The GC throughput increases when the message sizes increases. The request processing rate slows down due to the time taken to process large messages. Therefore, the object allocation rate decreases  when the message sizes increases.
-*   The GC throughput increases when the backend sleep time increases. The object allocation rate will be low when the backend takes more time to respond.
+The GC throughput decreases when the number of concurrent users increase. When there are more concurrent users, the object allocation rate increases. The GC throughput increases when the message sizes increases. The request processing rate slows down due to the time taken to process large messages. Therefore, the object allocation rate decreases  when the message sizes increases. The GC throughput increases when the backend sleep time increases. The object allocation rate will be low when the backend takes more time to respond.
 
 ## Comparison of 3.1.0 and 3.2.0
 
@@ -254,3 +252,5 @@ The following are the key observations from the all performance tests done with 
  ![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10KiB.png)
  ![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_1KiB.png)
  ![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_50B.png)
+
+ For more comparisons, see [the comparison graphs on Github](https://github.com/wso2/performance-apim/tree/performance-test-276-2020-08-03_08-47-25/performance/benchmarks/3.2.0%20vs%203.1.0%20comparison)
