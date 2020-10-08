@@ -8,7 +8,7 @@ Validating the role of a requester does not make much sense in some scenarios. F
 
 ### Skipping role validation for scopes
 
-When scopes that cannot be associated with roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/scope-whitelisting) using configurations. Patterns of the allowed scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
+When scopes that cannot be associated with roles are requested, the token should be issued without validating the scope. In WSO2 API Manager, you do this by [allowlisting the scope]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/scope-allowlisting) using configurations. Patterns of the allowed scopes are specified via a configuration under the `<OAuthConfigurations>` element in the `<API-M_HOME>/repository/conf/api-manager.xml` file. Scopes that match the pattern are not validated by role and are available to anyone requesting it.
 
 Follow the instructions below to skip role validation for scopes:
 
@@ -26,16 +26,16 @@ Follow the instructions below to skip role validation for scopes:
     !!! tip
         You can also use the cURL request listed under the **Generate Access Tokens** section for steps 3 and 4 based on the grant type.
 
-
     [![]({{base_path}}/assets/attachments/103334763/103334764.png)]({{base_path}}/assets/attachments/103334763/103334764.png)
 
+    <a name="step4"></a>
+    
 4.  Use the Base64 encoded value obtained above in the Authorization header when invoking the following command. 
 
      This is used to get the token by calling the token API.
 
     !!! tip
         Make sure you include a random scope in the request which will be any value suitable for the name of the scope.
-
 
     ``` xml
     curl -k -d "grant_type=password&username=admin&password=admin&scope=some_random_scope" -H "Authorization: Basic WmRFUFBvZmZwYVFnR25ScG5iZldtcUtSS3IwYTpSaG5ocEVJYUVCMEN3T1FReWpiZTJwaDBzc1Vh" -H "Content-Type: application/x-www-form-urlencoded" https://10.100.0.3:8243/token
@@ -54,11 +54,11 @@ Follow the instructions below to skip role validation for scopes:
 6.  To allowlist the scope, add the following under the `[apim.oauth_config]` element in the `<API-M_HOME>/repository/conf/deployment.toml` file and restart the server.
 
     ``` toml
-     [apim.oauth_config]
-     allowed_scopes = ["^device_.*", "openid", "some_random_scope"]
+    [apim.oauth_config]
+    allowed_scopes = ["^device_.*", "openid", "some_random_scope"]
     ```
 
-7.  Call the token API using the same request used in step 4. 
+7.  Call the token API using the same request used in <a href="#step4">step 4</a>. 
 
      You will receive a response similar to the one below.
 
