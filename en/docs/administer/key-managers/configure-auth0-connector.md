@@ -45,12 +45,22 @@ _Please note that this is supported only from the API Manager 3.2.0 onward_.
     
     [![auth0 endpoints]({{base_path}}/assets/img/administer/auth0-endpoints.png)]({{base_path}}/assets/img/administer/auth0-endpoints.png)    
     
-3.  The client ID, Client secret of the application created to invoke Manage API should be provided for the settings. You can get to the audience 
+    The introspection endpoint will not be populated since it is not exposed in Auth0. Therefore, 
+    set its value as <code>none</code>. Select the token validation method as <code>Self validate JWT</code> like below.
+    
+    [![auth0 token validation]({{base_path}}/assets/img/administer/auth0-token-validation.png)]({{base_path}}/assets/img/administer/auth0-token-validation.png)    
+
+3.  Set the grant types which are allowed in Auth0 as below. The format of the grant types can be found in 
+<a href="https://auth0.com/docs/applications/application-grant-types">this link</a>.
+    
+    [![auth0 grant types]({{base_path}}/assets/img/administer/auth0-grant-types.png)]({{base_path}}/assets/img/administer/auth0-grant-types.png)        
+    
+4.  The client ID, Client secret of the application created to invoke Manage API should be provided for the settings. You can get to the audience 
 value from Manage API.
 
     [![auth0 connector configs]({{base_path}}/assets/img/administer/auth0-connector-configs.png)]({{base_path}}/assets/img/administer/auth0-connector-configs.png)    
     
-4.  Finally, you can save the configs.
+5.  Finally, you can save the configs.
 
 ### Step 3 : Create new application and generate keys
 
