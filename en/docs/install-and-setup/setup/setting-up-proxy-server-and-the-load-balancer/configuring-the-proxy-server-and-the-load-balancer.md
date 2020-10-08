@@ -1,17 +1,15 @@
 # Configuring the Proxy Server and the Load Balancer
 
-A load balancer or reverse proxy is required to map external traffic with ports and URLs that WSO2 API Manager (WSO2 API-M) uses internally. Follow the instructions below to configure load balancing together with reverse proxying.
+A load balancer or reverse proxy is required to map external traffic with ports and URLs that WSO2 API Manager (WSO2 API-M) uses internally. 
 
--   [Step 1 - Create a SSL certificate for the load balancer](#step-1-create-a-ssl-certificate-for-the-load-balancer)
--   [Step 2 - Configure the load balancer/reverse proxy server](#step-2-configure-the-load-balancerreverse-proxy-server)
--   [Step 3 - Configure the reverse proxy settings in the product](#step-3-configure-the-reverse-proxy-settings-in-the-product)
+Follow the instructions below to configure load balancing together with reverse proxying.
 
-### Step 1 - Create a SSL certificate for the load balancer
+### Step 1 - Create an SSL certificate for the load balancer
 
 !!! warning
     This step is only applicable for a High Availablity (HA) setup where multiple nodes are fronted by a load balancer.
 
-Create a SSL certificate for the load balancer using the following instructions.
+Create an SSL certificate for the load balancer using the following instructions.
 
 1.  Create the Server Key.
 
@@ -60,10 +58,10 @@ Carry out the following steps to configure the load balancer to front multiple 
     <table>
     <thead>
     <tr class="header">
-    <th>Deployment</th>
-    <th>API-M Nodes</th>
-    <th>LB</th>
-    <th>Reason</th>
+    <th><b>Deployment</b></th>
+    <th><b>API-M Nodes</b></th>
+    <th><b>LB</b></th>
+    <th><b>Reason</b></th>
     </tr>
     </thead>
     <tbody>
@@ -71,13 +69,13 @@ Carry out the following steps to configure the load balancer to front multiple 
     <td>Single all-in-one deployment</td>
     <td>N/A</td>
     <td>[NGINX Community](http://nginx.org/)</td>
-    <td>This deployment does not need Sticky Sessions ( Session Affinity).</td>
+    <td>This deployment does not need Sticky Sessions (Session Affinity).</td>
     </tr>
     <tr class="even">
     <td>Active-active deployment using single all-in-one nodes</td>
     <td>N/A</td>
     <td>[NGINX Plus](https://www.nginx.com/products/)</td>
-    <td>This deployment r equires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
+    <td>This deployment requires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
     </tr>
     <tr class="odd">
     <td rowspan="3">Distributed deployment</td>
@@ -88,17 +86,17 @@ Carry out the following steps to configure the load balancer to front multiple 
     <tr class="even">
     <td>Gateway with multiple Gateway Managers</td>
     <td>[NGINX Plus](https://www.nginx.com/products/)</td>
-    <td>The Gateway Manager nodes r equire Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm. Sticky Sessions are needed for port 9443 in the Gateway, and not needed for the pass through ports in the Gateway (8243, 8280).</td>
+    <td>The Gateway Manager nodes require Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm. Sticky Sessions are needed for port 9443 in the Gateway, and not needed for the pass-through ports in the Gateway (8243, 8280).</td>
     </tr>
     <tr class="odd">
     <td>Store, Publisher, and Key Manager</td>
     <td>[NGINX Plus](https://www.nginx.com/products/)</td>
-    <td>Requires Sticky Sessions, but NGINX Community version does not support it. You c an use `ip_hash` as the sticky algorithm.</td>
+    <td>Requires Sticky Sessions, but NGINX Community version does not support it. You can use `ip_hash` as the sticky algorithm.</td>
     </tr>
     </tbody>
     </table>
 
-    For more information on installing NGINX, see **[NGINX community version](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/#prebuilt)** and **[NGINX Plus](https://www.nginx.com/resources/admin-guide/installing-nginx-plus/) .**
+    For more information on installing NGINX, see **[NGINX community version](https://www.nginx.com/resources/admin-guide/installing-nginx-open-source/#prebuilt)** and **[NGINX Plus](https://www.nginx.com/resources/admin-guide/installing-nginx-plus/).**
 
 2.  Configure **NGINX** to direct the HTTP and HTTPs requests based on your deployment.
 
@@ -122,12 +120,12 @@ Carry out the following steps to configure the load balancer to front multiple 
     ```
 
     ```tab="Active-Active"
-    -   The placeholders {node-1-ip-address} and {node-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM servers are running.
-    -   In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (publisher, store, admin and carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
-    -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
+    - The placeholders {node-1-ip-address} and {node-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM servers are running.
+    - In the sample configuration given below, the hostname api.am.wso2.com is used to access all portals (publisher, store, admin and carbon) and gw.am.wso2.com is used to invoke APIs. Only HTTPS is allowed.
+    - This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
 
-    -   In an Active-Active deployment, It is mandatory to set up sticky sessions (session affinity) in the load balancers that front the **Publisher** and **Store** , and it is **optional** in the load balancer (if any) that fronts **Key Manager** or Gateway.
-    -   However, authentication via session ID fails when s ticky sessions are disabled in the load balancers of Publisher and store.
+    - In an Active-Active deployment, it is mandatory to set up sticky sessions (session affinity) in the load balancers that front the **Publisher** and **Developer Portal**, and it is **optional** in the load balancer (if any) that fronts **Key Manager** or Gateway.
+    - However, authentication via session ID fails when s ticky sessions are disabled in the load balancers of Publisher and Developer Portal.
     ```
 
     ```tab="HA for Gateway"
@@ -142,7 +140,7 @@ Carry out the following steps to configure the load balancer to front multiple 
     -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use the ip_hash method instead.
     ```
 
-    ```tab="HA for Store"
+    ```tab="HA for Developer Portal"
     -   The placeholders {store-1-ip-address} and {store-2-ip-address} correspond to the IP addresses of the backend nodes in which APIM Stores are running.
     -   In the sample configuration given below, the hostname store.am.wso2.com is used to access Publisher portal. Only HTTPS is allowed.
     -   This configuration uses a session cookie to configure stickiness. However, if you are using Nginx community version, configuring sticky sessions based on session cookie is not supported. It is possible to use ip_hash method instead.
@@ -369,7 +367,7 @@ Carry out the following steps to configure the load balancer to front multiple 
     }
     ```
 
-    ```tab="HA for Store"
+    ```tab="HA for Developer Portal"
     upstream store.am.wso2.com {
         server {store-1-ip-address}:9443;
         server {store-2-ip-address}:9443;
@@ -445,11 +443,11 @@ Carry out the following steps to configure the load balancer to front multiple 
 
 The ports and URLs that are used internally by API Manager are given below:
 
-| Usage                             | URL       | Port |
-|-----------------------------------|-----------|------|
-| HTTPS Servlet (UI Consoles)       | localhost | 9443 |
-| NIO transport (HTTP API Traffic)  | localhost | 8280 |
-| NIO transport (HTTPS API Traffic) | localhost | 8243 |
+| **Usage**                         | **URL**   | **Port** |
+|-----------------------------------|-----------|----------|
+| HTTPS Servlet (UI Consoles)       | localhost | 9443     |
+| NIO transport (HTTP API Traffic)  | localhost | 8280     |
+| NIO transport (HTTPS API Traffic) | localhost | 8243     |
 
 Restart the NGINX server:
 
@@ -476,3 +474,36 @@ proxyPort = 443
 [server]
 hostname = "sample.com"
 ```
+
+### Step 4 - Configure the dynamic callback origin
+
+When you have a custom URL configured for WSO2 API-M client applications (Publisher/ Developer Portal/ Admin Portal), the callback origin also has to be changed dynamically according to the X-Forwarded-For header in a typical scenario.
+
+1. Open the new configuration file for reverse proxy config in the react applications.
+
+    - **For Developer Portal**
+
+         Open the `<API-M_HOME>/repository/deployment/server/jaggeryapps/devportal/site/public/theme/settings.js` file.
+    
+    - **For Publisher**
+        
+         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/publisher/site/public/conf/settings.js` file.
+    
+    - **For Admin Portal**
+        
+         Open the file `<API-M_HOME>/repository/deployment/server/jaggeryapps/admin/site/public/conf/settings.js` file.
+ 
+
+2. Set `customUrl.enabled` to `true`
+  
+    ```json
+        
+    customUrl: { // Dynamically set the redirect origin according to the forwardedHeader host|proxyPort combination
+        enabled: true,
+        forwardedHeader: 'X-Forwarded-For',
+    },
+    ```
+
+    !!! Note
+        New configurations do not have auto as a config value for the `customUrl.enable` property as it was in the 2.x versions.
+    
