@@ -319,5 +319,3 @@ The **Single Sign-On with SAML 2.0** feature in the API Manager is implemented a
     </tr>
     </tbody>
     </table>
-
-     [![Admin Portal SSO Configuration]({{base_path}}/assets/img/develop/extensions/admin-portal-sso-config.png)]({{base_path}}/assets/img/develop/extensions/admin-portal-sso-config.png)
