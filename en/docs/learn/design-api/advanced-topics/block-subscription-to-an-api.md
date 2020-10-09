@@ -97,6 +97,8 @@ Blocking can be done at two levels:
 
      3.  Click **Subscriptions** to navigate to the managed subscription section.
 
+         <a href="{{base_path}}/assets/img/learn/subscriptions-menu.png" alt="subscriptions menu"><img src="{{base_path}}/assets/img/learn/subscriptions-menu.png" width=250></a>
+
      4. Click **Block All**.
 
         [![Have the same application for two APIs and block all subscriptions]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)
