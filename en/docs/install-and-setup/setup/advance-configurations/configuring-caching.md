@@ -37,21 +37,20 @@ By default, the API Gateway cache is enabled. This can be disabled by modifying 
 enable = false
 ```
 
-#### Clearing the API Gateway cache
+### Clearing the API Gateway cache
 
-##### Clearing the API Gateway cache
+When a token is revoked at the Key Manager, a token revocation event is sent to the Traffic Manager. Gateways receive this token revocation controller event and clears the cache accordingly.
 
-When a token is revoked at the key manager, a token revocation event is sent to the Traffic manager . Gateways receive this token revocation controller event and clears the cache accordingly.
-This feature is enabled by default and token revocation events are published by the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl.java` class
+This feature is enabled by default and token revocation events are published by the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl.java` class.
 
-If you need to change the default behavior you can implement the 'org.wso2.carbon.apimgt.notification.TokenRevocationNotifier' interface and plug new implementation using below configuration in the `deployment.toml`
+If you need to change the default behavior, you can implement the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifier` interface and plug new implementation using the following configuration in the `deployment.toml` file.
 
 ```toml
-   [apim.token.revocation[
-   notifier_impl="org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
+[apim.token.revocation[
+notifier_impl="org.wso2.carbon.apimgt.notification.TokenRevocationNotifier"
 ```
 
-This configuration is described in the [Config Catalog]({{base_path}}/reference/config-catalog/#api-m-token-revocation)
+For more information on the above configuration, see the [Config Catalog]({{base_path}}/reference/config-catalog/#api-m-token-revocation).
 
 ## Resource cache
 
@@ -72,7 +71,7 @@ enable = false
 
 ## Key Manager cache
 
-Key Manager consists of the OAuth Cache.
+The Key Manager consists of the OAuth Cache.
 
 ### OAuth cache
 
