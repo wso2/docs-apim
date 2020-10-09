@@ -4183,6 +4183,7 @@ supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "g
     </section>
 </div>
 
+
 ## API-M token revocation
 
 <div class="mb-config-catalog">
@@ -4443,6 +4444,7 @@ enable_email_domain = true</code></pre>
         </div>
     </section>
 </div>
+
 
 ## Multi tenancy Configurations
 
@@ -4939,6 +4941,7 @@ execution_interval_in_ms = "-1"
     </section>
 </div>
 
+
 ## Multi tenancy throttling manager configurations
 
 <div class="mb-config-catalog">
@@ -5054,7 +5057,8 @@ delay = "60"
     </section>
 </div>
 
-## Multi tenancy cloud services
+
+## Multi tenancy cloud services configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -5185,6 +5189,7 @@ description = "API Manager in the cloud"
         </div>
     </section>
 </div>
+
 
 ## Multi tenancy monetization configurations
 
@@ -5595,7 +5600,6 @@ charge= "0"
     </section>
 </div>
 
-
 <div class="mb-config-catalog">
     <section>
         <div class="mb-config-options">
@@ -5865,7 +5869,6 @@ charge= "0"
         </div>
     </section>
 </div>
-
 
 <div class="mb-config-catalog">
     <section>
