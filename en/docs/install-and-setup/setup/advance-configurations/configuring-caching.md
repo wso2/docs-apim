@@ -39,7 +39,7 @@ enable = false
 
 ### Clearing the API Gateway cache
 
-When a token is revoked at the Key Manager, a token revocation event is sent to the Traffic Manager. Gateways receive this token revocation controller event and clears the cache accordingly.
+When a token is revoked at the Key Manager, a token revocation event is sent to the Traffic Manager. Gateways receive this token revocation controller event and clear the cache accordingly.
 
 This feature is enabled by default and token revocation events are published by the `org.wso2.carbon.apimgt.notification.TokenRevocationNotifierImpl.java` class.
 
