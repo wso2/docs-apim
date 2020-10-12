@@ -455,6 +455,7 @@ nav:
                 - Common Runtime and Configuration Artifacts: install-and-setup/setup/reference/common-runtime-and-configuration-artifacts.md
                 - Default Product Ports: install-and-setup/setup/reference/default-product-ports.md
                 - Product Compatibility: install-and-setup/setup/reference/product-compatibility.md
+                - Supported Cipher Suites : install-and-setup/setup/reference/supported-cipher-suites.md
           - Upgrading WSO2 API Manager:
                 - Upgrading Process: install-and-setup/upgrading-wso2-api-manager/upgrading-process.md
                 - 3.1.0 to 3.2.0: install-and-setup/upgrading-wso2-api-manager/upgrading-from-310-to-320.md
