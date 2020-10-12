@@ -24,10 +24,10 @@ Follow the instructions given below to configure PingFederate as a third-party K
 
 3. Generate and Store the CLIENT SECRET.
 
-     [![Keycloak client secret]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)
+     [![PingFederate client secret]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)
 
 
-## Step 2 - Configure Keycloak
+## Step 2 - Configure PingFederate
 
 1. Import PingFederate certificate into the WSO2 API Manager truststore.
 
@@ -35,22 +35,21 @@ Follow the instructions given below to configure PingFederate as a third-party K
 
      [![SSL Server Certificate]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)
 
-2. Export the certificate from SSL server certificates.
+    - Export the certificate from SSL server certificates.
 
-     [![SSL Server Certificate Import]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)
+        [![SSL Server Certificate Import]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)
 
+    - Import the certificate into the WSO2 API-M truststore.
 
-3. Import the certificate into the WSO2 API-M truststore.
+          ```
+          keytool -import -trustcacerts -alias pingfederate -file ping.crt -keystore client-truststore.jks -storepass wso2carbon -noprompt
+          ```
 
-       ```
-       keytool -import -trustcacerts -alias pingfederate -file ping.crt -keystore client-truststore.jks -storepass wso2carbon -noprompt
-       ```
-
-4. Start WSO2 API Manager.
+2. Start WSO2 API Manager.
 
      `<API-M_HOME>` refers to the root folder of the extracted WSO2 API-M distribution.
 
-5. Add a Key Manager.
+3. Add a Key Manager.
 
     1. Sign in to the Admin Portal. 
 
@@ -213,7 +212,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
           </tr>
           <tr class="even">
             <td>JWKS</td>
-            <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns Keycloak's public key set in JSON web key set format.
+            <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns PingFederate's public key set in JSON web key set format.
             This contains the signing key(s) the Relying Party (RP) uses to validate signatures from PingFederate.</td>
             <td>Optional</td>
           </tr>
