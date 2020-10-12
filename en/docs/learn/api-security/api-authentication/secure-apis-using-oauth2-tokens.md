@@ -256,13 +256,18 @@ Note that the customized authorization header appears in the Developer Portal UI
 
 [![Auth header]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
 
-## Sending authorization header to the backend
+## Sending the authorization header to the backend
 
-By default, the authorization header passed in the client request is dropped in the API Gateway before reaching 
-the backend. To stop dropping the header add below configuration to the 
-`<APIM_HOME>/repository/conf/deployment.toml` file.
+By default, the authorization header, which is passed in the client request, is dropped in the API Gateway before it reaches the backend.
 
-```
-[apim.oauth_config]
-enable_outbound_auth_header = true
-```
+Follow the instructions below to stop dropping the header:
+
+1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+2. Add the following configuration.
+
+    ```
+    [apim.oauth_config]
+    enable_outbound_auth_header = true
+    ```
+
