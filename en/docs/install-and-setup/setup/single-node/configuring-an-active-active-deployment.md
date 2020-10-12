@@ -279,7 +279,17 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
     5.  Save your changes.
 
-## Step 9 - Configure API-M Analytics
+## Step 9 - Optionally, Configure JMS based Cache invalidation.
+Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
+
+
+``` toml
+       [apim.cache_invalidation]
+       enabled = true
+```
+
+
+## Step 10 - Configure API-M Analytics
 
 If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
 configure API-M Analytics. If not, you can **skip this step**.
@@ -288,7 +298,7 @@ Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/learn/analy
 [Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) 
 to configure API-M Analytics in a production setup.
 
-## Step 10 - Configure Production Hardening
+## Step 11 - Configure Production Hardening
 
 In a **production setup**, ensure that you have taken into account the respective security hardening factors 
 (e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
@@ -298,7 +308,7 @@ For more information on security hardening guidelines, see [Security Guidelines 
 
 For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
 
-## Step 11 - Start the WSO2 API-M Servers
+## Step 12 - Start the WSO2 API-M Servers
 
 Start the WSO2 API-M servers using the standard start-up script. For more information, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
