@@ -707,7 +707,7 @@ This will give the time consumed by each method in ascending order. If a method 
 
 ``` java
 cat correlation.log | grep “correlationID” | grep “|HTTP” | cut -d “|” -f4 | sort -n
-cat correlation.log | grep “correlationID” | grep “|DB_CALL|” | cut -d “|” -f4 | sort -n
+cat correlation.log | grep “correlationID” | grep “|jdbc|” | cut -d “|” -f4 | sort -n
 cat correlation.log | grep “correlationID” | grep “|ldap|” | cut -d “|” -f4 | sort -n
 ```
 

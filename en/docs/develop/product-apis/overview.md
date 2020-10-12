@@ -1,6 +1,6 @@
 # RESTful APIs
 
-The following topics list the APIs exposed from the API Publisher, Developer Portal, and Admin Portal, which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL, or the [WSO2 REST client]({{base_path}}/learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-the-integrated-api-console).
+The following topics list the APIs exposed from the API Publisher, Developer Portal, and Admin Portal, which you can use to create and manage APIs. You can consume APIs directly through their UIs or, an external REST client like cURL.
 
 There are two versions of REST APIs available for the API Publisher and Developer Portal.
 <br>
@@ -14,7 +14,7 @@ There are two versions of REST APIs available for the API Publisher and Develope
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v1/">WSO2 Developer Portal v1</a></td>
   </tr>
    <tr>
-    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-devportal-v1/">WSO2 Admin Portal v1</a></td>
+    <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-admin-v1/">WSO2 Admin Portal v1</a></td>
   </tr>
 
   <tr>
@@ -26,3 +26,12 @@ There are two versions of REST APIs available for the API Publisher and Develope
     <td nowrap="true"><a href="{{base_path}}/develop/product-apis/getting-started/guide-gateway-v1/">WSO2 Gateway API v1</a></td>
   </tr>
 </table>
+
+## QuickStart
+
+Following Postman collection provides quickstart guide for WSO2 API Manager REST APIs. It can be used to,
+ 
+ * Create, publish, subscribe and invoke a sample REST API
+ * Create, subscribe and invoke a sample API Product 
+
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4237ff03add745fab13a)

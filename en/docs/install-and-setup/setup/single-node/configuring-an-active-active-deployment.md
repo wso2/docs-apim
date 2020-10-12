@@ -180,7 +180,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         Node1
 
         ``` tab="Format"
-        [[apim.throttling]]
+        [apim.throttling]
         event_duplicate_url = ["tcp://<node2-hostname>:<node2-port>"]
 
         [[apim.throttling.url_group]]
@@ -195,7 +195,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ```
 
         ``` tab="Example"
-        [[apim.throttling]]
+        [apim.throttling]
         event_duplicate_url = ["tcp://127.0.0.1:5673"]
 
         [[apim.throttling.url_group]]
@@ -212,7 +212,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         Node2
         
         ``` tab="Format"
-        [[apim.throttling]]
+        [apim.throttling]
         event_duplicate_url = ["tcp://<node1-hostname>:<node1-port>"]
 
         [[apim.throttling.url_group]]
@@ -227,7 +227,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
         ```
 
         ``` tab="Example"
-        [[apim.throttling]]
+        [apim.throttling]
         event_duplicate_url = ["tcp://127.0.0.1:5672"]
 
         [[apim.throttling.url_group]]
