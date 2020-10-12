@@ -211,7 +211,7 @@ Follow the instructions below to add a customized authorization header for an AP
 `https://<server-host>:9443/publisher         `
 2.  When [creating]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 
-    [![Custom Auth header publisher]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
+    [![Custom Auth header publisher]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
 
 3.  Save and Publish the API.
 
@@ -255,3 +255,19 @@ curl -H "SERVER_AUTH: Bearer 3c536e3f-397c-3df9-a89c-9c40efedfa9e" -H "accept: a
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
 [![Auth header]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
+
+## Sending the authorization header to the backend
+
+By default, the authorization header, which is passed in the client request, is dropped in the API Gateway before it reaches the backend.
+
+Follow the instructions below to stop dropping the header:
+
+1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+2. Add the following configuration.
+
+    ```
+    [apim.oauth_config]
+    enable_outbound_auth_header = true
+    ```
+
