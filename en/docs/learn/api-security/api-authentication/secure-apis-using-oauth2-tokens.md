@@ -1,11 +1,11 @@
 # Securing APIs using OAuth2 Access Tokens
 
-APIs published on WSO2 API Gateway can be secured by OAuth 2.0, which is the de facto standard for access delegation in REST API world. Any client application invoking a OAuth2 secured API needs to have a valid subscription to that particular API and present a valid OAuth2.0 Access Token when invoking it. Please refer [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/) for more information on how to subscribe an application to an API and generate credentials for it.
+APIs published on WSO2 API Gateway can be secured by OAuth 2.0, which is the de facto standard for access delegation in the REST API world. Any client application invoking an OAuth2 secured API needs to have a valid subscription to that particular API and present a valid OAuth2.0 Access Token when invoking it. For more information on how to subscribe to an application to an API and generate credentials for it, see [Subscribe to an API]({{base_path}}/learn/consume-api/manage-subscription/subscribe-to-an-api/).
 
-Once you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain an access tokens to invoke APIs which are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application and the trust relationship with the application. Please see [OAuth2 Grant Types]
-({{base_path}}/learn/api-security/oauth2/grant-types/overview/) to understand more about the OAuth2 grant types.
+After you have the got the required credentials, namely the consumer key and consumer secret for your application, you (application users) can obtain access tokens to invoke the APIs that are subscribed under the given application. WSO2 API Manager offers a set of OAuth2 grant types for obtaining access tokens depending on the type of the access token owner, type of the application, and the trust relationship with the application.
+For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/).
 
-## OAuth 2.0 Access Token Types
+## OAuth 2.0 access token types
 
 OAuth 2.0 access tokens come in two different flavors
 
@@ -17,9 +17,9 @@ The token type is bound to the application and the consumer has to specify the s
 
 For example, the **DefaultApplication** available for consumers in Developer Portal is in JSON Web Token (JWT) type, hence all the access tokens issued under the **DefaultApplication** are JWTs.
 
-## Authentication via Access Tokens
+## Authentication via access tokens
 
-HTTP Authorization header is the most common method of providing authentication information for REST APIs. The access token (followed by **Bearer**) need to be sent via the authorization header, for the client application to authenticate the API that is being accessed. The format of the header is as follows.
+HTTP Authorization header is the most common method of providing authentication information for REST APIs. The access token (followed by **Bearer**) needs to be sent via the authorization header, for the client application to authenticate the API that is being accessed. The format of the header is as follows:
 
 ``` bash tab="Format"
 Default Format
@@ -39,9 +39,9 @@ Example with **customized** authorization header
 The string `NtBQkXoKElu0H1a1fQ0DWfo6IX4a` is a sample value of the access token that is being sent from the client application.
 ```
 
-Please refer [Customizing Authorization Header](#customizing-the-authorization-header) for more information on customizing the default Authorization header.
+For more information, see [Customizing Authorization Header](#customizing-the-authorization-header).
 
-## Customizing the Authorization header
+## Customizing the authorization header
 
 If the value of the authorization header needs to be changed due to organizational policies, legacy APIs, or for any other reason, it can be done at three levels in WSO2 API Manager (WSO2 API-M) as described below.
 
@@ -49,13 +49,14 @@ If the value of the authorization header needs to be changed due to organization
 -   [Customize per Tenant](#customize-per-tenant)
 -   [Customize per API](#customize-per-api)
 
-### Customize across all Tenants
+### Customize across all tenants
 
 Follow the instructions below to change the value of the authorization header at the server level configurations:
 
-1.  Navigate to the `<API-M_HOME>/repository/conf/doployment.toml` file and make the following changes.
-    1.  Uncomment the `auth_header` under `[apim.oauth_config]` section and add the customized authorization header.
-        You need to make this change on all the profiles of WSO2 API Manager.
+1.  Navigate to the `<API-M_HOME>/repository/conf/deployment.toml` file and make the following changes.
+    1.  Uncomment the `auth_header` under the `[apim.oauth_config]` section and add the customized authorization header.
+        
+         You need to make this change on all the profiles of WSO2 API Manager.
 
         ``` bash tab="Format"
          auth_header = "{authorization-header}"
@@ -77,130 +78,133 @@ Follow the instructions below to change the value of the authorization header 
 
 2.  Restart the WSO2 API Manager server to reload the changes.
 
-3.  If you have already published APIs, Sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) and republish those APIs.
+3.  If you have already published APIs, sign in to the WSO2 API Publisher (`https://<hostname>:9443/publisher`) and republish those APIs.
 
-### Customize per Tenant
+### Customize per tenant
 
-Each tenant can define their own name for the authorization header by following the instructions below:
+Each tenant can define their name for the authorization header by following the instructions below:
 
 !!! note
-    The tenant wide authorization header customizations take precedence over the server wide authorization header customizations.
+    The tenant wide authorization header customizations take precedence over the server-wide authorization header customizations.
 
 
 1.  Sign in to the [WSO2 API Manager Management Console]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-management-console) with your tenant credentials.
-`https://<server-host>:9443/carbon`
+     
+     `https://<server-host>:9443/carbon`
 
-!!! tip
-    For information on creating a tenant, see [Managing Tenants](https://docs.wso2.com/display/ADMIN44x/Working+with+Multiple+Tenants).
+    !!! tip
+        For information on creating a tenant, see [Managing Tenants]({{base_path}}/administer/multitenancy/managing-tenants/).
 
 
 2.  Click **Main**, then click **Browse** which is under **Resources**.
-    ![]({{base_path}}/assets/attachments/103334899/103334897.png)
+
+     [![Browse option]({{base_path}}/assets/img/learn/browse-option.png)]({{base_path}}/assets/img/learn/browse-option.png)
+
 3.  Enter / `_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
 4.  Click **Edit as text** to be able to edit the JSON file.
 5.  Add the following configuration with the customized authorization header to the JSON file and save the file.
 
-``` bash tab="Format"
-"AuthorizationHeader" : "<tenant-authorization-header>"
-```
+    ``` bash tab="Format"
+    "AuthorizationHeader" : "<tenant-authorization-header>"
+    ```
 
-``` bash tab="Example"
-"AuthorizationHeader" : "TENANT_AUTH"
-```
+    ``` bash tab="Example"
+    "AuthorizationHeader" : "TENANT_AUTH"
+    ```
 
-``` bash tab="Sample JSON"
-{  
-   "EnableMonetization":false,
-   "IsUnlimitedTierPaid":false,
-   "ExtensionHandlerPosition":"bottom",
-   "RESTAPIScopes":{  
-      "Scope":[  
-         {  
-            "Name":"apim:api_publish",
-            "Roles":"admin,Internal/publisher"
-         },
-         {  
-            "Name":"apim:api_create",
-            "Roles":"admin,Internal/creator"
-         },
-         {  
-            "Name":"apim:api_view",
-            "Roles":"admin,Internal/publisher,Internal/creator"
-         },
-         {  
-            "Name":"apim:subscribe",
-            "Roles":"admin,Internal/subscriber"
-         },
-         {  
-            "Name":"apim:tier_view",
-            "Roles":"admin,Internal/publisher,Internal/creator"
-         },
-         {  
-            "Name":"apim:tier_manage",
-            "Roles":"admin"
-         },
-         {  
-            "Name":"apim:bl_view",
-            "Roles":"admin"
-         },
-         {  
-            "Name":"apim:bl_manage",
-            "Roles":"admin"
-         },
-         {  
-            "Name":"apim:subscription_view",
-            "Roles":"admin,Internal/creator"
-         },
-         {  
-            "Name":"apim:subscription_block",
-            "Roles":"admin,Internal/creator"
-         },
-         {  
-            "Name":"apim:mediation_policy_view",
-            "Roles":"admin"
-         },
-         {  
-            "Name":"apim:mediation_policy_create",
-            "Roles":"admin"
-         },
-         {  
-            "Name":"apim:api_workflow",
-            "Roles":"admin"
-         }
-      ]
-   },
-   "NotificationsEnabled":"false",
-   "Notifications":[  
-      {  
-         "Type":"new_api_version",
-         "Notifiers":[  
+    ``` bash tab="Sample JSON"
+    {  
+        "EnableMonetization":false,
+        "IsUnlimitedTierPaid":false,
+        "ExtensionHandlerPosition":"bottom",
+        "RESTAPIScopes":{  
+            "Scope":[  
             {  
-               "Class":"org.wso2.carbon.apimgt.impl.notification.NewAPIVersionEmailNotifier",
-               "ClaimsRetrieverImplClass":"org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever",
-               "Title":"Version $2 of $1 Released",
-               "Template":" <html> <body> <h3 style=\"color:Black;\">We’re happy to announce the arrival of the next major version $2 of $1 API which is now available in Our Developer Portal.</h3><a href=\"https://localhost:9443/devportal\">Click here to Visit WSO2 Developer Portal</a></body></html>"
+                "Name":"apim:api_publish",
+                "Roles":"admin,Internal/publisher"
+            },
+            {  
+                "Name":"apim:api_create",
+                "Roles":"admin,Internal/creator"
+            },
+            {  
+                "Name":"apim:api_view",
+                "Roles":"admin,Internal/publisher,Internal/creator"
+            },
+            {  
+                "Name":"apim:subscribe",
+                "Roles":"admin,Internal/subscriber"
+            },
+            {  
+                "Name":"apim:tier_view",
+                "Roles":"admin,Internal/publisher,Internal/creator"
+            },
+            {  
+                "Name":"apim:tier_manage",
+                "Roles":"admin"
+            },
+            {  
+                "Name":"apim:bl_view",
+                "Roles":"admin"
+            },
+            {  
+                "Name":"apim:bl_manage",
+                "Roles":"admin"
+            },
+            {  
+                "Name":"apim:subscription_view",
+                "Roles":"admin,Internal/creator"
+            },
+            {  
+                "Name":"apim:subscription_block",
+                "Roles":"admin,Internal/creator"
+            },
+            {  
+                "Name":"apim:mediation_policy_view",
+                "Roles":"admin"
+            },
+            {  
+                "Name":"apim:mediation_policy_create",
+                "Roles":"admin"
+            },
+            {  
+                "Name":"apim:api_workflow",
+                "Roles":"admin"
             }
-         ]
-      }
-   ],
-   "DefaultRoles":{  
-      "PublisherRole":{  
-         "CreateOnTenantLoad":true,
-         "RoleName":"Internal/publisher"
-      },
-      "CreatorRole":{  
-         "CreateOnTenantLoad":true,
-         "RoleName":"Internal/creator"
-      },
-      "SubscriberRole":{  
-         "CreateOnTenantLoad":true
-      }
-   },
-   "AuthorizationHeader":"TENANT_AUTH"
-}
-```
+            ]
+        },
+        "NotificationsEnabled":"false",
+        "Notifications":[  
+            {  
+            "Type":"new_api_version",
+            "Notifiers":[  
+                {  
+                    "Class":"org.wso2.carbon.apimgt.impl.notification.NewAPIVersionEmailNotifier",
+                    "ClaimsRetrieverImplClass":"org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetriever",
+                    "Title":"Version $2 of $1 Released",
+                    "Template":" <html> <body> <h3 style=\"color:Black;\">We’re happy to announce the arrival of the next major version $2 of $1 API which is now available in Our Developer Portal.</h3><a href=\"https://localhost:9443/devportal\">Click here to Visit WSO2 Developer Portal</a></body></html>"
+                }
+            ]
+            }
+        ],
+        "DefaultRoles":{  
+            "PublisherRole":{  
+            "CreateOnTenantLoad":true,
+            "RoleName":"Internal/publisher"
+            },
+            "CreatorRole":{  
+            "CreateOnTenantLoad":true,
+            "RoleName":"Internal/creator"
+            },
+            "SubscriberRole":{  
+            "CreateOnTenantLoad":true
+            }
+        },
+        "AuthorizationHeader":"TENANT_AUTH"
+    }
+    ```
 
-6.  If you have already published APIs, [sign in to the API Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher) using your tenant credentials and republish those APIs.
+6.  If you have already published APIs, [sign in to the API Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher) using your tenant credentials, and republish those APIs.
 
 ### Customize per API
 
@@ -209,27 +213,26 @@ The API Publisher application allows an API Developer or Product Manager to spec
 !!! note
     The customized authorization header defined per API takes precedence over the customized authorization headers that are defined server and tenant wide.
 
-
 Follow the instructions below to add a customized authorization header for an API:
 
 1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher).
 `https://<server-host>:9443/publisher         `
-2.  When [creating](_Create_and_Publish_an_API_) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
+2.  When [creating]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 
-    [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
+    [![Custom Auth header publisher]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
 
 3.  Save and Publish the API.
-   
-    !!! note
-        When creating an API by importing a Swagger or Open API definition, the user can define the customized authorization header in the OAS definition using the **“x-wso2-auth-header”** extension.
-      
-         ```yaml
-         x-wso2-auth-header: "CustomAuthorizationHeader"
-         ```
+
+!!! note
+       When creating an API by importing a Swagger or OpenAPI definition, the user can define the customized authorization header in the OAS definition using the **“x-wso2-auth-header”** extension.
+
+      ```yaml
+      x-wso2-auth-header: "CustomAuthorizationHeader"
+      ```
 
 ##Try out the customized authorization header
   
-Before you start, sign in to the API Publisher and deploy the sample API (`PizzaShackAPI`) if you haven't done so already, as the following example is based on that API.
+Before you start, sign in to the API Publisher and deploy the sample API (`PizzaShackAPI`) if you have not done so already, as the following example is based on the `PizzaShackAPI` API.
 
 ``` bash tab="Sample cURL Request"
 curl -H "<customized-authorization-header>: Bearer <access-token>" -H "accept: application/json" "https://<server-IP>:<port>/pizzashack/1.0.0/menu" -k -v
@@ -259,15 +262,19 @@ curl -H "SERVER_AUTH: Bearer 3c536e3f-397c-3df9-a89c-9c40efedfa9e" -H "accept: a
 
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
-[![]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
+[![Auth header]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
 
-## Sending authorization header to the backend
+## Sending the authorization header to the backend
 
-By default, the authorization header passed in the client request is dropped in the API Gateway before reaching 
-the backend. To stop dropping the header add below configuration to the 
-`<APIM_HOME>/repository/conf/deployment.toml` file.
+By default, the authorization header, which is passed in the client request, is dropped in the API Gateway before it reaches the backend.
 
-```
-[apim.oauth_config]
-enable_outbound_auth_header = true
-```
+Follow the instructions below to stop dropping the header:
+
+1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
+
+2. Add the following configuration.
+
+    ```
+    [apim.oauth_config]
+    enable_outbound_auth_header = true
+    ```
