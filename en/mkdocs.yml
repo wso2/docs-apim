@@ -15,10 +15,10 @@
 # under the License.
 
 # Project information
-site_name: WSO2 API Manager Documentation 3.2.0
+site_name: WSO2 API Manager Documentation 4.0.0
 site_description: Documentation for WSO2 API Manager
 site_author: WSO2
-site_url: https://apim.docs.wso2.com/en/latest/
+site_url: https://apim.docs.wso2.com/en/next/
 
 # Repository
 repo_name: wso2/docs-apim
@@ -201,7 +201,7 @@ nav:
                             - JWT Access Tokens: learn/api-security/oauth2/access-token-types/jwt-tokens.md
                       - OAuth2 Scopes:
                             - Role-Based Access Control with OAuth Scopes: learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                            - Scope Whitelisting: learn/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
+                            - Scope Allowlisting: learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md
                       - Grant Types:
                             - Overview: learn/api-security/oauth2/grant-types/overview.md
                             - Password Grant: learn/api-security/oauth2/grant-types/password-grant.md
@@ -228,6 +228,7 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+                      - OpenID Discovery Endpoint: learn/api-security/openid-connect/open-id-discovery-endpoint.md
           - User Account Management:
                 - Recover Password : learn/user-account-management/recover-password.md
                 - Change Password : learn/user-account-management/change-dev-portal-password.md
@@ -303,14 +304,7 @@ nav:
                 - Edit an API by Modifying the API Definition: learn/tutorials/edit-an-api-by-modifyng-the-api-definition.md
     - Develop:
           - Product REST APIs:
-                - RESTful APIs: develop/product-apis/restful-apis.md
-                - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
-                    - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
-                    - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
-                    - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
-                    - Gateway API v1: develop/product-apis/getting-started/guide-gateway-v1.md
-                - Configuring the REST API: develop/product-apis/configuring-rest-api.md
+                - Overview: develop/product-apis/overview.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
                 - Developer Portal APIs:
@@ -320,8 +314,7 @@ nav:
                     - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
                 - Gateway APIs:
                     - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-                - Using the Registry REST API: develop/using-the-registry-rest-api.md
-                - Using the Siddhi Store REST API: develop/analytics-rest-api.md
+                - Advanced Configurations: develop/product-apis/advanced-configurations.md
           - Extending WSO2 API Manager:
                 - Extending Key Management:
                       - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
@@ -414,6 +407,7 @@ nav:
                             - Changing to MariaDB: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-mariadb.md
                             - Changing to IBM DB2: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-ibm-db2.md
                             - Changing to Oracle RAC: install-and-setup/setup/setting-up-databases/changing-default-databases/changing-to-oracle-rac.md
+                      - Managing Data Growth and Improving Performance: install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance.md
                 - Setting up Proxy Server and the Load Balancer:
                       - Configuring the Proxy Server and the Load Balancer: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/configuring-the-proxy-server-and-the-load-balancer.md
                       - Adding a custom Proxy Path: install-and-setup/setup/setting-up-proxy-server-and-the-load-balancer/adding-a-custom-proxy-path.md
@@ -515,6 +509,7 @@ nav:
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
+          - Accessibility Compliance: reference/accessibility-compliance.md
           - FAQ: reference/faq.md
           - Guides:
                 - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
@@ -537,7 +532,6 @@ nav:
           - Troubleshooting in Production Environments: troubleshooting/admin-troubleshooting-in-production-environments.md
           - Cleaning Up Partially Created Keys: troubleshooting/cleaning-up-partially-created-keys.md
           - Troubleshooting 'Registered callback does not match with the provided url' error: troubleshooting/troubleshooting-invalid-callback-error.md
-          - Removing Unused Tokens from the Database: troubleshooting/removing-unused-tokens-from-the-database.md
 
 # Extensions
 markdown_extensions:
@@ -700,6 +694,10 @@ plugins:
               'learn/analytics/managing-alerts-with-real-time-analytics/alert-types.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/alert-types/'
               'learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/configuring-alerts/'
               'learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/subscribing-for-alert/'
+              'troubleshooting/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/'
+              'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
+              'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
+
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css
@@ -719,5 +717,5 @@ extra:
           link: https://twitter.com/wso2
         - type: linkedin
           link: https://www.linkedin.com/company/wso2
-    site_version: 3.2.0
-    base_path: https://apim.docs.wso2.com/en/3.2.0
+    site_version: 4.0.0
+    base_path: https://apim.docs.wso2.com/en/next
