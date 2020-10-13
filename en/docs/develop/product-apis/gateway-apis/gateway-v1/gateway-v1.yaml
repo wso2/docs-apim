@@ -6,8 +6,7 @@ info:
   version: "v1"
   title: "WSO2 API Manager - Gateway"
   description: |
-    This specifies a **RESTful API** for WSO2 **API Manager** - **Gateway**.
-    Please see [full swagger definition](https://github.com/wso2/carbon-apimgt/blob/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway.v1/src/main/resources/gateway-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
+    This document specifies a **RESTful API** for WSO2 **API Manager** - **Gateway**.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
