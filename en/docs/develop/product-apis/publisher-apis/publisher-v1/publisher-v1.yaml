@@ -21,8 +21,7 @@ info:
   version: "v1.1"
   title: "WSO2 API Manager - Publisher API"
   description: |
-    This specifies a **RESTful API** for WSO2 **API Manager** - **Publisher**.
-    Please see [full OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [Swagger Specification 2.0](http://swagger.io/).
+    This document specifies a **RESTful API** for WSO2 **API Manager** - **Publisher**.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
@@ -40,18 +39,18 @@ info:
       }
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
-    base64 encoded admin username and password
-    Format of the request
+    base64 encoded admin username and password.
+    **Format of the request**
     ```
       curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
-    Sample request
+    **Sample request**
     ```
       curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
-    Following is a sample response after invoking the above curl
+    Following is a sample response after invoking the above curl.
     ```
     {
     "clientId": "fOCi4vNJ59PpHucC2CAYfYuADdMa",
@@ -69,13 +68,13 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for publisher REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorization** section of resource documentation.
-    Following is the format of the request if you are using the password grant type
+    Following is the format of the request if you are using the password grant type.
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<gateway_port>/token
     ```
-    Sample request.
+    **Sample request**
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
@@ -263,6 +262,7 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
           $ref: '#/responses/NotAcceptable'
+
     #-----------------------------------------------------
     # Create a new API
     #-----------------------------------------------------
@@ -435,11 +435,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         409:
@@ -473,11 +469,7 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         409:
@@ -603,11 +595,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -906,11 +894,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -1030,7 +1014,6 @@ paths:
         412:
           $ref: '#/responses/PreconditionFailed'
 
-
   ######################################################
   # The "API Throttling Policy" resource APIs
   ######################################################
@@ -1085,7 +1068,6 @@ paths:
           $ref: '#/responses/NotFound'
         406:
           $ref: '#/responses/NotAcceptable'
-
 
   ######################################################
   # The "Copy API" Processing Function resource API
@@ -1166,7 +1148,7 @@ paths:
           description: |
             The action to demote or promote the state of the API.
 
-            Supported actions are [ **Publish, Deploy as a Prototype, Demote to Created, Demote to Prototyped, Block, Deprecate, Re-Publish, Retire **]
+            Supported actions are [ **Publish**, **Deploy as a Prototype**, **Demote to Created**, **Block**, **Deprecate**, **Re-Publish**, **Retire** ]
 
           in: query
           type: string
@@ -1226,6 +1208,7 @@ paths:
           $ref: '#/responses/Conflict'
         412:
           $ref: '#/responses/PreconditionFailed'
+
   ######################################################
   #  The "API State Change History"  resource API
   ######################################################
@@ -1273,6 +1256,7 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
           $ref: '#/responses/NotFound'
+
   ######################################################
   #  The "API Lifecycle State Data"  resource API
   ######################################################
@@ -1362,9 +1346,8 @@ paths:
         412:
           $ref: '#/responses/PreconditionFailed'
 
-
   ######################################################
-  # The "Import API from OpenAPI Definition"  resource API
+  # The "Import API from OpenAPI Definition" resource API
   ######################################################
 
   /apis/import-openapi:
@@ -1517,7 +1500,6 @@ paths:
           $ref: '#/responses/BadRequest'
         415:
           $ref: '#/responses/UnsupportedMediaType'
-
 
   ######################################################
   # The "Import GraphQL API Schema from API Definition"  resource API
@@ -1943,11 +1925,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -2107,11 +2085,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         '404':
-          description: |
-            Not Found.
-            Requested Subscription does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Document Collection" resource APIs
@@ -2216,9 +2190,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -2778,15 +2750,12 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
           $ref: '#/responses/PreconditionFailed'
+
   ###################################################################
   # The "Individual API specific mediation sequence content" resource
   ###################################################################
@@ -2840,6 +2809,7 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
           $ref: '#/responses/NotFound'
+
     #-----------------------------------------------------
     # Update a mediation policy
     #-----------------------------------------------------
@@ -2907,11 +2877,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -3071,11 +3037,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -3111,9 +3073,7 @@ paths:
             OK.
             Requested complexity details returned.
         404:
-          description: |
-            Not Found.
-            Requested API does not contain any complexity details.
+          $ref: '#/responses/NotFound'
 
     #-----------------------------------------------------
     # Update API specific Custom Complexity Info
@@ -3146,9 +3106,7 @@ paths:
             Created.
             Complexity details created successfully.
         404:
-          description: |
-            Bad Request.
-            Complexity detail addition failed.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # GraphQL Schema "Types and Fields" resource API
@@ -3188,10 +3146,7 @@ paths:
           schema:
             $ref: '#/definitions/GraphQLSchemaTypeList'
         404:
-          description: |
-            Not Found.
-            Retrieving types and fields failed.
-
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Resource Paths" resource
@@ -3466,7 +3421,7 @@ paths:
         404:
           $ref: '#/responses/NotFound'
         500:
-          d$ref: '#/responses/InternalServerError'
+          $ref: '#/responses/InternalServerError'
 
 ######################################################
 # The "Subscription Collection" resource APIs
@@ -3762,7 +3717,6 @@ paths:
         406:
           $ref: '#/responses/NotAcceptable'
 
-
   ######################################################
   # The "Individual Tier" resource APIs
   ######################################################
@@ -3976,17 +3930,10 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Failure due to not providing alias or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        500:
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Upload client certificate resource api.
@@ -4044,18 +3991,10 @@ paths:
               type: string
           schema:
             $ref: '#/definitions/ClientCertMetadata'
-        '400':
-          description: |
-            Bad Request.
-            Failures due to existing alias or expired certificate.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-            Failed to add the Certificate due to an Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        500:
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Update certificate resource.
@@ -4114,24 +4053,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Failure due to not providing alias.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-            Updating certificate failed. Alias not found or server is not configured to support mutual SSL
-            authentication.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Delete Certificate resource
@@ -4172,24 +4099,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Alias not found or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found. |
-            Failed to delete the certificate. Certificate could not found for
-            the given alias
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Get certificate information resource.
@@ -4231,23 +4146,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Alias not found or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-            Alias not found
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Download the certificate which matches the alias.
@@ -4286,22 +4190,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Alias not provided or server is not configured to support mutual SSL authentication.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found. Certificate for the Alias not found.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # The "Certificate Management" resource APIs
@@ -4352,22 +4246,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Upload certificate resource api.
@@ -4420,19 +4304,10 @@ paths:
               type: string
           schema:
             $ref: '#/definitions/CertMetadata'
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-            * Failures due to existing alias or expired certificate.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-            * Failed to add the Certificate due to an Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        500:
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Update certificate resource.
@@ -4481,23 +4356,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-            Updating certificate failed. Alias not found
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Delete Certificate resource
@@ -4533,25 +4397,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found. |
-            Failed to delete the certificate. Certificate could not found for
-            the given alias
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
     # Get certificate information resource.
@@ -4588,23 +4439,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-            Alias not found
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
   # Download the certificate which matches the alias.
@@ -4638,23 +4478,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-            *
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found. Certificate for the Alias not found.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # The "Content Search Results" resource APIs
@@ -4715,7 +4544,6 @@ paths:
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
           $ref: '#/responses/NotAcceptable'
-
 
     ######################################################
     # The "API Product" resource APIs
@@ -4848,11 +4676,7 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -4963,11 +4787,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -5081,6 +4901,7 @@ paths:
           $ref: '#/responses/NotFound'
         412:
           $ref: '#/responses/PreconditionFailed'
+          
   ################################################################
   # The swagger resource of "Individual API" resource APIs
   ################################################################
@@ -5185,7 +5006,6 @@ paths:
         406:
           $ref: '#/responses/NotAcceptable'
 
-
   ######################################################
   # The "Document Collection" resource API Product
   ######################################################
@@ -5288,9 +5108,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -5617,9 +5435,7 @@ paths:
             OK.
             Requested role name exists.
         404:
-          description:
-            Not Found.
-            Requested role name does not exist.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # Check role existence for the logged-in user
@@ -5651,9 +5467,7 @@ paths:
             OK.
             Requested user has the role.
         404:
-          description:
-            Not Found.
-            Requested user does not have the role.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The External Store list to publish an API
@@ -5788,7 +5602,7 @@ paths:
           description: |
             The state represents the current state of the tenant
 
-            Supported states are [ active, inactive]
+            Supported states are [active, inactive]
 
           in: query
           type: string
@@ -5817,6 +5631,7 @@ paths:
           $ref: '#/responses/NotFound'
         406:
           $ref: '#/responses/NotAcceptable'
+
   ####################################################
   # Publisher Alerts management REST API
   ####################################################
@@ -5927,11 +5742,10 @@ paths:
           schema:
             $ref: '#/definitions/AlertsInfoResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid Request or request validation failure.
+          $ref: '#/responses/BadRequest'
         500:
           $ref: '#/responses/InternalServerError'
+
     #--------------------------------------------------
     # Unsubscribe the user from all the alerts types
     #--------------------------------------------------
@@ -6102,11 +5916,9 @@ paths:
         200:
           description:
             OK.
-            Requested role name exists.
+            Requested tenant exists.
         404:
-          description:
-            Not Found.
-            Requested role name does not exist.
+          $ref: '#/responses/NotFound'
 
   ####################################################
   # The "Label" resource API
@@ -6246,9 +6058,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
 ######################################################
 # The "Individual Shared Scope" resource APIs
@@ -6386,9 +6196,7 @@ paths:
             OK.
             Requested scope name exists.
         404:
-          description:
-            Not Found.
-            Requested scope name does not exist.
+          $ref: '#/responses/NotFound'
 
   /scopes/{scopeId}/usage:
 
@@ -6425,6 +6233,7 @@ paths:
               type: string
         404:
           $ref: '#/responses/NotFound'
+
   ######################################################
   # The "KEY MANAGER" resource API
   ######################################################
@@ -6492,22 +6301,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
 ######################################################
 # The "deployments status per API" resource APIs
@@ -6548,22 +6347,12 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-          schema:
-            $ref: '#/definitions/Error'
-        '404':
-          description: |
-            Not Found.
-          schema:
-            $ref: '#/definitions/Error'
-        '500':
-          description: |
-            Internal Server Error
-          schema:
-            $ref: '#/definitions/Error'
+        400:
+          $ref: '#/responses/BadRequest'
+        404:
+          $ref: '#/responses/NotFound'
+        500:
+          $ref: '#/responses/InternalServerError'
 
 ######################################################
 # Parameters - required by some of the APIs above
@@ -6925,12 +6714,26 @@ responses:
     description: Unauthorized. The user is not authorized.
     schema:
       $ref: '#/definitions/Error'
-    example:
-      code: 401
-      message: "Unauthorized"
-      description: "The user is not authorized"
-      moreInfo: ""
-      error: []
+    examples:
+      application/json:
+        code: 401
+        message: "Unauthorized"
+        description: "The user is not authorized"
+        moreInfo: ""
+        error: []
+
+  # Forbidden Error Response Schema
+  Forbidden:
+    description: Forbidden. The request must be conditional but no condition has been specified.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 403
+        message: "Forbidden"
+        description: "The request must be conditional but no condition has been specified"
+        moreInfo: ""
+        error: []
 
   # Not Found Error Response Schema
   NotFound:
@@ -7009,6 +6812,7 @@ responses:
         description: "The server encountered an internal error. Please contact administrator."
         moreInfo: ""
         error: []
+
 ######################################################
 # The resources used by some of the APIs above within the message body
 ######################################################
@@ -7555,17 +7359,18 @@ definitions:
         description: |
           UUID of the api product
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
         description: Name of the API Product
-        example: CalculatorAPIProduct
+        example: PizzaShackAPIProduct
       context:
         type: string
-        example: CalculatorAPI
+        example: pizzaproduct
       description:
         type: string
         description: A brief description about the API
-        example: A calculator API Product that supports basic operations
+        example: This is a simple API for Pizza Shack online pizza delivery store
       provider:
         description: |
           If the provider value is not given, the user invoking the API will be used as the provider.
@@ -7588,6 +7393,7 @@ definitions:
           it is not set OAuth2 will be set as the security for the current API.
         items:
           type: string
+        example: ["oauth2"]
 
   #-----------------------------------------------------
   # The Detailed API Product resource
@@ -7811,7 +7617,7 @@ definitions:
     properties:
       name:
         type: string
-        example: CalculatorAPI
+        example: PizzaShackAPI
       apiId:
         type: string
         example: 01234567-0123-0123-0123-012345678901
@@ -8842,11 +8648,14 @@ definitions:
         example: "postapiresource"
       target:
         type: string
+        example: /order/{orderId}
       verb:
         type: string
+        example: POST
       authType:
         type: string
         default: "Any"
+        example: Application & Application User
       throttlingPolicy:
         type: string
         example: "Unlimited"
@@ -8854,12 +8663,15 @@ definitions:
         type: array
         items:
           type: string
+        example: []
       usedProductIds:
         type: array
         items:
           type: string
+        example: []
       amznResourceName:
         type: string
+        example: ""
       amznResourceTimeout:
         type: integer
 
@@ -9070,12 +8882,15 @@ definitions:
     properties:
       name:
         type: string
+        example: "marketing_store"
       description:
         type: string
+        example: "Public microgateway for marketing"
       access_urls:
         type: array
         items:
           type: string
+        example: "https://localhost:9095"
 
   #-----------------------------------------------------
   # The Label List resource
@@ -9087,6 +8902,7 @@ definitions:
         type: integer
         description: |
           Number of Labels returned.
+        example: 1
       list:
         type: array
         items:
@@ -9109,7 +8925,7 @@ definitions:
           properties:
             name:
               type: string
-              example: "Deprecate old versions after publish the API"
+              example: "Deprecate old versions after publishing the API"
             value:
               type: boolean
               example: false
@@ -9117,16 +8933,17 @@ definitions:
               type: array
               items:
                 type: string
+              example: []
       availableTransitions:
         type: array
         items:
           properties:
             event:
               type: string
-              example: "Promote"
+              example: "Publish"
             targetState:
               type: string
-              example: "Created"
+              example: "Published"
 
   #-----------------------------------------------------
   # The Lifecycle history resource
@@ -9187,6 +9004,7 @@ definitions:
         description: |
           Attributes that returned after the workflow execution
         type: string
+        example: null
       lifecycleState:
         $ref: '#/definitions/LifecycleState'
 
@@ -9323,14 +9141,17 @@ definitions:
       statusCode:
         type: integer
         description: HTTP status code
+        example: 200
       statusMessage:
         type: string
         description: string
+        example: OK
       error:
         type: string
         description: |
           If an error occurs, the error message will be set to this property.
           If not, this will remain null.
+        example: null
 
   #-----------------------------------------------------
   # The Threat Protection Policy List Resource
@@ -9565,11 +9386,14 @@ definitions:
       path:
         type: string
         description: path of the resource
+        example: "/menu"
       content:
         type: string
         description: new modified code
+        example: "var accept = \"\\\"\"+mc.getProperty('AcceptHeader')+\"\\\"\";\nvar responseCode = mc.getProperty('query.param.responseCode');\nvar responseCodeStr = \"\\\"\"+responseCode+\"\\\"\";\nvar responses = [];\n\nif (!responses[200]) {\n responses [200] = [];\n}\nresponses[200][\"application/json\"] = \n[ {\n  \"price\" : \"string\",\n  \"description\" : \"string\",\n  \"name\" : \"string\",\n  \"image\" : \"string\"\n} ]\n\n/*if (!responses[304]) {\n  responses[304] = [];\n}\nresponses[304][\"application/(json or xml)\"] = {}/<>*/\n\nif (!responses[406]) {\n responses [406] = [];\n}\nresponses[406][\"application/json\"] = \n{\n  \"message\" : \"string\",\n  \"error\" : [ {\n    \"message\" : \"string\",\n    \"code\" : 0\n  } ],\n  \"description\" : \"string\",\n  \"code\" : 0,\n  \"moreInfo\" : \"string\"\n}\n\nresponses[501] = [];\nresponses[501][\"application/json\"] = {\n\"code\" : 501,\n\"description\" : \"Not Implemented\"}\nresponses[501][\"application/xml\"] = <response><code>501</code><description>Not Implemented</description></response>;\n\nif (!responses[responseCode]) {\n responseCode = 501;\n}\n\nif (responseCode == null) {\n responseCode = 200;\n responseCodeStr = \"200\";\n}\n\nif (accept == null || !responses[responseCode][accept]) {\n accept = \"application/json\";\n}\n\nif (accept === \"application/json\") {\n mc.setProperty('CONTENT_TYPE', 'application/json');\n mc.setProperty('HTTP_SC', responseCodeStr);\n mc.setPayloadJSON(responses[responseCode][\"application/json\"]);\n} else if (accept === \"application/xml\") {\n mc.setProperty('CONTENT_TYPE', 'application/xml');\n mc.setProperty('HTTP_SC', responseCodeStr);\n mc.setPayloadXML(responses[responseCode][\"application/xml\"]);\n}"
       verb:
         type: string
+        example: "POST"
 
   #-----------------------------------------------------
   # The Resource policy List resource
@@ -9621,6 +9445,7 @@ definitions:
       storeUrl:
         type: string
         description: Store URL
+        example: "https://localhost:9443/devportal"
       environment:
         type: array
         items:
@@ -9629,10 +9454,12 @@ definitions:
         type: array
         items:
           type: string
+        example: ["apim:api_create","apim:api_publish"]
       monetizationAttributes:
         type: array
         items:
           $ref: '#/definitions/MonetizationAttribute'
+        example: []
       securityAuditProperties:
         type: object
         items:
