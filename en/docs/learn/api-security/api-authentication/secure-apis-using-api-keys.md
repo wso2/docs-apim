@@ -168,3 +168,42 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
      [apim.devportal]
      api_key_alias = "<alias-name>"
      ```
+   
+### Configuring custom Key Store for signing API Key
+ 
+By default, the primary Key Store is used to sign the API Key. Also, the user can configure a custom Key Store for signing the API Keys following the steps.
+ 
+1. Add the custom Key Store in to `<API-M_HOME>/repository/resources/security` directory.
+
+2. Export the public certificate from the custom Key Store and import that into the client trust store as described in [Importing the public certificate into the client trust store]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#importing-the-public-certificate-into-the-client-trust-store)
+ 
+3. Add the custom Key Store configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
+    
+    ``` tab="Format"
+    [custom_keystore.KeyStoreName]
+    file_name = "<key store file name>"
+    type = "<type>"
+    password = "<key store password>"
+    alias = "<alias-name>"
+    key_password = "<private-key password>"
+    ```
+    
+    ``` tab="Example"
+    [custom_keystore.KeySignKeyStore]
+    file_name = "apikeysigner.jks"
+    type = "JKS"
+    password = "wso2carbon"
+    alias = "apikeysigner"
+    key_password = "wso2carbon"
+    ```
+   
+    !!! note
+         Here the Key Store name field is taken from the configuration header, which is `[custom_keystore.KeySignKeyStore]`. The rightmost part divided by the full stop will be the Key Store name. For the given sample that is `KeySignKeyStore`.
+   
+4. Configure the custom Key Store name to the `<API-M_HOME>/repository/conf/deployment.toml` file under `[apim.devportal]` as follows:
+     ```
+     [apim.devportal]
+     api_key_keystore = "KeySignKeyStore"
+     ```
+
+5. Configure the alias name value as described in [Changing the alias name in the JWT]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#changing-the-alias-name-in-the-jwt)
