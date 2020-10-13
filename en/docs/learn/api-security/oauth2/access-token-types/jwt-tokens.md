@@ -47,20 +47,16 @@ The following are the mandatory attributes that are required for a JWT access to
             <td>The subject of the token, which identifies as to whom the token refers to.</td>
          </tr>
          <tr>
-            <td>`application`</td>
-            <td>Application for which the token is generated.</td>
-         </tr>
-         <tr>
-            <td>`consumerKey`</td>
-            <td>Consumer key associated with the application.</td>
-         </tr>
-         <tr>
             <td>`iat`</td>
             <td>The time the token was issued.</td>
          </tr>
          <tr>
             <td>`exp`</td>
             <td>The expiry time of the token.</td>
+         </tr>
+         <tr>
+            <td>`iss`</td>
+            <td>The claim identifies the principal that issued the JWT.</td>
          </tr>
       </tbody>
    </table>
