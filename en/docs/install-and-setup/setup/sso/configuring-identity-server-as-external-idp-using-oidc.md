@@ -1,4 +1,4 @@
-# Configure Identity Server as External IDP using OIDC
+# Configuring Identity Server as External IDP using OIDC
 
 WSO2 API Manager uses OIDC Single Sign-On feature by default. This document explains how to connect an WSO2 Identity Server (or WSO2 IS-KM) as a third party Identity provider to API-Manager.
 
@@ -73,7 +73,7 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
     ```
     https://{apim-ip}:9443/carbon
     ```
-    
+
 2.  Navigate to the **Identity Providers** section under Main → Identity and create new Identity Provider.
 
     1.  Expand the **Federated Authenticators** section and add following configurations under **OAuth2/OpenIDConnect Configuration**:
@@ -162,3 +162,21 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 3.  Repeat the same step for apim_devportal Service Provider as well.
 
 Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
+
+!!! Tip "Troubleshooting"
+    When using Identity Server as external IdP, following error can be observed in API Manager, when login to Portals. 
+
+    ``` code
+        invalid_request, The client MUST NOT use more than one authentication method in each
+    ```
+
+    It is because MutualTLS authenticator is enabled by default in, from IS 5.8.0 onwards. Since the OIDC specification does not allow to use more than one authentication, the login fails with above error. In order to resolve this issue, add following configuration in the deployment.toml resides in <IS-Home>/repository/conf directory to disable the MutualTLS authenticator in IS.
+    
+    ``` toml
+    [[event_listener]]
+    id = "mutual_tls_authenticator"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator"
+    order = "158"
+    enable = false
+    ```
