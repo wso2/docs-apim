@@ -4453,8 +4453,8 @@ enable_email_domain = true</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="31" type="checkbox" id="_tab_31">
+                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos]
@@ -4678,8 +4678,8 @@ sso_loading_message = "Loading..."
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="32" type="checkbox" id="_tab_32">
+                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos.paypal]
@@ -4785,8 +4785,9 @@ environment = "live"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+
+                <input name="33" type="checkbox" id="_tab_33">
+                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos.manager_service]
@@ -4864,8 +4865,8 @@ admin_password = "admin"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="34" type="checkbox" id="_tab_34">
+                <label class="tab-selector" for="_tab_34"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.usage_agent.data_persistence_task]
@@ -4949,8 +4950,8 @@ execution_interval_in_ms = "-1"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="35" type="checkbox" id="_tab_35">
+                <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.throttling_manager_tasks]
@@ -4999,8 +5000,8 @@ data_providers = [
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="36" type="checkbox" id="_tab_36">
+                <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.throttling_manager_tasks.parameters]
@@ -5065,8 +5066,8 @@ delay = "60"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="37" type="checkbox" id="_tab_37">
+                <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.cloud_services]
@@ -5197,8 +5198,9 @@ description = "API Manager in the cloud"
     <section>
         <div class="mb-config-options">
             <div class="superfences-tabs">
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+
+                <input name="38" type="checkbox" id="_tab_38">
+                <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.demo]
@@ -5266,8 +5268,8 @@ subscription_charge = 0
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="39" type="checkbox" id="_tab_39">
+                <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.demo.users]
@@ -5335,8 +5337,8 @@ charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="40" type="checkbox" id="_tab_40">
+                <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.demo.resource_volume]
@@ -5401,8 +5403,8 @@ overuse_charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="41" type="checkbox" id="_tab_41">
+                <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.demo.bandwidth]
@@ -5467,8 +5469,8 @@ overuse_charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="42" type="checkbox" id="_tab_42">
+                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.smb]
@@ -5536,8 +5538,8 @@ subscription_charge = "100"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="43" type="checkbox" id="_tab_43">
+                <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.smb.users]
@@ -5605,8 +5607,8 @@ charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="44" type="checkbox" id="_tab_44">
+                <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.smb.resource_volume]
@@ -5671,8 +5673,8 @@ overuse_charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="45" type="checkbox" id="_tab_45">
+                <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.smb.bandwidth]
@@ -5737,8 +5739,8 @@ overuse_charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="46" type="checkbox" id="_tab_46">
+                <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[[multi_tenancy.billing.package.custom]]
@@ -5806,8 +5808,8 @@ subscription_charge = "500"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="47" type="checkbox" id="_tab_47">
+                <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.custom.users]
@@ -5875,8 +5877,8 @@ charge= "0"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="48" type="checkbox" id="_tab_48">
+                <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.custom.resource_volume]
@@ -5941,8 +5943,8 @@ overuse_charge = "0.03"
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="9" type="checkbox" id="_tab_9">
-                <label class="tab-selector" for="_tab_9"><i class="icon fa fa-code"></i></label>
+                <input name="49" type="checkbox" id="_tab_49">
+                <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.billing.package.custom.bandwidth]
