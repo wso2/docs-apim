@@ -4389,8 +4389,7 @@ persistent_notifier.password = "root"</code></pre>
         </div>
     </section>
 </div>
-<<<<<<< HEAD
-=======
+
 
 ## Tenant Management
 
@@ -4399,8 +4398,8 @@ persistent_notifier.password = "root"</code></pre>
         <div class="mb-config-options">
             <div class="superfences-tabs">
 
-                <input name="16" type="checkbox" id="_tab_16">
-                <label class="tab-selector" for="_tab_16"><i class="icon fa fa-code"></i></label>
+                <input name="30" type="checkbox" id="_tab_30">
+                <label class="tab-selector" for="_tab_30"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[tenant_mgt]
@@ -4444,4 +4443,3 @@ enable_email_domain = true</code></pre>
         </div>
     </section>
 </div>
->>>>>>> Fix suggestions and add tenant_mgt property to config catalogue
