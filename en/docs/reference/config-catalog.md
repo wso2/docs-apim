@@ -1337,7 +1337,7 @@ expiry_time = "900s"</code></pre>
 </div>
 
 
-## Cache Keymanager token
+## Keymanager token cache
 
 <div class="mb-config-catalog">
     <section>
