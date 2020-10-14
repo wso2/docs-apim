@@ -335,7 +335,6 @@ nav:
             - Extending Gateway:
                   - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-templates.md
         - Using the Siddhi Store REST API: develop/analytics-rest-api.md
-        - Using the Registry REST API: develop/using-the-registry-rest-api.md
     - Install and Setup:
         - Installation Guide:
             - Installation Prerequisites: install-and-setup/installation-guide/installation-prerequisites.md
