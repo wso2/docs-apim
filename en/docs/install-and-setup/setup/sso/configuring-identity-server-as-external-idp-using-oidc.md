@@ -35,11 +35,17 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
     https://{is-ip}:9444/carbon
     ```
 
-2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider with Callback URL - `https://{apim-ip}:9443/commonauth`
+2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider.
 
-3.  Edit the created Service Provider and navigate to Claim Configuration section. Add **http://wso2.org/claims/role** as mandatory claim and update the Service Provider configurations.
+3.  Edit the created Service Provider:
 
-    [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+    1.  Expand the **Claim Configuration** section. Add **http://wso2.org/claims/role** as mandatory claim.
+
+        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+
+    2.  Expand the **Inbound Authentication Configuration** secition and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
+
+    3. Update the Service Provider configurations.
 
 ### Step - 2 Create users and roles
 
