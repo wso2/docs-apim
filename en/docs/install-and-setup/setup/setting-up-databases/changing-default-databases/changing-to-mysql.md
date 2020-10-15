@@ -11,7 +11,7 @@ The following sections describe how to set up a MySQL database to replace the de
 
 -   [Setting up the database and users](#setting-up-the-database-and-users)
 -   [Setting up the drivers](#setting-up-the-drivers)
--   [Executing db scripts to create tables on MySQL database](#executing-db-scripts-to-create-tables-on-mysql-database)
+-   [Executing DB scripts to create tables on MySQL database](#executing-db-scripts-to-create-tables-on-mysql-database)
 
 ### Setting up the database and users
 
@@ -20,7 +20,7 @@ Follow the  instructions below to set up a MySQL database:
 !!! note
     WSO2 recommends that you use Failover configuration over Load Balanced configuration with the MySQL clusters.
 
-1.  Define the hostname for configuring permissions for the new database by opening the `/etc/hosts` file and adding the following:
+1.  Define the hostname for configuring permissions for the new database in the `/etc/hosts` file.
 
     !!! warning
         Do this step only if your database is not on your local machine and on a separate server.
@@ -36,7 +36,7 @@ Follow the  instructions below to set up a MySQL database:
 1.  Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `MYSQL_HOST_IP` is the IP of the host.
 
     !!! tip
-        User should have the database creation privileges.
+        The user should have the database creation privileges.
 
     ``` java
     $ mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
@@ -44,7 +44,7 @@ Follow the  instructions below to set up a MySQL database:
 
 1.  When prompted, specify the password that will be used to access the databases with the username you specified.
 
-1.  In the MySQL command prompt, create the database using the following command:
+1.  In the MySQL command prompt, create the database.
 
     ``` java
     mysql> create database <DATABASE_NAME>;
@@ -63,7 +63,7 @@ Follow the  instructions below to set up a MySQL database:
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
     
 
-1.  Give authorization to the user you use to access the databases as follows. 
+1.  Provide authorization to the user that you use to access the databases. 
 
      For example, let's consider `apimadmin` as the user.
 
@@ -72,7 +72,7 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
     !!! info
-        If you are using MySQL version - 8.0.x, use following commands to create the user and grant authorization:
+        If you are using MySQL version - 8.0.x, use the following commands to create the user and grant authorization:
 
         ``` java
         mysql> CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
@@ -82,13 +82,13 @@ Follow the  instructions below to set up a MySQL database:
         mysql> GRANT ALL ON APIM.* TO 'apimadmin'@'localhost';
         ```
 
-1.  After you have finalized the permissions, reload all the privileges by executing the following command:
+1.  After you have finalized the permissions, reload all the privileges.
 
     ``` java
     mysql> FLUSH PRIVILEGES;
     ```
 
-1.  Log out from the MySQL command prompt by executing the following command:
+1.  Log out from the MySQL command prompt.
 
     ``` java
     mysql> quit;
@@ -105,13 +105,13 @@ Follow the  instructions below to set up a MySQL database:
 !!! tip
     Be sure to use the connector version that is supported by the MySQL version you use. If you come across any issues due to version incompatibility, follow the  instructions below:
 
-    1.  Shut down the server and remove all existing connectors from the `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins` directories.
+    1.  Shut down the server and remove all the existing connectors from the `<API-M_HOME>/repository/components/lib` and `<API-M_HOME>/repository/components/dropins` directories.
     2.  Download the connector JAR that is compatible with your current MySQL version.
     3.  Copy the JAR file **only to** the `<API-M_HOME>/repository/components/lib` location.
     
-        Files will be copied automatically to the dropins folder during the server startup.
+        Files will be copied automatically to the `dropins` folder during the server startup.
 
-### Executing db scripts to create tables on MySQL database
+### Executing DB scripts to create tables on MySQL database
 
 1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
 
@@ -119,20 +119,20 @@ Follow the  instructions below to set up a MySQL database:
     $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
-2.  To create tables in the apim database (`WSO2AM_DB`), execute the relevant script as shown below.
+2.  Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
 
     ```sh
     $ mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
     ```
 
 !!! note
-    `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MySQL, then you need to have seperate databases for each API-M Traffic Manager node.
+    `<API-M_HOME>/dbscripts/mb-store/mysql-mb.sql` is the script that should be used when creating the tables in `WSO2_MB_STORE_DB` database. You can use H2 as the MB database even when working in production. However, if you need to change the MB database to MySQL, then you need to have separate databases for each API-M Traffic Manager node.
 
 !!! note
     Additional notes
 
     -   Ensure that MySQL is configured so that all nodes can connect to it.
-    -   To access the databases from remote instances, its required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
+    -   To access the databases from remote instances, it is required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
 
     ```tab="Format"
     mysql> grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
@@ -144,7 +144,7 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
 !!! note
-    In the sample commands above, its assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
+    In the sample commands above, it is assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
 
 ## Changing the database to MySQL
 
@@ -152,7 +152,7 @@ Follow the  instructions below to set up a MySQL database:
 
 ### Creating the datasource connection to MySQL
 
-A datasource is used to establish the connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasources are configured in the `deployment.toml` file for the purpose of connecting to the default H2 databases.
+A datasource is used to establish a connection to a database. By default, `WSO2_SHARED_DB` and `WSO2AM_DB` datasources are configured in the `deployment.toml` file to connect to the default H2 databases.
 
 After setting up the MySQL database to replace the default H2 database, either change the default configurations of the `WSO2_SHARED_DB` and `WSO2AM_DB` datasources, or configure a new datasource to point it to the new database as explained below.
 
@@ -165,7 +165,7 @@ Follow the  instructions below to change the type of the default datasources.
 
 2.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details as shown below.
 
-    | Element                       | Description                                                 |
+    | **Element**                       | **Description**                                                 |
     |-------------------------------|-------------------------------------------------------------|
     | **type**                      | The database type used                                      |
     | **url**                       | The URL of the database. The default port for MySQL is 3306 |
@@ -184,13 +184,13 @@ Follow the  instructions below to change the type of the default datasources.
     ``` tab="Example"
     [database.shared_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/shared_db"
+    url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
     username = "regadmin"
     password = "regadmin"
 
     [database.apim_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/apim_db"
+    url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
     username = "apimadmin"
     password = "apimadmin"
     ```
@@ -200,10 +200,13 @@ Follow the  instructions below to change the type of the default datasources.
         ``` java
         driver="com.mysql.cj.jdbc.Driver"
         ```
+    
+    !!! Tip "Recommendation"
+        It is not recommended to disable SSL connection in Production Environments (with `useSSL=false`). For security reasons, enabling SSL connection with MySQL server is preferred in Production Environment. Please refer [the guide](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html) to establish SSL connection with MySQL server.
 
 3.  You can update the configuration elements given below for your database connection.
 
-    | Element                | Description                                                                                                                                                                                                                                                                                                                                  |
+    | **Element**                | **Description**                                                                                                                                                                                                                                                                                                                                  |
     |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | **maxActive**          | The maximum number of active connections that can be allocated at the same time from this pool. Enter any negative value to denote an unlimited number of active connections.                                                                                                                                                                |
     | **maxWait**            | The maximum number of milliseconds that the pool will wait (when there are no available connections) for a connection to be returned before throwing an exception. You can enter zero or a negative value to wait indefinitely.                                                                                                              |
