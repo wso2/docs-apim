@@ -36,7 +36,7 @@ Follow the  instructions below to set up a MySQL database:
 1.  Enter the following command in a command prompt, where `USER_NAME` is the username that you will use to access the databases and `MYSQL_HOST_IP` is the IP of the host.
 
     !!! tip
-        The user should have the database creation privileges.
+        The user should have database creation privileges.
 
     ``` java
     $ mysql -h <MYSQL_HOST_IP> -u <USER_NAME> -p
@@ -58,7 +58,7 @@ Follow the  instructions below to set up a MySQL database:
           mysql> create database <DATABASE_NAME> character set latin1;
           ```
 
-        - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information, because when deleting the API, it keeps the Registry collection left behind.
+        - If you are using MySQL to configure your datasource, we recommend that you use a case sensitive database collation. For more information, see the [MySQL Official Manual](https://dev.mysql.com/doc/refman/5.7/en/charset-mysql.html). The default database collation, which is `latin1_swedish_ci`, is case insensitive. However, you need to maintain case sensitivity for database collation, because when the database or table has a case-insensitive collation in MySQL 5.6 or 5.7, if a user creates an API with letters using mixed case, deletes the API, and then creates another API with the same name, but in lower case letters, then the later created API loses its permission information because when deleting the API, it keeps the Registry collection left behind.
         
         - This issue could be avoided if you use a case sensitive collation for database and tables. In that case, when creating the second API (which has the same name, but is entirely in lowercase letters), it will create a new record with the lowercase name in the `UM_PERMISSION` table.
     
@@ -72,7 +72,7 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
     !!! info
-        If you are using MySQL version - 8.0.x, use the following commands to create the user and grant authorization:
+        If you are using MySQL version - 8.0.x, use the following commands to create the user and the grant authorization:
 
         ``` java
         mysql> CREATE USER 'apimadmin'@'localhost' IDENTIFIED BY 'apimadmin';
@@ -113,13 +113,13 @@ Follow the  instructions below to set up a MySQL database:
 
 ### Executing DB scripts to create tables on MySQL database
 
-1.  To create tables in the registry and user manager database (`WSO2_SHARED_DB`), execute the relevant script as shown below.
+1.  Execute the relevant scrip to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
     $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
     ```
 
-2.  Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
+2. Execute the relevant script to create tables in the apim database (`WSO2AM_DB`).
 
     ```sh
     $ mysql -u apimadmin -p -Dapim_db < '<API-M_HOME>/dbscripts/apimgt/mysql.sql';
@@ -144,7 +144,7 @@ Follow the  instructions below to set up a MySQL database:
     ```
 
 !!! note
-    In the sample commands above, it is assumed that the username and password defined in the datasource configurations in `<API-M_HOME>/repository/conf/deployment.toml` file is **wso2user** and **wso2123** respectively.
+    In the sample commands above, it is assumed that the username and password defined in the datasource configurations in the `<API-M_HOME>/repository/conf/deployment.toml` file are **wso2user** and **wso2123** respectively.
 
 ## Changing the database to MySQL
 
@@ -163,7 +163,7 @@ Follow the  instructions below to change the type of the default datasources.
 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file and locate the `[database.shared_db]` and `[database.apim_db]` configuration elements.
 
-2.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details as shown below.
+2.  You simply have to update the URL pointing to your MySQL database, the username, and password required to access the database, and the MySQL driver details as shown below.
 
     | **Element**                       | **Description**                                                 |
     |-------------------------------|-------------------------------------------------------------|
@@ -214,7 +214,7 @@ Follow the  instructions below to change the type of the default datasources.
     | **testOnBorrow**       | The indication of whether objects will be validated before being borrowed from the pool. If the object fails to validate, it will be dropped from the pool, and another attempt will be made to borrow another.                                                                                                                              |
     | **validationQuery**    | The SQL query that will be used to validate connections from this pool before returning them to the caller.                                                                                                                                                                                                                                  |
     | **validationInterval** | The indication to avoid excess validation, and only run validation at the most, at this frequency (time in milliseconds). If a connection is due for validation but has been validated previously within this interval, it will not be validated again.                                                                                      |
-    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto committing is usually handled at the code level, i.e., the default auto commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto committing is enabled for RDBMS drivers by default. When auto committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
+    | **defaultAutoCommit**  | This property is **not** applicable to the Carbon database in WSO2 products because auto-committing is usually handled at the code level, i.e., the default auto-commit configuration specified for the RDBMS driver will be effective instead of this property element. Typically, auto-committing is enabled for RDBMS drivers by default. When auto-committing is enabled, each SQL statement will be committed to the database as an individual transaction, as opposed to committing multiple statements as a single transaction.|                                                              
     | **commitOnReturn**     | If `defaultAutoCommit =false`, then you can set `commitOnReturn =true`, so that the pool can complete the transaction by calling the commit on the connection as it is returned to the pool. However, If `rollbackOnReturn =true` then this attribute is ignored. The default value is false.|
     | **rollbackOnReturn**   | If `defaultAutoCommit =false`, then you can set `rollbackOnReturn =true` so that the pool can terminate the transaction by calling rollback on the connection as it is returned to the pool. The default value is false.|
 
@@ -255,12 +255,12 @@ Follow the  instructions below to change the type of the default datasources.
 1.  Restart the server.
 
     !!! note
-        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, refer [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
+        To give the Key Manager, Publisher, and Developer Portal components access to the user management data with shared permissions, JDBCUserStoreManager has been configured by default. For more information, see [Configuring Userstores]({{base_path}}/administer/product-administration/managing-users-and-roles/managing-user-stores/configure-primary-user-store/configuring-a-jdbc-user-store).
 
     !!! info
         **Changing WSO2CARBON_DB to MySQL**
         
-        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
+        By default `WSO2CARBON_DB` will be an embedded H2 database and it is **not necessary** to change it to another database. But if you have a requirement to change it, you can follow the below steps. (When changing the Carbon database, make sure that **each server node have its own WSO2CARBON_DB**. If you don't want to change the carbon database, then you can ignore this section.)
         
         - Create tables in the carbon database (`WSO2CARBON_DB`) using the script `<API-M_HOME>/dbscripts/mysql.sql`.
         -   Open the `<API-M_HOME>/repository/conf/deployment.toml` configuration file. Locate the `[database.local]` configuration element and update the URL pointing to your MySQL database, the username, and password required to access the database and the MySQL driver details similarly as explained before.
