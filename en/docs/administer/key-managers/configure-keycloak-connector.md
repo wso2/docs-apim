@@ -321,7 +321,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
 4. Click **Sandbox Keys**.
 
-     ![Keycloak Developer Portal generate keys]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)
+     [![Keycloak Developer Portal generate keys]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)
 
 5. Select the **Response Type**.
 
