@@ -47,7 +47,7 @@ All scripts used to run the performance tests and analyze results are in the fol
 Considering the fact that an average WSO2 API Manager user uses ~1KiB messages, the performance test highlights for that scenario are represented in the charts below. The complete results can be found [here.](https://github.com/wso2/performance-apim/tree/performance-test-166-2020-06-13_19-22-35/performance/benchmarks/summary.md)
 
 The following graph depicts the throughput changes based on the number of concurrent users.
-[![Performance result graph - throughtput]({{base_path}}/assets/img/setup-and-install/performance-result-graph-throughput-0ms-1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-result-graph-throughput-0ms-1KiB.png)
+[![Performance result graph - throughtput]({{base_path}}/assets/img/setup-and-install/performance-result-graph-throughput-0ms-1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-result-graph-throughput-0ms-1kib.png)
 
 Key observations:
 
@@ -57,7 +57,7 @@ Key observations:
 
 The following graph depicts the average response time changes based on the number of concurrent users.
 
-[![Performance result graph - response time]({{base_path}}/assets/img/setup-and-install/performance-result-graph-response-time-0ms-1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-result-graph-response-time-0ms-1KiB.png)
+[![Performance result graph - response time]({{base_path}}/assets/img/setup-and-install/performance-result-graph-response-time-0ms-1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-result-graph-response-time-0ms-1kib.png)
 
 Key observations:
 
@@ -69,7 +69,7 @@ Let’s look at the 90th, 95th, and 99th response time percentiles. This is usef
 
 For example, when there are 100 concurrent users, the 90th response time percentile for Echo API is 52ms. This means that 10% of the requests have taken more than 52ms to respond. Similarly, the 99th response time percentile for Echo API is 101ms, which means that 99% of the requests have been completed within 101ms.
 
-[![Performance result graph - response time percentiles]({{base_path}}/assets/img/setup-and-install/performance-result-graph-precentiles-0ms-1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-result-graph-precentiles-0ms-1KiB.png)
+[![Performance result graph - response time percentiles]({{base_path}}/assets/img/setup-and-install/performance-result-graph-precentiles-0ms-1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-result-graph-precentiles-0ms-1kib.png)
 
 Key observations:
 
