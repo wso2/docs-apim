@@ -15,6 +15,8 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
      
     `http://localhost:8080/auth`
 
+    <a name="step12"></a>
+    
 2. Click **Client Scopes** and create client scope named "default".
 
      [![add default client scope]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)]({{base_path}}/assets/img/administer/keycloak-add-client-scope-default.png)
@@ -46,7 +48,7 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
 
      [![Keycloak client secret]({{base_path}}/assets/img/administer/keycloak-client-secret.png)]({{base_path}}/assets/img/administer/keycloak-client-secret.png)
 
-## Step 2 - Configure Keycloak
+## Step 2 - Configure WSO2 API Manager
 
 1. Import Keycloak certificate into the WSO2 API Manager truststore.
 
@@ -304,3 +306,26 @@ Follow the instructions given below to configure Keycloak as a third-party Key M
             <td>Optional</td>
           </tr>
           </table>
+
+## Step 3 - Generate keys using the Keycloak Key Manager
+
+1. Sign in to the Developer Portal.
+
+    `https://<hostname>:9443/devportal`
+
+    `https://localhost:9443/devportal`
+
+2. Click **Applications**.
+
+3. Create a new application or use the default application.
+
+4. Click **Sandbox Keys**.
+
+     [![Keycloak Developer Portal generate keys]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)]({{base_path}}/assets/img/administer/keycloak-devportal-generate-keys.png)
+
+5. Select the **Response Type**.
+
+6. Click **Generate Keys**.
+
+!!! tip
+     If you want to generate the tokens with scopes, those scopes should have been defined in Keycloak as mentioned in the <a href="#step12">Step 1 - (2)</a>.
