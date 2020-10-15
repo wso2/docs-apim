@@ -380,7 +380,7 @@ nav:
                 - Production Deployment Guidelines: install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines.md
                 - Security Guidelines for Production Deployment: install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment.md
         - SSO:
-            - Configure Identity Server As External IDP using OIDC: install-and-setup/setup/sso/configure-identity-server-as-external-idp-using-oidc.md
+            - Configure Identity Server As External IDP using OIDC: install-and-setup/sso/configure-identity-server-as-external-idp-using-oidc.md
         - Setting up Databases:
             - Overview: install-and-setup/setting-up-databases/overview.md
             - Changing Default Databases:

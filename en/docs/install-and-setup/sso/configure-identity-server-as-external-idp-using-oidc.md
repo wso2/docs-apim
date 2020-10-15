@@ -35,9 +35,18 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
     https://{is-ip}:9444/carbon
     ```
 
-2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider with Callback URL - `https://{apim-ip}:9443/commonauth`
+2.  Navigate to the **Service Providers** section under Main → Identity and create new Service Provider.
 
-3.  Edit the created Service Provider and navigate to Claim Configuration section. Add **http://wso2.org/claims/role** as mandatory claim and update the Service Provider configurations.
+3.  Edit the created Service Provider:
+
+    1.  Expand the **Claim Configuration** section. Add **http://wso2.org/claims/role** as mandatory claim.
+
+        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider.png)
+
+    2.  Expand the **Inbound Authentication Configuration** secition and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
+
+    3. Update the Service Provider configurations.
+
 
 ### Step - 2 Create users and roles
 
@@ -115,7 +124,11 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
         Following image shows the sample values for OAuth2/OpenIDConnect Configurations:
 
+        [![]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)
+
     2.  Enable Just-in-Time Provisioning to provision the users in API Manager: 
+
+        [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     3.  Add the following role mapping under **Role Configuration** section:
         <table>
@@ -137,6 +150,8 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
             </tbody>
         </table>
 
+        [![]({{base_path}}/assets/img/setup-and-install/role-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-configuration-for-sso.png)
+
     !!! Tip
         Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users.
 
@@ -149,7 +164,27 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
 2.  Expand the **Local & Outbound Authentication Configuration** section and select **Federated Authentication** as Authentication Type and select the name of the Identity Provider you created in Step 5 and update.
 
+    [![]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration.png)]({{base_path}}/assets/img/setup-and-install/local-and-outbound-authentication-configuration.png)
+
 3.  Repeat the same step for apim_devportal Service Provider as well.
 
 
 Now you will be able to login to Publisher and Devportal using the users in WSO2 Identity Server.
+
+!!! Tip "Troubleshooting"
+    When using Identity Server as external IdP, following error can be observed in API Manager, when login to Portals. 
+
+    ``` code
+        invalid_request, The client MUST NOT use more than one authentication method in each
+    ```
+
+    It is because MutualTLS authenticator is enabled by default in, from IS 5.8.0 onwards. Since the OIDC specification does not allow to use more than one authentication, the login fails with above error. In order to resolve this issue, add following configuration in the deployment.toml resides in <IS-Home>/repository/conf directory to disable the MutualTLS authenticator in IS.
+
+    ``` toml
+    [[event_listener]]
+    id = "mutual_tls_authenticator"
+    type = "org.wso2.carbon.identity.core.handler.AbstractIdentityHandler"
+    name = "org.wso2.carbon.identity.oauth2.token.handler.clientauth.mutualtls.MutualTLSClientAuthenticator"
+    order = "158"
+    enable = false
+    ```
