@@ -8,7 +8,7 @@ The [Swagger UI](https://github.com/swagger-api/swagger-ui) is a dependency-free
 
 For more information also, see the [Swagger 2.0 specification](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md).
 
-Let's see how to use the API Console in the Developer Portal to invoke on an API.
+Let's see how to use the API Console in the Developer Portal to invoke an API.
 
 !!! Note
     You can only try out HTTPS-based APIs via the API Console because the Developer Portal runs on HTTPS.
@@ -37,13 +37,13 @@ The examples here use the `PizzaShack` REST API, which was created in [Create a 
         As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
 
 
-4. Click **APIs**, and click on the API that you wanted to invoke. 
+4. Click **APIs**, and click on the API that you need to invoke. 
 
 5. Click **Test** under the resources section of the API.
 
     [![API console test button]({{base_path}}/assets/img/learn/api-console-test-button.png)]({{base_path}}/assets/img/learn/api-console-test-button.png)
 
-    This will open the OpenAPI UI(API Console) to test the PizzaShack API.
+    The OpenAPI UI (API Console) to test the PizzaShack API appears.
 
 6.  Enter the copied access token in the **Authorization** field.
 
