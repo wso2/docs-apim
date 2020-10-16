@@ -2,117 +2,114 @@
 
 WSO2 API Manager (WSO2 API-M) has an integrated Swagger UI, which is part of the Swagger project.
 
-[Swagger](http://swagger.io/) is a 100% open source, standard, language-agnostic specification and a complete framework for describing, producing, consuming, and visualizing RESTful APIs, without the need of a proxy or third-party services. Swagger allows consumers to understand the capabilities of a remote service without accessing its source code and interacts with the service with a minimal amount of implementation logic. Swagger helps describe a service in the same way that interfaces describe lower-level programming code.
+[Swagger](http://swagger.io/) is a 100% open source, standard, language-agnostic specification and a complete framework for describing, producing, consuming, and visualizing RESTful APIs, without the need for a proxy or third-party services. Swagger allows consumers to understand the capabilities of a remote service without accessing its source code and interacts with the service with a minimal amount of implementation logic. Swagger helps describe a service in the same way that interfaces describe lower-level programming code.
 
 The [Swagger UI](https://github.com/swagger-api/swagger-ui) is a dependency-free collection of HTML, JavaScript, and CSS that dynamically generate documentation from a Swagger-compliant API. Swagger-compliant APIs give you interactive documentation, client SDK generation and more discoverability. The Swagger UI has JSON code and its UI facilitates easier code indentation, keyword highlighting, and shows syntax errors on the fly. You can add resource parameters, summaries, and descriptions to your APIs using the Swagger UI.
 
-For more information also, see the [Swagger 2.0 specification](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) .
+For more information also, see the [Swagger 2.0 specification](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md).
 
 Let's see how to use the API Console in the Developer Portal to invoke an API.
 
 !!! Note
-    You can only try out HTTPS based APIs via the API Console because the Developer Portal runs on HTTPS.
+    You can only try out HTTPS-based APIs via the API Console because the Developer Portal runs on HTTPS.
 
 
-The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) .
+The examples here use the `PizzaShack` REST API, which was created in [Create a REST API]({{base_path}}/learn/design-api/create-api/create-a-rest-api/).
 
-1.  Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack` ).
+1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API (e.g., `PizzaShack`).
 
-2.  Subscribe to the API (e.g., `PizzaShack` 1.0.0) using an application and an available tier.
+2. Subscribe to the API (e.g., `PizzaShack` 1.0.0) using an application and an available throttling policy.
 
-    ![]({{base_path}}/assets/img/learn/subscribe-to-api.png)
+    [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
-3.  On the **Applications** menu, open the application you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
+3. Click **Applications** and then click on the application that you used to subscribe to the API. Click **Production Keys** and click **Generate keys** to generate a production key.
 
-    ![]({{base_path}}/assets/img/learn/generate-keys-production.png)
+     [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
 
     !!! tip
         **Production and Sandbox Tokens**
 
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip
         **JWT tokens**
 
-        Since the application is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. 
+        As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
 
 
-4.  On the **APIs** menu, select the API that you want to invoke. When the API opens, click on **Test** button under resources section.
+4. Click **APIs**, and click on the API that you need to invoke. 
 
-    ![]({{base_path}}/assets/img/learn/api-console-test-button.png)
+5. Click **Test** under the resources section of the API.
 
-5. This will open the OpenAPI UI(API Console) to test the PizzaShack API. Copy the generated access token to the Authorization field as depicted in the following figure.
+    [![API console test button]({{base_path}}/assets/img/learn/api-console-test-button.png)]({{base_path}}/assets/img/learn/api-console-test-button.png)
 
-    ![]({{base_path}}/assets/img/learn/copy-access-token.png)
+    The OpenAPI UI (API Console) to test the PizzaShack API appears.
 
+6.  Enter the copied access token in the **Authorization** field.
 
-6.  Expand the GET method and click Try it out. Then click on execute as follows.
+     [![]({{base_path}}/assets/img/learn/copy-access-token.png)]({{base_path}}/assets/img/learn/copy-access-token.png)
+
+7. Expand the GET method and click **Try it out**. Click **Execute**.
  
-    ![]({{base_path}}/assets/img/learn/api-console-execute.png)
+     [![API console execute]({{base_path}}/assets/img/learn/api-console-execute.png)]({{base_path}}/assets/img/learn/api-console-execute.png)
 
-
-    !!! Note
-        **Troubleshooting**
-
-        If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception** ), it could be because the security certificate issued by the server is not trusted by your browser. To resolve this issue, access the HTTPS endpoint directly from your browser and accept the security certificate.
+    !!! Note "Troubleshooting"
+        If you **cannot invoke the API's HTTPS endpoint** (this causes the **SSLPeerUnverified exception**), it could be because the security certificate issued by the server is not trusted by your browser. To resolve this issue, access the HTTPS endpoint directly from your browser and accept the security certificate.
         
-        If the API Manager has a **certificate signed by a Certificate Authority** (CA), the HTTPS endpoints should work out of the box.
+        If WSO2 API Manager has a **certificate signed by a Certificate Authority** (CA), the HTTPS endpoints should work out-of-the-box.
 
+Note the successful response for the API invocation.
 
-    Note the successful response for the API invocation. 
+[![API response]({{base_path}}/assets/img/learn/api-response.png)]({{base_path}}/assets/img/learn/api-response.png)
 
-    ![]({{base_path}}/assets/img/learn/api-response.png)
-
-You have now successfully invoked an API using the Open API Console.
-
+You have now successfully invoked an API using the Open API Console
 
 ## Invoke an API deployed on a cloud cluster
 
-!!! attention "Before You Begin"
-    1. You need to have an API published to a cloud cluster in order to invoke the API as follows. Follow the document [Publish an API to a Cloud Cluster in PrivateJet Mode](learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/) to learn how to publish an API to a cloud cluster in privatejet mode.
+!!! Attention "Before You Begin"
+    You need to have an API published to a cloud cluster in order to invoke the API as follows. For instructions on how to publish an API to a cloud cluster in PrivateJet Mode, see [Publish an API to a Cloud Cluster in PrivateJet Mode]({{base_path}}/learn/design-api/publish-api/publish-an-api-to-a-cloud-cluster-in-privatejet-mode/).
 
-1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click an API which was deployed on a cloud cluster. **Note**  that the accessURL of the API can be found under Gateway Environments.
+1. Sign in to the WSO2 Developer Portal (`https://<hostname>:9443/devportal`) and click on the API that you deployed on a cloud cluster. 
+
+    !!! Note
+        You can find the accessURL that corresponds the API under **Gateway Environments**.
    
-    ![Developer portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
+    [![Developer Portal - Overview]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)]({{base_path}}/assets/img/learn/privatejet-mode/devportal.png)
    
-2.  Subscribe to the API using an application and an available tier.
+2. Subscribe to the API using an application and an available throttling policy.
 
-    ![]({{base_path}}/assets/img/learn/subscribe-to-api.png)
+    [![Subscribe to an API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
-3.  On the **Applications** menu, open the application you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
+3.  Click **Applications**, click on the application that you used to subscribe to the API. Click the **Production Keys** tab and click **Generate keys** to generate a production key.
 
-    ![]({{base_path}}/assets/img/learn/generate-keys-production.png)
+    [![Generate production keys]({{base_path}}/assets/img/learn/generate-keys-production.png)]({{base_path}}/assets/img/learn/generate-keys-production.png)
 
     !!! tip
         **Production and Sandbox Tokens**
 
-        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more details, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
+        To generate keys for the Sandbox endpoint, go to the **Sandbox Keys** tab. For more information, see [Maintaining Separate Production and Sandbox Gateways]({{base_path}}/learn/api-gateway/maintaining-separate-production-and-sandbox-gateways/#multiple-gateways-to-handle-production-and-sandbox-requests-separately).
 
     !!! tip
         **JWT tokens**
 
-        Since the application is self-contained(JWT), then **copy the generated access token** before proceeding to the next step. 
+        As the application is self-contained (JWT), **copy the generated access token** before proceeding to the next step. 
     
 4. Click **Try Out** to navigate to the API Console.
     
-5. Select the gateway as **configured container management cluster**.
+5. Select the Gateway as **configured container management cluster**.
     
-    ![Developer portal - Try Out gateway selection]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)
+    [![Developer Portal - Try Out gateway selection]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)]({{base_path}}/assets/img/learn/privatejet-mode/tryout-console-gateway-selection.png)
     
-6. Expand a method and click Try it out. Then click on execute as follows.
+6. Expand a method and click **Try it out**. Click **Execute**.
     
-    ![]({{base_path}}/assets/img/learn/api-console-execute.png)
+    [![API console execute]({{base_path}}/assets/img/learn/api-console-execute.png)]({{base_path}}/assets/img/learn/api-console-execute.png)
         
 ## Get a test key to invoke an API
 
-When you want to test invoking an API resource, you can easily get a test key from API console rather than going 
-back to the applications page and generating a one. Once you click **Try Out** to navigate to the API Console, 
-click on the `GET TEST KEY` button to generate a test key as below.
+When you want to test out the process of invoking an API resource, you can easily get a test key from the API console rather than going back to the Applications page and generating a key. Click **Try Out** to navigate to the API Console, click on the `GET TEST KEY` button to generate a test key.
 
 [![Get test key]({{base_path}}/assets/img/learn/get-test-key.png)]({{base_path}}/assets/img/learn/get-test-key.png)
 
 !!! tip
 
-        TEST KEY will be generated with default scopes attached to the API. If you need to generate a token with 
-        specific scopes, go to the application view and generate a token. 
-    
+    TEST KEY will be generated with default scopes attached to the API. If you need to generate a token with specific scopes, go to the application view and generate a token.
