@@ -82,14 +82,17 @@ If you have difficulty in setting up any WSO2 product in a specific platform or 
 </ul>
 </td></tr></table></html>
 
-## Database Storage Requirements
+## Database storage requirements
 
 <html>
 <table>
 <tr>
-<th><strong>DB Type</strong></th>
-<th><strong>Minimum storage required for AM Database</strong></th>
-<th><strong>Minimum storage required for Shared Database</strong></th>
+<th rowspan="2"><strong>DB Type</strong></th>
+<th colspan="2"><strong>Minimum storage required for databases</strong></th>
+</tr>
+<tr>
+<th><strong>AM Database</strong></th>
+<th><strong>Shared Database</strong></th>
 </tr>
 <tr>
 <td><strong>MySQL</strong></td>
@@ -143,7 +146,7 @@ The following applications are required for running WSO2 API Manager and its sam
 </tr>
 <tr>
 <td>
-<b>Apache Ant</b>
+<p><b>Apache Ant</b></p>
 </td>
 <td>
 <ul>
@@ -165,7 +168,7 @@ The following applications are required for running WSO2 API Manager and its sam
 </tr>
 <tr>
 <td>
-<b>Web Browser</b>
+<p><b>Web Browser</b></p>
 </td><td>
 <ul><li>  To access the <a href="{{base_path}}/install-and-setup/install/running-the-product/">Management Console</a>. The Web browser must be JavaScript enabled to take full advantage of the Management console.
 </li></ul>
