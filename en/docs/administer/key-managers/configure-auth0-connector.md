@@ -5,71 +5,86 @@ It is possible to integrate the WSO2 API Manager with an external Identity and A
 Follow the instructions below to configure Auth0 as a third-party Key Manager:
 
 !!! info
-    For more information, see the [Getting Started Guide, which is under the official Auth0 documentation](https://auth0.com/docs/get-started).
+    For more information, see the [Getting Started Guide](https://auth0.com/docs/get-started), which is under the official Auth0 documentation.
 
 ## Step 1 - Configure Auth0
 
-1.  Create an Auth0 account. Get the URL for the tenant and then sign in to the dashboard.
+1. Create an Auth0 account.
+     
+     Get the URL for the tenant and then sign in to the dashboard.
 
-   [![auth0 dashboard]({{base_path}}/assets/img/administer/auth0-dashboard.png)]({{base_path}}/assets/img/administer/auth0-dashboard.png)
+     [![auth0 dashboard]({{base_path}}/assets/img/administer/auth0-dashboard.png)]({{base_path}}/assets/img/administer/auth0-dashboard.png)
 
-2.  Then you need to create an application to use the management API. Then need's to allow that application to use the management API.
+2. Create an application to use the management API.
 
-    [![auth0 management api]({{base_path}}/assets/img/administer/auth0-management-api.png)]({{base_path}}/assets/img/administer/auth0-management-api.png)
+     [![auth0 management api]({{base_path}}/assets/img/administer/auth0-management-api.png)]({{base_path}}/assets/img/administer/auth0-management-api.png)
 
-    [![auth0 new application]({{base_path}}/assets/img/administer/auth0-new-application.png)]({{base_path}}/assets/img/administer/auth0-new-application.png)
-    
-    [![auth0 permission to use app]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)
-   
-    Make sure you have granted all the permissions to Create, Manage Apps and Resource servers. 
-   
-3.  Create a custom API by navigating to APIs as below.
+     [![auth0 new application]({{base_path}}/assets/img/administer/auth0-new-application.png)]({{base_path}}/assets/img/administer/auth0-new-application.png)
 
-    [![auth0 create custom api]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)
+3. Allow that application to use the management API.
 
-    <a name="step13"></a>
-    
-4.  Create a new scope named `default` for the API by navigating to permissions tab in the custom API.    
+     Make sure that you have granted all the permissions to Create, Manage Apps, and Resource servers.
 
-    [![auth0 create scope]({{base_path}}/assets/img/administer/auth0-create-scope.png)]({{base_path}}/assets/img/administer/auth0-create-scope.png)
+     [![auth0 permission to use app]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)]({{base_path}}/assets/img/administer/auth0-permission-to-use-app.png)
+
+4. Navigate to the **APIs** section and create a custom API.
+
+     [![auth0 create custom api]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)]({{base_path}}/assets/img/administer/auth0-create-custom-api.png)
+
+     <a name="step1-4"></a>
+
+5. Navigate to the **Permissions** tab in the custom API and create a new scope named `default` for the API.
+
+     [![auth0 create scope]({{base_path}}/assets/img/administer/auth0-create-scope.png)]({{base_path}}/assets/img/administer/auth0-create-scope.png)
 
 ## Step 2 - Configure WSO2 API Manager
 
-1.  Log into the admin portal of the API Manager and add a new Key Manager.
-    
-    [![auth0 add app admin]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)
-    
-2.  Then select the Key manager type as Auth0 and provide the relevant fields accordingly.
+1. Start WSO2 API Manager.
 
-    [![auth0 km type]({{base_path}}/assets/img/administer/auth0-km-type.png)]({{base_path}}/assets/img/administer/auth0-km-type.png)
- 
-    **List of well know address could be found in advance section of the Auth0 Application settings**    
-    
-        Eg. https://my-tenant.us.auth0.com/.well-known/openid-configuration
-    
-    [![auth0 endpoints]({{base_path}}/assets/img/administer/auth0-endpoints.png)]({{base_path}}/assets/img/administer/auth0-endpoints.png)    
-    
-    The introspection endpoint will not be populated since it is not exposed in Auth0. Therefore, 
-    set its value as <code>none</code>. Select the token validation method as <code>Self validate JWT</code> like below.
-    
-    [![auth0 token validation]({{base_path}}/assets/img/administer/auth0-token-validation.png)]({{base_path}}/assets/img/administer/auth0-token-validation.png)    
+2. Sign in to the Admin Portal.
 
-3.  Set the grant types which are allowed in Auth0 as below. The format of the grant types can be found in 
-<a href="https://auth0.com/docs/applications/application-grant-types">this link</a>.
-    
-    [![auth0 grant types]({{base_path}}/assets/img/administer/auth0-grant-types.png)]({{base_path}}/assets/img/administer/auth0-grant-types.png)        
-    
-4.  The client ID, Client secret of the application created to invoke Manage API should be provided for the settings. You can get to the audience 
-value from Manage API.
+     `https://<hostname>:9443/admin`
 
-    [![auth0 connector configs]({{base_path}}/assets/img/administer/auth0-connector-configs.png)]({{base_path}}/assets/img/administer/auth0-connector-configs.png)    
-    
-    The following table provides definitions for each of the Key Manager configurations.
+     `https://localhost:9443/admin`
 
-    <table>
+3. Add a new Key Manager.
+
+     [![auth0 add app admin]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)]({{base_path}}/assets/img/administer/auth0-add-app-admin.png)
+
+    1. Select the Key manager type as Auth0 and provide the relevant details in the fields accordingly.
+
+        [![auth0 km type]({{base_path}}/assets/img/administer/auth0-km-type.png)]({{base_path}}/assets/img/administer/auth0-km-type.png)
+
+        !!! info
+            A list of well know addresses can be found in the advance section of the Auth0 Application settings
+
+            Example: ```https://my-tenant.us.auth0.com/.well-known/openid-configuration```
+
+         [![auth0 endpoints]({{base_path}}/assets/img/administer/auth0-endpoints.png)]({{base_path}}/assets/img/administer/auth0-endpoints.png)
+
+         - The introspection endpoint will not be populated as it is not exposed in Auth0. Therefore, set its value as <code>none</code>. 
+         - Select the token validation method as <code>Self validate JWT</code> as shown below.
+
+         <a href="{{base_path}}/assets/img/administer/auth0-token-validation.png"><img src="{{base_path}}/assets/img/administer/auth0-token-validation.png" width="400" alt="auth0 token validation"></a>
+
+     2. Set the grant types which are allowed in Auth0.
+
+         For information on the format of the grant types, go to <a href="https://auth0.com/docs/applications/application-grant-types">Application Grant Types</a> in the official Auth0 documentation.
+
+         [![auth0 grant types]({{base_path}}/assets/img/administer/auth0-grant-types.png)]({{base_path}}/assets/img/administer/auth0-grant-types.png)
+
+     3. Enter the client ID and client secret of the application that was created to invoke the Manage API.
+
+         You can get to the audience value from Manage API.
+
+         [![auth0 connector configs]({{base_path}}/assets/img/administer/auth0-connector-configs.png)]({{base_path}}/assets/img/administer/auth0-connector-configs.png)
+
+     The following table provides definitions for each of the Key Manager configurations.
+
+     <table>
         <tr class="header">
-            <th>Configuration</th>
-            <th>Description</th>
+            <th><b>Configuration</b></th>
+            <th><b>Description</b></th>
             <th> </th>
         </tr>
         <tr class="odd">
@@ -97,13 +112,13 @@ value from Manage API.
             <td><p>The well-known URL of the Authorization Server (Key Manager).
                 <br/>
                 If the well-known URL is provided, other endpoints can be imported.
-                <br/> e.g., https://dev-ted144kt.us.auth0.com/.well-known/openid-configuration</p>
+                <br/> <b>Example:</b> <br/><code>https://dev-ted144kt.us.auth0.com/.well-known/openid-configuration</code></p>
             </td>
             <td>Optional</td>
         </tr>
         <tr class="even">
             <td>Issuer</td>
-            <td>The issuer that consumes or validates access tokens. <br/>e.g., https://dev-ted144kt.us.auth0.com/</td>
+            <td>The issuer that consumes or validates access tokens. <br/><b>Example:</b><br/> https://dev-ted144kt.us.auth0.com/</td>
             <td>Optional</td>
         </tr>
         <tr class="odd">
@@ -113,14 +128,13 @@ value from Manage API.
         </tr>
         <tr class="even">
             <td>Client Registration Endpoint </td>
-            <td><p>The endpoint that verifies the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</p></td>
+            <td><p>The endpoint that verifies the identity and obtains profile information of the end-user based on the authentication performed by an authorization server.</p></td>
             <td>Optional if the well-known URI is provided.</td>
         </tr>
         <tr class="odd">
             <td>Introspection Endpoint</td>
             <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.</td>
-            <td>The introspection endpoint will not be populated since it is not exposed in Auth0. Therefore,
-                set its value as <code>none</code></td>
+            <td>The introspection endpoint will not be populated as it is not exposed in Auth0. Therefore, set its value as <code>none</code></td>
         </tr>
         <tr class="even">
             <td>Token Endpoint</td>
@@ -139,12 +153,12 @@ value from Manage API.
         </tr>
         <tr class="odd">
             <td>Authorize Endpoint</td>
-            <td>The endpoint used to obtain an authorization grant from the resource owner via the user-agent redirection.</td>
+            <td>The endpoint is used to obtain an authorization grant from the resource owner via the user-agent redirection.</td>
             <td>Optional</td>
         </tr>
         <tr class="even">
             <td>Scope Management Endpoint </td>
-            <td>The endpoint used to manage the scopes.</td>
+            <td>The endpoint is used to manage the scopes.</td>
             <td>Optional</td>
         </tr>
         <tr class="odd">
@@ -154,17 +168,17 @@ value from Manage API.
         </tr>
         <tr class="even">
             <td>Client ID</td>
-            <td>The client ID generated when creating application Auth0.</td>
+            <td>The client ID generated when creating the Auth0 application.</td>
             <td>Mandatory</td>
         </tr>
         <tr class="odd">
             <td>Client Secret</td>
-            <td>The client secret generated when creating application Auth0.</td>
+            <td>The client secret generated when creating the Auth0 application.</td>
             <td>Mandatory</td>
         </tr>
         <tr class="even">
             <td>Audience</td>
-            <td>Audience of the Admin API. Can be found by navigating to the `Auth0 Management API` in Auth0</td>
+            <td>Audience of the Admin API. Can be found by navigating to the `Auth0 Management API` in Auth0.</td>
             <td>Mandatory</td>
         </tr>
         <tr class="odd">
@@ -174,12 +188,12 @@ value from Manage API.
         </tr>
         <tr class="even">
             <td>Consumer Key Claim URI</td>
-            <td>The claim URI for consumer key e.g., azp</td>
+            <td>The claim URI for consumer key <br/><b>Example:</b> azp</td>
             <td>Mandatory</td>
         </tr>
         <tr class="odd">
             <td>Scopes Claim URI</td>
-            <td>The claim URI for scopes e.g., scope</td>
+            <td>The claim URI for scopes <br/><b>Example:</b> scope</td>
             <td>Mandatory</td>
         </tr>
         <tr class="even">
@@ -201,8 +215,7 @@ value from Manage API.
             <td>JWKS</td>
             <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Auth0's public key set in JSON web key set format.
                 This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Auth0.
-                </br>
-                e.g., https://dev-ted144kt.us.auth0.com/.well-known/jwks.json
+                <br/><b>Example:</b></br> <code>https://dev-ted144kt.us.auth0.com/.well-known/jwks.json</code>
             </td>
             <td>Optional</td>
         </tr>
@@ -229,7 +242,7 @@ value from Manage API.
         <tr class="odd">
             <td><b>Token Validation Method</b></td>
             <td>The method used to validate the JWT signature.
-                This is not mandatory since the Token Validation Method cannot be <b>introspect</b> for Auth0</td>
+                This is not mandatory as the Token Validation Method cannot be <b>introspect</b> for Auth0.</td>
             <td></td>
         </tr>
         <tr class="even">
@@ -239,14 +252,14 @@ value from Manage API.
         </tr>
         <tr class="odd">
             <td>Use introspect</td>
-            <td>Cannot use this option since Auth0 does not expose an introspection endpoint</td>
+            <td>Cannot use this option as Auth0 does not expose an introspection endpoint.</td>
             <td>Optional</td>
         </tr>
         <tr class="even">
             <td><b>Token Handling Options</b></td>
             <td>This provides a way to validate the token for this particular authorization server.</td>
             <td>Optional. 
-                This is mandatory if the Token Validation Method is <b>introspect</b></td>
+                This is mandatory if the Token Validation Method is <b>introspect</b>.</td>
         </tr>
         <tr class="odd">
             <td>REFERENCE</td>
@@ -268,35 +281,41 @@ value from Manage API.
             <td>Local and remote claim mapping.</td>
             <td>Optional</td>
         </tr>
-    </table>    
+     </table>
 
-5.  Finally, you can save the configs.
+     3. Save the configurations.
 
 ## Step 3 - Generate keys using the Auth0 Key Manager
 
-1.  Create new application from the developer portal.
+1. Sign in to the Developer Portal.
 
-    [![auth0 dev app create]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)    
+     `https://<hostname>:9443/devportal`
 
-2.  Then click either production or sandbox, Select Auth0 fill the relevant fields accordingly.
+     `https://localhost:9443/devportal`
 
-    [![auth0 app creation form]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)    
-    
-    *Please note that Audience of the API field is mandatory to generate an access token for Auth0. Therefore, please provide it when the application keys generating.*
-    
-    You can get the audience of the api by checking the API.
-    
-    [![auth0 resource api]({{base_path}}/assets/img/administer/auth0-resource-api.png)]({{base_path}}/assets/img/administer/auth0-resource-api.png)    
+2. Click **Applications**.
 
-3.  Once the keys generated, It will reflect in the UI.
+3. Create a new application.
     
-    [![auth0 created app]({{base_path}}/assets/img/administer/auth0-created-app.png)]({{base_path}}/assets/img/administer/auth0-created-app.png)        
-    
-5. Finally, token will be generated successfully.
+     [![auth0 dev app create]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)]({{base_path}}/assets/img/administer/auth0-dev-app-create.png)
 
-    [![auth0 success]({{base_path}}/assets/img/administer/auth0-success.png)]({{base_path}}/assets/img/administer/auth0-success.png)        
+2. Click either "production" or "sandbox", select `Auth0`, and fill in the relevant information.
+    
+     [![auth0 app creation form]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)]({{base_path}}/assets/img/administer/auth0-app-creation-form.png)
+    
+    !!! note
+        - Note that the API field named **audience** is mandatory to generate an access token for Auth0. Therefore, provide it when generating the application keys.
+        - You can obtain the audience of the API by checking the API.
+    
+     [![auth0 resource api]({{base_path}}/assets/img/administer/auth0-resource-api.png)]({{base_path}}/assets/img/administer/auth0-resource-api.png)
+
+     After the keys are generated, it will reflect in the UI.
+    
+     [![auth0 created app]({{base_path}}/assets/img/administer/auth0-created-app.png)]({{base_path}}/assets/img/administer/auth0-created-app.png)
+    
+3. Click **Generate Keys**.
+    
+     [![auth0 success]({{base_path}}/assets/img/administer/auth0-success.png)]({{base_path}}/assets/img/administer/auth0-success.png)
 
 !!! tip
-     If you want to generate the tokens with scopes, those scopes should have been defined in Auth0 as mentioned in 
-     the <a href="#step13">Step 1 - (3)</a>.
-
+     If you want to generate the tokens with scopes, those scopes should have been defined in Auth0 as mentioned in <a href="#step1-4">Step 1 - (4)</a>.
