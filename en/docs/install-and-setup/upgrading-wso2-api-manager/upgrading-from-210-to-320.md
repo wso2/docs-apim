@@ -856,8 +856,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );    
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';   
         ```
     
         ```tab="DB2"
@@ -1200,8 +1198,6 @@ Follow the instructions below to move all the existing API Manager configuration
             BINDING_TYPE VARCHAR(255) NOT NULL,
             FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
         /  
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = ''  /       
         ```
 
         ```tab="MSSQL"
@@ -1567,8 +1563,6 @@ Follow the instructions below to move all the existing API Manager configuration
         drop CONSTRAINT ' + @am_appreg);
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR(255) DEFAULT 'Resident Key Manager';
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE (SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER);  
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';      
         ```
 
         ```tab="MySQL"
@@ -1871,8 +1865,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE (SCOPE_ID) ON DELETE CASCADE
         )ENGINE INNODB;
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';        
         ```
     
         ```tab="Oracle"
@@ -2297,8 +2289,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     BINDING_TYPE VARCHAR2(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
         /
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
-        /        
         ```
         
         ```tab="PostgreSQL"
@@ -2684,8 +2674,6 @@ Follow the instructions below to move all the existing API Manager configuration
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
         );
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.
