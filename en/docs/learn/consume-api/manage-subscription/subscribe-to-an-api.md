@@ -12,7 +12,7 @@ The following are the two methods available in the Developer Portal to subscribe
 
 - Subscribe to an API using Key Generation Wizard
 
-    You can use the **KEY GENERATION WIZARD** option to start the subscription process from scratch. The **KEY GENERATION WIZARD** guides you through the process of creating and configuring an application, generating application keys and access tokens, and finally navigates you to the try out page.
+    You can use the **SUBSCRIPTION & KEY GENERATION WIZARD** option to start the subscription process from scratch. It guides you through the process of creating and configuring an application, generating application keys and access tokens, and finally navigates you to the try out page.
 
 ## Subscribe to an API using Key Generation Wizard
 
@@ -20,29 +20,29 @@ The following are the two methods available in the Developer Portal to subscribe
 
      ![[API overview]({{base_path}}/assets/img/learn/select-api-dev-portal.png)]({{base_path}}/assets/img/learn/select-api-dev-portal.png)
  
-2.  Click **KEY GENERATION WIZARD** to start the key generation wizard.
+2.  Click **SUBSCRIPTION & KEY GENERATION WIZARD** to start the key generation wizard.
 
-    <a href="{{base_path}}/assets/img/learn/key-gen-wizard.png" ><img src="{{base_path}}/assets/img/learn/key-gen-wizard.png" alt="Key Gen Wizard" title="Key Gen Wizard" width="60%" /></a>
+    <a href="{{base_path}}/assets/img/learn/key-generation-wizard.png" ><img src="{{base_path}}/assets/img/learn/key-generation-wizard.png" alt="Key Gen Wizard" title="Key Gen Wizard" /></a>
 
 3.  Enter the application details in the **Create application** process and click **Next** to continue.
-    
-     Note that the default token type is `JWT`. If you want to change the token type to `Oauth`, Select **Oauth** as the **Token Type** and continue.
 
-     [![Create application process in the wizard]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)
+    [![Create application process in the wizard]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)
 
 4.  Subscribe the API to the application that you created in above step by selecting the preferred throttling policy. Thereafter, click **Next** to go to next step.
      
      [![Subscribe to new application process]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)
     
-5. [Generate application keys]({{base_path}}/learn/consume-api/manage-application/generate-keys/generate-api-keys) (Production or sandbox) by selecting the [grant types]({{base_path}}/learn/api-security/oauth2/grant-types/overview/) which need to be allowed for this application. Thereafter, click **Next** to continue. 
+5. [Generate application keys]({{base_path}}/learn/consume-api/manage-application/generate-keys/generate-api-keys) (Production or sandbox) by clicking on the **Next** button. 
 
-     The application key and secret is generated in this step.
+     The application keys are generated in this step.
 
      [![Key generation]({{base_path}}/assets/img/learn/key-gen-wizard-generate-keys.png)]({{base_path}}/assets/img/learn/key-gen-wizard-generate-keys.png)
     
     !!! note
-        - By default, the __Client Credentials__ grant type is used to generate the access token. Make sure the Client Credentials grant type is selected when generating keys from the UI. 
-        - If you have a supported callback URL that sends a callback to a specific server or program soon after your application request is sent, you can specify it under the **Callback URL** field.
+        - By default, the __Client Credentials__ grant type is used to generate the access token in Developer Portal.
+        - If you want select different grant types to this application, you can select the required grant types from the application listing page as shown in the following image:
+
+        [![Edit grant types]({{base_path}}/assets/img/learn/edit-application-grant-types.png)]({{base_path}}/assets/img/learn/edit-application-grant-types.png)
         
     
 6.  Select the access token validity period and [scopes]({{base_path}}/learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes/) to generate an access token to invoke the API, then click **Next** to continue.
@@ -63,21 +63,21 @@ If you already have an existing application, follow the instructions below to su
         
 2.  Click **SUBSCRIBE TO AN APPLICATION**.
 
-     <a href="{{base_path}}/assets/img/learn/from-existing-app.png" ><img src="{{base_path}}/assets/img/learn/from-existing-app.png" alt="Subscribe to new app" title="Subscribe to new app" width="60%" /></a>
+     <a href="{{base_path}}/assets/img/learn/from-existing-app.png" ><img src="{{base_path}}/assets/img/learn/from-existing-app.png" alt="Subscribe to new app" title="Subscribe to new app" /></a>
     
 3.  Select the application, the throttling policy, and click **Subscribe**.
 
      [![Subscribe to new application]({{base_path}}/assets/img/learn/subscribe-to-app.png)]({{base_path}}/assets/img/learn/subscribe-to-app.png)
     
-     You can see the subscriptions list in API credentials section.
-
+     You can see the subscriptions list in Subscriptions section.
+     
      [![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)]({{base_path}}/assets/img/learn/subscription-list.png)
 
 ## Update the subscription tier
 
 1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`). Click on **Applications** and select the relevant application. 
 
-    ![[applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)]
+    ![applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)
 
 2.  Click **Subscriptions** to list the subscriptions of the application.
 
@@ -101,7 +101,7 @@ Follow the instructions below to delete the API subscription:
     
     [![API Overview]({{base_path}}/assets/img/learn/select-api-dev-portal.png)]({{base_path}}/assets/img/learn/select-api-dev-portal.png)
     
-2.  Click **Credentials**.
+2.  Click **Subscriptions**.
 
     [![API credentials]({{base_path}}/assets/img/learn/api-credentials.png)]({{base_path}}/assets/img/learn/api-credentials.png)
     
