@@ -760,8 +760,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );  
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';         
         ```
 
         ```tab="DB2"
@@ -998,8 +996,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         ) /
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = ''  / 
         ```
 
         ```tab="MSSQL"
@@ -1232,8 +1228,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
         ```
 
         ```tab="MySQL"
@@ -1433,8 +1427,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         ) ENGINE INNODB;
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
         ```
 
         ```tab="Oracle"
@@ -1739,9 +1731,6 @@ Follow the instructions below to move all the existing API Manager configuration
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         )
         /
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL
-        /
         ```
 
         ```tab="PostgreSQL"
@@ -1988,8 +1977,6 @@ Follow the instructions below to move all the existing API Manager configuration
             PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
-
-        DELETE FROM IDN_OAUTH2_SCOPE_BINDING WHERE SCOPE_BINDING IS NULL OR SCOPE_BINDING = '';
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.1.0_HOME>/repository/resources/security` directory.
