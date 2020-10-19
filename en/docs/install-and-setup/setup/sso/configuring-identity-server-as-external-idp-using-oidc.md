@@ -8,7 +8,7 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 -   Download the Identity Server distirbution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
     !!! Tip
-        For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 IS server on the same server, then you can go to the <IS_HOME>/repository/conf/deployment.toml file and offset the port by 1 as by adding following configuration:
+        For **testing purposes** if you want to run both the WSO2 API Manager and WSO2 IS server on the same server, then you can go to the `<IS_HOME>/repository/conf/deployment.toml` file and offset the port by 1 as by adding following configuration:
 
         ``` toml
         [server]
@@ -45,7 +45,22 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
 
     2.  Expand the **Inbound Authentication Configuration** secition and configure **OAuth/OpenID Connect Configuration** with callback URL - `https://{apim-ip}:9443/commonauth`
 
+        ??? Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
+
+            To enable a tenant-specific SSO with IS 5.10.0 for Publisher and the Developer Portal, enable the **Use tenant domain in local subject identifier** option under the **Local & Outbound Authentication Configuration** section.
+
+            [![saml-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/enable-tenant-domain-in-local-sub-identifier.png)]({{base_path}}/assets/img/setup-and-install/enable-tenant-domain-in-local-sub-identifier.png)
+
     3. Update the Service Provider configurations.
+
+    !!! Info "In Mutl-tenanted environments"
+            Carry out the instruction given below for all the tenants to be able to login to the API-M Web applications in a multi-tenanted environment.
+
+            1.  Click the **SaaS Application** option that appears after registering the service provider.
+
+            [![saas-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saas.png)]({{base_path}}/assets/img/setup-and-install/saas.png)            
+
+            If you do not select the **SaaS Application** option, only users in the current tenant domain will be allowed to login to the portals. You will need to register separate service providers for portals from each tenant.
 
 ### Step - 2 Create users and roles
 
@@ -119,40 +134,40 @@ WSO2 API Manager uses OIDC Single Sign-On feature by default. This document expl
                     <td>https://is.wso2.com:9444/oidc/logout</td>
                 </tr>
             </tbody>
-    </table>
+        </table>
 
-    Following image shows the sample values for OAuth2/OpenIDConnect Configurations:
+        Following image shows the sample values for OAuth2/OpenIDConnect Configurations:
 
-    [![]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)
+        [![sp]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-sso.png)
 
     2.  Enable Just-in-Time Provisioning to provision the users in API Manager: 
 
-    [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
+        [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     3.  Add the following role mapping under **Role Configuration** section:
-    <table>
-    <thead>
-        <tr>
-            <th>Identity Server Roles</th>
-            <th>Roles Mapped in API Manager</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>user_role</td>
-            <td>Internal/Subscriber</td>
-        </tr>
-        <tr>
-            <td>publisher_role</td>
-            <td>Internal/publisher</td>
-        </tr>
-    </tbody>
-    </table>
+        <table>
+        <thead>
+            <tr>
+                <th>Identity Server Roles</th>
+                <th>Roles Mapped in API Manager</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>user_role</td>
+                <td>Internal/Subscriber</td>
+            </tr>
+            <tr>
+                <td>publisher_role</td>
+                <td>Internal/publisher</td>
+            </tr>
+        </tbody>
+        </table>
 
-    [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
+        [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
-    !!! Tip
-        Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
+        !!! Tip
+            Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
 
 ### Step - 2 Configure the Service Provider
 
