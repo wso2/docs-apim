@@ -2185,7 +2185,12 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! warning
             Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
-This concludes the upgrade process.
+         If you are using external IDP through federated authenticator, you have to edit the "sp_analytics_dashboard" service provider configuration and select the "Use tenant domain at local subject identifier" at Local &
+         Outbound Authentication Configuration section.
+         
+         [![select local subject identifier]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)
+
+
 
 !!! tip
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
