@@ -305,7 +305,7 @@ Follow the instructions below to turn off the registry versioning in the migrate
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.1.0 server](#step-4-restart-the-wso2-api-m-310-server)
+-   [Step 4 - Restart the WSO2 API-M 3.1.0 server](##step-4-restart-the-wso2-api-m-310-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -556,11 +556,11 @@ Follow the instructions below to move all the existing API Manager configuration
 4.  Upgrade the WSO2 API Manager database from version 2.1.0 to version 3.1.0 by executing the relevant database script, from the scripts that are provided below, on the `WSO2AM_DB` database.
 
     !!! Attention
-        If there is a error similar to this when running the db script for ***mssql***
+        If there is an error similar to this when running the DB script for ***mssql***
         ``` java
             SQL Error [5074] [S0001]: The object '<SOME_ID>' is dependent on column 'ACCESS_TOKEN'.
         ```
-        Use the ID mentioned in the error to run the sql statement below. This will drop a default constraint created by the database
+        Use the ID mentioned in the error to run the SQL statement below. This will drop a default constraint created by the database
         ```java
             ALTER TABLE AM_SUBSCRIPTION_KEY_MAPPING
             DROP CONSTRAINT <SOME_ID>;
@@ -2045,7 +2045,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     5.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
-    6. Update the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+    6. Update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
     
         ```
         [user_store]
@@ -2066,10 +2066,10 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finish completely and server get started.
+            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finishes completely and the server starts.
 
         !!! note
-            Note that if you want to use the latest user store, update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+            Note that if you want to use the latest user store, update the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows after the identity migration.
 
             ```
             [user_store]
@@ -2079,12 +2079,13 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! warning "Troubleshooting"
             When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
-            Sample exception stack trace is given below.
+            The sample exception stack trace is given below.
+
             ```
             ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
             ```
 
-            1. Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
+            1. Add the following property in the `<API-M_HOME>/repository/conf/deployment.toml` file to a higher value (e.g., 10)
                 ```
                 [indexing]
                 frequency= 10
@@ -2092,7 +2093,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
             2. Re-run the command above.
 
-            **Make sure to revert the change done in Step (i.) , after the migration is complete.**
+            **Make sure to revert the change done in Step (i.), after the migration is complete.**
 
     8.  After you have successfully completed the migration, stop the server and remove the following files and folders.
 
@@ -2100,7 +2101,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
         -   Remove the `migration-resources` directory, which is in the `<API-M_3.1.0_HOME>` directory.
 
-        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration , then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the wso2server.bat file.
+        -   If you ran WSO2 API-M as a Windows Service when doing the identity component migration, then you need to remove the following parameters in the command line arguments section (CMD_LINE_ARGS) of the `wso2server.bat` file.
 
             ```
             -Dmigrate -Dcomponent=identity
