@@ -1816,10 +1816,10 @@ Follow the instructions below to move all the existing API Manager configuration
         ```
 
         !!! note
-            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finish completely and server get started.
+            Note that depending on the number of records in the identity tables, this identity component migration will take a considerable amount of time to finish. Do not stop the server during the migration process and wait until the migration process finishes completely and the server starts.
 
         !!! note
-            Note that if you want to use the latest user store, update the <API-M_3.1.0_HOME>/repository/conf/deployment.toml as follows after the identity migration,
+            Note that if you want to use the latest user store, update the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows after the identity migration.
 
             ```
             [user_store]
@@ -1829,7 +1829,8 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! warning "Troubleshooting"
             When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
-            Sample exception stack trace is given below.
+            The sample exception stack trace is given below.
+
             ```
             ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
             ```
@@ -1931,14 +1932,14 @@ wso2server.bat
 ```
 
 !!! note "If you have enabled Analytics"
-    After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.1.0 server from worker and dashboard profiles, the dashboards can be accessed via the `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
+    After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.1.0 server from worker and dashboard profiles, the dashboards can be accessed via `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
 
     !!! warning
         Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
         
     If you are using an external IDP through a federated authenticator, you have to edit the "sp_analytics_dashboard" service provider configuration and select the "Use tenant domain at local subject identifier" under the **Local & Outbound Authentication** configuration section.
         
-        [![select local subject identifier]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)
+    [![select local subject identifier]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)
 
 
 This concludes the upgrade process.
