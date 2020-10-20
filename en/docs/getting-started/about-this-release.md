@@ -126,7 +126,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      WSO2 API Manager’s Admin Portal has got a whole new and exciting look with the use of ReactJS, which is a popular JavaScript library for building user interfaces. The new Admin Portal UI clearly defines the administrative tasks that can be performed, and it also makes the workflows of API administrators simple and more efficient. It has a dashboard view that shows the summary of the administrative tasks and any pending workflow approvals. This makes it easier for administrators to keep track of pending or already-performed tasks. Similar to the Publisher and Developer Portal, the Admin Portal is a OAuth2.0 client application, which authenticates to the WSO2 API Manager’s backend via Open ID Connect. Users now have the ability to customize and enhance the look and feel of the Admin Portal by extending the React components in the portal. 
 
-- **Accessibility compliance of the Developer Portal**
+- **[Accessibility compliance of the Developer Portal]({{base_path}}/reference/accessibility-compliance)**
   
      WSO2 API Manager’s Developer Portal now conforms to the Level A and Level AA success criteria of the conformance requirements of the Web Content Accessibility Guidelines 2.1 (WCAG 2.1).  This will make content more accessible to a wider range of people.
 

@@ -1,9 +1,5 @@
 # Upgrading API Manager from 2.1.0 to 3.2.0
 
-!!! Important
-    This migration guide is in the process of restructuring, and is NOT yet ready for use.
-    Migration guide related to DB2 database type is being reconstructed, and is NOT ready for use yet.
-
 The following information describes how to upgrade your API Manager server **from APIM 2.1.0 to 3.2.0**.
 
 !!! note
@@ -844,6 +840,22 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+                    SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+                    NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(512),
+                    TENANT_ID INTEGER NOT NULL DEFAULT -1,
+                    SCOPE_TYPE VARCHAR(255) NOT NULL,
+                    PRIMARY KEY (SCOPE_ID)
+        );
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );       
         ```
     
         ```tab="DB2"
@@ -1158,6 +1170,34 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
+
+        CREATE TABLE AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID))
+        /
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE TRIGGER AM_SCOPE_TRIGGER NO CASCADE BEFORE INSERT ON AM_SCOPE
+        REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
+
+        BEGIN ATOMIC
+
+            SET (NEW.SCOPE_ID)
+            = (NEXTVAL FOR AM_SCOPE_SEQUENCE);
+
+        END
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+            SCOPE_ID INTEGER NOT NULL,
+            SCOPE_BINDING VARCHAR(255) NOT NULL,
+            BINDING_TYPE VARCHAR(255) NOT NULL,
+            FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /        
         ```
 
         ```tab="MSSQL"
@@ -1808,6 +1848,23 @@ Follow the instructions below to move all the existing API Manager configuration
         )ENGINE INNODB;
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID)
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE (SCOPE_ID) ON DELETE CASCADE
+        )ENGINE INNODB;
         ```
     
         ```tab="Oracle"
@@ -2202,6 +2259,36 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY
         /
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR2(255) DEFAULT 'Resident Key Manager' NOT NULL
+        /
+        ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE(SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)
+        /        
+        CREATE TABLE AM_SCOPE (
+                    SCOPE_ID INTEGER NOT NULL,
+                    NAME VARCHAR2(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR2(255) NOT NULL,
+                    DESCRIPTION VARCHAR2(512),
+                    TENANT_ID INTEGER DEFAULT -1 NOT NULL,
+                    SCOPE_TYPE VARCHAR2(255) NOT NULL,
+                    PRIMARY KEY (SCOPE_ID))
+        /
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE OR REPLACE TRIGGER AM_SCOPE_TRIGGER
+                    BEFORE INSERT
+                    ON AM_SCOPE
+                    REFERENCING NEW AS NEW
+                    FOR EACH ROW
+                    BEGIN
+                        SELECT AM_SCOPE_SEQUENCE.nextval INTO :NEW.SCOPE_ID FROM dual;
+                    END;
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR2(255) NOT NULL,
+                    BINDING_TYPE VARCHAR2(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /
         ```
         
         ```tab="PostgreSQL"
@@ -2566,6 +2653,27 @@ Follow the instructions below to move all the existing API Manager configuration
         );
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL='' WHERE CALLBACK_URL IS NULL;
+        
+        DROP TABLE IF EXISTS AM_SCOPE;
+        DROP SEQUENCE IF EXISTS AM_SCOPE_PK_SEQ;
+        CREATE SEQUENCE AM_SCOPE_PK_SEQ;
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+                    SCOPE_ID INTEGER DEFAULT NEXTVAL('AM_SCOPE_PK_SEQ'),
+                    NAME VARCHAR(255) NOT NULL,
+                    DISPLAY_NAME VARCHAR(255) NOT NULL,
+                    DESCRIPTION VARCHAR(512),
+                    TENANT_ID INTEGER NOT NULL DEFAULT -1,
+                    SCOPE_TYPE VARCHAR(255) NOT NULL,
+                    PRIMARY KEY (SCOPE_ID)
+        );
+
+        DROP TABLE IF EXISTS AM_SCOPE_BINDING;
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
+        );
         ```
 
 5.  Copy the keystores (i.e., `client-truststore.jks`, `wso2cabon.jks` and any other custom JKS) used in the previous version and replace the existing keystores in the `<API-M_3.2.0_HOME>/repository/resources/security` directory.

@@ -80,15 +80,6 @@ The following information describes how to upgrade your **WSO2 API Manager (WSO2
         [tenant_context.rewrite]
         custom_webapps = ["/keymanager-operations/"]
         ```
-        
-    !!! important
-        Open `<IS_HOME>/repository/resources/conf/templates/repository/conf/identity/identity.xml.j2` file and add the following
-        under `TenantContextsToRewrite.WebApp` configuration.
-           ```{% raw %}
-           {% for webapp in tenant_context.rewrite.custom_webapps %}
-           <Context>{{webapp}}</Context>
-           {% endfor %}{% endraw %}
-           ```
 
 3. Download the [WSO2 IS Connector]({{base_path}}/assets/attachments/administer/wso2is-km-connector-1.0.15.zip).
 
@@ -234,7 +225,7 @@ Follow the steps mentioned in [Upgrading API-M from 2.0.0 to 3.2.0]({{base_path}
 
 ## Step 3 - Separate database sharing among API-M and IS
 
-From WSO2 API-M 3.2.0 onwards, you DO NOT necessarily need to share the databases among WSO2 API-M and IS. 
+From WSO2 API-M 3.2.0 onwards, it is not mandatory to share the databases among WSO2 API-M and IS. 
 
 -   In this case where WSO2 IS is treated as the resident key manager, API-M no longer handle the management of identity data in `WSO2AM_DB` and IS no longer handle the API management data in `WSO2AM_DB`. 
 -   The registry data in `WSO2REG_DB` can be separately managed by both WSO2 API-M and IS.

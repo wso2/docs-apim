@@ -25,14 +25,9 @@ Follow the instructions below to generate/renew application keys:
 
      [![Generate Application Keys]({{base_path}}/assets/img/learn/application-key-generation.png)]({{base_path}}/assets/img/learn/application-key-generation.png)
     
-     - If the application type is **JWT**, a JSON Web Token (JWT) is generated. Make sure to copy the JWT access token that appears so that you can use it in the future.
+     - As the application type is **JWT**, a JSON Web Token (JWT) is generated. Make sure to copy the JWT access token that appears so that you can use it in the future.
 
-        <a href="{{base_path}}/assets/img/learn/jwt-access-token.png" ><img src="{{base_path}}/assets/img/learn/jwt-access-token.png" alt="JWT access token" 
-          title="JWT access token" width="60%" /></a>
-     
-     -  If the application type is **OAuth**, the generated access token will be an Opaque token.
-     
-         [![OAuth Token]({{base_path}}/assets/img/learn/oauth-access-token.png)]({{base_path}}/assets/img/learn/oauth-access-token.png)
+        <a href="{{base_path}}/assets/img/learn/jwt-access-token.png" ><img src="{{base_path}}/assets/img/learn/jwt-access-token.png" alt="JWT access token" title="JWT access token" width="60%" /></a>
      
      After the keys are generated, you can find the consumer key and consumer secret pair via the application details page.
      

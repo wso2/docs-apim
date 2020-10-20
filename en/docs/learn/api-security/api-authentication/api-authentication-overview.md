@@ -1,6 +1,6 @@
 # Overview
 
-API authentication is a way of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who proves their identity and whose identities are found within the API Management Platform. 
+API authentication is a way of protecting API access from unidentified or anonymous access. It ensures that the API is secured and accessible only by the consumers who prove their identity and whose identities are found within the API Management Platform. 
 
 WSO2 API Manager offers the following authentication mechanisms to secure your API from unauthenticated access.
 
@@ -8,8 +8,6 @@ WSO2 API Manager offers the following authentication mechanisms to secure your A
 
     - [JWT (Self Contained) Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens)
     
-    - [Opaque (Reference) Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/opaque-tokens)
-
 - [Secure APIs Using API Keys]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys)
 
 - [Secure APIs Using Mutual SSL]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-mutual-ssl)
@@ -27,6 +25,6 @@ WSO2 API Manager allows you to enable multiple Key Managers for authentication.
 
     [![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-publisher.png)]({{base_path}}/assets/img/learn/multiple-km-publisher.png)
 
-- Application users are able to generate keys for an application using a preferred Key Manager as shown below.
+- Application users can generate keys for an application using a preferred Key Manager as shown below.
 
     ![Disable Key Managers]({{base_path}}/assets/img/learn/multiple-km-devportal.png)
