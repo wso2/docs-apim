@@ -146,6 +146,7 @@ nav:
                       - Invoke an GraphQL API using the Integrated GraphQL Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-graphql-api-using-the-integrated-graphql-console.md
                       - Include Additional Headers in the API Console: learn/consume-api/invoke-apis/invoke-apis-using-tools/include-additional-headers-in-the-api-console.md
                       - Invoke an API Using a SOAP Client: learn/consume-api/invoke-apis/invoke-apis-using-tools/invoke-an-api-using-a-soap-client.md
+                      - Try out using Postman: learn/consume-api/invoke-apis/invoke-apis-using-tools/try-out-using-postman.md
                 - Collaborations:
                       - Use the Community Features: learn/consume-api/collaboration/use-the-community-features.md
                 - Generating SDKs:
