@@ -305,7 +305,7 @@ Follow the instructions below to turn off the registry versioning in the migrate
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
 -   [Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics](#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics)
--   [Step 4 - Restart the WSO2 API-M 3.1.0 server](##step-4-restart-the-wso2-api-m-310-server)
+-   [Step 4 - Restart the WSO2 API-M 3.1.0 server](#step-4-restart-the-wso2-api-m-310-server)
 
 ### Step 1 - Migrate the API Manager configurations
 
@@ -2045,7 +2045,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
     5.  Copy the `org.wso2.carbon.is.migration-x.x.x.jar` from the `<IS_MIGRATION_TOOL_HOME>/dropins` directory to the `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
-    6. Update `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
+    6. Update the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file as follows, to point to the previous user store.
     
         ```
         [user_store]
