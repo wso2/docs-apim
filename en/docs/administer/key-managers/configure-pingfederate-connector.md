@@ -2,44 +2,44 @@
 
 WSO2 API Manager supports multiple Key Managers at the same time. As a result, WSO2 API Manager is prepacked with an inbuilt resident Key Manager, and with the use of connectors, it is capable of supporting any authorization server as a Key Manager.
 
-As a part of that, WSO2 API Manager can connect PingFederate out-of-the-box using the [WSO2 API-M PingFederate Connector](https://github.com/wso2-extensions/apim-km-pingfederate).
+WSO2 API Manager can connect PingFederate out-of-the-box using the [WSO2 API-M PingFederate Connector](https://github.com/wso2-extensions/apim-km-pingfederate).
 
-Follow the instructions given below to configure PingFederate as a third-party Key Manager. 
-
+Follow the instructions given below to configure PingFederate as a third-party Key Manager:
 
 ## Step 1 - Configure PingFederate
 
 1. Sign in to the PingFederate Management Console.
-     
-    `https://localhost:9999/pingfederate/app`.
+
+    `https://localhost:9999/pingfederate/app`
 
 2. Click **OAuth Clients** and create a client with the following information in order to introspect the tokens.
+
      <table>
-     <tr><td> CLIENT ID </td><td> apim-client </td></tr><tr>
-     <td> ALLOWED GRANT TYPES </td><td> Access Token Validation (Client is a Resource Server) </td></tr>
+     <tr><td> <b>CLIENT ID</b> </td><td> apim-client </td></tr><tr>
+     <td> <b>ALLOWED GRANT TYPES</b> </td><td> Access Token Validation (Client is a Resource Server) </td></tr>
      </table>
 
-    [![PingFederate add client]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)
-    [![PingFederate add client]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)
+    [![PingFederate - add client]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)]({{base_path}}/assets/img/administer/pingfederate-client-create-1.png)
 
-3. Generate and Store the CLIENT SECRET.
+    [![PingFederate - add client]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)]({{base_path}}/assets/img/administer/pingfederate-client-create-2.png)
+
+3. Generate and store the Client Secret.
 
      [![PingFederate client secret]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)]({{base_path}}/assets/img/administer/pingfederate-client-secret.png)
 
-
 ## Step 2 - Configure PingFederate
 
-1. Import PingFederate certificate into the WSO2 API Manager truststore.
+1. Import the PingFederate certificate into the WSO2 API Manager truststore.
 
-    - The default PingFederate keystore can found from `SSL Server Certificates` under `Certificate & Key Management`.
+    1. The default PingFederate keystore can found under the **Certificate & Key Management** section on the **SSL Server Certificates** page.
 
-     [![SSL Server Certificate]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)
+         [![SSL Server Certificate]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate.png)
 
-    - Export the certificate from SSL server certificates.
+    2. Export the certificate from SSL server certificates.
 
-        [![SSL Server Certificate Import]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)
+         [![SSL Server Certificate Import]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)]({{base_path}}/assets/img/administer/ping-federate-ssl-certificate-export.png)
 
-    - Import the certificate into the WSO2 API-M truststore.
+    3. Import the certificate into the WSO2 API-M truststore.
 
           ```
           keytool -import -trustcacerts -alias pingfederate -file ping.crt -keystore client-truststore.jks -storepass wso2carbon -noprompt
@@ -58,19 +58,19 @@ Follow the instructions given below to configure PingFederate as a third-party K
          `https://localhost:9443/admin`
 
     2. Click Key Manager and then click **Add Key Manager**.
-        
+
          [![Add new Key Manager]({{base_path}}/assets/img/administer/add-new-key-manager.png)]({{base_path}}/assets/img/administer/add-new-key-manager.png)
 
     3. Add the following configuration to add a new Key Manager.
-    
+
          [![Add PingFederate configurations]({{base_path}}/assets/img/administer/pingfederate-endpoints.png)]({{base_path}}/assets/img/administer/pingfederate-endpoints.png)
 
          The following table provides definitions for each of the configurations.
 
          <table>
             <tr class="header">
-            <th>Configuration</th>
-            <th>Description</th>
+            <th><b>Configuration</b></th>
+            <th><b>Description</b></th>
             <th> </th>
           </tr>
           <tr class="odd">
@@ -90,7 +90,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
           </tr>
           <tr class="even">
             <td>Key Manager Type</td>
-            <td>The type of the Key Manager to be selected.</td>
+            <td>The type of Key Manager to be selected.</td>
             <td>Mandatory</td>
           </tr>
           <tr class="odd">
@@ -102,7 +102,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
           <tr class="even">
             <td>Issuer</td>
             <td>The issuer that consumes or validates the access tokens
-            </br> e.g., https://localhost:9031</br>
+            </br> Example: </br>https://localhost:9031</br>
                https://localhost:9031</td>
           <td>Mandatory</td>
           </tr>
@@ -113,15 +113,15 @@ Follow the instructions given below to configure PingFederate as a third-party K
           </tr>
           <tr class="even">
             <td>Client Registration Endpoint </td>
-            <td>The endpoint to verify the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.</br>
-            e.g., https://localhost:9031/pf-ws/rest/oauth/clients
+            <td>The endpoint to verify the identity and obtain profile information of the end-user based on the authentication performed by an authorization server.
+            </br> Example: </br>https://localhost:9031/pf-ws/rest/oauth/clients
             </td>
             <td>Mandatory</td>
           </tr>
           <tr class="odd">
             <td>Introspection Endpoint</td>
             <td>The endpoint that allows authorized protected resources to query the authorization server to determine the set of metadata for a given token that was presented to them by an OAuth client.
-            </br> e.g., 
+            </br> Example: </br>
             https://localhost:9031/as/introspect.oauth2 </br>
             </td>
             <td>Mandatory</td>
@@ -129,8 +129,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
           <tr class="even">
             <td>Token Endpoint</td>
             <td>The endpoint that issues the access tokens.
-            </br>
-            e.g.,
+            </br> Example: </br>
             https://localhost:9031/as/token.oauth2</br>
             </td>
             <td>Mandatory</td>
@@ -147,12 +146,12 @@ Follow the instructions given below to configure PingFederate as a third-party K
           </tr>
           <tr class="odd">
             <td>Authorize Endpoint</td>
-            <td>The endpoint used to obtain an authorization grant from the resource owner via user-agent redirection.</td>
+            <td>The endpoint that is used to obtain an authorization grant from the resource owner via user-agent redirection.</td>
             <td>Optional</td>
           </tr>
           <tr class="even">
             <td>Scope Management Endpoint </td>
-            <td>The endpoint used to manage the scopes.</td>
+            <td>The endpoint that is used to manage the scopes.</td>
             <td>Optional</td>
           </tr>
           <tr class="odd">
@@ -162,12 +161,12 @@ Follow the instructions given below to configure PingFederate as a third-party K
           </tr>
           <tr class="even">
             <td>Username</td>
-            <td>The Administrative user's username to invoke Client registration endpoint. </td>
+            <td>The Administrative user's username to invoke the client registration endpoint. </td>
             <td>Mandatory</td>
           </tr>
           <tr class="odd">
             <td>Client Secret</td>
-            <td>The Administrative user's password to invoke Client registration endpoint. </a>.</td>
+            <td>The Administrative user's password to invoke the client registration endpoint.</td>
             <td>Mandatory</td>
           </tr>
           <tr class="even">
@@ -251,7 +250,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
             <td>The JWKS endpoint is used to validate the JWT token signature.
             If this option is used to validate the tokens it is mandatory to add a Token Handling Option.
                 For the Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
-            </br>e.g.,; Claim Key : iss
+            </br> Example: </br> Claim Key : iss
             </br>Claim Value : https://localhost:9031 </td>
             <td>Optional</td>
           </tr>
