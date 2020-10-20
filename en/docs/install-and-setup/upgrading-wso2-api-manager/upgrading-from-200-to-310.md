@@ -2189,7 +2189,7 @@ Follow the instructions below to move all the existing API Manager configuration
             ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
             ```
 
-            1.  Add the following property in `<API-M_HOME>/repository/conf/deployment.toml` to a higher value (e.g., 10)
+            1.  Add the following property in the `<API-M_HOME>/repository/conf/deployment.toml` file to a higher value (e.g., 10)
                 ```
                 [indexing]
                 frequency= 10
@@ -2283,26 +2283,26 @@ Follow the instructions below to move all the existing API Manager configuration
 
 ### Step 4 - Restart the WSO2 API-M 3.1.0 server
 
-1.  Restart the WSO2 API-M server.
+Restart the WSO2 API-M server.
 
-    ```tab="Linux / Mac OS"
-    sh wso2server.sh
-    ```
+```tab="Linux / Mac OS"
+sh wso2server.sh
+```
 
-    ```tab="Windows"
-    wso2server.bat
-    ```
+```tab="Windows"
+wso2server.bat
+```
 
-    !!! note "If you have enabled Analytics"
-        After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.1.0 server from worker and dashboard profiles, the dashboards can be accessed via the `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
+!!! note "If you have enabled Analytics"
+    After starting the WSO2 API-M server and the WSO2 API-M Analytics 3.1.0 server from worker and dashboard profiles, the dashboards can be accessed via the `https://<dashboard-server-host-name>:9643/analytics-dashboard` link.
 
-        !!! warning
-            Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
+    !!! warning
+        Make sure you have started the API-M server node before accessing the Dashboard profile as the authentication happens via the API-M's authentication admin service.
 
-        If you are using an external IDP through a federated authenticator, you have to edit the "sp_analytics_dashboard" service provider configuration and select the "Use tenant domain at local subject identifier" under the **Local &
-         Outbound Authentication** configuration section.
-         
-         [![select local subject identifier]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)
+    If you are using an external IDP through a federated authenticator, you have to edit the "sp_analytics_dashboard" service provider configuration and select the "Use tenant domain at local subject identifier" under the **Local &
+        Outbound Authentication** configuration section.
+        
+    [![select local subject identifier]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)]({{base_path}}/assets/img/setup-and-install/migration-analytics-fedarated-authentication.png)
 
 This concludes the upgrade process.
 
