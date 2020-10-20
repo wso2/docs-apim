@@ -294,7 +294,7 @@ Follow the instructions below to turn off the registry versioning in the migrate
         ```
 
 !!! warning "Not recommended"
-    If you decide to proceed with registry resource versioning enabled, add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of new WSO2 API Manager. 
+    If you decide to proceed with registry resource versioning enabled, add the following configuration to the `<NEW_API-M_HOME>/repository/conf/deployment.toml` file of the new WSO2 API Manager. 
     
     ```
     [registry.static_configuration]
@@ -302,7 +302,7 @@ Follow the instructions below to turn off the registry versioning in the migrate
     ```
     
     !!! note "NOTE"
-        Changing these configuration should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
+        Changing these configurations should only be done before the initial API-M Server startup. If changes are done after the initial startup, the registry resource created previously will not be available.
 
 -   [Step 1 - Migrate the API Manager configurations](#step-1-migrate-the-api-manager-configurations)
 -   [Step 2 - Upgrade API Manager to 3.1.0](#step-2-upgrade-api-manager-to-310)
@@ -333,7 +333,7 @@ Follow the instructions below to move all the existing API Manager configuration
     -   API Manager databases
 
     !!! note
-        In API-M 3.1.0, a combined **SHARED_DB** has been introduced to keep both the user related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.1.0 to avoid any issues.
+        In API-M 3.1.0, a combined **SHARED_DB** has been introduced to keep both the user-related data (`WSO2UM_DB`) and the registry data (`WSO2REG_DB`). If you have used separate DBs for user management and registry in the previous version, you need to configure WSO2REG_DB and WSO2UM_DB databases separately in API-M 3.1.0 to avoid any issues.
 
     - Datasource configurations in the previous versions could be mapped to the new configuration model as follows: 
         
@@ -358,7 +358,7 @@ Follow the instructions below to move all the existing API Manager configuration
     password = "password"
     ```
 
-    Optionally, if you have configured a seperate user management database in the previous API-M version, add a new entry as shown below in the `deployment.toml` file.
+    Optionally, if you have configured a separate user management database in the previous API-M version, add a new entry as shown below in the `deployment.toml` file.
 
     ```
     [database.user]
@@ -446,7 +446,7 @@ Follow the instructions below to move all the existing API Manager configuration
         Copy the content in the `<OLD_API-M_HOME>/repository/tenants` directory and replace the content in the `<API-M_3.1.0_HOME>/repository/tenants` directory with the copied contents.
 
     !!! warning
-        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modificatiosn in API-M 3.1.0 version.
+        When moving the Synapse configurations, **do not replace** the following set of files as they contain some modifications in API-M 3.1.0.
 
         -   /api/\_RevokeAPI_.xml
         -   /sequences/\_cors_request_handler_.xml
@@ -548,7 +548,7 @@ Follow the instructions below to move all the existing API Manager configuration
 
 
     !!! warning
-            It may take a considerable amount of time, which is proportionate to the amount of artifacts, to complete the migration process.
+            It may take a considerable amount of time, which is proportionate to the number of artifacts, to complete the migration process.
 
     !!! info "Troubleshooting"
 
@@ -2003,7 +2003,7 @@ Follow the instructions below to move all the existing API Manager configuration
         - `keystore.tls` - The keystore used for SSL encryption.
 
     !!! Attention
-        In API Manager 3.1.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and primary keystore can be pointed to a keystore with a ceritificate, which has a strong RSA key. 
+        In API Manager 3.1.0, it is required to use a certificate with the RSA key size greater than 2048. If you have used a certificate that has a weak RSA key (key size less than 2048) in the previous version, you need to add the following configuration to the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file to configure internal and primary keystores. You should point the internal keystore to the keystore copied from API Manager 2.0.0 and primary keystore can be pointed to a keystore with a certificate, which has a strong RSA key. 
 
         ``` java
         [keystore.primary]
@@ -2048,7 +2048,7 @@ Follow the instructions below to move all the existing API Manager configuration
         But, if you are not using WSO2 IS as a Key Manager, you have to follow the instructions below in order to upgrade the identity components which have been shared with WSO2 API-M.
 
     ??? note "If you are using DB2"
-        Move indexes to the the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.
+        Move indexes to the TS32K Tablespace. The index tablespace in the `IDN_OAUTH2_ACCESS_TOKEN` and `IDN_OAUTH2_AUTHORIZATION_CODE` tables need to be moved to the existing TS32K tablespace in order to support the newly added table indexes.
 
         SQLADM or DBADM authority is required in order to invoke the `ADMIN_MOVE_TABLE` stored procedure. You must also have the appropriate object creation authorities, including authorities to issue the SELECT statement on the source table and to issue the INSERT statement on the target table. 
 
@@ -2090,7 +2090,7 @@ Follow the instructions below to move all the existing API Manager configuration
             <TABLE_SCHEMA_OF_IDN_OAUTH2_ACCESS_TOKEN_TABLE> and <TABLE_SCHEMA_OF_IDN_OAUTH2_AUTHORIZATION_CODE_TABLE> : Replace these schema’s with each respective schema for the table.
             ```
 
-        If you recieve an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
+        If you get an error due to missing `SYSTOOLSPACE` or `SYSTOOLSTMPSPACE` tablespaces, create those tablespaces manually using the following script prior to executing the stored procedure given above. For more information, see [SYSTOOLSPACE and SYSTOOLSTMPSPACE table
         spaces](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.gui.doc/doc/c0023713.html) in the official IBM documentation.   
 
         ``` java
@@ -2183,7 +2183,8 @@ Follow the instructions below to move all the existing API Manager configuration
         !!! warning "Troubleshooting"
             When running the above step if you encounter the following error message, follow the steps in this section. Note that this error could occur only if the identity tables contain a huge volume of data.
 
-            Sample exception stack trace is given below.
+            The sample exception stack trace is given below.
+
             ```
             ERROR {org.wso2.carbon.registry.core.dataaccess.TransactionManager} -  Failed to start new registry transaction. {org.wso2.carbon.registry.core.dataaccess.TransactionManager} org.apache.tomcat.jdbc.pool.PoolExhaustedException: [pool-30-thread-11] Timeout: Pool empty. Unable to fetch a connection in 60 seconds, none available[size:50; busy:50; idle:0; lastwait:60000
             ```
@@ -2246,7 +2247,7 @@ Follow the instructions below to move all the existing API Manager configuration
     1.  Run the [reg-index.sql]({{base_path}}/assets/attachments/install-and-setup/reg-index.sql) script against the `SHARED_DB` database.
 
         !!! note
-            Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of script until it is completed.
+            Note that depending on the number of records in the REG_LOG table, this script will take a considerable amount of time to finish. Do not stop the execution of the script until it is completed.
 
     2.  Add the [tenantloader-1.0.jar]({{base_path}}/assets/attachments/install-and-setup/tenantloader-1.0.jar) to `<API-M_3.1.0_HOME>/repository/components/dropins` directory.
 
@@ -2254,7 +2255,7 @@ Follow the instructions below to move all the existing API Manager configuration
             If you are working with a **clustered/distributed API Manager setup**, follow this step on the **Store and Publisher** nodes.
 
         !!! note
-            You need to do this step, if you have **multiple tenants** only.
+            You need to do this step if you have **multiple tenants** only.
 
     3.  Add the following configuration in the `<API-M_3.1.0_HOME>/repository/conf/deployment.toml` file.
 
@@ -2278,7 +2279,7 @@ Follow the instructions below to move all the existing API Manager configuration
     This step is **only required** if you have WSO2 API-M-Analytics configured in your current deployment.
 
 !!! info
-    As you are upgrading from WSO2 API-M Analytics 2.0.0, in order migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.1.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.1.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
+    As you are upgrading from WSO2 API-M Analytics 2.0.0, in order to migrate the configurations required to run WSO2 API-M Analytics for WSO2 API-M 3.1.0 carryout the same instructions as mentioned in [Upgrading from 2.5.0 to 3.1.0 - Step 3 - Optionally, migrate the configurations for WSO2 API-M Analytics]({{base_path}}/install-and-setup/upgrading-wso2-api-manager/upgrading-from-250-to-310/#step-3-optionally-migrate-the-configurations-for-wso2-api-m-analytics) section.
 
 ### Step 4 - Restart the WSO2 API-M 3.1.0 server
 
@@ -2309,6 +2310,6 @@ This concludes the upgrade process.
     The migration client that you use in this guide automatically migrates your tenants, workflows, external user stores, etc. to the upgraded environment. Therefore, there is no need to migrate them manually.
 
 !!! note
-    If you are using a migrated API and you need to consume it via an application which supports JWT authentication (default type in API-M 3.1.0), you need to re-publish the API. Without republishing the API, the JWT authentication does not work as it looks for a local entry which will get populated while publishing.
+    If you are using a migrated API and you need to consume it via an application that supports JWT authentication (default type in API-M 3.1.0), you need to re-publish the API. Without republishing the API, the JWT authentication does not work as it looks for a local entry that will get populated while publishing.
 
     You can consume the migrated API via an OAuth2 application without an issue.
