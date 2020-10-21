@@ -921,6 +921,23 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="7" type="checkbox" id="_tab_31">
+                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[apim.jwt.issuer]]
+name = "https://test.apim.integration"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[apim.jwt.issuer]</code>
@@ -949,6 +966,23 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="7" type="checkbox" id="_tab_32">
+                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[apim.jwt.issuer.jwks]
+url = "https://localhost:8743/jwks/1.0"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[apim.jwt.issuer.jwks]</code>
@@ -977,6 +1011,24 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="7" type="checkbox" id="_tab_33">
+                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[apim.jwt.issuer.claim_mapping]]
+remote_claim = "http://idp1.org/claims/givenname"
+local_claim = "http://wso2.org/claims/givenname"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
                             <code>[apim.jwt.issuer.claim_mapping]</code>
