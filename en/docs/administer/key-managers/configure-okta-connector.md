@@ -119,7 +119,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
            [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
 
         !!! note "Auto-filling Key Manager configurations"
-            The Key Manager configurations can be auto-filled by clicking the **Import** button after providing the well-known endpoint of Okta. The well-known-URL can be found in the **Metadata URI**, under **Settings** section.
+            The Key Manager configurations can be auto-filled by clicking the **Import** button after providing the well-known endpoint of Okta. The well-known-URL is the **Metadata URI**, under **Settings** section.
 
          The following table provides definitions for each of the Key Manager configurations.
 
