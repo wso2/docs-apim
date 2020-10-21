@@ -4792,7 +4792,7 @@ environment = "live"
                 <div class="superfences-content">
                     <div class="mb-config-example">
                         <pre><code class="toml">[multi_tenancy.stratos.manager_service]
-url = "https://cloud-test.wso2.com/services/"
+url = "https://am.cloud.wso2.com/services/"
 admin_username = "admin"
 admin_password = "admin"
 </code></pre>
@@ -4801,7 +4801,7 @@ admin_password = "admin"
                 <div class="doc-wrapper">
                     <div class="mb-config">
                         <div class="config-wrap">
-                            <code>[multi_tenancy.billing.package.demo]</code>
+                            <code>[multi_tenancy.stratos.manager_service]</code>
                             <span class="badge-required">Optional</span>
                             <p>
                                 Configures the Stratos manager service.
@@ -5744,7 +5744,7 @@ overuse_charge= "0"
                 <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
                 <div class="superfences-content">
                     <div class="mb-config-example">
-                        <pre><code class="toml">[[multi_tenancy.billing.package.custom]]
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom]
 name = "Professional"
 subscription_charge = "500"
 </code></pre>
