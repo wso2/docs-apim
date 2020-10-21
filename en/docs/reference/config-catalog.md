@@ -1,5 +1,6 @@
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 API Manager.
+
 ## Instructions for use
 > Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.
 
@@ -4446,7 +4447,7 @@ enable_email_domain = true</code></pre>
 </div>
 
 
-## Multi tenancy Configurations
+## Multi-tenancy Configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -4478,7 +4479,7 @@ sso_loading_message = "Loading..."
                             <code>[multi_tenancy.stratos]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                Configures the multi tenant stratos properties
+                                Configures the multi-tenant Stratos properties.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -4514,7 +4515,7 @@ sso_loading_message = "Loading..."
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable or disable mandatory email validation when login in.</p>
+                                        <p>Enable or disable mandatory email validation when logging in.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4532,7 +4533,7 @@ sso_loading_message = "Loading..."
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Enable or disable, activation of moderated tenants.</p>
+                                        <p>Enable or disable activation of moderated tenants.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4580,7 +4581,7 @@ sso_loading_message = "Loading..."
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> Email address to notify the events.</p>
+                                        <p> The email address that is used to send event related notifications.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4595,7 +4596,7 @@ sso_loading_message = "Loading..."
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> Email address to notify the the financial information.</p>
+                                        <p> The email address that is used to send financial information related notifications.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4613,7 +4614,7 @@ sso_loading_message = "Loading..."
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Charge on registration for tenants.</p>
+                                        <p>The charge applicable for tenant registration.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4646,7 +4647,7 @@ sso_loading_message = "Loading..."
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> URL address of google analytics.</p>
+                                        <p> URL address of Google Analytics.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4661,7 +4662,7 @@ sso_loading_message = "Loading..."
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> SSO loading message to display. </p>
+                                        <p>The message that is displayed when SSO is loaded.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4709,7 +4710,7 @@ environment = "live"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>URL address of the attached Paypal account. </p>
+                                        <p>The URL address of the attached PayPal account. </p>
                                     </div>
                                 </div>
                             </div>
@@ -4724,7 +4725,7 @@ environment = "live"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>Username of the attached Paypal account. </p>
+                                        <p>The username of the attached PayPal account. </p>
                                     </div>
                                 </div>
                             </div>
@@ -4739,7 +4740,7 @@ environment = "live"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>Password of the attached Paypal account. </p>
+                                        <p>The password of the attached PayPal account. </p>
                                     </div>
                                 </div>
                             </div>
@@ -4754,7 +4755,7 @@ environment = "live"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>Signature of the attached Paypal account. </p>
+                                        <p>The signature of the attached PayPal account. </p>
                                     </div>
                                 </div>
                             </div>
@@ -4769,7 +4770,7 @@ environment = "live"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>Environment of the attached Paypal account. </p>
+                                        <p>The environment of the attached PayPal account. </p>
                                     </div>
                                 </div>
                             </div>
@@ -4803,7 +4804,7 @@ admin_password = "admin"
                             <code>[multi_tenancy.billing.package.demo]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                Configures the Stratos manager service
+                                Configures the Stratos manager service.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -4818,7 +4819,7 @@ admin_password = "admin"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>URL of the stratos manager service. </p>
+                                        <p>The URL of the Stratos manager service. </p>
                                     </div>
                                 </div>
                             </div>
@@ -4833,7 +4834,7 @@ admin_password = "admin"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>Admin username of the stratos manager service.</p>
+                                        <p>The admin username of the Stratos manager service.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4848,7 +4849,7 @@ admin_password = "admin"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>Admin password of the stratos manager service.</p>
+                                        <p>The admin password of the Stratos manager service.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4882,7 +4883,7 @@ execution_interval_in_ms = "-1"
                             <code>[multi_tenancy.usage_agent.data_persistence_task]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                Configures the data presistance for user agents in multi tenant mode.
+                                Configures the data presistance for user agents in multi-tenant mode.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -4943,7 +4944,7 @@ execution_interval_in_ms = "-1"
 </div>
 
 
-## Multi tenancy throttling manager configurations
+## Multi-tenancy throttling manager configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -4968,7 +4969,7 @@ data_providers = [
                             <code>[multi_tenancy.throttling_manager_tasks]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                Configures the multi tenant throttling manager tasks.
+                                Configures the multi-tenant throttling manager tasks.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5059,7 +5060,7 @@ delay = "60"
 </div>
 
 
-## Multi tenancy cloud services configurations
+## Multi-tenancy cloud services configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -5192,7 +5193,7 @@ description = "API Manager in the cloud"
 </div>
 
 
-## Multi tenancy monetization configurations
+## Multi-tenancy monetization configurations
 
 <div class="mb-config-catalog">
     <section>
@@ -5215,7 +5216,7 @@ subscription_charge = 0
                             <code>[multi_tenancy.billing.package.demo]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes multi-tenancy monetization configurations related to the "Demo" package
+                                This includes multi-tenancy monetization configurations related to the "Demo" package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5233,7 +5234,7 @@ subscription_charge = 0
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Provides the name of the billing package is being used</p>
+                                        <p>Provides the name of the billing package that is being used.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5251,7 +5252,7 @@ subscription_charge = 0
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Subscription charge value of the billing package</p>
+                                        <p>The value of the subscription charge for the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5284,7 +5285,7 @@ charge= "0"
                             <code>[multi_tenancy.billing.package.demo.users]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the users' configurations related to the "Demo" billing package
+                                This includes the users' configurations related to the "Demo" billing package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5302,7 +5303,7 @@ charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Provides the number of users can be attched to the billing package</p>
+                                        <p>Provides the number of users that can be attached to the "Demo" billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5320,7 +5321,7 @@ charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Subscription charge value of the billing package per user</p>
+                                        <p>The value of the subscription charge for the "Demo" billing package per user.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5353,7 +5354,7 @@ overuse_charge= "0"
                             <code>[multi_tenancy.billing.package.demo.resource_volume]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the resource volume configurations related to the "Demo" billing package
+                                This includes the resource volume configurations related to the "Demo" billing package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5368,7 +5369,7 @@ overuse_charge= "0"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>The maximum number of resources can be charged with the given billing package</p>
+                                        <p>The maximum number of resources that can be charged with the given billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5386,7 +5387,7 @@ overuse_charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Over usage charge value of the billing package</p>
+                                        <p>The charge for over usage based on the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5419,7 +5420,7 @@ overuse_charge= "0"
                             <code>[multi_tenancy.billing.package.demo.bandwidth]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the bandwidth configurations related to the "Demo" billing package
+                                This includes the bandwidth configurations related to the "Demo" billing package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5434,7 +5435,7 @@ overuse_charge= "0"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> Highest bandwidth value that can be allocated with the billing package </p>
+                                        <p> The highest bandwidth value that can be allocated for the "Demo" billing package. </p>
                                     </div>
                                 </div>
                             </div>
@@ -5452,7 +5453,7 @@ overuse_charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p> Over usage charge value of the billing package </p>
+                                        <p> The charge for over usage based on the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5485,7 +5486,7 @@ subscription_charge = "100"
                             <code>[multi_tenancy.billing.package.smb]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes multi-tenancy monetization configurations related to the "SMB" package
+                                This includes multi-tenancy monetization configurations related to the "SMB" package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5503,7 +5504,7 @@ subscription_charge = "100"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Provides the name of the billing package is being used</p>
+                                        <p>Provides the name of the billing package that is being used.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5521,7 +5522,7 @@ subscription_charge = "100"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Subscription charge value of the billing package</p>
+                                        <p>The value of the subscription charge for the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5554,7 +5555,7 @@ charge= "0"
                             <code>[multi_tenancy.billing.package.smb.users]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the users' configurations related to the "SMB" billing package
+                                This includes the users' configurations related to the "SMB" billing package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5572,7 +5573,7 @@ charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Provides the number of users can be attched to the "SMB" billing package</p>
+                                        <p>Provides the number of users that can be attached to the "SMB" billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5590,7 +5591,7 @@ charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Subscription charge value of the "SMB" billing package per user</p>
+                                        <p>Value of the subscription charge for the "SMB" billing package per user.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5623,7 +5624,7 @@ overuse_charge= "0"
                             <code>[multi_tenancy.billing.package.smb.resource_volume]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the resource volume configurations related to the "SMB" billing package
+                                This includes the resource volume configurations related to the "SMB" billing package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5638,7 +5639,7 @@ overuse_charge= "0"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>The maximum number of resources can be charged with the given billing package</p>
+                                        <p>The maximum number of resources that can be charged with the given billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5656,7 +5657,7 @@ overuse_charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Over usage charge value of the billing package</p>
+                                        <p>The charge for over usage based on the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5689,7 +5690,7 @@ overuse_charge= "0"
                             <code>[multi_tenancy.billing.package.smb.bandwidth]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the bandwidth configurations related to the "SMB" billing package
+                                This includes the bandwidth configurations related to the "SMB" billing package.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5704,7 +5705,7 @@ overuse_charge= "0"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> Highest bandwidth value that can be allocated with the "SMB" billing package </p>
+                                        <p>The highest bandwidth value that can be allocated for the "SMB" billing package. </p>
                                     </div>
                                 </div>
                             </div>
@@ -5722,7 +5723,7 @@ overuse_charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p> Over usage charge value of the billing package </p>
+                                        <p> The charge for over usage based on the billing package. </p>
                                     </div>
                                 </div>
                             </div>
@@ -5755,7 +5756,7 @@ subscription_charge = "500"
                             <code>[multi_tenancy.billing.package.custom]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes multi-tenancy monetization configurations related to the custom packages
+                                This includes the multi-tenancy monetization configurations related to the custom packages.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5773,7 +5774,7 @@ subscription_charge = "500"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>The name of the custom billing package</p>
+                                        <p>The name of the custom billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5791,7 +5792,7 @@ subscription_charge = "500"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Subscription charge value of the billing package</p>
+                                        <p>The value of the subscription charge for the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5824,7 +5825,7 @@ charge= "0"
                             <code>[multi_tenancy.billing.package.custom.users]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the users' configurations related to custom billing packages
+                                This includes the users' configurations related to the custom billing packages.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5842,7 +5843,7 @@ charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Provides the number of users can be attched to the custom billing packages</p>
+                                        <p>Provides the number of users that can be attached to the custom billing packages.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5860,7 +5861,7 @@ charge= "0"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Subscription charge value of the custom billing package per user</p>
+                                        <p>The value of the subscription charge for the custom billing packages per user.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5893,7 +5894,7 @@ overuse_charge = "0.03"
                             <code>[multi_tenancy.billing.package.custom.resource_volume]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the resource volume configurations related to the custom billing packages
+                                This includes the resource volume configurations related to the custom billing packages.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5908,7 +5909,7 @@ overuse_charge = "0.03"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p>The maximum number of resources can be charged with the given billing package</p>
+                                        <p>The maximum number of resources that can be charged with the given billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5926,7 +5927,7 @@ overuse_charge = "0.03"
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Over usage charge value of the billing package</p>
+                                        <p>The charge for over usage based on the billing package.</p>
                                     </div>
                                 </div>
                             </div>
@@ -5959,7 +5960,7 @@ overuse_charge= "0"
                             <code>[multi_tenancy.billing.package.custom.bandwidth]</code>
                             <span class="badge-required">Optional</span>
                             <p>
-                                This includes the bandwidth configurations related to the custom billing packages
+                                This includes the bandwidth configurations related to the custom billing packages.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -5974,7 +5975,7 @@ overuse_charge= "0"
                                         </p>
                                     </div>
                                     <div class="param-description">
-                                        <p> Highest bandwidth value that can be allocated with the custom billing package </p>
+                                        <p> The highest bandwidth value that can be allocated for the custom billing package. </p>
                                     </div>
                                 </div>
                             </div>
@@ -5990,10 +5991,9 @@ overuse_charge= "0"
                                         <div class="param-default">
                                             <span class="param-default-value">Default: <code>"0"</code></span>
                                         </div>
-
                                     </div>
                                     <div class="param-description">
-                                        <p> Over usage charge value of the billing package </p>
+                                        <p> The charge for over usage based on the billing package. </p>
                                     </div>
                                 </div>
                             </div>
