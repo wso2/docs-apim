@@ -4,11 +4,13 @@
 
 You can use WSO2 API Manager to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. The `openid` scope needs to be passed when generating the access token, in order to obtain the latter mentioned information. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response to this request. You can configure the information that is returned with the JWT access token.
 
-The following two options are available to obtain the actual user information.
-    -   [Decoding the id_token](#decoding-the-id_token)
-    -   [Invoking the userinfo endpoint](#invoking-the-userinfo-endpoint)
+You can obtain the actual user information using any of the following options.
+
+- [Decoding the id_token](#decoding-the-id_token)
+- [Invoking the userinfo endpoint](#invoking-the-userinfo-endpoint)
+- [Invoking the openid-configuration endpoint](#invoking-the-openid-configuration-endpoint)
     
-#### Decoding the id_token
+## Decoding the id_token
 
 Follow the instructions below to obtain user profile information with OpenID connect with WSO2 API Manager.
 
@@ -54,7 +56,7 @@ Follow the instructions below to obtain user profile information with OpenID con
     }
     ```
 
-#### Invoking the userinfo endpoint
+## Invoking the userinfo endpoint
 
 You can obtain user information as a payload by invoking the userinfo endpoint with the access token obtained in step 1. The format of the curl command and a sample is given below
 
@@ -76,7 +78,7 @@ The response will be a JSON payload as shown below:
 }
 ```
 
-#### Invoking the openid-configuration endpoint
+## Invoking the openid-configuration endpoint
 
 You need to invoke the openid-configuration endpoint as follows to obtain the openid-configuration information as a payload. The format of the cURL command and a sample is given below.
 
@@ -157,5 +159,3 @@ The response will be a JSON payload as shown below:
     
     In order to modify the service provider, you can login to APIM Management console(`https://localhost:9443/carbon`), locate the relevant service provider(The corresponding service provider generated for a given application created in API DevPortal will be in 
     `<username>_<application-name>_<environment>` format. ie: `john_pizzashackapp_PRODUCTION`) and follow the steps given in [Service Provider Claim Configuration](https://is.docs.wso2.com/en/5.10.0/learn/configuring-claims-for-a-service-provider/#claim-mapping) to configure the required user claims.
-
- 
