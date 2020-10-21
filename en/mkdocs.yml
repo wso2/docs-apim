@@ -507,6 +507,7 @@ nav:
                 - Configure Keycloak as a Key Manager: administer/key-managers/configure-keycloak-connector.md
                 - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
                 - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
+                - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
                 - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
