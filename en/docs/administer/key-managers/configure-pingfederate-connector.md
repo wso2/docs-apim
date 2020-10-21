@@ -294,6 +294,6 @@ Follow the instructions given below to configure PingFederate as a third-party K
 3. Create a new application or use the default application.
 4. Click **Production Keys**.
 
-     ![PingFederate Developer Portal generate keys]({{base_path}}/assets/img/administer/ping-devportal-generate-keys.png)
+     [![PingFederate Developer Portal generate keys]({{base_path}}/assets/img/administer/ping-devportal-generate-keys.png)]({{base_path}}/assets/img/administer/ping-devportal-generate-keys.png)
 
 5. Click **Generate Keys**.
