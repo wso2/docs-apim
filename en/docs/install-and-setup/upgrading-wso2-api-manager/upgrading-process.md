@@ -1,8 +1,5 @@
 # Upgrading Process
 
-!!! Important
-    This migration guide is in the process of restructuring, and is NOT yet ready for use.
-
 This section contains the complete upgrading process related to the WSO2 API Manager.
 Go through the guidelines given below before attempting to upgrade the production environment.
 

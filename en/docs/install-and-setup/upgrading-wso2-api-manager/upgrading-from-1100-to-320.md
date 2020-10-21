@@ -1,8 +1,5 @@
 # Upgrading API Manager from 1.10.0 to 3.2.0
 
-!!! Important
-    This migration guide is in the process of being restructured and is NOT yet ready for use.
-
 The following information describes how to upgrade your API Manager server **from APIM 1.10.0 to 3.2.0**.
 
 !!! note
@@ -1646,7 +1643,34 @@ Follow the instructions below to move all the existing API Manager configuration
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD APP_INFO BLOB/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING ADD UNIQUE(APPLICATION_ID,KEY_TYPE,KEY_MANAGER)/
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY/
-        
+
+        CREATE TABLE AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID))
+        /
+        CREATE SEQUENCE AM_SCOPE_SEQUENCE START WITH 1 INCREMENT BY 1 NOCACHE
+        /
+        CREATE TRIGGER AM_SCOPE_TRIGGER NO CASCADE BEFORE INSERT ON AM_SCOPE
+        REFERENCING NEW AS NEW FOR EACH ROW MODE DB2SQL
+
+        BEGIN ATOMIC
+
+            SET (NEW.SCOPE_ID)
+            = (NEXTVAL FOR AM_SCOPE_SEQUENCE);
+
+        END
+        /
+        CREATE TABLE AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
+        /        
         ```
 
         ```tab="MSSQL"
@@ -2115,7 +2139,7 @@ Follow the instructions below to move all the existing API Manager configuration
         CREATE TABLE AM_SECURITY_AUDIT_UUID_MAPPING (
             API_ID INTEGER NOT NULL,
             AUDIT_UUID VARCHAR(255) NOT NULL,
-            PRIMARYśKEY (API_ID),
+            PRIMARY KEY (API_ID),
             FOREIGN KEY (API_ID) REFERENCES AM_API(API_ID)
         );
         
@@ -2780,7 +2804,23 @@ Follow the instructions below to move all the existing API Manager configuration
         )ENGINE INNODB;
         
         UPDATE IDN_OAUTH_CONSUMER_APPS SET CALLBACK_URL="" WHERE CALLBACK_URL IS NULL;
-        
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE (
+            SCOPE_ID INTEGER NOT NULL AUTO_INCREMENT,
+            NAME VARCHAR(255) NOT NULL,
+            DISPLAY_NAME VARCHAR(255) NOT NULL,
+            DESCRIPTION VARCHAR(512),
+            TENANT_ID INTEGER NOT NULL DEFAULT -1,
+            SCOPE_TYPE VARCHAR(255) NOT NULL,
+            PRIMARY KEY (SCOPE_ID)
+        )ENGINE INNODB;
+
+        CREATE TABLE IF NOT EXISTS AM_SCOPE_BINDING (
+                    SCOPE_ID INTEGER NOT NULL,
+                    SCOPE_BINDING VARCHAR(255) NOT NULL,
+                    BINDING_TYPE VARCHAR(255) NOT NULL,
+                    FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE (SCOPE_ID) ON DELETE CASCADE
+        )ENGINE INNODB;
         ```
 
         ```tab="Oracle"
@@ -3583,7 +3623,6 @@ Follow the instructions below to move all the existing API Manager configuration
         /
         ALTER TABLE AM_APPLICATION_KEY_MAPPING DROP PRIMARY KEY
         /
-        
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD KEY_MANAGER VARCHAR2(255) DEFAULT 'Resident Key Manager' NOT NULL
         /
         ALTER TABLE AM_APPLICATION_REGISTRATION ADD UNIQUE(SUBSCRIBER_ID,APP_ID,TOKEN_TYPE,KEY_MANAGER)
