@@ -2,8 +2,7 @@
 
 [OpenID Connect](http://openid.net/connect/) is an **authentication protocol** that is a simple identity layer on top of the OAuth 2.0 protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
 
-You can use WSO2 API Manager to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. To obtain this information, the `openid` scope needs to be passed, when generating the access token. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response for this request. You can configure the information returned with the JWT access token.
-
+You can use WSO2 API Manager to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. The `openid` scope needs to be passed when generating the access token, in order to obtain the latter mentioned information. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response to this request. You can configure the information that is returned with the JWT access token.
 
 The following two options are available to obtain the actual user information.
     -   [Decoding the id_token](#decoding-the-id_token)
@@ -79,7 +78,7 @@ The response will be a JSON payload as shown below:
 
 #### Invoking the openid-configuration endpoint
 
-You can obtain openid-configuration information as a payload by invoking the openid-configuration endpoint. The format of the curl command and a sample is given below
+You need to invoke the openid-configuration endpoint as follows to obtain the openid-configuration information as a payload. The format of the cURL command and a sample is given below.
 
 ``` bash tab="Format"
 curl -v -k https://<GATEWAY_HOSTNAME>:<PORT>/oidcdiscovery/.well-known/openid-configuration
@@ -159,4 +158,4 @@ The response will be a JSON payload as shown below:
     In order to modify the service provider, you can login to APIM Management console(`https://localhost:9443/carbon`), locate the relevant service provider(The corresponding service provider generated for a given application created in API DevPortal will be in 
     `<username>_<application-name>_<environment>` format. ie: `john_pizzashackapp_PRODUCTION`) and follow the steps given in [Service Provider Claim Configuration](https://is.docs.wso2.com/en/5.10.0/learn/configuring-claims-for-a-service-provider/#claim-mapping) to configure the required user claims.
 
-
+ 
