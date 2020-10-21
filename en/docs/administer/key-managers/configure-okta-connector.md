@@ -116,7 +116,10 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 
      2. Add the following Key Manager configurations.
 
-         [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
+           [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
+
+        !!! note "Auto-filling Key Manager configurations"
+            The Key Manager configurations can be auto-filled by clicking the **Import** button after providing the well-known endpoint of Okta. The well-known-URL can be found in the **Metadata URI**, under **Settings** section.
 
          The following table provides definitions for each of the Key Manager configurations.
 
@@ -328,9 +331,6 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td>Optional</td>
           </tr>
         </table>
-
-!!! tip
-     After the authorization URL, which is generated when you create an application in Okta, is provided as a **"Well-known-url"**, it can be found under the parameter **Metadata URI** in the settings related to the Authorization server. When you click the **Import** button under the latter mentioned settings, the required information in the Key Manager configurations will be filled automatically.
 
 ## Step 3 - Generate keys using the Okta Key Manager
 
