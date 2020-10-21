@@ -249,7 +249,7 @@ Follow the instructions given below to configure PingFederate as a third-party K
             <td>Use introspect</td>
             <td>The JWKS endpoint is used to validate the JWT token signature.
             If this option is used to validate the tokens it is mandatory to add a Token Handling Option.
-                For the Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
+                For the PingFederate it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
             </br> Example: </br> Claim Key : iss
             </br>Claim Value : https://localhost:9031 </td>
             <td>Optional</td>
@@ -281,3 +281,19 @@ Follow the instructions given below to configure PingFederate as a third-party K
             <td>Optional</td>
           </tr>
           </table>
+
+## Step 3 - Generate keys using the PingFederate Key Manager
+
+1. Sign in to the Developer Portal.
+
+    `https://<hostname>:9443/devportal`
+     
+    `https://localhost:9443/devportal`
+
+2. Click **Applications**.
+3. Create a new application or use the default application.
+4. Click **Production Keys**.
+
+     ![PingFederate Developer Portal generate keys]({{base_path}}/assets/img/administer/ping-devportal-generate-keys.png)
+
+5. Click **Generate Keys**.
