@@ -925,7 +925,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                         <div class="config-wrap">
                             <code>[apim.jwt.issuer]</code>
                             <p>
-                                To specify the issuers of JWT tokens if third party keymanagers are used.
+                                To specify the issuers of the JWT tokens if third-party Key Managers are used.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -943,7 +943,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Issuer name of the JWT</p>
+                                        <p>The issuer name of the JWT.</p>
                                     </div>
                                 </div>
                             </div>
@@ -953,7 +953,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                         <div class="config-wrap">
                             <code>[apim.jwt.issuer.jwks]</code>
                             <p>
-                                To specify the JWKS endpoint of the issuer.
+                                To specify the JSON Web Key Set (JWKS) endpoint of the issuer.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -971,7 +971,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>JWKS endpoint URL of the issuer</p>
+                                        <p>The JWKS endpoint URL of the issuer.</p>
                                     </div>
                                 </div>
                             </div>
@@ -981,7 +981,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                         <div class="config-wrap">
                             <code>[apim.jwt.issuer.claim_mapping]</code>
                             <p>
-                                To specify the claim mappings if remote claims need to mapped for local claims.
+                                To specify the claim mappings if remote claims need to be mapped for local claims.
                             </p>
                         </div>
                         <div class="params-wrap">
@@ -999,7 +999,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Remote claim name</p>
+                                        <p>The name of the remote claim.</p>
                                     </div>
                                 </div>
                             </div>
@@ -1017,7 +1017,7 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                         </div>
                                     </div>
                                     <div class="param-description">
-                                        <p>Local claim name which the remote claim needs to be mapped for</p>
+                                        <p>The local claim name that the remote claim needs to be mapped to.</p>
                                     </div>
                                 </div>
                             </div>
