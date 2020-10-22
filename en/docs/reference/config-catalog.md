@@ -926,6 +926,160 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
             </div>
         </div>
     </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="50" type="checkbox" id="_tab_50">
+                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[apim.jwt.issuer]]
+name = "https://test.apim.integration"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer]</code>
+                            <p>
+                                To specify the issuers of the JWT tokens if third-party Key Managers are used.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The issuer name of the JWT.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="51" type="checkbox" id="_tab_51">
+                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[apim.jwt.issuer.jwks]
+url = "https://localhost:8743/jwks/1.0"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer.jwks]</code>
+                            <p>
+                                To specify the JSON Web Key Set (JWKS) endpoint of the issuer.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The JWKS endpoint URL of the issuer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="52" type="checkbox" id="_tab_52">
+                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[apim.jwt.issuer.claim_mapping]]
+remote_claim = "http://idp1.org/claims/givenname"
+local_claim = "http://wso2.org/claims/givenname"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer.claim_mapping]</code>
+                            <p>
+                                To specify the claim mappings if remote claims need to be mapped for local claims.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>remote_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the remote claim.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>local_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The local claim name that the remote claim needs to be mapped to.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 
