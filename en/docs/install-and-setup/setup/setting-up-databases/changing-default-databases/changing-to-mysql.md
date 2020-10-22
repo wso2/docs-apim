@@ -202,7 +202,7 @@ Follow the  instructions below to change the type of the default datasources.
         ```
     
     !!! Tip "Recommendation"
-        It is not recommended to disable SSL connection in Production Environments (with `useSSL=false`). For security reasons, enabling SSL connection with MySQL server is preferred in Production Environment. Please refer [the guide](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html) to establish SSL connection with MySQL server.
+        It is **not recommended to disable the SSL connection** in Production Environments (with `useSSL=false`). For security reasons, enabling SSL connection with MySQL server is preferred in a Production Environment. For more information on establishing an SSL connection with the MySQL server, see [the official MySQL documentation](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html). 
 
 3.  You can update the configuration elements given below for your database connection.
 
