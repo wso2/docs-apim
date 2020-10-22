@@ -44,7 +44,7 @@ Create and publish an API that is secured with the API key security scheme as th
 
 2. Click **DEPLOY SAMPLE API** to deploy the sample PizzaShack API.
 
-     ![Configure API key authentication](../../../assets/img/learn/api-key-option.png)
+     [![Configure API key authentication]({{base_path}}/assets/img/learn/api-key-option.png)]({{base_path}}/assets/img/learn/api-key-option.png)
 
 3. Click **Runtime Configurations**.
 
@@ -66,15 +66,15 @@ Create and publish an API that is secured with the API key security scheme as th
      </html>
 
 4. Click **Subscribe**.
-     ![Subscribe to the API](../../../assets/img/learn/subscribe-to-api.png)
+     [![Subscribe to the API]({{base_path}}/assets/img/learn/subscribe-to-api.png)]({{base_path}}/assets/img/learn/subscribe-to-api.png)
 
 5. Click **MANAGE APP**, which corresponds to the application that you used to subscribe to the API.
 
-     ![View list of credentials](../../../assets/img/learn/view-credentials-manage-app.png)
+     [![View list of credentials]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)]({{base_path}}/assets/img/learn/view-credentials-manage-app.png)
 
 6. Click **APIKEY** and click **GENERATE KEY**.
 
-     ![Generate API key](../../../assets/img/learn/generate-api-key.png)
+     [![Generate API key]({{base_path}}/assets/img/learn/generate-api-key.png)]({{base_path}}/assets/img/learn/generate-api-key.png)
 
 7. Optionally, define a validity period for the token.
 
@@ -86,9 +86,9 @@ Create and publish an API that is secured with the API key security scheme as th
      
 8. Copy the API key.
 
-     ![Copy API key](../../../assets/img/learn/copy-api-key.png)
+     <a href="{{base_path}}/assets/img/learn/copy-api-key.png"><img src="{{base_path}}/assets/img/learn/copy-api-key.png" width="500" /> </a>
 
-### Step 4 - Invoke the API
+### Step 3 - Invoke the API
 
 Invoke the API using the API key. 
 
@@ -140,11 +140,11 @@ Follow the instructions below to import the public certificate into the client t
 
 1. Navigate to the `<API-M_HOME>/repository/resources/security/` directory.
 
-2. Run the following command to export the public certificate from WSO2 API Manager's key store (`wso2carbon.jks`). 
+2. Run the following command to export the public certificate from WSO2 API Manager's keystore (`wso2carbon.jks`). 
 
     `keytool -export -alias wso2carbon -file wso2.crt -keystore wso2carbon.jks`
 
-3. Enter `wso2carbon` as the default password of the key store when prompted.
+3. Enter `wso2carbon` as the default password of the keystore when prompted.
 
 4. Run the following command to import the public certificate into the trust store. 
 
@@ -169,23 +169,25 @@ By default, the alias name is `gateway_certificate_alias`. Follow the instructio
      api_key_alias = "<alias-name>"
      ```
    
-### Configuring custom Key Store for signing API Key
+### Configuring a custom Keystore to sign an API Key
  
-By default, the primary Key Store is used to sign the API Key. Also, the user can configure a custom Key Store for signing the API Keys following the steps.
- 
-1. Add the custom Key Store in to `<API-M_HOME>/repository/resources/security` directory.
+By default, the primary Keystore is used to sign the API Key. In addition, the user can configure a custom Keystore to sign the API Keys.
 
-2. Export the public certificate from the custom Key Store and import that into the client trust store as described in [Importing the public certificate into the client trust store]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#importing-the-public-certificate-into-the-client-trust-store)
+Follow the instructions below to configure a custom Keystore to sign the API Keys:
  
-3. Add the custom Key Store configuration to the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
+1. Add the custom Keystore into the `<API-M_HOME>/repository/resources/security` directory.
+
+2. Export the public certificate from the custom Keystore and import that into the client trust store as described in [Importing the public certificate into the client truststore]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#importing-the-public-certificate-into-the-client-trust-store).
+ 
+3. Add the custom Keystore configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file as follows:
     
     ``` tab="Format"
     [custom_keystore.KeyStoreName]
-    file_name = "<key store file name>"
+    file_name = "<key-store-file-name>"
     type = "<type>"
-    password = "<key store password>"
+    password = "<key-store-password>"
     alias = "<alias-name>"
-    key_password = "<private-key password>"
+    key_password = "<private-key-password>"
     ```
     
     ``` tab="Example"
@@ -198,12 +200,13 @@ By default, the primary Key Store is used to sign the API Key. Also, the user ca
     ```
    
     !!! note
-         Here the Key Store name field is taken from the configuration header, which is `[custom_keystore.KeySignKeyStore]`. The rightmost part divided by the full stop will be the Key Store name. For the given sample that is `KeySignKeyStore`.
+         The Keystore name field is taken from the configuration header, which is `[custom_keystore.KeySignKeyStore]`. The rightmost part divided by the full stop refers to the Keystore name. In the above example, the keystore name is `KeySignKeyStore`.
    
-4. Configure the custom Key Store name to the `<API-M_HOME>/repository/conf/deployment.toml` file under `[apim.devportal]` as follows:
+4. Define the custom Keystore name in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[apim.devportal]` as follows:
+     
      ```
      [apim.devportal]
      api_key_keystore = "KeySignKeyStore"
      ```
 
-5. Configure the alias name value as described in [Changing the alias name in the JWT]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#changing-the-alias-name-in-the-jwt)
+5. Configure the alias name value as described in [Changing the alias name in the JWT]({{base_path}}/learn/api-security/api-authentication/secure-apis-using-api-keys/#changing-the-alias-name-in-the-jwt).
