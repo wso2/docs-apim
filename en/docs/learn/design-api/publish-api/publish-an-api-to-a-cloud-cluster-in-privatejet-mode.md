@@ -4,13 +4,13 @@ In an age where more and more applications are adopting the microservice archite
 Automating computer application deployment, scaling, and management are a few of such functionalities to name. WSO2 API Manager provides cloud-native API management, where a user is able to expose microservices as managed APIs in cloud environment such as Kubernetes. 
 This could be done with the support of WSO2-Kubernetes API Operator. 
 
- ![Architecture](https://github.com/wso2/k8s-api-operator/blob/master/docs/HowToGuide/working-with-deployment-modes.md#private-jet-mode)
+ ![Architecture]({{base_path}}/assets/img/learn/privatejet-mode/architecture.png)
 
 Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet mode. Here, each microservice wll have a dedicated [WSO2 API Microgateway](https://wso2.com/api-management/api-microgateway/). This will provide maximum security and guaranteed resource allocation for API execution. As depicted in the above diagram, When the APIs published via API-Manager in cloud environments, deployment, scaling, and management tasks will handle by the WSO2 -Kubernetes API Operator itself.
 
 !!! attention "Before you Begin"
-    1. Follow the document [Enabling PrivateJet Mode for Microgateways]({{base_path}}/learn/kubernetes-operators/K8s API Operator/enabling-privatejet-mode-to-deploy-apis/) to enable deploying APIs to cloud clusters in PrivateJet mode.
-    2. Follow the document [Securing APIs deployed in cloud clusters]({{base_path}}/learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters.md) to secure the API using any other [authentication mechanisms](https://github.com/wso2/k8s-api-operator/blob/v1.2.0-alpha/docs/HowToGuide/OverviewOfCrds/apply-security-to-api.md) other than JWT authentication. 
+    1. Follow the document [Enabling PrivateJet Mode for Microgateways]({{base_path}}/learn/kubernetes-operators/k8s-api-operator/enabling-privatejet-mode-to-deploy-apis/) to enable deploying APIs to cloud clusters in PrivateJet mode.
+    2. Follow the document [Securing APIs deployed in cloud clusters]({{base_path}}/learn/api-security/api-authentication/securing-apis-deployed-in-cloud-clusters/) to secure the API using any other [authentication mechanisms](https://github.com/wso2/k8s-api-operator/blob/v1.2.0-alpha/docs/HowToGuide/OverviewOfCrds/apply-security-to-api.md) other than JWT authentication.
 
 ## Publish an API to a Cloud Cluster in PrivateJet Mode  
  
@@ -20,7 +20,7 @@ Microservices will be exposed as managed APIs in cloud clusters in the PrivetJet
 
 3. Click on an API that is in the **CREATED** state.
    
-        <img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" />
+     <img src="{{base_path}}/assets/img/learn/select-created-api.png" alt="Select API" title="Select API" width="35%" />
 
     
 3. Click the *Environments* tab and select the cluster(s) to deploy the API.
