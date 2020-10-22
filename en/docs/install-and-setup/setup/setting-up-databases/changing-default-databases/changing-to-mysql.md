@@ -113,7 +113,7 @@ Follow the  instructions below to set up a MySQL database:
 
 ### Executing DB scripts to create tables on MySQL database
 
-1.  Execute the relevant scrip to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
+1.  Execute the relevant script to create tables in the registry and user manager database (`WSO2_SHARED_DB`).
 
     ```sh
     $ mysql -u regadmin -p -Dshared_db < '<API-M_HOME>/dbscripts/mysql.sql';
@@ -132,7 +132,7 @@ Follow the  instructions below to set up a MySQL database:
     Additional notes
 
     -   Ensure that MySQL is configured so that all nodes can connect to it.
-    -   To access the databases from remote instances, its required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command. See the following sample commands.
+    -   To access the databases from remote instances, it is required to grant permission to the relevant username defined in the `<API-M_HOME>/repository/conf/deployment.toml` file under the `[database.shared_db]` or `[database.apim_db]` elements, by using the grant command as shown in the following sample commands.
 
     ```tab="Format"
     mysql> grant all on <DATABASE_NAME>.* TO '<username>'@'%' identified by '<password>';
@@ -184,13 +184,13 @@ Follow the  instructions below to change the type of the default datasources.
     ``` tab="Example"
     [database.shared_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/shared_db"
+    url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
     username = "regadmin"
     password = "regadmin"
 
     [database.apim_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/apim_db"
+    url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
     username = "apimadmin"
     password = "apimadmin"
     ```
@@ -200,6 +200,9 @@ Follow the  instructions below to change the type of the default datasources.
         ``` java
         driver="com.mysql.cj.jdbc.Driver"
         ```
+
+    !!! Tip "Recommendation"
+        It is **not recommended to disable the SSL connection** in Production Environments (with `useSSL=false`). For security reasons, enabling SSL connection with MySQL server is preferred in a Production Environment. For more information on establishing an SSL connection with the MySQL server, see [the official MySQL documentation](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-using-ssl.html).   
 
 3.  You can update the configuration elements given below for your database connection.
 
@@ -230,7 +233,7 @@ Follow the  instructions below to change the type of the default datasources.
     ``` tab="Example"
     [database.shared_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/shared_db"
+    url = "jdbc:mysql://localhost:3306/shared_db?useSSL=false"
     username = "regadmin"
     password = "regadmin"
     pool_options.maxActive = 100
@@ -239,7 +242,7 @@ Follow the  instructions below to change the type of the default datasources.
 
     [database.apim_db]
     type = "mysql"
-    url = "jdbc:mysql://localhost:3306/apim_db"
+    url = "jdbc:mysql://localhost:3306/apim_db?useSSL=false"
     username = "apimadmin"
     password = "apimadmin"
     pool_options.maxActive = 50
