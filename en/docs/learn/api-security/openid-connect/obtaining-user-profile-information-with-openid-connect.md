@@ -2,14 +2,15 @@
 
 [OpenID Connect](http://openid.net/connect/) is an **authentication protocol** that is a simple identity layer on top of the OAuth 2.0 protocol. It allows clients to verify the identity of the end-user based on the authentication performed by an authorization server, as well as to obtain basic profile information about the end-user in an interoperable and REST-like manner.
 
-You can use WSO2 API Manager to obtain basic profile information about the user who generates the access token. To obtain this information, the `openid` scope needs to be passed, when generating the access token. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response for this request. You can configure the information returned with the JWT access token.
+You can use WSO2 API Manager to obtain information required to interact with the OpenID provider, including its OAuth 2.0 endpoint locations. The `openid` scope needs to be passed when generating the access token, in order to obtain the latter mentioned information. API Manager will send a JSON Web Token (JWT), which contains information about the user who generates the token, as part of the response to this request. You can configure the information that is returned with the JWT access token.
 
+You can obtain the actual user information using any of the following options.
 
-The following two options are available to obtain the actual user information.
-    -   [Decoding the id_token](#decoding-the-id_token)
-    -   [Invoking the userinfo endpoint](#invoking-the-userinfo-endpoint)
+- [Decoding the id_token](#decoding-the-id_token)
+- [Invoking the userinfo endpoint](#invoking-the-userinfo-endpoint)
+- [Invoking the openid-configuration endpoint](#invoking-the-openid-configuration-endpoint)
     
-#### Decoding the id_token
+## Decoding the id_token
 
 Follow the instructions below to obtain user profile information with OpenID connect with WSO2 API Manager.
 
@@ -55,7 +56,7 @@ Follow the instructions below to obtain user profile information with OpenID con
     }
     ```
 
-#### Invoking the userinfo endpoint
+## Invoking the userinfo endpoint
 
 You can obtain user information as a payload by invoking the userinfo endpoint with the access token obtained in step 1. The format of the curl command and a sample is given below
 
@@ -77,10 +78,84 @@ The response will be a JSON payload as shown below:
 }
 ```
 
+## Invoking the openid-configuration endpoint
+
+You need to invoke the openid-configuration endpoint as follows to obtain the openid-configuration information as a payload. The format of the cURL command and a sample is given below.
+
+``` bash tab="Format"
+curl -v -k https://<GATEWAY_HOSTNAME>:<PORT>/oidcdiscovery/.well-known/openid-configuration
+```
+
+``` bash tab="Example"
+curl -v -k https://localhost:8243/oidcdiscovery/.well-known/openid-configuration
+```
+
+The response will be a JSON payload as shown below:
+
+``` java
+{
+    "scopes_supported": [
+        "address",
+        "phone",
+        "email",
+        "profile",
+        "openid"
+    ],
+    "check_session_iframe": "https://localhost:9443/oidc/checksession",
+    "issuer": "https://localhost:9443/oauth2/token",
+    "authorization_endpoint": "https://localhost:9443/oauth2/authorize",
+    "claims_supported": [
+        "formatted",
+        "name",
+        "phone_number",
+        "given_name",
+        "picture",
+        "region",
+        "street_address",
+        "postal_code",
+        "zoneinfo",
+        "locale",
+        "profile",
+        "locality",
+        "sub",
+        "updated_at",
+        "email_verified",
+        "nickname",
+        "middle_name",
+        "email",
+        "family_name",
+        "website",
+        "birthdate",
+        "address",
+        "preferred_username",
+        "phone_number_verified",
+        "country",
+        "gender",
+        "iss",
+        "acr"
+    ],
+    "token_endpoint": "https://localhost:9443/oauth2/token",
+    "response_types_supported": [
+        "id_token token",
+        "code",
+        "id_token",
+        "token"
+    ],
+    "end_session_endpoint": "https://localhost:9443/oidc/logout",
+    "userinfo_endpoint": "https://localhost:9443/oauth2/userinfo",
+    "jwks_uri": "https://localhost:9443/oauth2/jwks",
+    "subject_types_supported": [
+        "pairwise"
+    ],
+    "id_token_signing_alg_values_supported": [
+        "RS256"
+    ],
+    "registration_endpoint": "https://localhost:9443/identity/connect/register"
+}
+```
+
 !!! note
     By default, only the username (sub claim) information will be available in the response. You can customize the user information returned in the id_token by configuring the user claims for the corresponding Service Provider generated for the Application created in API DevPortal. 
     
     In order to modify the service provider, you can login to APIM Management console(`https://localhost:9443/carbon`), locate the relevant service provider(The corresponding service provider generated for a given application created in API DevPortal will be in 
     `<username>_<application-name>_<environment>` format. ie: `john_pizzashackapp_PRODUCTION`) and follow the steps given in [Service Provider Claim Configuration](https://is.docs.wso2.com/en/5.10.0/learn/configuring-claims-for-a-service-provider/#claim-mapping) to configure the required user claims.
-
-
