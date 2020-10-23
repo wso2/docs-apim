@@ -84,6 +84,54 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
         apictl set mode kubernetes
         ```
 
+## Set proxy environment variables for CTL
+
+You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
+
+-   **Formats**
+
+    ``` bash tab="Without Basic Authentication"
+    export HTTP_PROXY="http://<host-name>:<port>"
+
+    export HTTPS_PROXY="https://<host-name>:<port>"
+
+    export http_proxy="http://<host-name>:<port>"
+
+    export https_proxy="https://<host-name>:<port>"
+    ```
+
+    ``` bash tab="With Basic Authentication"
+    export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
+
+    export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
+
+    export http_proxy="http://<username>:<password>@<host-name>:<port>"
+
+    export https_proxy="https://<username>:<password>@<host-name>:<port>"
+    ```
+
+-   **Examples**
+
+    ``` bash tab="Without Basic Authentication"
+    export HTTP_PROXY="http://localhost:3128"
+
+    export HTTPS_PROXY="https://localhost:3128"
+
+    export http_proxy="http://localhost:3128"
+
+    export https_proxy="https://localhost:3128"
+    ```
+
+    ``` bash tab="With Basic Authentication"
+    export HTTP_PROXY="http://testuser:password@localhost:3128"
+
+    export HTTPS_PROXY="https://testuser:password@localhost:3128"
+
+    export http_proxy="http://testuser:password@localhost:3128"
+
+    export https_proxy="https://testuser:password@localhost:3128"
+    ```
+
 ## Add an environment
         
 You can add environments by either manually editing the `<USER_HOME>/.wso2apictl/main_config.yaml` file or by running the following CTL command.

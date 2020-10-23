@@ -208,14 +208,3 @@ Follow the steps mentioned in [Upgrading API-M from 2.5.0 to 3.2.0]({{base_path}
     [user_store]
     type = "database_unique_id"
     ```
-
-## Step 3 - Separate database sharing among API-M and IS
-
-From WSO2 API-M 3.2.0 onwards, it is not mandatory to share the databases among WSO2 API-M and IS. 
-
--   In this case where WSO2 IS is treated as the resident key manager, API-M no longer handle the management of identity data in `WSO2AM_DB` and IS no longer handle the API management data in `WSO2AM_DB`. 
--   The registry data in `WSO2REG_DB` can be separately managed by both WSO2 API-M and IS.
--   Depending on your requirement, you can share or separately manage the user management data in `WSO2USER_DB` 
-or in any other user store among WSO2 API-M and IS.
-
-So after successfully doing the migration, you can take a copy of each of the databases and separately configure them with WSO2 API-M 3.2.0 and IS 5.10.0. Make sure, you take backup of each of the databases before doing this.

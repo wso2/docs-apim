@@ -36,3 +36,5 @@ Finally if the backend JWT generation is enabled, it generates the JWT.
 - [Configure Okta as a Key Manager]({{base_path}}/administer/key-managers/configure-okta-connector/)
 
 - [Configure Auth0 as a Key Manager]({{base_path}}/administer/key-managers/configure-auth0-connector/)
+
+- [Configure PingFederate as a Key Manager]({{base_path}}/administer/key-managers/configure-pingfederate-connector/)

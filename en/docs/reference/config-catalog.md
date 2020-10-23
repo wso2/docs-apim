@@ -1,5 +1,6 @@
 # Configuration Catalog
 This document describes all the configuration parameters that are used in WSO2 API Manager.
+
 ## Instructions for use
 > Select the configuration sections, parameters, and values that are required for your use and add them to the .toml file. See the example .toml file given below.
 
@@ -916,6 +917,160 @@ claims_extractor_impl = "org.wso2.carbon.apimgt.impl.token.DefaultClaimsRetrieve
                                     </div>
                                     <div class="param-description">
                                         <p>Specify NONE to disbale the sigining.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="50" type="checkbox" id="_tab_50">
+                <label class="tab-selector" for="_tab_50"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[apim.jwt.issuer]]
+name = "https://test.apim.integration"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer]</code>
+                            <p>
+                                To specify the issuers of the JWT tokens if third-party Key Managers are used.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The issuer name of the JWT.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="51" type="checkbox" id="_tab_51">
+                <label class="tab-selector" for="_tab_51"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[apim.jwt.issuer.jwks]
+url = "https://localhost:8743/jwks/1.0"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer.jwks]</code>
+                            <p>
+                                To specify the JSON Web Key Set (JWKS) endpoint of the issuer.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The JWKS endpoint URL of the issuer.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="52" type="checkbox" id="_tab_52">
+                <label class="tab-selector" for="_tab_52"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[[apim.jwt.issuer.claim_mapping]]
+remote_claim = "http://idp1.org/claims/givenname"
+local_claim = "http://wso2.org/claims/givenname"</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[apim.jwt.issuer.claim_mapping]</code>
+                            <p>
+                                To specify the claim mappings if remote claims need to be mapped for local claims.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>remote_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the remote claim.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>local_claim</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: </span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The local claim name that the remote claim needs to be mapped to.</p>
                                     </div>
                                 </div>
                             </div>
@@ -4183,6 +4338,7 @@ supported_languages = ["android", "java", "scala", "csharp", "dart", "flash", "g
     </section>
 </div>
 
+
 ## API-M token revocation
 
 <div class="mb-config-catalog">
@@ -4433,6 +4589,1565 @@ enable_email_domain = true</code></pre>
                                     </div>
                                     <div class="param-description">
                                         <p>Enable email login for tenant users.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+## Multi-tenancy Configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="31" type="checkbox" id="_tab_31">
+                <label class="tab-selector" for="_tab_31"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.stratos]
+disable_tenant_management_emails = true
+email_validation_mandatory_for_login = false
+tenant_activation_moderated = false
+super_admin_email = "super-admin-email"
+skip_summary_generator = false
+notification_email = "notification-email"
+finance_notification_email = "finance-notification-email"
+charge_on_registration = false
+public_cloud_setup = true
+google_analytics_url = "http://google-analytics.js"
+sso_loading_message = "Loading..."
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.stratos]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the multi-tenant Stratos properties.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>disable_tenant_management_emails</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Disable tenant management emails for tenant users.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>email_validation_mandatory_for_login</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">disable_tenant_management_emails: <code>FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable mandatory email validation when logging in.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>tenant_activation_moderated</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable activation of moderated tenants.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>super_admin_email</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> Email of the super admin user.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>skip_summary_generator</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Skip summary generator for tenants.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>notification_email</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The email address that is used to send event related notifications.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>finance_notification_email</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The email address that is used to send financial information related notifications.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge_on_registration</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>FALSE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The charge applicable for tenant registration.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>public_cloud_setup</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Enable or disable public cloud setup for tenants.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>google_analytics_url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> URL address of Google Analytics.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>sso_loading_message</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The message that is displayed when SSO is loaded.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="32" type="checkbox" id="_tab_32">
+                <label class="tab-selector" for="_tab_32"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.stratos.paypal]
+url = "Paypal URL"
+username = "username"
+password = "password"
+signature = "signature"
+environment = "live"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.stratos.paypal]</code>
+                            <span class="badge-required">Optional</span>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The URL address of the attached PayPal account. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The username of the attached PayPal account. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The password of the attached PayPal account. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>signature</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The signature of the attached PayPal account. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>environment</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The environment of the attached PayPal account. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="33" type="checkbox" id="_tab_33">
+                <label class="tab-selector" for="_tab_33"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.stratos.manager_service]
+url = "https://am.cloud.wso2.com/services/"
+admin_username = "admin"
+admin_password = "admin"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.stratos.manager_service]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the Stratos manager service.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>url</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The URL of the Stratos manager service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>admin_username</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The admin username of the Stratos manager service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>admin_password</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The admin password of the Stratos manager service.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="34" type="checkbox" id="_tab_34">
+                <label class="tab-selector" for="_tab_34"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.usage_agent.data_persistence_task]
+startup_delay_in_ms = "60000"
+records_per_execution = "100"
+execution_interval_in_ms = "-1"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.usage_agent.data_persistence_task]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the data presistance for user agents in multi-tenant mode.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>startup_delay_in_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Connection delay to start data presistance at startup.  </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>records_per_execution</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Number of records to be persisted per execution.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>execution_interval_in_ms</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>-1</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time between execution cycles in miliseconds. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+## Multi-tenancy throttling manager configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="35" type="checkbox" id="_tab_35">
+                <label class="tab-selector" for="_tab_35"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.throttling_manager_tasks]
+data_providers = [
+    "org.wso2.carbon.throttling.manager.dataproviders.BillingDataProvider",
+    "org.wso2.carbon.throttling.manager.dataproviders.UsageDataProvider"
+]
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.throttling_manager_tasks]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the multi-tenant throttling manager tasks.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>data_providers</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string array </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Data providers for throttling management tasks. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="36" type="checkbox" id="_tab_36">
+                <label class="tab-selector" for="_tab_36"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.throttling_manager_tasks.parameters]
+interval = "10"
+delay = "60"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.throttling_manager_tasks.parameters]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the parameters of multi-tenant throttling manager tasks.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>interval</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time interval betweeen throttling manager tasks.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>delay</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Time delay to start throttling manager tasks. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+## Multi-tenancy cloud services configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="37" type="checkbox" id="_tab_37">
+                <label class="tab-selector" for="_tab_37"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.cloud_services]
+name = "WSO2 API Manager"
+default = true
+key = "AM"
+label = "API Manager"
+link = "https://am.cloud.wso2.com"
+description = "API Manager in the cloud"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.cloud_services]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                Configures the multi tenant cloud services.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Name of the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>default</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> boolean </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>TRUE</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Use as the default cloud service or not. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>key</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Key-value that represents the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>label</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Label value that represents the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>link</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>URL link to the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>description</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Description of the cloud service. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+## Multi-tenancy monetization configurations
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="38" type="checkbox" id="_tab_38">
+                <label class="tab-selector" for="_tab_38"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo]
+name = "Demo"
+subscription_charge = 0
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes multi-tenancy monetization configurations related to the "Demo" package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"Demo"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the name of the billing package that is being used.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>subscription_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The value of the subscription charge for the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="39" type="checkbox" id="_tab_39">
+                <label class="tab-selector" for="_tab_39"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo.users]
+limit= "1"
+charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo.users]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the users' configurations related to the "Demo" billing package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"1"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the number of users that can be attached to the "Demo" billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The value of the subscription charge for the "Demo" billing package per user.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="40" type="checkbox" id="_tab_40">
+                <label class="tab-selector" for="_tab_40"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo.resource_volume]
+limit= "20"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo.resource_volume]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the resource volume configurations related to the "Demo" billing package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of resources that can be charged with the given billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The charge for over usage based on the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="41" type="checkbox" id="_tab_41">
+                <label class="tab-selector" for="_tab_41"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.demo.bandwidth]
+limit= "50"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.demo.bandwidth]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the bandwidth configurations related to the "Demo" billing package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The highest bandwidth value that can be allocated for the "Demo" billing package. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The charge for over usage based on the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="42" type="checkbox" id="_tab_42">
+                <label class="tab-selector" for="_tab_42"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb]
+name = "SMB"
+subscription_charge = "100"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes multi-tenancy monetization configurations related to the "SMB" package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"SMB"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the name of the billing package that is being used.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>subscription_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The value of the subscription charge for the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="43" type="checkbox" id="_tab_43">
+                <label class="tab-selector" for="_tab_43"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb.users]
+limit= "unlimited"
+charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb.users]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the users' configurations related to the "SMB" billing package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value"> Default: <code>"1"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the number of users that can be attached to the "SMB" billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Value of the subscription charge for the "SMB" billing package per user.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="44" type="checkbox" id="_tab_44">
+                <label class="tab-selector" for="_tab_44"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb.resource_volume]
+limit= "50"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb.resource_volume]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the resource volume configurations related to the "SMB" billing package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of resources that can be charged with the given billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The charge for over usage based on the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="45" type="checkbox" id="_tab_45">
+                <label class="tab-selector" for="_tab_45"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.smb.bandwidth]
+limit= "150"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.smb.bandwidth]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the bandwidth configurations related to the "SMB" billing package.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The highest bandwidth value that can be allocated for the "SMB" billing package. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The charge for over usage based on the billing package. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="46" type="checkbox" id="_tab_46">
+                <label class="tab-selector" for="_tab_46"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom]
+name = "Professional"
+subscription_charge = "500"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the multi-tenancy monetization configurations related to the custom packages.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>name</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value"> Default: <code>"SMB"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The name of the custom billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>subscription_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> int </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>0</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The value of the subscription charge for the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="47" type="checkbox" id="_tab_47">
+                <label class="tab-selector" for="_tab_47"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom.users]
+limit= "unlimited"
+charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom.users]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the users' configurations related to the custom billing packages.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value"> Default: <code>"1"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Provides the number of users that can be attached to the custom billing packages.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The value of the subscription charge for the custom billing packages per user.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="48" type="checkbox" id="_tab_48">
+                <label class="tab-selector" for="_tab_48"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom.resource_volume]
+limit = "1536"
+overuse_charge = "0.03"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom.resource_volume]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the resource volume configurations related to the custom billing packages.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The maximum number of resources that can be charged with the given billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p>The charge for over usage based on the billing package.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<div class="mb-config-catalog">
+    <section>
+        <div class="mb-config-options">
+            <div class="superfences-tabs">
+
+                <input name="49" type="checkbox" id="_tab_49">
+                <label class="tab-selector" for="_tab_49"><i class="icon fa fa-code"></i></label>
+                <div class="superfences-content">
+                    <div class="mb-config-example">
+                        <pre><code class="toml">[multi_tenancy.billing.package.custom.bandwidth]
+limit= "50"
+overuse_charge= "0"
+</code></pre>
+                    </div>
+                </div>
+                <div class="doc-wrapper">
+                    <div class="mb-config">
+                        <div class="config-wrap">
+                            <code>[multi_tenancy.billing.package.custom.bandwidth]</code>
+                            <span class="badge-required">Optional</span>
+                            <p>
+                                This includes the bandwidth configurations related to the custom billing packages.
+                            </p>
+                        </div>
+                        <div class="params-wrap">
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>limit</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The highest bandwidth value that can be allocated for the custom billing package. </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>overuse_charge</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>"0"</code></span>
+                                        </div>
+                                    </div>
+                                    <div class="param-description">
+                                        <p> The charge for over usage based on the billing package. </p>
                                     </div>
                                 </div>
                             </div>
