@@ -190,7 +190,7 @@ If your identity provider is WSO2 Identity Server, this facility comes out of th
 
 ### How do I change the default admin password?
 
-To change the default admin password, log in to the management console with admin/admin credentials and use the **Change my password** option. After changing the password in management console, configure the new password in `deployment.toml` file resides in `<API-M_HOME>/repository/conf` directory as well:
+To change the default admin password, sign in to the management console with admin/admin credentials and use the **Change my password** option. After changing the password in the management console, configure the new password in the `deployment.toml` file, which is in the `<API-M_HOME>/repository/conf` directory.
 
 ``` toml
 [super_admin]
@@ -198,7 +198,7 @@ username = "admin"
 password = "${new-password}"
 ```
 
-You can verify whether the password change is applied correctly in the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file:
+You can verify whether the password change is applied correctly by checking the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
 ``` xml
 <AuthManager>
@@ -261,11 +261,11 @@ If you get the following error: `org.wso2.carbon.server.admin.module.handler.Aut
 
 -   Did you change the default admin password?
 
-    If so, verify the credentials configured for `password` under `[apim.key_manager]` element of the `<API-M_HOME>/repository/conf/deployment.toml` file of the API Gateway node(s).
+    If the answer to the above question is "yes", verify the credentials that you configured for the `password` property under the `[apim.key_manager]` element in the `<API-M_HOME>/repository/conf/deployment.toml` file of the API Gateway node(s).
 
 -   Have you set the priority of the `SAML2SSOAuthenticator` handler higher than that of the `BasicAuthenticator` handler?
 
-    If so, the `SAML2SSOAuthenticator` handler tries to manage the basic authentication requests as well. Set a lower priority to the `SAML2SSOAuthenticator` than the `BasicAuthenticator` handler by adding the following configuration in deployment.toml file resides in `<APIM-Home>/repository/conf` directory.
+    If the answer to the above question is "yes", the `SAML2SSOAuthenticator` handler tries to manage the basic authentication requests as well. Set a lower priority to the `SAML2SSOAuthenticator` than the `BasicAuthenticator` handler by adding the following configuration in the `deployment.toml` file, which is in the `<API-M_HOME>/repository/conf` directory.
 
     ``` toml
     [admin_console.authenticator.saml_sso_authenticator]
