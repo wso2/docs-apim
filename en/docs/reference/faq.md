@@ -42,16 +42,6 @@ No, currently WSO2 API-M does not support [HTTP pipelining](https://en.wikipedia
 
 For a list of system requirements, environment compatibility and required applications, see [Installation Prerequisites]({{base_path}}/install-and-setup/install/installation-prerequisites).
 
-### Which MySQL database script should I use?
-
-From Carbon kernel 4.4.6 onward, your product is shipped with two scripts for MySQL (click [here](http://wso2.com/products/carbon/release-matrix/) to see if your product is based on this kernel version or newer):
-
--`mysql.sql` : Use this script for MySQL versions prior to version 5.7.
-
--`mysql5.7.sql` : Use this script for MySQL 5.7 and later versions.
-
-MySQL 5.7 is only recommended for products that are based on Carbon 4.4.6 or a later version.
-
 ### How do I deploy a third-party library into the API Manager?
 
 Copy any third-party JARs to `<API-M_HOME>/repository/components/lib` directory and restart the server.
@@ -152,7 +142,14 @@ See [Working with Features](https://docs.wso2.com/display/ADMIN44x/Working+with+
 
 ### How can I preserve the CDATA element tag in API responses?
 
-Set the `javax.xml.stream.isCoalescing` property to `false` in the `<API-M_HOME>/XMLInputFactory.properties` file. Here's an example:
+Set the `javax.xml.stream.isCoalescing` property to `false` by adding the following configuration in `deployment.toml` file, which is in the `<API-M-Home>/repository/conf` directory.
+
+``` toml
+[xml_input_factory.properties]
+"javax.xml.stream.isCoalescing" = false
+```
+
+Example:
 
 ``` java
 <XacuteResponse xmlns="http://aaa/xI">
@@ -200,20 +197,31 @@ If your identity provider is WSO2 Identity Server, this facility comes out of th
 
 ### How do I change the default admin password?
 
-To change the default admin password, log in to the management console with admin/admin credentials and use the **Change my password** option. After changing the password, do the following:
+To change the default admin password, sign in to the management console with admin/admin credentials and use the **Change my password** option. After changing the password in the management console, configure the new password in the `deployment.toml` file, which is in the `<API-M_HOME>/repository/conf` directory.
 
-Change the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file:
+``` toml
+[super_admin]
+username = "admin"
+password = "${new-password}"
+```
+
+You can verify whether the password change is applied correctly by checking the following elements in the `<API-M_HOME>/repository/conf/api-manager.xml` file.
 
 ``` xml
-    <AuthManager>
-       <Username>admin</Username>
-       <Password>newpassword</Password>
-    </AuthManager>
+<AuthManager>
+    <Username>admin</Username>
+    <Password>newpassword</Password>
+</AuthManager>
+```
+
+``` xml
 <APIGateway>
    <Username>admin</Username>
    <Password>newpassword</Password>
 </APIGateway>
+```
 
+``` xml
 <APIKeyManager>
    <Username>admin</Username>
    <Password>newpassword</Password>
@@ -259,22 +267,17 @@ You can protect your server from attacks such as the Logjam attack (Man-in-the-M
 If you get the following error: `org.wso2.carbon.server.admin.module.handler.AuthenticationHandler - Illegal access attempt`, it may be due to the following reasons,
 
 -   Did you change the default admin password?
-    If so, you need to change the credentials stored in the `<APIKeyValidator>` element of the `<API-M_HOME>/repository/conf/api-manager.xml` file of the API Gateway node(s).
--   Have you set the priority of the `SAML2SSOAuthenticator` handler higher than that of the `BasicAuthenticator` handler in the `authenticators.xml` file?
-    If so, the `SAML2SSOAuthenticator` handler tries to manage the basic authentication requests as well. Set a lower priority to the `SAML2SSOAuthenticator` than the `BasicAuthenticator` handler as follows:
 
-    ``` xml
-    <Authenticator name="SAML2SSOAuthenticator" disabled="false">
-        <Priority>0</Priority>
-        <Config>
-            <Parameter name="LoginPage">/carbon/admin/login.jsp</Parameter>
-            <Parameter name="ServiceProviderID">carbonServer</Parameter>
-            <Parameter name="IdentityProviderSSOServiceURL">https://localhost:9444/samlsso</Parameter>
-            <Parameter name="NameIDPolicyFormat">urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified</Parameter>
-            <Parameter name="ISAuthnReqSigned">false</Parameter>
-            <!-<Parameter name="AssetionConsumerServiceURL">https://localhost:9443/acs</Parameter>->
-        </Config>
-    </Authenticator>
+    If the answer to the above question is "yes", verify the credentials that you configured for the `password` property under the `[apim.key_manager]` element in the `<API-M_HOME>/repository/conf/deployment.toml` file of the API Gateway node(s).
+
+-   Have you set the priority of the `SAML2SSOAuthenticator` handler higher than that of the `BasicAuthenticator` handler?
+
+    If the answer to the above question is "yes", the `SAML2SSOAuthenticator` handler tries to manage the basic authentication requests as well. Set a lower priority to the `SAML2SSOAuthenticator` than the `BasicAuthenticator` handler by adding the following configuration in the `deployment.toml` file, which is in the `<API-M_HOME>/repository/conf` directory.
+
+    ``` toml
+    [admin_console.authenticator.saml_sso_authenticator]
+    priority = 0
+    enable = true
     ```
 
 ### How can I fix a mismatching certificate hostname exception?
@@ -380,12 +383,6 @@ Follow the instructions to configure the WSO2 product with the generated KeyStor
 The root cause for the `javax.net.ssl.SSLException: Received fatal alert: unknown_ca` error is because the default pack is not shipped with a CA-signed certificate. When using the API Console, the web browser sends an HTTPs request to the API Gateway. As the certificate on the Gateway is not CA-signed, the browser does not accept it.
 
 To resolve this issue, first access the Gateway URL via a new browser tab of the same browser and accept the certificate from the browser.
-
-### I hit the `DentityExpansionLimit` and it gives an error while getting Recently Added APIs Information. What is the cause of this?
-
-The `{org.wso2.carbon.apimgt.hostobjects.APIStoreHostObject} - Error while getting Recently Added APIs Information` error occurs in JDK 1.7.0\_45 and is fixed in JDK 1.7.0\_51 onwards. See [here](http://bugs.java.com/view_bug.do?bug_id=8029404) for details of the bug.
-
-In JDK 1.7.0\_45, all XML readers share the same `XMLSecurityManager` and `XMLLimitAnalyzer`. When the total count of all readers hits the entity expansion limit, which is 64000 by default, the XMLLimitanalyzer's total counter is accumulated and the `XMLInputFactory` cannot create more readers. If you still want to use update 45 of the JDK, try restarting the server with a higher value assigned to the `DentityExpansionLimit`.
 
 ### I get a **`Hostname verfiication failed`** exception when trying to send requests to a secured endpoint. What should I do?
 
