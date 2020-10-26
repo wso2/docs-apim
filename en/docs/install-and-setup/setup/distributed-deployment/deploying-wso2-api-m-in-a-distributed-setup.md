@@ -101,7 +101,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
 2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
-3. Optionally Add following configuration to enable Distributed JMS based cache invalidation within Key Manager nodes.
+3. Optionally Add following configuration to enable Distributed cache invalidation within Key Manager nodes.
 
     ``` toml
     [apim.cache_invalidation]
@@ -344,7 +344,7 @@ This section involves setting up the API Publisher node and enabling it to work 
         url = "https://[devportal-hostname]:${mgt.transport.https.port}/devportal"
         ```
 
-2. Optionally Add following configuration to enable Distributed JMS based cache invalidation within Publisher nodes.
+2. Optionally Add following configuration to enable Distributed cache invalidation within Publisher nodes.
 
     ``` toml
         [apim.cache_invalidation]
@@ -533,7 +533,7 @@ This section involves setting up the Developer Portal node and enabling it to wo
         https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
         ```
 
-2.  Optionally, Add following configuration to enable Distributed JMS based cache invalidation within Devportal nodes.
+2.  Optionally, Add following configuration to enable Distributed cache invalidation within Devportal nodes.
 
     ``` toml
         [apim.cache_invalidation]

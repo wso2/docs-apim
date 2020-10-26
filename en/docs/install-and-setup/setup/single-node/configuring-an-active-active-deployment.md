@@ -279,7 +279,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
     5.  Save your changes.
 
-## Step 9 - Optionally, Configure JMS based Cache invalidation.
+## Step 9 - Optionally, Add following configuration to enable Distributed cache invalidation.
 Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
 
 
