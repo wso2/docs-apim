@@ -136,7 +136,7 @@ This document explains how to connect WSO2 Identity Server as a third-party Iden
 
 4.  Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
 
-    [![upload-certificate-in-SP-for-saml2-sso.png]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)
+    [![Upload certificate in SP for SAML2 SSO]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-sp-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-sp-for-saml2-sso.png)
 
 ## Step 3 - Configure the API Manager
 
