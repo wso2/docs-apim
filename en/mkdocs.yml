@@ -434,7 +434,7 @@ nav:
           - Configuring SSO for Admin portal using SAML: install-and-setup/setup/sso/configuring-sso-for-admin-portal-using-saml.md
           - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
           - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
-      - Advance Configuration:
+      - Advanced Configuration:
           - Changing the Default Transport: install-and-setup/setup/advance-configurations/changing-the-default-transport.md
           - Configuring Caching: install-and-setup/setup/advance-configurations/configuring-caching.md
           - Customizing the Management Console: install-and-setup/setup/advance-configurations/customizing-the-management-console.md
