@@ -95,14 +95,14 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       	responses[200]["application/json"] = {
       	"id" : 1,
       	"category" : {
-      	"id" : 1,
-      	"name" : "Dog"
+            "id" : 1,
+            "name" : "Dog"
       	},
       	"name" : "doggie",
       	"photoUrls" : [ "https://www.google.com/search?q=pet+images&client=ubuntu&hs=NYm&channel=fs&tbm=isch&source=iu&ictx=1&fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&vet=1&usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&sa=X&ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM" ],
       	"tags" : [ {
-      	"id" : 1,
-      	"name" : "German Sheperd"
+            "id" : 1,
+            "name" : "German Sheperd"
       	} ],
       	"status" : "available"
       	}
