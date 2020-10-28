@@ -39,20 +39,20 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
 
       ``` 
-      var response200json = [ {                             // Mock response payload stored as a variable
-        "id" : 0,
+      responses[200]["application/json"] = {
+        "id" : 10,
+        "name" : "doggie",
         "category" : {
-          "id" : 0,
-          "name" : "string"
+          "id" : 1,
+          "name" : "Dogs"
         },
-        "name" : "string",
         "photoUrls" : [ "string" ],
         "tags" : [ {
           "id" : 0,
           "name" : "string"
         } ],
         "status" : "available"
-      } ]                                                 
+      };                                                 
       
       mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
       mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
