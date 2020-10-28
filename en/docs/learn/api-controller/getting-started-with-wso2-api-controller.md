@@ -72,16 +72,16 @@ Run the following CTL command to set the mode of the CTL. The allowed modes are 
 -   **Command**
 
     ```go
-    apictl set mode <mode>
+    apictl set --mode <mode>
     ```
 
     !!! example
 
         ``` go
-        apictl set mode default
+        apictl set --mode default
         ```
         ``` go
-        apictl set mode kubernetes
+        apictl set --mode kubernetes
         ```
 
 ## Add an environment
