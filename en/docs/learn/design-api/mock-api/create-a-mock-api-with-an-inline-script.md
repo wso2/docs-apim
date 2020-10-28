@@ -4,7 +4,7 @@ The prototype implementation in WSO2 API Manager gives users the ability to prot
 
 Let's create a prototyped API with mock response payloads, deploy it as a prototype, and invoke it using the API Console, which is integrated into the Developer Portal.
 
-For this let's use the following OpenAPI URL: `https://petstore.swagger.io/v2/swagger.json`
+For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/v3/openapi.json`
 
 ## Step 1 - Create a prototype API with mock response payloads
 
@@ -20,7 +20,7 @@ For this let's use the following OpenAPI URL: `https://petstore.swagger.io/v2/sw
 
      [![Filled create api form]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)
          
-      You are directed to the API overview page.
+      Now you will be directed to the API overview page.
 
 4. Click **Endpoints** to navigate to the Endpoints page.
 
@@ -91,21 +91,21 @@ For this let's use the following OpenAPI URL: `https://petstore.swagger.io/v2/sw
       
       // **MANUALLY ADDED CODE** //
       
-      if (mc.getProperty('uri.var.petId') == 1) {          // Get the path parameter 'petID' to check the condition
-        response200json = {
-          "id" : 1,
-          "category" : {
-            "id" : 1,
-            "name" : "Dog"
-          },
-          "name" : "doggie",
-          "photoUrls" : [ "string" ],
-          "tags" : [ {
-            "id" : 1,
-            "name" : "German Sheperd"
-          } ],
-          "status" : "available"
-        }
+      if (mc.getProperty('uri.var.petId') == 1) {                                                   
+      	responses[200]["application/json"] = {
+      	"id" : 1,
+      	"category" : {
+      	"id" : 1,
+      	"name" : "Dog"
+      	},
+      	"name" : "doggie",
+      	"photoUrls" : [ "https://www.google.com/search?q=pet+images&client=ubuntu&hs=NYm&channel=fs&tbm=isch&source=iu&ictx=1&fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&vet=1&usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&sa=X&ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM" ],
+      	"tags" : [ {
+      	"id" : 1,
+      	"name" : "German Sheperd"
+      	} ],
+      	"status" : "available"
+      	}
       }
       
       mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
