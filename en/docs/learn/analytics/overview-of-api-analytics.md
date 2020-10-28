@@ -25,7 +25,7 @@ Follow the instructions below to access the statistical dashboards.
      <li><a href="#application-analytics-dashboard">Application Analytics</a></li>
      <li> <a href="#api-analytics-dashboard">API Analytics</a></li>
      <li> <a href="#monitoring-dashboard">Monitoring</a></li>
-     <li> <a href="#monthly-api-usage-report">API-M Admin</a> </li>
+     <li> <a href="#monthly-api-usage-report">Reports</a> </li>
      </ul>
   
        [![Analytics Dashboards]({{base_path}}/assets/img/learn/analytics-dashboard-listing.png)]({{base_path}}/assets/img/learn/analytics-dashboard-listing.png)
@@ -114,9 +114,7 @@ ______
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When an API is restricted to a Publisher it will not appear under this dashboard.</p>
-</div> 
-
-
+</div>
 </td>
 </tr>
 
