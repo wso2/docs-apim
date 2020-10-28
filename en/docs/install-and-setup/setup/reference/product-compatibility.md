@@ -66,11 +66,11 @@ The following is a list of other WSO2 products that is tested with WSO2 API Mana
 <tbody>
 <tr class="even">
 <td>API-M 3.2.0 GA</td>
-<td>GA or WUM update for WSO2 IS-KM-5.10.0</td>
+<td>GA or WUM update for WSO2 IS-5.10.0</td>
 </tr>
 <tr class="even">
 <td>API-M-3.2.0 WUM update</td>
-<td>GA or WUM update for WSO2 IS-KM-5.10.0</td>
+<td>GA or WUM update for WSO2 IS-5.10.0</td>
 </tr>
 </tbody>
 </table>
