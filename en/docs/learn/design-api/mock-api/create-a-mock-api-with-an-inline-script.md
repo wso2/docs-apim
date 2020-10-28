@@ -39,7 +39,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
 
       ``` 
-      responses[200]["application/json"] = {
+      responses[200]["application/json"] = {              // Mock response payload stored as a variable
         "id" : 10,
         "name" : "doggie",
         "category" : {
@@ -74,7 +74,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       ```
       // **GENERATED CODE** //
       
-      responses[200]["application/json"] = {
+      responses[200]["application/json"] = {                 // Mock response payload stored as a variable
         "id" : 10,
         "name" : "doggie",
         "category" : {
