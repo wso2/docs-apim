@@ -158,7 +158,8 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 4. Enter the value for the parameter and click **Execute** to invoke the API.
 
-     Note that the payload that you gave as a JSON/XML output appears in the response for each respective parameter provided.
+    !!! note 
+        The payload that you gave as a JSON/XML output appears in the response for each respective parameter provided.
 
     1. For `petId : " 0 " `
 
