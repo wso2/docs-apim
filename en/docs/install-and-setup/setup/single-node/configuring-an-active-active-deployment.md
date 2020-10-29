@@ -6,34 +6,20 @@ This page walks you through how to manually configure WSO2 API Manager (WSO2 API
 
 Follow the instructions below to configure and deploy API-M by using an Active-Active deployment:
 
--   [Step 1 - Create a SSL Certificate](#step-1-create-a-ssl-certificate)
--   [Step 2 - Configure the Load Balancer](#step-2-configure-the-load-balancer)
--   [Step 3 - Configure the Databases](#step-3-configure-the-databases)
--   [Step 4 - Configure the Second WSO2 API-M Node](#step-4-configure-the-second-wso2-api-m-node)
--   [Step 5 - Configure the Artifact Synchronization](#step-5-configure-the-artifact-synchronization)
--   [Step 6 - Configure Publisher with the Gateway](#step-6-configure-publisher-with-the-gateway)
--   [Step 7 - Configure Gateway URLs to Expose APIs](#step-7-configure-gateway-urls-to-expose-apis)
--   [Step 8 - Configure Throttling](#step-8-configure-throttling)
--   [Step 9 - Configure API-M Analytics](#step-9-configure-api-m-analytics)
--   [Step 10 - Configure Production Hardening](#step-10-configure-production-hardening)
--   [Step 11 - Start the WSO2 API-M Servers](#step-11-start-the-wso2-api-m-servers)
-
-___________________________________
-
-## Step 1 - Create a SSL Certificate
+## Step 1 - Create an SSL Certificate
 
 !!! info   
     All WSO2 products are by default shipped with a keystore file and truststore file stored in the 
     `<PRODUCT_HOME>/repository/resources/security/` directory. The default keystore that is shipped with a WSO2 product, 
-    `wso2carbon.jks` is configured with private key and self signed public key pair for all purposes, such as encrypting 
-    sensitive information, communicating over SSL etc. 
+    `wso2carbon.jks` is configured with a private key and a self-signed public key pair for all purposes, such as encrypting 
+    sensitive information, communicating over SSL, etc. 
     
     In a **production setup**, it is advised to set up several different keystores with separate trust chains for different use cases. For more information, see [Recommendations for setting up keystores in WSO2 products]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#recommendations-for-setting-up-keystores).
 
-To create an all purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/). 
+To create an all-purpose keystore or multiple keystores for authentication and protection of data, follow the steps in [Creating New Keystores]({{base_path}}/administer/product-security/configuring-keystores/keystore-basics/creating-new-keystores/). 
 
 !!! tip
-    You should use the same keystore and trusstore for SSL in both WSO2 API-M instances.
+    You should use the same keystore and truststore for SSL in both WSO2 API-M instances.
 
 ## Step 2 - Configure the Load Balancer
 
@@ -41,7 +27,7 @@ In order to access the WSO2 API-M Portals and Gateway, you need to front the sys
 load balancer that is available to your system.
 
 Follow the steps in [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer) to configure the load balancer/reverse proxy which is fronting the API-M nodes
-in the demiliterized zone (DMZ).
+in the demilitarized zone (DMZ).
 
 ??? tip
     For example, if you are using the hostname `api.am.wso2.com` is used to access all portals (publisher, store, admin, and carbon) and `gw.am.wso2.com` is used to invoke APIs, the `deployment.toml` in `<API-M_HOME>/repository/conf` directory of both
@@ -57,9 +43,7 @@ in the demiliterized zone (DMZ).
 
 ## Step 3 - Configure the Databases
 
-The `WSO2AM_DB` and `WSO2SHARED_DB` databases need to be shared between the two API-M nodes. It is recommended to use an
-industry-standard RDBMS databases for this purpose. For more 
-information on default databases and changing them into RDBMS databases, see [Working with Databases]({{base_path}}/install-and-setup/setting-up-databases/overview/).
+The `WSO2AM_DB` and `WSO2SHARED_DB` databases need to be shared between the two API-M nodes. It is recommended to use industry-standard RDBMS databases for this purpose. For more information on default databases and changing them into RDBMS databases, see [Working with Databases]({{base_path}}/install-and-setup/setting-up-databases/overview/).
 
 ??? tip
     If you have configured the apim and shared databases correctly, the `deployment.toml` in `<API-M_HOME>/repository/conf` 
@@ -114,7 +98,7 @@ in order to share all APIs and throttling policies between all the nodes.
     
 ## Step 6 - Configure Publisher with the Gateway
 
-When **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
+When the **underlined file system is shared**, the artifacts are available to both Gateway nodes. Therefore, a single node 
 can publish the API artifacts to their own nodes. Therefore, you can point the `service_url` to `localhost` in the
 `deployment.toml` of both nodes.
 
@@ -154,7 +138,7 @@ service_url = "https://localhost:${mgt.transport.https.port}/services/"
 
 ## Step 7 - Configure Gateway URLs to Expose APIs
 
-You need to configure the environment URLs which are used to expose the deployed APIs in the Gateways of both nodes. 
+You need to configure the environment URLs that are used to expose the deployed APIs in the Gateways of both nodes. 
 Add the Gateway hostname when you configure environments in the `<API-M_HOME>/repository/conf/deployment.toml` file in both
 API-M nodes. 
 
@@ -173,7 +157,7 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
 1.  Configure the data publisher in the `apim.throttling.url_group` section which comes under the `apim.throttling.url_group` block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
     
-    1.  You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node, so that the same event is sent to both servers at the same time. 
+    1.  You need to update these configurations so that the Gateway can publish data to the Traffic Manager in its own node and the Traffic Manager in the other node so that the same event is sent to both servers at the same time. 
 
         The WSO2 Complex Event Processor (WSO2 CEP) component that lies within the Traffic Manager acts as the data receiver and processes the data to come up with Throttling decisions.
 
@@ -279,34 +263,30 @@ In this case, let's use `gw.am.wso2.com` as the hostname.
 
     5.  Save your changes.
 
-## Step 9 - Optionally, Add following configuration to enable Distributed cache invalidation.
-Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both nodes.
+## Step 9 - Optionally, enable distributed cache invalidation
 
+Add following configuration block in the `<API-M_HOME>/repository/conf/deployment.toml` file of both the nodes.
 
 ``` toml
-       [apim.cache_invalidation]
-       enabled = true
+[apim.cache_invalidation]
+enabled = true
 ```
-
 
 ## Step 10 - Configure API-M Analytics
 
-If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to 
-configure API-M Analytics. If not, you can **skip this step**.
+!!! note
+    If you wish to view reports, statistics, and graphs related to the APIs deployed in the WSO2 API Manager, you need to configure API-M Analytics. If not, you can **skip this step**.
 
-Follow the [Configuring API-M Anlaytics - Quick Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#quick-setup) to configure API-M Analytics in a development setup and, follow 
-[Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup) 
-to configure API-M Analytics in a production setup.
+- To configure API-M Analytics in a **development setup**, see [Configuring API-M Analytics - Quick Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#quick-setup).
+- To configure API-M Analytics in a **production setup**, see [Configuring API-M Analytics - Standard Setup]({{base_path}}/learn/analytics/configuring-apim-analytics/#standard-setup).
 
 ## Step 11 - Configure Production Hardening
 
-In a **production setup**, ensure that you have taken into account the respective security hardening factors 
-(e.g., changing and encrypting the default passwords, configuring JVM security etc.) and other production deployment 
-guidelines (e.g., tuning parameters, backup and recovery remmendations etc.) before deploying WSO2 API-M nodes. 
+In a **production setup**, ensure that you have taken into account the respective security hardening factors (e.g., changing and encrypting the default passwords, configuring JVM security, etc.) and other production deployment guidelines (e.g., tuning parameters, backup and recovery recommendations, etc.) before deploying WSO2 API-M nodes. 
 
-For more information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
+For information on security hardening guidelines, see [Security Guidelines for Production Deployment]({{base_path}}/install-and-setup/deploying-wso2-api-manager/security-guidelines-for-production-deployment/).
 
-For more information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
+For information on other production deployment guidelines, see [Production Deployment Guidelines]({{base_path}}/install-and-setup/deploying-wso2-api-manager/production-deployment-guidelines/#common-guidelines-and-checklist).
 
 ## Step 12 - Start the WSO2 API-M Servers
 
@@ -323,7 +303,4 @@ wso2server.bat --run
 ```
 
 !!! info
-    If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used 
-    as the Key Manager in high availability mode while the rest of the WSO2 API-M components are all in one node, 
-    configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager) before 
-    starting the API-M servers.
+    If you want to deploy WSO2 API-M using a hybrid active-active deployment pattern, where WSO2 Identity Server is used as the Key Manager in high availability mode while the rest of the WSO2 API-M components are all in one node, configure and start the Key Manager (e.g., configure and start WSO2 Identity Server as the Key Manager) before starting the API-M servers.
