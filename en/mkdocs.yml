@@ -501,6 +501,7 @@ nav:
                 - Enabling Tracing with OpenTracing: administer/logging-and-monitoring/monitoring//monitoring-with-opentracing.md
                 - JMX-Based Monitoring: administer/logging-and-monitoring/monitoring//jmx-based-monitoring.md
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
+                - Monitoring Server Health: administer/logging-and-monitoring/monitoring//monitoring-server-health.md
           - Key Managers:
                 - Overview: administer/key-managers/overview.md
                 - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md

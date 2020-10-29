@@ -66,8 +66,8 @@ To indicate the data source connection pool usage and specify the order, use the
 | **Configuration**                               | **Description**                          |
     | ---------------------------------------------| ------------------------------------ |
     |enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this config will get enabled by default.  |
-    |pool_usage_limit_percentage                   | This config is used to specify a healthy percentage limit of the maximum allowed connections count. Data health checker checks if the active connection count surpasses the given healthy percentage limit |
-    |order                                         | The execution order in which the Data Source Health checker is executed. The default value is `97`|
+    |pool_usage_limit_percentage                   | This config is used to specify a healthy percentage limit of the maximum allowed connections count. Data health checker checks if the active connection count surpasses the given healthy percentage limit. The default value is `80`. |
+    |order                                         | The execution order in which the Data Source Health checker is executed. The default value is `97`.|
     |monitored.datasources                         | This config is used to specify the Data Sources to be monitored as comma-separated values.|
  
 
@@ -140,8 +140,8 @@ This health checker returns the status of the user stores available in the syste
 | **Configuration**                               | **Description**                          |
     | ---------------------------------------------| ------------------------------------ |
     |enable                                        | The configuration element is to enable DataSource Health Checker. When `carbon_health_check` is enabled this config will get enabled by default.  |
-    |order                                         | The execution order in which the User Store Health checker is executed. The default value is `98`|
-    |monitored.user.stores                         | This config is used to specify the user stores as comma-separated values. The default value is `PRIMARY` |
+    |order                                         | The execution order in which the User Store Health checker is executed. The default value is `98`.|
+    |monitored.user.stores                         | This config is used to specify the user stores as comma-separated values. The default value is `PRIMARY`. |
 
 
 When you invoke the API and User Stores are healthy you can see a response as below:
@@ -205,7 +205,7 @@ Then register the new health checker as shown below in the 'deployment.toml' fil
 ```
 
 !!! tip
-    A sample configuration section of `deployment.toml` which is configured to monitor Data sources health checker, User Store Health Checker, and a Custom health checker is shown below. 
+    A sample configuration section of `deployment.toml` which is configured to monitor Data sources health checker, User Store Health Checker, and a custom health checker is shown below. 
     
     ```
         [carbon_health_check] 
