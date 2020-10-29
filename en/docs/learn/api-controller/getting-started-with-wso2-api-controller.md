@@ -115,18 +115,16 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         !!! info
             **Flags:**  
             
-            -    Required :  
-
+            -    Required :     
                 `--environment` or `-e` : Name of the environment to be added   
-                AND (either)
-                `--apim` : API Manager endpoint for the environments
-                OR (the following 4)
-                `--registration` : Registration endpoint for the environment 
-                `--admin` : Admin endpoint for the environment  
-                `--publisher` : Publisher endpoint for the environment  
+                AND (either)     
+                `--apim` : API Manager endpoint for the environments     
+                OR (the following 4)     
+                `--registration` : Registration endpoint for the environment     
+                `--admin` : Admin endpoint for the environment     
+                `--publisher` : Publisher endpoint for the environment     
                 `--devportal` : Developer Portal endpoint for the environment 
-            -   Optional :
-
+            -   Optional :     
                 `--token` : Token endpoint for the environment
             
         !!! tip
