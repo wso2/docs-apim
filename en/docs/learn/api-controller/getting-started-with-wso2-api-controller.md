@@ -260,12 +260,12 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         ``` bash tab="Response Format"
         Successfully removed environment '<environment-name>'
-        Execute 'apictl add-env --help' to see how to add a new environment
+        Execute 'apictl add env --help' to see how to add a new environment
         ```
 
         ``` bash tab="Example Response"
         Successfully removed environment 'production'
-        Execute 'apictl add-env --help' to see how to add a new environment
+        Execute 'apictl add env --help' to see how to add a new environment
         ```
 
 ## Get environments
