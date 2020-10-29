@@ -49,24 +49,27 @@ Let us check out the basic building blocks for creating a CI/CD pipeline with WS
 
      For more information, see [Download and initialize the ctl tool]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#download-and-initialize-the-ctl-tool).  
 
-3.  Add API Manager environments using the `add-env` command.
+3.  Add API Manager environments using the `add env` command.
 
     !!! example
         ``` bash tab="Linux/Unix"
-        apictl add-env -e dev \
+        apictl add env dev \
                     --apim https://localhost:9443 
 
-        apictl add-env -e prod \
+        apictl add env prod \
                     --apim https://localhost:9444 
         ```
 
         ``` bash tab="Mac/Windows""
-        apictl add-env -e dev --apim https://localhost:9443 
+        apictl add env dev --apim https://localhost:9443 
 
-        apictl add-env -e prod --apim https://localhost:9444 
+        apictl add env prod --apim https://localhost:9444 
         ```    
 
-    For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment). 
+    For more information, see [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).
+    
+    !!!note
+        `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
 
 <a name="B"></a>
 ### (B.) - Create and Publish an API in a lower environment
@@ -114,14 +117,17 @@ The **apictl** can export an API as an archive from a lower environment (i.e., d
     !!! tip
         A user with `admin` role is allowed to export APIs. To create a custom user who can export APIs, refer [Steps to Create a Custom User who can Perform API Controller Operations]({{base_path}}/learn/api-controller/advanced-topics/creating-custom-users-to-perform-api-controller-operations/#steps-to-create-a-custom-user-who-can-perform-api-controller-operations).
 
-2. Export the API from the lower environment using the `export-api` command.
+2. Export the API from the lower environment using the `export api` command.
 
     !!! example
         ``` bash
-        apictl export-api -e dev -n SwaggerPetstore -v 1.0.0 --provider admin
+        apictl export api -e dev -n SwaggerPetstore -v 1.0.0 --provider admin
         ```
 
      For more information, see [Export an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#export-an-api).
+
+    !!!note
+        `apictl export-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export api` as shown above.
 
 3.  Extract the content (API will be exported as an archive to the 
 `<USER_HOME>/.wso2apictl/exported/apis/dev/` directory). After extraction, you will find a directory named 
@@ -158,7 +164,7 @@ For more information on initializing an API Project using OpenAPI/Swagger Specif
 
      Define the *prod.wso2.com* and *prod.sandbox.wso2.com* as the backend URLs in this file.
      
-     It is recommended to store the parameter file with the API Project; however, you can store it anywhere as required and provide the location to this file as a flag when using the `import-api` command.
+     It is recommended to store the parameter file with the API Project; however, you can store it anywhere as required and provide the location to this file as a flag when using the `import api` command.
 
     !!! example
         ```bash
@@ -295,7 +301,7 @@ The repository that you committed the project in the above step <a href="#E">E</
         For deploying an API using `vcs deploy` command: 
         
         -   It is mandatory to have your API projects in a Git based version control system.
-        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you export an API using `export-api` or initialized an API Project using `init`. The following configuration section in the `api_params.yaml` file is used to deploy the API.
+        -   It is mandatory to have `api_params.yaml` file inside each API Project. This is created by default when you export an API using `export api` or initialized an API Project using `init`. The following configuration section in the `api_params.yaml` file is used to deploy the API.
 
         ```bash
         deploy:
@@ -320,7 +326,7 @@ You can use the following alternative approach to promote a single API via CI/CD
 
     !!! example
         ```bash
-        apictl import-api -f ./SwaggerPetstore -e prod --preserve-provider=false --update=true
+        apictl import api -f ./SwaggerPetstore -e prod --preserve-provider=false --update=true
         ```
     !!! note
         -   When the update flag is present, WSO2 API Manager will attempt to seamlessly update if an existing API is found with the same name and version. 
@@ -328,6 +334,8 @@ You can use the following alternative approach to promote a single API via CI/CD
         - The import command prepares an API Project for WSO2 API Manager by processing the parameter file. It determines which configuration should be processed to create an API Project by detecting the environment that has been used to import it.
 
         - For more information on importing an API to an environment, see [Import an API]({{base_path}}/learn/api-controller/migrating-apis-to-different-environments/#import-an-api).
+        
+        - `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
     The above command will detect the target environment and provision the API to it.
 
@@ -360,20 +368,21 @@ Run any of the following CTL commands to get keys for the API/API Product.
 - **Command**
 
     ```bash
-    apictl get-keys -n <API or API Product name> -v <API version> -r <API or API Product provider> -e <environment> -k
+    apictl get keys -n <API or API Product name> -v <API version> -r <API or API Product provider> -e <environment> -k
     ```  
 
     ```bash
-    apictl get-keys --name <API or API Product name> --version <API version> --provider <API or API Product provider> --environment <environment> -k
+    apictl get keys --name <API or API Product name> --version <API version> --provider <API or API Product provider> --environment <environment> -k
     ```
 
     !!! example
         ```bash
-        apictl get-keys -n PizzaShackAPI -e dev -k
+        apictl get keys -n PizzaShackAPI -e dev -k
         ```
+
     !!! example
         ```bash
-        apictl get-keys -n PizzaShackAPI -v 1.0.0 -e dev -k -r admin -t https://localhost:8243/token
+        apictl get keys -n PizzaShackAPI -v 1.0.0 -e dev -k -r admin -t https://localhost:8243/token
         ```
     !!! info
         **Flags:**  
@@ -382,13 +391,16 @@ Run any of the following CTL commands to get keys for the API/API Product.
             `--environment` or `-e` : Key generation environment  
             `--name` or `-n` : API or API Product to enerate keys for   
         -   Optional :  
-            `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the add-env command)       
+            `--token` or `-t` : New token endpoint of the environment (This overrides the previously provided token endpoint that was provided using the `add env` command)       
             `--provider` or `-r` : Provider of the API or API Product  
             `--version` or `-v` : Version of the API (Currently API Products do not have versions)
 
     !!! note
-        Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.
-        You can override the given token endpoint or the default token endpoint using the `--token` (`-t`) optional flag together with the new token endpoint.
+        - Both the flags (`--name` (`-n`) and `--environment` (`-e`)) are mandatory.
+
+        - You can override the given token endpoint or the default token endpoint using the `--token` (`-t`) optional flag together with the new token endpoint.
+
+        - `apictl get-keys` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get keys` as shown above.
 
 !!! info
     - Upon running the above command, the CTL tool will create a default application in the environment, subscribe to the API, and generate keys based on the token type defined in the `<USER_HOME>/.wso2apictl/main-config.yaml`file. 
@@ -482,11 +494,14 @@ Let's assume that the **PetsApp** application is in the development environment 
 1.  Export the Application using the `export app` command from the development environment (dev). Note that `--withKeys` option is used to export the subscriptions and keys (if any) of the application.
 
     ```bash
-    $ apictl export-app --name PetsApp --owner david -e dev --withKeys
+    $ apictl export app --name PetsApp --owner david -e dev --withKeys
 
     Successfully exported Application!
     Find the exported Application at /home/wso2user/.wso2apictl/exported/apps/dev/david_PetsApp.zip
     ```
+
+    !!!note
+        `apictl export-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
 2.  Extract the exported Application Project.
 3.  Commit the project to the same git repository.
@@ -530,7 +545,7 @@ Let's assume that the **PetsApp** application is in the development environment 
         For deploying an application using `vcs deploy` command:
         
         -   It is mandatory to have your Application projects in a Git based version control system.
-        -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you export an Application using `export-app`. The following configuration section in the `application_params.yaml` file is used to deploy the application.
+        -   It is mandatory to have `application_params.yaml` file inside each application project. This is created by default when you export an Application using `export app`. The following configuration section in the `application_params.yaml` file is used to deploy the application.
 
         ```bash
         deploy:
