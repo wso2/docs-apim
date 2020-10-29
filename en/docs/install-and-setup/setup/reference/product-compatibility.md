@@ -76,4 +76,4 @@ The following is a list of other WSO2 products that is tested with WSO2 API Mana
 </table>
 
 !!! note 
-    From API Manager 3.2.0 onwards, the prepackaged WSO2 Identity Server as a Key Manager is deprecated and WSO2 Identity Server should be used as the key Manager.
+    From API Manager 3.2.0 onwards, the prepackaged WSO2 Identity Server as a Key Manager is removed and WSO2 Identity Server should be used as the key Manager.
