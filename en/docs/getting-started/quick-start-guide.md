@@ -248,7 +248,7 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
          (localhost) using the default ports.
     
     ``` bash
-    ./apictl add-env -e dev \
+    ./apictl add env dev \
             --apim https://localhost:9443 \
             --token https://localhost:8243/token 
 
@@ -258,7 +258,6 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
          **Flags:**
 
         - Required :     
-        `--environment` or `-e` : Name of the environment to be added   
         `--apim` : API Manager endpoint for the environments  
 
         - Optional :      
@@ -268,6 +267,8 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
             `--publisher` : Publisher endpoint for the environment 
             `--devportal` : DevPortal endpoint for the environment
    
+    !!!note
+        `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. For further information please refer [Add an environment]({{base_path}}/learn/api-controller/getting-started-with-wso2-api-controller/#add-an-environment).  
 
      On successfully executing this command, you should see the following message.
      
@@ -332,8 +333,11 @@ Let's look at how you can use the CI/CD command line tool for APIs (API Controll
         If you are working with a specific environment for the first time, you will be prompted to enter your account credentials on WSO2 API Manager. You can use the default admin credentials as **`admin/admin`**.
 
      ``` bash
-     ./apictl import-api --file ./PetstoreAPI --environment dev -k 
+     ./apictl import api --file ./PetstoreAPI --environment dev -k 
      ```
+
+    !!!note
+        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above. For further information please refer [Import an API Project]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach/#import-an-api-project).  
 
      You should now see your API deployed successfully on WSO2 API Manager.
 
