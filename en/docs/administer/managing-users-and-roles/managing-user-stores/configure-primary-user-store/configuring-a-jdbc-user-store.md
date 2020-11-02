@@ -1,6 +1,12 @@
 # Configuring a JDBC User Store
 
-JDBC user stores can be configured using the <APIM_HOME>/repository/conf/deployment.toml file's [user_store] configuration section. The user core connects to two databases (the same database is utilized by default):
+User management functionality is provided by default in WSO2 API Manager and it can be configured in the 
+`<API-M_HOME>/repository/conf/deployment.toml` file. The changes done in the `deployment.toml` file will be automatically populated to the `<API-M_HOME>/repository/conf/user-mgt.xml` file as well. 
+This file is shipped with user store manager configurations for all possible user store types ([JDBC](../configuring-a-jdbc-user-store), [read-only LDAP/Active Directory](../configuring-a-read-only-ldap-user-store), 
+[read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). 
+The instructions given below explains how to configure JDBC as a user store.
+
+The user core connects to two databases (the same database is utilized by default):
 
 -   **User Management Database** - The database where authorization information is stored internally.
 -   **User Store Database** - The user store database where users/roles reside.
@@ -13,9 +19,16 @@ You can either use the default configuration or you can change it in the followi
 !!!tip
     Before you begin, ensure that the RDBMS that you want to use as the JDBC user store is correctly set up for your system. Then, follow the steps given below to configure a JDBC user store as the primary user store in your product.
 
+Follow the given steps to configure a JDBC user store:
+
+-   [Step 1: Configuring the JDBC user store manager](#step-1-configuring-the-jdbc-user-store-manager)
+-   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
+-   [Step 3: Updating the datasources](#step-3-updating-the-datasources)
+-   [Step 4: Starting the server](#step-4-starting-the-server)
+
 ### Step 1: Configuring the JDBC user store manager
 
-1. To configure a JDBC user store as the primary user store, you must give the value: `database` for the config: `user_store.type` in the `<APIM_HOME>/repository/conf/deployment.toml` file.
+-   Add these configurations below in `<API-M_HOME>/repository/conf/deployment.toml` file.
 
     ```toml
         [user_store]
@@ -121,32 +134,29 @@ You can either use the default configuration or you can change it in the followi
     [user_store.properties]
     WriteGroups = false
     ```
+Apart from above properties WSO2 API Manager also supports advanced JDBC configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties used in JDBC user store manager](properties-used-in-jdbc-user-store-manager). 
 
 ### Step 2: Updating the system administrator
 
-The **admin** user is the super user that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. If the JDBC user store is read-only, then we need to always use a user ID that is already in the user store as the super tenant. Otherwise, if the JDBC user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. These two alternative configurations can be done as explained below.
+The **admin** user is the super tenant that will be able to manage all other users, roles, and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time.  If the JDBC user store is read-only, then we need to use a user ID that is already in the user store as the super tenant. Otherwise, if the JDBC user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. These two alternative configurations can be configured as explained below.
 
--   If the user store is read-only, find a valid user that already resides in the RDBMS. For example, say a the user store consists of a user: "adminUser". Update the `username` section of the `super_admin` configuration of the deployment.toml file, as shown below. You do not have to update the password element as it is already set in the user store. Since the user already exists in the user store, and the user store is read-only, `create_admin_account` should be set to `false`.
-
-    ``` toml
+-   If the user store is read-only, find a valid user that already resides in the user store. For example, if the username of `admin` is in the user store with admin permissions, update the `[super_admin]` section of your configuration as shown below. You do not need to update the password element as it is already set in the user store.
+    ```
     [super_admin]
-    username = "adminUser"
-    password = "XXXXXX"
+    username = "admin"
+    password = "admin"
     create_admin_account = false
     ```
 
--   If the user store can be written to, you can add the super tenant user to the user store. Therefore, `create_admin_account` should be set to `true` as shown below.
-
-    ``` toml
+-   If you are creating a new admin user in the user store when you start the system, you can add the super tenant user to the user store. Add the following configuration to the `deployment.toml` as shown below.
+    ```
     [super_admin]
-    username = "adminUser"
-    password = "adminpass"
+    username = "admin"
+    password = "admin"
     create_admin_account = true
     ```
 
-In the realm configuration section, set the value of the `MultiTenantRealmConfigBuilder` property to `org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder` in order to construct teant specific realm configurations.
-
-For example:
+In the realm configuration section, set the value of the `MultiTenantRealmConfigBuilder` property to `org.wso2.carbon.user.core.config.multitenancy.SimpleRealmConfigBuilder` in order to construct teant specific realm configurations as given below.
 
 ``` toml
 [realm_manager.properties]
@@ -155,7 +165,7 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
 
 ### Step 3: Updating the datasources
 
-Whenever there is an RDBMS set up for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database. The datasource for the internal H2 database that is shipped by default, is configured in the `deployment.toml` file, which is stored in the `<PRODUCT_HOME>/repository/conf` directory.
+Whenever there is an RDBMS set up for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database. The datasource for the internal H2 database that is shipped by default, is configured in the `deployment.toml` file, which is stored in the `<API-M_HOME>/repository/conf` directory.
 
 1. If you have replaced the default database with a new RDBMS, which you are now using as the JDBC user store, you have to update the `deployment.toml` file with the relevant information. This can be configured by adding the `database.user` config as shown below. 
 
@@ -194,6 +204,171 @@ Whenever there is an RDBMS set up for your system, it is necessary to create a c
 
 ### Step 4: Starting the server
 
-1.  Add the JDBC driver to the classpath by copying its JAR file into the `<PRODUCT_HOME>/repository/components/lib` directory.
+1.  Add the JDBC driver to the classpath by copying its JAR file into the `<API-M_HOME>/repository/components/lib` directory.
 2.  Start the server.
 
+### Properties used in JDBC user store manager.
+
+Following are the properties used in JDBC user store manager. You can configure any of
+those properties as follows. 
+
+Add the following configuration to `<API-M_HOME>/repository/conf/deployment.toml`.
+
+``` toml
+[user_store]
+<Property-Name> = <Property-Value>
+```
+For example :
+
+``` toml
+[user_store]
+read_groups = true
+```
+
+!!! tip 
+    The properties given below can be configured for a secondary user store through the management console.
+
+<table>
+<thead>
+<tr class="header">
+<th>Property Id</th>
+<th>Primary User Store Property</th>
+<th>Secondary User Store Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>ReadGroups</td>
+<td>read_groups</td>
+<td>ReadGroups</td>
+<td>When ReadGroups is set to false, it Indicates whether groups should be read from the user store. If this is disabled by setting it to false, none of the groups in the user store can be read, and the following group configurations are NOT mandatory: GroupSearchBase, GroupNameListFilter, or GroupNameAttribute.<br />
+<br />
+<p>Default : true <br/>
+Possible values:<br/>
+true: Read groups from user store<br />
+false: Do not read groups from user store</p></td>
+</tr>
+<tr class="even">
+<td>WriteGroups</td>
+<td>write_groups</td>
+<td>WriteGroups</td>
+<td>Indicates whether groups should be written to the user store.<br />
+<br />
+<p>Default : true <br/>
+Possible values:<br />
+true : Write groups to user store<br />
+false : Do not write groups to user store, so only internal roles can be created. Depending on the value of ReadGroups property, it will read existing groups from user store or not</p></td>
+</tr>
+<tr class="odd">
+<td>PasswordHashMethod</td>
+<td>password_hash_method</td>
+<td>Password Hashing Algorithm</td>
+<td><p>Specifies the Password Hashing Algorithm used to hash the password before storing it in the userstore.<br />
+Possible values:<br />
+SHA - Uses SHA digest method. SHA-1, SHA-256<br />
+MD5 - Uses MD 5 digest method.<br />
+PLAIN_TEXT - Plain text passwords.</p>
+<p>If you just enter the value `SHA`, it will be considered as `SHA-1`. It is always better to configure an algorithm with a higher bit value so that the digest bit size would be increased.
+<br />
+The default value for JDBC userstores is SHA-256. 
+</p></td>
+</tr> 
+<tr class="odd">
+<td>UsernameJavaRegEx</td>
+<td>username_java_regex</td>
+<td>UsernameJavaRegEx</td>
+<td>The regular expression used by the back-end components for username validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br/>
+<p>Default: ^[\S]{3,30}$</td></p> <br/>
+</tr>
+<tr class="even">
+<td>UsernameJava<br>ScriptRegEx</td> 
+<td>username_java_<br>script_regex</td>
+<td>UsernameJavaScriptRegEx</td>
+<td>The regular expression used by the front-end components for username validation.
+<br/><p> Default: ^[\S]{3,30}$  </p></td>
+</tr>
+<tr class="odd">
+<td>UsernameJavaReg<br>ExViolationErrorMsg</td>
+<td>username_java_reg<br>_ex_violation_error_msg</td>
+<td>Username RegEx Violation Error Message</td>
+<td>Error message when the Username is not matched with username_java_regex 
+<br/><p> Default: Username pattern policy violated  </p></td>
+</tr>
+<tr class="even">
+<td>PasswordJavaRegEx</td>
+<td>password_java_regex</td>
+<td>Password RegEx (Java)</td>
+<td>The regular expression used by the back-end components for password validation. By default, strings with non-empty characters have a length of 5 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
+Default: ^[\S]{5,30}$</td>
+</tr>
+<tr class="odd">
+<td>PasswordJava<br>ScriptRegEx</td>
+<td>password_java_<br>script_regex</td>
+<td>Password RegEx (Javascript)</td>
+<td>The regular expression used by the front-end components for password validation.<br />
+<p>Default: ^[\S]{5,30}$</p></td>
+</tr>
+<tr class="even">
+<td>PasswordJavaReg<br>ExViolationErrorMsg</td>
+<td>password_java_reg<br>ex_violation_error_msg</td>
+<td>Password RegEx Violation Error Message</td>
+<td>Error message when the Password is not matched with passwordJavaRegEx.<br />
+<p>Default: Password length should be within 5 to 30 characters.</p></td>
+<tr class="odd">
+<td>RolenameJavaRegEx</td>
+<td>rolename_java_regex</td>
+<td>Role Name RegEx (Java)</td>
+<td>The regular expression used by the back-end components for role name validation. By default, strings with non-empty characters have a length of 3 to 30 are allowed. You can provide ranges of alphabets, numbers and also ranges of ASCII values in the RegEx properties.<br />
+<p>Default: [a-zA-Z0-9._-|//]{3,30}$</p></td>
+</tr>
+<tr class="odd">
+<td>MultiAttribute<br>Separator</td>
+<td>multi_attribute<br>_separator</td>
+<td>Multiple Attribute Separator</td>
+<td>This property is used to define a character to separate multiple attributes. This ensures that it will not appear as part of a claim value. Normally “,” is used to separate multiple attributes, but you can define ",,," or "..." or a similar character sequence<br />
+<p>Default: “,”</p></td>
+</tr>
+<tr class="even">
+<td>MaxUserName<br>ListLength</td>
+<td>max_user_name_<br>list_length</td>
+<td>Maximum User List Length</td>
+<td>Controls the number of users listed in the user store of a WSO2 product. This is useful when you have a large number of users and do not want to list them all. Setting this property to 0 displays all users. (Default: 100)<br />
+<br />
+In some user stores, there are policies to limit the number of records that can be returned from a query. By setting the value to 0, it will list the maximum results returned by the user store. If you need to increase this number, you need to set it in the user store level.<br />
+Eg: Active directory has the MaxPageSize property with the default value of 100.</td>
+</tr>
+<tr class="odd">
+<td>MaxRoleName<br>ListLength</td>
+<td>max_role_name_<br>list_length</td>
+<td>Maximum Role List Length</td>
+<td>Controls the number of roles listed in the user store of a WSO2 product. This is useful when you have a large number of roles and do not want to list them all. Setting this property to 0 displays all roles. (Default: 100)<br />
+<br />
+In some user stores, there are policies to limit the number of records that can be returned from a query. By setting the value to 0, it will list the maximum results returned by the user store. If you need to increase this number, you need to set it in the user store level.<br />
+Eg: Active directory has the MaxPageSize property with the default value of 1000.</td>
+</tr>
+<tr class="even">
+<td>UserRolesCacheEnabled</td>
+<td>user_roles_cache_enabled</td>
+<td>Enable User Role Cache</td>
+<td>This is to indicate whether to cache the role list of a user. (Default: true)<br />
+<br />
+Possible values:<br />
+false: Set it to false if the user roles are changed by external means and those changes should be instantly reflected in the Carbon instance.</td>
+</tr>
+<tr class="odd">
+<td>CaseInsensitiveUsername</td>
+<td>properties.CaseInsensitiveUsername</td>
+<td>Case Insensitive Username</td>
+<td>Enables the case insensitivity of the user's username. Default value is <code>true</code> for this configuration. 
+<br />Eg: If a user's username is <code>test</code>, that user can also use the username as <code>TEST</code>.
+</td>
+</tr>
+</tbody>
+</table>
+
+!!! note
+    Addition to these properties, you can configure SQL queries that are
+    used in JDBC user store manager and if required can change default
+    queries. Those are not listed under above property section but you can
+    do the configuration as same as described above.

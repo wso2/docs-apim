@@ -19,7 +19,7 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
 
 ### Step 1: Setting up the read-write LDAP user store manager
 
--   Navigate to `<API-M_HOME>/repository/conf` directory to open `deployment.toml` file and add these configurations below:
+-   Add these configurations below in `<API-M_HOME>/repository/conf/deployment.toml` file.
 
     ```
     [user_store]
@@ -30,7 +30,7 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
     connection_password = "admin"
     ```
 
-    Descriptions on each of the properties of `[user_store]` is given below: 
+    Descriptions on connection properties of `[user_store]` is given below: 
   
 <table>
 <thead>
@@ -53,10 +53,10 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
 <br />
 If you are connecting over ldaps (secured LDAP)<br />
 Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
-<a href="../../administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
+<a href="https://is.docs.wso2.com/en/5.9.0/administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
 <br />
 If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
-<a href="../../setup/performance-tuning-recommendations#performance-tuning-ldaps-pooling">performance tuning ldaps pooling)</a></p></td>
+<a href="https://is.docs.wso2.com/en/5.10.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections">performance tuning ldaps pooling</a>.</p></td>
 </tr>
 <tr class="odd">
 <td>ConnectionName</td>
@@ -73,7 +73,6 @@ Sample values: uid=admin,ou=system</p></td>
 <td>Password for the ConnectionName user.</td>
 </tr>
 </table>
-
 
 -   Add  `[user_store.properties]` configuration element in `deployment.toml` file as follows:
     ```
@@ -114,14 +113,7 @@ Sample values: uid=admin,ou=system</p></td>
     ConnectionRetryDelay= "2m"
     MembershipAttribute = "member"
     ```
-
-
--  To read and write to an LDAPuserstore, it is important to ensure that the `ReadGroups` and `WriteGroups` properties of `[user_store.properties]` in the `<API-M_HOME>/repository/conf/deployment.toml` file are set to `true`.
-    ```
-    WriteGroups = "true"
-    ReadGroups = "true"
-    ```
-
+   
 -  Set the `ReadGroups` property to `true`, if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a **membership (user list)** or **backlink attribute** as shown below.
 
        a.  To read the user/role mapping based on a **membership** (This is used by the `ApacheDirectory` server and `OpenLDAP)` :
@@ -161,47 +153,45 @@ Sample values: uid=admin,ou=system</p></td>
 
 !!! note
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
+    The configuration for the external read-write user store in the `user-mgt.xml` file looks as follows for the above configurations:
 
-
-The configuration for the external read-write user store in the `user-mgt.xml` file looks as follows for the above configurations:
-
-``` xml
-<UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
-   <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
-   <Property name="ConnectionURL">ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}</Property>
-   <Property name="ConnectionName">uid=admin,ou=system</Property>
-   <Property name="ConnectionPassword">admin</Property>
-   <Property name="PasswordHashMethod">SHA</Property>
-   <Property name="UserNameListFilter">(objectClass=person)</Property>
-   <Property name="UserEntryObjectClass">wso2Person</Property>
-   <Property name="UserSearchBase">ou=Users,dc=wso2,dc=org</Property>
-   <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
-   <Property name="UserNameAttribute">uid</Property>
-   <Property name="PasswordJavaScriptRegEx">[\\S]{5,30}</Property>
-   <Property name="UsernameJavaScriptRegEx">[\\S]{3,30}</Property>
-   <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|/]{3,30}$</Property>
-   <Property name="RolenameJavaScriptRegEx">[\\S]{3,30}</Property>
-   <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|/]{3,30}$</Property>
-   <Property name="ReadGroups">true</Property>
-   <Property name="WriteGroups">true</Property>
-   <Property name="EmptyRolesAllowed">true</Property>
-   <Property name="GroupSearchBase">ou=Groups,dc=wso2,dc=org</Property>
-   <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
-   <Property name="GroupEntryObjectClass">groupOfNames</Property>
-   <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
-   <Property name="GroupNameAttribute">cn</Property>
-   <Property name="SharedGroupNameAttribute">cn</Property>
-   <Property name="SharedGroupSearchBase">ou=SharedGroups,dc=wso2,dc=org</Property> 
-   <Property name="SharedGroupEntryObjectClass">groups</Property>
-   <Property name="SharedTenantNameListFilter">(object=organizationalUnit)</Property>
-   <Property name="SharedTenantNameAttribute">ou</Property>
-   <Property name="SharedTenantObjectClass">organizationalUnit</Property>
-   <Property name="MembershipAttribute">member</Property>
-   <Property name="LDAPConnectionTimeout">5000</Property>
-   <Property name="UserRolesCacheEnabled">true</Property>
-   <Property name="UserDNPattern">uid={0},ou=Users,dc=wso2,dc=org</Property>
-</UserStoreManager>
-```
+    ``` xml
+    <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
+       <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
+       <Property name="ConnectionURL">ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}</Property>
+       <Property name="ConnectionName">uid=admin,ou=system</Property>
+       <Property name="ConnectionPassword">admin</Property>
+       <Property name="PasswordHashMethod">SHA</Property>
+       <Property name="UserNameListFilter">(objectClass=person)</Property>
+       <Property name="UserEntryObjectClass">wso2Person</Property>
+       <Property name="UserSearchBase">ou=Users,dc=wso2,dc=org</Property>
+       <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
+       <Property name="UserNameAttribute">uid</Property>
+       <Property name="PasswordJavaScriptRegEx">[\\S]{5,30}</Property>
+       <Property name="UsernameJavaScriptRegEx">[\\S]{3,30}</Property>
+       <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|/]{3,30}$</Property>
+       <Property name="RolenameJavaScriptRegEx">[\\S]{3,30}</Property>
+       <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|/]{3,30}$</Property>
+       <Property name="ReadGroups">true</Property>
+       <Property name="WriteGroups">true</Property>
+       <Property name="EmptyRolesAllowed">true</Property>
+       <Property name="GroupSearchBase">ou=Groups,dc=wso2,dc=org</Property>
+       <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
+       <Property name="GroupEntryObjectClass">groupOfNames</Property>
+       <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
+       <Property name="GroupNameAttribute">cn</Property>
+       <Property name="SharedGroupNameAttribute">cn</Property>
+       <Property name="SharedGroupSearchBase">ou=SharedGroups,dc=wso2,dc=org</Property> 
+       <Property name="SharedGroupEntryObjectClass">groups</Property>
+       <Property name="SharedTenantNameListFilter">(object=organizationalUnit)</Property>
+       <Property name="SharedTenantNameAttribute">ou</Property>
+       <Property name="SharedTenantObjectClass">organizationalUnit</Property>
+       <Property name="MembershipAttribute">member</Property>
+       <Property name="LDAPConnectionTimeout">5000</Property>
+       <Property name="UserRolesCacheEnabled">true</Property>
+       <Property name="UserDNPattern">uid={0},ou=Users,dc=wso2,dc=org</Property>
+    </UserStoreManager>
+    ```
             
 Apart from above properties WSO2 API Manager also supports advanced LDAP configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties of User Stores](properties-used-in-read-write-ldap-user-store). 
 
