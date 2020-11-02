@@ -1,11 +1,9 @@
 # Configuring the Primary User Store
 
-This documentation explains the process of setting up a primary user store for your system.
+This is the main user store that is shared among all the tenants in the system. Only one user store can be configured as the primary user store. This documentation explains the process of setting up a primary user store for your system.
 
 !!! info
-    **The default User Store**
-
-    The primary user store that is configured by default, is a JDBC user store, which reads/writes into an internal database. By default, the internal database is H2. This database is used by the Authorization Manager (for user authorization information) as well as, the User Store Manager (for defining users and roles).
+    **The default User Store** : The primary user store that is configured by default, is a JDBC user store, which reads/writes into an internal database. By default, the internal database is H2. This database is used by the Authorization Manager (for user authorization information) as well as, the User Store Manager (for defining users and roles).
 
 
 Instead of using the embedded database, you can set up a separate repository and configure it as your primary user store. Since the user store you want to connect to might have different schemas from the ones available in the embedded user store, it needs to go through an adaptation process. We do the necessary adaptations depending on the user store type. We support the following primary user store types.
@@ -61,3 +59,8 @@ Follow the links given below to setup the required type of primary user store.
 -   [Configuring a Read-Write Active Directory User Store](../configuring-a-read-write-active-directory-user-store)
 -   [Configuring a Read-Write LDAP User Store](../configuring-a-read-write-ldap-user-store)
 
+!!! note
+    You can create a simple custom user store manager for WSO2 API Manager.
+    See [Writing a custom user store manager]({{base_path}}/administer/managing-users-and-roles/managing-user-stores/writing-a-custom-user-store-manager).
+    
+   
