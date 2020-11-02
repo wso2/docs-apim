@@ -79,3 +79,36 @@ The examples here use the `StarWarsAPI` GraphQL API, which was created in [Creat
     [![Response of GraphQL Query]({{base_path}}/assets/img/learn/graphql-response.png)]({{base_path}}/assets/img/learn/graphql-response.png)
 
 You have now succesfully invoked a GraphQL API using the GraphQL API Console.
+
+
+# Try out using Postman
+
+Let's see how to download a GraphQL as a Postman collection.
+
+1.  Click **Try Out** to go to the Try out section.If you haven't subscribed to this API, you should `Subscribe` to an API as mentioned above.
+
+    Then choose the application name and click the `Postman collection` button to download the Postman collection.
+
+ ![[Postman try out-graphQL]({{base_path}}/assets/img/learn/postman_try_out_graphql.png)]({{base_path}}/assets/img/learn/postman_try_out_graphql.png)
+    
+2.  As there's a security for the Postman collection, you have to get the authentication code. **Generate** the authentication code and **Copy** the access token you generted.(See the above step 05)
+
+3. Open the Postman application and **Import** the Postman collection file you downloaded.
+
+    ![[Import Postman- graphQL]({{base_path}}/assets/img/learn/postman_import_graphql.png)]({{base_path}}/assets/img/learn/postman_import_graphql.png)
+
+4. Select a resource from the Postman collection to test.
+
+5. Click the **Authorization** tab and select `Bearer Token` as the token type.
+
+    ![[Token type -graphQL]({{base_path}}/assets/img/learn/postman_token_type_graphql.png)]({{base_path}}/assets/img/learn/postman_token_type_graphql.png)
+
+6. Paste the copied token.
+
+7. Click **Send** to proceed.
+
+    ![[Put token-graphQL]({{base_path}}/assets/img/learn/postman_put_token_graphql.png)]({{base_path}}/assets/img/learn/postman_put_token_graphql.png)
+
+8. You can see the result under the `Body` tab.
+
+    ![[Postman result-grapgQL]({{base_path}}/assets/img/learn/postman_result_graphql.png)]({{base_path}}/assets/img/learn/postman_result_graphql.png)
