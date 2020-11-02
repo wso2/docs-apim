@@ -1,12 +1,14 @@
 #Configuring a Read-Write Active Directory User Store
 
+User management functionality is provided by default in WSO2 API Manager and it can be configured in the 
+`<API-M_HOME>/repository/conf/deployment.toml` file. The changes done in the `deployment.toml` file will be automatically populated to the `<API-M_HOME>/repository/conf/user-mgt.xml` file as well. 
+This file is shipped with user store manager configurations for all possible user store types ([JDBC](../configuring-a-jdbc-user-store), [read-only LDAP/Active Directory](../configuring-a-read-only-ldap-user-store), 
+[read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). 
 !!! info
-    The default User Store
-
-    The primary user store that is configured by default in the `user-mgt.xml` file is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2 for all WSO2 products excluding WSO2 Identity Server.
-    
-    Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
-
+       **Default User Store**: The primary user store that is configured by default in the `user-mgt.xml` file of WSO2 products is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2. This database is used by the Authorization Manager (for user authentication information) as well as the User Store Manager (for defining users and roles).
+       
+       Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
+       
 Follow the given steps to configure an external Active Directory as the primary user store:
 
 -   [Step 1: Setting up the external AD user store manager](#step-1-setting-up-the-external-ad-user-store-manager)
@@ -15,9 +17,63 @@ Follow the given steps to configure an external Active Directory as the primary 
 
 ### Step 1: Setting up the external AD user store manager
 
-!!! info
+-   Add these configurations below in `<API-M_HOME>/repository/conf/deployment.toml` file.
+    ```
+    [user_store]
+    class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
+    type = "active_directory"
+    connection_url = "ldap://localhost:10389"
+    connection_name = "uid=admin,ou=system"
+    connection_password = "admin"
+    ```
+    Descriptions on connection properties of `[user_store]` is given below: 
+    
+<table>
+<thead>
+<tr class="header">
+<th>Property Id</th>
+<th>Primary User Store Property</th>
+<th>Secondary User Store Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="even">
+<td>ConnectionURL</td>
+<td>connection_url</td>
+<td>Connection URL</td>
+<td><p>Connection URL to the user store server. In the case of default LDAP in Carbon, the port is specified in the carbon.xml file, and a reference to that port is included in this configuration.</p>
+<p>Sample values:<br />
+<a href="ldap://10.100.1.100:389">ldap://10.100.1.100:389</a><br />
+<a href="ldaps://10.100.1.102:639">ldaps://10.100.1.102:639</a><br />
+<br />
+For Active Directory, the connection URL should have the following format:
+`ConnectionURL="ldap://<AD host-ip>:<AD_listen_port>"`
+<br />
+If you are connecting over ldaps (secured LDAP)<br />
+Need to import the certificate of user store to the client-truststore.jks of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see Using Asymmetric Encryption.<br />
+<a href="https://is.docs.wso2.com/en/5.9.0/administer/using-asymmetric-encryption">Using asymmetric encryption</a><br />
+<br />
+If LDAP connection pooling is used, see enable connection pooling for LDAPS connections.<br />
+<a href="https://is.docs.wso2.com/en/5.10.0/setup/performance-tuning-recommendations/#pooling-ldaps-connections">performance tuning ldaps pooling</a>.</p></td>
+</tr>
+<tr class="odd">
+<td>ConnectionName</td>
+<td>connection_name</td>
+<td>Connection Name</td>
+<td><p>The username used to connect to the user store and perform various operations. This user does not need to be an administrator in the user store or have an administrator role in the WSO2 product that you are using, but this user MUST have permissions to read the user list and users' attributes and to perform search operations on the user store. The value you specify is used as the DN (Distinguish Name) attribute of the user who has sufficient permissions to perform operations on users and roles in LDAP</p>
+<p>This property is mandatory.<br />
+Sample values: uid=admin,ou=system</p></td>
+</tr>
+<tr class="even">
+<td>ConnectionPassword</td>
+<td>connection_password</td>
+<td>Connection Password</td>
+<td>Password for the ConnectionName user.</td>
+</tr>
+</table>
 
--   Navigate to `<PRODUCT_HOME>/repository/conf` directory to open `deployment.toml` file and do user_store_properties configurations. Following is the sample read-write active directory user store configurations:
+-   Add  `[user_store.properties]` configuration element in `deployment.toml` file as follows:
  ```toml
  [user_store.properties]
  TenantManager="org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager"
@@ -68,18 +124,78 @@ Follow the given steps to configure an external Active Directory as the primary 
  ConnectionRetryDelay="120000"
  ```
  
--   The `class` attribute for an external AD is `org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager`.
-```toml
-[user_store]
-class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
-type = "active_directory"
-base_dn = "cn=Users,dc=wso2,dc=org"
-```
+!!! note
+    When working with Active Directory;
+
+    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](./../../configuring-the-authorization-manager/) for more information.
+
+        ``` xml
+        <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
+            <Property name="AdminRoleManagementPermissions">/permission</Property>
+            <Property name="AuthorizationCacheEnabled">true</Property>
+            <Property name="GetAllRolesOfUserEnabled">true</Property>
+        </AuthorizationManager>
+        ```
+
+        Although using the user store manager does not depend on this property, you must consider enabling this if there are any performance issues in your production environment. Enabling this property affects the performance when the user logs in. This depends on the users, roles and permission stats.
+
+    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](./../../../../../product-security/UsingAsymmetricEncryption/creating-new-keystores/) .
+
+        ``` toml
+        ConnectionURL="ldaps://10.100.1.100:636"
+        ```
+
+
+1.  For Active Directory, you can use `Referral="follow"` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `deployment.toml` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `Referral="follow"` property ensures that all the domains in the directory will be searched to locate the requested object.
+
+2.  Set the attribute to use as the username, typically either `cn` or `uid` for LDAP. Ideally, `UserNameAttribute` and `UserNameSearchFilter` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP/Active Directory administrator.
+        ```toml   
+        UserNameAttribute="cn"
+        UserNameSearchFilter="(&amp;(objectClass=user)(cn=?))"
+        ```      
+
+3.  Set the `ReadGroups` property to `true`, if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a **membership (user list)** or **backlink attribute** as shown below.
+
+  a.  To read the user/role mapping based on a **membership** (This is used by the `ApacheDirectory` server and `OpenLDAP)` :
+
+  -   Enable the `ReadGroups` property.
+       ```
+       ReadGroups = "true"
+       ```
+
+  -   Set the `GroupSearchBase` property to the directory name where the Roles are stored. That is, the roles you create using the management console of your product will be stored in this directory location. Also, when LDAP searches for groups, it will start from this location of the directory. For example:
+       ```
+       GroupSearchBase = "ou=system,CN=Users,DC=wso2,DC=test"
+       ```
+
+  -   Set the GroupSearchFilter andGroupNameAttributes. For example:
+       ```
+       GroupSearchFilter = "(objectClass=groupOfNames)"
+       GroupNameAttribute = "cn"
+       ```
+
+  -   Set the `MembershipAttribute` property as shown below:
+       ```
+       MembershipAttribute = "member"
+       ```
+
+ b.   To read roles based on a **backlink attribute**, use the configuration given below:
+
+ ```
+   ReadGroups = "false"
+   GroupSearchBase = "ou=system"
+   GroupSearchFilter = "(objectClass=groupOfNames)"
+   GroupNameAttribute = "cn"
+   MembershipAttribute = "member"
+   BackLinksEnabled = "true"
+   MembershipOfAttribute = "memberOf" 
+ ```
 
 !!! note
     Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
 
-Given below is a sample configuration for the external read/write user store in the `user-mgt.xml`. You can change the values to match your requirement in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Configuring Read-Write Active Directory User Store](#configuring-read-write-active-directory-user-store) and [Properties of User Stores](#properties-used-in-read-write-active-directory-user-store).
+    Given below is a sample configuration for the external read/write user store in the `user-mgt.xml`. You can change the values to match your requirement in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Configuring Read-Write Active Directory User Store](#configuring-read-write-active-directory-user-store) and [Properties of User Stores](#properties-used-in-read-write-active-directory-user-store).
+    
     ```
     <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
         <Property name="IsBulkImportSupported">true</Property>
@@ -130,98 +246,29 @@ Given below is a sample configuration for the external read/write user store in 
      </UserStoreManager>
     ```
 
-!!! note
-    When working with Active Directory;
-
-    -   It is best to enable the `GetAllRolesOfUserEnabled` property in the `AuthorizationManager` as follows. See the documentation on [configuring the Authorization Manager](./../../configuring-the-authorization-manager/) for more information.
-
-        ``` xml
-        <AuthorizationManager class="org.wso2.carbon.user.core.authorization.JDBCAuthorizationManager">
-            <Property name="AdminRoleManagementPermissions">/permission</Property>
-            <Property name="AuthorizationCacheEnabled">true</Property>
-            <Property name="GetAllRolesOfUserEnabled">true</Property>
-        </AuthorizationManager>
-        ```
-
-        Although using the user store manager does not depend on this property, you must consider enabling this if there are any performance issues in your production environment. Enabling this property affects the performance when the user logs in. This depends on the users, roles and permission stats.
-
-    -   If you are using `ldaps` (secured LDAP) to connect to the Active Directory as shown in the example below, you need to import the certificate of Active Directory to the `client-truststore.jks` of the WSO2 product. For information on how to add certificates to the truststore and how keystores are configured and used in a system, see [Using Asymmetric Encryption](./../../../../../product-security/UsingAsymmetricEncryption/creating-new-keystores/) .
-
-        ``` toml
-        ConnectionURL="ldaps://10.100.1.100:636"
-        ```
-
-    -   You also need to [enable connection pooling](https://docs.wso2.com/display/ADMIN44x/Performance+Tuning#PerformanceTuning-ldaps_pooling) for LDAPS connections at the time of starting your server, which will enhance server performance.
-
-
-1.  For Active Directory, you can use `Referral="follow"` to enable referrals within the user store. The AD user store may be partitioned into multiple domains. However, according to the use store configurations in the `deployment.toml` file, we are only connecting to one of the domains. Therefore, when a request for an object is received to the user store, the `Referral="follow"` property ensures that all the domains in the directory will be searched to locate the requested object.
-
-2.  Set the attribute to use as the username, typically either `cn` or `uid` for LDAP. Ideally, `UserNameAttribute` and `UserNameSearchFilter` should refer to the same attribute. If you are not sure what attribute is available in your user store, check with your LDAP/Active Directory administrator.
-        ```toml   
-        UserNameAttribute="cn"
-        UserNameSearchFilter="(&amp;(objectClass=user)(cn=?))"
-        ```
-        
-3.  In WSO2 products based on Carbon 4.5.x, you can set the `LDAPConnectionTimeout` property: If the connection to the LDAP is inactive for the length of time (in milliseconds) specified by this property, the connection will be terminated.
-
-4.  Set the `ReadGroups` property to 'true', if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupNameSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a membership (user list) or backlink attribute as shown below.
-    To read the user/role mapping based on a membership (This is used by the `ApacheDirectory` server and `OpenLDAP)` :
-
-    -   Enable the `ReadGroups` property.
-            ```toml
-            ReadGroups="true"
-            ```
-
-    -   Set the `GroupSearchBase` property to the directory name where the Roles are stored. That is, the roles you create using the management console of your product will be stored in this directory location. Also, when LDAP searches for users, it will start from this location of the directory. For example:
-            ``` 
-            GroupSearchBase="ou=Groups,cn=Users,dc=wso2,dc=org"
-            ```
-
-    -   Set the GroupNameSearchFilter and GroupNameAttributes. For example:
-            ```toml
-            GroupNameSearchFilter="(&amp;(objectClass=groupOfNames)(cn=?))"
-            GroupNameAttribute="cn"
-            ```
-
-    -   Set the `MembershipAttribute` property as shown below:
-            ``` 
-            MembershipAttribute="member"
-            ```
-
-    To read roles based on a backlink attribute, use the following code snipet instead of the above:
-        ```
-        ReadGroups="false"
-        GroupSearchBase="ou=system"
-        GroupNameSearchFilter="(objectClass=groupOfNames)"
-        GroupNameAttribute="cn"
-        MembershipAttribute="member"
-        BackLinksEnabled="true"
-        MembershipOfAttribute="memberOf"
-        ```
-        
+Apart from above properties WSO2 API Manager also supports advanced LDAP configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties used in Read-Write Active Directory User Store](properties-used-in-read-write-active-directory-user-store). 
+  
 ### Step 2: Updating the system administrator
 
-The **admin** user is the super tenant that will be able to manage all other users, roles and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the Active Directory user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the user store. For more information on setting up the [system administrator](./../../configuring-the-system-administrator/) and the [authorization manager](./../../configuring-the-authorization-manager/) .
+The **admin** user is the super tenant that will be able to manage all other users, roles, and permissions in the system by using the management console of the product. Therefore, the user that should have admin permissions is required to be stored in the user store when you start the system for the first time. Since the LDAP user store can be written to, you have the option of creating a new admin user in the user store when you start the system for the first time. Alternatively, you can also use a user ID that already exists in the LDAP. For information about the system administrator user, see [Configuring the System Administrator]({{base_path}}/reference/config-catalog/#super-admin-configurations).
 
--   These two alternative configurations can be done as explained below.
+These two alternative configurations can be done as explained below.
 
-<!-- -->
+-   If the user store is read-only, find a valid user that already resides in the user store. For example, if the username of `admin` is in the user store with admin permissions, update the `[super_admin]` section of your configuration as shown below. You do not need to update the password element as it is already set in the user store.
+    ```
+    [super_admin]
+    username = "admin"
+    password = "admin"
+    create_admin_account = false
+    ```
 
--   Find a valid user that already resides in the user store. For example, say a valid username is AdminSOA. Update the `[super_admin]` section of your configuration as shown below. You do not have to update the password element as it is already set in the user store.
-        ``` 
-        [super_admin]
-        username = "AdminSOA"
-        admin_role = "admin"
-        create_admin_account = false
-        ```
-
--   If the user store can be written to, you can add the super tenant user to the user store. Therefore, create_admin_account should be set to true as shown below.
-        ``` 
-        [super_admin]
-        username = "admin"
-        admin_role = "admin"
-        create_admin_account = true
-        ```
+-   If you are creating a new admin user in the user store when you start the system, you can add the super tenant user to the user store. Add the following configuration to the `deployment.toml` as shown below.
+    ```
+    [super_admin]
+    username = "admin"
+    password = "admin"
+    create_admin_account = true
+    ```
 
 ### Step 3: Starting the server
 
@@ -252,7 +299,6 @@ should be active_directory.
 Sample values: ou=Users,dc=wso2,dc=org</td>
 </tr>
 </table>
-</thead>
 
 
 ## Properties used in Read-Write Active Directory User Store
