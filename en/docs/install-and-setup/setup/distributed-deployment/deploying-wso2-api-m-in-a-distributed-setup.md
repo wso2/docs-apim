@@ -125,11 +125,19 @@ This section involves setting up the Key Manager node and enabling it to work wi
 2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
-3.  If you need to configure High Availability (HA) for the Key Manager, use a copy of the active instance configured above as the second Key Manager active instance and configure a load balancer fronting the two Key Manager instances.
+3. Optionally, add the following configuration to enable distributed cache invalidation within the Key Manager nodes.
+
+    ``` toml
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "km-domain"
+    ```
+
+4. If you need to configure High Availability (HA) for the Key Manager, use a copy of the active instance configured above as the second Key Manager active instance and configure a load balancer fronting the two Key Manager instances.
     
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
-4.  Start the WSO2 API-M Key Manager node(s) by running the following command in the command prompt. 
+5. Start the WSO2 API-M Key Manager node(s). 
 
      For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
@@ -205,6 +213,10 @@ This section involves setting up the Key Manager node and enabling it to work wi
     username = "${admin.username}"
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "default"
+    
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "km-domain"
     ```
 
 ### Step 6.2 - Configure and start the Traffic Manager
@@ -432,11 +444,20 @@ This section involves setting up the API Publisher node and enabling it to work 
         password = "$ref{super_admin.password}"
         ```
 
-2.  If you need to configure High Availability (HA) for the API Publisher nodes, use a copy of the instance configured above as the second active Publisher instance. Thereafter, configure a load balancer fronting the two Publisher instances.
+2. Optionally, add the following configuration to enable distributed cache invalidation within the Publisher nodes.
+
+    ``` toml
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "publisher-domain"
+    ```
+
+3.  If you need to configure High Availability (HA) for the API Publisher nodes, use a copy of the instance
+ configured above as the second active Publisher instance. Thereafter, configure a load balancer fronting the two Publisher instances.
            
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
-5.  Start the WSO2 API-M Publisher node(s) by running the following command in the command prompt.
+4.  Start the WSO2 API-M Publisher node(s) by running the following command in the command prompt.
     
      For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
@@ -522,6 +543,10 @@ This section involves setting up the API Publisher node and enabling it to work 
     service_url = "https://km.wso2.com:9443/services/"
     username = "$ref{super_admin.username}"
     password = "$ref{super_admin.password}"
+    
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "publisher-domain"
     ```
 
 ### Step 6.4 - Configure and start the Developer Portal
@@ -612,6 +637,14 @@ This section involves setting up the Developer Portal node and enabling it to wo
            https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
            ```
 
+2.  Optionally, add the following configuration to enable distributed cache invalidation within the Developer Portal nodes.
+
+    ``` toml
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "devportal-domain"
+    ```
+
 3.  If you need to configure High Availability (HA) for the Developer Portal nodes, use a copy of the active instance configured above as the second active Developer Portal instance and configure a load balancer fronting the two Developer Portal instances.
             
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
@@ -699,6 +732,10 @@ This section involves setting up the Developer Portal node and enabling it to wo
         [[apim.throttling.url_group]]
         traffic_manager_urls=["tcp://tm.wso2.com:9614"]
         traffic_manager_auth_urls=["ssl://tm.wso2.com:9714"]
+        
+        [apim.cache_invalidation]
+        enabled = true
+        domain = "devportal-domain"
         ```
 
 ### Step 6.5 - Configure and start the Gateway
