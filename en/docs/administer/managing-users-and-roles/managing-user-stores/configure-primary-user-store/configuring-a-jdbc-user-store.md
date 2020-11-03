@@ -168,47 +168,208 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
 
 ### Step 3: Updating the datasources
 
-Whenever there is an RDBMS set up for your system, it is necessary to create a corresponding datasource, which allows the system to connect to the database. The datasource for the internal H2 database that is shipped by default, is configured in the `deployment.toml` file, which is stored in the `<API-M_HOME>/repository/conf` directory.
 
-1. If you have replaced the default database with a new RDBMS, which you are now using as the JDBC user store, you have to update the `deployment.toml` file with the relevant information. This can be configured by adding the `database.user` config as shown below. 
-
-    ```toml
-    [database.user]
-    type = "h2"
-    url = "jdbc:h2:./repository/database/WSO2USER_DB;DB_CLOSE_ON_EXIT=FALSE"
-    username = "wso2carbon"
-    password = "wso2carbon"
-
-    [database.user.pool_options]
-    maxActive = 50
-    maxWait = 60000
-    testOnBorrow = true
-    validationInterval = 30000
-    defaultAutoCommit = true
-    ```
-
-2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
-    -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+  1. Create a database on [any supported RDBMS database]({{base_path}}/install-and-setup/setting-up-databases/overview). 
     
-        ```toml
+  2. Following are the example configurations for each database type.
+        
+??? example "PostgreSQL"
+    
+    1. deployment.toml Configurations.
+        ```
+        [database.user]
+        url = "jdbc:postgresql://localhost:5432/userdb"
+        username = "root"
+        password = "root"
+        driver = "org.postgresql.Driver"
+        
+        ```
+    2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
+        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        
+            ```toml
+            [realm_manager]
+            data_source = "WSO2USER_DB"
+            ```
+    
+        -   However, if you have set up an external RDBMS as the primary user store, instead of a common RDBMS for both, the user management and the user store, you must configure the datasource for this external user store as follows.
+    
+            ```toml
+            [user_store.properties]
+            data_source = "WSO2USER_DB"
+            ```
+    
+            !!! note
+                This configuration is already added to the external primary user store configuration given in the second step.
+
+        
+    3. Executing database scripts. 
+    
+        Navigate to `<API-M_HOME>/dbscripts`. Execute the scripts of `<API-M_HOME>/dbscripts/postgresql.sql`
+          
+    4. Download the PostgreSQL JDBC driver for the version you are using and
+                   copy it to the `<API-M_HOME>/repository/components/lib` folder 
+
+??? example "MySQL"
+
+    1. deployment.toml Configurations.
+        ```
+        [database.user]
+        url = "jdbc:mysql://localhost:3306/userdb?useSSL=false"
+        username = "root"
+        password = "root"
+        driver = "com.mysql.jdbc.Driver"
+        
         [realm_manager]
         data_source = "WSO2USER_DB"
         ```
+    2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
+        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        
+            ```toml
+            [realm_manager]
+            data_source = "WSO2USER_DB"
+            ```
+    
+        -   However, if you have set up an external RDBMS as the primary user store, instead of a common RDBMS for both, the user management and the user store, you must configure the datasource for this external user store as follows.
+    
+            ```toml
+            [user_store.properties]
+            data_source = "WSO2USER_DB"
+            ```
+    
+            !!! note
+                This configuration is already added to the external primary user store configuration given in the second step.
 
-    -   However, if you have set up an external RDBMS as the primary user store, instead of a common RDBMS for both, the user management and the user store, you must configure the datasource for this external user store as follows.
+    3. Executing database scripts. 
 
-        ```toml
-        [user_store.properties]
+        Navigate to `<API-M_HOME>/dbscripts`. Execute the scripts of `<API-M_HOME>/dbscripts/mysql.sql`
+
+    4. Download the MySQL JDBC driver for the version you are using and
+                   copy it to the `<API-M_HOME>/repository/components/lib` folder          
+
+??? example "DB2"
+
+    1. deployment.toml Configurations.
+        ```
+        [database.user]
+        url = "jdbc:db2://192.168.108.31:50000/userdb"
+        username = "root"
+        password = "root"
+        driver = "com.ibm.db2.jcc.DB2Driver"
+        
+        [realm_manager]
+        data_source = "WSO2USER_DB"
+        ```    
+    2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
+        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        
+            ```toml
+            [realm_manager]
+            data_source = "WSO2USER_DB"
+            ```
+    
+        -   However, if you have set up an external RDBMS as the primary user store, instead of a common RDBMS for both, the user management and the user store, you must configure the datasource for this external user store as follows.
+    
+            ```toml
+            [user_store.properties]
+            data_source = "WSO2USER_DB"
+            ```
+    
+            !!! note
+                This configuration is already added to the external primary user store configuration given in the second step.
+
+    3. Executing database scripts. 
+    
+        Navigate to `<API-M_HOME>/dbscripts`. Execute the scripts of `<API-M_HOME>/dbscripts/db2.sql`
+   
+    4. Download the DB2 JDBC driver for the version you are using and
+                   copy it to the `<API-M_HOME>/repository/components/lib` folder 
+
+??? example "MSSQL"
+
+    1. deployment.toml Configurations.
+        ```
+        [database.user]
+        url = "jdbc:sqlserver://localhost:1433;databaseName=userdb;SendStringParametersAsUnicode=false"
+        username = "root"
+        password = "root"
+        driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        
+        [realm_manager]
         data_source = "WSO2USER_DB"
         ```
+    2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
+        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        
+            ```toml
+            [realm_manager]
+            data_source = "WSO2USER_DB"
+            ```
+    
+        -   However, if you have set up an external RDBMS as the primary user store, instead of a common RDBMS for both, the user management and the user store, you must configure the datasource for this external user store as follows.
+    
+            ```toml
+            [user_store.properties]
+            data_source = "WSO2USER_DB"
+            ```
+    
+            !!! note
+                This configuration is already added to the external primary user store configuration given in the second step.
 
-        !!! note
-            This configuration is already added to the external primary user store configuration given in the second step.
+    3. Executing database scripts. 
+    
+        Navigate to `<API-M_HOME>/dbscripts`. Execute the scripts of `<API-M_HOME>/dbscripts/mssql.sql`
+          
+    4. Download the MSSQL JDBC driver for the version you are using and copy it to the `<API-M_HOME>/repository/components/lib` folder  
+                   
+    
 
+??? example "Oracle"
+
+    1. deployment.toml Configurations.
+        ```
+        [database.user]
+        url = "jdbc:oracle:thin:@localhost:1521/userdb"
+        username = "root"
+        password = "root"
+        driver = "oracle.jdbc.OracleDriver"
+        
+        [realm_manager]
+        data_source = "WSO2USER_DB"
+        ```
+        
+    2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
+        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        
+            ```toml
+            [realm_manager]
+            data_source = "WSO2USER_DB"
+            ```
+    
+        -   However, if you have set up an external RDBMS as the primary user store, instead of a common RDBMS for both, the user management and the user store, you must configure the datasource for this external user store as follows.
+    
+            ```toml
+            [user_store.properties]
+            data_source = "WSO2USER_DB"
+            ```
+    
+            !!! note
+                This configuration is already added to the external primary user store configuration given in the second step.
+
+    3. Executing database scripts. 
+    
+        Navigate to `<API-M_HOME>/dbscripts`. Execute the scripts of `API-M_HOME/dbscripts/oracle.sql`
+          
+    4. Download the Oracle JDBC driver for the version you are using and copy it to the `<API-M_HOME>/repository/components/lib` folder 
+                  
 ### Step 4: Starting the server
 
-1.  Add the JDBC driver to the classpath by copying its JAR file into the `<API-M_HOME>/repository/components/lib` directory.
-2.  Start the server.
+Start your APIM server and try to log in as the admin user you specified in **Step 2** .
+
+```
+sh wso2server.sh
+```
 
 ### Properties used in JDBC user store manager.
 
