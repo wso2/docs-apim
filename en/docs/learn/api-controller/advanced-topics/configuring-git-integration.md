@@ -1,6 +1,6 @@
 #  Configuring Git Integration
 
-API Controller natively supports identifying API or any other types of projects in a Git repository and seamlessly deploying the changes of the projects to a given API Manager environment. This topic is regarding some of the configurations that you can use to optimize the Git integration functionality.
+API Controller natively supports identifying APIs or any other types of projects in a Git repository and seamlessly deploying the changes of the projects to a given API Manager environment. This topic is regarding some of the configurations that you can use to optimize the Git integration functionality.
 
 ## Enabling Project Deletion via Git Integration
 
@@ -10,7 +10,7 @@ By default, API/Application/API Product deletion is disabled in API Controller. 
 apictl set --vcs-deletion-enabled=true
 ```
 
-After project deletion is enabled, any deleted API/Application or API Product project from the Git repository is detected from the `apictl vcs deploy -e <environment>` command and those projects will be deleted from the particular environment as well.
+After the project deletion is enabled, any deleted API/Application or API Product project from the Git repository is detected from the `apictl vcs deploy -e <environment>` command and those projects will be deleted from the particular environment as well.
 
 
 !!! example
@@ -78,7 +78,7 @@ repos:
         failedProjects: {}
 ```
 
-Unlike the other configuration files inside `.wso2apictl`, `vcs_config.yaml` maintains a state for each repository. So it is mandatory to persist it during each `apictl vcs` command execution during each build cycle. In some container-based build systems, it might be difficult to keep this file persisted and make it available for each build cycle as it is required to enable volume mounts etc. It is also not advisable to persist/share the full `.wso2apictl` folder as it might include credentials. In such cases, an alternative approach would be externalizing the `vcs_config.yaml` into a different location where volume mounts or some persistence mechanism can be enabled for  `vcs_config.yaml` only.
+Unlike the other configuration files inside `.wso2apictl`, `vcs_config.yaml` maintains a state for each repository. So it is mandatory to persist it during each `apictl vcs` command execution during each build cycle. In some container-based build systems, it might be difficult to keep this file persisted and make it available for each build cycle as it is required to enable volume mounts etc. It is also not advisable to persist/share the full `.wso2apictl` folder as it might include credentials. In such cases, an alternative approach would be to externalize the `vcs_config.yaml` into a different location where volume mounts or some persistence mechanism can be enabled for  `vcs_config.yaml` only.
 
 ```bash
 apictl set --vcs-config-path <full-path-to-store-vcs_config.yaml>
