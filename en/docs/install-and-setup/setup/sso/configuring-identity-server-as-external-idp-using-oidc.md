@@ -2,14 +2,12 @@
 
 WSO2 API Manager uses the OpenID Connect Single Sign-On (OIDC SSO) feature by default. This document explains how to connect WSO2 Identity Server (or WSO2 IS-KM) as a third party Identity provider to API-Manager.
 
-## Pre-requisites
+## Prerequisites
 
 1. Download the API Manager 3.1.0 distribution.
-     1. Navigate to [https://wso2.com/api-management/](https://wso2.com/api-management/).
-     2. Click **DOWNLOAD**.
-     3. Click **Previous Releases**, which is under the **OTHER RESOURCES** section.
-     4. Select **version 3.1.0**.
-     5. Download the API Manager.
+     1. Access the [previous WSO2 API Manager related releases](https://wso2.com/api-management/previous-releases/).
+     2. Select version 3.1.0.
+     3. Download the API Manager.
 
 2. Download the Identity Server 5.10.0 distribution from [https://wso2.com/identity-and-access-management/](https://wso2.com/identity-and-access-management/).
 
@@ -33,7 +31,7 @@ WSO2 API Manager uses the OpenID Connect Single Sign-On (OIDC SSO) feature by de
 
 ## Step 1 - Configure the Identity Server
 
-### Step - 1.1 Configure the Service Provider
+### Step 1.1 - Configure the Service Provider
 
 1.  Sign in to the Management Console of IS server by browsing the following URL:  
 
@@ -68,7 +66,7 @@ WSO2 API Manager uses the OpenID Connect Single Sign-On (OIDC SSO) feature by de
 
                 If you do not select the **SaaS Application** option, only users in the current tenant domain will be allowed to sign in to the portals. You will need to register separate service providers for portals from each tenant.
 
-### Step - 1.2 Create users and roles
+### Step 1.2 - Create users and roles
 
 1. Create the required users and roles in Identity Server. Assume that the following users are created in the Identity Servers with the given roles.
 
@@ -95,7 +93,7 @@ WSO2 API Manager uses the OpenID Connect Single Sign-On (OIDC SSO) feature by de
 
 <a name="step21"></a>
 
-### Step - 2.1 Configure the Identity Provider
+### Step 2.1 - Configure the Identity Provider
 
 1.  Sign in to the Management Console of API Manager. 
 
@@ -177,7 +175,7 @@ WSO2 API Manager uses the OpenID Connect Single Sign-On (OIDC SSO) feature by de
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
 
-### Step - 2.2 Configure the Service Provider
+### Step 2.2 - Configure the Service Provider
 
 1.  Navigate to the **Service Providers** section and list the Service Providers. 
 
