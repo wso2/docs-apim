@@ -430,8 +430,8 @@ nav:
           - Security Guidelines for Production Deployment: install-and-setup/setup/deployment-best-practices/security-guidelines-for-production-deployment.md
           - Tuning Performance: install-and-setup/setup/deployment-best-practices/tuning-performance.md
       - SSO:
-          - Configuring Identity Server As External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
-          - Configuring Identity Server As External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
+          - Configuring Identity Server As An External IDP with OIDC: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-oidc.md
+          - Configuring Identity Server As An External IDP with SAML: install-and-setup/setup/sso/configuring-identity-server-as-external-idp-using-saml.md
           - Using OKTA As An External IDP With OIDC: install-and-setup/setup/sso/okta-as-an-external-idp-using-oidc.md
           - Using OKTA As An External IDP With SAML: install-and-setup/setup/sso/okta-as-an-external-idp-using-saml.md
       - Advance Configuration:
