@@ -6,8 +6,11 @@ This file is shipped with user store manager configurations for all possible use
 [read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). The instructions given below explains how to configure a read-write LDAP 
 as the primary user store for WSO2 API Manager.
 
+!!! tip
+       Refer [Configuring primary User Stores](../configuring-the-primary-user-store) to get a high-level understanding of the primary user stores available in WSO2 API Manager.
+
 !!! info
-       **Default User Store**: The primary user store that is configured by default in the `user-mgt.xml` file of WSO2 products is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2. This database is used by the Authorization Manager (for user authentication information) as well as the User Store Manager (for defining users and roles).
+       **Default User Store**: The primary user store that is configured by default in the `deployment.toml` file of API Manager is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2. This database is used by the Authorization Manager (for user authentication information) as well as the User Store Manager (for defining users and roles).
        
        Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
        
@@ -15,7 +18,8 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
 
 -   [Step 1: Setting up the read-write LDAP user store manager](#step-1-setting-up-the-read-write-ldap-user-store-manager)
 -   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
--   [Step 3: Starting the server](#step-3-starting-the-server)
+-   [Step 3: Starting the IS server](#step-3-starting-the-is-server)
+-   [Step 4: Starting the APIM server](#step-3-starting-the-apim-server)
 
 ### Step 1: Setting up the read-write LDAP user store manager
 
@@ -95,7 +99,6 @@ Sample values: uid=admin,ou=system</p></td>
     GroupNameAttribute= "cn"
     GroupNameSearchFilter= "(\u0026amp;(objectClass\u003dgroupOfNames)(cn\u003d?))"
     GroupNameListFilter= "(objectClass\u003dgroupOfNames)"
-    MembershipAttribute= "member"
     BackLinksEnabled= "false"
     SCIMEnabled= "true"
     IsBulkImportSupported= "true"
@@ -112,6 +115,7 @@ Sample values: uid=admin,ou=system</p></td>
     UserRolesCacheEnabled= "true"
     ConnectionRetryDelay= "2m"
     MembershipAttribute = "member"
+    GroupSearchFilter = "(objectClass=groupOfNames)"
     ```
    
 -  Set the `ReadGroups` property to `true`, if it should be allowed to read roles from this user store. When this property is 'true', you must also specify values for the `GroupSearchBase` , `GroupSearchFilter` and `GroupNameAttribute` properties. If the `ReadGroups` property is set to 'false', only Users can be read from the user store. You can set the configuration to read roles from the user store by reading the user/role mapping based on a **membership (user list)** or **backlink attribute** as shown below.
@@ -216,10 +220,31 @@ These two alternative configurations can be done as explained below.
     password = "admin"
     create_admin_account = true
     ```
+### Step 3: Starting the IS server
 
-### Step 3: Starting the server
+- Navigate to  `<IS_HOME>/repository/conf/deployment.toml` and change the port offset to 1. This is to prevent any port conflicts with API Manager because the default port of the product is 0.
 
-Start your server and try to log in as the admin user you specified in **Step 2** .
+    ```
+    offset=1
+    ```
+
+- Start your IS server.
+
+    ```
+    sh wso2server.sh
+    ```
+
+!!! note 
+        Default LDAP server port of WSO2 IS is 10389. Based on your offset number provide the correct connection URL in `<API-M_HOME>/repository/conf/deployment.toml`.
+        For example of you specify the offset of 1 in WSO2 IS your connection URL should be `ldap://{connection_ip}:10390`.     
+
+### Step 3: Starting the APIM server
+
+Start your APIM server and try to log in as the admin user you specified in **Step 2** .
+
+```
+sh wso2server.sh
+```
 
 ### Properties used in Read-Write LDAP User Store
 

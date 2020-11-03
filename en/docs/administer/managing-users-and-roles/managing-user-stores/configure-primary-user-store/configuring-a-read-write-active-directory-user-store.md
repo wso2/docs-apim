@@ -4,8 +4,12 @@ User management functionality is provided by default in WSO2 API Manager and it 
 `<API-M_HOME>/repository/conf/deployment.toml` file. The changes done in the `deployment.toml` file will be automatically populated to the `<API-M_HOME>/repository/conf/user-mgt.xml` file as well. 
 This file is shipped with user store manager configurations for all possible user store types ([JDBC](../configuring-a-jdbc-user-store), [read-only LDAP/Active Directory](../configuring-a-read-only-ldap-user-store), 
 [read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). 
+
+!!! tip
+       Refer [Configuring primary User Stores](../configuring-the-primary-user-store) to get a high-level understanding of the primary user stores available in WSO2 API Manager.
+
 !!! info
-       **Default User Store**: The primary user store that is configured by default in the `user-mgt.xml` file of WSO2 products is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2. This database is used by the Authorization Manager (for user authentication information) as well as the User Store Manager (for defining users and roles).
+       **Default User Store**: The primary user store that is configured by default in the `deployment.toml` file of API Manager is a JDBC user store, which reads/writes into the internal database of the product server. By default, the internal database is H2. This database is used by the Authorization Manager (for user authentication information) as well as the User Store Manager (for defining users and roles).
        
        Note that the RDBMS used in the default configuration can remain as the database used for storing Authorization information.
        
@@ -13,7 +17,9 @@ Follow the given steps to configure an external Active Directory as the primary 
 
 -   [Step 1: Setting up the external AD user store manager](#step-1-setting-up-the-external-ad-user-store-manager)
 -   [Step 2: Updating the system administrator](#step-2-updating-the-system-administrator)
--   [Step 3: Starting the server](#step-3-starting-the-server)
+-   [Step 3: Starting the IS server](#step-3-starting-the-is-server)
+-   [Step 4: Starting the APIM server](#step-3-starting-the-apim-server)
+
 
 ### Step 1: Setting up the external AD user store manager
 
@@ -197,53 +203,52 @@ Sample values: uid=admin,ou=system</p></td>
     Given below is a sample configuration for the external read/write user store in the `user-mgt.xml`. You can change the values to match your requirement in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Configuring Read-Write Active Directory User Store](#configuring-read-write-active-directory-user-store) and [Properties of User Stores](#properties-used-in-read-write-active-directory-user-store).
     
     ```
-    <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
-        <Property name="IsBulkImportSupported">true</Property>
-        <Property name="MaxUserNameListLength">100</Property>
-        <Property name="defaultRealmName">WSO2.ORG</Property>
-        <Property name="isADLDSRole">false</Property>
-        <Property name="userAccountControl">512</Property>
-        <Property name="EmptyRolesAllowed">true</Property>
-        <Property name="MultiAttributeSeparator">,</Property>
-        <Property name="MembershipAttributeRange">1500</Property>
-        <Property name="DisplayNameAttribute"></Property>
-        <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
-        <Property name="UserSearchBase">ou=Users,cn=Users,dc=wso2,dc=org</Property>
-        <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
-        <Property name="ConnectionPoolingEnabled">false</Property>
-        <Property name="StartTLSEnabled">false</Property>
-        <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
-        <Property name="LDAPConnectionTimeout">5000</Property>
-        <Property name="UserNameAttribute">uid</Property>
-        <Property name="GroupNameAttribute">cn</Property>
-        <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
-        <Property name="WriteGroups">true</Property>
-        <Property name="AnonymousBind">false</Property>
-        <Property name="RolenameJavaScriptRegEx">^[\S]{3,30}$</Property>
-        <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
-        <Property name="GroupEntryObjectClass">groupOfNames</Property>
-        <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
-        <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
-        <Property name="GroupSearchBase">ou=Groups,cn=Users,dc=wso2,dc=org</Property>
-        <Property name="ReadGroups">true</Property>
-        <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property>
-        <Property name="ConnectionRetryDelay">120000</Property>
-        <Property name="MembershipAttribute">member</Property>
-        <Property name="Referral">follow</Property>
-        <Property name="UserEntryObjectClass">identityPerson</Property>
-        <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
-        <Property name="MaxRoleNameListLength">100</Property>
-        <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
-        <Property name="BackLinksEnabled">false</Property>
-        <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
-        <Property name="UserRolesCacheEnabled">true</Property>
-        <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
-        <Property name="SCIMEnabled">false</Property>
-        <Property name="UserNameListFilter">(objectClass=person)</Property>
-        <Property name="MemberOfAttribute">memberOf</Property>
-        <Property name="UsernameJavaScriptRegEx">^[\S]{3,30}$</Property>
-        <Property name="kdcEnabled">false</Property>
-     </UserStoreManager>
+    <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
+              <Property name="IsBulkImportSupported">true</Property>
+              <Property name="MaxUserNameListLength">100</Property>
+              <Property name="defaultRealmName">WSO2.ORG</Property>
+              <Property name="EmptyRolesAllowed">true</Property>
+              <Property name="MultiAttributeSeparator">,</Property>
+              <Property name="ConnectionPassword">admin</Property>
+              <Property name="DisplayNameAttribute"></Property>
+              <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
+              <Property name="UserSearchBase">ou=Users,dc=wso2,dc=org</Property>
+              <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
+              <Property name="ConnectionPoolingEnabled">false</Property>
+              <Property name="StartTLSEnabled">false</Property>
+              <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
+              <Property name="LDAPConnectionTimeout">5000</Property>
+              <Property name="UserNameAttribute">uid</Property>
+              <Property name="GroupNameAttribute">cn</Property>
+              <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
+              <Property name="WriteGroups">true</Property>
+              <Property name="AnonymousBind">false</Property>
+              <Property name="ConnectionURL">ldap://localhost:10390</Property>
+              <Property name="ConnectionName">uid=admin,ou=system</Property>
+              <Property name="RolenameJavaScriptRegEx">^[\S]{3,30}$</Property>
+              <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
+              <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
+              <Property name="GroupEntryObjectClass">groupOfNames</Property>
+              <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
+              <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
+              <Property name="GroupSearchBase">ou=Groups,dc=wso2,dc=org</Property>
+              <Property name="ReadGroups">true</Property>
+              <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property>
+              <Property name="ConnectionRetryDelay">120000</Property>
+              <Property name="MembershipAttribute">member</Property>
+              <Property name="UserEntryObjectClass">identityPerson</Property>
+              <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
+              <Property name="MaxRoleNameListLength">100</Property>
+              <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
+              <Property name="BackLinksEnabled">false</Property>
+              <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
+              <Property name="UserRolesCacheEnabled">true</Property>
+              <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
+              <Property name="SCIMEnabled">true</Property>
+              <Property name="UserNameListFilter">(objectClass=person)</Property>
+              <Property name="UsernameJavaScriptRegEx">^[\S]{3,30}$</Property>
+              <Property name="kdcEnabled">false</Property>
+    </UserStoreManager>
     ```
 
 Apart from above properties WSO2 API Manager also supports advanced LDAP configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties used in Read-Write Active Directory User Store](properties-used-in-read-write-active-directory-user-store). 
@@ -270,9 +275,31 @@ These two alternative configurations can be done as explained below.
     create_admin_account = true
     ```
 
-### Step 3: Starting the server
+### Step 3: Starting the IS server
 
-Start your server and try to log in as the admin user you specified.
+- Navigate to  `<IS_HOME>/repository/conf/deployment.toml` and change the port offset to 1. This is to prevent any port conflicts with API Manager because the default port of the product is 0.
+
+    ```
+    offset=1
+    ```
+
+- Start your IS server.
+
+    ```
+    sh wso2server.sh
+    ```
+
+!!! note 
+        Default LDAP server port of WSO2 IS is 10389. Based on your offset number provide the correct connection URL in `<API-M_HOME>/repository/conf/deployment.toml`.
+        For example of you specify the offset of 1 in WSO2 IS your connection URL should be `ldap://{connection_ip}:10390`.     
+
+### Step 3: Starting the APIM server
+
+Start your APIM server and try to log in as the admin user you specified in **Step 2** .
+
+```
+sh wso2server.sh
+```
 
 ## Configuring Read-Write Active Directory User Store
 

@@ -47,10 +47,16 @@ Instead of using the embedded database, you can set up a separate repository and
 
 This can be defined in the `[user_store]` section of the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
-```toml
-    [user_store]
-    type = "database"
-```
+
+        ``` bash tab="Response Format"
+            [user_store]
+            type = <type>
+        ```
+
+        ``` bash tab="Example Response"
+            [user_store]
+            type = "database"
+        ```
 
 Follow the links given below to setup the required type of primary user store.
 

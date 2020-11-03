@@ -6,6 +6,9 @@ This file is shipped with user store manager configurations for all possible use
 [read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). 
 The instructions given below explains how to configure JDBC as a user store.
 
+!!! tip
+       Refer [Configuring primary User Stores](../configuring-the-primary-user-store) to get a high-level understanding of the primary user stores available in WSO2 API Manager.
+
 The user core connects to two databases (the same database is utilized by default):
 
 -   **User Management Database** - The database where authorization information is stored internally.
@@ -33,9 +36,6 @@ Follow the given steps to configure a JDBC user store:
     ```
         [user_store]
         type = "database"
-        connection_url = "ldap://localhost:10389"
-        connection_name = "uid=admin,ou=system"
-        connection_password = "admin"
     ```
 
 2. By default the WSO2 API Manager uses a JDBC user store manager. This is an internal RDBMS. If you are willing to connect to an external RDBMS for the `database` user store type, you will have to define the following configurations along with the user store type. 
