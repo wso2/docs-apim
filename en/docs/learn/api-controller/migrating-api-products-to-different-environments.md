@@ -152,16 +152,16 @@ You can use the API Product archive exported from the previous section (or you c
             apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production -k
             ```
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production -k
+            apictl import-api --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production -k
             ``` 
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-apis=true -k
+            apictl import-api --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-apis=true -k
             ``` 
             ```bash
-            apictl import api-product --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-api-product=true -k
+            apictl import-api --file /home/user/api-products/LeasingAPIProduct_1.0.0.zip --environment production --update-api-product=true -k
             ```    
             ``` go
-            apictl import api-product -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true -k 
+            apictl import-api -f dev/LeasingAPIProduct_1.0.0.zip -e production --preserve-provider=false --update-apis=true -k 
             ```
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/api-products/dev/LeasingAPIProduct_1.0.0.zip.`, then you need to enter `dev/LeasingAPIProduct_1.0.0.zip` as the value for `--file` or `-f` flag.

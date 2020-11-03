@@ -1,12 +1,12 @@
 # Passing Enduser Attributes to the Backend Using JWT
 
-**JSON Web Token (JWT)** is used to represent claims that are transferred between two parties such as the end-user and the backend.
+**JSON Web Token (JWT)** is used to represent claims that are transferred between two parties such as the end user and the backend.
 
-A claim is an attribute of the user that is mapped to the underlying user store. It is encoded as a JavaScript Object Notation (JSON) object that is used as the payload of a JSON Web Signature (JWS) structure or as the plain text of a JSON Web Encryption (JWE) structure. This enables claims to be digitally signed.
+A claim is an attribute of the user that is mapped to the underlying user store. It is encoded as a JavaScript Object Notation (JSON) object that is used as the payload of a JSON Web Signature (JWS) structure, or as the plain text of a JSON Web Encryption (JWE) structure. This enables claims to be digitally signed.
 
-A set of claims is referred to as a dialect (e.g., `http://wso2.org/claims`). The general format of a JWT is `{token infor}.{claims list}.{signature}`. The API implementation uses information such as logging, content filtering, and authentication/authorization that is stored in this token. The token is Base64-encoded and sent to the API implementation in an HTTP header variable. The JWT is self-contained and is divided into three parts as the header, the payload, and the signature. For more information on JWT, see [JSON Web Token (JWT) Overview](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3).
+A set of claims is referred to as a dialect (e.g., `http://wso2.org/claims`). The general format of a JWT is `{token infor}.{claims list}.{signature}`. The API implementation uses information such as logging, content filtering and authentication/authorization that is stored in this token. The token is Base64-encoded and sent to the API implementation in a HTTP header variable. The JWT is self-contained and is divided into three parts as the header, the payload and the signature. For more information on JWT, see [JSON Web Token (JWT) Overview](http://openid.net/specs/draft-jones-json-web-token-07.html#anchor3).
 
-The API Manager passes attributes of the API invoker to the backend API implementation using JWT to authenticate end-users. In most production deployments, service calls go through WSO2 API Manager or a proxy service. If you enable JWT generation in WSO2 API Manager, each API request will carry a JWT to the back-end service. When the request goes through the API Manager, the JWT is appended as a transport header to the outgoing message. The back-end service fetches the JWT and retrieves the required information about the user, application, or token.
+The API Manager passes attributes of the API invoker to the backend API implementation using JWT to authenticate end users. In most production deployments, service calls go through WSO2 API Manager or a proxy service. If you enable JWT generation in WSO2 API Manager, each API request will carry a JWT to the back-end service. When the request goes through the API Manager, the JWT is appended as a transport header to the outgoing message. The back-end service fetches the JWT and retrieves the required information about the user, application, or token.
 
 An example of a JWT is given below:
 
@@ -32,14 +32,14 @@ The above JSON Web Token (JWT) contains the following information.
 
 **JWT Claims set :**
 
--   `"iss"` - The issuer of the JWT
--   `"exp"` - The token expiration time
--   `"http://wso2.org/claims/subscriber"` - Subscriber to the API, usually the app developer
--   `" http://wso2.org/claims/applicationname"` - Application through which API invocation is done
--   `" http://wso2.org/claims/apicontext"` - Context of the API
--   `" http://wso2.org/claims/version "` - API version
--   `" http://wso2.org/claims/tier"` - Tier/price band for the subscription
--   `" http://wso2.org/claims/enduser"` - End-user of the app who's action invoked the API
+-   "iss" - The issuer of the JWT
+-   "exp" - The token expiration time
+-   "http://wso2.org/claims/subscriber" - Subscriber to the API, usually the app developer
+-   " http://wso2.org/claims/applicationname " - Application through which API invocation is done
+-   " http://wso2.org/claims/apicontext " - Context of the API
+-   " http://wso2.org/claims/version " - API version
+-   " http://wso2.org/claims/tier " - Tier/price band for the subscription
+-   " http://wso2.org/claims/enduser " - End-user of the app who's action invoked the API
 
 Let's see how to enable and pass information in the JWT or completely alter the JWT generation logic in WSO2 API Manager:
 
@@ -92,20 +92,6 @@ custom claims into JWT when invocation token in opaque mode.
 <td>http://wso2.org/claims</td>
 </tr>
 <tr class="even">
-<td><pre><code>apim.jwt.convert_dialect</code></pre></td>
-<td><div class="content-wrapper">
-<p>In the Authorization code grant flow, backend JWT token contains claims from OIDC dialect even though
- <code>apim.jwt.claim_dialect</code> has been configured with the value <code>http://wso2.org/claims</code>. The
-  reason is that claims are taken from AuthorizationGrantCache, which contains the OIDC claim dialect values. And
-   this is happening due to a modification done to avoid the getUserClaimValues call to WSO2 user store during JWT
-    generation. So, AuthorizationGrantCache is used for retrieving user claims.</p>
-<p>In order to remap the OIDC claims into the configured dialect (by <code>apim.jwt.claim_dialect</code> value
-), the <code>apim.jwt.convert_dialect</code> configuration value should be set to <code>true</code>.</p>
-</div>
-</td>
-<td>false</td>
-</tr>
-<tr class="even">
 <td><pre><code>apim.jwt.signing_algorithm</code></pre></td>
 <td><p>The signing algorithm used to sign the JWT. The general format of the JWT is <code>              {token infor}.{claims list}.{signature}</code>. When NONE is specified as the algorithm, signing is turned off and the JWT looks as <code>{token infor}.{claims list}</code> with two strings delimited by a period and a period at the end.</p>
 <p>This element can have only two values - the default values are `SHA256withRSA` or `NONE`.</p></td>
@@ -118,7 +104,7 @@ custom claims into JWT when invocation token in opaque mode.
 </tr>
 <tr class="even">
 <td><pre><code>apim.jwt.gateway_generator.excluded_claims</code></pre></td>
-<td><p>List of claims that are not supposed to be included in thee Backend JWT when using JWT (Self Contained) Access Tokens</p></td>
+<td><p>List of claims to not to include in Backend JWT when using JWT(Self Contained) Access Tokens</p></td>
 <td>N/A</td>
 </tr>
 </tbody>
@@ -155,9 +141,9 @@ enable = true
 expiry_time = "900"
 ```
 
-## Customizing the JWT generation - (Opaque (Reference) Access Tokens)
+## Customizing the JWT generation - (Opaque(Reference) Access Tokens).
 
-### Customizing the JWT Generation completely
+### Customizing the JWT Generation completely.
 
 The JWT that is generated by default (see example above) has predefined attributes that are passed to the backend. These include basic application-specific details, subscription details, and user information that are defined in the JWT generation class that comes with WSO2 API Manager by the name `org.wso2.carbon.apimgt.keymgt.token.JWTGenerator`. 
 
@@ -195,6 +181,8 @@ Follow the instructions below if you want to pass additional attributes to the b
             return claims;
         }
 
+
+
         public Map<String, String> populateCustomClaims(TokenValidationContext tokenValidationContext) throws APIManagementException {
             Long time = System.currentTimeMillis();
             String text = "This is custom JWT";
@@ -208,7 +196,7 @@ Follow the instructions below if you want to pass additional attributes to the b
 
      Click here for a sample [Custom JWT Generator](https://github.com/wso2/samples-apim/tree/master/CustomJWTGenerator).
 
-2.  [Build your class](https://dzone.com/articles/custom-jwt-generator-in-wso2-api-manager) and add the JAR file to the `<API-M_HOME>/repository/components/lib` directory where the node works as the Key Manager node.
+2.  [Build your class](https://dzone.com/articles/custom-jwt-generator-in-wso2-api-manager) and add the JAR file to the `<API-M_HOME>/repository/components/lib` directory where node works as key manager node.
 
 3.  Add your class in the `apim.jwt.generator_impl` element of the `<API-M_HOME>/repository/conf/deployment.toml` file.
 
@@ -222,52 +210,51 @@ Follow the instructions below if you want to pass additional attributes to the b
 
 5.  Restart the server.
 
-### Customizing the user-related claims in JWT
+### Customizing the user related claims in JWT.
 
-The JWT contains the list of user claims added when you enable the `apim.jwt.enable_user_claims` to `true` via the user store.
+The JWT contains the list of user claims added when we enable the `apim.jwt.enable_user_claims` to true from user store.
+If you need to change the existing functionality of retrieving enduser related claims to the JWT, you can go through following steps and implement it.
 
-Follow the instructions below to change the existing functionality of retrieving end-user related claims to the JWT:
+1\. Write your own Claim Retriever implementation by implmenting `org.wso2.carbon.apimgt.impl.token.ClaimsRetriever`.
 
-1. Write your own Claim Retriever implementation by implmenting `org.wso2.carbon.apimgt.impl.token.ClaimsRetriever`.
+``` java
+package org.wso2.carbon.test;
 
-    ``` java
-    package org.wso2.carbon.test;
+import org.wso2.carbon.apimgt.api.APIManagementException;
+import org.wso2.carbon.apimgt.impl.token.ClaimsRetriever;
 
-    import org.wso2.carbon.apimgt.api.APIManagementException;
-    import org.wso2.carbon.apimgt.impl.token.ClaimsRetriever;
+import java.util.SortedMap;
+import java.util.TreeMap;
+import java.util.UUID;
 
-    import java.util.SortedMap;
-    import java.util.TreeMap;
-    import java.util.UUID;
+public class CustomClaimRetriever implements ClaimsRetriever {
 
-    public class CustomClaimRetriever implements ClaimsRetriever {
-
-        public void init() throws APIManagementException {
-        //  Todo : initialize any variable for Claim retriever.
-        }
-
-        public SortedMap<String, String> getClaims(String endUserName) throws APIManagementException {
-
-            SortedMap<String, String> claimsMap = new TreeMap();
-            claimsMap.put("token-uuid", UUID.randomUUID().toString());
-            if ("user1".equals(endUserName)){
-                claimsMap.put("privileged", "true");
-            }
-            return claimsMap;
-        }
-
-        public String getDialectURI(String s) throws APIManagementException {
-
-            return "http://wso2.org/claims";
-        }
+    public void init() throws APIManagementException {
+    //  Todo : initialize any variable for Claim retriever.
     }
-    ```
 
-    Click here for a sample [Custom Claim Retriever](https://github.com/wso2/samples-apim/tree/master/CustomJWTGenerator).
+    public SortedMap<String, String> getClaims(String endUserName) throws APIManagementException {
 
-2. Build your class and JAR file in the `<API-M_HOME>/repository/components/lib` directory where the node works as the Key Manager node.
+        SortedMap<String, String> claimsMap = new TreeMap();
+        claimsMap.put("token-uuid", UUID.randomUUID().toString());
+        if ("user1".equals(endUserName)){
+            claimsMap.put("privileged", "true");
+        }
+        return claimsMap;
+    }
 
-3. Set the `apim.jwt.claims_extractor_impl` to you class name.
+    public String getDialectURI(String s) throws APIManagementException {
+
+        return "http://wso2.org/claims";
+    }
+}
+```
+
+click here for a sample [Custom Claim Retriever](https://github.com/wso2/samples-apim/tree/master/CustomJWTGenerator)
+
+2\. Build your class and the jar file to `<API-M_HOME>/repository/components/lib` directory where node works as key manager node.
+
+3\. Set the `apim.jwt.claims_extractor_impl` to you class name.
 ```toml
 [apim.jwt]
 ....
@@ -275,59 +262,57 @@ claims_extractor_impl="org.wso2.carbon.test.CustomClaimRetriever"
 ....
 ```
 
-4. Start the server.
+4\. Start the server.
 
-### Customizing the JWT generation - (JWT (Self Contained) Access Tokens)
+### Customizing the JWT generation - (JWT(Self Contained) Access Tokens)
+The JWT generated by default in JWT generation where Gateway Generates the Backend JWT by retrieving claims from the invoked JWT.
 
-By default, the backend JWT is generated by the Gateway. When generating the backend JWT, it retrieves the claims from the invoked JWT.
+If you needs to changed the way of generating JWT in gateway such as adding additional claims or completely changing the JWT you can follow following steps to implement the Gateway JWT generation.
 
-If you need to change the way that JWT is generated in the Gateway such as by adding additional claims or by completely changing the JWT, follow the instructions below to implement the Gateway JWT generation:
+1\. Write your own JWTGenerator class extending `org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.AbstractAPIMgtGatewayJWTGenerator`.
 
-1. Write your own JWTGenerator class extending the `org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.AbstractAPIMgtGatewayJWTGenerator` class.
+```java
+package org.wso2.carbon.test;
 
-    ```java
-    package org.wso2.carbon.test;
+import org.osgi.service.component.annotations.Component;
+import org.wso2.carbon.apimgt.gateway.dto.JWTInfoDto;
+import org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl;
+import org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.AbstractAPIMgtGatewayJWTGenerator;
 
-    import org.osgi.service.component.annotations.Component;
-    import org.wso2.carbon.apimgt.gateway.dto.JWTInfoDto;
-    import org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.APIMgtGatewayJWTGeneratorImpl;
-    import org.wso2.carbon.apimgt.gateway.handlers.security.jwt.generator.AbstractAPIMgtGatewayJWTGenerator;
+import java.util.Map;
+import java.util.UUID;
 
-    import java.util.Map;
-    import java.util.UUID;
+@Component(
+        enabled = true,
+        service = AbstractAPIMgtGatewayJWTGenerator.class,
+        name = "customgatewayJWTGenerator"
+)
+public class CustomGatewayJWTGenerator extends APIMgtGatewayJWTGeneratorImpl {
 
-    @Component(
-            enabled = true,
-            service = AbstractAPIMgtGatewayJWTGenerator.class,
-            name = "customgatewayJWTGenerator"
-    )
-    public class CustomGatewayJWTGenerator extends APIMgtGatewayJWTGeneratorImpl {
+    @Override
+    public Map<String, Object> populateStandardClaims(JWTInfoDto jwtInfoDto) {
 
-        @Override
-        public Map<String, Object> populateStandardClaims(JWTInfoDto jwtInfoDto) {
-
-            return super.populateStandardClaims(jwtInfoDto);
-        }
-
-        @Override
-        public Map<String, Object> populateCustomClaims(JWTInfoDto jwtInfoDto) {
-
-            Map<String, Object> claims = super.populateCustomClaims(jwtInfoDto);
-            claims.put("uuid", UUID.randomUUID().toString());
-            return claims;
-        }
+        return super.populateStandardClaims(jwtInfoDto);
     }
-    ```
 
-    Click here for a sample [Custom Gateway JWTGenerator](https://github.com/wso2/samples-apim/tree/master/CustomGatewayJWTGenerator).
+    @Override
+    public Map<String, Object> populateCustomClaims(JWTInfoDto jwtInfoDto) {
 
-2. Build your class and the JAR file in the `<API-M_HOME>/repository/components/dropins` directory where the node works as the Gateway node.
+        Map<String, Object> claims = super.populateCustomClaims(jwtInfoDto);
+        claims.put("uuid", UUID.randomUUID().toString());
+        return claims;
+    }
+}
+```
+click here for a sample [Custom Gateway JWTGenerator](https://github.com/wso2/samples-apim/tree/master/CustomGatewayJWTGenerator)
 
-3. Set `apim.jwt.gateway_generator.impl` to your class name in the `<API-M_HOME>/repository/conf/deployment.toml`.
+2\. Build your class and the jar file to `<API-M_HOME>/repository/components/dropins` directory where node works as gateway node.
 
-    ```toml
-    [apim.jwt.gateway_generator]
-    impl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
-    ```
+3\. set the `apim.jwt.gateway_generator.impl` to your class name in the deployment.toml.
 
-4. Start the server.
+  ```toml
+  [apim.jwt.gateway_generator]
+  impl = "org.wso2.carbon.test.CustomGatewayJWTGenerator"
+  ```
+
+4\. Start the server.

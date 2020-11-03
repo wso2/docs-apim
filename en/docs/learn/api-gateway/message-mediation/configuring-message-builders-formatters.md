@@ -1,19 +1,19 @@
-# Configuring Message Builders and Formatters
+# Configuring message builders and formatters
 
-When a message comes into WSO2 API Manager Gateway, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the message's raw payload data and convert it into SOAP. Conversely, when sending a message out from API Gateway, a message formatter is used to build the outgoing stream from the message. As with message builders, the message formatter is selected based on the message's content type. Given below is the typical workflow:
+When a message comes in to WSO2 API Manager Gateway, the receiving transport selects a message builder based on the message's content type. It uses that builder to process the message's raw payload data and convert it into SOAP. Conversely, when sending a message out from API Gateway, a message formatter is used to build the outgoing stream from the message. As with message builders, the message formatter is selected based on the message's content type. Given below is the typical workflow:
 
-  [![]({{base_path}}/assets/img/setup-and-install/message-builders-formatters.png)]({{base_path}}/assets/img/setup-and-install/message-builders-formatters.png)
-  
+<a href="../../../assets/img/setup-and-install/message-builders-formatters.png" ><img src="../../../assets/img/setup-and-install/message-builders-formatters.png" alt="API Overview" title="API Overview" width="100%" /></a>
+
 ## Default message builders and formatters
 Listed below are the message formatters that are enabled for WSO2 API Manager by default:
 
-### Default message builders
+###Default message builders
 
 <table>
 <thead>
 <tr class="header">
-<th><b>Content Type</b></th>
-<th><b>Message builder class</b></th>
+<th>Content Type</th>
+<th>Message builder class</th>
 </tr>
 </thead>
 <tbody>
@@ -56,13 +56,13 @@ Listed below are the message formatters that are enabled for WSO2 API Manager by
 </tbody>
 </table>
 
-### Default message formatters
+###Default message formatters
 
 <table>
 <thead>
 <tr class="header">
-<th><b>Content Type</b></th>
-<th><b>Message formatter class</b></th>
+<th>Content Type</th>
+<th>Message formatter class</th>
 </tr>
 </thead>
 <tbody>
@@ -109,13 +109,13 @@ Listed below are the message formatters that are enabled for WSO2 API Manager by
 </tbody>
 </table>
 
-## Configuring default message builders and formatters
+##Configuring default message builders and formatters
 
 The default message builder or message formatter for a given content type can be changed or configured as follows.
 
-1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
+1. Open `<APIM-HOME>/repository/conf/deployment.toml` file.
 
-2. You can specify a message builder or message formatter class for a given default content type by adding the following configuration.
+2. You can specify a message builder or message formatter class for a given default content type by adding following configuration.
 
     ```toml tab='Format'
     [message_builder]
@@ -154,11 +154,11 @@ The default message builder or message formatter for a given content type can be
 3. Save the changes and [restart the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server) to get the changes applied.
 
 
-## Custom message builders and formatters
+##Custom message builders and formatters
 
 In addition to default message formatters and builders, you can implement your own custom message builder or a formatter for a given content type as described in [Writing a custom Message Builder and Formatter](https://ei.docs.wso2.com/en/latest/micro-integrator/setup/message_builders_formatters/message-builders-and-formatters/#writing-a-custom-message-builder-and-formatter).
 
-To enable the custom message builder or formatter, add the following configuration in the `<API-M_HOME>/repository/conf/deployment.toml` file, specifying the message builder/formatter class names against the content type.
+To enable the custom message builder or formatter, add following configuration to `<APIM-HOME>/repository/conf/deployment.toml` file, specifying the message builder/formatter class names against the content type.
 
 ```toml tab='Format'
 [[custom_message_builders]]
@@ -168,6 +168,7 @@ class="<message_builder_class>"
 [[custom_message_formatters]]
 content_type = "<content_type>"
 class="<message_formatter_class>"
+
 ```
 
 ```toml tab='Example'
@@ -178,4 +179,5 @@ class="org.test.builder.http.CustomMessageBuilderForTextXml"
 [[custom_message_formatters]]
 content_type = "text/xml"
 class="org.test.builder.http.CustomMessageFormatterForTextXml"
+
 ```

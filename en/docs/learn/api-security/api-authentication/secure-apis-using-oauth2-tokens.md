@@ -7,7 +7,8 @@ For more information, see [OAuth2 Grant Types]({{base_path}}/learn/api-security/
 
 ## OAuth 2.0 access token types
 
-WSO2 API-M only allows creating applications of JWT token type. Therefore, all the access tokens issued under any application are JWTs. For more information, see [JWT Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens).
+WSO2 APIM only allows creating applications of JWT token type. See [JWT Access Tokens]({{base_path}}/learn/api-security/oauth2/access-token-types/jwt-tokens).
+Hence all the access tokens issued under any application are JWTs.
 
 ## Authentication via access tokens
 
@@ -90,7 +91,7 @@ Each tenant can define their name for the authorization header by following the 
 
 2.  Click **Main**, then click **Browse** which is under **Resources**.
 
-     [![Browse option]({{base_path}}/assets/img/learn/browse-option.png)]({{base_path}}/assets/img/learn/browse-option.png)
+     [![]({{base_path}}/assets/attachments/103334899/103334897.png)]({{base_path}}/assets/attachments/103334899/103334897.png)
 
 3.  Enter / `_system/config/apimgt/applicationdata/tenant-conf.json` as the location and click **Go** to access the `tenant-conf.json` file that is in the WSO2 Registry.
 4.  Click **Edit as text** to be able to edit the JSON file.
@@ -205,13 +206,14 @@ The API Publisher application allows an API Developer or Product Manager to spec
 !!! note
     The customized authorization header defined per API takes precedence over the customized authorization headers that are defined server and tenant wide.
 
+
 Follow the instructions below to add a customized authorization header for an API:
 
 1.  [Sign in to the Publisher]({{base_path}}/install-and-setup/install/running-the-product/#accessing-the-api-publisher).
 `https://<server-host>:9443/publisher         `
 2.  When [creating]({{base_path}}/learn/design-api/create-api/create-a-rest-api/) or updating an API, define the customized authorization header in the **Runtime Configurations** tab.
 
-    [![Custom Auth header publisher]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)
+    [![]({{base_path}}/assets/img/learn/custom-auth-header-publisher.png)]({{base_path}}/assets/img/learn//custom-auth-header-publisher.png)
 
 3.  Save and Publish the API.
 
@@ -254,20 +256,4 @@ curl -H "SERVER_AUTH: Bearer 3c536e3f-397c-3df9-a89c-9c40efedfa9e" -H "accept: a
 
 Note that the customized authorization header appears in the Developer Portal UI as well.
 
-[![Auth header]({{base_path}}/assets/img/learn/auth_header.png)]({{base_path}}/assets/img/learn/auth_header.png)
-
-## Sending the authorization header to the backend
-
-By default, the authorization header, which is passed in the client request, is dropped in the API Gateway before it reaches the backend.
-
-Follow the instructions below to stop dropping the header:
-
-1. Open the `<API-M_HOME>/repository/conf/deployment.toml` file.
-
-2. Add the following configuration.
-
-    ```
-    [apim.oauth_config]
-    enable_outbound_auth_header = true
-    ```
-
+[![]({{base_path}}/assets/img/learn//auth_header.png)]({{base_path}}/assets/img/learn//auth_header.png)

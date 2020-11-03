@@ -2,16 +2,16 @@
 
 An API publisher can **block subscription** to an API as a way of disabling access to it and managing its usage and monetization. Subscription blocking can be temporary or permanent. There is an unblocking facility to allow API invocations again.
 
-You can block APIs by subscription by blocking access to a respective user to access a specific API that they had subscribed to using a particular application. If a user has subscribed to two APIs, using the same application, and you block access to only one of the APIs, the respective user can continue to invoke the other API that they had previously subscribed to using the same application. In addition, the user can continue to access the same API subscribed to using different applications.
+You can block APIs by subscription by blocking access to a specific user to access a specific API that he/she has subscribed to using a specific application. If a user is subscribed to two APIs using the same application and you block access to only one of the APIs, the user can still continue to invoke the other API that he/she subscribed to using the same application. In addition, the user can continue to access the same API subscribed to using different applications.
 
 !!! info
-    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request denylisting]({{base_path}}/learn/rate-limiting/access-control/#denying-requests).
+    API level subscription blocking is useful to control only the subscriptions created for a specific API by a user. If you want to block all API requests from a specific application/user/specific IP address or to a specific API, you can use [request blacklisting]({{base_path}}/learn/rate-limiting/blacklisting-whitelisting/#blacklisting-requests).
 
 
 Blocking can be done at two levels:
 
--   **Block production and sandbox access**: API access is blocked with both production and sandbox keys.
--   **Block production access only**: Allows sandbox access only. This is useful when you want to fix and test an issue in an API. Rather than blocking all access, you can block production access only, allowing the developer to fix and test it.
+-   **Block production and sandbox access** : API access is blocked with both production and sandbox keys.
+-   **Block production access only** : Allows sandbox access only. This is useful when you want to fix and test an issue in an API. Rather than blocking all access, you can block production access only, allowing the developer to fix and test it.
 
   <html>
   <div class="admonition warning">
@@ -65,7 +65,7 @@ Blocking can be done at two levels:
         
      3.  Generate keys and obtain an access token for application.
        
-3.  Invoke both the APIs using the access token you received in the previous step.
+3.  Invoke both APIs using the access token you received in the previous step.
      
       <html>
       <div class="admonition tip"> 
@@ -97,8 +97,6 @@ Blocking can be done at two levels:
 
      3.  Click **Subscriptions** to navigate to the managed subscription section.
 
-         <a href="{{base_path}}/assets/img/learn/subscriptions-menu.png" alt="subscriptions menu"><img src="{{base_path}}/assets/img/learn/subscriptions-menu.png" width=250></a>
-
      4. Click **Block All**.
 
         [![Have the same application for two APIs and block all subscriptions]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked.png)
@@ -119,7 +117,7 @@ Blocking can be done at two levels:
          <html>
          <div class="admonition tip">
          <p class="admonition-title">tip</p>
-         <p>If the access token expiration time (1 hour by default) has passed since the last time you generated it, you might have to <b>regenerate the access token</b> for the respective application that you subscribed the APIs to (for example in this case it will be `DefaultApplication)`. </p>
+         <p>You might have to <b>regenerate the access token</b> for the respective application that you subscribed the APIs to (for example in this case it will be `DefaultApplication)` if the access token expiration time (1 hour by default) has passed since the last time you generated it. </p>
          </div>
          </html>
 
@@ -145,7 +143,7 @@ Blocking can be done at two levels:
 
         [![Have the same application for two APIs and block response]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-blocked-response.png)
         
-     If you click **Applications** in the Developer Portal, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
+     If you click **Applications** in the API Developer Portal, and select the application that you used to subscribe to the API, the details of the blocked subscription appears.
 
      [![Same application subscribed for two APIs and combined subscription]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)]({{base_path}}/assets/img/learn/same-application-subscribed-for-two-apis-and-combined-subscription.png)
 
@@ -157,7 +155,7 @@ Blocking can be done at two levels:
 
          (e.g., `https://localhost:9443/publisher`). 
 
-     2.  Click on the respective API.
+     2.  Click on the respective API
 
          In this case, click `PhoneVerify2`.
 
@@ -174,4 +172,4 @@ Blocking can be done at two levels:
          </div>
          </html>
 
-You have subscribed to two APIs, blocked subscription to one and tested that you cannot invoke the blocked API.
+         You have subscribed to two APIs, blocked subscription to one and tested that you cannot invoke the blocked API.

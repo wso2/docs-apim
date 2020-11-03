@@ -28,17 +28,17 @@ Further, you can create your own custom user with a custom role to perform speci
 </thead>
 <tbody>
 <tr class="odd">
-<td>add env</td>
+<td>add-env</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr class="even">
-<td>remove env</td>
+<td>remove-env</td>
 <td>-</td>
 <td>-</td>
 </tr>
 <tr class="odd">
-<td>get envs</td>
+<td>list env</td>
 <td>-</td>
 <td>-</td>
 </tr>
@@ -53,7 +53,7 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>-</td>
 </tr>
 <tr class="even">
-<td>get apis</td>
+<td>list apis</td>
 <td><strong>API Create</strong> or <strong>API Publish</strong> or <strong>API Subscribe</strong></td>
 <td>apim:api_import_export</td>
 </tr>
@@ -68,12 +68,12 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>apim:api_import_export</td>
 </tr>
 <tr class="odd">
-<td>import api</td>
+<td>import-api</td>
 <td><strong>API Create</strong> to import an API in CREATED state,<br> Both <strong>API Create</strong> and <strong>API Publish</strong> to import an API in PUBLISHED state</td>
 <td>apim:api_import_export</td>
 </tr>
 <tr class="odd">
-<td>export api</td>
+<td>export-api</td>
 <td>-</td>
 <td>apim:api_import_export</td>
 </tr>
@@ -83,7 +83,7 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>apim:api_import_export</td>
 </tr>
 <tr class="odd">
-<td>get api-products</td>
+<td>list api-products</td>
 <td>-</strong></td>
 <td>apim:api_product_import_export</td>
 </tr>
@@ -113,17 +113,17 @@ Further, you can create your own custom user with a custom role to perform speci
 <td>apim:app_import_export</td>
 </tr>
 <tr class="even">
-<td>import app</td>
+<td>import-app</td>
 <td><strong>API Subscribe</strong></td>
 <td>apim:app_import_export</td>
 </tr>
 <tr class="odd">
-<td>export app</td>
+<td>export-app</td>
 <td>-</td>
 <td>apim:app_import_export</td>
 </tr>
 <tr class="even">
-<td>get keys</td>
+<td>get-keys</td>
 <td><strong>API Subscribe</strong></td>     
 <td>apim:app_manage, <br>apim:sub_manage, <br>apim:api_product_import_export
 <br><br>or<br>apim:app_manage, <br>apim:sub_manage, <br>apim:api_import_export

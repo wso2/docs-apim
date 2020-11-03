@@ -38,15 +38,15 @@ You can export an application in the Developer Portal and download it as a zippe
 
     -   Command 
         ``` java
-        apictl export app -n <application-name> -o <owner> -e <environment> -k
+        apictl export-app -n <application-name> -o <owner> -e <environment> -k
         ```
 
         ``` java
-        apictl export app --name <application-name> --owner <owner> --environment <environment> --insecure
+        apictl export-app --name <application-name> --owner <owner> --environment <environment> --insecure
         ```
 
         ``` java
-        apictl export app --name <application-name> --owner <owner> --environment <environment> --withKeys=<with-keys> --insecure
+        apictl export-app --name <application-name> --owner <owner> --environment <environment> --withKeys=<with-keys> --insecure
         ```
 
         !!! info
@@ -61,17 +61,14 @@ You can export an application in the Developer Portal and download it as a zippe
 
         !!! example
             ```go
-            apictl export app -n SampleApp -o admin -e dev -k
+            apictl export-app -n SampleApp -o admin -e dev -k
             ```
             ```go
-            apictl export app --name SampleApp --owner SampleUser --environment dev  -k
+            apictl export-app --name SampleApp --owner SampleUser --environment dev  -k
             ```       
             ```go
-            apictl export app --name SampleApp --owner SampleUser --environment dev --withKeys=true  -k
+            apictl export-app --name SampleApp --owner SampleUser --environment dev --withKeys=true  -k
             ```     
-
-        !!!note
-            `apictl export-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl export app` as shown above.
 
     -   Response
         ``` java
@@ -101,18 +98,18 @@ You can import an application to your environment as a zipped application. When 
 
     -   **Command**
         ```go
-        apictl import app -f <file> -e <environment> -k         
+        apictl import-app -f <file> -e <environment> -k         
         ```
         ```go
-        apictl import app --file <file> --environment <environment> -k         
-        ```
-
-        ```go
-        apictl import app -f <file> -e <environment> -s=<skip-subscriptions> -o <owner> --skipKeys=<skip-keys> -k      
+        apictl import-app --file <file> --environment <environment> -k         
         ```
 
         ```go
-        apictl import app --file <file> --environment <environment> --skipSubscriptions=<skip-subscriptions> --skipKeys=<skip-keys> --preserveOwner=<preserve-owner> --update=<update> --insecure
+        apictl import-app -f <file> -e <environment> -s=<skip-subscriptions> -o <owner> --skipKeys=<skip-keys> -k      
+        ```
+
+        ```go
+        apictl import-app --file <file> --environment <environment> --skipSubscriptions=<skip-subscriptions> --skipKeys=<skip-keys> --preserveOwner=<preserve-owner> --update=<update> --insecure
         ```
 
         !!! info
@@ -131,26 +128,23 @@ You can import an application to your environment as a zipped application. When 
 
         !!! example
             ```go
-            apictl import app -f dev/admin_SampleApp.zip -e production
+            apictl import-app -f dev/admin_SampleApp.zip -e production
             ``` 
             ```go
-            apictl import app --file dev/admin_SampleApp.zip --environment production
+            apictl import-app --file dev/admin_SampleApp.zip --environment production
             ```  
             ```go
-            apictl import app -f dev/admin_SampleApp.zip -e production -o admin --skipSubscriptions=true --skipKeys=true
+            apictl import-app -f dev/admin_SampleApp.zip -e production -o admin --skipSubscriptions=true --skipKeys=true
             ```
             ```go
-            apictl import app -f dev/admin_SampleApp.zip -e production --preserveOwner=true 
+            apictl import-app -f dev/admin_SampleApp.zip -e production --preserveOwner=true 
             ```     
             ```go
-            apictl import app -f dev/admin_SampleApp.zip -e production --update=true
+            apictl import-app -f dev/admin_SampleApp.zip -e production --update=true
             ```  
 
         !!! tip
             If your file path is `/Users/kim/.wso2apictl/exported/apps/dev/admin_SampleApp.zip.`, then you need to enter `dev/admin_SampleApp.zip` as the value for `--file` flag.
-
-        !!!note
-            `apictl import-app` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import app` as shown above.
 
     -   Response
         ``` java

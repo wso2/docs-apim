@@ -28,6 +28,7 @@ info:
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the the API you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
+
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
     in the payload. A sample payload is shown below.
     ```
@@ -41,16 +42,19 @@ info:
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
     base64 encoded admin username and password.
+
     **Format of the request**
     ```
-      curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"
+      curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json" 
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
+
     **Sample request**
     ```
-      curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
+      curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" 
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
+
     Following is a sample response after invoking the above curl.
     ```
     {
@@ -69,19 +73,22 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for Admin REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorizations** section of resource documentation.
-    Following is the format of the request if you are using the password grant type.
+
+    Following is the format of the request if you are using the password grant type
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd>&scope=<scopes seperated by space>"
-    \ -H "Authorization: Basic base64(cliet_id:client_secret)"
+    \ -H "Authorization: Basic base64(cliet_id:client_secret)" 
     \ https://<host>:<gateway_port>/token
     ```
-    **Sample request**
+
+    Sample request. 
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
     -d "grant_type=password&username=admin&password=admin&scope=apim:admin apim:tier_view"
     ```
-    Shown below is a sample response to the above request.
+
+    And follow is a sample response to the above request.
     ```
     {
     "access_token": "e79bda48-3406-3178-acce-f6e4dbdcbb12",
@@ -91,17 +98,19 @@ info:
     "expires_in": 3600
     }
     ```
-    Now you have a valid access token, which you can use to invoke an API.
-    Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
+    Now you have a valid access token, which you can use to invoke an API. 
+    Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. 
     If you use a different authentication mechanism, this process may change.
 
     # Try out in Postman
+
     If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
-    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f5ac2ca9fb22afef6ed6)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e3fd456bcae9b458cb5)
+
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -231,6 +240,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -296,9 +308,14 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          $ref: '#/responses/UnsupportedMediaType'
+          description: |
+            Unsupported media type.
+            The entity of the request was in a not supported format.
 
   ######################################################
   # The "Individual Application Throttling Policy" resource API
@@ -367,8 +384,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
+          description: |
+            Not Found.
+            Requested Tier does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -398,8 +421,14 @@ paths:
             OK.
             Resource successfully deleted.
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -472,10 +501,19 @@ paths:
                 Used by caches, or in conditional reuquests.
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   /policies/mediation:
@@ -526,7 +564,11 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
+
 
     #----------------------------------------------------------------------------
     # Upload a global mediation policy
@@ -582,10 +624,19 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -642,8 +693,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
+          description: |
+            Not Found.
+            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -673,10 +730,20 @@ paths:
             OK.
             Mediation policy successfully deleted.
         403:
-          $ref: '#/responses/Forbidden'
+          description: |
+            Forbidden.
+            The request must be conditional but no condition has been specified.
+          schema:
+            $ref: '#/definitions/Error'
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -734,12 +801,25 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          $ref: '#/responses/Forbidden'
+          description: |
+            Forbidden.
+            The request must be conditional but no condition has been specified.
+          schema:
+            $ref: '#/definitions/Error'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
   ######################################################
   # The "Subscription Throttling Policy Collection" resource API
@@ -794,6 +874,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -867,9 +950,14 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          $ref: '#/responses/UnsupportedMediaType'
+          description: |
+            Unsupported media type.
+            The entity of the request was in a not supported format.
 
   ######################################################
   # The "Individual Subscription Throttling Policy" resource API
@@ -946,8 +1034,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
+          description: |
+            Not Found.
+            Requested Policy does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -977,8 +1071,14 @@ paths:
             OK.
             Resource successfully deleted.
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -1059,10 +1159,19 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -1121,6 +1230,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -1188,9 +1300,14 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          $ref: '#/responses/UnsupportedMediaType'
+          description: |
+            Unsupported media type.
+            The entity of the request was in a not supported format.
 
   ######################################################
   # The "Individual Custom Rule" resource API
@@ -1261,8 +1378,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
+          description: |
+            Not Found.
+            Requested Policy does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -1295,8 +1418,14 @@ paths:
             OK.
             Resource successfully deleted.
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -1371,11 +1500,21 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
+
 
   ######################################################
   # The "Advanced Throttling Policy Collection" resource API
@@ -1430,6 +1569,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -1496,9 +1638,14 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          $ref: '#/responses/UnsupportedMediaType'
+          description: |
+            Unsupported media type.
+            The entity of the request was in a not supported format.
 
   ######################################################
   # The "Individual Advanced Throttling Policy" resource API
@@ -1568,8 +1715,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
+          description: |
+            Not Found.
+            Requested Policy does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -1599,8 +1752,14 @@ paths:
             OK.
             Resource successfully deleted.
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -1674,10 +1833,19 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -1733,6 +1901,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -1784,9 +1955,14 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          $ref: '#/responses/UnsupportedMediaType'
+          description: |
+            Unsupported media type.
+            The entity of the request was in a not supported format.
 
   ######################################################
   # The "Individual Blocking Condition" resource API
@@ -1841,8 +2017,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
+          description: |
+            Not Found.
+            Requested Condition does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -1872,8 +2054,14 @@ paths:
             OK.
             Resource successfully deleted.
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met (Will be supported in future).
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -1913,8 +2101,14 @@ paths:
           schema:
             $ref: '#/definitions/BlockingCondition'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            Resource to be updated does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -1980,8 +2174,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -1997,6 +2197,8 @@ paths:
         - OAuth2Security:
             - apim:admin
             - apim:app_import_export
+      x-examples:
+        $ref: docs/examples/alerts/applications.yaml#/delete
       x-code-samples:
         - lang: Shell
           source: |-
@@ -2027,8 +2229,14 @@ paths:
                 Location of the existing Application.
               type: string
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -2066,11 +2274,21 @@ paths:
           description: |
             OK.
             Application owner changed successfully.
+
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            Requested Application does not exist.
           $ref: '#/responses/NotFound'
         412:
+          description: |
+            Precondition Failed.
+            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -2127,10 +2345,19 @@ paths:
           schema:
             type: file
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            Requested Application does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -2209,8 +2436,14 @@ paths:
           schema:
             $ref: '#/definitions/APIInfoList'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -2259,12 +2492,25 @@ paths:
             Created.
             API Imported Successfully.
         403:
-          $ref: '#/responses/Forbidden'
+          description: |
+            Forbidden
+            Not Authorized to import.
+          schema:
+            $ref: '#/definitions/Error'
         404:
+          description: |
+            Not Found.
+            Requested API to update not found.
           $ref: '#/responses/NotFound'
         409:
+          description: |
+            Conflict.
+            API to import already exists.
           $ref: '#/responses/Conflict'
         500:
+          description: |
+            Internal Server Error.
+            Error in importing API.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -2335,8 +2581,14 @@ paths:
           schema:
             type: file
         404:
+          description: |
+            Not Found.
+            Requested API does not exist.
           $ref: '#/responses/NotFound'
         500:
+          description: |
+            Internal Server Error.
+            Error in exporting API.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -2397,12 +2649,25 @@ paths:
             Created.
             API Product Imported Successfully.
         403:
-          $ref: '#/responses/Forbidden'
+          description: |
+            Forbidden
+            Not Authorized to import.
+          schema:
+            $ref: '#/definitions/Error'
         404:
+          description: |
+            Not Found.
+            Requested API Product to update not found.
           $ref: '#/responses/NotFound'
         409:
+          description: |
+            Conflict.
+            API Product to import already exists.
           $ref: '#/responses/Conflict'
         500:
+          description: |
+            Internal Server Error.
+            Error in importing API Product.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -2473,8 +2738,14 @@ paths:
           schema:
             type: file
         404:
+          description: |
+            Not Found.
+            Requested API does not exist.
           $ref: '#/responses/NotFound'
         500:
+          description: |
+            Internal Server Error.
+            Error in exporting API Product.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -2540,6 +2811,9 @@ paths:
           schema:
             $ref: '#/definitions/Label'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
 
   ######################################################
@@ -2581,6 +2855,9 @@ paths:
           schema:
             $ref: '#/definitions/BotDetectionDataList'
         404:
+          description: |
+            Not Found.
+            Analytics Not Enabled.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -2623,8 +2900,14 @@ paths:
           schema:
             $ref: '#/definitions/Label'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
     #-----------------------------------------------------
     # Delete a Label
@@ -2653,6 +2936,9 @@ paths:
             OK.
             Label successfully deleted.
         404:
+          description: |
+            Not Found.
+            Label to be deleted does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -2688,9 +2974,14 @@ paths:
           schema:
             $ref: '#/definitions/PublishStatus'
         404:
+          description: |
+            Not Found.
           $ref: '#/responses/NotFound'
         500:
-          $ref: '#/responses/InternalServerError'
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/PublishStatus'
+
 
   /monetization/publish-usage/status:
 
@@ -2777,16 +3068,24 @@ paths:
                 The content type of the body.
               type: string
         404:
+          description: |
+            Not Found.
+            Requested user does not exist.
           $ref: '#/responses/NotFound'
         304:
           description: |
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
-
   #----------------------------------------------------------------
   # Retrieve workflow requests according to the external reference
   #----------------------------------------------------------------
@@ -2831,8 +3130,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
         404:
+          description: |
+            Not Found.
+            Requested workflow pendding process does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -2879,8 +3184,14 @@ paths:
                 The content type of the body.
               type: string
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            Workflow for the given reference is not found.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -2929,8 +3240,14 @@ paths:
           schema:
             $ref: '#/definitions/TenantInfo'
         404:
+          description: |
+            Not Found.
+            Requested user does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -2976,8 +3293,14 @@ paths:
           schema:
             $ref: '#/definitions/CustomUrlInfo'
         404:
+          description: |
+            Not Found.
+            Requested user does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -3043,6 +3366,9 @@ paths:
           schema:
             $ref: '#/definitions/APICategory'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
 
   ######################################################
@@ -3085,8 +3411,14 @@ paths:
           schema:
             $ref: '#/definitions/APICategory'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
     #-----------------------------------------------------
     # Delete an API Category
@@ -3115,6 +3447,9 @@ paths:
             OK.
             API Category successfully deleted.
         404:
+          description: |
+            Not Found.
+            API Category to be deleted does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -3146,6 +3481,9 @@ paths:
           schema:
             $ref: '#/definitions/Settings'
         404:
+          description: |
+            Not Found.
+            Requested Settings does not exist.
           $ref: '#/responses/NotFound'
 
   ####################################################
@@ -3184,6 +3522,9 @@ paths:
           schema:
             $ref: '#/definitions/AlertTypesList'
         500:
+          description: |
+            Internal Server Error.
+            An internal server error occurred while retrieving the alert types.
           $ref: '#/responses/InternalServerError'
 
   '/alert-subscriptions':
@@ -3219,6 +3560,9 @@ paths:
           schema:
             $ref: '#/definitions/AlertsSubscription'
         500:
+          description: |
+            Internal Server Error
+            An error occurred while retrieving subscribed alert types by user.
           $ref: '#/responses/InternalServerError'
 
     #--------------------------------------------------
@@ -3261,8 +3605,13 @@ paths:
           schema:
             $ref: '#/definitions/AlertsSubscription'
         400:
-          $ref: '#/responses/BadRequest'
+          description: |
+            Bad Request.
+            Invalid Request or request validation failure.
         500:
+          description: |
+            Internal Server Error
+            An internal server error occurred while subscribing to alerts.
           $ref: '#/responses/InternalServerError'
 
     #--------------------------------------------------
@@ -3295,6 +3644,8 @@ paths:
                 The content type of the body.
               type: string
         500:
+          description: |
+            Internal Server Error
           $ref: '#/responses/InternalServerError'
 
   ###########################################################
@@ -3336,6 +3687,9 @@ paths:
           schema:
             $ref: '#/definitions/BotDetectionAlertSubscriptionList'
         500:
+          description: |
+            Internal Server Error.
+            An error occurred while retrieving bot detection alert subscriptions.
           $ref: '#/responses/InternalServerError'
 
     #-----------------------------------------------------
@@ -3377,8 +3731,14 @@ paths:
           schema:
             $ref: '#/definitions/BotDetectionAlertSubscription'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         500:
+          description: |
+            Internal Server Error.
+            An error occurred while adding a bot detection subscription.
           $ref: '#/responses/InternalServerError'
 
   '/alert-subscriptions/bot-detection/{uuid}':
@@ -3417,8 +3777,14 @@ paths:
                 The content type of the body.
               type: string
         404:
+          description: |
+            Not Found.
+            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         500:
+          description: |
+            Internal Server Error
+            An error occurred while deleting a bot detection subscription.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -3458,8 +3824,14 @@ paths:
           schema:
             $ref: '#/definitions/ScopeSettings'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
+          description: |
+            Not Found.
+            Requested user does not exist.
           $ref: '#/responses/NotFound'
 
   /system-scopes:
@@ -3495,6 +3867,9 @@ paths:
           schema:
             $ref: '#/definitions/ScopeList'
         500:
+          description: |
+            Internal Server Error.
+            An internal server error occurred while retrieving the role scope mapping.
           $ref: '#/responses/InternalServerError'
     #--------------------------------------------------
     # Update the roles for scopes
@@ -3536,10 +3911,14 @@ paths:
           schema:
             $ref: '#/definitions/ScopeList'
         400:
-          $ref: '#/responses/BadRequest'
+          description: |
+            Bad Request.
+            Invalid Request or request validation failure.
         500:
+          description: |
+            Internal Server Error
+            An internal server error occurred while updating the roles.
           $ref: '#/responses/InternalServerError'
-
   ######################################################
   # The 'Role Alias' Collection API Resource
   ######################################################
@@ -3574,6 +3953,9 @@ paths:
           schema:
             $ref: '#/definitions/RoleAliasList'
         404:
+          description: |
+            Not Found.
+            Requested alias does not exist.
           $ref: '#/responses/NotFound'
 
     #-----------------------------------------------------
@@ -3609,9 +3991,13 @@ paths:
           schema:
             $ref: '#/definitions/RoleAliasList'
         400:
-          $ref: '#/responses/BadRequest'
+          description: |
+            Bad Request.
+            Invalid Request or request validation failure.
         500:
-          $ref: '#/responses/InternalServerError'
+          description: |
+            Internal Server Error
+            An internal server error occurred while updating the roles.
 
   ######################################################
   # The Tenant Theme resource APIs
@@ -3650,10 +4036,20 @@ paths:
           schema:
             type: file
         403:
-          $ref: '#/responses/Forbidden'
+          description: |
+            Forbidden.
+            Not Authorized to export.
+          schema:
+            $ref: '#/definitions/Error'
         404:
+          description: |
+            Not Found.
+            Requested tenant theme does not exist.
           $ref: '#/responses/NotFound'
         500:
+          description: |
+            Internal Server Error.
+            Error in exporting tenant theme.
           $ref: '#/responses/InternalServerError'
 
     #-----------------------------------------------------
@@ -3689,10 +4085,19 @@ paths:
             Ok.
             Tenant Theme Imported Successfully.
         403:
-          $ref: '#/responses/Forbidden'
+          description: |
+            Forbidden.
+            Not Authorized to import.
+          schema:
+            $ref: '#/definitions/Error'
         413:
-          $ref: '#/responses/PayloadTooLarge'
+          description: |
+            Payload Too Large.
+            Tenant Theme file size exceeds the allowed limit.
         500:
+          description: |
+            Internal Server Error.
+            Error in importing Theme.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -3758,6 +4163,9 @@ paths:
           schema:
             $ref: '#/definitions/KeyManager'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error
           $ref: '#/responses/BadRequest'
 
   ######################################################
@@ -3798,9 +4206,16 @@ paths:
                 The content type of the body.
               type: string
         404:
+          description: |
+            Not Found.
+            Requested KeyManager Configuration does not exist.
           $ref: '#/responses/NotFound'
         406:
+          description: |
+            Not Acceptable.
+            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
+
 
     #-----------------------------------------------------
     # Update a Key Manager
@@ -3836,9 +4251,16 @@ paths:
           schema:
             $ref: '#/definitions/KeyManager'
         400:
+          description: |
+            Bad Request.
+            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          $ref: '#/definitions/Error'
+          description: |
+            Not Found.
+            The resource to be updated does not exist.
+          schema:
+            $ref: '#/definitions/Error'
     #-----------------------------------------------------
     # Delete a Key Manager
     #-----------------------------------------------------
@@ -3864,8 +4286,10 @@ paths:
             OK.
             Key Manager successfully deleted.
         404:
+          description: |
+            Not Found.
+            Key Manager to be deleted does not exist.
           $ref: '#/responses/NotFound'
-
   ######################################################
   # The "Key Manager Collection" resource API
   ######################################################
@@ -4114,9 +4538,6 @@ parameters:
     type: string
     required: true
 
-######################################################
-# The response schemas used by the API resources
-######################################################
 responses:
 
   # Bad Request Error Response Schema
@@ -4137,26 +4558,12 @@ responses:
     description: Unauthorized. The user is not authorized.
     schema:
       $ref: '#/definitions/Error'
-    examples:
-      application/json:
-        code: 401
-        message: "Unauthorized"
-        description: "The user is not authorized"
-        moreInfo: ""
-        error: []
-
-  # Forbidden Error Response Schema
-  Forbidden:
-    description: Forbidden. The request must be conditional but no condition has been specified.
-    schema:
-      $ref: '#/definitions/Error'
-    examples:
-      application/json:
-        code: 403
-        message: "Forbidden"
-        description: "The request must be conditional but no condition has been specified"
-        moreInfo: ""
-        error: []
+    example:
+      code: 401
+      message: "Unauthorized"
+      description: "The user is not authorized"
+      moreInfo: ""
+      error: []
 
   # Not Found Error Response Schema
   NotFound:
@@ -4207,19 +4614,6 @@ responses:
         code: 412
         message: "Precondition Failed"
         description: "The request has not been performed because one of the preconditions is not met"
-        moreInfo: ""
-        error: []
-  
-  # Payload Too Large Error Response Schema
-  PayloadTooLarge:
-    description: Payload Too Large. Request entity is larger than limits defined by server.
-    schema:
-      $ref: '#/definitions/Error'
-    examples:
-      application/json:
-        code: 413
-        message: "Payload Too Large"
-        description: "Request entity is larger than limits defined by server"
         moreInfo: ""
         error: []
 
@@ -4977,6 +5371,7 @@ definitions:
       id:
         type: string
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       type:
         type: string
         enum:
@@ -5620,11 +6015,11 @@ definitions:
     properties:
       name:
         type: string
-        example: "apim:subscribe"
         items:
           type: string
 
-  #----------------------------------------------
+
+    #----------------------------------------------
   # The Alert list resource.
   #----------------------------------------------
   AlertTypesList:

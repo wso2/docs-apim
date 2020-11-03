@@ -857,12 +857,12 @@
                             "description": "Similar to prev. Get desc from  IS docs"
                         },
                         {
-                            "name": "allowed_scopes",
+                            "name": "white_listed_scopes",
                             "type": "string",
                             "required": false,
                             "default": "[\"^device_.*,openid\"]",
                             "possible": "",
-                            "description": "List of allowed scopes. Take desc from Key Concepts page."
+                            "description": "List of whitelisted scopes. Take desc from Key Concepts page."
                         }
                     ]
                 }
