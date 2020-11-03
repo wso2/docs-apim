@@ -91,7 +91,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
         The following image shows the sample values for SAML2 Web SSO configuration:
 
-        [![saml-configuration-in-service-provider]({{base_path}}/assets/img/setup-and-install/saml-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/saml-configuration-in-service-provider.png)
+        [![SAML configuration in service provider]({{base_path}}/assets/img/setup-and-install/saml-configuration-in-service-provider.png)]({{base_path}}/assets/img/setup-and-install/saml-configuration-in-service-provider.png)
 
         ??? Info "Enable a tenant-specific SSO for the Publisher and Developer Portal"
 
@@ -101,7 +101,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
     2.  Expand the **Claim Configuration** section and add **http://wso2.org/claims/role** as a mandatory claim.
 
-        [![]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider-for-saml2-sso.png)
+        [![Claim configuration in service provider for SAML2 SSO]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/claim-configuration-in-service-provider-for-saml2-sso.png)
 
     3.  Update the Service Provider configurations.
 
@@ -116,7 +116,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
 4.  Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
 
-    [![upload-certificate-in-SP-for-saml2-sso.png]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)
+    [![Upload certificate in SP for SAML2 SSO]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)
 
 ### Step 1.2 - Create users and roles
 
@@ -204,7 +204,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
         The following image shows the sample values for SAML2 Web SSO configurations:
 
-        [![saml-configuration-in-identity-provider]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-saml-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-saml-sso.png)
+        [![SAML configuration in Identity Provider]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-saml-sso.png)]({{base_path}}/assets/img/setup-and-install/identity-provider-configuration-for-saml-sso.png)
 
         !!! Note
             Make sure your Service Provider configurations in the Identity Server and the Identity Provider configurations in API Manager reflect each other.
@@ -216,7 +216,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
     3.  Enable Just-in-Time Provisioning to provision the users in API Manager.
 
-        [![]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
+        [![JIT provisioning for SSO]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)]({{base_path}}/assets/img/setup-and-install/jit-provisioning-for-sso.png)
 
     4.  Add the following role mapping under the **Role Configuration** section.
 
@@ -239,7 +239,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
         </tbody>
         </table>
 
-        [![]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
+        [![Role mapping for SSO]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)]({{base_path}}/assets/img/setup-and-install/role-mapping-for-sso.png)
 
         !!! Tip
             Instead of using the default internal roles, you can also create new roles in API Manager and map it to the provisioned users. 
