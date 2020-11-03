@@ -291,6 +291,7 @@ nav:
                       - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                       - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                      - Configuring Git Integration: learn/api-controller/advanced-topics/configuring-git-integration.md
           - Kubernetes Operators:
                 - K8s API Operator:
                     - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
