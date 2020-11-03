@@ -107,7 +107,7 @@ The flow of the synchronous token persistence when receiving two identical acces
 
 ##### Recovery flow
 
-The process flow now moves on to the recovery flow described above in order to handle the `CON_APP_KEY` constraint violation and is executed as follows:
+The process flow now moves on to the recovery flow in order to handle the `CON_APP_KEY` constraint violation and it is executed as follows: 
 
 -   As the same thread is being used, the OAuth2 component in the second node checks the database again for an ACTIVE access token.
 -   As there is now an ACTIVE token, which was persisted by the first node, the second node now returns the access token persisted by the first node to the client.
