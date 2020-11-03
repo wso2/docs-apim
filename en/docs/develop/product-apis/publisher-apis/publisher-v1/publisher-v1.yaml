@@ -21,15 +21,13 @@ info:
   version: "v1.1"
   title: "WSO2 API Manager - Publisher API"
   description: |
-    This specifies a **RESTful API** for WSO2 **API Manager** - Publisher.
-
-    Please see [full OpenAPI definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [OpenAPI Specification 3.0](http://swagger.io/).
+    This specifies a **RESTful API** for WSO2 **API Manager** - **Publisher**.
+    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.publisher/src/main/resources/publisher-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the the API you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
-
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
     in the payload. A Sample payload is shown below.
     ```
@@ -42,21 +40,18 @@ info:
       }
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
-    base64 encoded admin username and password
-
-    Format of the request
+    base64 encoded admin username and password.
+    **Format of the request**
     ```
-      curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json" 
+      curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
-
-    Sample request
+    **Sample request**
     ```
-      curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json" 
+      curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
-
-    Following is a sample response after invoking the above curl
+    Following is a sample response after invoking the above curl.
     ```
     {
     "clientId": "fOCi4vNJ59PpHucC2CAYfYuADdMa",
@@ -74,22 +69,19 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for publisher REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorization** section of resource documentation.
-
-    Following is the format of the request if you are using the password grant type
+    Following is the format of the request if you are using the password grant type.
     ```
-    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"  
-    \ -H "Authorization: Basic base64(cliet_id:client_secret)" 
+    curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"
+    \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<gateway_port>/token
     ```
-
-    Sample request. 
+    **Sample request**
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
     -d "grant_type=password&username=admin&password=admin&scope=apim:api_view apim:api_create"
     ```
-
-    And follow is a sample response to the above request.
+    Shown below is a sample response to the above request.
     ```
     {
     "access_token": "e79bda48-3406-3178-acce-f6e4dbdcbb12",
@@ -99,20 +91,17 @@ info:
     "expires_in": 3600
     }
     ```
-    Now you have a valid access token, which you can use to invoke an API. 
-    Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header. 
+    Now you have a valid access token, which you can use to invoke an API.
+    Navigate through the API descriptions to find the required API, obtain an access token as described above and invoke the API with the authentication header.
     If you use a different authentication mechanism, this process may change.
 
     # Try out in Postman
-
     If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
-
-    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
     [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a09044034b5c3c1b01a9)
-
   contact:
     name: "WSO2"
     url: "http://wso2.com/products/api-manager/"
@@ -214,12 +203,10 @@ paths:
         - OAuth2Security:
             - apim:api_view
             - apim:api_import_export
-      x-examples:
-        $ref: docs/examples/apis/apis_get.yaml
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis"
       parameters:
         - $ref : '#/parameters/limit'
         - $ref : '#/parameters/offset'
@@ -275,10 +262,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
+
     #-----------------------------------------------------
     # Create a new API
     #-----------------------------------------------------
@@ -286,17 +271,15 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_create
-      summary: Create a new API
+      summary: Create a New API
       description: |
         This operation can be used to create a new API specifying the details of the API in the payload. The new API will be in `CREATED` state.
 
-        There is a special capability for a user who has `APIM Admin` permission such that he can create APIs on behalf of other users. For that he has to specify `"provider" : "some_other_user"` in the payload so that the API's creator will be shown as `some_other_user` in the UI.
-      x-examples:
-        $ref: docs/examples/apis/apis_post.yaml
+        There is a special capability for a user who has `APIM Admin` permission such that he can create APIs on behalf of other users. For that he can to specify `"provider" : "some_other_user"` in the payload so that the API's creator will be shown as `some_other_user` in the UI.
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis"
+        - lang: Curl
+          source: |-
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis"
       parameters:
         - in: body
           name: body
@@ -336,14 +319,8 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
           $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
@@ -355,10 +332,6 @@ paths:
     # Retrieve the details of an API definition
     #-----------------------------------------------------
     get:
-      x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       summary: Get Details of an API
       description: |
         Using this operation, you can retrieve complete details of a single API. You need to provide the Id of the API to retrive it.
@@ -366,8 +339,10 @@ paths:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/requestedTenant'
         - $ref: '#/parameters/If-None-Match'
-      x-examples:
-        $ref: docs/examples/apis/apis_id_get.yaml
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       security:
         - OAuth2Security:
             - apim:api_view
@@ -401,25 +376,14 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update the definition of an API
     #-----------------------------------------------------
     put:
-      x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       security:
         - OAuth2Security:
             - apim:api_create
@@ -428,6 +392,10 @@ paths:
       description: |
         This operation can be used to update an existing API.
         But the properties `name`, `version`, `context`, `provider`, `state` will not be changed by this operation.
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       parameters:
         - $ref: '#/parameters/apiId'
         - in: body
@@ -466,31 +434,14 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         409:
-          description: |
-            Conflict.
-            The request could not be completed due to a conflict with the current state of the target resource.
           $ref: '#/responses/Conflict'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -498,9 +449,9 @@ paths:
     #-----------------------------------------------------
     delete:
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
+        - lang: Curl
+          source: |-
+            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f"
       security:
         - OAuth2Security:
             - apim:api_delete
@@ -519,26 +470,12 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         409:
-          description: |
-            Conflict.
-            The request could not be completed due to a conflict with the current state of the target resource.
           $ref: '#/responses/Conflict'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ################################################################
@@ -551,10 +488,10 @@ paths:
     #-----------------------------------------------------
     get:
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/swagger"
-      summary: Get API Swagger Definition
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/swagger"
+      summary: Get Swagger Definition
       description: |
         This operation can be used to retrieve the swagger definition of an API.
       security:
@@ -592,15 +529,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -664,26 +594,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ################################################################
@@ -695,12 +611,12 @@ paths:
     # Generate Mock responses from Swagger/OAS Definition
     #-----------------------------------------------------
     post:
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/generate-mock-scripts"
       operationId: generateMockScripts
       summary: Generate Mock Response Payloads
-      x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/generate-mock-scripts"
       description: |
         This operation can be used to generate mock responses from examples of swagger definition of an API.
       security:
@@ -738,15 +654,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ################################################################
@@ -758,14 +667,14 @@ paths:
     # resets Mock responses from Swagger/OAS Definition
     #-----------------------------------------------------
     get:
-      operationId: getGeneratedMockScriptsOfAPI
-      summary: Fetch Generated Mock Response Payloads
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/generated-mock-scripts"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/7a2298c4-c905-403f-8fac-38c73301631f/generated-mock-scripts"
+      operationId: getGeneratedMockScriptsOfAPI
+      summary: Get Generated Mock Response Payloads
       description: |
-        This operation can be used to fetch generated mock responses from examples of swagger definition of an API.
+        This operation can be used to get generated mock responses from examples of swagger definition of an API.
       security:
         - OAuth2Security:
             - apim:api_create
@@ -800,15 +709,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ################################################################
@@ -821,12 +723,12 @@ paths:
     #-----------------------------------------------------
     get:
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies?resourcePath=checkPhoneNumber&verb=post&sequenceType=in"
-      summary: Get Conversion Policy Definitions of API
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies?resourcePath=checkPhoneNumber&verb=post&sequenceType=in"
+      summary: Get the Resource Policy(inflow/outflow) Definitions
       description: |
-        This operation can be used to retrieve conversion policy resource definitions of a Soap to Rest converted API.
+        This operation can be used to retrieve conversion policy resource definitions of an API.
       security:
         - OAuth2Security:
             - apim:api_view
@@ -876,15 +778,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ################################################################
@@ -896,11 +791,11 @@ paths:
     # Retrieve the resource policy definition of a certain resource given by id
     #---------------------------------------------------------------------------
     get:
-      summary: Get Resource Policy (inflow/outflow) Definition by Id
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies/8efc32a4-c7f1-4bee-b860-b7566e2bc0d5"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies/8efc32a4-c7f1-4bee-b860-b7566e2bc0d5"
+      summary: Get the Resource Policy(inflow/outflow) Definition for a Given Resource Identifier.
       description: |
         This operation can be used to retrieve conversion policy resource definitions of an API given the resource identifier.
       security:
@@ -938,20 +833,10 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #------------------------------------------------------------------------
@@ -964,10 +849,10 @@ paths:
         - OAuth2Security:
           - apim:api_create
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies/8efc32a4-c7f1-4bee-b860-b7566e2bc0d5"
-      summary: Update Resource Policy(inflow/outflow) Definition
+        - lang: Curl
+          source: |-
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/resource-policies/8efc32a4-c7f1-4bee-b860-b7566e2bc0d5"
+      summary: Update the Resource Policy(inflow/outflow) Definition for the Given Resource Identifier
       description: |
         This operation can be used to update the resource policy(inflow/outflow) definition for the given resource identifier of an existing API. resource policy definition to be updated is passed as a body parameter `content`.
       parameters:
@@ -1008,26 +893,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ################################################################
@@ -1040,9 +911,9 @@ paths:
     #-------------------------------------------------------------------------------------------------
     get:
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"
       summary: Get Thumbnail Image
       description: |
         This operation can be used to download a thumbnail image of an API.
@@ -1079,14 +950,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
@@ -1100,9 +965,9 @@ paths:
           - apim:api_create
           - apim:api_publish
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=image.jpeg "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"
+        - lang: Curl
+          source: |-
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=image.jpeg "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/thumbnail"
       summary: Upload a Thumbnail Image
       operationId: updateAPIThumbnail
       description: |
@@ -1144,21 +1009,11 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
-
 
   ######################################################
   # The "API Throttling Policy" resource APIs
@@ -1173,11 +1028,11 @@ paths:
         - OAuth2Security:
             - apim:api_view
       x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/subscription-policies"
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/2fd14eb8-b828-4013-b448-0739d2e76bf7/subscription-policies"
       summary: |
-        Get Details of Subscription Throttling Policies of an API
+        Get Details of the Subscription Throttling Policies of an API
       description: |
         This operation can be used to retrieve details of the subscription throttling policy of an API by specifying the API Id.
 
@@ -1211,16 +1066,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource.
         404:
-          description: |
-            Not Found.
-            Requested Throttling Policy does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
-
 
   ######################################################
   # The "Copy API" Processing Function resource API
@@ -1231,14 +1079,14 @@ paths:
     # Create a new API based on an already existing one
     #-----------------------------------------------------
     post:
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/copy-api?newVersion=2.0&defaultVersion=false&apiId=2fd14eb8-b828-4013-b448-0739d2e76bf7"
       security:
         - OAuth2Security:
             - apim:api_create
       summary: Create a New API Version
-      x-code-samples:
-      - lang: Curl
-        source: |-
-          curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/copy-api?newVersion=2.0&defaultVersion=false&apiId=2fd14eb8-b828-4013-b448-0739d2e76bf7"
       description: |
         This operation can be used to create a new version of an existing API. The new version is specified as `newVersion` query parameter. New API will be in `CREATED` state.
       parameters:
@@ -1253,8 +1101,6 @@ paths:
           default: false
           in: query
         - $ref: '#/parameters/apiId-Q'
-      x-examples:
-        $ref: docs/examples/apis/apis_copyapi.yaml#/post
       tags:
         - APIs
       responses:
@@ -1270,14 +1116,8 @@ paths:
                 The URL of the newly created API.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            API to copy does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -1328,11 +1168,8 @@ paths:
             Supported checklist items are as follows.
             1. **Deprecate old versions after publishing the API**: Setting this to true will deprecate older versions of a particular API when it is promoted to Published state from Created state.
             2. **Requires re-subscription when publishing the API**: If you set this to true, users need to re subscribe to the API although they may have subscribed to an older version.
-
             You can specify additional checklist items by using an **"attribute:"** modifier.
-
             Eg: "Deprecate old versions after publishing the API:true" will deprecate older versions of a particular API when it is promoted to Published state from Created state. Multiple checklist items can be given in "attribute1:true, attribute2:false" format.
-
             **Sample CURL :**  curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -X POST "https://localhost:9443/api/am/publisher/v1/apis/change-lifecycle?apiId=890a4f4d-09eb-4877-a323-57f6ce2ed79b&action=Publish&lifecycleChecklist=Deprecate%20old%20versions%20after%20publishing%20the%20API%3Atrue,Requires%20re-subscription%20when%20publishing%20the%20API%3Afalse"
 
           type: string
@@ -1365,25 +1202,14 @@ paths:
           schema:
             $ref: '#/definitions/WorkflowResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         409:
-          description: |
-            Conflict.
-            Pending workflow task exists.
           $ref: '#/responses/Conflict'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
+
   ######################################################
   #  The "API State Change History"  resource API
   ######################################################
@@ -1400,7 +1226,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-history"
-      summary: Get Lifecycle State Change History of the API
+      summary: Get Lifecycle State Change History of the API.
       description: |
         This operation can be used to retrieve Lifecycle state change history of the API.
       parameters:
@@ -1430,10 +1256,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
+
   ######################################################
   #  The "API Lifecycle State Data"  resource API
   ######################################################
@@ -1451,9 +1275,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-state"
-      summary: Get Lifecycle State Data of the API
+      summary: Get Lifecycle State Data of the API.
       description: |
-        This operation can be used to retrieve lifecycle state data of the API.
+        This operation can be used to retrieve Lifecycle state data of the API.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/If-None-Match'
@@ -1486,14 +1310,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -1505,16 +1323,16 @@ paths:
     # Delete API LIfecycle state change pending task
     #--------------------------------------------
     delete:
-      security:
-        - OAuth2Security:
-            - apim:api_publish
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/890a4f4d-09eb-4877-a323-57f6ce2ed79b/lifecycle-state/pending-tasks"
+      security:
+        - OAuth2Security:
+            - apim:api_publish
       summary: Delete Pending Lifecycle State Change Tasks
       description: |
-        This operation can be used to remove lifecycle state change requests that are in pending state
+        This operation can be used to remove pending lifecycle state change requests that are in pending state
       parameters:
         - $ref: '#/parameters/apiId'
       tags:
@@ -1523,21 +1341,14 @@ paths:
         200:
           description: |
             OK.
-            Lifecycle state change pending tasks removed successfully.
+            Lifecycle state change pending task removed successfully.
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
-
   ######################################################
-  # The "Import API from OpenAPI Definition"  resource API
+  # The "Import API from OpenAPI Definition" resource API
   ######################################################
 
   /apis/import-openapi:
@@ -1551,11 +1362,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_create
-      summary: Import an OpenAPI Definition
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@openapi.json -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-openapi"
+      summary: Import an OpenAPI Definition
       description: |
         This operation can be used to create an API from an OpenAPI definition. Provide either `url` or `file`
         to specify the definition.
@@ -1578,8 +1389,6 @@ paths:
           description: Additional attributes specified as a stringified JSON with API's schema
           type: string
           required: false
-      x-examples:
-        $ref: docs/examples/apis/import_openapi_post.yaml
       tags:
         - APIs
       responses:
@@ -1604,14 +1413,8 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
           $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
@@ -1630,10 +1433,6 @@ paths:
         - OAuth2Security:
             - apim:api_create
       summary: Import a WSDL Definition
-      x-code-samples:
-        - lang: Curl
-          source: |-
-            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
       operationId: importWSDLDefinition
       description: |
         This operation can be used to create an API using a WSDL definition. Provide either `url` or `file`
@@ -1641,8 +1440,10 @@ paths:
 
         WSDL can be speficied as a single file or a ZIP archive with WSDLs and reference XSDs etc.
         Specify additionalProperties with **at least** API's name, version, context and endpointConfig.
-      x-examples:
-        $ref: docs/examples/apis/wsdl/import_wsdl_post.yaml
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@api.wsdl -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-wsdl"
       parameters:
         - in: formData
           name: file
@@ -1697,16 +1498,9 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
           $ref: '#/responses/UnsupportedMediaType'
-
 
   ######################################################
   # The "Import GraphQL API Schema from API Definition"  resource API
@@ -1723,13 +1517,15 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_create
+      summary: Import API Definition
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@schema.graphql -F additionalProperties=@data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/import-graphql-schema"
-      summary: Import GraphQL Schema Definition
       description: |
-        This operation can be used to create an API using a GraphQL schema definition.
+        This operation can be used to create api from api definition.APIMgtDAOTest
+
+        API definition is GraphQL Schema
       parameters:
         - in: formData
           name: type
@@ -1738,7 +1534,7 @@ paths:
           required: false
         - in: formData
           name: file
-          description: Definition to upload as a file
+          description: Definition to uploads a file
           type: file
           required: false
         - in: formData
@@ -1771,14 +1567,8 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
           $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
@@ -1822,8 +1612,6 @@ paths:
           required: false
       tags:
         - Validation
-      x-examples:
-        $ref: docs/examples/apis/validate_openapi_post.yaml
       responses:
         200:
           description: |
@@ -1837,19 +1625,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
           $ref: '#/responses/NotFound'
-
-######################################################
-# The "Validate Endpoint" utility API
-######################################################
 
   /apis/validate-endpoint:
     post:
@@ -1860,7 +1638,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate-endpoint?apiId=e0824883-3e86-403a-aec1-22bbc454eb7c&endpointUrl=https%3A%2F%2Flocalhost%3A9443%2Fam%2Fsample%2Fpizzashack%2Fv1%2Fapi%2F"
-      summary: Check whether Given Endpoint URL is Valid
+      summary: Check Whether Given Endpoint URL is Valid
       operationId: validateEndpoint
       description: |
         Using this operation, it is possible check whether the given API endpoint url is a valid url
@@ -1889,14 +1667,8 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -1907,8 +1679,6 @@ paths:
 
   /apis/validate:
     post:
-      x-examples:
-        $ref: docs/examples/apis/apis_validate.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -1916,10 +1686,10 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_create
-      summary: Check whether Given API name/context already Exists
+      summary: Check Given API Context Name already Exists
       operationId: validateAPI
       description: |
-        Using this operation, you can check whether a given API context is already used. You need to provide the context name you want to check.
+        Using this operation, you can check a given API context is already used. You need to provide the context name you want to check.
       parameters:
         - in: query
           name: query
@@ -1929,7 +1699,7 @@ paths:
             You can search in attributes by using an **"<attribute>:"** modifier.
 
             Eg.
-            "name:wso2" will match an API if the name of the API is exactly "wso2".
+            "name:wso2" will match an API if the provider of the API is exactly "wso2".
 
             Supported attribute modifiers are [** version, context, name **]
 
@@ -1951,14 +1721,8 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -1994,8 +1758,6 @@ paths:
           required: false
       tags:
         - Validation
-      x-examples:
-        $ref: docs/examples/apis/wsdl/validate_wsdl_post.yaml
       responses:
         200:
           description: |
@@ -2009,14 +1771,8 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -2034,9 +1790,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@schema.graphql "https://127.0.0.1:9443/api/am/publisher/v1/apis/validate-graphql-schema"
-      summary: Validate GraphQL Schema Definition
+      summary: Validate GraphQL API Definition and Retrieve a Summary
       description: |
-        This operation can be used to validate a graphQL schema definition and retrieve a summary.
+        This operation can be used to validate a graphQL definition and retrieve a summary.
       parameters:
         - in: formData
           name: file
@@ -2058,14 +1814,8 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Workflow for the given reference in not found.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -2086,7 +1836,7 @@ paths:
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/graphql-schema"
       summary: Get the Schema of a GraphQL API
       description: |
-        This operation can be used to retrieve the schema definition of a GraphQL API.
+        This operation can be used to retrieve the Schema definition of a GraphQL API.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/Accept'
@@ -2120,14 +1870,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -2137,11 +1881,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_create
-      summary: Add a Schema to a GraphQL API
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F schemaDefinition=@schema.graphql "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/graphql-schema"
+      summary: Add a Schema to a GraphQL API
       description: |
         This operation can be used to add a GraphQL Schema definition to an existing GraphQL API.
       parameters:
@@ -2180,25 +1924,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -2209,8 +1940,6 @@ paths:
     # Retrieve the ARNs of AWS Lambda functions
     #-----------------------------------------------------
     get:
-      x-examples:
-        $ref: docs/examples/apis/apis_id_amznresourcenames_get.yaml
       security:
         - OAuth2Security:
             - apim:api_view
@@ -2239,9 +1968,6 @@ paths:
                 The content type of the body.
               type: string
         404:
-          description: |
-            Not Found.
-            Requested resource does not exist.
           $ref: '#/responses/NotFound'
 
   #########################################################
@@ -2279,19 +2005,10 @@ paths:
             OK.
             Monetization status changed successfully.
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested resource does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   #########################################################
@@ -2309,7 +2026,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/monetize"
-      summary: Get Monetization Status for Each Tier in a Given API
+      summary: Get Monetization Status for each Tier in a Given API
       description: |
         This operation can be used to get monetization status for each tier in a given API
       parameters:
@@ -2322,19 +2039,10 @@ paths:
             OK.
             Monetization status for each tier returned successfully.
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested resource does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -2349,7 +2057,7 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      summary: Get Total Revenue of a Given Monetized API with Meterd Billing
+      summary: Get Total Revenue Details of a Given Monetized API with Meterd Billing
       description: |
         This operation can be used to get details of total revenue details of a given monetized API with meterd billing.
       parameters:
@@ -2378,9 +2086,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         '404':
-          description: |
-            Not Found.
-            Requested Subscription does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -2399,9 +2104,9 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/e0824883-3e86-403a-aec1-22bbc454eb7c/documents"
-      summary: Get API Documents of an API
+      summary: Get a List of Documents of an API
       description: |
-        This operation can be used to retrieve a list of documents belonging to an API by providing the API Id.
+        This operation can be used to retrieve a list of documents belonging to an API by providing the id of the API.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/limit'
@@ -2430,28 +2135,22 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Add a document to a certain API
     #-----------------------------------------------------
     post:
-      security:
-        - OAuth2Security:
-          - apim:api_create
-          - apim:document_create
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents"
+      security:
+        - OAuth2Security:
+          - apim:api_create
+          - apim:document_create
       summary: Add a New Document to an API
       description: |
         This operation can be used to add a new documentation to an API. This operation only adds the metadata of a document. To add the actual content we need to use **Upload the content of an API document ** API once we obtain a document Id by this operation.
@@ -2490,14 +2189,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -2517,7 +2211,7 @@ paths:
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5"
       summary: Get a Document of an API
       description: |
-        This operation can be used to retrieve metadata of a document associated with a particular API.
+        This operation can be used to retrieve a particular document's metadata associated with an API.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/documentId'
@@ -2551,28 +2245,22 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
     # Update a particular document of a certain API
     #-----------------------------------------------------
     put:
-      security:
-        - OAuth2Security:
-          - apim:api_create
-          - apim:document_manage
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @doc.json "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5"
+      security:
+        - OAuth2Security:
+          - apim:api_create
+          - apim:document_manage
       summary: Update a Document of an API
       description: |
         This operation can be used to update metadata of an API's document.
@@ -2616,19 +2304,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -2658,14 +2337,8 @@ paths:
             OK.
             Resource successfully deleted.
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ################################################################
@@ -2741,14 +2414,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
@@ -2767,10 +2434,10 @@ paths:
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@sample.pdf "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/0bcb7f05-599d-4e1a-adce-5cb89bfe58d5/content"
       summary: Upload the Content of an API Document
       description: |
-        This operation can be used to upload a file or add inline content to an API document.
+        Thid operation can be used to upload a file or add inline content to an API document.
 
         **IMPORTANT:**
-        * Either **file** or **inlineContent** form data parameters should be specified at a time.
+        * Either **file** or **inlineContent** form data parameters should be specified at one time.
         * Document's source type should be **FILE** in order to upload a file to the document using **file** parameter.
         * Document's source type should be **INLINE** in order to add inline content to the document using **inlineContent** parameter.
       parameters:
@@ -2816,19 +2483,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   #----------------------------------------------------------------------------
@@ -2836,8 +2494,6 @@ paths:
   #----------------------------------------------------------------------------
   /apis/{apiId}/documents/validate:
     post:
-      x-examples:
-        $ref: docs/examples/apis/apis_id_document_validate.yaml
       security:
         - OAuth2Security:
             - apim:api_create
@@ -2846,7 +2502,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/documents/validate?name=CalculatorDoc"
-      summary: Check whether a Document with the Provided Name Exist
+      summary: Check Whether a Document with the Provided Name Exist
       description: |
         This operation can be used to verify the document name exists or not.
       operationId: validateDocument
@@ -2866,6 +2522,8 @@ paths:
           description: |
             OK.
             Successful response if the api name exist.
+          schema:
+            $ref: '#/definitions/Document'
           headers:
             Content-Type:
               description: |
@@ -2877,12 +2535,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Requested document not found.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "specific mediation policy" resource APIs
@@ -2897,8 +2552,6 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:mediation_policy_view
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -2939,9 +2592,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
@@ -2954,8 +2604,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:mediation_policy_create
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_post.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3011,19 +2659,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -3039,8 +2678,6 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:mediation_policy_view
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3082,14 +2719,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -3100,8 +2731,6 @@ paths:
         - OAuth2Security:
           - apim:api_create
           - apim:mediation_policy_manage
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_delete.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3122,21 +2751,12 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
+
   ###################################################################
   # The "Individual API specific mediation sequence content" resource
   ###################################################################
@@ -3150,8 +2770,6 @@ paths:
       - OAuth2Security:
         - apim:api_view
         - apim:mediation_policy_view
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_content_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3191,10 +2809,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested file does not exist.
           $ref: '#/responses/NotFound'
+
     #-----------------------------------------------------
     # Update a mediation policy
     #-----------------------------------------------------
@@ -3205,12 +2821,10 @@ paths:
       - OAuth2Security:
         - apim:api_create
         - apim:mediation_policy_manage
-      x-examples:
-        $ref: docs/examples/mediation-policies/apis_id_mediationpolicies_id_content_put.yaml
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@TokenExchange.xml -F type=@type.txt "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -F file=@TokenExchange.xml -F type=@type.txt "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/mediation-policies/f56eb8b4-128c-45aa-ad35-9c87a546261a/content"
       summary: Update an API Specific Mediation Policy
       operationId:  apisApiIdMediationPoliciesMediationPolicyIdContentPut
       description: |
@@ -3262,25 +2876,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ################################################################
@@ -3298,12 +2899,10 @@ paths:
         - OAuth2Security:
             - apim:api_view
       operationId: getWSDLInfoOfAPI
-      summary: Get WSDL Meta Informtation
+      summary: Get WSDL Meta Information
       description: |
         This operation can be used to retrieve the WSDL meta information of an API. It states whether the API is a SOAP
         API. If the API is a SOAP API, it states whether it has a single WSDL or a WSDL archive.
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_info_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3320,14 +2919,8 @@ paths:
           schema:
             $ref: '#/definitions/WSDLInfo'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist or the API is not a SOAP API.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
 ################################################################
@@ -3347,13 +2940,11 @@ paths:
         - OAuth2Security:
             - apim:api_view
       operationId: getWSDLOfAPI
-      summary: Get WSDL Definition
+      summary: Get WSDL definition
       description: |
         This operation can be used to retrieve the WSDL definition of an API. It can be either a single WSDL file or a WSDL archive.
 
         The type of the WSDL of the API is indicated at the "wsdlInfo" element of the API payload definition.
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3383,14 +2974,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -3408,8 +2993,6 @@ paths:
         This operation can be used to update the WSDL definition of an existing API. WSDL to be updated can be passed as either "url" or "file".
         Only one of "url" or "file" can be used at the same time. "file" can be specified as a single WSDL file or as a zip file which has a WSDL
         and its dependencies (eg: XSDs)
-      x-examples:
-        $ref: docs/examples/apis/wsdl/apiId_wsdl_put.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3453,25 +3036,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -3483,15 +3053,15 @@ paths:
     # Retrieve Custom Complexity Info of a given API
     #-----------------------------------------------------
     get:
-      summary: Get the Complexity Details of an API
-      x-code-samples:
-        - lang: Curl
-          source: |-
-            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/graphql-policies/complexity"
+      summary: Get the Complexity Related Details of an API
       security:
         - OAuth2Security:
             - apim:api_create
             - apim:api_publish
+      x-code-samples:
+        - lang: Curl
+          source: |-
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/graphql-policies/complexity"
       description: |
         This operation can be used to retrieve complexity related details belonging to an API by providing the API id.
       parameters:
@@ -3504,15 +3074,13 @@ paths:
             OK.
             Requested complexity details returned.
         404:
-          description: |
-            Not Found.
-            Requested API does not contain any complexity details.
+          $ref: '#/responses/NotFound'
 
     #-----------------------------------------------------
     # Update API specific Custom Complexity Info
     #-----------------------------------------------------
     put:
-      summary: Update Complexity Details of an API
+      summary: Update Complexity Related Details of an API
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3539,9 +3107,7 @@ paths:
             Created.
             Complexity details created successfully.
         404:
-          description: |
-            Bad Request.
-            Complexity detail addition failed.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # GraphQL Schema "Types and Fields" resource API
@@ -3552,11 +3118,11 @@ paths:
     # Retrieve all types and fields of a GraphQL Schema
     #-----------------------------------------------------
     get:
-      summary: Retrieve Types and Fields of a GraphQL Schema
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/graphql-policies/complexity/types"
+      summary: Retrieve Types and Fields of a GraphQL Schema
       security:
         - OAuth2Security:
             - apim:api_create
@@ -3581,10 +3147,7 @@ paths:
           schema:
             $ref: '#/definitions/GraphQLSchemaTypeList'
         404:
-          description: |
-            Not Found.
-            Retrieving types and fields failed.
-
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The "Resource Paths" resource
@@ -3604,7 +3167,7 @@ paths:
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/resource-paths"
       summary: Get Resource Paths of an API
       description: |
-        This operation can be used to retrieve resource paths defined for a specific API.
+        This operation can be used to retrieve resource paths defined for a specific api.
       parameters:
         - $ref: '#/parameters/apiId'
         - $ref: '#/parameters/limit'
@@ -3639,14 +3202,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -3660,8 +3217,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: "docs/examples/apis/apis_id_auditapi_get.yaml"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3688,9 +3243,6 @@ paths:
           schema:
             $ref: '#/definitions/AuditReport'
         404:
-          description: |
-            Not Found.
-            The Security Audit Report was not found.
           $ref: '#/responses/NotFound'
 
 ######################################################
@@ -3707,13 +3259,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/external-stores/external_stores.yaml#/getPublishedExternalStoresByAPI
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/96077508-fd01-4fae-bc64-5de0e2baf43c/external-stores"
-      summary: Get the List of External Stores to which the API is Published
+      summary: Get the List of External Stores to which an API is Published
       description: |
         This operation can be used to retrieve a list of external stores which an API is published to by providing the id of the API.
       parameters:
@@ -3738,12 +3288,8 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         500:
-          description: Internal server error while getting external stores of the API.
           $ref: '#/responses/InternalServerError'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -3759,8 +3305,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-examples:
-        $ref: docs/examples/external-stores/external_stores.yaml#/publishToExternalStore
       x-code-samples:
         - lang: Curl
           source: |-
@@ -3797,12 +3341,8 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         500:
-          description: Internal server error while publishing to external stores
           $ref: '#/responses/InternalServerError'
         404:
-          description: |
-            Not Found.
-            Request API resource or external store Ids not found.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -3822,7 +3362,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/export?apiId=96077508-fd01-4fae-bc64-5de0e2baf43c&name=PizzaShackAPI&version=1.0&provider=admin&format=YAML" > exportAPI.zip
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/export?apiId=96077508-fd01-4fae-bc64-5de0e2baf43c&name=PizzaShackAPI&version=1.0&provider=admin&format=YAML" > exportAPI.zip
       summary: Export an API
       description: |
         This operation can be used to export the details of a particular API as a zip file.
@@ -3880,14 +3420,8 @@ paths:
           schema:
             type: file
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         500:
-          description: |
-            Internal Server Error.
-            Error in exporting API.
           $ref: '#/responses/InternalServerError'
 
 ######################################################
@@ -3905,7 +3439,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions?apiId=96077508-fd01-4fae-bc64-5de0e2baf43c"
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions?apiId=96077508-fd01-4fae-bc64-5de0e2baf43c"
       summary: Get all Subscriptions
       description: |
         This operation can be used to retrieve a list of subscriptions of the user associated with the provided access token. This operation is capable of
@@ -3949,8 +3483,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable. The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -3965,7 +3497,7 @@ paths:
       security:
         - OAuth2Security:
             - apim:subscription_view
-      summary: Get Details of a Pending Invoice for a Monetized Subscription
+      summary: Get Details of a Pending Invoice for a Monetized Subscription with Meterd Billing.
       description: |
         This operation can be used to get details of a pending invoice for a monetized subscription with meterd billing.
       parameters:
@@ -3997,7 +3529,8 @@ paths:
           description: |
             Not Found.
             Requested Subscription does not exist.
-          $ref: '#/responses/NotFound'
+          schema:
+            $ref: '#/definitions/Error'
 
   ######################################################
   # The get subscriber information
@@ -4011,7 +3544,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/subscriptions/64eca60b-2e55-4c38-8603-e9e6bad7d809/subscriber-info"
-      summary: Get Details of a User who has Subscribed an API
+      summary: Get Details of a Subscriber
       description: |
         This operation can be used to get details of a user who subscribed to the API.
       parameters:
@@ -4026,9 +3559,6 @@ paths:
           schema:
             $ref: '#/definitions/SubscriberInfo'
         404:
-          description: |
-            Not Found.
-            Requested Subscription does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -4084,19 +3614,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested subscription does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -4140,19 +3661,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested subscription does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -4204,11 +3716,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
-
 
   ######################################################
   # The "Individual Tier" resource APIs
@@ -4263,14 +3771,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Tier does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported.
           $ref: '#/responses/NotAcceptable'
 
   ######################################################
@@ -4286,14 +3788,12 @@ paths:
         - OAuth2Security:
           - apim:api_view
           - apim:mediation_policy_view
-      x-examples:
-        $ref: docs/examples/mediation-policies/mediation_policies_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/mediation-policies"
       summary: |
-        Get All Global Level Mediation Policies
+        Get all global level mediation policies
       operationId: getAllGlobalMediationPolicies
       description: |
         This operation provides you a list of available all global level mediation policies.
@@ -4327,9 +3827,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ###################################################################
@@ -4383,9 +3880,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested file does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -4407,7 +3901,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates?alias=wso2carbon"
-      summary: Retrieve/Search Uploaded Client Certificates
+      summary: Retrieve/ Search Uploaded Client Certificates
       description: |
         This operation can be used to retrieve and search the uploaded client certificates.
       tags:
@@ -4437,14 +3931,9 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Failure due to not providing alias or server is not configured to support mutual SSL authentication.
+        400:
           $ref: '#/responses/BadRequest'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
@@ -4482,7 +3971,7 @@ paths:
           type: string
         - in: formData
           name: tier
-          description: apiId to which the certificate should be applied.
+          description: api tier to which the certificate should be applied.
           required: true
           type: string
       tags:
@@ -4503,15 +3992,9 @@ paths:
               type: string
           schema:
             $ref: '#/definitions/ClientCertMetadata'
-        '400':
-          description: |
-            Bad Request.
-            Failures due to existing alias or expired certificate.
+        400:
           $ref: '#/responses/BadRequest'
-        '500':
-          description: |
-            Internal Server Error
-            Failed to add the Certificate due to an Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
@@ -4528,7 +4011,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=wso2carbon -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b -F tier=Gold "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon"
+            curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=wso2carbon -F apiId=fea749dd-d548-4a8b-b308-34903b39a34b -F tier=Gold "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon"
       summary: Update a Certificate
       description: |
         This operation can be used to update an uploaded certificate.
@@ -4571,20 +4054,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Failure due to not providing alias.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
-            Updating certificate failed. Alias not found or server is not configured to support mutual SSL
-            authentication.
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
@@ -4626,20 +4100,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Alias not found or server is not configured to support mutual SSL authentication.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found. |
-            Failed to delete the certificate. Certificate could not found for
-            the given alias
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
@@ -4682,19 +4147,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Alias not found or server is not configured to support mutual SSL authentication.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
-            Alias not found
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
@@ -4709,7 +4166,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon/content"
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/client-certificates/wso2carbon/content"
       summary: Download a Certificate
       description: |
         This operation can be used to download a certificate which matches the given alias.
@@ -4734,18 +4191,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Alias not provided or server is not configured to support mutual SSL authentication.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found. Certificate for the Alias not found.
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -4797,18 +4247,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
@@ -4825,7 +4268,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt -F alias=alias -F "endpoint=endpoint=https://www.abc.com" "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates"
-      summary: Upload a New Certificate
+      summary: Upload a new Certificate.
       description: |
         This operation can be used to upload a new certificate for an endpoint.
       parameters:
@@ -4862,16 +4305,9 @@ paths:
               type: string
           schema:
             $ref: '#/definitions/CertMetadata'
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-            * Failures due to existing alias or expired certificate.
+        400:
           $ref: '#/responses/BadRequest'
-        '500':
-          description: |
-            Internal Server Error
-            * Failed to add the Certificate due to an Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
@@ -4889,7 +4325,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F certificate=@test.crt "https://127.0.0.1:9443/api/am/publisher/v1/apis/d48a3412-1b85-49be-99f4-b81a3722ae73/endpoint-certificates/wso2carbon"
-      summary: Update a Certificate
+      summary: Update a certificate.
       description: |
         This operation can be used to update an uploaded certificate.
       parameters:
@@ -4921,19 +4357,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
-            Updating certificate failed. Alias not found
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
@@ -4948,7 +4376,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/endpoint-certificates/wso2carbon"
-      summary: Delete a Certificate
+      summary: Delete a certificate.
       description: |
         This operation can be used to delete an uploaded certificate.
       parameters:
@@ -4970,21 +4398,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-
-            Invalid request or validation error.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found. |
-            Failed to delete the certificate. Certificate could not found for
-            the given alias
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
     #-------------------------------------------------------------------
@@ -5022,19 +4440,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
-            Alias not found
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------------
@@ -5069,19 +4479,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
-            *
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found. Certificate for the Alias not found.
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -5100,17 +4502,14 @@ paths:
             - apim:api_product_import_export
       produces:
         - application/json
-      x-examples:
-        $ref: docs/examples/apis/search_get.yaml
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/search?query=calculator"
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/search?query=pizza"
       summary: |
         Retrieve/Search APIs and API Documents by Content
       description: |
         This operation provides you a list of available APIs and API Documents qualifying the given keyword match.
-
       parameters:
         - $ref : '#/parameters/limit'
         - $ref : '#/parameters/offset'
@@ -5145,11 +4544,7 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
-
 
     ######################################################
     # The "API Product" resource APIs
@@ -5168,7 +4563,7 @@ paths:
       x-code-samples:
         - lang: Curl
           source: |-
-            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products?query=CalculatorAPIProduct"
+            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products?query=PizzaAPIProduct"
       summary: |
         Retrieve/Search API Products
       description: |
@@ -5206,9 +4601,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -5257,14 +4649,8 @@ paths:
                 Entity Tag of the response resource. Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported Media Type.
-            The entity of the request was in a not supported format.
           $ref: '#/responses/UnsupportedMediaType'
 
   /api-products/{apiProductId}:
@@ -5291,20 +4677,10 @@ paths:
             OK.
             Resource successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -5353,14 +4729,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -5374,10 +4744,10 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33"
-      summary: Update an API product
+      summary: Update an API Product
       description: |
         This operation can be used to update an existing API product.
-        But the properties `name`, `provider`
+        But the properties `name`, `provider` and `version` cannot be changed.
       parameters:
         - $ref: '#/parameters/apiProductId'
         - in: body
@@ -5416,25 +4786,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   /api-products/{apiProductId}/thumbnail:
@@ -5449,7 +4806,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/thumbnail" > image.jpeg
-      summary: Get API Product Thumbnail Image
+      summary: Get Thumbnail Image
       description: |
         This operation can be used to download a thumbnail image of an API product.
       parameters:
@@ -5483,14 +4840,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
@@ -5546,20 +4897,12 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
+          
   ################################################################
   # The swagger resource of "Individual API" resource APIs
   ################################################################
@@ -5576,7 +4919,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/swagger"
-      summary: Get Swagger Definition of API Product
+      summary: Get Swagger Definition
       description: |
         This operation can be used to retrieve the swagger definition of an API.
       parameters:
@@ -5609,14 +4952,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
   ###########################################################
@@ -5631,13 +4968,9 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-code-samples:
-        - lang: Curl
-          source: |-
-            curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/is-outdated"
       summary: Check Whether API Product is Outdated
       description: |
-        This operation can be used to retrieve the status indicating if an API Product is outdated due to updating of dependent APIs
+        This operation can be used to retrieve the status indicating if an API Product is outdated due to updating of dependent APIs (This resource is not supported at the moment)
       parameters:
         - $ref: '#/parameters/apiProductId'
         - $ref: '#/parameters/Accept'
@@ -5670,16 +5003,9 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
-
 
   ######################################################
   # The "Document Collection" resource API Product
@@ -5697,7 +5023,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents"
-      summary: Get a List of API Product Documents
+      summary: Get a List of Documents of an API Product
       description: |
         This operation can be used to retrive a list of documents belonging to an API Product by providing the id of the API Product.
       parameters:
@@ -5729,14 +5055,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API Product does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -5787,14 +5107,9 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Document" resource APIs
@@ -5812,7 +5127,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3"
-      summary: Get a Document of an API
+      summary: Get a Document of an API Product
       description: |
         This operation can be used to retrieve a particular document's metadata associated with an API.
       parameters:
@@ -5849,14 +5164,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #-----------------------------------------------------
@@ -5914,19 +5223,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
     #-----------------------------------------------------
@@ -5955,14 +5255,8 @@ paths:
             OK.
             Resource successfully deleted.
         404:
-          description: |
-            Not Found.
-            Resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ################################################################
@@ -5990,10 +5284,10 @@ paths:
 
         1. **Inline type**:
            The content of the document will be retrieved in `text/plain` content type
+
+           _Sample cURL_ : `curl -k -H "Authorization:Bearer 579f0af4-37be-35c7-81a4-f1f1e9ee7c51" -F inlineContent=@"docs.txt" -X POST "https://localhost:9443/api/am/publisher/v1/apis/995a4972-3178-4b17-a374-756e0e19127c/documents/43c2bcce-60e7-405f-bc36-e39c0c5e189e/content`
         2. **FILE type**:
            The file will be downloaded with the related content type (eg. `application/pdf`)
-
-           _sample cURL_ : curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3/content" > sample.pdf
         3. **URL type**:
             The client will recieve the URL of the document as the Location header with the response with - `303 See Other`
       parameters:
@@ -6037,14 +5331,8 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested Document does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
 
     #----------------------------------------------------------------------------
@@ -6060,7 +5348,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: multipart/form-data" -F file=@sample.pdf "https://127.0.0.1:9443/api/am/publisher/v1/api-products/5bca47e1-8233-46a5-9295-525dca337f33/documents/83312daf-0d8a-427b-8f72-12755b7901d3/content"
-      summary: Upload Content to an API Product Document
+      summary: Upload the Content of an API Product Document
       description: |
         Thid operation can be used to upload a file or add inline content to an API Product document.
 
@@ -6111,19 +5399,10 @@ paths:
                 Used by caches, or in conditional requests (Will be supported in future).
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
           $ref: '#/responses/PreconditionFailed'
 
   ######################################################
@@ -6144,9 +5423,9 @@ paths:
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"
       operationId: validateSystemRole
       summary:
-        Check Whether Given Role Name already Exists
+        Check Whether Given Role Name already Exist
       description: |
-        Using this operation, user can check whether a given role name exists or not.
+        Using this operation, user can check a given role name exists or not.
       parameters:
         - $ref : '#/parameters/roleId'
       tags:
@@ -6157,9 +5436,7 @@ paths:
             OK.
             Requested role name exists.
         404:
-          description:
-            Not Found.
-            Requested role name does not exist.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # Check role existence for the logged-in user
@@ -6178,7 +5455,7 @@ paths:
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/me/roles/SW50ZXJuYWwvcHVibGlzaGVyCQ"
       operationId: validateUserRole
       summary:
-        Check Whether the Logged-in User has the Given Role
+        Validate Whether the Logged-in User has the Given Role
       description: |
         Using this operation, logged-in user can check whether he has given role.
       parameters:
@@ -6191,9 +5468,7 @@ paths:
             OK.
             Requested user has the role.
         404:
-          description:
-            Not Found.
-            Requested user does not have the role.
+          $ref: '#/responses/NotFound'
 
   ######################################################
   # The External Store list to publish an API
@@ -6207,13 +5482,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/external-stores/external_stores.yaml#/getAllExternalStores
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/external-stores"
-      summary: Retrieve List of External Stores
+      summary: Retrieve External Stores List to Publish an API
       tags:
         - External Stores
       description: |
@@ -6226,7 +5499,6 @@ paths:
           schema:
             $ref: '#/definitions/ExternalStore'
         500:
-          description: Error retrieving external stores
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -6237,7 +5509,7 @@ paths:
     # Retrieve publisher settings
     #-----------------------------------------------------
     get:
-      summary: Retreive publisher settings
+      summary: Retreive Publisher Settings
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6246,7 +5518,7 @@ paths:
         - OAuth2Security:
             - apim:publisher_settings
       description: |
-        Retreive Publisher Settings
+        Retreive publisher settings
       tags:
         - Settings
       responses:
@@ -6257,9 +5529,6 @@ paths:
           schema:
             $ref: '#/definitions/Settings'
         404:
-          description: |
-            Not Found.
-            Requested Settings does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -6307,9 +5576,6 @@ paths:
             Not Modified.
             Empty body because the client has already the latest version of the requested resource (Will be supported in future).
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
           $ref: '#/responses/NotFound'
 
   ######################################################
@@ -6323,8 +5589,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/tenants/tenants.yaml
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6365,15 +5629,10 @@ paths:
           schema:
             $ref: '#/definitions/TenantList'
         404:
-          description: |
-            Not Found.
-            Requested application does not exist.
           $ref: '#/responses/NotFound'
         406:
-          description: |
-            Not Acceptable.
-            The requested media type is not supported
           $ref: '#/responses/NotAcceptable'
+
   ####################################################
   # Publisher Alerts management REST API
   ####################################################
@@ -6385,15 +5644,13 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts.yaml#/get
-      operationId: getPublisherAlertTypes
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/alert-types"
+      operationId: getPublisherAlertTypes
       summary: |
-        Get the List of API Publisher Alert Types
+        Get the list of API Publisher alert types.
       description: |
         This operation is used to get the list of supportd alert types for the 'publisher' agent.
       tags:
@@ -6411,9 +5668,6 @@ paths:
           schema:
             $ref: '#/definitions/AlertTypesList'
         500:
-          description: |
-            Internal Server Error.
-            An internal server error occurred while retrieving the alert types.
           $ref: '#/responses/InternalServerError'
 
   '/alert-subscriptions':
@@ -6424,8 +5678,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6450,9 +5702,6 @@ paths:
           schema:
             $ref: '#/definitions/AlertsInfo'
         500:
-          description: |
-            Internal Server Error
-            An error occurred while retrieving subscribed alert types by user.
           $ref: '#/responses/InternalServerError'
 
     #--------------------------------------------------
@@ -6462,14 +5711,12 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/put
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/alert-subscriptions"
       summary: |
-        Subscribe to the Selected Alert Types
+        Subscribe to the Selected Tlert types by the User
       operationId: subscribeToAlerts
       description: |
         This operation is used to get the list of subscribed alert types by the user.
@@ -6496,14 +5743,10 @@ paths:
           schema:
             $ref: '#/definitions/AlertsInfoResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid Request or request validation failure.
+          $ref: '#/responses/BadRequest'
         500:
-          description: |
-            Internal Server Error
-            An internal server error occurred while subscribing to alerts.
           $ref: '#/responses/InternalServerError'
+
     #--------------------------------------------------
     # Unsubscribe the user from all the alerts types
     #--------------------------------------------------
@@ -6511,8 +5754,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_subscriptions.yaml#/delete
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6535,8 +5776,6 @@ paths:
                 The content type of the body.
               type: string
         500:
-          description: |
-            Internal Server Error
           $ref: '#/responses/InternalServerError'
 
   ##################################################
@@ -6550,8 +5789,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/get
       x-code-samples:
         - lang: Curl
           source: |-
@@ -6578,9 +5815,6 @@ paths:
           schema:
             $ref: '#/definitions/AlertConfigList'
         500:
-          description: |
-            Internal Server Error
-            An error occurred while retrieving subscribed alert types by user.
           $ref: '#/responses/InternalServerError'
 
   '/alerts/{alertType}/configurations/{configurationId}':
@@ -6591,8 +5825,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/put
       summary: |
         Add AbnormalRequestsPerMin Alert Configurations.
       operationId: addAlertConfig
@@ -6624,14 +5856,8 @@ paths:
           schema:
             $ref: '#/definitions/AlertConfig'
         400:
-          description: |
-            Bad Request
-            The request parameters validation failed.
           $ref: '#/responses/BadRequest'
         500:
-          description: |
-            Internal Server Error
-            An error occurred while retrieving subscribed alert types by user.
           $ref: '#/responses/InternalServerError'
 
     #----------------------------------------------
@@ -6641,10 +5867,8 @@ paths:
       security:
         - OAuth2Security:
             - apim:pub_alert_manage
-      x-examples:
-        $ref: docs/examples/alerts/alerts_config.yaml#/delete
       summary: |
-        Delete the Selected Configuration from AbnormalRequestsPerMin Alert Type
+        Delete the Selected Configuration from AbnormalRequestsPerMin Alert Type.
       operationId: deleteAlertConfig
       description: |
         This operation is used to delete configuration from the AbnormalRequestsPerMin alert type.
@@ -6659,19 +5883,10 @@ paths:
             OK.
             The alert config is deleted successfully.
         400:
-          description: |
-            Bad Request
-            The request parameters validation failed.
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The provided alert configuration is not found.
           $ref: '#/responses/NotFound'
         500:
-          description: |
-            Internal Server Error
-            An error occurred while retrieving subscribed alert types by user.
           $ref: '#/responses/InternalServerError'
 
   ######################################################
@@ -6685,14 +5900,12 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      x-examples:
-        $ref: docs/examples/tenants/tenants.yaml
-      summary:
-        Check Whether the Given Tenant already Exists
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/tenants/wso2.com"
+      summary:
+        Check Whether the Given Tenant already Exists
       description: |
         Using this operation, user can check whether a given tenant exists or not.
       operationId: getTenantExistence
@@ -6704,11 +5917,9 @@ paths:
         200:
           description:
             OK.
-            Requested role name exists.
+            Requested tenant exists.
         404:
-          description:
-            Not Found.
-            Requested role name does not exist.
+          $ref: '#/responses/NotFound'
 
   ####################################################
   # The "Label" resource API
@@ -6726,7 +5937,7 @@ paths:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/labels"
-      summary: Get All Registered Labels
+      summary: Get all Registered Labels
       description: |
         Get all registered Labels
       tags:
@@ -6757,7 +5968,7 @@ paths:
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/api-categories"
       summary: Get all API categories
       description: |
-        Get All API Categories
+        Get all API categories
       tags:
         - API Category (Collection)
       responses:
@@ -6806,7 +6017,6 @@ paths:
                 The content type of the body.
               type: string
         500:
-          description: Internal server error while retrieving shared scope list
           $ref: '#/responses/InternalServerError'
 
   #-------------------------------------------------------------
@@ -6816,11 +6026,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:shared_scope_manage
-      summary: Add a New Shared Scope
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X POST -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/scopes"
+      summary: Add a New Shared Scope
       description: |
         This operation can be used to add a new Shared Scope.
       operationId: addSharedScope
@@ -6847,14 +6057,9 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
 ######################################################
 # The "Individual Shared Scope" resource APIs
@@ -6868,11 +6073,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      summary: Get a Shared Scope by Scope Id
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901"
+      summary: Get a Shared Scope by Scope Id
       description: |
         This operation can be used to retrieve details of a Shared Scope by a given scope Id.
       operationId: getSharedScope
@@ -6893,9 +6098,6 @@ paths:
                 The content type of the body.
               type: string
         404:
-          description: |
-            Not Found.
-            Requested Shared Scope does not exist.
           $ref: '#/responses/NotFound'
 
   #-------------------------------------------------------------
@@ -6905,11 +6107,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:shared_scope_manage
-      summary: Update a Shared Scope
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X PUT -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" -H "Content-Type: application/json" -d @data.json "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901"
+      summary: Update a Shared Scope
       description: |
         This operation can be used to update a Shared Scope by a given scope Id.
       operationId: updateSharedScope
@@ -6937,14 +6139,8 @@ paths:
                 The content type of the body.
               type: string
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
           $ref: '#/responses/NotFound'
 
   #-----------------------------------------------------
@@ -6954,11 +6150,11 @@ paths:
       security:
         - OAuth2Security:
             - apim:shared_scope_manage
-      summary: Delete a Shared Scope
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -X DELETE -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901"
+      summary: Delete a Shared Scope
       description: |
         This operation can be used to delete a Shared Scope proving the Id of the scope.
       operationId: deleteSharedScope
@@ -6972,9 +6168,6 @@ paths:
             OK.
             Resource successfully deleted.
         404:
-          description: |
-            Not Found.
-            The resource to be deleted does not exist.
           $ref: '#/responses/NotFound'
 
   #-----------------------------------------------------
@@ -6986,12 +6179,12 @@ paths:
             - apim:api_create
             - apim:api_publish
       operationId: validateScope
-      summary:
-        Check Whether Given Scope Name Already Exists
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -I -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/YXBpbTphcGlfdmlldw"
+      summary:
+        Check Given Scope Name already Exists
       description: |
         Using this operation, user can check a given scope name exists or not.
       parameters:
@@ -7004,9 +6197,7 @@ paths:
             OK.
             Requested scope name exists.
         404:
-          description:
-            Not Found.
-            Requested scope name does not exist.
+          $ref: '#/responses/NotFound'
 
   /scopes/{scopeId}/usage:
 
@@ -7017,13 +6208,13 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_view
-      summary: Get Usages of a Shared Scope by Scope Id
-      description: |
-        This operation can be used to retrieve usages of a Shared Scope by a given scope Id.
       x-code-samples:
         - lang: Curl
           source: |-
             curl -k -H "Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8" "https://127.0.0.1:9443/api/am/publisher/v1/scopes/01234567-0123-0123-0123-012345678901/usage"
+      summary: Get usages of a Shared Scope by Scope Id
+      description: |
+        This operation can be used to retrieve usages of a Shared Scope by a given scope Id.
       operationId: getSharedScopeUsages
       tags:
         - Scopes
@@ -7042,10 +6233,8 @@ paths:
                 The content type of the body.
               type: string
         404:
-          description: |
-            Not Found.
-            Usages for the shared scope does not exist.
           $ref: '#/responses/NotFound'
+
   ######################################################
   # The "KEY MANAGER" resource API
   ######################################################
@@ -7113,18 +6302,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
 ######################################################
@@ -7166,18 +6348,11 @@ paths:
               description: |
                 The content type of the body.
               type: string
-        '400':
-          description: |
-            Bad Request.
-            Invalid request or validation error.
+        400:
           $ref: '#/responses/BadRequest'
-        '404':
-          description: |
-            Not Found.
+        404:
           $ref: '#/responses/NotFound'
-        '500':
-          description: |
-            Internal Server Error
+        500:
           $ref: '#/responses/InternalServerError'
 
 ######################################################
@@ -7419,7 +6594,7 @@ parameters:
     name: scopeId
     in: path
     description: |
-      Base64 URL encoded scope name
+      Scope name
     required: true
     type: string
 
@@ -7540,12 +6715,26 @@ responses:
     description: Unauthorized. The user is not authorized.
     schema:
       $ref: '#/definitions/Error'
-    example:
-      code: 401
-      message: "Unauthorized"
-      description: "The user is not authorized"
-      moreInfo: ""
-      error: []
+    examples:
+      application/json:
+        code: 401
+        message: "Unauthorized"
+        description: "The user is not authorized"
+        moreInfo: ""
+        error: []
+
+  # Forbidden Error Response Schema
+  Forbidden:
+    description: Forbidden. The request must be conditional but no condition has been specified.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 403
+        message: "Forbidden"
+        description: "The request must be conditional but no condition has been specified"
+        moreInfo: ""
+        error: []
 
   # Not Found Error Response Schema
   NotFound:
@@ -8053,7 +7242,6 @@ definitions:
               "endpoint_type": "Registry",
               "endpoint_id": "{registry-name:entry-name:version}",
             }
-
         example:
           {
             "endpoint_type": "http",
@@ -8111,8 +7299,6 @@ definitions:
         items:
           type: string
         example: []
-        x-otherScopes:
-          - apim:api_publish
       keyManagers:
         description: |
           API Key Managers
@@ -8623,6 +7809,7 @@ definitions:
       documentId:
         type: string
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
         example: PizzaShackDoc
@@ -8639,7 +7826,7 @@ definitions:
         example: HOWTO
       summary:
         type: string
-        example: "Summary of PizzaShack API documentation"
+        example: "Summary of PizzaShackAPI Documentation"
       sourceType:
         type: string
         enum:
@@ -8651,15 +7838,18 @@ definitions:
       sourceUrl:
         type: string
         example: ""
+        readOnly: true
       fileName:
         type: string
         example: ""
+        readOnly: true
       inlineContent:
         type: string
         example: "This is doc content. This can have many lines."
       otherTypeName:
         type: string
         example: ""
+        readOnly: true
       visibility:
         type: string
         enum:
@@ -8670,13 +7860,18 @@ definitions:
       createdTime:
         type: string
         example: 2017-02-20T13:57:16.229
+        readOnly: true
       createdBy:
         type: string
+        example: admin
       lastUpdatedTime:
         type: string
         example: 2017-02-20T13:57:16.229
+        readOnly: true
       lastUpdatedBy:
         type: string
+        example: admin
+        readOnly: true
 
   #-----------------------------------------------------
   # The GraphQL Schema resource
@@ -9326,6 +8521,7 @@ definitions:
         description: |
           UUID of the Scope. Valid only for shared scopes.
         example: 01234567-0123-0123-0123-012345678901
+        readOnly: true
       name:
         type: string
         description: |
@@ -9340,7 +8536,7 @@ definitions:
         type: string
         description: |
           description of Scope
-        example: 'This Scope can used to view APIs'
+        example: 'This Scope can used to view Apis'
       bindings:
         description: |
           role bindings list of the Scope
@@ -9353,6 +8549,7 @@ definitions:
         description: |
           usage count of Scope
         example: 3
+        readOnly: true
 
 #-----------------------------------------------------
 # The Shared Scope Usage resource
@@ -10225,6 +9422,7 @@ definitions:
         type: string
         description: |
           UUID of the resource policy registry artifact
+        readOnly: true
         example: 01234567-0123-0123-0123-012345678901
       httpVerb:
         type: string
