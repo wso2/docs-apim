@@ -52,19 +52,16 @@ Follow the instructions below to initialize an API Project with environment vari
         ...
         ```
 
-    Now you can import the Project using `import api` command.
+    Now you can import the Project using `import-api` command.
 
 4. Import the API
 
     ```bash
-    apictl import api -f PetstoreProject -e development
+    apictl import-api -f PetstoreProject -e development
     ```
 
     !!! warning
         If an environment variable is not set, the command will fail and request a set of required environment variables on the system.
-
-    !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
 Once the project is successfully imported, sign-in to the WSO2 API Publisher and check the newly imported API with the same details specified above.
 
@@ -110,14 +107,11 @@ The file supports detecting environment variables during the API import process.
 3.  Import the API Project
 
     ```bash
-    apictl import api -f PetstoreProject --environment development --params PetstoreProject/api_params.yaml --update
+    apictl import-api -f PetstoreProject --environment development --params PetstoreProject/api_params.yaml --update
     ```
 
     !!! warning
         If an environment variable is not set, the command will fail and request a set of required environment variables on the system. 
-
-    !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
 
 Once the project is successfully imported, sign-in to the WSO2 API Publisher and check the Endpoints section of the imported API. The URLs specified as environment variables will appear there.
 
@@ -177,24 +171,18 @@ For example, consider we need to send a special header to the backend when calli
 4. Import the API Project
 
     ```bash
-    apictl import api -f PetstoreProject --environment development --params PetstoreProject/api_params.yaml --update
+    apictl import-api -f PetstoreProject --environment development --params PetstoreProject/api_params.yaml --update
     ```
 
-    !!!note
-        `apictl import-api` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl import api` as shown above.
-        
 5. Generate a token and invoke the API
 
     ```bash
-    $ apictl get keys -e dev -n Petstore -v 1.0.0 -r admin
+    $ apictl get-keys -e dev -n Petstore -v 1.0.0 -r admin
     eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg
 
     $ curl -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUz....RWrACAUNSFBpxz1lRLqFlDiaVJAg" https://localhost:8243/petstore/1.0.0/pet/1 -k
     {"id":1,"category":{"id":1001,"name":"Animal"},"name":"doggie","photoUrls":["img/test/dog.jpeg","img/test/dog1.jpeg"],"tags":[{"id":2001,"name":"Pet"},{"id":2002,"name":"Animal"}],"status":"available"}
     ```
-
-    !!!note
-        `apictl get-keys` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get keys` as shown above.
 
 Upon successful invocation, the header `X-ENV-KEY: dev_101` will be sent to the backend of the API. The below log will be printed in the API gateway's terminal.
 

@@ -4,7 +4,7 @@ The prototype implementation in WSO2 API Manager gives users the ability to prot
 
 Let's create a prototyped API with mock response payloads, deploy it as a prototype, and invoke it using the API Console, which is integrated into the Developer Portal.
 
-For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/v3/openapi.json`
+For this let's use the following OpenAPI URL: `https://petstore.swagger.io/v2/swagger.json`
 
 ## Step 1 - Create a prototype API with mock response payloads
 
@@ -20,7 +20,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
      [![Filled create api form]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)]({{base_path}}/assets/img/learn/create-api-form-swagger-petstore-filled.png)
          
-      Now you will be directed to the API overview page.
+      You are directed to the API overview page.
 
 4. Click **Endpoints** to navigate to the Endpoints page.
 
@@ -39,20 +39,20 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
      The example response defined in the OpenAPI definition is set as the mock response payload. You can modify the generated inline scripts as required. 
 
       ``` 
-      responses[200]["application/json"] = {              // Mock response payload stored as a variable
-        "id" : 10,
-        "name" : "doggie",
+      var response200json = [ {                             // Mock response payload stored as a variable
+        "id" : 0,
         "category" : {
-          "id" : 1,
-          "name" : "Dogs"
+          "id" : 0,
+          "name" : "string"
         },
+        "name" : "string",
         "photoUrls" : [ "string" ],
         "tags" : [ {
           "id" : 0,
           "name" : "string"
         } ],
         "status" : "available"
-      };                                                 
+      } ]                                                 
       
       mc.setProperty('CONTENT_TYPE', 'application/json');  // Set the content type of the payload to the message context 
       mc.setPayloadJSON(response200json);                  // Set the new payload to the message context
@@ -74,32 +74,32 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
       ```
       // **GENERATED CODE** //
       
-      responses[200]["application/json"] = {                 // Mock response payload stored as a variable
-        "id" : 10,
-        "name" : "doggie",
+      var response200json = [ {                            // Mock response payload stored as a variable
+        "id" : 0,
         "category" : {
-          "id" : 1,
-          "name" : "Dogs"
+          "id" : 0,
+          "name" : "string"
         },
+        "name" : "string",
         "photoUrls" : [ "string" ],
         "tags" : [ {
           "id" : 0,
           "name" : "string"
         } ],
         "status" : "available"
-      };                                                
+      } ]                                                 
       
       // **MANUALLY ADDED CODE** //
       
       if (mc.getProperty('uri.var.petId') == 1) {          // Get the path parameter 'petID' to check the condition
-        responses[200]["application/json"] = {
+        response200json = {
           "id" : 1,
           "category" : {
             "id" : 1,
             "name" : "Dog"
           },
           "name" : "doggie",
-          "photoUrls" : [ "https://www.google.com/search?q=pet+images&client=ubuntu&hs=NYm&channel=fs&tbm=isch&source=iu&ictx=1&fir=ZgS81JuMKfVpqM%252CF26KAcU9PVtkCM%252C_&vet=1&usg=AI4_-kQjTnWk4IVhQbkQmoFJ6zFxD1IynA&sa=X&ved=2ahUKEwjt7e2Rj9fsAhUg6XMBHTZBCuIQ9QF6BAgCEFc#imgrc=ZgS81JuMKfVpqM" ],
+          "photoUrls" : [ "string" ],
           "tags" : [ {
             "id" : 1,
             "name" : "German Sheperd"
@@ -158,8 +158,7 @@ For this let's use the following OpenAPI URL: `https://petstore3.swagger.io/api/
 
 4. Enter the value for the parameter and click **Execute** to invoke the API.
 
-    !!! note 
-        The payload that you gave as a JSON/XML output appears in the response for each respective parameter provided.
+     Note that the payload that you gave as a JSON/XML output appears in the response for each respective parameter provided.
 
     1. For `petId : " 0 " `
 

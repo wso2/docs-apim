@@ -116,17 +116,14 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 
      2. Add the following Key Manager configurations.
 
-           [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
-
-        !!! note "Auto-filling Key Manager configurations"
-            The Key Manager configurations can be auto-filled by clicking the **Import** button after providing the well-known endpoint of Okta. The well-known-URL is the **Metadata URI**, under **Settings** section.
+         [![Okta Configuration]({{base_path}}/assets/img/administer/okta-admin-configuration.png)]({{base_path}}/assets/img/administer/okta-admin-configuration.png)
 
          The following table provides definitions for each of the Key Manager configurations.
 
           <table>
           <tr class="header">
-          <th><b>Configuration</b></th>
-          <th><b>Description</b></th>
+          <th>Configuration</th>
+          <th>Description</th>
           <th> </th>
           </tr>
         
@@ -155,13 +152,13 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td><p>The well-known URL of the Authorization Server (Key Manager).
           <br/>
           If the well-known URL is provided, other endpoints can be imported. 
-          <br/> Example:</br> https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p>
+          <br/> e.g., https://dev-599740.okta.com/oauth2/default/.well-known/oauth-authorization-server</p>
           </td>
           <td>Optional</td>
           </tr>
           <tr class="even">
           <td>Issuer</td>
-          <td>The issuer that consumes or validates access tokens. <br/>Example:</br> https://dev-599740.okta.com/oauth2/default</td>
+          <td>The issuer that consumes or validates access tokens. <br/>e.g., https://dev-599740.okta.com/oauth2/default</td>
           <td>Optional</td>
           </tr>
           <tr class="odd">
@@ -231,12 +228,12 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           </tr>
           <tr class="even">
           <td>Consumer Key Claim URI</td>
-          <td>The claim URI for consumer key </br>Example:</br> cid</td>
+          <td>The claim URI for consumer key e.g., cid</td>
           <td>Mandatory</td>
           </tr>
           <tr class="odd">
           <td>Scopes Claim URI</td>
-          <td>The claim URI for scopes </br>Example:</br> scp</td>
+          <td>The claim URI for scopes e.g., scp</td>
           <td>Mandatory</td>
           </tr>
           <tr class="even">
@@ -259,7 +256,7 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td>The JSON Web Key Set (JWKS) endpoint is a read-only endpoint. This URL returns the Okta's public key set in JSON web key set format.
           This contains the signing key(s) the Relying Party (RP) uses to validate signatures from the Okta.
           </br>
-          Example:</br> https://dev-599740.okta.com/oauth2/default/v1/keys
+          e.g., https://dev-599740.okta.com/oauth2/default/v1/keys
           </td>
           <td>Optional</td>
           </tr>
@@ -299,8 +296,8 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
           <td>The JWKS endpoint is used to validate the JWT token signature.
           If this option is used to validate the tokens it is mandatory to add a Token Handling Option
                For Okta it should be <b>JWT</b> and it is required to specify a claim mapping as a unique identifier.
-          </br>Example:</br> Claim Key : iss</br> 
-          Claim Value : https://dev-599740.okta.com/oauth2/default
+          </b>e.g., Claim Key : iss
+          </b>Claim Value : https://dev-599740.okta.com/oauth2/default
           </td>
           <td>Optional</td>
           </tr>
@@ -344,11 +341,12 @@ Follow the instructions below to configure Okta as a third-party Key Manager:
 3. Create a new application or use the default application.
 4. Click **Sandbox Keys**.
 
-     [![Okta Developer Portal generate keys]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)
+     ![Okta Developer Portal generate keys]({{base_path}}/assets/img/administer/okta-devportal-generate-keys.png)
 
 5. Select the **Response Type**.
 
 6. Click **Generate Keys**.
 
-    !!! tip
-        If you want to generate the tokens with scopes, those scopes should have been defined in Okta as mentioned in the <a href="#step12c">Step 1 - (2) c</a>.
+!!! tip
+     If you want to generate the tokens with scopes, those scopes should have been defined in Okta as mentioned in the <a href="#step12c">Step 1 - (2) c</a>.
+

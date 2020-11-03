@@ -80,9 +80,6 @@ Follow the instructions below to set up and configure the databases for the WSO2
     
      You need to define the following configuration in the `<IS_HOME>/repository/conf/deployment.toml` file. Sample configurations for MySQL have been provided.
 
-    !!! note
-        **If you are using Identity Server in an HA setup and not using multi-tenancy**, create an identity database and share the `[database.identity_db]` db between the two IS nodes.
-
     ``` tab="Format"
      [database.identity_db]
      type = "mysql"

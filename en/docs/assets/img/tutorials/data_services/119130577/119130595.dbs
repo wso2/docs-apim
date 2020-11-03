@@ -1,0 +1,62 @@
+<data enableBatchRequests="true" name="RDBMSDataService" serviceGroup="" serviceNamespace="">
+    <description/>
+    <query id="GetEmployeeDetails" useConfig="Datasource">
+        <sql>select EmployeeNumber, FirstName, LastName, Email, Salary from Employees where EmployeeNumber=:EmployeeNumber</sql>
+        <param name="EmployeeNumber" paramType="SCALAR" sqlType="STRING"/>
+        <result element="Employees" rowName="Employee">
+            <element column="EmployeeNumber" name="EmployeeNumber" xsdType="xs:string"/>
+            <element column="FirstName" name="FirstName" xsdType="xs:string"/>
+            <element column="LastName" name="LastName" xsdType="xs:string"/>
+            <element column="Email" name="Email" xsdType="xs:string"/>
+            <element column="Salary" name="Salary" xsdType="xs:string"/>
+        </result>
+    </query>
+    <config id="Datasource">
+        <property name="org.wso2.ws.dataservice.user">root</property>
+        <property name="org.wso2.ws.dataservice.password"/>
+        <property name="org.wso2.ws.dataservice.protocol">jdbc:mysql://localhost:3306/Employees</property>
+        <property name="org.wso2.ws.dataservice.driver">com.mysql.jdbc.Driver</property>
+        <property name="org.wso2.ws.dataservice.minpoolsize"/>
+        <property name="org.wso2.ws.dataservice.maxpoolsize"/>
+        <property name="org.wso2.ws.dataservice.validation_query"/>
+    </config>
+    <query id="AddEmployeeDetails" useConfig="Datasource">
+        <sql>insert into Employees (EmployeeNumber, FirstName, LastName, Email, Salary) values(:EmployeeNumber,:FirstName,:LastName,:Email,:Salary)</sql>
+        <param name="EmployeeNumber" paramType="SCALAR" sqlType="STRING"/>
+        <param name="FirstName" paramType="SCALAR" sqlType="STRING"/>
+        <param name="LastName" paramType="SCALAR" sqlType="STRING"/>
+        <param name="Email" paramType="SCALAR" sqlType="STRING"/>
+        <param name="Salary" paramType="SCALAR" sqlType="STRING"/>
+    </query>
+    <query id="UpdateEmployeeDetails" useConfig="Datasource">
+        <param name="EmployeeNumber" paramType="SCALAR" sqlType="STRING"/>
+        <sql>update Employees set FirstName=:FirstName, LastName=:LastName, Email=:Email, Salary=:Salary where EmployeeNumber=:EmployeeNumber</sql>
+        <param name="FirstName" paramType="SCALAR" sqlType="STRING"/>
+        <param name="LastName" paramType="SCALAR" sqlType="STRING"/>
+        <param name="Email" paramType="SCALAR" sqlType="STRING"/>
+        <param name="Salary" paramType="SCALAR" sqlType="STRING"/>
+    </query>
+    <resource method="GET" path="Employee/{EmployeeNumber}">
+        <call-query href="GetEmployeeDetails">
+            <with-param name="EmployeeNumber" query-param="EmployeeNumber"/>
+        </call-query>
+    </resource>
+    <resource method="POST" path="Employee">
+        <call-query href="AddEmployeeDetails">
+            <with-param name="EmployeeNumber" query-param="EmployeeNumber"/>
+            <with-param name="FirstName" query-param="FirstName"/>
+            <with-param name="LastName" query-param="LastName"/>
+            <with-param name="Email" query-param="Email"/>
+            <with-param name="Salary" query-param="Salary"/>
+        </call-query>
+    </resource>
+    <resource method="PUT" path="Employee">
+        <call-query href="UpdateEmployeeDetails">
+            <with-param name="EmployeeNumber" query-param="EmployeeNumber"/>
+            <with-param name="FirstName" query-param="FirstName"/>
+            <with-param name="LastName" query-param="LastName"/>
+            <with-param name="Email" query-param="Email"/>
+            <with-param name="Salary" query-param="Salary"/>
+        </call-query>
+    </resource>
+</data>

@@ -65,84 +65,31 @@ Run the following CTL command to check the version of the CTL.
     Build Date: 2020-06-12 13:22:12 UTC
     ```
 
-!!!note
-    **Set mode of the CTL**
+## Set mode of the CTL
 
-    From the API Controller 4.0.0 onwards the flag (--mode) which was used to set the mode of the CTL has been deprecated. Now, you do not need to set the mode of the CTL, because if you want to execute Kubernetes based commads, you just need to add the `k8s` keyword after `apictl` keyword. (Example: `apictl k8s add api`). By default the API Controller will execute the commands in the `default` mode (which means if you did not use `k8s` keyword).
+Run the following CTL command to set the mode of the CTL. The allowed modes are `default` and `kubernetes`.
+    
+-   **Command**
 
-    You can still use the `mode` flag as explained below if you need, but it will be removed in future.
-        
-    -   **Command**
+    ```go
+    apictl set mode <mode>
+    ```
 
-        ```go
-        apictl set --mode <mode>
+    !!! example
+
+        ``` go
+        apictl set mode default
         ```
-
-        !!! example
-
-            ``` go
-            apictl set --mode default
-            ```
-            ``` go
-            apictl set --mode kubernetes
-            ```
-
-         The allowed modes are `default` and `kubernetes`. 
-
-## Set proxy environment variables for CTL
-
-You can set proxy related `HTTP_PROXY`, `HTTPS_PROXY`, `http_proxy`, and `https_proxy` standard environment variables, with or without basic authentication as shown below to send the requests initiated from CTL via a proxy server. After one of the following environment variables is set in your environment where CTL is used, all the requests will go through the proxy server specified.
-
--   **Formats**
-
-    ``` bash tab="Without Basic Authentication"
-    export HTTP_PROXY="http://<host-name>:<port>"
-
-    export HTTPS_PROXY="https://<host-name>:<port>"
-
-    export http_proxy="http://<host-name>:<port>"
-
-    export https_proxy="https://<host-name>:<port>"
-    ```
-
-    ``` bash tab="With Basic Authentication"
-    export HTTP_PROXY="http://<username>:<password>@<host-name>:<port>"
-
-    export HTTPS_PROXY="https://<username>:<password>@<host-name>:<port>"
-
-    export http_proxy="http://<username>:<password>@<host-name>:<port>"
-
-    export https_proxy="https://<username>:<password>@<host-name>:<port>"
-    ```
-
--   **Examples**
-
-    ``` bash tab="Without Basic Authentication"
-    export HTTP_PROXY="http://localhost:3128"
-
-    export HTTPS_PROXY="https://localhost:3128"
-
-    export http_proxy="http://localhost:3128"
-
-    export https_proxy="https://localhost:3128"
-    ```
-
-    ``` bash tab="With Basic Authentication"
-    export HTTP_PROXY="http://testuser:password@localhost:3128"
-
-    export HTTPS_PROXY="https://testuser:password@localhost:3128"
-
-    export http_proxy="http://testuser:password@localhost:3128"
-
-    export https_proxy="https://testuser:password@localhost:3128"
-    ```
+        ``` go
+        apictl set mode kubernetes
+        ```
 
 ## Add an environment
         
 You can add environments by either manually editing the `<USER_HOME>/.wso2apictl/main_config.yaml` file or by running the following CTL command.
 
 ``` go
-apictl add env <environment-name>
+apictl add-env
 ```
 
 1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.     
@@ -152,56 +99,60 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     -   **Command**
 
         ``` bash tab="Linux/Unix"
-        apictl add env <environment-name> \
-                       --registration <client-registration-endpoint> \
-                       --apim <API-Manager-endpoint> \
-                       --token <token-endpoint> \
-                       --admin <admin-REST-API-endpoint> \
-                       --publisher <Publisher-endpoint> \
-                       --devportal <developer-portal-endpoint>
+        apictl add-env -e <environment-name> \
+                        --registration <client-registration-endpoint> \
+                        --apim <API-Manager-endpoint> \
+                        --token <token-endpoint> \
+                        --admin <admin-REST-API-endpoint> \
+                        --publisher <Publisher-endpoint> \
+                        --devportal <DevPortal-endpoint>
         ```
 
         ``` bash tab="Mac/Windows"
-        apictl add env <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <developer-portal-endpoint>
+        apictl add-env -e <environment-name> --registration <client-registration-endpoint> --apim <API-Manager-endpoint> --token <token-endpoint> --admin <admin-REST-API-endpoint> --publisher <Publisher-endpoint> --devportal <DevPortal-endpoint>
         ```
 
         !!! info
             **Flags:**  
             
-            -    Required :     
-                (either)     
-                `--apim` : API Manager endpoint for the environments     
-                OR (the following 4)     
-                `--registration` : Registration endpoint for the environment     
-                `--admin` : Admin endpoint for the environment     
-                `--publisher` : Publisher endpoint for the environment     
-                `--devportal` : Developer Portal endpoint for the environment 
-            -   Optional :     
+            -    Required :  
+
+                `--environment` or `-e` : Name of the environment to be added   
+                AND (either)
+                `--apim` : API Manager endpoint for the environments
+                OR (the following 4)
+                `--registration` : Registration endpoint for the environment 
+                `--admin` : Admin endpoint for the environment  
+                `--publisher` : Publisher endpoint for the environment  
+                `--devportal` : DevPortal endpoint for the environment 
+            -   Optional :
+
                 `--token` : Token endpoint for the environment
             
         !!! tip
             When adding an environment, when the optional flags are not given, CTL will automatically derive those from `--apim` flag value.
 
         !!! note
+            The `--environment (-e)` flag is mandatory.
             You can either provide only the flag `--apim` , or all the other 4 flags (`--registration`, `--publisher`, `--devportal`, `--admin`) without providing `--apim` flag.
             If you are omitting any of `--registration`, `--publisher`, `--devportal`, `--admin` flags, you need to specify `--apim` flag with the API Manager endpoint.
-            In both of the above cases `--token`  flag is optional and can be used to provide a user preferred token endpoint.
+            In both of the above cases `--token`  flag is optional and can be used to provide an user preferred token endpoint.
 
         !!! example
 
             ``` bash tab="Linux/Unix"
-            apictl add env dev \
+            apictl add-env -e dev \
                         --apim https://localhost:9443 
             ``` 
 
             ``` bash tab="Mac/Windows"
-            apictl add env dev --apim https://localhost:9443 
+            apictl add-env -e dev --apim https://localhost:9443 
             ```               
 
         !!! example
 
             ``` bash tab="Linux/Unix"
-            apictl add env production \
+            apictl add-env -e production \
                         --registration https://idp.com:9444 \
                         --admin https://apim.com:9444 \
                         --publisher https://apim.com:9444 \
@@ -210,24 +161,21 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
+            apictl add-env -e production --registration https://idp.com:9444  --admin https://apim.com:9444 --publisher https://apim.com:9444 --devportal https://apps.com:9444 --token https://gw.com:8244/token
             ```  
     
         !!! example
 
             ``` bash tab="Linux/Unix"
-            apictl add env production \
+            apictl add-env -e production \
                         --registration https://idp.com:9444 \
                         --apim https://apim.com:9444 \
                         --token https://gw.com:8244/token
             ```
 
             ``` bash tab="Mac/Windows"
-            apictl add env production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
+            apictl add-env -e production --registration https://idp.com:9444 --apim https://apim.com:9444 --token https://gw.com:8244/token
             ```  
-        
-        !!!note
-            `apictl add-env` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl add env` as shown above. 
 
     -   **Response**
     
@@ -260,15 +208,15 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
 
         ``` bash tab="Response Format"
         Successfully removed environment '<environment-name>'
-        Execute 'apictl add env --help' to see how to add a new environment
+        Execute 'apictl add-env --help' to see how to add a new environment
         ```
 
         ``` bash tab="Example Response"
         Successfully removed environment 'production'
-        Execute 'apictl add env --help' to see how to add a new environment
+        Execute 'apictl add-env --help' to see how to add a new environment
         ```
 
-## Get environments
+## List environments
 
 1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.    
 For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
@@ -277,7 +225,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
     -   **Command**
 
         ```bash
-        apictl get envs
+        apictl list envs
         ``` 
 
         !!! info
@@ -299,9 +247,6 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         production   https://localhost:9444   https://localhost:9444   https://localhost:8244/token    https://localhost:9444   https://localhost:9444   https://localhost:9444
 
         ```
-
-        !!!note
-            `apictl list envs` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get envs` as shown above. 
 
 ## Login to an environment
 
@@ -382,33 +327,26 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             ```go
             apictl logout dev
             ```
-            
-## Add APIs/API Products/Applications in an environment
 
-You can add APIs/API Products/Applications via the Publisher Portal and Developer Portal.
-However, **apictl** allows you to create and deploy APIs without using the Publisher Portal. For more information on adding APIs, see [Importing APIs Via Dev First Approach]({{base_path}}/learn/api-controller/importing-apis-via-dev-first-approach).
-
-## Get APIs/API Products/Applications in an environment
-
+## List APIs/API Products/Applications in an environment
 Follow the instructions below to display a list of APIs/API Products/Applications in an environment using CTL:
 
 1.  Make sure that the WSO2 API Manager 3.2.0 version is started and that the 3.2.0 version of APTCTL is running.   
-     For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
-
+For more information, see [Download and Initialize the CTL Tool](#download-and-initialize-the-ctl-tool).
 2.  Log in to the API Manager in the environment by following the instructions in [Login to an Environment](#login-to-an-environment).
-3.  Run the corresponding CTL command below to get (list) APIs/API Products/Applications in an environment.
+3.  Run the corresponding CTL command below to list APIs/API Products/Applications in an environment.
 
-    1. Get APIs in an environment.
+    1. List APIs in an environment.
 
         -   **Command**
             ``` bash
-            apictl get apis -e <environment> -k
+            apictl list apis -e <environment> -k
             ```
             ``` bash
-            apictl get apis --environment <environment> --insecure
+            apictl list apis --environment <environment> --insecure
             ```
             ``` bash
-            apictl get apis --environment <environment> --query <API search query> --insecure
+            apictl list apis --environment <environment> --query <API search query> --insecure
             ```
 
             !!! info
@@ -423,13 +361,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get apis -e dev -k
+                apictl list apis -e dev -k
                 ```
                 ```bash
-                apictl get apis --environment production --limit 15 --insecure
+                apictl list apis --environment production --limit 15 --insecure
                 ```    
                 ```go
-                apictl get apis --environment production --query provider:Alice name:PizzaShackAPI --insecure
+                apictl list apis --environment production --query provider:Alice name:PizzaShackAPI --insecure
                 ```  
 
         -   **Response**
@@ -441,11 +379,11 @@ Follow the instructions below to display a list of APIs/API Products/Application
             ```
             
             !!! tip 
-                When using the `apictl get apis -e dev` command, `-q` or `--query` optional flag can be used to 
+                When using the `apictl list apis -e dev` command, `-q` or `--query` optional flag can be used to 
                 search for APIs.
                 You can search in attributes by using a `:` modifier. Supported attribute modifiers are **name**, 
                 **version**, **provider**, **context**, **status**, **description**, **subcontext**, **doc** and 
-                **label**.  You can also use combined modifiers.  
+                **label**.  Also you can use combined modifiers.  
                 **Example:**
                    
                 -  `provider:wso2` will match an API if the provider of the API contains `wso2`.
@@ -457,20 +395,17 @@ Follow the instructions below to display a list of APIs/API Products/Application
                 If no advanced attribute modifier has been specified, the API names containing the search term will 
                 be returned as a result.
 
-            !!!note
-                `apictl list apis` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get apis` as shown above. 
-
-    2. Get API Products in an environment.
+    2. List API Products in an environment.
     
         -   **Command**
             ``` bash
-            apictl get api-products -e <environment> -k
+            apictl list api-products -e <environment> -k
             ```
             ``` bash
-            apictl get api-products --environment <environment> --insecure
+            apictl list api-products --environment <environment> --insecure
             ```
             ``` bash
-            apictl get api-products --environment <environment> --query <API search query> --insecure
+            apictl list api-products --environment <environment> --query <API search query> --insecure
             ```
 
             !!! info
@@ -484,13 +419,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get api-products -e dev -k
+                apictl list api-products -e dev -k
                 ```
                 ```bash
-                apictl get api-products --environment production --insecure
+                apictl list api-products --environment production --insecure
                 ```    
                 ```go
-                apictl get api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
+                apictl list api-products --environment production --query provider:Alice name:PizzaShackAPI --limit 25 --insecure
                 ```  
 
         -   **Response**
@@ -500,21 +435,18 @@ Follow the instructions below to display a list of APIs/API Products/Application
             b39e08d7-caa9-40d0-a430-b8e840dd7c31   LeasingAPIProduct   /leasingapiproduct   PUBLISHED           admin
             ab422af2-b19e-4e6a-a34b-8f45c50db0d5   CreditAPIProduct    /creditapiproduct    PUBLISHED           Alice
             ```
-
-            !!!note
-                `apictl list api-products` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get api-products` as shown above.
-
-    3. Get Applications in an environment.
+    
+    3. List Applications in an environment.
 
         -   **Command**
             ``` bash
-            apictl get apps -e <environment> -k
+            apictl list apps -e <environment> -k
             ```
             ``` bash
-            apictl get apps --environment <environment> --insecure
+            apictl list apps --environment <environment> --insecure
             ```
             ``` bash
-            apictl get apps --environment <environment> --owner <application owner> --insecure
+            apictl list apps --environment <environment> --owner <application owner> --insecure
             ```
 
             !!! info
@@ -528,13 +460,13 @@ Follow the instructions below to display a list of APIs/API Products/Application
 
             !!! example
                 ```bash
-                apictl get apps -e dev -k
+                apictl list apps -e dev -k
                 ```
                 ```bash
-                apictl get apps --environment production --insecure
+                apictl list apps --environment production --insecure
                 ```    
                 ```go
-                apictl get apps --environment production --owner sampleUser --limit 15 --insecure
+                apictl list apps --environment production --owner sampleUser --limit 15 --insecure
                 ```  
 
         -   **Response**
@@ -546,13 +478,10 @@ Follow the instructions below to display a list of APIs/API Products/Application
             ```
 
             !!! tip 
-                When using the `apictl get apps -e dev` command, you can either specify `-o` (`--owner`) flag or not.
+                When using the `apictl list apps -e dev` command, you can either specify `-o` (`--owner`) flag or not.
 
                 - When someone has invoked the command **without specifying the owner flag**, it will list all the applications in that environment which belongs to the tenant that the currently logged in user belongs.
                 - When someone has invoked the command **by specifying the owner flag**, it will list all the applications belongs to that particular owner in that environment.
-
-            !!!note
-                `apictl list apps` command has been depcrecated from the API Controller 4.0.0 onwards. Instead use `apictl get apps` as shown above. 
         
 ## Delete an API/API Product/Application in an environment
 Follow the instructions below to delete an API/API Product/Application in an environment using CTL:
@@ -620,7 +549,7 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
                 
                 -   Required :  
                     `--environment` or `-e` : Environment from which the API Product should be deleted  
-                    `--name` or `-n` : Name of the API Product to be deleted   
+                    `--name` or `-n` : Name of the API Prodcut to be deleted   
                 -   Optional :  
                     `--provider` or `-r` : Provider of the API Product to be deleted  
 
@@ -703,10 +632,10 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
             **Flags:**  
             
             -   Required :  
-                `--environment` or `-e` : The environment of which the API state should be changed  
-                `--name` or `-n` : The name of the API to be state changed  
-                `--version` or `-v` : The version of the API that its state needs to be changed
-                `--action` or `-a` : The action to be taken to change the status of the API
+                `--environment` or `-e` : Environment of which the API state should be changed  
+                `--name` or `-n` : Name of the API to be state changed  
+                `--version` or `-v` : Version of the API to be state changed  
+                `--action` or `-a` : Action to be taken to change the status of the API
             -   Optional :  
                 `--provider` or `-r` : Provider of the API to be state changed  
 
@@ -731,9 +660,9 @@ For more information, see [Download and Initialize the CTL Tool](#download-and-i
         Supported action values : Publish, Deploy as a Prototype, Demote to Created, Demote to Prototyped, Block, Deprecate, Re-Publish, Retire.
         Note that the Re-publish action is available only after calling Block action.
         
-## Formatting the outputs of get
+## Formatting the outputs of list
 
-Output of `get envs`, `get apis`, `get api-products` and `get apps` can be formatted with Go Templates. 
+Output of ```list envs```, ```list apis``` and ```list apps``` can be formatted with Go Templates. 
 
 #### Available formatting options
 
@@ -862,7 +791,7 @@ Run the following CTL command to change the default location of the export direc
             Default : `/home/.wso2apictl/exported`
             
             
-## Import the SSL certificate for Secure HTTP Communication with API Manager
+## Import SSL Certificate for Secure HTTP Communication with API Manager
 
 Different environments of API Manager can have different SSL certificates for secure HTTP communications. The default
 certificate of WSO2 API Manager is a self-signed certificate and in production environments, it is advised to use a
@@ -871,12 +800,13 @@ different certificate than the default.
 If the certificate is the default WSO2 certificate or a CA-signed certificate of a CA (Certificate Authority) trusted by
 the OS, these certificates will be imported by default to the controller. If the CA or the certificate is new or does
 not get imported by default, you can add the certificate to the ```certs``` directory found in 
-`APICTL_CONFIG_DIR/.wso2apictl`. 
-(The default location of the certs directory is `/home/.wso2apictl/certs`)  
+```APICTL_CONFIG_DIR/.wso2apictl```. 
+(Default location of the certs directory is ```/home/.wso2apictl/certs```)  
 
 The certificates added to this directory will be imported whenever an action is performed with the controller. Any
 DER or PEM encoded certificate with the file extensions of ```*.pem```, ```*.crt``` or ```*.cer``` can be used with the
 controller. 
 
 !!! Info
-    If you are using Windows, CA certs will not be imported by default and have to be added to the ```certs``` directory.
+    If you are using windows, CA certs will not be imported by default and has to be added to the ```certs``` directory.
+

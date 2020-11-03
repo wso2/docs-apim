@@ -251,40 +251,6 @@ Follow the instructions below to do the required configurations for WSO2 API-M t
   
   - The Worker supports an [Active-Active]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-active) deployment and an [Active-Passive]({{base_path}}/install-and-setup/setup/distributed-deployment/configure-apim-analytics/active-passive) deployment. 
   - As the dashboard is used only to render the data there is no active-active or active-passive concept. However, based on the High-availability (HA) requirement it can be configured as Active-Active or Active-Passive by defining the `loadbalance` configuration.
-  
-#### System requirements
-
-You will be running an Analytics worker and an Analytics dashboard for this solution. Be sure that you have the required system specifications to run each server.
-
--   For the Analytics **Worker**:
-
-    <table>
-    <tbody>
-    <tr class="odd">
-    <th>Memory</th>
-    <td><p><ul><li>~ 4 GB per worker node<li>It is recommended to allocate 4 cores.</li></li><li>~ 2 GB is the initial heap (-Xms)  required for the server startup. The maximum heap size is 4 GB (-Xmx)</li></ul></p></td>
-    </tr>
-    <tr class="even">
-    <th>Disk</th>
-    <td><p><li>~ 480 MB, excluding space allocated for log files and databases.</li></p></td>
-    </tr>
-    </tbody>
-    </table>
-
--   For the Analytics **Dashboard**:
-
-    <table>
-    <tbody>
-    <tr class="odd">
-    <th>Memory</th>
-    <td><p><ul><li>~ 2 GB minimum, 4 GB Maximum<li>2 CPU cores minimum. It is recommended to allocate 4 cores.</li></li><li>~ 512 MB heap size. This is generally sufficient to process typical SOAP messages but the requirements vary with larger message sizes and  the number of messages processed concurrently.</li></ul></p></td>
-    </tr>
-    <tr class="even">
-    <th>Disk</th>
-    <td><p><li>~ 480 MB, excluding space allocated for log files and databases.</li></p></td>
-    </tr>
-    </tbody>
-    </table>
       
 #### Step 4.1 - Configure the Analytics Worker
 

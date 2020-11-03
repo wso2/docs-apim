@@ -59,13 +59,6 @@ Follow the steps given below to configure WSO2 IS as a third-party Key Manager c
     http_method = "PUT"
     permissions = "/permission/admin/manage/identity/applicationmgt/update"
     scopes = "internal_application_mgt_update"
-    
-    [[resource.access_control]]
-    context = "(.)/keymanager-operations/dcr/register(.)"
-    secure = true
-    http_method = "POST"
-    permissions = "/permission/admin/manage/identity/applicationmgt/update"
-    scopes = "internal_application_mgt_update"
 
     [[resource.access_control]]
     context = "(.*)/keymanager-operations/dcr/register(.*)"

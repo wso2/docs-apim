@@ -869,7 +869,7 @@ Follow the instructions below to move all the existing API Manager configuration
                     SCOPE_BINDING VARCHAR(255) NOT NULL,
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE
-        );   
+        );      
         ```
 
         ```tab="DB2"
@@ -1235,7 +1235,7 @@ Follow the instructions below to move all the existing API Manager configuration
                     SCOPE_BINDING VARCHAR(255) NOT NULL,
                     BINDING_TYPE VARCHAR(255) NOT NULL,
                     FOREIGN KEY (SCOPE_ID) REFERENCES AM_SCOPE(SCOPE_ID) ON DELETE CASCADE)
-        /
+        /       
         ```
 
         ```tab="MSSQL"
