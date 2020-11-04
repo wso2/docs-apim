@@ -23,17 +23,17 @@ Instead of using the embedded database, you can set up a separate repository and
 </thead>
 <tbody>
 <tr class="odd">
-<td><strong>read_only_ldap</strong></td>
+<td><strong>read_only_ldap_unique_id</strong></td>
 <td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code></td>
 <td><p>Use <code>read_only_ldap</code> to do read-only operations for external LDAP user stores.</p></td>
 </tr>
 <tr class="even">
-<td><strong>read_write_ldap</strong></td>
+<td><strong>read_write_ldap_unique_id</strong></td>
 <td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager</code></td>
 <td><p>Use <code>read_write_ldap</code> for external LDAP user stores to do both read and write operations.</p></td>
 </tr>
 <tr class="odd">
-<td><strong>active_directory</strong></td>
+<td><strong>active_directory_unique_id</strong></td>
 <td><code>org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager </code></td>
 <td><p>Use <code>active_directory</code> to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used <strong>only</strong> for read/write operations. If you need to use AD as read-only, you must use <code>read_only_ldap</code> .</p></td>
 </tr> 
