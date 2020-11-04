@@ -55,15 +55,15 @@ This section explains how to attach a custom workflow to the user signup operati
     <TaskCoordinationEnabled>true</TaskCoordinationEnabled>
     ```
 
-4.  Copy the following 2 files from the `<API-M_HOME>/business-processes/epr` folder to the `<EI_HOME>/wso2/business-process/repository/conf/epr` folder.
+4.  Copy the following 2 files from the `<API-M_HOME>/business-processes/epr` folder to the `<EI_HOME>/wso2/business-process/conf/epr` folder.
 
     - `<API-M_HOME>/business-processes/epr/UserSignupProcess.epr`
     - `<API-M_HOME>/business-processes/epr/UserSignupService.epr`
 
     !!! note
-        -   If the `<EI_HOME>/wso2/business-process/repository/conf/epr` folder isn't there, please create it.
+        -   If the `<EI_HOME>/wso2/business-process/conf/epr` folder isn't there, please create it.
 
-        -   Make sure to give the correct credentials in the `<EI_HOME>/wso2/business-process/repository/conf/epr` files.
+        -   Make sure to give the correct credentials in the `<EI_HOME>/wso2/business-process/conf/epr` files.
 
     1.  Update the `<API-M_HOME>/business-processes/epr/UserSignupProcess.epr` file according to the port offset configured in API Manager. (Default port 8243).
 
