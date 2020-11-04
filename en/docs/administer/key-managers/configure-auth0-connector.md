@@ -75,7 +75,7 @@ Follow the instructions below to configure Auth0 as a third-party Key Manager:
 
      3. Enter the client ID and client secret of the application that was created to invoke the Manage API.
 
-         You can get to the audience value from Manage API. This is the Identifier value under General Settings for that API.
+         You can get to the audience value from Manage API. This is the Identifier value under **General Settings** for that API.
 
          [![auth0 connector configs]({{base_path}}/assets/img/administer/auth0-connector-configs.png)]({{base_path}}/assets/img/administer/auth0-connector-configs.png)
 
