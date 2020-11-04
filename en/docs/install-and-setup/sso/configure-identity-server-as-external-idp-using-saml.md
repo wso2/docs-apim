@@ -116,7 +116,7 @@ The Single Sign-On with SAML 2.0 feature in the API Manager is implemented accor
 
 4.  Upload the public certificate of the API Manager by selecting **Select SP Certificate Type**.
 
-    [![Upload certificate in SP for SAML2 SSO]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-SP-for-saml2-sso.png)
+    [![Upload certificate in SP for SAML2 SSO]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-sp-for-saml2-sso.png)]({{base_path}}/assets/img/setup-and-install/upload-certificate-in-sp-for-saml2-sso.png)
 
 ### Step 1.2 - Create users and roles
 
