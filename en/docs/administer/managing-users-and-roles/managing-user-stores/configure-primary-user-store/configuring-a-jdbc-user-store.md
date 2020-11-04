@@ -1,10 +1,7 @@
 # Configuring a JDBC User Store
 
 User management functionality is provided by default in WSO2 API Manager and it can be configured in the 
-`<API-M_HOME>/repository/conf/deployment.toml` file. The changes done in the `deployment.toml` file will be automatically populated to the `<API-M_HOME>/repository/conf/user-mgt.xml` file as well. 
-This file is shipped with user store manager configurations for all possible user store types ([JDBC](../configuring-a-jdbc-user-store), [read-only LDAP/Active Directory](../configuring-a-read-only-ldap-user-store), 
-[read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). 
-The instructions given below explains how to configure JDBC as a user store.
+`<API-M_HOME>/repository/conf/deployment.toml` file. The instructions given below explains how to configure JDBC as a user store.
 
 !!! tip
        Refer [Configuring primary User Stores](../configuring-the-primary-user-store) to get a high-level understanding of the primary user stores available in WSO2 API Manager.
@@ -35,7 +32,7 @@ Follow the given steps to configure a JDBC user store:
 
     ```
         [user_store]
-        type = "database"
+        type = "database_unique_id"
     ```
 
 2. By default the WSO2 API Manager uses a JDBC user store manager. This is an internal RDBMS. If you are willing to connect to an external RDBMS for the `database` user store type, you will have to define the following configurations along with the user store type. 
@@ -137,6 +134,91 @@ Follow the given steps to configure a JDBC user store:
     [user_store.properties]
     WriteGroups = false
     ```
+!!! note
+    Note that these configurations will be automatically populated to the `user-mgt.xml` file. You can verify whether your configured properties are populated correctly using this file.
+    Given below is a sample configuration populated for the JDBC user store in the `user-mgt.xml`.
+    
+    ```
+    <UserStoreManager class="org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager">
+                <Property name="IsBulkImportSupported">true</Property>
+                <Property name="MaxUserNameListLength">100</Property>
+                <Property name="UpdateUserPropertySQL">UPDATE UM_USER_ATTRIBUTE SET UM_ATTR_VALUE=? WHERE UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_ATTR_NAME=? AND UM_PROFILE_ID=? AND UM_TENANT_ID=?</Property>
+                <Property name="GetRoleListSQL">SELECT UM_ROLE_NAME, UM_TENANT_ID, UM_SHARED_ROLE FROM UM_ROLE WHERE UM_ROLE_NAME LIKE ? AND UM_TENANT_ID=? AND UM_SHARED_ROLE ='0' ORDER BY UM_ROLE_NAME</Property>
+                <Property name="MultiAttributeSeparator">,</Property>
+                <Property name="GetUserIDFromUserNameSQL">SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?</Property>
+                <Property name="RemoveRoleFromUserSQL">DELETE FROM UM_USER_ROLE WHERE UM_ROLE_ID=(SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?) AND UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_TENANT_ID=?</Property>
+                <Property name="AddSharedRoleSQL">UPDATE UM_ROLE SET UM_SHARED_ROLE = ? WHERE UM_ROLE_NAME = ? AND UM_TENANT_ID = ?</Property>
+                <Property name="GetUserPropertyForProfileSQL">SELECT UM_ATTR_VALUE FROM UM_USER_ATTRIBUTE, UM_USER WHERE UM_USER.UM_ID = UM_USER_ATTRIBUTE.UM_USER_ID AND UM_USER.UM_USER_NAME=? AND UM_ATTR_NAME=? AND UM_PROFILE_ID=? AND UM_USER_ATTRIBUTE.UM_TENANT_ID=? AND UM_USER.UM_TENANT_ID=?</Property>
+                <Property name="ReadGroupsPasswordHashMethod">SHA</Property>
+                <Property name="UserNameUniqueAcrossTenants">false</Property>
+                <Property name="StoreSaltedPassword">true</Property>
+                <Property name="TenantManager">org.wso2.carbon.user.core.tenant.JDBCTenantManager</Property>
+                <Property name="RemoveUserFromRoleSQL">DELETE FROM UM_USER_ROLE WHERE UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_ROLE_ID=(SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?) AND UM_TENANT_ID=?</Property>
+                <Property name="AddUserPropertySQL-mssql">INSERT INTO UM_USER_ATTRIBUTE (UM_USER_ID, UM_ATTR_NAME, UM_ATTR_VALUE, UM_PROFILE_ID, UM_TENANT_ID) SELECT (SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?), (?), (?), (?), (?)</Property>
+                <Property name="GetTenantIDFromUserNameSQL">SELECT UM_TENANT_ID FROM UM_USER WHERE UM_USER_NAME=?</Property>
+                <Property name="Disabled">false</Property>
+                <Property name="OnDeleteUserRemoveUserRoleMappingSQL">DELETE FROM UM_USER_ROLE WHERE UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_TENANT_ID=?</Property>
+                <Property name="AddUserPropertySQL-openedge">INSERT INTO UM_USER_ATTRIBUTE (UM_USER_ID, UM_ATTR_NAME, UM_ATTR_VALUE, UM_PROFILE_ID, UM_TENANT_ID) SELECT UM_ID, ?, ?, ?, ? FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?</Property>
+                <Property name="CaseInsensitiveUsername">true</Property>
+                <Property name="GetUserListOfSharedRoleSQL">SELECT UM_USER_NAME FROM UM_SHARED_USER_ROLE INNER JOIN UM_USER ON UM_SHARED_USER_ROLE.UM_USER_ID = UM_USER.UM_ID INNER JOIN UM_ROLE ON UM_SHARED_USER_ROLE.UM_ROLE_ID = UM_ROLE.UM_ID WHERE UM_ROLE.UM_ROLE_NAME= ? AND UM_SHARED_USER_ROLE.UM_USER_TENANT_ID = UM_USER.UM_TENANT_ID AND UM_SHARED_USER_ROLE.UM_ROLE_TENANT_ID = UM_ROLE.UM_TENANT_ID</Property>
+                <Property name="IsEmailUserName">false</Property>
+                <Property name="GetUserPropertiesForProfileSQL">SELECT UM_ATTR_NAME, UM_ATTR_VALUE FROM UM_USER_ATTRIBUTE, UM_USER WHERE UM_USER.UM_ID = UM_USER_ATTRIBUTE.UM_USER_ID AND UM_USER.UM_USER_NAME=? AND UM_PROFILE_ID=? AND UM_USER_ATTRIBUTE.UM_TENANT_ID=? AND UM_USER.UM_TENANT_ID=?</Property>
+                <Property name="AddUserToRoleSQL-mssql">INSERT INTO UM_USER_ROLE (UM_USER_ID, UM_ROLE_ID, UM_TENANT_ID) SELECT (SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?),(SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?),(?)</Property>
+                <Property name="IsRoleExistingSQL">SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?</Property>
+                <Property name="GetUserListOfRoleSQL">SELECT UM_USER_NAME FROM UM_USER_ROLE, UM_ROLE, UM_USER WHERE UM_ROLE.UM_ROLE_NAME=? AND UM_USER.UM_ID=UM_USER_ROLE.UM_USER_ID AND UM_ROLE.UM_ID=UM_USER_ROLE.UM_ROLE_ID AND UM_USER_ROLE.UM_TENANT_ID=? AND UM_ROLE.UM_TENANT_ID=? AND UM_USER.UM_TENANT_ID=?</Property>
+                <Property name="GetUserLisForPropertySQL">SELECT UM_USER_NAME FROM UM_USER, UM_USER_ATTRIBUTE WHERE UM_USER_ATTRIBUTE.UM_USER_ID = UM_USER.UM_ID AND UM_USER_ATTRIBUTE.UM_ATTR_NAME =? AND UM_USER_ATTRIBUTE.UM_ATTR_VALUE LIKE ? AND UM_USER_ATTRIBUTE.UM_PROFILE_ID=? AND UM_USER_ATTRIBUTE.UM_TENANT_ID=? AND UM_USER.UM_TENANT_ID=?</Property>
+                <Property name="DomainName">wso2.org</Property>
+                <Property name="AddUserToRoleSQL">INSERT INTO UM_USER_ROLE (UM_USER_ID, UM_ROLE_ID, UM_TENANT_ID) VALUES ((SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?),(SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?), ?)</Property>
+                <Property name="UsernameJavaRegEx">^[\S]{5,30}$</Property>
+                <Property name="AddUserSQL">INSERT INTO UM_USER (UM_USER_NAME, UM_USER_PASSWORD, UM_SALT_VALUE, UM_REQUIRE_CHANGE, UM_CHANGED_TIME, UM_TENANT_ID) VALUES (?, ?, ?, ?, ?, ?)</Property>
+                <Property name="SelectUserSQL">SELECT * FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?</Property>
+                <Property name="GetSharedRoleListSQL">SELECT UM_ROLE_NAME, UM_TENANT_ID, UM_SHARED_ROLE FROM UM_ROLE WHERE UM_ROLE_NAME LIKE ? AND UM_SHARED_ROLE ='1' ORDER BY UM_ROLE_NAME</Property>
+                <Property name="WriteGroups">false</Property>
+                <Property name="GetUserNameFromTenantIDSQL">SELECT UM_USER_NAME FROM UM_USER WHERE UM_TENANT_ID=?</Property>
+                <Property name="AddRoleToUserSQL-openedge">INSERT INTO UM_USER_ROLE (UM_ROLE_ID, UM_USER_ID, UM_TENANT_ID) SELECT UR.UM_ID, UU.UM_ID, ? FROM UM_ROLE UR, UM_USER UU WHERE UR.UM_ROLE_NAME=? AND UR.UM_TENANT_ID=? AND UU.UM_USER_NAME=? AND UU.UM_TENANT_ID=?</Property>
+                <Property name="AddRoleToUserSQL-mssql">INSERT INTO UM_USER_ROLE (UM_ROLE_ID, UM_USER_ID, UM_TENANT_ID) SELECT (SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?),(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?), (?)</Property>
+                <Property name="AddDomainSQL">INSERT INTO UM_DOMAIN (UM_DOMAIN_NAME, UM_TENANT_ID) VALUES (?, ?)</Property>
+                <Property name="OnDeleteUserRemoveUserAttributeSQL">DELETE FROM UM_USER_ATTRIBUTE WHERE UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_TENANT_ID=?</Property>
+                <Property name="IsUserExistingSQL">SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?</Property>
+                <Property name="RolenameJavaScriptRegEx">^[\S]{5,30}$</Property>
+                <Property name="RolenameJavaRegEx">^[\S]{5,30}$</Property>
+                <Property name="UserRoleSQL">SELECT UM_ROLE_NAME FROM UM_USER_ROLE, UM_ROLE, UM_USER WHERE UM_USER.UM_USER_NAME=? AND UM_USER.UM_ID=UM_USER_ROLE.UM_USER_ID AND UM_ROLE.UM_ID=UM_USER_ROLE.UM_ROLE_ID AND UM_USER_ROLE.UM_TENANT_ID=? AND UM_ROLE.UM_TENANT_ID=? AND UM_USER.UM_TENANT_ID=?</Property>
+                <Property name="IsDomainExistingSQL">SELECT UM_DOMAIN_ID FROM UM_DOMAIN WHERE UM_DOMAIN_NAME=? AND UM_TENANT_ID=?</Property>
+                <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
+                <Property name="DeleteRoleSQL">DELETE FROM UM_ROLE WHERE UM_ROLE_NAME = ? AND UM_TENANT_ID=?</Property>
+                <Property name="GetUserProfileNamesSQL">SELECT DISTINCT UM_PROFILE_ID FROM UM_USER_ATTRIBUTE WHERE UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_TENANT_ID=?</Property>
+                <Property name="AddRoleToUserSQL">INSERT INTO UM_USER_ROLE (UM_ROLE_ID, UM_USER_ID, UM_TENANT_ID) VALUES ((SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?),(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?), ?)</Property>
+                <Property name="ReadGroups">true</Property>
+                <Property name="UserNameUniqueAcrossTenantsSQL">SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=?</Property>
+                <Property name="UpdateUserPasswordSQL">UPDATE UM_USER SET UM_USER_PASSWORD= ?, UM_SALT_VALUE=?, UM_REQUIRE_CHANGE=?, UM_CHANGED_TIME=? WHERE UM_USER_NAME= ? AND UM_TENANT_ID=?</Property>
+                <Property name="DeleteUserPropertySQL">DELETE FROM UM_USER_ATTRIBUTE WHERE UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_ATTR_NAME=? AND UM_PROFILE_ID=? AND UM_TENANT_ID=?</Property>
+                <Property name="AddUserPropertySQL">INSERT INTO UM_USER_ATTRIBUTE (UM_USER_ID, UM_ATTR_NAME, UM_ATTR_VALUE, UM_PROFILE_ID, UM_TENANT_ID) VALUES ((SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?), ?, ?, ?, ?)</Property>
+                <Property name="AddRoleSQL">INSERT INTO UM_ROLE (UM_ROLE_NAME, UM_TENANT_ID) VALUES (?, ?)</Property>
+                <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
+                <Property name="MaxRoleNameListLength">100</Property>
+                <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
+                <Property name="data_source">WSO2USER_DB</Property>
+                <Property name="RemoveUserFromSharedRoleSQL">DELETE FROM UM_SHARED_USER_ROLE WHERE   UM_ROLE_ID=(SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?) AND UM_USER_ID=(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?) AND UM_USER_TENANT_ID=? AND UM_ROLE_TENANT_ID = ?</Property>
+                <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
+                <Property name="UserRolesCacheEnabled">true</Property>
+                <Property name="AddSharedRoleToUserSQL">INSERT INTO UM_SHARED_USER_ROLE (UM_ROLE_ID, UM_USER_ID, UM_USER_TENANT_ID, UM_ROLE_TENANT_ID) VALUES ((SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?),(SELECT UM_ID FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?), ?, ?)</Property>
+                <Property name="AddUserToRoleSQL-openedge">INSERT INTO UM_USER_ROLE (UM_USER_ID, UM_ROLE_ID, UM_TENANT_ID) SELECT UU.UM_ID, UR.UM_ID, ? FROM UM_USER UU, UM_ROLE UR WHERE UU.UM_USER_NAME=? AND UU.UM_TENANT_ID=? AND UR.UM_ROLE_NAME=? AND UR.UM_TENANT_ID=?</Property>
+                <Property name="GetProfileNamesSQL">SELECT DISTINCT UM_PROFILE_ID FROM UM_USER_ATTRIBUTE WHERE UM_TENANT_ID=?</Property>
+                <Property name="DeleteUserSQL">DELETE FROM UM_USER WHERE UM_USER_NAME = ? AND UM_TENANT_ID=?</Property>
+                <Property name="DomainCalculation">default</Property>
+                <Property name="SCIMEnabled">false</Property>
+                <Property name="PasswordDigest">SHA-256</Property>
+                <Property name="OnDeleteRoleRemoveUserRoleMappingSQL">DELETE FROM UM_USER_ROLE WHERE UM_ROLE_ID=(SELECT UM_ID FROM UM_ROLE WHERE UM_ROLE_NAME=? AND UM_TENANT_ID=?) AND UM_TENANT_ID=?</Property>
+                <Property name="UpdateRoleNameSQL">UPDATE UM_ROLE set UM_ROLE_NAME=? WHERE UM_ROLE_NAME = ? AND UM_TENANT_ID=?</Property>
+                <Property name="Description">This is an external JDBC primary user store</Property>
+                <Property name="UserSharedRoleSQL">SELECT UM_ROLE_NAME, UM_ROLE.UM_TENANT_ID, UM_SHARED_ROLE FROM UM_SHARED_USER_ROLE INNER JOIN UM_USER ON UM_SHARED_USER_ROLE.UM_USER_ID = UM_USER.UM_ID INNER JOIN UM_ROLE ON UM_SHARED_USER_ROLE.UM_ROLE_ID = UM_ROLE.UM_ID WHERE UM_USER.UM_USER_NAME = ? AND UM_SHARED_USER_ROLE.UM_USER_TENANT_ID = UM_USER.UM_TENANT_ID AND UM_SHARED_USER_ROLE.UM_ROLE_TENANT_ID = UM_ROLE.UM_TENANT_ID AND UM_SHARED_USER_ROLE.UM_USER_TENANT_ID = ?</Property>
+                <Property name="UsernameJavaScriptRegEx">^[\S]{5,30}$</Property>
+                <Property name="ReadOnly">false</Property>
+                <Property name="UserFilterSQL">SELECT UM_USER_NAME FROM UM_USER WHERE UM_USER_NAME LIKE ? AND UM_TENANT_ID=? ORDER BY UM_USER_NAME</Property>
+    </UserStoreManager>
+    ```    
+    
+    
 Apart from above properties WSO2 API Manager also supports advanced JDBC configurations. For descriptions on each of the advanced properties used in the `<API-M_HOME>/repository/conf/deployment.toml` file , see [Properties used in JDBC user store manager](properties-used-in-jdbc-user-store-manager). 
 
 ### Step 2: Updating the system administrator
@@ -185,7 +267,7 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
         
         ```
     2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
-        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        -   By default, the database that is used for persisting user authorization information is the **SHARED_DB**. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
         
             ```toml
             [realm_manager]
@@ -220,11 +302,9 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
         password = "root"
         driver = "com.mysql.jdbc.Driver"
         
-        [realm_manager]
-        data_source = "WSO2USER_DB"
         ```
     2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
-        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        -   By default, the database that is used for persisting user authorization information is the **SHARED_DB**. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
         
             ```toml
             [realm_manager]
@@ -258,11 +338,9 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
         password = "root"
         driver = "com.ibm.db2.jcc.DB2Driver"
         
-        [realm_manager]
-        data_source = "WSO2USER_DB"
         ```    
     2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
-        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        -   By default, the database that is used for persisting user authorization information is the **SHARED_DB**. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
         
             ```toml
             [realm_manager]
@@ -296,11 +374,9 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
         password = "root"
         driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver"
         
-        [realm_manager]
-        data_source = "WSO2USER_DB"
         ```
     2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
-        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        -   By default, the database that is used for persisting user authorization information is the **SHARED_DB**. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
         
             ```toml
             [realm_manager]
@@ -335,12 +411,10 @@ MultiTenantRealmConfigBuilder = "org.wso2.carbon.user.core.config.multitenancy.S
         password = "root"
         driver = "oracle.jdbc.OracleDriver"
         
-        [realm_manager]
-        data_source = "WSO2USER_DB"
         ```
         
     2.  Now, the datasource configuration and the user store manager RDBMS configuration should be linked together.
-        -   By default, the database that is used for persisting user authorization information is the SHARED_DB. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
+        -   By default, the database that is used for persisting user authorization information is the **SHARED_DB**. Also, by default this is the datasource used for the primary JDBC userstore as well. If you are willing to change both the user management database and the primary userstore, the following configuration will be sufficient.  
         
             ```toml
             [realm_manager]

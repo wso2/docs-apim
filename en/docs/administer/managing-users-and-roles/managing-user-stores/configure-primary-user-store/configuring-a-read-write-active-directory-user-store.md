@@ -1,9 +1,7 @@
 #Configuring a Read-Write Active Directory User Store
 
 User management functionality is provided by default in WSO2 API Manager and it can be configured in the 
-`<API-M_HOME>/repository/conf/deployment.toml` file. The changes done in the `deployment.toml` file will be automatically populated to the `<API-M_HOME>/repository/conf/user-mgt.xml` file as well. 
-This file is shipped with user store manager configurations for all possible user store types ([JDBC](../configuring-a-jdbc-user-store), [read-only LDAP/Active Directory](../configuring-a-read-only-ldap-user-store), 
-[read-write Active directory](../configuring-a-read-write-active-directory-user-store), and [read-write LDAP](../configuring-a-read-write-ldap-user-store)). 
+`<API-M_HOME>/repository/conf/deployment.toml` file. The instructions given below explains how to configure Read Write Active Directory as a user store.
 
 !!! tip
        Refer [Configuring primary User Stores](../configuring-the-primary-user-store) to get a high-level understanding of the primary user stores available in WSO2 API Manager.
@@ -198,56 +196,56 @@ Sample values: uid=admin,ou=system</p></td>
  ```
 
 !!! note
-    Note that these configurations will automatically applied to the `user-mgt.xml` file so you do not need to edit it.
-
-    Given below is a sample configuration for the external read/write user store in the `user-mgt.xml`. You can change the values to match your requirement in `deployment.toml` file. For descriptions on each of the properties used in the `<PRODUCT_HOME>/repository/conf/deployment.toml` file which are used for configuring the primary user store , see [Configuring Read-Write Active Directory User Store](#configuring-read-write-active-directory-user-store) and [Properties of User Stores](#properties-used-in-read-write-active-directory-user-store).
+    Note that these configurations will be automatically populated to the `user-mgt.xml` file. You can verify whether your configured properties are populated correctly using this file.
+    Given below is a sample configuration populated for the external read/write active directory user store in the `user-mgt.xml`. 
     
     ```
-    <UserStoreManager class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager">
-              <Property name="IsBulkImportSupported">true</Property>
-              <Property name="MaxUserNameListLength">100</Property>
-              <Property name="defaultRealmName">WSO2.ORG</Property>
-              <Property name="EmptyRolesAllowed">true</Property>
-              <Property name="MultiAttributeSeparator">,</Property>
-              <Property name="ConnectionPassword">admin</Property>
-              <Property name="DisplayNameAttribute"></Property>
-              <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
-              <Property name="UserSearchBase">ou=Users,dc=wso2,dc=org</Property>
-              <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
-              <Property name="ConnectionPoolingEnabled">false</Property>
-              <Property name="StartTLSEnabled">false</Property>
-              <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
-              <Property name="LDAPConnectionTimeout">5000</Property>
-              <Property name="UserNameAttribute">uid</Property>
-              <Property name="GroupNameAttribute">cn</Property>
-              <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
-              <Property name="WriteGroups">true</Property>
-              <Property name="AnonymousBind">false</Property>
-              <Property name="ConnectionURL">ldap://localhost:10390</Property>
-              <Property name="ConnectionName">uid=admin,ou=system</Property>
-              <Property name="RolenameJavaScriptRegEx">^[\S]{3,30}$</Property>
-              <Property name="GroupSearchFilter">(objectClass=groupOfNames)</Property>
-              <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
-              <Property name="GroupEntryObjectClass">groupOfNames</Property>
-              <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
-              <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
-              <Property name="GroupSearchBase">ou=Groups,dc=wso2,dc=org</Property>
-              <Property name="ReadGroups">true</Property>
-              <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property>
-              <Property name="ConnectionRetryDelay">120000</Property>
-              <Property name="MembershipAttribute">member</Property>
-              <Property name="UserEntryObjectClass">identityPerson</Property>
-              <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
-              <Property name="MaxRoleNameListLength">100</Property>
-              <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
-              <Property name="BackLinksEnabled">false</Property>
-              <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
-              <Property name="UserRolesCacheEnabled">true</Property>
-              <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
-              <Property name="SCIMEnabled">true</Property>
-              <Property name="UserNameListFilter">(objectClass=person)</Property>
-              <Property name="UsernameJavaScriptRegEx">^[\S]{3,30}$</Property>
-              <Property name="kdcEnabled">false</Property>
+    <UserStoreManager class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager">
+        <Property name="IsBulkImportSupported">true</Property>
+        <Property name="MaxUserNameListLength">100</Property>
+        <Property name="defaultRealmName">WSO2.ORG</Property>
+        <Property name="isADLDSRole">false</Property>
+        <Property name="userAccountControl">512</Property>
+        <Property name="EmptyRolesAllowed">true</Property>
+        <Property name="MultiAttributeSeparator">,</Property>
+        <Property name="MembershipAttributeRange">1500</Property>
+        <Property name="DisplayNameAttribute"></Property>
+        <Property name="TenantManager">org.wso2.carbon.user.core.tenant.CommonHybridLDAPTenantManager</Property>
+        <Property name="UserSearchBase">ou=Users,cn=Users,dc=wso2,dc=org</Property>
+        <Property name="GroupNameSearchFilter">(&amp;(objectClass=groupOfNames)(cn=?))</Property>
+        <Property name="ConnectionPoolingEnabled">false</Property>
+        <Property name="StartTLSEnabled">false</Property>
+        <Property name="UserNameSearchFilter">(&amp;(objectClass=person)(uid=?))</Property>
+        <Property name="LDAPConnectionTimeout">5000</Property>
+        <Property name="UserNameAttribute">uid</Property>
+        <Property name="GroupNameAttribute">cn</Property>
+        <Property name="UsernameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
+        <Property name="WriteGroups">true</Property>
+        <Property name="AnonymousBind">false</Property>
+        <Property name="RolenameJavaScriptRegEx">^[\S]{3,30}$</Property>
+        <Property name="RolenameJavaRegEx">[a-zA-Z0-9._\-|//]{3,30}$</Property>
+        <Property name="GroupEntryObjectClass">groupOfNames</Property>
+        <Property name="PasswordJavaRegEx">^[\S]{5,30}$</Property>
+        <Property name="PasswordHashMethod">PLAIN_TEXT</Property>
+        <Property name="GroupSearchBase">ou=Groups,cn=Users,dc=wso2,dc=org</Property>
+        <Property name="ReadGroups">true</Property>
+        <Property name="ReplaceEscapeCharactersAtUserLogin">true</Property>
+        <Property name="ConnectionRetryDelay">120000</Property>
+        <Property name="MembershipAttribute">member</Property>
+        <Property name="Referral">follow</Property>
+        <Property name="UserEntryObjectClass">identityPerson</Property>
+        <Property name="PasswordJavaRegExViolationErrorMsg">Password length should be within 5 to 30 characters</Property>
+        <Property name="MaxRoleNameListLength">100</Property>
+        <Property name="PasswordJavaScriptRegEx">^[\S]{5,30}$</Property>
+        <Property name="BackLinksEnabled">false</Property>
+        <Property name="UsernameJavaRegExViolationErrorMsg">Username pattern policy violated</Property>
+        <Property name="UserRolesCacheEnabled">true</Property>
+        <Property name="GroupNameListFilter">(objectClass=groupOfNames)</Property>
+        <Property name="SCIMEnabled">false</Property>
+        <Property name="UserNameListFilter">(objectClass=person)</Property>
+        <Property name="MemberOfAttribute">memberOf</Property>
+        <Property name="UsernameJavaScriptRegEx">^[\S]{3,30}$</Property>
+        <Property name="kdcEnabled">false</Property>
     </UserStoreManager>
     ```
 
