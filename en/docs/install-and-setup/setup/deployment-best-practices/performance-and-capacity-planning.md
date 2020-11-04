@@ -159,16 +159,16 @@ The GC throughput decreases when the number of concurrent users increases. When 
 
 #### Average response time vs concurrent users
 
-  [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_50B.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_50B.png)
-  [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_1KiB.png)
-  [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_10KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_10KiB.png)
+  [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_50b.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_50b.png)
+  [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_1kib.png)
+  [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_10kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/average_time_0ms_10kib.png)
 
 ### GC Throughput comparison 
 
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_1KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_10KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_10KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_100KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_100KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_50B.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_50B.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_1kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_10kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_10kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_100kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_100kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_50b.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/gc_throughput_0ms_50b.png)
 
 #### GC throughput vs concurrent users
 
@@ -222,10 +222,10 @@ The GC throughput decreases when the number of concurrent users increases. When 
 
 ### Throughput comparison
 
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_100KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_100KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_10KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_10KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_1KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_50B.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_50B.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_100kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_100kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_10kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_10kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_1kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_50b.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/throughput_0ms_50b.png)
 
 #### Throughput vs concurrent users
 
@@ -244,17 +244,17 @@ The GC throughput decreases when the number of concurrent users increases. When 
 
 ### Response time comparison
 
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_100KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_100KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_10KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_10KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_1KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_50B.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_50B.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_100kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_100kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_10kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_10kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_1kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_50b.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/response_time_0ms_50b.png)
 
 
 ### Percentile comparison
 
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_1KiB.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_1KiB.png)
- [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_50B.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_50B.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_10kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_1kib.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_1kib.png)
+ [![]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_50b.png)]({{base_path}}/assets/img/setup-and-install/performance-test-results/p90_0ms_50b.png)
 
  For more comparisons, see [the comparison graphs on GitHub](https://github.com/wso2/performance-apim/tree/performance-test-276-2020-08-03_08-47-25/performance/benchmarks/3.2.0%20vs%203.1.0%20comparison)
