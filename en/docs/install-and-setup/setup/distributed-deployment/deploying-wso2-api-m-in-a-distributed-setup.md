@@ -12,8 +12,7 @@ Follow the instructions below to deploy WSO2 API Manager's five main components 
       
     !!! note
           You can either run the profile optimizer before starting the server or while starting the server. 
-          If you are running the optimizer while starting the server make sure optimizer is run with the ```--skipConfigOptimization``` option to preserve the manually applied configurations in the `deployment.toml` file.
-      
+          If you are running the optimizer while starting the server make sure that the optimizer is run with the ```--skipConfigOptimization``` option to preserve the manually applied configurations in the `deployment.toml` file.
     
      For more information on using profile optimizer support, see [Product Profiles]({{base_path}}/install-and-setup/setup/distributed-deployment/product-profiles/).
     
@@ -22,8 +21,7 @@ Follow the instructions below to deploy WSO2 API Manager's five main components 
     The same primary keystore should be used for all API Manager instances in order to decrypt the registry resources. For more information, see [Configuring the Primary Keystore]({{base_path}}/administer/product-security/configuring-keystores/configuring-keystores-in-wso2-api-manager/#configuring-the-primary-keystore).
     
     !!! Tip
-           When creating the keystore, always use a longer validity period so that it will avoid the need for migration on the registry data when shifting to a new keystore.
-    
+        When creating the keystore, always use a longer validity period so that it will avoid the need for migration on the registry data when shifting to a new keystore.
 
 ## Step 2 - Install and configure the databases
 
@@ -54,7 +52,7 @@ Let's configure the inter-component relationships of the distributed setup by mo
 ??? note "More information on Session Affinity in WSO2 API Manager"
     When a request is made to deploy an API in the API Publisher, Sticky Sessions make sure that the authentication call to obtain the session and the request to deploy the API is made to the same server. The servlet transport ports (i.e., 9443 if no port offset is configured) need to be enabled for Sticky Sessions in the load balancer that is fronting the Gateway nodes.
 
-    Similarly, when a throttling policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in the Traffic Manager. Therefore, Sticky Sessions needs to be enabled for the servlet transport ports (i.e., 9443 if no port offset is configured) in the load balancer that is fronting the Traffic Manager nodes.
+    Similarly, when a throttling policy is created from the Admin dashboard (Publisher Node), a Siddhi execution plan is created and deployed in the Traffic Manager. Therefore, Sticky Sessions need to be enabled for the servlet transport ports (i.e., 9443 if no port offset is configured) in the load balancer that is fronting the Traffic Manager nodes.
 
     Key validation requests sent from the Gateway node to the Key Manager nodes also require Sticky Sessions to be enabled for the servlet transport ports (i.e., 9443 if no port offset is configured) in the load balancer that is fronting the Key Manager nodes.
     
@@ -125,11 +123,19 @@ This section involves setting up the Key Manager node and enabling it to work wi
 2.  If you wish to encrypt the Auth Keys (access tokens, client secrets, and authorization codes), see [Encrypting OAuth Keys]({{base_path}}/learn/api-security/oauth2/encrypting-oauth2-tokens/).
 
 
-3.  If you need to configure High Availability (HA) for the Key Manager, use a copy of the active instance configured above as the second Key Manager active instance and configure a load balancer fronting the two Key Manager instances.
+3. Optionally, add the following configuration to enable distributed cache invalidation within the Key Manager nodes.
+
+    ``` toml
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "km-domain"
+    ```
+
+4. If you need to configure High Availability (HA) for the Key Manager, use a copy of the active instance configured above as the second Key Manager active instance and configure a load balancer fronting the two Key Manager instances.
     
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
-4.  Start the WSO2 API-M Key Manager node(s) by running the following command in the command prompt. 
+5. Start the WSO2 API-M Key Manager node(s). 
 
      For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
@@ -143,7 +149,7 @@ This section involves setting up the Key Manager node and enabling it to work wi
     wso2server.bat --run -Dprofile=api-key-manager
     ```
 
-??? info "Click here to view the sample configuration for the Key Manager"
+??? info "Sample configuration for the Key Manager"
     ``` toml
     [server]
     server_role = "api-key-manager"
@@ -205,6 +211,10 @@ This section involves setting up the Key Manager node and enabling it to work wi
     username = "${admin.username}"
     password = "${admin.password}"
     'header.X-WSO2-KEY-MANAGER' = "default"
+    
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "km-domain"
     ```
 
 ### Step 6.2 - Configure and start the Traffic Manager
@@ -263,7 +273,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
     wso2server.bat --run -Dprofile=traffic-manager
     ```
 
-??? info "Click here to view the sample configuration for the Traffic Manager"
+??? info "Sample configuration for the Traffic Manager"
     ``` toml
     [server]
     hostname = "tm.wso2.com"
@@ -271,7 +281,7 @@ This section involves setting up the Traffic Manager node(s) and enabling it to 
     server_role = "traffic-manager"
     offset=3
     
-    [user_store]
+    [user_store]    
     type = "database"
     
     [super_admin]
@@ -322,7 +332,7 @@ This section involves setting up the API Publisher node and enabling it to work 
 1.  Open the `<API-M_HOME>/repository/conf/deployment.toml` file in the API Publisher node and make the following changes.
 
     1.  Configure the Publisher with the Traffic Manager.
-        This configuration enables publishing of throttling policies, custom templates, block conditions, API events to the Traffic Manager node.
+        This configuration enables the publishing of throttling policies, custom templates, block conditions, API events to the Traffic Manager node.
 
         ``` toml tab="Traffic Manager with HA"
         [apim.throttling]
@@ -431,11 +441,20 @@ This section involves setting up the API Publisher node and enabling it to work 
         password = "$ref{super_admin.password}"
         ```
 
-2.  If you need to configure High Availability (HA) for the API Publisher nodes, use a copy of the instance configured above as the second active Publisher instance. Thereafter, configure a load balancer fronting the two Publisher instances.
+2. Optionally, add the following configuration to enable distributed cache invalidation within the Publisher nodes.
+
+    ``` toml
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "publisher-domain"
+    ```
+
+3.  If you need to configure High Availability (HA) for the API Publisher nodes, use a copy of the instance
+ configured above as the second active Publisher instance. Thereafter, configure a load balancer fronting the two Publisher instances.
            
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/).
 
-5.  Start the WSO2 API-M Publisher node(s) by running the following command in the command prompt.
+4.  Start the WSO2 API-M Publisher node(s) by running the following command in the command prompt.
     
      For more information on starting a WSO2 server, see [Starting the server]({{base_path}}/install-and-setup/installation-guide/running-the-product/#starting-the-server).
 
@@ -449,7 +468,7 @@ This section involves setting up the API Publisher node and enabling it to work 
     wso2server.bat --run -Dprofile=api-publisher
     ```
 
-??? info "Click here to view the sample configuration for the Publisher"
+??? info "Sample configuration for the Publisher"
     ``` toml
     [server]
     hostname = "pub.wso2.com"
@@ -521,6 +540,10 @@ This section involves setting up the API Publisher node and enabling it to work 
     service_url = "https://km.wso2.com:9443/services/"
     username = "$ref{super_admin.username}"
     password = "$ref{super_admin.password}"
+    
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "publisher-domain"
     ```
 
 ### Step 6.4 - Configure and start the Developer Portal
@@ -611,6 +634,14 @@ This section involves setting up the Developer Portal node and enabling it to wo
            https_endpoint = "https://[API-Gateway-host-or-IP]:${https.nio.port}"
            ```
 
+2.  Optionally, add the following configuration to enable distributed cache invalidation within the Developer Portal nodes.
+
+    ``` toml
+    [apim.cache_invalidation]
+    enabled = true
+    domain = "devportal-domain"
+    ```
+
 3.  If you need to configure High Availability (HA) for the Developer Portal nodes, use a copy of the active instance configured above as the second active Developer Portal instance and configure a load balancer fronting the two Developer Portal instances.
             
     For information on configuring the load balancer, see [Configuring the Proxy Server and the Load Balancer]({{base_path}}/install-and-setup/deploying-wso2-api-manager/configuring-the-proxy-server-and-the-load-balancer/)
@@ -630,7 +661,7 @@ This section involves setting up the Developer Portal node and enabling it to wo
     ```
     
 
-    ??? info "Click here to view the sample configuration for the Developer Portal"
+    ??? info "Sample configuration for the Developer Portal"
         ``` toml
         [server]
         hostname = "store.wso2.com"
@@ -698,6 +729,10 @@ This section involves setting up the Developer Portal node and enabling it to wo
         [[apim.throttling.url_group]]
         traffic_manager_urls=["tcp://tm.wso2.com:9614"]
         traffic_manager_auth_urls=["ssl://tm.wso2.com:9714"]
+        
+        [apim.cache_invalidation]
+        enabled = true
+        domain = "devportal-domain"
         ```
 
 ### Step 6.5 - Configure and start the Gateway
@@ -812,7 +847,7 @@ This section involves setting up the Gateway node and enabling it to work with t
     wso2server.bat --run -Dprofile=gateway-worker
     ```
 
-    ??? info "Click here to view the sample configuration for the Gateway"
+    ??? info "Sample configuration for the Gateway"
         ``` toml
         [server]
         hostname = "gw.wso2.com"
