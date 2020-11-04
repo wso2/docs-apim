@@ -28,7 +28,7 @@ The following are the two methods available in the Developer Portal to subscribe
 
     [![Create application process in the wizard]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)]({{base_path}}/assets/img/learn/key-gen-wizard-create-app.png)
 
-4.  Subscribe the API to the application that you created in above step by selecting the preferred throttling policy. Thereafter, click **Next** to go to next step.
+4.  Subscribe the API to the application that you created in the above step by selecting the preferred throttling policy. Thereafter, click **Next** to go to the next step.
      
      [![Subscribe to new application process]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)]({{base_path}}/assets/img/learn/key-gen-wizard-subscribe.png)
     
@@ -40,7 +40,7 @@ The following are the two methods available in the Developer Portal to subscribe
     
     !!! note
         - By default, the __Client Credentials__ grant type is used to generate the access token in Developer Portal.
-        - If you want select different grant types to this application, you can select the required grant types from the application listing page as shown in the following image:
+        - If you want to select different grant types for this application, you can select the required grant types from the application listing page as shown in the following image:
 
         [![Edit grant types]({{base_path}}/assets/img/learn/edit-application-grant-types.png)]({{base_path}}/assets/img/learn/edit-application-grant-types.png)
         
@@ -69,7 +69,7 @@ If you already have an existing application, follow the instructions below to su
 
      [![Subscribe to new application]({{base_path}}/assets/img/learn/subscribe-to-app.png)]({{base_path}}/assets/img/learn/subscribe-to-app.png)
     
-     You can see the subscriptions list in Subscriptions section.
+     You can see the subscriptions list in the **Subscriptions** section.
      
      [![Subscribe to new app]({{base_path}}/assets/img/learn/subscription-list.png)]({{base_path}}/assets/img/learn/subscription-list.png)
 
@@ -77,7 +77,7 @@ If you already have an existing application, follow the instructions below to su
 
 1.  Sign in to the WSO2 API Developer Portal (`https://<hostname>:<port>/devportal`). Click on **Applications** and select the relevant application. 
 
-    ![applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)
+    [![applications overview_tab]({{base_path}}/assets/img/learn/application-overview.png)]({{base_path}}/assets/img/learn/application-overview.png)
 
 2.  Click **Subscriptions** to list the subscriptions of the application.
 
@@ -109,7 +109,3 @@ Follow the instructions below to delete the API subscription:
 
     [![]({{base_path}}/assets/img/learn/unsubscribe.png)]({{base_path}}/assets/img/learn/unsubscribe.png)
     
-
-
- 
-
