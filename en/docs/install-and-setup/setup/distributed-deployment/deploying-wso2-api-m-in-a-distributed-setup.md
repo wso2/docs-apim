@@ -821,7 +821,7 @@ This section involves setting up the Gateway node and enabling it to work with t
         offset=4
         
         [user_store]
-        type = "database"
+        type = "database_unique_id"
         
         [super_admin]
         username = "admin"
