@@ -23,7 +23,7 @@ site_url: https://apim.docs.wso2.com/en/latest/
 # Repository
 repo_name: wso2/docs-apim
 repo_url: https://github.com/wso2/docs-apim
-edit_uri: https://github.com/wso2/docs-apim/edit/master/en/docs/
+edit_uri: https://github.com/wso2/docs-apim/edit/3.2.0/en/docs/
 dev_addr: localhost:8000
 
 # Copyright
@@ -201,7 +201,7 @@ nav:
                             - JWT Access Tokens: learn/api-security/oauth2/access-token-types/jwt-tokens.md
                       - OAuth2 Scopes:
                             - Role-Based Access Control with OAuth Scopes: learn/api-security/oauth2/oauth2-scopes/fine-grained-access-control-with-oauth-scopes.md
-                            - Scope Whitelisting: learn/api-security/oauth2/oauth2-scopes/scope-whitelisting.md
+                            - Scope Allowlisting: learn/api-security/oauth2/oauth2-scopes/scope-allowlisting.md
                       - Grant Types:
                             - Overview: learn/api-security/oauth2/grant-types/overview.md
                             - Password Grant: learn/api-security/oauth2/grant-types/password-grant.md
@@ -228,6 +228,7 @@ nav:
                       - XML Threat Protection: learn/api-gateway/threat-protectors/xml-threat-protection-for-api-gateway.md
                 - OpenID Connect:
                       - Obtaining User Profile Information with OpenID Connect: learn/api-security/openid-connect/obtaining-user-profile-information-with-openid-connect.md
+                      - OpenID Discovery Endpoint: learn/api-security/openid-connect/open-id-discovery-endpoint.md
           - User Account Management:
                 - Recover Password : learn/user-account-management/recover-password.md
                 - Change Password : learn/user-account-management/change-dev-portal-password.md
@@ -290,6 +291,7 @@ nav:
                       - Configuring Environment Specific Parameters: learn/api-controller/advanced-topics/configuring-environment-specific-parameters.md
                       - Using Dynamic Data in API Controller Projects: learn/api-controller/advanced-topics/using-dynamic-data-in-api-controller-projects.md
                       - Configuring Different Endpoint Types: learn/api-controller/advanced-topics/configuring-different-endpoint-types.md
+                      - Configuring Git Integration: learn/api-controller/advanced-topics/configuring-git-integration.md
           - Kubernetes Operators:
                 - K8s API Operator:
                     - K8s API Operator Overview: learn/kubernetes-operators/k8s-api-operator/k8s-api-operator.md
@@ -304,12 +306,6 @@ nav:
     - Develop:
           - Product REST APIs:
                 - RESTful APIs: develop/product-apis/overview.md
-                - Getting Started:
-                    - Publisher API v1: develop/product-apis/getting-started/guide-publisher-v1.md
-                    - Developer Portal API v1: develop/product-apis/getting-started/guide-devportal-v1.md
-                    - Admin API v1: develop/product-apis/getting-started/guide-admin-v1.md
-                    - Admin API v0.17: develop/product-apis/getting-started/guide-admin-v0.17.md
-                    - Gateway API v1: develop/product-apis/getting-started/guide-gateway-v1.md
                 - Publisher APIs:
                     - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
                 - Developer Portal APIs:
@@ -319,8 +315,7 @@ nav:
                     - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
                 - Gateway APIs:
                     - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-                - Using the Registry REST API: develop/using-the-registry-rest-api.md
-                - Using the Siddhi Store REST API: develop/analytics-rest-api.md
+                - Advanced Configurations: develop/product-apis/advanced-configurations.md
           - Extending WSO2 API Manager:
                 - Extending Key Management:
                       - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
@@ -364,6 +359,7 @@ nav:
                 - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
                 - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
                 - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
+                - Customizing the Developer Portal and Gateway URLs for Tenants: develop/customizations/customize-the-api-store-and-gateway-urls-for-tenants.md
                 - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
                 - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
                 - Adding internationalization: develop/customizations/adding-internationalization.md
@@ -509,13 +505,16 @@ nav:
                 - Monitoring TCP-Based Messages: administer/logging-and-monitoring/monitoring//monitoring-tcp-based-messages.md
           - Key Managers:
                 - Overview: administer/key-managers/overview.md
-                - Configure WSO2 IS as A Key Manager: administer/key-managers/configure-wso2is-connector.md
-                - Configure Keycloak as A Key Manager: administer/key-managers/configure-keycloak-connector.md
-                - Configure Okta as A Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure WSO2 IS as a Key Manager: administer/key-managers/configure-wso2is-connector.md
+                - Configure Keycloak as a Key Manager: administer/key-managers/configure-keycloak-connector.md
+                - Configure Okta as a Key Manager: administer/key-managers/configure-okta-connector.md
+                - Configure Auth0 as a Key Manager: administer/key-managers/configure-auth0-connector.md
+                - Configure PingFederate as A Key Manager: administer/key-managers/configure-pingfederate-connector.md
                 - Configure a Custom Key Manager: administer/key-managers/configure-custom-connector.md
     - Reference:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
+          - Accessibility Compliance: reference/accessibility-compliance.md
           - FAQ: reference/faq.md
           - Guides:
                 - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
@@ -701,7 +700,8 @@ plugins:
               'learn/analytics/managing-alerts-with-real-time-analytics/configuring-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/configuring-alerts/'
               'learn/analytics/managing-alerts-with-real-time-analytics/subscribing-for-alerts.md': 'https://apim.docs.wso2.com/en/3.2.0/learn/analytics/subscribing-for-alert/'
               'troubleshooting/removing-unused-tokens-from-the-database.md': 'https://apim.docs.wso2.com/en/3.2.0/install-and-setup/setup/setting-up-databases/managing-data-growth-and-improving-performance/'
-              'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview.md'
+              'develop/product-apis/restful-apis.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/overview/'
+              'develop/product-apis/configuring-rest-api.md': 'https://apim.docs.wso2.com/en/3.2.0/develop/product-apis/advanced-configurations/'
     # Extra
 extra_css:
     - assets/lib/highlightjs/default.min.css

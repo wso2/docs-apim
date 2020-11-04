@@ -126,7 +126,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
      WSO2 API Manager’s Admin Portal has got a whole new and exciting look with the use of ReactJS, which is a popular JavaScript library for building user interfaces. The new Admin Portal UI clearly defines the administrative tasks that can be performed, and it also makes the workflows of API administrators simple and more efficient. It has a dashboard view that shows the summary of the administrative tasks and any pending workflow approvals. This makes it easier for administrators to keep track of pending or already-performed tasks. Similar to the Publisher and Developer Portal, the Admin Portal is a OAuth2.0 client application, which authenticates to the WSO2 API Manager’s backend via Open ID Connect. Users now have the ability to customize and enhance the look and feel of the Admin Portal by extending the React components in the portal. 
 
-- **Accessibility compliance of the Developer Portal**
+- **[Accessibility compliance of the Developer Portal]({{base_path}}/reference/accessibility-compliance)**
   
      WSO2 API Manager’s Developer Portal now conforms to the Level A and Level AA success criteria of the conformance requirements of the Web Content Accessibility Guidelines 2.1 (WCAG 2.1).  This will make content more accessible to a wider range of people.
 
@@ -177,6 +177,16 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 - **[Developer Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/devportal-apis/devportal-v0.16/devportal-v0.16/), [Publisher](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/publisher-apis/publisher-v0.16/publisher-v0.16/), and [Admin Portal](https://apim.docs.wso2.com/en/3.1.0/develop/product-apis/admin-apis/admin-v0.16/admin-v0.16/) v0.16 based REST APIs**.
 
 - **Developer Portal and Publisher v0.17 based REST APIs**.
+
+- **Out-of-the-box support for the opaque access token in the Developer Portal**
+
+     Out-of-the-box support to generate an opaque access token via the Developer Portal has been removed. Application Developers can create applications that only generate a **JWT** type access tokens. Applications that are migrated from older versions, will have the support to generate either an opaque access token or a JWT type access token. 
+     
+     Similar to previous versions, application developers will get the OAuth2 bearer tokens while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.  
+     
+- **WSO2 Identity Server as a Key Manager** 
+     
+       The prepackaged WSO2 Identity Server as a Key Manager has been removed. When needed, make sure to use WSO2 Identity Server 5.10.0 as the Key Manager.
 
 ## Compatible WSO2 product versions
 

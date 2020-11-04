@@ -2,9 +2,9 @@
 
 JSON Web Token (JWT) is an open standard of transmitting information securely between two parties. As the tokens are digitally signed, the information is secured. The authentication and authorization process uses JWT access tokens. It is ideal to use JWT access tokens as API credentials because JWT access tokens can carry claims (data) that are used in order to authenticate and authorize requests.
 
-WSO2 API Manager supports the use of self-contained and signed JWT formatted OAuth2.0 access tokens as API credentials. Therefore, you can use JWT formatted OAuth2.0 access tokens to authenticate any API that is secured using the OAuth2 security scheme. The App Developer can create a `JWT` or `OAuth2.0` application via the Developer Portal, in WSO2 API Manager, in order to subscribe to an API. JWT type applications in WSO2 API Manager uses self-contained signed JWT formatted access tokens.
+WSO2 API Manager supports the use of self-contained and signed JWT formatted OAuth2.0 access tokens as API credentials. Therefore, you can use JWT formatted OAuth2.0 access tokens to authenticate any API that is secured using the OAuth2 security scheme. The App Developer can create a `JWT` application via the Developer Portal, in WSO2 API Manager, in order to subscribe to an API. These applications uses self-contained signed JWT formatted access tokens.
 
-When an API is invoked using a JWT access tokens, the API Gateway validates the request by itself. In the case of regular opaque access tokens, the API Gateway communicates with the Key Manager (in a distributed deployment) to validate the token.
+When an API is invoked using these access tokens, the API Gateway validates the request by itself without communicating to the Key Manager component (in a distributed deployment).
 
 ## Prerequisites for JWT based tokens
 
@@ -30,14 +30,36 @@ The following prerequisites have to be satisfied for JWT based tokens to work.
 The following are the mandatory attributes that are required for a JWT access token.
 
 - `Header`
-    - `typ` - The type of the token (`JWT`).
-    - `alg` - The algorithm used to sign the token (e.g., RS256).
+   <table>
+      <tbody>
+         <tr>
+            <td>`alg`</td>
+            <td>The algorithm used to sign the token (e.g., RS256).</td>
+         </tr>
+      </tbody>
+   </table>
+
 - `Payload`
-    - `sub` - The subject of the token, which identifies as to whom the token refers to.
-    - `application` - Application for which the token is generated.
-    - `consumerKey`
-    - `iat` - The time the token was issued.
-    - `exp` - The expiry time of the token.
+   <table>
+      <tbody>
+         <tr>
+            <td>`sub`</td>
+            <td>The subject of the token, which identifies as to whom the token refers to.</td>
+         </tr>
+         <tr>
+            <td>`iat`</td>
+            <td>The time the token was issued.</td>
+         </tr>
+         <tr>
+            <td>`exp`</td>
+            <td>The expiry time of the token.</td>
+         </tr>
+         <tr>
+            <td>`iss`</td>
+            <td>The claim identifies the principal that issued the JWT.</td>
+         </tr>
+      </tbody>
+   </table>
 
 ## Using JWT access tokens
 
@@ -66,7 +88,6 @@ Sign in to the Developer Portal.
      <th>Field</th><th>Value</th>
      <tr><td>Application Name</td><td>TestApp</td></tr>
      <tr><td>Per Token Quota</td><td>10PerMin</td></tr>
-     <tr><td>Token Type</td><td>JWT</td></tr>
      <tr><td>Description</td><td>Test App</td></tr>
      </table>
      </html>
@@ -79,12 +100,12 @@ Sign in to the Developer Portal.
 
 2. Click **Credentials**.
 
-3. Select the JWT based application that you created and select a throttling policy.
+3. Select the application that you created and select a throttling policy.
 
 4. Click **Subscribe**.
      ![Subscribe to the API](../../../../assets/img/learn/subscribe-to-api.png)
 
-5. Click **PROD KEYS**, which corresponds to the JWT based application.
+5. Click **PROD KEYS**, which corresponds to the application.
 
      ![View list of credentials](../../../../assets/img/learn/view-credentials-list.png)
 
@@ -99,7 +120,7 @@ curl -k -X GET  "<API_URL>" -H "accept: application/json" -H "Authorization: Bea
 ```
 
 ``` bash tab="Example"
-curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IlpqUm1ZVE13TlRKak9XVTVNbUl6TWpnek5ESTNZMkl5TW1JeVkyRXpNamRoWmpWaU1qYzBaZz09In0.eyJhdWQiOiJodHRwOlwvXC9vcmcud3NvMi5hcGltZ3RcL2dhdGV3YXkiLCJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJhcHBsaWNhdGlvbiI6eyJvd25lciI6ImFkbWluIiwidGllciI6IjEwUGVyTWluIiwibmFtZSI6IlRlc3RBcHAiLCJpZCI6MiwidXVpZCI6bnVsbH0sInNjb3BlIjoiYW1fYXBwbGljYXRpb25fc2NvcGUgZGVmYXVsdCIsImlzcyI6Imh0dHBzOlwvXC9sb2NhbGhvc3Q6OTQ0M1wvb2F1dGgyXC90b2tlbiIsInRpZXJJbmZvIjp7IlVubGltaXRlZCI6eyJzdG9wT25RdW90YVJlYWNoIjp0cnVlLCJzcGlrZUFycmVzdExpbWl0IjowLCJzcGlrZUFycmVzdFVuaXQiOm51bGx9fSwia2V5dHlwZSI6IlBST0RVQ1RJT04iLCJzdWJzY3JpYmVkQVBJcyI6W3sic3Vic2NyaWJlclRlbmFudERvbWFpbiI6ImNhcmJvbi5zdXBlciIsIm5hbWUiOiJQaXp6YVNoYWNrQVBJIiwiY29udGV4dCI6IlwvcGl6emFzaGFja1wvMS4wLjAiLCJwdWJsaXNoZXIiOiJhZG1pbiIsInZlcnNpb24iOiIxLjAuMCIsInN1YnNjcmlwdGlvblRpZXIiOiJVbmxpbWl0ZWQifV0sImNvbnN1bWVyS2V5IjoiWWpfVWVmaHRpdjE1Tm1meDFBOFJqUldDVGY0YSIsImV4cCI6MTU3MTkxNTQ0MSwiaWF0IjoxNTcxOTExODQxLCJqdGkiOiI3NjU3Yjk3OC1jZjc1LTRjMWUtYmFmOC02OGJiZDFkMWEyNjMifQ.BBXefDL4DeePYIzBZdZDE_fJDZVza4e0qBU7_Xwrtjut66NKx4xOv8zyjEELudo_q15fpcb0_bwZ4fwRbKECz_TXIH08snivqH0IgDNJDGbEocBbQBj0nQa6eL363lxkDjq-sTrEdKgXjr9rwdEh5SJWE6pkM9rHlLWMFpJKEWOPp726DRqOC60BERvdcHGTN5Bhh029o4eGCFINfzmfpu6bwFqOTIgk9O70WhoYZIi-YiZnG3HHp4kV3T8r3JoW4Ywuy1ANKC3U1cCKHbSS_LmrkM6Z7AR8T_kigCZq0qvMz-8tqEjauUf8avOnpF5GXozDJzU-Y7nwWpmQnIWpwA"
+curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: application/json" -H "Authorization: Bearer eyJ4NXQiOiJNell4TW1Ga09HWXdNV0kwWldObU5EY3hOR1l3WW1NNFpUQTNNV0kyTkRBelpHUXpOR00wWkdSbE5qSmtPREZrWkRSaU9URmtNV0ZoTXpVMlpHVmxOZyIsImtpZCI6Ik16WXhNbUZrT0dZd01XSTBaV05tTkRjeE5HWXdZbU00WlRBM01XSTJOREF6WkdRek5HTTBaR1JsTmpKa09ERmtaRFJpT1RGa01XRmhNelUyWkdWbE5nX1JTMjU2IiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiJhZG1pbkBjYXJib24uc3VwZXIiLCJhdXQiOiJBUFBMSUNBVElPTiIsImF1ZCI6IkZ4Sm9kaWFPTTVEclc5WDFiUDR6c0E4Nk0yQWEiLCJuYmYiOjE2MDI1ODEyOTAsImF6cCI6IkZ4Sm9kaWFPTTVEclc5WDFiUDR6c0E4Nk0yQWEiLCJzY29wZSI6ImFtX2FwcGxpY2F0aW9uX3Njb3BlIGRlZmF1bHQiLCJpc3MiOiJodHRwczpcL1wvbG9jYWxob3N0Ojk0NDRcL29hdXRoMlwvdG9rZW4iLCJleHAiOjE2MDI1ODQ4OTAsImlhdCI6MTYwMjU4MTI5MCwianRpIjoiZTRhMzg2ZWQtM2I5OC00OTczLTgzZTAtYjk1NmE0NjZmODI4In0.RnTRzSOwEO0a7JWdwsxz-gajvziM6tZf-mB_u_MDzyZOLKG87qdZe2quyZxD3hI-gxrsszMl8R8pPh3eGWQNq0sy_vX0FAMxwioWg8tGtzFMZSI23IAfHcHoh3mZiwTKWV9i8Br-_AkO_WU-GRk6Xk-4IKKLqSSk9Apj_DamZ2H-xjImMVBH_OfRK4KQbrarmMRXi00iOkZEDENCAbxzJ3WgqzQdCp2vvWc-5D1FBukzYyppIioSybyOhJWqVEA0shugfN4rAOAsY6qkzNIdpX9wq23TMthRNQe_ZQrle0DCg5dVXGb33rcbOO6W9yuxe4vK4-CtYf5qS30vHpnofg"
 ```
 
 ``` bash tab="Response"
@@ -169,10 +190,6 @@ curl -k -X GET "https://localhost:8243/pizzashack/1.0.0/menu" -H "accept: applic
 
 ## Additional Information
 <a name="import"></a>
-
-### Validation of API subscriptions
-
-The subscription validation is applied only if the JWT payload contains the `subscribedAPIs` attribute. The default Key Manager in WSO2 API Manager ensures that this property is added to all the tokens it issues even if the relevant applications have not subscribed to an API. Tokens that are generated before an application subscribes to an API will not contain that API under its subscription details, and will not be allowed to access that specific API. Therefore, JWTs should be generated after the application has subscribed to the required API.
 
 ### Importing the public certificate into the client trust store
      

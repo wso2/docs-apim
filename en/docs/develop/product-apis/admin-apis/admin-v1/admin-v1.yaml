@@ -22,13 +22,11 @@ info:
   title: "WSO2 API Manager - Admin"
   description: |
     This document specifies a **RESTful API** for WSO2 **API Manager** - **Admin Portal**.
-    Please see [full swagger definition](https://raw.githubusercontent.com/wso2/carbon-apimgt/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.admin.v1/src/main/resources/admin-api.yaml) of the API which is written using [swagger 2.0](http://swagger.io/) specification.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the the API you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
-
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
     in the payload. A sample payload is shown below.
     ```
@@ -42,19 +40,16 @@ info:
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
     base64 encoded admin username and password.
-
     **Format of the request**
     ```
       curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
-
     **Sample request**
     ```
       curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
-
     Following is a sample response after invoking the above curl.
     ```
     {
@@ -73,22 +68,19 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for Admin REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorizations** section of resource documentation.
-
-    Following is the format of the request if you are using the password grant type
+    Following is the format of the request if you are using the password grant type.
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd>&scope=<scopes seperated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<gateway_port>/token
     ```
-
-    Sample request.
+    **Sample request**
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
     -d "grant_type=password&username=admin&password=admin&scope=apim:admin apim:tier_view"
     ```
-
-    And follow is a sample response to the above request.
+    Shown below is a sample response to the above request.
     ```
     {
     "access_token": "e79bda48-3406-3178-acce-f6e4dbdcbb12",
@@ -103,13 +95,12 @@ info:
     If you use a different authentication mechanism, this process may change.
 
     # Try out in Postman
-
     If you want to try-out the embedded postman collection with "Run in Postman" option, please follow the guidelines listed below.
-    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with the access token parameterized. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
+    * All of the OAuth2 secured endpoints have been configured with an Authorization Bearer header with a parameterized access token. Before invoking any REST API resource make sure you run the `Register DCR Application` and `Generate Access Token` requests to fetch an access token with all required scopes.
     * Make sure you have an API Manager instance up and running.
     * Update the `basepath` parameter to match the hostname and port of the APIM instance.
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e3fd456bcae9b458cb5)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ec4e3511e925051d637f)
 
   contact:
     name: "WSO2"
@@ -307,9 +298,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Application Throttling Policy" resource API
@@ -539,7 +528,6 @@ paths:
         406:
           $ref: '#/responses/NotAcceptable'
 
-
     #----------------------------------------------------------------------------
     # Upload a global mediation policy
     #----------------------------------------------------------------------------
@@ -685,11 +673,7 @@ paths:
             OK.
             Mediation policy successfully deleted.
         403:
-          description: |
-            Forbidden.
-            The request must be conditional but no condition has been specified.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
@@ -752,11 +736,12 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         403:
-          $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         412:
           $ref: '#/responses/PreconditionFailed'
+
   ######################################################
   # The "Subscription Throttling Policy Collection" resource API
   ######################################################
@@ -885,9 +870,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Subscription Throttling Policy" resource API
@@ -1208,9 +1191,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Custom Rule" resource API
@@ -1397,7 +1378,6 @@ paths:
         412:
           $ref: '#/responses/PreconditionFailed'
 
-
   ######################################################
   # The "Advanced Throttling Policy Collection" resource API
   ######################################################
@@ -1519,9 +1499,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Advanced Throttling Policy" resource API
@@ -1809,9 +1787,7 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         415:
-          description: |
-            Unsupported media type.
-            The entity of the request was in a not supported format.
+          $ref: '#/responses/UnsupportedMediaType'
 
   ######################################################
   # The "Individual Blocking Condition" resource API
@@ -2091,7 +2067,6 @@ paths:
           description: |
             OK.
             Application owner changed successfully.
-
         400:
           $ref: '#/responses/BadRequest'
         404:
@@ -2285,11 +2260,7 @@ paths:
             Created.
             API Imported Successfully.
         403:
-          description: |
-            Forbidden
-            Not Authorized to import.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         409:
@@ -2427,11 +2398,7 @@ paths:
             Created.
             API Product Imported Successfully.
         403:
-          description: |
-            Forbidden
-            Not Authorized to import.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         409:
@@ -2724,8 +2691,7 @@ paths:
         404:
           $ref: '#/responses/NotFound'
         500:
-          $ref: '#/definitions/PublishStatus'
-
+          $ref: '#/responses/InternalServerError'
 
   /monetization/publish-usage/status:
 
@@ -2821,6 +2787,7 @@ paths:
           $ref: '#/responses/BadRequest'
         406:
           $ref: '#/responses/NotAcceptable'
+
   #----------------------------------------------------------------
   # Retrieve workflow requests according to the external reference
   #----------------------------------------------------------------
@@ -3295,9 +3262,7 @@ paths:
           schema:
             $ref: '#/definitions/AlertsSubscription'
         400:
-          description: |
-            Bad Request.
-            Invalid Request or request validation failure.
+          $ref: '#/responses/BadRequest'
         500:
           $ref: '#/responses/InternalServerError'
 
@@ -3572,11 +3537,10 @@ paths:
           schema:
             $ref: '#/definitions/ScopeList'
         400:
-          description: |
-            Bad Request.
-            Invalid Request or request validation failure.
+          $ref: '#/responses/BadRequest'
         500:
           $ref: '#/responses/InternalServerError'
+
   ######################################################
   # The 'Role Alias' Collection API Resource
   ######################################################
@@ -3646,13 +3610,9 @@ paths:
           schema:
             $ref: '#/definitions/RoleAliasList'
         400:
-          description: |
-            Bad Request.
-            Invalid Request or request validation failure.
+          $ref: '#/responses/BadRequest'
         500:
-          description: |
-            Internal Server Error
-            An internal server error occurred while updating the roles.
+          $ref: '#/responses/InternalServerError'
 
   ######################################################
   # The Tenant Theme resource APIs
@@ -3691,11 +3651,7 @@ paths:
           schema:
             type: file
         403:
-          description: |
-            Forbidden.
-            Not Authorized to export.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         404:
           $ref: '#/responses/NotFound'
         500:
@@ -3734,15 +3690,9 @@ paths:
             Ok.
             Tenant Theme Imported Successfully.
         403:
-          description: |
-            Forbidden.
-            Not Authorized to import.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/Forbidden'
         413:
-          description: |
-            Payload Too Large.
-            Tenant Theme file size exceeds the allowed limit.
+          $ref: '#/responses/PayloadTooLarge'
         500:
           $ref: '#/responses/InternalServerError'
 
@@ -3853,7 +3803,6 @@ paths:
         406:
           $ref: '#/responses/NotAcceptable'
 
-
     #-----------------------------------------------------
     # Update a Key Manager
     #-----------------------------------------------------
@@ -3890,11 +3839,8 @@ paths:
         400:
           $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            The resource to be updated does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
+
     #-----------------------------------------------------
     # Delete a Key Manager
     #-----------------------------------------------------
@@ -3921,6 +3867,7 @@ paths:
             Key Manager successfully deleted.
         404:
           $ref: '#/responses/NotFound'
+
   ######################################################
   # The "Key Manager Collection" resource API
   ######################################################
@@ -4169,6 +4116,9 @@ parameters:
     type: string
     required: true
 
+######################################################
+# The response schemas used by the API resources
+######################################################
 responses:
 
   # Bad Request Error Response Schema
@@ -4194,6 +4144,19 @@ responses:
         code: 401
         message: "Unauthorized"
         description: "The user is not authorized"
+        moreInfo: ""
+        error: []
+
+  # Forbidden Error Response Schema
+  Forbidden:
+    description: Forbidden. The request must be conditional but no condition has been specified.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 403
+        message: "Forbidden"
+        description: "The request must be conditional but no condition has been specified"
         moreInfo: ""
         error: []
 
@@ -4246,6 +4209,19 @@ responses:
         code: 412
         message: "Precondition Failed"
         description: "The request has not been performed because one of the preconditions is not met"
+        moreInfo: ""
+        error: []
+
+  # Payload Too Large Error Response Schema
+  PayloadTooLarge:
+    description: Payload Too Large. Request entity is larger than limits defined by server.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 413
+        message: "Payload Too Large"
+        description: "Request entity is larger than limits defined by server"
         moreInfo: ""
         error: []
 
@@ -5646,11 +5622,11 @@ definitions:
     properties:
       name:
         type: string
+        example: "apim:subscribe"
         items:
           type: string
 
-
-    #----------------------------------------------
+  #----------------------------------------------
   # The Alert list resource.
   #----------------------------------------------
   AlertTypesList:

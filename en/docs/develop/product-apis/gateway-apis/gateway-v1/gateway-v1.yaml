@@ -6,15 +6,12 @@ info:
   version: "v1"
   title: "WSO2 API Manager - Gateway"
   description: |
-    This specifies a **RESTful API** for WSO2 **API Manager** - Gateway.
-
-    Please see [full OpenAPI definition](https://github.com/wso2/carbon-apimgt/blob/v6.7.206/components/apimgt/org.wso2.carbon.apimgt.rest.api.gateway.v1/src/main/resources/gateway-api.yaml) of the API which is written using [OpenAPI Specification 3.0](http://swagger.io/).
+    This document specifies a **RESTful API** for WSO2 **API Manager** - **Gateway**.
 
     # Authentication
     Our REST APIs are protected using OAuth2 and access control is achieved through scopes. Before you start invoking
     the the API you need to obtain an access token with the required scopes. This guide will walk you through the steps
     that you will need to follow to obtain an access token.
-
     First you need to obtain the consumer key/secret key pair by calling the dynamic client registration (DCR) endpoint. You can add your preferred grant types
     in the payload. A Sample payload is shown below.
     ```
@@ -28,20 +25,17 @@ info:
     ```
     Create a file (payload.json) with the above sample payload, and use the cURL shown bellow to invoke the DCR endpoint. Authorization header of this should contain the
     base64 encoded admin username and password
-
-    Format of the request
+    **Format of the request**
     ```
       curl -X POST -H "Authorization: Basic Base64(admin_username:admin_password)" -H "Content-Type: application/json"
       \ -d @payload.json https://<host>:<servlet_port>/client-registration/v0.17/register
     ```
-
-    Sample request
+    **Sample request**
     ```
       curl -X POST -H "Authorization: Basic YWRtaW46YWRtaW4=" -H "Content-Type: application/json"
       \ -d @payload.json https://localhost:9443/client-registration/v0.17/register
     ```
-
-    Following is a sample response after invoking the above curl
+    Following is a sample response after invoking the above curl.
     ```
     {
     "clientId": "fOCi4vNJ59PpHucC2CAYfYuADdMa",
@@ -59,22 +53,19 @@ info:
     We will be using the password grant type for this, you can use any grant type you desire.
     You also need to add the proper **scope** when getting the access token. All possible scopes for publisher REST API can be viewed in **OAuth2 Security** section
     of this document and scope for each resource is given in **authorization** section of resource documentation.
-
-    Following is the format of the request if you are using the password grant type
+    Following is the format of the request if you are using the password grant type.
     ```
     curl -k -d "grant_type=password&username=<admin_username>&password=<admin_passowrd&scope=<scopes seperated by space>"
     \ -H "Authorization: Basic base64(cliet_id:client_secret)"
     \ https://<host>:<gateway_port>/token
     ```
-
-    Sample request.
+    **Sample request**
     ```
     curl https://localhost:8243/token -k \
     -H "Authorization: Basic Zk9DaTR2Tko1OVBwSHVjQzJDQVlmWXVBRGRNYTphNEZ3SGxxMGlDSUtWczJNUElJRG5lcFpuWU1h" \
     -d "grant_type=password&username=admin&password=admin&scope=apim:api_publish"
     ```
-
-    And follow is a sample response to the above request.
+    Shown below is a sample response to the above request.
     ```
     {
     "access_token": "e79bda48-3406-3178-acce-f6e4dbdcbb12",
@@ -176,7 +167,6 @@ paths:
             Tenant Domain of the API
           in: query
           type: string
-
       tags:
         - ReDeploy API
       responses:
@@ -193,23 +183,11 @@ paths:
           schema:
             $ref: '#/definitions/DeployResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   /undeploy-api:
 
@@ -246,7 +224,6 @@ paths:
             Tenant Domain of the API
           in: query
           type: string
-
       tags:
         - Undeploy API
       responses:
@@ -263,23 +240,11 @@ paths:
           schema:
             $ref: '#/definitions/DeployResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   /api-artifact:
 
@@ -316,7 +281,6 @@ paths:
             Tenant Domain of the API
           in: query
           type: string
-
       tags:
         - Get API Artifacts
       responses:
@@ -333,23 +297,11 @@ paths:
           schema:
             $ref: '#/definitions/APIArtifact'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   /local-entry:
 
@@ -402,23 +354,11 @@ paths:
           schema:
             $ref: '#/definitions/LocalEntry'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   /sequence:
     #-----------------------------------------------------
@@ -428,11 +368,6 @@ paths:
       security:
         - OAuth2Security:
             - apim:api_publish
-      x-wso2-curl: "curl -k -H \"Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8\" -X GET \"https://127.0.0.1:9443/api/am/gateway/v1/sequence?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com\""
-      x-wso2-request: |
-        GET https://127.0.0.1:9443/api/am/gateway/v1/sequence?apiName=PizzaAPI&version=1.0&tenantDomain=registry.com
-        Authorization: Bearer ae4eae22-3f65-387b-a171-d37eaa366fa8
-      x-wso2-response: "HTTP/1.1 200 OK"
       x-code-samples:
         - lang: Curl
           source: |-
@@ -459,7 +394,6 @@ paths:
             Tenant Domain of the API
           in: query
           type: string
-
       tags:
         - Get API Artifacts
       responses:
@@ -476,23 +410,11 @@ paths:
           schema:
             $ref: '#/definitions/Sequences'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
   /end-points:
 
@@ -529,7 +451,6 @@ paths:
             Tenant Domain of the API
           in: query
           type: string
-
       tags:
         - Get API Artifacts
       responses:
@@ -546,23 +467,11 @@ paths:
           schema:
             $ref: '#/definitions/DeployResponse'
         400:
-          description: |
-            Bad Request.
-            Invalid request or validation error
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/BadRequest'
         404:
-          description: |
-            Not Found.
-            Requested API does not exist.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/NotFound'
         412:
-          description: |
-            Precondition Failed.
-            The request has not been performed because one of the preconditions is not met.
-          schema:
-            $ref: '#/definitions/Error'
+          $ref: '#/responses/PreconditionFailed'
 
 ######################################################
 # Parameters - required by some of the APIs above
@@ -582,6 +491,50 @@ parameters:
     type: string
 
 ######################################################
+# The response schemas used by the API resources
+######################################################
+responses:
+
+  # Bad Request Error Response Schema
+  BadRequest:
+    description: Bad Request. Invalid request or validation error.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 400
+        message: "Bad Request"
+        description: "Invalid request or validation error"
+        moreInfo: ""
+        error: []
+
+  # Not Found Error Response Schema
+  NotFound:
+    description: Not Found. The specified resource does not exist.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 404
+        message: "Not Found"
+        description: "The specified resource does not exist"
+        moreInfo: ""
+        error: []
+
+  # Precondition Failed Error Response Schema
+  PreconditionFailed:
+    description: Precondition Failed. The request has not been performed because one of the preconditions is not met.
+    schema:
+      $ref: '#/definitions/Error'
+    examples:
+      application/json:
+        code: 412
+        message: "Precondition Failed"
+        description: "The request has not been performed because one of the preconditions is not met"
+        moreInfo: ""
+        error: []
+
+######################################################
 # The resources used by some of the APIs above within the message body
 ######################################################
 definitions:
@@ -595,7 +548,7 @@ definitions:
     properties:
       deployStatus:
         description: |
-          This attribute declares whether deployment task is successfull or failed.
+          This attribute declares whether deployment task is successful or failed.
         type: string
         enum:
           - DEPLOYED
@@ -603,7 +556,7 @@ definitions:
         example: DEPLOYED
       jsonPayload:
         description: |
-          Attributes that returned after the api deployment
+          Attributes that returned after the API deployment
         type: string
 
   #-----------------------------------------------------
@@ -618,12 +571,14 @@ definitions:
         type: array
         items:
           type: string
+          example: "<endpoint xmlns=\"http://ws.apache.org/ns/synapse\" name=\"PizzaShackAPI--v1.0.0_APIproductionEndpoint\"><http uri-template=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"><timeout><responseAction>fault<\/responseAction><\/timeout><\/http><property name=\"ENDPOINT_ADDRESS\" value=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"/><\/endpoint>"
       UnDeployedEndpoints:
         description: |
           The end points which has not been deployed in the gateway
         type: array
         items:
           type: string
+          example: "<endpoint xmlns=\"http://ws.apache.org/ns/synapse\" name=\"PizzaShackAPI--v1.0.0_APIproductionEndpoint\"><http uri-template=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"><timeout><responseAction>fault</responseAction></timeout></http><property name=\"ENDPOINT_ADDRESS\" value=\"https://localhost:9443/am/sample/pizzashack/v1/api/\"/></endpoint>"
 
   #-----------------------------------------------------
   # The Sequence response resource
@@ -658,14 +613,14 @@ definitions:
         type: array
         items:
           type : string
-          example : "localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\"ga-config-key\" type=\"1\"><GoogleAnalyticsTracking xmlns=\"\">\n\t<!--Enable/Disable Google Analytics Tracking -->\n\t<Enabled>false</Enabled>\n\n\t<!-- Google Analytics Tracking ID -->\n\t<TrackingID>UA-XXXXXXXX-X</TrackingID>\n\n</GoogleAnalyticsTracking></localEntry>"
+          example : "<localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\"ga-config-key\" type=\"1\"><GoogleAnalyticsTracking xmlns=\"\">\n\t<!--Enable/Disable Google Analytics Tracking -->\n\t<Enabled>false</Enabled>\n\n\t<!-- Google Analytics Tracking ID -->\n\t<TrackingID>UA-XXXXXXXX-X</TrackingID>\n\n</GoogleAnalyticsTracking></localEntry>"
       UnDeployedLocalEntries:
         description: |
           The local entries which has not been deployed in the gateway
         type: array
         items:
           type : string
-          example: "localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\"ga-config-key\" type=\"1\"><GoogleAnalyticsTracking xmlns=\"\">\n\t<!--Enable/Disable Google Analytics Tracking -->\n\t<Enabled>false</Enabled>\n\n\t<!-- Google Analytics Tracking ID -->\n\t<TrackingID>UA-XXXXXXXX-X</TrackingID>\n\n</GoogleAnalyticsTracking></localEntry>"
+          example: "<localEntry xmlns=\"http://ws.apache.org/ns/synapse\" key=\"ga-config-key\" type=\"1\"><GoogleAnalyticsTracking xmlns=\"\">\n\t<!--Enable/Disable Google Analytics Tracking -->\n\t<Enabled>false</Enabled>\n\n\t<!-- Google Analytics Tracking ID -->\n\t<TrackingID>UA-XXXXXXXX-X</TrackingID>\n\n</GoogleAnalyticsTracking></localEntry>"
 
   #-----------------------------------------------------
   # The API Artifact response resource
