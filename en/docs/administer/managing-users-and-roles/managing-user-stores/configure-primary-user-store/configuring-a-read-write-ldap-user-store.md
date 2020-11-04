@@ -25,9 +25,9 @@ Follow the given steps to configure a read-write LDAP as the primary user store:
 
     ```
     [user_store]
-    class="org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager"
-    type = "read_write_ldap"
-    connection_url = "ldap://localhost:10389"
+    class="org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager"
+    type = "read_write_ldap_unique_id"
+    connection_url = "ldap://localhost:10390"
     connection_name = "uid=admin,ou=system"
     connection_password = "admin"
     ```

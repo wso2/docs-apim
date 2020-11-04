@@ -24,22 +24,22 @@ Instead of using the embedded database, you can set up a separate repository and
 <tbody>
 <tr class="odd">
 <td><strong>read_only_ldap</strong></td>
-<td><code>org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager</code></td>
+<td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager</code></td>
 <td><p>Use <code>read_only_ldap</code> to do read-only operations for external LDAP user stores.</p></td>
 </tr>
 <tr class="even">
 <td><strong>read_write_ldap</strong></td>
-<td><code>org.wso2.carbon.user.core.ldap.ReadWriteLDAPUserStoreManager</code></td>
+<td><code>org.wso2.carbon.user.core.ldap.UniqueIDReadWriteLDAPUserStoreManager</code></td>
 <td><p>Use <code>read_write_ldap</code> for external LDAP user stores to do both read and write operations.</p></td>
 </tr>
 <tr class="odd">
 <td><strong>active_directory</strong></td>
-<td><code>org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager</code></td>
+<td><code>org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager </code></td>
 <td><p>Use <code>active_directory</code> to configure an Active Directory Domain Service (AD DS) or Active Directory Lightweight Directory Service (AD LDS). This can be used <strong>only</strong> for read/write operations. If you need to use AD as read-only, you must use <code>read_only_ldap</code> .</p></td>
 </tr> 
 <tr class="even">
 <td><strong>database</strong></td>
-<td><code>org.wso2.carbon.user.core.jdbc.JDBCUserStoreManager</code></td>
+<td><code>org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager</code></td>
 <td><p>Use <code>database</code> for both internal and external JDBC user stores. This is the user store configuration which is configured by default.</p></td>
 </tr>
 </tbody>
@@ -47,16 +47,15 @@ Instead of using the embedded database, you can set up a separate repository and
 
 This can be defined in the `[user_store]` section of the `<APIM_HOME>/repository/conf/deployment.toml` file.
 
+``` bash tab="Response Format"
+[user_store]
+type = <type>
+```
 
-        ``` bash tab="Response Format"
-            [user_store]
-            type = <type>
-        ```
-
-        ``` bash tab="Example Response"
-            [user_store]
-            type = "database"
-        ```
+``` bash tab="Example Response"
+[user_store]
+type = "database_unique_id"
+```
 
 Follow the links given below to setup the required type of primary user store.
 

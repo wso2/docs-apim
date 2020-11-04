@@ -25,8 +25,8 @@ Follow the given steps to configure a read-only LDAP/AD as the primary user stor
 -   Add these configurations below in `<API-M_HOME>/repository/conf/deployment.toml` file.
     ```
     [user_store]
-    class="org.wso2.carbon.user.core.ldap.ReadOnlyLDAPUserStoreManager"
-    type = "read_only_ldap"
+    class= "org.wso2.carbon.user.core.ldap.UniqueIDReadOnlyLDAPUserStoreManager"
+    type = "read_only_ldap_unique_id"
     connection_url = "ldap://localhost:10389"
     connection_name = "uid=admin,ou=system"
     connection_password = "admin"

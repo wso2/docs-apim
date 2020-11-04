@@ -33,6 +33,7 @@ Follow the given steps to configure a JDBC user store:
     ```
         [user_store]
         type = "database_unique_id"
+        class = "org.wso2.carbon.user.core.jdbc.UniqueIDJDBCUserStoreManager"
     ```
 
 2. By default the WSO2 API Manager uses a JDBC user store manager. This is an internal RDBMS. If you are willing to connect to an external RDBMS for the `database` user store type, you will have to define the following configurations along with the user store type. 

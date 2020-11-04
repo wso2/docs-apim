@@ -24,9 +24,9 @@ Follow the given steps to configure an external Active Directory as the primary 
 -   Add these configurations below in `<API-M_HOME>/repository/conf/deployment.toml` file.
     ```
     [user_store]
-    class="org.wso2.carbon.user.core.ldap.ActiveDirectoryUserStoreManager"
-    type = "active_directory"
-    connection_url = "ldap://localhost:10389"
+    class= "org.wso2.carbon.user.core.ldap.UniqueIDActiveDirectoryUserStoreManager"
+    type = "active_directory_unique_id"
+    connection_url = "ldap://localhost:10390"
     connection_name = "uid=admin,ou=system"
     connection_password = "admin"
     ```
