@@ -57,7 +57,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **[Gateway Runtime Artifact Synchronizer]({{base_path}}/install-and-setup/setup/distributed-deployment/synchronizing-artifacts-in-a-gateway-cluster/)**
 
-     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup using NFS with an extension point that can be configured to store these Synapse artifacts in a pre-configured storage location. 
+     This feature allows you to sync nodes seamlessly in a Multi-Gateway setup with an extension point that can be configured to store these Synapse artifacts in a pre-configured storage location. 
 
 - **[Git integration support for API Controller]({{base_path}}/learn/api-controller/ci-cd-with-wso2-api-management/)**
 
@@ -178,11 +178,11 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
 
 - **Developer Portal and Publisher v0.17 based REST APIs**.
 
-- **Out-of-the-box support to opaque access token in Developer Portal**
+- **Out-of-the-box support for the opaque access token in the Developer Portal**
 
-     Out-of-the-box support to generate opaque access token from Developer portal is removed. Application Developers can create applications that only generates **JWT** type access token. The opaque token support is only available for the applications that are migrated from older versions.
-
-     Similar to previous versions, application developers will get the OAuth2 bearer tokens while generating tokens from the Developer portal. The only difference would be the format of the token as the JWT type token is self-contained.
+     Out-of-the-box support to generate an opaque access token via the Developer Portal has been removed. Application Developers can create applications that only generate a **JWT** type access tokens. Applications that are migrated from older versions, will have the support to generate either an opaque access token or a JWT type access token. 
+     
+     Similar to previous versions, application developers will get the OAuth2 bearer tokens while generating tokens via the Developer Portal. The only difference is the format of the token as the JWT type token is self-contained.  
 
 ## Compatible WSO2 product versions
 
