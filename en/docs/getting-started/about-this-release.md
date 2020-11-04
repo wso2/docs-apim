@@ -186,7 +186,7 @@ The **WSO2 API Manager 3.2.0** is the **latest** **WSO2 API Manager release*
      
 - **WSO2 Identity Server as a Key Manager** 
      
-       The prepackaged WSO2 Identity Server as a Key Manager is removed and WSO2 Identity Server should be used as the key Manager.
+       The prepackaged WSO2 Identity Server as a Key Manager has been removed. When needed, make sure to use WSO2 Identity Server 5.10.0 as the Key Manager.
 
 ## Compatible WSO2 product versions
 
