@@ -525,7 +525,7 @@ Follow the instructions below to move all the existing API Manager configuration
             Where `<API-M_3.1.0_HOME>` can be, for example, `/Users/user12/Documents/wso2am-3.1.0`, which is the **full path** to the particular location.
 
         !!! note "Tenants"
-            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1]({{base_path}}/assets/attachments/install-and-setup/apim210_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
+            Run the PowerShell script [apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1]({{base_path}}/assets/attachments/install-and-setup/apim200_to_apim310_gateway_artifact_migrator_for_tenants.ps1) as shown below, to migrate from WSO2 API Manager 2.0.0 to 3.1.0.
 
             1.  Open a Windows command prompt and type the following command.
                 ```
