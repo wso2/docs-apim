@@ -478,68 +478,6 @@ nav:
                         - Using the MQTT Transport: use-cases/examples/transport_examples/Pub_Sub_using_MQTT.md
                 - Working with Transactions: use-cases/examples/working-with-transactions.md
                 - JSON Examples: use-cases/examples/json_examples/json-examples.md
-    #- Customize Product:
-    #      - Product REST APIs:
-    #            - Overview: develop/product-apis/overview.md
-    #            - Publisher APIs:
-    #                - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
-    #            - Developer Portal APIs:
-    #                - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
-    #            - Admin APIs:
-    #                - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
-    #                - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
-    #            - Gateway APIs:
-    #                - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
-    #            - Advanced Configurations: develop/product-apis/advanced-configurations.md
-    #      - Extending WSO2 API Manager:
-    #            - Extending Key Management:
-    #                  - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
-    #                 - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
-    #                 - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
-    #                 - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
-    ###            - Extending API Gateway:
-    #                  - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
-    #                  - Writing Custom Handlers: develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
-    #            - Extending Workflows:
-    #                  - Invoking the API Manager from the BPEL Engine: develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
-    #                  - Customizing a Workflow Extension: develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
-    #                  - Configuring HTTP Redirection for Workflows: develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
-    #                  - Configuring Workflows for Tenants: develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
-    #                  - Configuring Workflows in a Cluster: develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
-    #                  - Changing the Default User Role in Workflows: develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
-    #                  - Cleaning Up Workflow Tasks: develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
-    #            - SAML2 SSO:
-    #                  - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
-    #                  - Configuring External IDP Through Identity Server for SSO: develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
-    #                  - Configuring Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
-    #                  - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
-    #      - Customizations:
-    #            - Customizing the Developer Portal:
-    #                  - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
-    #                  - Customize API Listing:
-    #                        - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
-    #                        - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
-    #                  - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
-    ##                  - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
-    #                  - Enable or Disable Rating: develop/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
-    #                  - Enable or Disable Home Page: develop/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
-    #                  - Enable or Disable Tag Cloud: develop/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
-    #                  - Enable or Disable Footer: develop/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
-    #                  - Enable or Disable Banner: develop/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
-    #                  - Styling API Details Left Menu: develop/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
-    #                  - Styling API Details Info Section: develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
-    #                  - Styling the Logo and Header: develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
-    #                  - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
-    ##                  - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
-    #            - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
-    #            - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
-    #            - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
-    #            - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
-    #            - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
-    ##            - Adding internationalization: develop/customizations/adding-internationalization.md
-    #      - Admin Services: develop/wso2-admin-services.md
-    #      - Working with the Source Code: develop/working-with-the-source-code.md
-    #      - Java Documentation: develop/java-documentation.md
     - Streaming:
           - Streaming Overview: streaming/streaming-overview.md
           - Streaming Quick Start Guide: streaming/streaming-qsg.md
@@ -732,6 +670,68 @@ nav:
           - Configuration Catalog: reference/config-catalog.md
           - WSO2 API Manager Best Practices: reference/wso2-api-manager-best-practices.md
           - FAQ: reference/faq.md
+          - Customize Product:
+                  - Product REST APIs:
+                        - Overview: develop/product-apis/overview.md
+                        - Publisher APIs:
+                              - Publisher v1: develop/product-apis/publisher-apis/publisher-v1/publisher-v1.md
+                        - Developer Portal APIs:
+                              - Developer Portal API v1: develop/product-apis/devportal-apis/devportal-v1/devportal-v1.md
+                        - Admin APIs:
+                              - Admin APIs v1: develop/product-apis/admin-apis/admin-v1/admin-v1.md
+                              - Admin APIs v0.17: develop/product-apis/admin-apis/admin-v0.17/admin-v0.17.md
+                        - Gateway APIs:
+                              - Gateway v1: develop/product-apis/gateway-apis/gateway-v1/gateway-v1.md
+                        - Advanced Configurations: develop/product-apis/advanced-configurations.md
+                  - Extending WSO2 API Manager:
+                        - Extending Key Management:
+                              - Extending Key Validation: develop/extending-api-manager/extending-key-management/extending-key-validation.md
+                              - Extending Scope Validation: develop/extending-api-manager/extending-key-management/extending-scope-validation.md
+                              - Extending Key Manager: develop/extending-api-manager/extending-key-management/extending-the-key-manager-interface.md
+                              - Writing Custom Grant Types: develop/extending-api-manager/extending-key-management/writing-custom-grant-types.md
+                        - Extending API Gateway:
+                              - Customizing API Template: develop/extending-api-manager/extending-gateway/customizing-api-template-for-gateway.md
+                              - Writing Custom Handlers: develop/extending-api-manager/extending-gateway/writing-custom-handlers.md
+                        - Extending Workflows:
+                              - Invoking the API Manager from the BPEL Engine: develop/extending-api-manager/extending-workflows/invoking-the-api-manager-from-the-bpel-engine.md
+                              - Customizing a Workflow Extension: develop/extending-api-manager/extending-workflows/customizing-a-workflow-extension.md
+                              - Configuring HTTP Redirection for Workflows: develop/extending-api-manager/extending-workflows/configuring-http-redirection-for-workflows.md
+                              - Configuring Workflows for Tenants: develop/extending-api-manager/extending-workflows/configuring-workflows-for-tenants.md
+                              - Configuring Workflows in a Cluster: develop/extending-api-manager/extending-workflows/configuring-workflows-in-a-cluster.md
+                              - Changing the Default User Role in Workflows: develop/extending-api-manager/extending-workflows/changing-the-default-user-role-in-workflows.md
+                              - Cleaning Up Workflow Tasks: develop/extending-api-manager/extending-workflows/cleaning-up-workflow-tasks.md
+                        - SAML2 SSO:
+                              - Configuring Single Sign On with SAML2: develop/extending-api-manager/saml2-sso/configuring-single-sign-on-with-saml2.md
+                              - Configuring External IDP Through Identity Server for SSO: develop/extending-api-manager/saml2-sso/configuring-external-idp-through-identity-server-for-sso.md
+                              - Configuring Identity Server as IDP for SSO: develop/extending-api-manager/saml2-sso/configuring-identity-server-as-idp-for-sso.md
+                              - Multi Factor Authentication for Publisher and Developer Portals: develop/extending-api-manager/saml2-sso/multi-factor-authentication-mfa-for-publisher-and-developer-portals.md
+                  - Customizations:
+                        - Customizing the Developer Portal:
+                              - Overriding Developer Portal Theme: develop/customizations/customizing-the-developer-portal/overriding-developer-portal-theme.md
+                              - Customize API Listing:
+                                    - API Category based Grouping: develop/customizations/customizing-the-developer-portal/customize-api-listing/api-category-based-grouping.md
+                                    - Change Default View: develop/customizations/customizing-the-developer-portal/customize-api-listing/change-default-view.md
+                              - Enabling or Disabling API Detail Tabs: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-api-detail-tabs.md
+                              - Override API Overview Page per API: develop/customizations/customizing-the-developer-portal/override-api-overview-page-per-api.md
+                              - Enable or Disable Rating: develop/customizations/customizing-the-developer-portal/enable-or-disable-rating.md
+                              - Enable or Disable Home Page: develop/customizations/customizing-the-developer-portal/enable-or-disable-home-page.md
+                              - Enable or Disable Tag Cloud: develop/customizations/customizing-the-developer-portal/enable-or-disable-tag-cloud.md
+                              - Enable or Disable Footer: develop/customizations/customizing-the-developer-portal/enable-or-disable-footer.md
+                              - Enable or Disable Banner: develop/customizations/customizing-the-developer-portal/enable-or-disable-banner.md
+                              - Styling API Details Left Menu: develop/customizations/customizing-the-developer-portal/styling-api-details-left-menu.md
+                              - Styling API Details Info Section: develop/customizations/customizing-the-developer-portal/styling-api-details-info-section.md
+                              - Styling the Logo and Header: develop/customizations/customizing-the-developer-portal/styling-the-logo-and-header.md
+                              - Enabling or Disabling Self Signup: develop/customizations/customizing-the-developer-portal/enabling-or-disabling-self-signup.md
+                              - Advanced Customization: develop/customizations/customizing-the-developer-portal/advanced-customization.md
+                        - Log in to the Developer Portal using Social Media: develop/customizations/log-in-to-the-dev-portal-using-social-media.md
+                        - Directing the Root Context to the Developer Portal: develop/customizations/directing-the-root-context-to-the-developer-portal.md
+                        - Customizing User Signup in Developer Portal: develop/customizations/customizing-user-signup-in-developer-portal.md
+                        - Customizing Login Pages for Developer Portal and Publisher: develop/customizations/customizing-login-pages-for-dev-portal-and-publisher.md
+                        - Adding a User Signup Workflow: develop/customizations/adding-a-user-signup-workflow.md
+                        - Adding internationalization: develop/customizations/adding-internationalization.md
+                  - Admin Services: develop/wso2-admin-services.md
+                  - Working with the Source Code: develop/working-with-the-source-code.md
+                  - Java Documentation: develop/java-documentation.md
           - Guides:
                 - Message Flow in the API Manager Gateway: reference/guides/message-flow-in-the-api-manager-gateway.md
                 - Accessing API Manager by Multiple Devices Simultaneously: reference/guides/accessing-api-manager-by-multiple-devices-simultaneously.md
