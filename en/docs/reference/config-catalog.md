@@ -3047,6 +3047,9 @@ enable_data_publishing = true
 enable_policy_deploy = true
 enable_blacklist_condition = true
 enable_persistence = true
+enable_header_based_throttling = true
+enable_jwt_claim_based_throttling = true
+enable_query_param_based_throttling = true
 throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</code></pre>
                     </div>
                 </div>
@@ -3096,19 +3099,19 @@ throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</c
                                         </p>
                                         <div class="param-default">
                                             <span class="param-default-value">Default:
-                                                <code>if None of this is defined consider it as tcp://${carbon.local.ip}:${receiver.url.port}</code></span>
+                                                <code>tcp://${carbon.local.ip}:${receiver.url.port}</code></span>
                                         </div>
 
                                     </div>
                                     <div class="param-description">
                                         <p>Define traffic manager connection url inline. If none of this is defined
-                                            consider it as tcp://${carbon.local.ip}:${receiver.url.port}</p>
+                                            consider it as <code>tcp://${carbon.local.ip}:${receiver.url.port}</code></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                                                                         
                             <div class="param">
                                 <div class="param-name">
-                                    <span class="param-name-wrap"> <code>receiver_url</code> </span>
+                                    <span class="param-name-wrap"> <code>enable_header_based_throttling</code> </span>
                                 </div>
                                 <div class="param-info">
                                     <div>
@@ -3117,15 +3120,55 @@ throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</c
 
                                         </p>
                                         <div class="param-default">
-                                            <span class="param-default-value">Default: <code></code></span>
+                                            <span class="param-default-value">Default: <code>false</code></span>
                                         </div>
 
                                     </div>
                                     <div class="param-description">
-                                        <p>Define array of traffic manager connections</p>
+                                        <p>Specifying this header to true will enable a user to define header condition throttling policies in the Admin Portal.</p>
+                                    </div>
+                                </div>
+                            </div>                                                          
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>enable_jwt_claim_based_throttling</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifying this config to true will enable a user to define JWT condition throttling policies in the Admin Portal.</p>
                                     </div>
                                 </div>
                             </div>
+                            <div class="param">
+                                 <div class="param-name">
+                                     <span class="param-name-wrap"> <code>enable_query_param_based_throttling</code> </span>
+                                 </div>
+                                 <div class="param-info">
+                                     <div>
+                                         <p>
+                                             <span class="param-type string"> string </span>
+ 
+                                         </p>
+                                         <div class="param-default">
+                                             <span class="param-default-value">Default: <code>false</code></span>
+                                         </div>
+ 
+                                     </div>
+                                     <div class="param-description">
+                                         <p>Specifying this config to true will enable a user to define Query parameter condition throttling policies in the Admin Portal.</p>
+                                     </div>
+                                 </div>
+                            </div>                                     
                         </div>
                     </div>
                 </div>
@@ -3666,49 +3709,7 @@ type = "failover"</code></pre>
                                         <p>Enable the unlimited tier.</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="param">
-                                <div class="param-name">
-                                    <span class="param-name-wrap"> <code>enable_header_based_throttling</code> </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
-                                        </div>
-
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable the header condition based throttling. Advanced policies allow you to
-                                            apply limits to APIs by filtering requests based on HTTP headers.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="param">
-                                <div class="param-name">
-                                    <span class="param-name-wrap"> <code>enable_jwt_claim_based_throttling</code>
-                                    </span>
-                                </div>
-                                <div class="param-info">
-                                    <div>
-                                        <p>
-                                            <span class="param-type string"> string </span>
-
-                                        </p>
-                                        <div class="param-default">
-                                            <span class="param-default-value">Default: <code>FALSE</code></span>
-                                        </div>
-
-                                    </div>
-                                    <div class="param-description">
-                                        <p>Enable JWT claim based throtlling.</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>                                                  
                         </div>
                     </div>
                 </div>
