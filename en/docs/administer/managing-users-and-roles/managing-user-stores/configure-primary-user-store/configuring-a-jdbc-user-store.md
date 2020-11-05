@@ -109,6 +109,7 @@ Follow the given steps to configure a JDBC user store:
     AddUserPropertySQL-openedge = "INSERT INTO UM_USER_ATTRIBUTE (UM_USER_ID, UM_ATTR_NAME, UM_ATTR_VALUE, UM_PROFILE_ID, UM_TENANT_ID) SELECT UM_ID, ?, ?, ?, ? FROM UM_USER WHERE UM_USER_NAME=? AND UM_TENANT_ID=?"
     DomainName = "wso2.org"
     Description = "This is an external JDBC primary user store"
+    ReadGroupsPasswordHashMethod = "SHA"
     ```
 
     !!! info
