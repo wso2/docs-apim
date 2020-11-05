@@ -3050,6 +3050,7 @@ enable_persistence = true
 enable_header_based_throttling = true
 enable_jwt_claim_based_throttling = true
 enable_query_param_based_throttling = true
+enable_unlimited_tier = false
 throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</code></pre>
                     </div>
                 </div>
@@ -3128,7 +3129,27 @@ throttle_decision_endpoints = ["tcp://localhost:5672","tcp://localhost:5672"]</c
                                         <p>Specifying this header to true will enable a user to define header condition throttling policies in the Admin Portal.</p>
                                     </div>
                                 </div>
-                            </div>                                                          
+                            </div>
+                            <div class="param">
+                                <div class="param-name">
+                                    <span class="param-name-wrap"> <code>enable_unlimited_tier</code> </span>
+                                </div>
+                                <div class="param-info">
+                                    <div>
+                                        <p>
+                                            <span class="param-type string"> string </span>
+
+                                        </p>
+                                        <div class="param-default">
+                                            <span class="param-default-value">Default: <code>false</code></span>
+                                        </div>
+
+                                    </div>
+                                    <div class="param-description">
+                                        <p>Specifying this config to true will disable the unlimited throttling tier of basic throttling configurations.</p>
+                                    </div>
+                                </div>
+                            </div>                                                                                                                 
                             <div class="param">
                                 <div class="param-name">
                                     <span class="param-name-wrap"> <code>enable_jwt_claim_based_throttling</code> </span>
