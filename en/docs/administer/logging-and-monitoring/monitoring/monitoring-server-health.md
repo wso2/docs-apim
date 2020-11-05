@@ -24,7 +24,7 @@ This section guides you through deploying the Carbon Health Check components in 
    
 3. Forked Repository is referred to as `<HEALTH_CHECK_HOME>` in this document. Navigate to `<HEALTH_CHECK_HOME>` and build the product.
     
-      ```mvn clean install -Dmaven.test.skip=true```
+      ```mvn clean install```
       
 4.  Rename `org.wso2.carbon.healthcheck.api.core-<version-number>-SNAPSHOT.jar` found in the `<HEALTH_CHECK_HOME>/components/org.wso2.carbon.healthcheck.api.core/target` directory as `org.wso2.carbon.healthcheck.api.core-<version-number>.jar`  and paste it in the `<APIM_HOME>/repository/components/dropins` directory.
 
